@@ -1,0 +1,24 @@
+server:
+  host: 0.0.0.0
+  port: 8080
+
+app:
+  name: template-generate
+
+db:
+  host: "192.168.3.132"
+  port: 5432
+  username: "postgres"
+  password: "root"
+  dbname: "vehicle"
+  sslMode: "disable"
+  timezone: "Asia/Shanghai"
+  pool:
+    maxIdleConn: 10
+    maxOpenConn: 100
+    maxLifeTime: 3600000
+
+log:
+  path: "./logs"
+  level: "debug"
+  mode: "all" #日志模式,console,file,all

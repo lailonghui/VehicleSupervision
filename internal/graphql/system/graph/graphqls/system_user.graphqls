@@ -1,0 +1,78 @@
+"系统用户"
+type SystemUser implements IModel{
+    "用户ID"
+    user_id: ID!
+    "用户名"
+    username: String!
+    "企业"
+    enterprise: Enterprise
+    "级别"
+    grade: Dict
+    "所在部门"
+    department: Department
+    "审核级别"
+    audit_level: Dict
+    "用户类型"
+    user_type: Dict
+    "是否有效"
+    is_valid: Boolean
+    "状态"
+    user_status: Dict
+    "代理用户"
+    proxy_user: String
+    "ip地址"
+    ip_address: String
+    "是否绑定IP"
+    is_bind_ip: Boolean
+    "邮箱"
+    email: String
+    "联系电话"
+    telephone: String
+    "手机"
+    mobile: String
+    "手机串码"
+    mkey: String
+    "客户端版本号"
+    app_version: String
+    "微信ID"
+    wx_id: String
+    "是否渣土车管控平台绑定账号"
+    is_slag_car_platform: Boolean
+    "备注"
+    remarks: String
+    "创建时间"
+    create_at: DateTime!
+    "创建人"
+    create_by: SystemUser!
+    "修改时间"
+    update_at: DateTime
+    "修改人"
+    update_by: SystemUser
+    "删除时间"
+    delete_at: DateTime
+    "删除人"
+    delete_by: SystemUser
+
+}
+
+"系统用户connection"
+type SystemUserConnection {
+    "记录"
+    nodes: [SystemUser!]
+    "分页信息"
+    page_info: PageInfo!
+}
+
+
+"系统用户列表查询条件"
+input SystemUsersQuery{
+    "分页参数"
+    page_param:PageQuery = {current_page:1,page_size: 10}
+}
+
+extend type Query{
+    "获取具体系统用户详情"
+    systemUser(userId: ID!):SystemUser
+    "系统用户列表查询"
+    systemUsers(query: SystemUsersQuery): SystemUserConnection!
+}

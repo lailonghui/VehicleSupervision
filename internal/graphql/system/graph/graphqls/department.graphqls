@@ -1,0 +1,135 @@
+"部门"
+type Department implements IModel{
+    "部门ID"
+    department_id: ID!
+    "所在企业"
+    enterprise: Enterprise
+    "上级部门"
+    superior_department: Department
+    "部门名称"
+    department_name: String
+    "部门编码"
+    department_code: String
+    "部门类别"
+    department_category: String
+    "内部序号"
+    internal_number: String
+    "备注"
+    remark: String
+    "创建时间"
+    create_at: DateTime
+    "创建人"
+    create_by: SystemUser
+    "修改时间"
+    update_at: DateTime
+    "修改人"
+    update_by: SystemUser
+    "删除时间"
+    delete_at: DateTime
+    "删除人"
+    delete_by: SystemUser
+
+}
+
+
+"部门connection"
+type DepartmentConnection {
+    "记录"
+    nodes: [Department!]
+    "分页信息"
+    page_info: PageInfo!
+}
+
+"部门详情查询条件"
+input DepartmentQuery{
+    "部门ID"
+    department_id: ID!
+}
+
+"部门列表查询条件"
+input DepartmentListQuery {
+    "分页参数"
+    page_param:PageQuery = {current_page:1,page_size: 10}
+    "排序"
+    order_by: DepartmentOrder = {direction: DESC, field: CREATE_AT}
+}
+
+"部门列表排序"
+input DepartmentOrder{
+    "排序方向"
+    direction: OrderDirection
+    "排序字段"
+    field:DepartmentOrderField
+}
+
+
+"修改部门"
+input UpdateDepartmentParam {
+    "部门ID"
+    department_id: ID!
+    "所在企业ID"
+    enterprise_id: ID!
+    "上级部门"
+    superior_department_id: ID
+    "部门名称"
+    department_name: String
+    "部门编码"
+    department_code: String
+    "部门类别"
+    department_category: String
+    "内部序号"
+    internal_number: String
+    "备注"
+    remark: String
+}
+
+"删除部门参数"
+input RemoveDepartmentParam{
+    "部门ID"
+    department_id: ID!
+}
+
+"新增部门入参"
+input CreateDepartmentParam {
+    "所在企业ID"
+    enterprise_id: ID!
+    "上级部门"
+    superior_department_id: ID
+    "部门名称"
+    department_name: String!
+    "部门编码"
+    department_code: String!
+    "部门类别"
+    department_category: String
+    "内部序号"
+    internal_number: String
+    "备注"
+    remark: String
+}
+
+"部门-排序字段"
+enum DepartmentOrderField{
+    "创建时间"
+    CREATE_AT
+    "修改时间"
+    UPDATE_AT
+    "部门名称"
+    DEPARTMENT_NAME
+}
+
+
+extend type Query{
+    "获取具体部门详情"
+    department(query:DepartmentQuery!): Department
+    "部门信息查列表询"
+    departmentList(query:DepartmentListQuery!): DepartmentConnection!
+}
+
+extend type Mutation {
+    "新增部门"
+    createDepartment(input: CreateDepartmentParam!): Department!
+    "修改部门"
+    updateDepartment(input: UpdateDepartmentParam!): Department!
+    "删除部门"
+    removeDepartment(input: RemoveDepartmentParam!):Department!
+}
