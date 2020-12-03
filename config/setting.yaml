@@ -10,7 +10,7 @@ db:
   port: 5432
   username: "postgres"
   password: "root"
-  dbname: "vehicle"
+  dbname: "model_vehicle"
   sslMode: "disable"
   timezone: "Asia/Shanghai"
   pool:
@@ -19,6 +19,6 @@ db:
     maxLifeTime: 3600000
 
 log:
-  path: "./logs"
+  path: "runtime/logs"
   level: "debug"
   mode: "all" #日志模式,console,file,all

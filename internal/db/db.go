@@ -1,13 +1,14 @@
 package db
 
 import (
+	"VehicleSupervision/config"
+	"VehicleSupervision/internal/graphql/vehicle/graph/model"
 	"fmt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"system-manage/config"
-	"system-manage/internal/graphql/system/graph/model"
-	l "system-manage/pkg/logger"
+
+	l "VehicleSupervision/pkg/logger"
 	"time"
 )
 

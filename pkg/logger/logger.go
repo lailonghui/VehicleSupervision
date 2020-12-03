@@ -1,14 +1,14 @@
 package logger
 
 import (
-	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
+	"VehicleSupervision/config"
+	"github.com/lestrrat-go/file-rotatelogs"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"io"
 	"log"
 	"os"
 	"path"
-	"system-manage/config"
 	"time"
 )
 
@@ -101,7 +101,7 @@ func getLevel(lv string) zapcore.Level {
 		return zapcore.WarnLevel
 	case "info":
 		return zapcore.InfoLevel
-	case "error":
+	case "status":
 		return zapcore.ErrorLevel
 	default:
 		return zapcore.DebugLevel

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"system-manage/config"
-	"system-manage/internal/db"
-	"system-manage/internal/server"
-	"system-manage/pkg/logger"
+	"VehicleSupervision/config"
+	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/server"
+	"VehicleSupervision/pkg/logger"
 )
 
 func main() {
@@ -22,4 +22,5 @@ func setup() {
 	db.Setup()
 	// 启动服务器
 	server.Setup()
+
 }
