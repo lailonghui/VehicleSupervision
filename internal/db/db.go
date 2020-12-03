@@ -2,7 +2,6 @@ package db
 
 import (
 	"VehicleSupervision/config"
-	"VehicleSupervision/internal/graphql/vehicle/graph/model"
 	"fmt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -60,7 +59,5 @@ func setConnectionPool() {
 
 // 维护表结构
 func autoMigrate() {
-
-	DB.AutoMigrate(model.Enterprise{})
 
 }

@@ -4,7 +4,7 @@ go 1.14
 
 require (
 	github.com/99designs/gqlgen v0.13.0
-	github.com/dgryski/trifles v0.0.0-20200830180326-aaf60a07f6a3
+	github.com/dgryski/trifles v0.0.0-20200830180326-aaf60a07f6a3 // indirect
 	github.com/fastly/go-utils v0.0.0-20180712184237-d95a45783239 // indirect
 	github.com/gin-contrib/zap v0.0.1
 	github.com/gin-gonic/gin v1.6.3
