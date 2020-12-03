@@ -26,6 +26,7 @@ func playgroundHandler() gin.HandlerFunc {
 		h.ServeHTTP(c.Writer, c.Request)
 	}
 }
+
 func Setup() {
 	host = config.CONF_INSTANCE.ServerConf.Host
 	port = config.CONF_INSTANCE.ServerConf.Port
