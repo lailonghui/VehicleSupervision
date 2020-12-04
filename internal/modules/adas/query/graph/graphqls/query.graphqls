@@ -1,0 +1,35 @@
+schema {
+    query: Query
+}
+type Query {
+    # fetch data from the table: "adas_attachment"
+    adas_attachment_connection(
+        after: String
+        before: String
+        # distinct select on columns
+        distinct_on: [adas_attachment_select_column!]
+        first: Int
+        last: Int
+        # sort the rows by one or more columns
+        order_by: [adas_attachment_order_by!]
+        # filter the rows returned
+        where: adas_attachment_bool_exp
+    ): adas_attachmentConnection!
+    # fetch data from the table: "adas_data"
+    adas_data_connection(
+        after: String
+        before: String
+        # distinct select on columns
+        distinct_on: [adas_data_select_column!]
+        first: Int
+        last: Int
+        # sort the rows by one or more columns
+        order_by: [adas_data_order_by!]
+        # filter the rows returned
+        where: adas_data_bool_exp
+    ): adas_dataConnection!
+    node(
+        # A globally unique id
+        id: ID!
+    ): Node
+}

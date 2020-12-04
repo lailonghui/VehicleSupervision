@@ -1,0 +1,122 @@
+schema {
+    mutation: Mutation
+}
+
+type Mutation {
+    # delete data from the table: "city"
+    delete_city(
+        # filter the rows which have to be deleted
+        where: city_bool_exp!
+    ): city_mutation_response
+    # delete single row from the table: "city"
+    delete_city_by_pk(id: bigint!): city
+    # delete data from the table: "district"
+    delete_district(
+        # filter the rows which have to be deleted
+        where: district_bool_exp!
+    ): district_mutation_response
+    # delete single row from the table: "district"
+    delete_district_by_pk(id: bigint!): district
+    # delete data from the table: "province"
+    delete_province(
+        # filter the rows which have to be deleted
+        where: province_bool_exp!
+    ): province_mutation_response
+    # delete single row from the table: "province"
+    delete_province_by_pk(id: bigint!): province
+
+    # insert data into the table: "city"
+    insert_city(
+        # the rows to be inserted
+        objects: [city_insert_input!]!
+        # on conflict condition
+        on_conflict: city_on_conflict
+    ): city_mutation_response
+    # insert a single row into the table: "city"
+    insert_city_one(
+        # the row to be inserted
+        object: city_insert_input!
+        # on conflict condition
+        on_conflict: city_on_conflict
+    ): city
+    # insert data into the table: "district"
+    insert_district(
+        # the rows to be inserted
+        objects: [district_insert_input!]!
+        # on conflict condition
+        on_conflict: district_on_conflict
+    ): district_mutation_response
+    # insert a single row into the table: "district"
+    insert_district_one(
+        # the row to be inserted
+        object: district_insert_input!
+        # on conflict condition
+        on_conflict: district_on_conflict
+    ): district
+    # insert data into the table: "province"
+    insert_province(
+        # the rows to be inserted
+        objects: [province_insert_input!]!
+        # on conflict condition
+        on_conflict: province_on_conflict
+    ): province_mutation_response
+    # insert a single row into the table: "province"
+    insert_province_one(
+        # the row to be inserted
+        object: province_insert_input!
+        # on conflict condition
+        on_conflict: province_on_conflict
+    ): province
+
+    # update data of the table: "city"
+    update_city(
+        # increments the integer columns with given value of the filtered values
+        _inc: city_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: city_set_input
+        # filter the rows which have to be updated
+        where: city_bool_exp!
+    ): city_mutation_response
+    # update single row of the table: "city"
+    update_city_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: city_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: city_set_input
+        pk_columns: city_pk_columns_input!
+    ): city
+    # update data of the table: "district"
+    update_district(
+        # increments the integer columns with given value of the filtered values
+        _inc: district_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: district_set_input
+        # filter the rows which have to be updated
+        where: district_bool_exp!
+    ): district_mutation_response
+    # update single row of the table: "district"
+    update_district_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: district_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: district_set_input
+        pk_columns: district_pk_columns_input!
+    ): district
+    # update data of the table: "province"
+    update_province(
+        # increments the integer columns with given value of the filtered values
+        _inc: province_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: province_set_input
+        # filter the rows which have to be updated
+        where: province_bool_exp!
+    ): province_mutation_response
+    # update single row of the table: "province"
+    update_province_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: province_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: province_set_input
+        pk_columns: province_pk_columns_input!
+    ): province
+}

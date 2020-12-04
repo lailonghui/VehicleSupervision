@@ -1,0 +1,226 @@
+schema {
+    mutation: Mutation
+}
+
+type Mutation {
+    delete_answer_log(
+        # filter the rows which have to be deleted
+        where: answer_log_bool_exp!
+    ): answer_log_mutation_response
+    # delete single row from the table: "answer_log"
+    delete_answer_log_by_pk(id: bigint!): answer_log
+    # delete data from the table: "enterprise_training"
+    delete_enterprise_training(
+        # filter the rows which have to be deleted
+        where: enterprise_training_bool_exp!
+    ): enterprise_training_mutation_response
+    # delete single row from the table: "enterprise_training"
+    delete_enterprise_training_by_pk(id: bigint!): enterprise_training
+    # delete data from the table: "government_manager"
+    delete_government_manager(
+        # filter the rows which have to be deleted
+        where: government_manager_bool_exp!
+    ): government_manager_mutation_response
+    # delete single row from the table: "government_manager"
+    delete_government_manager_by_pk(id: bigint!): government_manager
+    # delete data from the table: "score_log"
+    delete_score_log(
+        # filter the rows which have to be deleted
+        where: score_log_bool_exp!
+    ): score_log_mutation_response
+    # delete single row from the table: "score_log"
+    delete_score_log_by_pk(id: bigint!): score_log
+    # delete data from the table: "training_material"
+    delete_training_material(
+        # filter the rows which have to be deleted
+        where: training_material_bool_exp!
+    ): training_material_mutation_response
+    # delete single row from the table: "training_material"
+    delete_training_material_by_pk(id: bigint!): training_material
+    # insert data into the table: "answer_log"
+    insert_answer_log(
+        # the rows to be inserted
+        objects: [answer_log_insert_input!]!
+        # on conflict condition
+        on_conflict: answer_log_on_conflict
+    ): answer_log_mutation_response
+    # insert a single row into the table: "answer_log"
+    insert_answer_log_one(
+        # the row to be inserted
+        object: answer_log_insert_input!
+        # on conflict condition
+        on_conflict: answer_log_on_conflict
+    ): answer_log
+    # insert data into the table: "driver_study_details"
+    insert_driver_study_details(
+        # the rows to be inserted
+        objects: [driver_study_details_insert_input!]!
+        # on conflict condition
+        on_conflict: driver_study_details_on_conflict
+    ): driver_study_details_mutation_response
+    # insert a single row into the table: "driver_study_details"
+    insert_driver_study_details_one(
+        # the row to be inserted
+        object: driver_study_details_insert_input!
+        # on conflict condition
+        on_conflict: driver_study_details_on_conflict
+    ): driver_study_details
+    # insert data into the table: "enterprise_training"
+    insert_enterprise_training(
+        # the rows to be inserted
+        objects: [enterprise_training_insert_input!]!
+        # on conflict condition
+        on_conflict: enterprise_training_on_conflict
+    ): enterprise_training_mutation_response
+    # insert a single row into the table: "enterprise_training"
+    insert_enterprise_training_one(
+        # the row to be inserted
+        object: enterprise_training_insert_input!
+        # on conflict condition
+        on_conflict: enterprise_training_on_conflict
+    ): enterprise_training
+    # insert data into the table: "government_manager"
+    insert_government_manager(
+        # the rows to be inserted
+        objects: [government_manager_insert_input!]!
+        # on conflict condition
+        on_conflict: government_manager_on_conflict
+    ): government_manager_mutation_response
+    # insert a single row into the table: "government_manager"
+    insert_government_manager_one(
+        # the row to be inserted
+        object: government_manager_insert_input!
+        # on conflict condition
+        on_conflict: government_manager_on_conflict
+    ): government_manager
+    # insert data into the table: "score_log"
+    insert_score_log(
+        # the rows to be inserted
+        objects: [score_log_insert_input!]!
+        # on conflict condition
+        on_conflict: score_log_on_conflict
+    ): score_log_mutation_response
+    # insert a single row into the table: "score_log"
+    insert_score_log_one(
+        # the row to be inserted
+        object: score_log_insert_input!
+        # on conflict condition
+        on_conflict: score_log_on_conflict
+    ): score_log
+    # insert data into the table: "training_material"
+    insert_training_material(
+        # the rows to be inserted
+        objects: [training_material_insert_input!]!
+        # on conflict condition
+        on_conflict: training_material_on_conflict
+    ): training_material_mutation_response
+    # insert a single row into the table: "training_material"
+    insert_training_material_one(
+        # the row to be inserted
+        object: training_material_insert_input!
+        # on conflict condition
+        on_conflict: training_material_on_conflict
+    ): training_material
+    # update data of the table: "answer_log"
+    update_answer_log(
+        # increments the integer columns with given value of the filtered values
+        _inc: answer_log_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: answer_log_set_input
+        # filter the rows which have to be updated
+        where: answer_log_bool_exp!
+    ): answer_log_mutation_response
+    # update single row of the table: "answer_log"
+    update_answer_log_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: answer_log_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: answer_log_set_input
+        pk_columns: answer_log_pk_columns_input!
+    ): answer_log
+    # update data of the table: "driver_study_details"
+    update_driver_study_details(
+        # increments the integer columns with given value of the filtered values
+        _inc: driver_study_details_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: driver_study_details_set_input
+        # filter the rows which have to be updated
+        where: driver_study_details_bool_exp!
+    ): driver_study_details_mutation_response
+    # update single row of the table: "driver_study_details"
+    update_driver_study_details_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: driver_study_details_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: driver_study_details_set_input
+        pk_columns: driver_study_details_pk_columns_input!
+    ): driver_study_details
+    # update data of the table: "enterprise_training"
+    update_enterprise_training(
+        # increments the integer columns with given value of the filtered values
+        _inc: enterprise_training_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: enterprise_training_set_input
+        # filter the rows which have to be updated
+        where: enterprise_training_bool_exp!
+    ): enterprise_training_mutation_response
+    # update single row of the table: "enterprise_training"
+    update_enterprise_training_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: enterprise_training_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: enterprise_training_set_input
+        pk_columns: enterprise_training_pk_columns_input!
+    ): enterprise_training
+    # update data of the table: "government_manager"
+    update_government_manager(
+        # increments the integer columns with given value of the filtered values
+        _inc: government_manager_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: government_manager_set_input
+        # filter the rows which have to be updated
+        where: government_manager_bool_exp!
+    ): government_manager_mutation_response
+    # update single row of the table: "government_manager"
+    update_government_manager_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: government_manager_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: government_manager_set_input
+        pk_columns: government_manager_pk_columns_input!
+    ): government_manager
+    # update data of the table: "score_log"
+    update_score_log(
+        # increments the integer columns with given value of the filtered values
+        _inc: score_log_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: score_log_set_input
+        # filter the rows which have to be updated
+        where: score_log_bool_exp!
+    ): score_log_mutation_response
+    # update single row of the table: "score_log"
+    update_score_log_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: score_log_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: score_log_set_input
+        pk_columns: score_log_pk_columns_input!
+    ): score_log
+    # update data of the table: "training_material"
+    update_training_material(
+        # increments the integer columns with given value of the filtered values
+        _inc: training_material_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: training_material_set_input
+        # filter the rows which have to be updated
+        where: training_material_bool_exp!
+    ): training_material_mutation_response
+    # update single row of the table: "training_material"
+    update_training_material_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: training_material_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: training_material_set_input
+        pk_columns: training_material_pk_columns_input!
+    ): training_material
+}

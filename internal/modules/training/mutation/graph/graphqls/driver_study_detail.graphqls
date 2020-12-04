@@ -1,0 +1,394 @@
+
+# columns and relationships of "driver_study_details"
+type driver_study_details implements Node {
+    create_by: String
+    create_time: timestamptz
+    driver_id: String
+    driver_training_id: String
+    enterprise_id: String
+    id: ID!
+    is_training_completed: Boolean
+    material_id: bigint
+    score: bigint
+    training_time: numeric
+}
+
+# aggregated selection of "driver_study_details"
+type driver_study_details_aggregate {
+    aggregate: driver_study_details_aggregate_fields
+    nodes: [driver_study_details!]!
+}
+
+# aggregate fields of "driver_study_details"
+type driver_study_details_aggregate_fields {
+    avg: driver_study_details_avg_fields
+    count(columns: [driver_study_details_select_column!], distinct: Boolean): Int
+    max: driver_study_details_max_fields
+    min: driver_study_details_min_fields
+    stddev: driver_study_details_stddev_fields
+    stddev_pop: driver_study_details_stddev_pop_fields
+    stddev_samp: driver_study_details_stddev_samp_fields
+    sum: driver_study_details_sum_fields
+    var_pop: driver_study_details_var_pop_fields
+    var_samp: driver_study_details_var_samp_fields
+    variance: driver_study_details_variance_fields
+}
+
+# order by aggregate values of table "driver_study_details"
+input driver_study_details_aggregate_order_by {
+    avg: driver_study_details_avg_order_by
+    count: order_by
+    max: driver_study_details_max_order_by
+    min: driver_study_details_min_order_by
+    stddev: driver_study_details_stddev_order_by
+    stddev_pop: driver_study_details_stddev_pop_order_by
+    stddev_samp: driver_study_details_stddev_samp_order_by
+    sum: driver_study_details_sum_order_by
+    var_pop: driver_study_details_var_pop_order_by
+    var_samp: driver_study_details_var_samp_order_by
+    variance: driver_study_details_variance_order_by
+}
+
+# input type for inserting array relation for remote table "driver_study_details"
+input driver_study_details_arr_rel_insert_input {
+    data: [driver_study_details_insert_input!]!
+    on_conflict: driver_study_details_on_conflict
+}
+
+# aggregate avg on columns
+type driver_study_details_avg_fields {
+    id: Float
+    material_id: Float
+    score: Float
+    training_time: Float
+}
+
+# order by avg() on columns of table "driver_study_details"
+input driver_study_details_avg_order_by {
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# Boolean expression to filter rows from the table "driver_study_details". All fields are combined with a logical 'AND'.
+input driver_study_details_bool_exp {
+    _and: [driver_study_details_bool_exp]
+    _not: driver_study_details_bool_exp
+    _or: [driver_study_details_bool_exp]
+    create_by: String_comparison_exp
+    create_time: timestamptz_comparison_exp
+    driver_id: String_comparison_exp
+    driver_training_id: String_comparison_exp
+    enterprise_id: String_comparison_exp
+    id: bigint_comparison_exp
+    is_training_completed: Boolean_comparison_exp
+    material_id: bigint_comparison_exp
+    score: bigint_comparison_exp
+    training_time: numeric_comparison_exp
+}
+
+# unique or primary key constraints on table "driver_study_details"
+enum driver_study_details_constraint {
+    # unique or primary key constraint
+    driver_study_details_pkey
+}
+
+# input type for incrementing integer column in table "driver_study_details"
+input driver_study_details_inc_input {
+    id: bigint
+    material_id: bigint
+    score: bigint
+    training_time: numeric
+}
+
+# input type for inserting data into table "driver_study_details"
+input driver_study_details_insert_input {
+    create_by: String
+    create_time: timestamptz
+    driver_id: String
+    driver_training_id: String
+    enterprise_id: String
+    id: bigint
+    is_training_completed: Boolean
+    material_id: bigint
+    score: bigint
+    training_time: numeric
+}
+
+# aggregate max on columns
+type driver_study_details_max_fields {
+    create_by: String
+    create_time: timestamptz
+    driver_id: String
+    driver_training_id: String
+    enterprise_id: String
+    id: bigint
+    material_id: bigint
+    score: bigint
+    training_time: numeric
+}
+
+# order by max() on columns of table "driver_study_details"
+input driver_study_details_max_order_by {
+    create_by: order_by
+    create_time: order_by
+    driver_id: order_by
+    driver_training_id: order_by
+    enterprise_id: order_by
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# aggregate min on columns
+type driver_study_details_min_fields {
+    create_by: String
+    create_time: timestamptz
+    driver_id: String
+    driver_training_id: String
+    enterprise_id: String
+    id: bigint
+    material_id: bigint
+    score: bigint
+    training_time: numeric
+}
+
+# order by min() on columns of table "driver_study_details"
+input driver_study_details_min_order_by {
+    create_by: order_by
+    create_time: order_by
+    driver_id: order_by
+    driver_training_id: order_by
+    enterprise_id: order_by
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# response of any mutation on the table "driver_study_details"
+type driver_study_details_mutation_response {
+    # number of affected rows by the mutation
+    affected_rows: Int!
+    # data of the affected rows by the mutation
+    returning: [driver_study_details!]!
+}
+
+# input type for inserting object relation for remote table "driver_study_details"
+input driver_study_details_obj_rel_insert_input {
+    data: driver_study_details_insert_input!
+    on_conflict: driver_study_details_on_conflict
+}
+
+# on conflict condition type for table "driver_study_details"
+input driver_study_details_on_conflict {
+    constraint: driver_study_details_constraint!
+    update_columns: [driver_study_details_update_column!]!
+    where: driver_study_details_bool_exp
+}
+
+# ordering options when selecting data from "driver_study_details"
+input driver_study_details_order_by {
+    create_by: order_by
+    create_time: order_by
+    driver_id: order_by
+    driver_training_id: order_by
+    enterprise_id: order_by
+    id: order_by
+    is_training_completed: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# primary key columns input for table: "driver_study_details"
+input driver_study_details_pk_columns_input {
+    id: bigint!
+}
+
+# select columns of table "driver_study_details"
+enum driver_study_details_select_column {
+    # column name
+    create_by
+    # column name
+    create_time
+    # column name
+    driver_id
+    # column name
+    driver_training_id
+    # column name
+    enterprise_id
+    # column name
+    id
+    # column name
+    is_training_completed
+    # column name
+    material_id
+    # column name
+    score
+    # column name
+    training_time
+}
+
+# input type for updating data in table "driver_study_details"
+input driver_study_details_set_input {
+    create_by: String
+    create_time: timestamptz
+    driver_id: String
+    driver_training_id: String
+    enterprise_id: String
+    id: bigint
+    is_training_completed: Boolean
+    material_id: bigint
+    score: bigint
+    training_time: numeric
+}
+
+# aggregate stddev on columns
+type driver_study_details_stddev_fields {
+    id: Float
+    material_id: Float
+    score: Float
+    training_time: Float
+}
+
+# order by stddev() on columns of table "driver_study_details"
+input driver_study_details_stddev_order_by {
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# aggregate stddev_pop on columns
+type driver_study_details_stddev_pop_fields {
+    id: Float
+    material_id: Float
+    score: Float
+    training_time: Float
+}
+
+# order by stddev_pop() on columns of table "driver_study_details"
+input driver_study_details_stddev_pop_order_by {
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# aggregate stddev_samp on columns
+type driver_study_details_stddev_samp_fields {
+    id: Float
+    material_id: Float
+    score: Float
+    training_time: Float
+}
+
+# order by stddev_samp() on columns of table "driver_study_details"
+input driver_study_details_stddev_samp_order_by {
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# aggregate sum on columns
+type driver_study_details_sum_fields {
+    id: bigint
+    material_id: bigint
+    score: bigint
+    training_time: numeric
+}
+
+# order by sum() on columns of table "driver_study_details"
+input driver_study_details_sum_order_by {
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# update columns of table "driver_study_details"
+enum driver_study_details_update_column {
+    # column name
+    create_by
+    # column name
+    create_time
+    # column name
+    driver_id
+    # column name
+    driver_training_id
+    # column name
+    enterprise_id
+    # column name
+    id
+    # column name
+    is_training_completed
+    # column name
+    material_id
+    # column name
+    score
+    # column name
+    training_time
+}
+
+# aggregate var_pop on columns
+type driver_study_details_var_pop_fields {
+    id: Float
+    material_id: Float
+    score: Float
+    training_time: Float
+}
+
+# order by var_pop() on columns of table "driver_study_details"
+input driver_study_details_var_pop_order_by {
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# aggregate var_samp on columns
+type driver_study_details_var_samp_fields {
+    id: Float
+    material_id: Float
+    score: Float
+    training_time: Float
+}
+
+# order by var_samp() on columns of table "driver_study_details"
+input driver_study_details_var_samp_order_by {
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# aggregate variance on columns
+type driver_study_details_variance_fields {
+    id: Float
+    material_id: Float
+    score: Float
+    training_time: Float
+}
+
+# order by variance() on columns of table "driver_study_details"
+input driver_study_details_variance_order_by {
+    id: order_by
+    material_id: order_by
+    score: order_by
+    training_time: order_by
+}
+
+# A Relay Connection object on "driver_study_details"
+type driver_study_detailsConnection {
+    edges: [driver_study_detailsEdge!]!
+    pageInfo: PageInfo!
+}
+
+type driver_study_detailsEdge {
+    cursor: String!
+    node: driver_study_details!
+}
