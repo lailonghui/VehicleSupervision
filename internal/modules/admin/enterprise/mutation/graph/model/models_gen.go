@@ -3,511 +3,79 @@
 package model
 
 import (
-	"VehicleSupervision/internal/modules/admin/enterprise/model"
-	model1 "VehicleSupervision/pkg/graphql/model"
+	model1 "VehicleSupervision/internal/modules/admin/enterprise/model"
+	"VehicleSupervision/pkg/graphql/model"
 	"fmt"
 	"io"
 	"strconv"
 	"time"
 )
 
-// aggregated selection of "enterprise"
-type EnterpriseAggregate struct {
-	Aggregate *EnterpriseAggregateFields `json:"aggregate"`
-	Nodes     []*model.Enterprise        `json:"nodes"`
-}
-
-// aggregate fields of "enterprise"
-type EnterpriseAggregateFields struct {
-	Avg        *EnterpriseAvgFields        `json:"avg"`
-	Count      *int                        `json:"count"`
-	Max        *EnterpriseMaxFields        `json:"max"`
-	Min        *EnterpriseMinFields        `json:"min"`
-	Stddev     *EnterpriseStddevFields     `json:"stddev"`
-	StddevPop  *EnterpriseStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *EnterpriseStddevSampFields `json:"stddev_samp"`
-	Sum        *EnterpriseSumFields        `json:"sum"`
-	VarPop     *EnterpriseVarPopFields     `json:"var_pop"`
-	VarSamp    *EnterpriseVarSampFields    `json:"var_samp"`
-	Variance   *EnterpriseVarianceFields   `json:"variance"`
-}
-
-// order by aggregate values of table "enterprise"
-type EnterpriseAggregateOrderBy struct {
-	Avg        *EnterpriseAvgOrderBy        `json:"avg"`
-	Count      *model1.OrderBy              `json:"count"`
-	Max        *EnterpriseMaxOrderBy        `json:"max"`
-	Min        *EnterpriseMinOrderBy        `json:"min"`
-	Stddev     *EnterpriseStddevOrderBy     `json:"stddev"`
-	StddevPop  *EnterpriseStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *EnterpriseStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *EnterpriseSumOrderBy        `json:"sum"`
-	VarPop     *EnterpriseVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *EnterpriseVarSampOrderBy    `json:"var_samp"`
-	Variance   *EnterpriseVarianceOrderBy   `json:"variance"`
-}
-
-// aggregate avg on columns
-type EnterpriseAvgFields struct {
-	BusinessScope       *float64 `json:"business_scope"`
-	CheckStatus         *float64 `json:"check_status"`
-	CityID              *float64 `json:"city_id"`
-	DisplayNumber       *float64 `json:"display_number"`
-	DistrictID          *float64 `json:"district_id"`
-	EnterpriseLevel     *float64 `json:"enterprise_level"`
-	EnterpriseNature    *float64 `json:"enterprise_nature"`
-	ID                  *float64 `json:"id"`
-	InstitutionCategory *float64 `json:"institution_category"`
-	ProvinceID          *float64 `json:"province_id"`
-	Score               *float64 `json:"score"`
-}
-
-// order by avg() on columns of table "enterprise"
-type EnterpriseAvgOrderBy struct {
-	BusinessScope       *model1.OrderBy `json:"business_scope"`
-	CheckStatus         *model1.OrderBy `json:"check_status"`
-	CityID              *model1.OrderBy `json:"city_id"`
-	DisplayNumber       *model1.OrderBy `json:"display_number"`
-	DistrictID          *model1.OrderBy `json:"district_id"`
-	EnterpriseLevel     *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseNature    *model1.OrderBy `json:"enterprise_nature"`
-	ID                  *model1.OrderBy `json:"id"`
-	InstitutionCategory *model1.OrderBy `json:"institution_category"`
-	ProvinceID          *model1.OrderBy `json:"province_id"`
-	Score               *model1.OrderBy `json:"score"`
-}
-
 // Boolean expression to filter rows from the table "enterprise". All fields are combined with a logical 'AND'.
 type EnterpriseBoolExp struct {
-	And                              []*EnterpriseBoolExp             `json:"_and"`
-	Not                              *EnterpriseBoolExp               `json:"_not"`
-	Or                               []*EnterpriseBoolExp             `json:"_or"`
-	AssociationReviewBy              *model1.TimestamptzComparisonExp `json:"association_review_by"`
-	AssociationReviewOpinion         *model1.StringComparisonExp      `json:"association_review_opinion"`
-	AssociationReviewTime            *model1.TimestamptzComparisonExp `json:"association_review_time"`
-	BrigadeID                        *model1.StringComparisonExp      `json:"brigade_id"`
-	BrigadeReviewBy                  *model1.StringComparisonExp      `json:"brigade_review_by"`
-	BrigadeReviewOpinion             *model1.StringComparisonExp      `json:"brigade_review_opinion"`
-	BrigadeReviewTime                *model1.TimestamptzComparisonExp `json:"brigade_review_time"`
-	BusinessLicenseExpiryDate        *model1.TimestamptzComparisonExp `json:"business_license_expiry_date"`
-	BusinessLicenseIssuanceDate      *model1.TimestamptzComparisonExp `json:"business_license_issuance_date"`
-	BusinessLicensePhoto             *model1.StringComparisonExp      `json:"business_license_photo"`
-	BusinessPhoto                    *model1.StringComparisonExp      `json:"business_photo"`
-	BusinessScope                    *model1.IntComparisonExp         `json:"business_scope"`
-	CheckStatus                      *model1.IntComparisonExp         `json:"check_status"`
-	CityID                           *model1.BigintComparisonExp      `json:"city_id"`
-	ContactPersons                   *model1.JsonbComparisonExp       `json:"contact_persons"`
-	CreateAt                         *model1.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy                         *model1.StringComparisonExp      `json:"create_by"`
-	DeleteAt                         *model1.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy                         *model1.StringComparisonExp      `json:"delete_by"`
-	DisplayNumber                    *model1.IntComparisonExp         `json:"display_number"`
-	DistrictID                       *model1.BigintComparisonExp      `json:"district_id"`
-	EnterpriseAddress                *model1.StringComparisonExp      `json:"enterprise_address"`
-	EnterpriseCode                   *model1.StringComparisonExp      `json:"enterprise_code"`
-	EnterpriseID                     *model1.StringComparisonExp      `json:"enterprise_id"`
-	EnterpriseLevel                  *model1.IntComparisonExp         `json:"enterprise_level"`
-	EnterpriseName                   *model1.StringComparisonExp      `json:"enterprise_name"`
-	EnterpriseNature                 *model1.IntComparisonExp         `json:"enterprise_nature"`
-	EntrustedAgent                   *model1.StringComparisonExp      `json:"entrusted_agent"`
-	EntrustedAgentIDCard             *model1.StringComparisonExp      `json:"entrusted_agent_id_card"`
-	EntrustedAgentIDCardPhoto        *model1.StringComparisonExp      `json:"entrusted_agent_id_card_photo"`
-	EntrustedAgentPhone              *model1.StringComparisonExp      `json:"entrusted_agent_phone"`
-	FaxNumber                        *model1.StringComparisonExp      `json:"fax_number"`
-	ID                               *model1.BigintComparisonExp      `json:"id"`
-	InstitutionCategory              *model1.BigintComparisonExp      `json:"institution_category"`
-	IsBlack                          *model1.BooleanComparisonExp     `json:"is_black"`
-	IsDeleted                        *model1.BooleanComparisonExp     `json:"is_deleted"`
-	IsInput                          *model1.BooleanComparisonExp     `json:"is_input"`
-	IsInstall                        *model1.BooleanComparisonExp     `json:"is_install"`
-	IsUploadProvince                 *model1.BooleanComparisonExp     `json:"is_upload_province"`
-	LegalRepresentative              *model1.StringComparisonExp      `json:"legal_representative"`
-	LegalRepresentativeIDCard        *model1.StringComparisonExp      `json:"legal_representative_id_card"`
-	LegalRepresentativeIDCardPhoto   *model1.StringComparisonExp      `json:"legal_representative_id_card_photo"`
-	LegalRepresentativePhone         *model1.StringComparisonExp      `json:"legal_representative_phone"`
-	OperatingLicensePhoto            *model1.StringComparisonExp      `json:"operating_license_photo"`
-	OrganizationCode                 *model1.StringComparisonExp      `json:"organization_code"`
-	OrganizationCodeCertificatePhoto *model1.StringComparisonExp      `json:"organization_code_certificate_photo"`
-	PoliceStationID                  *model1.StringComparisonExp      `json:"police_station_id"`
-	ProvinceID                       *model1.BigintComparisonExp      `json:"province_id"`
-	RecordAt                         *model1.TimestamptzComparisonExp `json:"record_at"`
-	RecordBy                         *model1.StringComparisonExp      `json:"record_by"`
-	Remarks                          *model1.StringComparisonExp      `json:"remarks"`
-	Score                            *model1.IntComparisonExp         `json:"score"`
-	SuperiorEnterpriseID             *model1.StringComparisonExp      `json:"superior_enterprise_id"`
-	UpdateAt                         *model1.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy                         *model1.StringComparisonExp      `json:"update_by"`
-	UpdateTimeIn                     *model1.TimestamptzComparisonExp `json:"update_time_in"`
+	And                              []*EnterpriseBoolExp            `json:"_and"`
+	Not                              *EnterpriseBoolExp              `json:"_not"`
+	Or                               []*EnterpriseBoolExp            `json:"_or"`
+	AssociationReviewBy              *model.TimestamptzComparisonExp `json:"association_review_by"`
+	AssociationReviewOpinion         *model.StringComparisonExp      `json:"association_review_opinion"`
+	AssociationReviewTime            *model.TimestamptzComparisonExp `json:"association_review_time"`
+	BrigadeID                        *model.StringComparisonExp      `json:"brigade_id"`
+	BrigadeReviewBy                  *model.StringComparisonExp      `json:"brigade_review_by"`
+	BrigadeReviewOpinion             *model.StringComparisonExp      `json:"brigade_review_opinion"`
+	BrigadeReviewTime                *model.TimestamptzComparisonExp `json:"brigade_review_time"`
+	BusinessLicenseExpiryDate        *model.TimestamptzComparisonExp `json:"business_license_expiry_date"`
+	BusinessLicenseIssuanceDate      *model.TimestamptzComparisonExp `json:"business_license_issuance_date"`
+	BusinessLicensePhoto             *model.StringComparisonExp      `json:"business_license_photo"`
+	BusinessPhoto                    *model.StringComparisonExp      `json:"business_photo"`
+	BusinessScope                    *model.IntComparisonExp         `json:"business_scope"`
+	CheckStatus                      *model.IntComparisonExp         `json:"check_status"`
+	CityID                           *model.BigintComparisonExp      `json:"city_id"`
+	ContactPersons                   *model.JsonbComparisonExp       `json:"contact_persons"`
+	CreateAt                         *model.TimestamptzComparisonExp `json:"create_at"`
+	CreateBy                         *model.StringComparisonExp      `json:"create_by"`
+	DeleteAt                         *model.TimestamptzComparisonExp `json:"delete_at"`
+	DeleteBy                         *model.StringComparisonExp      `json:"delete_by"`
+	DisplayNumber                    *model.IntComparisonExp         `json:"display_number"`
+	DistrictID                       *model.BigintComparisonExp      `json:"district_id"`
+	EnterpriseAddress                *model.StringComparisonExp      `json:"enterprise_address"`
+	EnterpriseCode                   *model.StringComparisonExp      `json:"enterprise_code"`
+	EnterpriseID                     *model.StringComparisonExp      `json:"enterprise_id"`
+	EnterpriseLevel                  *model.IntComparisonExp         `json:"enterprise_level"`
+	EnterpriseName                   *model.StringComparisonExp      `json:"enterprise_name"`
+	EnterpriseNature                 *model.IntComparisonExp         `json:"enterprise_nature"`
+	EntrustedAgent                   *model.StringComparisonExp      `json:"entrusted_agent"`
+	EntrustedAgentIDCard             *model.StringComparisonExp      `json:"entrusted_agent_id_card"`
+	EntrustedAgentIDCardPhoto        *model.StringComparisonExp      `json:"entrusted_agent_id_card_photo"`
+	EntrustedAgentPhone              *model.StringComparisonExp      `json:"entrusted_agent_phone"`
+	FaxNumber                        *model.StringComparisonExp      `json:"fax_number"`
+	ID                               *model.BigintComparisonExp      `json:"id"`
+	InstitutionCategory              *model.BigintComparisonExp      `json:"institution_category"`
+	IsBlack                          *model.BooleanComparisonExp     `json:"is_black"`
+	IsDeleted                        *model.BooleanComparisonExp     `json:"is_deleted"`
+	IsInput                          *model.BooleanComparisonExp     `json:"is_input"`
+	IsInstall                        *model.BooleanComparisonExp     `json:"is_install"`
+	IsUploadProvince                 *model.BooleanComparisonExp     `json:"is_upload_province"`
+	LegalRepresentative              *model.StringComparisonExp      `json:"legal_representative"`
+	LegalRepresentativeIDCard        *model.StringComparisonExp      `json:"legal_representative_id_card"`
+	LegalRepresentativeIDCardPhoto   *model.StringComparisonExp      `json:"legal_representative_id_card_photo"`
+	LegalRepresentativePhone         *model.StringComparisonExp      `json:"legal_representative_phone"`
+	OperatingLicensePhoto            *model.StringComparisonExp      `json:"operating_license_photo"`
+	OrganizationCode                 *model.StringComparisonExp      `json:"organization_code"`
+	OrganizationCodeCertificatePhoto *model.StringComparisonExp      `json:"organization_code_certificate_photo"`
+	PoliceStationID                  *model.StringComparisonExp      `json:"police_station_id"`
+	ProvinceID                       *model.BigintComparisonExp      `json:"province_id"`
+	RecordAt                         *model.TimestamptzComparisonExp `json:"record_at"`
+	RecordBy                         *model.StringComparisonExp      `json:"record_by"`
+	Remarks                          *model.StringComparisonExp      `json:"remarks"`
+	Score                            *model.IntComparisonExp         `json:"score"`
+	SuperiorEnterpriseID             *model.StringComparisonExp      `json:"superior_enterprise_id"`
+	UpdateAt                         *model.TimestamptzComparisonExp `json:"update_at"`
+	UpdateBy                         *model.StringComparisonExp      `json:"update_by"`
+	UpdateTimeIn                     *model.TimestamptzComparisonExp `json:"update_time_in"`
 }
 
-// aggregate max on columns
-type EnterpriseMaxFields struct {
-	AssociationReviewBy              *time.Time `json:"association_review_by"`
-	AssociationReviewOpinion         *string    `json:"association_review_opinion"`
-	AssociationReviewTime            *time.Time `json:"association_review_time"`
-	BrigadeID                        *string    `json:"brigade_id"`
-	BrigadeReviewBy                  *string    `json:"brigade_review_by"`
-	BrigadeReviewOpinion             *string    `json:"brigade_review_opinion"`
-	BrigadeReviewTime                *time.Time `json:"brigade_review_time"`
-	BusinessLicenseExpiryDate        *time.Time `json:"business_license_expiry_date"`
-	BusinessLicenseIssuanceDate      *time.Time `json:"business_license_issuance_date"`
-	BusinessLicensePhoto             *string    `json:"business_license_photo"`
-	BusinessPhoto                    *string    `json:"business_photo"`
-	BusinessScope                    *int       `json:"business_scope"`
-	CheckStatus                      *int       `json:"check_status"`
-	CityID                           *int64     `json:"city_id"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
-	DisplayNumber                    *int       `json:"display_number"`
-	DistrictID                       *int64     `json:"district_id"`
-	EnterpriseAddress                *string    `json:"enterprise_address"`
-	EnterpriseCode                   *string    `json:"enterprise_code"`
-	EnterpriseID                     *string    `json:"enterprise_id"`
-	EnterpriseLevel                  *int       `json:"enterprise_level"`
-	EnterpriseName                   *string    `json:"enterprise_name"`
-	EnterpriseNature                 *int       `json:"enterprise_nature"`
-	EntrustedAgent                   *string    `json:"entrusted_agent"`
-	EntrustedAgentIDCard             *string    `json:"entrusted_agent_id_card"`
-	EntrustedAgentIDCardPhoto        *string    `json:"entrusted_agent_id_card_photo"`
-	EntrustedAgentPhone              *string    `json:"entrusted_agent_phone"`
-	FaxNumber                        *string    `json:"fax_number"`
-	ID                               *int64     `json:"id"`
-	InstitutionCategory              *int64     `json:"institution_category"`
-	LegalRepresentative              *string    `json:"legal_representative"`
-	LegalRepresentativeIDCard        *string    `json:"legal_representative_id_card"`
-	LegalRepresentativeIDCardPhoto   *string    `json:"legal_representative_id_card_photo"`
-	LegalRepresentativePhone         *string    `json:"legal_representative_phone"`
-	OperatingLicensePhoto            *string    `json:"operating_license_photo"`
-	OrganizationCode                 *string    `json:"organization_code"`
-	OrganizationCodeCertificatePhoto *string    `json:"organization_code_certificate_photo"`
-	PoliceStationID                  *string    `json:"police_station_id"`
-	ProvinceID                       *int64     `json:"province_id"`
-	RecordAt                         *time.Time `json:"record_at"`
-	RecordBy                         *string    `json:"record_by"`
-	Remarks                          *string    `json:"remarks"`
-	Score                            *int       `json:"score"`
-	SuperiorEnterpriseID             *string    `json:"superior_enterprise_id"`
-	UpdateAt                         *time.Time `json:"update_at"`
-	UpdateBy                         *string    `json:"update_by"`
-	UpdateTimeIn                     *time.Time `json:"update_time_in"`
-}
-
-// order by max() on columns of table "enterprise"
-type EnterpriseMaxOrderBy struct {
-	AssociationReviewBy              *model1.OrderBy `json:"association_review_by"`
-	AssociationReviewOpinion         *model1.OrderBy `json:"association_review_opinion"`
-	AssociationReviewTime            *model1.OrderBy `json:"association_review_time"`
-	BrigadeID                        *model1.OrderBy `json:"brigade_id"`
-	BrigadeReviewBy                  *model1.OrderBy `json:"brigade_review_by"`
-	BrigadeReviewOpinion             *model1.OrderBy `json:"brigade_review_opinion"`
-	BrigadeReviewTime                *model1.OrderBy `json:"brigade_review_time"`
-	BusinessLicenseExpiryDate        *model1.OrderBy `json:"business_license_expiry_date"`
-	BusinessLicenseIssuanceDate      *model1.OrderBy `json:"business_license_issuance_date"`
-	BusinessLicensePhoto             *model1.OrderBy `json:"business_license_photo"`
-	BusinessPhoto                    *model1.OrderBy `json:"business_photo"`
-	BusinessScope                    *model1.OrderBy `json:"business_scope"`
-	CheckStatus                      *model1.OrderBy `json:"check_status"`
-	CityID                           *model1.OrderBy `json:"city_id"`
-	CreateAt                         *model1.OrderBy `json:"create_at"`
-	CreateBy                         *model1.OrderBy `json:"create_by"`
-	DeleteAt                         *model1.OrderBy `json:"delete_at"`
-	DeleteBy                         *model1.OrderBy `json:"delete_by"`
-	DisplayNumber                    *model1.OrderBy `json:"display_number"`
-	DistrictID                       *model1.OrderBy `json:"district_id"`
-	EnterpriseAddress                *model1.OrderBy `json:"enterprise_address"`
-	EnterpriseCode                   *model1.OrderBy `json:"enterprise_code"`
-	EnterpriseID                     *model1.OrderBy `json:"enterprise_id"`
-	EnterpriseLevel                  *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseName                   *model1.OrderBy `json:"enterprise_name"`
-	EnterpriseNature                 *model1.OrderBy `json:"enterprise_nature"`
-	EntrustedAgent                   *model1.OrderBy `json:"entrusted_agent"`
-	EntrustedAgentIDCard             *model1.OrderBy `json:"entrusted_agent_id_card"`
-	EntrustedAgentIDCardPhoto        *model1.OrderBy `json:"entrusted_agent_id_card_photo"`
-	EntrustedAgentPhone              *model1.OrderBy `json:"entrusted_agent_phone"`
-	FaxNumber                        *model1.OrderBy `json:"fax_number"`
-	ID                               *model1.OrderBy `json:"id"`
-	InstitutionCategory              *model1.OrderBy `json:"institution_category"`
-	LegalRepresentative              *model1.OrderBy `json:"legal_representative"`
-	LegalRepresentativeIDCard        *model1.OrderBy `json:"legal_representative_id_card"`
-	LegalRepresentativeIDCardPhoto   *model1.OrderBy `json:"legal_representative_id_card_photo"`
-	LegalRepresentativePhone         *model1.OrderBy `json:"legal_representative_phone"`
-	OperatingLicensePhoto            *model1.OrderBy `json:"operating_license_photo"`
-	OrganizationCode                 *model1.OrderBy `json:"organization_code"`
-	OrganizationCodeCertificatePhoto *model1.OrderBy `json:"organization_code_certificate_photo"`
-	PoliceStationID                  *model1.OrderBy `json:"police_station_id"`
-	ProvinceID                       *model1.OrderBy `json:"province_id"`
-	RecordAt                         *model1.OrderBy `json:"record_at"`
-	RecordBy                         *model1.OrderBy `json:"record_by"`
-	Remarks                          *model1.OrderBy `json:"remarks"`
-	Score                            *model1.OrderBy `json:"score"`
-	SuperiorEnterpriseID             *model1.OrderBy `json:"superior_enterprise_id"`
-	UpdateAt                         *model1.OrderBy `json:"update_at"`
-	UpdateBy                         *model1.OrderBy `json:"update_by"`
-	UpdateTimeIn                     *model1.OrderBy `json:"update_time_in"`
-}
-
-// aggregate min on columns
-type EnterpriseMinFields struct {
-	AssociationReviewBy              *time.Time `json:"association_review_by"`
-	AssociationReviewOpinion         *string    `json:"association_review_opinion"`
-	AssociationReviewTime            *time.Time `json:"association_review_time"`
-	BrigadeID                        *string    `json:"brigade_id"`
-	BrigadeReviewBy                  *string    `json:"brigade_review_by"`
-	BrigadeReviewOpinion             *string    `json:"brigade_review_opinion"`
-	BrigadeReviewTime                *time.Time `json:"brigade_review_time"`
-	BusinessLicenseExpiryDate        *time.Time `json:"business_license_expiry_date"`
-	BusinessLicenseIssuanceDate      *time.Time `json:"business_license_issuance_date"`
-	BusinessLicensePhoto             *string    `json:"business_license_photo"`
-	BusinessPhoto                    *string    `json:"business_photo"`
-	BusinessScope                    *int       `json:"business_scope"`
-	CheckStatus                      *int       `json:"check_status"`
-	CityID                           *int64     `json:"city_id"`
-	CreateAt                         *time.Time `json:"create_at"`
-	CreateBy                         *string    `json:"create_by"`
-	DeleteAt                         *time.Time `json:"delete_at"`
-	DeleteBy                         *string    `json:"delete_by"`
-	DisplayNumber                    *int       `json:"display_number"`
-	DistrictID                       *int64     `json:"district_id"`
-	EnterpriseAddress                *string    `json:"enterprise_address"`
-	EnterpriseCode                   *string    `json:"enterprise_code"`
-	EnterpriseID                     *string    `json:"enterprise_id"`
-	EnterpriseLevel                  *int       `json:"enterprise_level"`
-	EnterpriseName                   *string    `json:"enterprise_name"`
-	EnterpriseNature                 *int       `json:"enterprise_nature"`
-	EntrustedAgent                   *string    `json:"entrusted_agent"`
-	EntrustedAgentIDCard             *string    `json:"entrusted_agent_id_card"`
-	EntrustedAgentIDCardPhoto        *string    `json:"entrusted_agent_id_card_photo"`
-	EntrustedAgentPhone              *string    `json:"entrusted_agent_phone"`
-	FaxNumber                        *string    `json:"fax_number"`
-	ID                               *int64     `json:"id"`
-	InstitutionCategory              *int64     `json:"institution_category"`
-	LegalRepresentative              *string    `json:"legal_representative"`
-	LegalRepresentativeIDCard        *string    `json:"legal_representative_id_card"`
-	LegalRepresentativeIDCardPhoto   *string    `json:"legal_representative_id_card_photo"`
-	LegalRepresentativePhone         *string    `json:"legal_representative_phone"`
-	OperatingLicensePhoto            *string    `json:"operating_license_photo"`
-	OrganizationCode                 *string    `json:"organization_code"`
-	OrganizationCodeCertificatePhoto *string    `json:"organization_code_certificate_photo"`
-	PoliceStationID                  *string    `json:"police_station_id"`
-	ProvinceID                       *int64     `json:"province_id"`
-	RecordAt                         *time.Time `json:"record_at"`
-	RecordBy                         *string    `json:"record_by"`
-	Remarks                          *string    `json:"remarks"`
-	Score                            *int       `json:"score"`
-	SuperiorEnterpriseID             *string    `json:"superior_enterprise_id"`
-	UpdateAt                         *time.Time `json:"update_at"`
-	UpdateBy                         *string    `json:"update_by"`
-	UpdateTimeIn                     *time.Time `json:"update_time_in"`
-}
-
-// order by min() on columns of table "enterprise"
-type EnterpriseMinOrderBy struct {
-	AssociationReviewBy              *model1.OrderBy `json:"association_review_by"`
-	AssociationReviewOpinion         *model1.OrderBy `json:"association_review_opinion"`
-	AssociationReviewTime            *model1.OrderBy `json:"association_review_time"`
-	BrigadeID                        *model1.OrderBy `json:"brigade_id"`
-	BrigadeReviewBy                  *model1.OrderBy `json:"brigade_review_by"`
-	BrigadeReviewOpinion             *model1.OrderBy `json:"brigade_review_opinion"`
-	BrigadeReviewTime                *model1.OrderBy `json:"brigade_review_time"`
-	BusinessLicenseExpiryDate        *model1.OrderBy `json:"business_license_expiry_date"`
-	BusinessLicenseIssuanceDate      *model1.OrderBy `json:"business_license_issuance_date"`
-	BusinessLicensePhoto             *model1.OrderBy `json:"business_license_photo"`
-	BusinessPhoto                    *model1.OrderBy `json:"business_photo"`
-	BusinessScope                    *model1.OrderBy `json:"business_scope"`
-	CheckStatus                      *model1.OrderBy `json:"check_status"`
-	CityID                           *model1.OrderBy `json:"city_id"`
-	CreateAt                         *model1.OrderBy `json:"create_at"`
-	CreateBy                         *model1.OrderBy `json:"create_by"`
-	DeleteAt                         *model1.OrderBy `json:"delete_at"`
-	DeleteBy                         *model1.OrderBy `json:"delete_by"`
-	DisplayNumber                    *model1.OrderBy `json:"display_number"`
-	DistrictID                       *model1.OrderBy `json:"district_id"`
-	EnterpriseAddress                *model1.OrderBy `json:"enterprise_address"`
-	EnterpriseCode                   *model1.OrderBy `json:"enterprise_code"`
-	EnterpriseID                     *model1.OrderBy `json:"enterprise_id"`
-	EnterpriseLevel                  *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseName                   *model1.OrderBy `json:"enterprise_name"`
-	EnterpriseNature                 *model1.OrderBy `json:"enterprise_nature"`
-	EntrustedAgent                   *model1.OrderBy `json:"entrusted_agent"`
-	EntrustedAgentIDCard             *model1.OrderBy `json:"entrusted_agent_id_card"`
-	EntrustedAgentIDCardPhoto        *model1.OrderBy `json:"entrusted_agent_id_card_photo"`
-	EntrustedAgentPhone              *model1.OrderBy `json:"entrusted_agent_phone"`
-	FaxNumber                        *model1.OrderBy `json:"fax_number"`
-	ID                               *model1.OrderBy `json:"id"`
-	InstitutionCategory              *model1.OrderBy `json:"institution_category"`
-	LegalRepresentative              *model1.OrderBy `json:"legal_representative"`
-	LegalRepresentativeIDCard        *model1.OrderBy `json:"legal_representative_id_card"`
-	LegalRepresentativeIDCardPhoto   *model1.OrderBy `json:"legal_representative_id_card_photo"`
-	LegalRepresentativePhone         *model1.OrderBy `json:"legal_representative_phone"`
-	OperatingLicensePhoto            *model1.OrderBy `json:"operating_license_photo"`
-	OrganizationCode                 *model1.OrderBy `json:"organization_code"`
-	OrganizationCodeCertificatePhoto *model1.OrderBy `json:"organization_code_certificate_photo"`
-	PoliceStationID                  *model1.OrderBy `json:"police_station_id"`
-	ProvinceID                       *model1.OrderBy `json:"province_id"`
-	RecordAt                         *model1.OrderBy `json:"record_at"`
-	RecordBy                         *model1.OrderBy `json:"record_by"`
-	Remarks                          *model1.OrderBy `json:"remarks"`
-	Score                            *model1.OrderBy `json:"score"`
-	SuperiorEnterpriseID             *model1.OrderBy `json:"superior_enterprise_id"`
-	UpdateAt                         *model1.OrderBy `json:"update_at"`
-	UpdateBy                         *model1.OrderBy `json:"update_by"`
-	UpdateTimeIn                     *model1.OrderBy `json:"update_time_in"`
-}
-
-// ordering options when selecting data from "enterprise"
-type EnterpriseOrderBy struct {
-	AssociationReviewBy              *model1.OrderBy `json:"association_review_by"`
-	AssociationReviewOpinion         *model1.OrderBy `json:"association_review_opinion"`
-	AssociationReviewTime            *model1.OrderBy `json:"association_review_time"`
-	BrigadeID                        *model1.OrderBy `json:"brigade_id"`
-	BrigadeReviewBy                  *model1.OrderBy `json:"brigade_review_by"`
-	BrigadeReviewOpinion             *model1.OrderBy `json:"brigade_review_opinion"`
-	BrigadeReviewTime                *model1.OrderBy `json:"brigade_review_time"`
-	BusinessLicenseExpiryDate        *model1.OrderBy `json:"business_license_expiry_date"`
-	BusinessLicenseIssuanceDate      *model1.OrderBy `json:"business_license_issuance_date"`
-	BusinessLicensePhoto             *model1.OrderBy `json:"business_license_photo"`
-	BusinessPhoto                    *model1.OrderBy `json:"business_photo"`
-	BusinessScope                    *model1.OrderBy `json:"business_scope"`
-	CheckStatus                      *model1.OrderBy `json:"check_status"`
-	CityID                           *model1.OrderBy `json:"city_id"`
-	ContactPersons                   *model1.OrderBy `json:"contact_persons"`
-	CreateAt                         *model1.OrderBy `json:"create_at"`
-	CreateBy                         *model1.OrderBy `json:"create_by"`
-	DeleteAt                         *model1.OrderBy `json:"delete_at"`
-	DeleteBy                         *model1.OrderBy `json:"delete_by"`
-	DisplayNumber                    *model1.OrderBy `json:"display_number"`
-	DistrictID                       *model1.OrderBy `json:"district_id"`
-	EnterpriseAddress                *model1.OrderBy `json:"enterprise_address"`
-	EnterpriseCode                   *model1.OrderBy `json:"enterprise_code"`
-	EnterpriseID                     *model1.OrderBy `json:"enterprise_id"`
-	EnterpriseLevel                  *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseName                   *model1.OrderBy `json:"enterprise_name"`
-	EnterpriseNature                 *model1.OrderBy `json:"enterprise_nature"`
-	EntrustedAgent                   *model1.OrderBy `json:"entrusted_agent"`
-	EntrustedAgentIDCard             *model1.OrderBy `json:"entrusted_agent_id_card"`
-	EntrustedAgentIDCardPhoto        *model1.OrderBy `json:"entrusted_agent_id_card_photo"`
-	EntrustedAgentPhone              *model1.OrderBy `json:"entrusted_agent_phone"`
-	FaxNumber                        *model1.OrderBy `json:"fax_number"`
-	ID                               *model1.OrderBy `json:"id"`
-	InstitutionCategory              *model1.OrderBy `json:"institution_category"`
-	IsBlack                          *model1.OrderBy `json:"is_black"`
-	IsDeleted                        *model1.OrderBy `json:"is_deleted"`
-	IsInput                          *model1.OrderBy `json:"is_input"`
-	IsInstall                        *model1.OrderBy `json:"is_install"`
-	IsUploadProvince                 *model1.OrderBy `json:"is_upload_province"`
-	LegalRepresentative              *model1.OrderBy `json:"legal_representative"`
-	LegalRepresentativeIDCard        *model1.OrderBy `json:"legal_representative_id_card"`
-	LegalRepresentativeIDCardPhoto   *model1.OrderBy `json:"legal_representative_id_card_photo"`
-	LegalRepresentativePhone         *model1.OrderBy `json:"legal_representative_phone"`
-	OperatingLicensePhoto            *model1.OrderBy `json:"operating_license_photo"`
-	OrganizationCode                 *model1.OrderBy `json:"organization_code"`
-	OrganizationCodeCertificatePhoto *model1.OrderBy `json:"organization_code_certificate_photo"`
-	PoliceStationID                  *model1.OrderBy `json:"police_station_id"`
-	ProvinceID                       *model1.OrderBy `json:"province_id"`
-	RecordAt                         *model1.OrderBy `json:"record_at"`
-	RecordBy                         *model1.OrderBy `json:"record_by"`
-	Remarks                          *model1.OrderBy `json:"remarks"`
-	Score                            *model1.OrderBy `json:"score"`
-	SuperiorEnterpriseID             *model1.OrderBy `json:"superior_enterprise_id"`
-	UpdateAt                         *model1.OrderBy `json:"update_at"`
-	UpdateBy                         *model1.OrderBy `json:"update_by"`
-	UpdateTimeIn                     *model1.OrderBy `json:"update_time_in"`
-}
-
-// aggregate stddev on columns
-type EnterpriseStddevFields struct {
-	BusinessScope       *float64 `json:"business_scope"`
-	CheckStatus         *float64 `json:"check_status"`
-	CityID              *float64 `json:"city_id"`
-	DisplayNumber       *float64 `json:"display_number"`
-	DistrictID          *float64 `json:"district_id"`
-	EnterpriseLevel     *float64 `json:"enterprise_level"`
-	EnterpriseNature    *float64 `json:"enterprise_nature"`
-	ID                  *float64 `json:"id"`
-	InstitutionCategory *float64 `json:"institution_category"`
-	ProvinceID          *float64 `json:"province_id"`
-	Score               *float64 `json:"score"`
-}
-
-// order by stddev() on columns of table "enterprise"
-type EnterpriseStddevOrderBy struct {
-	BusinessScope       *model1.OrderBy `json:"business_scope"`
-	CheckStatus         *model1.OrderBy `json:"check_status"`
-	CityID              *model1.OrderBy `json:"city_id"`
-	DisplayNumber       *model1.OrderBy `json:"display_number"`
-	DistrictID          *model1.OrderBy `json:"district_id"`
-	EnterpriseLevel     *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseNature    *model1.OrderBy `json:"enterprise_nature"`
-	ID                  *model1.OrderBy `json:"id"`
-	InstitutionCategory *model1.OrderBy `json:"institution_category"`
-	ProvinceID          *model1.OrderBy `json:"province_id"`
-	Score               *model1.OrderBy `json:"score"`
-}
-
-// aggregate stddev_pop on columns
-type EnterpriseStddevPopFields struct {
-	BusinessScope       *float64 `json:"business_scope"`
-	CheckStatus         *float64 `json:"check_status"`
-	CityID              *float64 `json:"city_id"`
-	DisplayNumber       *float64 `json:"display_number"`
-	DistrictID          *float64 `json:"district_id"`
-	EnterpriseLevel     *float64 `json:"enterprise_level"`
-	EnterpriseNature    *float64 `json:"enterprise_nature"`
-	ID                  *float64 `json:"id"`
-	InstitutionCategory *float64 `json:"institution_category"`
-	ProvinceID          *float64 `json:"province_id"`
-	Score               *float64 `json:"score"`
-}
-
-// order by stddev_pop() on columns of table "enterprise"
-type EnterpriseStddevPopOrderBy struct {
-	BusinessScope       *model1.OrderBy `json:"business_scope"`
-	CheckStatus         *model1.OrderBy `json:"check_status"`
-	CityID              *model1.OrderBy `json:"city_id"`
-	DisplayNumber       *model1.OrderBy `json:"display_number"`
-	DistrictID          *model1.OrderBy `json:"district_id"`
-	EnterpriseLevel     *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseNature    *model1.OrderBy `json:"enterprise_nature"`
-	ID                  *model1.OrderBy `json:"id"`
-	InstitutionCategory *model1.OrderBy `json:"institution_category"`
-	ProvinceID          *model1.OrderBy `json:"province_id"`
-	Score               *model1.OrderBy `json:"score"`
-}
-
-// aggregate stddev_samp on columns
-type EnterpriseStddevSampFields struct {
-	BusinessScope       *float64 `json:"business_scope"`
-	CheckStatus         *float64 `json:"check_status"`
-	CityID              *float64 `json:"city_id"`
-	DisplayNumber       *float64 `json:"display_number"`
-	DistrictID          *float64 `json:"district_id"`
-	EnterpriseLevel     *float64 `json:"enterprise_level"`
-	EnterpriseNature    *float64 `json:"enterprise_nature"`
-	ID                  *float64 `json:"id"`
-	InstitutionCategory *float64 `json:"institution_category"`
-	ProvinceID          *float64 `json:"province_id"`
-	Score               *float64 `json:"score"`
-}
-
-// order by stddev_samp() on columns of table "enterprise"
-type EnterpriseStddevSampOrderBy struct {
-	BusinessScope       *model1.OrderBy `json:"business_scope"`
-	CheckStatus         *model1.OrderBy `json:"check_status"`
-	CityID              *model1.OrderBy `json:"city_id"`
-	DisplayNumber       *model1.OrderBy `json:"display_number"`
-	DistrictID          *model1.OrderBy `json:"district_id"`
-	EnterpriseLevel     *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseNature    *model1.OrderBy `json:"enterprise_nature"`
-	ID                  *model1.OrderBy `json:"id"`
-	InstitutionCategory *model1.OrderBy `json:"institution_category"`
-	ProvinceID          *model1.OrderBy `json:"province_id"`
-	Score               *model1.OrderBy `json:"score"`
-}
-
-// aggregate sum on columns
-type EnterpriseSumFields struct {
+// input type for incrementing integer column in table "enterprise"
+type EnterpriseIncInput struct {
 	BusinessScope       *int   `json:"business_scope"`
 	CheckStatus         *int   `json:"check_status"`
 	CityID              *int64 `json:"city_id"`
@@ -521,313 +89,396 @@ type EnterpriseSumFields struct {
 	Score               *int   `json:"score"`
 }
 
-// order by sum() on columns of table "enterprise"
-type EnterpriseSumOrderBy struct {
-	BusinessScope       *model1.OrderBy `json:"business_scope"`
-	CheckStatus         *model1.OrderBy `json:"check_status"`
-	CityID              *model1.OrderBy `json:"city_id"`
-	DisplayNumber       *model1.OrderBy `json:"display_number"`
-	DistrictID          *model1.OrderBy `json:"district_id"`
-	EnterpriseLevel     *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseNature    *model1.OrderBy `json:"enterprise_nature"`
-	ID                  *model1.OrderBy `json:"id"`
-	InstitutionCategory *model1.OrderBy `json:"institution_category"`
-	ProvinceID          *model1.OrderBy `json:"province_id"`
-	Score               *model1.OrderBy `json:"score"`
+// input type for inserting data into table "enterprise"
+type EnterpriseInsertInput struct {
+	AssociationReviewBy              *time.Time `json:"association_review_by"`
+	AssociationReviewOpinion         *string    `json:"association_review_opinion"`
+	AssociationReviewTime            *time.Time `json:"association_review_time"`
+	BrigadeID                        *string    `json:"brigade_id"`
+	BrigadeReviewBy                  *string    `json:"brigade_review_by"`
+	BrigadeReviewOpinion             *string    `json:"brigade_review_opinion"`
+	BrigadeReviewTime                *time.Time `json:"brigade_review_time"`
+	BusinessLicenseExpiryDate        *time.Time `json:"business_license_expiry_date"`
+	BusinessLicenseIssuanceDate      *time.Time `json:"business_license_issuance_date"`
+	BusinessLicensePhoto             *string    `json:"business_license_photo"`
+	BusinessPhoto                    *string    `json:"business_photo"`
+	BusinessScope                    *int       `json:"business_scope"`
+	CheckStatus                      *int       `json:"check_status"`
+	CityID                           *int64     `json:"city_id"`
+	ContactPersons                   *string    `json:"contact_persons"`
+	CreateAt                         *time.Time `json:"create_at"`
+	CreateBy                         *string    `json:"create_by"`
+	DeleteAt                         *time.Time `json:"delete_at"`
+	DeleteBy                         *string    `json:"delete_by"`
+	DisplayNumber                    *int       `json:"display_number"`
+	DistrictID                       *int64     `json:"district_id"`
+	EnterpriseAddress                *string    `json:"enterprise_address"`
+	EnterpriseCode                   *string    `json:"enterprise_code"`
+	EnterpriseID                     *string    `json:"enterprise_id"`
+	EnterpriseLevel                  *int       `json:"enterprise_level"`
+	EnterpriseName                   *string    `json:"enterprise_name"`
+	EnterpriseNature                 *int       `json:"enterprise_nature"`
+	EntrustedAgent                   *string    `json:"entrusted_agent"`
+	EntrustedAgentIDCard             *string    `json:"entrusted_agent_id_card"`
+	EntrustedAgentIDCardPhoto        *string    `json:"entrusted_agent_id_card_photo"`
+	EntrustedAgentPhone              *string    `json:"entrusted_agent_phone"`
+	FaxNumber                        *string    `json:"fax_number"`
+	ID                               *int64     `json:"id"`
+	InstitutionCategory              *int64     `json:"institution_category"`
+	IsBlack                          *bool      `json:"is_black"`
+	IsDeleted                        *bool      `json:"is_deleted"`
+	IsInput                          *bool      `json:"is_input"`
+	IsInstall                        *bool      `json:"is_install"`
+	IsUploadProvince                 *bool      `json:"is_upload_province"`
+	LegalRepresentative              *string    `json:"legal_representative"`
+	LegalRepresentativeIDCard        *string    `json:"legal_representative_id_card"`
+	LegalRepresentativeIDCardPhoto   *string    `json:"legal_representative_id_card_photo"`
+	LegalRepresentativePhone         *string    `json:"legal_representative_phone"`
+	OperatingLicensePhoto            *string    `json:"operating_license_photo"`
+	OrganizationCode                 *string    `json:"organization_code"`
+	OrganizationCodeCertificatePhoto *string    `json:"organization_code_certificate_photo"`
+	PoliceStationID                  *string    `json:"police_station_id"`
+	ProvinceID                       *int64     `json:"province_id"`
+	RecordAt                         *time.Time `json:"record_at"`
+	RecordBy                         *string    `json:"record_by"`
+	Remarks                          *string    `json:"remarks"`
+	Score                            *int       `json:"score"`
+	SuperiorEnterpriseID             *string    `json:"superior_enterprise_id"`
+	UpdateAt                         *time.Time `json:"update_at"`
+	UpdateBy                         *string    `json:"update_by"`
+	UpdateTimeIn                     *time.Time `json:"update_time_in"`
 }
 
-// aggregate var_pop on columns
-type EnterpriseVarPopFields struct {
-	BusinessScope       *float64 `json:"business_scope"`
-	CheckStatus         *float64 `json:"check_status"`
-	CityID              *float64 `json:"city_id"`
-	DisplayNumber       *float64 `json:"display_number"`
-	DistrictID          *float64 `json:"district_id"`
-	EnterpriseLevel     *float64 `json:"enterprise_level"`
-	EnterpriseNature    *float64 `json:"enterprise_nature"`
-	ID                  *float64 `json:"id"`
-	InstitutionCategory *float64 `json:"institution_category"`
-	ProvinceID          *float64 `json:"province_id"`
-	Score               *float64 `json:"score"`
+// response of any mutation on the table "enterprise"
+type EnterpriseMutationResponse struct {
+	// number of affected rows by the mutation
+	AffectedRows int `json:"affected_rows"`
+	// data of the affected rows by the mutation
+	Returning []*model1.Enterprise `json:"returning"`
 }
 
-// order by var_pop() on columns of table "enterprise"
-type EnterpriseVarPopOrderBy struct {
-	BusinessScope       *model1.OrderBy `json:"business_scope"`
-	CheckStatus         *model1.OrderBy `json:"check_status"`
-	CityID              *model1.OrderBy `json:"city_id"`
-	DisplayNumber       *model1.OrderBy `json:"display_number"`
-	DistrictID          *model1.OrderBy `json:"district_id"`
-	EnterpriseLevel     *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseNature    *model1.OrderBy `json:"enterprise_nature"`
-	ID                  *model1.OrderBy `json:"id"`
-	InstitutionCategory *model1.OrderBy `json:"institution_category"`
-	ProvinceID          *model1.OrderBy `json:"province_id"`
-	Score               *model1.OrderBy `json:"score"`
+// input type for inserting object relation for remote table "enterprise"
+type EnterpriseObjRelInsertInput struct {
+	Data       *EnterpriseInsertInput `json:"data"`
+	OnConflict *EnterpriseOnConflict  `json:"on_conflict"`
 }
 
-// aggregate var_samp on columns
-type EnterpriseVarSampFields struct {
-	BusinessScope       *float64 `json:"business_scope"`
-	CheckStatus         *float64 `json:"check_status"`
-	CityID              *float64 `json:"city_id"`
-	DisplayNumber       *float64 `json:"display_number"`
-	DistrictID          *float64 `json:"district_id"`
-	EnterpriseLevel     *float64 `json:"enterprise_level"`
-	EnterpriseNature    *float64 `json:"enterprise_nature"`
-	ID                  *float64 `json:"id"`
-	InstitutionCategory *float64 `json:"institution_category"`
-	ProvinceID          *float64 `json:"province_id"`
-	Score               *float64 `json:"score"`
+// on conflict condition type for table "enterprise"
+type EnterpriseOnConflict struct {
+	Constraint    EnterpriseConstraint     `json:"constraint"`
+	UpdateColumns []EnterpriseUpdateColumn `json:"update_columns"`
+	Where         *EnterpriseBoolExp       `json:"where"`
 }
 
-// order by var_samp() on columns of table "enterprise"
-type EnterpriseVarSampOrderBy struct {
-	BusinessScope       *model1.OrderBy `json:"business_scope"`
-	CheckStatus         *model1.OrderBy `json:"check_status"`
-	CityID              *model1.OrderBy `json:"city_id"`
-	DisplayNumber       *model1.OrderBy `json:"display_number"`
-	DistrictID          *model1.OrderBy `json:"district_id"`
-	EnterpriseLevel     *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseNature    *model1.OrderBy `json:"enterprise_nature"`
-	ID                  *model1.OrderBy `json:"id"`
-	InstitutionCategory *model1.OrderBy `json:"institution_category"`
-	ProvinceID          *model1.OrderBy `json:"province_id"`
-	Score               *model1.OrderBy `json:"score"`
+// primary key columns input for table: "enterprise"
+type EnterprisePkColumnsInput struct {
+	// ID
+	ID int64 `json:"id"`
 }
 
-// aggregate variance on columns
-type EnterpriseVarianceFields struct {
-	BusinessScope       *float64 `json:"business_scope"`
-	CheckStatus         *float64 `json:"check_status"`
-	CityID              *float64 `json:"city_id"`
-	DisplayNumber       *float64 `json:"display_number"`
-	DistrictID          *float64 `json:"district_id"`
-	EnterpriseLevel     *float64 `json:"enterprise_level"`
-	EnterpriseNature    *float64 `json:"enterprise_nature"`
-	ID                  *float64 `json:"id"`
-	InstitutionCategory *float64 `json:"institution_category"`
-	ProvinceID          *float64 `json:"province_id"`
-	Score               *float64 `json:"score"`
+// input type for updating data in table "enterprise"
+type EnterpriseSetInput struct {
+	AssociationReviewBy              *time.Time `json:"association_review_by"`
+	AssociationReviewOpinion         *string    `json:"association_review_opinion"`
+	AssociationReviewTime            *time.Time `json:"association_review_time"`
+	BrigadeID                        *string    `json:"brigade_id"`
+	BrigadeReviewBy                  *string    `json:"brigade_review_by"`
+	BrigadeReviewOpinion             *string    `json:"brigade_review_opinion"`
+	BrigadeReviewTime                *time.Time `json:"brigade_review_time"`
+	BusinessLicenseExpiryDate        *time.Time `json:"business_license_expiry_date"`
+	BusinessLicenseIssuanceDate      *time.Time `json:"business_license_issuance_date"`
+	BusinessLicensePhoto             *string    `json:"business_license_photo"`
+	BusinessPhoto                    *string    `json:"business_photo"`
+	BusinessScope                    *int       `json:"business_scope"`
+	CheckStatus                      *int       `json:"check_status"`
+	CityID                           *int64     `json:"city_id"`
+	ContactPersons                   *string    `json:"contact_persons"`
+	CreateAt                         *time.Time `json:"create_at"`
+	CreateBy                         *string    `json:"create_by"`
+	DeleteAt                         *time.Time `json:"delete_at"`
+	DeleteBy                         *string    `json:"delete_by"`
+	DisplayNumber                    *int       `json:"display_number"`
+	DistrictID                       *int64     `json:"district_id"`
+	EnterpriseAddress                *string    `json:"enterprise_address"`
+	EnterpriseCode                   *string    `json:"enterprise_code"`
+	EnterpriseID                     *string    `json:"enterprise_id"`
+	EnterpriseLevel                  *int       `json:"enterprise_level"`
+	EnterpriseName                   *string    `json:"enterprise_name"`
+	EnterpriseNature                 *int       `json:"enterprise_nature"`
+	EntrustedAgent                   *string    `json:"entrusted_agent"`
+	EntrustedAgentIDCard             *string    `json:"entrusted_agent_id_card"`
+	EntrustedAgentIDCardPhoto        *string    `json:"entrusted_agent_id_card_photo"`
+	EntrustedAgentPhone              *string    `json:"entrusted_agent_phone"`
+	FaxNumber                        *string    `json:"fax_number"`
+	ID                               *int64     `json:"id"`
+	InstitutionCategory              *int64     `json:"institution_category"`
+	IsBlack                          *bool      `json:"is_black"`
+	IsDeleted                        *bool      `json:"is_deleted"`
+	IsInput                          *bool      `json:"is_input"`
+	IsInstall                        *bool      `json:"is_install"`
+	IsUploadProvince                 *bool      `json:"is_upload_province"`
+	LegalRepresentative              *string    `json:"legal_representative"`
+	LegalRepresentativeIDCard        *string    `json:"legal_representative_id_card"`
+	LegalRepresentativeIDCardPhoto   *string    `json:"legal_representative_id_card_photo"`
+	LegalRepresentativePhone         *string    `json:"legal_representative_phone"`
+	OperatingLicensePhoto            *string    `json:"operating_license_photo"`
+	OrganizationCode                 *string    `json:"organization_code"`
+	OrganizationCodeCertificatePhoto *string    `json:"organization_code_certificate_photo"`
+	PoliceStationID                  *string    `json:"police_station_id"`
+	ProvinceID                       *int64     `json:"province_id"`
+	RecordAt                         *time.Time `json:"record_at"`
+	RecordBy                         *string    `json:"record_by"`
+	Remarks                          *string    `json:"remarks"`
+	Score                            *int       `json:"score"`
+	SuperiorEnterpriseID             *string    `json:"superior_enterprise_id"`
+	UpdateAt                         *time.Time `json:"update_at"`
+	UpdateBy                         *string    `json:"update_by"`
+	UpdateTimeIn                     *time.Time `json:"update_time_in"`
 }
 
-// order by variance() on columns of table "enterprise"
-type EnterpriseVarianceOrderBy struct {
-	BusinessScope       *model1.OrderBy `json:"business_scope"`
-	CheckStatus         *model1.OrderBy `json:"check_status"`
-	CityID              *model1.OrderBy `json:"city_id"`
-	DisplayNumber       *model1.OrderBy `json:"display_number"`
-	DistrictID          *model1.OrderBy `json:"district_id"`
-	EnterpriseLevel     *model1.OrderBy `json:"enterprise_level"`
-	EnterpriseNature    *model1.OrderBy `json:"enterprise_nature"`
-	ID                  *model1.OrderBy `json:"id"`
-	InstitutionCategory *model1.OrderBy `json:"institution_category"`
-	ProvinceID          *model1.OrderBy `json:"province_id"`
-	Score               *model1.OrderBy `json:"score"`
-}
-
-// select columns of table "enterprise"
-type EnterpriseSelectColumn string
+// unique or primary key constraints on table "enterprise"
+type EnterpriseConstraint string
 
 const (
-	// column name
-	EnterpriseSelectColumnAssociationReviewBy EnterpriseSelectColumn = "association_review_by"
-	// column name
-	EnterpriseSelectColumnAssociationReviewOpinion EnterpriseSelectColumn = "association_review_opinion"
-	// column name
-	EnterpriseSelectColumnAssociationReviewTime EnterpriseSelectColumn = "association_review_time"
-	// column name
-	EnterpriseSelectColumnBrigadeID EnterpriseSelectColumn = "brigade_id"
-	// column name
-	EnterpriseSelectColumnBrigadeReviewBy EnterpriseSelectColumn = "brigade_review_by"
-	// column name
-	EnterpriseSelectColumnBrigadeReviewOpinion EnterpriseSelectColumn = "brigade_review_opinion"
-	// column name
-	EnterpriseSelectColumnBrigadeReviewTime EnterpriseSelectColumn = "brigade_review_time"
-	// column name
-	EnterpriseSelectColumnBusinessLicenseExpiryDate EnterpriseSelectColumn = "business_license_expiry_date"
-	// column name
-	EnterpriseSelectColumnBusinessLicenseIssuanceDate EnterpriseSelectColumn = "business_license_issuance_date"
-	// column name
-	EnterpriseSelectColumnBusinessLicensePhoto EnterpriseSelectColumn = "business_license_photo"
-	// column name
-	EnterpriseSelectColumnBusinessPhoto EnterpriseSelectColumn = "business_photo"
-	// column name
-	EnterpriseSelectColumnBusinessScope EnterpriseSelectColumn = "business_scope"
-	// column name
-	EnterpriseSelectColumnCheckStatus EnterpriseSelectColumn = "check_status"
-	// column name
-	EnterpriseSelectColumnCityID EnterpriseSelectColumn = "city_id"
-	// column name
-	EnterpriseSelectColumnContactPersons EnterpriseSelectColumn = "contact_persons"
-	// column name
-	EnterpriseSelectColumnCreateAt EnterpriseSelectColumn = "create_at"
-	// column name
-	EnterpriseSelectColumnCreateBy EnterpriseSelectColumn = "create_by"
-	// column name
-	EnterpriseSelectColumnDeleteAt EnterpriseSelectColumn = "delete_at"
-	// column name
-	EnterpriseSelectColumnDeleteBy EnterpriseSelectColumn = "delete_by"
-	// column name
-	EnterpriseSelectColumnDisplayNumber EnterpriseSelectColumn = "display_number"
-	// column name
-	EnterpriseSelectColumnDistrictID EnterpriseSelectColumn = "district_id"
-	// column name
-	EnterpriseSelectColumnEnterpriseAddress EnterpriseSelectColumn = "enterprise_address"
-	// column name
-	EnterpriseSelectColumnEnterpriseCode EnterpriseSelectColumn = "enterprise_code"
-	// column name
-	EnterpriseSelectColumnEnterpriseID EnterpriseSelectColumn = "enterprise_id"
-	// column name
-	EnterpriseSelectColumnEnterpriseLevel EnterpriseSelectColumn = "enterprise_level"
-	// column name
-	EnterpriseSelectColumnEnterpriseName EnterpriseSelectColumn = "enterprise_name"
-	// column name
-	EnterpriseSelectColumnEnterpriseNature EnterpriseSelectColumn = "enterprise_nature"
-	// column name
-	EnterpriseSelectColumnEntrustedAgent EnterpriseSelectColumn = "entrusted_agent"
-	// column name
-	EnterpriseSelectColumnEntrustedAgentIDCard EnterpriseSelectColumn = "entrusted_agent_id_card"
-	// column name
-	EnterpriseSelectColumnEntrustedAgentIDCardPhoto EnterpriseSelectColumn = "entrusted_agent_id_card_photo"
-	// column name
-	EnterpriseSelectColumnEntrustedAgentPhone EnterpriseSelectColumn = "entrusted_agent_phone"
-	// column name
-	EnterpriseSelectColumnFaxNumber EnterpriseSelectColumn = "fax_number"
-	// column name
-	EnterpriseSelectColumnID EnterpriseSelectColumn = "id"
-	// column name
-	EnterpriseSelectColumnInstitutionCategory EnterpriseSelectColumn = "institution_category"
-	// column name
-	EnterpriseSelectColumnIsBlack EnterpriseSelectColumn = "is_black"
-	// column name
-	EnterpriseSelectColumnIsDeleted EnterpriseSelectColumn = "is_deleted"
-	// column name
-	EnterpriseSelectColumnIsInput EnterpriseSelectColumn = "is_input"
-	// column name
-	EnterpriseSelectColumnIsInstall EnterpriseSelectColumn = "is_install"
-	// column name
-	EnterpriseSelectColumnIsUploadProvince EnterpriseSelectColumn = "is_upload_province"
-	// column name
-	EnterpriseSelectColumnLegalRepresentative EnterpriseSelectColumn = "legal_representative"
-	// column name
-	EnterpriseSelectColumnLegalRepresentativeIDCard EnterpriseSelectColumn = "legal_representative_id_card"
-	// column name
-	EnterpriseSelectColumnLegalRepresentativeIDCardPhoto EnterpriseSelectColumn = "legal_representative_id_card_photo"
-	// column name
-	EnterpriseSelectColumnLegalRepresentativePhone EnterpriseSelectColumn = "legal_representative_phone"
-	// column name
-	EnterpriseSelectColumnOperatingLicensePhoto EnterpriseSelectColumn = "operating_license_photo"
-	// column name
-	EnterpriseSelectColumnOrganizationCode EnterpriseSelectColumn = "organization_code"
-	// column name
-	EnterpriseSelectColumnOrganizationCodeCertificatePhoto EnterpriseSelectColumn = "organization_code_certificate_photo"
-	// column name
-	EnterpriseSelectColumnPoliceStationID EnterpriseSelectColumn = "police_station_id"
-	// column name
-	EnterpriseSelectColumnProvinceID EnterpriseSelectColumn = "province_id"
-	// column name
-	EnterpriseSelectColumnRecordAt EnterpriseSelectColumn = "record_at"
-	// column name
-	EnterpriseSelectColumnRecordBy EnterpriseSelectColumn = "record_by"
-	// column name
-	EnterpriseSelectColumnRemarks EnterpriseSelectColumn = "remarks"
-	// column name
-	EnterpriseSelectColumnScore EnterpriseSelectColumn = "score"
-	// column name
-	EnterpriseSelectColumnSuperiorEnterpriseID EnterpriseSelectColumn = "superior_enterprise_id"
-	// column name
-	EnterpriseSelectColumnUpdateAt EnterpriseSelectColumn = "update_at"
-	// column name
-	EnterpriseSelectColumnUpdateBy EnterpriseSelectColumn = "update_by"
-	// column name
-	EnterpriseSelectColumnUpdateTimeIn EnterpriseSelectColumn = "update_time_in"
+	// unique or primary key constraint
+	EnterpriseConstraintNewtablePk EnterpriseConstraint = "newtable_pk"
 )
 
-var AllEnterpriseSelectColumn = []EnterpriseSelectColumn{
-	EnterpriseSelectColumnAssociationReviewBy,
-	EnterpriseSelectColumnAssociationReviewOpinion,
-	EnterpriseSelectColumnAssociationReviewTime,
-	EnterpriseSelectColumnBrigadeID,
-	EnterpriseSelectColumnBrigadeReviewBy,
-	EnterpriseSelectColumnBrigadeReviewOpinion,
-	EnterpriseSelectColumnBrigadeReviewTime,
-	EnterpriseSelectColumnBusinessLicenseExpiryDate,
-	EnterpriseSelectColumnBusinessLicenseIssuanceDate,
-	EnterpriseSelectColumnBusinessLicensePhoto,
-	EnterpriseSelectColumnBusinessPhoto,
-	EnterpriseSelectColumnBusinessScope,
-	EnterpriseSelectColumnCheckStatus,
-	EnterpriseSelectColumnCityID,
-	EnterpriseSelectColumnContactPersons,
-	EnterpriseSelectColumnCreateAt,
-	EnterpriseSelectColumnCreateBy,
-	EnterpriseSelectColumnDeleteAt,
-	EnterpriseSelectColumnDeleteBy,
-	EnterpriseSelectColumnDisplayNumber,
-	EnterpriseSelectColumnDistrictID,
-	EnterpriseSelectColumnEnterpriseAddress,
-	EnterpriseSelectColumnEnterpriseCode,
-	EnterpriseSelectColumnEnterpriseID,
-	EnterpriseSelectColumnEnterpriseLevel,
-	EnterpriseSelectColumnEnterpriseName,
-	EnterpriseSelectColumnEnterpriseNature,
-	EnterpriseSelectColumnEntrustedAgent,
-	EnterpriseSelectColumnEntrustedAgentIDCard,
-	EnterpriseSelectColumnEntrustedAgentIDCardPhoto,
-	EnterpriseSelectColumnEntrustedAgentPhone,
-	EnterpriseSelectColumnFaxNumber,
-	EnterpriseSelectColumnID,
-	EnterpriseSelectColumnInstitutionCategory,
-	EnterpriseSelectColumnIsBlack,
-	EnterpriseSelectColumnIsDeleted,
-	EnterpriseSelectColumnIsInput,
-	EnterpriseSelectColumnIsInstall,
-	EnterpriseSelectColumnIsUploadProvince,
-	EnterpriseSelectColumnLegalRepresentative,
-	EnterpriseSelectColumnLegalRepresentativeIDCard,
-	EnterpriseSelectColumnLegalRepresentativeIDCardPhoto,
-	EnterpriseSelectColumnLegalRepresentativePhone,
-	EnterpriseSelectColumnOperatingLicensePhoto,
-	EnterpriseSelectColumnOrganizationCode,
-	EnterpriseSelectColumnOrganizationCodeCertificatePhoto,
-	EnterpriseSelectColumnPoliceStationID,
-	EnterpriseSelectColumnProvinceID,
-	EnterpriseSelectColumnRecordAt,
-	EnterpriseSelectColumnRecordBy,
-	EnterpriseSelectColumnRemarks,
-	EnterpriseSelectColumnScore,
-	EnterpriseSelectColumnSuperiorEnterpriseID,
-	EnterpriseSelectColumnUpdateAt,
-	EnterpriseSelectColumnUpdateBy,
-	EnterpriseSelectColumnUpdateTimeIn,
+var AllEnterpriseConstraint = []EnterpriseConstraint{
+	EnterpriseConstraintNewtablePk,
 }
 
-func (e EnterpriseSelectColumn) IsValid() bool {
+func (e EnterpriseConstraint) IsValid() bool {
 	switch e {
-	case EnterpriseSelectColumnAssociationReviewBy, EnterpriseSelectColumnAssociationReviewOpinion, EnterpriseSelectColumnAssociationReviewTime, EnterpriseSelectColumnBrigadeID, EnterpriseSelectColumnBrigadeReviewBy, EnterpriseSelectColumnBrigadeReviewOpinion, EnterpriseSelectColumnBrigadeReviewTime, EnterpriseSelectColumnBusinessLicenseExpiryDate, EnterpriseSelectColumnBusinessLicenseIssuanceDate, EnterpriseSelectColumnBusinessLicensePhoto, EnterpriseSelectColumnBusinessPhoto, EnterpriseSelectColumnBusinessScope, EnterpriseSelectColumnCheckStatus, EnterpriseSelectColumnCityID, EnterpriseSelectColumnContactPersons, EnterpriseSelectColumnCreateAt, EnterpriseSelectColumnCreateBy, EnterpriseSelectColumnDeleteAt, EnterpriseSelectColumnDeleteBy, EnterpriseSelectColumnDisplayNumber, EnterpriseSelectColumnDistrictID, EnterpriseSelectColumnEnterpriseAddress, EnterpriseSelectColumnEnterpriseCode, EnterpriseSelectColumnEnterpriseID, EnterpriseSelectColumnEnterpriseLevel, EnterpriseSelectColumnEnterpriseName, EnterpriseSelectColumnEnterpriseNature, EnterpriseSelectColumnEntrustedAgent, EnterpriseSelectColumnEntrustedAgentIDCard, EnterpriseSelectColumnEntrustedAgentIDCardPhoto, EnterpriseSelectColumnEntrustedAgentPhone, EnterpriseSelectColumnFaxNumber, EnterpriseSelectColumnID, EnterpriseSelectColumnInstitutionCategory, EnterpriseSelectColumnIsBlack, EnterpriseSelectColumnIsDeleted, EnterpriseSelectColumnIsInput, EnterpriseSelectColumnIsInstall, EnterpriseSelectColumnIsUploadProvince, EnterpriseSelectColumnLegalRepresentative, EnterpriseSelectColumnLegalRepresentativeIDCard, EnterpriseSelectColumnLegalRepresentativeIDCardPhoto, EnterpriseSelectColumnLegalRepresentativePhone, EnterpriseSelectColumnOperatingLicensePhoto, EnterpriseSelectColumnOrganizationCode, EnterpriseSelectColumnOrganizationCodeCertificatePhoto, EnterpriseSelectColumnPoliceStationID, EnterpriseSelectColumnProvinceID, EnterpriseSelectColumnRecordAt, EnterpriseSelectColumnRecordBy, EnterpriseSelectColumnRemarks, EnterpriseSelectColumnScore, EnterpriseSelectColumnSuperiorEnterpriseID, EnterpriseSelectColumnUpdateAt, EnterpriseSelectColumnUpdateBy, EnterpriseSelectColumnUpdateTimeIn:
+	case EnterpriseConstraintNewtablePk:
 		return true
 	}
 	return false
 }
 
-func (e EnterpriseSelectColumn) String() string {
+func (e EnterpriseConstraint) String() string {
 	return string(e)
 }
 
-func (e *EnterpriseSelectColumn) UnmarshalGQL(v interface{}) error {
+func (e *EnterpriseConstraint) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = EnterpriseSelectColumn(str)
+	*e = EnterpriseConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_select_column", str)
+		return fmt.Errorf("%s is not a valid enterprise_constraint", str)
 	}
 	return nil
 }
 
-func (e EnterpriseSelectColumn) MarshalGQL(w io.Writer) {
+func (e EnterpriseConstraint) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// update columns of table "enterprise"
+type EnterpriseUpdateColumn string
+
+const (
+	// column name
+	EnterpriseUpdateColumnAssociationReviewBy EnterpriseUpdateColumn = "association_review_by"
+	// column name
+	EnterpriseUpdateColumnAssociationReviewOpinion EnterpriseUpdateColumn = "association_review_opinion"
+	// column name
+	EnterpriseUpdateColumnAssociationReviewTime EnterpriseUpdateColumn = "association_review_time"
+	// column name
+	EnterpriseUpdateColumnBrigadeID EnterpriseUpdateColumn = "brigade_id"
+	// column name
+	EnterpriseUpdateColumnBrigadeReviewBy EnterpriseUpdateColumn = "brigade_review_by"
+	// column name
+	EnterpriseUpdateColumnBrigadeReviewOpinion EnterpriseUpdateColumn = "brigade_review_opinion"
+	// column name
+	EnterpriseUpdateColumnBrigadeReviewTime EnterpriseUpdateColumn = "brigade_review_time"
+	// column name
+	EnterpriseUpdateColumnBusinessLicenseExpiryDate EnterpriseUpdateColumn = "business_license_expiry_date"
+	// column name
+	EnterpriseUpdateColumnBusinessLicenseIssuanceDate EnterpriseUpdateColumn = "business_license_issuance_date"
+	// column name
+	EnterpriseUpdateColumnBusinessLicensePhoto EnterpriseUpdateColumn = "business_license_photo"
+	// column name
+	EnterpriseUpdateColumnBusinessPhoto EnterpriseUpdateColumn = "business_photo"
+	// column name
+	EnterpriseUpdateColumnBusinessScope EnterpriseUpdateColumn = "business_scope"
+	// column name
+	EnterpriseUpdateColumnCheckStatus EnterpriseUpdateColumn = "check_status"
+	// column name
+	EnterpriseUpdateColumnCityID EnterpriseUpdateColumn = "city_id"
+	// column name
+	EnterpriseUpdateColumnContactPersons EnterpriseUpdateColumn = "contact_persons"
+	// column name
+	EnterpriseUpdateColumnCreateAt EnterpriseUpdateColumn = "create_at"
+	// column name
+	EnterpriseUpdateColumnCreateBy EnterpriseUpdateColumn = "create_by"
+	// column name
+	EnterpriseUpdateColumnDeleteAt EnterpriseUpdateColumn = "delete_at"
+	// column name
+	EnterpriseUpdateColumnDeleteBy EnterpriseUpdateColumn = "delete_by"
+	// column name
+	EnterpriseUpdateColumnDisplayNumber EnterpriseUpdateColumn = "display_number"
+	// column name
+	EnterpriseUpdateColumnDistrictID EnterpriseUpdateColumn = "district_id"
+	// column name
+	EnterpriseUpdateColumnEnterpriseAddress EnterpriseUpdateColumn = "enterprise_address"
+	// column name
+	EnterpriseUpdateColumnEnterpriseCode EnterpriseUpdateColumn = "enterprise_code"
+	// column name
+	EnterpriseUpdateColumnEnterpriseID EnterpriseUpdateColumn = "enterprise_id"
+	// column name
+	EnterpriseUpdateColumnEnterpriseLevel EnterpriseUpdateColumn = "enterprise_level"
+	// column name
+	EnterpriseUpdateColumnEnterpriseName EnterpriseUpdateColumn = "enterprise_name"
+	// column name
+	EnterpriseUpdateColumnEnterpriseNature EnterpriseUpdateColumn = "enterprise_nature"
+	// column name
+	EnterpriseUpdateColumnEntrustedAgent EnterpriseUpdateColumn = "entrusted_agent"
+	// column name
+	EnterpriseUpdateColumnEntrustedAgentIDCard EnterpriseUpdateColumn = "entrusted_agent_id_card"
+	// column name
+	EnterpriseUpdateColumnEntrustedAgentIDCardPhoto EnterpriseUpdateColumn = "entrusted_agent_id_card_photo"
+	// column name
+	EnterpriseUpdateColumnEntrustedAgentPhone EnterpriseUpdateColumn = "entrusted_agent_phone"
+	// column name
+	EnterpriseUpdateColumnFaxNumber EnterpriseUpdateColumn = "fax_number"
+	// column name
+	EnterpriseUpdateColumnID EnterpriseUpdateColumn = "id"
+	// column name
+	EnterpriseUpdateColumnInstitutionCategory EnterpriseUpdateColumn = "institution_category"
+	// column name
+	EnterpriseUpdateColumnIsBlack EnterpriseUpdateColumn = "is_black"
+	// column name
+	EnterpriseUpdateColumnIsDeleted EnterpriseUpdateColumn = "is_deleted"
+	// column name
+	EnterpriseUpdateColumnIsInput EnterpriseUpdateColumn = "is_input"
+	// column name
+	EnterpriseUpdateColumnIsInstall EnterpriseUpdateColumn = "is_install"
+	// column name
+	EnterpriseUpdateColumnIsUploadProvince EnterpriseUpdateColumn = "is_upload_province"
+	// column name
+	EnterpriseUpdateColumnLegalRepresentative EnterpriseUpdateColumn = "legal_representative"
+	// column name
+	EnterpriseUpdateColumnLegalRepresentativeIDCard EnterpriseUpdateColumn = "legal_representative_id_card"
+	// column name
+	EnterpriseUpdateColumnLegalRepresentativeIDCardPhoto EnterpriseUpdateColumn = "legal_representative_id_card_photo"
+	// column name
+	EnterpriseUpdateColumnLegalRepresentativePhone EnterpriseUpdateColumn = "legal_representative_phone"
+	// column name
+	EnterpriseUpdateColumnOperatingLicensePhoto EnterpriseUpdateColumn = "operating_license_photo"
+	// column name
+	EnterpriseUpdateColumnOrganizationCode EnterpriseUpdateColumn = "organization_code"
+	// column name
+	EnterpriseUpdateColumnOrganizationCodeCertificatePhoto EnterpriseUpdateColumn = "organization_code_certificate_photo"
+	// column name
+	EnterpriseUpdateColumnPoliceStationID EnterpriseUpdateColumn = "police_station_id"
+	// column name
+	EnterpriseUpdateColumnProvinceID EnterpriseUpdateColumn = "province_id"
+	// column name
+	EnterpriseUpdateColumnRecordAt EnterpriseUpdateColumn = "record_at"
+	// column name
+	EnterpriseUpdateColumnRecordBy EnterpriseUpdateColumn = "record_by"
+	// column name
+	EnterpriseUpdateColumnRemarks EnterpriseUpdateColumn = "remarks"
+	// column name
+	EnterpriseUpdateColumnScore EnterpriseUpdateColumn = "score"
+	// column name
+	EnterpriseUpdateColumnSuperiorEnterpriseID EnterpriseUpdateColumn = "superior_enterprise_id"
+	// column name
+	EnterpriseUpdateColumnUpdateAt EnterpriseUpdateColumn = "update_at"
+	// column name
+	EnterpriseUpdateColumnUpdateBy EnterpriseUpdateColumn = "update_by"
+	// column name
+	EnterpriseUpdateColumnUpdateTimeIn EnterpriseUpdateColumn = "update_time_in"
+)
+
+var AllEnterpriseUpdateColumn = []EnterpriseUpdateColumn{
+	EnterpriseUpdateColumnAssociationReviewBy,
+	EnterpriseUpdateColumnAssociationReviewOpinion,
+	EnterpriseUpdateColumnAssociationReviewTime,
+	EnterpriseUpdateColumnBrigadeID,
+	EnterpriseUpdateColumnBrigadeReviewBy,
+	EnterpriseUpdateColumnBrigadeReviewOpinion,
+	EnterpriseUpdateColumnBrigadeReviewTime,
+	EnterpriseUpdateColumnBusinessLicenseExpiryDate,
+	EnterpriseUpdateColumnBusinessLicenseIssuanceDate,
+	EnterpriseUpdateColumnBusinessLicensePhoto,
+	EnterpriseUpdateColumnBusinessPhoto,
+	EnterpriseUpdateColumnBusinessScope,
+	EnterpriseUpdateColumnCheckStatus,
+	EnterpriseUpdateColumnCityID,
+	EnterpriseUpdateColumnContactPersons,
+	EnterpriseUpdateColumnCreateAt,
+	EnterpriseUpdateColumnCreateBy,
+	EnterpriseUpdateColumnDeleteAt,
+	EnterpriseUpdateColumnDeleteBy,
+	EnterpriseUpdateColumnDisplayNumber,
+	EnterpriseUpdateColumnDistrictID,
+	EnterpriseUpdateColumnEnterpriseAddress,
+	EnterpriseUpdateColumnEnterpriseCode,
+	EnterpriseUpdateColumnEnterpriseID,
+	EnterpriseUpdateColumnEnterpriseLevel,
+	EnterpriseUpdateColumnEnterpriseName,
+	EnterpriseUpdateColumnEnterpriseNature,
+	EnterpriseUpdateColumnEntrustedAgent,
+	EnterpriseUpdateColumnEntrustedAgentIDCard,
+	EnterpriseUpdateColumnEntrustedAgentIDCardPhoto,
+	EnterpriseUpdateColumnEntrustedAgentPhone,
+	EnterpriseUpdateColumnFaxNumber,
+	EnterpriseUpdateColumnID,
+	EnterpriseUpdateColumnInstitutionCategory,
+	EnterpriseUpdateColumnIsBlack,
+	EnterpriseUpdateColumnIsDeleted,
+	EnterpriseUpdateColumnIsInput,
+	EnterpriseUpdateColumnIsInstall,
+	EnterpriseUpdateColumnIsUploadProvince,
+	EnterpriseUpdateColumnLegalRepresentative,
+	EnterpriseUpdateColumnLegalRepresentativeIDCard,
+	EnterpriseUpdateColumnLegalRepresentativeIDCardPhoto,
+	EnterpriseUpdateColumnLegalRepresentativePhone,
+	EnterpriseUpdateColumnOperatingLicensePhoto,
+	EnterpriseUpdateColumnOrganizationCode,
+	EnterpriseUpdateColumnOrganizationCodeCertificatePhoto,
+	EnterpriseUpdateColumnPoliceStationID,
+	EnterpriseUpdateColumnProvinceID,
+	EnterpriseUpdateColumnRecordAt,
+	EnterpriseUpdateColumnRecordBy,
+	EnterpriseUpdateColumnRemarks,
+	EnterpriseUpdateColumnScore,
+	EnterpriseUpdateColumnSuperiorEnterpriseID,
+	EnterpriseUpdateColumnUpdateAt,
+	EnterpriseUpdateColumnUpdateBy,
+	EnterpriseUpdateColumnUpdateTimeIn,
+}
+
+func (e EnterpriseUpdateColumn) IsValid() bool {
+	switch e {
+	case EnterpriseUpdateColumnAssociationReviewBy, EnterpriseUpdateColumnAssociationReviewOpinion, EnterpriseUpdateColumnAssociationReviewTime, EnterpriseUpdateColumnBrigadeID, EnterpriseUpdateColumnBrigadeReviewBy, EnterpriseUpdateColumnBrigadeReviewOpinion, EnterpriseUpdateColumnBrigadeReviewTime, EnterpriseUpdateColumnBusinessLicenseExpiryDate, EnterpriseUpdateColumnBusinessLicenseIssuanceDate, EnterpriseUpdateColumnBusinessLicensePhoto, EnterpriseUpdateColumnBusinessPhoto, EnterpriseUpdateColumnBusinessScope, EnterpriseUpdateColumnCheckStatus, EnterpriseUpdateColumnCityID, EnterpriseUpdateColumnContactPersons, EnterpriseUpdateColumnCreateAt, EnterpriseUpdateColumnCreateBy, EnterpriseUpdateColumnDeleteAt, EnterpriseUpdateColumnDeleteBy, EnterpriseUpdateColumnDisplayNumber, EnterpriseUpdateColumnDistrictID, EnterpriseUpdateColumnEnterpriseAddress, EnterpriseUpdateColumnEnterpriseCode, EnterpriseUpdateColumnEnterpriseID, EnterpriseUpdateColumnEnterpriseLevel, EnterpriseUpdateColumnEnterpriseName, EnterpriseUpdateColumnEnterpriseNature, EnterpriseUpdateColumnEntrustedAgent, EnterpriseUpdateColumnEntrustedAgentIDCard, EnterpriseUpdateColumnEntrustedAgentIDCardPhoto, EnterpriseUpdateColumnEntrustedAgentPhone, EnterpriseUpdateColumnFaxNumber, EnterpriseUpdateColumnID, EnterpriseUpdateColumnInstitutionCategory, EnterpriseUpdateColumnIsBlack, EnterpriseUpdateColumnIsDeleted, EnterpriseUpdateColumnIsInput, EnterpriseUpdateColumnIsInstall, EnterpriseUpdateColumnIsUploadProvince, EnterpriseUpdateColumnLegalRepresentative, EnterpriseUpdateColumnLegalRepresentativeIDCard, EnterpriseUpdateColumnLegalRepresentativeIDCardPhoto, EnterpriseUpdateColumnLegalRepresentativePhone, EnterpriseUpdateColumnOperatingLicensePhoto, EnterpriseUpdateColumnOrganizationCode, EnterpriseUpdateColumnOrganizationCodeCertificatePhoto, EnterpriseUpdateColumnPoliceStationID, EnterpriseUpdateColumnProvinceID, EnterpriseUpdateColumnRecordAt, EnterpriseUpdateColumnRecordBy, EnterpriseUpdateColumnRemarks, EnterpriseUpdateColumnScore, EnterpriseUpdateColumnSuperiorEnterpriseID, EnterpriseUpdateColumnUpdateAt, EnterpriseUpdateColumnUpdateBy, EnterpriseUpdateColumnUpdateTimeIn:
+		return true
+	}
+	return false
+}
+
+func (e EnterpriseUpdateColumn) String() string {
+	return string(e)
+}
+
+func (e *EnterpriseUpdateColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = EnterpriseUpdateColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid enterprise_update_column", str)
+	}
+	return nil
+}
+
+func (e EnterpriseUpdateColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }

@@ -21,7 +21,7 @@ model:
 resolver:
   layout: follow-schema
   dir: graph/resolver
-  package: graph
+  package: resolver
 
 # Optional: turn on use `gqlgen:"fieldName"` tags in your models
 # struct_tag: json

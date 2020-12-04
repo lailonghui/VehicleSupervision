@@ -737,8 +737,7 @@ input timestamptz_comparison_exp {
 
 
 
-"""mutation root"""
-type mutation_root {
+extend type Mutation {
   """
   delete data from the table: "enterprise"
   """

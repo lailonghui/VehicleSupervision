@@ -38,12 +38,22 @@ type Config struct {
 }
 
 type ResolverRoot interface {
+	Mutation() MutationResolver
 }
 
 type DirectiveRoot struct {
 }
 
 type ComplexityRoot struct {
+	Mutation struct {
+		DeleteEnterprise     func(childComplexity int, where model.EnterpriseBoolExp) int
+		DeleteEnterpriseByPk func(childComplexity int, id int64) int
+		InsertEnterprise     func(childComplexity int, objects []*model.EnterpriseInsertInput) int
+		InsertEnterpriseOne  func(childComplexity int, object model.EnterpriseInsertInput) int
+		UpdateEnterprise     func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) int
+		UpdateEnterpriseByPk func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, pkColumns model.EnterprisePkColumnsInput) int
+	}
+
 	Query struct {
 	}
 
@@ -110,15 +120,15 @@ type ComplexityRoot struct {
 		AffectedRows func(childComplexity int) int
 		Returning    func(childComplexity int) int
 	}
+}
 
-	MutationRoot struct {
-		DeleteEnterprise     func(childComplexity int, where model.EnterpriseBoolExp) int
-		DeleteEnterpriseByPk func(childComplexity int, id int64) int
-		InsertEnterprise     func(childComplexity int, objects []*model.EnterpriseInsertInput) int
-		InsertEnterpriseOne  func(childComplexity int, object model.EnterpriseInsertInput) int
-		UpdateEnterprise     func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) int
-		UpdateEnterpriseByPk func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, pkColumns model.EnterprisePkColumnsInput) int
-	}
+type MutationResolver interface {
+	DeleteEnterprise(ctx context.Context, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error)
+	DeleteEnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error)
+	InsertEnterprise(ctx context.Context, objects []*model.EnterpriseInsertInput) (*model.EnterpriseMutationResponse, error)
+	InsertEnterpriseOne(ctx context.Context, object model.EnterpriseInsertInput) (*model1.Enterprise, error)
+	UpdateEnterprise(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error)
+	UpdateEnterpriseByPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, pkColumns model.EnterprisePkColumnsInput) (*model1.Enterprise, error)
 }
 
 type executableSchema struct {
@@ -135,6 +145,78 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	ec := executionContext{nil, e}
 	_ = ec
 	switch typeName + "." + field {
+
+	case "Mutation.delete_enterprise":
+		if e.complexity.Mutation.DeleteEnterprise == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterprise(childComplexity, args["where"].(model.EnterpriseBoolExp)), true
+
+	case "Mutation.delete_enterprise_by_pk":
+		if e.complexity.Mutation.DeleteEnterpriseByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.insert_enterprise":
+		if e.complexity.Mutation.InsertEnterprise == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_enterprise_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertEnterprise(childComplexity, args["objects"].([]*model.EnterpriseInsertInput)), true
+
+	case "Mutation.insert_enterprise_one":
+		if e.complexity.Mutation.InsertEnterpriseOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_enterprise_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertEnterpriseOne(childComplexity, args["object"].(model.EnterpriseInsertInput)), true
+
+	case "Mutation.update_enterprise":
+		if e.complexity.Mutation.UpdateEnterprise == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterprise(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["where"].(model.EnterpriseBoolExp)), true
+
+	case "Mutation.update_enterprise_by_pk":
+		if e.complexity.Mutation.UpdateEnterpriseByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseByPk(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["pk_columns"].(model.EnterprisePkColumnsInput)), true
 
 	case "enterprise.association_review_by":
 		if e.complexity.Enterprise.AssociationReviewBy == nil {
@@ -542,78 +624,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseMutationResponse.Returning(childComplexity), true
 
-	case "mutation_root.delete_enterprise":
-		if e.complexity.MutationRoot.DeleteEnterprise == nil {
-			break
-		}
-
-		args, err := ec.field_mutation_root_delete_enterprise_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.MutationRoot.DeleteEnterprise(childComplexity, args["where"].(model.EnterpriseBoolExp)), true
-
-	case "mutation_root.delete_enterprise_by_pk":
-		if e.complexity.MutationRoot.DeleteEnterpriseByPk == nil {
-			break
-		}
-
-		args, err := ec.field_mutation_root_delete_enterprise_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.MutationRoot.DeleteEnterpriseByPk(childComplexity, args["id"].(int64)), true
-
-	case "mutation_root.insert_enterprise":
-		if e.complexity.MutationRoot.InsertEnterprise == nil {
-			break
-		}
-
-		args, err := ec.field_mutation_root_insert_enterprise_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.MutationRoot.InsertEnterprise(childComplexity, args["objects"].([]*model.EnterpriseInsertInput)), true
-
-	case "mutation_root.insert_enterprise_one":
-		if e.complexity.MutationRoot.InsertEnterpriseOne == nil {
-			break
-		}
-
-		args, err := ec.field_mutation_root_insert_enterprise_one_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.MutationRoot.InsertEnterpriseOne(childComplexity, args["object"].(model.EnterpriseInsertInput)), true
-
-	case "mutation_root.update_enterprise":
-		if e.complexity.MutationRoot.UpdateEnterprise == nil {
-			break
-		}
-
-		args, err := ec.field_mutation_root_update_enterprise_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.MutationRoot.UpdateEnterprise(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["where"].(model.EnterpriseBoolExp)), true
-
-	case "mutation_root.update_enterprise_by_pk":
-		if e.complexity.MutationRoot.UpdateEnterpriseByPk == nil {
-			break
-		}
-
-		args, err := ec.field_mutation_root_update_enterprise_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.MutationRoot.UpdateEnterpriseByPk(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["pk_columns"].(model.EnterprisePkColumnsInput)), true
-
 	}
 	return 0, false
 }
@@ -631,6 +641,20 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 			}
 			first = false
 			data := ec._Query(ctx, rc.Operation.SelectionSet)
+			var buf bytes.Buffer
+			data.MarshalGQL(&buf)
+
+			return &graphql.Response{
+				Data: buf.Bytes(),
+			}
+		}
+	case ast.Mutation:
+		return func(ctx context.Context) *graphql.Response {
+			if !first {
+				return nil
+			}
+			first = false
+			data := ec._Mutation(ctx, rc.Operation.SelectionSet)
 			var buf bytes.Buffer
 			data.MarshalGQL(&buf)
 
@@ -1403,8 +1427,7 @@ input timestamptz_comparison_exp {
 
 
 
-"""mutation root"""
-type mutation_root {
+extend type Mutation {
   """
   delete data from the table: "enterprise"
   """
@@ -1476,6 +1499,132 @@ var parsedSchema = gqlparser.MustLoadSchema(sources...)
 
 // region    ***************************** args.gotpl *****************************
 
+func (ec *executionContext) field_Mutation_delete_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.EnterpriseBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg0, err = ec.unmarshalNenterprise_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_enterprise_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.EnterpriseInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNenterprise_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_enterprise_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.EnterpriseInsertInput
+	if tmp, ok := rawArgs["object"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
+		arg0, err = ec.unmarshalNenterprise_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseInsertInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["object"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOenterprise_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOenterprise_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.EnterpriseBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNenterprise_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOenterprise_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOenterprise_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.EnterprisePkColumnsInput
+	if tmp, ok := rawArgs["pk_columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
+		arg2, err = ec.unmarshalNenterprise_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterprisePkColumnsInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["pk_columns"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -1521,132 +1670,6 @@ func (ec *executionContext) field___Type_fields_args(ctx context.Context, rawArg
 	return args, nil
 }
 
-func (ec *executionContext) field_mutation_root_delete_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.EnterpriseBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalNenterprise_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_mutation_root_delete_enterprise_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 int64
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_mutation_root_insert_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*model.EnterpriseInsertInput
-	if tmp, ok := rawArgs["objects"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNenterprise_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseInsertInputᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["objects"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_mutation_root_insert_enterprise_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.EnterpriseInsertInput
-	if tmp, ok := rawArgs["object"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
-		arg0, err = ec.unmarshalNenterprise_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseInsertInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["object"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_mutation_root_update_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.EnterpriseIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOenterprise_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.EnterpriseSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOenterprise_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 model.EnterpriseBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg2, err = ec.unmarshalNenterprise_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg2
-	return args, nil
-}
-
-func (ec *executionContext) field_mutation_root_update_enterprise_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.EnterpriseIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOenterprise_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.EnterpriseSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOenterprise_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 model.EnterprisePkColumnsInput
-	if tmp, ok := rawArgs["pk_columns"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
-		arg2, err = ec.unmarshalNenterprise_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterprisePkColumnsInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["pk_columns"] = arg2
-	return args, nil
-}
-
 // endregion ***************************** args.gotpl *****************************
 
 // region    ************************** directives.gotpl **************************
@@ -1654,6 +1677,240 @@ func (ec *executionContext) field_mutation_root_update_enterprise_by_pk_args(ctx
 // endregion ************************** directives.gotpl **************************
 
 // region    **************************** field.gotpl *****************************
+
+func (ec *executionContext) _Mutation_delete_enterprise(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterprise(rctx, args["where"].(model.EnterpriseBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseMutationResponse)
+	fc.Result = res
+	return ec.marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Enterprise)
+	fc.Result = res
+	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmodelᚐEnterprise(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_enterprise(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_enterprise_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertEnterprise(rctx, args["objects"].([]*model.EnterpriseInsertInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseMutationResponse)
+	fc.Result = res
+	return ec.marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_enterprise_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_enterprise_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertEnterpriseOne(rctx, args["object"].(model.EnterpriseInsertInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Enterprise)
+	fc.Result = res
+	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmodelᚐEnterprise(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterprise(rctx, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["where"].(model.EnterpriseBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.EnterpriseMutationResponse)
+	fc.Result = res
+	return ec.marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseByPk(rctx, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["pk_columns"].(model.EnterprisePkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Enterprise)
+	fc.Result = res
+	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmodelᚐEnterprise(ctx, field.Selections, res)
+}
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
@@ -4680,240 +4937,6 @@ func (ec *executionContext) _enterprise_mutation_response_returning(ctx context.
 	return ec.marshalNenterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmodelᚐEnterpriseᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _mutation_root_delete_enterprise(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "mutation_root",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_delete_enterprise_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteEnterprise, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterpriseMutationResponse)
-	fc.Result = res
-	return ec.marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _mutation_root_delete_enterprise_by_pk(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "mutation_root",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_delete_enterprise_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteEnterpriseByPk, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.Enterprise)
-	fc.Result = res
-	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmodelᚐEnterprise(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _mutation_root_insert_enterprise(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "mutation_root",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_insert_enterprise_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.InsertEnterprise, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterpriseMutationResponse)
-	fc.Result = res
-	return ec.marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _mutation_root_insert_enterprise_one(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "mutation_root",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_insert_enterprise_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.InsertEnterpriseOne, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.Enterprise)
-	fc.Result = res
-	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmodelᚐEnterprise(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _mutation_root_update_enterprise(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "mutation_root",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_update_enterprise_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateEnterprise, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterpriseMutationResponse)
-	fc.Result = res
-	return ec.marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmutationᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _mutation_root_update_enterprise_by_pk(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "mutation_root",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_update_enterprise_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateEnterpriseByPk, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.Enterprise)
-	fc.Result = res
-	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmodelᚐEnterprise(ctx, field.Selections, res)
-}
-
 // endregion **************************** field.gotpl *****************************
 
 // region    **************************** input.gotpl *****************************
@@ -7066,6 +7089,44 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 
 // region    **************************** object.gotpl ****************************
 
+var mutationImplementors = []string{"Mutation"}
+
+func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, mutationImplementors)
+
+	ctx = graphql.WithFieldContext(ctx, &graphql.FieldContext{
+		Object: "Mutation",
+	})
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("Mutation")
+		case "delete_enterprise":
+			out.Values[i] = ec._Mutation_delete_enterprise(ctx, field)
+		case "delete_enterprise_by_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_by_pk(ctx, field)
+		case "insert_enterprise":
+			out.Values[i] = ec._Mutation_insert_enterprise(ctx, field)
+		case "insert_enterprise_one":
+			out.Values[i] = ec._Mutation_insert_enterprise_one(ctx, field)
+		case "update_enterprise":
+			out.Values[i] = ec._Mutation_update_enterprise(ctx, field)
+		case "update_enterprise_by_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_by_pk(ctx, field)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
 var queryImplementors = []string{"Query"}
 
 func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) graphql.Marshaler {
@@ -7501,40 +7562,6 @@ func (ec *executionContext) _enterprise_mutation_response(ctx context.Context, s
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var mutation_rootImplementors = []string{"mutation_root"}
-
-func (ec *executionContext) _mutation_root(ctx context.Context, sel ast.SelectionSet, obj *model.MutationRoot) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, mutation_rootImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("mutation_root")
-		case "delete_enterprise":
-			out.Values[i] = ec._mutation_root_delete_enterprise(ctx, field, obj)
-		case "delete_enterprise_by_pk":
-			out.Values[i] = ec._mutation_root_delete_enterprise_by_pk(ctx, field, obj)
-		case "insert_enterprise":
-			out.Values[i] = ec._mutation_root_insert_enterprise(ctx, field, obj)
-		case "insert_enterprise_one":
-			out.Values[i] = ec._mutation_root_insert_enterprise_one(ctx, field, obj)
-		case "update_enterprise":
-			out.Values[i] = ec._mutation_root_update_enterprise(ctx, field, obj)
-		case "update_enterprise_by_pk":
-			out.Values[i] = ec._mutation_root_update_enterprise_by_pk(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
