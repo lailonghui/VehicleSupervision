@@ -20,8 +20,8 @@ model:
 # Where should the resolver implementations go?
 resolver:
   layout: follow-schema
-  dir: graph/resolvers
-  package: resolvers
+  dir: graph/resolver
+  package: graph
 
 # Optional: turn on use `gqlgen:"fieldName"` tags in your models
 # struct_tag: json
@@ -35,7 +35,7 @@ resolver:
 # gqlgen will search for any type names in the schema in these go packages
 # if they match it will use them, otherwise it will generate them.
 autobind:
-  - "VehicleSupervision/internal/modules/admin/model"
+  - "VehicleSupervision/internal/modules/admin/enterprise/model"
 
 # This section declares type mapping between the GraphQL and go type systems
 #
@@ -49,7 +49,6 @@ models:
       - github.com/99designs/gqlgen/graphql.Int
       - github.com/99designs/gqlgen/graphql.Int64
       - github.com/99designs/gqlgen/graphql.Int32
-
   Int:
     model:
       - github.com/99designs/gqlgen/graphql.Int
@@ -62,9 +61,17 @@ models:
     model: github.com/99designs/gqlgen/graphql.Float
   timestamptz:
     model: VehicleSupervision/pkg/graphql/scalar.Timestamptz
-  _jsonb:
-    model: VehicleSupervision/pkg/graphql/scalar.JsonbArray
-
-
-
-
+  String_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.StringComparisonExp
+  timestamptz_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.TimestamptzComparisonExp
+  Int_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.IntComparisonExp
+  Boolean_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.BooleanComparisonExp
+  bigint_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.BigintComparisonExp
+  _jsonb_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.JsonbComparisonExp
+  order_by:
+    model: VehicleSupervision/pkg/graphql/model.OrderBy

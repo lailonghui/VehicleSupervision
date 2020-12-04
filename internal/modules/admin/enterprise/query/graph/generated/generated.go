@@ -3,13 +3,16 @@
 package generated
 
 import (
-	"VehicleSupervision/internal/modules/admin3/graph/model"
+	"VehicleSupervision/internal/modules/admin/enterprise/query/graph/model"
+	model1 "VehicleSupervision/pkg/graphql/model"
+	"VehicleSupervision/pkg/graphql/scalar"
 	"bytes"
 	"context"
 	"errors"
 	"strconv"
 	"sync"
 	"sync/atomic"
+	"time"
 
 	"github.com/99designs/gqlgen/graphql"
 	"github.com/99designs/gqlgen/graphql/introspection"
@@ -35,7 +38,6 @@ type Config struct {
 }
 
 type ResolverRoot interface {
-	Mutation() MutationResolver
 	Query() QueryResolver
 }
 
@@ -43,19 +45,10 @@ type DirectiveRoot struct {
 }
 
 type ComplexityRoot struct {
-	Mutation struct {
-		DeleteEnterprise     func(childComplexity int, where model.EnterpriseBoolExp) int
-		DeleteEnterpriseByPk func(childComplexity int, id string) int
-		InsertEnterprise     func(childComplexity int, objects []*model.EnterpriseInsertInput, onConflict *model.EnterpriseOnConflict) int
-		InsertEnterpriseOne  func(childComplexity int, object model.EnterpriseInsertInput, onConflict *model.EnterpriseOnConflict) int
-		UpdateEnterprise     func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) int
-		UpdateEnterpriseByPk func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, pkColumns model.EnterprisePkColumnsInput) int
-	}
-
 	Query struct {
 		Enterprise          func(childComplexity int, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) int
 		EnterpriseAggregate func(childComplexity int, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) int
-		EnterpriseByPk      func(childComplexity int, id string) int
+		EnterpriseByPk      func(childComplexity int, id int64) int
 	}
 
 	Enterprise struct {
@@ -256,11 +249,6 @@ type ComplexityRoot struct {
 		UpdateTimeIn                     func(childComplexity int) int
 	}
 
-	EnterpriseMutationResponse struct {
-		AffectedRows func(childComplexity int) int
-		Returning    func(childComplexity int) int
-	}
-
 	EnterpriseStddevFields struct {
 		BusinessScope       func(childComplexity int) int
 		CheckStatus         func(childComplexity int) int
@@ -360,18 +348,10 @@ type ComplexityRoot struct {
 	}
 }
 
-type MutationResolver interface {
-	DeleteEnterprise(ctx context.Context, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error)
-	DeleteEnterpriseByPk(ctx context.Context, id string) (*model.Enterprise, error)
-	InsertEnterprise(ctx context.Context, objects []*model.EnterpriseInsertInput, onConflict *model.EnterpriseOnConflict) (*model.EnterpriseMutationResponse, error)
-	InsertEnterpriseOne(ctx context.Context, object model.EnterpriseInsertInput, onConflict *model.EnterpriseOnConflict) (*model.Enterprise, error)
-	UpdateEnterprise(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error)
-	UpdateEnterpriseByPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, pkColumns model.EnterprisePkColumnsInput) (*model.Enterprise, error)
-}
 type QueryResolver interface {
 	Enterprise(ctx context.Context, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) ([]*model.Enterprise, error)
 	EnterpriseAggregate(ctx context.Context, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) (*model.EnterpriseAggregate, error)
-	EnterpriseByPk(ctx context.Context, id string) (*model.Enterprise, error)
+	EnterpriseByPk(ctx context.Context, id int64) (*model.Enterprise, error)
 }
 
 type executableSchema struct {
@@ -388,78 +368,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	ec := executionContext{nil, e}
 	_ = ec
 	switch typeName + "." + field {
-
-	case "Mutation.delete_enterprise":
-		if e.complexity.Mutation.DeleteEnterprise == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_delete_enterprise_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteEnterprise(childComplexity, args["where"].(model.EnterpriseBoolExp)), true
-
-	case "Mutation.delete_enterprise_by_pk":
-		if e.complexity.Mutation.DeleteEnterpriseByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_delete_enterprise_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteEnterpriseByPk(childComplexity, args["id"].(string)), true
-
-	case "Mutation.insert_enterprise":
-		if e.complexity.Mutation.InsertEnterprise == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_insert_enterprise_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.InsertEnterprise(childComplexity, args["objects"].([]*model.EnterpriseInsertInput), args["on_conflict"].(*model.EnterpriseOnConflict)), true
-
-	case "Mutation.insert_enterprise_one":
-		if e.complexity.Mutation.InsertEnterpriseOne == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_insert_enterprise_one_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.InsertEnterpriseOne(childComplexity, args["object"].(model.EnterpriseInsertInput), args["on_conflict"].(*model.EnterpriseOnConflict)), true
-
-	case "Mutation.update_enterprise":
-		if e.complexity.Mutation.UpdateEnterprise == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_update_enterprise_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateEnterprise(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["where"].(model.EnterpriseBoolExp)), true
-
-	case "Mutation.update_enterprise_by_pk":
-		if e.complexity.Mutation.UpdateEnterpriseByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_update_enterprise_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateEnterpriseByPk(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["pk_columns"].(model.EnterprisePkColumnsInput)), true
 
 	case "Query.enterprise":
 		if e.complexity.Query.Enterprise == nil {
@@ -495,7 +403,7 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 			return 0, false
 		}
 
-		return e.complexity.Query.EnterpriseByPk(childComplexity, args["id"].(string)), true
+		return e.complexity.Query.EnterpriseByPk(childComplexity, args["id"].(int64)), true
 
 	case "enterprise.association_review_by":
 		if e.complexity.Enterprise.AssociationReviewBy == nil {
@@ -1762,20 +1670,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.EnterpriseMinFields.UpdateTimeIn(childComplexity), true
 
-	case "enterprise_mutation_response.affected_rows":
-		if e.complexity.EnterpriseMutationResponse.AffectedRows == nil {
-			break
-		}
-
-		return e.complexity.EnterpriseMutationResponse.AffectedRows(childComplexity), true
-
-	case "enterprise_mutation_response.returning":
-		if e.complexity.EnterpriseMutationResponse.Returning == nil {
-			break
-		}
-
-		return e.complexity.EnterpriseMutationResponse.Returning(childComplexity), true
-
 	case "enterprise_stddev_fields.business_scope":
 		if e.complexity.EnterpriseStddevFields.BusinessScope == nil {
 			break
@@ -2339,20 +2233,6 @@ func (e *executableSchema) Exec(ctx context.Context) graphql.ResponseHandler {
 				Data: buf.Bytes(),
 			}
 		}
-	case ast.Mutation:
-		return func(ctx context.Context) *graphql.Response {
-			if !first {
-				return nil
-			}
-			first = false
-			data := ec._Mutation(ctx, rc.Operation.SelectionSet)
-			var buf bytes.Buffer
-			data.MarshalGQL(&buf)
-
-			return &graphql.Response{
-				Data: buf.Bytes(),
-			}
-		}
 
 	default:
 		return graphql.OneShot(graphql.ErrorResponse(ctx, "unsupported GraphQL operation"))
@@ -2379,57 +2259,7 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "graph/enterprise_gen.graphqls", Input: `
-
-scalar _jsonb
-
-"""
-expression to compare columns of type _jsonb. All fields are combined with logical 'AND'.
-"""
-input _jsonb_comparison_exp {
-  _eq: _jsonb
-  _gt: _jsonb
-  _gte: _jsonb
-  _in: [_jsonb!]
-  _is_null: Boolean
-  _lt: _jsonb
-  _lte: _jsonb
-  _neq: _jsonb
-  _nin: [_jsonb!]
-}
-
-scalar bigint
-
-"""
-expression to compare columns of type bigint. All fields are combined with logical 'AND'.
-"""
-input bigint_comparison_exp {
-  _eq: bigint
-  _gt: bigint
-  _gte: bigint
-  _in: [bigint!]
-  _is_null: Boolean
-  _lt: bigint
-  _lte: bigint
-  _neq: bigint
-  _nin: [bigint!]
-}
-
-"""
-expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
-"""
-input Boolean_comparison_exp {
-  _eq: Boolean
-  _gt: Boolean
-  _gte: Boolean
-  _in: [Boolean!]
-  _is_null: Boolean
-  _lt: Boolean
-  _lte: Boolean
-  _neq: Boolean
-  _nin: [Boolean!]
-}
-
+	{Name: "graph/graphqls/enterprise_gen_query.graphqls", Input: `
 """
 企业
 
@@ -2647,13 +2477,6 @@ input enterprise_aggregate_order_by {
   variance: enterprise_variance_order_by
 }
 
-"""
-input type for inserting array relation for remote table "enterprise"
-"""
-input enterprise_arr_rel_insert_input {
-  data: [enterprise_insert_input!]!
-  on_conflict: enterprise_on_conflict
-}
 
 """aggregate avg on columns"""
 type enterprise_avg_fields {
@@ -2752,92 +2575,6 @@ input enterprise_bool_exp {
   update_time_in: timestamptz_comparison_exp
 }
 
-"""
-unique or primary key constraints on table "enterprise"
-"""
-enum enterprise_constraint {
-  """unique or primary key constraint"""
-  newtable_pk
-}
-
-"""
-input type for incrementing integer column in table "enterprise"
-"""
-input enterprise_inc_input {
-  business_scope: Int
-  check_status: Int
-  city_id: bigint
-  display_number: Int
-  district_id: bigint
-  enterprise_level: Int
-  enterprise_nature: Int
-  id: bigint
-  institution_category: bigint
-  province_id: bigint
-  score: Int
-}
-
-"""
-input type for inserting data into table "enterprise"
-"""
-input enterprise_insert_input {
-  association_review_by: timestamptz
-  association_review_opinion: String
-  association_review_time: timestamptz
-  brigade_id: String
-  brigade_review_by: String
-  brigade_review_opinion: String
-  brigade_review_time: timestamptz
-  business_license_expiry_date: timestamptz
-  business_license_issuance_date: timestamptz
-  business_license_photo: String
-  business_photo: String
-  business_scope: Int
-  check_status: Int
-  city_id: bigint
-  contact_persons: _jsonb
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  display_number: Int
-  district_id: bigint
-  enterprise_address: String
-  enterprise_code: String
-  enterprise_id: String
-  enterprise_level: Int
-  enterprise_name: String
-  enterprise_nature: Int
-  entrusted_agent: String
-  entrusted_agent_id_card: String
-  entrusted_agent_id_card_photo: String
-  entrusted_agent_phone: String
-  fax_number: String
-  id: bigint
-  institution_category: bigint
-  is_black: Boolean
-  is_deleted: Boolean
-  is_input: Boolean
-  is_install: Boolean
-  is_upload_province: Boolean
-  legal_representative: String
-  legal_representative_id_card: String
-  legal_representative_id_card_photo: String
-  legal_representative_phone: String
-  operating_license_photo: String
-  organization_code: String
-  organization_code_certificate_photo: String
-  police_station_id: String
-  province_id: bigint
-  record_at: timestamptz
-  record_by: String
-  remarks: String
-  score: Int
-  superior_enterprise_id: String
-  update_at: timestamptz
-  update_by: String
-  update_time_in: timestamptz
-}
 
 """aggregate max on columns"""
 type enterprise_max_fields {
@@ -3059,33 +2796,7 @@ input enterprise_min_order_by {
   update_time_in: order_by
 }
 
-"""
-response of any mutation on the table "enterprise"
-"""
-type enterprise_mutation_response {
-  """number of affected rows by the mutation"""
-  affected_rows: Int!
 
-  """data of the affected rows by the mutation"""
-  returning: [enterprise!]!
-}
-
-"""
-input type for inserting object relation for remote table "enterprise"
-"""
-input enterprise_obj_rel_insert_input {
-  data: enterprise_insert_input!
-  on_conflict: enterprise_on_conflict
-}
-
-"""
-on conflict condition type for table "enterprise"
-"""
-input enterprise_on_conflict {
-  constraint: enterprise_constraint!
-  update_columns: [enterprise_update_column!]!
-  where: enterprise_bool_exp
-}
 
 """
 ordering options when selecting data from "enterprise"
@@ -3149,13 +2860,6 @@ input enterprise_order_by {
   update_time_in: order_by
 }
 
-"""
-primary key columns input for table: "enterprise"
-"""
-input enterprise_pk_columns_input {
-  """ID"""
-  id: bigint!
-}
 
 """
 select columns of table "enterprise"
@@ -3330,68 +3034,6 @@ enum enterprise_select_column {
   update_time_in
 }
 
-"""
-input type for updating data in table "enterprise"
-"""
-input enterprise_set_input {
-  association_review_by: timestamptz
-  association_review_opinion: String
-  association_review_time: timestamptz
-  brigade_id: String
-  brigade_review_by: String
-  brigade_review_opinion: String
-  brigade_review_time: timestamptz
-  business_license_expiry_date: timestamptz
-  business_license_issuance_date: timestamptz
-  business_license_photo: String
-  business_photo: String
-  business_scope: Int
-  check_status: Int
-  city_id: bigint
-  contact_persons: _jsonb
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  display_number: Int
-  district_id: bigint
-  enterprise_address: String
-  enterprise_code: String
-  enterprise_id: String
-  enterprise_level: Int
-  enterprise_name: String
-  enterprise_nature: Int
-  entrusted_agent: String
-  entrusted_agent_id_card: String
-  entrusted_agent_id_card_photo: String
-  entrusted_agent_phone: String
-  fax_number: String
-  id: bigint
-  institution_category: bigint
-  is_black: Boolean
-  is_deleted: Boolean
-  is_input: Boolean
-  is_install: Boolean
-  is_upload_province: Boolean
-  legal_representative: String
-  legal_representative_id_card: String
-  legal_representative_id_card_photo: String
-  legal_representative_phone: String
-  operating_license_photo: String
-  organization_code: String
-  organization_code_certificate_photo: String
-  police_station_id: String
-  province_id: bigint
-  record_at: timestamptz
-  record_by: String
-  remarks: String
-  score: Int
-  superior_enterprise_id: String
-  update_at: timestamptz
-  update_by: String
-  update_time_in: timestamptz
-}
-
 """aggregate stddev on columns"""
 type enterprise_stddev_fields {
   business_scope: Float
@@ -3520,179 +3162,6 @@ input enterprise_sum_order_by {
   score: order_by
 }
 
-"""
-update columns of table "enterprise"
-"""
-enum enterprise_update_column {
-  """column name"""
-  association_review_by
-
-  """column name"""
-  association_review_opinion
-
-  """column name"""
-  association_review_time
-
-  """column name"""
-  brigade_id
-
-  """column name"""
-  brigade_review_by
-
-  """column name"""
-  brigade_review_opinion
-
-  """column name"""
-  brigade_review_time
-
-  """column name"""
-  business_license_expiry_date
-
-  """column name"""
-  business_license_issuance_date
-
-  """column name"""
-  business_license_photo
-
-  """column name"""
-  business_photo
-
-  """column name"""
-  business_scope
-
-  """column name"""
-  check_status
-
-  """column name"""
-  city_id
-
-  """column name"""
-  contact_persons
-
-  """column name"""
-  create_at
-
-  """column name"""
-  create_by
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  display_number
-
-  """column name"""
-  district_id
-
-  """column name"""
-  enterprise_address
-
-  """column name"""
-  enterprise_code
-
-  """column name"""
-  enterprise_id
-
-  """column name"""
-  enterprise_level
-
-  """column name"""
-  enterprise_name
-
-  """column name"""
-  enterprise_nature
-
-  """column name"""
-  entrusted_agent
-
-  """column name"""
-  entrusted_agent_id_card
-
-  """column name"""
-  entrusted_agent_id_card_photo
-
-  """column name"""
-  entrusted_agent_phone
-
-  """column name"""
-  fax_number
-
-  """column name"""
-  id
-
-  """column name"""
-  institution_category
-
-  """column name"""
-  is_black
-
-  """column name"""
-  is_deleted
-
-  """column name"""
-  is_input
-
-  """column name"""
-  is_install
-
-  """column name"""
-  is_upload_province
-
-  """column name"""
-  legal_representative
-
-  """column name"""
-  legal_representative_id_card
-
-  """column name"""
-  legal_representative_id_card_photo
-
-  """column name"""
-  legal_representative_phone
-
-  """column name"""
-  operating_license_photo
-
-  """column name"""
-  organization_code
-
-  """column name"""
-  organization_code_certificate_photo
-
-  """column name"""
-  police_station_id
-
-  """column name"""
-  province_id
-
-  """column name"""
-  record_at
-
-  """column name"""
-  record_by
-
-  """column name"""
-  remarks
-
-  """column name"""
-  score
-
-  """column name"""
-  superior_enterprise_id
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
-
-  """column name"""
-  update_time_in
-}
-
 """aggregate var_pop on columns"""
 type enterprise_var_pop_fields {
   business_scope: Float
@@ -3789,6 +3258,54 @@ input enterprise_variance_order_by {
   score: order_by
 }
 
+
+"""
+expression to compare columns of type _jsonb. All fields are combined with logical 'AND'.
+"""
+input _jsonb_comparison_exp {
+  _eq: _jsonb
+  _gt: _jsonb
+  _gte: _jsonb
+  _in: [_jsonb!]
+  _is_null: Boolean
+  _lt: _jsonb
+  _lte: _jsonb
+  _neq: _jsonb
+  _nin: [_jsonb!]
+}
+
+"""
+expression to compare columns of type bigint. All fields are combined with logical 'AND'.
+"""
+input bigint_comparison_exp {
+  _eq: bigint
+  _gt: bigint
+  _gte: bigint
+  _in: [bigint!]
+  _is_null: Boolean
+  _lt: bigint
+  _lte: bigint
+  _neq: bigint
+  _nin: [bigint!]
+}
+
+
+"""
+expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
+"""
+input Boolean_comparison_exp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+
 """
 expression to compare columns of type Int. All fields are combined with logical 'AND'.
 """
@@ -3804,72 +3321,7 @@ input Int_comparison_exp {
   _nin: [Int!]
 }
 
-"""mutation root"""
-type Mutation {
-  """
-  delete data from the table: "enterprise"
-  """
-  delete_enterprise(
-    """filter the rows which have to be deleted"""
-    where: enterprise_bool_exp!
-  ): enterprise_mutation_response
 
-  """
-  delete single row from the table: "enterprise"
-  """
-  delete_enterprise_by_pk(
-    """ID"""
-    id: bigint!
-  ): enterprise
-
-  """
-  insert data into the table: "enterprise"
-  """
-  insert_enterprise(
-    """the rows to be inserted"""
-    objects: [enterprise_insert_input!]!
-
-    """on conflict condition"""
-    on_conflict: enterprise_on_conflict
-  ): enterprise_mutation_response
-
-  """
-  insert a single row into the table: "enterprise"
-  """
-  insert_enterprise_one(
-    """the row to be inserted"""
-    object: enterprise_insert_input!
-
-    """on conflict condition"""
-    on_conflict: enterprise_on_conflict
-  ): enterprise
-
-  """
-  update data of the table: "enterprise"
-  """
-  update_enterprise(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: enterprise_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: enterprise_set_input
-
-    """filter the rows which have to be updated"""
-    where: enterprise_bool_exp!
-  ): enterprise_mutation_response
-
-  """
-  update single row of the table: "enterprise"
-  """
-  update_enterprise_by_pk(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: enterprise_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: enterprise_set_input
-    pk_columns: enterprise_pk_columns_input!
-  ): enterprise
-}
 
 """column ordering options"""
 enum order_by {
@@ -3892,8 +3344,51 @@ enum order_by {
   desc_nulls_last
 }
 
-"""query root"""
-type Query {
+
+"""
+expression to compare columns of type String. All fields are combined with logical 'AND'.
+"""
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _nlike: String
+  _nsimilar: String
+  _similar: String
+}
+
+
+"""
+expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
+"""
+input timestamptz_comparison_exp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
+
+
+scalar _jsonb
+scalar bigint
+scalar timestamptz
+
+
+extend type Query {
   """
   fetch data from the table: "enterprise"
   """
@@ -3941,44 +3436,9 @@ type Query {
   ): enterprise
 }
 
-"""
-expression to compare columns of type String. All fields are combined with logical 'AND'.
-"""
-input String_comparison_exp {
-  _eq: String
-  _gt: String
-  _gte: String
-  _ilike: String
-  _in: [String!]
-  _is_null: Boolean
-  _like: String
-  _lt: String
-  _lte: String
-  _neq: String
-  _nilike: String
-  _nin: [String!]
-  _nlike: String
-  _nsimilar: String
-  _similar: String
-}
 
 
-scalar timestamptz
 
-"""
-expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
-"""
-input timestamptz_comparison_exp {
-  _eq: timestamptz
-  _gt: timestamptz
-  _gte: timestamptz
-  _in: [timestamptz!]
-  _is_null: Boolean
-  _lt: timestamptz
-  _lte: timestamptz
-  _neq: timestamptz
-  _nin: [timestamptz!]
-}
 
 `, BuiltIn: false},
 }
@@ -3987,150 +3447,6 @@ var parsedSchema = gqlparser.MustLoadSchema(sources...)
 // endregion ************************** generated!.gotpl **************************
 
 // region    ***************************** args.gotpl *****************************
-
-func (ec *executionContext) field_Mutation_delete_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.EnterpriseBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalNenterprise_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_delete_enterprise_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 string
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNbigint2string(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_insert_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*model.EnterpriseInsertInput
-	if tmp, ok := rawArgs["objects"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNenterprise_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseInsertInputᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["objects"] = arg0
-	var arg1 *model.EnterpriseOnConflict
-	if tmp, ok := rawArgs["on_conflict"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-		arg1, err = ec.unmarshalOenterprise_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOnConflict(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["on_conflict"] = arg1
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_insert_enterprise_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.EnterpriseInsertInput
-	if tmp, ok := rawArgs["object"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
-		arg0, err = ec.unmarshalNenterprise_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseInsertInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["object"] = arg0
-	var arg1 *model.EnterpriseOnConflict
-	if tmp, ok := rawArgs["on_conflict"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-		arg1, err = ec.unmarshalOenterprise_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOnConflict(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["on_conflict"] = arg1
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_update_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.EnterpriseIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOenterprise_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.EnterpriseSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOenterprise_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 model.EnterpriseBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg2, err = ec.unmarshalNenterprise_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg2
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_update_enterprise_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.EnterpriseIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOenterprise_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.EnterpriseSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOenterprise_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 model.EnterprisePkColumnsInput
-	if tmp, ok := rawArgs["pk_columns"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
-		arg2, err = ec.unmarshalNenterprise_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterprisePkColumnsInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["pk_columns"] = arg2
-	return args, nil
-}
 
 func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
@@ -4153,7 +3469,7 @@ func (ec *executionContext) field_Query_enterprise_aggregate_args(ctx context.Co
 	var arg0 []model.EnterpriseSelectColumn
 	if tmp, ok := rawArgs["distinct_on"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4180,7 +3496,7 @@ func (ec *executionContext) field_Query_enterprise_aggregate_args(ctx context.Co
 	var arg3 []*model.EnterpriseOrderBy
 	if tmp, ok := rawArgs["order_by"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOenterprise_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOrderByᚄ(ctx, tmp)
+		arg3, err = ec.unmarshalOenterprise_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseOrderByᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4189,7 +3505,7 @@ func (ec *executionContext) field_Query_enterprise_aggregate_args(ctx context.Co
 	var arg4 *model.EnterpriseBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
+		arg4, err = ec.unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4204,7 +3520,7 @@ func (ec *executionContext) field_Query_enterprise_args(ctx context.Context, raw
 	var arg0 []model.EnterpriseSelectColumn
 	if tmp, ok := rawArgs["distinct_on"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4231,7 +3547,7 @@ func (ec *executionContext) field_Query_enterprise_args(ctx context.Context, raw
 	var arg3 []*model.EnterpriseOrderBy
 	if tmp, ok := rawArgs["order_by"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOenterprise_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOrderByᚄ(ctx, tmp)
+		arg3, err = ec.unmarshalOenterprise_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseOrderByᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4240,7 +3556,7 @@ func (ec *executionContext) field_Query_enterprise_args(ctx context.Context, raw
 	var arg4 *model.EnterpriseBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
+		arg4, err = ec.unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4252,10 +3568,10 @@ func (ec *executionContext) field_Query_enterprise_args(ctx context.Context, raw
 func (ec *executionContext) field_Query_enterprise_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 string
+	var arg0 int64
 	if tmp, ok := rawArgs["id"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNbigint2string(ctx, tmp)
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4300,7 +3616,7 @@ func (ec *executionContext) field_enterprise_aggregate_fields_count_args(ctx con
 	var arg0 []model.EnterpriseSelectColumn
 	if tmp, ok := rawArgs["columns"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
-		arg0, err = ec.unmarshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4325,240 +3641,6 @@ func (ec *executionContext) field_enterprise_aggregate_fields_count_args(ctx con
 // endregion ************************** directives.gotpl **************************
 
 // region    **************************** field.gotpl *****************************
-
-func (ec *executionContext) _Mutation_delete_enterprise(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_enterprise_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteEnterprise(rctx, args["where"].(model.EnterpriseBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterpriseMutationResponse)
-	fc.Result = res
-	return ec.marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_delete_enterprise_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_enterprise_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteEnterpriseByPk(rctx, args["id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.Enterprise)
-	fc.Result = res
-	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterprise(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_enterprise(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_enterprise_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertEnterprise(rctx, args["objects"].([]*model.EnterpriseInsertInput), args["on_conflict"].(*model.EnterpriseOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterpriseMutationResponse)
-	fc.Result = res
-	return ec.marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_enterprise_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_enterprise_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertEnterpriseOne(rctx, args["object"].(model.EnterpriseInsertInput), args["on_conflict"].(*model.EnterpriseOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.Enterprise)
-	fc.Result = res
-	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterprise(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_enterprise(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_enterprise_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateEnterprise(rctx, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["where"].(model.EnterpriseBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.EnterpriseMutationResponse)
-	fc.Result = res
-	return ec.marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_enterprise_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_enterprise_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateEnterpriseByPk(rctx, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["pk_columns"].(model.EnterprisePkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.Enterprise)
-	fc.Result = res
-	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterprise(ctx, field.Selections, res)
-}
 
 func (ec *executionContext) _Query_enterprise(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
@@ -4599,7 +3681,7 @@ func (ec *executionContext) _Query_enterprise(ctx context.Context, field graphql
 	}
 	res := resTmp.([]*model.Enterprise)
 	fc.Result = res
-	return ec.marshalNenterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseᚄ(ctx, field.Selections, res)
+	return ec.marshalNenterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -4641,7 +3723,7 @@ func (ec *executionContext) _Query_enterprise_aggregate(ctx context.Context, fie
 	}
 	res := resTmp.(*model.EnterpriseAggregate)
 	fc.Result = res
-	return ec.marshalNenterprise_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseAggregate(ctx, field.Selections, res)
+	return ec.marshalNenterprise_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseAggregate(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_enterprise_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -4669,7 +3751,7 @@ func (ec *executionContext) _Query_enterprise_by_pk(ctx context.Context, field g
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().EnterpriseByPk(rctx, args["id"].(string))
+		return ec.resolvers.Query().EnterpriseByPk(rctx, args["id"].(int64))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4680,7 +3762,7 @@ func (ec *executionContext) _Query_enterprise_by_pk(ctx context.Context, field g
 	}
 	res := resTmp.(*model.Enterprise)
 	fc.Result = res
-	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterprise(ctx, field.Selections, res)
+	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterprise(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -5864,9 +4946,9 @@ func (ec *executionContext) _enterprise_association_review_by(ctx context.Contex
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_association_review_opinion(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -5928,9 +5010,9 @@ func (ec *executionContext) _enterprise_association_review_time(ctx context.Cont
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_brigade_id(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -6056,9 +5138,9 @@ func (ec *executionContext) _enterprise_brigade_review_time(ctx context.Context,
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_business_license_expiry_date(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -6088,9 +5170,9 @@ func (ec *executionContext) _enterprise_business_license_expiry_date(ctx context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_business_license_issuance_date(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -6120,9 +5202,9 @@ func (ec *executionContext) _enterprise_business_license_issuance_date(ctx conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_business_license_photo(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -6280,9 +5362,9 @@ func (ec *executionContext) _enterprise_city_id(ctx context.Context, field graph
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_contact_persons(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -6344,9 +5426,9 @@ func (ec *executionContext) _enterprise_create_at(ctx context.Context, field gra
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_create_by(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -6408,9 +5490,9 @@ func (ec *executionContext) _enterprise_delete_at(ctx context.Context, field gra
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -6504,9 +5586,9 @@ func (ec *executionContext) _enterprise_district_id(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_enterprise_address(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -6894,9 +5976,9 @@ func (ec *executionContext) _enterprise_id(ctx context.Context, field graphql.Co
 		}
 		return graphql.Null
 	}
-	res := resTmp.(string)
+	res := resTmp.(int64)
 	fc.Result = res
-	return ec.marshalNbigint2string(ctx, field.Selections, res)
+	return ec.marshalNbigint2int64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_institution_category(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -6926,9 +6008,9 @@ func (ec *executionContext) _enterprise_institution_category(ctx context.Context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_is_black(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -7377,9 +6459,9 @@ func (ec *executionContext) _enterprise_province_id(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_record_at(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -7409,9 +6491,9 @@ func (ec *executionContext) _enterprise_record_at(ctx context.Context, field gra
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_record_by(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -7569,9 +6651,9 @@ func (ec *executionContext) _enterprise_update_at(ctx context.Context, field gra
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_update_by(ctx context.Context, field graphql.CollectedField, obj *model.Enterprise) (ret graphql.Marshaler) {
@@ -7633,9 +6715,9 @@ func (ec *executionContext) _enterprise_update_time_in(ctx context.Context, fiel
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregate) (ret graphql.Marshaler) {
@@ -7667,7 +6749,7 @@ func (ec *executionContext) _enterprise_aggregate_aggregate(ctx context.Context,
 	}
 	res := resTmp.(*model.EnterpriseAggregateFields)
 	fc.Result = res
-	return ec.marshalOenterprise_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseAggregateFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseAggregateFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregate) (ret graphql.Marshaler) {
@@ -7702,7 +6784,7 @@ func (ec *executionContext) _enterprise_aggregate_nodes(ctx context.Context, fie
 	}
 	res := resTmp.([]*model.Enterprise)
 	fc.Result = res
-	return ec.marshalNenterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseᚄ(ctx, field.Selections, res)
+	return ec.marshalNenterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_avg(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -7734,7 +6816,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_avg(ctx context.Context
 	}
 	res := resTmp.(*model.EnterpriseAvgFields)
 	fc.Result = res
-	return ec.marshalOenterprise_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseAvgFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseAvgFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_count(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -7805,7 +6887,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_max(ctx context.Context
 	}
 	res := resTmp.(*model.EnterpriseMaxFields)
 	fc.Result = res
-	return ec.marshalOenterprise_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMaxFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseMaxFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_min(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -7837,7 +6919,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_min(ctx context.Context
 	}
 	res := resTmp.(*model.EnterpriseMinFields)
 	fc.Result = res
-	return ec.marshalOenterprise_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMinFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseMinFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -7869,7 +6951,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_stddev(ctx context.Cont
 	}
 	res := resTmp.(*model.EnterpriseStddevFields)
 	fc.Result = res
-	return ec.marshalOenterprise_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -7901,7 +6983,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_stddev_pop(ctx context.
 	}
 	res := resTmp.(*model.EnterpriseStddevPopFields)
 	fc.Result = res
-	return ec.marshalOenterprise_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevPopFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevPopFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -7933,7 +7015,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_stddev_samp(ctx context
 	}
 	res := resTmp.(*model.EnterpriseStddevSampFields)
 	fc.Result = res
-	return ec.marshalOenterprise_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevSampFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevSampFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_sum(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -7965,7 +7047,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_sum(ctx context.Context
 	}
 	res := resTmp.(*model.EnterpriseSumFields)
 	fc.Result = res
-	return ec.marshalOenterprise_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSumFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSumFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -7997,7 +7079,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_var_pop(ctx context.Con
 	}
 	res := resTmp.(*model.EnterpriseVarPopFields)
 	fc.Result = res
-	return ec.marshalOenterprise_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarPopFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarPopFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -8029,7 +7111,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_var_samp(ctx context.Co
 	}
 	res := resTmp.(*model.EnterpriseVarSampFields)
 	fc.Result = res
-	return ec.marshalOenterprise_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarSampFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarSampFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_aggregate_fields_variance(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAggregateFields) (ret graphql.Marshaler) {
@@ -8061,7 +7143,7 @@ func (ec *executionContext) _enterprise_aggregate_fields_variance(ctx context.Co
 	}
 	res := resTmp.(*model.EnterpriseVarianceFields)
 	fc.Result = res
-	return ec.marshalOenterprise_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarianceFields(ctx, field.Selections, res)
+	return ec.marshalOenterprise_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarianceFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_avg_fields_business_scope(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseAvgFields) (ret graphql.Marshaler) {
@@ -8443,9 +7525,9 @@ func (ec *executionContext) _enterprise_max_fields_association_review_by(ctx con
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_association_review_opinion(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -8507,9 +7589,9 @@ func (ec *executionContext) _enterprise_max_fields_association_review_time(ctx c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_brigade_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -8635,9 +7717,9 @@ func (ec *executionContext) _enterprise_max_fields_brigade_review_time(ctx conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_business_license_expiry_date(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -8667,9 +7749,9 @@ func (ec *executionContext) _enterprise_max_fields_business_license_expiry_date(
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_business_license_issuance_date(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -8699,9 +7781,9 @@ func (ec *executionContext) _enterprise_max_fields_business_license_issuance_dat
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_business_license_photo(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -8859,9 +7941,9 @@ func (ec *executionContext) _enterprise_max_fields_city_id(ctx context.Context, 
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -8891,9 +7973,9 @@ func (ec *executionContext) _enterprise_max_fields_create_at(ctx context.Context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -8955,9 +8037,9 @@ func (ec *executionContext) _enterprise_max_fields_delete_at(ctx context.Context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -9051,9 +8133,9 @@ func (ec *executionContext) _enterprise_max_fields_district_id(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_enterprise_address(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -9435,9 +8517,9 @@ func (ec *executionContext) _enterprise_max_fields_id(ctx context.Context, field
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_institution_category(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -9467,9 +8549,9 @@ func (ec *executionContext) _enterprise_max_fields_institution_category(ctx cont
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_legal_representative(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -9755,9 +8837,9 @@ func (ec *executionContext) _enterprise_max_fields_province_id(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_record_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -9787,9 +8869,9 @@ func (ec *executionContext) _enterprise_max_fields_record_at(ctx context.Context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_record_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -9947,9 +9029,9 @@ func (ec *executionContext) _enterprise_max_fields_update_at(ctx context.Context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMaxFields) (ret graphql.Marshaler) {
@@ -10011,9 +9093,9 @@ func (ec *executionContext) _enterprise_max_fields_update_time_in(ctx context.Co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_association_review_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -10043,9 +9125,9 @@ func (ec *executionContext) _enterprise_min_fields_association_review_by(ctx con
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_association_review_opinion(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -10107,9 +9189,9 @@ func (ec *executionContext) _enterprise_min_fields_association_review_time(ctx c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_brigade_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -10235,9 +9317,9 @@ func (ec *executionContext) _enterprise_min_fields_brigade_review_time(ctx conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_business_license_expiry_date(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -10267,9 +9349,9 @@ func (ec *executionContext) _enterprise_min_fields_business_license_expiry_date(
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_business_license_issuance_date(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -10299,9 +9381,9 @@ func (ec *executionContext) _enterprise_min_fields_business_license_issuance_dat
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_business_license_photo(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -10459,9 +9541,9 @@ func (ec *executionContext) _enterprise_min_fields_city_id(ctx context.Context, 
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -10491,9 +9573,9 @@ func (ec *executionContext) _enterprise_min_fields_create_at(ctx context.Context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -10555,9 +9637,9 @@ func (ec *executionContext) _enterprise_min_fields_delete_at(ctx context.Context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -10651,9 +9733,9 @@ func (ec *executionContext) _enterprise_min_fields_district_id(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_enterprise_address(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -11035,9 +10117,9 @@ func (ec *executionContext) _enterprise_min_fields_id(ctx context.Context, field
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_institution_category(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -11067,9 +10149,9 @@ func (ec *executionContext) _enterprise_min_fields_institution_category(ctx cont
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_legal_representative(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -11355,9 +10437,9 @@ func (ec *executionContext) _enterprise_min_fields_province_id(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_record_at(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -11387,9 +10469,9 @@ func (ec *executionContext) _enterprise_min_fields_record_at(ctx context.Context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_record_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -11547,9 +10629,9 @@ func (ec *executionContext) _enterprise_min_fields_update_at(ctx context.Context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMinFields) (ret graphql.Marshaler) {
@@ -11611,79 +10693,9 @@ func (ec *executionContext) _enterprise_min_fields_update_time_in(ctx context.Co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _enterprise_mutation_response_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "enterprise_mutation_response",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.AffectedRows, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int)
-	fc.Result = res
-	return ec.marshalNInt2int(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _enterprise_mutation_response_returning(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "enterprise_mutation_response",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Returning, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model.Enterprise)
-	fc.Result = res
-	return ec.marshalNenterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseᚄ(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_stddev_fields_business_scope(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseStddevFields) (ret graphql.Marshaler) {
@@ -12833,9 +11845,9 @@ func (ec *executionContext) _enterprise_sum_fields_city_id(ctx context.Context, 
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_sum_fields_display_number(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseSumFields) (ret graphql.Marshaler) {
@@ -12897,9 +11909,9 @@ func (ec *executionContext) _enterprise_sum_fields_district_id(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_sum_fields_enterprise_level(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseSumFields) (ret graphql.Marshaler) {
@@ -12993,9 +12005,9 @@ func (ec *executionContext) _enterprise_sum_fields_id(ctx context.Context, field
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_sum_fields_institution_category(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseSumFields) (ret graphql.Marshaler) {
@@ -13025,9 +12037,9 @@ func (ec *executionContext) _enterprise_sum_fields_institution_category(ctx cont
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_sum_fields_province_id(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseSumFields) (ret graphql.Marshaler) {
@@ -13057,9 +12069,9 @@ func (ec *executionContext) _enterprise_sum_fields_province_id(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalObigint2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _enterprise_sum_fields_score(ctx context.Context, field graphql.CollectedField, obj *model.EnterpriseSumFields) (ret graphql.Marshaler) {
@@ -14154,8 +13166,8 @@ func (ec *executionContext) _enterprise_variance_fields_score(ctx context.Contex
 
 // region    **************************** input.gotpl *****************************
 
-func (ec *executionContext) unmarshalInputBoolean_comparison_exp(ctx context.Context, obj interface{}) (model.BooleanComparisonExp, error) {
-	var it model.BooleanComparisonExp
+func (ec *executionContext) unmarshalInputBoolean_comparison_exp(ctx context.Context, obj interface{}) (model1.BooleanComparisonExp, error) {
+	var it model1.BooleanComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -14238,8 +13250,8 @@ func (ec *executionContext) unmarshalInputBoolean_comparison_exp(ctx context.Con
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputInt_comparison_exp(ctx context.Context, obj interface{}) (model.IntComparisonExp, error) {
-	var it model.IntComparisonExp
+func (ec *executionContext) unmarshalInputInt_comparison_exp(ctx context.Context, obj interface{}) (model1.IntComparisonExp, error) {
+	var it model1.IntComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -14322,8 +13334,8 @@ func (ec *executionContext) unmarshalInputInt_comparison_exp(ctx context.Context
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputString_comparison_exp(ctx context.Context, obj interface{}) (model.StringComparisonExp, error) {
-	var it model.StringComparisonExp
+func (ec *executionContext) unmarshalInputString_comparison_exp(ctx context.Context, obj interface{}) (model1.StringComparisonExp, error) {
+	var it model1.StringComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -14454,8 +13466,8 @@ func (ec *executionContext) unmarshalInputString_comparison_exp(ctx context.Cont
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInput_jsonb_comparison_exp(ctx context.Context, obj interface{}) (model.JsonbComparisonExp, error) {
-	var it model.JsonbComparisonExp
+func (ec *executionContext) unmarshalInput_jsonb_comparison_exp(ctx context.Context, obj interface{}) (model1.JsonbComparisonExp, error) {
+	var it model1.JsonbComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -14538,8 +13550,8 @@ func (ec *executionContext) unmarshalInput_jsonb_comparison_exp(ctx context.Cont
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Context, obj interface{}) (model.BigintComparisonExp, error) {
-	var it model.BigintComparisonExp
+func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Context, obj interface{}) (model1.BigintComparisonExp, error) {
+	var it model1.BigintComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -14548,7 +13560,7 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
-			it.Eq, err = ec.unmarshalObigint2ᚖstring(ctx, v)
+			it.Eq, err = ec.unmarshalObigint2ᚖint64(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14556,7 +13568,7 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
-			it.Gt, err = ec.unmarshalObigint2ᚖstring(ctx, v)
+			it.Gt, err = ec.unmarshalObigint2ᚖint64(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14564,7 +13576,7 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
-			it.Gte, err = ec.unmarshalObigint2ᚖstring(ctx, v)
+			it.Gte, err = ec.unmarshalObigint2ᚖint64(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14572,7 +13584,7 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
-			it.In, err = ec.unmarshalObigint2ᚕstringᚄ(ctx, v)
+			it.In, err = ec.unmarshalObigint2ᚕint64ᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14588,7 +13600,7 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
-			it.Lt, err = ec.unmarshalObigint2ᚖstring(ctx, v)
+			it.Lt, err = ec.unmarshalObigint2ᚖint64(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14596,7 +13608,7 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
-			it.Lte, err = ec.unmarshalObigint2ᚖstring(ctx, v)
+			it.Lte, err = ec.unmarshalObigint2ᚖint64(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14604,7 +13616,7 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
-			it.Neq, err = ec.unmarshalObigint2ᚖstring(ctx, v)
+			it.Neq, err = ec.unmarshalObigint2ᚖint64(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14612,7 +13624,7 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
-			it.Nin, err = ec.unmarshalObigint2ᚕstringᚄ(ctx, v)
+			it.Nin, err = ec.unmarshalObigint2ᚕint64ᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14632,7 +13644,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("avg"))
-			it.Avg, err = ec.unmarshalOenterprise_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseAvgOrderBy(ctx, v)
+			it.Avg, err = ec.unmarshalOenterprise_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseAvgOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14640,7 +13652,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("count"))
-			it.Count, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Count, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14648,7 +13660,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("max"))
-			it.Max, err = ec.unmarshalOenterprise_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMaxOrderBy(ctx, v)
+			it.Max, err = ec.unmarshalOenterprise_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseMaxOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14656,7 +13668,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("min"))
-			it.Min, err = ec.unmarshalOenterprise_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMinOrderBy(ctx, v)
+			it.Min, err = ec.unmarshalOenterprise_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseMinOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14664,7 +13676,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev"))
-			it.Stddev, err = ec.unmarshalOenterprise_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevOrderBy(ctx, v)
+			it.Stddev, err = ec.unmarshalOenterprise_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14672,7 +13684,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_pop"))
-			it.StddevPop, err = ec.unmarshalOenterprise_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevPopOrderBy(ctx, v)
+			it.StddevPop, err = ec.unmarshalOenterprise_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevPopOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14680,7 +13692,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_samp"))
-			it.StddevSamp, err = ec.unmarshalOenterprise_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevSampOrderBy(ctx, v)
+			it.StddevSamp, err = ec.unmarshalOenterprise_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevSampOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14688,7 +13700,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sum"))
-			it.Sum, err = ec.unmarshalOenterprise_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSumOrderBy(ctx, v)
+			it.Sum, err = ec.unmarshalOenterprise_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSumOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14696,7 +13708,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_pop"))
-			it.VarPop, err = ec.unmarshalOenterprise_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarPopOrderBy(ctx, v)
+			it.VarPop, err = ec.unmarshalOenterprise_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarPopOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14704,7 +13716,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_samp"))
-			it.VarSamp, err = ec.unmarshalOenterprise_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarSampOrderBy(ctx, v)
+			it.VarSamp, err = ec.unmarshalOenterprise_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarSampOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14712,35 +13724,7 @@ func (ec *executionContext) unmarshalInputenterprise_aggregate_order_by(ctx cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("variance"))
-			it.Variance, err = ec.unmarshalOenterprise_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarianceOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputenterprise_arr_rel_insert_input(ctx context.Context, obj interface{}) (model.EnterpriseArrRelInsertInput, error) {
-	var it model.EnterpriseArrRelInsertInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "data":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-			it.Data, err = ec.unmarshalNenterprise_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseInsertInputᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "on_conflict":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-			it.OnConflict, err = ec.unmarshalOenterprise_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOnConflict(ctx, v)
+			it.Variance, err = ec.unmarshalOenterprise_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarianceOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14760,7 +13744,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14768,7 +13752,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14776,7 +13760,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14784,7 +13768,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14792,7 +13776,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14800,7 +13784,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14808,7 +13792,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14816,7 +13800,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14824,7 +13808,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14832,7 +13816,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14840,7 +13824,7 @@ func (ec *executionContext) unmarshalInputenterprise_avg_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14860,7 +13844,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
-			it.And, err = ec.unmarshalOenterprise_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, v)
+			it.And, err = ec.unmarshalOenterprise_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14868,7 +13852,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
-			it.Not, err = ec.unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, v)
+			it.Not, err = ec.unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14876,7 +13860,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
-			it.Or, err = ec.unmarshalOenterprise_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, v)
+			it.Or, err = ec.unmarshalOenterprise_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14884,7 +13868,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_by"))
-			it.AssociationReviewBy, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			it.AssociationReviewBy, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14892,7 +13876,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_opinion"))
-			it.AssociationReviewOpinion, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.AssociationReviewOpinion, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14900,7 +13884,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_time"))
-			it.AssociationReviewTime, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			it.AssociationReviewTime, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14908,7 +13892,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_id"))
-			it.BrigadeID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.BrigadeID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14916,7 +13900,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_by"))
-			it.BrigadeReviewBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.BrigadeReviewBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14924,7 +13908,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_opinion"))
-			it.BrigadeReviewOpinion, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.BrigadeReviewOpinion, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14932,7 +13916,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_time"))
-			it.BrigadeReviewTime, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			it.BrigadeReviewTime, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14940,7 +13924,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_expiry_date"))
-			it.BusinessLicenseExpiryDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			it.BusinessLicenseExpiryDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14948,7 +13932,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_issuance_date"))
-			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14956,7 +13940,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_photo"))
-			it.BusinessLicensePhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.BusinessLicensePhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14964,7 +13948,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_photo"))
-			it.BusinessPhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.BusinessPhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14972,7 +13956,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐIntComparisonExp(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14980,7 +13964,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐIntComparisonExp(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14988,7 +13972,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBigintComparisonExp(ctx, v)
+			it.CityID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -14996,7 +13980,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_persons"))
-			it.ContactPersons, err = ec.unmarshalO_jsonb_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐJsonbComparisonExp(ctx, v)
+			it.ContactPersons, err = ec.unmarshalO_jsonb_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐJsonbComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15004,7 +13988,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			it.CreateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15012,7 +13996,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.CreateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15020,7 +14004,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			it.DeleteAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15028,7 +14012,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.DeleteBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15036,7 +14020,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐIntComparisonExp(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15044,7 +14028,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBigintComparisonExp(ctx, v)
+			it.DistrictID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15052,7 +14036,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_address"))
-			it.EnterpriseAddress, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.EnterpriseAddress, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15060,7 +14044,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_code"))
-			it.EnterpriseCode, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.EnterpriseCode, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15068,7 +14052,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.EnterpriseID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15076,7 +14060,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐIntComparisonExp(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15084,7 +14068,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.EnterpriseName, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15092,7 +14076,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐIntComparisonExp(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15100,7 +14084,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent"))
-			it.EntrustedAgent, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.EntrustedAgent, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15108,7 +14092,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card"))
-			it.EntrustedAgentIDCard, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.EntrustedAgentIDCard, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15116,7 +14100,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card_photo"))
-			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15124,7 +14108,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_phone"))
-			it.EntrustedAgentPhone, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.EntrustedAgentPhone, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15132,7 +14116,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fax_number"))
-			it.FaxNumber, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.FaxNumber, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15140,7 +14124,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBigintComparisonExp(ctx, v)
+			it.ID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15148,7 +14132,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBigintComparisonExp(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15156,7 +14140,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_black"))
-			it.IsBlack, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBooleanComparisonExp(ctx, v)
+			it.IsBlack, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15164,7 +14148,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
-			it.IsDeleted, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBooleanComparisonExp(ctx, v)
+			it.IsDeleted, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15172,7 +14156,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_input"))
-			it.IsInput, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBooleanComparisonExp(ctx, v)
+			it.IsInput, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15180,7 +14164,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_install"))
-			it.IsInstall, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBooleanComparisonExp(ctx, v)
+			it.IsInstall, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15188,7 +14172,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_upload_province"))
-			it.IsUploadProvince, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBooleanComparisonExp(ctx, v)
+			it.IsUploadProvince, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15196,7 +14180,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative"))
-			it.LegalRepresentative, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.LegalRepresentative, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15204,7 +14188,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card"))
-			it.LegalRepresentativeIDCard, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.LegalRepresentativeIDCard, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15212,7 +14196,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card_photo"))
-			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15220,7 +14204,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_phone"))
-			it.LegalRepresentativePhone, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.LegalRepresentativePhone, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15228,7 +14212,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operating_license_photo"))
-			it.OperatingLicensePhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.OperatingLicensePhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15236,7 +14220,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code"))
-			it.OrganizationCode, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.OrganizationCode, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15244,7 +14228,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code_certificate_photo"))
-			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15252,7 +14236,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_station_id"))
-			it.PoliceStationID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.PoliceStationID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15260,7 +14244,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBigintComparisonExp(ctx, v)
+			it.ProvinceID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15268,7 +14252,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			it.RecordAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15276,7 +14260,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_by"))
-			it.RecordBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.RecordBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15284,7 +14268,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.Remarks, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15292,7 +14276,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐIntComparisonExp(ctx, v)
+			it.Score, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15300,7 +14284,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("superior_enterprise_id"))
-			it.SuperiorEnterpriseID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.SuperiorEnterpriseID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15308,7 +14292,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			it.UpdateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15316,7 +14300,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx, v)
+			it.UpdateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15324,567 +14308,7 @@ func (ec *executionContext) unmarshalInputenterprise_bool_exp(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputenterprise_inc_input(ctx context.Context, obj interface{}) (model.EnterpriseIncInput, error) {
-	var it model.EnterpriseIncInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "business_scope":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "check_status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "city_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "display_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "district_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_level":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_nature":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "institution_category":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "province_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "score":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputenterprise_insert_input(ctx context.Context, obj interface{}) (model.EnterpriseInsertInput, error) {
-	var it model.EnterpriseInsertInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "association_review_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_by"))
-			it.AssociationReviewBy, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "association_review_opinion":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_opinion"))
-			it.AssociationReviewOpinion, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "association_review_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_time"))
-			it.AssociationReviewTime, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "brigade_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_id"))
-			it.BrigadeID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "brigade_review_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_by"))
-			it.BrigadeReviewBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "brigade_review_opinion":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_opinion"))
-			it.BrigadeReviewOpinion, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "brigade_review_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_time"))
-			it.BrigadeReviewTime, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_license_expiry_date":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_expiry_date"))
-			it.BusinessLicenseExpiryDate, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_license_issuance_date":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_issuance_date"))
-			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_license_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_photo"))
-			it.BusinessLicensePhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_photo"))
-			it.BusinessPhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_scope":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "check_status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "city_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "contact_persons":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_persons"))
-			it.ContactPersons, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "display_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "district_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_address":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_address"))
-			it.EnterpriseAddress, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_code"))
-			it.EnterpriseCode, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_level":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_nature":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "entrusted_agent":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent"))
-			it.EntrustedAgent, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "entrusted_agent_id_card":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card"))
-			it.EntrustedAgentIDCard, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "entrusted_agent_id_card_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card_photo"))
-			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "entrusted_agent_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_phone"))
-			it.EntrustedAgentPhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fax_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fax_number"))
-			it.FaxNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "institution_category":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_black":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_black"))
-			it.IsBlack, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_deleted":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
-			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_input":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_input"))
-			it.IsInput, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_install":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_install"))
-			it.IsInstall, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_upload_province":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_upload_province"))
-			it.IsUploadProvince, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "legal_representative":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative"))
-			it.LegalRepresentative, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "legal_representative_id_card":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card"))
-			it.LegalRepresentativeIDCard, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "legal_representative_id_card_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card_photo"))
-			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "legal_representative_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_phone"))
-			it.LegalRepresentativePhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operating_license_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operating_license_photo"))
-			it.OperatingLicensePhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "organization_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code"))
-			it.OrganizationCode, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "organization_code_certificate_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code_certificate_photo"))
-			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_station_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_station_id"))
-			it.PoliceStationID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "province_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "record_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "record_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_by"))
-			it.RecordBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "remarks":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "score":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "superior_enterprise_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("superior_enterprise_id"))
-			it.SuperiorEnterpriseID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_time_in":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15904,7 +14328,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_by"))
-			it.AssociationReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.AssociationReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15912,7 +14336,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_opinion"))
-			it.AssociationReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.AssociationReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15920,7 +14344,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_time"))
-			it.AssociationReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.AssociationReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15928,7 +14352,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_id"))
-			it.BrigadeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15936,7 +14360,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_by"))
-			it.BrigadeReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15944,7 +14368,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_opinion"))
-			it.BrigadeReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15952,7 +14376,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_time"))
-			it.BrigadeReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15960,7 +14384,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_expiry_date"))
-			it.BusinessLicenseExpiryDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessLicenseExpiryDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15968,7 +14392,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_issuance_date"))
-			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15976,7 +14400,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_photo"))
-			it.BusinessLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15984,7 +14408,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_photo"))
-			it.BusinessPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -15992,7 +14416,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16000,7 +14424,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16008,7 +14432,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16016,7 +14440,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16024,7 +14448,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16032,7 +14456,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16040,7 +14464,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16048,7 +14472,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16056,7 +14480,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16064,7 +14488,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_address"))
-			it.EnterpriseAddress, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseAddress, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16072,7 +14496,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_code"))
-			it.EnterpriseCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16080,7 +14504,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16088,7 +14512,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16096,7 +14520,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16104,7 +14528,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16112,7 +14536,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent"))
-			it.EntrustedAgent, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgent, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16120,7 +14544,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card"))
-			it.EntrustedAgentIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgentIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16128,7 +14552,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card_photo"))
-			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16136,7 +14560,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_phone"))
-			it.EntrustedAgentPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgentPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16144,7 +14568,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fax_number"))
-			it.FaxNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.FaxNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16152,7 +14576,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16160,7 +14584,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16168,7 +14592,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative"))
-			it.LegalRepresentative, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentative, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16176,7 +14600,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card"))
-			it.LegalRepresentativeIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentativeIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16184,7 +14608,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card_photo"))
-			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16192,7 +14616,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_phone"))
-			it.LegalRepresentativePhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentativePhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16200,7 +14624,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operating_license_photo"))
-			it.OperatingLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.OperatingLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16208,7 +14632,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code"))
-			it.OrganizationCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.OrganizationCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16216,7 +14640,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code_certificate_photo"))
-			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16224,7 +14648,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_station_id"))
-			it.PoliceStationID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.PoliceStationID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16232,7 +14656,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16240,7 +14664,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.RecordAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16248,7 +14672,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_by"))
-			it.RecordBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.RecordBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16256,7 +14680,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16264,7 +14688,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16272,7 +14696,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("superior_enterprise_id"))
-			it.SuperiorEnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.SuperiorEnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16280,7 +14704,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16288,7 +14712,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16296,7 +14720,7 @@ func (ec *executionContext) unmarshalInputenterprise_max_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16316,7 +14740,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_by"))
-			it.AssociationReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.AssociationReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16324,7 +14748,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_opinion"))
-			it.AssociationReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.AssociationReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16332,7 +14756,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_time"))
-			it.AssociationReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.AssociationReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16340,7 +14764,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_id"))
-			it.BrigadeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16348,7 +14772,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_by"))
-			it.BrigadeReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16356,7 +14780,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_opinion"))
-			it.BrigadeReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16364,7 +14788,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_time"))
-			it.BrigadeReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16372,7 +14796,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_expiry_date"))
-			it.BusinessLicenseExpiryDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessLicenseExpiryDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16380,7 +14804,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_issuance_date"))
-			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16388,7 +14812,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_photo"))
-			it.BusinessLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16396,7 +14820,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_photo"))
-			it.BusinessPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16404,7 +14828,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16412,7 +14836,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16420,7 +14844,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16428,7 +14852,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16436,7 +14860,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16444,7 +14868,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16452,7 +14876,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16460,7 +14884,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16468,7 +14892,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16476,7 +14900,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_address"))
-			it.EnterpriseAddress, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseAddress, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16484,7 +14908,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_code"))
-			it.EnterpriseCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16492,7 +14916,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16500,7 +14924,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16508,7 +14932,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16516,7 +14940,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16524,7 +14948,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent"))
-			it.EntrustedAgent, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgent, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16532,7 +14956,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card"))
-			it.EntrustedAgentIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgentIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16540,7 +14964,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card_photo"))
-			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16548,7 +14972,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_phone"))
-			it.EntrustedAgentPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgentPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16556,7 +14980,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fax_number"))
-			it.FaxNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.FaxNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16564,7 +14988,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16572,7 +14996,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16580,7 +15004,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative"))
-			it.LegalRepresentative, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentative, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16588,7 +15012,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card"))
-			it.LegalRepresentativeIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentativeIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16596,7 +15020,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card_photo"))
-			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16604,7 +15028,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_phone"))
-			it.LegalRepresentativePhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentativePhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16612,7 +15036,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operating_license_photo"))
-			it.OperatingLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.OperatingLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16620,7 +15044,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code"))
-			it.OrganizationCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.OrganizationCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16628,7 +15052,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code_certificate_photo"))
-			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16636,7 +15060,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_station_id"))
-			it.PoliceStationID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.PoliceStationID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16644,7 +15068,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16652,7 +15076,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.RecordAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16660,7 +15084,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_by"))
-			it.RecordBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.RecordBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16668,7 +15092,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16676,7 +15100,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16684,7 +15108,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("superior_enterprise_id"))
-			it.SuperiorEnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.SuperiorEnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16692,7 +15116,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16700,7 +15124,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16708,71 +15132,7 @@ func (ec *executionContext) unmarshalInputenterprise_min_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputenterprise_obj_rel_insert_input(ctx context.Context, obj interface{}) (model.EnterpriseObjRelInsertInput, error) {
-	var it model.EnterpriseObjRelInsertInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "data":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-			it.Data, err = ec.unmarshalNenterprise_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseInsertInput(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "on_conflict":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-			it.OnConflict, err = ec.unmarshalOenterprise_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOnConflict(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputenterprise_on_conflict(ctx context.Context, obj interface{}) (model.EnterpriseOnConflict, error) {
-	var it model.EnterpriseOnConflict
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "constraint":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("constraint"))
-			it.Constraint, err = ec.unmarshalNenterprise_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseConstraint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_columns":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_columns"))
-			it.UpdateColumns, err = ec.unmarshalNenterprise_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseUpdateColumnᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "where":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-			it.Where, err = ec.unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16792,7 +15152,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_by"))
-			it.AssociationReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.AssociationReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16800,7 +15160,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_opinion"))
-			it.AssociationReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.AssociationReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16808,7 +15168,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_time"))
-			it.AssociationReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.AssociationReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16816,7 +15176,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_id"))
-			it.BrigadeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16824,7 +15184,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_by"))
-			it.BrigadeReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeReviewBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16832,7 +15192,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_opinion"))
-			it.BrigadeReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeReviewOpinion, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16840,7 +15200,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_time"))
-			it.BrigadeReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BrigadeReviewTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16848,7 +15208,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_expiry_date"))
-			it.BusinessLicenseExpiryDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessLicenseExpiryDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16856,7 +15216,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_issuance_date"))
-			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16864,7 +15224,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_photo"))
-			it.BusinessLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16872,7 +15232,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_photo"))
-			it.BusinessPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16880,7 +15240,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16888,7 +15248,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16896,7 +15256,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16904,7 +15264,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_persons"))
-			it.ContactPersons, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ContactPersons, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16912,7 +15272,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16920,7 +15280,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16928,7 +15288,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16936,7 +15296,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16944,7 +15304,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16952,7 +15312,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16960,7 +15320,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_address"))
-			it.EnterpriseAddress, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseAddress, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16968,7 +15328,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_code"))
-			it.EnterpriseCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16976,7 +15336,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16984,7 +15344,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -16992,7 +15352,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17000,7 +15360,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17008,7 +15368,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent"))
-			it.EntrustedAgent, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgent, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17016,7 +15376,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card"))
-			it.EntrustedAgentIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgentIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17024,7 +15384,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card_photo"))
-			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17032,7 +15392,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_phone"))
-			it.EntrustedAgentPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EntrustedAgentPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17040,7 +15400,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fax_number"))
-			it.FaxNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.FaxNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17048,7 +15408,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17056,7 +15416,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17064,7 +15424,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_black"))
-			it.IsBlack, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.IsBlack, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17072,7 +15432,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
-			it.IsDeleted, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.IsDeleted, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17080,7 +15440,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_input"))
-			it.IsInput, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.IsInput, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17088,7 +15448,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_install"))
-			it.IsInstall, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.IsInstall, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17096,7 +15456,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_upload_province"))
-			it.IsUploadProvince, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.IsUploadProvince, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17104,7 +15464,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative"))
-			it.LegalRepresentative, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentative, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17112,7 +15472,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card"))
-			it.LegalRepresentativeIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentativeIDCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17120,7 +15480,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card_photo"))
-			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17128,7 +15488,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_phone"))
-			it.LegalRepresentativePhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.LegalRepresentativePhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17136,7 +15496,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operating_license_photo"))
-			it.OperatingLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.OperatingLicensePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17144,7 +15504,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code"))
-			it.OrganizationCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.OrganizationCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17152,7 +15512,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code_certificate_photo"))
-			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17160,7 +15520,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_station_id"))
-			it.PoliceStationID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.PoliceStationID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17168,7 +15528,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17176,7 +15536,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.RecordAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17184,7 +15544,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_by"))
-			it.RecordBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.RecordBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17192,7 +15552,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17200,7 +15560,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17208,7 +15568,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("superior_enterprise_id"))
-			it.SuperiorEnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.SuperiorEnterpriseID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17216,7 +15576,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17224,7 +15584,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17232,487 +15592,7 @@ func (ec *executionContext) unmarshalInputenterprise_order_by(ctx context.Contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputenterprise_pk_columns_input(ctx context.Context, obj interface{}) (model.EnterprisePkColumnsInput, error) {
-	var it model.EnterprisePkColumnsInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalNbigint2string(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputenterprise_set_input(ctx context.Context, obj interface{}) (model.EnterpriseSetInput, error) {
-	var it model.EnterpriseSetInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "association_review_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_by"))
-			it.AssociationReviewBy, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "association_review_opinion":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_opinion"))
-			it.AssociationReviewOpinion, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "association_review_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("association_review_time"))
-			it.AssociationReviewTime, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "brigade_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_id"))
-			it.BrigadeID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "brigade_review_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_by"))
-			it.BrigadeReviewBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "brigade_review_opinion":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_opinion"))
-			it.BrigadeReviewOpinion, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "brigade_review_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brigade_review_time"))
-			it.BrigadeReviewTime, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_license_expiry_date":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_expiry_date"))
-			it.BusinessLicenseExpiryDate, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_license_issuance_date":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_issuance_date"))
-			it.BusinessLicenseIssuanceDate, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_license_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_license_photo"))
-			it.BusinessLicensePhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_photo"))
-			it.BusinessPhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "business_scope":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "check_status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "city_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "contact_persons":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_persons"))
-			it.ContactPersons, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "display_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "district_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_address":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_address"))
-			it.EnterpriseAddress, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_code"))
-			it.EnterpriseCode, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
-			it.EnterpriseID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_level":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_name"))
-			it.EnterpriseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_nature":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "entrusted_agent":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent"))
-			it.EntrustedAgent, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "entrusted_agent_id_card":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card"))
-			it.EntrustedAgentIDCard, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "entrusted_agent_id_card_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_id_card_photo"))
-			it.EntrustedAgentIDCardPhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "entrusted_agent_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("entrusted_agent_phone"))
-			it.EntrustedAgentPhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "fax_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("fax_number"))
-			it.FaxNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "institution_category":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_black":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_black"))
-			it.IsBlack, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_deleted":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
-			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_input":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_input"))
-			it.IsInput, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_install":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_install"))
-			it.IsInstall, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_upload_province":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_upload_province"))
-			it.IsUploadProvince, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "legal_representative":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative"))
-			it.LegalRepresentative, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "legal_representative_id_card":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card"))
-			it.LegalRepresentativeIDCard, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "legal_representative_id_card_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_id_card_photo"))
-			it.LegalRepresentativeIDCardPhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "legal_representative_phone":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("legal_representative_phone"))
-			it.LegalRepresentativePhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operating_license_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operating_license_photo"))
-			it.OperatingLicensePhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "organization_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code"))
-			it.OrganizationCode, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "organization_code_certificate_photo":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("organization_code_certificate_photo"))
-			it.OrganizationCodeCertificatePhoto, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "police_station_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("police_station_id"))
-			it.PoliceStationID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "province_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalObigint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "record_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "record_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_by"))
-			it.RecordBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "remarks":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "score":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "superior_enterprise_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("superior_enterprise_id"))
-			it.SuperiorEnterpriseID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_time_in":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17732,7 +15612,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17740,7 +15620,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17748,7 +15628,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17756,7 +15636,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17764,7 +15644,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17772,7 +15652,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17780,7 +15660,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17788,7 +15668,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17796,7 +15676,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17804,7 +15684,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17812,7 +15692,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_order_by(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17832,7 +15712,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17840,7 +15720,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17848,7 +15728,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17856,7 +15736,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17864,7 +15744,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17872,7 +15752,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17880,7 +15760,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17888,7 +15768,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17896,7 +15776,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17904,7 +15784,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17912,7 +15792,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_pop_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17932,7 +15812,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17940,7 +15820,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17948,7 +15828,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17956,7 +15836,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17964,7 +15844,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17972,7 +15852,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17980,7 +15860,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17988,7 +15868,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -17996,7 +15876,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18004,7 +15884,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18012,7 +15892,7 @@ func (ec *executionContext) unmarshalInputenterprise_stddev_samp_order_by(ctx co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18032,7 +15912,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18040,7 +15920,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18048,7 +15928,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18056,7 +15936,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18064,7 +15944,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18072,7 +15952,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18080,7 +15960,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18088,7 +15968,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18096,7 +15976,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18104,7 +15984,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18112,7 +15992,7 @@ func (ec *executionContext) unmarshalInputenterprise_sum_order_by(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18132,7 +16012,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18140,7 +16020,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18148,7 +16028,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18156,7 +16036,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18164,7 +16044,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18172,7 +16052,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18180,7 +16060,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18188,7 +16068,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18196,7 +16076,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18204,7 +16084,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18212,7 +16092,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_pop_order_by(ctx contex
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18232,7 +16112,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18240,7 +16120,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18248,7 +16128,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18256,7 +16136,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18264,7 +16144,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18272,7 +16152,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18280,7 +16160,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18288,7 +16168,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18296,7 +16176,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18304,7 +16184,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18312,7 +16192,7 @@ func (ec *executionContext) unmarshalInputenterprise_var_samp_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18332,7 +16212,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("business_scope"))
-			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.BusinessScope, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18340,7 +16220,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("check_status"))
-			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CheckStatus, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18348,7 +16228,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
-			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18356,7 +16236,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("display_number"))
-			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DisplayNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18364,7 +16244,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("district_id"))
-			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.DistrictID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18372,7 +16252,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_level"))
-			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseLevel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18380,7 +16260,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_nature"))
-			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.EnterpriseNature, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18388,7 +16268,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18396,7 +16276,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("institution_category"))
-			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.InstitutionCategory, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18404,7 +16284,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
-			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18412,7 +16292,7 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score"))
-			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx, v)
+			it.Score, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18422,8 +16302,8 @@ func (ec *executionContext) unmarshalInputenterprise_variance_order_by(ctx conte
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context.Context, obj interface{}) (model.TimestamptzComparisonExp, error) {
-	var it model.TimestamptzComparisonExp
+func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context.Context, obj interface{}) (model1.TimestamptzComparisonExp, error) {
+	var it model1.TimestamptzComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -18432,7 +16312,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
-			it.Eq, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
+			it.Eq, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18440,7 +16320,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
-			it.Gt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
+			it.Gt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18448,7 +16328,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
-			it.Gte, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
+			it.Gte, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18456,7 +16336,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
-			it.In, err = ec.unmarshalOtimestamptz2ᚕstringᚄ(ctx, v)
+			it.In, err = ec.unmarshalOtimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18472,7 +16352,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
-			it.Lt, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
+			it.Lt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18480,7 +16360,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
-			it.Lte, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
+			it.Lte, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18488,7 +16368,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
-			it.Neq, err = ec.unmarshalOtimestamptz2ᚖstring(ctx, v)
+			it.Neq, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18496,7 +16376,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
-			it.Nin, err = ec.unmarshalOtimestamptz2ᚕstringᚄ(ctx, v)
+			it.Nin, err = ec.unmarshalOtimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -18513,44 +16393,6 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 // endregion ************************** interface.gotpl ***************************
 
 // region    **************************** object.gotpl ****************************
-
-var mutationImplementors = []string{"Mutation"}
-
-func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, mutationImplementors)
-
-	ctx = graphql.WithFieldContext(ctx, &graphql.FieldContext{
-		Object: "Mutation",
-	})
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("Mutation")
-		case "delete_enterprise":
-			out.Values[i] = ec._Mutation_delete_enterprise(ctx, field)
-		case "delete_enterprise_by_pk":
-			out.Values[i] = ec._Mutation_delete_enterprise_by_pk(ctx, field)
-		case "insert_enterprise":
-			out.Values[i] = ec._Mutation_insert_enterprise(ctx, field)
-		case "insert_enterprise_one":
-			out.Values[i] = ec._Mutation_insert_enterprise_one(ctx, field)
-		case "update_enterprise":
-			out.Values[i] = ec._Mutation_update_enterprise(ctx, field)
-		case "update_enterprise_by_pk":
-			out.Values[i] = ec._Mutation_update_enterprise_by_pk(ctx, field)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
 
 var queryImplementors = []string{"Query"}
 
@@ -19366,38 +17208,6 @@ func (ec *executionContext) _enterprise_min_fields(ctx context.Context, sel ast.
 	return out
 }
 
-var enterprise_mutation_responseImplementors = []string{"enterprise_mutation_response"}
-
-func (ec *executionContext) _enterprise_mutation_response(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseMutationResponse) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, enterprise_mutation_responseImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("enterprise_mutation_response")
-		case "affected_rows":
-			out.Values[i] = ec._enterprise_mutation_response_affected_rows(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "returning":
-			out.Values[i] = ec._enterprise_mutation_response_returning(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
 var enterprise_stddev_fieldsImplementors = []string{"enterprise_stddev_fields"}
 
 func (ec *executionContext) _enterprise_stddev_fields(ctx context.Context, sel ast.SelectionSet, obj *model.EnterpriseStddevFields) graphql.Marshaler {
@@ -19999,13 +17809,13 @@ func (ec *executionContext) marshalN_jsonb2string(ctx context.Context, sel ast.S
 	return res
 }
 
-func (ec *executionContext) unmarshalNbigint2string(ctx context.Context, v interface{}) (string, error) {
-	res, err := graphql.UnmarshalString(v)
+func (ec *executionContext) unmarshalNbigint2int64(ctx context.Context, v interface{}) (int64, error) {
+	res, err := graphql.UnmarshalInt64(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNbigint2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
-	res := graphql.MarshalString(v)
+func (ec *executionContext) marshalNbigint2int64(ctx context.Context, sel ast.SelectionSet, v int64) graphql.Marshaler {
+	res := graphql.MarshalInt64(v)
 	if res == graphql.Null {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -20014,7 +17824,7 @@ func (ec *executionContext) marshalNbigint2string(ctx context.Context, sel ast.S
 	return res
 }
 
-func (ec *executionContext) marshalNenterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Enterprise) graphql.Marshaler {
+func (ec *executionContext) marshalNenterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.Enterprise) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -20038,7 +17848,7 @@ func (ec *executionContext) marshalNenterprise2ᚕᚖVehicleSupervisionᚋintern
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterprise(ctx, sel, v[i])
+			ret[i] = ec.marshalNenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterprise(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -20051,7 +17861,7 @@ func (ec *executionContext) marshalNenterprise2ᚕᚖVehicleSupervisionᚋintern
 	return ret
 }
 
-func (ec *executionContext) marshalNenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterprise(ctx context.Context, sel ast.SelectionSet, v *model.Enterprise) graphql.Marshaler {
+func (ec *executionContext) marshalNenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterprise(ctx context.Context, sel ast.SelectionSet, v *model.Enterprise) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -20061,11 +17871,11 @@ func (ec *executionContext) marshalNenterprise2ᚖVehicleSupervisionᚋinternal�
 	return ec._enterprise(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalNenterprise_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseAggregate(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseAggregate) graphql.Marshaler {
+func (ec *executionContext) marshalNenterprise_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseAggregate(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseAggregate) graphql.Marshaler {
 	return ec._enterprise_aggregate(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNenterprise_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseAggregate(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAggregate) graphql.Marshaler {
+func (ec *executionContext) marshalNenterprise_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseAggregate(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAggregate) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -20075,147 +17885,34 @@ func (ec *executionContext) marshalNenterprise_aggregate2ᚖVehicleSupervision�
 	return ec._enterprise_aggregate(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNenterprise_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx context.Context, v interface{}) (model.EnterpriseBoolExp, error) {
-	res, err := ec.unmarshalInputenterprise_bool_exp(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNenterprise_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseConstraint(ctx context.Context, v interface{}) (model.EnterpriseConstraint, error) {
-	var res model.EnterpriseConstraint
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNenterprise_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseConstraint(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseConstraint) graphql.Marshaler {
-	return v
-}
-
-func (ec *executionContext) unmarshalNenterprise_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseInsertInput(ctx context.Context, v interface{}) (model.EnterpriseInsertInput, error) {
-	res, err := ec.unmarshalInputenterprise_insert_input(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNenterprise_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.EnterpriseInsertInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.EnterpriseInsertInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNenterprise_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseInsertInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNenterprise_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseInsertInput(ctx context.Context, v interface{}) (*model.EnterpriseInsertInput, error) {
-	res, err := ec.unmarshalInputenterprise_insert_input(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNenterprise_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseOrderBy, error) {
+func (ec *executionContext) unmarshalNenterprise_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseOrderBy, error) {
 	res, err := ec.unmarshalInputenterprise_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNenterprise_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterprisePkColumnsInput(ctx context.Context, v interface{}) (model.EnterprisePkColumnsInput, error) {
-	res, err := ec.unmarshalInputenterprise_pk_columns_input(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNenterprise_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSelectColumn(ctx context.Context, v interface{}) (model.EnterpriseSelectColumn, error) {
+func (ec *executionContext) unmarshalNenterprise_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSelectColumn(ctx context.Context, v interface{}) (model.EnterpriseSelectColumn, error) {
 	var res model.EnterpriseSelectColumn
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNenterprise_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseSelectColumn) graphql.Marshaler {
+func (ec *executionContext) marshalNenterprise_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseSelectColumn) graphql.Marshaler {
 	return v
 }
 
-func (ec *executionContext) unmarshalNenterprise_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseUpdateColumn(ctx context.Context, v interface{}) (model.EnterpriseUpdateColumn, error) {
-	var res model.EnterpriseUpdateColumn
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
+func (ec *executionContext) unmarshalNtimestamptz2ᚖtimeᚐTime(ctx context.Context, v interface{}) (*time.Time, error) {
+	res, err := scalar.UnmarshalTimestamptz(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNenterprise_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.EnterpriseUpdateColumn) graphql.Marshaler {
-	return v
-}
-
-func (ec *executionContext) unmarshalNenterprise_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.EnterpriseUpdateColumn, error) {
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
+func (ec *executionContext) marshalNtimestamptz2ᚖtimeᚐTime(ctx context.Context, sel ast.SelectionSet, v *time.Time) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
 		}
+		return graphql.Null
 	}
-	var err error
-	res := make([]model.EnterpriseUpdateColumn, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNenterprise_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseUpdateColumn(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalNenterprise_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.EnterpriseUpdateColumn) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNenterprise_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseUpdateColumn(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
-func (ec *executionContext) unmarshalNtimestamptz2string(ctx context.Context, v interface{}) (string, error) {
-	res, err := graphql.UnmarshalString(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNtimestamptz2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
-	res := graphql.MarshalString(v)
+	res := scalar.MarshalTimestamptz(*v)
 	if res == graphql.Null {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -20284,7 +17981,7 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return graphql.MarshalBoolean(*v)
 }
 
-func (ec *executionContext) unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBooleanComparisonExp(ctx context.Context, v interface{}) (*model.BooleanComparisonExp, error) {
+func (ec *executionContext) unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx context.Context, v interface{}) (*model1.BooleanComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20358,7 +18055,7 @@ func (ec *executionContext) marshalOInt2ᚖint(ctx context.Context, sel ast.Sele
 	return graphql.MarshalInt(*v)
 }
 
-func (ec *executionContext) unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐIntComparisonExp(ctx context.Context, v interface{}) (*model.IntComparisonExp, error) {
+func (ec *executionContext) unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx context.Context, v interface{}) (*model1.IntComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20426,7 +18123,7 @@ func (ec *executionContext) marshalOString2ᚖstring(ctx context.Context, sel as
 	return graphql.MarshalString(*v)
 }
 
-func (ec *executionContext) unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐStringComparisonExp(ctx context.Context, v interface{}) (*model.StringComparisonExp, error) {
+func (ec *executionContext) unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx context.Context, v interface{}) (*model1.StringComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20659,7 +18356,7 @@ func (ec *executionContext) marshalO_jsonb2ᚖstring(ctx context.Context, sel as
 	return graphql.MarshalString(*v)
 }
 
-func (ec *executionContext) unmarshalO_jsonb_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐJsonbComparisonExp(ctx context.Context, v interface{}) (*model.JsonbComparisonExp, error) {
+func (ec *executionContext) unmarshalO_jsonb_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐJsonbComparisonExp(ctx context.Context, v interface{}) (*model1.JsonbComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20667,7 +18364,7 @@ func (ec *executionContext) unmarshalO_jsonb_comparison_exp2ᚖVehicleSupervisio
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalObigint2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
+func (ec *executionContext) unmarshalObigint2ᚕint64ᚄ(ctx context.Context, v interface{}) ([]int64, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20680,10 +18377,10 @@ func (ec *executionContext) unmarshalObigint2ᚕstringᚄ(ctx context.Context, v
 		}
 	}
 	var err error
-	res := make([]string, len(vSlice))
+	res := make([]int64, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNbigint2string(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNbigint2int64(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -20691,34 +18388,34 @@ func (ec *executionContext) unmarshalObigint2ᚕstringᚄ(ctx context.Context, v
 	return res, nil
 }
 
-func (ec *executionContext) marshalObigint2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
+func (ec *executionContext) marshalObigint2ᚕint64ᚄ(ctx context.Context, sel ast.SelectionSet, v []int64) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	ret := make(graphql.Array, len(v))
 	for i := range v {
-		ret[i] = ec.marshalNbigint2string(ctx, sel, v[i])
+		ret[i] = ec.marshalNbigint2int64(ctx, sel, v[i])
 	}
 
 	return ret
 }
 
-func (ec *executionContext) unmarshalObigint2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
+func (ec *executionContext) unmarshalObigint2ᚖint64(ctx context.Context, v interface{}) (*int64, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := graphql.UnmarshalString(v)
+	res, err := graphql.UnmarshalInt64(v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalObigint2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
+func (ec *executionContext) marshalObigint2ᚖint64(ctx context.Context, sel ast.SelectionSet, v *int64) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return graphql.MarshalString(*v)
+	return graphql.MarshalInt64(*v)
 }
 
-func (ec *executionContext) unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐBigintComparisonExp(ctx context.Context, v interface{}) (*model.BigintComparisonExp, error) {
+func (ec *executionContext) unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx context.Context, v interface{}) (*model1.BigintComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20726,28 +18423,28 @@ func (ec *executionContext) unmarshalObigint_comparison_exp2ᚖVehicleSupervisio
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterprise(ctx context.Context, sel ast.SelectionSet, v *model.Enterprise) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterprise(ctx context.Context, sel ast.SelectionSet, v *model.Enterprise) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOenterprise_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAggregateFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAggregateFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_aggregate_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOenterprise_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAvgFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseAvgFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_avg_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseAvgOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseAvgOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseAvgOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseAvgOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20755,7 +18452,7 @@ func (ec *executionContext) unmarshalOenterprise_avg_order_by2ᚖVehicleSupervis
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOenterprise_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx context.Context, v interface{}) ([]*model.EnterpriseBoolExp, error) {
+func (ec *executionContext) unmarshalOenterprise_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx context.Context, v interface{}) ([]*model.EnterpriseBoolExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20771,7 +18468,7 @@ func (ec *executionContext) unmarshalOenterprise_bool_exp2ᚕᚖVehicleSupervisi
 	res := make([]*model.EnterpriseBoolExp, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, vSlice[i])
+		res[i], err = ec.unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -20779,7 +18476,7 @@ func (ec *executionContext) unmarshalOenterprise_bool_exp2ᚕᚖVehicleSupervisi
 	return res, nil
 }
 
-func (ec *executionContext) unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx context.Context, v interface{}) (*model.EnterpriseBoolExp, error) {
+func (ec *executionContext) unmarshalOenterprise_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseBoolExp(ctx context.Context, v interface{}) (*model.EnterpriseBoolExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20787,22 +18484,14 @@ func (ec *executionContext) unmarshalOenterprise_bool_exp2ᚖVehicleSupervision�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOenterprise_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseIncInput(ctx context.Context, v interface{}) (*model.EnterpriseIncInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputenterprise_inc_input(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOenterprise_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseMaxFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseMaxFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_max_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMaxOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseMaxOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseMaxOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseMaxOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20810,14 +18499,14 @@ func (ec *executionContext) unmarshalOenterprise_max_order_by2ᚖVehicleSupervis
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOenterprise_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMinFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseMinFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseMinFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseMinFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_min_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMinOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseMinOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseMinOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseMinOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20825,22 +18514,7 @@ func (ec *executionContext) unmarshalOenterprise_min_order_by2ᚖVehicleSupervis
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOenterprise_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseMutationResponse) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._enterprise_mutation_response(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOenterprise_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOnConflict(ctx context.Context, v interface{}) (*model.EnterpriseOnConflict, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputenterprise_on_conflict(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalOenterprise_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOrderByᚄ(ctx context.Context, v interface{}) ([]*model.EnterpriseOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseOrderByᚄ(ctx context.Context, v interface{}) ([]*model.EnterpriseOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20856,7 +18530,7 @@ func (ec *executionContext) unmarshalOenterprise_order_by2ᚕᚖVehicleSupervisi
 	res := make([]*model.EnterpriseOrderBy, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNenterprise_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseOrderBy(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNenterprise_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseOrderBy(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -20864,7 +18538,7 @@ func (ec *executionContext) unmarshalOenterprise_order_by2ᚕᚖVehicleSupervisi
 	return res, nil
 }
 
-func (ec *executionContext) unmarshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.EnterpriseSelectColumn, error) {
+func (ec *executionContext) unmarshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.EnterpriseSelectColumn, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20880,7 +18554,7 @@ func (ec *executionContext) unmarshalOenterprise_select_column2ᚕVehicleSupervi
 	res := make([]model.EnterpriseSelectColumn, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNenterprise_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSelectColumn(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNenterprise_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSelectColumn(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -20888,7 +18562,7 @@ func (ec *executionContext) unmarshalOenterprise_select_column2ᚕVehicleSupervi
 	return res, nil
 }
 
-func (ec *executionContext) marshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.EnterpriseSelectColumn) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.EnterpriseSelectColumn) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -20915,7 +18589,7 @@ func (ec *executionContext) marshalOenterprise_select_column2ᚕVehicleSupervisi
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNenterprise_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSelectColumn(ctx, sel, v[i])
+			ret[i] = ec.marshalNenterprise_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSelectColumn(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -20928,22 +18602,14 @@ func (ec *executionContext) marshalOenterprise_select_column2ᚕVehicleSupervisi
 	return ret
 }
 
-func (ec *executionContext) unmarshalOenterprise_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSetInput(ctx context.Context, v interface{}) (*model.EnterpriseSetInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputenterprise_set_input(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOenterprise_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseStddevFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseStddevFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_stddev_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseStddevOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseStddevOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20951,14 +18617,14 @@ func (ec *executionContext) unmarshalOenterprise_stddev_order_by2ᚖVehicleSuper
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOenterprise_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseStddevPopFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseStddevPopFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_stddev_pop_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevPopOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseStddevPopOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevPopOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseStddevPopOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20966,14 +18632,14 @@ func (ec *executionContext) unmarshalOenterprise_stddev_pop_order_by2ᚖVehicleS
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOenterprise_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseStddevSampFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseStddevSampFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_stddev_samp_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseStddevSampOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseStddevSampOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseStddevSampOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseStddevSampOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20981,14 +18647,14 @@ func (ec *executionContext) unmarshalOenterprise_stddev_samp_order_by2ᚖVehicle
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOenterprise_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSumFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseSumFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSumFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseSumFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_sum_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseSumOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseSumOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseSumOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseSumOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -20996,14 +18662,14 @@ func (ec *executionContext) unmarshalOenterprise_sum_order_by2ᚖVehicleSupervis
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOenterprise_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseVarPopFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseVarPopFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_var_pop_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarPopOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseVarPopOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarPopOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseVarPopOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -21011,14 +18677,14 @@ func (ec *executionContext) unmarshalOenterprise_var_pop_order_by2ᚖVehicleSupe
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOenterprise_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseVarSampFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseVarSampFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_var_samp_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarSampOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseVarSampOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarSampOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseVarSampOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -21026,14 +18692,14 @@ func (ec *executionContext) unmarshalOenterprise_var_samp_order_by2ᚖVehicleSup
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOenterprise_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseVarianceFields) graphql.Marshaler {
+func (ec *executionContext) marshalOenterprise_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.EnterpriseVarianceFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._enterprise_variance_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOenterprise_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐEnterpriseVarianceOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseVarianceOrderBy, error) {
+func (ec *executionContext) unmarshalOenterprise_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋqueryᚋgraphᚋmodelᚐEnterpriseVarianceOrderBy(ctx context.Context, v interface{}) (*model.EnterpriseVarianceOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -21041,23 +18707,23 @@ func (ec *executionContext) unmarshalOenterprise_variance_order_by2ᚖVehicleSup
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx context.Context, v interface{}) (*model.OrderBy, error) {
+func (ec *executionContext) unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, v interface{}) (*model1.OrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	var res = new(model.OrderBy)
+	var res = new(model1.OrderBy)
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOorder_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐOrderBy(ctx context.Context, sel ast.SelectionSet, v *model.OrderBy) graphql.Marshaler {
+func (ec *executionContext) marshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, sel ast.SelectionSet, v *model1.OrderBy) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return v
 }
 
-func (ec *executionContext) unmarshalOtimestamptz2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
+func (ec *executionContext) unmarshalOtimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx context.Context, v interface{}) ([]*time.Time, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -21070,10 +18736,10 @@ func (ec *executionContext) unmarshalOtimestamptz2ᚕstringᚄ(ctx context.Conte
 		}
 	}
 	var err error
-	res := make([]string, len(vSlice))
+	res := make([]*time.Time, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNtimestamptz2string(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNtimestamptz2ᚖtimeᚐTime(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -21081,34 +18747,34 @@ func (ec *executionContext) unmarshalOtimestamptz2ᚕstringᚄ(ctx context.Conte
 	return res, nil
 }
 
-func (ec *executionContext) marshalOtimestamptz2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
+func (ec *executionContext) marshalOtimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx context.Context, sel ast.SelectionSet, v []*time.Time) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	ret := make(graphql.Array, len(v))
 	for i := range v {
-		ret[i] = ec.marshalNtimestamptz2string(ctx, sel, v[i])
+		ret[i] = ec.marshalNtimestamptz2ᚖtimeᚐTime(ctx, sel, v[i])
 	}
 
 	return ret
 }
 
-func (ec *executionContext) unmarshalOtimestamptz2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
+func (ec *executionContext) unmarshalOtimestamptz2ᚖtimeᚐTime(ctx context.Context, v interface{}) (*time.Time, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := graphql.UnmarshalString(v)
+	res, err := scalar.UnmarshalTimestamptz(v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOtimestamptz2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
+func (ec *executionContext) marshalOtimestamptz2ᚖtimeᚐTime(ctx context.Context, sel ast.SelectionSet, v *time.Time) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return graphql.MarshalString(*v)
+	return scalar.MarshalTimestamptz(*v)
 }
 
-func (ec *executionContext) unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadmin3ᚋgraphᚋmodelᚐTimestamptzComparisonExp(ctx context.Context, v interface{}) (*model.TimestamptzComparisonExp, error) {
+func (ec *executionContext) unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx context.Context, v interface{}) (*model1.TimestamptzComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}

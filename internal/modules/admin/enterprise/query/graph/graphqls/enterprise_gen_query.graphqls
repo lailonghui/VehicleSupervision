@@ -1,54 +1,4 @@
 
-
-scalar _jsonb
-
-"""
-expression to compare columns of type _jsonb. All fields are combined with logical 'AND'.
-"""
-input _jsonb_comparison_exp {
-  _eq: _jsonb
-  _gt: _jsonb
-  _gte: _jsonb
-  _in: [_jsonb!]
-  _is_null: Boolean
-  _lt: _jsonb
-  _lte: _jsonb
-  _neq: _jsonb
-  _nin: [_jsonb!]
-}
-
-scalar bigint
-
-"""
-expression to compare columns of type bigint. All fields are combined with logical 'AND'.
-"""
-input bigint_comparison_exp {
-  _eq: bigint
-  _gt: bigint
-  _gte: bigint
-  _in: [bigint!]
-  _is_null: Boolean
-  _lt: bigint
-  _lte: bigint
-  _neq: bigint
-  _nin: [bigint!]
-}
-
-"""
-expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
-"""
-input Boolean_comparison_exp {
-  _eq: Boolean
-  _gt: Boolean
-  _gte: Boolean
-  _in: [Boolean!]
-  _is_null: Boolean
-  _lt: Boolean
-  _lte: Boolean
-  _neq: Boolean
-  _nin: [Boolean!]
-}
-
 """
 企业
 
@@ -266,13 +216,6 @@ input enterprise_aggregate_order_by {
   variance: enterprise_variance_order_by
 }
 
-"""
-input type for inserting array relation for remote table "enterprise"
-"""
-input enterprise_arr_rel_insert_input {
-  data: [enterprise_insert_input!]!
-  on_conflict: enterprise_on_conflict
-}
 
 """aggregate avg on columns"""
 type enterprise_avg_fields {
@@ -371,92 +314,6 @@ input enterprise_bool_exp {
   update_time_in: timestamptz_comparison_exp
 }
 
-"""
-unique or primary key constraints on table "enterprise"
-"""
-enum enterprise_constraint {
-  """unique or primary key constraint"""
-  newtable_pk
-}
-
-"""
-input type for incrementing integer column in table "enterprise"
-"""
-input enterprise_inc_input {
-  business_scope: Int
-  check_status: Int
-  city_id: bigint
-  display_number: Int
-  district_id: bigint
-  enterprise_level: Int
-  enterprise_nature: Int
-  id: bigint
-  institution_category: bigint
-  province_id: bigint
-  score: Int
-}
-
-"""
-input type for inserting data into table "enterprise"
-"""
-input enterprise_insert_input {
-  association_review_by: timestamptz
-  association_review_opinion: String
-  association_review_time: timestamptz
-  brigade_id: String
-  brigade_review_by: String
-  brigade_review_opinion: String
-  brigade_review_time: timestamptz
-  business_license_expiry_date: timestamptz
-  business_license_issuance_date: timestamptz
-  business_license_photo: String
-  business_photo: String
-  business_scope: Int
-  check_status: Int
-  city_id: bigint
-  contact_persons: _jsonb
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  display_number: Int
-  district_id: bigint
-  enterprise_address: String
-  enterprise_code: String
-  enterprise_id: String
-  enterprise_level: Int
-  enterprise_name: String
-  enterprise_nature: Int
-  entrusted_agent: String
-  entrusted_agent_id_card: String
-  entrusted_agent_id_card_photo: String
-  entrusted_agent_phone: String
-  fax_number: String
-  id: bigint
-  institution_category: bigint
-  is_black: Boolean
-  is_deleted: Boolean
-  is_input: Boolean
-  is_install: Boolean
-  is_upload_province: Boolean
-  legal_representative: String
-  legal_representative_id_card: String
-  legal_representative_id_card_photo: String
-  legal_representative_phone: String
-  operating_license_photo: String
-  organization_code: String
-  organization_code_certificate_photo: String
-  police_station_id: String
-  province_id: bigint
-  record_at: timestamptz
-  record_by: String
-  remarks: String
-  score: Int
-  superior_enterprise_id: String
-  update_at: timestamptz
-  update_by: String
-  update_time_in: timestamptz
-}
 
 """aggregate max on columns"""
 type enterprise_max_fields {
@@ -678,33 +535,7 @@ input enterprise_min_order_by {
   update_time_in: order_by
 }
 
-"""
-response of any mutation on the table "enterprise"
-"""
-type enterprise_mutation_response {
-  """number of affected rows by the mutation"""
-  affected_rows: Int!
 
-  """data of the affected rows by the mutation"""
-  returning: [enterprise!]!
-}
-
-"""
-input type for inserting object relation for remote table "enterprise"
-"""
-input enterprise_obj_rel_insert_input {
-  data: enterprise_insert_input!
-  on_conflict: enterprise_on_conflict
-}
-
-"""
-on conflict condition type for table "enterprise"
-"""
-input enterprise_on_conflict {
-  constraint: enterprise_constraint!
-  update_columns: [enterprise_update_column!]!
-  where: enterprise_bool_exp
-}
 
 """
 ordering options when selecting data from "enterprise"
@@ -768,13 +599,6 @@ input enterprise_order_by {
   update_time_in: order_by
 }
 
-"""
-primary key columns input for table: "enterprise"
-"""
-input enterprise_pk_columns_input {
-  """ID"""
-  id: bigint!
-}
 
 """
 select columns of table "enterprise"
@@ -949,68 +773,6 @@ enum enterprise_select_column {
   update_time_in
 }
 
-"""
-input type for updating data in table "enterprise"
-"""
-input enterprise_set_input {
-  association_review_by: timestamptz
-  association_review_opinion: String
-  association_review_time: timestamptz
-  brigade_id: String
-  brigade_review_by: String
-  brigade_review_opinion: String
-  brigade_review_time: timestamptz
-  business_license_expiry_date: timestamptz
-  business_license_issuance_date: timestamptz
-  business_license_photo: String
-  business_photo: String
-  business_scope: Int
-  check_status: Int
-  city_id: bigint
-  contact_persons: _jsonb
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  display_number: Int
-  district_id: bigint
-  enterprise_address: String
-  enterprise_code: String
-  enterprise_id: String
-  enterprise_level: Int
-  enterprise_name: String
-  enterprise_nature: Int
-  entrusted_agent: String
-  entrusted_agent_id_card: String
-  entrusted_agent_id_card_photo: String
-  entrusted_agent_phone: String
-  fax_number: String
-  id: bigint
-  institution_category: bigint
-  is_black: Boolean
-  is_deleted: Boolean
-  is_input: Boolean
-  is_install: Boolean
-  is_upload_province: Boolean
-  legal_representative: String
-  legal_representative_id_card: String
-  legal_representative_id_card_photo: String
-  legal_representative_phone: String
-  operating_license_photo: String
-  organization_code: String
-  organization_code_certificate_photo: String
-  police_station_id: String
-  province_id: bigint
-  record_at: timestamptz
-  record_by: String
-  remarks: String
-  score: Int
-  superior_enterprise_id: String
-  update_at: timestamptz
-  update_by: String
-  update_time_in: timestamptz
-}
-
 """aggregate stddev on columns"""
 type enterprise_stddev_fields {
   business_scope: Float
@@ -1139,179 +901,6 @@ input enterprise_sum_order_by {
   score: order_by
 }
 
-"""
-update columns of table "enterprise"
-"""
-enum enterprise_update_column {
-  """column name"""
-  association_review_by
-
-  """column name"""
-  association_review_opinion
-
-  """column name"""
-  association_review_time
-
-  """column name"""
-  brigade_id
-
-  """column name"""
-  brigade_review_by
-
-  """column name"""
-  brigade_review_opinion
-
-  """column name"""
-  brigade_review_time
-
-  """column name"""
-  business_license_expiry_date
-
-  """column name"""
-  business_license_issuance_date
-
-  """column name"""
-  business_license_photo
-
-  """column name"""
-  business_photo
-
-  """column name"""
-  business_scope
-
-  """column name"""
-  check_status
-
-  """column name"""
-  city_id
-
-  """column name"""
-  contact_persons
-
-  """column name"""
-  create_at
-
-  """column name"""
-  create_by
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  display_number
-
-  """column name"""
-  district_id
-
-  """column name"""
-  enterprise_address
-
-  """column name"""
-  enterprise_code
-
-  """column name"""
-  enterprise_id
-
-  """column name"""
-  enterprise_level
-
-  """column name"""
-  enterprise_name
-
-  """column name"""
-  enterprise_nature
-
-  """column name"""
-  entrusted_agent
-
-  """column name"""
-  entrusted_agent_id_card
-
-  """column name"""
-  entrusted_agent_id_card_photo
-
-  """column name"""
-  entrusted_agent_phone
-
-  """column name"""
-  fax_number
-
-  """column name"""
-  id
-
-  """column name"""
-  institution_category
-
-  """column name"""
-  is_black
-
-  """column name"""
-  is_deleted
-
-  """column name"""
-  is_input
-
-  """column name"""
-  is_install
-
-  """column name"""
-  is_upload_province
-
-  """column name"""
-  legal_representative
-
-  """column name"""
-  legal_representative_id_card
-
-  """column name"""
-  legal_representative_id_card_photo
-
-  """column name"""
-  legal_representative_phone
-
-  """column name"""
-  operating_license_photo
-
-  """column name"""
-  organization_code
-
-  """column name"""
-  organization_code_certificate_photo
-
-  """column name"""
-  police_station_id
-
-  """column name"""
-  province_id
-
-  """column name"""
-  record_at
-
-  """column name"""
-  record_by
-
-  """column name"""
-  remarks
-
-  """column name"""
-  score
-
-  """column name"""
-  superior_enterprise_id
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
-
-  """column name"""
-  update_time_in
-}
-
 """aggregate var_pop on columns"""
 type enterprise_var_pop_fields {
   business_scope: Float
@@ -1408,6 +997,54 @@ input enterprise_variance_order_by {
   score: order_by
 }
 
+
+"""
+expression to compare columns of type _jsonb. All fields are combined with logical 'AND'.
+"""
+input _jsonb_comparison_exp {
+  _eq: _jsonb
+  _gt: _jsonb
+  _gte: _jsonb
+  _in: [_jsonb!]
+  _is_null: Boolean
+  _lt: _jsonb
+  _lte: _jsonb
+  _neq: _jsonb
+  _nin: [_jsonb!]
+}
+
+"""
+expression to compare columns of type bigint. All fields are combined with logical 'AND'.
+"""
+input bigint_comparison_exp {
+  _eq: bigint
+  _gt: bigint
+  _gte: bigint
+  _in: [bigint!]
+  _is_null: Boolean
+  _lt: bigint
+  _lte: bigint
+  _neq: bigint
+  _nin: [bigint!]
+}
+
+
+"""
+expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
+"""
+input Boolean_comparison_exp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+
 """
 expression to compare columns of type Int. All fields are combined with logical 'AND'.
 """
@@ -1423,72 +1060,7 @@ input Int_comparison_exp {
   _nin: [Int!]
 }
 
-"""mutation root"""
-type Mutation {
-  """
-  delete data from the table: "enterprise"
-  """
-  delete_enterprise(
-    """filter the rows which have to be deleted"""
-    where: enterprise_bool_exp!
-  ): enterprise_mutation_response
 
-  """
-  delete single row from the table: "enterprise"
-  """
-  delete_enterprise_by_pk(
-    """ID"""
-    id: bigint!
-  ): enterprise
-
-  """
-  insert data into the table: "enterprise"
-  """
-  insert_enterprise(
-    """the rows to be inserted"""
-    objects: [enterprise_insert_input!]!
-
-    """on conflict condition"""
-    on_conflict: enterprise_on_conflict
-  ): enterprise_mutation_response
-
-  """
-  insert a single row into the table: "enterprise"
-  """
-  insert_enterprise_one(
-    """the row to be inserted"""
-    object: enterprise_insert_input!
-
-    """on conflict condition"""
-    on_conflict: enterprise_on_conflict
-  ): enterprise
-
-  """
-  update data of the table: "enterprise"
-  """
-  update_enterprise(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: enterprise_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: enterprise_set_input
-
-    """filter the rows which have to be updated"""
-    where: enterprise_bool_exp!
-  ): enterprise_mutation_response
-
-  """
-  update single row of the table: "enterprise"
-  """
-  update_enterprise_by_pk(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: enterprise_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: enterprise_set_input
-    pk_columns: enterprise_pk_columns_input!
-  ): enterprise
-}
 
 """column ordering options"""
 enum order_by {
@@ -1511,8 +1083,51 @@ enum order_by {
   desc_nulls_last
 }
 
-"""query root"""
-type Query {
+
+"""
+expression to compare columns of type String. All fields are combined with logical 'AND'.
+"""
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _nlike: String
+  _nsimilar: String
+  _similar: String
+}
+
+
+"""
+expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
+"""
+input timestamptz_comparison_exp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
+
+
+scalar _jsonb
+scalar bigint
+scalar timestamptz
+
+
+extend type Query {
   """
   fetch data from the table: "enterprise"
   """
@@ -1560,42 +1175,7 @@ type Query {
   ): enterprise
 }
 
-"""
-expression to compare columns of type String. All fields are combined with logical 'AND'.
-"""
-input String_comparison_exp {
-  _eq: String
-  _gt: String
-  _gte: String
-  _ilike: String
-  _in: [String!]
-  _is_null: Boolean
-  _like: String
-  _lt: String
-  _lte: String
-  _neq: String
-  _nilike: String
-  _nin: [String!]
-  _nlike: String
-  _nsimilar: String
-  _similar: String
-}
 
 
-scalar timestamptz
 
-"""
-expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
-"""
-input timestamptz_comparison_exp {
-  _eq: timestamptz
-  _gt: timestamptz
-  _gte: timestamptz
-  _in: [timestamptz!]
-  _is_null: Boolean
-  _lt: timestamptz
-  _lte: timestamptz
-  _neq: timestamptz
-  _nin: [timestamptz!]
-}
 
