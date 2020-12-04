@@ -101,7 +101,7 @@ func getLevel(lv string) zapcore.Level {
 		return zapcore.WarnLevel
 	case "info":
 		return zapcore.InfoLevel
-	case "status":
+	case "error":
 		return zapcore.ErrorLevel
 	default:
 		return zapcore.DebugLevel
