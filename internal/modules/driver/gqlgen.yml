@@ -60,6 +60,21 @@ models:
       - github.com/99designs/gqlgen/graphql.Int64
   numeric:
     model: github.com/99designs/gqlgen/graphql.Float
-
+  timestamptz:
+    model: VehicleSupervision/pkg/graphql/scalar.Timestamptz
+  String_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.StringComparisonExp
+  timestamptz_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.TimestamptzComparisonExp
+  Int_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.IntComparisonExp
+  Boolean_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.BooleanComparisonExp
+  bigint_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.BigintComparisonExp
+  _jsonb_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.JsonbComparisonExp
+  order_by:
+    model: VehicleSupervision/pkg/graphql/model.OrderBy
 
 

@@ -1,8 +1,12 @@
-type Person {
+type Driver {
     name: String!
     age: Int!
 }
 
-extend type Query {
-    person: Person!
+#extend type Query {
+#    driver: Driver!
+#}
+
+type Mutation{
+    createDriver: Driver!
 }
