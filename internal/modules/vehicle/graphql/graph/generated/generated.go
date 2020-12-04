@@ -3,6 +3,7 @@
 package generated
 
 import (
+	"VehicleSupervision/internal/modules/vehicle/graphql/graph/model"
 	"bytes"
 	"context"
 	"errors"
@@ -15,7 +16,6 @@ import (
 	"github.com/99designs/gqlgen/graphql/introspection"
 	gqlparser "github.com/vektah/gqlparser/v2"
 	"github.com/vektah/gqlparser/v2/ast"
-	"lai.com/gqlgen_study/keyVehicleSupervision03/graph/model"
 )
 
 // region    ************************** generated!.gotpl **************************
