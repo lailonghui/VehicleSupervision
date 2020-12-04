@@ -14,16 +14,14 @@ import (
 )
 
 func (r *queryResolver) SystemUser(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) ([]*model1.SystemUser, error) {
-	tx := db.DB.Model(&model1.SystemUser{})
-	qt := util.QueryTranslator{}
-	qt.Model(&model1.SystemUser{}).
-		DistinctOn(distinctOn).
+	qt := util.NewQueryTranslator(db.DB, &model1.SystemUser{})
+	qt.DistinctOn(distinctOn).
 		Limit(limit).
 		Offset(offset).
 		OrderBy(orderBy).
 		Where(where)
 	// 执行翻译
-	tx = qt.DoTranslate()
+	tx := qt.DoTranslate()
 	var rs []*model1.SystemUser
 	tx.Find(rs)
 	return rs, nil
