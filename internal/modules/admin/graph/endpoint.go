@@ -1,4 +1,4 @@
-package vehicle
+package graphql
 
 import (
 	"github.com/99designs/gqlgen/graphql/handler"
