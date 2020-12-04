@@ -4,6 +4,7 @@ import (
 	"VehicleSupervision/config"
 	enterprise_mutation "VehicleSupervision/internal/modules/admin/enterprise/mutation"
 	enterprise_query "VehicleSupervision/internal/modules/admin/enterprise/query"
+	systemuser_query "VehicleSupervision/internal/modules/admin/systemuser/query"
 	"VehicleSupervision/pkg/logger"
 	"fmt"
 	"github.com/99designs/gqlgen/graphql/playground"
@@ -44,6 +45,8 @@ func Setup() {
 	//router.Any("/driver", driver.GinEndpoint())
 	router.Any("/enterprise/query", enterprise_query.GinEndpoint())
 	router.Any("/enterprise/mutation", enterprise_mutation.GinEndpoint())
+	router.Any("/system_user/query", systemuser_query.GinEndpoint())
+
 	addr := fmt.Sprintf("%s:%d", host, port)
 	logger.Info("server will run on " + addr)
 	logger.Info(fmt.Sprintf("connect to http://localhost:%d/ for GraphQL playground", port))

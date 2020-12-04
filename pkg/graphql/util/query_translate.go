@@ -1,6 +1,9 @@
 package util
 
-import "gorm.io/gorm"
+import (
+	"gorm.io/gorm"
+	"reflect"
+)
 
 // graphql查询翻译器（翻译成sql）
 type QueryTranslator struct {
@@ -52,7 +55,18 @@ func (t *QueryTranslator) DistinctOn(distinctOn interface{}) (r *QueryTranslator
 	r = t
 	r.distinctOn = distinctOn
 	// 翻译district on
-	t.tx.Distinct(distinctOn)
+	ty := reflect.TypeOf(distinctOn)
+
+	k := ty.Kind()
+	switch k {
+	case reflect.Slice:
+		
+
+	}
+	if sArray, ok := distinctOn.([]interface{}); ok {
+		t.tx = t.tx.Distinct(sArray)
+	}
+
 	return r
 }
 
