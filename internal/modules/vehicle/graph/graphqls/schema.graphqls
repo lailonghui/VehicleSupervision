@@ -1,0 +1,8 @@
+
+type Student {
+    name: String!
+    age: Int!
+}
+type Query {
+    student: Student!
+}

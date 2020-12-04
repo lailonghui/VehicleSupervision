@@ -1,14 +1,14 @@
 package vehicle
 
 import (
-	"VehicleSupervision/internal/graphql/vehicle/graph/generated"
-	"VehicleSupervision/internal/graphql/vehicle/graph/resolvers/resolver"
+	"VehicleSupervision/internal/modules/vehicle/graph/generated"
+	"VehicleSupervision/internal/modules/vehicle/graph/resolvers"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/gin-gonic/gin"
 )
 
 func endpoint() *handler.Server {
-	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &resolver.Resolver{}}))
+	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &resolvers.Resolver{}}))
 	return srv
 
 }
