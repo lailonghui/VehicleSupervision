@@ -700,7 +700,7 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "graph/graphqls/enterprise_gen_mutation.graphqls", Input: `
+	{Name: "graph/graphqls/generate.graphqls", Input: `
 
 scalar _jsonb
 
