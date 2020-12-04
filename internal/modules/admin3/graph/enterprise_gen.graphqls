@@ -1,8 +1,4 @@
-schema {
-  query: query_root
-  mutation: mutation_root
-  subscription: subscription_root
-}
+
 
 scalar _jsonb
 
@@ -1428,7 +1424,7 @@ input Int_comparison_exp {
 }
 
 """mutation root"""
-type mutation_root {
+type Mutation {
   """
   delete data from the table: "enterprise"
   """
@@ -1516,7 +1512,7 @@ enum order_by {
 }
 
 """query root"""
-type query_root {
+type Query {
   """
   fetch data from the table: "enterprise"
   """
@@ -1585,54 +1581,6 @@ input String_comparison_exp {
   _similar: String
 }
 
-"""subscription root"""
-type subscription_root {
-  """
-  fetch data from the table: "enterprise"
-  """
-  enterprise(
-    """distinct select on columns"""
-    distinct_on: [enterprise_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [enterprise_order_by!]
-
-    """filter the rows returned"""
-    where: enterprise_bool_exp
-  ): [enterprise!]!
-
-  """
-  fetch aggregated fields from the table: "enterprise"
-  """
-  enterprise_aggregate(
-    """distinct select on columns"""
-    distinct_on: [enterprise_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [enterprise_order_by!]
-
-    """filter the rows returned"""
-    where: enterprise_bool_exp
-  ): enterprise_aggregate!
-
-  """fetch data from the table: "enterprise" using primary key columns"""
-  enterprise_by_pk(
-    """ID"""
-    id: bigint!
-  ): enterprise
-}
 
 scalar timestamptz
 
