@@ -4,15 +4,27 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/db"
 	model1 "VehicleSupervision/internal/modules/admin/systemuser/model"
 	"VehicleSupervision/internal/modules/admin/systemuser/query/graph/generated"
 	"VehicleSupervision/internal/modules/admin/systemuser/query/graph/model"
+	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"fmt"
 )
 
 func (r *queryResolver) SystemUser(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) ([]*model1.SystemUser, error) {
-	panic(fmt.Errorf("not implemented"))
+	tx := db.DB.Model(&model1.SystemUser{})
+	qt := util.QueryTranslator{}
+	qt.Model(&model1.SystemUser{}).
+		DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where)
+	var rs []*model1.SystemUser
+	tx.Find(rs)
+	return rs, nil
 }
 
 func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) (*model.SystemUserAggregate, error) {
