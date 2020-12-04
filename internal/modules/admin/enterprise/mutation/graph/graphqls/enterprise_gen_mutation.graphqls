@@ -737,7 +737,7 @@ input timestamptz_comparison_exp {
 
 
 
-extend type Mutation {
+type Mutation {
   """
   delete data from the table: "enterprise"
   """
@@ -799,5 +799,8 @@ extend type Mutation {
   ): enterprise
 }
 
+type Query{
+  t:Int
+}
 
 scalar timestamptz

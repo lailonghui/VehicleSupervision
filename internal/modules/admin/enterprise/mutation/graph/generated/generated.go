@@ -39,6 +39,7 @@ type Config struct {
 
 type ResolverRoot interface {
 	Mutation() MutationResolver
+	Query() QueryResolver
 }
 
 type DirectiveRoot struct {
@@ -55,6 +56,7 @@ type ComplexityRoot struct {
 	}
 
 	Query struct {
+		T func(childComplexity int) int
 	}
 
 	Enterprise struct {
@@ -129,6 +131,9 @@ type MutationResolver interface {
 	InsertEnterpriseOne(ctx context.Context, object model.EnterpriseInsertInput) (*model1.Enterprise, error)
 	UpdateEnterprise(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error)
 	UpdateEnterpriseByPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, pkColumns model.EnterprisePkColumnsInput) (*model1.Enterprise, error)
+}
+type QueryResolver interface {
+	T(ctx context.Context) (*int, error)
 }
 
 type executableSchema struct {
@@ -217,6 +222,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEnterpriseByPk(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["pk_columns"].(model.EnterprisePkColumnsInput)), true
+
+	case "Query.t":
+		if e.complexity.Query.T == nil {
+			break
+		}
+
+		return e.complexity.Query.T(childComplexity), true
 
 	case "enterprise.association_review_by":
 		if e.complexity.Enterprise.AssociationReviewBy == nil {
@@ -1427,7 +1439,7 @@ input timestamptz_comparison_exp {
 
 
 
-extend type Mutation {
+type Mutation {
   """
   delete data from the table: "enterprise"
   """
@@ -1489,6 +1501,9 @@ extend type Mutation {
   ): enterprise
 }
 
+type Query{
+  t:Int
+}
 
 scalar timestamptz
 `, BuiltIn: false},
@@ -1910,6 +1925,38 @@ func (ec *executionContext) _Mutation_update_enterprise_by_pk(ctx context.Contex
 	res := resTmp.(*model1.Enterprise)
 	fc.Result = res
 	return ec.marshalOenterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋenterpriseᚋmodelᚐEnterprise(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_t(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().T(rctx)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -7142,6 +7189,17 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Query")
+		case "t":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_t(ctx, field)
+				return res
+			})
 		case "__type":
 			out.Values[i] = ec._Query___type(ctx, field)
 		case "__schema":
