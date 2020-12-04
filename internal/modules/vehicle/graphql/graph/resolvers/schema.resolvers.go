@@ -4,11 +4,12 @@ package resolvers
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/modules/vehicle/graphql/graph/generated"
+	"VehicleSupervision/internal/modules/vehicle/graphql/graph/model"
 	"context"
 	"fmt"
 
-	"lai.com/gqlgen_study/keyVehicleSupervision03/graph/generated"
-	"lai.com/gqlgen_study/keyVehicleSupervision03/graph/model"
+
 )
 
 func (r *mutationResolver) DeleteVehicleInfo(ctx context.Context, where model.VehicleInfoBoolExp) (*model.VehicleInfoMutationResponse, error) {

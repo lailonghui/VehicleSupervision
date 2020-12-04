@@ -10,7 +10,7 @@ db:
   port: 5432
   username: "postgres"
   password: "root"
-  dbname: "model_vehicle"
+  dbname: "vehicle"
   sslMode: "disable"
   timezone: "Asia/Shanghai"
   pool:

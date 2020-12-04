@@ -22,4 +22,6 @@ func Error(mgs string, fields ...zapcore.Field) {
 
 func Sync() {
 	_ = AppLogger.Sync()
+	_ = GLogger.Sync()
+	_ = GinLogger.Sync()
 }

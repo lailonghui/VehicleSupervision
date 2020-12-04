@@ -2,7 +2,6 @@ package server
 
 import (
 	"VehicleSupervision/config"
-	"VehicleSupervision/internal/graphql/vehicle"
 	"VehicleSupervision/pkg/logger"
 	"fmt"
 	"github.com/99designs/gqlgen/graphql/playground"
@@ -38,7 +37,7 @@ func Setup() {
 	router.Use(ginzap.RecoveryWithZap(logger.GinLogger, true))
 	// 路由配置
 	router.GET("/", playgroundHandler())
-	router.POST("/vehicle", vehicle.GinEndpoint())
+	//router.POST("/vehicle", vehicle.GinEndpoint())
 
 	log.Fatal(router.Run(fmt.Sprintf("%s:%d", host, port)))
 }
