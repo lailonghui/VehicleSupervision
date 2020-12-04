@@ -22,6 +22,8 @@ func (r *queryResolver) SystemUser(ctx context.Context, distinctOn []model.Syste
 		Offset(offset).
 		OrderBy(orderBy).
 		Where(where)
+	// 执行翻译
+	tx = qt.DoTranslate()
 	var rs []*model1.SystemUser
 	tx.Find(rs)
 	return rs, nil
