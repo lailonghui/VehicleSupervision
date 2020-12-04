@@ -1,0 +1,489 @@
+# columns and relationships of "government_manager"
+type government_manager implements Node {
+    all_driver_count: bigint
+    area_id: String
+    create_at: timestamptz
+    create_by: String
+    deadline: timestamptz
+    delete_at: timestamptz
+    delete_by: String
+    enterprise_id: String
+    gov_id: String
+    id: ID!
+    is_delete: Boolean
+    is_received: Boolean
+    manage_id: String
+    material_id: String
+    note: String
+    start_time: timestamptz
+    trained_drivers: bigint
+    update_at: timestamptz
+    update_by: String
+}
+
+# aggregated selection of "government_manager"
+type government_manager_aggregate {
+    aggregate: government_manager_aggregate_fields
+    nodes: [government_manager!]!
+}
+
+# aggregate fields of "government_manager"
+type government_manager_aggregate_fields {
+    avg: government_manager_avg_fields
+    count(columns: [government_manager_select_column!], distinct: Boolean): Int
+    max: government_manager_max_fields
+    min: government_manager_min_fields
+    stddev: government_manager_stddev_fields
+    stddev_pop: government_manager_stddev_pop_fields
+    stddev_samp: government_manager_stddev_samp_fields
+    sum: government_manager_sum_fields
+    var_pop: government_manager_var_pop_fields
+    var_samp: government_manager_var_samp_fields
+    variance: government_manager_variance_fields
+}
+
+# order by aggregate values of table "government_manager"
+input government_manager_aggregate_order_by {
+    avg: government_manager_avg_order_by
+    count: order_by
+    max: government_manager_max_order_by
+    min: government_manager_min_order_by
+    stddev: government_manager_stddev_order_by
+    stddev_pop: government_manager_stddev_pop_order_by
+    stddev_samp: government_manager_stddev_samp_order_by
+    sum: government_manager_sum_order_by
+    var_pop: government_manager_var_pop_order_by
+    var_samp: government_manager_var_samp_order_by
+    variance: government_manager_variance_order_by
+}
+
+# input type for inserting array relation for remote table "government_manager"
+input government_manager_arr_rel_insert_input {
+    data: [government_manager_insert_input!]!
+    on_conflict: government_manager_on_conflict
+}
+
+# aggregate avg on columns
+type government_manager_avg_fields {
+    all_driver_count: Float
+    id: Float
+    trained_drivers: Float
+}
+
+# order by avg() on columns of table "government_manager"
+input government_manager_avg_order_by {
+    all_driver_count: order_by
+    id: order_by
+    trained_drivers: order_by
+}
+
+# Boolean expression to filter rows from the table "government_manager". All fields are combined with a logical 'AND'.
+input government_manager_bool_exp {
+    _and: [government_manager_bool_exp]
+    _not: government_manager_bool_exp
+    _or: [government_manager_bool_exp]
+    all_driver_count: bigint_comparison_exp
+    area_id: String_comparison_exp
+    create_at: timestamptz_comparison_exp
+    create_by: String_comparison_exp
+    deadline: timestamptz_comparison_exp
+    delete_at: timestamptz_comparison_exp
+    delete_by: String_comparison_exp
+    enterprise_id: String_comparison_exp
+    gov_id: String_comparison_exp
+    id: bigint_comparison_exp
+    is_delete: Boolean_comparison_exp
+    is_received: Boolean_comparison_exp
+    manage_id: String_comparison_exp
+    material_id: String_comparison_exp
+    note: String_comparison_exp
+    start_time: timestamptz_comparison_exp
+    trained_drivers: bigint_comparison_exp
+    update_at: timestamptz_comparison_exp
+    update_by: String_comparison_exp
+}
+
+# unique or primary key constraints on table "government_manager"
+enum government_manager_constraint {
+    # unique or primary key constraint
+    government_manager_pkey
+}
+
+# input type for incrementing integer column in table "government_manager"
+input government_manager_inc_input {
+    all_driver_count: bigint
+    id: bigint
+    trained_drivers: bigint
+}
+
+# input type for inserting data into table "government_manager"
+input government_manager_insert_input {
+    all_driver_count: bigint
+    area_id: String
+    create_at: timestamptz
+    create_by: String
+    deadline: timestamptz
+    delete_at: timestamptz
+    delete_by: String
+    enterprise_id: String
+    gov_id: String
+    id: bigint
+    is_delete: Boolean
+    is_received: Boolean
+    manage_id: String
+    material_id: String
+    note: String
+    start_time: timestamptz
+    trained_drivers: bigint
+    update_at: timestamptz
+    update_by: String
+}
+
+# aggregate max on columns
+type government_manager_max_fields {
+    all_driver_count: bigint
+    area_id: String
+    create_at: timestamptz
+    create_by: String
+    deadline: timestamptz
+    delete_at: timestamptz
+    delete_by: String
+    enterprise_id: String
+    gov_id: String
+    id: bigint
+    manage_id: String
+    material_id: String
+    note: String
+    start_time: timestamptz
+    trained_drivers: bigint
+    update_at: timestamptz
+    update_by: String
+}
+
+# order by max() on columns of table "government_manager"
+input government_manager_max_order_by {
+    all_driver_count: order_by
+    area_id: order_by
+    create_at: order_by
+    create_by: order_by
+    deadline: order_by
+    delete_at: order_by
+    delete_by: order_by
+    enterprise_id: order_by
+    gov_id: order_by
+    id: order_by
+    manage_id: order_by
+    material_id: order_by
+    note: order_by
+    start_time: order_by
+    trained_drivers: order_by
+    update_at: order_by
+    update_by: order_by
+}
+
+# aggregate min on columns
+type government_manager_min_fields {
+    all_driver_count: bigint
+    area_id: String
+    create_at: timestamptz
+    create_by: String
+    deadline: timestamptz
+    delete_at: timestamptz
+    delete_by: String
+    enterprise_id: String
+    gov_id: String
+    id: bigint
+    manage_id: String
+    material_id: String
+    note: String
+    start_time: timestamptz
+    trained_drivers: bigint
+    update_at: timestamptz
+    update_by: String
+}
+
+# order by min() on columns of table "government_manager"
+input government_manager_min_order_by {
+    all_driver_count: order_by
+    area_id: order_by
+    create_at: order_by
+    create_by: order_by
+    deadline: order_by
+    delete_at: order_by
+    delete_by: order_by
+    enterprise_id: order_by
+    gov_id: order_by
+    id: order_by
+    manage_id: order_by
+    material_id: order_by
+    note: order_by
+    start_time: order_by
+    trained_drivers: order_by
+    update_at: order_by
+    update_by: order_by
+}
+
+# response of any mutation on the table "government_manager"
+type government_manager_mutation_response {
+    # number of affected rows by the mutation
+    affected_rows: Int!
+    # data of the affected rows by the mutation
+    returning: [government_manager!]!
+}
+
+# input type for inserting object relation for remote table "government_manager"
+input government_manager_obj_rel_insert_input {
+    data: government_manager_insert_input!
+    on_conflict: government_manager_on_conflict
+}
+
+# on conflict condition type for table "government_manager"
+input government_manager_on_conflict {
+    constraint: government_manager_constraint!
+    update_columns: [government_manager_update_column!]!
+    where: government_manager_bool_exp
+}
+
+# ordering options when selecting data from "government_manager"
+input government_manager_order_by {
+    all_driver_count: order_by
+    area_id: order_by
+    create_at: order_by
+    create_by: order_by
+    deadline: order_by
+    delete_at: order_by
+    delete_by: order_by
+    enterprise_id: order_by
+    gov_id: order_by
+    id: order_by
+    is_delete: order_by
+    is_received: order_by
+    manage_id: order_by
+    material_id: order_by
+    note: order_by
+    start_time: order_by
+    trained_drivers: order_by
+    update_at: order_by
+    update_by: order_by
+}
+
+# primary key columns input for table: "government_manager"
+input government_manager_pk_columns_input {
+    id: bigint!
+}
+
+# select columns of table "government_manager"
+enum government_manager_select_column {
+    # column name
+    all_driver_count
+    # column name
+    area_id
+    # column name
+    create_at
+    # column name
+    create_by
+    # column name
+    deadline
+    # column name
+    delete_at
+    # column name
+    delete_by
+    # column name
+    enterprise_id
+    # column name
+    gov_id
+    # column name
+    id
+    # column name
+    is_delete
+    # column name
+    is_received
+    # column name
+    manage_id
+    # column name
+    material_id
+    # column name
+    note
+    # column name
+    start_time
+    # column name
+    trained_drivers
+    # column name
+    update_at
+    # column name
+    update_by
+}
+
+# input type for updating data in table "government_manager"
+input government_manager_set_input {
+    all_driver_count: bigint
+    area_id: String
+    create_at: timestamptz
+    create_by: String
+    deadline: timestamptz
+    delete_at: timestamptz
+    delete_by: String
+    enterprise_id: String
+    gov_id: String
+    id: bigint
+    is_delete: Boolean
+    is_received: Boolean
+    manage_id: String
+    material_id: String
+    note: String
+    start_time: timestamptz
+    trained_drivers: bigint
+    update_at: timestamptz
+    update_by: String
+}
+
+# aggregate stddev on columns
+type government_manager_stddev_fields {
+    all_driver_count: Float
+    id: Float
+    trained_drivers: Float
+}
+
+# order by stddev() on columns of table "government_manager"
+input government_manager_stddev_order_by {
+    all_driver_count: order_by
+    id: order_by
+    trained_drivers: order_by
+}
+
+# aggregate stddev_pop on columns
+type government_manager_stddev_pop_fields {
+    all_driver_count: Float
+    id: Float
+    trained_drivers: Float
+}
+
+# order by stddev_pop() on columns of table "government_manager"
+input government_manager_stddev_pop_order_by {
+    all_driver_count: order_by
+    id: order_by
+    trained_drivers: order_by
+}
+
+# aggregate stddev_samp on columns
+type government_manager_stddev_samp_fields {
+    all_driver_count: Float
+    id: Float
+    trained_drivers: Float
+}
+
+# order by stddev_samp() on columns of table "government_manager"
+input government_manager_stddev_samp_order_by {
+    all_driver_count: order_by
+    id: order_by
+    trained_drivers: order_by
+}
+
+# aggregate sum on columns
+type government_manager_sum_fields {
+    all_driver_count: bigint
+    id: bigint
+    trained_drivers: bigint
+}
+
+# order by sum() on columns of table "government_manager"
+input government_manager_sum_order_by {
+    all_driver_count: order_by
+    id: order_by
+    trained_drivers: order_by
+}
+
+# update columns of table "government_manager"
+enum government_manager_update_column {
+    # column name
+    all_driver_count
+    # column name
+    area_id
+    # column name
+    create_at
+    # column name
+    create_by
+    # column name
+    deadline
+    # column name
+    delete_at
+    # column name
+    delete_by
+    # column name
+    enterprise_id
+    # column name
+    gov_id
+    # column name
+    id
+    # column name
+    is_delete
+    # column name
+    is_received
+    # column name
+    manage_id
+    # column name
+    material_id
+    # column name
+    note
+    # column name
+    start_time
+    # column name
+    trained_drivers
+    # column name
+    update_at
+    # column name
+    update_by
+}
+
+# aggregate var_pop on columns
+type government_manager_var_pop_fields {
+    all_driver_count: Float
+    id: Float
+    trained_drivers: Float
+}
+
+# order by var_pop() on columns of table "government_manager"
+input government_manager_var_pop_order_by {
+    all_driver_count: order_by
+    id: order_by
+    trained_drivers: order_by
+}
+
+# aggregate var_samp on columns
+type government_manager_var_samp_fields {
+    all_driver_count: Float
+    id: Float
+    trained_drivers: Float
+}
+
+# order by var_samp() on columns of table "government_manager"
+input government_manager_var_samp_order_by {
+    all_driver_count: order_by
+    id: order_by
+    trained_drivers: order_by
+}
+
+# aggregate variance on columns
+type government_manager_variance_fields {
+    all_driver_count: Float
+    id: Float
+    trained_drivers: Float
+}
+
+# order by variance() on columns of table "government_manager"
+input government_manager_variance_order_by {
+    all_driver_count: order_by
+    id: order_by
+    trained_drivers: order_by
+}
+
+# A Relay Connection object on "government_manager"
+type government_managerConnection {
+    edges: [government_managerEdge!]!
+    pageInfo: PageInfo!
+}
+
+type government_managerEdge {
+    cursor: String!
+    node: government_manager!
+}

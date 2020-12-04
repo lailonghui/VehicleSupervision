@@ -2,15 +2,15 @@ package server
 
 import (
 	"VehicleSupervision/config"
-	"VehicleSupervision/internal/modules/driver"
-	"VehicleSupervision/internal/modules/vehicle"
+	enterprise_mutation "VehicleSupervision/internal/modules/admin/enterprise/mutation"
+	enterprise_query "VehicleSupervision/internal/modules/admin/enterprise/query"
+	systemuser_query "VehicleSupervision/internal/modules/admin/systemuser/query"
 	"VehicleSupervision/pkg/logger"
 	"fmt"
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
 	"log"
-
 	"time"
 )
 
@@ -40,9 +40,15 @@ func Setup() {
 	router.GET("/", playgroundHandler())
 
 	//车辆模块端点
-	router.Any("/vehicle", vehicle.GinEndpoint())
+	//router.Any("/vehicle", vehicle.GinEndpoint())
 	//驾驶员模块端点
-	router.Any("/driver", driver.GinEndpoint())
+	//router.Any("/driver", driver.GinEndpoint())
+	router.Any("/enterprise/query", enterprise_query.GinEndpoint())
+	router.Any("/enterprise/mutation", enterprise_mutation.GinEndpoint())
+	router.Any("/system_user/query", systemuser_query.GinEndpoint())
 
-	log.Fatal(router.Run(fmt.Sprintf("%s:%d", host, port)))
+	addr := fmt.Sprintf("%s:%d", host, port)
+	logger.Info("server will run on " + addr)
+	logger.Info(fmt.Sprintf("connect to http://localhost:%d/ for GraphQL playground", port))
+	log.Fatal(router.Run(addr))
 }

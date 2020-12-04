@@ -1,16 +1,15 @@
-package graph
+package system
 
 import (
+	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/generated"
+	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/resolver"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/gin-gonic/gin"
 )
 
-//go:generate go run github.com/99designs/gqlgen
 func endpoint() *handler.Server {
-	/*srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &resolver.Resolver{}}))
+	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &resolver.Resolver{}}))
 	return srv
-	*/
-	return nil
 }
 
 func GinEndpoint() gin.HandlerFunc {
@@ -22,4 +21,3 @@ func GinEndpoint() gin.HandlerFunc {
 		srv.ServeHTTP(c.Writer, c.Request)
 	}
 }
-

@@ -2259,7 +2259,7 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "graph/graphqls/enterprise_gen_query.graphqls", Input: `
+	{Name: "graph/graphqls/generate.graphqls", Input: `
 """
 企业
 

@@ -1,0 +1,49 @@
+schema {
+    query: Query
+}
+
+type Query {
+    # fetch data from the table: "city"
+    city_connection(
+        after: String
+        before: String
+        # distinct select on columns
+        distinct_on: [city_select_column!]
+        first: Int
+        last: Int
+        # sort the rows by one or more columns
+        order_by: [city_order_by!]
+        # filter the rows returned
+        where: city_bool_exp
+    ): cityConnection!
+    # fetch data from the table: "district"
+    district_connection(
+        after: String
+        before: String
+        # distinct select on columns
+        distinct_on: [district_select_column!]
+        first: Int
+        last: Int
+        # sort the rows by one or more columns
+        order_by: [district_order_by!]
+        # filter the rows returned
+        where: district_bool_exp
+    ): districtConnection!
+    node(
+        # A globally unique id
+        id: ID!
+    ): Node
+    # fetch data from the table: "province"
+    province_connection(
+        after: String
+        before: String
+        # distinct select on columns
+        distinct_on: [province_select_column!]
+        first: Int
+        last: Int
+        # sort the rows by one or more columns
+        order_by: [province_order_by!]
+        # filter the rows returned
+        where: province_bool_exp
+    ): provinceConnection!
+}

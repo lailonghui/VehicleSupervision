@@ -75,3 +75,5 @@ models:
     model: VehicleSupervision/pkg/graphql/model.JsonbComparisonExp
   order_by:
     model: VehicleSupervision/pkg/graphql/model.OrderBy
+  enterprise:
+    model: VehicleSupervision/internal/modules/admin/enterprise/model.Enterprise
