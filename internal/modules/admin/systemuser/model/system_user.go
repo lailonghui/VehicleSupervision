@@ -59,3 +59,7 @@ type SystemUser struct {
 	// 用户类型
 	UserType *int `json:"user_type"`
 }
+
+func (s SystemUser) TableName() string {
+	return "system_user"
+}

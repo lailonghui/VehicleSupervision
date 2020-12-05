@@ -41,6 +41,7 @@ func (t *QueryTranslator) OrderBy(orderBy interface{}) (re *QueryTranslator) {
 
 	orderByValue := getValue(orderBy)
 	orderByKind := orderByValue.Kind()
+
 	switch orderByKind {
 	case reflect.Slice:
 		sliceLength := orderByValue.Len()
