@@ -33,7 +33,7 @@ func NewQueryTranslator(tx *gorm.DB, model interface{}) *QueryTranslator {
 // 排序
 func (t *QueryTranslator) OrderBy(orderBy interface{}) (re *QueryTranslator) {
 	re = t
-	if orderBy == nil {
+	if IsNil(orderBy) {
 		return re
 	}
 	re.orderBy = orderBy
@@ -89,7 +89,7 @@ func (t *QueryTranslator) Limit(limit *int) (re *QueryTranslator) {
 // 设置distinctOn
 func (t *QueryTranslator) DistinctOn(distinctOn interface{}) (re *QueryTranslator) {
 	re = t
-	if distinctOn == nil {
+	if IsNil(distinctOn) {
 		return re
 	}
 	re.distinctOn = distinctOn
@@ -114,10 +114,12 @@ func (t *QueryTranslator) DistinctOn(distinctOn interface{}) (re *QueryTranslato
 // 设置where
 func (t *QueryTranslator) Where(where interface{}) (re *QueryTranslator) {
 	re = t
-	if where == nil {
+	if IsNil(where) {
 		return re
 	}
 	re.where = where
+
+	re.tx = buildWhere(re.tx, where)
 
 	return re
 }
@@ -141,8 +143,6 @@ func getValue(x interface{}) reflect.Value {
 
 // 反射构建order
 func buildOrderBy(value reflect.Value) (clause.OrderByColumn, bool) {
-	// 获取orderByItem第一个非nil的属性和这个属性的tag
-	// 即为 order的方向和属性
 	valueKind := value.Kind()
 	valueType := value.Type()
 	switch valueKind {
@@ -178,4 +178,274 @@ func buildOrderBy(value reflect.Value) (clause.OrderByColumn, bool) {
 	}
 
 	return clause.OrderByColumn{}, false
+}
+
+// 构建where
+func buildWhere(tx *gorm.DB, where interface{}) *gorm.DB {
+	value := getValue(where)
+	valueKind := value.Kind()
+	valueType := value.Type()
+	switch valueKind {
+	case reflect.Struct:
+		for i := 0; i < value.NumField(); i++ {
+			fieldValue := value.Field(i)
+			if fieldValue.IsNil() {
+				continue
+			}
+			fieldKind := fieldValue.Kind()
+			switch fieldKind {
+			case reflect.Ptr:
+				rFieldValue := fieldValue.Elem()
+				rFieldType := rFieldValue.Type()
+				if rFieldType == valueType {
+					tx = buildWhere(tx, rFieldValue.Interface())
+					continue
+				}
+				rValue := rFieldValue.Interface()
+				columnName := valueType.Field(i).Tag.Get("json")
+				switch exp := rValue.(type) {
+				case model.BigintComparisonExp:
+					tx = bigintCompare(tx, exp, columnName)
+				case model.BooleanComparisonExp:
+					tx = booleanCompare(tx, exp, columnName)
+				case model.IntComparisonExp:
+					tx = intCompare(tx, exp, columnName)
+				case model.JsonbComparisonExp:
+					tx = jsonbCompare(tx, exp, columnName)
+				case model.StringComparisonExp:
+					tx = stringCompare(tx, exp, columnName)
+				case model.TimestamptzComparisonExp:
+					tx = timestamptzCompare(tx, exp, columnName)
+				default:
+					panic(errors.New("unSupport type"))
+				}
+			case reflect.Slice:
+				// TODO
+			default:
+				panic(errors.New("unSupport type"))
+
+			}
+
+		}
+	}
+
+	return tx
+}
+
+func bigintCompare(tx *gorm.DB, exp model.BigintComparisonExp, columnName string) *gorm.DB {
+	if exp.Eq != nil {
+		tx = tx.Where(columnName+" = ? ", exp.Eq)
+	}
+	if exp.Gt != nil {
+		tx = tx.Where(columnName+" > ? ", exp.Gt)
+	}
+	if exp.Gte != nil {
+		tx = tx.Where(columnName+" >= ?", exp.Gte)
+	}
+	if exp.In != nil {
+		tx = tx.Where(columnName+" in ? ", exp.In)
+	}
+	if exp.IsNull != nil {
+		tx = tx.Where(columnName+" is null", exp.IsNull)
+	}
+	if exp.Lt != nil {
+		tx = tx.Where(columnName+" < ? ", exp.Lt)
+	}
+	if exp.Lte != nil {
+		tx = tx.Where(columnName+" <= ? ", exp.Lte)
+	}
+	if exp.Neq != nil {
+		tx = tx.Where(columnName+" != ? ", exp.Neq)
+	}
+	if exp.Nin != nil {
+		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+	}
+
+	return tx
+}
+
+func booleanCompare(tx *gorm.DB, exp model.BooleanComparisonExp, columnName string) *gorm.DB {
+	if exp.Eq != nil {
+		tx = tx.Where(columnName+" = ? ", exp.Eq)
+	}
+	if exp.Gt != nil {
+		tx = tx.Where(columnName+" > ? ", exp.Gt)
+	}
+	if exp.Gte != nil {
+		tx = tx.Where(columnName+" >= ?", exp.Gte)
+	}
+	if exp.In != nil {
+		tx = tx.Where(columnName+" in ? ", exp.In)
+	}
+	if exp.IsNull != nil {
+		tx = tx.Where(columnName+" is null", exp.IsNull)
+	}
+	if exp.Lt != nil {
+		tx = tx.Where(columnName+" < ? ", exp.Lt)
+	}
+	if exp.Lte != nil {
+		tx = tx.Where(columnName+" <= ? ", exp.Lte)
+	}
+	if exp.Neq != nil {
+		tx = tx.Where(columnName+" != ? ", exp.Neq)
+	}
+	if exp.Nin != nil {
+		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+	}
+
+	return tx
+}
+
+func intCompare(tx *gorm.DB, exp model.IntComparisonExp, columnName string) *gorm.DB {
+	if exp.Eq != nil {
+		tx = tx.Where(columnName+" = ? ", exp.Eq)
+	}
+	if exp.Gt != nil {
+		tx = tx.Where(columnName+" > ? ", exp.Gt)
+	}
+	if exp.Gte != nil {
+		tx = tx.Where(columnName+" >= ?", exp.Gte)
+	}
+	if exp.In != nil {
+		tx = tx.Where(columnName+" in ? ", exp.In)
+	}
+	if exp.IsNull != nil {
+		tx = tx.Where(columnName+" is null", exp.IsNull)
+	}
+	if exp.Lt != nil {
+		tx = tx.Where(columnName+" < ? ", exp.Lt)
+	}
+	if exp.Lte != nil {
+		tx = tx.Where(columnName+" <= ? ", exp.Lte)
+	}
+	if exp.Neq != nil {
+		tx = tx.Where(columnName+" != ? ", exp.Neq)
+	}
+	if exp.Nin != nil {
+		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+	}
+
+	return tx
+}
+
+func jsonbCompare(tx *gorm.DB, exp model.JsonbComparisonExp, columnName string) *gorm.DB {
+	if exp.Eq != nil {
+		tx = tx.Where(columnName+" = ? ", exp.Eq)
+	}
+	if exp.Gt != nil {
+		tx = tx.Where(columnName+" > ? ", exp.Gt)
+	}
+	if exp.Gte != nil {
+		tx = tx.Where(columnName+" >= ?", exp.Gte)
+	}
+	if exp.In != nil {
+		tx = tx.Where(columnName+" in ? ", exp.In)
+	}
+	if exp.IsNull != nil {
+		tx = tx.Where(columnName+" is null", exp.IsNull)
+	}
+	if exp.Lt != nil {
+		tx = tx.Where(columnName+" < ? ", exp.Lt)
+	}
+	if exp.Lte != nil {
+		tx = tx.Where(columnName+" <= ? ", exp.Lte)
+	}
+	if exp.Neq != nil {
+		tx = tx.Where(columnName+" != ? ", exp.Neq)
+	}
+	if exp.Nin != nil {
+		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+	}
+
+	return tx
+}
+
+func stringCompare(tx *gorm.DB, exp model.StringComparisonExp, columnName string) *gorm.DB {
+	if exp.Eq != nil {
+		tx = tx.Where(columnName+" = ? ", exp.Eq)
+	}
+	if exp.Gt != nil {
+		tx = tx.Where(columnName+" > ? ", exp.Gt)
+	}
+	if exp.Gte != nil {
+		tx = tx.Where(columnName+" >= ?", exp.Gte)
+	}
+	if exp.In != nil {
+		tx = tx.Where(columnName+" in ? ", exp.In)
+	}
+	if exp.IsNull != nil {
+		tx = tx.Where(columnName+" is null", exp.IsNull)
+	}
+	if exp.Lt != nil {
+		tx = tx.Where(columnName+" < ? ", exp.Lt)
+	}
+	if exp.Lte != nil {
+		tx = tx.Where(columnName+" <= ? ", exp.Lte)
+	}
+	if exp.Neq != nil {
+		tx = tx.Where(columnName+" != ? ", exp.Neq)
+	}
+	if exp.Nin != nil {
+		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+	}
+	if exp.Like != nil {
+		tx = tx.Where(columnName+" like ?% ", exp.Like)
+	}
+	if exp.Ilike != nil {
+		tx = tx.Where(columnName+" like ?% ", exp.Ilike)
+	}
+	if exp.Similar != nil {
+		tx = tx.Where(columnName+" like ?% ", exp.Similar)
+	}
+	if exp.Nlike != nil {
+		tx = tx.Where(columnName+" not like ?% ", exp.Nlike)
+	}
+	if exp.Nilike != nil {
+		tx = tx.Where(columnName+" not like ?% ", exp.Nilike)
+	}
+	if exp.Nsimilar != nil {
+		tx = tx.Where(columnName+" not like ?% ", exp.Nsimilar)
+	}
+
+	return tx
+}
+
+func timestamptzCompare(tx *gorm.DB, exp model.TimestamptzComparisonExp, columnName string) *gorm.DB {
+	if exp.Eq != nil {
+		tx = tx.Where(columnName+" = ? ", exp.Eq)
+	}
+	if exp.Gt != nil {
+		tx = tx.Where(columnName+" > ? ", exp.Gt)
+	}
+	if exp.Gte != nil {
+		tx = tx.Where(columnName+" >= ?", exp.Gte)
+	}
+	if exp.In != nil {
+		tx = tx.Where(columnName+" in ? ", exp.In)
+	}
+	if exp.IsNull != nil {
+		tx = tx.Where(columnName+" is null", exp.IsNull)
+	}
+	if exp.Lt != nil {
+		tx = tx.Where(columnName+" < ? ", exp.Lt)
+	}
+	if exp.Lte != nil {
+		tx = tx.Where(columnName+" <= ? ", exp.Lte)
+	}
+	if exp.Neq != nil {
+		tx = tx.Where(columnName+" != ? ", exp.Neq)
+	}
+	if exp.Nin != nil {
+		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+	}
+
+	return tx
+}
+
+func IsNil(i interface{}) bool {
+	defer func() {
+		recover()
+	}()
+	vi := reflect.ValueOf(i)
+	return vi.IsNil()
 }
