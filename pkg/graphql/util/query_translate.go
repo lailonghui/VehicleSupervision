@@ -1,6 +1,7 @@
 package util
 
 import (
+	"VehicleSupervision/internal/db"
 	"VehicleSupervision/pkg/graphql/model"
 	"errors"
 	"gorm.io/gorm"
@@ -195,14 +196,19 @@ func buildWhere(tx *gorm.DB, where interface{}) *gorm.DB {
 			fieldKind := fieldValue.Kind()
 			switch fieldKind {
 			case reflect.Ptr:
+				// 指针的情况，包括not子句和普通条件查询
 				rFieldValue := fieldValue.Elem()
 				rFieldType := rFieldValue.Type()
+				columnName := valueType.Field(i).Tag.Get("json")
 				if rFieldType == valueType {
-					tx = buildWhere(tx, rFieldValue.Interface())
+					// not子句查询
+					if columnName == "_not" {
+						tx = tx.Not(buildWhere(db.DB, rFieldValue.Interface()))
+					}
 					continue
 				}
 				rValue := rFieldValue.Interface()
-				columnName := valueType.Field(i).Tag.Get("json")
+				// 条件查询
 				switch exp := rValue.(type) {
 				case model.BigintComparisonExp:
 					tx = bigintCompare(tx, exp, columnName)
@@ -220,7 +226,21 @@ func buildWhere(tx *gorm.DB, where interface{}) *gorm.DB {
 					panic(errors.New("unSupport type"))
 				}
 			case reflect.Slice:
-				// TODO
+				// 切片情况，包括and子句和or子句
+				columnName := valueType.Field(i).Tag.Get("json")
+				sliceLength := fieldValue.Len()
+				for i := 0; i < sliceLength; i++ {
+					sliceItem := fieldValue.Index(i).Interface()
+					// and子句
+					if columnName == "_and" {
+						tx = tx.Where(buildWhere(db.DB, sliceItem))
+					}
+					// or子句
+					if columnName == "_or" {
+						tx = tx.Or(buildWhere(db.DB, sliceItem))
+					}
+				}
+
 			default:
 				panic(errors.New("unSupport type"))
 
@@ -255,10 +275,10 @@ func bigintCompare(tx *gorm.DB, exp model.BigintComparisonExp, columnName string
 		tx = tx.Where(columnName+" <= ? ", exp.Lte)
 	}
 	if exp.Neq != nil {
-		tx = tx.Where(columnName+" != ? ", exp.Neq)
+		tx = tx.Not(columnName+" = ? ", exp.Neq)
 	}
 	if exp.Nin != nil {
-		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+		tx = tx.Not(columnName+" in ? ", exp.Nin)
 	}
 
 	return tx
@@ -287,12 +307,11 @@ func booleanCompare(tx *gorm.DB, exp model.BooleanComparisonExp, columnName stri
 		tx = tx.Where(columnName+" <= ? ", exp.Lte)
 	}
 	if exp.Neq != nil {
-		tx = tx.Where(columnName+" != ? ", exp.Neq)
+		tx = tx.Not(columnName+" = ? ", exp.Neq)
 	}
 	if exp.Nin != nil {
-		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+		tx = tx.Not(columnName+" in ? ", exp.Nin)
 	}
-
 	return tx
 }
 
@@ -319,12 +338,11 @@ func intCompare(tx *gorm.DB, exp model.IntComparisonExp, columnName string) *gor
 		tx = tx.Where(columnName+" <= ? ", exp.Lte)
 	}
 	if exp.Neq != nil {
-		tx = tx.Where(columnName+" != ? ", exp.Neq)
+		tx = tx.Not(columnName+" = ? ", exp.Neq)
 	}
 	if exp.Nin != nil {
-		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+		tx = tx.Not(columnName+" in ? ", exp.Nin)
 	}
-
 	return tx
 }
 
@@ -351,10 +369,10 @@ func jsonbCompare(tx *gorm.DB, exp model.JsonbComparisonExp, columnName string) 
 		tx = tx.Where(columnName+" <= ? ", exp.Lte)
 	}
 	if exp.Neq != nil {
-		tx = tx.Where(columnName+" != ? ", exp.Neq)
+		tx = tx.Not(columnName+" = ? ", exp.Neq)
 	}
 	if exp.Nin != nil {
-		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+		tx = tx.Not(columnName+" in ? ", exp.Nin)
 	}
 
 	return tx
@@ -383,10 +401,10 @@ func stringCompare(tx *gorm.DB, exp model.StringComparisonExp, columnName string
 		tx = tx.Where(columnName+" <= ? ", exp.Lte)
 	}
 	if exp.Neq != nil {
-		tx = tx.Where(columnName+" != ? ", exp.Neq)
+		tx = tx.Not(columnName+" = ? ", exp.Neq)
 	}
 	if exp.Nin != nil {
-		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+		tx = tx.Not(columnName+" in ? ", exp.Nin)
 	}
 	if exp.Like != nil {
 		tx = tx.Where(columnName+" like ?% ", exp.Like)
@@ -398,13 +416,13 @@ func stringCompare(tx *gorm.DB, exp model.StringComparisonExp, columnName string
 		tx = tx.Where(columnName+" like ?% ", exp.Similar)
 	}
 	if exp.Nlike != nil {
-		tx = tx.Where(columnName+" not like ?% ", exp.Nlike)
+		tx = tx.Not(columnName+" like ?% ", exp.Nlike)
 	}
 	if exp.Nilike != nil {
-		tx = tx.Where(columnName+" not like ?% ", exp.Nilike)
+		tx = tx.Not(columnName+" like ?% ", exp.Nilike)
 	}
 	if exp.Nsimilar != nil {
-		tx = tx.Where(columnName+" not like ?% ", exp.Nsimilar)
+		tx = tx.Not(columnName+" like ?% ", exp.Nsimilar)
 	}
 
 	return tx
@@ -433,10 +451,10 @@ func timestamptzCompare(tx *gorm.DB, exp model.TimestamptzComparisonExp, columnN
 		tx = tx.Where(columnName+" <= ? ", exp.Lte)
 	}
 	if exp.Neq != nil {
-		tx = tx.Where(columnName+" != ? ", exp.Neq)
+		tx = tx.Not(columnName+" = ? ", exp.Neq)
 	}
 	if exp.Nin != nil {
-		tx = tx.Where(columnName+" not in ? ", exp.Nin)
+		tx = tx.Not(columnName+" in ? ", exp.Nin)
 	}
 
 	return tx
