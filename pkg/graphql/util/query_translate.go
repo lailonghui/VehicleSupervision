@@ -1,8 +1,8 @@
 package util
 
 import (
+	"VehicleSupervision/pkg/graphql/model"
 	"errors"
-	"fmt"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"reflect"
@@ -44,8 +44,18 @@ func (t *QueryTranslator) OrderBy(orderBy interface{}) (re *QueryTranslator) {
 	case reflect.Slice:
 		sliceLength := orderByValue.Len()
 		for i := 0; i < sliceLength; i++ {
-			orderByItem := getValue(orderByValue.Index(i))
-			re.tx = re.tx.Order(buildOrderBy(orderByItem))
+			orderByItem := orderByValue.Index(i)
+			if orderByItem.IsNil() {
+				continue
+			}
+			if orderByItem.Kind() == reflect.Ptr {
+				orderByItem = orderByItem.Elem()
+			}
+			orderByColumn, ok := buildOrderBy(orderByItem)
+			if ok {
+				re.tx = re.tx.Order(orderByColumn)
+			}
+
 		}
 	default:
 		panic(errors.New("unSupport type"))
@@ -130,19 +140,42 @@ func getValue(x interface{}) reflect.Value {
 }
 
 // 反射构建order
-func buildOrderBy(value reflect.Value) clause.OrderByColumn {
+func buildOrderBy(value reflect.Value) (clause.OrderByColumn, bool) {
 	// 获取orderByItem第一个非nil的属性和这个属性的tag
 	// 即为 order的方向和属性
 	valueKind := value.Kind()
+	valueType := value.Type()
 	switch valueKind {
 	case reflect.Struct:
 		for i := 0; i < value.NumField(); i++ {
 			fieldValue := value.Field(i)
-			fmt.Println(fieldValue)
+			isFieldPtr := fieldValue.Kind() == reflect.Ptr
+			if isFieldPtr && fieldValue.IsNil() {
+				continue
+			}
+			if isFieldPtr {
+				fieldValue = fieldValue.Elem()
+			}
+			columnName := valueType.Field(i).Tag.Get("json")
+			switch fieldValue.String() {
+			case string(model.OrderByAsc):
+				return clause.OrderByColumn{Column: clause.Column{
+					Name: columnName,
+					Raw:  true,
+				}, Desc: false}, true
+			case string(model.OrderByDesc):
+				return clause.OrderByColumn{Column: clause.Column{
+					Name: columnName,
+					Raw:  true,
+				}, Desc: true}, true
+			default:
+
+			}
+
 		}
 	default:
 		panic(errors.New("unSupport type"))
 	}
 
-	return clause.OrderByColumn{}
+	return clause.OrderByColumn{}, false
 }
