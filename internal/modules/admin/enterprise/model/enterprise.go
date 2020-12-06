@@ -115,3 +115,7 @@ type Enterprise struct {
 	// 内网更新时间
 	UpdateTimeIn *time.Time `json:"update_time_in"`
 }
+
+func (e Enterprise) TableName() string {
+	return "enterprise"
+}

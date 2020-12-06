@@ -17,11 +17,11 @@ import (
 
 func (r *queryResolver) SystemUser(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) ([]*model1.SystemUser, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.SystemUser{})
-	/*qt.DistinctOn(distinctOn).
-	Limit(limit).
-	Offset(offset).
-	OrderBy(orderBy).
-	Where(where)*/
+	qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where)
 	// 执行翻译
 	tx := qt.DoTranslate()
 	var rs []*model1.SystemUser

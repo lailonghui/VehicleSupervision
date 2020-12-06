@@ -4,15 +4,32 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/db"
 	model1 "VehicleSupervision/internal/modules/admin/enterprise/model"
 	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/generated"
 	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/model"
+	"VehicleSupervision/pkg/graphql/util"
 	"context"
+	"errors"
 	"fmt"
+	"gorm.io/gorm"
 )
 
 func (r *mutationResolver) DeleteEnterprise(ctx context.Context, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model1.Enterprise{})
+	qt.Where(where)
+	// 执行翻译
+	tx := qt.DoTranslate()
+	tx.Delete(model1.Enterprise{})
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &model.EnterpriseMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) DeleteEnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
