@@ -11,6 +11,7 @@ import (
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
+	"fmt"
 
 	"gorm.io/gorm"
 )
@@ -42,6 +43,7 @@ func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []mo
 		Offset(offset).
 		OrderBy(orderBy).
 		Where(where)
+	fmt.Println(r.GetPreloads(ctx))
 	// 执行翻译
 	//tx := qt.DoTranslate()
 
