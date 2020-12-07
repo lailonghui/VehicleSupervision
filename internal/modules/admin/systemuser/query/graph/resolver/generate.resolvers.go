@@ -11,20 +11,17 @@ import (
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
-	"fmt"
-
 	"gorm.io/gorm"
 )
 
 func (r *queryResolver) SystemUser(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) ([]*model1.SystemUser, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.SystemUser{})
-	qt.DistinctOn(distinctOn).
+	tx := qt.DistinctOn(distinctOn).
 		Limit(limit).
 		Offset(offset).
 		OrderBy(orderBy).
-		Where(where)
-	// 执行翻译
-	tx := qt.DoTranslate()
+		Where(where).
+		Finish()
 	var rs []*model1.SystemUser
 	tx = tx.Find(&rs)
 	if err := tx.Error; err != nil {
@@ -37,16 +34,22 @@ func (r *queryResolver) SystemUser(ctx context.Context, distinctOn []model.Syste
 }
 
 func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) (*model.SystemUserAggregate, error) {
+	var rs model.SystemUserAggregate
+
 	qt := util.NewQueryTranslator(db.DB, &model1.SystemUser{})
-	qt.DistinctOn(distinctOn).
+	tx := qt.DistinctOn(distinctOn).
 		Limit(limit).
 		Offset(offset).
 		OrderBy(orderBy).
-		Where(where)
-	fmt.Println(util.GetPreloads(ctx))
+		Where(where).
+		Aggregate(rs, ctx)
 	// 执行翻译
-	//tx := qt.DoTranslate()
-
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
 	return nil, nil
 }
 

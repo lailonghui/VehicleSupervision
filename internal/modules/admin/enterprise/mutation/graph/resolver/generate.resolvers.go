@@ -17,9 +17,7 @@ import (
 
 func (r *mutationResolver) DeleteEnterprise(ctx context.Context, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.Enterprise{})
-	qt.Where(where)
-	// 执行翻译
-	tx := qt.DoTranslate()
+	tx := qt.Where(where).Finish()
 	tx.Delete(model1.Enterprise{})
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {

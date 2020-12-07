@@ -3,6 +3,7 @@ package util
 import (
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/pkg/graphql/model"
+	"context"
 	"errors"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
@@ -126,8 +127,14 @@ func (t *QueryTranslator) Where(where interface{}) (re *QueryTranslator) {
 	return re
 }
 
-// 执行翻译graphql到sql到操作
-func (t *QueryTranslator) DoTranslate() *gorm.DB {
+// 结束，返回tx
+func (t *QueryTranslator) Finish() *gorm.DB {
+
+	return t.tx
+}
+
+// 聚合结果，返回tx
+func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) *gorm.DB {
 
 	return t.tx
 }
