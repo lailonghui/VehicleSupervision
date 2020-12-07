@@ -50,7 +50,7 @@ func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []mo
 		}
 		return nil, err
 	}
-	return nil, nil
+	return &rs, nil
 }
 
 func (r *queryResolver) SystemUserByPk(ctx context.Context, id int64) (*model1.SystemUser, error) {
