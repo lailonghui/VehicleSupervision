@@ -4,8 +4,6 @@ import (
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
-	"os"
-	"strings"
 )
 
 var CONF_INSTANCE *Conf
@@ -50,10 +48,8 @@ type LogConf struct {
 	Mode  string `yaml:"mode"`
 }
 
-func Setup() {
-	goPath := os.Getenv("GOPATH")
-	filename := goPath + strings.ReplaceAll("/src/lai.com/VehicleSupervision/config/setting.yaml", "/", "\\")
-	data, err := ioutil.ReadFile(filename)
+func Setup(configFile string) {
+	data, err := ioutil.ReadFile(configFile)
 	if err != nil {
 		log.Fatal(err)
 	}

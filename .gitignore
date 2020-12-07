@@ -146,9 +146,11 @@ test/
 
 ### Example user template template
 ### Example user template
+config/setting.dev.yaml
 
 # IntelliJ project files
 .idea
 *.iml
 out
 gen
+
