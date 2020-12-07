@@ -43,7 +43,6 @@ func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []mo
 		OrderBy(orderBy).
 		Where(where).
 		Aggregate(rs, ctx)
-	// 执行翻译
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil

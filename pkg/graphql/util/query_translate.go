@@ -5,9 +5,11 @@ import (
 	"VehicleSupervision/pkg/graphql/model"
 	"context"
 	"errors"
+	"fmt"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"reflect"
+	"strings"
 )
 
 // graphql查询翻译器（翻译成sql）
@@ -29,13 +31,14 @@ type QueryTranslator struct {
 }
 
 func NewQueryTranslator(tx *gorm.DB, model interface{}) *QueryTranslator {
+	tx = tx.Model(model)
 	return &QueryTranslator{tx: tx, model: model}
 }
 
 // 排序
 func (t *QueryTranslator) OrderBy(orderBy interface{}) (re *QueryTranslator) {
 	re = t
-	if IsNil(orderBy) {
+	if isNil(orderBy) {
 		return re
 	}
 	re.orderBy = orderBy
@@ -92,7 +95,7 @@ func (t *QueryTranslator) Limit(limit *int) (re *QueryTranslator) {
 // 设置distinctOn
 func (t *QueryTranslator) DistinctOn(distinctOn interface{}) (re *QueryTranslator) {
 	re = t
-	if IsNil(distinctOn) {
+	if isNil(distinctOn) {
 		return re
 	}
 	re.distinctOn = distinctOn
@@ -117,7 +120,7 @@ func (t *QueryTranslator) DistinctOn(distinctOn interface{}) (re *QueryTranslato
 // 设置where
 func (t *QueryTranslator) Where(where interface{}) (re *QueryTranslator) {
 	re = t
-	if IsNil(where) {
+	if isNil(where) {
 		return re
 	}
 	re.where = where
@@ -135,6 +138,18 @@ func (t *QueryTranslator) Finish() *gorm.DB {
 
 // 聚合结果，返回tx
 func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) *gorm.DB {
+	// 获取聚合查询项
+	queryStrings := GetPreloadsMustPrefix(ctx, "aggregate.")
+	if queryStrings == nil || len(queryStrings) == 0 {
+		return t.tx
+	}
+
+	// select语句buffer
+	selects := getAggregateSelect(queryStrings)
+	selectStr := strings.Join(selects, ",")
+	var results []map[string]interface{}
+	t.tx.Select(selectStr).Find(&results)
+	fmt.Println(results)
 
 	return t.tx
 }
@@ -260,6 +275,7 @@ func buildWhere(tx *gorm.DB, where interface{}) *gorm.DB {
 	return tx
 }
 
+// bigint 比较判断
 func bigintCompare(tx *gorm.DB, exp model.BigintComparisonExp, columnName string) *gorm.DB {
 	if exp.Eq != nil {
 		tx = tx.Where(columnName+" = ? ", exp.Eq)
@@ -292,6 +308,7 @@ func bigintCompare(tx *gorm.DB, exp model.BigintComparisonExp, columnName string
 	return tx
 }
 
+// boolean 比较判断
 func booleanCompare(tx *gorm.DB, exp model.BooleanComparisonExp, columnName string) *gorm.DB {
 	if exp.Eq != nil {
 		tx = tx.Where(columnName+" = ? ", exp.Eq)
@@ -323,6 +340,7 @@ func booleanCompare(tx *gorm.DB, exp model.BooleanComparisonExp, columnName stri
 	return tx
 }
 
+// int 比较判断
 func intCompare(tx *gorm.DB, exp model.IntComparisonExp, columnName string) *gorm.DB {
 	if exp.Eq != nil {
 		tx = tx.Where(columnName+" = ? ", exp.Eq)
@@ -354,6 +372,7 @@ func intCompare(tx *gorm.DB, exp model.IntComparisonExp, columnName string) *gor
 	return tx
 }
 
+// jsonb 比较判断
 func jsonbCompare(tx *gorm.DB, exp model.JsonbComparisonExp, columnName string) *gorm.DB {
 	if exp.Eq != nil {
 		tx = tx.Where(columnName+" = ? ", exp.Eq)
@@ -386,6 +405,7 @@ func jsonbCompare(tx *gorm.DB, exp model.JsonbComparisonExp, columnName string) 
 	return tx
 }
 
+// string 比较判断
 func stringCompare(tx *gorm.DB, exp model.StringComparisonExp, columnName string) *gorm.DB {
 	if exp.Eq != nil {
 		tx = tx.Where(columnName+" = ? ", exp.Eq)
@@ -436,6 +456,7 @@ func stringCompare(tx *gorm.DB, exp model.StringComparisonExp, columnName string
 	return tx
 }
 
+// timestamptz 比较判断
 func timestamptzCompare(tx *gorm.DB, exp model.TimestamptzComparisonExp, columnName string) *gorm.DB {
 	if exp.Eq != nil {
 		tx = tx.Where(columnName+" = ? ", exp.Eq)
@@ -468,10 +489,80 @@ func timestamptzCompare(tx *gorm.DB, exp model.TimestamptzComparisonExp, columnN
 	return tx
 }
 
-func IsNil(i interface{}) bool {
+// 判断interface{} 是否是nil
+func isNil(i interface{}) bool {
 	defer func() {
 		recover()
 	}()
 	vi := reflect.ValueOf(i)
 	return vi.IsNil()
+}
+
+// 获取聚合查询select内容数组
+func getAggregateSelect(queryStrings []string) (selects []string) {
+	for _, queryString := range queryStrings {
+		queryInfos := strings.Split(queryString, ".")
+		if len(queryInfos) < 2 {
+			continue
+		}
+		aggregateType := queryInfos[1]
+		switch aggregateType {
+		case "avg":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "avg("+column+") as _avg_"+column)
+			}
+		case "count":
+			selects = append(selects, "count(*) as _count")
+		case "max":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "max("+column+") as _max_"+column)
+			}
+		case "min":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "min("+column+") as _min_"+column)
+			}
+		case "stddev":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "stddev("+column+") as _stddev_"+column)
+			}
+		case "stddev_pop":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "stddev_pop("+column+") as _stddev_pop_"+column)
+			}
+		case "stddev_samp":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "stddev_samp("+column+") as _stddev_samp_"+column)
+			}
+		case "sum":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "sum("+column+") as _sum_"+column)
+			}
+		case "var_pop":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "var_pop("+column+") as _var_pop_"+column)
+			}
+		case "var_samp":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "var_samp("+column+") as _var_samp_"+column)
+			}
+		case "variance":
+			if len(queryInfos) >= 3 {
+				column := queryInfos[2]
+				selects = append(selects, "variance("+column+") as _variance_"+column)
+			}
+		default:
+			panic("unsupport query")
+		}
+	}
+
+	return
 }
