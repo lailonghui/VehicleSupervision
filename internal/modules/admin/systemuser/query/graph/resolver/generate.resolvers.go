@@ -43,7 +43,7 @@ func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []mo
 		Offset(offset).
 		OrderBy(orderBy).
 		Where(where)
-	fmt.Println(r.GetPreloads(ctx))
+	fmt.Println(util.GetPreloads(ctx))
 	// 执行翻译
 	//tx := qt.DoTranslate()
 
