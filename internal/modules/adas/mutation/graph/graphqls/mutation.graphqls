@@ -1,4 +1,5 @@
 schema {
+    query: Query
     mutation: Mutation
 }
 type Mutation {
@@ -16,4 +17,7 @@ type Mutation {
     ): adas_data_mutation_response
     # delete single row from the table: "adas_data"
     delete_adas_data_by_pk(id: bigint!): adas_data
+}
+type Query{
+    bug: Int
 }

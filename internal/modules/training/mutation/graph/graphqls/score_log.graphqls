@@ -1,8 +1,8 @@
 # columns and relationships of "score_log"
-type score_log implements Node {
+type score_log {
     create_at: timestamptz
     create_by: String
-    id: ID!
+    id: bigint!
     id_number: String
     name: String
     score_log_id: String
@@ -349,15 +349,4 @@ type score_log_variance_fields {
 input score_log_variance_order_by {
     id: order_by
     training_score: order_by
-}
-
-# A Relay Connection object on "score_log"
-type score_logConnection {
-    edges: [score_logEdge!]!
-    pageInfo: PageInfo!
-}
-
-type score_logEdge {
-    cursor: String!
-    node: score_log!
 }

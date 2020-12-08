@@ -1,12 +1,12 @@
 # columns and relationships of "enterprise_training"
-type enterprise_training implements Node {
+type enterprise_training {
     create_at: timestamptz
     create_by: String
     delete_at: timestamptz
     delete_by: String
     enterprise_id: String
     enterprise_training_id: String
-    id: ID!
+    id: bigint!
     is_delete: Boolean
     is_received: Boolean
     material_id: String
@@ -350,15 +350,4 @@ type enterprise_training_variance_fields {
 # order by variance() on columns of table "enterprise_training"
 input enterprise_training_variance_order_by {
     id: order_by
-}
-
-# A Relay Connection object on "enterprise_training"
-type enterprise_trainingConnection {
-    edges: [enterprise_trainingEdge!]!
-    pageInfo: PageInfo!
-}
-
-type enterprise_trainingEdge {
-    cursor: String!
-    node: enterprise_training!
 }

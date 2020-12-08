@@ -1,12 +1,11 @@
-
 # columns and relationships of "driver_study_details"
-type driver_study_details implements Node {
+type driver_study_details {
     create_by: String
     create_time: timestamptz
     driver_id: String
     driver_training_id: String
     enterprise_id: String
-    id: ID!
+    id: bigint!
     is_training_completed: Boolean
     material_id: bigint
     score: bigint
@@ -380,15 +379,4 @@ input driver_study_details_variance_order_by {
     material_id: order_by
     score: order_by
     training_time: order_by
-}
-
-# A Relay Connection object on "driver_study_details"
-type driver_study_detailsConnection {
-    edges: [driver_study_detailsEdge!]!
-    pageInfo: PageInfo!
-}
-
-type driver_study_detailsEdge {
-    cursor: String!
-    node: driver_study_details!
 }

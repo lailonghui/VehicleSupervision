@@ -1,4 +1,5 @@
 schema {
+    query: Query
     mutation: Mutation
 }
 
@@ -223,4 +224,8 @@ type Mutation {
         _set: training_material_set_input
         pk_columns: training_material_pk_columns_input!
     ): training_material
+}
+
+type Query{
+    bug: Int
 }

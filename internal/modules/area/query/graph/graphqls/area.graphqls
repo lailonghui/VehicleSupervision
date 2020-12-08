@@ -1,12 +1,12 @@
 # columns and relationships of "city"
-type city implements Node {
+type city {
     city_id: String
     code: String
     create_at: timestamptz
     create_by: String
     delete_at: timestamptz
     delete_by: String
-    id: ID!
+    id: bigint!
     is_delete: Boolean
     name: String
     province_id: String
@@ -369,20 +369,8 @@ input city_variance_order_by {
     id: order_by
 }
 
-# A Relay Connection object on "city"
-type cityConnection {
-    edges: [cityEdge!]!
-    pageInfo: PageInfo!
-}
-
-type cityEdge {
-    cursor: String!
-    node: city!
-}
-
-
 # columns and relationships of "district"
-type district implements Node {
+type district {
     city_id: String
     code: String
     create_at: timestamptz
@@ -390,7 +378,7 @@ type district implements Node {
     delete_at: timestamptz
     delete_by: String
     district_id: String
-    id: ID!
+    id: bigint!
     is_delete: Boolean
     name: String
     remarks: String
@@ -752,25 +740,14 @@ input district_variance_order_by {
     id: order_by
 }
 
-# A Relay Connection object on "district"
-type districtConnection {
-    edges: [districtEdge!]!
-    pageInfo: PageInfo!
-}
-
-type districtEdge {
-    cursor: String!
-    node: district!
-}
-
 # columns and relationships of "province"
-type province implements Node {
+type province {
     code: String
     create_at: timestamptz
     create_by: String
     delete_at: timestamptz
     delete_by: String
-    id: ID!
+    id: bigint!
     is_delete: Boolean
     name: String
     province_id: String
@@ -1119,15 +1096,4 @@ type province_variance_fields {
 # order by variance() on columns of table "province"
 input province_variance_order_by {
     id: order_by
-}
-
-# A Relay Connection object on "province"
-type provinceConnection {
-    edges: [provinceEdge!]!
-    pageInfo: PageInfo!
-}
-
-type provinceEdge {
-    cursor: String!
-    node: province!
 }

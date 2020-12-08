@@ -1,15 +1,14 @@
-
-
-type adas_attachment implements Node {
+# columns and relationships of "adas_attachment"
+type adas_attachment {
     alarm_no: String
-    attachment_id: String
+    attachment_id: String!
     channel_id: bigint
     create_date: timestamptz
     file_length: bigint
     file_name: String
     file_path: String
     file_type: String
-    id: ID!
+    id: bigint!
     plate_no: String
     sim_no: bigint
     status: String
@@ -98,6 +97,8 @@ input adas_attachment_bool_exp {
 
 # unique or primary key constraints on table "adas_attachment"
 enum adas_attachment_constraint {
+    # unique or primary key constraint
+    adas_attachment_attachment_id_key
     # unique or primary key constraint
     adas_attachment_pkey
 }
@@ -442,19 +443,8 @@ input adas_attachment_variance_order_by {
     vehicle_id: order_by
 }
 
-# A Relay Connection object on "adas_attachment"
-type adas_attachmentConnection {
-    edges: [adas_attachmentEdge!]!
-    pageInfo: PageInfo!
-}
-
-type adas_attachmentEdge {
-    cursor: String!
-    node: adas_attachment!
-}
-
 # columns and relationships of "adas_data"
-type adas_data implements Node {
+type adas_data {
     adas_attachment: String
     alarm_id: bigint
     alarm_no: String
@@ -465,7 +455,7 @@ type adas_data implements Node {
     created_date: timestamptz
     fatigue_degree: bigint
     front_car_distance: numeric
-    id: ID!
+    id: bigint!
     latitude: numeric
     levels: bigint
     location: String
@@ -1087,9 +1077,6 @@ type adas_data_variance_fields {
     terminal_id: Float
 }
 
-
-
-
 # order by variance() on columns of table "adas_data"
 input adas_data_variance_order_by {
     alarm_id: order_by
@@ -1103,15 +1090,4 @@ input adas_data_variance_order_by {
     sim_id: order_by
     speed: order_by
     terminal_id: order_by
-}
-
-# A Relay Connection object on "adas_data"
-type adas_dataConnection {
-    edges: [adas_dataEdge!]!
-    pageInfo: PageInfo!
-}
-
-type adas_dataEdge {
-    cursor: String!
-    node: adas_data!
 }

@@ -1,5 +1,5 @@
 # columns and relationships of "government_manager"
-type government_manager implements Node {
+type government_manager {
     all_driver_count: bigint
     area_id: String
     create_at: timestamptz
@@ -9,7 +9,7 @@ type government_manager implements Node {
     delete_by: String
     enterprise_id: String
     gov_id: String
-    id: ID!
+    id: bigint!
     is_delete: Boolean
     is_received: Boolean
     manage_id: String
@@ -475,15 +475,4 @@ input government_manager_variance_order_by {
     all_driver_count: order_by
     id: order_by
     trained_drivers: order_by
-}
-
-# A Relay Connection object on "government_manager"
-type government_managerConnection {
-    edges: [government_managerEdge!]!
-    pageInfo: PageInfo!
-}
-
-type government_managerEdge {
-    cursor: String!
-    node: government_manager!
 }

@@ -4,85 +4,172 @@ schema {
 
 type Query {
     # fetch data from the table: "answer_log"
-    answer_log_connection(
-        after: String
-        before: String
+    answer_log(
         # distinct select on columns
         distinct_on: [answer_log_select_column!]
-        first: Int
-        last: Int
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
         # sort the rows by one or more columns
         order_by: [answer_log_order_by!]
         # filter the rows returned
         where: answer_log_bool_exp
-    ): answer_logConnection!
+    ): [answer_log!]!
+    # fetch aggregated fields from the table: "answer_log"
+    answer_log_aggregate(
+        # distinct select on columns
+        distinct_on: [answer_log_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [answer_log_order_by!]
+        # filter the rows returned
+        where: answer_log_bool_exp
+    ): answer_log_aggregate!
+    # fetch data from the table: "answer_log" using primary key columns
+    answer_log_by_pk(id: bigint!): answer_log
     # fetch data from the table: "driver_study_details"
-    driver_study_details_connection(
-        after: String
-        before: String
+    driver_study_details(
         # distinct select on columns
         distinct_on: [driver_study_details_select_column!]
-        first: Int
-        last: Int
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
         # sort the rows by one or more columns
         order_by: [driver_study_details_order_by!]
         # filter the rows returned
         where: driver_study_details_bool_exp
-    ): driver_study_detailsConnection!
+    ): [driver_study_details!]!
+    # fetch aggregated fields from the table: "driver_study_details"
+    driver_study_details_aggregate(
+        # distinct select on columns
+        distinct_on: [driver_study_details_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [driver_study_details_order_by!]
+        # filter the rows returned
+        where: driver_study_details_bool_exp
+    ): driver_study_details_aggregate!
+    # fetch data from the table: "driver_study_details" using primary key columns
+    driver_study_details_by_pk(id: bigint!): driver_study_details
     # fetch data from the table: "enterprise_training"
-    enterprise_training_connection(
-        after: String
-        before: String
+    enterprise_training(
         # distinct select on columns
         distinct_on: [enterprise_training_select_column!]
-        first: Int
-        last: Int
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
         # sort the rows by one or more columns
         order_by: [enterprise_training_order_by!]
         # filter the rows returned
         where: enterprise_training_bool_exp
-    ): enterprise_trainingConnection!
+    ): [enterprise_training!]!
+    # fetch aggregated fields from the table: "enterprise_training"
+    enterprise_training_aggregate(
+        # distinct select on columns
+        distinct_on: [enterprise_training_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [enterprise_training_order_by!]
+        # filter the rows returned
+        where: enterprise_training_bool_exp
+    ): enterprise_training_aggregate!
+    # fetch data from the table: "enterprise_training" using primary key columns
+    enterprise_training_by_pk(id: bigint!): enterprise_training
     # fetch data from the table: "government_manager"
-    government_manager_connection(
-        after: String
-        before: String
+    government_manager(
         # distinct select on columns
         distinct_on: [government_manager_select_column!]
-        first: Int
-        last: Int
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
         # sort the rows by one or more columns
         order_by: [government_manager_order_by!]
         # filter the rows returned
         where: government_manager_bool_exp
-    ): government_managerConnection!
-    node(
-        # A globally unique id
-        id: ID!
-    ): Node
+    ): [government_manager!]!
+    # fetch aggregated fields from the table: "government_manager"
+    government_manager_aggregate(
+        # distinct select on columns
+        distinct_on: [government_manager_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [government_manager_order_by!]
+        # filter the rows returned
+        where: government_manager_bool_exp
+    ): government_manager_aggregate!
+    # fetch data from the table: "government_manager" using primary key columns
+    government_manager_by_pk(id: bigint!): government_manager
+
     # fetch data from the table: "score_log"
-    score_log_connection(
-        after: String
-        before: String
+    score_log(
         # distinct select on columns
         distinct_on: [score_log_select_column!]
-        first: Int
-        last: Int
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
         # sort the rows by one or more columns
         order_by: [score_log_order_by!]
         # filter the rows returned
         where: score_log_bool_exp
-    ): score_logConnection!
+    ): [score_log!]!
+    # fetch aggregated fields from the table: "score_log"
+    score_log_aggregate(
+        # distinct select on columns
+        distinct_on: [score_log_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [score_log_order_by!]
+        # filter the rows returned
+        where: score_log_bool_exp
+    ): score_log_aggregate!
+    # fetch data from the table: "score_log" using primary key columns
+    score_log_by_pk(id: bigint!): score_log
     # fetch data from the table: "training_material"
-    training_material_connection(
-        after: String
-        before: String
+    training_material(
         # distinct select on columns
         distinct_on: [training_material_select_column!]
-        first: Int
-        last: Int
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
         # sort the rows by one or more columns
         order_by: [training_material_order_by!]
         # filter the rows returned
         where: training_material_bool_exp
-    ): training_materialConnection!
+    ): [training_material!]!
+    # fetch aggregated fields from the table: "training_material"
+    training_material_aggregate(
+        # distinct select on columns
+        distinct_on: [training_material_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [training_material_order_by!]
+        # filter the rows returned
+        where: training_material_bool_exp
+    ): training_material_aggregate!
+    # fetch data from the table: "training_material" using primary key columns
+    training_material_by_pk(id: bigint!): training_material
 }

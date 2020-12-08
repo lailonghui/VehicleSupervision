@@ -18,5 +18,5 @@ require (
 	go.uber.org/zap v1.16.0
 	gopkg.in/yaml.v2 v2.4.0
 	gorm.io/driver/postgres v1.0.5
-	gorm.io/gorm v1.20.7
+	gorm.io/gorm v1.20.8
 )

@@ -3,33 +3,59 @@ schema {
 }
 type Query {
     # fetch data from the table: "adas_attachment"
-    adas_attachment_connection(
-        after: String
-        before: String
+    adas_attachment(
         # distinct select on columns
         distinct_on: [adas_attachment_select_column!]
-        first: Int
-        last: Int
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
         # sort the rows by one or more columns
         order_by: [adas_attachment_order_by!]
         # filter the rows returned
         where: adas_attachment_bool_exp
-    ): adas_attachmentConnection!
+    ): [adas_attachment!]!
+    # fetch aggregated fields from the table: "adas_attachment"
+    adas_attachment_aggregate(
+        # distinct select on columns
+        distinct_on: [adas_attachment_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [adas_attachment_order_by!]
+        # filter the rows returned
+        where: adas_attachment_bool_exp
+    ): adas_attachment_aggregate!
+    # fetch data from the table: "adas_attachment" using primary key columns
+    adas_attachment_by_pk(id: bigint!): adas_attachment
     # fetch data from the table: "adas_data"
-    adas_data_connection(
-        after: String
-        before: String
+    adas_data(
         # distinct select on columns
         distinct_on: [adas_data_select_column!]
-        first: Int
-        last: Int
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
         # sort the rows by one or more columns
         order_by: [adas_data_order_by!]
         # filter the rows returned
         where: adas_data_bool_exp
-    ): adas_dataConnection!
-    node(
-        # A globally unique id
-        id: ID!
-    ): Node
+    ): [adas_data!]!
+    # fetch aggregated fields from the table: "adas_data"
+    adas_data_aggregate(
+        # distinct select on columns
+        distinct_on: [adas_data_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [adas_data_order_by!]
+        # filter the rows returned
+        where: adas_data_bool_exp
+    ): adas_data_aggregate!
+    # fetch data from the table: "adas_data" using primary key columns
+    adas_data_by_pk(id: bigint!): adas_data
 }

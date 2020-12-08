@@ -1,11 +1,11 @@
 # columns and relationships of "training_material"
-type training_material implements Node {
+type training_material {
     contents: String
     create_at: timestamptz
     create_by: String
     delete_at: timestamptz
     delete_by: String
-    id: ID!
+    id: bigint!
     is_delete: Boolean
     material_address: String
     material_id: String
@@ -369,13 +369,3 @@ input training_material_variance_order_by {
     id: order_by
 }
 
-# A Relay Connection object on "training_material"
-type training_materialConnection {
-    edges: [training_materialEdge!]!
-    pageInfo: PageInfo!
-}
-
-type training_materialEdge {
-    cursor: String!
-    node: training_material!
-}

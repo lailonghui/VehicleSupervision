@@ -1,5 +1,6 @@
 schema {
     mutation: Mutation
+    query: Query
 }
 
 type Mutation {
@@ -119,4 +120,8 @@ type Mutation {
         _set: province_set_input
         pk_columns: province_pk_columns_input!
     ): province
+}
+
+type Query{
+    bug: Int
 }

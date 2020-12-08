@@ -1,11 +1,11 @@
 # columns and relationships of "answer_log"
-type answer_log implements Node {
+type answer_log {
     answer: String
     answer_log_id: String
     create_at: timestamptz
     create_by: String
     driver_id: String
-    id: ID!
+    id: bigint!
     material_id: String
     update_at: timestamptz
     update_by: String
@@ -319,15 +319,4 @@ type answer_log_variance_fields {
 # order by variance() on columns of table "answer_log"
 input answer_log_variance_order_by {
     id: order_by
-}
-
-# A Relay Connection object on "answer_log"
-type answer_logConnection {
-    edges: [answer_logEdge!]!
-    pageInfo: PageInfo!
-}
-
-type answer_logEdge {
-    cursor: String!
-    node: answer_log!
 }
