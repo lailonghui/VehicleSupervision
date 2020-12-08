@@ -37,18 +37,22 @@ func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []mo
 	var rs model.SystemUserAggregate
 
 	qt := util.NewQueryTranslator(db.DB, &model1.SystemUser{})
-	tx := qt.DistinctOn(distinctOn).
+	tx, err := qt.DistinctOn(distinctOn).
 		Limit(limit).
 		Offset(offset).
 		OrderBy(orderBy).
 		Where(where).
-		Aggregate(rs, ctx)
+		Aggregate(&rs, ctx)
+	if err != nil {
+		return nil, err
+	}
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
 		}
 		return nil, err
 	}
+
 	return &rs, nil
 }
 
