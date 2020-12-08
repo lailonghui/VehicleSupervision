@@ -3,6 +3,7 @@ package resolver
 import (
 	model1 "VehicleSupervision/internal/modules/admin/systemuser/model"
 	"VehicleSupervision/internal/modules/admin/systemuser/mutation/graph/model"
+	"VehicleSupervision/pkg/xid"
 )
 
 // This file will not be regenerated automatically.
@@ -34,6 +35,7 @@ func (r Resolver) insertParamConvert(v *model.SystemUserInsertInput) (rs *model1
 		IPAddress:    v.IPAddress,
 		IsDelete:     false,
 		IsValid:      v.IsValid,
+		UserID:       xid.GetXid(),
 		Mkey:         v.Mkey,
 		Mobile:       v.Mobile,
 		Password:     *v.Password,

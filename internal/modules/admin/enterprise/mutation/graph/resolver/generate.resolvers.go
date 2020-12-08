@@ -9,7 +9,6 @@ import (
 	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/generated"
 	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/model"
 	"VehicleSupervision/pkg/graphql/util"
-	"VehicleSupervision/pkg/xid"
 	"context"
 	"errors"
 	"fmt"
@@ -59,12 +58,8 @@ func (r *mutationResolver) DeleteEnterpriseByPk(ctx context.Context, id int64) (
 }
 
 func (r *mutationResolver) InsertEnterprise(ctx context.Context, objects []*model.EnterpriseInsertInput) (*model.EnterpriseMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.EnterpriseID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model1.Enterprise{}).Save(objects)
+	rs := r.batchInsertParamConvert(objects)
+	tx := db.DB.Model(&model1.Enterprise{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -73,19 +68,51 @@ func (r *mutationResolver) InsertEnterprise(ctx context.Context, objects []*mode
 	}
 	return &model.EnterpriseMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertEnterpriseOne(ctx context.Context, object model.EnterpriseInsertInput) (*model1.Enterprise, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertParamConvert(&object)
+	tx := db.DB.Model(&model1.Enterprise{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) UpdateEnterprise(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model1.Enterprise{})
+	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return &model.EnterpriseMutationResponse{
+				AffectedRows: 0,
+			}, nil
+		}
+		return nil, err
+	}
+	return &model.EnterpriseMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) UpdateEnterpriseByPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, pkColumns model.EnterprisePkColumnsInput) (*model1.Enterprise, error) {
-	panic(fmt.Errorf("not implemented"))
+	tx := db.DB.Where("id = ?", pkColumns.ID)
+	qt := util.NewQueryTranslator(tx, &model1.Enterprise{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	var rs model1.Enterprise
+	tx = tx.First(&rs)
+	return &rs, nil
 }
 
 func (r *queryResolver) T(ctx context.Context) (*int, error) {
