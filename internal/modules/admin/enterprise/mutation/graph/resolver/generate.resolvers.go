@@ -9,6 +9,7 @@ import (
 	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/generated"
 	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/model"
 	"VehicleSupervision/pkg/graphql/util"
+	"VehicleSupervision/pkg/xid"
 	"context"
 	"errors"
 	"fmt"
@@ -31,11 +32,34 @@ func (r *mutationResolver) DeleteEnterprise(ctx context.Context, where model.Ent
 }
 
 func (r *mutationResolver) DeleteEnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
-	panic(fmt.Errorf("not implemented"))
+	var rs = model1.Enterprise{}
+	tx := db.DB.Model(&model1.Enterprise{}).Find(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	tx = db.DB.Delete(id)
+	return &rs, tx.Error
 }
 
 func (r *mutationResolver) InsertEnterprise(ctx context.Context, objects []*model.EnterpriseInsertInput) (*model.EnterpriseMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	for _, input := range objects {
+		xidStr := xid.GetXid()
+		input.EnterpriseID = &xidStr
+		input.ID = nil
+	}
+	tx := db.DB.Model(&model1.Enterprise{}).Save(objects)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &model.EnterpriseMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) InsertEnterpriseOne(ctx context.Context, object model.EnterpriseInsertInput) (*model1.Enterprise, error) {
