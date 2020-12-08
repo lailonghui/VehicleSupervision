@@ -183,6 +183,7 @@ func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) (*gorm.
 
 			}
 		}
+
 		bs, err := json.Marshal(formatResults)
 		if err != nil {
 			return nil, err
@@ -193,15 +194,6 @@ func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) (*gorm.
 		}
 	}
 
-	/*for _, result := range results {
-		for columnAlias, queryValue := range result {
-			if queryValue == nil {
-				continue
-			}
-			attrs := strings.Split(columnAlias, ".")
-			setAggregateValue(rsValue, attrs, queryValue)
-		}
-	}*/
 	return t.tx, nil
 }
 
