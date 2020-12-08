@@ -65,6 +65,7 @@ func Setup() {
 	router.Any("/training/query", trainingQuery.GinEndpoint())
 	router.Any("/training/mutation", trainingMutation.GinEndpoint())
 
+
 	addr := fmt.Sprintf("%s:%d", host, port)
 	logger.Info("server will run on " + addr)
 	logger.Info(fmt.Sprintf("connect to http://localhost:%d/ for GraphQL playground", port))
