@@ -12,6 +12,8 @@ import (
 	systemUserQuery "VehicleSupervision/internal/modules/admin/systemuser/query"
 	areaMutation "VehicleSupervision/internal/modules/area/mutation"
 	areaQuery "VehicleSupervision/internal/modules/area/query"
+	dictionaryCategoryMutation "VehicleSupervision/internal/modules/dictionary/category/mutation"
+	dictionaryCategoryQuery "VehicleSupervision/internal/modules/dictionary/category/query"
 	trainingMutation "VehicleSupervision/internal/modules/training/mutation"
 	trainingQuery "VehicleSupervision/internal/modules/training/query"
 	"VehicleSupervision/pkg/logger"
@@ -58,6 +60,8 @@ func Setup() {
 	router.Any("/system_user/mutation", systemUserMutation.GinEndpoint())
 	router.Any("/department/query", departmentQuery.GinEndpoint())
 	router.Any("/department/mutation", departmentMutation.GinEndpoint())
+	router.Any("/dictionary_category/query", dictionaryCategoryQuery.GinEndpoint())
+	router.Any("/dictionary_category/mutation", dictionaryCategoryMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())
