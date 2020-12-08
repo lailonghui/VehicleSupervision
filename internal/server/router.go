@@ -4,6 +4,8 @@ import (
 	"VehicleSupervision/config"
 	adasMutation "VehicleSupervision/internal/modules/adas/mutation"
 	adasQuery "VehicleSupervision/internal/modules/adas/query"
+	departmentMutation "VehicleSupervision/internal/modules/admin/department/mutation"
+	departmentQuery "VehicleSupervision/internal/modules/admin/department/query"
 	enterpriseMutation "VehicleSupervision/internal/modules/admin/enterprise/mutation"
 	enterpriseQuery "VehicleSupervision/internal/modules/admin/enterprise/query"
 	systemUserMutation "VehicleSupervision/internal/modules/admin/systemuser/mutation"
@@ -54,6 +56,8 @@ func Setup() {
 	router.Any("/enterprise/mutation", enterpriseMutation.GinEndpoint())
 	router.Any("/system_user/query", systemUserQuery.GinEndpoint())
 	router.Any("/system_user/mutation", systemUserMutation.GinEndpoint())
+	router.Any("/department/query", departmentQuery.GinEndpoint())
+	router.Any("/department/mutation", departmentMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())
