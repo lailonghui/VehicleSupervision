@@ -111,7 +111,18 @@ func (r *mutationResolver) UpdateSystemUser(ctx context.Context, inc *model.Syst
 }
 
 func (r *mutationResolver) UpdateSystemUserByPk(ctx context.Context, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, pkColumns model.SystemUserPkColumnsInput) (*model1.SystemUser, error) {
-	panic(fmt.Errorf("not implemented"))
+	tx := db.DB.Where("id = ?", pkColumns.ID)
+	qt := util.NewQueryTranslator(tx, &model1.SystemUser{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	var rs model1.SystemUser
+	tx = tx.First(&rs)
+	return &rs, nil
 }
 
 func (r *queryResolver) T(ctx context.Context) (*int, error) {
