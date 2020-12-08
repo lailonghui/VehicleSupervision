@@ -3,9 +3,11 @@ package util
 import (
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/pkg/graphql/model"
+	"VehicleSupervision/pkg/logger"
+	"bytes"
 	"context"
+	"encoding/json"
 	"errors"
-	"fmt"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"reflect"
@@ -137,21 +139,99 @@ func (t *QueryTranslator) Finish() *gorm.DB {
 }
 
 // 聚合结果，返回tx
-func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) *gorm.DB {
+func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) (*gorm.DB, error) {
 	// 获取聚合查询项
 	queryStrings := GetPreloadsMustPrefix(ctx, "aggregate.")
 	if queryStrings == nil || len(queryStrings) == 0 {
-		return t.tx
+		return t.tx, errors.New("not aggregate column find")
 	}
-
+	rsValue := reflect.ValueOf(rs)
+	rsKind := rsValue.Kind()
+	if rsKind != reflect.Ptr {
+		return t.tx, errors.New("rs must be point")
+	}
 	// select语句buffer
 	selects := getAggregateSelect(queryStrings)
+	// select 语句
 	selectStr := strings.Join(selects, ",")
+	// 暂存select结果
 	var results []map[string]interface{}
+	// 查询数据库，获取结果
 	t.tx.Select(selectStr).Find(&results)
-	fmt.Println(results)
+	// 将结果设置到rs中
+	if len(results) == 1 {
+		// 转换结果格式为嵌套map
+		var formatResults map[string]interface{} = make(map[string]interface{}, 0)
+		for columnAlias, queryValue := range results[0] {
+			attrs := strings.Split(columnAlias, ".")
+			attrlen := len(attrs)
+			var currentMap = formatResults
+			for i, attr := range attrs {
+				v, ok := currentMap[attr]
+				if ok {
+					currentMap = v.(map[string]interface{})
+				} else {
+					if i == attrlen-1 {
+						currentMap[attr] = queryValue
+					} else {
+						item := make(map[string]interface{}, 0)
+						currentMap[attr] = item
+						currentMap = item
+					}
 
-	return t.tx
+				}
+
+			}
+		}
+
+		bs, err := json.Marshal(formatResults)
+		if err != nil {
+			return nil, err
+		}
+		err = json.Unmarshal(bs, rs)
+		if err != nil {
+			return nil, err
+		}
+	}
+
+	return t.tx, nil
+}
+
+// 设置聚合结果的值到rs
+func setAggregateValue(rsValue reflect.Value, attrs []string, value interface{}) {
+	attrLen := len(attrs)
+	if attrLen == 0 {
+		return
+	}
+	if attrLen == 1 {
+		setValue(rsValue, value)
+		return
+	}
+	attr := attrs[0]
+	if rsValue.Kind() == reflect.Ptr {
+		elemValue := rsValue.Elem()
+		if elemValue.IsZero() {
+			eletype := reflect.TypeOf(elemValue.Interface())
+			rsValue.Set(reflect.New(eletype))
+		}
+		rsValue = elemValue
+	}
+	rsType := rsValue.Type()
+	for i := 0; i < rsValue.NumField(); i++ {
+		fieldType := rsType.Field(i)
+		fieldValue := rsValue.Field(i)
+		jsonTag := fieldType.Tag.Get("json")
+		if jsonTag == attr {
+			setAggregateValue(fieldValue, attrs[1:], value)
+
+		}
+	}
+}
+
+// 通过反射设置值
+func setValue(reflectValue reflect.Value, value interface{}) {
+	logger.Info(reflectValue.Type().String())
+	//reflectValue.Set(reflect.ValueOf(&value))
 }
 
 // 获取reflect.value
@@ -510,54 +590,54 @@ func getAggregateSelect(queryStrings []string) (selects []string) {
 		case "avg":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "avg("+column+") as _avg_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		case "count":
-			selects = append(selects, "count(*) as _count")
+			selects = append(selects, getCountColumnAlias())
 		case "max":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "max("+column+") as _max_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		case "min":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "min("+column+") as _min_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		case "stddev":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "stddev("+column+") as _stddev_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		case "stddev_pop":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "stddev_pop("+column+") as _stddev_pop_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		case "stddev_samp":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "stddev_samp("+column+") as _stddev_samp_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		case "sum":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "sum("+column+") as _sum_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		case "var_pop":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "var_pop("+column+") as _var_pop_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		case "var_samp":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "var_samp("+column+") as _var_samp_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		case "variance":
 			if len(queryInfos) >= 3 {
 				column := queryInfos[2]
-				selects = append(selects, "variance("+column+") as _variance_"+column)
+				selects = append(selects, getAggregateColumnAlias(aggregateType, column))
 			}
 		default:
 			panic("unsupport query")
@@ -565,4 +645,24 @@ func getAggregateSelect(queryStrings []string) (selects []string) {
 	}
 
 	return
+}
+
+// 获取count(*)-别名
+func getCountColumnAlias() string {
+	return "count(*) as \"aggregate.count\""
+}
+
+// 获取聚合查询列-别名
+func getAggregateColumnAlias(aggregateOp, column string) string {
+	bs := bytes.Buffer{}
+	bs.WriteString(aggregateOp)
+	bs.WriteString("(")
+	bs.WriteString(column)
+	bs.WriteString(") as \"")
+	bs.WriteString("aggregate.")
+	bs.WriteString(aggregateOp)
+	bs.WriteString(".")
+	bs.WriteString(column)
+	bs.WriteString("\"")
+	return bs.String()
 }

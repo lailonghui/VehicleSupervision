@@ -9,6 +9,7 @@ import (
 	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/generated"
 	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/model"
 	"VehicleSupervision/pkg/graphql/util"
+	"VehicleSupervision/pkg/xid"
 	"context"
 	"errors"
 	"fmt"
@@ -18,7 +19,52 @@ import (
 func (r *mutationResolver) DeleteEnterprise(ctx context.Context, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.Enterprise{})
 	tx := qt.Where(where).Finish()
-	tx.Delete(model1.Enterprise{})
+	// 获取请求的字段
+	preloads := util.GetPreloadsMustPrefixAndRemovePrefix(ctx, "returning.")
+	var rs []*model1.Enterprise
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx := tx.Select(preloads)
+		tx = tx.Find(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &model.EnterpriseMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
+	}, nil
+}
+
+func (r *mutationResolver) DeleteEnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
+	var rs = model1.Enterprise{}
+	tx := db.DB.Model(&model1.Enterprise{}).Find(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	tx = db.DB.Delete(id)
+	return &rs, tx.Error
+}
+
+func (r *mutationResolver) InsertEnterprise(ctx context.Context, objects []*model.EnterpriseInsertInput) (*model.EnterpriseMutationResponse, error) {
+	for _, input := range objects {
+		xidStr := xid.GetXid()
+		input.EnterpriseID = &xidStr
+		input.ID = nil
+	}
+	tx := db.DB.Model(&model1.Enterprise{}).Save(objects)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -28,14 +74,6 @@ func (r *mutationResolver) DeleteEnterprise(ctx context.Context, where model.Ent
 	return &model.EnterpriseMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
 	}, nil
-}
-
-func (r *mutationResolver) DeleteEnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
-	panic(fmt.Errorf("not implemented"))
-}
-
-func (r *mutationResolver) InsertEnterprise(ctx context.Context, objects []*model.EnterpriseInsertInput) (*model.EnterpriseMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
 }
 
 func (r *mutationResolver) InsertEnterpriseOne(ctx context.Context, object model.EnterpriseInsertInput) (*model1.Enterprise, error) {
