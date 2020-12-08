@@ -4,6 +4,7 @@ import (
 	"VehicleSupervision/config"
 	enterprise_mutation "VehicleSupervision/internal/modules/admin/enterprise/mutation"
 	enterprise_query "VehicleSupervision/internal/modules/admin/enterprise/query"
+	systemuser_mutation "VehicleSupervision/internal/modules/admin/systemuser/mutation"
 	systemuser_query "VehicleSupervision/internal/modules/admin/systemuser/query"
 	"VehicleSupervision/pkg/logger"
 	"fmt"
@@ -46,6 +47,7 @@ func Setup() {
 	router.Any("/enterprise/query", enterprise_query.GinEndpoint())
 	router.Any("/enterprise/mutation", enterprise_mutation.GinEndpoint())
 	router.Any("/system_user/query", systemuser_query.GinEndpoint())
+	router.Any("/system_user/mutation", systemuser_mutation.GinEndpoint())
 
 	addr := fmt.Sprintf("%s:%d", host, port)
 	logger.Info("server will run on " + addr)

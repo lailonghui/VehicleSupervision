@@ -19,15 +19,29 @@ import (
 func (r *mutationResolver) DeleteEnterprise(ctx context.Context, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.Enterprise{})
 	tx := qt.Where(where).Finish()
-	tx.Delete(model1.Enterprise{})
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
+	// 获取请求的字段
+	preloads := util.GetPreloadsMustPrefixAndRemovePrefix(ctx, "returning.")
+	var rs []*model1.Enterprise
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx := tx.Select(preloads)
+		tx = tx.Find(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
 		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
 		return nil, err
 	}
 	return &model.EnterpriseMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 

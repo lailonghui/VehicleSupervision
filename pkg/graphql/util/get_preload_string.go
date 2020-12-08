@@ -47,3 +47,18 @@ func GetPreloadsMustPrefix(ctx context.Context, prefix string) (rs []string) {
 	}
 	return
 }
+
+// 获取preload数组，数组内容必须以prefix为前缀，并且不等于prefix
+// 并且移除prefix
+func GetPreloadsMustPrefixAndRemovePrefix(ctx context.Context, prefix string) (rs []string) {
+	preloads := GetPreloads(ctx)
+	if preloads == nil || len(preloads) == 0 {
+		return
+	}
+	for _, preload := range preloads {
+		if preload != prefix && strings.HasPrefix(preload, prefix) {
+			rs = append(rs, preload[len(prefix):])
+		}
+	}
+	return
+}
