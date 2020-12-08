@@ -40,7 +40,7 @@ func (r Resolver) insertParamConvert(v *model.SystemUserInsertInput) (rs *model1
 		ProxyUser:    v.ProxyUser,
 		Remarks:      v.Remarks,
 		Telephone:    v.Telephone,
-		Uername:      *v.Uername,
+		Username:     *v.Username,
 		Ukey:         v.Ukey,
 		UpdateAt:     v.UpdateAt,
 		UpdateBy:     v.UpdateBy,

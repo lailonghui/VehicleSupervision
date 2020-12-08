@@ -97,7 +97,7 @@ type SystemUserBoolExp struct {
 	ProxyUser    *model1.StringComparisonExp      `json:"proxy_user"`
 	Remarks      *model1.StringComparisonExp      `json:"remarks"`
 	Telephone    *model1.StringComparisonExp      `json:"telephone"`
-	Uername      *model1.StringComparisonExp      `json:"uername"`
+	Username     *model1.StringComparisonExp      `json:"username"`
 	Ukey         *model1.StringComparisonExp      `json:"ukey"`
 	UpdateAt     *model1.TimestamptzComparisonExp `json:"update_at"`
 	UpdateBy     *model1.StringComparisonExp      `json:"update_by"`
@@ -138,7 +138,7 @@ type SystemUserInsertInput struct {
 	ProxyUser    *string    `json:"proxy_user"`
 	Remarks      *string    `json:"remarks"`
 	Telephone    *string    `json:"telephone"`
-	Uername      *string    `json:"uername"`
+	Username     *string    `json:"username"`
 	Ukey         *string    `json:"ukey"`
 	UpdateAt     *time.Time `json:"update_at"`
 	UpdateBy     *string    `json:"update_by"`
@@ -167,7 +167,7 @@ type SystemUserMaxFields struct {
 	ProxyUser    *string    `json:"proxy_user"`
 	Remarks      *string    `json:"remarks"`
 	Telephone    *string    `json:"telephone"`
-	Uername      *string    `json:"uername"`
+	Username     *string    `json:"username"`
 	Ukey         *string    `json:"ukey"`
 	UpdateAt     *time.Time `json:"update_at"`
 	UpdateBy     *string    `json:"update_by"`
@@ -196,7 +196,7 @@ type SystemUserMaxOrderBy struct {
 	ProxyUser    *model1.OrderBy `json:"proxy_user"`
 	Remarks      *model1.OrderBy `json:"remarks"`
 	Telephone    *model1.OrderBy `json:"telephone"`
-	Uername      *model1.OrderBy `json:"uername"`
+	Username     *model1.OrderBy `json:"username"`
 	Ukey         *model1.OrderBy `json:"ukey"`
 	UpdateAt     *model1.OrderBy `json:"update_at"`
 	UpdateBy     *model1.OrderBy `json:"update_by"`
@@ -225,7 +225,7 @@ type SystemUserMinFields struct {
 	ProxyUser    *string    `json:"proxy_user"`
 	Remarks      *string    `json:"remarks"`
 	Telephone    *string    `json:"telephone"`
-	Uername      *string    `json:"uername"`
+	Username     *string    `json:"username"`
 	Ukey         *string    `json:"ukey"`
 	UpdateAt     *time.Time `json:"update_at"`
 	UpdateBy     *string    `json:"update_by"`
@@ -254,7 +254,7 @@ type SystemUserMinOrderBy struct {
 	ProxyUser    *model1.OrderBy `json:"proxy_user"`
 	Remarks      *model1.OrderBy `json:"remarks"`
 	Telephone    *model1.OrderBy `json:"telephone"`
-	Uername      *model1.OrderBy `json:"uername"`
+	Username     *model1.OrderBy `json:"username"`
 	Ukey         *model1.OrderBy `json:"ukey"`
 	UpdateAt     *model1.OrderBy `json:"update_at"`
 	UpdateBy     *model1.OrderBy `json:"update_by"`
@@ -307,7 +307,7 @@ type SystemUserOrderBy struct {
 	ProxyUser    *model1.OrderBy `json:"proxy_user"`
 	Remarks      *model1.OrderBy `json:"remarks"`
 	Telephone    *model1.OrderBy `json:"telephone"`
-	Uername      *model1.OrderBy `json:"uername"`
+	Username     *model1.OrderBy `json:"username"`
 	Ukey         *model1.OrderBy `json:"ukey"`
 	UpdateAt     *model1.OrderBy `json:"update_at"`
 	UpdateBy     *model1.OrderBy `json:"update_by"`
@@ -345,7 +345,7 @@ type SystemUserSetInput struct {
 	ProxyUser    *string    `json:"proxy_user"`
 	Remarks      *string    `json:"remarks"`
 	Telephone    *string    `json:"telephone"`
-	Uername      *string    `json:"uername"`
+	Username     *string    `json:"username"`
 	Ukey         *string    `json:"ukey"`
 	UpdateAt     *time.Time `json:"update_at"`
 	UpdateBy     *string    `json:"update_by"`
@@ -568,7 +568,7 @@ const (
 	// column name
 	SystemUserSelectColumnTelephone SystemUserSelectColumn = "telephone"
 	// column name
-	SystemUserSelectColumnUername SystemUserSelectColumn = "uername"
+	SystemUserSelectColumnUsername SystemUserSelectColumn = "username"
 	// column name
 	SystemUserSelectColumnUkey SystemUserSelectColumn = "ukey"
 	// column name
@@ -605,7 +605,7 @@ var AllSystemUserSelectColumn = []SystemUserSelectColumn{
 	SystemUserSelectColumnProxyUser,
 	SystemUserSelectColumnRemarks,
 	SystemUserSelectColumnTelephone,
-	SystemUserSelectColumnUername,
+	SystemUserSelectColumnUsername,
 	SystemUserSelectColumnUkey,
 	SystemUserSelectColumnUpdateAt,
 	SystemUserSelectColumnUpdateBy,
@@ -616,7 +616,7 @@ var AllSystemUserSelectColumn = []SystemUserSelectColumn{
 
 func (e SystemUserSelectColumn) IsValid() bool {
 	switch e {
-	case SystemUserSelectColumnIsBindIP, SystemUserSelectColumnAppVersion, SystemUserSelectColumnAuditLevel, SystemUserSelectColumnCreateBy, SystemUserSelectColumnCreatedAt, SystemUserSelectColumnDeleteAt, SystemUserSelectColumnDeleteBy, SystemUserSelectColumnDepartmentID, SystemUserSelectColumnEmail, SystemUserSelectColumnEnterpriseID, SystemUserSelectColumnGrade, SystemUserSelectColumnID, SystemUserSelectColumnIPAddress, SystemUserSelectColumnIsDelete, SystemUserSelectColumnIsValid, SystemUserSelectColumnMkey, SystemUserSelectColumnMobile, SystemUserSelectColumnPassword, SystemUserSelectColumnProxyUser, SystemUserSelectColumnRemarks, SystemUserSelectColumnTelephone, SystemUserSelectColumnUername, SystemUserSelectColumnUkey, SystemUserSelectColumnUpdateAt, SystemUserSelectColumnUpdateBy, SystemUserSelectColumnUserID, SystemUserSelectColumnUserState, SystemUserSelectColumnUserType:
+	case SystemUserSelectColumnIsBindIP, SystemUserSelectColumnAppVersion, SystemUserSelectColumnAuditLevel, SystemUserSelectColumnCreateBy, SystemUserSelectColumnCreatedAt, SystemUserSelectColumnDeleteAt, SystemUserSelectColumnDeleteBy, SystemUserSelectColumnDepartmentID, SystemUserSelectColumnEmail, SystemUserSelectColumnEnterpriseID, SystemUserSelectColumnGrade, SystemUserSelectColumnID, SystemUserSelectColumnIPAddress, SystemUserSelectColumnIsDelete, SystemUserSelectColumnIsValid, SystemUserSelectColumnMkey, SystemUserSelectColumnMobile, SystemUserSelectColumnPassword, SystemUserSelectColumnProxyUser, SystemUserSelectColumnRemarks, SystemUserSelectColumnTelephone, SystemUserSelectColumnUsername, SystemUserSelectColumnUkey, SystemUserSelectColumnUpdateAt, SystemUserSelectColumnUpdateBy, SystemUserSelectColumnUserID, SystemUserSelectColumnUserState, SystemUserSelectColumnUserType:
 		return true
 	}
 	return false
@@ -690,7 +690,7 @@ const (
 	// column name
 	SystemUserUpdateColumnTelephone SystemUserUpdateColumn = "telephone"
 	// column name
-	SystemUserUpdateColumnUername SystemUserUpdateColumn = "uername"
+	SystemUserUpdateColumnUsername SystemUserUpdateColumn = "username"
 	// column name
 	SystemUserUpdateColumnUkey SystemUserUpdateColumn = "ukey"
 	// column name
@@ -727,7 +727,7 @@ var AllSystemUserUpdateColumn = []SystemUserUpdateColumn{
 	SystemUserUpdateColumnProxyUser,
 	SystemUserUpdateColumnRemarks,
 	SystemUserUpdateColumnTelephone,
-	SystemUserUpdateColumnUername,
+	SystemUserUpdateColumnUsername,
 	SystemUserUpdateColumnUkey,
 	SystemUserUpdateColumnUpdateAt,
 	SystemUserUpdateColumnUpdateBy,
@@ -738,7 +738,7 @@ var AllSystemUserUpdateColumn = []SystemUserUpdateColumn{
 
 func (e SystemUserUpdateColumn) IsValid() bool {
 	switch e {
-	case SystemUserUpdateColumnIsBindIP, SystemUserUpdateColumnAppVersion, SystemUserUpdateColumnAuditLevel, SystemUserUpdateColumnCreateBy, SystemUserUpdateColumnCreatedAt, SystemUserUpdateColumnDeleteAt, SystemUserUpdateColumnDeleteBy, SystemUserUpdateColumnDepartmentID, SystemUserUpdateColumnEmail, SystemUserUpdateColumnEnterpriseID, SystemUserUpdateColumnGrade, SystemUserUpdateColumnID, SystemUserUpdateColumnIPAddress, SystemUserUpdateColumnIsDelete, SystemUserUpdateColumnIsValid, SystemUserUpdateColumnMkey, SystemUserUpdateColumnMobile, SystemUserUpdateColumnPassword, SystemUserUpdateColumnProxyUser, SystemUserUpdateColumnRemarks, SystemUserUpdateColumnTelephone, SystemUserUpdateColumnUername, SystemUserUpdateColumnUkey, SystemUserUpdateColumnUpdateAt, SystemUserUpdateColumnUpdateBy, SystemUserUpdateColumnUserID, SystemUserUpdateColumnUserState, SystemUserUpdateColumnUserType:
+	case SystemUserUpdateColumnIsBindIP, SystemUserUpdateColumnAppVersion, SystemUserUpdateColumnAuditLevel, SystemUserUpdateColumnCreateBy, SystemUserUpdateColumnCreatedAt, SystemUserUpdateColumnDeleteAt, SystemUserUpdateColumnDeleteBy, SystemUserUpdateColumnDepartmentID, SystemUserUpdateColumnEmail, SystemUserUpdateColumnEnterpriseID, SystemUserUpdateColumnGrade, SystemUserUpdateColumnID, SystemUserUpdateColumnIPAddress, SystemUserUpdateColumnIsDelete, SystemUserUpdateColumnIsValid, SystemUserUpdateColumnMkey, SystemUserUpdateColumnMobile, SystemUserUpdateColumnPassword, SystemUserUpdateColumnProxyUser, SystemUserUpdateColumnRemarks, SystemUserUpdateColumnTelephone, SystemUserUpdateColumnUsername, SystemUserUpdateColumnUkey, SystemUserUpdateColumnUpdateAt, SystemUserUpdateColumnUpdateBy, SystemUserUpdateColumnUserID, SystemUserUpdateColumnUserState, SystemUserUpdateColumnUserType:
 		return true
 	}
 	return false

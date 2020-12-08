@@ -6,6 +6,7 @@ import (
 	adasQuery "VehicleSupervision/internal/modules/adas/query"
 	enterpriseMutation "VehicleSupervision/internal/modules/admin/enterprise/mutation"
 	enterpriseQuery "VehicleSupervision/internal/modules/admin/enterprise/query"
+	systemUserMutation "VehicleSupervision/internal/modules/admin/systemuser/mutation"
 	systemUserQuery "VehicleSupervision/internal/modules/admin/systemuser/query"
 	areaMutation "VehicleSupervision/internal/modules/area/mutation"
 	areaQuery "VehicleSupervision/internal/modules/area/query"
@@ -52,6 +53,7 @@ func Setup() {
 	router.Any("/enterprise/query", enterpriseQuery.GinEndpoint())
 	router.Any("/enterprise/mutation", enterpriseMutation.GinEndpoint())
 	router.Any("/system_user/query", systemUserQuery.GinEndpoint())
+	router.Any("/system_user/mutation", systemUserMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())
@@ -64,7 +66,6 @@ func Setup() {
 	//教育模块端点
 	router.Any("/training/query", trainingQuery.GinEndpoint())
 	router.Any("/training/mutation", trainingMutation.GinEndpoint())
-
 
 	addr := fmt.Sprintf("%s:%d", host, port)
 	logger.Info("server will run on " + addr)

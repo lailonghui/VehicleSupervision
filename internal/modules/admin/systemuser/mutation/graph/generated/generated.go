@@ -81,13 +81,13 @@ type ComplexityRoot struct {
 		ProxyUser    func(childComplexity int) int
 		Remarks      func(childComplexity int) int
 		Telephone    func(childComplexity int) int
-		Uername      func(childComplexity int) int
 		Ukey         func(childComplexity int) int
 		UpdateAt     func(childComplexity int) int
 		UpdateBy     func(childComplexity int) int
 		UserID       func(childComplexity int) int
 		UserState    func(childComplexity int) int
 		UserType     func(childComplexity int) int
+		Username     func(childComplexity int) int
 	}
 
 	SystemUserAggregate struct {
@@ -136,13 +136,13 @@ type ComplexityRoot struct {
 		ProxyUser    func(childComplexity int) int
 		Remarks      func(childComplexity int) int
 		Telephone    func(childComplexity int) int
-		Uername      func(childComplexity int) int
 		Ukey         func(childComplexity int) int
 		UpdateAt     func(childComplexity int) int
 		UpdateBy     func(childComplexity int) int
 		UserID       func(childComplexity int) int
 		UserState    func(childComplexity int) int
 		UserType     func(childComplexity int) int
+		Username     func(childComplexity int) int
 	}
 
 	SystemUserMinFields struct {
@@ -164,13 +164,13 @@ type ComplexityRoot struct {
 		ProxyUser    func(childComplexity int) int
 		Remarks      func(childComplexity int) int
 		Telephone    func(childComplexity int) int
-		Uername      func(childComplexity int) int
 		Ukey         func(childComplexity int) int
 		UpdateAt     func(childComplexity int) int
 		UpdateBy     func(childComplexity int) int
 		UserID       func(childComplexity int) int
 		UserState    func(childComplexity int) int
 		UserType     func(childComplexity int) int
+		Username     func(childComplexity int) int
 	}
 
 	SystemUserMutationResponse struct {
@@ -488,13 +488,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.SystemUser.Telephone(childComplexity), true
 
-	case "system_user.uername":
-		if e.complexity.SystemUser.Uername == nil {
-			break
-		}
-
-		return e.complexity.SystemUser.Uername(childComplexity), true
-
 	case "system_user.ukey":
 		if e.complexity.SystemUser.Ukey == nil {
 			break
@@ -536,6 +529,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.SystemUser.UserType(childComplexity), true
+
+	case "system_user.username":
+		if e.complexity.SystemUser.Username == nil {
+			break
+		}
+
+		return e.complexity.SystemUser.Username(childComplexity), true
 
 	case "system_user_aggregate.aggregate":
 		if e.complexity.SystemUserAggregate.Aggregate == nil {
@@ -794,13 +794,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.SystemUserMaxFields.Telephone(childComplexity), true
 
-	case "system_user_max_fields.uername":
-		if e.complexity.SystemUserMaxFields.Uername == nil {
-			break
-		}
-
-		return e.complexity.SystemUserMaxFields.Uername(childComplexity), true
-
 	case "system_user_max_fields.ukey":
 		if e.complexity.SystemUserMaxFields.Ukey == nil {
 			break
@@ -842,6 +835,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.SystemUserMaxFields.UserType(childComplexity), true
+
+	case "system_user_max_fields.username":
+		if e.complexity.SystemUserMaxFields.Username == nil {
+			break
+		}
+
+		return e.complexity.SystemUserMaxFields.Username(childComplexity), true
 
 	case "system_user_min_fields.app_version":
 		if e.complexity.SystemUserMinFields.AppVersion == nil {
@@ -969,13 +969,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.SystemUserMinFields.Telephone(childComplexity), true
 
-	case "system_user_min_fields.uername":
-		if e.complexity.SystemUserMinFields.Uername == nil {
-			break
-		}
-
-		return e.complexity.SystemUserMinFields.Uername(childComplexity), true
-
 	case "system_user_min_fields.ukey":
 		if e.complexity.SystemUserMinFields.Ukey == nil {
 			break
@@ -1017,6 +1010,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.SystemUserMinFields.UserType(childComplexity), true
+
+	case "system_user_min_fields.username":
+		if e.complexity.SystemUserMinFields.Username == nil {
+			break
+		}
+
+		return e.complexity.SystemUserMinFields.Username(childComplexity), true
 
 	case "system_user_mutation_response.affected_rows":
 		if e.complexity.SystemUserMutationResponse.AffectedRows == nil {
@@ -1574,7 +1574,7 @@ type system_user {
   telephone: String
 
   """用户名"""
-  uername: String!
+  username: String!
 
   """加密串码"""
   ukey: String
@@ -1693,7 +1693,7 @@ input system_user_bool_exp {
   proxy_user: String_comparison_exp
   remarks: String_comparison_exp
   telephone: String_comparison_exp
-  uername: String_comparison_exp
+  username: String_comparison_exp
   ukey: String_comparison_exp
   update_at: timestamptz_comparison_exp
   update_by: String_comparison_exp
@@ -1746,7 +1746,7 @@ input system_user_insert_input {
   proxy_user: String
   remarks: String
   telephone: String
-  uername: String
+  username: String
   ukey: String
   update_at: timestamptz
   update_by: String
@@ -1775,7 +1775,7 @@ type system_user_max_fields {
   proxy_user: String
   remarks: String
   telephone: String
-  uername: String
+  username: String
   ukey: String
   update_at: timestamptz
   update_by: String
@@ -1806,7 +1806,7 @@ input system_user_max_order_by {
   proxy_user: order_by
   remarks: order_by
   telephone: order_by
-  uername: order_by
+  username: order_by
   ukey: order_by
   update_at: order_by
   update_by: order_by
@@ -1835,7 +1835,7 @@ type system_user_min_fields {
   proxy_user: String
   remarks: String
   telephone: String
-  uername: String
+  username: String
   ukey: String
   update_at: timestamptz
   update_by: String
@@ -1866,7 +1866,7 @@ input system_user_min_order_by {
   proxy_user: order_by
   remarks: order_by
   telephone: order_by
-  uername: order_by
+  username: order_by
   ukey: order_by
   update_at: order_by
   update_by: order_by
@@ -1928,7 +1928,7 @@ input system_user_order_by {
   proxy_user: order_by
   remarks: order_by
   telephone: order_by
-  uername: order_by
+  username: order_by
   ukey: order_by
   update_at: order_by
   update_by: order_by
@@ -2013,7 +2013,7 @@ enum system_user_select_column {
   telephone
 
   """column name"""
-  uername
+  username
 
   """column name"""
   ukey
@@ -2059,7 +2059,7 @@ input system_user_set_input {
   proxy_user: String
   remarks: String
   telephone: String
-  uername: String
+  username: String
   ukey: String
   update_at: timestamptz
   update_by: String
@@ -2216,7 +2216,7 @@ enum system_user_update_column {
   telephone
 
   """column name"""
-  uername
+  username
 
   """column name"""
   ukey
@@ -4644,7 +4644,7 @@ func (ec *executionContext) _system_user_telephone(ctx context.Context, field gr
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _system_user_uername(ctx context.Context, field graphql.CollectedField, obj *model1.SystemUser) (ret graphql.Marshaler) {
+func (ec *executionContext) _system_user_username(ctx context.Context, field graphql.CollectedField, obj *model1.SystemUser) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4662,7 +4662,7 @@ func (ec *executionContext) _system_user_uername(ctx context.Context, field grap
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Uername, nil
+		return obj.Username, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6036,7 +6036,7 @@ func (ec *executionContext) _system_user_max_fields_telephone(ctx context.Contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _system_user_max_fields_uername(ctx context.Context, field graphql.CollectedField, obj *model.SystemUserMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _system_user_max_fields_username(ctx context.Context, field graphql.CollectedField, obj *model.SystemUserMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6054,7 +6054,7 @@ func (ec *executionContext) _system_user_max_fields_uername(ctx context.Context,
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Uername, nil
+		return obj.Username, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -6836,7 +6836,7 @@ func (ec *executionContext) _system_user_min_fields_telephone(ctx context.Contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _system_user_min_fields_uername(ctx context.Context, field graphql.CollectedField, obj *model.SystemUserMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _system_user_min_fields_username(ctx context.Context, field graphql.CollectedField, obj *model.SystemUserMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -6854,7 +6854,7 @@ func (ec *executionContext) _system_user_min_fields_uername(ctx context.Context,
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Uername, nil
+		return obj.Username, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -9016,11 +9016,11 @@ func (ec *executionContext) unmarshalInputsystem_user_bool_exp(ctx context.Conte
 			if err != nil {
 				return it, err
 			}
-		case "uername":
+		case "username":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("uername"))
-			it.Uername, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("username"))
+			it.Username, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -9304,11 +9304,11 @@ func (ec *executionContext) unmarshalInputsystem_user_insert_input(ctx context.C
 			if err != nil {
 				return it, err
 			}
-		case "uername":
+		case "username":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("uername"))
-			it.Uername, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("username"))
+			it.Username, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -9516,11 +9516,11 @@ func (ec *executionContext) unmarshalInputsystem_user_max_order_by(ctx context.C
 			if err != nil {
 				return it, err
 			}
-		case "uername":
+		case "username":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("uername"))
-			it.Uername, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("username"))
+			it.Username, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -9728,11 +9728,11 @@ func (ec *executionContext) unmarshalInputsystem_user_min_order_by(ctx context.C
 			if err != nil {
 				return it, err
 			}
-		case "uername":
+		case "username":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("uername"))
-			it.Uername, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("username"))
+			it.Username, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -10028,11 +10028,11 @@ func (ec *executionContext) unmarshalInputsystem_user_order_by(ctx context.Conte
 			if err != nil {
 				return it, err
 			}
-		case "uername":
+		case "username":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("uername"))
-			it.Uername, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("username"))
+			it.Username, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -10284,11 +10284,11 @@ func (ec *executionContext) unmarshalInputsystem_user_set_input(ctx context.Cont
 			if err != nil {
 				return it, err
 			}
-		case "uername":
+		case "username":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("uername"))
-			it.Uername, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("username"))
+			it.Username, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -11184,8 +11184,8 @@ func (ec *executionContext) _system_user(ctx context.Context, sel ast.SelectionS
 			out.Values[i] = ec._system_user_remarks(ctx, field, obj)
 		case "telephone":
 			out.Values[i] = ec._system_user_telephone(ctx, field, obj)
-		case "uername":
-			out.Values[i] = ec._system_user_uername(ctx, field, obj)
+		case "username":
+			out.Values[i] = ec._system_user_username(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -11367,8 +11367,8 @@ func (ec *executionContext) _system_user_max_fields(ctx context.Context, sel ast
 			out.Values[i] = ec._system_user_max_fields_remarks(ctx, field, obj)
 		case "telephone":
 			out.Values[i] = ec._system_user_max_fields_telephone(ctx, field, obj)
-		case "uername":
-			out.Values[i] = ec._system_user_max_fields_uername(ctx, field, obj)
+		case "username":
+			out.Values[i] = ec._system_user_max_fields_username(ctx, field, obj)
 		case "ukey":
 			out.Values[i] = ec._system_user_max_fields_ukey(ctx, field, obj)
 		case "update_at":
@@ -11439,8 +11439,8 @@ func (ec *executionContext) _system_user_min_fields(ctx context.Context, sel ast
 			out.Values[i] = ec._system_user_min_fields_remarks(ctx, field, obj)
 		case "telephone":
 			out.Values[i] = ec._system_user_min_fields_telephone(ctx, field, obj)
-		case "uername":
-			out.Values[i] = ec._system_user_min_fields_uername(ctx, field, obj)
+		case "username":
+			out.Values[i] = ec._system_user_min_fields_username(ctx, field, obj)
 		case "ukey":
 			out.Values[i] = ec._system_user_min_fields_ukey(ctx, field, obj)
 		case "update_at":

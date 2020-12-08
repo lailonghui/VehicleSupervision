@@ -28,6 +28,8 @@ type QueryTranslator struct {
 	orderBy interface{}
 	// where
 	where interface{}
+	// 更新字段
+	updates map[string]interface{}
 	// tx
 	tx *gorm.DB
 }
@@ -195,6 +197,74 @@ func (t *QueryTranslator) Aggregate(rs interface{}, ctx context.Context) (*gorm.
 	}
 
 	return t.tx, nil
+}
+
+// 更新时候，递增某些字段
+func (t *QueryTranslator) Inc(rs interface{}) (re *QueryTranslator) {
+	if isNil(rs) {
+		return t
+	}
+	if t.updates == nil {
+		t.updates = make(map[string]interface{}, 4)
+	}
+	value := getValue(rs)
+	valueKind := value.Kind()
+	valueType := value.Type()
+	switch valueKind {
+	case reflect.Struct:
+		for i := 0; i < value.NumField(); i++ {
+			fieldValue := value.Field(i)
+			if fieldValue.IsNil() {
+				continue
+			}
+			fieldKind := fieldValue.Kind()
+			switch fieldKind {
+			case reflect.Ptr:
+				// 指针的情况，包括not子句和普通条件查询
+				rFieldValue := fieldValue.Elem()
+				columnName := valueType.Field(i).Tag.Get("json")
+				t.updates[columnName] = gorm.Expr(columnName+" + ?", rFieldValue.Int())
+			}
+		}
+	}
+	return t
+}
+
+// 更新时候，设置某些字段
+func (t *QueryTranslator) Set(rs interface{}) (re *QueryTranslator) {
+	if isNil(rs) {
+		return t
+	}
+	if t.updates == nil {
+		t.updates = make(map[string]interface{}, 4)
+	}
+	value := getValue(rs)
+	valueKind := value.Kind()
+	valueType := value.Type()
+	switch valueKind {
+	case reflect.Struct:
+		for i := 0; i < value.NumField(); i++ {
+			fieldValue := value.Field(i)
+			if fieldValue.IsNil() {
+				continue
+			}
+			fieldKind := fieldValue.Kind()
+			switch fieldKind {
+			case reflect.Ptr:
+				// 指针的情况，包括not子句和普通条件查询
+				rFieldValue := fieldValue.Elem()
+				columnName := valueType.Field(i).Tag.Get("json")
+				t.updates[columnName] = rFieldValue.Interface()
+			}
+		}
+	}
+	return t
+}
+
+// 执行更新
+func (t *QueryTranslator) DoUpdate() *gorm.DB {
+	t.tx = t.tx.Updates(t.updates)
+	return t.tx
 }
 
 // 设置聚合结果的值到rs

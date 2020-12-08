@@ -69,7 +69,7 @@ func (r *mutationResolver) DeleteSystemUserByPk(ctx context.Context, id int64) (
 
 func (r *mutationResolver) InsertSystemUser(ctx context.Context, objects []*model.SystemUserInsertInput, onConflict *model.SystemUserOnConflict) (*model.SystemUserMutationResponse, error) {
 	rs := r.batchInsertParamConvert(objects)
-	tx := db.DB.Model(&model1.SystemUser{}).Save(&rs)
+	tx := db.DB.Model(&model1.SystemUser{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -83,11 +83,31 @@ func (r *mutationResolver) InsertSystemUser(ctx context.Context, objects []*mode
 }
 
 func (r *mutationResolver) InsertSystemUserOne(ctx context.Context, object model.SystemUserInsertInput, onConflict *model.SystemUserOnConflict) (*model1.SystemUser, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertParamConvert(&object)
+	tx := db.DB.Model(&model1.SystemUser{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) UpdateSystemUser(ctx context.Context, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, where model.SystemUserBoolExp) (*model.SystemUserMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model1.SystemUser{})
+	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return &model.SystemUserMutationResponse{
+				AffectedRows: 0,
+			}, nil
+		}
+		return nil, err
+	}
+	return &model.SystemUserMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) UpdateSystemUserByPk(ctx context.Context, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, pkColumns model.SystemUserPkColumnsInput) (*model1.SystemUser, error) {
