@@ -231,7 +231,7 @@ type system_user {
   telephone: String
 
   """用户名"""
-  uername: String!
+  username: String!
 
   """加密串码"""
   ukey: String
@@ -350,7 +350,7 @@ input system_user_bool_exp {
   proxy_user: String_comparison_exp
   remarks: String_comparison_exp
   telephone: String_comparison_exp
-  uername: String_comparison_exp
+  username: String_comparison_exp
   ukey: String_comparison_exp
   update_at: timestamptz_comparison_exp
   update_by: String_comparison_exp
@@ -403,7 +403,7 @@ input system_user_insert_input {
   proxy_user: String
   remarks: String
   telephone: String
-  uername: String
+  username: String
   ukey: String
   update_at: timestamptz
   update_by: String
@@ -432,7 +432,7 @@ type system_user_max_fields {
   proxy_user: String
   remarks: String
   telephone: String
-  uername: String
+  username: String
   ukey: String
   update_at: timestamptz
   update_by: String
@@ -463,7 +463,7 @@ input system_user_max_order_by {
   proxy_user: order_by
   remarks: order_by
   telephone: order_by
-  uername: order_by
+  username: order_by
   ukey: order_by
   update_at: order_by
   update_by: order_by
@@ -492,7 +492,7 @@ type system_user_min_fields {
   proxy_user: String
   remarks: String
   telephone: String
-  uername: String
+  username: String
   ukey: String
   update_at: timestamptz
   update_by: String
@@ -523,7 +523,7 @@ input system_user_min_order_by {
   proxy_user: order_by
   remarks: order_by
   telephone: order_by
-  uername: order_by
+  username: order_by
   ukey: order_by
   update_at: order_by
   update_by: order_by
@@ -585,7 +585,7 @@ input system_user_order_by {
   proxy_user: order_by
   remarks: order_by
   telephone: order_by
-  uername: order_by
+  username: order_by
   ukey: order_by
   update_at: order_by
   update_by: order_by
@@ -670,7 +670,7 @@ enum system_user_select_column {
   telephone
 
   """column name"""
-  uername
+  username
 
   """column name"""
   ukey
@@ -716,7 +716,7 @@ input system_user_set_input {
   proxy_user: String
   remarks: String
   telephone: String
-  uername: String
+  username: String
   ukey: String
   update_at: timestamptz
   update_by: String
@@ -873,7 +873,7 @@ enum system_user_update_column {
   telephone
 
   """column name"""
-  uername
+  username
 
   """column name"""
   ukey

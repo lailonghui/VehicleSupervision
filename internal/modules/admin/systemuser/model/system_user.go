@@ -45,7 +45,7 @@ type SystemUser struct {
 	// 电话号码
 	Telephone *string `json:"telephone"`
 	// 用户名
-	Uername string `json:"uername"`
+	Username string `json:"username"`
 	// 加密串码
 	Ukey *string `json:"ukey"`
 	// 修改时间
