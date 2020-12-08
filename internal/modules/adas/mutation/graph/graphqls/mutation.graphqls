@@ -17,6 +17,70 @@ type Mutation {
     ): adas_data_mutation_response
     # delete single row from the table: "adas_data"
     delete_adas_data_by_pk(id: bigint!): adas_data
+
+    # insert data into the table: "adas_attachment"
+    insert_adas_attachment(
+        # the rows to be inserted
+        objects: [adas_attachment_insert_input!]!
+        # on conflict condition
+        on_conflict: adas_attachment_on_conflict
+    ): adas_attachment_mutation_response
+    # insert a single row into the table: "adas_attachment"
+    insert_adas_attachment_one(
+        # the row to be inserted
+        object: adas_attachment_insert_input!
+        # on conflict condition
+        on_conflict: adas_attachment_on_conflict
+    ): adas_attachment
+    # insert data into the table: "adas_data"
+    insert_adas_data(
+        # the rows to be inserted
+        objects: [adas_data_insert_input!]!
+        # on conflict condition
+        on_conflict: adas_data_on_conflict
+    ): adas_data_mutation_response
+    # insert a single row into the table: "adas_data"
+    insert_adas_data_one(
+        # the row to be inserted
+        object: adas_data_insert_input!
+        # on conflict condition
+        on_conflict: adas_data_on_conflict
+    ): adas_data
+
+    # update data of the table: "adas_attachment"
+    update_adas_attachment(
+        # increments the integer columns with given value of the filtered values
+        _inc: adas_attachment_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: adas_attachment_set_input
+        # filter the rows which have to be updated
+        where: adas_attachment_bool_exp!
+    ): adas_attachment_mutation_response
+    # update single row of the table: "adas_attachment"
+    update_adas_attachment_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: adas_attachment_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: adas_attachment_set_input
+        pk_columns: adas_attachment_pk_columns_input!
+    ): adas_attachment
+    # update data of the table: "adas_data"
+    update_adas_data(
+        # increments the integer columns with given value of the filtered values
+        _inc: adas_data_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: adas_data_set_input
+        # filter the rows which have to be updated
+        where: adas_data_bool_exp!
+    ): adas_data_mutation_response
+    # update single row of the table: "adas_data"
+    update_adas_data_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: adas_data_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: adas_data_set_input
+        pk_columns: adas_data_pk_columns_input!
+    ): adas_data
 }
 type Query{
     bug: Int

@@ -60,6 +60,9 @@ type ComplexityRoot struct {
 		District          func(childComplexity int, distinctOn []model.DistrictSelectColumn, limit *int, offset *int, orderBy []*model.DistrictOrderBy, where *model.DistrictBoolExp) int
 		DistrictAggregate func(childComplexity int, distinctOn []model.DistrictSelectColumn, limit *int, offset *int, orderBy []*model.DistrictOrderBy, where *model.DistrictBoolExp) int
 		DistrictByPk      func(childComplexity int, id int64) int
+		Province          func(childComplexity int, distinctOn []model.ProvinceSelectColumn, limit *int, offset *int, orderBy []*model.ProvinceOrderBy, where *model.ProvinceBoolExp) int
+		ProvinceAggregate func(childComplexity int, distinctOn []model.ProvinceSelectColumn, limit *int, offset *int, orderBy []*model.ProvinceOrderBy, where *model.ProvinceBoolExp) int
+		ProvinceByPk      func(childComplexity int, id int64) int
 	}
 
 	City struct {
@@ -373,6 +376,9 @@ type QueryResolver interface {
 	District(ctx context.Context, distinctOn []model.DistrictSelectColumn, limit *int, offset *int, orderBy []*model.DistrictOrderBy, where *model.DistrictBoolExp) ([]*model.District, error)
 	DistrictAggregate(ctx context.Context, distinctOn []model.DistrictSelectColumn, limit *int, offset *int, orderBy []*model.DistrictOrderBy, where *model.DistrictBoolExp) (*model.DistrictAggregate, error)
 	DistrictByPk(ctx context.Context, id int64) (*model.District, error)
+	Province(ctx context.Context, distinctOn []model.ProvinceSelectColumn, limit *int, offset *int, orderBy []*model.ProvinceOrderBy, where *model.ProvinceBoolExp) ([]*model.Province, error)
+	ProvinceAggregate(ctx context.Context, distinctOn []model.ProvinceSelectColumn, limit *int, offset *int, orderBy []*model.ProvinceOrderBy, where *model.ProvinceBoolExp) (*model.ProvinceAggregate, error)
+	ProvinceByPk(ctx context.Context, id int64) (*model.Province, error)
 }
 
 type executableSchema struct {
@@ -489,6 +495,42 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.DistrictByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.province":
+		if e.complexity.Query.Province == nil {
+			break
+		}
+
+		args, err := ec.field_Query_province_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.Province(childComplexity, args["distinct_on"].([]model.ProvinceSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.ProvinceOrderBy), args["where"].(*model.ProvinceBoolExp)), true
+
+	case "Query.province_aggregate":
+		if e.complexity.Query.ProvinceAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_Query_province_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ProvinceAggregate(childComplexity, args["distinct_on"].([]model.ProvinceSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.ProvinceOrderBy), args["where"].(*model.ProvinceBoolExp)), true
+
+	case "Query.province_by_pk":
+		if e.complexity.Query.ProvinceByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_province_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ProvinceByPk(childComplexity, args["id"].(int64)), true
 
 	case "city.city_id":
 		if e.complexity.City.CityID == nil {
@@ -3110,6 +3152,34 @@ type Query {
     ): district_aggregate!
     # fetch data from the table: "district" using primary key columns
     district_by_pk(id: bigint!): district
+    # fetch data from the table: "province"
+    province(
+        # distinct select on columns
+        distinct_on: [province_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [province_order_by!]
+        # filter the rows returned
+        where: province_bool_exp
+    ): [province!]!
+    # fetch aggregated fields from the table: "province"
+    province_aggregate(
+        # distinct select on columns
+        distinct_on: [province_select_column!]
+        # limit the number of rows returned
+        limit: Int
+        # skip the first n rows. Use only with order_by
+        offset: Int
+        # sort the rows by one or more columns
+        order_by: [province_order_by!]
+        # filter the rows returned
+        where: province_bool_exp
+    ): province_aggregate!
+    # fetch data from the table: "province" using primary key columns
+    province_by_pk(id: bigint!): province
 }`, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
@@ -3353,6 +3423,123 @@ func (ec *executionContext) field_Query_district_args(ctx context.Context, rawAr
 }
 
 func (ec *executionContext) field_Query_district_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_province_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.ProvinceSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOprovince_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.ProvinceOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOprovince_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.ProvinceBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOprovince_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_province_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.ProvinceSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOprovince_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.ProvinceOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOprovince_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.ProvinceBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOprovince_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_province_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 int64
@@ -3861,6 +4048,129 @@ func (ec *executionContext) _Query_district_by_pk(ctx context.Context, field gra
 	res := resTmp.(*model.District)
 	fc.Result = res
 	return ec.marshalOdistrict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐDistrict(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_province(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_province_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().Province(rctx, args["distinct_on"].([]model.ProvinceSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.ProvinceOrderBy), args["where"].(*model.ProvinceBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model.Province)
+	fc.Result = res
+	return ec.marshalNprovince2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_province_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_province_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ProvinceAggregate(rctx, args["distinct_on"].([]model.ProvinceSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.ProvinceOrderBy), args["where"].(*model.ProvinceBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.ProvinceAggregate)
+	fc.Result = res
+	return ec.marshalNprovince_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_province_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_province_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ProvinceByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.Province)
+	fc.Result = res
+	return ec.marshalOprovince2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvince(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -14770,6 +15080,45 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				res = ec._Query_district_by_pk(ctx, field)
 				return res
 			})
+		case "province":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_province(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "province_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_province_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "province_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_province_by_pk(ctx, field)
+				return res
+			})
 		case "__type":
 			out.Values[i] = ec._Query___type(ctx, field)
 		case "__schema":
@@ -17070,6 +17419,20 @@ func (ec *executionContext) marshalNprovince2ᚖVehicleSupervisionᚋinternalᚋ
 	return ec._province(ctx, sel, v)
 }
 
+func (ec *executionContext) marshalNprovince_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceAggregate(ctx context.Context, sel ast.SelectionSet, v model.ProvinceAggregate) graphql.Marshaler {
+	return ec._province_aggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNprovince_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceAggregate(ctx context.Context, sel ast.SelectionSet, v *model.ProvinceAggregate) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._province_aggregate(ctx, sel, v)
+}
+
 func (ec *executionContext) unmarshalNprovince_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceConstraint(ctx context.Context, v interface{}) (model.ProvinceConstraint, error) {
 	var res model.ProvinceConstraint
 	err := res.UnmarshalGQL(v)
@@ -17103,6 +17466,11 @@ func (ec *executionContext) unmarshalNprovince_insert_input2ᚕᚖVehicleSupervi
 
 func (ec *executionContext) unmarshalNprovince_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceInsertInput(ctx context.Context, v interface{}) (*model.ProvinceInsertInput, error) {
 	res, err := ec.unmarshalInputprovince_insert_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNprovince_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceOrderBy(ctx context.Context, v interface{}) (*model.ProvinceOrderBy, error) {
+	res, err := ec.unmarshalInputprovince_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
@@ -18342,6 +18710,13 @@ func (ec *executionContext) marshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraph
 	return v
 }
 
+func (ec *executionContext) marshalOprovince2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvince(ctx context.Context, sel ast.SelectionSet, v *model.Province) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._province(ctx, sel, v)
+}
+
 func (ec *executionContext) marshalOprovince_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.ProvinceAggregateFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -18432,6 +18807,30 @@ func (ec *executionContext) unmarshalOprovince_on_conflict2ᚖVehicleSupervision
 	}
 	res, err := ec.unmarshalInputprovince_on_conflict(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOprovince_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceOrderByᚄ(ctx context.Context, v interface{}) ([]*model.ProvinceOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.ProvinceOrderBy, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNprovince_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceOrderBy(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
 }
 
 func (ec *executionContext) unmarshalOprovince_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋareaᚋqueryᚋgraphᚋmodelᚐProvinceSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.ProvinceSelectColumn, error) {
