@@ -4,54 +4,238 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/training/mutation/graph/generated"
 	"VehicleSupervision/internal/modules/training/mutation/graph/model"
+	"VehicleSupervision/pkg/graphql/util"
+	"VehicleSupervision/pkg/xid"
 	"context"
+	"errors"
 	"fmt"
+	"gorm.io/gorm"
 )
 
 func (r *mutationResolver) DeleteAnswerLog(ctx context.Context, where model.AnswerLogBoolExp) (*model.AnswerLogMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.AnswerLog{})
+	tx := qt.Where(where).Finish()
+	// 获取请求的字段
+	preloads := util.GetPreloadsMustPrefixAndRemovePrefix(ctx, "returning.")
+	var rs []*model.AnswerLog
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx := tx.Select(preloads)
+		tx = tx.Find(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &model.AnswerLogMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, tx.Error
 }
 
 func (r *mutationResolver) DeleteAnswerLogByPk(ctx context.Context, id int64) (*model.AnswerLog, error) {
-	panic(fmt.Errorf("not implemented"))
+	var rs = model.AnswerLog{}
+	tx := db.DB.Model(&model.AnswerLog{}).Find(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	tx = db.DB.Delete(id)
+	return &rs, tx.Error
 }
 
 func (r *mutationResolver) DeleteEnterpriseTraining(ctx context.Context, where model.EnterpriseTrainingBoolExp) (*model.EnterpriseTrainingMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.EnterpriseTraining{})
+	tx := qt.Where(where).Finish()
+	// 获取请求的字段
+	preloads := util.GetPreloadsMustPrefixAndRemovePrefix(ctx, "returning.")
+	var rs []*model.EnterpriseTraining
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx := tx.Select(preloads)
+		tx = tx.Find(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &model.EnterpriseTrainingMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, tx.Error
 }
 
 func (r *mutationResolver) DeleteEnterpriseTrainingByPk(ctx context.Context, id int64) (*model.EnterpriseTraining, error) {
-	panic(fmt.Errorf("not implemented"))
+	var rs = model.EnterpriseTraining{}
+	tx := db.DB.Model(&model.EnterpriseTraining{}).Find(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	tx = db.DB.Delete(id)
+	return &rs, tx.Error
 }
 
 func (r *mutationResolver) DeleteGovernmentManager(ctx context.Context, where model.GovernmentManagerBoolExp) (*model.GovernmentManagerMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.GovernmentManager{})
+	tx := qt.Where(where).Finish()
+	// 获取请求的字段
+	preloads := util.GetPreloadsMustPrefixAndRemovePrefix(ctx, "returning.")
+	var rs []*model.GovernmentManager
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx := tx.Select(preloads)
+		tx = tx.Find(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &model.GovernmentManagerMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, tx.Error
 }
 
 func (r *mutationResolver) DeleteGovernmentManagerByPk(ctx context.Context, id int64) (*model.GovernmentManager, error) {
-	panic(fmt.Errorf("not implemented"))
+	var rs = model.GovernmentManager{}
+	tx := db.DB.Model(&model.GovernmentManager{}).Find(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	tx = db.DB.Delete(id)
+	return &rs, tx.Error
 }
 
 func (r *mutationResolver) DeleteScoreLog(ctx context.Context, where model.ScoreLogBoolExp) (*model.ScoreLogMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.ScoreLog{})
+	tx := qt.Where(where).Finish()
+	// 获取请求的字段
+	preloads := util.GetPreloadsMustPrefixAndRemovePrefix(ctx, "returning.")
+	var rs []*model.ScoreLog
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx := tx.Select(preloads)
+		tx = tx.Find(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &model.ScoreLogMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, tx.Error
 }
 
 func (r *mutationResolver) DeleteScoreLogByPk(ctx context.Context, id int64) (*model.ScoreLog, error) {
-	panic(fmt.Errorf("not implemented"))
+	var rs = model.ScoreLog{}
+	tx := db.DB.Model(&model.ScoreLog{}).Find(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	tx = db.DB.Delete(id)
+	return &rs, tx.Error
 }
 
 func (r *mutationResolver) DeleteTrainingMaterial(ctx context.Context, where model.TrainingMaterialBoolExp) (*model.TrainingMaterialMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.TrainingMaterial{})
+	tx := qt.Where(where).Finish()
+	// 获取请求的字段
+	preloads := util.GetPreloadsMustPrefixAndRemovePrefix(ctx, "returning.")
+	var rs []*model.TrainingMaterial
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx := tx.Select(preloads)
+		tx = tx.Find(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &model.TrainingMaterialMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, tx.Error
 }
 
 func (r *mutationResolver) DeleteTrainingMaterialByPk(ctx context.Context, id int64) (*model.TrainingMaterial, error) {
-	panic(fmt.Errorf("not implemented"))
+	var rs = model.TrainingMaterial{}
+	tx := db.DB.Model(&model.TrainingMaterial{}).Find(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	tx = db.DB.Delete(id)
+	return &rs, tx.Error
 }
 
 func (r *mutationResolver) InsertAnswerLog(ctx context.Context, objects []*model.AnswerLogInsertInput, onConflict *model.AnswerLogOnConflict) (*model.AnswerLogMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	for _, input := range objects {
+		xidStr := xid.GetXid()
+		input.AnswerLogID = &xidStr
+		input.ID = nil
+	}
+	tx := db.DB.Model(&model.AnswerLog{}).Save(objects)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &model.AnswerLogMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) InsertAnswerLogOne(ctx context.Context, object model.AnswerLogInsertInput, onConflict *model.AnswerLogOnConflict) (*model.AnswerLog, error) {
@@ -59,7 +243,21 @@ func (r *mutationResolver) InsertAnswerLogOne(ctx context.Context, object model.
 }
 
 func (r *mutationResolver) InsertDriverStudyDetails(ctx context.Context, objects []*model.DriverStudyDetailsInsertInput, onConflict *model.DriverStudyDetailsOnConflict) (*model.DriverStudyDetailsMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	for _, input := range objects {
+		xidStr := xid.GetXid()
+		input.DriverTrainingID = &xidStr
+		input.ID = nil
+	}
+	tx := db.DB.Model(&model.DriverStudyDetails{}).Save(objects)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &model.DriverStudyDetailsMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) InsertDriverStudyDetailsOne(ctx context.Context, object model.DriverStudyDetailsInsertInput, onConflict *model.DriverStudyDetailsOnConflict) (*model.DriverStudyDetails, error) {
@@ -67,7 +265,21 @@ func (r *mutationResolver) InsertDriverStudyDetailsOne(ctx context.Context, obje
 }
 
 func (r *mutationResolver) InsertEnterpriseTraining(ctx context.Context, objects []*model.EnterpriseTrainingInsertInput, onConflict *model.EnterpriseTrainingOnConflict) (*model.EnterpriseTrainingMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	for _, input := range objects {
+		xidStr := xid.GetXid()
+		input.EnterpriseTrainingID = &xidStr
+		input.ID = nil
+	}
+	tx := db.DB.Model(&model.EnterpriseTraining{}).Save(objects)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &model.EnterpriseTrainingMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) InsertEnterpriseTrainingOne(ctx context.Context, object model.EnterpriseTrainingInsertInput, onConflict *model.EnterpriseTrainingOnConflict) (*model.EnterpriseTraining, error) {
@@ -75,7 +287,21 @@ func (r *mutationResolver) InsertEnterpriseTrainingOne(ctx context.Context, obje
 }
 
 func (r *mutationResolver) InsertGovernmentManager(ctx context.Context, objects []*model.GovernmentManagerInsertInput, onConflict *model.GovernmentManagerOnConflict) (*model.GovernmentManagerMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	for _, input := range objects {
+		xidStr := xid.GetXid()
+		input.ManageID = &xidStr
+		input.ID = nil
+	}
+	tx := db.DB.Model(&model.GovernmentManager{}).Save(objects)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &model.GovernmentManagerMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) InsertGovernmentManagerOne(ctx context.Context, object model.GovernmentManagerInsertInput, onConflict *model.GovernmentManagerOnConflict) (*model.GovernmentManager, error) {
@@ -83,7 +309,21 @@ func (r *mutationResolver) InsertGovernmentManagerOne(ctx context.Context, objec
 }
 
 func (r *mutationResolver) InsertScoreLog(ctx context.Context, objects []*model.ScoreLogInsertInput, onConflict *model.ScoreLogOnConflict) (*model.ScoreLogMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	for _, input := range objects {
+		xidStr := xid.GetXid()
+		input.ScoreLogID = &xidStr
+		input.ID = nil
+	}
+	tx := db.DB.Model(&model.ScoreLog{}).Save(objects)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &model.ScoreLogMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) InsertScoreLogOne(ctx context.Context, object model.ScoreLogInsertInput, onConflict *model.ScoreLogOnConflict) (*model.ScoreLog, error) {
@@ -91,7 +331,21 @@ func (r *mutationResolver) InsertScoreLogOne(ctx context.Context, object model.S
 }
 
 func (r *mutationResolver) InsertTrainingMaterial(ctx context.Context, objects []*model.TrainingMaterialInsertInput, onConflict *model.TrainingMaterialOnConflict) (*model.TrainingMaterialMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	for _, input := range objects {
+		xidStr := xid.GetXid()
+		input.MaterialID = &xidStr
+		input.ID = nil
+	}
+	tx := db.DB.Model(&model.TrainingMaterial{}).Save(objects)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &model.TrainingMaterialMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) InsertTrainingMaterialOne(ctx context.Context, object model.TrainingMaterialInsertInput, onConflict *model.TrainingMaterialOnConflict) (*model.TrainingMaterial, error) {
@@ -99,51 +353,189 @@ func (r *mutationResolver) InsertTrainingMaterialOne(ctx context.Context, object
 }
 
 func (r *mutationResolver) UpdateAnswerLog(ctx context.Context, inc *model.AnswerLogIncInput, set *model.AnswerLogSetInput, where model.AnswerLogBoolExp) (*model.AnswerLogMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.AnswerLog{})
+	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return &model.AnswerLogMutationResponse{
+				AffectedRows: 0,
+			}, nil
+		}
+		return nil, err
+	}
+	return &model.AnswerLogMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) UpdateAnswerLogByPk(ctx context.Context, inc *model.AnswerLogIncInput, set *model.AnswerLogSetInput, pkColumns model.AnswerLogPkColumnsInput) (*model.AnswerLog, error) {
-	panic(fmt.Errorf("not implemented"))
+	tx := db.DB.Where("id = ?", pkColumns.ID)
+	qt := util.NewQueryTranslator(tx, &model.AnswerLog{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	var rs model.AnswerLog
+	tx = tx.First(&rs)
+	return &rs, nil
 }
 
 func (r *mutationResolver) UpdateDriverStudyDetails(ctx context.Context, inc *model.DriverStudyDetailsIncInput, set *model.DriverStudyDetailsSetInput, where model.DriverStudyDetailsBoolExp) (*model.DriverStudyDetailsMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.DriverStudyDetails{})
+	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return &model.DriverStudyDetailsMutationResponse{
+				AffectedRows: 0,
+			}, nil
+		}
+		return nil, err
+	}
+	return &model.DriverStudyDetailsMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) UpdateDriverStudyDetailsByPk(ctx context.Context, inc *model.DriverStudyDetailsIncInput, set *model.DriverStudyDetailsSetInput, pkColumns model.DriverStudyDetailsPkColumnsInput) (*model.DriverStudyDetails, error) {
-	panic(fmt.Errorf("not implemented"))
+	tx := db.DB.Where("id = ?", pkColumns.ID)
+	qt := util.NewQueryTranslator(tx, &model.DriverStudyDetails{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	var rs model.DriverStudyDetails
+	tx = tx.First(&rs)
+	return &rs, nil
 }
 
 func (r *mutationResolver) UpdateEnterpriseTraining(ctx context.Context, inc *model.EnterpriseTrainingIncInput, set *model.EnterpriseTrainingSetInput, where model.EnterpriseTrainingBoolExp) (*model.EnterpriseTrainingMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.EnterpriseTraining{})
+	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return &model.EnterpriseTrainingMutationResponse{
+				AffectedRows: 0,
+			}, nil
+		}
+		return nil, err
+	}
+	return &model.EnterpriseTrainingMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) UpdateEnterpriseTrainingByPk(ctx context.Context, inc *model.EnterpriseTrainingIncInput, set *model.EnterpriseTrainingSetInput, pkColumns model.EnterpriseTrainingPkColumnsInput) (*model.EnterpriseTraining, error) {
-	panic(fmt.Errorf("not implemented"))
+	tx := db.DB.Where("id = ?", pkColumns.ID)
+	qt := util.NewQueryTranslator(tx, &model.EnterpriseTraining{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	var rs model.EnterpriseTraining
+	tx = tx.First(&rs)
+	return &rs, nil
 }
 
 func (r *mutationResolver) UpdateGovernmentManager(ctx context.Context, inc *model.GovernmentManagerIncInput, set *model.GovernmentManagerSetInput, where model.GovernmentManagerBoolExp) (*model.GovernmentManagerMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.GovernmentManager{})
+	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return &model.GovernmentManagerMutationResponse{
+				AffectedRows: 0,
+			}, nil
+		}
+		return nil, err
+	}
+	return &model.GovernmentManagerMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) UpdateGovernmentManagerByPk(ctx context.Context, inc *model.GovernmentManagerIncInput, set *model.GovernmentManagerSetInput, pkColumns model.GovernmentManagerPkColumnsInput) (*model.GovernmentManager, error) {
-	panic(fmt.Errorf("not implemented"))
+	tx := db.DB.Where("id = ?", pkColumns.ID)
+	qt := util.NewQueryTranslator(tx, &model.GovernmentManager{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	var rs model.GovernmentManager
+	tx = tx.First(&rs)
+	return &rs, nil
 }
 
 func (r *mutationResolver) UpdateScoreLog(ctx context.Context, inc *model.ScoreLogIncInput, set *model.ScoreLogSetInput, where model.ScoreLogBoolExp) (*model.ScoreLogMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.ScoreLog{})
+	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return &model.ScoreLogMutationResponse{
+				AffectedRows: 0,
+			}, nil
+		}
+		return nil, err
+	}
+	return &model.ScoreLogMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) UpdateScoreLogByPk(ctx context.Context, inc *model.ScoreLogIncInput, set *model.ScoreLogSetInput, pkColumns model.ScoreLogPkColumnsInput) (*model.ScoreLog, error) {
-	panic(fmt.Errorf("not implemented"))
+	tx := db.DB.Where("id = ?", pkColumns.ID)
+	qt := util.NewQueryTranslator(tx, &model.ScoreLog{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	var rs model.ScoreLog
+	tx = tx.First(&rs)
+	return &rs, nil
 }
 
 func (r *mutationResolver) UpdateTrainingMaterial(ctx context.Context, inc *model.TrainingMaterialIncInput, set *model.TrainingMaterialSetInput, where model.TrainingMaterialBoolExp) (*model.TrainingMaterialMutationResponse, error) {
-	panic(fmt.Errorf("not implemented"))
+	qt := util.NewQueryTranslator(db.DB, &model.TrainingMaterial{})
+	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return &model.TrainingMaterialMutationResponse{
+				AffectedRows: 0,
+			}, nil
+		}
+		return nil, err
+	}
+	return &model.TrainingMaterialMutationResponse{
+		AffectedRows: int(tx.RowsAffected),
+	}, nil
 }
 
 func (r *mutationResolver) UpdateTrainingMaterialByPk(ctx context.Context, inc *model.TrainingMaterialIncInput, set *model.TrainingMaterialSetInput, pkColumns model.TrainingMaterialPkColumnsInput) (*model.TrainingMaterial, error) {
-	panic(fmt.Errorf("not implemented"))
+	tx := db.DB.Where("id = ?", pkColumns.ID)
+	qt := util.NewQueryTranslator(tx, &model.TrainingMaterial{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	var rs model.TrainingMaterial
+	tx = tx.First(&rs)
+	return &rs, nil
 }
 
 func (r *queryResolver) Bug(ctx context.Context) (*int, error) {
