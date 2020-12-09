@@ -24,6 +24,8 @@ import (
 	trainingQuery "VehicleSupervision/internal/modules/training/query"
 	vehicleLocationHisMutation "VehicleSupervision/internal/modules/vehiclelocation/his/mutation"
 	vehicleLocationHisQuery "VehicleSupervision/internal/modules/vehiclelocation/his/query"
+	vehicleLocationLastMutation "VehicleSupervision/internal/modules/vehiclelocation/last/mutation"
+	vehicleLocationLastQuery "VehicleSupervision/internal/modules/vehiclelocation/last/query"
 	"VehicleSupervision/pkg/logger"
 	"fmt"
 	"github.com/99designs/gqlgen/graphql/playground"
@@ -86,6 +88,9 @@ func Setup() {
 	// 车辆历史位置端点
 	router.Any("/vehicle_location_his/query", vehicleLocationHisQuery.GinEndpoint())
 	router.Any("/vehicle_location_his/mutation", vehicleLocationHisMutation.GinEndpoint())
+	// 车辆最新位置端点
+	router.Any("/vehicle_location_last/query", vehicleLocationLastQuery.GinEndpoint())
+	router.Any("/vehicle_location_last/mutation", vehicleLocationLastMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())
