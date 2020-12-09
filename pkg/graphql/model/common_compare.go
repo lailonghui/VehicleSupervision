@@ -98,3 +98,29 @@ type DateComparisonExp struct {
 	Neq    *string  `json:"_neq"`
 	Nin    []string `json:"_nin"`
 }
+
+// expression to compare columns of type numeric. All fields are combined with logical 'AND'.
+type NumericComparisonExp struct {
+	Eq     *float64  `json:"_eq"`
+	Gt     *float64  `json:"_gt"`
+	Gte    *float64  `json:"_gte"`
+	In     []float64 `json:"_in"`
+	IsNull *bool     `json:"_is_null"`
+	Lt     *float64  `json:"_lt"`
+	Lte    *float64  `json:"_lte"`
+	Neq    *float64  `json:"_neq"`
+	Nin    []float64 `json:"_nin"`
+}
+
+// expression to compare columns of type point. All fields are combined with logical 'AND'.
+type PointComparisonExp struct {
+	Eq     *string  `json:"_eq"`
+	Gt     *string  `json:"_gt"`
+	Gte    *string  `json:"_gte"`
+	In     []string `json:"_in"`
+	IsNull *bool    `json:"_is_null"`
+	Lt     *string  `json:"_lt"`
+	Lte    *string  `json:"_lte"`
+	Neq    *string  `json:"_neq"`
+	Nin    []string `json:"_nin"`
+}

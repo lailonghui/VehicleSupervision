@@ -397,6 +397,10 @@ func buildWhere(tx *gorm.DB, where interface{}) *gorm.DB {
 					tx = timestamptzCompare(tx, exp, columnName)
 				case model.DateComparisonExp:
 					tx = dateCompare(tx, exp, columnName)
+				case model.NumericComparisonExp:
+					tx = numericCompare(tx, exp, columnName)
+				case model.PointComparisonExp:
+					tx = pointCompare(tx, exp, columnName)
 				default:
 					panic(errors.New("unSupport type"))
 				}
@@ -494,6 +498,70 @@ func booleanCompare(tx *gorm.DB, exp model.BooleanComparisonExp, columnName stri
 
 // int 比较判断
 func intCompare(tx *gorm.DB, exp model.IntComparisonExp, columnName string) *gorm.DB {
+	if exp.Eq != nil {
+		tx = tx.Where(columnName+" = ? ", exp.Eq)
+	}
+	if exp.Gt != nil {
+		tx = tx.Where(columnName+" > ? ", exp.Gt)
+	}
+	if exp.Gte != nil {
+		tx = tx.Where(columnName+" >= ?", exp.Gte)
+	}
+	if exp.In != nil {
+		tx = tx.Where(columnName+" in ? ", exp.In)
+	}
+	if exp.IsNull != nil {
+		tx = tx.Where(columnName+" is null", exp.IsNull)
+	}
+	if exp.Lt != nil {
+		tx = tx.Where(columnName+" < ? ", exp.Lt)
+	}
+	if exp.Lte != nil {
+		tx = tx.Where(columnName+" <= ? ", exp.Lte)
+	}
+	if exp.Neq != nil {
+		tx = tx.Not(columnName+" = ? ", exp.Neq)
+	}
+	if exp.Nin != nil {
+		tx = tx.Not(columnName+" in ? ", exp.Nin)
+	}
+	return tx
+}
+
+// numeric 比较判断
+func numericCompare(tx *gorm.DB, exp model.NumericComparisonExp, columnName string) *gorm.DB {
+	if exp.Eq != nil {
+		tx = tx.Where(columnName+" = ? ", exp.Eq)
+	}
+	if exp.Gt != nil {
+		tx = tx.Where(columnName+" > ? ", exp.Gt)
+	}
+	if exp.Gte != nil {
+		tx = tx.Where(columnName+" >= ?", exp.Gte)
+	}
+	if exp.In != nil {
+		tx = tx.Where(columnName+" in ? ", exp.In)
+	}
+	if exp.IsNull != nil {
+		tx = tx.Where(columnName+" is null", exp.IsNull)
+	}
+	if exp.Lt != nil {
+		tx = tx.Where(columnName+" < ? ", exp.Lt)
+	}
+	if exp.Lte != nil {
+		tx = tx.Where(columnName+" <= ? ", exp.Lte)
+	}
+	if exp.Neq != nil {
+		tx = tx.Not(columnName+" = ? ", exp.Neq)
+	}
+	if exp.Nin != nil {
+		tx = tx.Not(columnName+" in ? ", exp.Nin)
+	}
+	return tx
+}
+
+// point 比较判断
+func pointCompare(tx *gorm.DB, exp model.PointComparisonExp, columnName string) *gorm.DB {
 	if exp.Eq != nil {
 		tx = tx.Where(columnName+" = ? ", exp.Eq)
 	}
