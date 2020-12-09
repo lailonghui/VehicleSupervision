@@ -58,3 +58,7 @@ type VehicleLocationLast struct {
 	// 车辆状态
 	VehicleStatus *string `json:"vehicle_status"`
 }
+
+func (v VehicleLocationLast) TableName() string {
+	return "vehicle_location_last"
+}

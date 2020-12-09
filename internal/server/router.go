@@ -20,6 +20,8 @@ import (
 	dictionaryQuery "VehicleSupervision/internal/modules/dictionary/dict/query"
 	drivingLogMutation "VehicleSupervision/internal/modules/driving/log/mutation"
 	drivingLogQuery "VehicleSupervision/internal/modules/driving/log/query"
+	simCardMutation "VehicleSupervision/internal/modules/sim/card/mutation"
+	simCardQuery "VehicleSupervision/internal/modules/sim/card/query"
 	trainingMutation "VehicleSupervision/internal/modules/training/mutation"
 	trainingQuery "VehicleSupervision/internal/modules/training/query"
 	vehicleLocationHisMutation "VehicleSupervision/internal/modules/vehiclelocation/his/mutation"
@@ -91,6 +93,9 @@ func Setup() {
 	// 车辆最新位置端点
 	router.Any("/vehicle_location_last/query", vehicleLocationLastQuery.GinEndpoint())
 	router.Any("/vehicle_location_last/mutation", vehicleLocationLastMutation.GinEndpoint())
+	// sim卡
+	router.Any("/sim_card/query", simCardQuery.GinEndpoint())
+	router.Any("/sim_card/mutation", simCardMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())
