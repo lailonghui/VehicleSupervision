@@ -14,6 +14,8 @@ import (
 	areaQuery "VehicleSupervision/internal/modules/area/query"
 	dictionaryCategoryMutation "VehicleSupervision/internal/modules/dictionary/category/mutation"
 	dictionaryCategoryQuery "VehicleSupervision/internal/modules/dictionary/category/query"
+	dictionaryMutation "VehicleSupervision/internal/modules/dictionary/dict/mutation"
+	dictionaryQuery "VehicleSupervision/internal/modules/dictionary/dict/query"
 	trainingMutation "VehicleSupervision/internal/modules/training/mutation"
 	trainingQuery "VehicleSupervision/internal/modules/training/query"
 	"VehicleSupervision/pkg/logger"
@@ -54,14 +56,21 @@ func Setup() {
 	//router.Any("/vehicle", vehicle.GinEndpoint())
 	//驾驶员模块端点
 	//router.Any("/driver", driver.GinEndpoint())
+	// 企业端点
 	router.Any("/enterprise/query", enterpriseQuery.GinEndpoint())
 	router.Any("/enterprise/mutation", enterpriseMutation.GinEndpoint())
+	// 系统用户端点
 	router.Any("/system_user/query", systemUserQuery.GinEndpoint())
 	router.Any("/system_user/mutation", systemUserMutation.GinEndpoint())
+	// 部门端点
 	router.Any("/department/query", departmentQuery.GinEndpoint())
 	router.Any("/department/mutation", departmentMutation.GinEndpoint())
+	// 字典类型端点
 	router.Any("/dictionary_category/query", dictionaryCategoryQuery.GinEndpoint())
 	router.Any("/dictionary_category/mutation", dictionaryCategoryMutation.GinEndpoint())
+	// 字典端点
+	router.Any("/dictionary/query", dictionaryQuery.GinEndpoint())
+	router.Any("/dictionary/mutation", dictionaryMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())

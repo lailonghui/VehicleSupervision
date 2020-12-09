@@ -317,22 +317,6 @@ type DataDictionaryVarianceOrderBy struct {
 	Value *model1.OrderBy `json:"value"`
 }
 
-// mutation root
-type MutationRoot struct {
-	// delete data from the table: "data_dictionary"
-	DeleteDataDictionary *DataDictionaryMutationResponse `json:"delete_data_dictionary"`
-	// delete single row from the table: "data_dictionary"
-	DeleteDataDictionaryByPk *model.DataDictionary `json:"delete_data_dictionary_by_pk"`
-	// insert data into the table: "data_dictionary"
-	InsertDataDictionary *DataDictionaryMutationResponse `json:"insert_data_dictionary"`
-	// insert a single row into the table: "data_dictionary"
-	InsertDataDictionaryOne *model.DataDictionary `json:"insert_data_dictionary_one"`
-	// update data of the table: "data_dictionary"
-	UpdateDataDictionary *DataDictionaryMutationResponse `json:"update_data_dictionary"`
-	// update single row of the table: "data_dictionary"
-	UpdateDataDictionaryByPk *model.DataDictionary `json:"update_data_dictionary_by_pk"`
-}
-
 // subscription root
 type SubscriptionRoot struct {
 	// fetch data from the table: "data_dictionary"

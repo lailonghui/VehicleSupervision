@@ -545,7 +545,7 @@ input Int_comparison_exp {
 }
 
 """mutation root"""
-type mutation_root {
+type Mutation {
   """
   delete data from the table: "data_dictionary"
   """
@@ -634,51 +634,7 @@ enum order_by {
 
 """query root"""
 type Query {
-  """
-  fetch data from the table: "data_dictionary"
-  """
-  data_dictionary(
-    """distinct select on columns"""
-    distinct_on: [data_dictionary_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [data_dictionary_order_by!]
-
-    """filter the rows returned"""
-    where: data_dictionary_bool_exp
-  ): [data_dictionary!]!
-
-  """
-  fetch aggregated fields from the table: "data_dictionary"
-  """
-  data_dictionary_aggregate(
-    """distinct select on columns"""
-    distinct_on: [data_dictionary_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [data_dictionary_order_by!]
-
-    """filter the rows returned"""
-    where: data_dictionary_bool_exp
-  ): data_dictionary_aggregate!
-
-  """fetch data from the table: "data_dictionary" using primary key columns"""
-  data_dictionary_by_pk(
-    """ID"""
-    id: bigint!
-  ): data_dictionary
+  t: Int
 }
 
 """

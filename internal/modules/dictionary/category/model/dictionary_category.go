@@ -32,3 +32,7 @@ type DataDictionaryCategory struct {
 	// 修改人
 	UpdateBy *string `json:"update_by"`
 }
+
+func (d DataDictionaryCategory) TableName() string {
+	return "data_dictionary_category"
+}
