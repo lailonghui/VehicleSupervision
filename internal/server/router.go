@@ -12,6 +12,8 @@ import (
 	systemUserQuery "VehicleSupervision/internal/modules/admin/systemuser/query"
 	areaMutation "VehicleSupervision/internal/modules/area/mutation"
 	areaQuery "VehicleSupervision/internal/modules/area/query"
+	blacklistRecordMutation "VehicleSupervision/internal/modules/blacklist/record/mutation"
+	blacklistRecordQuery "VehicleSupervision/internal/modules/blacklist/record/query"
 	dictionaryCategoryMutation "VehicleSupervision/internal/modules/dictionary/category/mutation"
 	dictionaryCategoryQuery "VehicleSupervision/internal/modules/dictionary/category/query"
 	dictionaryMutation "VehicleSupervision/internal/modules/dictionary/dict/mutation"
@@ -71,6 +73,9 @@ func Setup() {
 	// 字典端点
 	router.Any("/dictionary/query", dictionaryQuery.GinEndpoint())
 	router.Any("/dictionary/mutation", dictionaryMutation.GinEndpoint())
+	// 黑名单记录端点
+	router.Any("/blacklist_operation_record/query", blacklistRecordQuery.GinEndpoint())
+	router.Any("/blacklist_operation_record/mutation", blacklistRecordMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())
