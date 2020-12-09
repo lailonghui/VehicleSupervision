@@ -22,6 +22,8 @@ import (
 	drivingLogQuery "VehicleSupervision/internal/modules/driving/log/query"
 	trainingMutation "VehicleSupervision/internal/modules/training/mutation"
 	trainingQuery "VehicleSupervision/internal/modules/training/query"
+	vehicleLocationHisMutation "VehicleSupervision/internal/modules/vehiclelocation/his/mutation"
+	vehicleLocationHisQuery "VehicleSupervision/internal/modules/vehiclelocation/his/query"
 	"VehicleSupervision/pkg/logger"
 	"fmt"
 	"github.com/99designs/gqlgen/graphql/playground"
@@ -81,6 +83,9 @@ func Setup() {
 	// 行车日志端点
 	router.Any("/driving_log/query", drivingLogQuery.GinEndpoint())
 	router.Any("/driving_log/mutation", drivingLogMutation.GinEndpoint())
+	// 车辆历史位置端点
+	router.Any("/vehicle_location_his/query", vehicleLocationHisQuery.GinEndpoint())
+	router.Any("/vehicle_location_his/mutation", vehicleLocationHisMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())
