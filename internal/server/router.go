@@ -18,12 +18,14 @@ import (
 	dictionaryCategoryQuery "VehicleSupervision/internal/modules/dictionary/category/query"
 	dictionaryMutation "VehicleSupervision/internal/modules/dictionary/dict/mutation"
 	dictionaryQuery "VehicleSupervision/internal/modules/dictionary/dict/query"
+	"VehicleSupervision/internal/modules/driver"
 	drivingLogMutation "VehicleSupervision/internal/modules/driving/log/mutation"
 	drivingLogQuery "VehicleSupervision/internal/modules/driving/log/query"
 	simCardMutation "VehicleSupervision/internal/modules/sim/card/mutation"
 	simCardQuery "VehicleSupervision/internal/modules/sim/card/query"
 	trainingMutation "VehicleSupervision/internal/modules/training/mutation"
 	trainingQuery "VehicleSupervision/internal/modules/training/query"
+	"VehicleSupervision/internal/modules/vehicle"
 	vehicleLocationHisMutation "VehicleSupervision/internal/modules/vehiclelocation/his/mutation"
 	vehicleLocationHisQuery "VehicleSupervision/internal/modules/vehiclelocation/his/query"
 	vehicleLocationLastMutation "VehicleSupervision/internal/modules/vehiclelocation/last/mutation"
@@ -63,9 +65,10 @@ func Setup() {
 	router.GET("/", playgroundHandler())
 
 	//车辆模块端点
-	//router.Any("/vehicle", vehicle.GinEndpoint())
+	router.Any("/vehicle", vehicle.GinEndpoint())
 	//驾驶员模块端点
-	//router.Any("/driver", driver.GinEndpoint())
+	router.Any("/driver", driver.GinEndpoint())
+
 	// 企业端点
 	router.Any("/enterprise/query", enterpriseQuery.GinEndpoint())
 	router.Any("/enterprise/mutation", enterpriseMutation.GinEndpoint())
