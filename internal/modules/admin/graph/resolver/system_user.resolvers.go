@@ -5,13 +5,11 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
-	model1 "VehicleSupervision/internal/modules/admin/systemuser/model"
-	"VehicleSupervision/internal/modules/admin/systemuser/mutation/graph/generated"
-	"VehicleSupervision/internal/modules/admin/systemuser/mutation/graph/model"
+	"VehicleSupervision/internal/modules/admin/graph/model"
+	model1 "VehicleSupervision/internal/modules/admin/model"
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
-	"fmt"
 	"gorm.io/gorm"
 )
 
@@ -68,7 +66,7 @@ func (r *mutationResolver) DeleteSystemUserByPk(ctx context.Context, id int64) (
 }
 
 func (r *mutationResolver) InsertSystemUser(ctx context.Context, objects []*model.SystemUserInsertInput, onConflict *model.SystemUserOnConflict) (*model.SystemUserMutationResponse, error) {
-	rs := r.batchInsertParamConvert(objects)
+	rs := r.systemUserInsertInputBatchConvert(objects)
 	tx := db.DB.Model(&model1.SystemUser{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -83,7 +81,7 @@ func (r *mutationResolver) InsertSystemUser(ctx context.Context, objects []*mode
 }
 
 func (r *mutationResolver) InsertSystemUserOne(ctx context.Context, object model.SystemUserInsertInput, onConflict *model.SystemUserOnConflict) (*model1.SystemUser, error) {
-	rs := r.insertParamConvert(&object)
+	rs := r.systemUserInsertInputConvert(&object)
 	tx := db.DB.Model(&model1.SystemUser{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -125,15 +123,56 @@ func (r *mutationResolver) UpdateSystemUserByPk(ctx context.Context, inc *model.
 	return &rs, nil
 }
 
-func (r *queryResolver) T(ctx context.Context) (*int, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) SystemUser(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) ([]*model1.SystemUser, error) {
+	qt := util.NewQueryTranslator(db.DB, &model1.SystemUser{})
+	tx := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Finish()
+	var rs []*model1.SystemUser
+	tx = tx.Find(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
-// Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) (*model.SystemUserAggregate, error) {
+	var rs model.SystemUserAggregate
 
-// Query returns generated.QueryResolver implementation.
-func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+	qt := util.NewQueryTranslator(db.DB, &model1.SystemUser{})
+	tx, err := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Aggregate(&rs, ctx)
+	if err != nil {
+		return nil, err
+	}
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
 
-type mutationResolver struct{ *Resolver }
-type queryResolver struct{ *Resolver }
+	return &rs, nil
+}
+
+func (r *queryResolver) SystemUserByPk(ctx context.Context, id int64) (*model1.SystemUser, error) {
+	var rs model1.SystemUser
+	tx := db.DB.Model(&model1.SystemUser{}).First(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &rs, nil
+}

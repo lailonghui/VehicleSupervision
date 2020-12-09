@@ -5,9 +5,9 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
-	model1 "VehicleSupervision/internal/modules/admin/department/model"
-	"VehicleSupervision/internal/modules/admin/department/mutation/graph/generated"
-	"VehicleSupervision/internal/modules/admin/department/mutation/graph/model"
+	"VehicleSupervision/internal/modules/admin/graph/generated"
+	"VehicleSupervision/internal/modules/admin/graph/model"
+	model1 "VehicleSupervision/internal/modules/admin/model"
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
@@ -67,7 +67,7 @@ func (r *mutationResolver) DeleteDepartmentByPk(ctx context.Context, id int64) (
 }
 
 func (r *mutationResolver) InsertDepartment(ctx context.Context, objects []*model.DepartmentInsertInput, onConflict *model.DepartmentOnConflict) (*model.DepartmentMutationResponse, error) {
-	rs := r.batchInsertParamConvert(objects)
+	rs := r.departmentInsertBatchConvert(objects)
 	tx := db.DB.Model(&model1.Department{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -82,7 +82,7 @@ func (r *mutationResolver) InsertDepartment(ctx context.Context, objects []*mode
 }
 
 func (r *mutationResolver) InsertDepartmentOne(ctx context.Context, object model.DepartmentInsertInput, onConflict *model.DepartmentOnConflict) (*model1.Department, error) {
-	rs := r.insertParamConvert(&object)
+	rs := r.departmentInsertConvert(&object)
 	tx := db.DB.Model(&model1.Department{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -124,7 +124,65 @@ func (r *mutationResolver) UpdateDepartmentByPk(ctx context.Context, inc *model.
 	return &rs, nil
 }
 
+func (r *queryResolver) Department(ctx context.Context, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) ([]*model1.Department, error) {
+	qt := util.NewQueryTranslator(db.DB, &model1.Department{})
+	tx := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Finish()
+	var rs []*model1.Department
+	tx = tx.Find(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
+}
+
+func (r *queryResolver) DepartmentAggregate(ctx context.Context, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) (*model.DepartmentAggregate, error) {
+	var rs model.DepartmentAggregate
+
+	qt := util.NewQueryTranslator(db.DB, &model1.Department{})
+	tx, err := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Aggregate(&rs, ctx)
+	if err != nil {
+		return nil, err
+	}
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+
+	return &rs, nil
+}
+
+func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.Department, error) {
+	var rs model1.Department
+	tx := db.DB.Model(&model1.Department{}).First(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &rs, nil
+}
+
 // Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
+// Query returns generated.QueryResolver implementation.
+func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+
 type mutationResolver struct{ *Resolver }
+type queryResolver struct{ *Resolver }

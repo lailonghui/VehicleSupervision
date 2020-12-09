@@ -5,13 +5,11 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
-	model1 "VehicleSupervision/internal/modules/admin/enterprise/model"
-	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/generated"
-	"VehicleSupervision/internal/modules/admin/enterprise/mutation/graph/model"
+	"VehicleSupervision/internal/modules/admin/graph/model"
+	model1 "VehicleSupervision/internal/modules/admin/model"
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
-	"fmt"
 	"gorm.io/gorm"
 )
 
@@ -45,20 +43,30 @@ func (r *mutationResolver) DeleteEnterprise(ctx context.Context, where model.Ent
 }
 
 func (r *mutationResolver) DeleteEnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
-	var rs = model1.Enterprise{}
-	tx := db.DB.Model(&model1.Enterprise{}).Find(&rs, id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
+	preloads := util.GetPreloads(ctx)
+	var rs model1.Enterprise
+	tx := db.DB.Model(&model1.Enterprise{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where("id = ?", id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
 		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
 		return nil, err
 	}
-	tx = db.DB.Delete(id)
-	return &rs, tx.Error
+	return &rs, nil
 }
 
-func (r *mutationResolver) InsertEnterprise(ctx context.Context, objects []*model.EnterpriseInsertInput) (*model.EnterpriseMutationResponse, error) {
-	rs := r.batchInsertParamConvert(objects)
+func (r *mutationResolver) InsertEnterprise(ctx context.Context, objects []*model.EnterpriseInsertInput, onConflict *model.EnterpriseOnConflict) (*model.EnterpriseMutationResponse, error) {
+	rs := r.enterpriseInsertInputBatchConvert(objects)
 	tx := db.DB.Model(&model1.Enterprise{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -72,8 +80,8 @@ func (r *mutationResolver) InsertEnterprise(ctx context.Context, objects []*mode
 	}, nil
 }
 
-func (r *mutationResolver) InsertEnterpriseOne(ctx context.Context, object model.EnterpriseInsertInput) (*model1.Enterprise, error) {
-	rs := r.insertParamConvert(&object)
+func (r *mutationResolver) InsertEnterpriseOne(ctx context.Context, object model.EnterpriseInsertInput, onConflict *model.EnterpriseOnConflict) (*model1.Enterprise, error) {
+	rs := r.enterpriseInsertInputConvert(&object)
 	tx := db.DB.Model(&model1.Enterprise{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -115,15 +123,56 @@ func (r *mutationResolver) UpdateEnterpriseByPk(ctx context.Context, inc *model.
 	return &rs, nil
 }
 
-func (r *queryResolver) T(ctx context.Context) (*int, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) Enterprise(ctx context.Context, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) ([]*model1.Enterprise, error) {
+	qt := util.NewQueryTranslator(db.DB, &model1.Enterprise{})
+	tx := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Finish()
+	var rs []*model1.Enterprise
+	tx = tx.Find(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
-// Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+func (r *queryResolver) EnterpriseAggregate(ctx context.Context, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) (*model.EnterpriseAggregate, error) {
+	var rs model.EnterpriseAggregate
 
-// Query returns generated.QueryResolver implementation.
-func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+	qt := util.NewQueryTranslator(db.DB, &model1.Enterprise{})
+	tx, err := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Aggregate(&rs, ctx)
+	if err != nil {
+		return nil, err
+	}
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
 
-type mutationResolver struct{ *Resolver }
-type queryResolver struct{ *Resolver }
+	return &rs, nil
+}
+
+func (r *queryResolver) EnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
+	var rs model1.Enterprise
+	tx := db.DB.Model(&model1.Enterprise{}).First(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &rs, nil
+}
