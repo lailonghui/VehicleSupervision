@@ -14,10 +14,9 @@ import (
 	areaQuery "VehicleSupervision/internal/modules/area/query"
 	blacklistRecordMutation "VehicleSupervision/internal/modules/blacklist/record/mutation"
 	blacklistRecordQuery "VehicleSupervision/internal/modules/blacklist/record/query"
-	simCardMutation "VehicleSupervision/internal/modules/device/simcard/mutation"
-	simCardQuery "VehicleSupervision/internal/modules/device/simcard/query"
-	simCardFlowMutation "VehicleSupervision/internal/modules/device/simflow/mutation"
-	simCardFlowQuery "VehicleSupervision/internal/modules/device/simflow/query"
+	deviceMutation "VehicleSupervision/internal/modules/device/mutation"
+	deviceQuery "VehicleSupervision/internal/modules/device/query"
+
 	dictionaryCategoryMutation "VehicleSupervision/internal/modules/dictionary/category/mutation"
 	dictionaryCategoryQuery "VehicleSupervision/internal/modules/dictionary/category/query"
 	dictionaryMutation "VehicleSupervision/internal/modules/dictionary/dict/mutation"
@@ -98,12 +97,9 @@ func Setup() {
 	// 车辆最新位置端点
 	router.Any("/vehicle_location_last/query", vehicleLocationLastQuery.GinEndpoint())
 	router.Any("/vehicle_location_last/mutation", vehicleLocationLastMutation.GinEndpoint())
-	// sim卡
-	router.Any("/sim_card/query", simCardQuery.GinEndpoint())
-	router.Any("/sim_card/mutation", simCardMutation.GinEndpoint())
-	// sim卡流量
-	router.Any("/sim_card_flow/query", simCardFlowQuery.GinEndpoint())
-	router.Any("/sim_card_flow/mutation", simCardFlowMutation.GinEndpoint())
+	// 设备管理端点
+	router.Any("/device/query", deviceQuery.GinEndpoint())
+	router.Any("/device/mutation", deviceMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())
