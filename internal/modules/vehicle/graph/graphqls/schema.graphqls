@@ -2,7 +2,6 @@
 scalar _jsonb
 scalar bigint
 scalar numeric
-scalar timestamp
 scalar timestamptz
 
 """
@@ -140,18 +139,3 @@ input String_comparison_exp {
     _similar: String
 }
 
-
-"""
-expression to compare columns of type timestamp. All fields are combined with logical 'AND'.
-"""
-input timestamp_comparison_exp {
-    _eq: timestamp
-    _gt: timestamp
-    _gte: timestamp
-    _in: [timestamp!]
-    _is_null: Boolean
-    _lt: timestamp
-    _lte: timestamp
-    _neq: timestamp
-    _nin: [timestamp!]
-}
