@@ -947,7 +947,6 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 
 var sources = []*ast.Source{
 	{Name: "graph/graphqls/generate.graphqls", Input: `
-
 scalar bigint
 
 """
@@ -1159,7 +1158,7 @@ type sim_card {
   id: bigint!
 
   """是否删除"""
-  is_delete: Boolean
+  is_delete: Boolean!
 
   """运营商类型"""
   mobile_type: Int
@@ -3964,11 +3963,14 @@ func (ec *executionContext) _sim_card_is_delete(ctx context.Context, field graph
 		return graphql.Null
 	}
 	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
 		return graphql.Null
 	}
-	res := resTmp.(*bool)
+	res := resTmp.(bool)
 	fc.Result = res
-	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _sim_card_mobile_type(ctx context.Context, field graphql.CollectedField, obj *model1.SimCard) (ret graphql.Marshaler) {
@@ -8520,6 +8522,9 @@ func (ec *executionContext) _sim_card(ctx context.Context, sel ast.SelectionSet,
 			}
 		case "is_delete":
 			out.Values[i] = ec._sim_card_is_delete(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		case "mobile_type":
 			out.Values[i] = ec._sim_card_mobile_type(ctx, field, obj)
 		case "operators_id":

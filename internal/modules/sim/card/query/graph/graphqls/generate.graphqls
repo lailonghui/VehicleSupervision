@@ -1,5 +1,4 @@
 
-
 scalar bigint
 
 """
@@ -211,7 +210,7 @@ type sim_card {
   id: bigint!
 
   """是否删除"""
-  is_delete: Boolean
+  is_delete: Boolean!
 
   """运营商类型"""
   mobile_type: Int
