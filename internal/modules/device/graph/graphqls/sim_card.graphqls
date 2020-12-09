@@ -66,6 +66,53 @@ extend type Mutation {
 }
 
 
+extend type Query {
+  """
+  fetch data from the table: "sim_card"
+  """
+  sim_card(
+    """distinct select on columns"""
+    distinct_on: [sim_card_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [sim_card_order_by!]
+
+    """filter the rows returned"""
+    where: sim_card_bool_exp
+  ): [sim_card!]!
+
+  """
+  fetch aggregated fields from the table: "sim_card"
+  """
+  sim_card_aggregate(
+    """distinct select on columns"""
+    distinct_on: [sim_card_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [sim_card_order_by!]
+
+    """filter the rows returned"""
+    where: sim_card_bool_exp
+  ): sim_card_aggregate!
+
+  """fetch data from the table: "sim_card" using primary key columns"""
+  sim_card_by_pk(
+    """ID"""
+    id: bigint!
+  ): sim_card
+}
 
 """
 SIM卡
@@ -614,5 +661,3 @@ input sim_card_variance_order_by {
   id: order_by
   mobile_type: order_by
 }
-
-

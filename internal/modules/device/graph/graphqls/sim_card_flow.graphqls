@@ -1,8 +1,71 @@
 
+extend type Mutation {
+  """
+  delete data from the table: "sim_card_flow"
+  """
+  delete_sim_card_flow(
+    """filter the rows which have to be deleted"""
+    where: sim_card_flow_bool_exp!
+  ): sim_card_flow_mutation_response
 
+  """
+  delete single row from the table: "sim_card_flow"
+  """
+  delete_sim_card_flow_by_pk(
+    """ID"""
+    id: bigint!
+  ): sim_card_flow
 
-"""query root"""
-type Query {
+  """
+  insert data into the table: "sim_card_flow"
+  """
+  insert_sim_card_flow(
+    """the rows to be inserted"""
+    objects: [sim_card_flow_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: sim_card_flow_on_conflict
+  ): sim_card_flow_mutation_response
+
+  """
+  insert a single row into the table: "sim_card_flow"
+  """
+  insert_sim_card_flow_one(
+    """the row to be inserted"""
+    object: sim_card_flow_insert_input!
+
+    """on conflict condition"""
+    on_conflict: sim_card_flow_on_conflict
+  ): sim_card_flow
+
+  """
+  update data of the table: "sim_card_flow"
+  """
+  update_sim_card_flow(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: sim_card_flow_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: sim_card_flow_set_input
+
+    """filter the rows which have to be updated"""
+    where: sim_card_flow_bool_exp!
+  ): sim_card_flow_mutation_response
+
+  """
+  update single row of the table: "sim_card_flow"
+  """
+  update_sim_card_flow_by_pk(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: sim_card_flow_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: sim_card_flow_set_input
+    pk_columns: sim_card_flow_pk_columns_input!
+  ): sim_card_flow
+}
+
+extend type Query {
   """
   fetch data from the table: "sim_card_flow"
   """
@@ -882,6 +945,3 @@ input sim_card_flow_variance_order_by {
   suit_use_sms_num: order_by
   use_flow: order_by
 }
-
-
-

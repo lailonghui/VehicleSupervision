@@ -1,8 +1,8 @@
 package system
 
 import (
-	"VehicleSupervision/internal/modules/device/mutation/graph/generated"
-	"VehicleSupervision/internal/modules/device/mutation/graph/resolver"
+	"VehicleSupervision/internal/modules/device/graph/generated"
+	"VehicleSupervision/internal/modules/device/graph/resolver"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/gin-gonic/gin"
 )
