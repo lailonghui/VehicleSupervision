@@ -18,6 +18,8 @@ import (
 	dictionaryCategoryQuery "VehicleSupervision/internal/modules/dictionary/category/query"
 	dictionaryMutation "VehicleSupervision/internal/modules/dictionary/dict/mutation"
 	dictionaryQuery "VehicleSupervision/internal/modules/dictionary/dict/query"
+	drivingLogMutation "VehicleSupervision/internal/modules/driving/log/mutation"
+	drivingLogQuery "VehicleSupervision/internal/modules/driving/log/query"
 	trainingMutation "VehicleSupervision/internal/modules/training/mutation"
 	trainingQuery "VehicleSupervision/internal/modules/training/query"
 	"VehicleSupervision/pkg/logger"
@@ -76,6 +78,9 @@ func Setup() {
 	// 黑名单记录端点
 	router.Any("/blacklist_operation_record/query", blacklistRecordQuery.GinEndpoint())
 	router.Any("/blacklist_operation_record/mutation", blacklistRecordMutation.GinEndpoint())
+	// 行车日志端点
+	router.Any("/driving_log/query", drivingLogQuery.GinEndpoint())
+	router.Any("/driving_log/mutation", drivingLogMutation.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())

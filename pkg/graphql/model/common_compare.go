@@ -73,8 +73,6 @@ type BigintComparisonExp struct {
 	Nin    []int64 `json:"_nin"`
 }
 
-
-
 // expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
 type TimestamptzComparisonExp struct {
 	Eq     *time.Time   `json:"_eq"`
@@ -86,4 +84,17 @@ type TimestamptzComparisonExp struct {
 	Lte    *time.Time   `json:"_lte"`
 	Neq    *time.Time   `json:"_neq"`
 	Nin    []*time.Time `json:"_nin"`
+}
+
+// expression to compare columns of type date. All fields are combined with logical 'AND'.
+type DateComparisonExp struct {
+	Eq     *string  `json:"_eq"`
+	Gt     *string  `json:"_gt"`
+	Gte    *string  `json:"_gte"`
+	In     []string `json:"_in"`
+	IsNull *bool    `json:"_is_null"`
+	Lt     *string  `json:"_lt"`
+	Lte    *string  `json:"_lte"`
+	Neq    *string  `json:"_neq"`
+	Nin    []string `json:"_nin"`
 }
