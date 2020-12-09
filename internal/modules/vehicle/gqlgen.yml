@@ -37,7 +37,6 @@ resolver:
 autobind:
    - "VehicleSupervision/internal/modules/vehicle/graph/model"
 
-
 # This section declares type mapping between the GraphQL and go type systems
 #
 # The first line in each type will be used as defaults for resolver arguments and
@@ -70,7 +69,6 @@ models:
       - github.com/99designs/gqlgen/graphql.Int
       - github.com/99designs/gqlgen/graphql.Int64
       - github.com/99designs/gqlgen/graphql.Int32
-
   Int:
     model:
       - github.com/99designs/gqlgen/graphql.Int

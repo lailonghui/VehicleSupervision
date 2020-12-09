@@ -1,0 +1,1160 @@
+
+"""
+营运车信息表
+
+
+columns and relationships of "operating_vehicle_info"
+
+"""
+type operating_vehicle_info {
+    """行政区域"""
+    administrative_region: String
+
+    """代理商"""
+    agent: String
+
+    """合同编号"""
+    contact_number: String
+
+    """合同时间"""
+    contract_time: timestamptz
+
+    """创建时间"""
+    create_at: timestamptz!
+
+    """创建人"""
+    create_by: String!
+
+    """删除时间"""
+    delete_at: timestamptz
+
+    """删除人"""
+    delete_by: String
+
+    """行驶证所有人"""
+    driving_license_owner: String
+
+    """第一次上线时间"""
+    first_online_time: timestamptz
+
+    """安装时间"""
+    installation_time: timestamptz
+
+    """是否北斗部标平台"""
+    is_BD: Boolean
+
+    """是否激活"""
+    is_active: Boolean
+
+    """是否办理终端安装证明"""
+    is_applay_terminal_installation: Boolean
+
+    """是否屏蔽"""
+    is_block: Boolean
+
+    """是否工程运输车"""
+    is_engineering_vehicle: Boolean
+
+    """是否功能测试通过"""
+    is_function_ok: Boolean
+
+    """是否在运证系统"""
+    is_in_operating_system: Boolean
+
+    """是否上传货运平台"""
+    is_in_upload_platform: Boolean
+
+    """是否需要监管"""
+    is_need_supervise: Boolean
+
+    """是否监管"""
+    is_supervise: Boolean
+
+    """最后一次绑定终端时间"""
+    last_binding_terminal_time: timestamptz
+
+    """车牌照片,云储存系统返回的路径"""
+    license_plate_photo: String
+
+    """渣土车类型,工程运输车车辆类型字典"""
+    muck_truck_type: Int
+
+    """主键"""
+    operating_vehicle_id: bigint!
+
+    """其他照片,云储存系统返回的路径"""
+    other_photo: String
+
+    """平台标识字典"""
+    platform: Int
+
+    """位置数据库ID"""
+    position_db_id: String
+
+    """报废原因"""
+    scrap_reason: String
+
+    """报废时间"""
+    scrap_time: timestamptz
+
+    """报废时间审核"""
+    scrap_time_check: Int
+
+    """编号"""
+    serial_number: String
+
+    """服务到期时间"""
+    service_expiration_time: timestamptz
+
+    """速度模式状态"""
+    speed_mode_status: String
+
+    """速度模式状态获得时间"""
+    speed_mode_status_time: timestamptz
+
+    """临时库,用法不明？"""
+    temporary_library: Int
+
+    """临时传交通局,用法不明"""
+    temporary_transport_bureau: Int
+
+    """修改时间"""
+    update_at: timestamptz
+
+    """修改人"""
+    update_by: String
+
+    """vehicle_info 车辆信息表 的vehicle_id"""
+    vehicle_id: String!
+}
+
+"""
+aggregated selection of "operating_vehicle_info"
+"""
+type operating_vehicle_info_aggregate {
+    aggregate: operating_vehicle_info_aggregate_fields
+    nodes: [operating_vehicle_info!]!
+}
+
+"""
+aggregate fields of "operating_vehicle_info"
+"""
+type operating_vehicle_info_aggregate_fields {
+    avg: operating_vehicle_info_avg_fields
+    count(columns: [operating_vehicle_info_select_column!], distinct: Boolean): Int
+    max: operating_vehicle_info_max_fields
+    min: operating_vehicle_info_min_fields
+    stddev: operating_vehicle_info_stddev_fields
+    stddev_pop: operating_vehicle_info_stddev_pop_fields
+    stddev_samp: operating_vehicle_info_stddev_samp_fields
+    sum: operating_vehicle_info_sum_fields
+    var_pop: operating_vehicle_info_var_pop_fields
+    var_samp: operating_vehicle_info_var_samp_fields
+    variance: operating_vehicle_info_variance_fields
+}
+
+"""
+order by aggregate values of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_aggregate_order_by {
+    avg: operating_vehicle_info_avg_order_by
+    count: order_by
+    max: operating_vehicle_info_max_order_by
+    min: operating_vehicle_info_min_order_by
+    stddev: operating_vehicle_info_stddev_order_by
+    stddev_pop: operating_vehicle_info_stddev_pop_order_by
+    stddev_samp: operating_vehicle_info_stddev_samp_order_by
+    sum: operating_vehicle_info_sum_order_by
+    var_pop: operating_vehicle_info_var_pop_order_by
+    var_samp: operating_vehicle_info_var_samp_order_by
+    variance: operating_vehicle_info_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "operating_vehicle_info"
+"""
+input operating_vehicle_info_arr_rel_insert_input {
+    data: [operating_vehicle_info_insert_input!]!
+    on_conflict: operating_vehicle_info_on_conflict
+}
+
+"""aggregate avg on columns"""
+type operating_vehicle_info_avg_fields {
+    muck_truck_type: Float
+    operating_vehicle_id: Float
+    platform: Float
+    scrap_time_check: Float
+    temporary_library: Float
+    temporary_transport_bureau: Float
+}
+
+"""
+order by avg() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_avg_order_by {
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    platform: order_by
+    scrap_time_check: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "operating_vehicle_info". All fields are combined with a logical 'AND'.
+"""
+input operating_vehicle_info_bool_exp {
+    _and: [operating_vehicle_info_bool_exp]
+    _not: operating_vehicle_info_bool_exp
+    _or: [operating_vehicle_info_bool_exp]
+    administrative_region: String_comparison_exp
+    agent: String_comparison_exp
+    contact_number: String_comparison_exp
+    contract_time: timestamptz_comparison_exp
+    create_at: timestamptz_comparison_exp
+    create_by: String_comparison_exp
+    delete_at: timestamptz_comparison_exp
+    delete_by: String_comparison_exp
+    driving_license_owner: String_comparison_exp
+    first_online_time: timestamptz_comparison_exp
+    installation_time: timestamptz_comparison_exp
+    is_BD: Boolean_comparison_exp
+    is_active: Boolean_comparison_exp
+    is_applay_terminal_installation: Boolean_comparison_exp
+    is_block: Boolean_comparison_exp
+    is_engineering_vehicle: Boolean_comparison_exp
+    is_function_ok: Boolean_comparison_exp
+    is_in_operating_system: Boolean_comparison_exp
+    is_in_upload_platform: Boolean_comparison_exp
+    is_need_supervise: Boolean_comparison_exp
+    is_supervise: Boolean_comparison_exp
+    last_binding_terminal_time: timestamptz_comparison_exp
+    license_plate_photo: String_comparison_exp
+    muck_truck_type: Int_comparison_exp
+    operating_vehicle_id: bigint_comparison_exp
+    other_photo: String_comparison_exp
+    platform: Int_comparison_exp
+    position_db_id: String_comparison_exp
+    scrap_reason: String_comparison_exp
+    scrap_time: timestamptz_comparison_exp
+    scrap_time_check: Int_comparison_exp
+    serial_number: String_comparison_exp
+    service_expiration_time: timestamptz_comparison_exp
+    speed_mode_status: String_comparison_exp
+    speed_mode_status_time: timestamptz_comparison_exp
+    temporary_library: Int_comparison_exp
+    temporary_transport_bureau: Int_comparison_exp
+    update_at: timestamptz_comparison_exp
+    update_by: String_comparison_exp
+    vehicle_id: String_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "operating_vehicle_info"
+"""
+enum operating_vehicle_info_constraint {
+    """unique or primary key constraint"""
+    operating_vehicle_info_pkey
+}
+
+"""
+input type for incrementing integer column in table "operating_vehicle_info"
+"""
+input operating_vehicle_info_inc_input {
+    muck_truck_type: Int
+    operating_vehicle_id: bigint
+    platform: Int
+    scrap_time_check: Int
+    temporary_library: Int
+    temporary_transport_bureau: Int
+}
+
+"""
+input type for inserting data into table "operating_vehicle_info"
+"""
+input operating_vehicle_info_insert_input {
+    administrative_region: String
+    agent: String
+    contact_number: String
+    contract_time: timestamptz
+    create_at: timestamptz
+    create_by: String
+    delete_at: timestamptz
+    delete_by: String
+    driving_license_owner: String
+    first_online_time: timestamptz
+    installation_time: timestamptz
+    is_BD: Boolean
+    is_active: Boolean
+    is_applay_terminal_installation: Boolean
+    is_block: Boolean
+    is_engineering_vehicle: Boolean
+    is_function_ok: Boolean
+    is_in_operating_system: Boolean
+    is_in_upload_platform: Boolean
+    is_need_supervise: Boolean
+    is_supervise: Boolean
+    last_binding_terminal_time: timestamptz
+    license_plate_photo: String
+    muck_truck_type: Int
+    operating_vehicle_id: bigint
+    other_photo: String
+    platform: Int
+    position_db_id: String
+    scrap_reason: String
+    scrap_time: timestamptz
+    scrap_time_check: Int
+    serial_number: String
+    service_expiration_time: timestamptz
+    speed_mode_status: String
+    speed_mode_status_time: timestamptz
+    temporary_library: Int
+    temporary_transport_bureau: Int
+    update_at: timestamptz
+    update_by: String
+    vehicle_id: String
+}
+
+"""aggregate max on columns"""
+type operating_vehicle_info_max_fields {
+    administrative_region: String
+    agent: String
+    contact_number: String
+    contract_time: timestamptz
+    create_at: timestamptz
+    create_by: String
+    delete_at: timestamptz
+    delete_by: String
+    driving_license_owner: String
+    first_online_time: timestamptz
+    installation_time: timestamptz
+    last_binding_terminal_time: timestamptz
+    license_plate_photo: String
+    muck_truck_type: Int
+    operating_vehicle_id: bigint
+    other_photo: String
+    platform: Int
+    position_db_id: String
+    scrap_reason: String
+    scrap_time: timestamptz
+    scrap_time_check: Int
+    serial_number: String
+    service_expiration_time: timestamptz
+    speed_mode_status: String
+    speed_mode_status_time: timestamptz
+    temporary_library: Int
+    temporary_transport_bureau: Int
+    update_at: timestamptz
+    update_by: String
+    vehicle_id: String
+}
+
+"""
+order by max() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_max_order_by {
+    administrative_region: order_by
+    agent: order_by
+    contact_number: order_by
+    contract_time: order_by
+    create_at: order_by
+    create_by: order_by
+    delete_at: order_by
+    delete_by: order_by
+    driving_license_owner: order_by
+    first_online_time: order_by
+    installation_time: order_by
+    last_binding_terminal_time: order_by
+    license_plate_photo: order_by
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    other_photo: order_by
+    platform: order_by
+    position_db_id: order_by
+    scrap_reason: order_by
+    scrap_time: order_by
+    scrap_time_check: order_by
+    serial_number: order_by
+    service_expiration_time: order_by
+    speed_mode_status: order_by
+    speed_mode_status_time: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+    update_at: order_by
+    update_by: order_by
+    vehicle_id: order_by
+}
+
+"""aggregate min on columns"""
+type operating_vehicle_info_min_fields {
+    administrative_region: String
+    agent: String
+    contact_number: String
+    contract_time: timestamptz
+    create_at: timestamptz
+    create_by: String
+    delete_at: timestamptz
+    delete_by: String
+    driving_license_owner: String
+    first_online_time: timestamptz
+    installation_time: timestamptz
+    last_binding_terminal_time: timestamptz
+    license_plate_photo: String
+    muck_truck_type: Int
+    operating_vehicle_id: bigint
+    other_photo: String
+    platform: Int
+    position_db_id: String
+    scrap_reason: String
+    scrap_time: timestamptz
+    scrap_time_check: Int
+    serial_number: String
+    service_expiration_time: timestamptz
+    speed_mode_status: String
+    speed_mode_status_time: timestamptz
+    temporary_library: Int
+    temporary_transport_bureau: Int
+    update_at: timestamptz
+    update_by: String
+    vehicle_id: String
+}
+
+"""
+order by min() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_min_order_by {
+    administrative_region: order_by
+    agent: order_by
+    contact_number: order_by
+    contract_time: order_by
+    create_at: order_by
+    create_by: order_by
+    delete_at: order_by
+    delete_by: order_by
+    driving_license_owner: order_by
+    first_online_time: order_by
+    installation_time: order_by
+    last_binding_terminal_time: order_by
+    license_plate_photo: order_by
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    other_photo: order_by
+    platform: order_by
+    position_db_id: order_by
+    scrap_reason: order_by
+    scrap_time: order_by
+    scrap_time_check: order_by
+    serial_number: order_by
+    service_expiration_time: order_by
+    speed_mode_status: order_by
+    speed_mode_status_time: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+    update_at: order_by
+    update_by: order_by
+    vehicle_id: order_by
+}
+
+"""
+response of any mutation on the table "operating_vehicle_info"
+"""
+type operating_vehicle_info_mutation_response {
+    """number of affected rows by the mutation"""
+    affected_rows: Int!
+
+    """data of the affected rows by the mutation"""
+    returning: [operating_vehicle_info!]!
+}
+
+"""
+input type for inserting object relation for remote table "operating_vehicle_info"
+"""
+input operating_vehicle_info_obj_rel_insert_input {
+    data: operating_vehicle_info_insert_input!
+    on_conflict: operating_vehicle_info_on_conflict
+}
+
+"""
+on conflict condition type for table "operating_vehicle_info"
+"""
+input operating_vehicle_info_on_conflict {
+    constraint: operating_vehicle_info_constraint!
+    update_columns: [operating_vehicle_info_update_column!]!
+    where: operating_vehicle_info_bool_exp
+}
+
+"""
+ordering options when selecting data from "operating_vehicle_info"
+"""
+input operating_vehicle_info_order_by {
+    administrative_region: order_by
+    agent: order_by
+    contact_number: order_by
+    contract_time: order_by
+    create_at: order_by
+    create_by: order_by
+    delete_at: order_by
+    delete_by: order_by
+    driving_license_owner: order_by
+    first_online_time: order_by
+    installation_time: order_by
+    is_BD: order_by
+    is_active: order_by
+    is_applay_terminal_installation: order_by
+    is_block: order_by
+    is_engineering_vehicle: order_by
+    is_function_ok: order_by
+    is_in_operating_system: order_by
+    is_in_upload_platform: order_by
+    is_need_supervise: order_by
+    is_supervise: order_by
+    last_binding_terminal_time: order_by
+    license_plate_photo: order_by
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    other_photo: order_by
+    platform: order_by
+    position_db_id: order_by
+    scrap_reason: order_by
+    scrap_time: order_by
+    scrap_time_check: order_by
+    serial_number: order_by
+    service_expiration_time: order_by
+    speed_mode_status: order_by
+    speed_mode_status_time: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+    update_at: order_by
+    update_by: order_by
+    vehicle_id: order_by
+}
+
+"""
+primary key columns input for table: "operating_vehicle_info"
+"""
+input operating_vehicle_info_pk_columns_input {
+    """主键"""
+    operating_vehicle_id: bigint!
+}
+
+"""
+select columns of table "operating_vehicle_info"
+"""
+enum operating_vehicle_info_select_column {
+    """column name"""
+    administrative_region
+
+    """column name"""
+    agent
+
+    """column name"""
+    contact_number
+
+    """column name"""
+    contract_time
+
+    """column name"""
+    create_at
+
+    """column name"""
+    create_by
+
+    """column name"""
+    delete_at
+
+    """column name"""
+    delete_by
+
+    """column name"""
+    driving_license_owner
+
+    """column name"""
+    first_online_time
+
+    """column name"""
+    installation_time
+
+    """column name"""
+    is_BD
+
+    """column name"""
+    is_active
+
+    """column name"""
+    is_applay_terminal_installation
+
+    """column name"""
+    is_block
+
+    """column name"""
+    is_engineering_vehicle
+
+    """column name"""
+    is_function_ok
+
+    """column name"""
+    is_in_operating_system
+
+    """column name"""
+    is_in_upload_platform
+
+    """column name"""
+    is_need_supervise
+
+    """column name"""
+    is_supervise
+
+    """column name"""
+    last_binding_terminal_time
+
+    """column name"""
+    license_plate_photo
+
+    """column name"""
+    muck_truck_type
+
+    """column name"""
+    operating_vehicle_id
+
+    """column name"""
+    other_photo
+
+    """column name"""
+    platform
+
+    """column name"""
+    position_db_id
+
+    """column name"""
+    scrap_reason
+
+    """column name"""
+    scrap_time
+
+    """column name"""
+    scrap_time_check
+
+    """column name"""
+    serial_number
+
+    """column name"""
+    service_expiration_time
+
+    """column name"""
+    speed_mode_status
+
+    """column name"""
+    speed_mode_status_time
+
+    """column name"""
+    temporary_library
+
+    """column name"""
+    temporary_transport_bureau
+
+    """column name"""
+    update_at
+
+    """column name"""
+    update_by
+
+    """column name"""
+    vehicle_id
+}
+
+"""
+input type for updating data in table "operating_vehicle_info"
+"""
+input operating_vehicle_info_set_input {
+    administrative_region: String
+    agent: String
+    contact_number: String
+    contract_time: timestamptz
+    create_at: timestamptz
+    create_by: String
+    delete_at: timestamptz
+    delete_by: String
+    driving_license_owner: String
+    first_online_time: timestamptz
+    installation_time: timestamptz
+    is_BD: Boolean
+    is_active: Boolean
+    is_applay_terminal_installation: Boolean
+    is_block: Boolean
+    is_engineering_vehicle: Boolean
+    is_function_ok: Boolean
+    is_in_operating_system: Boolean
+    is_in_upload_platform: Boolean
+    is_need_supervise: Boolean
+    is_supervise: Boolean
+    last_binding_terminal_time: timestamptz
+    license_plate_photo: String
+    muck_truck_type: Int
+    operating_vehicle_id: bigint
+    other_photo: String
+    platform: Int
+    position_db_id: String
+    scrap_reason: String
+    scrap_time: timestamptz
+    scrap_time_check: Int
+    serial_number: String
+    service_expiration_time: timestamptz
+    speed_mode_status: String
+    speed_mode_status_time: timestamptz
+    temporary_library: Int
+    temporary_transport_bureau: Int
+    update_at: timestamptz
+    update_by: String
+    vehicle_id: String
+}
+
+"""aggregate stddev on columns"""
+type operating_vehicle_info_stddev_fields {
+    muck_truck_type: Float
+    operating_vehicle_id: Float
+    platform: Float
+    scrap_time_check: Float
+    temporary_library: Float
+    temporary_transport_bureau: Float
+}
+
+"""
+order by stddev() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_stddev_order_by {
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    platform: order_by
+    scrap_time_check: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type operating_vehicle_info_stddev_pop_fields {
+    muck_truck_type: Float
+    operating_vehicle_id: Float
+    platform: Float
+    scrap_time_check: Float
+    temporary_library: Float
+    temporary_transport_bureau: Float
+}
+
+"""
+order by stddev_pop() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_stddev_pop_order_by {
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    platform: order_by
+    scrap_time_check: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type operating_vehicle_info_stddev_samp_fields {
+    muck_truck_type: Float
+    operating_vehicle_id: Float
+    platform: Float
+    scrap_time_check: Float
+    temporary_library: Float
+    temporary_transport_bureau: Float
+}
+
+"""
+order by stddev_samp() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_stddev_samp_order_by {
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    platform: order_by
+    scrap_time_check: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+}
+
+"""aggregate sum on columns"""
+type operating_vehicle_info_sum_fields {
+    muck_truck_type: Int
+    operating_vehicle_id: bigint
+    platform: Int
+    scrap_time_check: Int
+    temporary_library: Int
+    temporary_transport_bureau: Int
+}
+
+"""
+order by sum() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_sum_order_by {
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    platform: order_by
+    scrap_time_check: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+}
+
+"""
+update columns of table "operating_vehicle_info"
+"""
+enum operating_vehicle_info_update_column {
+    """column name"""
+    administrative_region
+
+    """column name"""
+    agent
+
+    """column name"""
+    contact_number
+
+    """column name"""
+    contract_time
+
+    """column name"""
+    create_at
+
+    """column name"""
+    create_by
+
+    """column name"""
+    delete_at
+
+    """column name"""
+    delete_by
+
+    """column name"""
+    driving_license_owner
+
+    """column name"""
+    first_online_time
+
+    """column name"""
+    installation_time
+
+    """column name"""
+    is_BD
+
+    """column name"""
+    is_active
+
+    """column name"""
+    is_applay_terminal_installation
+
+    """column name"""
+    is_block
+
+    """column name"""
+    is_engineering_vehicle
+
+    """column name"""
+    is_function_ok
+
+    """column name"""
+    is_in_operating_system
+
+    """column name"""
+    is_in_upload_platform
+
+    """column name"""
+    is_need_supervise
+
+    """column name"""
+    is_supervise
+
+    """column name"""
+    last_binding_terminal_time
+
+    """column name"""
+    license_plate_photo
+
+    """column name"""
+    muck_truck_type
+
+    """column name"""
+    operating_vehicle_id
+
+    """column name"""
+    other_photo
+
+    """column name"""
+    platform
+
+    """column name"""
+    position_db_id
+
+    """column name"""
+    scrap_reason
+
+    """column name"""
+    scrap_time
+
+    """column name"""
+    scrap_time_check
+
+    """column name"""
+    serial_number
+
+    """column name"""
+    service_expiration_time
+
+    """column name"""
+    speed_mode_status
+
+    """column name"""
+    speed_mode_status_time
+
+    """column name"""
+    temporary_library
+
+    """column name"""
+    temporary_transport_bureau
+
+    """column name"""
+    update_at
+
+    """column name"""
+    update_by
+
+    """column name"""
+    vehicle_id
+}
+
+"""aggregate var_pop on columns"""
+type operating_vehicle_info_var_pop_fields {
+    muck_truck_type: Float
+    operating_vehicle_id: Float
+    platform: Float
+    scrap_time_check: Float
+    temporary_library: Float
+    temporary_transport_bureau: Float
+}
+
+"""
+order by var_pop() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_var_pop_order_by {
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    platform: order_by
+    scrap_time_check: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+}
+
+"""aggregate var_samp on columns"""
+type operating_vehicle_info_var_samp_fields {
+    muck_truck_type: Float
+    operating_vehicle_id: Float
+    platform: Float
+    scrap_time_check: Float
+    temporary_library: Float
+    temporary_transport_bureau: Float
+}
+
+"""
+order by var_samp() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_var_samp_order_by {
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    platform: order_by
+    scrap_time_check: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+}
+
+"""aggregate variance on columns"""
+type operating_vehicle_info_variance_fields {
+    muck_truck_type: Float
+    operating_vehicle_id: Float
+    platform: Float
+    scrap_time_check: Float
+    temporary_library: Float
+    temporary_transport_bureau: Float
+}
+
+"""
+order by variance() on columns of table "operating_vehicle_info"
+"""
+input operating_vehicle_info_variance_order_by {
+    muck_truck_type: order_by
+    operating_vehicle_id: order_by
+    platform: order_by
+    scrap_time_check: order_by
+    temporary_library: order_by
+    temporary_transport_bureau: order_by
+}
+
+
+
+
+extend type Query {
+    """
+    fetch data from the table: "operating_vehicle_info"
+  """
+    operating_vehicle_info(
+        """distinct select on columns"""
+        distinct_on: [operating_vehicle_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [operating_vehicle_info_order_by!]
+
+        """filter the rows returned"""
+        where: operating_vehicle_info_bool_exp
+    ): [operating_vehicle_info!]!
+
+    """
+    fetch aggregated fields from the table: "operating_vehicle_info"
+  """
+    operating_vehicle_info_aggregate(
+        """distinct select on columns"""
+        distinct_on: [operating_vehicle_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [operating_vehicle_info_order_by!]
+
+        """filter the rows returned"""
+        where: operating_vehicle_info_bool_exp
+    ): operating_vehicle_info_aggregate!
+
+    """
+    fetch data from the table: "operating_vehicle_info" using primary key columns
+    """
+    operating_vehicle_info_by_pk(
+        """主键"""
+        operating_vehicle_id: bigint!
+    ): operating_vehicle_info
+}
+
+
+extend type Mutation {
+    """
+    delete data from the table: "operating_vehicle_info"
+  """
+    delete_operating_vehicle_info(
+        """filter the rows which have to be deleted"""
+        where: operating_vehicle_info_bool_exp!
+    ): operating_vehicle_info_mutation_response
+
+    """
+    delete single row from the table: "operating_vehicle_info"
+  """
+    delete_operating_vehicle_info_by_pk(
+        """主键"""
+        operating_vehicle_id: bigint!
+    ): operating_vehicle_info
+
+    """
+    insert data into the table: "operating_vehicle_info"
+  """
+    insert_operating_vehicle_info(
+        """the rows to be inserted"""
+        objects: [operating_vehicle_info_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: operating_vehicle_info_on_conflict
+    ): operating_vehicle_info_mutation_response
+
+    """
+    insert a single row into the table: "operating_vehicle_info"
+  """
+    insert_operating_vehicle_info_one(
+        """the row to be inserted"""
+        object: operating_vehicle_info_insert_input!
+
+        """on conflict condition"""
+        on_conflict: operating_vehicle_info_on_conflict
+    ): operating_vehicle_info
+
+    """
+    update data of the table: "operating_vehicle_info"
+  """
+    update_operating_vehicle_info(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: operating_vehicle_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: operating_vehicle_info_set_input
+
+        """filter the rows which have to be updated"""
+        where: operating_vehicle_info_bool_exp!
+    ): operating_vehicle_info_mutation_response
+
+    """
+    update single row of the table: "operating_vehicle_info"
+  """
+    update_operating_vehicle_info_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: operating_vehicle_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: operating_vehicle_info_set_input
+        pk_columns: operating_vehicle_info_pk_columns_input!
+    ): operating_vehicle_info
+}
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "operating_vehicle_info"
+  """
+    operating_vehicle_info(
+        """distinct select on columns"""
+        distinct_on: [operating_vehicle_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [operating_vehicle_info_order_by!]
+
+        """filter the rows returned"""
+        where: operating_vehicle_info_bool_exp
+    ): [operating_vehicle_info!]!
+
+    """
+    fetch aggregated fields from the table: "operating_vehicle_info"
+  """
+    operating_vehicle_info_aggregate(
+        """distinct select on columns"""
+        distinct_on: [operating_vehicle_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [operating_vehicle_info_order_by!]
+
+        """filter the rows returned"""
+        where: operating_vehicle_info_bool_exp
+    ): operating_vehicle_info_aggregate!
+
+    """
+    fetch data from the table: "operating_vehicle_info" using primary key columns
+    """
+    operating_vehicle_info_by_pk(
+        """主键"""
+        operating_vehicle_id: bigint!
+    ): operating_vehicle_info
+}
+
