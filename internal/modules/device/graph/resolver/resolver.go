@@ -196,7 +196,6 @@ func terminalTypeInsertInputConvert(v *model.TerminalTypesInsertInput) (rs *mode
 		CreateBy:     v.CreateBy,
 		DeleteAt:     v.DeleteAt,
 		DeleteBy:     v.DeleteBy,
-		ID:           0,
 		IsDelete:     false,
 		ProtocolName: *v.ProtocolName,
 		Remark:       v.Remark,

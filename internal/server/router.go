@@ -11,6 +11,7 @@ import (
 	blacklistRecordMutation "VehicleSupervision/internal/modules/blacklist/record/mutation"
 	blacklistRecordQuery "VehicleSupervision/internal/modules/blacklist/record/query"
 	device "VehicleSupervision/internal/modules/device"
+	ridehailing "VehicleSupervision/internal/modules/ridehailing"
 
 	dictionaryCategoryMutation "VehicleSupervision/internal/modules/dictionary/category/mutation"
 	dictionaryCategoryQuery "VehicleSupervision/internal/modules/dictionary/category/query"
@@ -87,6 +88,8 @@ func Setup() {
 	router.Any("/vehicle_location_last/mutation", vehicleLocationLastMutation.GinEndpoint())
 	// 设备管理端点
 	router.Any("/device", device.GinEndpoint())
+	// 网约车模块
+	router.Any("/ride_hailing", ridehailing.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())
