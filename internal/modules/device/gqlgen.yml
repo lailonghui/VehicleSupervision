@@ -85,3 +85,11 @@ models:
     model: VehicleSupervision/internal/modules/device/model.SimCard
   sim_card_flow:
     model: VehicleSupervision/internal/modules/device/model.SimCardFlow
+  terminal:
+    model: VehicleSupervision/internal/modules/device/model.Terminal
+  terminal_factory:
+    model: VehicleSupervision/internal/modules/device/model.TerminalFactory
+  terminal_modal:
+    model: VehicleSupervision/internal/modules/device/model.TerminalModal
+  terminal_types:
+    model: VehicleSupervision/internal/modules/device/model.TerminalType

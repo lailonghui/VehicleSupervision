@@ -48,27 +48,63 @@ type DirectiveRoot struct {
 
 type ComplexityRoot struct {
 	Mutation struct {
-		DeleteSimCard         func(childComplexity int, where model.SimCardBoolExp) int
-		DeleteSimCardByPk     func(childComplexity int, id int64) int
-		DeleteSimCardFlow     func(childComplexity int, where model.SimCardFlowBoolExp) int
-		DeleteSimCardFlowByPk func(childComplexity int, id int64) int
-		InsertSimCard         func(childComplexity int, objects []*model.SimCardInsertInput, onConflict *model.SimCardOnConflict) int
-		InsertSimCardFlow     func(childComplexity int, objects []*model.SimCardFlowInsertInput, onConflict *model.SimCardFlowOnConflict) int
-		InsertSimCardFlowOne  func(childComplexity int, object model.SimCardFlowInsertInput, onConflict *model.SimCardFlowOnConflict) int
-		InsertSimCardOne      func(childComplexity int, object model.SimCardInsertInput, onConflict *model.SimCardOnConflict) int
-		UpdateSimCard         func(childComplexity int, inc *model.SimCardIncInput, set *model.SimCardSetInput, where model.SimCardBoolExp) int
-		UpdateSimCardByPk     func(childComplexity int, inc *model.SimCardIncInput, set *model.SimCardSetInput, pkColumns model.SimCardPkColumnsInput) int
-		UpdateSimCardFlow     func(childComplexity int, inc *model.SimCardFlowIncInput, set *model.SimCardFlowSetInput, where model.SimCardFlowBoolExp) int
-		UpdateSimCardFlowByPk func(childComplexity int, inc *model.SimCardFlowIncInput, set *model.SimCardFlowSetInput, pkColumns model.SimCardFlowPkColumnsInput) int
+		DeleteSimCard             func(childComplexity int, where model.SimCardBoolExp) int
+		DeleteSimCardByPk         func(childComplexity int, id int64) int
+		DeleteSimCardFlow         func(childComplexity int, where model.SimCardFlowBoolExp) int
+		DeleteSimCardFlowByPk     func(childComplexity int, id int64) int
+		DeleteTerminal            func(childComplexity int, where model.TerminalBoolExp) int
+		DeleteTerminalByPk        func(childComplexity int, id int64) int
+		DeleteTerminalFactory     func(childComplexity int, where model.TerminalFactoryBoolExp) int
+		DeleteTerminalFactoryByPk func(childComplexity int, id int64) int
+		DeleteTerminalModal       func(childComplexity int, where model.TerminalModalBoolExp) int
+		DeleteTerminalModalByPk   func(childComplexity int, id int64) int
+		DeleteTerminalTypes       func(childComplexity int, where model.TerminalTypesBoolExp) int
+		DeleteTerminalTypesByPk   func(childComplexity int, id int64) int
+		InsertSimCard             func(childComplexity int, objects []*model.SimCardInsertInput, onConflict *model.SimCardOnConflict) int
+		InsertSimCardFlow         func(childComplexity int, objects []*model.SimCardFlowInsertInput, onConflict *model.SimCardFlowOnConflict) int
+		InsertSimCardFlowOne      func(childComplexity int, object model.SimCardFlowInsertInput, onConflict *model.SimCardFlowOnConflict) int
+		InsertSimCardOne          func(childComplexity int, object model.SimCardInsertInput, onConflict *model.SimCardOnConflict) int
+		InsertTerminal            func(childComplexity int, objects []*model.TerminalInsertInput, onConflict *model.TerminalOnConflict) int
+		InsertTerminalFactory     func(childComplexity int, objects []*model.TerminalFactoryInsertInput, onConflict *model.TerminalFactoryOnConflict) int
+		InsertTerminalFactoryOne  func(childComplexity int, object model.TerminalFactoryInsertInput, onConflict *model.TerminalFactoryOnConflict) int
+		InsertTerminalModal       func(childComplexity int, objects []*model.TerminalModalInsertInput, onConflict *model.TerminalModalOnConflict) int
+		InsertTerminalModalOne    func(childComplexity int, object model.TerminalModalInsertInput, onConflict *model.TerminalModalOnConflict) int
+		InsertTerminalOne         func(childComplexity int, object model.TerminalInsertInput, onConflict *model.TerminalOnConflict) int
+		InsertTerminalTypes       func(childComplexity int, objects []*model.TerminalTypesInsertInput, onConflict *model.TerminalTypesOnConflict) int
+		InsertTerminalTypesOne    func(childComplexity int, object model.TerminalTypesInsertInput, onConflict *model.TerminalTypesOnConflict) int
+		UpdateSimCard             func(childComplexity int, inc *model.SimCardIncInput, set *model.SimCardSetInput, where model.SimCardBoolExp) int
+		UpdateSimCardByPk         func(childComplexity int, inc *model.SimCardIncInput, set *model.SimCardSetInput, pkColumns model.SimCardPkColumnsInput) int
+		UpdateSimCardFlow         func(childComplexity int, inc *model.SimCardFlowIncInput, set *model.SimCardFlowSetInput, where model.SimCardFlowBoolExp) int
+		UpdateSimCardFlowByPk     func(childComplexity int, inc *model.SimCardFlowIncInput, set *model.SimCardFlowSetInput, pkColumns model.SimCardFlowPkColumnsInput) int
+		UpdateTerminal            func(childComplexity int, inc *model.TerminalIncInput, set *model.TerminalSetInput, where model.TerminalBoolExp) int
+		UpdateTerminalByPk        func(childComplexity int, inc *model.TerminalIncInput, set *model.TerminalSetInput, pkColumns model.TerminalPkColumnsInput) int
+		UpdateTerminalFactory     func(childComplexity int, inc *model.TerminalFactoryIncInput, set *model.TerminalFactorySetInput, where model.TerminalFactoryBoolExp) int
+		UpdateTerminalFactoryByPk func(childComplexity int, inc *model.TerminalFactoryIncInput, set *model.TerminalFactorySetInput, pkColumns model.TerminalFactoryPkColumnsInput) int
+		UpdateTerminalModal       func(childComplexity int, inc *model.TerminalModalIncInput, set *model.TerminalModalSetInput, where model.TerminalModalBoolExp) int
+		UpdateTerminalModalByPk   func(childComplexity int, inc *model.TerminalModalIncInput, set *model.TerminalModalSetInput, pkColumns model.TerminalModalPkColumnsInput) int
+		UpdateTerminalTypes       func(childComplexity int, inc *model.TerminalTypesIncInput, set *model.TerminalTypesSetInput, where model.TerminalTypesBoolExp) int
+		UpdateTerminalTypesByPk   func(childComplexity int, inc *model.TerminalTypesIncInput, set *model.TerminalTypesSetInput, pkColumns model.TerminalTypesPkColumnsInput) int
 	}
 
 	Query struct {
-		SimCard              func(childComplexity int, distinctOn []model.SimCardSelectColumn, limit *int, offset *int, orderBy []*model.SimCardOrderBy, where *model.SimCardBoolExp) int
-		SimCardAggregate     func(childComplexity int, distinctOn []model.SimCardSelectColumn, limit *int, offset *int, orderBy []*model.SimCardOrderBy, where *model.SimCardBoolExp) int
-		SimCardByPk          func(childComplexity int, id int64) int
-		SimCardFlow          func(childComplexity int, distinctOn []model.SimCardFlowSelectColumn, limit *int, offset *int, orderBy []*model.SimCardFlowOrderBy, where *model.SimCardFlowBoolExp) int
-		SimCardFlowAggregate func(childComplexity int, distinctOn []model.SimCardFlowSelectColumn, limit *int, offset *int, orderBy []*model.SimCardFlowOrderBy, where *model.SimCardFlowBoolExp) int
-		SimCardFlowByPk      func(childComplexity int, id int64) int
+		SimCard                  func(childComplexity int, distinctOn []model.SimCardSelectColumn, limit *int, offset *int, orderBy []*model.SimCardOrderBy, where *model.SimCardBoolExp) int
+		SimCardAggregate         func(childComplexity int, distinctOn []model.SimCardSelectColumn, limit *int, offset *int, orderBy []*model.SimCardOrderBy, where *model.SimCardBoolExp) int
+		SimCardByPk              func(childComplexity int, id int64) int
+		SimCardFlow              func(childComplexity int, distinctOn []model.SimCardFlowSelectColumn, limit *int, offset *int, orderBy []*model.SimCardFlowOrderBy, where *model.SimCardFlowBoolExp) int
+		SimCardFlowAggregate     func(childComplexity int, distinctOn []model.SimCardFlowSelectColumn, limit *int, offset *int, orderBy []*model.SimCardFlowOrderBy, where *model.SimCardFlowBoolExp) int
+		SimCardFlowByPk          func(childComplexity int, id int64) int
+		Terminal                 func(childComplexity int, distinctOn []model.TerminalSelectColumn, limit *int, offset *int, orderBy []*model.TerminalOrderBy, where *model.TerminalBoolExp) int
+		TerminalAggregate        func(childComplexity int, distinctOn []model.TerminalSelectColumn, limit *int, offset *int, orderBy []*model.TerminalOrderBy, where *model.TerminalBoolExp) int
+		TerminalByPk             func(childComplexity int, id int64) int
+		TerminalFactory          func(childComplexity int, distinctOn []model.TerminalFactorySelectColumn, limit *int, offset *int, orderBy []*model.TerminalFactoryOrderBy, where *model.TerminalFactoryBoolExp) int
+		TerminalFactoryAggregate func(childComplexity int, distinctOn []model.TerminalFactorySelectColumn, limit *int, offset *int, orderBy []*model.TerminalFactoryOrderBy, where *model.TerminalFactoryBoolExp) int
+		TerminalFactoryByPk      func(childComplexity int, id int64) int
+		TerminalModal            func(childComplexity int, distinctOn []model.TerminalModalSelectColumn, limit *int, offset *int, orderBy []*model.TerminalModalOrderBy, where *model.TerminalModalBoolExp) int
+		TerminalModalAggregate   func(childComplexity int, distinctOn []model.TerminalModalSelectColumn, limit *int, offset *int, orderBy []*model.TerminalModalOrderBy, where *model.TerminalModalBoolExp) int
+		TerminalModalByPk        func(childComplexity int, id int64) int
+		TerminalTypes            func(childComplexity int, distinctOn []model.TerminalTypesSelectColumn, limit *int, offset *int, orderBy []*model.TerminalTypesOrderBy, where *model.TerminalTypesBoolExp) int
+		TerminalTypesAggregate   func(childComplexity int, distinctOn []model.TerminalTypesSelectColumn, limit *int, offset *int, orderBy []*model.TerminalTypesOrderBy, where *model.TerminalTypesBoolExp) int
+		TerminalTypesByPk        func(childComplexity int, id int64) int
 	}
 
 	SimCard struct {
@@ -402,6 +438,500 @@ type ComplexityRoot struct {
 		ID         func(childComplexity int) int
 		MobileType func(childComplexity int) int
 	}
+
+	Terminal struct {
+		AdasModel        func(childComplexity int) int
+		AuthKey          func(childComplexity int) int
+		CameraNum        func(childComplexity int) int
+		ChannelNo        func(childComplexity int) int
+		CityID           func(childComplexity int) int
+		CreateAt         func(childComplexity int) int
+		CreateBy         func(childComplexity int) int
+		DeleteAt         func(childComplexity int) int
+		DeleteBy         func(childComplexity int) int
+		DeptID           func(childComplexity int) int
+		FirstInstallTime func(childComplexity int) int
+		GuaranteeDate    func(childComplexity int) int
+		ID               func(childComplexity int) int
+		Imei             func(childComplexity int) int
+		InstallManID     func(childComplexity int) int
+		IsDelete         func(childComplexity int) int
+		IsReg            func(childComplexity int) int
+		IsSupportPhoto   func(childComplexity int) int
+		MockAuthKey      func(childComplexity int) int
+		ProduceDate      func(childComplexity int) int
+		ProveProxyrgID   func(childComplexity int) int
+		ProvinceID       func(childComplexity int) int
+		ProxyrgID        func(childComplexity int) int
+		RecordDate       func(childComplexity int) int
+		RegID            func(childComplexity int) int
+		Remarks          func(childComplexity int) int
+		RemoveReason     func(childComplexity int) int
+		SimID            func(childComplexity int) int
+		SprgID           func(childComplexity int) int
+		TerminalID       func(childComplexity int) int
+		TypeID           func(childComplexity int) int
+		UpdateAt         func(childComplexity int) int
+		UpdateBy         func(childComplexity int) int
+		VehicleID        func(childComplexity int) int
+		VersionNumber    func(childComplexity int) int
+	}
+
+	TerminalAggregate struct {
+		Aggregate func(childComplexity int) int
+		Nodes     func(childComplexity int) int
+	}
+
+	TerminalAggregateFields struct {
+		Avg        func(childComplexity int) int
+		Count      func(childComplexity int, columns []model.TerminalSelectColumn, distinct *bool) int
+		Max        func(childComplexity int) int
+		Min        func(childComplexity int) int
+		Stddev     func(childComplexity int) int
+		StddevPop  func(childComplexity int) int
+		StddevSamp func(childComplexity int) int
+		Sum        func(childComplexity int) int
+		VarPop     func(childComplexity int) int
+		VarSamp    func(childComplexity int) int
+		Variance   func(childComplexity int) int
+	}
+
+	TerminalAvgFields struct {
+		CameraNum func(childComplexity int) int
+		ID        func(childComplexity int) int
+	}
+
+	TerminalFactory struct {
+		Address          func(childComplexity int) int
+		Contact          func(childComplexity int) int
+		ContactPhone     func(childComplexity int) int
+		CreateAt         func(childComplexity int) int
+		CreateBy         func(childComplexity int) int
+		DeleteAt         func(childComplexity int) int
+		DeleteBy         func(childComplexity int) int
+		FactoryID        func(childComplexity int) int
+		FactoryName      func(childComplexity int) int
+		ID               func(childComplexity int) int
+		IsDelete         func(childComplexity int) int
+		Remark           func(childComplexity int) int
+		TechContact      func(childComplexity int) int
+		TechContactPhone func(childComplexity int) int
+		UpdateAt         func(childComplexity int) int
+		UpdateBy         func(childComplexity int) int
+	}
+
+	TerminalFactoryAggregate struct {
+		Aggregate func(childComplexity int) int
+		Nodes     func(childComplexity int) int
+	}
+
+	TerminalFactoryAggregateFields struct {
+		Avg        func(childComplexity int) int
+		Count      func(childComplexity int, columns []model.TerminalFactorySelectColumn, distinct *bool) int
+		Max        func(childComplexity int) int
+		Min        func(childComplexity int) int
+		Stddev     func(childComplexity int) int
+		StddevPop  func(childComplexity int) int
+		StddevSamp func(childComplexity int) int
+		Sum        func(childComplexity int) int
+		VarPop     func(childComplexity int) int
+		VarSamp    func(childComplexity int) int
+		Variance   func(childComplexity int) int
+	}
+
+	TerminalFactoryAvgFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalFactoryMaxFields struct {
+		Address          func(childComplexity int) int
+		Contact          func(childComplexity int) int
+		ContactPhone     func(childComplexity int) int
+		CreateAt         func(childComplexity int) int
+		CreateBy         func(childComplexity int) int
+		DeleteAt         func(childComplexity int) int
+		DeleteBy         func(childComplexity int) int
+		FactoryID        func(childComplexity int) int
+		FactoryName      func(childComplexity int) int
+		ID               func(childComplexity int) int
+		Remark           func(childComplexity int) int
+		TechContact      func(childComplexity int) int
+		TechContactPhone func(childComplexity int) int
+		UpdateAt         func(childComplexity int) int
+		UpdateBy         func(childComplexity int) int
+	}
+
+	TerminalFactoryMinFields struct {
+		Address          func(childComplexity int) int
+		Contact          func(childComplexity int) int
+		ContactPhone     func(childComplexity int) int
+		CreateAt         func(childComplexity int) int
+		CreateBy         func(childComplexity int) int
+		DeleteAt         func(childComplexity int) int
+		DeleteBy         func(childComplexity int) int
+		FactoryID        func(childComplexity int) int
+		FactoryName      func(childComplexity int) int
+		ID               func(childComplexity int) int
+		Remark           func(childComplexity int) int
+		TechContact      func(childComplexity int) int
+		TechContactPhone func(childComplexity int) int
+		UpdateAt         func(childComplexity int) int
+		UpdateBy         func(childComplexity int) int
+	}
+
+	TerminalFactoryMutationResponse struct {
+		AffectedRows func(childComplexity int) int
+		Returning    func(childComplexity int) int
+	}
+
+	TerminalFactoryStddevFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalFactoryStddevPopFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalFactoryStddevSampFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalFactorySumFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalFactoryVarPopFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalFactoryVarSampFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalFactoryVarianceFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalMaxFields struct {
+		AdasModel        func(childComplexity int) int
+		AuthKey          func(childComplexity int) int
+		CameraNum        func(childComplexity int) int
+		ChannelNo        func(childComplexity int) int
+		CityID           func(childComplexity int) int
+		CreateAt         func(childComplexity int) int
+		CreateBy         func(childComplexity int) int
+		DeleteAt         func(childComplexity int) int
+		DeleteBy         func(childComplexity int) int
+		DeptID           func(childComplexity int) int
+		FirstInstallTime func(childComplexity int) int
+		GuaranteeDate    func(childComplexity int) int
+		ID               func(childComplexity int) int
+		Imei             func(childComplexity int) int
+		InstallManID     func(childComplexity int) int
+		MockAuthKey      func(childComplexity int) int
+		ProduceDate      func(childComplexity int) int
+		ProveProxyrgID   func(childComplexity int) int
+		ProvinceID       func(childComplexity int) int
+		ProxyrgID        func(childComplexity int) int
+		RecordDate       func(childComplexity int) int
+		RegID            func(childComplexity int) int
+		Remarks          func(childComplexity int) int
+		RemoveReason     func(childComplexity int) int
+		SimID            func(childComplexity int) int
+		SprgID           func(childComplexity int) int
+		TerminalID       func(childComplexity int) int
+		TypeID           func(childComplexity int) int
+		UpdateAt         func(childComplexity int) int
+		UpdateBy         func(childComplexity int) int
+		VehicleID        func(childComplexity int) int
+		VersionNumber    func(childComplexity int) int
+	}
+
+	TerminalMinFields struct {
+		AdasModel        func(childComplexity int) int
+		AuthKey          func(childComplexity int) int
+		CameraNum        func(childComplexity int) int
+		ChannelNo        func(childComplexity int) int
+		CityID           func(childComplexity int) int
+		CreateAt         func(childComplexity int) int
+		CreateBy         func(childComplexity int) int
+		DeleteAt         func(childComplexity int) int
+		DeleteBy         func(childComplexity int) int
+		DeptID           func(childComplexity int) int
+		FirstInstallTime func(childComplexity int) int
+		GuaranteeDate    func(childComplexity int) int
+		ID               func(childComplexity int) int
+		Imei             func(childComplexity int) int
+		InstallManID     func(childComplexity int) int
+		MockAuthKey      func(childComplexity int) int
+		ProduceDate      func(childComplexity int) int
+		ProveProxyrgID   func(childComplexity int) int
+		ProvinceID       func(childComplexity int) int
+		ProxyrgID        func(childComplexity int) int
+		RecordDate       func(childComplexity int) int
+		RegID            func(childComplexity int) int
+		Remarks          func(childComplexity int) int
+		RemoveReason     func(childComplexity int) int
+		SimID            func(childComplexity int) int
+		SprgID           func(childComplexity int) int
+		TerminalID       func(childComplexity int) int
+		TypeID           func(childComplexity int) int
+		UpdateAt         func(childComplexity int) int
+		UpdateBy         func(childComplexity int) int
+		VehicleID        func(childComplexity int) int
+		VersionNumber    func(childComplexity int) int
+	}
+
+	TerminalModal struct {
+		AdasModal             func(childComplexity int) int
+		CreateAt              func(childComplexity int) int
+		CreateBy              func(childComplexity int) int
+		DeleteAt              func(childComplexity int) int
+		DeleteBy              func(childComplexity int) int
+		FactoryID             func(childComplexity int) int
+		ID                    func(childComplexity int) int
+		IsDelete              func(childComplexity int) int
+		IsElectronicsPostCard func(childComplexity int) int
+		IsSlagCarTeminal      func(childComplexity int) int
+		IsTestingSituation    func(childComplexity int) int
+		IsTransportDept4g     func(childComplexity int) int
+		ModalName             func(childComplexity int) int
+		ProxyrgID             func(childComplexity int) int
+		RecordNo              func(childComplexity int) int
+		Remark                func(childComplexity int) int
+		TerminalModalID       func(childComplexity int) int
+		TerminalTypeID        func(childComplexity int) int
+		UpdateAt              func(childComplexity int) int
+		UpdateBy              func(childComplexity int) int
+	}
+
+	TerminalModalAggregate struct {
+		Aggregate func(childComplexity int) int
+		Nodes     func(childComplexity int) int
+	}
+
+	TerminalModalAggregateFields struct {
+		Avg        func(childComplexity int) int
+		Count      func(childComplexity int, columns []model.TerminalModalSelectColumn, distinct *bool) int
+		Max        func(childComplexity int) int
+		Min        func(childComplexity int) int
+		Stddev     func(childComplexity int) int
+		StddevPop  func(childComplexity int) int
+		StddevSamp func(childComplexity int) int
+		Sum        func(childComplexity int) int
+		VarPop     func(childComplexity int) int
+		VarSamp    func(childComplexity int) int
+		Variance   func(childComplexity int) int
+	}
+
+	TerminalModalAvgFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalModalMaxFields struct {
+		AdasModal       func(childComplexity int) int
+		CreateAt        func(childComplexity int) int
+		CreateBy        func(childComplexity int) int
+		DeleteAt        func(childComplexity int) int
+		DeleteBy        func(childComplexity int) int
+		FactoryID       func(childComplexity int) int
+		ID              func(childComplexity int) int
+		ModalName       func(childComplexity int) int
+		ProxyrgID       func(childComplexity int) int
+		RecordNo        func(childComplexity int) int
+		Remark          func(childComplexity int) int
+		TerminalModalID func(childComplexity int) int
+		TerminalTypeID  func(childComplexity int) int
+		UpdateAt        func(childComplexity int) int
+		UpdateBy        func(childComplexity int) int
+	}
+
+	TerminalModalMinFields struct {
+		AdasModal       func(childComplexity int) int
+		CreateAt        func(childComplexity int) int
+		CreateBy        func(childComplexity int) int
+		DeleteAt        func(childComplexity int) int
+		DeleteBy        func(childComplexity int) int
+		FactoryID       func(childComplexity int) int
+		ID              func(childComplexity int) int
+		ModalName       func(childComplexity int) int
+		ProxyrgID       func(childComplexity int) int
+		RecordNo        func(childComplexity int) int
+		Remark          func(childComplexity int) int
+		TerminalModalID func(childComplexity int) int
+		TerminalTypeID  func(childComplexity int) int
+		UpdateAt        func(childComplexity int) int
+		UpdateBy        func(childComplexity int) int
+	}
+
+	TerminalModalMutationResponse struct {
+		AffectedRows func(childComplexity int) int
+		Returning    func(childComplexity int) int
+	}
+
+	TerminalModalStddevFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalModalStddevPopFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalModalStddevSampFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalModalSumFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalModalVarPopFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalModalVarSampFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalModalVarianceFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalMutationResponse struct {
+		AffectedRows func(childComplexity int) int
+		Returning    func(childComplexity int) int
+	}
+
+	TerminalStddevFields struct {
+		CameraNum func(childComplexity int) int
+		ID        func(childComplexity int) int
+	}
+
+	TerminalStddevPopFields struct {
+		CameraNum func(childComplexity int) int
+		ID        func(childComplexity int) int
+	}
+
+	TerminalStddevSampFields struct {
+		CameraNum func(childComplexity int) int
+		ID        func(childComplexity int) int
+	}
+
+	TerminalSumFields struct {
+		CameraNum func(childComplexity int) int
+		ID        func(childComplexity int) int
+	}
+
+	TerminalTypes struct {
+		CreateAt     func(childComplexity int) int
+		CreateBy     func(childComplexity int) int
+		DeleteAt     func(childComplexity int) int
+		DeleteBy     func(childComplexity int) int
+		ID           func(childComplexity int) int
+		IsDelete     func(childComplexity int) int
+		ProtocolName func(childComplexity int) int
+		Remark       func(childComplexity int) int
+		TypeID       func(childComplexity int) int
+		UpdateAt     func(childComplexity int) int
+		UpdateBy     func(childComplexity int) int
+	}
+
+	TerminalTypesAggregate struct {
+		Aggregate func(childComplexity int) int
+		Nodes     func(childComplexity int) int
+	}
+
+	TerminalTypesAggregateFields struct {
+		Avg        func(childComplexity int) int
+		Count      func(childComplexity int, columns []model.TerminalTypesSelectColumn, distinct *bool) int
+		Max        func(childComplexity int) int
+		Min        func(childComplexity int) int
+		Stddev     func(childComplexity int) int
+		StddevPop  func(childComplexity int) int
+		StddevSamp func(childComplexity int) int
+		Sum        func(childComplexity int) int
+		VarPop     func(childComplexity int) int
+		VarSamp    func(childComplexity int) int
+		Variance   func(childComplexity int) int
+	}
+
+	TerminalTypesAvgFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalTypesMaxFields struct {
+		CreateAt     func(childComplexity int) int
+		CreateBy     func(childComplexity int) int
+		DeleteAt     func(childComplexity int) int
+		DeleteBy     func(childComplexity int) int
+		ID           func(childComplexity int) int
+		ProtocolName func(childComplexity int) int
+		Remark       func(childComplexity int) int
+		TypeID       func(childComplexity int) int
+		UpdateAt     func(childComplexity int) int
+		UpdateBy     func(childComplexity int) int
+	}
+
+	TerminalTypesMinFields struct {
+		CreateAt     func(childComplexity int) int
+		CreateBy     func(childComplexity int) int
+		DeleteAt     func(childComplexity int) int
+		DeleteBy     func(childComplexity int) int
+		ID           func(childComplexity int) int
+		ProtocolName func(childComplexity int) int
+		Remark       func(childComplexity int) int
+		TypeID       func(childComplexity int) int
+		UpdateAt     func(childComplexity int) int
+		UpdateBy     func(childComplexity int) int
+	}
+
+	TerminalTypesMutationResponse struct {
+		AffectedRows func(childComplexity int) int
+		Returning    func(childComplexity int) int
+	}
+
+	TerminalTypesStddevFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalTypesStddevPopFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalTypesStddevSampFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalTypesSumFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalTypesVarPopFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalTypesVarSampFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalTypesVarianceFields struct {
+		ID func(childComplexity int) int
+	}
+
+	TerminalVarPopFields struct {
+		CameraNum func(childComplexity int) int
+		ID        func(childComplexity int) int
+	}
+
+	TerminalVarSampFields struct {
+		CameraNum func(childComplexity int) int
+		ID        func(childComplexity int) int
+	}
+
+	TerminalVarianceFields struct {
+		CameraNum func(childComplexity int) int
+		ID        func(childComplexity int) int
+	}
 }
 
 type MutationResolver interface {
@@ -417,6 +947,30 @@ type MutationResolver interface {
 	InsertSimCardFlowOne(ctx context.Context, object model.SimCardFlowInsertInput, onConflict *model.SimCardFlowOnConflict) (*model1.SimCardFlow, error)
 	UpdateSimCardFlow(ctx context.Context, inc *model.SimCardFlowIncInput, set *model.SimCardFlowSetInput, where model.SimCardFlowBoolExp) (*model.SimCardFlowMutationResponse, error)
 	UpdateSimCardFlowByPk(ctx context.Context, inc *model.SimCardFlowIncInput, set *model.SimCardFlowSetInput, pkColumns model.SimCardFlowPkColumnsInput) (*model1.SimCardFlow, error)
+	DeleteTerminal(ctx context.Context, where model.TerminalBoolExp) (*model.TerminalMutationResponse, error)
+	DeleteTerminalByPk(ctx context.Context, id int64) (*model1.Terminal, error)
+	InsertTerminal(ctx context.Context, objects []*model.TerminalInsertInput, onConflict *model.TerminalOnConflict) (*model.TerminalMutationResponse, error)
+	InsertTerminalOne(ctx context.Context, object model.TerminalInsertInput, onConflict *model.TerminalOnConflict) (*model1.Terminal, error)
+	UpdateTerminal(ctx context.Context, inc *model.TerminalIncInput, set *model.TerminalSetInput, where model.TerminalBoolExp) (*model.TerminalMutationResponse, error)
+	UpdateTerminalByPk(ctx context.Context, inc *model.TerminalIncInput, set *model.TerminalSetInput, pkColumns model.TerminalPkColumnsInput) (*model1.Terminal, error)
+	DeleteTerminalFactory(ctx context.Context, where model.TerminalFactoryBoolExp) (*model.TerminalFactoryMutationResponse, error)
+	DeleteTerminalFactoryByPk(ctx context.Context, id int64) (*model1.TerminalFactory, error)
+	InsertTerminalFactory(ctx context.Context, objects []*model.TerminalFactoryInsertInput, onConflict *model.TerminalFactoryOnConflict) (*model.TerminalFactoryMutationResponse, error)
+	InsertTerminalFactoryOne(ctx context.Context, object model.TerminalFactoryInsertInput, onConflict *model.TerminalFactoryOnConflict) (*model1.TerminalFactory, error)
+	UpdateTerminalFactory(ctx context.Context, inc *model.TerminalFactoryIncInput, set *model.TerminalFactorySetInput, where model.TerminalFactoryBoolExp) (*model.TerminalFactoryMutationResponse, error)
+	UpdateTerminalFactoryByPk(ctx context.Context, inc *model.TerminalFactoryIncInput, set *model.TerminalFactorySetInput, pkColumns model.TerminalFactoryPkColumnsInput) (*model1.TerminalFactory, error)
+	DeleteTerminalModal(ctx context.Context, where model.TerminalModalBoolExp) (*model.TerminalModalMutationResponse, error)
+	DeleteTerminalModalByPk(ctx context.Context, id int64) (*model1.TerminalModal, error)
+	InsertTerminalModal(ctx context.Context, objects []*model.TerminalModalInsertInput, onConflict *model.TerminalModalOnConflict) (*model.TerminalModalMutationResponse, error)
+	InsertTerminalModalOne(ctx context.Context, object model.TerminalModalInsertInput, onConflict *model.TerminalModalOnConflict) (*model1.TerminalModal, error)
+	UpdateTerminalModal(ctx context.Context, inc *model.TerminalModalIncInput, set *model.TerminalModalSetInput, where model.TerminalModalBoolExp) (*model.TerminalModalMutationResponse, error)
+	UpdateTerminalModalByPk(ctx context.Context, inc *model.TerminalModalIncInput, set *model.TerminalModalSetInput, pkColumns model.TerminalModalPkColumnsInput) (*model1.TerminalModal, error)
+	DeleteTerminalTypes(ctx context.Context, where model.TerminalTypesBoolExp) (*model.TerminalTypesMutationResponse, error)
+	DeleteTerminalTypesByPk(ctx context.Context, id int64) (*model1.TerminalType, error)
+	InsertTerminalTypes(ctx context.Context, objects []*model.TerminalTypesInsertInput, onConflict *model.TerminalTypesOnConflict) (*model.TerminalTypesMutationResponse, error)
+	InsertTerminalTypesOne(ctx context.Context, object model.TerminalTypesInsertInput, onConflict *model.TerminalTypesOnConflict) (*model1.TerminalType, error)
+	UpdateTerminalTypes(ctx context.Context, inc *model.TerminalTypesIncInput, set *model.TerminalTypesSetInput, where model.TerminalTypesBoolExp) (*model.TerminalTypesMutationResponse, error)
+	UpdateTerminalTypesByPk(ctx context.Context, inc *model.TerminalTypesIncInput, set *model.TerminalTypesSetInput, pkColumns model.TerminalTypesPkColumnsInput) (*model1.TerminalType, error)
 }
 type QueryResolver interface {
 	SimCard(ctx context.Context, distinctOn []model.SimCardSelectColumn, limit *int, offset *int, orderBy []*model.SimCardOrderBy, where *model.SimCardBoolExp) ([]*model1.SimCard, error)
@@ -425,6 +979,18 @@ type QueryResolver interface {
 	SimCardFlow(ctx context.Context, distinctOn []model.SimCardFlowSelectColumn, limit *int, offset *int, orderBy []*model.SimCardFlowOrderBy, where *model.SimCardFlowBoolExp) ([]*model1.SimCardFlow, error)
 	SimCardFlowAggregate(ctx context.Context, distinctOn []model.SimCardFlowSelectColumn, limit *int, offset *int, orderBy []*model.SimCardFlowOrderBy, where *model.SimCardFlowBoolExp) (*model.SimCardFlowAggregate, error)
 	SimCardFlowByPk(ctx context.Context, id int64) (*model1.SimCardFlow, error)
+	Terminal(ctx context.Context, distinctOn []model.TerminalSelectColumn, limit *int, offset *int, orderBy []*model.TerminalOrderBy, where *model.TerminalBoolExp) ([]*model1.Terminal, error)
+	TerminalAggregate(ctx context.Context, distinctOn []model.TerminalSelectColumn, limit *int, offset *int, orderBy []*model.TerminalOrderBy, where *model.TerminalBoolExp) (*model.TerminalAggregate, error)
+	TerminalByPk(ctx context.Context, id int64) (*model1.Terminal, error)
+	TerminalFactory(ctx context.Context, distinctOn []model.TerminalFactorySelectColumn, limit *int, offset *int, orderBy []*model.TerminalFactoryOrderBy, where *model.TerminalFactoryBoolExp) ([]*model1.TerminalFactory, error)
+	TerminalFactoryAggregate(ctx context.Context, distinctOn []model.TerminalFactorySelectColumn, limit *int, offset *int, orderBy []*model.TerminalFactoryOrderBy, where *model.TerminalFactoryBoolExp) (*model.TerminalFactoryAggregate, error)
+	TerminalFactoryByPk(ctx context.Context, id int64) (*model1.TerminalFactory, error)
+	TerminalModal(ctx context.Context, distinctOn []model.TerminalModalSelectColumn, limit *int, offset *int, orderBy []*model.TerminalModalOrderBy, where *model.TerminalModalBoolExp) ([]*model1.TerminalModal, error)
+	TerminalModalAggregate(ctx context.Context, distinctOn []model.TerminalModalSelectColumn, limit *int, offset *int, orderBy []*model.TerminalModalOrderBy, where *model.TerminalModalBoolExp) (*model.TerminalModalAggregate, error)
+	TerminalModalByPk(ctx context.Context, id int64) (*model1.TerminalModal, error)
+	TerminalTypes(ctx context.Context, distinctOn []model.TerminalTypesSelectColumn, limit *int, offset *int, orderBy []*model.TerminalTypesOrderBy, where *model.TerminalTypesBoolExp) ([]*model1.TerminalType, error)
+	TerminalTypesAggregate(ctx context.Context, distinctOn []model.TerminalTypesSelectColumn, limit *int, offset *int, orderBy []*model.TerminalTypesOrderBy, where *model.TerminalTypesBoolExp) (*model.TerminalTypesAggregate, error)
+	TerminalTypesByPk(ctx context.Context, id int64) (*model1.TerminalType, error)
 }
 
 type executableSchema struct {
@@ -490,6 +1056,102 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteSimCardFlowByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_terminal":
+		if e.complexity.Mutation.DeleteTerminal == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_terminal_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteTerminal(childComplexity, args["where"].(model.TerminalBoolExp)), true
+
+	case "Mutation.delete_terminal_by_pk":
+		if e.complexity.Mutation.DeleteTerminalByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_terminal_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteTerminalByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_terminal_factory":
+		if e.complexity.Mutation.DeleteTerminalFactory == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_terminal_factory_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteTerminalFactory(childComplexity, args["where"].(model.TerminalFactoryBoolExp)), true
+
+	case "Mutation.delete_terminal_factory_by_pk":
+		if e.complexity.Mutation.DeleteTerminalFactoryByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_terminal_factory_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteTerminalFactoryByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_terminal_modal":
+		if e.complexity.Mutation.DeleteTerminalModal == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_terminal_modal_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteTerminalModal(childComplexity, args["where"].(model.TerminalModalBoolExp)), true
+
+	case "Mutation.delete_terminal_modal_by_pk":
+		if e.complexity.Mutation.DeleteTerminalModalByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_terminal_modal_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteTerminalModalByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_terminal_types":
+		if e.complexity.Mutation.DeleteTerminalTypes == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_terminal_types_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteTerminalTypes(childComplexity, args["where"].(model.TerminalTypesBoolExp)), true
+
+	case "Mutation.delete_terminal_types_by_pk":
+		if e.complexity.Mutation.DeleteTerminalTypesByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_terminal_types_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteTerminalTypesByPk(childComplexity, args["id"].(int64)), true
+
 	case "Mutation.insert_sim_card":
 		if e.complexity.Mutation.InsertSimCard == nil {
 			break
@@ -538,6 +1200,102 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.InsertSimCardOne(childComplexity, args["object"].(model.SimCardInsertInput), args["on_conflict"].(*model.SimCardOnConflict)), true
 
+	case "Mutation.insert_terminal":
+		if e.complexity.Mutation.InsertTerminal == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_terminal_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertTerminal(childComplexity, args["objects"].([]*model.TerminalInsertInput), args["on_conflict"].(*model.TerminalOnConflict)), true
+
+	case "Mutation.insert_terminal_factory":
+		if e.complexity.Mutation.InsertTerminalFactory == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_terminal_factory_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertTerminalFactory(childComplexity, args["objects"].([]*model.TerminalFactoryInsertInput), args["on_conflict"].(*model.TerminalFactoryOnConflict)), true
+
+	case "Mutation.insert_terminal_factory_one":
+		if e.complexity.Mutation.InsertTerminalFactoryOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_terminal_factory_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertTerminalFactoryOne(childComplexity, args["object"].(model.TerminalFactoryInsertInput), args["on_conflict"].(*model.TerminalFactoryOnConflict)), true
+
+	case "Mutation.insert_terminal_modal":
+		if e.complexity.Mutation.InsertTerminalModal == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_terminal_modal_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertTerminalModal(childComplexity, args["objects"].([]*model.TerminalModalInsertInput), args["on_conflict"].(*model.TerminalModalOnConflict)), true
+
+	case "Mutation.insert_terminal_modal_one":
+		if e.complexity.Mutation.InsertTerminalModalOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_terminal_modal_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertTerminalModalOne(childComplexity, args["object"].(model.TerminalModalInsertInput), args["on_conflict"].(*model.TerminalModalOnConflict)), true
+
+	case "Mutation.insert_terminal_one":
+		if e.complexity.Mutation.InsertTerminalOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_terminal_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertTerminalOne(childComplexity, args["object"].(model.TerminalInsertInput), args["on_conflict"].(*model.TerminalOnConflict)), true
+
+	case "Mutation.insert_terminal_types":
+		if e.complexity.Mutation.InsertTerminalTypes == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_terminal_types_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertTerminalTypes(childComplexity, args["objects"].([]*model.TerminalTypesInsertInput), args["on_conflict"].(*model.TerminalTypesOnConflict)), true
+
+	case "Mutation.insert_terminal_types_one":
+		if e.complexity.Mutation.InsertTerminalTypesOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_terminal_types_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertTerminalTypesOne(childComplexity, args["object"].(model.TerminalTypesInsertInput), args["on_conflict"].(*model.TerminalTypesOnConflict)), true
+
 	case "Mutation.update_sim_card":
 		if e.complexity.Mutation.UpdateSimCard == nil {
 			break
@@ -585,6 +1343,102 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateSimCardFlowByPk(childComplexity, args["_inc"].(*model.SimCardFlowIncInput), args["_set"].(*model.SimCardFlowSetInput), args["pk_columns"].(model.SimCardFlowPkColumnsInput)), true
+
+	case "Mutation.update_terminal":
+		if e.complexity.Mutation.UpdateTerminal == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_terminal_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateTerminal(childComplexity, args["_inc"].(*model.TerminalIncInput), args["_set"].(*model.TerminalSetInput), args["where"].(model.TerminalBoolExp)), true
+
+	case "Mutation.update_terminal_by_pk":
+		if e.complexity.Mutation.UpdateTerminalByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_terminal_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateTerminalByPk(childComplexity, args["_inc"].(*model.TerminalIncInput), args["_set"].(*model.TerminalSetInput), args["pk_columns"].(model.TerminalPkColumnsInput)), true
+
+	case "Mutation.update_terminal_factory":
+		if e.complexity.Mutation.UpdateTerminalFactory == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_terminal_factory_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateTerminalFactory(childComplexity, args["_inc"].(*model.TerminalFactoryIncInput), args["_set"].(*model.TerminalFactorySetInput), args["where"].(model.TerminalFactoryBoolExp)), true
+
+	case "Mutation.update_terminal_factory_by_pk":
+		if e.complexity.Mutation.UpdateTerminalFactoryByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_terminal_factory_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateTerminalFactoryByPk(childComplexity, args["_inc"].(*model.TerminalFactoryIncInput), args["_set"].(*model.TerminalFactorySetInput), args["pk_columns"].(model.TerminalFactoryPkColumnsInput)), true
+
+	case "Mutation.update_terminal_modal":
+		if e.complexity.Mutation.UpdateTerminalModal == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_terminal_modal_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateTerminalModal(childComplexity, args["_inc"].(*model.TerminalModalIncInput), args["_set"].(*model.TerminalModalSetInput), args["where"].(model.TerminalModalBoolExp)), true
+
+	case "Mutation.update_terminal_modal_by_pk":
+		if e.complexity.Mutation.UpdateTerminalModalByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_terminal_modal_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateTerminalModalByPk(childComplexity, args["_inc"].(*model.TerminalModalIncInput), args["_set"].(*model.TerminalModalSetInput), args["pk_columns"].(model.TerminalModalPkColumnsInput)), true
+
+	case "Mutation.update_terminal_types":
+		if e.complexity.Mutation.UpdateTerminalTypes == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_terminal_types_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateTerminalTypes(childComplexity, args["_inc"].(*model.TerminalTypesIncInput), args["_set"].(*model.TerminalTypesSetInput), args["where"].(model.TerminalTypesBoolExp)), true
+
+	case "Mutation.update_terminal_types_by_pk":
+		if e.complexity.Mutation.UpdateTerminalTypesByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_terminal_types_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateTerminalTypesByPk(childComplexity, args["_inc"].(*model.TerminalTypesIncInput), args["_set"].(*model.TerminalTypesSetInput), args["pk_columns"].(model.TerminalTypesPkColumnsInput)), true
 
 	case "Query.sim_card":
 		if e.complexity.Query.SimCard == nil {
@@ -657,6 +1511,150 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.SimCardFlowByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.terminal":
+		if e.complexity.Query.Terminal == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.Terminal(childComplexity, args["distinct_on"].([]model.TerminalSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalOrderBy), args["where"].(*model.TerminalBoolExp)), true
+
+	case "Query.terminal_aggregate":
+		if e.complexity.Query.TerminalAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalAggregate(childComplexity, args["distinct_on"].([]model.TerminalSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalOrderBy), args["where"].(*model.TerminalBoolExp)), true
+
+	case "Query.terminal_by_pk":
+		if e.complexity.Query.TerminalByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.terminal_factory":
+		if e.complexity.Query.TerminalFactory == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_factory_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalFactory(childComplexity, args["distinct_on"].([]model.TerminalFactorySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalFactoryOrderBy), args["where"].(*model.TerminalFactoryBoolExp)), true
+
+	case "Query.terminal_factory_aggregate":
+		if e.complexity.Query.TerminalFactoryAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_factory_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalFactoryAggregate(childComplexity, args["distinct_on"].([]model.TerminalFactorySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalFactoryOrderBy), args["where"].(*model.TerminalFactoryBoolExp)), true
+
+	case "Query.terminal_factory_by_pk":
+		if e.complexity.Query.TerminalFactoryByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_factory_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalFactoryByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.terminal_modal":
+		if e.complexity.Query.TerminalModal == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_modal_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalModal(childComplexity, args["distinct_on"].([]model.TerminalModalSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalModalOrderBy), args["where"].(*model.TerminalModalBoolExp)), true
+
+	case "Query.terminal_modal_aggregate":
+		if e.complexity.Query.TerminalModalAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_modal_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalModalAggregate(childComplexity, args["distinct_on"].([]model.TerminalModalSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalModalOrderBy), args["where"].(*model.TerminalModalBoolExp)), true
+
+	case "Query.terminal_modal_by_pk":
+		if e.complexity.Query.TerminalModalByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_modal_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalModalByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.terminal_types":
+		if e.complexity.Query.TerminalTypes == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_types_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalTypes(childComplexity, args["distinct_on"].([]model.TerminalTypesSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalTypesOrderBy), args["where"].(*model.TerminalTypesBoolExp)), true
+
+	case "Query.terminal_types_aggregate":
+		if e.complexity.Query.TerminalTypesAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_types_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalTypesAggregate(childComplexity, args["distinct_on"].([]model.TerminalTypesSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalTypesOrderBy), args["where"].(*model.TerminalTypesBoolExp)), true
+
+	case "Query.terminal_types_by_pk":
+		if e.complexity.Query.TerminalTypesByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_terminal_types_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.TerminalTypesByPk(childComplexity, args["id"].(int64)), true
 
 	case "sim_card.create_at":
 		if e.complexity.SimCard.CreateAt == nil {
@@ -2403,6 +3401,2308 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.SimCardVarianceFields.MobileType(childComplexity), true
+
+	case "terminal.adas_model":
+		if e.complexity.Terminal.AdasModel == nil {
+			break
+		}
+
+		return e.complexity.Terminal.AdasModel(childComplexity), true
+
+	case "terminal.auth_key":
+		if e.complexity.Terminal.AuthKey == nil {
+			break
+		}
+
+		return e.complexity.Terminal.AuthKey(childComplexity), true
+
+	case "terminal.camera_num":
+		if e.complexity.Terminal.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.Terminal.CameraNum(childComplexity), true
+
+	case "terminal.channel_no":
+		if e.complexity.Terminal.ChannelNo == nil {
+			break
+		}
+
+		return e.complexity.Terminal.ChannelNo(childComplexity), true
+
+	case "terminal.city_id":
+		if e.complexity.Terminal.CityID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.CityID(childComplexity), true
+
+	case "terminal.create_at":
+		if e.complexity.Terminal.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.Terminal.CreateAt(childComplexity), true
+
+	case "terminal.create_by":
+		if e.complexity.Terminal.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.Terminal.CreateBy(childComplexity), true
+
+	case "terminal.delete_at":
+		if e.complexity.Terminal.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.Terminal.DeleteAt(childComplexity), true
+
+	case "terminal.delete_by":
+		if e.complexity.Terminal.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.Terminal.DeleteBy(childComplexity), true
+
+	case "terminal.dept_id":
+		if e.complexity.Terminal.DeptID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.DeptID(childComplexity), true
+
+	case "terminal.first_install_time":
+		if e.complexity.Terminal.FirstInstallTime == nil {
+			break
+		}
+
+		return e.complexity.Terminal.FirstInstallTime(childComplexity), true
+
+	case "terminal.guarantee_date":
+		if e.complexity.Terminal.GuaranteeDate == nil {
+			break
+		}
+
+		return e.complexity.Terminal.GuaranteeDate(childComplexity), true
+
+	case "terminal.id":
+		if e.complexity.Terminal.ID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.ID(childComplexity), true
+
+	case "terminal.imei":
+		if e.complexity.Terminal.Imei == nil {
+			break
+		}
+
+		return e.complexity.Terminal.Imei(childComplexity), true
+
+	case "terminal.install_man_id":
+		if e.complexity.Terminal.InstallManID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.InstallManID(childComplexity), true
+
+	case "terminal.is_delete":
+		if e.complexity.Terminal.IsDelete == nil {
+			break
+		}
+
+		return e.complexity.Terminal.IsDelete(childComplexity), true
+
+	case "terminal.is_reg":
+		if e.complexity.Terminal.IsReg == nil {
+			break
+		}
+
+		return e.complexity.Terminal.IsReg(childComplexity), true
+
+	case "terminal.is_support_photo":
+		if e.complexity.Terminal.IsSupportPhoto == nil {
+			break
+		}
+
+		return e.complexity.Terminal.IsSupportPhoto(childComplexity), true
+
+	case "terminal.mock_auth_key":
+		if e.complexity.Terminal.MockAuthKey == nil {
+			break
+		}
+
+		return e.complexity.Terminal.MockAuthKey(childComplexity), true
+
+	case "terminal.produce_date":
+		if e.complexity.Terminal.ProduceDate == nil {
+			break
+		}
+
+		return e.complexity.Terminal.ProduceDate(childComplexity), true
+
+	case "terminal.prove_proxyrg_id":
+		if e.complexity.Terminal.ProveProxyrgID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.ProveProxyrgID(childComplexity), true
+
+	case "terminal.province_id":
+		if e.complexity.Terminal.ProvinceID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.ProvinceID(childComplexity), true
+
+	case "terminal.proxyrg_id":
+		if e.complexity.Terminal.ProxyrgID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.ProxyrgID(childComplexity), true
+
+	case "terminal.record_date":
+		if e.complexity.Terminal.RecordDate == nil {
+			break
+		}
+
+		return e.complexity.Terminal.RecordDate(childComplexity), true
+
+	case "terminal.reg_id":
+		if e.complexity.Terminal.RegID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.RegID(childComplexity), true
+
+	case "terminal.remarks":
+		if e.complexity.Terminal.Remarks == nil {
+			break
+		}
+
+		return e.complexity.Terminal.Remarks(childComplexity), true
+
+	case "terminal.remove_reason":
+		if e.complexity.Terminal.RemoveReason == nil {
+			break
+		}
+
+		return e.complexity.Terminal.RemoveReason(childComplexity), true
+
+	case "terminal.sim_id":
+		if e.complexity.Terminal.SimID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.SimID(childComplexity), true
+
+	case "terminal.sprg_id":
+		if e.complexity.Terminal.SprgID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.SprgID(childComplexity), true
+
+	case "terminal.terminal_id":
+		if e.complexity.Terminal.TerminalID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.TerminalID(childComplexity), true
+
+	case "terminal.type_id":
+		if e.complexity.Terminal.TypeID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.TypeID(childComplexity), true
+
+	case "terminal.update_at":
+		if e.complexity.Terminal.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.Terminal.UpdateAt(childComplexity), true
+
+	case "terminal.update_by":
+		if e.complexity.Terminal.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.Terminal.UpdateBy(childComplexity), true
+
+	case "terminal.vehicle_id":
+		if e.complexity.Terminal.VehicleID == nil {
+			break
+		}
+
+		return e.complexity.Terminal.VehicleID(childComplexity), true
+
+	case "terminal.version_number":
+		if e.complexity.Terminal.VersionNumber == nil {
+			break
+		}
+
+		return e.complexity.Terminal.VersionNumber(childComplexity), true
+
+	case "terminal_aggregate.aggregate":
+		if e.complexity.TerminalAggregate.Aggregate == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregate.Aggregate(childComplexity), true
+
+	case "terminal_aggregate.nodes":
+		if e.complexity.TerminalAggregate.Nodes == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregate.Nodes(childComplexity), true
+
+	case "terminal_aggregate_fields.avg":
+		if e.complexity.TerminalAggregateFields.Avg == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.Avg(childComplexity), true
+
+	case "terminal_aggregate_fields.count":
+		if e.complexity.TerminalAggregateFields.Count == nil {
+			break
+		}
+
+		args, err := ec.field_terminal_aggregate_fields_count_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.TerminalAggregateFields.Count(childComplexity, args["columns"].([]model.TerminalSelectColumn), args["distinct"].(*bool)), true
+
+	case "terminal_aggregate_fields.max":
+		if e.complexity.TerminalAggregateFields.Max == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.Max(childComplexity), true
+
+	case "terminal_aggregate_fields.min":
+		if e.complexity.TerminalAggregateFields.Min == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.Min(childComplexity), true
+
+	case "terminal_aggregate_fields.stddev":
+		if e.complexity.TerminalAggregateFields.Stddev == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.Stddev(childComplexity), true
+
+	case "terminal_aggregate_fields.stddev_pop":
+		if e.complexity.TerminalAggregateFields.StddevPop == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.StddevPop(childComplexity), true
+
+	case "terminal_aggregate_fields.stddev_samp":
+		if e.complexity.TerminalAggregateFields.StddevSamp == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.StddevSamp(childComplexity), true
+
+	case "terminal_aggregate_fields.sum":
+		if e.complexity.TerminalAggregateFields.Sum == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.Sum(childComplexity), true
+
+	case "terminal_aggregate_fields.var_pop":
+		if e.complexity.TerminalAggregateFields.VarPop == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.VarPop(childComplexity), true
+
+	case "terminal_aggregate_fields.var_samp":
+		if e.complexity.TerminalAggregateFields.VarSamp == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.VarSamp(childComplexity), true
+
+	case "terminal_aggregate_fields.variance":
+		if e.complexity.TerminalAggregateFields.Variance == nil {
+			break
+		}
+
+		return e.complexity.TerminalAggregateFields.Variance(childComplexity), true
+
+	case "terminal_avg_fields.camera_num":
+		if e.complexity.TerminalAvgFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalAvgFields.CameraNum(childComplexity), true
+
+	case "terminal_avg_fields.id":
+		if e.complexity.TerminalAvgFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalAvgFields.ID(childComplexity), true
+
+	case "terminal_factory.address":
+		if e.complexity.TerminalFactory.Address == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.Address(childComplexity), true
+
+	case "terminal_factory.contact":
+		if e.complexity.TerminalFactory.Contact == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.Contact(childComplexity), true
+
+	case "terminal_factory.contact_phone":
+		if e.complexity.TerminalFactory.ContactPhone == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.ContactPhone(childComplexity), true
+
+	case "terminal_factory.create_at":
+		if e.complexity.TerminalFactory.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.CreateAt(childComplexity), true
+
+	case "terminal_factory.create_by":
+		if e.complexity.TerminalFactory.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.CreateBy(childComplexity), true
+
+	case "terminal_factory.delete_at":
+		if e.complexity.TerminalFactory.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.DeleteAt(childComplexity), true
+
+	case "terminal_factory.delete_by":
+		if e.complexity.TerminalFactory.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.DeleteBy(childComplexity), true
+
+	case "terminal_factory.factory_id":
+		if e.complexity.TerminalFactory.FactoryID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.FactoryID(childComplexity), true
+
+	case "terminal_factory.factory_name":
+		if e.complexity.TerminalFactory.FactoryName == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.FactoryName(childComplexity), true
+
+	case "terminal_factory.id":
+		if e.complexity.TerminalFactory.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.ID(childComplexity), true
+
+	case "terminal_factory.is_delete":
+		if e.complexity.TerminalFactory.IsDelete == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.IsDelete(childComplexity), true
+
+	case "terminal_factory.remark":
+		if e.complexity.TerminalFactory.Remark == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.Remark(childComplexity), true
+
+	case "terminal_factory.tech_contact":
+		if e.complexity.TerminalFactory.TechContact == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.TechContact(childComplexity), true
+
+	case "terminal_factory.tech_contact_phone":
+		if e.complexity.TerminalFactory.TechContactPhone == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.TechContactPhone(childComplexity), true
+
+	case "terminal_factory.update_at":
+		if e.complexity.TerminalFactory.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.UpdateAt(childComplexity), true
+
+	case "terminal_factory.update_by":
+		if e.complexity.TerminalFactory.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactory.UpdateBy(childComplexity), true
+
+	case "terminal_factory_aggregate.aggregate":
+		if e.complexity.TerminalFactoryAggregate.Aggregate == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregate.Aggregate(childComplexity), true
+
+	case "terminal_factory_aggregate.nodes":
+		if e.complexity.TerminalFactoryAggregate.Nodes == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregate.Nodes(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.avg":
+		if e.complexity.TerminalFactoryAggregateFields.Avg == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.Avg(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.count":
+		if e.complexity.TerminalFactoryAggregateFields.Count == nil {
+			break
+		}
+
+		args, err := ec.field_terminal_factory_aggregate_fields_count_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.Count(childComplexity, args["columns"].([]model.TerminalFactorySelectColumn), args["distinct"].(*bool)), true
+
+	case "terminal_factory_aggregate_fields.max":
+		if e.complexity.TerminalFactoryAggregateFields.Max == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.Max(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.min":
+		if e.complexity.TerminalFactoryAggregateFields.Min == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.Min(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.stddev":
+		if e.complexity.TerminalFactoryAggregateFields.Stddev == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.Stddev(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.stddev_pop":
+		if e.complexity.TerminalFactoryAggregateFields.StddevPop == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.StddevPop(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.stddev_samp":
+		if e.complexity.TerminalFactoryAggregateFields.StddevSamp == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.StddevSamp(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.sum":
+		if e.complexity.TerminalFactoryAggregateFields.Sum == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.Sum(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.var_pop":
+		if e.complexity.TerminalFactoryAggregateFields.VarPop == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.VarPop(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.var_samp":
+		if e.complexity.TerminalFactoryAggregateFields.VarSamp == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.VarSamp(childComplexity), true
+
+	case "terminal_factory_aggregate_fields.variance":
+		if e.complexity.TerminalFactoryAggregateFields.Variance == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAggregateFields.Variance(childComplexity), true
+
+	case "terminal_factory_avg_fields.id":
+		if e.complexity.TerminalFactoryAvgFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryAvgFields.ID(childComplexity), true
+
+	case "terminal_factory_max_fields.address":
+		if e.complexity.TerminalFactoryMaxFields.Address == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.Address(childComplexity), true
+
+	case "terminal_factory_max_fields.contact":
+		if e.complexity.TerminalFactoryMaxFields.Contact == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.Contact(childComplexity), true
+
+	case "terminal_factory_max_fields.contact_phone":
+		if e.complexity.TerminalFactoryMaxFields.ContactPhone == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.ContactPhone(childComplexity), true
+
+	case "terminal_factory_max_fields.create_at":
+		if e.complexity.TerminalFactoryMaxFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.CreateAt(childComplexity), true
+
+	case "terminal_factory_max_fields.create_by":
+		if e.complexity.TerminalFactoryMaxFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.CreateBy(childComplexity), true
+
+	case "terminal_factory_max_fields.delete_at":
+		if e.complexity.TerminalFactoryMaxFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.DeleteAt(childComplexity), true
+
+	case "terminal_factory_max_fields.delete_by":
+		if e.complexity.TerminalFactoryMaxFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.DeleteBy(childComplexity), true
+
+	case "terminal_factory_max_fields.factory_id":
+		if e.complexity.TerminalFactoryMaxFields.FactoryID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.FactoryID(childComplexity), true
+
+	case "terminal_factory_max_fields.factory_name":
+		if e.complexity.TerminalFactoryMaxFields.FactoryName == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.FactoryName(childComplexity), true
+
+	case "terminal_factory_max_fields.id":
+		if e.complexity.TerminalFactoryMaxFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.ID(childComplexity), true
+
+	case "terminal_factory_max_fields.remark":
+		if e.complexity.TerminalFactoryMaxFields.Remark == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.Remark(childComplexity), true
+
+	case "terminal_factory_max_fields.tech_contact":
+		if e.complexity.TerminalFactoryMaxFields.TechContact == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.TechContact(childComplexity), true
+
+	case "terminal_factory_max_fields.tech_contact_phone":
+		if e.complexity.TerminalFactoryMaxFields.TechContactPhone == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.TechContactPhone(childComplexity), true
+
+	case "terminal_factory_max_fields.update_at":
+		if e.complexity.TerminalFactoryMaxFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.UpdateAt(childComplexity), true
+
+	case "terminal_factory_max_fields.update_by":
+		if e.complexity.TerminalFactoryMaxFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMaxFields.UpdateBy(childComplexity), true
+
+	case "terminal_factory_min_fields.address":
+		if e.complexity.TerminalFactoryMinFields.Address == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.Address(childComplexity), true
+
+	case "terminal_factory_min_fields.contact":
+		if e.complexity.TerminalFactoryMinFields.Contact == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.Contact(childComplexity), true
+
+	case "terminal_factory_min_fields.contact_phone":
+		if e.complexity.TerminalFactoryMinFields.ContactPhone == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.ContactPhone(childComplexity), true
+
+	case "terminal_factory_min_fields.create_at":
+		if e.complexity.TerminalFactoryMinFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.CreateAt(childComplexity), true
+
+	case "terminal_factory_min_fields.create_by":
+		if e.complexity.TerminalFactoryMinFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.CreateBy(childComplexity), true
+
+	case "terminal_factory_min_fields.delete_at":
+		if e.complexity.TerminalFactoryMinFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.DeleteAt(childComplexity), true
+
+	case "terminal_factory_min_fields.delete_by":
+		if e.complexity.TerminalFactoryMinFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.DeleteBy(childComplexity), true
+
+	case "terminal_factory_min_fields.factory_id":
+		if e.complexity.TerminalFactoryMinFields.FactoryID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.FactoryID(childComplexity), true
+
+	case "terminal_factory_min_fields.factory_name":
+		if e.complexity.TerminalFactoryMinFields.FactoryName == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.FactoryName(childComplexity), true
+
+	case "terminal_factory_min_fields.id":
+		if e.complexity.TerminalFactoryMinFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.ID(childComplexity), true
+
+	case "terminal_factory_min_fields.remark":
+		if e.complexity.TerminalFactoryMinFields.Remark == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.Remark(childComplexity), true
+
+	case "terminal_factory_min_fields.tech_contact":
+		if e.complexity.TerminalFactoryMinFields.TechContact == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.TechContact(childComplexity), true
+
+	case "terminal_factory_min_fields.tech_contact_phone":
+		if e.complexity.TerminalFactoryMinFields.TechContactPhone == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.TechContactPhone(childComplexity), true
+
+	case "terminal_factory_min_fields.update_at":
+		if e.complexity.TerminalFactoryMinFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.UpdateAt(childComplexity), true
+
+	case "terminal_factory_min_fields.update_by":
+		if e.complexity.TerminalFactoryMinFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMinFields.UpdateBy(childComplexity), true
+
+	case "terminal_factory_mutation_response.affected_rows":
+		if e.complexity.TerminalFactoryMutationResponse.AffectedRows == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMutationResponse.AffectedRows(childComplexity), true
+
+	case "terminal_factory_mutation_response.returning":
+		if e.complexity.TerminalFactoryMutationResponse.Returning == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryMutationResponse.Returning(childComplexity), true
+
+	case "terminal_factory_stddev_fields.id":
+		if e.complexity.TerminalFactoryStddevFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryStddevFields.ID(childComplexity), true
+
+	case "terminal_factory_stddev_pop_fields.id":
+		if e.complexity.TerminalFactoryStddevPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryStddevPopFields.ID(childComplexity), true
+
+	case "terminal_factory_stddev_samp_fields.id":
+		if e.complexity.TerminalFactoryStddevSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryStddevSampFields.ID(childComplexity), true
+
+	case "terminal_factory_sum_fields.id":
+		if e.complexity.TerminalFactorySumFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactorySumFields.ID(childComplexity), true
+
+	case "terminal_factory_var_pop_fields.id":
+		if e.complexity.TerminalFactoryVarPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryVarPopFields.ID(childComplexity), true
+
+	case "terminal_factory_var_samp_fields.id":
+		if e.complexity.TerminalFactoryVarSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryVarSampFields.ID(childComplexity), true
+
+	case "terminal_factory_variance_fields.id":
+		if e.complexity.TerminalFactoryVarianceFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalFactoryVarianceFields.ID(childComplexity), true
+
+	case "terminal_max_fields.adas_model":
+		if e.complexity.TerminalMaxFields.AdasModel == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.AdasModel(childComplexity), true
+
+	case "terminal_max_fields.auth_key":
+		if e.complexity.TerminalMaxFields.AuthKey == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.AuthKey(childComplexity), true
+
+	case "terminal_max_fields.camera_num":
+		if e.complexity.TerminalMaxFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.CameraNum(childComplexity), true
+
+	case "terminal_max_fields.channel_no":
+		if e.complexity.TerminalMaxFields.ChannelNo == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.ChannelNo(childComplexity), true
+
+	case "terminal_max_fields.city_id":
+		if e.complexity.TerminalMaxFields.CityID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.CityID(childComplexity), true
+
+	case "terminal_max_fields.create_at":
+		if e.complexity.TerminalMaxFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.CreateAt(childComplexity), true
+
+	case "terminal_max_fields.create_by":
+		if e.complexity.TerminalMaxFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.CreateBy(childComplexity), true
+
+	case "terminal_max_fields.delete_at":
+		if e.complexity.TerminalMaxFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.DeleteAt(childComplexity), true
+
+	case "terminal_max_fields.delete_by":
+		if e.complexity.TerminalMaxFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.DeleteBy(childComplexity), true
+
+	case "terminal_max_fields.dept_id":
+		if e.complexity.TerminalMaxFields.DeptID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.DeptID(childComplexity), true
+
+	case "terminal_max_fields.first_install_time":
+		if e.complexity.TerminalMaxFields.FirstInstallTime == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.FirstInstallTime(childComplexity), true
+
+	case "terminal_max_fields.guarantee_date":
+		if e.complexity.TerminalMaxFields.GuaranteeDate == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.GuaranteeDate(childComplexity), true
+
+	case "terminal_max_fields.id":
+		if e.complexity.TerminalMaxFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.ID(childComplexity), true
+
+	case "terminal_max_fields.imei":
+		if e.complexity.TerminalMaxFields.Imei == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.Imei(childComplexity), true
+
+	case "terminal_max_fields.install_man_id":
+		if e.complexity.TerminalMaxFields.InstallManID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.InstallManID(childComplexity), true
+
+	case "terminal_max_fields.mock_auth_key":
+		if e.complexity.TerminalMaxFields.MockAuthKey == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.MockAuthKey(childComplexity), true
+
+	case "terminal_max_fields.produce_date":
+		if e.complexity.TerminalMaxFields.ProduceDate == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.ProduceDate(childComplexity), true
+
+	case "terminal_max_fields.prove_proxyrg_id":
+		if e.complexity.TerminalMaxFields.ProveProxyrgID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.ProveProxyrgID(childComplexity), true
+
+	case "terminal_max_fields.province_id":
+		if e.complexity.TerminalMaxFields.ProvinceID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.ProvinceID(childComplexity), true
+
+	case "terminal_max_fields.proxyrg_id":
+		if e.complexity.TerminalMaxFields.ProxyrgID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.ProxyrgID(childComplexity), true
+
+	case "terminal_max_fields.record_date":
+		if e.complexity.TerminalMaxFields.RecordDate == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.RecordDate(childComplexity), true
+
+	case "terminal_max_fields.reg_id":
+		if e.complexity.TerminalMaxFields.RegID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.RegID(childComplexity), true
+
+	case "terminal_max_fields.remarks":
+		if e.complexity.TerminalMaxFields.Remarks == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.Remarks(childComplexity), true
+
+	case "terminal_max_fields.remove_reason":
+		if e.complexity.TerminalMaxFields.RemoveReason == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.RemoveReason(childComplexity), true
+
+	case "terminal_max_fields.sim_id":
+		if e.complexity.TerminalMaxFields.SimID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.SimID(childComplexity), true
+
+	case "terminal_max_fields.sprg_id":
+		if e.complexity.TerminalMaxFields.SprgID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.SprgID(childComplexity), true
+
+	case "terminal_max_fields.terminal_id":
+		if e.complexity.TerminalMaxFields.TerminalID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.TerminalID(childComplexity), true
+
+	case "terminal_max_fields.type_id":
+		if e.complexity.TerminalMaxFields.TypeID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.TypeID(childComplexity), true
+
+	case "terminal_max_fields.update_at":
+		if e.complexity.TerminalMaxFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.UpdateAt(childComplexity), true
+
+	case "terminal_max_fields.update_by":
+		if e.complexity.TerminalMaxFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.UpdateBy(childComplexity), true
+
+	case "terminal_max_fields.vehicle_id":
+		if e.complexity.TerminalMaxFields.VehicleID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.VehicleID(childComplexity), true
+
+	case "terminal_max_fields.version_number":
+		if e.complexity.TerminalMaxFields.VersionNumber == nil {
+			break
+		}
+
+		return e.complexity.TerminalMaxFields.VersionNumber(childComplexity), true
+
+	case "terminal_min_fields.adas_model":
+		if e.complexity.TerminalMinFields.AdasModel == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.AdasModel(childComplexity), true
+
+	case "terminal_min_fields.auth_key":
+		if e.complexity.TerminalMinFields.AuthKey == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.AuthKey(childComplexity), true
+
+	case "terminal_min_fields.camera_num":
+		if e.complexity.TerminalMinFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.CameraNum(childComplexity), true
+
+	case "terminal_min_fields.channel_no":
+		if e.complexity.TerminalMinFields.ChannelNo == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.ChannelNo(childComplexity), true
+
+	case "terminal_min_fields.city_id":
+		if e.complexity.TerminalMinFields.CityID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.CityID(childComplexity), true
+
+	case "terminal_min_fields.create_at":
+		if e.complexity.TerminalMinFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.CreateAt(childComplexity), true
+
+	case "terminal_min_fields.create_by":
+		if e.complexity.TerminalMinFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.CreateBy(childComplexity), true
+
+	case "terminal_min_fields.delete_at":
+		if e.complexity.TerminalMinFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.DeleteAt(childComplexity), true
+
+	case "terminal_min_fields.delete_by":
+		if e.complexity.TerminalMinFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.DeleteBy(childComplexity), true
+
+	case "terminal_min_fields.dept_id":
+		if e.complexity.TerminalMinFields.DeptID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.DeptID(childComplexity), true
+
+	case "terminal_min_fields.first_install_time":
+		if e.complexity.TerminalMinFields.FirstInstallTime == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.FirstInstallTime(childComplexity), true
+
+	case "terminal_min_fields.guarantee_date":
+		if e.complexity.TerminalMinFields.GuaranteeDate == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.GuaranteeDate(childComplexity), true
+
+	case "terminal_min_fields.id":
+		if e.complexity.TerminalMinFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.ID(childComplexity), true
+
+	case "terminal_min_fields.imei":
+		if e.complexity.TerminalMinFields.Imei == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.Imei(childComplexity), true
+
+	case "terminal_min_fields.install_man_id":
+		if e.complexity.TerminalMinFields.InstallManID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.InstallManID(childComplexity), true
+
+	case "terminal_min_fields.mock_auth_key":
+		if e.complexity.TerminalMinFields.MockAuthKey == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.MockAuthKey(childComplexity), true
+
+	case "terminal_min_fields.produce_date":
+		if e.complexity.TerminalMinFields.ProduceDate == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.ProduceDate(childComplexity), true
+
+	case "terminal_min_fields.prove_proxyrg_id":
+		if e.complexity.TerminalMinFields.ProveProxyrgID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.ProveProxyrgID(childComplexity), true
+
+	case "terminal_min_fields.province_id":
+		if e.complexity.TerminalMinFields.ProvinceID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.ProvinceID(childComplexity), true
+
+	case "terminal_min_fields.proxyrg_id":
+		if e.complexity.TerminalMinFields.ProxyrgID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.ProxyrgID(childComplexity), true
+
+	case "terminal_min_fields.record_date":
+		if e.complexity.TerminalMinFields.RecordDate == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.RecordDate(childComplexity), true
+
+	case "terminal_min_fields.reg_id":
+		if e.complexity.TerminalMinFields.RegID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.RegID(childComplexity), true
+
+	case "terminal_min_fields.remarks":
+		if e.complexity.TerminalMinFields.Remarks == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.Remarks(childComplexity), true
+
+	case "terminal_min_fields.remove_reason":
+		if e.complexity.TerminalMinFields.RemoveReason == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.RemoveReason(childComplexity), true
+
+	case "terminal_min_fields.sim_id":
+		if e.complexity.TerminalMinFields.SimID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.SimID(childComplexity), true
+
+	case "terminal_min_fields.sprg_id":
+		if e.complexity.TerminalMinFields.SprgID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.SprgID(childComplexity), true
+
+	case "terminal_min_fields.terminal_id":
+		if e.complexity.TerminalMinFields.TerminalID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.TerminalID(childComplexity), true
+
+	case "terminal_min_fields.type_id":
+		if e.complexity.TerminalMinFields.TypeID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.TypeID(childComplexity), true
+
+	case "terminal_min_fields.update_at":
+		if e.complexity.TerminalMinFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.UpdateAt(childComplexity), true
+
+	case "terminal_min_fields.update_by":
+		if e.complexity.TerminalMinFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.UpdateBy(childComplexity), true
+
+	case "terminal_min_fields.vehicle_id":
+		if e.complexity.TerminalMinFields.VehicleID == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.VehicleID(childComplexity), true
+
+	case "terminal_min_fields.version_number":
+		if e.complexity.TerminalMinFields.VersionNumber == nil {
+			break
+		}
+
+		return e.complexity.TerminalMinFields.VersionNumber(childComplexity), true
+
+	case "terminal_modal.adas_modal":
+		if e.complexity.TerminalModal.AdasModal == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.AdasModal(childComplexity), true
+
+	case "terminal_modal.create_at":
+		if e.complexity.TerminalModal.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.CreateAt(childComplexity), true
+
+	case "terminal_modal.create_by":
+		if e.complexity.TerminalModal.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.CreateBy(childComplexity), true
+
+	case "terminal_modal.delete_at":
+		if e.complexity.TerminalModal.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.DeleteAt(childComplexity), true
+
+	case "terminal_modal.delete_by":
+		if e.complexity.TerminalModal.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.DeleteBy(childComplexity), true
+
+	case "terminal_modal.factory_id":
+		if e.complexity.TerminalModal.FactoryID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.FactoryID(childComplexity), true
+
+	case "terminal_modal.id":
+		if e.complexity.TerminalModal.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.ID(childComplexity), true
+
+	case "terminal_modal.is_delete":
+		if e.complexity.TerminalModal.IsDelete == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.IsDelete(childComplexity), true
+
+	case "terminal_modal.is_electronics_post_card":
+		if e.complexity.TerminalModal.IsElectronicsPostCard == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.IsElectronicsPostCard(childComplexity), true
+
+	case "terminal_modal.is_slag_car_teminal":
+		if e.complexity.TerminalModal.IsSlagCarTeminal == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.IsSlagCarTeminal(childComplexity), true
+
+	case "terminal_modal.is_testing_situation":
+		if e.complexity.TerminalModal.IsTestingSituation == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.IsTestingSituation(childComplexity), true
+
+	case "terminal_modal.is_transport_dept_4g":
+		if e.complexity.TerminalModal.IsTransportDept4g == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.IsTransportDept4g(childComplexity), true
+
+	case "terminal_modal.modal_name":
+		if e.complexity.TerminalModal.ModalName == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.ModalName(childComplexity), true
+
+	case "terminal_modal.proxyrg_id":
+		if e.complexity.TerminalModal.ProxyrgID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.ProxyrgID(childComplexity), true
+
+	case "terminal_modal.record_no":
+		if e.complexity.TerminalModal.RecordNo == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.RecordNo(childComplexity), true
+
+	case "terminal_modal.remark":
+		if e.complexity.TerminalModal.Remark == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.Remark(childComplexity), true
+
+	case "terminal_modal.terminal_modal_id":
+		if e.complexity.TerminalModal.TerminalModalID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.TerminalModalID(childComplexity), true
+
+	case "terminal_modal.terminal_type_id":
+		if e.complexity.TerminalModal.TerminalTypeID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.TerminalTypeID(childComplexity), true
+
+	case "terminal_modal.update_at":
+		if e.complexity.TerminalModal.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.UpdateAt(childComplexity), true
+
+	case "terminal_modal.update_by":
+		if e.complexity.TerminalModal.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalModal.UpdateBy(childComplexity), true
+
+	case "terminal_modal_aggregate.aggregate":
+		if e.complexity.TerminalModalAggregate.Aggregate == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregate.Aggregate(childComplexity), true
+
+	case "terminal_modal_aggregate.nodes":
+		if e.complexity.TerminalModalAggregate.Nodes == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregate.Nodes(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.avg":
+		if e.complexity.TerminalModalAggregateFields.Avg == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.Avg(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.count":
+		if e.complexity.TerminalModalAggregateFields.Count == nil {
+			break
+		}
+
+		args, err := ec.field_terminal_modal_aggregate_fields_count_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.TerminalModalAggregateFields.Count(childComplexity, args["columns"].([]model.TerminalModalSelectColumn), args["distinct"].(*bool)), true
+
+	case "terminal_modal_aggregate_fields.max":
+		if e.complexity.TerminalModalAggregateFields.Max == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.Max(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.min":
+		if e.complexity.TerminalModalAggregateFields.Min == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.Min(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.stddev":
+		if e.complexity.TerminalModalAggregateFields.Stddev == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.Stddev(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.stddev_pop":
+		if e.complexity.TerminalModalAggregateFields.StddevPop == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.StddevPop(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.stddev_samp":
+		if e.complexity.TerminalModalAggregateFields.StddevSamp == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.StddevSamp(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.sum":
+		if e.complexity.TerminalModalAggregateFields.Sum == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.Sum(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.var_pop":
+		if e.complexity.TerminalModalAggregateFields.VarPop == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.VarPop(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.var_samp":
+		if e.complexity.TerminalModalAggregateFields.VarSamp == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.VarSamp(childComplexity), true
+
+	case "terminal_modal_aggregate_fields.variance":
+		if e.complexity.TerminalModalAggregateFields.Variance == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAggregateFields.Variance(childComplexity), true
+
+	case "terminal_modal_avg_fields.id":
+		if e.complexity.TerminalModalAvgFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalAvgFields.ID(childComplexity), true
+
+	case "terminal_modal_max_fields.adas_modal":
+		if e.complexity.TerminalModalMaxFields.AdasModal == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.AdasModal(childComplexity), true
+
+	case "terminal_modal_max_fields.create_at":
+		if e.complexity.TerminalModalMaxFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.CreateAt(childComplexity), true
+
+	case "terminal_modal_max_fields.create_by":
+		if e.complexity.TerminalModalMaxFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.CreateBy(childComplexity), true
+
+	case "terminal_modal_max_fields.delete_at":
+		if e.complexity.TerminalModalMaxFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.DeleteAt(childComplexity), true
+
+	case "terminal_modal_max_fields.delete_by":
+		if e.complexity.TerminalModalMaxFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.DeleteBy(childComplexity), true
+
+	case "terminal_modal_max_fields.factory_id":
+		if e.complexity.TerminalModalMaxFields.FactoryID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.FactoryID(childComplexity), true
+
+	case "terminal_modal_max_fields.id":
+		if e.complexity.TerminalModalMaxFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.ID(childComplexity), true
+
+	case "terminal_modal_max_fields.modal_name":
+		if e.complexity.TerminalModalMaxFields.ModalName == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.ModalName(childComplexity), true
+
+	case "terminal_modal_max_fields.proxyrg_id":
+		if e.complexity.TerminalModalMaxFields.ProxyrgID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.ProxyrgID(childComplexity), true
+
+	case "terminal_modal_max_fields.record_no":
+		if e.complexity.TerminalModalMaxFields.RecordNo == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.RecordNo(childComplexity), true
+
+	case "terminal_modal_max_fields.remark":
+		if e.complexity.TerminalModalMaxFields.Remark == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.Remark(childComplexity), true
+
+	case "terminal_modal_max_fields.terminal_modal_id":
+		if e.complexity.TerminalModalMaxFields.TerminalModalID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.TerminalModalID(childComplexity), true
+
+	case "terminal_modal_max_fields.terminal_type_id":
+		if e.complexity.TerminalModalMaxFields.TerminalTypeID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.TerminalTypeID(childComplexity), true
+
+	case "terminal_modal_max_fields.update_at":
+		if e.complexity.TerminalModalMaxFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.UpdateAt(childComplexity), true
+
+	case "terminal_modal_max_fields.update_by":
+		if e.complexity.TerminalModalMaxFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMaxFields.UpdateBy(childComplexity), true
+
+	case "terminal_modal_min_fields.adas_modal":
+		if e.complexity.TerminalModalMinFields.AdasModal == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.AdasModal(childComplexity), true
+
+	case "terminal_modal_min_fields.create_at":
+		if e.complexity.TerminalModalMinFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.CreateAt(childComplexity), true
+
+	case "terminal_modal_min_fields.create_by":
+		if e.complexity.TerminalModalMinFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.CreateBy(childComplexity), true
+
+	case "terminal_modal_min_fields.delete_at":
+		if e.complexity.TerminalModalMinFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.DeleteAt(childComplexity), true
+
+	case "terminal_modal_min_fields.delete_by":
+		if e.complexity.TerminalModalMinFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.DeleteBy(childComplexity), true
+
+	case "terminal_modal_min_fields.factory_id":
+		if e.complexity.TerminalModalMinFields.FactoryID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.FactoryID(childComplexity), true
+
+	case "terminal_modal_min_fields.id":
+		if e.complexity.TerminalModalMinFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.ID(childComplexity), true
+
+	case "terminal_modal_min_fields.modal_name":
+		if e.complexity.TerminalModalMinFields.ModalName == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.ModalName(childComplexity), true
+
+	case "terminal_modal_min_fields.proxyrg_id":
+		if e.complexity.TerminalModalMinFields.ProxyrgID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.ProxyrgID(childComplexity), true
+
+	case "terminal_modal_min_fields.record_no":
+		if e.complexity.TerminalModalMinFields.RecordNo == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.RecordNo(childComplexity), true
+
+	case "terminal_modal_min_fields.remark":
+		if e.complexity.TerminalModalMinFields.Remark == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.Remark(childComplexity), true
+
+	case "terminal_modal_min_fields.terminal_modal_id":
+		if e.complexity.TerminalModalMinFields.TerminalModalID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.TerminalModalID(childComplexity), true
+
+	case "terminal_modal_min_fields.terminal_type_id":
+		if e.complexity.TerminalModalMinFields.TerminalTypeID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.TerminalTypeID(childComplexity), true
+
+	case "terminal_modal_min_fields.update_at":
+		if e.complexity.TerminalModalMinFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.UpdateAt(childComplexity), true
+
+	case "terminal_modal_min_fields.update_by":
+		if e.complexity.TerminalModalMinFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMinFields.UpdateBy(childComplexity), true
+
+	case "terminal_modal_mutation_response.affected_rows":
+		if e.complexity.TerminalModalMutationResponse.AffectedRows == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMutationResponse.AffectedRows(childComplexity), true
+
+	case "terminal_modal_mutation_response.returning":
+		if e.complexity.TerminalModalMutationResponse.Returning == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalMutationResponse.Returning(childComplexity), true
+
+	case "terminal_modal_stddev_fields.id":
+		if e.complexity.TerminalModalStddevFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalStddevFields.ID(childComplexity), true
+
+	case "terminal_modal_stddev_pop_fields.id":
+		if e.complexity.TerminalModalStddevPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalStddevPopFields.ID(childComplexity), true
+
+	case "terminal_modal_stddev_samp_fields.id":
+		if e.complexity.TerminalModalStddevSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalStddevSampFields.ID(childComplexity), true
+
+	case "terminal_modal_sum_fields.id":
+		if e.complexity.TerminalModalSumFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalSumFields.ID(childComplexity), true
+
+	case "terminal_modal_var_pop_fields.id":
+		if e.complexity.TerminalModalVarPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalVarPopFields.ID(childComplexity), true
+
+	case "terminal_modal_var_samp_fields.id":
+		if e.complexity.TerminalModalVarSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalVarSampFields.ID(childComplexity), true
+
+	case "terminal_modal_variance_fields.id":
+		if e.complexity.TerminalModalVarianceFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalModalVarianceFields.ID(childComplexity), true
+
+	case "terminal_mutation_response.affected_rows":
+		if e.complexity.TerminalMutationResponse.AffectedRows == nil {
+			break
+		}
+
+		return e.complexity.TerminalMutationResponse.AffectedRows(childComplexity), true
+
+	case "terminal_mutation_response.returning":
+		if e.complexity.TerminalMutationResponse.Returning == nil {
+			break
+		}
+
+		return e.complexity.TerminalMutationResponse.Returning(childComplexity), true
+
+	case "terminal_stddev_fields.camera_num":
+		if e.complexity.TerminalStddevFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalStddevFields.CameraNum(childComplexity), true
+
+	case "terminal_stddev_fields.id":
+		if e.complexity.TerminalStddevFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalStddevFields.ID(childComplexity), true
+
+	case "terminal_stddev_pop_fields.camera_num":
+		if e.complexity.TerminalStddevPopFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalStddevPopFields.CameraNum(childComplexity), true
+
+	case "terminal_stddev_pop_fields.id":
+		if e.complexity.TerminalStddevPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalStddevPopFields.ID(childComplexity), true
+
+	case "terminal_stddev_samp_fields.camera_num":
+		if e.complexity.TerminalStddevSampFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalStddevSampFields.CameraNum(childComplexity), true
+
+	case "terminal_stddev_samp_fields.id":
+		if e.complexity.TerminalStddevSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalStddevSampFields.ID(childComplexity), true
+
+	case "terminal_sum_fields.camera_num":
+		if e.complexity.TerminalSumFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalSumFields.CameraNum(childComplexity), true
+
+	case "terminal_sum_fields.id":
+		if e.complexity.TerminalSumFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalSumFields.ID(childComplexity), true
+
+	case "terminal_types.create_at":
+		if e.complexity.TerminalTypes.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.CreateAt(childComplexity), true
+
+	case "terminal_types.create_by":
+		if e.complexity.TerminalTypes.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.CreateBy(childComplexity), true
+
+	case "terminal_types.delete_at":
+		if e.complexity.TerminalTypes.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.DeleteAt(childComplexity), true
+
+	case "terminal_types.delete_by":
+		if e.complexity.TerminalTypes.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.DeleteBy(childComplexity), true
+
+	case "terminal_types.id":
+		if e.complexity.TerminalTypes.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.ID(childComplexity), true
+
+	case "terminal_types.is_delete":
+		if e.complexity.TerminalTypes.IsDelete == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.IsDelete(childComplexity), true
+
+	case "terminal_types.protocol_name":
+		if e.complexity.TerminalTypes.ProtocolName == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.ProtocolName(childComplexity), true
+
+	case "terminal_types.remark":
+		if e.complexity.TerminalTypes.Remark == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.Remark(childComplexity), true
+
+	case "terminal_types.type_id":
+		if e.complexity.TerminalTypes.TypeID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.TypeID(childComplexity), true
+
+	case "terminal_types.update_at":
+		if e.complexity.TerminalTypes.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.UpdateAt(childComplexity), true
+
+	case "terminal_types.update_by":
+		if e.complexity.TerminalTypes.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypes.UpdateBy(childComplexity), true
+
+	case "terminal_types_aggregate.aggregate":
+		if e.complexity.TerminalTypesAggregate.Aggregate == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregate.Aggregate(childComplexity), true
+
+	case "terminal_types_aggregate.nodes":
+		if e.complexity.TerminalTypesAggregate.Nodes == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregate.Nodes(childComplexity), true
+
+	case "terminal_types_aggregate_fields.avg":
+		if e.complexity.TerminalTypesAggregateFields.Avg == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.Avg(childComplexity), true
+
+	case "terminal_types_aggregate_fields.count":
+		if e.complexity.TerminalTypesAggregateFields.Count == nil {
+			break
+		}
+
+		args, err := ec.field_terminal_types_aggregate_fields_count_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.Count(childComplexity, args["columns"].([]model.TerminalTypesSelectColumn), args["distinct"].(*bool)), true
+
+	case "terminal_types_aggregate_fields.max":
+		if e.complexity.TerminalTypesAggregateFields.Max == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.Max(childComplexity), true
+
+	case "terminal_types_aggregate_fields.min":
+		if e.complexity.TerminalTypesAggregateFields.Min == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.Min(childComplexity), true
+
+	case "terminal_types_aggregate_fields.stddev":
+		if e.complexity.TerminalTypesAggregateFields.Stddev == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.Stddev(childComplexity), true
+
+	case "terminal_types_aggregate_fields.stddev_pop":
+		if e.complexity.TerminalTypesAggregateFields.StddevPop == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.StddevPop(childComplexity), true
+
+	case "terminal_types_aggregate_fields.stddev_samp":
+		if e.complexity.TerminalTypesAggregateFields.StddevSamp == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.StddevSamp(childComplexity), true
+
+	case "terminal_types_aggregate_fields.sum":
+		if e.complexity.TerminalTypesAggregateFields.Sum == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.Sum(childComplexity), true
+
+	case "terminal_types_aggregate_fields.var_pop":
+		if e.complexity.TerminalTypesAggregateFields.VarPop == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.VarPop(childComplexity), true
+
+	case "terminal_types_aggregate_fields.var_samp":
+		if e.complexity.TerminalTypesAggregateFields.VarSamp == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.VarSamp(childComplexity), true
+
+	case "terminal_types_aggregate_fields.variance":
+		if e.complexity.TerminalTypesAggregateFields.Variance == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAggregateFields.Variance(childComplexity), true
+
+	case "terminal_types_avg_fields.id":
+		if e.complexity.TerminalTypesAvgFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesAvgFields.ID(childComplexity), true
+
+	case "terminal_types_max_fields.create_at":
+		if e.complexity.TerminalTypesMaxFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.CreateAt(childComplexity), true
+
+	case "terminal_types_max_fields.create_by":
+		if e.complexity.TerminalTypesMaxFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.CreateBy(childComplexity), true
+
+	case "terminal_types_max_fields.delete_at":
+		if e.complexity.TerminalTypesMaxFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.DeleteAt(childComplexity), true
+
+	case "terminal_types_max_fields.delete_by":
+		if e.complexity.TerminalTypesMaxFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.DeleteBy(childComplexity), true
+
+	case "terminal_types_max_fields.id":
+		if e.complexity.TerminalTypesMaxFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.ID(childComplexity), true
+
+	case "terminal_types_max_fields.protocol_name":
+		if e.complexity.TerminalTypesMaxFields.ProtocolName == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.ProtocolName(childComplexity), true
+
+	case "terminal_types_max_fields.remark":
+		if e.complexity.TerminalTypesMaxFields.Remark == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.Remark(childComplexity), true
+
+	case "terminal_types_max_fields.type_id":
+		if e.complexity.TerminalTypesMaxFields.TypeID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.TypeID(childComplexity), true
+
+	case "terminal_types_max_fields.update_at":
+		if e.complexity.TerminalTypesMaxFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.UpdateAt(childComplexity), true
+
+	case "terminal_types_max_fields.update_by":
+		if e.complexity.TerminalTypesMaxFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMaxFields.UpdateBy(childComplexity), true
+
+	case "terminal_types_min_fields.create_at":
+		if e.complexity.TerminalTypesMinFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.CreateAt(childComplexity), true
+
+	case "terminal_types_min_fields.create_by":
+		if e.complexity.TerminalTypesMinFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.CreateBy(childComplexity), true
+
+	case "terminal_types_min_fields.delete_at":
+		if e.complexity.TerminalTypesMinFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.DeleteAt(childComplexity), true
+
+	case "terminal_types_min_fields.delete_by":
+		if e.complexity.TerminalTypesMinFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.DeleteBy(childComplexity), true
+
+	case "terminal_types_min_fields.id":
+		if e.complexity.TerminalTypesMinFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.ID(childComplexity), true
+
+	case "terminal_types_min_fields.protocol_name":
+		if e.complexity.TerminalTypesMinFields.ProtocolName == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.ProtocolName(childComplexity), true
+
+	case "terminal_types_min_fields.remark":
+		if e.complexity.TerminalTypesMinFields.Remark == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.Remark(childComplexity), true
+
+	case "terminal_types_min_fields.type_id":
+		if e.complexity.TerminalTypesMinFields.TypeID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.TypeID(childComplexity), true
+
+	case "terminal_types_min_fields.update_at":
+		if e.complexity.TerminalTypesMinFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.UpdateAt(childComplexity), true
+
+	case "terminal_types_min_fields.update_by":
+		if e.complexity.TerminalTypesMinFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMinFields.UpdateBy(childComplexity), true
+
+	case "terminal_types_mutation_response.affected_rows":
+		if e.complexity.TerminalTypesMutationResponse.AffectedRows == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMutationResponse.AffectedRows(childComplexity), true
+
+	case "terminal_types_mutation_response.returning":
+		if e.complexity.TerminalTypesMutationResponse.Returning == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesMutationResponse.Returning(childComplexity), true
+
+	case "terminal_types_stddev_fields.id":
+		if e.complexity.TerminalTypesStddevFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesStddevFields.ID(childComplexity), true
+
+	case "terminal_types_stddev_pop_fields.id":
+		if e.complexity.TerminalTypesStddevPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesStddevPopFields.ID(childComplexity), true
+
+	case "terminal_types_stddev_samp_fields.id":
+		if e.complexity.TerminalTypesStddevSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesStddevSampFields.ID(childComplexity), true
+
+	case "terminal_types_sum_fields.id":
+		if e.complexity.TerminalTypesSumFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesSumFields.ID(childComplexity), true
+
+	case "terminal_types_var_pop_fields.id":
+		if e.complexity.TerminalTypesVarPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesVarPopFields.ID(childComplexity), true
+
+	case "terminal_types_var_samp_fields.id":
+		if e.complexity.TerminalTypesVarSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesVarSampFields.ID(childComplexity), true
+
+	case "terminal_types_variance_fields.id":
+		if e.complexity.TerminalTypesVarianceFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalTypesVarianceFields.ID(childComplexity), true
+
+	case "terminal_var_pop_fields.camera_num":
+		if e.complexity.TerminalVarPopFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalVarPopFields.CameraNum(childComplexity), true
+
+	case "terminal_var_pop_fields.id":
+		if e.complexity.TerminalVarPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalVarPopFields.ID(childComplexity), true
+
+	case "terminal_var_samp_fields.camera_num":
+		if e.complexity.TerminalVarSampFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalVarSampFields.CameraNum(childComplexity), true
+
+	case "terminal_var_samp_fields.id":
+		if e.complexity.TerminalVarSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalVarSampFields.ID(childComplexity), true
+
+	case "terminal_variance_fields.camera_num":
+		if e.complexity.TerminalVarianceFields.CameraNum == nil {
+			break
+		}
+
+		return e.complexity.TerminalVarianceFields.CameraNum(childComplexity), true
+
+	case "terminal_variance_fields.id":
+		if e.complexity.TerminalVarianceFields.ID == nil {
+			break
+		}
+
+		return e.complexity.TerminalVarianceFields.ID(childComplexity), true
 
 	}
 	return 0, false
@@ -4239,6 +7539,2897 @@ input sim_card_flow_variance_order_by {
   use_flow: order_by
 }
 `, BuiltIn: false},
+	{Name: "graph/graphqls/terminal.graphqls", Input: `
+extend type Mutation {
+  """
+  delete data from the table: "terminal"
+  """
+  delete_terminal(
+    """filter the rows which have to be deleted"""
+    where: terminal_bool_exp!
+  ): terminal_mutation_response
+
+  """
+  delete single row from the table: "terminal"
+  """
+  delete_terminal_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal
+
+  """
+  insert data into the table: "terminal"
+  """
+  insert_terminal(
+    """the rows to be inserted"""
+    objects: [terminal_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: terminal_on_conflict
+  ): terminal_mutation_response
+
+  """
+  insert a single row into the table: "terminal"
+  """
+  insert_terminal_one(
+    """the row to be inserted"""
+    object: terminal_insert_input!
+
+    """on conflict condition"""
+    on_conflict: terminal_on_conflict
+  ): terminal
+
+  """
+  update data of the table: "terminal"
+  """
+  update_terminal(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_set_input
+
+    """filter the rows which have to be updated"""
+    where: terminal_bool_exp!
+  ): terminal_mutation_response
+
+  """
+  update single row of the table: "terminal"
+  """
+  update_terminal_by_pk(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_set_input
+    pk_columns: terminal_pk_columns_input!
+  ): terminal
+}
+
+extend type Query {
+  """
+  fetch data from the table: "terminal"
+  """
+  terminal(
+    """distinct select on columns"""
+    distinct_on: [terminal_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_bool_exp
+  ): [terminal!]!
+
+  """
+  fetch aggregated fields from the table: "terminal"
+  """
+  terminal_aggregate(
+    """distinct select on columns"""
+    distinct_on: [terminal_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_bool_exp
+  ): terminal_aggregate!
+
+  """fetch data from the table: "terminal" using primary key columns"""
+  terminal_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal
+}
+
+
+"""
+终端
+
+
+columns and relationships of "terminal"
+
+"""
+type terminal {
+  """ADAS型号"""
+  adas_model: String
+
+  """外接鉴权码"""
+  auth_key: String
+
+  """摄像头数量"""
+  camera_num: Int
+
+  """摄像头安装位置"""
+  channel_no: String
+
+  """城市ID"""
+  city_id: String
+
+  """新建时间"""
+  create_at: timestamptz!
+
+  """新建人"""
+  create_by: String
+
+  """删除时间"""
+  delete_at: timestamptz
+
+  """删除人"""
+  delete_by: String
+
+  """部门ID"""
+  dept_id: String
+
+  """首次安装时间"""
+  first_install_time: timestamptz
+
+  """保修期到期时间"""
+  guarantee_date: timestamptz
+
+  """ID"""
+  id: bigint!
+
+  """终端IMEI"""
+  imei: String!
+
+  """安装人员ID"""
+  install_man_id: String
+
+  """是否删除"""
+  is_delete: Boolean!
+
+  """是否注册"""
+  is_reg: Boolean
+
+  """是否支持拍照"""
+  is_support_photo: Boolean!
+
+  """模拟鉴权码"""
+  mock_auth_key: String
+
+  """生产日期"""
+  produce_date: timestamptz
+
+  """终端安装证明代理商"""
+  prove_proxyrg_id: String
+
+  """省份ID"""
+  province_id: String
+
+  """代理商ID"""
+  proxyrg_id: String
+
+  """登记时间"""
+  record_date: timestamptz
+
+  """终端注册ID"""
+  reg_id: String
+
+  """备注"""
+  remarks: String
+
+  """解绑原因"""
+  remove_reason: String
+
+  """SIM卡ID"""
+  sim_id: String
+
+  """运营商"""
+  sprg_id: String
+
+  """终端ID"""
+  terminal_id: String!
+
+  """终端类型ID"""
+  type_id: String
+
+  """修改时间"""
+  update_at: timestamptz
+
+  """修改人"""
+  update_by: String
+
+  """车辆ID"""
+  vehicle_id: String
+
+  """版本号"""
+  version_number: String
+}
+
+"""
+aggregated selection of "terminal"
+"""
+type terminal_aggregate {
+  aggregate: terminal_aggregate_fields
+  nodes: [terminal!]!
+}
+
+"""
+aggregate fields of "terminal"
+"""
+type terminal_aggregate_fields {
+  avg: terminal_avg_fields
+  count(columns: [terminal_select_column!], distinct: Boolean): Int
+  max: terminal_max_fields
+  min: terminal_min_fields
+  stddev: terminal_stddev_fields
+  stddev_pop: terminal_stddev_pop_fields
+  stddev_samp: terminal_stddev_samp_fields
+  sum: terminal_sum_fields
+  var_pop: terminal_var_pop_fields
+  var_samp: terminal_var_samp_fields
+  variance: terminal_variance_fields
+}
+
+"""
+order by aggregate values of table "terminal"
+"""
+input terminal_aggregate_order_by {
+  avg: terminal_avg_order_by
+  count: order_by
+  max: terminal_max_order_by
+  min: terminal_min_order_by
+  stddev: terminal_stddev_order_by
+  stddev_pop: terminal_stddev_pop_order_by
+  stddev_samp: terminal_stddev_samp_order_by
+  sum: terminal_sum_order_by
+  var_pop: terminal_var_pop_order_by
+  var_samp: terminal_var_samp_order_by
+  variance: terminal_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "terminal"
+"""
+input terminal_arr_rel_insert_input {
+  data: [terminal_insert_input!]!
+  on_conflict: terminal_on_conflict
+}
+
+"""aggregate avg on columns"""
+type terminal_avg_fields {
+  camera_num: Float
+  id: Float
+}
+
+"""
+order by avg() on columns of table "terminal"
+"""
+input terminal_avg_order_by {
+  camera_num: order_by
+  id: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "terminal". All fields are combined with a logical 'AND'.
+"""
+input terminal_bool_exp {
+  _and: [terminal_bool_exp]
+  _not: terminal_bool_exp
+  _or: [terminal_bool_exp]
+  adas_model: String_comparison_exp
+  auth_key: String_comparison_exp
+  camera_num: Int_comparison_exp
+  channel_no: String_comparison_exp
+  city_id: String_comparison_exp
+  create_at: timestamptz_comparison_exp
+  create_by: String_comparison_exp
+  delete_at: timestamptz_comparison_exp
+  delete_by: String_comparison_exp
+  dept_id: String_comparison_exp
+  first_install_time: timestamptz_comparison_exp
+  guarantee_date: timestamptz_comparison_exp
+  id: bigint_comparison_exp
+  imei: String_comparison_exp
+  install_man_id: String_comparison_exp
+  is_delete: Boolean_comparison_exp
+  is_reg: Boolean_comparison_exp
+  is_support_photo: Boolean_comparison_exp
+  mock_auth_key: String_comparison_exp
+  produce_date: timestamptz_comparison_exp
+  prove_proxyrg_id: String_comparison_exp
+  province_id: String_comparison_exp
+  proxyrg_id: String_comparison_exp
+  record_date: timestamptz_comparison_exp
+  reg_id: String_comparison_exp
+  remarks: String_comparison_exp
+  remove_reason: String_comparison_exp
+  sim_id: String_comparison_exp
+  sprg_id: String_comparison_exp
+  terminal_id: String_comparison_exp
+  type_id: String_comparison_exp
+  update_at: timestamptz_comparison_exp
+  update_by: String_comparison_exp
+  vehicle_id: String_comparison_exp
+  version_number: String_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "terminal"
+"""
+enum terminal_constraint {
+  """unique or primary key constraint"""
+  terminal_pkey
+}
+
+"""
+input type for incrementing integer column in table "terminal"
+"""
+input terminal_inc_input {
+  camera_num: Int
+  id: bigint
+}
+
+"""
+input type for inserting data into table "terminal"
+"""
+input terminal_insert_input {
+  adas_model: String
+  auth_key: String
+  camera_num: Int
+  channel_no: String
+  city_id: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  dept_id: String
+  first_install_time: timestamptz
+  guarantee_date: timestamptz
+  id: bigint
+  imei: String
+  install_man_id: String
+  is_delete: Boolean
+  is_reg: Boolean
+  is_support_photo: Boolean
+  mock_auth_key: String
+  produce_date: timestamptz
+  prove_proxyrg_id: String
+  province_id: String
+  proxyrg_id: String
+  record_date: timestamptz
+  reg_id: String
+  remarks: String
+  remove_reason: String
+  sim_id: String
+  sprg_id: String
+  terminal_id: String
+  type_id: String
+  update_at: timestamptz
+  update_by: String
+  vehicle_id: String
+  version_number: String
+}
+
+"""aggregate max on columns"""
+type terminal_max_fields {
+  adas_model: String
+  auth_key: String
+  camera_num: Int
+  channel_no: String
+  city_id: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  dept_id: String
+  first_install_time: timestamptz
+  guarantee_date: timestamptz
+  id: bigint
+  imei: String
+  install_man_id: String
+  mock_auth_key: String
+  produce_date: timestamptz
+  prove_proxyrg_id: String
+  province_id: String
+  proxyrg_id: String
+  record_date: timestamptz
+  reg_id: String
+  remarks: String
+  remove_reason: String
+  sim_id: String
+  sprg_id: String
+  terminal_id: String
+  type_id: String
+  update_at: timestamptz
+  update_by: String
+  vehicle_id: String
+  version_number: String
+}
+
+"""
+order by max() on columns of table "terminal"
+"""
+input terminal_max_order_by {
+  adas_model: order_by
+  auth_key: order_by
+  camera_num: order_by
+  channel_no: order_by
+  city_id: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  dept_id: order_by
+  first_install_time: order_by
+  guarantee_date: order_by
+  id: order_by
+  imei: order_by
+  install_man_id: order_by
+  mock_auth_key: order_by
+  produce_date: order_by
+  prove_proxyrg_id: order_by
+  province_id: order_by
+  proxyrg_id: order_by
+  record_date: order_by
+  reg_id: order_by
+  remarks: order_by
+  remove_reason: order_by
+  sim_id: order_by
+  sprg_id: order_by
+  terminal_id: order_by
+  type_id: order_by
+  update_at: order_by
+  update_by: order_by
+  vehicle_id: order_by
+  version_number: order_by
+}
+
+"""aggregate min on columns"""
+type terminal_min_fields {
+  adas_model: String
+  auth_key: String
+  camera_num: Int
+  channel_no: String
+  city_id: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  dept_id: String
+  first_install_time: timestamptz
+  guarantee_date: timestamptz
+  id: bigint
+  imei: String
+  install_man_id: String
+  mock_auth_key: String
+  produce_date: timestamptz
+  prove_proxyrg_id: String
+  province_id: String
+  proxyrg_id: String
+  record_date: timestamptz
+  reg_id: String
+  remarks: String
+  remove_reason: String
+  sim_id: String
+  sprg_id: String
+  terminal_id: String
+  type_id: String
+  update_at: timestamptz
+  update_by: String
+  vehicle_id: String
+  version_number: String
+}
+
+"""
+order by min() on columns of table "terminal"
+"""
+input terminal_min_order_by {
+  adas_model: order_by
+  auth_key: order_by
+  camera_num: order_by
+  channel_no: order_by
+  city_id: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  dept_id: order_by
+  first_install_time: order_by
+  guarantee_date: order_by
+  id: order_by
+  imei: order_by
+  install_man_id: order_by
+  mock_auth_key: order_by
+  produce_date: order_by
+  prove_proxyrg_id: order_by
+  province_id: order_by
+  proxyrg_id: order_by
+  record_date: order_by
+  reg_id: order_by
+  remarks: order_by
+  remove_reason: order_by
+  sim_id: order_by
+  sprg_id: order_by
+  terminal_id: order_by
+  type_id: order_by
+  update_at: order_by
+  update_by: order_by
+  vehicle_id: order_by
+  version_number: order_by
+}
+
+"""
+response of any mutation on the table "terminal"
+"""
+type terminal_mutation_response {
+  """number of affected rows by the mutation"""
+  affected_rows: Int!
+
+  """data of the affected rows by the mutation"""
+  returning: [terminal!]!
+}
+
+"""
+input type for inserting object relation for remote table "terminal"
+"""
+input terminal_obj_rel_insert_input {
+  data: terminal_insert_input!
+  on_conflict: terminal_on_conflict
+}
+
+"""
+on conflict condition type for table "terminal"
+"""
+input terminal_on_conflict {
+  constraint: terminal_constraint!
+  update_columns: [terminal_update_column!]!
+  where: terminal_bool_exp
+}
+
+"""
+ordering options when selecting data from "terminal"
+"""
+input terminal_order_by {
+  adas_model: order_by
+  auth_key: order_by
+  camera_num: order_by
+  channel_no: order_by
+  city_id: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  dept_id: order_by
+  first_install_time: order_by
+  guarantee_date: order_by
+  id: order_by
+  imei: order_by
+  install_man_id: order_by
+  is_delete: order_by
+  is_reg: order_by
+  is_support_photo: order_by
+  mock_auth_key: order_by
+  produce_date: order_by
+  prove_proxyrg_id: order_by
+  province_id: order_by
+  proxyrg_id: order_by
+  record_date: order_by
+  reg_id: order_by
+  remarks: order_by
+  remove_reason: order_by
+  sim_id: order_by
+  sprg_id: order_by
+  terminal_id: order_by
+  type_id: order_by
+  update_at: order_by
+  update_by: order_by
+  vehicle_id: order_by
+  version_number: order_by
+}
+
+"""
+primary key columns input for table: "terminal"
+"""
+input terminal_pk_columns_input {
+  """ID"""
+  id: bigint!
+}
+
+"""
+select columns of table "terminal"
+"""
+enum terminal_select_column {
+  """column name"""
+  adas_model
+
+  """column name"""
+  auth_key
+
+  """column name"""
+  camera_num
+
+  """column name"""
+  channel_no
+
+  """column name"""
+  city_id
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  dept_id
+
+  """column name"""
+  first_install_time
+
+  """column name"""
+  guarantee_date
+
+  """column name"""
+  id
+
+  """column name"""
+  imei
+
+  """column name"""
+  install_man_id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  is_reg
+
+  """column name"""
+  is_support_photo
+
+  """column name"""
+  mock_auth_key
+
+  """column name"""
+  produce_date
+
+  """column name"""
+  prove_proxyrg_id
+
+  """column name"""
+  province_id
+
+  """column name"""
+  proxyrg_id
+
+  """column name"""
+  record_date
+
+  """column name"""
+  reg_id
+
+  """column name"""
+  remarks
+
+  """column name"""
+  remove_reason
+
+  """column name"""
+  sim_id
+
+  """column name"""
+  sprg_id
+
+  """column name"""
+  terminal_id
+
+  """column name"""
+  type_id
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+
+  """column name"""
+  vehicle_id
+
+  """column name"""
+  version_number
+}
+
+"""
+input type for updating data in table "terminal"
+"""
+input terminal_set_input {
+  adas_model: String
+  auth_key: String
+  camera_num: Int
+  channel_no: String
+  city_id: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  dept_id: String
+  first_install_time: timestamptz
+  guarantee_date: timestamptz
+  id: bigint
+  imei: String
+  install_man_id: String
+  is_delete: Boolean
+  is_reg: Boolean
+  is_support_photo: Boolean
+  mock_auth_key: String
+  produce_date: timestamptz
+  prove_proxyrg_id: String
+  province_id: String
+  proxyrg_id: String
+  record_date: timestamptz
+  reg_id: String
+  remarks: String
+  remove_reason: String
+  sim_id: String
+  sprg_id: String
+  terminal_id: String
+  type_id: String
+  update_at: timestamptz
+  update_by: String
+  vehicle_id: String
+  version_number: String
+}
+
+"""aggregate stddev on columns"""
+type terminal_stddev_fields {
+  camera_num: Float
+  id: Float
+}
+
+"""
+order by stddev() on columns of table "terminal"
+"""
+input terminal_stddev_order_by {
+  camera_num: order_by
+  id: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type terminal_stddev_pop_fields {
+  camera_num: Float
+  id: Float
+}
+
+"""
+order by stddev_pop() on columns of table "terminal"
+"""
+input terminal_stddev_pop_order_by {
+  camera_num: order_by
+  id: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type terminal_stddev_samp_fields {
+  camera_num: Float
+  id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "terminal"
+"""
+input terminal_stddev_samp_order_by {
+  camera_num: order_by
+  id: order_by
+}
+
+"""aggregate sum on columns"""
+type terminal_sum_fields {
+  camera_num: Int
+  id: bigint
+}
+
+"""
+order by sum() on columns of table "terminal"
+"""
+input terminal_sum_order_by {
+  camera_num: order_by
+  id: order_by
+}
+
+"""
+update columns of table "terminal"
+"""
+enum terminal_update_column {
+  """column name"""
+  adas_model
+
+  """column name"""
+  auth_key
+
+  """column name"""
+  camera_num
+
+  """column name"""
+  channel_no
+
+  """column name"""
+  city_id
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  dept_id
+
+  """column name"""
+  first_install_time
+
+  """column name"""
+  guarantee_date
+
+  """column name"""
+  id
+
+  """column name"""
+  imei
+
+  """column name"""
+  install_man_id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  is_reg
+
+  """column name"""
+  is_support_photo
+
+  """column name"""
+  mock_auth_key
+
+  """column name"""
+  produce_date
+
+  """column name"""
+  prove_proxyrg_id
+
+  """column name"""
+  province_id
+
+  """column name"""
+  proxyrg_id
+
+  """column name"""
+  record_date
+
+  """column name"""
+  reg_id
+
+  """column name"""
+  remarks
+
+  """column name"""
+  remove_reason
+
+  """column name"""
+  sim_id
+
+  """column name"""
+  sprg_id
+
+  """column name"""
+  terminal_id
+
+  """column name"""
+  type_id
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+
+  """column name"""
+  vehicle_id
+
+  """column name"""
+  version_number
+}
+
+"""aggregate var_pop on columns"""
+type terminal_var_pop_fields {
+  camera_num: Float
+  id: Float
+}
+
+"""
+order by var_pop() on columns of table "terminal"
+"""
+input terminal_var_pop_order_by {
+  camera_num: order_by
+  id: order_by
+}
+
+"""aggregate var_samp on columns"""
+type terminal_var_samp_fields {
+  camera_num: Float
+  id: Float
+}
+
+"""
+order by var_samp() on columns of table "terminal"
+"""
+input terminal_var_samp_order_by {
+  camera_num: order_by
+  id: order_by
+}
+
+"""aggregate variance on columns"""
+type terminal_variance_fields {
+  camera_num: Float
+  id: Float
+}
+
+"""
+order by variance() on columns of table "terminal"
+"""
+input terminal_variance_order_by {
+  camera_num: order_by
+  id: order_by
+}
+
+`, BuiltIn: false},
+	{Name: "graph/graphqls/terminal_factory.graphqls", Input: `
+extend type Mutation {
+  """
+  delete data from the table: "terminal_factory"
+  """
+  delete_terminal_factory(
+    """filter the rows which have to be deleted"""
+    where: terminal_factory_bool_exp!
+  ): terminal_factory_mutation_response
+
+  """
+  delete single row from the table: "terminal_factory"
+  """
+  delete_terminal_factory_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal_factory
+
+  """
+  insert data into the table: "terminal_factory"
+  """
+  insert_terminal_factory(
+    """the rows to be inserted"""
+    objects: [terminal_factory_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: terminal_factory_on_conflict
+  ): terminal_factory_mutation_response
+
+  """
+  insert a single row into the table: "terminal_factory"
+  """
+  insert_terminal_factory_one(
+    """the row to be inserted"""
+    object: terminal_factory_insert_input!
+
+    """on conflict condition"""
+    on_conflict: terminal_factory_on_conflict
+  ): terminal_factory
+
+  """
+  update data of the table: "terminal_factory"
+  """
+  update_terminal_factory(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_factory_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_factory_set_input
+
+    """filter the rows which have to be updated"""
+    where: terminal_factory_bool_exp!
+  ): terminal_factory_mutation_response
+
+  """
+  update single row of the table: "terminal_factory"
+  """
+  update_terminal_factory_by_pk(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_factory_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_factory_set_input
+    pk_columns: terminal_factory_pk_columns_input!
+  ): terminal_factory
+}
+
+
+extend type Query {
+  """
+  fetch data from the table: "terminal_factory"
+  """
+  terminal_factory(
+    """distinct select on columns"""
+    distinct_on: [terminal_factory_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_factory_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_factory_bool_exp
+  ): [terminal_factory!]!
+
+  """
+  fetch aggregated fields from the table: "terminal_factory"
+  """
+  terminal_factory_aggregate(
+    """distinct select on columns"""
+    distinct_on: [terminal_factory_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_factory_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_factory_bool_exp
+  ): terminal_factory_aggregate!
+
+  """
+  fetch data from the table: "terminal_factory" using primary key columns
+  """
+  terminal_factory_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal_factory
+}
+
+
+"""
+终端工厂
+
+
+columns and relationships of "terminal_factory"
+
+"""
+type terminal_factory {
+  """厂家地址"""
+  address: String
+
+  """联系人"""
+  contact: String
+
+  """联系电话"""
+  contact_phone: String
+
+  """创建时间"""
+  create_at: timestamptz
+
+  """创建人"""
+  create_by: String
+
+  """删除时间"""
+  delete_at: timestamptz
+
+  """删除人"""
+  delete_by: String
+
+  """工厂ID"""
+  factory_id: String!
+
+  """厂家名称"""
+  factory_name: String!
+
+  """ID"""
+  id: bigint!
+
+  """是否删除"""
+  is_delete: Boolean!
+
+  """备注"""
+  remark: String
+
+  """技术支持人"""
+  tech_contact: String
+
+  """技术支持电话"""
+  tech_contact_phone: String
+
+  """更新时间"""
+  update_at: timestamptz
+
+  """更新人"""
+  update_by: String
+}
+
+"""
+aggregated selection of "terminal_factory"
+"""
+type terminal_factory_aggregate {
+  aggregate: terminal_factory_aggregate_fields
+  nodes: [terminal_factory!]!
+}
+
+"""
+aggregate fields of "terminal_factory"
+"""
+type terminal_factory_aggregate_fields {
+  avg: terminal_factory_avg_fields
+  count(columns: [terminal_factory_select_column!], distinct: Boolean): Int
+  max: terminal_factory_max_fields
+  min: terminal_factory_min_fields
+  stddev: terminal_factory_stddev_fields
+  stddev_pop: terminal_factory_stddev_pop_fields
+  stddev_samp: terminal_factory_stddev_samp_fields
+  sum: terminal_factory_sum_fields
+  var_pop: terminal_factory_var_pop_fields
+  var_samp: terminal_factory_var_samp_fields
+  variance: terminal_factory_variance_fields
+}
+
+"""
+order by aggregate values of table "terminal_factory"
+"""
+input terminal_factory_aggregate_order_by {
+  avg: terminal_factory_avg_order_by
+  count: order_by
+  max: terminal_factory_max_order_by
+  min: terminal_factory_min_order_by
+  stddev: terminal_factory_stddev_order_by
+  stddev_pop: terminal_factory_stddev_pop_order_by
+  stddev_samp: terminal_factory_stddev_samp_order_by
+  sum: terminal_factory_sum_order_by
+  var_pop: terminal_factory_var_pop_order_by
+  var_samp: terminal_factory_var_samp_order_by
+  variance: terminal_factory_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "terminal_factory"
+"""
+input terminal_factory_arr_rel_insert_input {
+  data: [terminal_factory_insert_input!]!
+  on_conflict: terminal_factory_on_conflict
+}
+
+"""aggregate avg on columns"""
+type terminal_factory_avg_fields {
+  id: Float
+}
+
+"""
+order by avg() on columns of table "terminal_factory"
+"""
+input terminal_factory_avg_order_by {
+  id: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "terminal_factory". All fields are combined with a logical 'AND'.
+"""
+input terminal_factory_bool_exp {
+  _and: [terminal_factory_bool_exp]
+  _not: terminal_factory_bool_exp
+  _or: [terminal_factory_bool_exp]
+  address: String_comparison_exp
+  contact: String_comparison_exp
+  contact_phone: String_comparison_exp
+  create_at: timestamptz_comparison_exp
+  create_by: String_comparison_exp
+  delete_at: timestamptz_comparison_exp
+  delete_by: String_comparison_exp
+  factory_id: String_comparison_exp
+  factory_name: String_comparison_exp
+  id: bigint_comparison_exp
+  is_delete: Boolean_comparison_exp
+  remark: String_comparison_exp
+  tech_contact: String_comparison_exp
+  tech_contact_phone: String_comparison_exp
+  update_at: timestamptz_comparison_exp
+  update_by: String_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "terminal_factory"
+"""
+enum terminal_factory_constraint {
+  """unique or primary key constraint"""
+  terminal_factory_pkey
+}
+
+"""
+input type for incrementing integer column in table "terminal_factory"
+"""
+input terminal_factory_inc_input {
+  id: bigint
+}
+
+"""
+input type for inserting data into table "terminal_factory"
+"""
+input terminal_factory_insert_input {
+  address: String
+  contact: String
+  contact_phone: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  factory_name: String
+  id: bigint
+  is_delete: Boolean
+  remark: String
+  tech_contact: String
+  tech_contact_phone: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate max on columns"""
+type terminal_factory_max_fields {
+  address: String
+  contact: String
+  contact_phone: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  factory_name: String
+  id: bigint
+  remark: String
+  tech_contact: String
+  tech_contact_phone: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by max() on columns of table "terminal_factory"
+"""
+input terminal_factory_max_order_by {
+  address: order_by
+  contact: order_by
+  contact_phone: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  factory_id: order_by
+  factory_name: order_by
+  id: order_by
+  remark: order_by
+  tech_contact: order_by
+  tech_contact_phone: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""aggregate min on columns"""
+type terminal_factory_min_fields {
+  address: String
+  contact: String
+  contact_phone: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  factory_name: String
+  id: bigint
+  remark: String
+  tech_contact: String
+  tech_contact_phone: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by min() on columns of table "terminal_factory"
+"""
+input terminal_factory_min_order_by {
+  address: order_by
+  contact: order_by
+  contact_phone: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  factory_id: order_by
+  factory_name: order_by
+  id: order_by
+  remark: order_by
+  tech_contact: order_by
+  tech_contact_phone: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+response of any mutation on the table "terminal_factory"
+"""
+type terminal_factory_mutation_response {
+  """number of affected rows by the mutation"""
+  affected_rows: Int!
+
+  """data of the affected rows by the mutation"""
+  returning: [terminal_factory!]!
+}
+
+"""
+input type for inserting object relation for remote table "terminal_factory"
+"""
+input terminal_factory_obj_rel_insert_input {
+  data: terminal_factory_insert_input!
+  on_conflict: terminal_factory_on_conflict
+}
+
+"""
+on conflict condition type for table "terminal_factory"
+"""
+input terminal_factory_on_conflict {
+  constraint: terminal_factory_constraint!
+  update_columns: [terminal_factory_update_column!]!
+  where: terminal_factory_bool_exp
+}
+
+"""
+ordering options when selecting data from "terminal_factory"
+"""
+input terminal_factory_order_by {
+  address: order_by
+  contact: order_by
+  contact_phone: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  factory_id: order_by
+  factory_name: order_by
+  id: order_by
+  is_delete: order_by
+  remark: order_by
+  tech_contact: order_by
+  tech_contact_phone: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+primary key columns input for table: "terminal_factory"
+"""
+input terminal_factory_pk_columns_input {
+  """ID"""
+  id: bigint!
+}
+
+"""
+select columns of table "terminal_factory"
+"""
+enum terminal_factory_select_column {
+  """column name"""
+  address
+
+  """column name"""
+  contact
+
+  """column name"""
+  contact_phone
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  factory_id
+
+  """column name"""
+  factory_name
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  remark
+
+  """column name"""
+  tech_contact
+
+  """column name"""
+  tech_contact_phone
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""
+input type for updating data in table "terminal_factory"
+"""
+input terminal_factory_set_input {
+  address: String
+  contact: String
+  contact_phone: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  factory_name: String
+  id: bigint
+  is_delete: Boolean
+  remark: String
+  tech_contact: String
+  tech_contact_phone: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate stddev on columns"""
+type terminal_factory_stddev_fields {
+  id: Float
+}
+
+"""
+order by stddev() on columns of table "terminal_factory"
+"""
+input terminal_factory_stddev_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type terminal_factory_stddev_pop_fields {
+  id: Float
+}
+
+"""
+order by stddev_pop() on columns of table "terminal_factory"
+"""
+input terminal_factory_stddev_pop_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type terminal_factory_stddev_samp_fields {
+  id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "terminal_factory"
+"""
+input terminal_factory_stddev_samp_order_by {
+  id: order_by
+}
+
+"""aggregate sum on columns"""
+type terminal_factory_sum_fields {
+  id: bigint
+}
+
+"""
+order by sum() on columns of table "terminal_factory"
+"""
+input terminal_factory_sum_order_by {
+  id: order_by
+}
+
+"""
+update columns of table "terminal_factory"
+"""
+enum terminal_factory_update_column {
+  """column name"""
+  address
+
+  """column name"""
+  contact
+
+  """column name"""
+  contact_phone
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  factory_id
+
+  """column name"""
+  factory_name
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  remark
+
+  """column name"""
+  tech_contact
+
+  """column name"""
+  tech_contact_phone
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""aggregate var_pop on columns"""
+type terminal_factory_var_pop_fields {
+  id: Float
+}
+
+"""
+order by var_pop() on columns of table "terminal_factory"
+"""
+input terminal_factory_var_pop_order_by {
+  id: order_by
+}
+
+"""aggregate var_samp on columns"""
+type terminal_factory_var_samp_fields {
+  id: Float
+}
+
+"""
+order by var_samp() on columns of table "terminal_factory"
+"""
+input terminal_factory_var_samp_order_by {
+  id: order_by
+}
+
+"""aggregate variance on columns"""
+type terminal_factory_variance_fields {
+  id: Float
+}
+
+"""
+order by variance() on columns of table "terminal_factory"
+"""
+input terminal_factory_variance_order_by {
+  id: order_by
+}
+`, BuiltIn: false},
+	{Name: "graph/graphqls/terminal_modal.graphqls", Input: `
+extend type Mutation {
+  """
+  delete data from the table: "terminal_modal"
+  """
+  delete_terminal_modal(
+    """filter the rows which have to be deleted"""
+    where: terminal_modal_bool_exp!
+  ): terminal_modal_mutation_response
+
+  """
+  delete single row from the table: "terminal_modal"
+  """
+  delete_terminal_modal_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal_modal
+
+  """
+  insert data into the table: "terminal_modal"
+  """
+  insert_terminal_modal(
+    """the rows to be inserted"""
+    objects: [terminal_modal_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: terminal_modal_on_conflict
+  ): terminal_modal_mutation_response
+
+  """
+  insert a single row into the table: "terminal_modal"
+  """
+  insert_terminal_modal_one(
+    """the row to be inserted"""
+    object: terminal_modal_insert_input!
+
+    """on conflict condition"""
+    on_conflict: terminal_modal_on_conflict
+  ): terminal_modal
+
+  """
+  update data of the table: "terminal_modal"
+  """
+  update_terminal_modal(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_modal_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_modal_set_input
+
+    """filter the rows which have to be updated"""
+    where: terminal_modal_bool_exp!
+  ): terminal_modal_mutation_response
+
+  """
+  update single row of the table: "terminal_modal"
+  """
+  update_terminal_modal_by_pk(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_modal_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_modal_set_input
+    pk_columns: terminal_modal_pk_columns_input!
+  ): terminal_modal
+}
+
+extend type Query {
+  """
+  fetch data from the table: "terminal_modal"
+  """
+  terminal_modal(
+    """distinct select on columns"""
+    distinct_on: [terminal_modal_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_modal_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_modal_bool_exp
+  ): [terminal_modal!]!
+
+  """
+  fetch aggregated fields from the table: "terminal_modal"
+  """
+  terminal_modal_aggregate(
+    """distinct select on columns"""
+    distinct_on: [terminal_modal_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_modal_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_modal_bool_exp
+  ): terminal_modal_aggregate!
+
+  """fetch data from the table: "terminal_modal" using primary key columns"""
+  terminal_modal_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal_modal
+}
+
+
+"""
+终端型号
+
+
+columns and relationships of "terminal_modal"
+
+"""
+type terminal_modal {
+  """adas型号"""
+  adas_modal: String
+
+  """创建时间"""
+  create_at: timestamptz!
+
+  """创建人"""
+  create_by: String
+
+  """删除时间"""
+  delete_at: timestamptz
+
+  """删除人"""
+  delete_by: String
+
+  """生产厂家ID"""
+  factory_id: String
+
+  """ID"""
+  id: bigint!
+
+  """是否被删除"""
+  is_delete: Boolean!
+
+  """终端具备出租汽车电召、电子上岗证等功能"""
+  is_electronics_post_card: Boolean
+
+  """是否渣土车终端"""
+  is_slag_car_teminal: Boolean
+
+  """是否提交终端技术要求通过相关检测情况"""
+  is_testing_situation: Boolean
+
+  """是否交通局4G终端"""
+  is_transport_dept_4g: Boolean
+
+  """型号"""
+  modal_name: String
+
+  """代理商ID"""
+  proxyrg_id: String
+
+  """备案编号"""
+  record_no: String
+
+  """备注"""
+  remark: String
+
+  """终端型号ID"""
+  terminal_modal_id: String!
+
+  """终端类型ID"""
+  terminal_type_id: String
+
+  """修改时间"""
+  update_at: timestamptz
+
+  """修改人"""
+  update_by: String
+}
+
+"""
+aggregated selection of "terminal_modal"
+"""
+type terminal_modal_aggregate {
+  aggregate: terminal_modal_aggregate_fields
+  nodes: [terminal_modal!]!
+}
+
+"""
+aggregate fields of "terminal_modal"
+"""
+type terminal_modal_aggregate_fields {
+  avg: terminal_modal_avg_fields
+  count(columns: [terminal_modal_select_column!], distinct: Boolean): Int
+  max: terminal_modal_max_fields
+  min: terminal_modal_min_fields
+  stddev: terminal_modal_stddev_fields
+  stddev_pop: terminal_modal_stddev_pop_fields
+  stddev_samp: terminal_modal_stddev_samp_fields
+  sum: terminal_modal_sum_fields
+  var_pop: terminal_modal_var_pop_fields
+  var_samp: terminal_modal_var_samp_fields
+  variance: terminal_modal_variance_fields
+}
+
+"""
+order by aggregate values of table "terminal_modal"
+"""
+input terminal_modal_aggregate_order_by {
+  avg: terminal_modal_avg_order_by
+  count: order_by
+  max: terminal_modal_max_order_by
+  min: terminal_modal_min_order_by
+  stddev: terminal_modal_stddev_order_by
+  stddev_pop: terminal_modal_stddev_pop_order_by
+  stddev_samp: terminal_modal_stddev_samp_order_by
+  sum: terminal_modal_sum_order_by
+  var_pop: terminal_modal_var_pop_order_by
+  var_samp: terminal_modal_var_samp_order_by
+  variance: terminal_modal_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "terminal_modal"
+"""
+input terminal_modal_arr_rel_insert_input {
+  data: [terminal_modal_insert_input!]!
+  on_conflict: terminal_modal_on_conflict
+}
+
+"""aggregate avg on columns"""
+type terminal_modal_avg_fields {
+  id: Float
+}
+
+"""
+order by avg() on columns of table "terminal_modal"
+"""
+input terminal_modal_avg_order_by {
+  id: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "terminal_modal". All fields are combined with a logical 'AND'.
+"""
+input terminal_modal_bool_exp {
+  _and: [terminal_modal_bool_exp]
+  _not: terminal_modal_bool_exp
+  _or: [terminal_modal_bool_exp]
+  adas_modal: String_comparison_exp
+  create_at: timestamptz_comparison_exp
+  create_by: String_comparison_exp
+  delete_at: timestamptz_comparison_exp
+  delete_by: String_comparison_exp
+  factory_id: String_comparison_exp
+  id: bigint_comparison_exp
+  is_delete: Boolean_comparison_exp
+  is_electronics_post_card: Boolean_comparison_exp
+  is_slag_car_teminal: Boolean_comparison_exp
+  is_testing_situation: Boolean_comparison_exp
+  is_transport_dept_4g: Boolean_comparison_exp
+  modal_name: String_comparison_exp
+  proxyrg_id: String_comparison_exp
+  record_no: String_comparison_exp
+  remark: String_comparison_exp
+  terminal_modal_id: String_comparison_exp
+  terminal_type_id: String_comparison_exp
+  update_at: timestamptz_comparison_exp
+  update_by: String_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "terminal_modal"
+"""
+enum terminal_modal_constraint {
+  """unique or primary key constraint"""
+  terminal_modal_pkey
+}
+
+"""
+input type for incrementing integer column in table "terminal_modal"
+"""
+input terminal_modal_inc_input {
+  id: bigint
+}
+
+"""
+input type for inserting data into table "terminal_modal"
+"""
+input terminal_modal_insert_input {
+  adas_modal: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  id: bigint
+  is_delete: Boolean
+  is_electronics_post_card: Boolean
+  is_slag_car_teminal: Boolean
+  is_testing_situation: Boolean
+  is_transport_dept_4g: Boolean
+  modal_name: String
+  proxyrg_id: String
+  record_no: String
+  remark: String
+  terminal_modal_id: String
+  terminal_type_id: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate max on columns"""
+type terminal_modal_max_fields {
+  adas_modal: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  id: bigint
+  modal_name: String
+  proxyrg_id: String
+  record_no: String
+  remark: String
+  terminal_modal_id: String
+  terminal_type_id: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by max() on columns of table "terminal_modal"
+"""
+input terminal_modal_max_order_by {
+  adas_modal: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  factory_id: order_by
+  id: order_by
+  modal_name: order_by
+  proxyrg_id: order_by
+  record_no: order_by
+  remark: order_by
+  terminal_modal_id: order_by
+  terminal_type_id: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""aggregate min on columns"""
+type terminal_modal_min_fields {
+  adas_modal: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  id: bigint
+  modal_name: String
+  proxyrg_id: String
+  record_no: String
+  remark: String
+  terminal_modal_id: String
+  terminal_type_id: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by min() on columns of table "terminal_modal"
+"""
+input terminal_modal_min_order_by {
+  adas_modal: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  factory_id: order_by
+  id: order_by
+  modal_name: order_by
+  proxyrg_id: order_by
+  record_no: order_by
+  remark: order_by
+  terminal_modal_id: order_by
+  terminal_type_id: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+response of any mutation on the table "terminal_modal"
+"""
+type terminal_modal_mutation_response {
+  """number of affected rows by the mutation"""
+  affected_rows: Int!
+
+  """data of the affected rows by the mutation"""
+  returning: [terminal_modal!]!
+}
+
+"""
+input type for inserting object relation for remote table "terminal_modal"
+"""
+input terminal_modal_obj_rel_insert_input {
+  data: terminal_modal_insert_input!
+  on_conflict: terminal_modal_on_conflict
+}
+
+"""
+on conflict condition type for table "terminal_modal"
+"""
+input terminal_modal_on_conflict {
+  constraint: terminal_modal_constraint!
+  update_columns: [terminal_modal_update_column!]!
+  where: terminal_modal_bool_exp
+}
+
+"""
+ordering options when selecting data from "terminal_modal"
+"""
+input terminal_modal_order_by {
+  adas_modal: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  factory_id: order_by
+  id: order_by
+  is_delete: order_by
+  is_electronics_post_card: order_by
+  is_slag_car_teminal: order_by
+  is_testing_situation: order_by
+  is_transport_dept_4g: order_by
+  modal_name: order_by
+  proxyrg_id: order_by
+  record_no: order_by
+  remark: order_by
+  terminal_modal_id: order_by
+  terminal_type_id: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+primary key columns input for table: "terminal_modal"
+"""
+input terminal_modal_pk_columns_input {
+  """ID"""
+  id: bigint!
+}
+
+"""
+select columns of table "terminal_modal"
+"""
+enum terminal_modal_select_column {
+  """column name"""
+  adas_modal
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  factory_id
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  is_electronics_post_card
+
+  """column name"""
+  is_slag_car_teminal
+
+  """column name"""
+  is_testing_situation
+
+  """column name"""
+  is_transport_dept_4g
+
+  """column name"""
+  modal_name
+
+  """column name"""
+  proxyrg_id
+
+  """column name"""
+  record_no
+
+  """column name"""
+  remark
+
+  """column name"""
+  terminal_modal_id
+
+  """column name"""
+  terminal_type_id
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""
+input type for updating data in table "terminal_modal"
+"""
+input terminal_modal_set_input {
+  adas_modal: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  id: bigint
+  is_delete: Boolean
+  is_electronics_post_card: Boolean
+  is_slag_car_teminal: Boolean
+  is_testing_situation: Boolean
+  is_transport_dept_4g: Boolean
+  modal_name: String
+  proxyrg_id: String
+  record_no: String
+  remark: String
+  terminal_modal_id: String
+  terminal_type_id: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate stddev on columns"""
+type terminal_modal_stddev_fields {
+  id: Float
+}
+
+"""
+order by stddev() on columns of table "terminal_modal"
+"""
+input terminal_modal_stddev_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type terminal_modal_stddev_pop_fields {
+  id: Float
+}
+
+"""
+order by stddev_pop() on columns of table "terminal_modal"
+"""
+input terminal_modal_stddev_pop_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type terminal_modal_stddev_samp_fields {
+  id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "terminal_modal"
+"""
+input terminal_modal_stddev_samp_order_by {
+  id: order_by
+}
+
+"""aggregate sum on columns"""
+type terminal_modal_sum_fields {
+  id: bigint
+}
+
+"""
+order by sum() on columns of table "terminal_modal"
+"""
+input terminal_modal_sum_order_by {
+  id: order_by
+}
+
+"""
+update columns of table "terminal_modal"
+"""
+enum terminal_modal_update_column {
+  """column name"""
+  adas_modal
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  factory_id
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  is_electronics_post_card
+
+  """column name"""
+  is_slag_car_teminal
+
+  """column name"""
+  is_testing_situation
+
+  """column name"""
+  is_transport_dept_4g
+
+  """column name"""
+  modal_name
+
+  """column name"""
+  proxyrg_id
+
+  """column name"""
+  record_no
+
+  """column name"""
+  remark
+
+  """column name"""
+  terminal_modal_id
+
+  """column name"""
+  terminal_type_id
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""aggregate var_pop on columns"""
+type terminal_modal_var_pop_fields {
+  id: Float
+}
+
+"""
+order by var_pop() on columns of table "terminal_modal"
+"""
+input terminal_modal_var_pop_order_by {
+  id: order_by
+}
+
+"""aggregate var_samp on columns"""
+type terminal_modal_var_samp_fields {
+  id: Float
+}
+
+"""
+order by var_samp() on columns of table "terminal_modal"
+"""
+input terminal_modal_var_samp_order_by {
+  id: order_by
+}
+
+"""aggregate variance on columns"""
+type terminal_modal_variance_fields {
+  id: Float
+}
+
+"""
+order by variance() on columns of table "terminal_modal"
+"""
+input terminal_modal_variance_order_by {
+  id: order_by
+}
+`, BuiltIn: false},
+	{Name: "graph/graphqls/terminal_type.graphqls", Input: `
+extend type Mutation {
+  """
+  delete data from the table: "terminal_types"
+  """
+  delete_terminal_types(
+    """filter the rows which have to be deleted"""
+    where: terminal_types_bool_exp!
+  ): terminal_types_mutation_response
+
+  """
+  delete single row from the table: "terminal_types"
+  """
+  delete_terminal_types_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal_types
+
+  """
+  insert data into the table: "terminal_types"
+  """
+  insert_terminal_types(
+    """the rows to be inserted"""
+    objects: [terminal_types_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: terminal_types_on_conflict
+  ): terminal_types_mutation_response
+
+  """
+  insert a single row into the table: "terminal_types"
+  """
+  insert_terminal_types_one(
+    """the row to be inserted"""
+    object: terminal_types_insert_input!
+
+    """on conflict condition"""
+    on_conflict: terminal_types_on_conflict
+  ): terminal_types
+
+  """
+  update data of the table: "terminal_types"
+  """
+  update_terminal_types(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_types_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_types_set_input
+
+    """filter the rows which have to be updated"""
+    where: terminal_types_bool_exp!
+  ): terminal_types_mutation_response
+
+  """
+  update single row of the table: "terminal_types"
+  """
+  update_terminal_types_by_pk(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_types_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_types_set_input
+    pk_columns: terminal_types_pk_columns_input!
+  ): terminal_types
+}
+
+extend type Query {
+  """
+  fetch data from the table: "terminal_types"
+  """
+  terminal_types(
+    """distinct select on columns"""
+    distinct_on: [terminal_types_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_types_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_types_bool_exp
+  ): [terminal_types!]!
+
+  """
+  fetch aggregated fields from the table: "terminal_types"
+  """
+  terminal_types_aggregate(
+    """distinct select on columns"""
+    distinct_on: [terminal_types_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_types_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_types_bool_exp
+  ): terminal_types_aggregate!
+
+  """fetch data from the table: "terminal_types" using primary key columns"""
+  terminal_types_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal_types
+}
+
+
+"""
+终端类型
+
+
+columns and relationships of "terminal_types"
+
+"""
+type terminal_types {
+  """创建时间"""
+  create_at: timestamptz!
+
+  """创建人"""
+  create_by: String
+
+  """删除时间"""
+  delete_at: timestamptz
+
+  """删除人"""
+  delete_by: String
+
+  """ID"""
+  id: bigint!
+
+  """是否删除"""
+  is_delete: Boolean!
+
+  """终端类型"""
+  protocol_name: String!
+
+  """备注"""
+  remark: String
+
+  """终端类型ID"""
+  type_id: String!
+
+  """修改时间"""
+  update_at: timestamptz
+
+  """修改人"""
+  update_by: String
+}
+
+"""
+aggregated selection of "terminal_types"
+"""
+type terminal_types_aggregate {
+  aggregate: terminal_types_aggregate_fields
+  nodes: [terminal_types!]!
+}
+
+"""
+aggregate fields of "terminal_types"
+"""
+type terminal_types_aggregate_fields {
+  avg: terminal_types_avg_fields
+  count(columns: [terminal_types_select_column!], distinct: Boolean): Int
+  max: terminal_types_max_fields
+  min: terminal_types_min_fields
+  stddev: terminal_types_stddev_fields
+  stddev_pop: terminal_types_stddev_pop_fields
+  stddev_samp: terminal_types_stddev_samp_fields
+  sum: terminal_types_sum_fields
+  var_pop: terminal_types_var_pop_fields
+  var_samp: terminal_types_var_samp_fields
+  variance: terminal_types_variance_fields
+}
+
+"""
+order by aggregate values of table "terminal_types"
+"""
+input terminal_types_aggregate_order_by {
+  avg: terminal_types_avg_order_by
+  count: order_by
+  max: terminal_types_max_order_by
+  min: terminal_types_min_order_by
+  stddev: terminal_types_stddev_order_by
+  stddev_pop: terminal_types_stddev_pop_order_by
+  stddev_samp: terminal_types_stddev_samp_order_by
+  sum: terminal_types_sum_order_by
+  var_pop: terminal_types_var_pop_order_by
+  var_samp: terminal_types_var_samp_order_by
+  variance: terminal_types_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "terminal_types"
+"""
+input terminal_types_arr_rel_insert_input {
+  data: [terminal_types_insert_input!]!
+  on_conflict: terminal_types_on_conflict
+}
+
+"""aggregate avg on columns"""
+type terminal_types_avg_fields {
+  id: Float
+}
+
+"""
+order by avg() on columns of table "terminal_types"
+"""
+input terminal_types_avg_order_by {
+  id: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "terminal_types". All fields are combined with a logical 'AND'.
+"""
+input terminal_types_bool_exp {
+  _and: [terminal_types_bool_exp]
+  _not: terminal_types_bool_exp
+  _or: [terminal_types_bool_exp]
+  create_at: timestamptz_comparison_exp
+  create_by: String_comparison_exp
+  delete_at: timestamptz_comparison_exp
+  delete_by: String_comparison_exp
+  id: bigint_comparison_exp
+  is_delete: Boolean_comparison_exp
+  protocol_name: String_comparison_exp
+  remark: String_comparison_exp
+  type_id: String_comparison_exp
+  update_at: timestamptz_comparison_exp
+  update_by: String_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "terminal_types"
+"""
+enum terminal_types_constraint {
+  """unique or primary key constraint"""
+  terminal_type_pkey
+}
+
+"""
+input type for incrementing integer column in table "terminal_types"
+"""
+input terminal_types_inc_input {
+  id: bigint
+}
+
+"""
+input type for inserting data into table "terminal_types"
+"""
+input terminal_types_insert_input {
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  id: bigint
+  is_delete: Boolean
+  protocol_name: String
+  remark: String
+  type_id: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate max on columns"""
+type terminal_types_max_fields {
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  id: bigint
+  protocol_name: String
+  remark: String
+  type_id: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by max() on columns of table "terminal_types"
+"""
+input terminal_types_max_order_by {
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  id: order_by
+  protocol_name: order_by
+  remark: order_by
+  type_id: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""aggregate min on columns"""
+type terminal_types_min_fields {
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  id: bigint
+  protocol_name: String
+  remark: String
+  type_id: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by min() on columns of table "terminal_types"
+"""
+input terminal_types_min_order_by {
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  id: order_by
+  protocol_name: order_by
+  remark: order_by
+  type_id: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+response of any mutation on the table "terminal_types"
+"""
+type terminal_types_mutation_response {
+  """number of affected rows by the mutation"""
+  affected_rows: Int!
+
+  """data of the affected rows by the mutation"""
+  returning: [terminal_types!]!
+}
+
+"""
+input type for inserting object relation for remote table "terminal_types"
+"""
+input terminal_types_obj_rel_insert_input {
+  data: terminal_types_insert_input!
+  on_conflict: terminal_types_on_conflict
+}
+
+"""
+on conflict condition type for table "terminal_types"
+"""
+input terminal_types_on_conflict {
+  constraint: terminal_types_constraint!
+  update_columns: [terminal_types_update_column!]!
+  where: terminal_types_bool_exp
+}
+
+"""
+ordering options when selecting data from "terminal_types"
+"""
+input terminal_types_order_by {
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  id: order_by
+  is_delete: order_by
+  protocol_name: order_by
+  remark: order_by
+  type_id: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+primary key columns input for table: "terminal_types"
+"""
+input terminal_types_pk_columns_input {
+  """ID"""
+  id: bigint!
+}
+
+"""
+select columns of table "terminal_types"
+"""
+enum terminal_types_select_column {
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  protocol_name
+
+  """column name"""
+  remark
+
+  """column name"""
+  type_id
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""
+input type for updating data in table "terminal_types"
+"""
+input terminal_types_set_input {
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  id: bigint
+  is_delete: Boolean
+  protocol_name: String
+  remark: String
+  type_id: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate stddev on columns"""
+type terminal_types_stddev_fields {
+  id: Float
+}
+
+"""
+order by stddev() on columns of table "terminal_types"
+"""
+input terminal_types_stddev_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type terminal_types_stddev_pop_fields {
+  id: Float
+}
+
+"""
+order by stddev_pop() on columns of table "terminal_types"
+"""
+input terminal_types_stddev_pop_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type terminal_types_stddev_samp_fields {
+  id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "terminal_types"
+"""
+input terminal_types_stddev_samp_order_by {
+  id: order_by
+}
+
+"""aggregate sum on columns"""
+type terminal_types_sum_fields {
+  id: bigint
+}
+
+"""
+order by sum() on columns of table "terminal_types"
+"""
+input terminal_types_sum_order_by {
+  id: order_by
+}
+
+"""
+update columns of table "terminal_types"
+"""
+enum terminal_types_update_column {
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  protocol_name
+
+  """column name"""
+  remark
+
+  """column name"""
+  type_id
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""aggregate var_pop on columns"""
+type terminal_types_var_pop_fields {
+  id: Float
+}
+
+"""
+order by var_pop() on columns of table "terminal_types"
+"""
+input terminal_types_var_pop_order_by {
+  id: order_by
+}
+
+"""aggregate var_samp on columns"""
+type terminal_types_var_samp_fields {
+  id: Float
+}
+
+"""
+order by var_samp() on columns of table "terminal_types"
+"""
+input terminal_types_var_samp_order_by {
+  id: order_by
+}
+
+"""aggregate variance on columns"""
+type terminal_types_variance_fields {
+  id: Float
+}
+
+"""
+order by variance() on columns of table "terminal_types"
+"""
+input terminal_types_variance_order_by {
+  id: order_by
+}
+`, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
 
@@ -4292,6 +10483,126 @@ func (ec *executionContext) field_Mutation_delete_sim_card_flow_args(ctx context
 }
 
 func (ec *executionContext) field_Mutation_delete_sim_card_flow_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_terminal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.TerminalBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg0, err = ec.unmarshalNterminal_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_terminal_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_terminal_factory_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.TerminalFactoryBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg0, err = ec.unmarshalNterminal_factory_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_terminal_factory_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_terminal_modal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.TerminalModalBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg0, err = ec.unmarshalNterminal_modal_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_terminal_modal_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_terminal_types_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.TerminalTypesBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg0, err = ec.unmarshalNterminal_types_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_terminal_types_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 int64
@@ -4394,6 +10705,198 @@ func (ec *executionContext) field_Mutation_insert_sim_card_one_args(ctx context.
 	if tmp, ok := rawArgs["on_conflict"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
 		arg1, err = ec.unmarshalOsim_card_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐSimCardOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_terminal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.TerminalInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNterminal_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	var arg1 *model.TerminalOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOterminal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_terminal_factory_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.TerminalFactoryInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNterminal_factory_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	var arg1 *model.TerminalFactoryOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOterminal_factory_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_terminal_factory_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.TerminalFactoryInsertInput
+	if tmp, ok := rawArgs["object"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
+		arg0, err = ec.unmarshalNterminal_factory_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryInsertInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["object"] = arg0
+	var arg1 *model.TerminalFactoryOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOterminal_factory_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_terminal_modal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.TerminalModalInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNterminal_modal_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	var arg1 *model.TerminalModalOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOterminal_modal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_terminal_modal_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.TerminalModalInsertInput
+	if tmp, ok := rawArgs["object"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
+		arg0, err = ec.unmarshalNterminal_modal_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalInsertInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["object"] = arg0
+	var arg1 *model.TerminalModalOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOterminal_modal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_terminal_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.TerminalInsertInput
+	if tmp, ok := rawArgs["object"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
+		arg0, err = ec.unmarshalNterminal_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalInsertInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["object"] = arg0
+	var arg1 *model.TerminalOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOterminal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_terminal_types_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.TerminalTypesInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNterminal_types_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	var arg1 *model.TerminalTypesOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOterminal_types_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_terminal_types_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.TerminalTypesInsertInput
+	if tmp, ok := rawArgs["object"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
+		arg0, err = ec.unmarshalNterminal_types_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesInsertInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["object"] = arg0
+	var arg1 *model.TerminalTypesOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOterminal_types_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOnConflict(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4526,6 +11029,270 @@ func (ec *executionContext) field_Mutation_update_sim_card_flow_by_pk_args(ctx c
 	if tmp, ok := rawArgs["pk_columns"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
 		arg2, err = ec.unmarshalNsim_card_flow_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐSimCardFlowPkColumnsInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["pk_columns"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_terminal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.TerminalIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOterminal_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.TerminalSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOterminal_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.TerminalBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNterminal_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_terminal_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.TerminalIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOterminal_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.TerminalSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOterminal_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.TerminalPkColumnsInput
+	if tmp, ok := rawArgs["pk_columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
+		arg2, err = ec.unmarshalNterminal_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalPkColumnsInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["pk_columns"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_terminal_factory_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.TerminalFactoryIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOterminal_factory_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.TerminalFactorySetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOterminal_factory_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.TerminalFactoryBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNterminal_factory_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_terminal_factory_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.TerminalFactoryIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOterminal_factory_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.TerminalFactorySetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOterminal_factory_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.TerminalFactoryPkColumnsInput
+	if tmp, ok := rawArgs["pk_columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
+		arg2, err = ec.unmarshalNterminal_factory_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryPkColumnsInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["pk_columns"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_terminal_modal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.TerminalModalIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOterminal_modal_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.TerminalModalSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOterminal_modal_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.TerminalModalBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNterminal_modal_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_terminal_modal_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.TerminalModalIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOterminal_modal_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.TerminalModalSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOterminal_modal_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.TerminalModalPkColumnsInput
+	if tmp, ok := rawArgs["pk_columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
+		arg2, err = ec.unmarshalNterminal_modal_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalPkColumnsInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["pk_columns"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_terminal_types_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.TerminalTypesIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOterminal_types_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.TerminalTypesSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOterminal_types_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.TerminalTypesBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNterminal_types_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_terminal_types_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.TerminalTypesIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOterminal_types_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.TerminalTypesSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOterminal_types_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.TerminalTypesPkColumnsInput
+	if tmp, ok := rawArgs["pk_columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
+		arg2, err = ec.unmarshalNterminal_types_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesPkColumnsInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -4783,6 +11550,474 @@ func (ec *executionContext) field_Query_sim_card_flow_by_pk_args(ctx context.Con
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_terminal_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOterminal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.TerminalOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOterminal_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.TerminalBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOterminal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOterminal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.TerminalOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOterminal_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.TerminalBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOterminal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_factory_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalFactorySelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOterminal_factory_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.TerminalFactoryOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOterminal_factory_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.TerminalFactoryBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOterminal_factory_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_factory_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalFactorySelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOterminal_factory_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.TerminalFactoryOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOterminal_factory_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.TerminalFactoryBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOterminal_factory_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_factory_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_modal_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalModalSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOterminal_modal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.TerminalModalOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOterminal_modal_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.TerminalModalBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOterminal_modal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_modal_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalModalSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOterminal_modal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.TerminalModalOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOterminal_modal_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.TerminalModalBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOterminal_modal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_modal_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_types_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalTypesSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOterminal_types_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.TerminalTypesOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOterminal_types_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.TerminalTypesBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOterminal_types_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_types_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalTypesSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOterminal_types_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.TerminalTypesOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOterminal_types_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.TerminalTypesBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOterminal_types_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_terminal_types_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field___Type_enumValues_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -4844,6 +12079,102 @@ func (ec *executionContext) field_sim_card_flow_aggregate_fields_count_args(ctx 
 	if tmp, ok := rawArgs["columns"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
 		arg0, err = ec.unmarshalOsim_card_flow_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐSimCardFlowSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["columns"] = arg0
+	var arg1 *bool
+	if tmp, ok := rawArgs["distinct"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct"))
+		arg1, err = ec.unmarshalOBoolean2ᚖbool(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_terminal_aggregate_fields_count_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalSelectColumn
+	if tmp, ok := rawArgs["columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
+		arg0, err = ec.unmarshalOterminal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["columns"] = arg0
+	var arg1 *bool
+	if tmp, ok := rawArgs["distinct"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct"))
+		arg1, err = ec.unmarshalOBoolean2ᚖbool(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_terminal_factory_aggregate_fields_count_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalFactorySelectColumn
+	if tmp, ok := rawArgs["columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
+		arg0, err = ec.unmarshalOterminal_factory_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["columns"] = arg0
+	var arg1 *bool
+	if tmp, ok := rawArgs["distinct"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct"))
+		arg1, err = ec.unmarshalOBoolean2ᚖbool(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_terminal_modal_aggregate_fields_count_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalModalSelectColumn
+	if tmp, ok := rawArgs["columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
+		arg0, err = ec.unmarshalOterminal_modal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["columns"] = arg0
+	var arg1 *bool
+	if tmp, ok := rawArgs["distinct"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct"))
+		arg1, err = ec.unmarshalOBoolean2ᚖbool(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_terminal_types_aggregate_fields_count_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.TerminalTypesSelectColumn
+	if tmp, ok := rawArgs["columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
+		arg0, err = ec.unmarshalOterminal_types_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -5337,6 +12668,942 @@ func (ec *executionContext) _Mutation_update_sim_card_flow_by_pk(ctx context.Con
 	return ec.marshalOsim_card_flow2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐSimCardFlow(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_delete_terminal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_terminal_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteTerminal(rctx, args["where"].(model.TerminalBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_terminal_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_terminal_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteTerminalByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Terminal)
+	fc.Result = res
+	return ec.marshalOterminal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_terminal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_terminal_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertTerminal(rctx, args["objects"].([]*model.TerminalInsertInput), args["on_conflict"].(*model.TerminalOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_terminal_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_terminal_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertTerminalOne(rctx, args["object"].(model.TerminalInsertInput), args["on_conflict"].(*model.TerminalOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Terminal)
+	fc.Result = res
+	return ec.marshalOterminal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_terminal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_terminal_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateTerminal(rctx, args["_inc"].(*model.TerminalIncInput), args["_set"].(*model.TerminalSetInput), args["where"].(model.TerminalBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_terminal_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_terminal_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateTerminalByPk(rctx, args["_inc"].(*model.TerminalIncInput), args["_set"].(*model.TerminalSetInput), args["pk_columns"].(model.TerminalPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Terminal)
+	fc.Result = res
+	return ec.marshalOterminal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_terminal_factory(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_terminal_factory_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteTerminalFactory(rctx, args["where"].(model.TerminalFactoryBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_factory_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_terminal_factory_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_terminal_factory_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteTerminalFactoryByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalFactory)
+	fc.Result = res
+	return ec.marshalOterminal_factory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactory(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_terminal_factory(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_terminal_factory_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertTerminalFactory(rctx, args["objects"].([]*model.TerminalFactoryInsertInput), args["on_conflict"].(*model.TerminalFactoryOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_factory_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_terminal_factory_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_terminal_factory_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertTerminalFactoryOne(rctx, args["object"].(model.TerminalFactoryInsertInput), args["on_conflict"].(*model.TerminalFactoryOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalFactory)
+	fc.Result = res
+	return ec.marshalOterminal_factory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactory(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_terminal_factory(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_terminal_factory_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateTerminalFactory(rctx, args["_inc"].(*model.TerminalFactoryIncInput), args["_set"].(*model.TerminalFactorySetInput), args["where"].(model.TerminalFactoryBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_factory_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_terminal_factory_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_terminal_factory_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateTerminalFactoryByPk(rctx, args["_inc"].(*model.TerminalFactoryIncInput), args["_set"].(*model.TerminalFactorySetInput), args["pk_columns"].(model.TerminalFactoryPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalFactory)
+	fc.Result = res
+	return ec.marshalOterminal_factory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactory(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_terminal_modal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_terminal_modal_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteTerminalModal(rctx, args["where"].(model.TerminalModalBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_modal_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_terminal_modal_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_terminal_modal_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteTerminalModalByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalModal)
+	fc.Result = res
+	return ec.marshalOterminal_modal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_terminal_modal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_terminal_modal_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertTerminalModal(rctx, args["objects"].([]*model.TerminalModalInsertInput), args["on_conflict"].(*model.TerminalModalOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_modal_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_terminal_modal_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_terminal_modal_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertTerminalModalOne(rctx, args["object"].(model.TerminalModalInsertInput), args["on_conflict"].(*model.TerminalModalOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalModal)
+	fc.Result = res
+	return ec.marshalOterminal_modal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_terminal_modal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_terminal_modal_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateTerminalModal(rctx, args["_inc"].(*model.TerminalModalIncInput), args["_set"].(*model.TerminalModalSetInput), args["where"].(model.TerminalModalBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_modal_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_terminal_modal_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_terminal_modal_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateTerminalModalByPk(rctx, args["_inc"].(*model.TerminalModalIncInput), args["_set"].(*model.TerminalModalSetInput), args["pk_columns"].(model.TerminalModalPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalModal)
+	fc.Result = res
+	return ec.marshalOterminal_modal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_terminal_types(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_terminal_types_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteTerminalTypes(rctx, args["where"].(model.TerminalTypesBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_types_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_terminal_types_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_terminal_types_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteTerminalTypesByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalType)
+	fc.Result = res
+	return ec.marshalOterminal_types2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalType(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_terminal_types(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_terminal_types_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertTerminalTypes(rctx, args["objects"].([]*model.TerminalTypesInsertInput), args["on_conflict"].(*model.TerminalTypesOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_types_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_terminal_types_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_terminal_types_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertTerminalTypesOne(rctx, args["object"].(model.TerminalTypesInsertInput), args["on_conflict"].(*model.TerminalTypesOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalType)
+	fc.Result = res
+	return ec.marshalOterminal_types2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalType(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_terminal_types(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_terminal_types_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateTerminalTypes(rctx, args["_inc"].(*model.TerminalTypesIncInput), args["_set"].(*model.TerminalTypesSetInput), args["where"].(model.TerminalTypesBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesMutationResponse)
+	fc.Result = res
+	return ec.marshalOterminal_types_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_terminal_types_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_terminal_types_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateTerminalTypesByPk(rctx, args["_inc"].(*model.TerminalTypesIncInput), args["_set"].(*model.TerminalTypesSetInput), args["pk_columns"].(model.TerminalTypesPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalType)
+	fc.Result = res
+	return ec.marshalOterminal_types2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalType(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_sim_card(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -5581,6 +13848,498 @@ func (ec *executionContext) _Query_sim_card_flow_by_pk(ctx context.Context, fiel
 	res := resTmp.(*model1.SimCardFlow)
 	fc.Result = res
 	return ec.marshalOsim_card_flow2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐSimCardFlow(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().Terminal(rctx, args["distinct_on"].([]model.TerminalSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalOrderBy), args["where"].(*model.TerminalBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.Terminal)
+	fc.Result = res
+	return ec.marshalNterminal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalAggregate(rctx, args["distinct_on"].([]model.TerminalSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalOrderBy), args["where"].(*model.TerminalBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalAggregate)
+	fc.Result = res
+	return ec.marshalNterminal_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Terminal)
+	fc.Result = res
+	return ec.marshalOterminal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_factory(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_factory_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalFactory(rctx, args["distinct_on"].([]model.TerminalFactorySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalFactoryOrderBy), args["where"].(*model.TerminalFactoryBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.TerminalFactory)
+	fc.Result = res
+	return ec.marshalNterminal_factory2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactoryᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_factory_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_factory_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalFactoryAggregate(rctx, args["distinct_on"].([]model.TerminalFactorySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalFactoryOrderBy), args["where"].(*model.TerminalFactoryBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryAggregate)
+	fc.Result = res
+	return ec.marshalNterminal_factory_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_factory_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_factory_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalFactoryByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalFactory)
+	fc.Result = res
+	return ec.marshalOterminal_factory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactory(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_modal(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_modal_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalModal(rctx, args["distinct_on"].([]model.TerminalModalSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalModalOrderBy), args["where"].(*model.TerminalModalBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.TerminalModal)
+	fc.Result = res
+	return ec.marshalNterminal_modal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModalᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_modal_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_modal_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalModalAggregate(rctx, args["distinct_on"].([]model.TerminalModalSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalModalOrderBy), args["where"].(*model.TerminalModalBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalAggregate)
+	fc.Result = res
+	return ec.marshalNterminal_modal_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_modal_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_modal_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalModalByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalModal)
+	fc.Result = res
+	return ec.marshalOterminal_modal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModal(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_types(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_types_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalTypes(rctx, args["distinct_on"].([]model.TerminalTypesSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalTypesOrderBy), args["where"].(*model.TerminalTypesBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.TerminalType)
+	fc.Result = res
+	return ec.marshalNterminal_types2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalTypeᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_types_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_types_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalTypesAggregate(rctx, args["distinct_on"].([]model.TerminalTypesSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.TerminalTypesOrderBy), args["where"].(*model.TerminalTypesBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesAggregate)
+	fc.Result = res
+	return ec.marshalNterminal_types_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_terminal_types_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_terminal_types_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().TerminalTypesByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.TerminalType)
+	fc.Result = res
+	return ec.marshalOterminal_types2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalType(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -14735,6 +23494,10559 @@ func (ec *executionContext) _sim_card_variance_fields_mobile_type(ctx context.Co
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _terminal_adas_model(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AdasModel, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_auth_key(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AuthKey, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_camera_num(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_channel_no(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ChannelNo, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_city_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CityID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNtimestamptz2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_dept_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeptID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_first_install_time(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FirstInstallTime, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_guarantee_date(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.GuaranteeDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int64)
+	fc.Result = res
+	return ec.marshalNbigint2int64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_imei(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Imei, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_install_man_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.InstallManID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsDelete, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(bool)
+	fc.Result = res
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_is_reg(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsReg, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*bool)
+	fc.Result = res
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_is_support_photo(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsSupportPhoto, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(bool)
+	fc.Result = res
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_mock_auth_key(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MockAuthKey, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_produce_date(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProduceDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_prove_proxyrg_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProveProxyrgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_province_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProvinceID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_proxyrg_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProxyrgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_record_date(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RecordDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_reg_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RegID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_remarks(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remarks, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_remove_reason(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RemoveReason, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_sim_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.SimID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_sprg_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.SprgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_terminal_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TerminalID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_type_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TypeID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_vehicle_id(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VehicleID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_version_number(ctx context.Context, field graphql.CollectedField, obj *model1.Terminal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VersionNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Aggregate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalAggregateFields)
+	fc.Result = res
+	return ec.marshalOterminal_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalAggregateFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Nodes, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.Terminal)
+	fc.Result = res
+	return ec.marshalNterminal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_avg(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Avg, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalAvgFields)
+	fc.Result = res
+	return ec.marshalOterminal_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalAvgFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_count(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_terminal_aggregate_fields_count_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Count, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_max(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Max, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalMaxFields)
+	fc.Result = res
+	return ec.marshalOterminal_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMaxFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_min(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Min, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalMinFields)
+	fc.Result = res
+	return ec.marshalOterminal_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMinFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Stddev, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalStddevFields)
+	fc.Result = res
+	return ec.marshalOterminal_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalStddevPopFields)
+	fc.Result = res
+	return ec.marshalOterminal_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalStddevSampFields)
+	fc.Result = res
+	return ec.marshalOterminal_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_sum(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Sum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalSumFields)
+	fc.Result = res
+	return ec.marshalOterminal_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSumFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalVarPopFields)
+	fc.Result = res
+	return ec.marshalOterminal_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalVarSampFields)
+	fc.Result = res
+	return ec.marshalOterminal_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_aggregate_fields_variance(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Variance, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalVarianceFields)
+	fc.Result = res
+	return ec.marshalOterminal_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarianceFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_avg_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_avg_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_avg_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_avg_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_address(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Address, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_contact(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Contact, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_contact_phone(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ContactPhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_factory_id(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FactoryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_factory_name(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FactoryName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_id(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int64)
+	fc.Result = res
+	return ec.marshalNbigint2int64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsDelete, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(bool)
+	fc.Result = res
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_remark(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remark, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_tech_contact(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TechContact, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_tech_contact_phone(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TechContactPhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalFactory) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Aggregate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryAggregateFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryAggregateFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Nodes, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.TerminalFactory)
+	fc.Result = res
+	return ec.marshalNterminal_factory2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactoryᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_avg(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Avg, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryAvgFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryAvgFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_count(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_terminal_factory_aggregate_fields_count_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Count, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_max(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Max, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryMaxFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMaxFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_min(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Min, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryMinFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMinFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Stddev, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryStddevFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryStddevPopFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryStddevSampFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_sum(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Sum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactorySumFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySumFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryVarPopFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryVarSampFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields_variance(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Variance, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalFactoryVarianceFields)
+	fc.Result = res
+	return ec.marshalOterminal_factory_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarianceFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_avg_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_avg_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_address(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Address, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_contact(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Contact, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_contact_phone(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ContactPhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_factory_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FactoryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_factory_name(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FactoryName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_remark(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remark, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_tech_contact(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TechContact, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_tech_contact_phone(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TechContactPhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_address(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Address, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_contact(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Contact, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_contact_phone(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ContactPhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_factory_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FactoryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_factory_name(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FactoryName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_remark(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remark, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_tech_contact(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TechContact, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_tech_contact_phone(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TechContactPhone, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_mutation_response_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_mutation_response",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AffectedRows, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_mutation_response_returning(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_mutation_response",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Returning, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.TerminalFactory)
+	fc.Result = res
+	return ec.marshalNterminal_factory2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactoryᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_stddev_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_stddev_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_stddev_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_stddev_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_stddev_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_stddev_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_sum_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactorySumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_sum_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_var_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_var_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_var_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_var_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_factory_variance_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalFactoryVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_factory_variance_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_adas_model(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AdasModel, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_auth_key(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AuthKey, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_channel_no(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ChannelNo, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_city_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CityID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_dept_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeptID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_first_install_time(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FirstInstallTime, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_guarantee_date(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.GuaranteeDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_imei(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Imei, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_install_man_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.InstallManID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_mock_auth_key(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MockAuthKey, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_produce_date(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProduceDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_prove_proxyrg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProveProxyrgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_province_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProvinceID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_proxyrg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProxyrgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_record_date(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RecordDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_reg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RegID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remarks, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_remove_reason(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RemoveReason, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_sim_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.SimID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_sprg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.SprgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_terminal_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TerminalID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_type_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TypeID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_vehicle_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VehicleID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_max_fields_version_number(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VersionNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_adas_model(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AdasModel, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_auth_key(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AuthKey, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_channel_no(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ChannelNo, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_city_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CityID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_dept_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeptID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_first_install_time(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FirstInstallTime, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_guarantee_date(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.GuaranteeDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_imei(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Imei, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_install_man_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.InstallManID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_mock_auth_key(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.MockAuthKey, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_produce_date(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProduceDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_prove_proxyrg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProveProxyrgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_province_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProvinceID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_proxyrg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProxyrgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_record_date(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RecordDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_reg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RegID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remarks, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_remove_reason(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RemoveReason, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_sim_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.SimID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_sprg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.SprgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_terminal_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TerminalID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_type_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TypeID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_vehicle_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VehicleID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_min_fields_version_number(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VersionNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_adas_modal(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AdasModal, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNtimestamptz2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_factory_id(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FactoryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_id(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int64)
+	fc.Result = res
+	return ec.marshalNbigint2int64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsDelete, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(bool)
+	fc.Result = res
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_is_electronics_post_card(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsElectronicsPostCard, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*bool)
+	fc.Result = res
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_is_slag_car_teminal(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsSlagCarTeminal, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*bool)
+	fc.Result = res
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_is_testing_situation(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsTestingSituation, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*bool)
+	fc.Result = res
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_is_transport_dept_4g(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsTransportDept4g, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*bool)
+	fc.Result = res
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_modal_name(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModalName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_proxyrg_id(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProxyrgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_record_no(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RecordNo, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_remark(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remark, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_terminal_modal_id(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TerminalModalID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_terminal_type_id(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TerminalTypeID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalModal) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Aggregate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalAggregateFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalAggregateFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Nodes, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.TerminalModal)
+	fc.Result = res
+	return ec.marshalNterminal_modal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModalᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_avg(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Avg, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalAvgFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalAvgFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_count(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_terminal_modal_aggregate_fields_count_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Count, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_max(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Max, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalMaxFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMaxFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_min(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Min, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalMinFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMinFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Stddev, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalStddevFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalStddevPopFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalStddevSampFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_sum(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Sum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalSumFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSumFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalVarPopFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalVarSampFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields_variance(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Variance, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalModalVarianceFields)
+	fc.Result = res
+	return ec.marshalOterminal_modal_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarianceFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_avg_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_avg_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_adas_modal(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AdasModal, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_factory_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FactoryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_modal_name(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModalName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_proxyrg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProxyrgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_record_no(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RecordNo, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_remark(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remark, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_terminal_modal_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TerminalModalID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_terminal_type_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TerminalTypeID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_adas_modal(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AdasModal, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_factory_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.FactoryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_modal_name(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ModalName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_proxyrg_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProxyrgID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_record_no(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RecordNo, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_remark(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remark, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_terminal_modal_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TerminalModalID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_terminal_type_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TerminalTypeID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_mutation_response_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_mutation_response",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AffectedRows, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_mutation_response_returning(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_mutation_response",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Returning, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.TerminalModal)
+	fc.Result = res
+	return ec.marshalNterminal_modal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModalᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_stddev_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_stddev_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_stddev_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_stddev_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_stddev_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_stddev_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_sum_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_sum_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_var_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_var_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_var_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_var_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_modal_variance_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalModalVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_modal_variance_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_mutation_response_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_mutation_response",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AffectedRows, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_mutation_response_returning(ctx context.Context, field graphql.CollectedField, obj *model.TerminalMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_mutation_response",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Returning, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.Terminal)
+	fc.Result = res
+	return ec.marshalNterminal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_stddev_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_stddev_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_stddev_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_stddev_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_stddev_pop_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_stddev_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_stddev_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_stddev_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_stddev_samp_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_stddev_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_stddev_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_stddev_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_sum_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_sum_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_sum_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_sum_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNtimestamptz2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_id(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int64)
+	fc.Result = res
+	return ec.marshalNbigint2int64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsDelete, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(bool)
+	fc.Result = res
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_protocol_name(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProtocolName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_remark(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remark, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_type_id(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TypeID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.TerminalType) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Aggregate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesAggregateFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesAggregateFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Nodes, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.TerminalType)
+	fc.Result = res
+	return ec.marshalNterminal_types2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalTypeᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_avg(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Avg, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesAvgFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesAvgFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_count(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_terminal_types_aggregate_fields_count_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Count, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_max(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Max, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesMaxFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMaxFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_min(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Min, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesMinFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMinFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Stddev, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesStddevFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesStddevPopFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesStddevSampFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_sum(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Sum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesSumFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSumFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesVarPopFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesVarSampFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_aggregate_fields_variance(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_aggregate_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Variance, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.TerminalTypesVarianceFields)
+	fc.Result = res
+	return ec.marshalOterminal_types_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarianceFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_avg_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_avg_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_protocol_name(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProtocolName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_remark(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remark, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_type_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TypeID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_protocol_name(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ProtocolName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_remark(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remark, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_type_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.TypeID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_mutation_response_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_mutation_response",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AffectedRows, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_mutation_response_returning(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_mutation_response",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Returning, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.TerminalType)
+	fc.Result = res
+	return ec.marshalNterminal_types2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalTypeᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_stddev_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_stddev_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_stddev_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_stddev_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_stddev_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_stddev_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_sum_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_sum_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_var_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_var_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_var_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_var_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_types_variance_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalTypesVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_types_variance_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_var_pop_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_var_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_var_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_var_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_var_samp_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_var_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_var_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_var_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_variance_fields_camera_num(ctx context.Context, field graphql.CollectedField, obj *model.TerminalVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_variance_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CameraNum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _terminal_variance_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.TerminalVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "terminal_variance_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
 // endregion **************************** field.gotpl *****************************
 
 // region    **************************** input.gotpl *****************************
@@ -19015,6 +38327,5806 @@ func (ec *executionContext) unmarshalInputsim_card_variance_order_by(ctx context
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputterminal_aggregate_order_by(ctx context.Context, obj interface{}) (model.TerminalAggregateOrderBy, error) {
+	var it model.TerminalAggregateOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "avg":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("avg"))
+			it.Avg, err = ec.unmarshalOterminal_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalAvgOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "count":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("count"))
+			it.Count, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("max"))
+			it.Max, err = ec.unmarshalOterminal_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMaxOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("min"))
+			it.Min, err = ec.unmarshalOterminal_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMinOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev"))
+			it.Stddev, err = ec.unmarshalOterminal_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_pop"))
+			it.StddevPop, err = ec.unmarshalOterminal_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_samp"))
+			it.StddevSamp, err = ec.unmarshalOterminal_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sum":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sum"))
+			it.Sum, err = ec.unmarshalOterminal_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSumOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_pop"))
+			it.VarPop, err = ec.unmarshalOterminal_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_samp"))
+			it.VarSamp, err = ec.unmarshalOterminal_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "variance":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("variance"))
+			it.Variance, err = ec.unmarshalOterminal_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarianceOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_arr_rel_insert_input(ctx context.Context, obj interface{}) (model.TerminalArrRelInsertInput, error) {
+	var it model.TerminalArrRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNterminal_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalInsertInputᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOterminal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_avg_order_by(ctx context.Context, obj interface{}) (model.TerminalAvgOrderBy, error) {
+	var it model.TerminalAvgOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_bool_exp(ctx context.Context, obj interface{}) (model.TerminalBoolExp, error) {
+	var it model.TerminalBoolExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_and":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
+			it.And, err = ec.unmarshalOterminal_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_not":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
+			it.Not, err = ec.unmarshalOterminal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_or":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
+			it.Or, err = ec.unmarshalOterminal_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "adas_model":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_model"))
+			it.AdasModel, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("auth_key"))
+			it.AuthKey, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "channel_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("channel_no"))
+			it.ChannelNo, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "city_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
+			it.CityID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "dept_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dept_id"))
+			it.DeptID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "first_install_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first_install_time"))
+			it.FirstInstallTime, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "guarantee_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("guarantee_date"))
+			it.GuaranteeDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imei":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imei"))
+			it.Imei, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "install_man_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("install_man_id"))
+			it.InstallManID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_reg":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_reg"))
+			it.IsReg, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_support_photo":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_support_photo"))
+			it.IsSupportPhoto, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "mock_auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("mock_auth_key"))
+			it.MockAuthKey, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "produce_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("produce_date"))
+			it.ProduceDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "prove_proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("prove_proxyrg_id"))
+			it.ProveProxyrgID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "province_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
+			it.ProvinceID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_date"))
+			it.RecordDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "reg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("reg_id"))
+			it.RegID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remove_reason":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remove_reason"))
+			it.RemoveReason, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sim_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sim_id"))
+			it.SimID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sprg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sprg_id"))
+			it.SprgID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_id"))
+			it.TerminalID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "version_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("version_number"))
+			it.VersionNumber, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_aggregate_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryAggregateOrderBy, error) {
+	var it model.TerminalFactoryAggregateOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "avg":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("avg"))
+			it.Avg, err = ec.unmarshalOterminal_factory_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryAvgOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "count":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("count"))
+			it.Count, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("max"))
+			it.Max, err = ec.unmarshalOterminal_factory_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMaxOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("min"))
+			it.Min, err = ec.unmarshalOterminal_factory_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMinOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev"))
+			it.Stddev, err = ec.unmarshalOterminal_factory_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_pop"))
+			it.StddevPop, err = ec.unmarshalOterminal_factory_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_samp"))
+			it.StddevSamp, err = ec.unmarshalOterminal_factory_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sum":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sum"))
+			it.Sum, err = ec.unmarshalOterminal_factory_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySumOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_pop"))
+			it.VarPop, err = ec.unmarshalOterminal_factory_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_samp"))
+			it.VarSamp, err = ec.unmarshalOterminal_factory_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "variance":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("variance"))
+			it.Variance, err = ec.unmarshalOterminal_factory_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarianceOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_arr_rel_insert_input(ctx context.Context, obj interface{}) (model.TerminalFactoryArrRelInsertInput, error) {
+	var it model.TerminalFactoryArrRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNterminal_factory_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryInsertInputᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOterminal_factory_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_avg_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryAvgOrderBy, error) {
+	var it model.TerminalFactoryAvgOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_bool_exp(ctx context.Context, obj interface{}) (model.TerminalFactoryBoolExp, error) {
+	var it model.TerminalFactoryBoolExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_and":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
+			it.And, err = ec.unmarshalOterminal_factory_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_not":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
+			it.Not, err = ec.unmarshalOterminal_factory_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_or":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
+			it.Or, err = ec.unmarshalOterminal_factory_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "address":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("address"))
+			it.Address, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact"))
+			it.Contact, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_phone"))
+			it.ContactPhone, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_name"))
+			it.FactoryName, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact"))
+			it.TechContact, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact_phone"))
+			it.TechContactPhone, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_inc_input(ctx context.Context, obj interface{}) (model.TerminalFactoryIncInput, error) {
+	var it model.TerminalFactoryIncInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_insert_input(ctx context.Context, obj interface{}) (model.TerminalFactoryInsertInput, error) {
+	var it model.TerminalFactoryInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "address":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("address"))
+			it.Address, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact"))
+			it.Contact, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_phone"))
+			it.ContactPhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_name"))
+			it.FactoryName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact"))
+			it.TechContact, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact_phone"))
+			it.TechContactPhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_max_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryMaxOrderBy, error) {
+	var it model.TerminalFactoryMaxOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "address":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("address"))
+			it.Address, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact"))
+			it.Contact, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_phone"))
+			it.ContactPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_name"))
+			it.FactoryName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact"))
+			it.TechContact, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact_phone"))
+			it.TechContactPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_min_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryMinOrderBy, error) {
+	var it model.TerminalFactoryMinOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "address":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("address"))
+			it.Address, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact"))
+			it.Contact, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_phone"))
+			it.ContactPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_name"))
+			it.FactoryName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact"))
+			it.TechContact, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact_phone"))
+			it.TechContactPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_obj_rel_insert_input(ctx context.Context, obj interface{}) (model.TerminalFactoryObjRelInsertInput, error) {
+	var it model.TerminalFactoryObjRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNterminal_factory_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryInsertInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOterminal_factory_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_on_conflict(ctx context.Context, obj interface{}) (model.TerminalFactoryOnConflict, error) {
+	var it model.TerminalFactoryOnConflict
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "constraint":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("constraint"))
+			it.Constraint, err = ec.unmarshalNterminal_factory_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryConstraint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_columns":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_columns"))
+			it.UpdateColumns, err = ec.unmarshalNterminal_factory_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryUpdateColumnᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "where":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+			it.Where, err = ec.unmarshalOterminal_factory_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryOrderBy, error) {
+	var it model.TerminalFactoryOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "address":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("address"))
+			it.Address, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact"))
+			it.Contact, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_phone"))
+			it.ContactPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_name"))
+			it.FactoryName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact"))
+			it.TechContact, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact_phone"))
+			it.TechContactPhone, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_pk_columns_input(ctx context.Context, obj interface{}) (model.TerminalFactoryPkColumnsInput, error) {
+	var it model.TerminalFactoryPkColumnsInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalNbigint2int64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_set_input(ctx context.Context, obj interface{}) (model.TerminalFactorySetInput, error) {
+	var it model.TerminalFactorySetInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "address":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("address"))
+			it.Address, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact"))
+			it.Contact, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_phone"))
+			it.ContactPhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_name"))
+			it.FactoryName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact"))
+			it.TechContact, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "tech_contact_phone":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("tech_contact_phone"))
+			it.TechContactPhone, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_stddev_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryStddevOrderBy, error) {
+	var it model.TerminalFactoryStddevOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_stddev_pop_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryStddevPopOrderBy, error) {
+	var it model.TerminalFactoryStddevPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_stddev_samp_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryStddevSampOrderBy, error) {
+	var it model.TerminalFactoryStddevSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_sum_order_by(ctx context.Context, obj interface{}) (model.TerminalFactorySumOrderBy, error) {
+	var it model.TerminalFactorySumOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_var_pop_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryVarPopOrderBy, error) {
+	var it model.TerminalFactoryVarPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_var_samp_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryVarSampOrderBy, error) {
+	var it model.TerminalFactoryVarSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_factory_variance_order_by(ctx context.Context, obj interface{}) (model.TerminalFactoryVarianceOrderBy, error) {
+	var it model.TerminalFactoryVarianceOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_inc_input(ctx context.Context, obj interface{}) (model.TerminalIncInput, error) {
+	var it model.TerminalIncInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_insert_input(ctx context.Context, obj interface{}) (model.TerminalInsertInput, error) {
+	var it model.TerminalInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_model":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_model"))
+			it.AdasModel, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("auth_key"))
+			it.AuthKey, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "channel_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("channel_no"))
+			it.ChannelNo, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "city_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
+			it.CityID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "dept_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dept_id"))
+			it.DeptID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "first_install_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first_install_time"))
+			it.FirstInstallTime, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "guarantee_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("guarantee_date"))
+			it.GuaranteeDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imei":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imei"))
+			it.Imei, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "install_man_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("install_man_id"))
+			it.InstallManID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_reg":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_reg"))
+			it.IsReg, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_support_photo":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_support_photo"))
+			it.IsSupportPhoto, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "mock_auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("mock_auth_key"))
+			it.MockAuthKey, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "produce_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("produce_date"))
+			it.ProduceDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "prove_proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("prove_proxyrg_id"))
+			it.ProveProxyrgID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "province_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
+			it.ProvinceID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_date"))
+			it.RecordDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "reg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("reg_id"))
+			it.RegID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remove_reason":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remove_reason"))
+			it.RemoveReason, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sim_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sim_id"))
+			it.SimID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sprg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sprg_id"))
+			it.SprgID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_id"))
+			it.TerminalID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "version_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("version_number"))
+			it.VersionNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_max_order_by(ctx context.Context, obj interface{}) (model.TerminalMaxOrderBy, error) {
+	var it model.TerminalMaxOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_model":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_model"))
+			it.AdasModel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("auth_key"))
+			it.AuthKey, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "channel_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("channel_no"))
+			it.ChannelNo, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "city_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "dept_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dept_id"))
+			it.DeptID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "first_install_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first_install_time"))
+			it.FirstInstallTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "guarantee_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("guarantee_date"))
+			it.GuaranteeDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imei":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imei"))
+			it.Imei, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "install_man_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("install_man_id"))
+			it.InstallManID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "mock_auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("mock_auth_key"))
+			it.MockAuthKey, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "produce_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("produce_date"))
+			it.ProduceDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "prove_proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("prove_proxyrg_id"))
+			it.ProveProxyrgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "province_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_date"))
+			it.RecordDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "reg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("reg_id"))
+			it.RegID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remove_reason":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remove_reason"))
+			it.RemoveReason, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sim_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sim_id"))
+			it.SimID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sprg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sprg_id"))
+			it.SprgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_id"))
+			it.TerminalID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "version_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("version_number"))
+			it.VersionNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_min_order_by(ctx context.Context, obj interface{}) (model.TerminalMinOrderBy, error) {
+	var it model.TerminalMinOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_model":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_model"))
+			it.AdasModel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("auth_key"))
+			it.AuthKey, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "channel_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("channel_no"))
+			it.ChannelNo, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "city_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "dept_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dept_id"))
+			it.DeptID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "first_install_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first_install_time"))
+			it.FirstInstallTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "guarantee_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("guarantee_date"))
+			it.GuaranteeDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imei":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imei"))
+			it.Imei, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "install_man_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("install_man_id"))
+			it.InstallManID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "mock_auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("mock_auth_key"))
+			it.MockAuthKey, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "produce_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("produce_date"))
+			it.ProduceDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "prove_proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("prove_proxyrg_id"))
+			it.ProveProxyrgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "province_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_date"))
+			it.RecordDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "reg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("reg_id"))
+			it.RegID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remove_reason":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remove_reason"))
+			it.RemoveReason, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sim_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sim_id"))
+			it.SimID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sprg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sprg_id"))
+			it.SprgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_id"))
+			it.TerminalID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "version_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("version_number"))
+			it.VersionNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_aggregate_order_by(ctx context.Context, obj interface{}) (model.TerminalModalAggregateOrderBy, error) {
+	var it model.TerminalModalAggregateOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "avg":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("avg"))
+			it.Avg, err = ec.unmarshalOterminal_modal_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalAvgOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "count":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("count"))
+			it.Count, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("max"))
+			it.Max, err = ec.unmarshalOterminal_modal_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMaxOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("min"))
+			it.Min, err = ec.unmarshalOterminal_modal_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMinOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev"))
+			it.Stddev, err = ec.unmarshalOterminal_modal_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_pop"))
+			it.StddevPop, err = ec.unmarshalOterminal_modal_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_samp"))
+			it.StddevSamp, err = ec.unmarshalOterminal_modal_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sum":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sum"))
+			it.Sum, err = ec.unmarshalOterminal_modal_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSumOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_pop"))
+			it.VarPop, err = ec.unmarshalOterminal_modal_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_samp"))
+			it.VarSamp, err = ec.unmarshalOterminal_modal_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "variance":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("variance"))
+			it.Variance, err = ec.unmarshalOterminal_modal_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarianceOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_arr_rel_insert_input(ctx context.Context, obj interface{}) (model.TerminalModalArrRelInsertInput, error) {
+	var it model.TerminalModalArrRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNterminal_modal_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalInsertInputᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOterminal_modal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_avg_order_by(ctx context.Context, obj interface{}) (model.TerminalModalAvgOrderBy, error) {
+	var it model.TerminalModalAvgOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_bool_exp(ctx context.Context, obj interface{}) (model.TerminalModalBoolExp, error) {
+	var it model.TerminalModalBoolExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_and":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
+			it.And, err = ec.unmarshalOterminal_modal_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_not":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
+			it.Not, err = ec.unmarshalOterminal_modal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_or":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
+			it.Or, err = ec.unmarshalOterminal_modal_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "adas_modal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_modal"))
+			it.AdasModal, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_electronics_post_card":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_electronics_post_card"))
+			it.IsElectronicsPostCard, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_slag_car_teminal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_slag_car_teminal"))
+			it.IsSlagCarTeminal, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_testing_situation":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_testing_situation"))
+			it.IsTestingSituation, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_transport_dept_4g":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_transport_dept_4g"))
+			it.IsTransportDept4g, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "modal_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("modal_name"))
+			it.ModalName, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_no"))
+			it.RecordNo, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_modal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_modal_id"))
+			it.TerminalModalID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_type_id"))
+			it.TerminalTypeID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_inc_input(ctx context.Context, obj interface{}) (model.TerminalModalIncInput, error) {
+	var it model.TerminalModalIncInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_insert_input(ctx context.Context, obj interface{}) (model.TerminalModalInsertInput, error) {
+	var it model.TerminalModalInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_modal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_modal"))
+			it.AdasModal, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_electronics_post_card":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_electronics_post_card"))
+			it.IsElectronicsPostCard, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_slag_car_teminal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_slag_car_teminal"))
+			it.IsSlagCarTeminal, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_testing_situation":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_testing_situation"))
+			it.IsTestingSituation, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_transport_dept_4g":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_transport_dept_4g"))
+			it.IsTransportDept4g, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "modal_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("modal_name"))
+			it.ModalName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_no"))
+			it.RecordNo, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_modal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_modal_id"))
+			it.TerminalModalID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_type_id"))
+			it.TerminalTypeID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_max_order_by(ctx context.Context, obj interface{}) (model.TerminalModalMaxOrderBy, error) {
+	var it model.TerminalModalMaxOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_modal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_modal"))
+			it.AdasModal, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "modal_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("modal_name"))
+			it.ModalName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_no"))
+			it.RecordNo, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_modal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_modal_id"))
+			it.TerminalModalID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_type_id"))
+			it.TerminalTypeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_min_order_by(ctx context.Context, obj interface{}) (model.TerminalModalMinOrderBy, error) {
+	var it model.TerminalModalMinOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_modal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_modal"))
+			it.AdasModal, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "modal_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("modal_name"))
+			it.ModalName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_no"))
+			it.RecordNo, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_modal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_modal_id"))
+			it.TerminalModalID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_type_id"))
+			it.TerminalTypeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_obj_rel_insert_input(ctx context.Context, obj interface{}) (model.TerminalModalObjRelInsertInput, error) {
+	var it model.TerminalModalObjRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNterminal_modal_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalInsertInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOterminal_modal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_on_conflict(ctx context.Context, obj interface{}) (model.TerminalModalOnConflict, error) {
+	var it model.TerminalModalOnConflict
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "constraint":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("constraint"))
+			it.Constraint, err = ec.unmarshalNterminal_modal_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalConstraint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_columns":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_columns"))
+			it.UpdateColumns, err = ec.unmarshalNterminal_modal_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalUpdateColumnᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "where":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+			it.Where, err = ec.unmarshalOterminal_modal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_order_by(ctx context.Context, obj interface{}) (model.TerminalModalOrderBy, error) {
+	var it model.TerminalModalOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_modal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_modal"))
+			it.AdasModal, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_electronics_post_card":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_electronics_post_card"))
+			it.IsElectronicsPostCard, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_slag_car_teminal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_slag_car_teminal"))
+			it.IsSlagCarTeminal, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_testing_situation":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_testing_situation"))
+			it.IsTestingSituation, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_transport_dept_4g":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_transport_dept_4g"))
+			it.IsTransportDept4g, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "modal_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("modal_name"))
+			it.ModalName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_no"))
+			it.RecordNo, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_modal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_modal_id"))
+			it.TerminalModalID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_type_id"))
+			it.TerminalTypeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_pk_columns_input(ctx context.Context, obj interface{}) (model.TerminalModalPkColumnsInput, error) {
+	var it model.TerminalModalPkColumnsInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalNbigint2int64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_set_input(ctx context.Context, obj interface{}) (model.TerminalModalSetInput, error) {
+	var it model.TerminalModalSetInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_modal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_modal"))
+			it.AdasModal, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "factory_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("factory_id"))
+			it.FactoryID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_electronics_post_card":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_electronics_post_card"))
+			it.IsElectronicsPostCard, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_slag_car_teminal":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_slag_car_teminal"))
+			it.IsSlagCarTeminal, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_testing_situation":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_testing_situation"))
+			it.IsTestingSituation, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_transport_dept_4g":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_transport_dept_4g"))
+			it.IsTransportDept4g, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "modal_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("modal_name"))
+			it.ModalName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_no"))
+			it.RecordNo, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_modal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_modal_id"))
+			it.TerminalModalID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_type_id"))
+			it.TerminalTypeID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_stddev_order_by(ctx context.Context, obj interface{}) (model.TerminalModalStddevOrderBy, error) {
+	var it model.TerminalModalStddevOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_stddev_pop_order_by(ctx context.Context, obj interface{}) (model.TerminalModalStddevPopOrderBy, error) {
+	var it model.TerminalModalStddevPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_stddev_samp_order_by(ctx context.Context, obj interface{}) (model.TerminalModalStddevSampOrderBy, error) {
+	var it model.TerminalModalStddevSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_sum_order_by(ctx context.Context, obj interface{}) (model.TerminalModalSumOrderBy, error) {
+	var it model.TerminalModalSumOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_var_pop_order_by(ctx context.Context, obj interface{}) (model.TerminalModalVarPopOrderBy, error) {
+	var it model.TerminalModalVarPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_var_samp_order_by(ctx context.Context, obj interface{}) (model.TerminalModalVarSampOrderBy, error) {
+	var it model.TerminalModalVarSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_modal_variance_order_by(ctx context.Context, obj interface{}) (model.TerminalModalVarianceOrderBy, error) {
+	var it model.TerminalModalVarianceOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_obj_rel_insert_input(ctx context.Context, obj interface{}) (model.TerminalObjRelInsertInput, error) {
+	var it model.TerminalObjRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNterminal_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalInsertInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOterminal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_on_conflict(ctx context.Context, obj interface{}) (model.TerminalOnConflict, error) {
+	var it model.TerminalOnConflict
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "constraint":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("constraint"))
+			it.Constraint, err = ec.unmarshalNterminal_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalConstraint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_columns":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_columns"))
+			it.UpdateColumns, err = ec.unmarshalNterminal_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalUpdateColumnᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "where":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+			it.Where, err = ec.unmarshalOterminal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_order_by(ctx context.Context, obj interface{}) (model.TerminalOrderBy, error) {
+	var it model.TerminalOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_model":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_model"))
+			it.AdasModel, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("auth_key"))
+			it.AuthKey, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "channel_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("channel_no"))
+			it.ChannelNo, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "city_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
+			it.CityID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "dept_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dept_id"))
+			it.DeptID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "first_install_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first_install_time"))
+			it.FirstInstallTime, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "guarantee_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("guarantee_date"))
+			it.GuaranteeDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imei":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imei"))
+			it.Imei, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "install_man_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("install_man_id"))
+			it.InstallManID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_reg":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_reg"))
+			it.IsReg, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_support_photo":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_support_photo"))
+			it.IsSupportPhoto, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "mock_auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("mock_auth_key"))
+			it.MockAuthKey, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "produce_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("produce_date"))
+			it.ProduceDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "prove_proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("prove_proxyrg_id"))
+			it.ProveProxyrgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "province_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
+			it.ProvinceID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_date"))
+			it.RecordDate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "reg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("reg_id"))
+			it.RegID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remove_reason":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remove_reason"))
+			it.RemoveReason, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sim_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sim_id"))
+			it.SimID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sprg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sprg_id"))
+			it.SprgID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_id"))
+			it.TerminalID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "version_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("version_number"))
+			it.VersionNumber, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_pk_columns_input(ctx context.Context, obj interface{}) (model.TerminalPkColumnsInput, error) {
+	var it model.TerminalPkColumnsInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalNbigint2int64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_set_input(ctx context.Context, obj interface{}) (model.TerminalSetInput, error) {
+	var it model.TerminalSetInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "adas_model":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("adas_model"))
+			it.AdasModel, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("auth_key"))
+			it.AuthKey, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "channel_no":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("channel_no"))
+			it.ChannelNo, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "city_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("city_id"))
+			it.CityID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "dept_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dept_id"))
+			it.DeptID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "first_install_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("first_install_time"))
+			it.FirstInstallTime, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "guarantee_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("guarantee_date"))
+			it.GuaranteeDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imei":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imei"))
+			it.Imei, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "install_man_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("install_man_id"))
+			it.InstallManID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_reg":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_reg"))
+			it.IsReg, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_support_photo":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_support_photo"))
+			it.IsSupportPhoto, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "mock_auth_key":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("mock_auth_key"))
+			it.MockAuthKey, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "produce_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("produce_date"))
+			it.ProduceDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "prove_proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("prove_proxyrg_id"))
+			it.ProveProxyrgID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "province_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("province_id"))
+			it.ProvinceID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "proxyrg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("proxyrg_id"))
+			it.ProxyrgID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "record_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_date"))
+			it.RecordDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "reg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("reg_id"))
+			it.RegID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remove_reason":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remove_reason"))
+			it.RemoveReason, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sim_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sim_id"))
+			it.SimID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sprg_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sprg_id"))
+			it.SprgID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "terminal_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("terminal_id"))
+			it.TerminalID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "version_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("version_number"))
+			it.VersionNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_stddev_order_by(ctx context.Context, obj interface{}) (model.TerminalStddevOrderBy, error) {
+	var it model.TerminalStddevOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_stddev_pop_order_by(ctx context.Context, obj interface{}) (model.TerminalStddevPopOrderBy, error) {
+	var it model.TerminalStddevPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_stddev_samp_order_by(ctx context.Context, obj interface{}) (model.TerminalStddevSampOrderBy, error) {
+	var it model.TerminalStddevSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_sum_order_by(ctx context.Context, obj interface{}) (model.TerminalSumOrderBy, error) {
+	var it model.TerminalSumOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_aggregate_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesAggregateOrderBy, error) {
+	var it model.TerminalTypesAggregateOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "avg":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("avg"))
+			it.Avg, err = ec.unmarshalOterminal_types_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesAvgOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "count":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("count"))
+			it.Count, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("max"))
+			it.Max, err = ec.unmarshalOterminal_types_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMaxOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("min"))
+			it.Min, err = ec.unmarshalOterminal_types_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMinOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev"))
+			it.Stddev, err = ec.unmarshalOterminal_types_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_pop"))
+			it.StddevPop, err = ec.unmarshalOterminal_types_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_samp"))
+			it.StddevSamp, err = ec.unmarshalOterminal_types_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sum":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sum"))
+			it.Sum, err = ec.unmarshalOterminal_types_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSumOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_pop"))
+			it.VarPop, err = ec.unmarshalOterminal_types_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_samp"))
+			it.VarSamp, err = ec.unmarshalOterminal_types_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "variance":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("variance"))
+			it.Variance, err = ec.unmarshalOterminal_types_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarianceOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_arr_rel_insert_input(ctx context.Context, obj interface{}) (model.TerminalTypesArrRelInsertInput, error) {
+	var it model.TerminalTypesArrRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNterminal_types_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesInsertInputᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOterminal_types_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_avg_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesAvgOrderBy, error) {
+	var it model.TerminalTypesAvgOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_bool_exp(ctx context.Context, obj interface{}) (model.TerminalTypesBoolExp, error) {
+	var it model.TerminalTypesBoolExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_and":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
+			it.And, err = ec.unmarshalOterminal_types_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_not":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
+			it.Not, err = ec.unmarshalOterminal_types_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_or":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
+			it.Or, err = ec.unmarshalOterminal_types_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "protocol_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("protocol_name"))
+			it.ProtocolName, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_inc_input(ctx context.Context, obj interface{}) (model.TerminalTypesIncInput, error) {
+	var it model.TerminalTypesIncInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_insert_input(ctx context.Context, obj interface{}) (model.TerminalTypesInsertInput, error) {
+	var it model.TerminalTypesInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "protocol_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("protocol_name"))
+			it.ProtocolName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_max_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesMaxOrderBy, error) {
+	var it model.TerminalTypesMaxOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "protocol_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("protocol_name"))
+			it.ProtocolName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_min_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesMinOrderBy, error) {
+	var it model.TerminalTypesMinOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "protocol_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("protocol_name"))
+			it.ProtocolName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_obj_rel_insert_input(ctx context.Context, obj interface{}) (model.TerminalTypesObjRelInsertInput, error) {
+	var it model.TerminalTypesObjRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNterminal_types_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesInsertInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOterminal_types_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_on_conflict(ctx context.Context, obj interface{}) (model.TerminalTypesOnConflict, error) {
+	var it model.TerminalTypesOnConflict
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "constraint":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("constraint"))
+			it.Constraint, err = ec.unmarshalNterminal_types_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesConstraint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_columns":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_columns"))
+			it.UpdateColumns, err = ec.unmarshalNterminal_types_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesUpdateColumnᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "where":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+			it.Where, err = ec.unmarshalOterminal_types_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesOrderBy, error) {
+	var it model.TerminalTypesOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "protocol_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("protocol_name"))
+			it.ProtocolName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_pk_columns_input(ctx context.Context, obj interface{}) (model.TerminalTypesPkColumnsInput, error) {
+	var it model.TerminalTypesPkColumnsInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalNbigint2int64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_set_input(ctx context.Context, obj interface{}) (model.TerminalTypesSetInput, error) {
+	var it model.TerminalTypesSetInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "protocol_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("protocol_name"))
+			it.ProtocolName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remark":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remark"))
+			it.Remark, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "type_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("type_id"))
+			it.TypeID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_stddev_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesStddevOrderBy, error) {
+	var it model.TerminalTypesStddevOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_stddev_pop_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesStddevPopOrderBy, error) {
+	var it model.TerminalTypesStddevPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_stddev_samp_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesStddevSampOrderBy, error) {
+	var it model.TerminalTypesStddevSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_sum_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesSumOrderBy, error) {
+	var it model.TerminalTypesSumOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_var_pop_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesVarPopOrderBy, error) {
+	var it model.TerminalTypesVarPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_var_samp_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesVarSampOrderBy, error) {
+	var it model.TerminalTypesVarSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_types_variance_order_by(ctx context.Context, obj interface{}) (model.TerminalTypesVarianceOrderBy, error) {
+	var it model.TerminalTypesVarianceOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_var_pop_order_by(ctx context.Context, obj interface{}) (model.TerminalVarPopOrderBy, error) {
+	var it model.TerminalVarPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_var_samp_order_by(ctx context.Context, obj interface{}) (model.TerminalVarSampOrderBy, error) {
+	var it model.TerminalVarSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputterminal_variance_order_by(ctx context.Context, obj interface{}) (model.TerminalVarianceOrderBy, error) {
+	var it model.TerminalVarianceOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "camera_num":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("camera_num"))
+			it.CameraNum, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context.Context, obj interface{}) (model2.TimestamptzComparisonExp, error) {
 	var it model2.TimestamptzComparisonExp
 	var asMap = obj.(map[string]interface{})
@@ -19146,6 +44258,54 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_sim_card_flow(ctx, field)
 		case "update_sim_card_flow_by_pk":
 			out.Values[i] = ec._Mutation_update_sim_card_flow_by_pk(ctx, field)
+		case "delete_terminal":
+			out.Values[i] = ec._Mutation_delete_terminal(ctx, field)
+		case "delete_terminal_by_pk":
+			out.Values[i] = ec._Mutation_delete_terminal_by_pk(ctx, field)
+		case "insert_terminal":
+			out.Values[i] = ec._Mutation_insert_terminal(ctx, field)
+		case "insert_terminal_one":
+			out.Values[i] = ec._Mutation_insert_terminal_one(ctx, field)
+		case "update_terminal":
+			out.Values[i] = ec._Mutation_update_terminal(ctx, field)
+		case "update_terminal_by_pk":
+			out.Values[i] = ec._Mutation_update_terminal_by_pk(ctx, field)
+		case "delete_terminal_factory":
+			out.Values[i] = ec._Mutation_delete_terminal_factory(ctx, field)
+		case "delete_terminal_factory_by_pk":
+			out.Values[i] = ec._Mutation_delete_terminal_factory_by_pk(ctx, field)
+		case "insert_terminal_factory":
+			out.Values[i] = ec._Mutation_insert_terminal_factory(ctx, field)
+		case "insert_terminal_factory_one":
+			out.Values[i] = ec._Mutation_insert_terminal_factory_one(ctx, field)
+		case "update_terminal_factory":
+			out.Values[i] = ec._Mutation_update_terminal_factory(ctx, field)
+		case "update_terminal_factory_by_pk":
+			out.Values[i] = ec._Mutation_update_terminal_factory_by_pk(ctx, field)
+		case "delete_terminal_modal":
+			out.Values[i] = ec._Mutation_delete_terminal_modal(ctx, field)
+		case "delete_terminal_modal_by_pk":
+			out.Values[i] = ec._Mutation_delete_terminal_modal_by_pk(ctx, field)
+		case "insert_terminal_modal":
+			out.Values[i] = ec._Mutation_insert_terminal_modal(ctx, field)
+		case "insert_terminal_modal_one":
+			out.Values[i] = ec._Mutation_insert_terminal_modal_one(ctx, field)
+		case "update_terminal_modal":
+			out.Values[i] = ec._Mutation_update_terminal_modal(ctx, field)
+		case "update_terminal_modal_by_pk":
+			out.Values[i] = ec._Mutation_update_terminal_modal_by_pk(ctx, field)
+		case "delete_terminal_types":
+			out.Values[i] = ec._Mutation_delete_terminal_types(ctx, field)
+		case "delete_terminal_types_by_pk":
+			out.Values[i] = ec._Mutation_delete_terminal_types_by_pk(ctx, field)
+		case "insert_terminal_types":
+			out.Values[i] = ec._Mutation_insert_terminal_types(ctx, field)
+		case "insert_terminal_types_one":
+			out.Values[i] = ec._Mutation_insert_terminal_types_one(ctx, field)
+		case "update_terminal_types":
+			out.Values[i] = ec._Mutation_update_terminal_types(ctx, field)
+		case "update_terminal_types_by_pk":
+			out.Values[i] = ec._Mutation_update_terminal_types_by_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -19248,6 +44408,162 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_sim_card_flow_by_pk(ctx, field)
+				return res
+			})
+		case "terminal":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "terminal_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "terminal_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_by_pk(ctx, field)
+				return res
+			})
+		case "terminal_factory":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_factory(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "terminal_factory_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_factory_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "terminal_factory_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_factory_by_pk(ctx, field)
+				return res
+			})
+		case "terminal_modal":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_modal(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "terminal_modal_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_modal_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "terminal_modal_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_modal_by_pk(ctx, field)
+				return res
+			})
+		case "terminal_types":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_types(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "terminal_types_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_types_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "terminal_types_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_terminal_types_by_pk(ctx, field)
 				return res
 			})
 		case "__type":
@@ -20666,6 +45982,1983 @@ func (ec *executionContext) _sim_card_variance_fields(ctx context.Context, sel a
 	return out
 }
 
+var terminalImplementors = []string{"terminal"}
+
+func (ec *executionContext) _terminal(ctx context.Context, sel ast.SelectionSet, obj *model1.Terminal) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminalImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal")
+		case "adas_model":
+			out.Values[i] = ec._terminal_adas_model(ctx, field, obj)
+		case "auth_key":
+			out.Values[i] = ec._terminal_auth_key(ctx, field, obj)
+		case "camera_num":
+			out.Values[i] = ec._terminal_camera_num(ctx, field, obj)
+		case "channel_no":
+			out.Values[i] = ec._terminal_channel_no(ctx, field, obj)
+		case "city_id":
+			out.Values[i] = ec._terminal_city_id(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._terminal_create_at(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "create_by":
+			out.Values[i] = ec._terminal_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_delete_by(ctx, field, obj)
+		case "dept_id":
+			out.Values[i] = ec._terminal_dept_id(ctx, field, obj)
+		case "first_install_time":
+			out.Values[i] = ec._terminal_first_install_time(ctx, field, obj)
+		case "guarantee_date":
+			out.Values[i] = ec._terminal_guarantee_date(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "imei":
+			out.Values[i] = ec._terminal_imei(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "install_man_id":
+			out.Values[i] = ec._terminal_install_man_id(ctx, field, obj)
+		case "is_delete":
+			out.Values[i] = ec._terminal_is_delete(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "is_reg":
+			out.Values[i] = ec._terminal_is_reg(ctx, field, obj)
+		case "is_support_photo":
+			out.Values[i] = ec._terminal_is_support_photo(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "mock_auth_key":
+			out.Values[i] = ec._terminal_mock_auth_key(ctx, field, obj)
+		case "produce_date":
+			out.Values[i] = ec._terminal_produce_date(ctx, field, obj)
+		case "prove_proxyrg_id":
+			out.Values[i] = ec._terminal_prove_proxyrg_id(ctx, field, obj)
+		case "province_id":
+			out.Values[i] = ec._terminal_province_id(ctx, field, obj)
+		case "proxyrg_id":
+			out.Values[i] = ec._terminal_proxyrg_id(ctx, field, obj)
+		case "record_date":
+			out.Values[i] = ec._terminal_record_date(ctx, field, obj)
+		case "reg_id":
+			out.Values[i] = ec._terminal_reg_id(ctx, field, obj)
+		case "remarks":
+			out.Values[i] = ec._terminal_remarks(ctx, field, obj)
+		case "remove_reason":
+			out.Values[i] = ec._terminal_remove_reason(ctx, field, obj)
+		case "sim_id":
+			out.Values[i] = ec._terminal_sim_id(ctx, field, obj)
+		case "sprg_id":
+			out.Values[i] = ec._terminal_sprg_id(ctx, field, obj)
+		case "terminal_id":
+			out.Values[i] = ec._terminal_terminal_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "type_id":
+			out.Values[i] = ec._terminal_type_id(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_update_by(ctx, field, obj)
+		case "vehicle_id":
+			out.Values[i] = ec._terminal_vehicle_id(ctx, field, obj)
+		case "version_number":
+			out.Values[i] = ec._terminal_version_number(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_aggregateImplementors = []string{"terminal_aggregate"}
+
+func (ec *executionContext) _terminal_aggregate(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalAggregate) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_aggregateImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_aggregate")
+		case "aggregate":
+			out.Values[i] = ec._terminal_aggregate_aggregate(ctx, field, obj)
+		case "nodes":
+			out.Values[i] = ec._terminal_aggregate_nodes(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_aggregate_fieldsImplementors = []string{"terminal_aggregate_fields"}
+
+func (ec *executionContext) _terminal_aggregate_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalAggregateFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_aggregate_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_aggregate_fields")
+		case "avg":
+			out.Values[i] = ec._terminal_aggregate_fields_avg(ctx, field, obj)
+		case "count":
+			out.Values[i] = ec._terminal_aggregate_fields_count(ctx, field, obj)
+		case "max":
+			out.Values[i] = ec._terminal_aggregate_fields_max(ctx, field, obj)
+		case "min":
+			out.Values[i] = ec._terminal_aggregate_fields_min(ctx, field, obj)
+		case "stddev":
+			out.Values[i] = ec._terminal_aggregate_fields_stddev(ctx, field, obj)
+		case "stddev_pop":
+			out.Values[i] = ec._terminal_aggregate_fields_stddev_pop(ctx, field, obj)
+		case "stddev_samp":
+			out.Values[i] = ec._terminal_aggregate_fields_stddev_samp(ctx, field, obj)
+		case "sum":
+			out.Values[i] = ec._terminal_aggregate_fields_sum(ctx, field, obj)
+		case "var_pop":
+			out.Values[i] = ec._terminal_aggregate_fields_var_pop(ctx, field, obj)
+		case "var_samp":
+			out.Values[i] = ec._terminal_aggregate_fields_var_samp(ctx, field, obj)
+		case "variance":
+			out.Values[i] = ec._terminal_aggregate_fields_variance(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_avg_fieldsImplementors = []string{"terminal_avg_fields"}
+
+func (ec *executionContext) _terminal_avg_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalAvgFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_avg_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_avg_fields")
+		case "camera_num":
+			out.Values[i] = ec._terminal_avg_fields_camera_num(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_avg_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factoryImplementors = []string{"terminal_factory"}
+
+func (ec *executionContext) _terminal_factory(ctx context.Context, sel ast.SelectionSet, obj *model1.TerminalFactory) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factoryImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory")
+		case "address":
+			out.Values[i] = ec._terminal_factory_address(ctx, field, obj)
+		case "contact":
+			out.Values[i] = ec._terminal_factory_contact(ctx, field, obj)
+		case "contact_phone":
+			out.Values[i] = ec._terminal_factory_contact_phone(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._terminal_factory_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._terminal_factory_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_factory_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_factory_delete_by(ctx, field, obj)
+		case "factory_id":
+			out.Values[i] = ec._terminal_factory_factory_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "factory_name":
+			out.Values[i] = ec._terminal_factory_factory_name(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "id":
+			out.Values[i] = ec._terminal_factory_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "is_delete":
+			out.Values[i] = ec._terminal_factory_is_delete(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "remark":
+			out.Values[i] = ec._terminal_factory_remark(ctx, field, obj)
+		case "tech_contact":
+			out.Values[i] = ec._terminal_factory_tech_contact(ctx, field, obj)
+		case "tech_contact_phone":
+			out.Values[i] = ec._terminal_factory_tech_contact_phone(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_factory_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_factory_update_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_aggregateImplementors = []string{"terminal_factory_aggregate"}
+
+func (ec *executionContext) _terminal_factory_aggregate(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryAggregate) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_aggregateImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_aggregate")
+		case "aggregate":
+			out.Values[i] = ec._terminal_factory_aggregate_aggregate(ctx, field, obj)
+		case "nodes":
+			out.Values[i] = ec._terminal_factory_aggregate_nodes(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_aggregate_fieldsImplementors = []string{"terminal_factory_aggregate_fields"}
+
+func (ec *executionContext) _terminal_factory_aggregate_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryAggregateFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_aggregate_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_aggregate_fields")
+		case "avg":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_avg(ctx, field, obj)
+		case "count":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_count(ctx, field, obj)
+		case "max":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_max(ctx, field, obj)
+		case "min":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_min(ctx, field, obj)
+		case "stddev":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_stddev(ctx, field, obj)
+		case "stddev_pop":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_stddev_pop(ctx, field, obj)
+		case "stddev_samp":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_stddev_samp(ctx, field, obj)
+		case "sum":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_sum(ctx, field, obj)
+		case "var_pop":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_var_pop(ctx, field, obj)
+		case "var_samp":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_var_samp(ctx, field, obj)
+		case "variance":
+			out.Values[i] = ec._terminal_factory_aggregate_fields_variance(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_avg_fieldsImplementors = []string{"terminal_factory_avg_fields"}
+
+func (ec *executionContext) _terminal_factory_avg_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryAvgFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_avg_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_avg_fields")
+		case "id":
+			out.Values[i] = ec._terminal_factory_avg_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_max_fieldsImplementors = []string{"terminal_factory_max_fields"}
+
+func (ec *executionContext) _terminal_factory_max_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryMaxFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_max_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_max_fields")
+		case "address":
+			out.Values[i] = ec._terminal_factory_max_fields_address(ctx, field, obj)
+		case "contact":
+			out.Values[i] = ec._terminal_factory_max_fields_contact(ctx, field, obj)
+		case "contact_phone":
+			out.Values[i] = ec._terminal_factory_max_fields_contact_phone(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._terminal_factory_max_fields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._terminal_factory_max_fields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_factory_max_fields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_factory_max_fields_delete_by(ctx, field, obj)
+		case "factory_id":
+			out.Values[i] = ec._terminal_factory_max_fields_factory_id(ctx, field, obj)
+		case "factory_name":
+			out.Values[i] = ec._terminal_factory_max_fields_factory_name(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_factory_max_fields_id(ctx, field, obj)
+		case "remark":
+			out.Values[i] = ec._terminal_factory_max_fields_remark(ctx, field, obj)
+		case "tech_contact":
+			out.Values[i] = ec._terminal_factory_max_fields_tech_contact(ctx, field, obj)
+		case "tech_contact_phone":
+			out.Values[i] = ec._terminal_factory_max_fields_tech_contact_phone(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_factory_max_fields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_factory_max_fields_update_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_min_fieldsImplementors = []string{"terminal_factory_min_fields"}
+
+func (ec *executionContext) _terminal_factory_min_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryMinFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_min_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_min_fields")
+		case "address":
+			out.Values[i] = ec._terminal_factory_min_fields_address(ctx, field, obj)
+		case "contact":
+			out.Values[i] = ec._terminal_factory_min_fields_contact(ctx, field, obj)
+		case "contact_phone":
+			out.Values[i] = ec._terminal_factory_min_fields_contact_phone(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._terminal_factory_min_fields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._terminal_factory_min_fields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_factory_min_fields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_factory_min_fields_delete_by(ctx, field, obj)
+		case "factory_id":
+			out.Values[i] = ec._terminal_factory_min_fields_factory_id(ctx, field, obj)
+		case "factory_name":
+			out.Values[i] = ec._terminal_factory_min_fields_factory_name(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_factory_min_fields_id(ctx, field, obj)
+		case "remark":
+			out.Values[i] = ec._terminal_factory_min_fields_remark(ctx, field, obj)
+		case "tech_contact":
+			out.Values[i] = ec._terminal_factory_min_fields_tech_contact(ctx, field, obj)
+		case "tech_contact_phone":
+			out.Values[i] = ec._terminal_factory_min_fields_tech_contact_phone(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_factory_min_fields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_factory_min_fields_update_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_mutation_responseImplementors = []string{"terminal_factory_mutation_response"}
+
+func (ec *executionContext) _terminal_factory_mutation_response(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryMutationResponse) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_mutation_responseImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_mutation_response")
+		case "affected_rows":
+			out.Values[i] = ec._terminal_factory_mutation_response_affected_rows(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "returning":
+			out.Values[i] = ec._terminal_factory_mutation_response_returning(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_stddev_fieldsImplementors = []string{"terminal_factory_stddev_fields"}
+
+func (ec *executionContext) _terminal_factory_stddev_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryStddevFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_stddev_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_stddev_fields")
+		case "id":
+			out.Values[i] = ec._terminal_factory_stddev_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_stddev_pop_fieldsImplementors = []string{"terminal_factory_stddev_pop_fields"}
+
+func (ec *executionContext) _terminal_factory_stddev_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryStddevPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_stddev_pop_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_stddev_pop_fields")
+		case "id":
+			out.Values[i] = ec._terminal_factory_stddev_pop_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_stddev_samp_fieldsImplementors = []string{"terminal_factory_stddev_samp_fields"}
+
+func (ec *executionContext) _terminal_factory_stddev_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryStddevSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_stddev_samp_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_stddev_samp_fields")
+		case "id":
+			out.Values[i] = ec._terminal_factory_stddev_samp_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_sum_fieldsImplementors = []string{"terminal_factory_sum_fields"}
+
+func (ec *executionContext) _terminal_factory_sum_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactorySumFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_sum_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_sum_fields")
+		case "id":
+			out.Values[i] = ec._terminal_factory_sum_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_var_pop_fieldsImplementors = []string{"terminal_factory_var_pop_fields"}
+
+func (ec *executionContext) _terminal_factory_var_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryVarPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_var_pop_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_var_pop_fields")
+		case "id":
+			out.Values[i] = ec._terminal_factory_var_pop_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_var_samp_fieldsImplementors = []string{"terminal_factory_var_samp_fields"}
+
+func (ec *executionContext) _terminal_factory_var_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryVarSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_var_samp_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_var_samp_fields")
+		case "id":
+			out.Values[i] = ec._terminal_factory_var_samp_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_factory_variance_fieldsImplementors = []string{"terminal_factory_variance_fields"}
+
+func (ec *executionContext) _terminal_factory_variance_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalFactoryVarianceFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_factory_variance_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_factory_variance_fields")
+		case "id":
+			out.Values[i] = ec._terminal_factory_variance_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_max_fieldsImplementors = []string{"terminal_max_fields"}
+
+func (ec *executionContext) _terminal_max_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalMaxFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_max_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_max_fields")
+		case "adas_model":
+			out.Values[i] = ec._terminal_max_fields_adas_model(ctx, field, obj)
+		case "auth_key":
+			out.Values[i] = ec._terminal_max_fields_auth_key(ctx, field, obj)
+		case "camera_num":
+			out.Values[i] = ec._terminal_max_fields_camera_num(ctx, field, obj)
+		case "channel_no":
+			out.Values[i] = ec._terminal_max_fields_channel_no(ctx, field, obj)
+		case "city_id":
+			out.Values[i] = ec._terminal_max_fields_city_id(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._terminal_max_fields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._terminal_max_fields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_max_fields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_max_fields_delete_by(ctx, field, obj)
+		case "dept_id":
+			out.Values[i] = ec._terminal_max_fields_dept_id(ctx, field, obj)
+		case "first_install_time":
+			out.Values[i] = ec._terminal_max_fields_first_install_time(ctx, field, obj)
+		case "guarantee_date":
+			out.Values[i] = ec._terminal_max_fields_guarantee_date(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_max_fields_id(ctx, field, obj)
+		case "imei":
+			out.Values[i] = ec._terminal_max_fields_imei(ctx, field, obj)
+		case "install_man_id":
+			out.Values[i] = ec._terminal_max_fields_install_man_id(ctx, field, obj)
+		case "mock_auth_key":
+			out.Values[i] = ec._terminal_max_fields_mock_auth_key(ctx, field, obj)
+		case "produce_date":
+			out.Values[i] = ec._terminal_max_fields_produce_date(ctx, field, obj)
+		case "prove_proxyrg_id":
+			out.Values[i] = ec._terminal_max_fields_prove_proxyrg_id(ctx, field, obj)
+		case "province_id":
+			out.Values[i] = ec._terminal_max_fields_province_id(ctx, field, obj)
+		case "proxyrg_id":
+			out.Values[i] = ec._terminal_max_fields_proxyrg_id(ctx, field, obj)
+		case "record_date":
+			out.Values[i] = ec._terminal_max_fields_record_date(ctx, field, obj)
+		case "reg_id":
+			out.Values[i] = ec._terminal_max_fields_reg_id(ctx, field, obj)
+		case "remarks":
+			out.Values[i] = ec._terminal_max_fields_remarks(ctx, field, obj)
+		case "remove_reason":
+			out.Values[i] = ec._terminal_max_fields_remove_reason(ctx, field, obj)
+		case "sim_id":
+			out.Values[i] = ec._terminal_max_fields_sim_id(ctx, field, obj)
+		case "sprg_id":
+			out.Values[i] = ec._terminal_max_fields_sprg_id(ctx, field, obj)
+		case "terminal_id":
+			out.Values[i] = ec._terminal_max_fields_terminal_id(ctx, field, obj)
+		case "type_id":
+			out.Values[i] = ec._terminal_max_fields_type_id(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_max_fields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_max_fields_update_by(ctx, field, obj)
+		case "vehicle_id":
+			out.Values[i] = ec._terminal_max_fields_vehicle_id(ctx, field, obj)
+		case "version_number":
+			out.Values[i] = ec._terminal_max_fields_version_number(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_min_fieldsImplementors = []string{"terminal_min_fields"}
+
+func (ec *executionContext) _terminal_min_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalMinFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_min_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_min_fields")
+		case "adas_model":
+			out.Values[i] = ec._terminal_min_fields_adas_model(ctx, field, obj)
+		case "auth_key":
+			out.Values[i] = ec._terminal_min_fields_auth_key(ctx, field, obj)
+		case "camera_num":
+			out.Values[i] = ec._terminal_min_fields_camera_num(ctx, field, obj)
+		case "channel_no":
+			out.Values[i] = ec._terminal_min_fields_channel_no(ctx, field, obj)
+		case "city_id":
+			out.Values[i] = ec._terminal_min_fields_city_id(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._terminal_min_fields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._terminal_min_fields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_min_fields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_min_fields_delete_by(ctx, field, obj)
+		case "dept_id":
+			out.Values[i] = ec._terminal_min_fields_dept_id(ctx, field, obj)
+		case "first_install_time":
+			out.Values[i] = ec._terminal_min_fields_first_install_time(ctx, field, obj)
+		case "guarantee_date":
+			out.Values[i] = ec._terminal_min_fields_guarantee_date(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_min_fields_id(ctx, field, obj)
+		case "imei":
+			out.Values[i] = ec._terminal_min_fields_imei(ctx, field, obj)
+		case "install_man_id":
+			out.Values[i] = ec._terminal_min_fields_install_man_id(ctx, field, obj)
+		case "mock_auth_key":
+			out.Values[i] = ec._terminal_min_fields_mock_auth_key(ctx, field, obj)
+		case "produce_date":
+			out.Values[i] = ec._terminal_min_fields_produce_date(ctx, field, obj)
+		case "prove_proxyrg_id":
+			out.Values[i] = ec._terminal_min_fields_prove_proxyrg_id(ctx, field, obj)
+		case "province_id":
+			out.Values[i] = ec._terminal_min_fields_province_id(ctx, field, obj)
+		case "proxyrg_id":
+			out.Values[i] = ec._terminal_min_fields_proxyrg_id(ctx, field, obj)
+		case "record_date":
+			out.Values[i] = ec._terminal_min_fields_record_date(ctx, field, obj)
+		case "reg_id":
+			out.Values[i] = ec._terminal_min_fields_reg_id(ctx, field, obj)
+		case "remarks":
+			out.Values[i] = ec._terminal_min_fields_remarks(ctx, field, obj)
+		case "remove_reason":
+			out.Values[i] = ec._terminal_min_fields_remove_reason(ctx, field, obj)
+		case "sim_id":
+			out.Values[i] = ec._terminal_min_fields_sim_id(ctx, field, obj)
+		case "sprg_id":
+			out.Values[i] = ec._terminal_min_fields_sprg_id(ctx, field, obj)
+		case "terminal_id":
+			out.Values[i] = ec._terminal_min_fields_terminal_id(ctx, field, obj)
+		case "type_id":
+			out.Values[i] = ec._terminal_min_fields_type_id(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_min_fields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_min_fields_update_by(ctx, field, obj)
+		case "vehicle_id":
+			out.Values[i] = ec._terminal_min_fields_vehicle_id(ctx, field, obj)
+		case "version_number":
+			out.Values[i] = ec._terminal_min_fields_version_number(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modalImplementors = []string{"terminal_modal"}
+
+func (ec *executionContext) _terminal_modal(ctx context.Context, sel ast.SelectionSet, obj *model1.TerminalModal) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modalImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal")
+		case "adas_modal":
+			out.Values[i] = ec._terminal_modal_adas_modal(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._terminal_modal_create_at(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "create_by":
+			out.Values[i] = ec._terminal_modal_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_modal_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_modal_delete_by(ctx, field, obj)
+		case "factory_id":
+			out.Values[i] = ec._terminal_modal_factory_id(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_modal_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "is_delete":
+			out.Values[i] = ec._terminal_modal_is_delete(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "is_electronics_post_card":
+			out.Values[i] = ec._terminal_modal_is_electronics_post_card(ctx, field, obj)
+		case "is_slag_car_teminal":
+			out.Values[i] = ec._terminal_modal_is_slag_car_teminal(ctx, field, obj)
+		case "is_testing_situation":
+			out.Values[i] = ec._terminal_modal_is_testing_situation(ctx, field, obj)
+		case "is_transport_dept_4g":
+			out.Values[i] = ec._terminal_modal_is_transport_dept_4g(ctx, field, obj)
+		case "modal_name":
+			out.Values[i] = ec._terminal_modal_modal_name(ctx, field, obj)
+		case "proxyrg_id":
+			out.Values[i] = ec._terminal_modal_proxyrg_id(ctx, field, obj)
+		case "record_no":
+			out.Values[i] = ec._terminal_modal_record_no(ctx, field, obj)
+		case "remark":
+			out.Values[i] = ec._terminal_modal_remark(ctx, field, obj)
+		case "terminal_modal_id":
+			out.Values[i] = ec._terminal_modal_terminal_modal_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "terminal_type_id":
+			out.Values[i] = ec._terminal_modal_terminal_type_id(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_modal_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_modal_update_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_aggregateImplementors = []string{"terminal_modal_aggregate"}
+
+func (ec *executionContext) _terminal_modal_aggregate(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalAggregate) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_aggregateImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_aggregate")
+		case "aggregate":
+			out.Values[i] = ec._terminal_modal_aggregate_aggregate(ctx, field, obj)
+		case "nodes":
+			out.Values[i] = ec._terminal_modal_aggregate_nodes(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_aggregate_fieldsImplementors = []string{"terminal_modal_aggregate_fields"}
+
+func (ec *executionContext) _terminal_modal_aggregate_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalAggregateFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_aggregate_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_aggregate_fields")
+		case "avg":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_avg(ctx, field, obj)
+		case "count":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_count(ctx, field, obj)
+		case "max":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_max(ctx, field, obj)
+		case "min":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_min(ctx, field, obj)
+		case "stddev":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_stddev(ctx, field, obj)
+		case "stddev_pop":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_stddev_pop(ctx, field, obj)
+		case "stddev_samp":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_stddev_samp(ctx, field, obj)
+		case "sum":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_sum(ctx, field, obj)
+		case "var_pop":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_var_pop(ctx, field, obj)
+		case "var_samp":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_var_samp(ctx, field, obj)
+		case "variance":
+			out.Values[i] = ec._terminal_modal_aggregate_fields_variance(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_avg_fieldsImplementors = []string{"terminal_modal_avg_fields"}
+
+func (ec *executionContext) _terminal_modal_avg_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalAvgFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_avg_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_avg_fields")
+		case "id":
+			out.Values[i] = ec._terminal_modal_avg_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_max_fieldsImplementors = []string{"terminal_modal_max_fields"}
+
+func (ec *executionContext) _terminal_modal_max_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalMaxFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_max_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_max_fields")
+		case "adas_modal":
+			out.Values[i] = ec._terminal_modal_max_fields_adas_modal(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._terminal_modal_max_fields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._terminal_modal_max_fields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_modal_max_fields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_modal_max_fields_delete_by(ctx, field, obj)
+		case "factory_id":
+			out.Values[i] = ec._terminal_modal_max_fields_factory_id(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_modal_max_fields_id(ctx, field, obj)
+		case "modal_name":
+			out.Values[i] = ec._terminal_modal_max_fields_modal_name(ctx, field, obj)
+		case "proxyrg_id":
+			out.Values[i] = ec._terminal_modal_max_fields_proxyrg_id(ctx, field, obj)
+		case "record_no":
+			out.Values[i] = ec._terminal_modal_max_fields_record_no(ctx, field, obj)
+		case "remark":
+			out.Values[i] = ec._terminal_modal_max_fields_remark(ctx, field, obj)
+		case "terminal_modal_id":
+			out.Values[i] = ec._terminal_modal_max_fields_terminal_modal_id(ctx, field, obj)
+		case "terminal_type_id":
+			out.Values[i] = ec._terminal_modal_max_fields_terminal_type_id(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_modal_max_fields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_modal_max_fields_update_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_min_fieldsImplementors = []string{"terminal_modal_min_fields"}
+
+func (ec *executionContext) _terminal_modal_min_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalMinFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_min_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_min_fields")
+		case "adas_modal":
+			out.Values[i] = ec._terminal_modal_min_fields_adas_modal(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._terminal_modal_min_fields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._terminal_modal_min_fields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_modal_min_fields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_modal_min_fields_delete_by(ctx, field, obj)
+		case "factory_id":
+			out.Values[i] = ec._terminal_modal_min_fields_factory_id(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_modal_min_fields_id(ctx, field, obj)
+		case "modal_name":
+			out.Values[i] = ec._terminal_modal_min_fields_modal_name(ctx, field, obj)
+		case "proxyrg_id":
+			out.Values[i] = ec._terminal_modal_min_fields_proxyrg_id(ctx, field, obj)
+		case "record_no":
+			out.Values[i] = ec._terminal_modal_min_fields_record_no(ctx, field, obj)
+		case "remark":
+			out.Values[i] = ec._terminal_modal_min_fields_remark(ctx, field, obj)
+		case "terminal_modal_id":
+			out.Values[i] = ec._terminal_modal_min_fields_terminal_modal_id(ctx, field, obj)
+		case "terminal_type_id":
+			out.Values[i] = ec._terminal_modal_min_fields_terminal_type_id(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_modal_min_fields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_modal_min_fields_update_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_mutation_responseImplementors = []string{"terminal_modal_mutation_response"}
+
+func (ec *executionContext) _terminal_modal_mutation_response(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalMutationResponse) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_mutation_responseImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_mutation_response")
+		case "affected_rows":
+			out.Values[i] = ec._terminal_modal_mutation_response_affected_rows(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "returning":
+			out.Values[i] = ec._terminal_modal_mutation_response_returning(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_stddev_fieldsImplementors = []string{"terminal_modal_stddev_fields"}
+
+func (ec *executionContext) _terminal_modal_stddev_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalStddevFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_stddev_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_stddev_fields")
+		case "id":
+			out.Values[i] = ec._terminal_modal_stddev_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_stddev_pop_fieldsImplementors = []string{"terminal_modal_stddev_pop_fields"}
+
+func (ec *executionContext) _terminal_modal_stddev_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalStddevPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_stddev_pop_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_stddev_pop_fields")
+		case "id":
+			out.Values[i] = ec._terminal_modal_stddev_pop_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_stddev_samp_fieldsImplementors = []string{"terminal_modal_stddev_samp_fields"}
+
+func (ec *executionContext) _terminal_modal_stddev_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalStddevSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_stddev_samp_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_stddev_samp_fields")
+		case "id":
+			out.Values[i] = ec._terminal_modal_stddev_samp_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_sum_fieldsImplementors = []string{"terminal_modal_sum_fields"}
+
+func (ec *executionContext) _terminal_modal_sum_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalSumFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_sum_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_sum_fields")
+		case "id":
+			out.Values[i] = ec._terminal_modal_sum_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_var_pop_fieldsImplementors = []string{"terminal_modal_var_pop_fields"}
+
+func (ec *executionContext) _terminal_modal_var_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalVarPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_var_pop_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_var_pop_fields")
+		case "id":
+			out.Values[i] = ec._terminal_modal_var_pop_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_var_samp_fieldsImplementors = []string{"terminal_modal_var_samp_fields"}
+
+func (ec *executionContext) _terminal_modal_var_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalVarSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_var_samp_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_var_samp_fields")
+		case "id":
+			out.Values[i] = ec._terminal_modal_var_samp_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_modal_variance_fieldsImplementors = []string{"terminal_modal_variance_fields"}
+
+func (ec *executionContext) _terminal_modal_variance_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalModalVarianceFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_modal_variance_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_modal_variance_fields")
+		case "id":
+			out.Values[i] = ec._terminal_modal_variance_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_mutation_responseImplementors = []string{"terminal_mutation_response"}
+
+func (ec *executionContext) _terminal_mutation_response(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalMutationResponse) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_mutation_responseImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_mutation_response")
+		case "affected_rows":
+			out.Values[i] = ec._terminal_mutation_response_affected_rows(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "returning":
+			out.Values[i] = ec._terminal_mutation_response_returning(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_stddev_fieldsImplementors = []string{"terminal_stddev_fields"}
+
+func (ec *executionContext) _terminal_stddev_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalStddevFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_stddev_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_stddev_fields")
+		case "camera_num":
+			out.Values[i] = ec._terminal_stddev_fields_camera_num(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_stddev_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_stddev_pop_fieldsImplementors = []string{"terminal_stddev_pop_fields"}
+
+func (ec *executionContext) _terminal_stddev_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalStddevPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_stddev_pop_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_stddev_pop_fields")
+		case "camera_num":
+			out.Values[i] = ec._terminal_stddev_pop_fields_camera_num(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_stddev_pop_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_stddev_samp_fieldsImplementors = []string{"terminal_stddev_samp_fields"}
+
+func (ec *executionContext) _terminal_stddev_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalStddevSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_stddev_samp_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_stddev_samp_fields")
+		case "camera_num":
+			out.Values[i] = ec._terminal_stddev_samp_fields_camera_num(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_stddev_samp_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_sum_fieldsImplementors = []string{"terminal_sum_fields"}
+
+func (ec *executionContext) _terminal_sum_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalSumFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_sum_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_sum_fields")
+		case "camera_num":
+			out.Values[i] = ec._terminal_sum_fields_camera_num(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_sum_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_typesImplementors = []string{"terminal_types"}
+
+func (ec *executionContext) _terminal_types(ctx context.Context, sel ast.SelectionSet, obj *model1.TerminalType) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_typesImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types")
+		case "create_at":
+			out.Values[i] = ec._terminal_types_create_at(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "create_by":
+			out.Values[i] = ec._terminal_types_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_types_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_types_delete_by(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_types_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "is_delete":
+			out.Values[i] = ec._terminal_types_is_delete(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "protocol_name":
+			out.Values[i] = ec._terminal_types_protocol_name(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "remark":
+			out.Values[i] = ec._terminal_types_remark(ctx, field, obj)
+		case "type_id":
+			out.Values[i] = ec._terminal_types_type_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "update_at":
+			out.Values[i] = ec._terminal_types_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_types_update_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_aggregateImplementors = []string{"terminal_types_aggregate"}
+
+func (ec *executionContext) _terminal_types_aggregate(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesAggregate) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_aggregateImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_aggregate")
+		case "aggregate":
+			out.Values[i] = ec._terminal_types_aggregate_aggregate(ctx, field, obj)
+		case "nodes":
+			out.Values[i] = ec._terminal_types_aggregate_nodes(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_aggregate_fieldsImplementors = []string{"terminal_types_aggregate_fields"}
+
+func (ec *executionContext) _terminal_types_aggregate_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesAggregateFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_aggregate_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_aggregate_fields")
+		case "avg":
+			out.Values[i] = ec._terminal_types_aggregate_fields_avg(ctx, field, obj)
+		case "count":
+			out.Values[i] = ec._terminal_types_aggregate_fields_count(ctx, field, obj)
+		case "max":
+			out.Values[i] = ec._terminal_types_aggregate_fields_max(ctx, field, obj)
+		case "min":
+			out.Values[i] = ec._terminal_types_aggregate_fields_min(ctx, field, obj)
+		case "stddev":
+			out.Values[i] = ec._terminal_types_aggregate_fields_stddev(ctx, field, obj)
+		case "stddev_pop":
+			out.Values[i] = ec._terminal_types_aggregate_fields_stddev_pop(ctx, field, obj)
+		case "stddev_samp":
+			out.Values[i] = ec._terminal_types_aggregate_fields_stddev_samp(ctx, field, obj)
+		case "sum":
+			out.Values[i] = ec._terminal_types_aggregate_fields_sum(ctx, field, obj)
+		case "var_pop":
+			out.Values[i] = ec._terminal_types_aggregate_fields_var_pop(ctx, field, obj)
+		case "var_samp":
+			out.Values[i] = ec._terminal_types_aggregate_fields_var_samp(ctx, field, obj)
+		case "variance":
+			out.Values[i] = ec._terminal_types_aggregate_fields_variance(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_avg_fieldsImplementors = []string{"terminal_types_avg_fields"}
+
+func (ec *executionContext) _terminal_types_avg_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesAvgFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_avg_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_avg_fields")
+		case "id":
+			out.Values[i] = ec._terminal_types_avg_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_max_fieldsImplementors = []string{"terminal_types_max_fields"}
+
+func (ec *executionContext) _terminal_types_max_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesMaxFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_max_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_max_fields")
+		case "create_at":
+			out.Values[i] = ec._terminal_types_max_fields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._terminal_types_max_fields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_types_max_fields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_types_max_fields_delete_by(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_types_max_fields_id(ctx, field, obj)
+		case "protocol_name":
+			out.Values[i] = ec._terminal_types_max_fields_protocol_name(ctx, field, obj)
+		case "remark":
+			out.Values[i] = ec._terminal_types_max_fields_remark(ctx, field, obj)
+		case "type_id":
+			out.Values[i] = ec._terminal_types_max_fields_type_id(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_types_max_fields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_types_max_fields_update_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_min_fieldsImplementors = []string{"terminal_types_min_fields"}
+
+func (ec *executionContext) _terminal_types_min_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesMinFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_min_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_min_fields")
+		case "create_at":
+			out.Values[i] = ec._terminal_types_min_fields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._terminal_types_min_fields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._terminal_types_min_fields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._terminal_types_min_fields_delete_by(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_types_min_fields_id(ctx, field, obj)
+		case "protocol_name":
+			out.Values[i] = ec._terminal_types_min_fields_protocol_name(ctx, field, obj)
+		case "remark":
+			out.Values[i] = ec._terminal_types_min_fields_remark(ctx, field, obj)
+		case "type_id":
+			out.Values[i] = ec._terminal_types_min_fields_type_id(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._terminal_types_min_fields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._terminal_types_min_fields_update_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_mutation_responseImplementors = []string{"terminal_types_mutation_response"}
+
+func (ec *executionContext) _terminal_types_mutation_response(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesMutationResponse) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_mutation_responseImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_mutation_response")
+		case "affected_rows":
+			out.Values[i] = ec._terminal_types_mutation_response_affected_rows(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "returning":
+			out.Values[i] = ec._terminal_types_mutation_response_returning(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_stddev_fieldsImplementors = []string{"terminal_types_stddev_fields"}
+
+func (ec *executionContext) _terminal_types_stddev_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesStddevFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_stddev_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_stddev_fields")
+		case "id":
+			out.Values[i] = ec._terminal_types_stddev_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_stddev_pop_fieldsImplementors = []string{"terminal_types_stddev_pop_fields"}
+
+func (ec *executionContext) _terminal_types_stddev_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesStddevPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_stddev_pop_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_stddev_pop_fields")
+		case "id":
+			out.Values[i] = ec._terminal_types_stddev_pop_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_stddev_samp_fieldsImplementors = []string{"terminal_types_stddev_samp_fields"}
+
+func (ec *executionContext) _terminal_types_stddev_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesStddevSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_stddev_samp_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_stddev_samp_fields")
+		case "id":
+			out.Values[i] = ec._terminal_types_stddev_samp_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_sum_fieldsImplementors = []string{"terminal_types_sum_fields"}
+
+func (ec *executionContext) _terminal_types_sum_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesSumFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_sum_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_sum_fields")
+		case "id":
+			out.Values[i] = ec._terminal_types_sum_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_var_pop_fieldsImplementors = []string{"terminal_types_var_pop_fields"}
+
+func (ec *executionContext) _terminal_types_var_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesVarPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_var_pop_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_var_pop_fields")
+		case "id":
+			out.Values[i] = ec._terminal_types_var_pop_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_var_samp_fieldsImplementors = []string{"terminal_types_var_samp_fields"}
+
+func (ec *executionContext) _terminal_types_var_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesVarSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_var_samp_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_var_samp_fields")
+		case "id":
+			out.Values[i] = ec._terminal_types_var_samp_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_types_variance_fieldsImplementors = []string{"terminal_types_variance_fields"}
+
+func (ec *executionContext) _terminal_types_variance_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalTypesVarianceFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_types_variance_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_types_variance_fields")
+		case "id":
+			out.Values[i] = ec._terminal_types_variance_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_var_pop_fieldsImplementors = []string{"terminal_var_pop_fields"}
+
+func (ec *executionContext) _terminal_var_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalVarPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_var_pop_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_var_pop_fields")
+		case "camera_num":
+			out.Values[i] = ec._terminal_var_pop_fields_camera_num(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_var_pop_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_var_samp_fieldsImplementors = []string{"terminal_var_samp_fields"}
+
+func (ec *executionContext) _terminal_var_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalVarSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_var_samp_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_var_samp_fields")
+		case "camera_num":
+			out.Values[i] = ec._terminal_var_samp_fields_camera_num(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_var_samp_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var terminal_variance_fieldsImplementors = []string{"terminal_variance_fields"}
+
+func (ec *executionContext) _terminal_variance_fields(ctx context.Context, sel ast.SelectionSet, obj *model.TerminalVarianceFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, terminal_variance_fieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("terminal_variance_fields")
+		case "camera_num":
+			out.Values[i] = ec._terminal_variance_fields_camera_num(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._terminal_variance_fields_id(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
 // endregion **************************** object.gotpl ****************************
 
 // region    ***************************** type.gotpl *****************************
@@ -21382,6 +48675,786 @@ func (ec *executionContext) marshalNsim_card_update_column2ᚕVehicleSupervision
 				defer wg.Done()
 			}
 			ret[i] = ec.marshalNsim_card_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐSimCardUpdateColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalNterminal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.Terminal) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminal(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalNterminal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminal(ctx context.Context, sel ast.SelectionSet, v *model1.Terminal) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._terminal(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNterminal_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalAggregate(ctx context.Context, sel ast.SelectionSet, v model.TerminalAggregate) graphql.Marshaler {
+	return ec._terminal_aggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNterminal_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalAggregate(ctx context.Context, sel ast.SelectionSet, v *model.TerminalAggregate) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._terminal_aggregate(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNterminal_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx context.Context, v interface{}) (model.TerminalBoolExp, error) {
+	res, err := ec.unmarshalInputterminal_bool_exp(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalConstraint(ctx context.Context, v interface{}) (model.TerminalConstraint, error) {
+	var res model.TerminalConstraint
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalConstraint(ctx context.Context, sel ast.SelectionSet, v model.TerminalConstraint) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) marshalNterminal_factory2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactoryᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.TerminalFactory) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_factory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactory(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalNterminal_factory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactory(ctx context.Context, sel ast.SelectionSet, v *model1.TerminalFactory) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._terminal_factory(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNterminal_factory_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryAggregate(ctx context.Context, sel ast.SelectionSet, v model.TerminalFactoryAggregate) graphql.Marshaler {
+	return ec._terminal_factory_aggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNterminal_factory_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryAggregate(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryAggregate) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._terminal_factory_aggregate(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx context.Context, v interface{}) (model.TerminalFactoryBoolExp, error) {
+	res, err := ec.unmarshalInputterminal_factory_bool_exp(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryConstraint(ctx context.Context, v interface{}) (model.TerminalFactoryConstraint, error) {
+	var res model.TerminalFactoryConstraint
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_factory_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryConstraint(ctx context.Context, sel ast.SelectionSet, v model.TerminalFactoryConstraint) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryInsertInput(ctx context.Context, v interface{}) (model.TerminalFactoryInsertInput, error) {
+	res, err := ec.unmarshalInputterminal_factory_insert_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.TerminalFactoryInsertInput, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalFactoryInsertInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_factory_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryInsertInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryInsertInput(ctx context.Context, v interface{}) (*model.TerminalFactoryInsertInput, error) {
+	res, err := ec.unmarshalInputterminal_factory_insert_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryOrderBy, error) {
+	res, err := ec.unmarshalInputterminal_factory_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryPkColumnsInput(ctx context.Context, v interface{}) (model.TerminalFactoryPkColumnsInput, error) {
+	res, err := ec.unmarshalInputterminal_factory_pk_columns_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySelectColumn(ctx context.Context, v interface{}) (model.TerminalFactorySelectColumn, error) {
+	var res model.TerminalFactorySelectColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_factory_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySelectColumn(ctx context.Context, sel ast.SelectionSet, v model.TerminalFactorySelectColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryUpdateColumn(ctx context.Context, v interface{}) (model.TerminalFactoryUpdateColumn, error) {
+	var res model.TerminalFactoryUpdateColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_factory_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.TerminalFactoryUpdateColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_factory_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.TerminalFactoryUpdateColumn, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.TerminalFactoryUpdateColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_factory_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryUpdateColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalNterminal_factory_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.TerminalFactoryUpdateColumn) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_factory_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryUpdateColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalNterminal_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalInsertInput(ctx context.Context, v interface{}) (model.TerminalInsertInput, error) {
+	res, err := ec.unmarshalInputterminal_insert_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.TerminalInsertInput, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalInsertInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalInsertInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalNterminal_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalInsertInput(ctx context.Context, v interface{}) (*model.TerminalInsertInput, error) {
+	res, err := ec.unmarshalInputterminal_insert_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_modal2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModalᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.TerminalModal) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_modal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModal(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalNterminal_modal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModal(ctx context.Context, sel ast.SelectionSet, v *model1.TerminalModal) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._terminal_modal(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNterminal_modal_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalAggregate(ctx context.Context, sel ast.SelectionSet, v model.TerminalModalAggregate) graphql.Marshaler {
+	return ec._terminal_modal_aggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNterminal_modal_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalAggregate(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalAggregate) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._terminal_modal_aggregate(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx context.Context, v interface{}) (model.TerminalModalBoolExp, error) {
+	res, err := ec.unmarshalInputterminal_modal_bool_exp(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalConstraint(ctx context.Context, v interface{}) (model.TerminalModalConstraint, error) {
+	var res model.TerminalModalConstraint
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_modal_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalConstraint(ctx context.Context, sel ast.SelectionSet, v model.TerminalModalConstraint) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalInsertInput(ctx context.Context, v interface{}) (model.TerminalModalInsertInput, error) {
+	res, err := ec.unmarshalInputterminal_modal_insert_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.TerminalModalInsertInput, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalModalInsertInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_modal_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalInsertInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalInsertInput(ctx context.Context, v interface{}) (*model.TerminalModalInsertInput, error) {
+	res, err := ec.unmarshalInputterminal_modal_insert_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalOrderBy, error) {
+	res, err := ec.unmarshalInputterminal_modal_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalPkColumnsInput(ctx context.Context, v interface{}) (model.TerminalModalPkColumnsInput, error) {
+	res, err := ec.unmarshalInputterminal_modal_pk_columns_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSelectColumn(ctx context.Context, v interface{}) (model.TerminalModalSelectColumn, error) {
+	var res model.TerminalModalSelectColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_modal_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.TerminalModalSelectColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalUpdateColumn(ctx context.Context, v interface{}) (model.TerminalModalUpdateColumn, error) {
+	var res model.TerminalModalUpdateColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_modal_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.TerminalModalUpdateColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_modal_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.TerminalModalUpdateColumn, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.TerminalModalUpdateColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_modal_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalUpdateColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalNterminal_modal_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.TerminalModalUpdateColumn) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_modal_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalUpdateColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalNterminal_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOrderBy(ctx context.Context, v interface{}) (*model.TerminalOrderBy, error) {
+	res, err := ec.unmarshalInputterminal_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalPkColumnsInput(ctx context.Context, v interface{}) (model.TerminalPkColumnsInput, error) {
+	res, err := ec.unmarshalInputterminal_pk_columns_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSelectColumn(ctx context.Context, v interface{}) (model.TerminalSelectColumn, error) {
+	var res model.TerminalSelectColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.TerminalSelectColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) marshalNterminal_types2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalTypeᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.TerminalType) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_types2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalType(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalNterminal_types2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalType(ctx context.Context, sel ast.SelectionSet, v *model1.TerminalType) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._terminal_types(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNterminal_types_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesAggregate(ctx context.Context, sel ast.SelectionSet, v model.TerminalTypesAggregate) graphql.Marshaler {
+	return ec._terminal_types_aggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNterminal_types_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesAggregate(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesAggregate) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._terminal_types_aggregate(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNterminal_types_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx context.Context, v interface{}) (model.TerminalTypesBoolExp, error) {
+	res, err := ec.unmarshalInputterminal_types_bool_exp(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_types_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesConstraint(ctx context.Context, v interface{}) (model.TerminalTypesConstraint, error) {
+	var res model.TerminalTypesConstraint
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_types_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesConstraint(ctx context.Context, sel ast.SelectionSet, v model.TerminalTypesConstraint) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_types_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesInsertInput(ctx context.Context, v interface{}) (model.TerminalTypesInsertInput, error) {
+	res, err := ec.unmarshalInputterminal_types_insert_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_types_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.TerminalTypesInsertInput, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalTypesInsertInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_types_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesInsertInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalNterminal_types_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesInsertInput(ctx context.Context, v interface{}) (*model.TerminalTypesInsertInput, error) {
+	res, err := ec.unmarshalInputterminal_types_insert_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_types_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesOrderBy, error) {
+	res, err := ec.unmarshalInputterminal_types_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_types_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesPkColumnsInput(ctx context.Context, v interface{}) (model.TerminalTypesPkColumnsInput, error) {
+	res, err := ec.unmarshalInputterminal_types_pk_columns_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNterminal_types_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSelectColumn(ctx context.Context, v interface{}) (model.TerminalTypesSelectColumn, error) {
+	var res model.TerminalTypesSelectColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_types_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.TerminalTypesSelectColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_types_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesUpdateColumn(ctx context.Context, v interface{}) (model.TerminalTypesUpdateColumn, error) {
+	var res model.TerminalTypesUpdateColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_types_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.TerminalTypesUpdateColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_types_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.TerminalTypesUpdateColumn, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.TerminalTypesUpdateColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_types_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesUpdateColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalNterminal_types_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.TerminalTypesUpdateColumn) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_types_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesUpdateColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalNterminal_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalUpdateColumn(ctx context.Context, v interface{}) (model.TerminalUpdateColumn, error) {
+	var res model.TerminalUpdateColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNterminal_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.TerminalUpdateColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNterminal_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.TerminalUpdateColumn, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.TerminalUpdateColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalUpdateColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalNterminal_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.TerminalUpdateColumn) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalUpdateColumn(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -22677,6 +50750,1266 @@ func (ec *executionContext) unmarshalOsim_card_variance_order_by2ᚖVehicleSuper
 		return nil, nil
 	}
 	res, err := ec.unmarshalInputsim_card_variance_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminal(ctx context.Context, sel ast.SelectionSet, v *model1.Terminal) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOterminal_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalAggregateFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_aggregate_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOterminal_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalAvgFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_avg_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalAvgOrderBy(ctx context.Context, v interface{}) (*model.TerminalAvgOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_avg_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx context.Context, v interface{}) ([]*model.TerminalBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalBoolExp, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalOterminal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOterminal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalBoolExp(ctx context.Context, v interface{}) (*model.TerminalBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_bool_exp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalFactory(ctx context.Context, sel ast.SelectionSet, v *model1.TerminalFactory) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOterminal_factory_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryAggregateFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_aggregate_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOterminal_factory_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryAvgFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_avg_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryAvgOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryAvgOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_avg_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx context.Context, v interface{}) ([]*model.TerminalFactoryBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalFactoryBoolExp, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalOterminal_factory_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryBoolExp(ctx context.Context, v interface{}) (*model.TerminalFactoryBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_bool_exp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryIncInput(ctx context.Context, v interface{}) (*model.TerminalFactoryIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_inc_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryMaxFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_max_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMaxOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryMaxOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_max_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMinFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryMinFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_min_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMinOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryMinOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_min_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryMutationResponse) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_mutation_response(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOnConflict(ctx context.Context, v interface{}) (*model.TerminalFactoryOnConflict, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_on_conflict(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOrderByᚄ(ctx context.Context, v interface{}) ([]*model.TerminalFactoryOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalFactoryOrderBy, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_factory_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryOrderBy(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySelectColumnᚄ(ctx context.Context, v interface{}) ([]model.TerminalFactorySelectColumn, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.TerminalFactorySelectColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_factory_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySelectColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOterminal_factory_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.TerminalFactorySelectColumn) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_factory_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySelectColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySetInput(ctx context.Context, v interface{}) (*model.TerminalFactorySetInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_set_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryStddevFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_stddev_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryStddevOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_stddev_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryStddevPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_stddev_pop_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevPopOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryStddevPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_stddev_pop_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryStddevSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_stddev_samp_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryStddevSampOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryStddevSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_stddev_samp_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySumFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactorySumFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_sum_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactorySumOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactorySumOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_sum_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryVarPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_var_pop_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarPopOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryVarPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_var_pop_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryVarSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_var_samp_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarSampOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryVarSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_var_samp_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_factory_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalFactoryVarianceFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_factory_variance_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_factory_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalFactoryVarianceOrderBy(ctx context.Context, v interface{}) (*model.TerminalFactoryVarianceOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_factory_variance_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalIncInput(ctx context.Context, v interface{}) (*model.TerminalIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_inc_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalMaxFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_max_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMaxOrderBy(ctx context.Context, v interface{}) (*model.TerminalMaxOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_max_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMinFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalMinFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_min_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMinOrderBy(ctx context.Context, v interface{}) (*model.TerminalMinOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_min_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalModal(ctx context.Context, sel ast.SelectionSet, v *model1.TerminalModal) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOterminal_modal_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalAggregateFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_aggregate_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOterminal_modal_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalAvgFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_avg_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalAvgOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalAvgOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_avg_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx context.Context, v interface{}) ([]*model.TerminalModalBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalModalBoolExp, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalOterminal_modal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalBoolExp(ctx context.Context, v interface{}) (*model.TerminalModalBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_bool_exp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalIncInput(ctx context.Context, v interface{}) (*model.TerminalModalIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_inc_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalMaxFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_max_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMaxOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalMaxOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_max_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMinFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalMinFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_min_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMinOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalMinOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_min_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalMutationResponse) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_mutation_response(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOnConflict(ctx context.Context, v interface{}) (*model.TerminalModalOnConflict, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_on_conflict(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOrderByᚄ(ctx context.Context, v interface{}) ([]*model.TerminalModalOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalModalOrderBy, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_modal_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalOrderBy(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.TerminalModalSelectColumn, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.TerminalModalSelectColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_modal_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSelectColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOterminal_modal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.TerminalModalSelectColumn) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_modal_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSelectColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSetInput(ctx context.Context, v interface{}) (*model.TerminalModalSetInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_set_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalStddevFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_stddev_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalStddevOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_stddev_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalStddevPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_stddev_pop_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevPopOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalStddevPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_stddev_pop_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalStddevSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_stddev_samp_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalStddevSampOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalStddevSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_stddev_samp_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSumFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalSumFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_sum_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalSumOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalSumOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_sum_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalVarPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_var_pop_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarPopOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalVarPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_var_pop_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalVarSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_var_samp_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarSampOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalVarSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_var_samp_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_modal_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalModalVarianceFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_modal_variance_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_modal_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalModalVarianceOrderBy(ctx context.Context, v interface{}) (*model.TerminalModalVarianceOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_modal_variance_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.TerminalMutationResponse) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_mutation_response(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOnConflict(ctx context.Context, v interface{}) (*model.TerminalOnConflict, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_on_conflict(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOrderByᚄ(ctx context.Context, v interface{}) ([]*model.TerminalOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalOrderBy, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalOrderBy(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOterminal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.TerminalSelectColumn, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.TerminalSelectColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSelectColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOterminal_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.TerminalSelectColumn) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSelectColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalOterminal_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSetInput(ctx context.Context, v interface{}) (*model.TerminalSetInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_set_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalStddevFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_stddev_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevOrderBy(ctx context.Context, v interface{}) (*model.TerminalStddevOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_stddev_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalStddevPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_stddev_pop_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevPopOrderBy(ctx context.Context, v interface{}) (*model.TerminalStddevPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_stddev_pop_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalStddevSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_stddev_samp_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalStddevSampOrderBy(ctx context.Context, v interface{}) (*model.TerminalStddevSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_stddev_samp_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSumFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalSumFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_sum_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalSumOrderBy(ctx context.Context, v interface{}) (*model.TerminalSumOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_sum_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋmodelᚐTerminalType(ctx context.Context, sel ast.SelectionSet, v *model1.TerminalType) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOterminal_types_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesAggregateFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_aggregate_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOterminal_types_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesAvgFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_avg_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesAvgOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesAvgOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_avg_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx context.Context, v interface{}) ([]*model.TerminalTypesBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalTypesBoolExp, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalOterminal_types_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOterminal_types_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesBoolExp(ctx context.Context, v interface{}) (*model.TerminalTypesBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_bool_exp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesIncInput(ctx context.Context, v interface{}) (*model.TerminalTypesIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_inc_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesMaxFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_max_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMaxOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesMaxOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_max_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMinFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesMinFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_min_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMinOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesMinOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_min_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesMutationResponse) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_mutation_response(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOnConflict(ctx context.Context, v interface{}) (*model.TerminalTypesOnConflict, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_on_conflict(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOrderByᚄ(ctx context.Context, v interface{}) ([]*model.TerminalTypesOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.TerminalTypesOrderBy, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_types_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesOrderBy(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOterminal_types_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.TerminalTypesSelectColumn, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.TerminalTypesSelectColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNterminal_types_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSelectColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOterminal_types_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.TerminalTypesSelectColumn) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNterminal_types_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSelectColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalOterminal_types_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSetInput(ctx context.Context, v interface{}) (*model.TerminalTypesSetInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_set_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesStddevFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_stddev_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesStddevOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_stddev_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesStddevPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_stddev_pop_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevPopOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesStddevPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_stddev_pop_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesStddevSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_stddev_samp_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesStddevSampOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesStddevSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_stddev_samp_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSumFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesSumFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_sum_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesSumOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesSumOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_sum_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesVarPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_var_pop_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarPopOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesVarPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_var_pop_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesVarSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_var_samp_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarSampOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesVarSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_var_samp_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_types_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalTypesVarianceFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_types_variance_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_types_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalTypesVarianceOrderBy(ctx context.Context, v interface{}) (*model.TerminalTypesVarianceOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_types_variance_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalVarPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_var_pop_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarPopOrderBy(ctx context.Context, v interface{}) (*model.TerminalVarPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_var_pop_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalVarSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_var_samp_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarSampOrderBy(ctx context.Context, v interface{}) (*model.TerminalVarSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_var_samp_order_by(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOterminal_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.TerminalVarianceFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._terminal_variance_fields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOterminal_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdeviceᚋgraphᚋmodelᚐTerminalVarianceOrderBy(ctx context.Context, v interface{}) (*model.TerminalVarianceOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputterminal_variance_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 

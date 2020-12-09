@@ -884,6 +884,1395 @@ type SimCardVarianceOrderBy struct {
 	MobileType *model1.OrderBy `json:"mobile_type"`
 }
 
+// aggregated selection of "terminal"
+type TerminalAggregate struct {
+	Aggregate *TerminalAggregateFields `json:"aggregate"`
+	Nodes     []*model.Terminal        `json:"nodes"`
+}
+
+// aggregate fields of "terminal"
+type TerminalAggregateFields struct {
+	Avg        *TerminalAvgFields        `json:"avg"`
+	Count      *int                      `json:"count"`
+	Max        *TerminalMaxFields        `json:"max"`
+	Min        *TerminalMinFields        `json:"min"`
+	Stddev     *TerminalStddevFields     `json:"stddev"`
+	StddevPop  *TerminalStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *TerminalStddevSampFields `json:"stddev_samp"`
+	Sum        *TerminalSumFields        `json:"sum"`
+	VarPop     *TerminalVarPopFields     `json:"var_pop"`
+	VarSamp    *TerminalVarSampFields    `json:"var_samp"`
+	Variance   *TerminalVarianceFields   `json:"variance"`
+}
+
+// order by aggregate values of table "terminal"
+type TerminalAggregateOrderBy struct {
+	Avg        *TerminalAvgOrderBy        `json:"avg"`
+	Count      *model1.OrderBy            `json:"count"`
+	Max        *TerminalMaxOrderBy        `json:"max"`
+	Min        *TerminalMinOrderBy        `json:"min"`
+	Stddev     *TerminalStddevOrderBy     `json:"stddev"`
+	StddevPop  *TerminalStddevPopOrderBy  `json:"stddev_pop"`
+	StddevSamp *TerminalStddevSampOrderBy `json:"stddev_samp"`
+	Sum        *TerminalSumOrderBy        `json:"sum"`
+	VarPop     *TerminalVarPopOrderBy     `json:"var_pop"`
+	VarSamp    *TerminalVarSampOrderBy    `json:"var_samp"`
+	Variance   *TerminalVarianceOrderBy   `json:"variance"`
+}
+
+// input type for inserting array relation for remote table "terminal"
+type TerminalArrRelInsertInput struct {
+	Data       []*TerminalInsertInput `json:"data"`
+	OnConflict *TerminalOnConflict    `json:"on_conflict"`
+}
+
+// aggregate avg on columns
+type TerminalAvgFields struct {
+	CameraNum *float64 `json:"camera_num"`
+	ID        *float64 `json:"id"`
+}
+
+// order by avg() on columns of table "terminal"
+type TerminalAvgOrderBy struct {
+	CameraNum *model1.OrderBy `json:"camera_num"`
+	ID        *model1.OrderBy `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "terminal". All fields are combined with a logical 'AND'.
+type TerminalBoolExp struct {
+	And              []*TerminalBoolExp               `json:"_and"`
+	Not              *TerminalBoolExp                 `json:"_not"`
+	Or               []*TerminalBoolExp               `json:"_or"`
+	AdasModel        *model1.StringComparisonExp      `json:"adas_model"`
+	AuthKey          *model1.StringComparisonExp      `json:"auth_key"`
+	CameraNum        *model1.IntComparisonExp         `json:"camera_num"`
+	ChannelNo        *model1.StringComparisonExp      `json:"channel_no"`
+	CityID           *model1.StringComparisonExp      `json:"city_id"`
+	CreateAt         *model1.TimestamptzComparisonExp `json:"create_at"`
+	CreateBy         *model1.StringComparisonExp      `json:"create_by"`
+	DeleteAt         *model1.TimestamptzComparisonExp `json:"delete_at"`
+	DeleteBy         *model1.StringComparisonExp      `json:"delete_by"`
+	DeptID           *model1.StringComparisonExp      `json:"dept_id"`
+	FirstInstallTime *model1.TimestamptzComparisonExp `json:"first_install_time"`
+	GuaranteeDate    *model1.TimestamptzComparisonExp `json:"guarantee_date"`
+	ID               *model1.BigintComparisonExp      `json:"id"`
+	Imei             *model1.StringComparisonExp      `json:"imei"`
+	InstallManID     *model1.StringComparisonExp      `json:"install_man_id"`
+	IsDelete         *model1.BooleanComparisonExp     `json:"is_delete"`
+	IsReg            *model1.BooleanComparisonExp     `json:"is_reg"`
+	IsSupportPhoto   *model1.BooleanComparisonExp     `json:"is_support_photo"`
+	MockAuthKey      *model1.StringComparisonExp      `json:"mock_auth_key"`
+	ProduceDate      *model1.TimestamptzComparisonExp `json:"produce_date"`
+	ProveProxyrgID   *model1.StringComparisonExp      `json:"prove_proxyrg_id"`
+	ProvinceID       *model1.StringComparisonExp      `json:"province_id"`
+	ProxyrgID        *model1.StringComparisonExp      `json:"proxyrg_id"`
+	RecordDate       *model1.TimestamptzComparisonExp `json:"record_date"`
+	RegID            *model1.StringComparisonExp      `json:"reg_id"`
+	Remarks          *model1.StringComparisonExp      `json:"remarks"`
+	RemoveReason     *model1.StringComparisonExp      `json:"remove_reason"`
+	SimID            *model1.StringComparisonExp      `json:"sim_id"`
+	SprgID           *model1.StringComparisonExp      `json:"sprg_id"`
+	TerminalID       *model1.StringComparisonExp      `json:"terminal_id"`
+	TypeID           *model1.StringComparisonExp      `json:"type_id"`
+	UpdateAt         *model1.TimestamptzComparisonExp `json:"update_at"`
+	UpdateBy         *model1.StringComparisonExp      `json:"update_by"`
+	VehicleID        *model1.StringComparisonExp      `json:"vehicle_id"`
+	VersionNumber    *model1.StringComparisonExp      `json:"version_number"`
+}
+
+// aggregated selection of "terminal_factory"
+type TerminalFactoryAggregate struct {
+	Aggregate *TerminalFactoryAggregateFields `json:"aggregate"`
+	Nodes     []*model.TerminalFactory        `json:"nodes"`
+}
+
+// aggregate fields of "terminal_factory"
+type TerminalFactoryAggregateFields struct {
+	Avg        *TerminalFactoryAvgFields        `json:"avg"`
+	Count      *int                             `json:"count"`
+	Max        *TerminalFactoryMaxFields        `json:"max"`
+	Min        *TerminalFactoryMinFields        `json:"min"`
+	Stddev     *TerminalFactoryStddevFields     `json:"stddev"`
+	StddevPop  *TerminalFactoryStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *TerminalFactoryStddevSampFields `json:"stddev_samp"`
+	Sum        *TerminalFactorySumFields        `json:"sum"`
+	VarPop     *TerminalFactoryVarPopFields     `json:"var_pop"`
+	VarSamp    *TerminalFactoryVarSampFields    `json:"var_samp"`
+	Variance   *TerminalFactoryVarianceFields   `json:"variance"`
+}
+
+// order by aggregate values of table "terminal_factory"
+type TerminalFactoryAggregateOrderBy struct {
+	Avg        *TerminalFactoryAvgOrderBy        `json:"avg"`
+	Count      *model1.OrderBy                   `json:"count"`
+	Max        *TerminalFactoryMaxOrderBy        `json:"max"`
+	Min        *TerminalFactoryMinOrderBy        `json:"min"`
+	Stddev     *TerminalFactoryStddevOrderBy     `json:"stddev"`
+	StddevPop  *TerminalFactoryStddevPopOrderBy  `json:"stddev_pop"`
+	StddevSamp *TerminalFactoryStddevSampOrderBy `json:"stddev_samp"`
+	Sum        *TerminalFactorySumOrderBy        `json:"sum"`
+	VarPop     *TerminalFactoryVarPopOrderBy     `json:"var_pop"`
+	VarSamp    *TerminalFactoryVarSampOrderBy    `json:"var_samp"`
+	Variance   *TerminalFactoryVarianceOrderBy   `json:"variance"`
+}
+
+// input type for inserting array relation for remote table "terminal_factory"
+type TerminalFactoryArrRelInsertInput struct {
+	Data       []*TerminalFactoryInsertInput `json:"data"`
+	OnConflict *TerminalFactoryOnConflict    `json:"on_conflict"`
+}
+
+// aggregate avg on columns
+type TerminalFactoryAvgFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by avg() on columns of table "terminal_factory"
+type TerminalFactoryAvgOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "terminal_factory". All fields are combined with a logical 'AND'.
+type TerminalFactoryBoolExp struct {
+	And              []*TerminalFactoryBoolExp        `json:"_and"`
+	Not              *TerminalFactoryBoolExp          `json:"_not"`
+	Or               []*TerminalFactoryBoolExp        `json:"_or"`
+	Address          *model1.StringComparisonExp      `json:"address"`
+	Contact          *model1.StringComparisonExp      `json:"contact"`
+	ContactPhone     *model1.StringComparisonExp      `json:"contact_phone"`
+	CreateAt         *model1.TimestamptzComparisonExp `json:"create_at"`
+	CreateBy         *model1.StringComparisonExp      `json:"create_by"`
+	DeleteAt         *model1.TimestamptzComparisonExp `json:"delete_at"`
+	DeleteBy         *model1.StringComparisonExp      `json:"delete_by"`
+	FactoryID        *model1.StringComparisonExp      `json:"factory_id"`
+	FactoryName      *model1.StringComparisonExp      `json:"factory_name"`
+	ID               *model1.BigintComparisonExp      `json:"id"`
+	IsDelete         *model1.BooleanComparisonExp     `json:"is_delete"`
+	Remark           *model1.StringComparisonExp      `json:"remark"`
+	TechContact      *model1.StringComparisonExp      `json:"tech_contact"`
+	TechContactPhone *model1.StringComparisonExp      `json:"tech_contact_phone"`
+	UpdateAt         *model1.TimestamptzComparisonExp `json:"update_at"`
+	UpdateBy         *model1.StringComparisonExp      `json:"update_by"`
+}
+
+// input type for incrementing integer column in table "terminal_factory"
+type TerminalFactoryIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "terminal_factory"
+type TerminalFactoryInsertInput struct {
+	Address          *string    `json:"address"`
+	Contact          *string    `json:"contact"`
+	ContactPhone     *string    `json:"contact_phone"`
+	CreateAt         *time.Time `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	FactoryID        *string    `json:"factory_id"`
+	FactoryName      *string    `json:"factory_name"`
+	ID               *int64     `json:"id"`
+	IsDelete         *bool      `json:"is_delete"`
+	Remark           *string    `json:"remark"`
+	TechContact      *string    `json:"tech_contact"`
+	TechContactPhone *string    `json:"tech_contact_phone"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+}
+
+// aggregate max on columns
+type TerminalFactoryMaxFields struct {
+	Address          *string    `json:"address"`
+	Contact          *string    `json:"contact"`
+	ContactPhone     *string    `json:"contact_phone"`
+	CreateAt         *time.Time `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	FactoryID        *string    `json:"factory_id"`
+	FactoryName      *string    `json:"factory_name"`
+	ID               *int64     `json:"id"`
+	Remark           *string    `json:"remark"`
+	TechContact      *string    `json:"tech_contact"`
+	TechContactPhone *string    `json:"tech_contact_phone"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+}
+
+// order by max() on columns of table "terminal_factory"
+type TerminalFactoryMaxOrderBy struct {
+	Address          *model1.OrderBy `json:"address"`
+	Contact          *model1.OrderBy `json:"contact"`
+	ContactPhone     *model1.OrderBy `json:"contact_phone"`
+	CreateAt         *model1.OrderBy `json:"create_at"`
+	CreateBy         *model1.OrderBy `json:"create_by"`
+	DeleteAt         *model1.OrderBy `json:"delete_at"`
+	DeleteBy         *model1.OrderBy `json:"delete_by"`
+	FactoryID        *model1.OrderBy `json:"factory_id"`
+	FactoryName      *model1.OrderBy `json:"factory_name"`
+	ID               *model1.OrderBy `json:"id"`
+	Remark           *model1.OrderBy `json:"remark"`
+	TechContact      *model1.OrderBy `json:"tech_contact"`
+	TechContactPhone *model1.OrderBy `json:"tech_contact_phone"`
+	UpdateAt         *model1.OrderBy `json:"update_at"`
+	UpdateBy         *model1.OrderBy `json:"update_by"`
+}
+
+// aggregate min on columns
+type TerminalFactoryMinFields struct {
+	Address          *string    `json:"address"`
+	Contact          *string    `json:"contact"`
+	ContactPhone     *string    `json:"contact_phone"`
+	CreateAt         *time.Time `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	FactoryID        *string    `json:"factory_id"`
+	FactoryName      *string    `json:"factory_name"`
+	ID               *int64     `json:"id"`
+	Remark           *string    `json:"remark"`
+	TechContact      *string    `json:"tech_contact"`
+	TechContactPhone *string    `json:"tech_contact_phone"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+}
+
+// order by min() on columns of table "terminal_factory"
+type TerminalFactoryMinOrderBy struct {
+	Address          *model1.OrderBy `json:"address"`
+	Contact          *model1.OrderBy `json:"contact"`
+	ContactPhone     *model1.OrderBy `json:"contact_phone"`
+	CreateAt         *model1.OrderBy `json:"create_at"`
+	CreateBy         *model1.OrderBy `json:"create_by"`
+	DeleteAt         *model1.OrderBy `json:"delete_at"`
+	DeleteBy         *model1.OrderBy `json:"delete_by"`
+	FactoryID        *model1.OrderBy `json:"factory_id"`
+	FactoryName      *model1.OrderBy `json:"factory_name"`
+	ID               *model1.OrderBy `json:"id"`
+	Remark           *model1.OrderBy `json:"remark"`
+	TechContact      *model1.OrderBy `json:"tech_contact"`
+	TechContactPhone *model1.OrderBy `json:"tech_contact_phone"`
+	UpdateAt         *model1.OrderBy `json:"update_at"`
+	UpdateBy         *model1.OrderBy `json:"update_by"`
+}
+
+// response of any mutation on the table "terminal_factory"
+type TerminalFactoryMutationResponse struct {
+	// number of affected rows by the mutation
+	AffectedRows int `json:"affected_rows"`
+	// data of the affected rows by the mutation
+	Returning []*model.TerminalFactory `json:"returning"`
+}
+
+// input type for inserting object relation for remote table "terminal_factory"
+type TerminalFactoryObjRelInsertInput struct {
+	Data       *TerminalFactoryInsertInput `json:"data"`
+	OnConflict *TerminalFactoryOnConflict  `json:"on_conflict"`
+}
+
+// on conflict condition type for table "terminal_factory"
+type TerminalFactoryOnConflict struct {
+	Constraint    TerminalFactoryConstraint     `json:"constraint"`
+	UpdateColumns []TerminalFactoryUpdateColumn `json:"update_columns"`
+	Where         *TerminalFactoryBoolExp       `json:"where"`
+}
+
+// ordering options when selecting data from "terminal_factory"
+type TerminalFactoryOrderBy struct {
+	Address          *model1.OrderBy `json:"address"`
+	Contact          *model1.OrderBy `json:"contact"`
+	ContactPhone     *model1.OrderBy `json:"contact_phone"`
+	CreateAt         *model1.OrderBy `json:"create_at"`
+	CreateBy         *model1.OrderBy `json:"create_by"`
+	DeleteAt         *model1.OrderBy `json:"delete_at"`
+	DeleteBy         *model1.OrderBy `json:"delete_by"`
+	FactoryID        *model1.OrderBy `json:"factory_id"`
+	FactoryName      *model1.OrderBy `json:"factory_name"`
+	ID               *model1.OrderBy `json:"id"`
+	IsDelete         *model1.OrderBy `json:"is_delete"`
+	Remark           *model1.OrderBy `json:"remark"`
+	TechContact      *model1.OrderBy `json:"tech_contact"`
+	TechContactPhone *model1.OrderBy `json:"tech_contact_phone"`
+	UpdateAt         *model1.OrderBy `json:"update_at"`
+	UpdateBy         *model1.OrderBy `json:"update_by"`
+}
+
+// primary key columns input for table: "terminal_factory"
+type TerminalFactoryPkColumnsInput struct {
+	// ID
+	ID int64 `json:"id"`
+}
+
+// input type for updating data in table "terminal_factory"
+type TerminalFactorySetInput struct {
+	Address          *string    `json:"address"`
+	Contact          *string    `json:"contact"`
+	ContactPhone     *string    `json:"contact_phone"`
+	CreateAt         *time.Time `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	FactoryID        *string    `json:"factory_id"`
+	FactoryName      *string    `json:"factory_name"`
+	ID               *int64     `json:"id"`
+	IsDelete         *bool      `json:"is_delete"`
+	Remark           *string    `json:"remark"`
+	TechContact      *string    `json:"tech_contact"`
+	TechContactPhone *string    `json:"tech_contact_phone"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+}
+
+// aggregate stddev on columns
+type TerminalFactoryStddevFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by stddev() on columns of table "terminal_factory"
+type TerminalFactoryStddevOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate stddev_pop on columns
+type TerminalFactoryStddevPopFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by stddev_pop() on columns of table "terminal_factory"
+type TerminalFactoryStddevPopOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate stddev_samp on columns
+type TerminalFactoryStddevSampFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by stddev_samp() on columns of table "terminal_factory"
+type TerminalFactoryStddevSampOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate sum on columns
+type TerminalFactorySumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// order by sum() on columns of table "terminal_factory"
+type TerminalFactorySumOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate var_pop on columns
+type TerminalFactoryVarPopFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by var_pop() on columns of table "terminal_factory"
+type TerminalFactoryVarPopOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate var_samp on columns
+type TerminalFactoryVarSampFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by var_samp() on columns of table "terminal_factory"
+type TerminalFactoryVarSampOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate variance on columns
+type TerminalFactoryVarianceFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by variance() on columns of table "terminal_factory"
+type TerminalFactoryVarianceOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// input type for incrementing integer column in table "terminal"
+type TerminalIncInput struct {
+	CameraNum *int   `json:"camera_num"`
+	ID        *int64 `json:"id"`
+}
+
+// input type for inserting data into table "terminal"
+type TerminalInsertInput struct {
+	AdasModel        *string    `json:"adas_model"`
+	AuthKey          *string    `json:"auth_key"`
+	CameraNum        *int       `json:"camera_num"`
+	ChannelNo        *string    `json:"channel_no"`
+	CityID           *string    `json:"city_id"`
+	CreateAt         *time.Time `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	DeptID           *string    `json:"dept_id"`
+	FirstInstallTime *time.Time `json:"first_install_time"`
+	GuaranteeDate    *time.Time `json:"guarantee_date"`
+	ID               *int64     `json:"id"`
+	Imei             *string    `json:"imei"`
+	InstallManID     *string    `json:"install_man_id"`
+	IsDelete         *bool      `json:"is_delete"`
+	IsReg            *bool      `json:"is_reg"`
+	IsSupportPhoto   *bool      `json:"is_support_photo"`
+	MockAuthKey      *string    `json:"mock_auth_key"`
+	ProduceDate      *time.Time `json:"produce_date"`
+	ProveProxyrgID   *string    `json:"prove_proxyrg_id"`
+	ProvinceID       *string    `json:"province_id"`
+	ProxyrgID        *string    `json:"proxyrg_id"`
+	RecordDate       *time.Time `json:"record_date"`
+	RegID            *string    `json:"reg_id"`
+	Remarks          *string    `json:"remarks"`
+	RemoveReason     *string    `json:"remove_reason"`
+	SimID            *string    `json:"sim_id"`
+	SprgID           *string    `json:"sprg_id"`
+	TerminalID       *string    `json:"terminal_id"`
+	TypeID           *string    `json:"type_id"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+	VehicleID        *string    `json:"vehicle_id"`
+	VersionNumber    *string    `json:"version_number"`
+}
+
+// aggregate max on columns
+type TerminalMaxFields struct {
+	AdasModel        *string    `json:"adas_model"`
+	AuthKey          *string    `json:"auth_key"`
+	CameraNum        *int       `json:"camera_num"`
+	ChannelNo        *string    `json:"channel_no"`
+	CityID           *string    `json:"city_id"`
+	CreateAt         *time.Time `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	DeptID           *string    `json:"dept_id"`
+	FirstInstallTime *time.Time `json:"first_install_time"`
+	GuaranteeDate    *time.Time `json:"guarantee_date"`
+	ID               *int64     `json:"id"`
+	Imei             *string    `json:"imei"`
+	InstallManID     *string    `json:"install_man_id"`
+	MockAuthKey      *string    `json:"mock_auth_key"`
+	ProduceDate      *time.Time `json:"produce_date"`
+	ProveProxyrgID   *string    `json:"prove_proxyrg_id"`
+	ProvinceID       *string    `json:"province_id"`
+	ProxyrgID        *string    `json:"proxyrg_id"`
+	RecordDate       *time.Time `json:"record_date"`
+	RegID            *string    `json:"reg_id"`
+	Remarks          *string    `json:"remarks"`
+	RemoveReason     *string    `json:"remove_reason"`
+	SimID            *string    `json:"sim_id"`
+	SprgID           *string    `json:"sprg_id"`
+	TerminalID       *string    `json:"terminal_id"`
+	TypeID           *string    `json:"type_id"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+	VehicleID        *string    `json:"vehicle_id"`
+	VersionNumber    *string    `json:"version_number"`
+}
+
+// order by max() on columns of table "terminal"
+type TerminalMaxOrderBy struct {
+	AdasModel        *model1.OrderBy `json:"adas_model"`
+	AuthKey          *model1.OrderBy `json:"auth_key"`
+	CameraNum        *model1.OrderBy `json:"camera_num"`
+	ChannelNo        *model1.OrderBy `json:"channel_no"`
+	CityID           *model1.OrderBy `json:"city_id"`
+	CreateAt         *model1.OrderBy `json:"create_at"`
+	CreateBy         *model1.OrderBy `json:"create_by"`
+	DeleteAt         *model1.OrderBy `json:"delete_at"`
+	DeleteBy         *model1.OrderBy `json:"delete_by"`
+	DeptID           *model1.OrderBy `json:"dept_id"`
+	FirstInstallTime *model1.OrderBy `json:"first_install_time"`
+	GuaranteeDate    *model1.OrderBy `json:"guarantee_date"`
+	ID               *model1.OrderBy `json:"id"`
+	Imei             *model1.OrderBy `json:"imei"`
+	InstallManID     *model1.OrderBy `json:"install_man_id"`
+	MockAuthKey      *model1.OrderBy `json:"mock_auth_key"`
+	ProduceDate      *model1.OrderBy `json:"produce_date"`
+	ProveProxyrgID   *model1.OrderBy `json:"prove_proxyrg_id"`
+	ProvinceID       *model1.OrderBy `json:"province_id"`
+	ProxyrgID        *model1.OrderBy `json:"proxyrg_id"`
+	RecordDate       *model1.OrderBy `json:"record_date"`
+	RegID            *model1.OrderBy `json:"reg_id"`
+	Remarks          *model1.OrderBy `json:"remarks"`
+	RemoveReason     *model1.OrderBy `json:"remove_reason"`
+	SimID            *model1.OrderBy `json:"sim_id"`
+	SprgID           *model1.OrderBy `json:"sprg_id"`
+	TerminalID       *model1.OrderBy `json:"terminal_id"`
+	TypeID           *model1.OrderBy `json:"type_id"`
+	UpdateAt         *model1.OrderBy `json:"update_at"`
+	UpdateBy         *model1.OrderBy `json:"update_by"`
+	VehicleID        *model1.OrderBy `json:"vehicle_id"`
+	VersionNumber    *model1.OrderBy `json:"version_number"`
+}
+
+// aggregate min on columns
+type TerminalMinFields struct {
+	AdasModel        *string    `json:"adas_model"`
+	AuthKey          *string    `json:"auth_key"`
+	CameraNum        *int       `json:"camera_num"`
+	ChannelNo        *string    `json:"channel_no"`
+	CityID           *string    `json:"city_id"`
+	CreateAt         *time.Time `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	DeptID           *string    `json:"dept_id"`
+	FirstInstallTime *time.Time `json:"first_install_time"`
+	GuaranteeDate    *time.Time `json:"guarantee_date"`
+	ID               *int64     `json:"id"`
+	Imei             *string    `json:"imei"`
+	InstallManID     *string    `json:"install_man_id"`
+	MockAuthKey      *string    `json:"mock_auth_key"`
+	ProduceDate      *time.Time `json:"produce_date"`
+	ProveProxyrgID   *string    `json:"prove_proxyrg_id"`
+	ProvinceID       *string    `json:"province_id"`
+	ProxyrgID        *string    `json:"proxyrg_id"`
+	RecordDate       *time.Time `json:"record_date"`
+	RegID            *string    `json:"reg_id"`
+	Remarks          *string    `json:"remarks"`
+	RemoveReason     *string    `json:"remove_reason"`
+	SimID            *string    `json:"sim_id"`
+	SprgID           *string    `json:"sprg_id"`
+	TerminalID       *string    `json:"terminal_id"`
+	TypeID           *string    `json:"type_id"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+	VehicleID        *string    `json:"vehicle_id"`
+	VersionNumber    *string    `json:"version_number"`
+}
+
+// order by min() on columns of table "terminal"
+type TerminalMinOrderBy struct {
+	AdasModel        *model1.OrderBy `json:"adas_model"`
+	AuthKey          *model1.OrderBy `json:"auth_key"`
+	CameraNum        *model1.OrderBy `json:"camera_num"`
+	ChannelNo        *model1.OrderBy `json:"channel_no"`
+	CityID           *model1.OrderBy `json:"city_id"`
+	CreateAt         *model1.OrderBy `json:"create_at"`
+	CreateBy         *model1.OrderBy `json:"create_by"`
+	DeleteAt         *model1.OrderBy `json:"delete_at"`
+	DeleteBy         *model1.OrderBy `json:"delete_by"`
+	DeptID           *model1.OrderBy `json:"dept_id"`
+	FirstInstallTime *model1.OrderBy `json:"first_install_time"`
+	GuaranteeDate    *model1.OrderBy `json:"guarantee_date"`
+	ID               *model1.OrderBy `json:"id"`
+	Imei             *model1.OrderBy `json:"imei"`
+	InstallManID     *model1.OrderBy `json:"install_man_id"`
+	MockAuthKey      *model1.OrderBy `json:"mock_auth_key"`
+	ProduceDate      *model1.OrderBy `json:"produce_date"`
+	ProveProxyrgID   *model1.OrderBy `json:"prove_proxyrg_id"`
+	ProvinceID       *model1.OrderBy `json:"province_id"`
+	ProxyrgID        *model1.OrderBy `json:"proxyrg_id"`
+	RecordDate       *model1.OrderBy `json:"record_date"`
+	RegID            *model1.OrderBy `json:"reg_id"`
+	Remarks          *model1.OrderBy `json:"remarks"`
+	RemoveReason     *model1.OrderBy `json:"remove_reason"`
+	SimID            *model1.OrderBy `json:"sim_id"`
+	SprgID           *model1.OrderBy `json:"sprg_id"`
+	TerminalID       *model1.OrderBy `json:"terminal_id"`
+	TypeID           *model1.OrderBy `json:"type_id"`
+	UpdateAt         *model1.OrderBy `json:"update_at"`
+	UpdateBy         *model1.OrderBy `json:"update_by"`
+	VehicleID        *model1.OrderBy `json:"vehicle_id"`
+	VersionNumber    *model1.OrderBy `json:"version_number"`
+}
+
+// aggregated selection of "terminal_modal"
+type TerminalModalAggregate struct {
+	Aggregate *TerminalModalAggregateFields `json:"aggregate"`
+	Nodes     []*model.TerminalModal        `json:"nodes"`
+}
+
+// aggregate fields of "terminal_modal"
+type TerminalModalAggregateFields struct {
+	Avg        *TerminalModalAvgFields        `json:"avg"`
+	Count      *int                           `json:"count"`
+	Max        *TerminalModalMaxFields        `json:"max"`
+	Min        *TerminalModalMinFields        `json:"min"`
+	Stddev     *TerminalModalStddevFields     `json:"stddev"`
+	StddevPop  *TerminalModalStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *TerminalModalStddevSampFields `json:"stddev_samp"`
+	Sum        *TerminalModalSumFields        `json:"sum"`
+	VarPop     *TerminalModalVarPopFields     `json:"var_pop"`
+	VarSamp    *TerminalModalVarSampFields    `json:"var_samp"`
+	Variance   *TerminalModalVarianceFields   `json:"variance"`
+}
+
+// order by aggregate values of table "terminal_modal"
+type TerminalModalAggregateOrderBy struct {
+	Avg        *TerminalModalAvgOrderBy        `json:"avg"`
+	Count      *model1.OrderBy                 `json:"count"`
+	Max        *TerminalModalMaxOrderBy        `json:"max"`
+	Min        *TerminalModalMinOrderBy        `json:"min"`
+	Stddev     *TerminalModalStddevOrderBy     `json:"stddev"`
+	StddevPop  *TerminalModalStddevPopOrderBy  `json:"stddev_pop"`
+	StddevSamp *TerminalModalStddevSampOrderBy `json:"stddev_samp"`
+	Sum        *TerminalModalSumOrderBy        `json:"sum"`
+	VarPop     *TerminalModalVarPopOrderBy     `json:"var_pop"`
+	VarSamp    *TerminalModalVarSampOrderBy    `json:"var_samp"`
+	Variance   *TerminalModalVarianceOrderBy   `json:"variance"`
+}
+
+// input type for inserting array relation for remote table "terminal_modal"
+type TerminalModalArrRelInsertInput struct {
+	Data       []*TerminalModalInsertInput `json:"data"`
+	OnConflict *TerminalModalOnConflict    `json:"on_conflict"`
+}
+
+// aggregate avg on columns
+type TerminalModalAvgFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by avg() on columns of table "terminal_modal"
+type TerminalModalAvgOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "terminal_modal". All fields are combined with a logical 'AND'.
+type TerminalModalBoolExp struct {
+	And                   []*TerminalModalBoolExp          `json:"_and"`
+	Not                   *TerminalModalBoolExp            `json:"_not"`
+	Or                    []*TerminalModalBoolExp          `json:"_or"`
+	AdasModal             *model1.StringComparisonExp      `json:"adas_modal"`
+	CreateAt              *model1.TimestamptzComparisonExp `json:"create_at"`
+	CreateBy              *model1.StringComparisonExp      `json:"create_by"`
+	DeleteAt              *model1.TimestamptzComparisonExp `json:"delete_at"`
+	DeleteBy              *model1.StringComparisonExp      `json:"delete_by"`
+	FactoryID             *model1.StringComparisonExp      `json:"factory_id"`
+	ID                    *model1.BigintComparisonExp      `json:"id"`
+	IsDelete              *model1.BooleanComparisonExp     `json:"is_delete"`
+	IsElectronicsPostCard *model1.BooleanComparisonExp     `json:"is_electronics_post_card"`
+	IsSlagCarTeminal      *model1.BooleanComparisonExp     `json:"is_slag_car_teminal"`
+	IsTestingSituation    *model1.BooleanComparisonExp     `json:"is_testing_situation"`
+	IsTransportDept4g     *model1.BooleanComparisonExp     `json:"is_transport_dept_4g"`
+	ModalName             *model1.StringComparisonExp      `json:"modal_name"`
+	ProxyrgID             *model1.StringComparisonExp      `json:"proxyrg_id"`
+	RecordNo              *model1.StringComparisonExp      `json:"record_no"`
+	Remark                *model1.StringComparisonExp      `json:"remark"`
+	TerminalModalID       *model1.StringComparisonExp      `json:"terminal_modal_id"`
+	TerminalTypeID        *model1.StringComparisonExp      `json:"terminal_type_id"`
+	UpdateAt              *model1.TimestamptzComparisonExp `json:"update_at"`
+	UpdateBy              *model1.StringComparisonExp      `json:"update_by"`
+}
+
+// input type for incrementing integer column in table "terminal_modal"
+type TerminalModalIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "terminal_modal"
+type TerminalModalInsertInput struct {
+	AdasModal             *string    `json:"adas_modal"`
+	CreateAt              *time.Time `json:"create_at"`
+	CreateBy              *string    `json:"create_by"`
+	DeleteAt              *time.Time `json:"delete_at"`
+	DeleteBy              *string    `json:"delete_by"`
+	FactoryID             *string    `json:"factory_id"`
+	ID                    *int64     `json:"id"`
+	IsDelete              *bool      `json:"is_delete"`
+	IsElectronicsPostCard *bool      `json:"is_electronics_post_card"`
+	IsSlagCarTeminal      *bool      `json:"is_slag_car_teminal"`
+	IsTestingSituation    *bool      `json:"is_testing_situation"`
+	IsTransportDept4g     *bool      `json:"is_transport_dept_4g"`
+	ModalName             *string    `json:"modal_name"`
+	ProxyrgID             *string    `json:"proxyrg_id"`
+	RecordNo              *string    `json:"record_no"`
+	Remark                *string    `json:"remark"`
+	TerminalModalID       *string    `json:"terminal_modal_id"`
+	TerminalTypeID        *string    `json:"terminal_type_id"`
+	UpdateAt              *time.Time `json:"update_at"`
+	UpdateBy              *string    `json:"update_by"`
+}
+
+// aggregate max on columns
+type TerminalModalMaxFields struct {
+	AdasModal       *string    `json:"adas_modal"`
+	CreateAt        *time.Time `json:"create_at"`
+	CreateBy        *string    `json:"create_by"`
+	DeleteAt        *time.Time `json:"delete_at"`
+	DeleteBy        *string    `json:"delete_by"`
+	FactoryID       *string    `json:"factory_id"`
+	ID              *int64     `json:"id"`
+	ModalName       *string    `json:"modal_name"`
+	ProxyrgID       *string    `json:"proxyrg_id"`
+	RecordNo        *string    `json:"record_no"`
+	Remark          *string    `json:"remark"`
+	TerminalModalID *string    `json:"terminal_modal_id"`
+	TerminalTypeID  *string    `json:"terminal_type_id"`
+	UpdateAt        *time.Time `json:"update_at"`
+	UpdateBy        *string    `json:"update_by"`
+}
+
+// order by max() on columns of table "terminal_modal"
+type TerminalModalMaxOrderBy struct {
+	AdasModal       *model1.OrderBy `json:"adas_modal"`
+	CreateAt        *model1.OrderBy `json:"create_at"`
+	CreateBy        *model1.OrderBy `json:"create_by"`
+	DeleteAt        *model1.OrderBy `json:"delete_at"`
+	DeleteBy        *model1.OrderBy `json:"delete_by"`
+	FactoryID       *model1.OrderBy `json:"factory_id"`
+	ID              *model1.OrderBy `json:"id"`
+	ModalName       *model1.OrderBy `json:"modal_name"`
+	ProxyrgID       *model1.OrderBy `json:"proxyrg_id"`
+	RecordNo        *model1.OrderBy `json:"record_no"`
+	Remark          *model1.OrderBy `json:"remark"`
+	TerminalModalID *model1.OrderBy `json:"terminal_modal_id"`
+	TerminalTypeID  *model1.OrderBy `json:"terminal_type_id"`
+	UpdateAt        *model1.OrderBy `json:"update_at"`
+	UpdateBy        *model1.OrderBy `json:"update_by"`
+}
+
+// aggregate min on columns
+type TerminalModalMinFields struct {
+	AdasModal       *string    `json:"adas_modal"`
+	CreateAt        *time.Time `json:"create_at"`
+	CreateBy        *string    `json:"create_by"`
+	DeleteAt        *time.Time `json:"delete_at"`
+	DeleteBy        *string    `json:"delete_by"`
+	FactoryID       *string    `json:"factory_id"`
+	ID              *int64     `json:"id"`
+	ModalName       *string    `json:"modal_name"`
+	ProxyrgID       *string    `json:"proxyrg_id"`
+	RecordNo        *string    `json:"record_no"`
+	Remark          *string    `json:"remark"`
+	TerminalModalID *string    `json:"terminal_modal_id"`
+	TerminalTypeID  *string    `json:"terminal_type_id"`
+	UpdateAt        *time.Time `json:"update_at"`
+	UpdateBy        *string    `json:"update_by"`
+}
+
+// order by min() on columns of table "terminal_modal"
+type TerminalModalMinOrderBy struct {
+	AdasModal       *model1.OrderBy `json:"adas_modal"`
+	CreateAt        *model1.OrderBy `json:"create_at"`
+	CreateBy        *model1.OrderBy `json:"create_by"`
+	DeleteAt        *model1.OrderBy `json:"delete_at"`
+	DeleteBy        *model1.OrderBy `json:"delete_by"`
+	FactoryID       *model1.OrderBy `json:"factory_id"`
+	ID              *model1.OrderBy `json:"id"`
+	ModalName       *model1.OrderBy `json:"modal_name"`
+	ProxyrgID       *model1.OrderBy `json:"proxyrg_id"`
+	RecordNo        *model1.OrderBy `json:"record_no"`
+	Remark          *model1.OrderBy `json:"remark"`
+	TerminalModalID *model1.OrderBy `json:"terminal_modal_id"`
+	TerminalTypeID  *model1.OrderBy `json:"terminal_type_id"`
+	UpdateAt        *model1.OrderBy `json:"update_at"`
+	UpdateBy        *model1.OrderBy `json:"update_by"`
+}
+
+// response of any mutation on the table "terminal_modal"
+type TerminalModalMutationResponse struct {
+	// number of affected rows by the mutation
+	AffectedRows int `json:"affected_rows"`
+	// data of the affected rows by the mutation
+	Returning []*model.TerminalModal `json:"returning"`
+}
+
+// input type for inserting object relation for remote table "terminal_modal"
+type TerminalModalObjRelInsertInput struct {
+	Data       *TerminalModalInsertInput `json:"data"`
+	OnConflict *TerminalModalOnConflict  `json:"on_conflict"`
+}
+
+// on conflict condition type for table "terminal_modal"
+type TerminalModalOnConflict struct {
+	Constraint    TerminalModalConstraint     `json:"constraint"`
+	UpdateColumns []TerminalModalUpdateColumn `json:"update_columns"`
+	Where         *TerminalModalBoolExp       `json:"where"`
+}
+
+// ordering options when selecting data from "terminal_modal"
+type TerminalModalOrderBy struct {
+	AdasModal             *model1.OrderBy `json:"adas_modal"`
+	CreateAt              *model1.OrderBy `json:"create_at"`
+	CreateBy              *model1.OrderBy `json:"create_by"`
+	DeleteAt              *model1.OrderBy `json:"delete_at"`
+	DeleteBy              *model1.OrderBy `json:"delete_by"`
+	FactoryID             *model1.OrderBy `json:"factory_id"`
+	ID                    *model1.OrderBy `json:"id"`
+	IsDelete              *model1.OrderBy `json:"is_delete"`
+	IsElectronicsPostCard *model1.OrderBy `json:"is_electronics_post_card"`
+	IsSlagCarTeminal      *model1.OrderBy `json:"is_slag_car_teminal"`
+	IsTestingSituation    *model1.OrderBy `json:"is_testing_situation"`
+	IsTransportDept4g     *model1.OrderBy `json:"is_transport_dept_4g"`
+	ModalName             *model1.OrderBy `json:"modal_name"`
+	ProxyrgID             *model1.OrderBy `json:"proxyrg_id"`
+	RecordNo              *model1.OrderBy `json:"record_no"`
+	Remark                *model1.OrderBy `json:"remark"`
+	TerminalModalID       *model1.OrderBy `json:"terminal_modal_id"`
+	TerminalTypeID        *model1.OrderBy `json:"terminal_type_id"`
+	UpdateAt              *model1.OrderBy `json:"update_at"`
+	UpdateBy              *model1.OrderBy `json:"update_by"`
+}
+
+// primary key columns input for table: "terminal_modal"
+type TerminalModalPkColumnsInput struct {
+	// ID
+	ID int64 `json:"id"`
+}
+
+// input type for updating data in table "terminal_modal"
+type TerminalModalSetInput struct {
+	AdasModal             *string    `json:"adas_modal"`
+	CreateAt              *time.Time `json:"create_at"`
+	CreateBy              *string    `json:"create_by"`
+	DeleteAt              *time.Time `json:"delete_at"`
+	DeleteBy              *string    `json:"delete_by"`
+	FactoryID             *string    `json:"factory_id"`
+	ID                    *int64     `json:"id"`
+	IsDelete              *bool      `json:"is_delete"`
+	IsElectronicsPostCard *bool      `json:"is_electronics_post_card"`
+	IsSlagCarTeminal      *bool      `json:"is_slag_car_teminal"`
+	IsTestingSituation    *bool      `json:"is_testing_situation"`
+	IsTransportDept4g     *bool      `json:"is_transport_dept_4g"`
+	ModalName             *string    `json:"modal_name"`
+	ProxyrgID             *string    `json:"proxyrg_id"`
+	RecordNo              *string    `json:"record_no"`
+	Remark                *string    `json:"remark"`
+	TerminalModalID       *string    `json:"terminal_modal_id"`
+	TerminalTypeID        *string    `json:"terminal_type_id"`
+	UpdateAt              *time.Time `json:"update_at"`
+	UpdateBy              *string    `json:"update_by"`
+}
+
+// aggregate stddev on columns
+type TerminalModalStddevFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by stddev() on columns of table "terminal_modal"
+type TerminalModalStddevOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate stddev_pop on columns
+type TerminalModalStddevPopFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by stddev_pop() on columns of table "terminal_modal"
+type TerminalModalStddevPopOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate stddev_samp on columns
+type TerminalModalStddevSampFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by stddev_samp() on columns of table "terminal_modal"
+type TerminalModalStddevSampOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate sum on columns
+type TerminalModalSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// order by sum() on columns of table "terminal_modal"
+type TerminalModalSumOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate var_pop on columns
+type TerminalModalVarPopFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by var_pop() on columns of table "terminal_modal"
+type TerminalModalVarPopOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate var_samp on columns
+type TerminalModalVarSampFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by var_samp() on columns of table "terminal_modal"
+type TerminalModalVarSampOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate variance on columns
+type TerminalModalVarianceFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by variance() on columns of table "terminal_modal"
+type TerminalModalVarianceOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// response of any mutation on the table "terminal"
+type TerminalMutationResponse struct {
+	// number of affected rows by the mutation
+	AffectedRows int `json:"affected_rows"`
+	// data of the affected rows by the mutation
+	Returning []*model.Terminal `json:"returning"`
+}
+
+// input type for inserting object relation for remote table "terminal"
+type TerminalObjRelInsertInput struct {
+	Data       *TerminalInsertInput `json:"data"`
+	OnConflict *TerminalOnConflict  `json:"on_conflict"`
+}
+
+// on conflict condition type for table "terminal"
+type TerminalOnConflict struct {
+	Constraint    TerminalConstraint     `json:"constraint"`
+	UpdateColumns []TerminalUpdateColumn `json:"update_columns"`
+	Where         *TerminalBoolExp       `json:"where"`
+}
+
+// ordering options when selecting data from "terminal"
+type TerminalOrderBy struct {
+	AdasModel        *model1.OrderBy `json:"adas_model"`
+	AuthKey          *model1.OrderBy `json:"auth_key"`
+	CameraNum        *model1.OrderBy `json:"camera_num"`
+	ChannelNo        *model1.OrderBy `json:"channel_no"`
+	CityID           *model1.OrderBy `json:"city_id"`
+	CreateAt         *model1.OrderBy `json:"create_at"`
+	CreateBy         *model1.OrderBy `json:"create_by"`
+	DeleteAt         *model1.OrderBy `json:"delete_at"`
+	DeleteBy         *model1.OrderBy `json:"delete_by"`
+	DeptID           *model1.OrderBy `json:"dept_id"`
+	FirstInstallTime *model1.OrderBy `json:"first_install_time"`
+	GuaranteeDate    *model1.OrderBy `json:"guarantee_date"`
+	ID               *model1.OrderBy `json:"id"`
+	Imei             *model1.OrderBy `json:"imei"`
+	InstallManID     *model1.OrderBy `json:"install_man_id"`
+	IsDelete         *model1.OrderBy `json:"is_delete"`
+	IsReg            *model1.OrderBy `json:"is_reg"`
+	IsSupportPhoto   *model1.OrderBy `json:"is_support_photo"`
+	MockAuthKey      *model1.OrderBy `json:"mock_auth_key"`
+	ProduceDate      *model1.OrderBy `json:"produce_date"`
+	ProveProxyrgID   *model1.OrderBy `json:"prove_proxyrg_id"`
+	ProvinceID       *model1.OrderBy `json:"province_id"`
+	ProxyrgID        *model1.OrderBy `json:"proxyrg_id"`
+	RecordDate       *model1.OrderBy `json:"record_date"`
+	RegID            *model1.OrderBy `json:"reg_id"`
+	Remarks          *model1.OrderBy `json:"remarks"`
+	RemoveReason     *model1.OrderBy `json:"remove_reason"`
+	SimID            *model1.OrderBy `json:"sim_id"`
+	SprgID           *model1.OrderBy `json:"sprg_id"`
+	TerminalID       *model1.OrderBy `json:"terminal_id"`
+	TypeID           *model1.OrderBy `json:"type_id"`
+	UpdateAt         *model1.OrderBy `json:"update_at"`
+	UpdateBy         *model1.OrderBy `json:"update_by"`
+	VehicleID        *model1.OrderBy `json:"vehicle_id"`
+	VersionNumber    *model1.OrderBy `json:"version_number"`
+}
+
+// primary key columns input for table: "terminal"
+type TerminalPkColumnsInput struct {
+	// ID
+	ID int64 `json:"id"`
+}
+
+// input type for updating data in table "terminal"
+type TerminalSetInput struct {
+	AdasModel        *string    `json:"adas_model"`
+	AuthKey          *string    `json:"auth_key"`
+	CameraNum        *int       `json:"camera_num"`
+	ChannelNo        *string    `json:"channel_no"`
+	CityID           *string    `json:"city_id"`
+	CreateAt         *time.Time `json:"create_at"`
+	CreateBy         *string    `json:"create_by"`
+	DeleteAt         *time.Time `json:"delete_at"`
+	DeleteBy         *string    `json:"delete_by"`
+	DeptID           *string    `json:"dept_id"`
+	FirstInstallTime *time.Time `json:"first_install_time"`
+	GuaranteeDate    *time.Time `json:"guarantee_date"`
+	ID               *int64     `json:"id"`
+	Imei             *string    `json:"imei"`
+	InstallManID     *string    `json:"install_man_id"`
+	IsDelete         *bool      `json:"is_delete"`
+	IsReg            *bool      `json:"is_reg"`
+	IsSupportPhoto   *bool      `json:"is_support_photo"`
+	MockAuthKey      *string    `json:"mock_auth_key"`
+	ProduceDate      *time.Time `json:"produce_date"`
+	ProveProxyrgID   *string    `json:"prove_proxyrg_id"`
+	ProvinceID       *string    `json:"province_id"`
+	ProxyrgID        *string    `json:"proxyrg_id"`
+	RecordDate       *time.Time `json:"record_date"`
+	RegID            *string    `json:"reg_id"`
+	Remarks          *string    `json:"remarks"`
+	RemoveReason     *string    `json:"remove_reason"`
+	SimID            *string    `json:"sim_id"`
+	SprgID           *string    `json:"sprg_id"`
+	TerminalID       *string    `json:"terminal_id"`
+	TypeID           *string    `json:"type_id"`
+	UpdateAt         *time.Time `json:"update_at"`
+	UpdateBy         *string    `json:"update_by"`
+	VehicleID        *string    `json:"vehicle_id"`
+	VersionNumber    *string    `json:"version_number"`
+}
+
+// aggregate stddev on columns
+type TerminalStddevFields struct {
+	CameraNum *float64 `json:"camera_num"`
+	ID        *float64 `json:"id"`
+}
+
+// order by stddev() on columns of table "terminal"
+type TerminalStddevOrderBy struct {
+	CameraNum *model1.OrderBy `json:"camera_num"`
+	ID        *model1.OrderBy `json:"id"`
+}
+
+// aggregate stddev_pop on columns
+type TerminalStddevPopFields struct {
+	CameraNum *float64 `json:"camera_num"`
+	ID        *float64 `json:"id"`
+}
+
+// order by stddev_pop() on columns of table "terminal"
+type TerminalStddevPopOrderBy struct {
+	CameraNum *model1.OrderBy `json:"camera_num"`
+	ID        *model1.OrderBy `json:"id"`
+}
+
+// aggregate stddev_samp on columns
+type TerminalStddevSampFields struct {
+	CameraNum *float64 `json:"camera_num"`
+	ID        *float64 `json:"id"`
+}
+
+// order by stddev_samp() on columns of table "terminal"
+type TerminalStddevSampOrderBy struct {
+	CameraNum *model1.OrderBy `json:"camera_num"`
+	ID        *model1.OrderBy `json:"id"`
+}
+
+// aggregate sum on columns
+type TerminalSumFields struct {
+	CameraNum *int   `json:"camera_num"`
+	ID        *int64 `json:"id"`
+}
+
+// order by sum() on columns of table "terminal"
+type TerminalSumOrderBy struct {
+	CameraNum *model1.OrderBy `json:"camera_num"`
+	ID        *model1.OrderBy `json:"id"`
+}
+
+// aggregated selection of "terminal_types"
+type TerminalTypesAggregate struct {
+	Aggregate *TerminalTypesAggregateFields `json:"aggregate"`
+	Nodes     []*model.TerminalType         `json:"nodes"`
+}
+
+// aggregate fields of "terminal_types"
+type TerminalTypesAggregateFields struct {
+	Avg        *TerminalTypesAvgFields        `json:"avg"`
+	Count      *int                           `json:"count"`
+	Max        *TerminalTypesMaxFields        `json:"max"`
+	Min        *TerminalTypesMinFields        `json:"min"`
+	Stddev     *TerminalTypesStddevFields     `json:"stddev"`
+	StddevPop  *TerminalTypesStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *TerminalTypesStddevSampFields `json:"stddev_samp"`
+	Sum        *TerminalTypesSumFields        `json:"sum"`
+	VarPop     *TerminalTypesVarPopFields     `json:"var_pop"`
+	VarSamp    *TerminalTypesVarSampFields    `json:"var_samp"`
+	Variance   *TerminalTypesVarianceFields   `json:"variance"`
+}
+
+// order by aggregate values of table "terminal_types"
+type TerminalTypesAggregateOrderBy struct {
+	Avg        *TerminalTypesAvgOrderBy        `json:"avg"`
+	Count      *model1.OrderBy                 `json:"count"`
+	Max        *TerminalTypesMaxOrderBy        `json:"max"`
+	Min        *TerminalTypesMinOrderBy        `json:"min"`
+	Stddev     *TerminalTypesStddevOrderBy     `json:"stddev"`
+	StddevPop  *TerminalTypesStddevPopOrderBy  `json:"stddev_pop"`
+	StddevSamp *TerminalTypesStddevSampOrderBy `json:"stddev_samp"`
+	Sum        *TerminalTypesSumOrderBy        `json:"sum"`
+	VarPop     *TerminalTypesVarPopOrderBy     `json:"var_pop"`
+	VarSamp    *TerminalTypesVarSampOrderBy    `json:"var_samp"`
+	Variance   *TerminalTypesVarianceOrderBy   `json:"variance"`
+}
+
+// input type for inserting array relation for remote table "terminal_types"
+type TerminalTypesArrRelInsertInput struct {
+	Data       []*TerminalTypesInsertInput `json:"data"`
+	OnConflict *TerminalTypesOnConflict    `json:"on_conflict"`
+}
+
+// aggregate avg on columns
+type TerminalTypesAvgFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by avg() on columns of table "terminal_types"
+type TerminalTypesAvgOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "terminal_types". All fields are combined with a logical 'AND'.
+type TerminalTypesBoolExp struct {
+	And          []*TerminalTypesBoolExp          `json:"_and"`
+	Not          *TerminalTypesBoolExp            `json:"_not"`
+	Or           []*TerminalTypesBoolExp          `json:"_or"`
+	CreateAt     *model1.TimestamptzComparisonExp `json:"create_at"`
+	CreateBy     *model1.StringComparisonExp      `json:"create_by"`
+	DeleteAt     *model1.TimestamptzComparisonExp `json:"delete_at"`
+	DeleteBy     *model1.StringComparisonExp      `json:"delete_by"`
+	ID           *model1.BigintComparisonExp      `json:"id"`
+	IsDelete     *model1.BooleanComparisonExp     `json:"is_delete"`
+	ProtocolName *model1.StringComparisonExp      `json:"protocol_name"`
+	Remark       *model1.StringComparisonExp      `json:"remark"`
+	TypeID       *model1.StringComparisonExp      `json:"type_id"`
+	UpdateAt     *model1.TimestamptzComparisonExp `json:"update_at"`
+	UpdateBy     *model1.StringComparisonExp      `json:"update_by"`
+}
+
+// input type for incrementing integer column in table "terminal_types"
+type TerminalTypesIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "terminal_types"
+type TerminalTypesInsertInput struct {
+	CreateAt     *time.Time `json:"create_at"`
+	CreateBy     *string    `json:"create_by"`
+	DeleteAt     *time.Time `json:"delete_at"`
+	DeleteBy     *string    `json:"delete_by"`
+	ID           *int64     `json:"id"`
+	IsDelete     *bool      `json:"is_delete"`
+	ProtocolName *string    `json:"protocol_name"`
+	Remark       *string    `json:"remark"`
+	TypeID       *string    `json:"type_id"`
+	UpdateAt     *time.Time `json:"update_at"`
+	UpdateBy     *string    `json:"update_by"`
+}
+
+// aggregate max on columns
+type TerminalTypesMaxFields struct {
+	CreateAt     *time.Time `json:"create_at"`
+	CreateBy     *string    `json:"create_by"`
+	DeleteAt     *time.Time `json:"delete_at"`
+	DeleteBy     *string    `json:"delete_by"`
+	ID           *int64     `json:"id"`
+	ProtocolName *string    `json:"protocol_name"`
+	Remark       *string    `json:"remark"`
+	TypeID       *string    `json:"type_id"`
+	UpdateAt     *time.Time `json:"update_at"`
+	UpdateBy     *string    `json:"update_by"`
+}
+
+// order by max() on columns of table "terminal_types"
+type TerminalTypesMaxOrderBy struct {
+	CreateAt     *model1.OrderBy `json:"create_at"`
+	CreateBy     *model1.OrderBy `json:"create_by"`
+	DeleteAt     *model1.OrderBy `json:"delete_at"`
+	DeleteBy     *model1.OrderBy `json:"delete_by"`
+	ID           *model1.OrderBy `json:"id"`
+	ProtocolName *model1.OrderBy `json:"protocol_name"`
+	Remark       *model1.OrderBy `json:"remark"`
+	TypeID       *model1.OrderBy `json:"type_id"`
+	UpdateAt     *model1.OrderBy `json:"update_at"`
+	UpdateBy     *model1.OrderBy `json:"update_by"`
+}
+
+// aggregate min on columns
+type TerminalTypesMinFields struct {
+	CreateAt     *time.Time `json:"create_at"`
+	CreateBy     *string    `json:"create_by"`
+	DeleteAt     *time.Time `json:"delete_at"`
+	DeleteBy     *string    `json:"delete_by"`
+	ID           *int64     `json:"id"`
+	ProtocolName *string    `json:"protocol_name"`
+	Remark       *string    `json:"remark"`
+	TypeID       *string    `json:"type_id"`
+	UpdateAt     *time.Time `json:"update_at"`
+	UpdateBy     *string    `json:"update_by"`
+}
+
+// order by min() on columns of table "terminal_types"
+type TerminalTypesMinOrderBy struct {
+	CreateAt     *model1.OrderBy `json:"create_at"`
+	CreateBy     *model1.OrderBy `json:"create_by"`
+	DeleteAt     *model1.OrderBy `json:"delete_at"`
+	DeleteBy     *model1.OrderBy `json:"delete_by"`
+	ID           *model1.OrderBy `json:"id"`
+	ProtocolName *model1.OrderBy `json:"protocol_name"`
+	Remark       *model1.OrderBy `json:"remark"`
+	TypeID       *model1.OrderBy `json:"type_id"`
+	UpdateAt     *model1.OrderBy `json:"update_at"`
+	UpdateBy     *model1.OrderBy `json:"update_by"`
+}
+
+// response of any mutation on the table "terminal_types"
+type TerminalTypesMutationResponse struct {
+	// number of affected rows by the mutation
+	AffectedRows int `json:"affected_rows"`
+	// data of the affected rows by the mutation
+	Returning []*model.TerminalType `json:"returning"`
+}
+
+// input type for inserting object relation for remote table "terminal_types"
+type TerminalTypesObjRelInsertInput struct {
+	Data       *TerminalTypesInsertInput `json:"data"`
+	OnConflict *TerminalTypesOnConflict  `json:"on_conflict"`
+}
+
+// on conflict condition type for table "terminal_types"
+type TerminalTypesOnConflict struct {
+	Constraint    TerminalTypesConstraint     `json:"constraint"`
+	UpdateColumns []TerminalTypesUpdateColumn `json:"update_columns"`
+	Where         *TerminalTypesBoolExp       `json:"where"`
+}
+
+// ordering options when selecting data from "terminal_types"
+type TerminalTypesOrderBy struct {
+	CreateAt     *model1.OrderBy `json:"create_at"`
+	CreateBy     *model1.OrderBy `json:"create_by"`
+	DeleteAt     *model1.OrderBy `json:"delete_at"`
+	DeleteBy     *model1.OrderBy `json:"delete_by"`
+	ID           *model1.OrderBy `json:"id"`
+	IsDelete     *model1.OrderBy `json:"is_delete"`
+	ProtocolName *model1.OrderBy `json:"protocol_name"`
+	Remark       *model1.OrderBy `json:"remark"`
+	TypeID       *model1.OrderBy `json:"type_id"`
+	UpdateAt     *model1.OrderBy `json:"update_at"`
+	UpdateBy     *model1.OrderBy `json:"update_by"`
+}
+
+// primary key columns input for table: "terminal_types"
+type TerminalTypesPkColumnsInput struct {
+	// ID
+	ID int64 `json:"id"`
+}
+
+// input type for updating data in table "terminal_types"
+type TerminalTypesSetInput struct {
+	CreateAt     *time.Time `json:"create_at"`
+	CreateBy     *string    `json:"create_by"`
+	DeleteAt     *time.Time `json:"delete_at"`
+	DeleteBy     *string    `json:"delete_by"`
+	ID           *int64     `json:"id"`
+	IsDelete     *bool      `json:"is_delete"`
+	ProtocolName *string    `json:"protocol_name"`
+	Remark       *string    `json:"remark"`
+	TypeID       *string    `json:"type_id"`
+	UpdateAt     *time.Time `json:"update_at"`
+	UpdateBy     *string    `json:"update_by"`
+}
+
+// aggregate stddev on columns
+type TerminalTypesStddevFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by stddev() on columns of table "terminal_types"
+type TerminalTypesStddevOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate stddev_pop on columns
+type TerminalTypesStddevPopFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by stddev_pop() on columns of table "terminal_types"
+type TerminalTypesStddevPopOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate stddev_samp on columns
+type TerminalTypesStddevSampFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by stddev_samp() on columns of table "terminal_types"
+type TerminalTypesStddevSampOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate sum on columns
+type TerminalTypesSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// order by sum() on columns of table "terminal_types"
+type TerminalTypesSumOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate var_pop on columns
+type TerminalTypesVarPopFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by var_pop() on columns of table "terminal_types"
+type TerminalTypesVarPopOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate var_samp on columns
+type TerminalTypesVarSampFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by var_samp() on columns of table "terminal_types"
+type TerminalTypesVarSampOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate variance on columns
+type TerminalTypesVarianceFields struct {
+	ID *float64 `json:"id"`
+}
+
+// order by variance() on columns of table "terminal_types"
+type TerminalTypesVarianceOrderBy struct {
+	ID *model1.OrderBy `json:"id"`
+}
+
+// aggregate var_pop on columns
+type TerminalVarPopFields struct {
+	CameraNum *float64 `json:"camera_num"`
+	ID        *float64 `json:"id"`
+}
+
+// order by var_pop() on columns of table "terminal"
+type TerminalVarPopOrderBy struct {
+	CameraNum *model1.OrderBy `json:"camera_num"`
+	ID        *model1.OrderBy `json:"id"`
+}
+
+// aggregate var_samp on columns
+type TerminalVarSampFields struct {
+	CameraNum *float64 `json:"camera_num"`
+	ID        *float64 `json:"id"`
+}
+
+// order by var_samp() on columns of table "terminal"
+type TerminalVarSampOrderBy struct {
+	CameraNum *model1.OrderBy `json:"camera_num"`
+	ID        *model1.OrderBy `json:"id"`
+}
+
+// aggregate variance on columns
+type TerminalVarianceFields struct {
+	CameraNum *float64 `json:"camera_num"`
+	ID        *float64 `json:"id"`
+}
+
+// order by variance() on columns of table "terminal"
+type TerminalVarianceOrderBy struct {
+	CameraNum *model1.OrderBy `json:"camera_num"`
+	ID        *model1.OrderBy `json:"id"`
+}
+
 // unique or primary key constraints on table "sim_card"
 type SimCardConstraint string
 
@@ -1355,5 +2744,965 @@ func (e *SimCardUpdateColumn) UnmarshalGQL(v interface{}) error {
 }
 
 func (e SimCardUpdateColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// unique or primary key constraints on table "terminal"
+type TerminalConstraint string
+
+const (
+	// unique or primary key constraint
+	TerminalConstraintTerminalPkey TerminalConstraint = "terminal_pkey"
+)
+
+var AllTerminalConstraint = []TerminalConstraint{
+	TerminalConstraintTerminalPkey,
+}
+
+func (e TerminalConstraint) IsValid() bool {
+	switch e {
+	case TerminalConstraintTerminalPkey:
+		return true
+	}
+	return false
+}
+
+func (e TerminalConstraint) String() string {
+	return string(e)
+}
+
+func (e *TerminalConstraint) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalConstraint(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_constraint", str)
+	}
+	return nil
+}
+
+func (e TerminalConstraint) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// unique or primary key constraints on table "terminal_factory"
+type TerminalFactoryConstraint string
+
+const (
+	// unique or primary key constraint
+	TerminalFactoryConstraintTerminalFactoryPkey TerminalFactoryConstraint = "terminal_factory_pkey"
+)
+
+var AllTerminalFactoryConstraint = []TerminalFactoryConstraint{
+	TerminalFactoryConstraintTerminalFactoryPkey,
+}
+
+func (e TerminalFactoryConstraint) IsValid() bool {
+	switch e {
+	case TerminalFactoryConstraintTerminalFactoryPkey:
+		return true
+	}
+	return false
+}
+
+func (e TerminalFactoryConstraint) String() string {
+	return string(e)
+}
+
+func (e *TerminalFactoryConstraint) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalFactoryConstraint(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_factory_constraint", str)
+	}
+	return nil
+}
+
+func (e TerminalFactoryConstraint) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// select columns of table "terminal_factory"
+type TerminalFactorySelectColumn string
+
+const (
+	// column name
+	TerminalFactorySelectColumnAddress TerminalFactorySelectColumn = "address"
+	// column name
+	TerminalFactorySelectColumnContact TerminalFactorySelectColumn = "contact"
+	// column name
+	TerminalFactorySelectColumnContactPhone TerminalFactorySelectColumn = "contact_phone"
+	// column name
+	TerminalFactorySelectColumnCreateAt TerminalFactorySelectColumn = "create_at"
+	// column name
+	TerminalFactorySelectColumnCreateBy TerminalFactorySelectColumn = "create_by"
+	// column name
+	TerminalFactorySelectColumnDeleteAt TerminalFactorySelectColumn = "delete_at"
+	// column name
+	TerminalFactorySelectColumnDeleteBy TerminalFactorySelectColumn = "delete_by"
+	// column name
+	TerminalFactorySelectColumnFactoryID TerminalFactorySelectColumn = "factory_id"
+	// column name
+	TerminalFactorySelectColumnFactoryName TerminalFactorySelectColumn = "factory_name"
+	// column name
+	TerminalFactorySelectColumnID TerminalFactorySelectColumn = "id"
+	// column name
+	TerminalFactorySelectColumnIsDelete TerminalFactorySelectColumn = "is_delete"
+	// column name
+	TerminalFactorySelectColumnRemark TerminalFactorySelectColumn = "remark"
+	// column name
+	TerminalFactorySelectColumnTechContact TerminalFactorySelectColumn = "tech_contact"
+	// column name
+	TerminalFactorySelectColumnTechContactPhone TerminalFactorySelectColumn = "tech_contact_phone"
+	// column name
+	TerminalFactorySelectColumnUpdateAt TerminalFactorySelectColumn = "update_at"
+	// column name
+	TerminalFactorySelectColumnUpdateBy TerminalFactorySelectColumn = "update_by"
+)
+
+var AllTerminalFactorySelectColumn = []TerminalFactorySelectColumn{
+	TerminalFactorySelectColumnAddress,
+	TerminalFactorySelectColumnContact,
+	TerminalFactorySelectColumnContactPhone,
+	TerminalFactorySelectColumnCreateAt,
+	TerminalFactorySelectColumnCreateBy,
+	TerminalFactorySelectColumnDeleteAt,
+	TerminalFactorySelectColumnDeleteBy,
+	TerminalFactorySelectColumnFactoryID,
+	TerminalFactorySelectColumnFactoryName,
+	TerminalFactorySelectColumnID,
+	TerminalFactorySelectColumnIsDelete,
+	TerminalFactorySelectColumnRemark,
+	TerminalFactorySelectColumnTechContact,
+	TerminalFactorySelectColumnTechContactPhone,
+	TerminalFactorySelectColumnUpdateAt,
+	TerminalFactorySelectColumnUpdateBy,
+}
+
+func (e TerminalFactorySelectColumn) IsValid() bool {
+	switch e {
+	case TerminalFactorySelectColumnAddress, TerminalFactorySelectColumnContact, TerminalFactorySelectColumnContactPhone, TerminalFactorySelectColumnCreateAt, TerminalFactorySelectColumnCreateBy, TerminalFactorySelectColumnDeleteAt, TerminalFactorySelectColumnDeleteBy, TerminalFactorySelectColumnFactoryID, TerminalFactorySelectColumnFactoryName, TerminalFactorySelectColumnID, TerminalFactorySelectColumnIsDelete, TerminalFactorySelectColumnRemark, TerminalFactorySelectColumnTechContact, TerminalFactorySelectColumnTechContactPhone, TerminalFactorySelectColumnUpdateAt, TerminalFactorySelectColumnUpdateBy:
+		return true
+	}
+	return false
+}
+
+func (e TerminalFactorySelectColumn) String() string {
+	return string(e)
+}
+
+func (e *TerminalFactorySelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalFactorySelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_factory_select_column", str)
+	}
+	return nil
+}
+
+func (e TerminalFactorySelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// update columns of table "terminal_factory"
+type TerminalFactoryUpdateColumn string
+
+const (
+	// column name
+	TerminalFactoryUpdateColumnAddress TerminalFactoryUpdateColumn = "address"
+	// column name
+	TerminalFactoryUpdateColumnContact TerminalFactoryUpdateColumn = "contact"
+	// column name
+	TerminalFactoryUpdateColumnContactPhone TerminalFactoryUpdateColumn = "contact_phone"
+	// column name
+	TerminalFactoryUpdateColumnCreateAt TerminalFactoryUpdateColumn = "create_at"
+	// column name
+	TerminalFactoryUpdateColumnCreateBy TerminalFactoryUpdateColumn = "create_by"
+	// column name
+	TerminalFactoryUpdateColumnDeleteAt TerminalFactoryUpdateColumn = "delete_at"
+	// column name
+	TerminalFactoryUpdateColumnDeleteBy TerminalFactoryUpdateColumn = "delete_by"
+	// column name
+	TerminalFactoryUpdateColumnFactoryID TerminalFactoryUpdateColumn = "factory_id"
+	// column name
+	TerminalFactoryUpdateColumnFactoryName TerminalFactoryUpdateColumn = "factory_name"
+	// column name
+	TerminalFactoryUpdateColumnID TerminalFactoryUpdateColumn = "id"
+	// column name
+	TerminalFactoryUpdateColumnIsDelete TerminalFactoryUpdateColumn = "is_delete"
+	// column name
+	TerminalFactoryUpdateColumnRemark TerminalFactoryUpdateColumn = "remark"
+	// column name
+	TerminalFactoryUpdateColumnTechContact TerminalFactoryUpdateColumn = "tech_contact"
+	// column name
+	TerminalFactoryUpdateColumnTechContactPhone TerminalFactoryUpdateColumn = "tech_contact_phone"
+	// column name
+	TerminalFactoryUpdateColumnUpdateAt TerminalFactoryUpdateColumn = "update_at"
+	// column name
+	TerminalFactoryUpdateColumnUpdateBy TerminalFactoryUpdateColumn = "update_by"
+)
+
+var AllTerminalFactoryUpdateColumn = []TerminalFactoryUpdateColumn{
+	TerminalFactoryUpdateColumnAddress,
+	TerminalFactoryUpdateColumnContact,
+	TerminalFactoryUpdateColumnContactPhone,
+	TerminalFactoryUpdateColumnCreateAt,
+	TerminalFactoryUpdateColumnCreateBy,
+	TerminalFactoryUpdateColumnDeleteAt,
+	TerminalFactoryUpdateColumnDeleteBy,
+	TerminalFactoryUpdateColumnFactoryID,
+	TerminalFactoryUpdateColumnFactoryName,
+	TerminalFactoryUpdateColumnID,
+	TerminalFactoryUpdateColumnIsDelete,
+	TerminalFactoryUpdateColumnRemark,
+	TerminalFactoryUpdateColumnTechContact,
+	TerminalFactoryUpdateColumnTechContactPhone,
+	TerminalFactoryUpdateColumnUpdateAt,
+	TerminalFactoryUpdateColumnUpdateBy,
+}
+
+func (e TerminalFactoryUpdateColumn) IsValid() bool {
+	switch e {
+	case TerminalFactoryUpdateColumnAddress, TerminalFactoryUpdateColumnContact, TerminalFactoryUpdateColumnContactPhone, TerminalFactoryUpdateColumnCreateAt, TerminalFactoryUpdateColumnCreateBy, TerminalFactoryUpdateColumnDeleteAt, TerminalFactoryUpdateColumnDeleteBy, TerminalFactoryUpdateColumnFactoryID, TerminalFactoryUpdateColumnFactoryName, TerminalFactoryUpdateColumnID, TerminalFactoryUpdateColumnIsDelete, TerminalFactoryUpdateColumnRemark, TerminalFactoryUpdateColumnTechContact, TerminalFactoryUpdateColumnTechContactPhone, TerminalFactoryUpdateColumnUpdateAt, TerminalFactoryUpdateColumnUpdateBy:
+		return true
+	}
+	return false
+}
+
+func (e TerminalFactoryUpdateColumn) String() string {
+	return string(e)
+}
+
+func (e *TerminalFactoryUpdateColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalFactoryUpdateColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_factory_update_column", str)
+	}
+	return nil
+}
+
+func (e TerminalFactoryUpdateColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// unique or primary key constraints on table "terminal_modal"
+type TerminalModalConstraint string
+
+const (
+	// unique or primary key constraint
+	TerminalModalConstraintTerminalModalPkey TerminalModalConstraint = "terminal_modal_pkey"
+)
+
+var AllTerminalModalConstraint = []TerminalModalConstraint{
+	TerminalModalConstraintTerminalModalPkey,
+}
+
+func (e TerminalModalConstraint) IsValid() bool {
+	switch e {
+	case TerminalModalConstraintTerminalModalPkey:
+		return true
+	}
+	return false
+}
+
+func (e TerminalModalConstraint) String() string {
+	return string(e)
+}
+
+func (e *TerminalModalConstraint) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalModalConstraint(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_modal_constraint", str)
+	}
+	return nil
+}
+
+func (e TerminalModalConstraint) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// select columns of table "terminal_modal"
+type TerminalModalSelectColumn string
+
+const (
+	// column name
+	TerminalModalSelectColumnAdasModal TerminalModalSelectColumn = "adas_modal"
+	// column name
+	TerminalModalSelectColumnCreateAt TerminalModalSelectColumn = "create_at"
+	// column name
+	TerminalModalSelectColumnCreateBy TerminalModalSelectColumn = "create_by"
+	// column name
+	TerminalModalSelectColumnDeleteAt TerminalModalSelectColumn = "delete_at"
+	// column name
+	TerminalModalSelectColumnDeleteBy TerminalModalSelectColumn = "delete_by"
+	// column name
+	TerminalModalSelectColumnFactoryID TerminalModalSelectColumn = "factory_id"
+	// column name
+	TerminalModalSelectColumnID TerminalModalSelectColumn = "id"
+	// column name
+	TerminalModalSelectColumnIsDelete TerminalModalSelectColumn = "is_delete"
+	// column name
+	TerminalModalSelectColumnIsElectronicsPostCard TerminalModalSelectColumn = "is_electronics_post_card"
+	// column name
+	TerminalModalSelectColumnIsSlagCarTeminal TerminalModalSelectColumn = "is_slag_car_teminal"
+	// column name
+	TerminalModalSelectColumnIsTestingSituation TerminalModalSelectColumn = "is_testing_situation"
+	// column name
+	TerminalModalSelectColumnIsTransportDept4g TerminalModalSelectColumn = "is_transport_dept_4g"
+	// column name
+	TerminalModalSelectColumnModalName TerminalModalSelectColumn = "modal_name"
+	// column name
+	TerminalModalSelectColumnProxyrgID TerminalModalSelectColumn = "proxyrg_id"
+	// column name
+	TerminalModalSelectColumnRecordNo TerminalModalSelectColumn = "record_no"
+	// column name
+	TerminalModalSelectColumnRemark TerminalModalSelectColumn = "remark"
+	// column name
+	TerminalModalSelectColumnTerminalModalID TerminalModalSelectColumn = "terminal_modal_id"
+	// column name
+	TerminalModalSelectColumnTerminalTypeID TerminalModalSelectColumn = "terminal_type_id"
+	// column name
+	TerminalModalSelectColumnUpdateAt TerminalModalSelectColumn = "update_at"
+	// column name
+	TerminalModalSelectColumnUpdateBy TerminalModalSelectColumn = "update_by"
+)
+
+var AllTerminalModalSelectColumn = []TerminalModalSelectColumn{
+	TerminalModalSelectColumnAdasModal,
+	TerminalModalSelectColumnCreateAt,
+	TerminalModalSelectColumnCreateBy,
+	TerminalModalSelectColumnDeleteAt,
+	TerminalModalSelectColumnDeleteBy,
+	TerminalModalSelectColumnFactoryID,
+	TerminalModalSelectColumnID,
+	TerminalModalSelectColumnIsDelete,
+	TerminalModalSelectColumnIsElectronicsPostCard,
+	TerminalModalSelectColumnIsSlagCarTeminal,
+	TerminalModalSelectColumnIsTestingSituation,
+	TerminalModalSelectColumnIsTransportDept4g,
+	TerminalModalSelectColumnModalName,
+	TerminalModalSelectColumnProxyrgID,
+	TerminalModalSelectColumnRecordNo,
+	TerminalModalSelectColumnRemark,
+	TerminalModalSelectColumnTerminalModalID,
+	TerminalModalSelectColumnTerminalTypeID,
+	TerminalModalSelectColumnUpdateAt,
+	TerminalModalSelectColumnUpdateBy,
+}
+
+func (e TerminalModalSelectColumn) IsValid() bool {
+	switch e {
+	case TerminalModalSelectColumnAdasModal, TerminalModalSelectColumnCreateAt, TerminalModalSelectColumnCreateBy, TerminalModalSelectColumnDeleteAt, TerminalModalSelectColumnDeleteBy, TerminalModalSelectColumnFactoryID, TerminalModalSelectColumnID, TerminalModalSelectColumnIsDelete, TerminalModalSelectColumnIsElectronicsPostCard, TerminalModalSelectColumnIsSlagCarTeminal, TerminalModalSelectColumnIsTestingSituation, TerminalModalSelectColumnIsTransportDept4g, TerminalModalSelectColumnModalName, TerminalModalSelectColumnProxyrgID, TerminalModalSelectColumnRecordNo, TerminalModalSelectColumnRemark, TerminalModalSelectColumnTerminalModalID, TerminalModalSelectColumnTerminalTypeID, TerminalModalSelectColumnUpdateAt, TerminalModalSelectColumnUpdateBy:
+		return true
+	}
+	return false
+}
+
+func (e TerminalModalSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *TerminalModalSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalModalSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_modal_select_column", str)
+	}
+	return nil
+}
+
+func (e TerminalModalSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// update columns of table "terminal_modal"
+type TerminalModalUpdateColumn string
+
+const (
+	// column name
+	TerminalModalUpdateColumnAdasModal TerminalModalUpdateColumn = "adas_modal"
+	// column name
+	TerminalModalUpdateColumnCreateAt TerminalModalUpdateColumn = "create_at"
+	// column name
+	TerminalModalUpdateColumnCreateBy TerminalModalUpdateColumn = "create_by"
+	// column name
+	TerminalModalUpdateColumnDeleteAt TerminalModalUpdateColumn = "delete_at"
+	// column name
+	TerminalModalUpdateColumnDeleteBy TerminalModalUpdateColumn = "delete_by"
+	// column name
+	TerminalModalUpdateColumnFactoryID TerminalModalUpdateColumn = "factory_id"
+	// column name
+	TerminalModalUpdateColumnID TerminalModalUpdateColumn = "id"
+	// column name
+	TerminalModalUpdateColumnIsDelete TerminalModalUpdateColumn = "is_delete"
+	// column name
+	TerminalModalUpdateColumnIsElectronicsPostCard TerminalModalUpdateColumn = "is_electronics_post_card"
+	// column name
+	TerminalModalUpdateColumnIsSlagCarTeminal TerminalModalUpdateColumn = "is_slag_car_teminal"
+	// column name
+	TerminalModalUpdateColumnIsTestingSituation TerminalModalUpdateColumn = "is_testing_situation"
+	// column name
+	TerminalModalUpdateColumnIsTransportDept4g TerminalModalUpdateColumn = "is_transport_dept_4g"
+	// column name
+	TerminalModalUpdateColumnModalName TerminalModalUpdateColumn = "modal_name"
+	// column name
+	TerminalModalUpdateColumnProxyrgID TerminalModalUpdateColumn = "proxyrg_id"
+	// column name
+	TerminalModalUpdateColumnRecordNo TerminalModalUpdateColumn = "record_no"
+	// column name
+	TerminalModalUpdateColumnRemark TerminalModalUpdateColumn = "remark"
+	// column name
+	TerminalModalUpdateColumnTerminalModalID TerminalModalUpdateColumn = "terminal_modal_id"
+	// column name
+	TerminalModalUpdateColumnTerminalTypeID TerminalModalUpdateColumn = "terminal_type_id"
+	// column name
+	TerminalModalUpdateColumnUpdateAt TerminalModalUpdateColumn = "update_at"
+	// column name
+	TerminalModalUpdateColumnUpdateBy TerminalModalUpdateColumn = "update_by"
+)
+
+var AllTerminalModalUpdateColumn = []TerminalModalUpdateColumn{
+	TerminalModalUpdateColumnAdasModal,
+	TerminalModalUpdateColumnCreateAt,
+	TerminalModalUpdateColumnCreateBy,
+	TerminalModalUpdateColumnDeleteAt,
+	TerminalModalUpdateColumnDeleteBy,
+	TerminalModalUpdateColumnFactoryID,
+	TerminalModalUpdateColumnID,
+	TerminalModalUpdateColumnIsDelete,
+	TerminalModalUpdateColumnIsElectronicsPostCard,
+	TerminalModalUpdateColumnIsSlagCarTeminal,
+	TerminalModalUpdateColumnIsTestingSituation,
+	TerminalModalUpdateColumnIsTransportDept4g,
+	TerminalModalUpdateColumnModalName,
+	TerminalModalUpdateColumnProxyrgID,
+	TerminalModalUpdateColumnRecordNo,
+	TerminalModalUpdateColumnRemark,
+	TerminalModalUpdateColumnTerminalModalID,
+	TerminalModalUpdateColumnTerminalTypeID,
+	TerminalModalUpdateColumnUpdateAt,
+	TerminalModalUpdateColumnUpdateBy,
+}
+
+func (e TerminalModalUpdateColumn) IsValid() bool {
+	switch e {
+	case TerminalModalUpdateColumnAdasModal, TerminalModalUpdateColumnCreateAt, TerminalModalUpdateColumnCreateBy, TerminalModalUpdateColumnDeleteAt, TerminalModalUpdateColumnDeleteBy, TerminalModalUpdateColumnFactoryID, TerminalModalUpdateColumnID, TerminalModalUpdateColumnIsDelete, TerminalModalUpdateColumnIsElectronicsPostCard, TerminalModalUpdateColumnIsSlagCarTeminal, TerminalModalUpdateColumnIsTestingSituation, TerminalModalUpdateColumnIsTransportDept4g, TerminalModalUpdateColumnModalName, TerminalModalUpdateColumnProxyrgID, TerminalModalUpdateColumnRecordNo, TerminalModalUpdateColumnRemark, TerminalModalUpdateColumnTerminalModalID, TerminalModalUpdateColumnTerminalTypeID, TerminalModalUpdateColumnUpdateAt, TerminalModalUpdateColumnUpdateBy:
+		return true
+	}
+	return false
+}
+
+func (e TerminalModalUpdateColumn) String() string {
+	return string(e)
+}
+
+func (e *TerminalModalUpdateColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalModalUpdateColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_modal_update_column", str)
+	}
+	return nil
+}
+
+func (e TerminalModalUpdateColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// select columns of table "terminal"
+type TerminalSelectColumn string
+
+const (
+	// column name
+	TerminalSelectColumnAdasModel TerminalSelectColumn = "adas_model"
+	// column name
+	TerminalSelectColumnAuthKey TerminalSelectColumn = "auth_key"
+	// column name
+	TerminalSelectColumnCameraNum TerminalSelectColumn = "camera_num"
+	// column name
+	TerminalSelectColumnChannelNo TerminalSelectColumn = "channel_no"
+	// column name
+	TerminalSelectColumnCityID TerminalSelectColumn = "city_id"
+	// column name
+	TerminalSelectColumnCreateAt TerminalSelectColumn = "create_at"
+	// column name
+	TerminalSelectColumnCreateBy TerminalSelectColumn = "create_by"
+	// column name
+	TerminalSelectColumnDeleteAt TerminalSelectColumn = "delete_at"
+	// column name
+	TerminalSelectColumnDeleteBy TerminalSelectColumn = "delete_by"
+	// column name
+	TerminalSelectColumnDeptID TerminalSelectColumn = "dept_id"
+	// column name
+	TerminalSelectColumnFirstInstallTime TerminalSelectColumn = "first_install_time"
+	// column name
+	TerminalSelectColumnGuaranteeDate TerminalSelectColumn = "guarantee_date"
+	// column name
+	TerminalSelectColumnID TerminalSelectColumn = "id"
+	// column name
+	TerminalSelectColumnImei TerminalSelectColumn = "imei"
+	// column name
+	TerminalSelectColumnInstallManID TerminalSelectColumn = "install_man_id"
+	// column name
+	TerminalSelectColumnIsDelete TerminalSelectColumn = "is_delete"
+	// column name
+	TerminalSelectColumnIsReg TerminalSelectColumn = "is_reg"
+	// column name
+	TerminalSelectColumnIsSupportPhoto TerminalSelectColumn = "is_support_photo"
+	// column name
+	TerminalSelectColumnMockAuthKey TerminalSelectColumn = "mock_auth_key"
+	// column name
+	TerminalSelectColumnProduceDate TerminalSelectColumn = "produce_date"
+	// column name
+	TerminalSelectColumnProveProxyrgID TerminalSelectColumn = "prove_proxyrg_id"
+	// column name
+	TerminalSelectColumnProvinceID TerminalSelectColumn = "province_id"
+	// column name
+	TerminalSelectColumnProxyrgID TerminalSelectColumn = "proxyrg_id"
+	// column name
+	TerminalSelectColumnRecordDate TerminalSelectColumn = "record_date"
+	// column name
+	TerminalSelectColumnRegID TerminalSelectColumn = "reg_id"
+	// column name
+	TerminalSelectColumnRemarks TerminalSelectColumn = "remarks"
+	// column name
+	TerminalSelectColumnRemoveReason TerminalSelectColumn = "remove_reason"
+	// column name
+	TerminalSelectColumnSimID TerminalSelectColumn = "sim_id"
+	// column name
+	TerminalSelectColumnSprgID TerminalSelectColumn = "sprg_id"
+	// column name
+	TerminalSelectColumnTerminalID TerminalSelectColumn = "terminal_id"
+	// column name
+	TerminalSelectColumnTypeID TerminalSelectColumn = "type_id"
+	// column name
+	TerminalSelectColumnUpdateAt TerminalSelectColumn = "update_at"
+	// column name
+	TerminalSelectColumnUpdateBy TerminalSelectColumn = "update_by"
+	// column name
+	TerminalSelectColumnVehicleID TerminalSelectColumn = "vehicle_id"
+	// column name
+	TerminalSelectColumnVersionNumber TerminalSelectColumn = "version_number"
+)
+
+var AllTerminalSelectColumn = []TerminalSelectColumn{
+	TerminalSelectColumnAdasModel,
+	TerminalSelectColumnAuthKey,
+	TerminalSelectColumnCameraNum,
+	TerminalSelectColumnChannelNo,
+	TerminalSelectColumnCityID,
+	TerminalSelectColumnCreateAt,
+	TerminalSelectColumnCreateBy,
+	TerminalSelectColumnDeleteAt,
+	TerminalSelectColumnDeleteBy,
+	TerminalSelectColumnDeptID,
+	TerminalSelectColumnFirstInstallTime,
+	TerminalSelectColumnGuaranteeDate,
+	TerminalSelectColumnID,
+	TerminalSelectColumnImei,
+	TerminalSelectColumnInstallManID,
+	TerminalSelectColumnIsDelete,
+	TerminalSelectColumnIsReg,
+	TerminalSelectColumnIsSupportPhoto,
+	TerminalSelectColumnMockAuthKey,
+	TerminalSelectColumnProduceDate,
+	TerminalSelectColumnProveProxyrgID,
+	TerminalSelectColumnProvinceID,
+	TerminalSelectColumnProxyrgID,
+	TerminalSelectColumnRecordDate,
+	TerminalSelectColumnRegID,
+	TerminalSelectColumnRemarks,
+	TerminalSelectColumnRemoveReason,
+	TerminalSelectColumnSimID,
+	TerminalSelectColumnSprgID,
+	TerminalSelectColumnTerminalID,
+	TerminalSelectColumnTypeID,
+	TerminalSelectColumnUpdateAt,
+	TerminalSelectColumnUpdateBy,
+	TerminalSelectColumnVehicleID,
+	TerminalSelectColumnVersionNumber,
+}
+
+func (e TerminalSelectColumn) IsValid() bool {
+	switch e {
+	case TerminalSelectColumnAdasModel, TerminalSelectColumnAuthKey, TerminalSelectColumnCameraNum, TerminalSelectColumnChannelNo, TerminalSelectColumnCityID, TerminalSelectColumnCreateAt, TerminalSelectColumnCreateBy, TerminalSelectColumnDeleteAt, TerminalSelectColumnDeleteBy, TerminalSelectColumnDeptID, TerminalSelectColumnFirstInstallTime, TerminalSelectColumnGuaranteeDate, TerminalSelectColumnID, TerminalSelectColumnImei, TerminalSelectColumnInstallManID, TerminalSelectColumnIsDelete, TerminalSelectColumnIsReg, TerminalSelectColumnIsSupportPhoto, TerminalSelectColumnMockAuthKey, TerminalSelectColumnProduceDate, TerminalSelectColumnProveProxyrgID, TerminalSelectColumnProvinceID, TerminalSelectColumnProxyrgID, TerminalSelectColumnRecordDate, TerminalSelectColumnRegID, TerminalSelectColumnRemarks, TerminalSelectColumnRemoveReason, TerminalSelectColumnSimID, TerminalSelectColumnSprgID, TerminalSelectColumnTerminalID, TerminalSelectColumnTypeID, TerminalSelectColumnUpdateAt, TerminalSelectColumnUpdateBy, TerminalSelectColumnVehicleID, TerminalSelectColumnVersionNumber:
+		return true
+	}
+	return false
+}
+
+func (e TerminalSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *TerminalSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_select_column", str)
+	}
+	return nil
+}
+
+func (e TerminalSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// unique or primary key constraints on table "terminal_types"
+type TerminalTypesConstraint string
+
+const (
+	// unique or primary key constraint
+	TerminalTypesConstraintTerminalTypePkey TerminalTypesConstraint = "terminal_type_pkey"
+)
+
+var AllTerminalTypesConstraint = []TerminalTypesConstraint{
+	TerminalTypesConstraintTerminalTypePkey,
+}
+
+func (e TerminalTypesConstraint) IsValid() bool {
+	switch e {
+	case TerminalTypesConstraintTerminalTypePkey:
+		return true
+	}
+	return false
+}
+
+func (e TerminalTypesConstraint) String() string {
+	return string(e)
+}
+
+func (e *TerminalTypesConstraint) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalTypesConstraint(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_types_constraint", str)
+	}
+	return nil
+}
+
+func (e TerminalTypesConstraint) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// select columns of table "terminal_types"
+type TerminalTypesSelectColumn string
+
+const (
+	// column name
+	TerminalTypesSelectColumnCreateAt TerminalTypesSelectColumn = "create_at"
+	// column name
+	TerminalTypesSelectColumnCreateBy TerminalTypesSelectColumn = "create_by"
+	// column name
+	TerminalTypesSelectColumnDeleteAt TerminalTypesSelectColumn = "delete_at"
+	// column name
+	TerminalTypesSelectColumnDeleteBy TerminalTypesSelectColumn = "delete_by"
+	// column name
+	TerminalTypesSelectColumnID TerminalTypesSelectColumn = "id"
+	// column name
+	TerminalTypesSelectColumnIsDelete TerminalTypesSelectColumn = "is_delete"
+	// column name
+	TerminalTypesSelectColumnProtocolName TerminalTypesSelectColumn = "protocol_name"
+	// column name
+	TerminalTypesSelectColumnRemark TerminalTypesSelectColumn = "remark"
+	// column name
+	TerminalTypesSelectColumnTypeID TerminalTypesSelectColumn = "type_id"
+	// column name
+	TerminalTypesSelectColumnUpdateAt TerminalTypesSelectColumn = "update_at"
+	// column name
+	TerminalTypesSelectColumnUpdateBy TerminalTypesSelectColumn = "update_by"
+)
+
+var AllTerminalTypesSelectColumn = []TerminalTypesSelectColumn{
+	TerminalTypesSelectColumnCreateAt,
+	TerminalTypesSelectColumnCreateBy,
+	TerminalTypesSelectColumnDeleteAt,
+	TerminalTypesSelectColumnDeleteBy,
+	TerminalTypesSelectColumnID,
+	TerminalTypesSelectColumnIsDelete,
+	TerminalTypesSelectColumnProtocolName,
+	TerminalTypesSelectColumnRemark,
+	TerminalTypesSelectColumnTypeID,
+	TerminalTypesSelectColumnUpdateAt,
+	TerminalTypesSelectColumnUpdateBy,
+}
+
+func (e TerminalTypesSelectColumn) IsValid() bool {
+	switch e {
+	case TerminalTypesSelectColumnCreateAt, TerminalTypesSelectColumnCreateBy, TerminalTypesSelectColumnDeleteAt, TerminalTypesSelectColumnDeleteBy, TerminalTypesSelectColumnID, TerminalTypesSelectColumnIsDelete, TerminalTypesSelectColumnProtocolName, TerminalTypesSelectColumnRemark, TerminalTypesSelectColumnTypeID, TerminalTypesSelectColumnUpdateAt, TerminalTypesSelectColumnUpdateBy:
+		return true
+	}
+	return false
+}
+
+func (e TerminalTypesSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *TerminalTypesSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalTypesSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_types_select_column", str)
+	}
+	return nil
+}
+
+func (e TerminalTypesSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// update columns of table "terminal_types"
+type TerminalTypesUpdateColumn string
+
+const (
+	// column name
+	TerminalTypesUpdateColumnCreateAt TerminalTypesUpdateColumn = "create_at"
+	// column name
+	TerminalTypesUpdateColumnCreateBy TerminalTypesUpdateColumn = "create_by"
+	// column name
+	TerminalTypesUpdateColumnDeleteAt TerminalTypesUpdateColumn = "delete_at"
+	// column name
+	TerminalTypesUpdateColumnDeleteBy TerminalTypesUpdateColumn = "delete_by"
+	// column name
+	TerminalTypesUpdateColumnID TerminalTypesUpdateColumn = "id"
+	// column name
+	TerminalTypesUpdateColumnIsDelete TerminalTypesUpdateColumn = "is_delete"
+	// column name
+	TerminalTypesUpdateColumnProtocolName TerminalTypesUpdateColumn = "protocol_name"
+	// column name
+	TerminalTypesUpdateColumnRemark TerminalTypesUpdateColumn = "remark"
+	// column name
+	TerminalTypesUpdateColumnTypeID TerminalTypesUpdateColumn = "type_id"
+	// column name
+	TerminalTypesUpdateColumnUpdateAt TerminalTypesUpdateColumn = "update_at"
+	// column name
+	TerminalTypesUpdateColumnUpdateBy TerminalTypesUpdateColumn = "update_by"
+)
+
+var AllTerminalTypesUpdateColumn = []TerminalTypesUpdateColumn{
+	TerminalTypesUpdateColumnCreateAt,
+	TerminalTypesUpdateColumnCreateBy,
+	TerminalTypesUpdateColumnDeleteAt,
+	TerminalTypesUpdateColumnDeleteBy,
+	TerminalTypesUpdateColumnID,
+	TerminalTypesUpdateColumnIsDelete,
+	TerminalTypesUpdateColumnProtocolName,
+	TerminalTypesUpdateColumnRemark,
+	TerminalTypesUpdateColumnTypeID,
+	TerminalTypesUpdateColumnUpdateAt,
+	TerminalTypesUpdateColumnUpdateBy,
+}
+
+func (e TerminalTypesUpdateColumn) IsValid() bool {
+	switch e {
+	case TerminalTypesUpdateColumnCreateAt, TerminalTypesUpdateColumnCreateBy, TerminalTypesUpdateColumnDeleteAt, TerminalTypesUpdateColumnDeleteBy, TerminalTypesUpdateColumnID, TerminalTypesUpdateColumnIsDelete, TerminalTypesUpdateColumnProtocolName, TerminalTypesUpdateColumnRemark, TerminalTypesUpdateColumnTypeID, TerminalTypesUpdateColumnUpdateAt, TerminalTypesUpdateColumnUpdateBy:
+		return true
+	}
+	return false
+}
+
+func (e TerminalTypesUpdateColumn) String() string {
+	return string(e)
+}
+
+func (e *TerminalTypesUpdateColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalTypesUpdateColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_types_update_column", str)
+	}
+	return nil
+}
+
+func (e TerminalTypesUpdateColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// update columns of table "terminal"
+type TerminalUpdateColumn string
+
+const (
+	// column name
+	TerminalUpdateColumnAdasModel TerminalUpdateColumn = "adas_model"
+	// column name
+	TerminalUpdateColumnAuthKey TerminalUpdateColumn = "auth_key"
+	// column name
+	TerminalUpdateColumnCameraNum TerminalUpdateColumn = "camera_num"
+	// column name
+	TerminalUpdateColumnChannelNo TerminalUpdateColumn = "channel_no"
+	// column name
+	TerminalUpdateColumnCityID TerminalUpdateColumn = "city_id"
+	// column name
+	TerminalUpdateColumnCreateAt TerminalUpdateColumn = "create_at"
+	// column name
+	TerminalUpdateColumnCreateBy TerminalUpdateColumn = "create_by"
+	// column name
+	TerminalUpdateColumnDeleteAt TerminalUpdateColumn = "delete_at"
+	// column name
+	TerminalUpdateColumnDeleteBy TerminalUpdateColumn = "delete_by"
+	// column name
+	TerminalUpdateColumnDeptID TerminalUpdateColumn = "dept_id"
+	// column name
+	TerminalUpdateColumnFirstInstallTime TerminalUpdateColumn = "first_install_time"
+	// column name
+	TerminalUpdateColumnGuaranteeDate TerminalUpdateColumn = "guarantee_date"
+	// column name
+	TerminalUpdateColumnID TerminalUpdateColumn = "id"
+	// column name
+	TerminalUpdateColumnImei TerminalUpdateColumn = "imei"
+	// column name
+	TerminalUpdateColumnInstallManID TerminalUpdateColumn = "install_man_id"
+	// column name
+	TerminalUpdateColumnIsDelete TerminalUpdateColumn = "is_delete"
+	// column name
+	TerminalUpdateColumnIsReg TerminalUpdateColumn = "is_reg"
+	// column name
+	TerminalUpdateColumnIsSupportPhoto TerminalUpdateColumn = "is_support_photo"
+	// column name
+	TerminalUpdateColumnMockAuthKey TerminalUpdateColumn = "mock_auth_key"
+	// column name
+	TerminalUpdateColumnProduceDate TerminalUpdateColumn = "produce_date"
+	// column name
+	TerminalUpdateColumnProveProxyrgID TerminalUpdateColumn = "prove_proxyrg_id"
+	// column name
+	TerminalUpdateColumnProvinceID TerminalUpdateColumn = "province_id"
+	// column name
+	TerminalUpdateColumnProxyrgID TerminalUpdateColumn = "proxyrg_id"
+	// column name
+	TerminalUpdateColumnRecordDate TerminalUpdateColumn = "record_date"
+	// column name
+	TerminalUpdateColumnRegID TerminalUpdateColumn = "reg_id"
+	// column name
+	TerminalUpdateColumnRemarks TerminalUpdateColumn = "remarks"
+	// column name
+	TerminalUpdateColumnRemoveReason TerminalUpdateColumn = "remove_reason"
+	// column name
+	TerminalUpdateColumnSimID TerminalUpdateColumn = "sim_id"
+	// column name
+	TerminalUpdateColumnSprgID TerminalUpdateColumn = "sprg_id"
+	// column name
+	TerminalUpdateColumnTerminalID TerminalUpdateColumn = "terminal_id"
+	// column name
+	TerminalUpdateColumnTypeID TerminalUpdateColumn = "type_id"
+	// column name
+	TerminalUpdateColumnUpdateAt TerminalUpdateColumn = "update_at"
+	// column name
+	TerminalUpdateColumnUpdateBy TerminalUpdateColumn = "update_by"
+	// column name
+	TerminalUpdateColumnVehicleID TerminalUpdateColumn = "vehicle_id"
+	// column name
+	TerminalUpdateColumnVersionNumber TerminalUpdateColumn = "version_number"
+)
+
+var AllTerminalUpdateColumn = []TerminalUpdateColumn{
+	TerminalUpdateColumnAdasModel,
+	TerminalUpdateColumnAuthKey,
+	TerminalUpdateColumnCameraNum,
+	TerminalUpdateColumnChannelNo,
+	TerminalUpdateColumnCityID,
+	TerminalUpdateColumnCreateAt,
+	TerminalUpdateColumnCreateBy,
+	TerminalUpdateColumnDeleteAt,
+	TerminalUpdateColumnDeleteBy,
+	TerminalUpdateColumnDeptID,
+	TerminalUpdateColumnFirstInstallTime,
+	TerminalUpdateColumnGuaranteeDate,
+	TerminalUpdateColumnID,
+	TerminalUpdateColumnImei,
+	TerminalUpdateColumnInstallManID,
+	TerminalUpdateColumnIsDelete,
+	TerminalUpdateColumnIsReg,
+	TerminalUpdateColumnIsSupportPhoto,
+	TerminalUpdateColumnMockAuthKey,
+	TerminalUpdateColumnProduceDate,
+	TerminalUpdateColumnProveProxyrgID,
+	TerminalUpdateColumnProvinceID,
+	TerminalUpdateColumnProxyrgID,
+	TerminalUpdateColumnRecordDate,
+	TerminalUpdateColumnRegID,
+	TerminalUpdateColumnRemarks,
+	TerminalUpdateColumnRemoveReason,
+	TerminalUpdateColumnSimID,
+	TerminalUpdateColumnSprgID,
+	TerminalUpdateColumnTerminalID,
+	TerminalUpdateColumnTypeID,
+	TerminalUpdateColumnUpdateAt,
+	TerminalUpdateColumnUpdateBy,
+	TerminalUpdateColumnVehicleID,
+	TerminalUpdateColumnVersionNumber,
+}
+
+func (e TerminalUpdateColumn) IsValid() bool {
+	switch e {
+	case TerminalUpdateColumnAdasModel, TerminalUpdateColumnAuthKey, TerminalUpdateColumnCameraNum, TerminalUpdateColumnChannelNo, TerminalUpdateColumnCityID, TerminalUpdateColumnCreateAt, TerminalUpdateColumnCreateBy, TerminalUpdateColumnDeleteAt, TerminalUpdateColumnDeleteBy, TerminalUpdateColumnDeptID, TerminalUpdateColumnFirstInstallTime, TerminalUpdateColumnGuaranteeDate, TerminalUpdateColumnID, TerminalUpdateColumnImei, TerminalUpdateColumnInstallManID, TerminalUpdateColumnIsDelete, TerminalUpdateColumnIsReg, TerminalUpdateColumnIsSupportPhoto, TerminalUpdateColumnMockAuthKey, TerminalUpdateColumnProduceDate, TerminalUpdateColumnProveProxyrgID, TerminalUpdateColumnProvinceID, TerminalUpdateColumnProxyrgID, TerminalUpdateColumnRecordDate, TerminalUpdateColumnRegID, TerminalUpdateColumnRemarks, TerminalUpdateColumnRemoveReason, TerminalUpdateColumnSimID, TerminalUpdateColumnSprgID, TerminalUpdateColumnTerminalID, TerminalUpdateColumnTypeID, TerminalUpdateColumnUpdateAt, TerminalUpdateColumnUpdateBy, TerminalUpdateColumnVehicleID, TerminalUpdateColumnVersionNumber:
+		return true
+	}
+	return false
+}
+
+func (e TerminalUpdateColumn) String() string {
+	return string(e)
+}
+
+func (e *TerminalUpdateColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = TerminalUpdateColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid terminal_update_column", str)
+	}
+	return nil
+}
+
+func (e TerminalUpdateColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
