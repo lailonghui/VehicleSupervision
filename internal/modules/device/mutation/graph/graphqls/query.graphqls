@@ -1,0 +1,4 @@
+"""query root"""
+type Query {
+    t: Int
+}
