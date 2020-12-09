@@ -4,7 +4,7 @@ package resolvers
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
-	"VehicleSupervision/internal/modules/vehicle/graph/generated"
+	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/vehicle/graph/model"
 	"context"
 	"fmt"
@@ -18,12 +18,26 @@ func (r *mutationResolver) DeleteVehicleInfoByPk(ctx context.Context, id int64, 
 	panic(fmt.Errorf("not implemented"))
 }
 
+//插入多条车辆信息
 func (r *mutationResolver) InsertVehicleInfo(ctx context.Context, objects []*model.VehicleInfoInsertInput, onConflict *model.VehicleInfoOnConflict) (*model.VehicleInfoMutationResponse, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
+//插入一条车辆信息
 func (r *mutationResolver) InsertVehicleInfoOne(ctx context.Context, object model.VehicleInfoInsertInput, onConflict *model.VehicleInfoOnConflict) (*model.VehicleInfo, error) {
-	panic(fmt.Errorf("not implemented"))
+	//vehicle := &model.VehicleInfo{}
+	//for k,v := range []byte{1,2,3} {
+	//	fmt.Println(k,v)
+	//}
+	//fmt.Println(object)
+	fmt.Println("create")
+	v := &model.VehicleInfo{}
+	v.VehicleID = "999"
+	v.CreateBy = "小灰灰"
+	err := db.DB.Create(v).Error
+	fmt.Println(err)
+	//return vehicle,nil
+	return nil, nil
 }
 
 func (r *mutationResolver) UpdateVehicleInfo(ctx context.Context, inc *model.VehicleInfoIncInput, set *model.VehicleInfoSetInput, where model.VehicleInfoBoolExp) (*model.VehicleInfoMutationResponse, error) {

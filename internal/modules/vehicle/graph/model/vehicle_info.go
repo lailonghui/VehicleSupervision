@@ -6,25 +6,31 @@
 */
 package model
 
+import "time"
+
 // 车辆信息主表
 //
 //
 // columns and relationships of "vehicle_info"
 type VehicleInfo struct {
+	// 主键
+	ID int64 `gorm:"column:id;default:id_generator();" json:"id"`
+	// 车辆外部编码，由golang程序生成的xid，暴露到外部使用
+	VehicleID string `json:"vehicle_id" gorm:"column:vehicle_id"`
 	// 经营范围字典
-	BusinessScope *int `json:"business_scope"`
+	BusinessScope *int `json:"business_scope" gorm:"column:business_scope"`
 	// 租车标准价格
-	CarRentalPrice *float64 `json:"car_rental_price"`
+	CarRentalPrice *float64 `json:"car_rental_price" gorm:"column:car_rental_price"`
 	// 校验状态
 	CheckState *int `json:"check_state"`
 	// 创建时间
-	CreateAt string `json:"create_at"`
+	CreateAt time.Time `json:"create_at" gorm:"colum:create_at"`
 	// 创建人,
-	CreateBy string `json:"create_by"`
+	CreateBy string `json:"create_by" gorm:"create_by"`
 	// 删除时间
-	DeleteAt *string `json:"delete_at"`
+	DeleteAt *time.Time `json:"delete_at" gorm:"delete_at"`
 	// 删除人
-	DeleteBy *string `json:"delete_by"`
+	DeleteBy *string `json:"delete_by" gorm:"delete_by"`
 	// 所在部门id,department 部门信息表
 	DepartmentID *string `json:"department_id"`
 	// 行驶证照片,云储存系统返回的路径
@@ -33,8 +39,6 @@ type VehicleInfo struct {
 	EnterpriseID *string `json:"enterprise_id"`
 	// 吨位
 	Heavy *float64 `json:"heavy"`
-	// 主键
-	ID int64 `json:"id"`
 	// 行业类别字典
 	IndustryCategory *int `json:"industry_category"`
 	// 检验日期（六合一）
@@ -64,7 +68,7 @@ type VehicleInfo struct {
 	// 号牌种类字典
 	LicensePlateType *int `json:"license_plate_type"`
 	// muck_truck _info 渣土车信息表的id
-	MuckTruckID int64 `json:"muck_truck_id"`
+	MuckTruckID *int64 `json:"muck_truck_id"`
 	// 营运线路
 	OperatingRoute *string `json:"operating_route"`
 	// 营运状态字典
@@ -72,7 +76,7 @@ type VehicleInfo struct {
 	// 营运类型字典
 	OperatingType *int `json:"operating_type"`
 	// operating_vehi cle_ info 营运车信息表的id
-	OperatingVehicleID int64 `json:"operating_vehicle_id"`
+	OperatingVehicleID *int64 `json:"operating_vehicle_id"`
 	// 机动车所有人（六合一）
 	Owner *string `json:"owner"`
 	// 准驾车型
@@ -94,7 +98,7 @@ type VehicleInfo struct {
 	// 终端ID
 	TerminalID *string `json:"terminal_id"`
 	// 修改时间
-	UpdateAt *string `json:"update_at"`
+	UpdateAt *time.Time `json:"update_at"`
 	// 修改人
 	UpdateBy *string `json:"update_by"`
 	// 内网更新时间
@@ -105,8 +109,6 @@ type VehicleInfo struct {
 	VehicleBrand *int `json:"vehicle_brand"`
 	// 汽车排量
 	VehicleDisplacement *string `json:"vehicle_displacement"`
-	// 车辆外部编码，由golang程序生成的xid，暴露到外部使用
-	VehicleID string `json:"vehicle_id"`
 	// 车架号(后6位),车辆识别代号vin,如D02133
 	VehicleIdentificationNumber *string `json:"vehicle_identification_number"`
 	// 维保数据数组，字段包括: 1.maintenance_ date 维保时间<br />2.maintenance_ kilometers 维保公里数
@@ -121,4 +123,8 @@ type VehicleInfo struct {
 	VehicleState *int `json:"vehicle_state"`
 	// 车辆类型字典
 	VehicleType *int `json:"vehicle_type"`
+}
+
+func (VehicleInfo) TableName() string {
+	return "vehicle_info"
 }

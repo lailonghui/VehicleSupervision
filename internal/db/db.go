@@ -42,7 +42,6 @@ func Setup() {
 // 设置连接处
 func setConnectionPool() {
 	sqlDB, err := DB.DB()
-
 	if err != nil {
 		panic(err)
 	}
