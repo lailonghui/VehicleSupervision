@@ -44,6 +44,26 @@ autobind:
 # modelgen, the others will be allowed when binding to fields. Configure them to
 # your liking
 models:
+  vehicle_info:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.VehicleInfo
+  operating_vehicle_info:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.OperatingVehicleInfo
+  muck_truck_info:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.MuckTruckInfo
+  muck_truck_category_info:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.MuckTruckCategoryInfo
+  muck_truck_preview_number:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.MuckTruckPreviewNumber
+  muck_truck_worker_id_card_orders:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.MuckTruckWorkerIDCardOrders
+  vehicle_supervision_photo:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.VehicleSupervisionPhoto
+  owner_info:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.OwnerInfo
+  JJ_VEHICLE:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.JjVehicle
+  vehicle_info_change_log:
+    model: VehicleSupervision/internal/modules/vehicle/graph/model.VehicleInfoChangeLog
   ID:
     model:
       - github.com/99designs/gqlgen/graphql.ID
@@ -61,6 +81,26 @@ models:
       - github.com/99designs/gqlgen/graphql.Int64
   numeric:
     model: github.com/99designs/gqlgen/graphql.Float
-
-
+  timestamptz:
+    model: VehicleSupervision/pkg/graphql/scalar.Timestamptz
+  String_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.StringComparisonExp
+  timestamptz_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.TimestamptzComparisonExp
+  Int_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.IntComparisonExp
+  Boolean_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.BooleanComparisonExp
+  bigint_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.BigintComparisonExp
+  _jsonb_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.JsonbComparisonExp
+  order_by:
+    model: VehicleSupervision/pkg/graphql/model.OrderBy
+  numeric_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.NumericComparisonExp
+  point_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.PointComparisonExp
+  date_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.DateComparisonExp
 
