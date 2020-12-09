@@ -51,6 +51,14 @@ type ComplexityRoot struct {
 		DeleteAdasAttachmentByPk func(childComplexity int, id int64) int
 		DeleteAdasData           func(childComplexity int, where model.AdasDataBoolExp) int
 		DeleteAdasDataByPk       func(childComplexity int, id int64) int
+		InsertAdasAttachment     func(childComplexity int, objects []*model.AdasAttachmentInsertInput, onConflict *model.AdasAttachmentOnConflict) int
+		InsertAdasAttachmentOne  func(childComplexity int, object model.AdasAttachmentInsertInput, onConflict *model.AdasAttachmentOnConflict) int
+		InsertAdasData           func(childComplexity int, objects []*model.AdasDataInsertInput, onConflict *model.AdasDataOnConflict) int
+		InsertAdasDataOne        func(childComplexity int, object model.AdasDataInsertInput, onConflict *model.AdasDataOnConflict) int
+		UpdateAdasAttachment     func(childComplexity int, inc *model.AdasAttachmentIncInput, set *model.AdasAttachmentSetInput, where model.AdasAttachmentBoolExp) int
+		UpdateAdasAttachmentByPk func(childComplexity int, inc *model.AdasAttachmentIncInput, set *model.AdasAttachmentSetInput, pkColumns model.AdasAttachmentPkColumnsInput) int
+		UpdateAdasData           func(childComplexity int, inc *model.AdasDataIncInput, set *model.AdasDataSetInput, where model.AdasDataBoolExp) int
+		UpdateAdasDataByPk       func(childComplexity int, inc *model.AdasDataIncInput, set *model.AdasDataSetInput, pkColumns model.AdasDataPkColumnsInput) int
 	}
 
 	PageInfo struct {
@@ -414,6 +422,14 @@ type MutationResolver interface {
 	DeleteAdasAttachmentByPk(ctx context.Context, id int64) (*model.AdasAttachment, error)
 	DeleteAdasData(ctx context.Context, where model.AdasDataBoolExp) (*model.AdasDataMutationResponse, error)
 	DeleteAdasDataByPk(ctx context.Context, id int64) (*model.AdasData, error)
+	InsertAdasAttachment(ctx context.Context, objects []*model.AdasAttachmentInsertInput, onConflict *model.AdasAttachmentOnConflict) (*model.AdasAttachmentMutationResponse, error)
+	InsertAdasAttachmentOne(ctx context.Context, object model.AdasAttachmentInsertInput, onConflict *model.AdasAttachmentOnConflict) (*model.AdasAttachment, error)
+	InsertAdasData(ctx context.Context, objects []*model.AdasDataInsertInput, onConflict *model.AdasDataOnConflict) (*model.AdasDataMutationResponse, error)
+	InsertAdasDataOne(ctx context.Context, object model.AdasDataInsertInput, onConflict *model.AdasDataOnConflict) (*model.AdasData, error)
+	UpdateAdasAttachment(ctx context.Context, inc *model.AdasAttachmentIncInput, set *model.AdasAttachmentSetInput, where model.AdasAttachmentBoolExp) (*model.AdasAttachmentMutationResponse, error)
+	UpdateAdasAttachmentByPk(ctx context.Context, inc *model.AdasAttachmentIncInput, set *model.AdasAttachmentSetInput, pkColumns model.AdasAttachmentPkColumnsInput) (*model.AdasAttachment, error)
+	UpdateAdasData(ctx context.Context, inc *model.AdasDataIncInput, set *model.AdasDataSetInput, where model.AdasDataBoolExp) (*model.AdasDataMutationResponse, error)
+	UpdateAdasDataByPk(ctx context.Context, inc *model.AdasDataIncInput, set *model.AdasDataSetInput, pkColumns model.AdasDataPkColumnsInput) (*model.AdasData, error)
 }
 type QueryResolver interface {
 	Bug(ctx context.Context) (*int, error)
@@ -481,6 +497,102 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteAdasDataByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.insert_adas_attachment":
+		if e.complexity.Mutation.InsertAdasAttachment == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_adas_attachment_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertAdasAttachment(childComplexity, args["objects"].([]*model.AdasAttachmentInsertInput), args["on_conflict"].(*model.AdasAttachmentOnConflict)), true
+
+	case "Mutation.insert_adas_attachment_one":
+		if e.complexity.Mutation.InsertAdasAttachmentOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_adas_attachment_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertAdasAttachmentOne(childComplexity, args["object"].(model.AdasAttachmentInsertInput), args["on_conflict"].(*model.AdasAttachmentOnConflict)), true
+
+	case "Mutation.insert_adas_data":
+		if e.complexity.Mutation.InsertAdasData == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_adas_data_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertAdasData(childComplexity, args["objects"].([]*model.AdasDataInsertInput), args["on_conflict"].(*model.AdasDataOnConflict)), true
+
+	case "Mutation.insert_adas_data_one":
+		if e.complexity.Mutation.InsertAdasDataOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_adas_data_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertAdasDataOne(childComplexity, args["object"].(model.AdasDataInsertInput), args["on_conflict"].(*model.AdasDataOnConflict)), true
+
+	case "Mutation.update_adas_attachment":
+		if e.complexity.Mutation.UpdateAdasAttachment == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_adas_attachment_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateAdasAttachment(childComplexity, args["_inc"].(*model.AdasAttachmentIncInput), args["_set"].(*model.AdasAttachmentSetInput), args["where"].(model.AdasAttachmentBoolExp)), true
+
+	case "Mutation.update_adas_attachment_by_pk":
+		if e.complexity.Mutation.UpdateAdasAttachmentByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_adas_attachment_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateAdasAttachmentByPk(childComplexity, args["_inc"].(*model.AdasAttachmentIncInput), args["_set"].(*model.AdasAttachmentSetInput), args["pk_columns"].(model.AdasAttachmentPkColumnsInput)), true
+
+	case "Mutation.update_adas_data":
+		if e.complexity.Mutation.UpdateAdasData == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_adas_data_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateAdasData(childComplexity, args["_inc"].(*model.AdasDataIncInput), args["_set"].(*model.AdasDataSetInput), args["where"].(model.AdasDataBoolExp)), true
+
+	case "Mutation.update_adas_data_by_pk":
+		if e.complexity.Mutation.UpdateAdasDataByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_adas_data_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateAdasDataByPk(childComplexity, args["_inc"].(*model.AdasDataIncInput), args["_set"].(*model.AdasDataSetInput), args["pk_columns"].(model.AdasDataPkColumnsInput)), true
 
 	case "PageInfo.endCursor":
 		if e.complexity.PageInfo.EndCursor == nil {
@@ -3680,6 +3792,70 @@ type Mutation {
     ): adas_data_mutation_response
     # delete single row from the table: "adas_data"
     delete_adas_data_by_pk(id: bigint!): adas_data
+
+    # insert data into the table: "adas_attachment"
+    insert_adas_attachment(
+        # the rows to be inserted
+        objects: [adas_attachment_insert_input!]!
+        # on conflict condition
+        on_conflict: adas_attachment_on_conflict
+    ): adas_attachment_mutation_response
+    # insert a single row into the table: "adas_attachment"
+    insert_adas_attachment_one(
+        # the row to be inserted
+        object: adas_attachment_insert_input!
+        # on conflict condition
+        on_conflict: adas_attachment_on_conflict
+    ): adas_attachment
+    # insert data into the table: "adas_data"
+    insert_adas_data(
+        # the rows to be inserted
+        objects: [adas_data_insert_input!]!
+        # on conflict condition
+        on_conflict: adas_data_on_conflict
+    ): adas_data_mutation_response
+    # insert a single row into the table: "adas_data"
+    insert_adas_data_one(
+        # the row to be inserted
+        object: adas_data_insert_input!
+        # on conflict condition
+        on_conflict: adas_data_on_conflict
+    ): adas_data
+
+    # update data of the table: "adas_attachment"
+    update_adas_attachment(
+        # increments the integer columns with given value of the filtered values
+        _inc: adas_attachment_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: adas_attachment_set_input
+        # filter the rows which have to be updated
+        where: adas_attachment_bool_exp!
+    ): adas_attachment_mutation_response
+    # update single row of the table: "adas_attachment"
+    update_adas_attachment_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: adas_attachment_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: adas_attachment_set_input
+        pk_columns: adas_attachment_pk_columns_input!
+    ): adas_attachment
+    # update data of the table: "adas_data"
+    update_adas_data(
+        # increments the integer columns with given value of the filtered values
+        _inc: adas_data_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: adas_data_set_input
+        # filter the rows which have to be updated
+        where: adas_data_bool_exp!
+    ): adas_data_mutation_response
+    # update single row of the table: "adas_data"
+    update_adas_data_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: adas_data_inc_input
+        # sets the columns of the filtered rows to the given values
+        _set: adas_data_set_input
+        pk_columns: adas_data_pk_columns_input!
+    ): adas_data
 }
 type Query{
     bug: Int
@@ -3748,6 +3924,234 @@ func (ec *executionContext) field_Mutation_delete_adas_data_by_pk_args(ctx conte
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_adas_attachment_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.AdasAttachmentInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNadas_attachment_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	var arg1 *model.AdasAttachmentOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOadas_attachment_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_adas_attachment_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.AdasAttachmentInsertInput
+	if tmp, ok := rawArgs["object"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
+		arg0, err = ec.unmarshalNadas_attachment_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentInsertInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["object"] = arg0
+	var arg1 *model.AdasAttachmentOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOadas_attachment_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_adas_data_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.AdasDataInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNadas_data_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	var arg1 *model.AdasDataOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOadas_data_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_adas_data_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.AdasDataInsertInput
+	if tmp, ok := rawArgs["object"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
+		arg0, err = ec.unmarshalNadas_data_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataInsertInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["object"] = arg0
+	var arg1 *model.AdasDataOnConflict
+	if tmp, ok := rawArgs["on_conflict"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+		arg1, err = ec.unmarshalOadas_data_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataOnConflict(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["on_conflict"] = arg1
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_adas_attachment_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.AdasAttachmentIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOadas_attachment_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.AdasAttachmentSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOadas_attachment_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.AdasAttachmentBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNadas_attachment_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_adas_attachment_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.AdasAttachmentIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOadas_attachment_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.AdasAttachmentSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOadas_attachment_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.AdasAttachmentPkColumnsInput
+	if tmp, ok := rawArgs["pk_columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
+		arg2, err = ec.unmarshalNadas_attachment_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentPkColumnsInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["pk_columns"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_adas_data_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.AdasDataIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOadas_data_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.AdasDataSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOadas_data_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.AdasDataBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNadas_data_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_adas_data_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.AdasDataIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOadas_data_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.AdasDataSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOadas_data_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.AdasDataPkColumnsInput
+	if tmp, ok := rawArgs["pk_columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
+		arg2, err = ec.unmarshalNadas_data_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataPkColumnsInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["pk_columns"] = arg2
 	return args, nil
 }
 
@@ -3995,6 +4399,318 @@ func (ec *executionContext) _Mutation_delete_adas_data_by_pk(ctx context.Context
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().DeleteAdasDataByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.AdasData)
+	fc.Result = res
+	return ec.marshalOadas_data2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasData(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_adas_attachment(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_adas_attachment_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertAdasAttachment(rctx, args["objects"].([]*model.AdasAttachmentInsertInput), args["on_conflict"].(*model.AdasAttachmentOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.AdasAttachmentMutationResponse)
+	fc.Result = res
+	return ec.marshalOadas_attachment_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_adas_attachment_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_adas_attachment_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertAdasAttachmentOne(rctx, args["object"].(model.AdasAttachmentInsertInput), args["on_conflict"].(*model.AdasAttachmentOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.AdasAttachment)
+	fc.Result = res
+	return ec.marshalOadas_attachment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachment(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_adas_data(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_adas_data_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertAdasData(rctx, args["objects"].([]*model.AdasDataInsertInput), args["on_conflict"].(*model.AdasDataOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.AdasDataMutationResponse)
+	fc.Result = res
+	return ec.marshalOadas_data_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_adas_data_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_adas_data_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertAdasDataOne(rctx, args["object"].(model.AdasDataInsertInput), args["on_conflict"].(*model.AdasDataOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.AdasData)
+	fc.Result = res
+	return ec.marshalOadas_data2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasData(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_adas_attachment(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_adas_attachment_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateAdasAttachment(rctx, args["_inc"].(*model.AdasAttachmentIncInput), args["_set"].(*model.AdasAttachmentSetInput), args["where"].(model.AdasAttachmentBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.AdasAttachmentMutationResponse)
+	fc.Result = res
+	return ec.marshalOadas_attachment_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_adas_attachment_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_adas_attachment_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateAdasAttachmentByPk(rctx, args["_inc"].(*model.AdasAttachmentIncInput), args["_set"].(*model.AdasAttachmentSetInput), args["pk_columns"].(model.AdasAttachmentPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.AdasAttachment)
+	fc.Result = res
+	return ec.marshalOadas_attachment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachment(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_adas_data(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_adas_data_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateAdasData(rctx, args["_inc"].(*model.AdasDataIncInput), args["_set"].(*model.AdasDataSetInput), args["where"].(model.AdasDataBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.AdasDataMutationResponse)
+	fc.Result = res
+	return ec.marshalOadas_data_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_adas_data_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_adas_data_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateAdasDataByPk(rctx, args["_inc"].(*model.AdasDataIncInput), args["_set"].(*model.AdasDataSetInput), args["pk_columns"].(model.AdasDataPkColumnsInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -17991,6 +18707,22 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_delete_adas_data(ctx, field)
 		case "delete_adas_data_by_pk":
 			out.Values[i] = ec._Mutation_delete_adas_data_by_pk(ctx, field)
+		case "insert_adas_attachment":
+			out.Values[i] = ec._Mutation_insert_adas_attachment(ctx, field)
+		case "insert_adas_attachment_one":
+			out.Values[i] = ec._Mutation_insert_adas_attachment_one(ctx, field)
+		case "insert_adas_data":
+			out.Values[i] = ec._Mutation_insert_adas_data(ctx, field)
+		case "insert_adas_data_one":
+			out.Values[i] = ec._Mutation_insert_adas_data_one(ctx, field)
+		case "update_adas_attachment":
+			out.Values[i] = ec._Mutation_update_adas_attachment(ctx, field)
+		case "update_adas_attachment_by_pk":
+			out.Values[i] = ec._Mutation_update_adas_attachment_by_pk(ctx, field)
+		case "update_adas_data":
+			out.Values[i] = ec._Mutation_update_adas_data(ctx, field)
+		case "update_adas_data_by_pk":
+			out.Values[i] = ec._Mutation_update_adas_data_by_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -19844,6 +20576,11 @@ func (ec *executionContext) marshalNadas_attachment_constraint2VehicleSupervisio
 	return v
 }
 
+func (ec *executionContext) unmarshalNadas_attachment_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentInsertInput(ctx context.Context, v interface{}) (model.AdasAttachmentInsertInput, error) {
+	res, err := ec.unmarshalInputadas_attachment_insert_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) unmarshalNadas_attachment_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.AdasAttachmentInsertInput, error) {
 	var vSlice []interface{}
 	if v != nil {
@@ -19868,6 +20605,11 @@ func (ec *executionContext) unmarshalNadas_attachment_insert_input2ᚕᚖVehicle
 func (ec *executionContext) unmarshalNadas_attachment_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentInsertInput(ctx context.Context, v interface{}) (*model.AdasAttachmentInsertInput, error) {
 	res, err := ec.unmarshalInputadas_attachment_insert_input(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNadas_attachment_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentPkColumnsInput(ctx context.Context, v interface{}) (model.AdasAttachmentPkColumnsInput, error) {
+	res, err := ec.unmarshalInputadas_attachment_pk_columns_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNadas_attachment_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentSelectColumn(ctx context.Context, v interface{}) (model.AdasAttachmentSelectColumn, error) {
@@ -20010,6 +20752,11 @@ func (ec *executionContext) marshalNadas_data_constraint2VehicleSupervisionᚋin
 	return v
 }
 
+func (ec *executionContext) unmarshalNadas_data_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataInsertInput(ctx context.Context, v interface{}) (model.AdasDataInsertInput, error) {
+	res, err := ec.unmarshalInputadas_data_insert_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) unmarshalNadas_data_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.AdasDataInsertInput, error) {
 	var vSlice []interface{}
 	if v != nil {
@@ -20034,6 +20781,11 @@ func (ec *executionContext) unmarshalNadas_data_insert_input2ᚕᚖVehicleSuperv
 func (ec *executionContext) unmarshalNadas_data_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataInsertInput(ctx context.Context, v interface{}) (*model.AdasDataInsertInput, error) {
 	res, err := ec.unmarshalInputadas_data_insert_input(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNadas_data_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataPkColumnsInput(ctx context.Context, v interface{}) (model.AdasDataPkColumnsInput, error) {
+	res, err := ec.unmarshalInputadas_data_pk_columns_input(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalNadas_data_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataSelectColumn(ctx context.Context, v interface{}) (model.AdasDataSelectColumn, error) {
@@ -20645,6 +21397,14 @@ func (ec *executionContext) unmarshalOadas_attachment_bool_exp2ᚖVehicleSupervi
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
+func (ec *executionContext) unmarshalOadas_attachment_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentIncInput(ctx context.Context, v interface{}) (*model.AdasAttachmentIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputadas_attachment_inc_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOadas_attachment_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.AdasAttachmentMaxFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -20752,6 +21512,14 @@ func (ec *executionContext) marshalOadas_attachment_select_column2ᚕVehicleSupe
 	}
 	wg.Wait()
 	return ret
+}
+
+func (ec *executionContext) unmarshalOadas_attachment_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentSetInput(ctx context.Context, v interface{}) (*model.AdasAttachmentSetInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputadas_attachment_set_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOadas_attachment_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasAttachmentStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.AdasAttachmentStddevFields) graphql.Marshaler {
@@ -20920,6 +21688,14 @@ func (ec *executionContext) unmarshalOadas_data_bool_exp2ᚖVehicleSupervision�
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
+func (ec *executionContext) unmarshalOadas_data_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataIncInput(ctx context.Context, v interface{}) (*model.AdasDataIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputadas_data_inc_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
 func (ec *executionContext) marshalOadas_data_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.AdasDataMaxFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -21027,6 +21803,14 @@ func (ec *executionContext) marshalOadas_data_select_column2ᚕVehicleSupervisio
 	}
 	wg.Wait()
 	return ret
+}
+
+func (ec *executionContext) unmarshalOadas_data_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataSetInput(ctx context.Context, v interface{}) (*model.AdasDataSetInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputadas_data_set_input(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalOadas_data_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadasᚋmutationᚋgraphᚋmodelᚐAdasDataStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.AdasDataStddevFields) graphql.Marshaler {
