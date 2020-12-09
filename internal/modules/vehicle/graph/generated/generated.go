@@ -2152,68 +2152,71 @@ type ComplexityRoot struct {
 }
 
 type MutationResolver interface {
-	DeleteJjVehicle(ctx context.Context, where model.JjVehicleBoolExp) (*model.JjVehicleMutationResponse, error)
-	DeleteJjVehicleByPk(ctx context.Context, id int64) (*model.JjVehicle, error)
-	DeleteMuckTruckCategoryInfo(ctx context.Context, where model.MuckTruckCategoryInfoBoolExp) (*model.MuckTruckCategoryInfoMutationResponse, error)
-	DeleteMuckTruckCategoryInfoByPk(ctx context.Context, id int64) (*model.MuckTruckCategoryInfo, error)
-	DeleteMuckTruckInfo(ctx context.Context, where model.MuckTruckInfoBoolExp) (*model.MuckTruckInfoMutationResponse, error)
-	DeleteMuckTruckInfoByPk(ctx context.Context, muckTruckID int64) (*model.MuckTruckInfo, error)
-	DeleteMuckTruckPreviewNumber(ctx context.Context, where model.MuckTruckPreviewNumberBoolExp) (*model.MuckTruckPreviewNumberMutationResponse, error)
-	DeleteMuckTruckPreviewNumberByPk(ctx context.Context, id int64) (*model.MuckTruckPreviewNumber, error)
-	DeleteMuckTruckWorkerIDCardOrders(ctx context.Context, where model.MuckTruckWorkerIDCardOrdersBoolExp) (*model.MuckTruckWorkerIDCardOrdersMutationResponse, error)
-	DeleteMuckTruckWorkerIDCardOrdersByPk(ctx context.Context, id int64) (*model.MuckTruckWorkerIDCardOrders, error)
-	DeleteOperatingVehicleInfo(ctx context.Context, where model.OperatingVehicleInfoBoolExp) (*model.OperatingVehicleInfoMutationResponse, error)
-	DeleteOperatingVehicleInfoByPk(ctx context.Context, operatingVehicleID int64) (*model.OperatingVehicleInfo, error)
-	DeleteOwnerInfo(ctx context.Context, where model.OwnerInfoBoolExp) (*model.OwnerInfoMutationResponse, error)
-	DeleteOwnerInfoByPk(ctx context.Context, id int64) (*model.OwnerInfo, error)
 	DeleteVehicleInfo(ctx context.Context, where model.VehicleInfoBoolExp) (*model.VehicleInfoMutationResponse, error)
 	DeleteVehicleInfoByPk(ctx context.Context, id int64, vehicleID string) (*model.VehicleInfo, error)
-	DeleteVehicleInfoChangeLog(ctx context.Context, where model.VehicleInfoChangeLogBoolExp) (*model.VehicleInfoChangeLogMutationResponse, error)
-	DeleteVehicleInfoChangeLogByPk(ctx context.Context, id int64, vehicleInfoChangeID string) (*model.VehicleInfoChangeLog, error)
-	DeleteVehicleSupervisionPhoto(ctx context.Context, where model.VehicleSupervisionPhotoBoolExp) (*model.VehicleSupervisionPhotoMutationResponse, error)
-	DeleteVehicleSupervisionPhotoByPk(ctx context.Context, id int64, supervisionPhotoID string) (*model.VehicleSupervisionPhoto, error)
-	InsertJjVehicle(ctx context.Context, objects []*model.JjVehicleInsertInput, onConflict *model.JjVehicleOnConflict) (*model.JjVehicleMutationResponse, error)
-	InsertJjVehicleOne(ctx context.Context, object model.JjVehicleInsertInput, onConflict *model.JjVehicleOnConflict) (*model.JjVehicle, error)
-	InsertMuckTruckCategoryInfo(ctx context.Context, objects []*model.MuckTruckCategoryInfoInsertInput, onConflict *model.MuckTruckCategoryInfoOnConflict) (*model.MuckTruckCategoryInfoMutationResponse, error)
-	InsertMuckTruckCategoryInfoOne(ctx context.Context, object model.MuckTruckCategoryInfoInsertInput, onConflict *model.MuckTruckCategoryInfoOnConflict) (*model.MuckTruckCategoryInfo, error)
-	InsertMuckTruckInfo(ctx context.Context, objects []*model.MuckTruckInfoInsertInput, onConflict *model.MuckTruckInfoOnConflict) (*model.MuckTruckInfoMutationResponse, error)
-	InsertMuckTruckInfoOne(ctx context.Context, object model.MuckTruckInfoInsertInput, onConflict *model.MuckTruckInfoOnConflict) (*model.MuckTruckInfo, error)
-	InsertMuckTruckPreviewNumber(ctx context.Context, objects []*model.MuckTruckPreviewNumberInsertInput, onConflict *model.MuckTruckPreviewNumberOnConflict) (*model.MuckTruckPreviewNumberMutationResponse, error)
-	InsertMuckTruckPreviewNumberOne(ctx context.Context, object model.MuckTruckPreviewNumberInsertInput, onConflict *model.MuckTruckPreviewNumberOnConflict) (*model.MuckTruckPreviewNumber, error)
-	InsertMuckTruckWorkerIDCardOrders(ctx context.Context, objects []*model.MuckTruckWorkerIDCardOrdersInsertInput, onConflict *model.MuckTruckWorkerIDCardOrdersOnConflict) (*model.MuckTruckWorkerIDCardOrdersMutationResponse, error)
-	InsertMuckTruckWorkerIDCardOrdersOne(ctx context.Context, object model.MuckTruckWorkerIDCardOrdersInsertInput, onConflict *model.MuckTruckWorkerIDCardOrdersOnConflict) (*model.MuckTruckWorkerIDCardOrders, error)
-	InsertOperatingVehicleInfo(ctx context.Context, objects []*model.OperatingVehicleInfoInsertInput, onConflict *model.OperatingVehicleInfoOnConflict) (*model.OperatingVehicleInfoMutationResponse, error)
-	InsertOperatingVehicleInfoOne(ctx context.Context, object model.OperatingVehicleInfoInsertInput, onConflict *model.OperatingVehicleInfoOnConflict) (*model.OperatingVehicleInfo, error)
-	InsertOwnerInfo(ctx context.Context, objects []*model.OwnerInfoInsertInput, onConflict *model.OwnerInfoOnConflict) (*model.OwnerInfoMutationResponse, error)
-	InsertOwnerInfoOne(ctx context.Context, object model.OwnerInfoInsertInput, onConflict *model.OwnerInfoOnConflict) (*model.OwnerInfo, error)
 	InsertVehicleInfo(ctx context.Context, objects []*model.VehicleInfoInsertInput, onConflict *model.VehicleInfoOnConflict) (*model.VehicleInfoMutationResponse, error)
-	InsertVehicleInfoChangeLog(ctx context.Context, objects []*model.VehicleInfoChangeLogInsertInput, onConflict *model.VehicleInfoChangeLogOnConflict) (*model.VehicleInfoChangeLogMutationResponse, error)
-	InsertVehicleInfoChangeLogOne(ctx context.Context, object model.VehicleInfoChangeLogInsertInput, onConflict *model.VehicleInfoChangeLogOnConflict) (*model.VehicleInfoChangeLog, error)
 	InsertVehicleInfoOne(ctx context.Context, object model.VehicleInfoInsertInput, onConflict *model.VehicleInfoOnConflict) (*model.VehicleInfo, error)
-	InsertVehicleSupervisionPhoto(ctx context.Context, objects []*model.VehicleSupervisionPhotoInsertInput, onConflict *model.VehicleSupervisionPhotoOnConflict) (*model.VehicleSupervisionPhotoMutationResponse, error)
-	InsertVehicleSupervisionPhotoOne(ctx context.Context, object model.VehicleSupervisionPhotoInsertInput, onConflict *model.VehicleSupervisionPhotoOnConflict) (*model.VehicleSupervisionPhoto, error)
-	UpdateJjVehicle(ctx context.Context, inc *model.JjVehicleIncInput, set *model.JjVehicleSetInput, where model.JjVehicleBoolExp) (*model.JjVehicleMutationResponse, error)
-	UpdateJjVehicleByPk(ctx context.Context, inc *model.JjVehicleIncInput, set *model.JjVehicleSetInput, pkColumns model.JjVehiclePkColumnsInput) (*model.JjVehicle, error)
-	UpdateMuckTruckCategoryInfo(ctx context.Context, inc *model.MuckTruckCategoryInfoIncInput, set *model.MuckTruckCategoryInfoSetInput, where model.MuckTruckCategoryInfoBoolExp) (*model.MuckTruckCategoryInfoMutationResponse, error)
-	UpdateMuckTruckCategoryInfoByPk(ctx context.Context, inc *model.MuckTruckCategoryInfoIncInput, set *model.MuckTruckCategoryInfoSetInput, pkColumns model.MuckTruckCategoryInfoPkColumnsInput) (*model.MuckTruckCategoryInfo, error)
-	UpdateMuckTruckInfo(ctx context.Context, inc *model.MuckTruckInfoIncInput, set *model.MuckTruckInfoSetInput, where model.MuckTruckInfoBoolExp) (*model.MuckTruckInfoMutationResponse, error)
-	UpdateMuckTruckInfoByPk(ctx context.Context, inc *model.MuckTruckInfoIncInput, set *model.MuckTruckInfoSetInput, pkColumns model.MuckTruckInfoPkColumnsInput) (*model.MuckTruckInfo, error)
-	UpdateMuckTruckPreviewNumber(ctx context.Context, inc *model.MuckTruckPreviewNumberIncInput, set *model.MuckTruckPreviewNumberSetInput, where model.MuckTruckPreviewNumberBoolExp) (*model.MuckTruckPreviewNumberMutationResponse, error)
-	UpdateMuckTruckPreviewNumberByPk(ctx context.Context, inc *model.MuckTruckPreviewNumberIncInput, set *model.MuckTruckPreviewNumberSetInput, pkColumns model.MuckTruckPreviewNumberPkColumnsInput) (*model.MuckTruckPreviewNumber, error)
-	UpdateMuckTruckWorkerIDCardOrders(ctx context.Context, inc *model.MuckTruckWorkerIDCardOrdersIncInput, set *model.MuckTruckWorkerIDCardOrdersSetInput, where model.MuckTruckWorkerIDCardOrdersBoolExp) (*model.MuckTruckWorkerIDCardOrdersMutationResponse, error)
-	UpdateMuckTruckWorkerIDCardOrdersByPk(ctx context.Context, inc *model.MuckTruckWorkerIDCardOrdersIncInput, set *model.MuckTruckWorkerIDCardOrdersSetInput, pkColumns model.MuckTruckWorkerIDCardOrdersPkColumnsInput) (*model.MuckTruckWorkerIDCardOrders, error)
-	UpdateOperatingVehicleInfo(ctx context.Context, inc *model.OperatingVehicleInfoIncInput, set *model.OperatingVehicleInfoSetInput, where model.OperatingVehicleInfoBoolExp) (*model.OperatingVehicleInfoMutationResponse, error)
-	UpdateOperatingVehicleInfoByPk(ctx context.Context, inc *model.OperatingVehicleInfoIncInput, set *model.OperatingVehicleInfoSetInput, pkColumns model.OperatingVehicleInfoPkColumnsInput) (*model.OperatingVehicleInfo, error)
-	UpdateOwnerInfo(ctx context.Context, inc *model.OwnerInfoIncInput, set *model.OwnerInfoSetInput, where model.OwnerInfoBoolExp) (*model.OwnerInfoMutationResponse, error)
-	UpdateOwnerInfoByPk(ctx context.Context, inc *model.OwnerInfoIncInput, set *model.OwnerInfoSetInput, pkColumns model.OwnerInfoPkColumnsInput) (*model.OwnerInfo, error)
 	UpdateVehicleInfo(ctx context.Context, inc *model.VehicleInfoIncInput, set *model.VehicleInfoSetInput, where model.VehicleInfoBoolExp) (*model.VehicleInfoMutationResponse, error)
 	UpdateVehicleInfoByPk(ctx context.Context, inc *model.VehicleInfoIncInput, set *model.VehicleInfoSetInput, pkColumns model.VehicleInfoPkColumnsInput) (*model.VehicleInfo, error)
+	DeleteJjVehicle(ctx context.Context, where model.JjVehicleBoolExp) (*model.JjVehicleMutationResponse, error)
+	DeleteJjVehicleByPk(ctx context.Context, id int64) (*model.JjVehicle, error)
+	InsertJjVehicle(ctx context.Context, objects []*model.JjVehicleInsertInput, onConflict *model.JjVehicleOnConflict) (*model.JjVehicleMutationResponse, error)
+	InsertJjVehicleOne(ctx context.Context, object model.JjVehicleInsertInput, onConflict *model.JjVehicleOnConflict) (*model.JjVehicle, error)
+	UpdateJjVehicle(ctx context.Context, inc *model.JjVehicleIncInput, set *model.JjVehicleSetInput, where model.JjVehicleBoolExp) (*model.JjVehicleMutationResponse, error)
+	UpdateJjVehicleByPk(ctx context.Context, inc *model.JjVehicleIncInput, set *model.JjVehicleSetInput, pkColumns model.JjVehiclePkColumnsInput) (*model.JjVehicle, error)
+	DeleteMuckTruckCategoryInfo(ctx context.Context, where model.MuckTruckCategoryInfoBoolExp) (*model.MuckTruckCategoryInfoMutationResponse, error)
+	DeleteMuckTruckCategoryInfoByPk(ctx context.Context, id int64) (*model.MuckTruckCategoryInfo, error)
+	InsertMuckTruckCategoryInfo(ctx context.Context, objects []*model.MuckTruckCategoryInfoInsertInput, onConflict *model.MuckTruckCategoryInfoOnConflict) (*model.MuckTruckCategoryInfoMutationResponse, error)
+	InsertMuckTruckCategoryInfoOne(ctx context.Context, object model.MuckTruckCategoryInfoInsertInput, onConflict *model.MuckTruckCategoryInfoOnConflict) (*model.MuckTruckCategoryInfo, error)
+	UpdateMuckTruckCategoryInfo(ctx context.Context, inc *model.MuckTruckCategoryInfoIncInput, set *model.MuckTruckCategoryInfoSetInput, where model.MuckTruckCategoryInfoBoolExp) (*model.MuckTruckCategoryInfoMutationResponse, error)
+	UpdateMuckTruckCategoryInfoByPk(ctx context.Context, inc *model.MuckTruckCategoryInfoIncInput, set *model.MuckTruckCategoryInfoSetInput, pkColumns model.MuckTruckCategoryInfoPkColumnsInput) (*model.MuckTruckCategoryInfo, error)
+	DeleteMuckTruckInfo(ctx context.Context, where model.MuckTruckInfoBoolExp) (*model.MuckTruckInfoMutationResponse, error)
+	DeleteMuckTruckInfoByPk(ctx context.Context, muckTruckID int64) (*model.MuckTruckInfo, error)
+	InsertMuckTruckInfo(ctx context.Context, objects []*model.MuckTruckInfoInsertInput, onConflict *model.MuckTruckInfoOnConflict) (*model.MuckTruckInfoMutationResponse, error)
+	InsertMuckTruckInfoOne(ctx context.Context, object model.MuckTruckInfoInsertInput, onConflict *model.MuckTruckInfoOnConflict) (*model.MuckTruckInfo, error)
+	UpdateMuckTruckInfo(ctx context.Context, inc *model.MuckTruckInfoIncInput, set *model.MuckTruckInfoSetInput, where model.MuckTruckInfoBoolExp) (*model.MuckTruckInfoMutationResponse, error)
+	UpdateMuckTruckInfoByPk(ctx context.Context, inc *model.MuckTruckInfoIncInput, set *model.MuckTruckInfoSetInput, pkColumns model.MuckTruckInfoPkColumnsInput) (*model.MuckTruckInfo, error)
+	DeleteMuckTruckPreviewNumber(ctx context.Context, where model.MuckTruckPreviewNumberBoolExp) (*model.MuckTruckPreviewNumberMutationResponse, error)
+	DeleteMuckTruckPreviewNumberByPk(ctx context.Context, id int64) (*model.MuckTruckPreviewNumber, error)
+	InsertMuckTruckPreviewNumber(ctx context.Context, objects []*model.MuckTruckPreviewNumberInsertInput, onConflict *model.MuckTruckPreviewNumberOnConflict) (*model.MuckTruckPreviewNumberMutationResponse, error)
+	InsertMuckTruckPreviewNumberOne(ctx context.Context, object model.MuckTruckPreviewNumberInsertInput, onConflict *model.MuckTruckPreviewNumberOnConflict) (*model.MuckTruckPreviewNumber, error)
+	UpdateMuckTruckPreviewNumber(ctx context.Context, inc *model.MuckTruckPreviewNumberIncInput, set *model.MuckTruckPreviewNumberSetInput, where model.MuckTruckPreviewNumberBoolExp) (*model.MuckTruckPreviewNumberMutationResponse, error)
+	UpdateMuckTruckPreviewNumberByPk(ctx context.Context, inc *model.MuckTruckPreviewNumberIncInput, set *model.MuckTruckPreviewNumberSetInput, pkColumns model.MuckTruckPreviewNumberPkColumnsInput) (*model.MuckTruckPreviewNumber, error)
+	DeleteMuckTruckWorkerIDCardOrders(ctx context.Context, where model.MuckTruckWorkerIDCardOrdersBoolExp) (*model.MuckTruckWorkerIDCardOrdersMutationResponse, error)
+	DeleteMuckTruckWorkerIDCardOrdersByPk(ctx context.Context, id int64) (*model.MuckTruckWorkerIDCardOrders, error)
+	InsertMuckTruckWorkerIDCardOrders(ctx context.Context, objects []*model.MuckTruckWorkerIDCardOrdersInsertInput, onConflict *model.MuckTruckWorkerIDCardOrdersOnConflict) (*model.MuckTruckWorkerIDCardOrdersMutationResponse, error)
+	InsertMuckTruckWorkerIDCardOrdersOne(ctx context.Context, object model.MuckTruckWorkerIDCardOrdersInsertInput, onConflict *model.MuckTruckWorkerIDCardOrdersOnConflict) (*model.MuckTruckWorkerIDCardOrders, error)
+	UpdateMuckTruckWorkerIDCardOrders(ctx context.Context, inc *model.MuckTruckWorkerIDCardOrdersIncInput, set *model.MuckTruckWorkerIDCardOrdersSetInput, where model.MuckTruckWorkerIDCardOrdersBoolExp) (*model.MuckTruckWorkerIDCardOrdersMutationResponse, error)
+	UpdateMuckTruckWorkerIDCardOrdersByPk(ctx context.Context, inc *model.MuckTruckWorkerIDCardOrdersIncInput, set *model.MuckTruckWorkerIDCardOrdersSetInput, pkColumns model.MuckTruckWorkerIDCardOrdersPkColumnsInput) (*model.MuckTruckWorkerIDCardOrders, error)
+	DeleteOperatingVehicleInfo(ctx context.Context, where model.OperatingVehicleInfoBoolExp) (*model.OperatingVehicleInfoMutationResponse, error)
+	DeleteOperatingVehicleInfoByPk(ctx context.Context, operatingVehicleID int64) (*model.OperatingVehicleInfo, error)
+	InsertOperatingVehicleInfo(ctx context.Context, objects []*model.OperatingVehicleInfoInsertInput, onConflict *model.OperatingVehicleInfoOnConflict) (*model.OperatingVehicleInfoMutationResponse, error)
+	InsertOperatingVehicleInfoOne(ctx context.Context, object model.OperatingVehicleInfoInsertInput, onConflict *model.OperatingVehicleInfoOnConflict) (*model.OperatingVehicleInfo, error)
+	UpdateOperatingVehicleInfo(ctx context.Context, inc *model.OperatingVehicleInfoIncInput, set *model.OperatingVehicleInfoSetInput, where model.OperatingVehicleInfoBoolExp) (*model.OperatingVehicleInfoMutationResponse, error)
+	UpdateOperatingVehicleInfoByPk(ctx context.Context, inc *model.OperatingVehicleInfoIncInput, set *model.OperatingVehicleInfoSetInput, pkColumns model.OperatingVehicleInfoPkColumnsInput) (*model.OperatingVehicleInfo, error)
+	DeleteOwnerInfo(ctx context.Context, where model.OwnerInfoBoolExp) (*model.OwnerInfoMutationResponse, error)
+	DeleteOwnerInfoByPk(ctx context.Context, id int64) (*model.OwnerInfo, error)
+	InsertOwnerInfo(ctx context.Context, objects []*model.OwnerInfoInsertInput, onConflict *model.OwnerInfoOnConflict) (*model.OwnerInfoMutationResponse, error)
+	InsertOwnerInfoOne(ctx context.Context, object model.OwnerInfoInsertInput, onConflict *model.OwnerInfoOnConflict) (*model.OwnerInfo, error)
+	UpdateOwnerInfo(ctx context.Context, inc *model.OwnerInfoIncInput, set *model.OwnerInfoSetInput, where model.OwnerInfoBoolExp) (*model.OwnerInfoMutationResponse, error)
+	UpdateOwnerInfoByPk(ctx context.Context, inc *model.OwnerInfoIncInput, set *model.OwnerInfoSetInput, pkColumns model.OwnerInfoPkColumnsInput) (*model.OwnerInfo, error)
+	DeleteVehicleInfoChangeLog(ctx context.Context, where model.VehicleInfoChangeLogBoolExp) (*model.VehicleInfoChangeLogMutationResponse, error)
+	DeleteVehicleInfoChangeLogByPk(ctx context.Context, id int64, vehicleInfoChangeID string) (*model.VehicleInfoChangeLog, error)
+	InsertVehicleInfoChangeLog(ctx context.Context, objects []*model.VehicleInfoChangeLogInsertInput, onConflict *model.VehicleInfoChangeLogOnConflict) (*model.VehicleInfoChangeLogMutationResponse, error)
+	InsertVehicleInfoChangeLogOne(ctx context.Context, object model.VehicleInfoChangeLogInsertInput, onConflict *model.VehicleInfoChangeLogOnConflict) (*model.VehicleInfoChangeLog, error)
 	UpdateVehicleInfoChangeLog(ctx context.Context, inc *model.VehicleInfoChangeLogIncInput, set *model.VehicleInfoChangeLogSetInput, where model.VehicleInfoChangeLogBoolExp) (*model.VehicleInfoChangeLogMutationResponse, error)
 	UpdateVehicleInfoChangeLogByPk(ctx context.Context, inc *model.VehicleInfoChangeLogIncInput, set *model.VehicleInfoChangeLogSetInput, pkColumns model.VehicleInfoChangeLogPkColumnsInput) (*model.VehicleInfoChangeLog, error)
+	DeleteVehicleSupervisionPhoto(ctx context.Context, where model.VehicleSupervisionPhotoBoolExp) (*model.VehicleSupervisionPhotoMutationResponse, error)
+	DeleteVehicleSupervisionPhotoByPk(ctx context.Context, id int64, supervisionPhotoID string) (*model.VehicleSupervisionPhoto, error)
+	InsertVehicleSupervisionPhoto(ctx context.Context, objects []*model.VehicleSupervisionPhotoInsertInput, onConflict *model.VehicleSupervisionPhotoOnConflict) (*model.VehicleSupervisionPhotoMutationResponse, error)
+	InsertVehicleSupervisionPhotoOne(ctx context.Context, object model.VehicleSupervisionPhotoInsertInput, onConflict *model.VehicleSupervisionPhotoOnConflict) (*model.VehicleSupervisionPhoto, error)
 	UpdateVehicleSupervisionPhoto(ctx context.Context, inc *model.VehicleSupervisionPhotoIncInput, set *model.VehicleSupervisionPhotoSetInput, where model.VehicleSupervisionPhotoBoolExp) (*model.VehicleSupervisionPhotoMutationResponse, error)
 	UpdateVehicleSupervisionPhotoByPk(ctx context.Context, inc *model.VehicleSupervisionPhotoIncInput, set *model.VehicleSupervisionPhotoSetInput, pkColumns model.VehicleSupervisionPhotoPkColumnsInput) (*model.VehicleSupervisionPhoto, error)
 }
 type QueryResolver interface {
+	VehicleInfo(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) ([]*model.VehicleInfo, error)
+	VehicleInfoAggregate(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) (*model.VehicleInfoAggregate, error)
+	VehicleInfoByPk(ctx context.Context, id int64, vehicleID string) (*model.VehicleInfo, error)
 	JjVehicle(ctx context.Context, distinctOn []model.JjVehicleSelectColumn, limit *int, offset *int, orderBy []*model.JjVehicleOrderBy, where *model.JjVehicleBoolExp) ([]*model.JjVehicle, error)
 	JjVehicleAggregate(ctx context.Context, distinctOn []model.JjVehicleSelectColumn, limit *int, offset *int, orderBy []*model.JjVehicleOrderBy, where *model.JjVehicleBoolExp) (*model.JjVehicleAggregate, error)
 	JjVehicleByPk(ctx context.Context, id int64) (*model.JjVehicle, error)
@@ -2235,9 +2238,6 @@ type QueryResolver interface {
 	OwnerInfo(ctx context.Context, distinctOn []model.OwnerInfoSelectColumn, limit *int, offset *int, orderBy []*model.OwnerInfoOrderBy, where *model.OwnerInfoBoolExp) ([]*model.OwnerInfo, error)
 	OwnerInfoAggregate(ctx context.Context, distinctOn []model.OwnerInfoSelectColumn, limit *int, offset *int, orderBy []*model.OwnerInfoOrderBy, where *model.OwnerInfoBoolExp) (*model.OwnerInfoAggregate, error)
 	OwnerInfoByPk(ctx context.Context, id int64) (*model.OwnerInfo, error)
-	VehicleInfo(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) ([]*model.VehicleInfo, error)
-	VehicleInfoAggregate(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) (*model.VehicleInfoAggregate, error)
-	VehicleInfoByPk(ctx context.Context, id int64, vehicleID string) (*model.VehicleInfo, error)
 	VehicleInfoChangeLog(ctx context.Context, distinctOn []model.VehicleInfoChangeLogSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoChangeLogOrderBy, where *model.VehicleInfoChangeLogBoolExp) ([]*model.VehicleInfoChangeLog, error)
 	VehicleInfoChangeLogAggregate(ctx context.Context, distinctOn []model.VehicleInfoChangeLogSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoChangeLogOrderBy, where *model.VehicleInfoChangeLogBoolExp) (*model.VehicleInfoChangeLogAggregate, error)
 	VehicleInfoChangeLogByPk(ctx context.Context, id int64, vehicleInfoChangeID string) (*model.VehicleInfoChangeLog, error)
@@ -2246,6 +2246,9 @@ type QueryResolver interface {
 	VehicleSupervisionPhotoByPk(ctx context.Context, id int64, supervisionPhotoID string) (*model.VehicleSupervisionPhoto, error)
 }
 type SubscriptionResolver interface {
+	VehicleInfo(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) (<-chan []*model.VehicleInfo, error)
+	VehicleInfoAggregate(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) (<-chan *model.VehicleInfoAggregate, error)
+	VehicleInfoByPk(ctx context.Context, id int64, vehicleID string) (<-chan *model.VehicleInfo, error)
 	JjVehicle(ctx context.Context, distinctOn []model.JjVehicleSelectColumn, limit *int, offset *int, orderBy []*model.JjVehicleOrderBy, where *model.JjVehicleBoolExp) (<-chan []*model.JjVehicle, error)
 	JjVehicleAggregate(ctx context.Context, distinctOn []model.JjVehicleSelectColumn, limit *int, offset *int, orderBy []*model.JjVehicleOrderBy, where *model.JjVehicleBoolExp) (<-chan *model.JjVehicleAggregate, error)
 	JjVehicleByPk(ctx context.Context, id int64) (<-chan *model.JjVehicle, error)
@@ -2267,9 +2270,6 @@ type SubscriptionResolver interface {
 	OwnerInfo(ctx context.Context, distinctOn []model.OwnerInfoSelectColumn, limit *int, offset *int, orderBy []*model.OwnerInfoOrderBy, where *model.OwnerInfoBoolExp) (<-chan []*model.OwnerInfo, error)
 	OwnerInfoAggregate(ctx context.Context, distinctOn []model.OwnerInfoSelectColumn, limit *int, offset *int, orderBy []*model.OwnerInfoOrderBy, where *model.OwnerInfoBoolExp) (<-chan *model.OwnerInfoAggregate, error)
 	OwnerInfoByPk(ctx context.Context, id int64) (<-chan *model.OwnerInfo, error)
-	VehicleInfo(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) (<-chan []*model.VehicleInfo, error)
-	VehicleInfoAggregate(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) (<-chan *model.VehicleInfoAggregate, error)
-	VehicleInfoByPk(ctx context.Context, id int64, vehicleID string) (<-chan *model.VehicleInfo, error)
 	VehicleInfoChangeLog(ctx context.Context, distinctOn []model.VehicleInfoChangeLogSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoChangeLogOrderBy, where *model.VehicleInfoChangeLogBoolExp) (<-chan []*model.VehicleInfoChangeLog, error)
 	VehicleInfoChangeLogAggregate(ctx context.Context, distinctOn []model.VehicleInfoChangeLogSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoChangeLogOrderBy, where *model.VehicleInfoChangeLogBoolExp) (<-chan *model.VehicleInfoChangeLogAggregate, error)
 	VehicleInfoChangeLogByPk(ctx context.Context, id int64, vehicleInfoChangeID string) (<-chan *model.VehicleInfoChangeLog, error)
@@ -14735,71 +14735,7 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "graph/graphqls/schema.graphqls", Input: `
-scalar _jsonb
-
-"""
-expression to compare columns of type _jsonb. All fields are combined with logical 'AND'.
-"""
-input _jsonb_comparison_exp {
-    _eq: _jsonb
-    _gt: _jsonb
-    _gte: _jsonb
-    _in: [_jsonb!]
-    _is_null: Boolean
-    _lt: _jsonb
-    _lte: _jsonb
-    _neq: _jsonb
-    _nin: [_jsonb!]
-}
-
-scalar bigint
-
-"""
-expression to compare columns of type bigint. All fields are combined with logical 'AND'.
-"""
-input bigint_comparison_exp {
-    _eq: bigint
-    _gt: bigint
-    _gte: bigint
-    _in: [bigint!]
-    _is_null: Boolean
-    _lt: bigint
-    _lte: bigint
-    _neq: bigint
-    _nin: [bigint!]
-}
-
-"""
-expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
-"""
-input Boolean_comparison_exp {
-    _eq: Boolean
-    _gt: Boolean
-    _gte: Boolean
-    _in: [Boolean!]
-    _is_null: Boolean
-    _lt: Boolean
-    _lte: Boolean
-    _neq: Boolean
-    _nin: [Boolean!]
-}
-
-"""
-expression to compare columns of type Int. All fields are combined with logical 'AND'.
-"""
-input Int_comparison_exp {
-    _eq: Int
-    _gt: Int
-    _gte: Int
-    _in: [Int!]
-    _is_null: Boolean
-    _lt: Int
-    _lte: Int
-    _neq: Int
-    _nin: [Int!]
-}
-
+	{Name: "graph/graphqls/JJ_VEHICLE.graphqls", Input: `
 """
 公安内网六合一平台同步车辆表(不修改字段)
 
@@ -15538,6 +15474,173 @@ input JJ_VEHICLE_variance_order_by {
     ZZL: order_by
     id: order_by
 }
+
+extend type Mutation {
+    """
+    delete data from the table: "JJ_VEHICLE"
+  """
+    delete_JJ_VEHICLE(
+        """filter the rows which have to be deleted"""
+        where: JJ_VEHICLE_bool_exp!
+    ): JJ_VEHICLE_mutation_response
+
+    """
+    delete single row from the table: "JJ_VEHICLE"
+  """
+    delete_JJ_VEHICLE_by_pk(
+        """主键"""
+        id: bigint!
+    ): JJ_VEHICLE
+
+    """
+    insert data into the table: "JJ_VEHICLE"
+  """
+    insert_JJ_VEHICLE(
+        """the rows to be inserted"""
+        objects: [JJ_VEHICLE_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: JJ_VEHICLE_on_conflict
+    ): JJ_VEHICLE_mutation_response
+
+    """
+    insert a single row into the table: "JJ_VEHICLE"
+  """
+    insert_JJ_VEHICLE_one(
+        """the row to be inserted"""
+        object: JJ_VEHICLE_insert_input!
+
+        """on conflict condition"""
+        on_conflict: JJ_VEHICLE_on_conflict
+    ): JJ_VEHICLE
+
+    """
+    update data of the table: "JJ_VEHICLE"
+  """
+    update_JJ_VEHICLE(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: JJ_VEHICLE_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: JJ_VEHICLE_set_input
+
+        """filter the rows which have to be updated"""
+        where: JJ_VEHICLE_bool_exp!
+    ): JJ_VEHICLE_mutation_response
+
+    """
+    update single row of the table: "JJ_VEHICLE"
+  """
+    update_JJ_VEHICLE_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: JJ_VEHICLE_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: JJ_VEHICLE_set_input
+        pk_columns: JJ_VEHICLE_pk_columns_input!
+    ): JJ_VEHICLE
+}
+
+
+extend type Query {
+    """
+    fetch data from the table: "JJ_VEHICLE"
+  """
+    JJ_VEHICLE(
+        """distinct select on columns"""
+        distinct_on: [JJ_VEHICLE_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [JJ_VEHICLE_order_by!]
+
+        """filter the rows returned"""
+        where: JJ_VEHICLE_bool_exp
+    ): [JJ_VEHICLE!]!
+
+    """
+    fetch aggregated fields from the table: "JJ_VEHICLE"
+  """
+    JJ_VEHICLE_aggregate(
+        """distinct select on columns"""
+        distinct_on: [JJ_VEHICLE_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [JJ_VEHICLE_order_by!]
+
+        """filter the rows returned"""
+        where: JJ_VEHICLE_bool_exp
+    ): JJ_VEHICLE_aggregate!
+
+    """fetch data from the table: "JJ_VEHICLE" using primary key columns"""
+    JJ_VEHICLE_by_pk(
+        """主键"""
+        id: bigint!
+    ): JJ_VEHICLE
+}
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "JJ_VEHICLE"
+  """
+    JJ_VEHICLE(
+        """distinct select on columns"""
+        distinct_on: [JJ_VEHICLE_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [JJ_VEHICLE_order_by!]
+
+        """filter the rows returned"""
+        where: JJ_VEHICLE_bool_exp
+    ): [JJ_VEHICLE!]!
+
+    """
+    fetch aggregated fields from the table: "JJ_VEHICLE"
+  """
+    JJ_VEHICLE_aggregate(
+        """distinct select on columns"""
+        distinct_on: [JJ_VEHICLE_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [JJ_VEHICLE_order_by!]
+
+        """filter the rows returned"""
+        where: JJ_VEHICLE_bool_exp
+    ): JJ_VEHICLE_aggregate!
+
+    """fetch data from the table: "JJ_VEHICLE" using primary key columns"""
+    JJ_VEHICLE_by_pk(
+        """主键"""
+        id: bigint!
+    ): JJ_VEHICLE
+}
+
+`, BuiltIn: false},
+	{Name: "graph/graphqls/muck_truck_category_info.graphqls", Input: `
 
 """
 渣土车目录库车辆信息表
@@ -16736,6 +16839,179 @@ input muck_truck_category_info_variance_order_by {
     vehicle_nature: order_by
 }
 
+extend type Mutation {
+    """
+    delete data from the table: "muck_truck_category_info"
+  """
+    delete_muck_truck_category_info(
+        """filter the rows which have to be deleted"""
+        where: muck_truck_category_info_bool_exp!
+    ): muck_truck_category_info_mutation_response
+
+    """
+    delete single row from the table: "muck_truck_category_info"
+  """
+    delete_muck_truck_category_info_by_pk(
+        """主键"""
+        id: bigint!
+    ): muck_truck_category_info
+
+    """
+    insert data into the table: "muck_truck_category_info"
+  """
+    insert_muck_truck_category_info(
+        """the rows to be inserted"""
+        objects: [muck_truck_category_info_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: muck_truck_category_info_on_conflict
+    ): muck_truck_category_info_mutation_response
+
+    """
+    insert a single row into the table: "muck_truck_category_info"
+  """
+    insert_muck_truck_category_info_one(
+        """the row to be inserted"""
+        object: muck_truck_category_info_insert_input!
+
+        """on conflict condition"""
+        on_conflict: muck_truck_category_info_on_conflict
+    ): muck_truck_category_info
+
+    """
+    update data of the table: "muck_truck_category_info"
+  """
+    update_muck_truck_category_info(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: muck_truck_category_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: muck_truck_category_info_set_input
+
+        """filter the rows which have to be updated"""
+        where: muck_truck_category_info_bool_exp!
+    ): muck_truck_category_info_mutation_response
+
+    """
+    update single row of the table: "muck_truck_category_info"
+  """
+    update_muck_truck_category_info_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: muck_truck_category_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: muck_truck_category_info_set_input
+        pk_columns: muck_truck_category_info_pk_columns_input!
+    ): muck_truck_category_info
+}
+
+
+
+
+
+extend type Query {
+    """
+    fetch data from the table: "muck_truck_category_info"
+  """
+    muck_truck_category_info(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_category_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_category_info_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_category_info_bool_exp
+    ): [muck_truck_category_info!]!
+
+    """
+    fetch aggregated fields from the table: "muck_truck_category_info"
+  """
+    muck_truck_category_info_aggregate(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_category_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_category_info_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_category_info_bool_exp
+    ): muck_truck_category_info_aggregate!
+
+    """
+    fetch data from the table: "muck_truck_category_info" using primary key columns
+    """
+    muck_truck_category_info_by_pk(
+        """主键"""
+        id: bigint!
+    ): muck_truck_category_info
+}
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "muck_truck_category_info"
+  """
+    muck_truck_category_info(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_category_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_category_info_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_category_info_bool_exp
+    ): [muck_truck_category_info!]!
+
+    """
+    fetch aggregated fields from the table: "muck_truck_category_info"
+  """
+    muck_truck_category_info_aggregate(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_category_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_category_info_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_category_info_bool_exp
+    ): muck_truck_category_info_aggregate!
+
+    """
+    fetch data from the table: "muck_truck_category_info" using primary key columns
+    """
+    muck_truck_category_info_by_pk(
+        """主键"""
+        id: bigint!
+    ): muck_truck_category_info
+}
+
+`, BuiltIn: false},
+	{Name: "graph/graphqls/muck_truck_info.graphqls", Input: `
 """
 渣土车信息表
 
@@ -17369,6 +17645,173 @@ input muck_truck_info_variance_order_by {
     server_id: order_by
 }
 
+extend type Mutation {
+    """
+    delete data from the table: "muck_truck_info"
+  """
+    delete_muck_truck_info(
+        """filter the rows which have to be deleted"""
+        where: muck_truck_info_bool_exp!
+    ): muck_truck_info_mutation_response
+
+    """
+    delete single row from the table: "muck_truck_info"
+  """
+    delete_muck_truck_info_by_pk(
+        """主键"""
+        muck_truck_id: bigint!
+    ): muck_truck_info
+
+    """
+    insert data into the table: "muck_truck_info"
+  """
+    insert_muck_truck_info(
+        """the rows to be inserted"""
+        objects: [muck_truck_info_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: muck_truck_info_on_conflict
+    ): muck_truck_info_mutation_response
+
+    """
+    insert a single row into the table: "muck_truck_info"
+  """
+    insert_muck_truck_info_one(
+        """the row to be inserted"""
+        object: muck_truck_info_insert_input!
+
+        """on conflict condition"""
+        on_conflict: muck_truck_info_on_conflict
+    ): muck_truck_info
+
+    """
+    update data of the table: "muck_truck_info"
+  """
+    update_muck_truck_info(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: muck_truck_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: muck_truck_info_set_input
+
+        """filter the rows which have to be updated"""
+        where: muck_truck_info_bool_exp!
+    ): muck_truck_info_mutation_response
+
+    """
+    update single row of the table: "muck_truck_info"
+  """
+    update_muck_truck_info_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: muck_truck_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: muck_truck_info_set_input
+        pk_columns: muck_truck_info_pk_columns_input!
+    ): muck_truck_info
+}
+
+
+extend type Query {
+    """
+    fetch data from the table: "muck_truck_info"
+  """
+    muck_truck_info(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_info_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_info_bool_exp
+    ): [muck_truck_info!]!
+
+    """
+    fetch aggregated fields from the table: "muck_truck_info"
+  """
+    muck_truck_info_aggregate(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_info_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_info_bool_exp
+    ): muck_truck_info_aggregate!
+
+    """fetch data from the table: "muck_truck_info" using primary key columns"""
+    muck_truck_info_by_pk(
+        """主键"""
+        muck_truck_id: bigint!
+    ): muck_truck_info
+}
+
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "muck_truck_info"
+  """
+    muck_truck_info(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_info_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_info_bool_exp
+    ): [muck_truck_info!]!
+
+    """
+    fetch aggregated fields from the table: "muck_truck_info"
+  """
+    muck_truck_info_aggregate(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_info_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_info_bool_exp
+    ): muck_truck_info_aggregate!
+
+    """fetch data from the table: "muck_truck_info" using primary key columns"""
+    muck_truck_info_by_pk(
+        """主键"""
+        muck_truck_id: bigint!
+    ): muck_truck_info
+}
+
+`, BuiltIn: false},
+	{Name: "graph/graphqls/muck_truck_preview_number.graphqls", Input: `
 """
 渣土车车辆预编号表
 
@@ -18181,6 +18624,177 @@ input muck_truck_preview_number_variance_order_by {
     unlawful_violation_number: order_by
 }
 
+extend type Mutation {
+    """
+    delete data from the table: "muck_truck_preview_number"
+  """
+    delete_muck_truck_preview_number(
+        """filter the rows which have to be deleted"""
+        where: muck_truck_preview_number_bool_exp!
+    ): muck_truck_preview_number_mutation_response
+
+    """
+    delete single row from the table: "muck_truck_preview_number"
+  """
+    delete_muck_truck_preview_number_by_pk(
+        """主键"""
+        id: bigint!
+    ): muck_truck_preview_number
+
+    """
+    insert data into the table: "muck_truck_preview_number"
+  """
+    insert_muck_truck_preview_number(
+        """the rows to be inserted"""
+        objects: [muck_truck_preview_number_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: muck_truck_preview_number_on_conflict
+    ): muck_truck_preview_number_mutation_response
+
+    """
+    insert a single row into the table: "muck_truck_preview_number"
+  """
+    insert_muck_truck_preview_number_one(
+        """the row to be inserted"""
+        object: muck_truck_preview_number_insert_input!
+
+        """on conflict condition"""
+        on_conflict: muck_truck_preview_number_on_conflict
+    ): muck_truck_preview_number
+
+    """
+    update data of the table: "muck_truck_preview_number"
+  """
+    update_muck_truck_preview_number(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: muck_truck_preview_number_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: muck_truck_preview_number_set_input
+
+        """filter the rows which have to be updated"""
+        where: muck_truck_preview_number_bool_exp!
+    ): muck_truck_preview_number_mutation_response
+
+    """
+    update single row of the table: "muck_truck_preview_number"
+  """
+    update_muck_truck_preview_number_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: muck_truck_preview_number_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: muck_truck_preview_number_set_input
+        pk_columns: muck_truck_preview_number_pk_columns_input!
+    ): muck_truck_preview_number
+}
+
+
+extend type Query {
+    """
+    fetch data from the table: "muck_truck_preview_number"
+  """
+    muck_truck_preview_number(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_preview_number_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_preview_number_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_preview_number_bool_exp
+    ): [muck_truck_preview_number!]!
+
+    """
+    fetch aggregated fields from the table: "muck_truck_preview_number"
+  """
+    muck_truck_preview_number_aggregate(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_preview_number_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_preview_number_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_preview_number_bool_exp
+    ): muck_truck_preview_number_aggregate!
+
+    """
+    fetch data from the table: "muck_truck_preview_number" using primary key columns
+    """
+    muck_truck_preview_number_by_pk(
+        """主键"""
+        id: bigint!
+    ): muck_truck_preview_number
+}
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "muck_truck_preview_number"
+  """
+    muck_truck_preview_number(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_preview_number_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_preview_number_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_preview_number_bool_exp
+    ): [muck_truck_preview_number!]!
+
+    """
+    fetch aggregated fields from the table: "muck_truck_preview_number"
+  """
+    muck_truck_preview_number_aggregate(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_preview_number_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_preview_number_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_preview_number_bool_exp
+    ): muck_truck_preview_number_aggregate!
+
+    """
+    fetch data from the table: "muck_truck_preview_number" using primary key columns
+    """
+    muck_truck_preview_number_by_pk(
+        """主键"""
+        id: bigint!
+    ): muck_truck_preview_number
+}
+
+`, BuiltIn: false},
+	{Name: "graph/graphqls/muck_truck_worker_id_card_orders.graphqls", Input: `
+
 """
 渣土车工号牌制作订单表
 
@@ -18615,72 +19229,7 @@ input muck_truck_worker_id_card_orders_variance_order_by {
     preview_number_id: order_by
 }
 
-"""mutation root"""
-type Mutation {
-    """
-    delete data from the table: "JJ_VEHICLE"
-  """
-    delete_JJ_VEHICLE(
-        """filter the rows which have to be deleted"""
-        where: JJ_VEHICLE_bool_exp!
-    ): JJ_VEHICLE_mutation_response
-
-    """
-    delete single row from the table: "JJ_VEHICLE"
-  """
-    delete_JJ_VEHICLE_by_pk(
-        """主键"""
-        id: bigint!
-    ): JJ_VEHICLE
-
-    """
-    delete data from the table: "muck_truck_category_info"
-  """
-    delete_muck_truck_category_info(
-        """filter the rows which have to be deleted"""
-        where: muck_truck_category_info_bool_exp!
-    ): muck_truck_category_info_mutation_response
-
-    """
-    delete single row from the table: "muck_truck_category_info"
-  """
-    delete_muck_truck_category_info_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_category_info
-
-    """
-    delete data from the table: "muck_truck_info"
-  """
-    delete_muck_truck_info(
-        """filter the rows which have to be deleted"""
-        where: muck_truck_info_bool_exp!
-    ): muck_truck_info_mutation_response
-
-    """
-    delete single row from the table: "muck_truck_info"
-  """
-    delete_muck_truck_info_by_pk(
-        """主键"""
-        muck_truck_id: bigint!
-    ): muck_truck_info
-
-    """
-    delete data from the table: "muck_truck_preview_number"
-  """
-    delete_muck_truck_preview_number(
-        """filter the rows which have to be deleted"""
-        where: muck_truck_preview_number_bool_exp!
-    ): muck_truck_preview_number_mutation_response
-
-    """
-    delete single row from the table: "muck_truck_preview_number"
-  """
-    delete_muck_truck_preview_number_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_preview_number
-
+extend type Mutation {
     """
     delete data from the table: "muck_truck_worker_id_card_orders"
   """
@@ -18696,183 +19245,6 @@ type Mutation {
         """主键"""
         id: bigint!
     ): muck_truck_worker_id_card_orders
-
-    """
-    delete data from the table: "operating_vehicle_info"
-  """
-    delete_operating_vehicle_info(
-        """filter the rows which have to be deleted"""
-        where: operating_vehicle_info_bool_exp!
-    ): operating_vehicle_info_mutation_response
-
-    """
-    delete single row from the table: "operating_vehicle_info"
-  """
-    delete_operating_vehicle_info_by_pk(
-        """主键"""
-        operating_vehicle_id: bigint!
-    ): operating_vehicle_info
-
-    """
-    delete data from the table: "owner_info"
-  """
-    delete_owner_info(
-        """filter the rows which have to be deleted"""
-        where: owner_info_bool_exp!
-    ): owner_info_mutation_response
-
-    """
-    delete single row from the table: "owner_info"
-  """
-    delete_owner_info_by_pk(
-        """主键"""
-        id: bigint!
-    ): owner_info
-
-    """
-    delete data from the table: "vehicle_info"
-  """
-    delete_vehicle_info(
-        """filter the rows which have to be deleted"""
-        where: vehicle_info_bool_exp!
-    ): vehicle_info_mutation_response
-
-    """
-    delete single row from the table: "vehicle_info"
-  """
-    delete_vehicle_info_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
-        vehicle_id: String!
-    ): vehicle_info
-
-    """
-    delete data from the table: "vehicle_info_change_log"
-  """
-    delete_vehicle_info_change_log(
-        """filter the rows which have to be deleted"""
-        where: vehicle_info_change_log_bool_exp!
-    ): vehicle_info_change_log_mutation_response
-
-    """
-    delete single row from the table: "vehicle_info_change_log"
-  """
-    delete_vehicle_info_change_log_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆信息变更日志外部编码，由golang程序生成的xid，暴露到外部使用"""
-        vehicle_info_change_id: String!
-    ): vehicle_info_change_log
-
-    """
-    delete data from the table: "vehicle_supervision_photo"
-  """
-    delete_vehicle_supervision_photo(
-        """filter the rows which have to be deleted"""
-        where: vehicle_supervision_photo_bool_exp!
-    ): vehicle_supervision_photo_mutation_response
-
-    """
-    delete single row from the table: "vehicle_supervision_photo"
-  """
-    delete_vehicle_supervision_photo_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
-        supervision_photo_id: String!
-    ): vehicle_supervision_photo
-
-    """
-    insert data into the table: "JJ_VEHICLE"
-  """
-    insert_JJ_VEHICLE(
-        """the rows to be inserted"""
-        objects: [JJ_VEHICLE_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: JJ_VEHICLE_on_conflict
-    ): JJ_VEHICLE_mutation_response
-
-    """
-    insert a single row into the table: "JJ_VEHICLE"
-  """
-    insert_JJ_VEHICLE_one(
-        """the row to be inserted"""
-        object: JJ_VEHICLE_insert_input!
-
-        """on conflict condition"""
-        on_conflict: JJ_VEHICLE_on_conflict
-    ): JJ_VEHICLE
-
-    """
-    insert data into the table: "muck_truck_category_info"
-  """
-    insert_muck_truck_category_info(
-        """the rows to be inserted"""
-        objects: [muck_truck_category_info_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: muck_truck_category_info_on_conflict
-    ): muck_truck_category_info_mutation_response
-
-    """
-    insert a single row into the table: "muck_truck_category_info"
-  """
-    insert_muck_truck_category_info_one(
-        """the row to be inserted"""
-        object: muck_truck_category_info_insert_input!
-
-        """on conflict condition"""
-        on_conflict: muck_truck_category_info_on_conflict
-    ): muck_truck_category_info
-
-    """
-    insert data into the table: "muck_truck_info"
-  """
-    insert_muck_truck_info(
-        """the rows to be inserted"""
-        objects: [muck_truck_info_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: muck_truck_info_on_conflict
-    ): muck_truck_info_mutation_response
-
-    """
-    insert a single row into the table: "muck_truck_info"
-  """
-    insert_muck_truck_info_one(
-        """the row to be inserted"""
-        object: muck_truck_info_insert_input!
-
-        """on conflict condition"""
-        on_conflict: muck_truck_info_on_conflict
-    ): muck_truck_info
-
-    """
-    insert data into the table: "muck_truck_preview_number"
-  """
-    insert_muck_truck_preview_number(
-        """the rows to be inserted"""
-        objects: [muck_truck_preview_number_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: muck_truck_preview_number_on_conflict
-    ): muck_truck_preview_number_mutation_response
-
-    """
-    insert a single row into the table: "muck_truck_preview_number"
-  """
-    insert_muck_truck_preview_number_one(
-        """the row to be inserted"""
-        object: muck_truck_preview_number_insert_input!
-
-        """on conflict condition"""
-        on_conflict: muck_truck_preview_number_on_conflict
-    ): muck_truck_preview_number
 
     """
     insert data into the table: "muck_truck_worker_id_card_orders"
@@ -18895,220 +19267,6 @@ type Mutation {
         """on conflict condition"""
         on_conflict: muck_truck_worker_id_card_orders_on_conflict
     ): muck_truck_worker_id_card_orders
-
-    """
-    insert data into the table: "operating_vehicle_info"
-  """
-    insert_operating_vehicle_info(
-        """the rows to be inserted"""
-        objects: [operating_vehicle_info_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: operating_vehicle_info_on_conflict
-    ): operating_vehicle_info_mutation_response
-
-    """
-    insert a single row into the table: "operating_vehicle_info"
-  """
-    insert_operating_vehicle_info_one(
-        """the row to be inserted"""
-        object: operating_vehicle_info_insert_input!
-
-        """on conflict condition"""
-        on_conflict: operating_vehicle_info_on_conflict
-    ): operating_vehicle_info
-
-    """
-    insert data into the table: "owner_info"
-  """
-    insert_owner_info(
-        """the rows to be inserted"""
-        objects: [owner_info_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: owner_info_on_conflict
-    ): owner_info_mutation_response
-
-    """
-    insert a single row into the table: "owner_info"
-  """
-    insert_owner_info_one(
-        """the row to be inserted"""
-        object: owner_info_insert_input!
-
-        """on conflict condition"""
-        on_conflict: owner_info_on_conflict
-    ): owner_info
-
-    """
-    insert data into the table: "vehicle_info"
-  """
-    insert_vehicle_info(
-        """the rows to be inserted"""
-        objects: [vehicle_info_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: vehicle_info_on_conflict
-    ): vehicle_info_mutation_response
-
-    """
-    insert data into the table: "vehicle_info_change_log"
-  """
-    insert_vehicle_info_change_log(
-        """the rows to be inserted"""
-        objects: [vehicle_info_change_log_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: vehicle_info_change_log_on_conflict
-    ): vehicle_info_change_log_mutation_response
-
-    """
-    insert a single row into the table: "vehicle_info_change_log"
-  """
-    insert_vehicle_info_change_log_one(
-        """the row to be inserted"""
-        object: vehicle_info_change_log_insert_input!
-
-        """on conflict condition"""
-        on_conflict: vehicle_info_change_log_on_conflict
-    ): vehicle_info_change_log
-
-    """
-    insert a single row into the table: "vehicle_info"
-  """
-    insert_vehicle_info_one(
-        """the row to be inserted"""
-        object: vehicle_info_insert_input!
-
-        """on conflict condition"""
-        on_conflict: vehicle_info_on_conflict
-    ): vehicle_info
-
-    """
-    insert data into the table: "vehicle_supervision_photo"
-  """
-    insert_vehicle_supervision_photo(
-        """the rows to be inserted"""
-        objects: [vehicle_supervision_photo_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: vehicle_supervision_photo_on_conflict
-    ): vehicle_supervision_photo_mutation_response
-
-    """
-    insert a single row into the table: "vehicle_supervision_photo"
-  """
-    insert_vehicle_supervision_photo_one(
-        """the row to be inserted"""
-        object: vehicle_supervision_photo_insert_input!
-
-        """on conflict condition"""
-        on_conflict: vehicle_supervision_photo_on_conflict
-    ): vehicle_supervision_photo
-
-    """
-    update data of the table: "JJ_VEHICLE"
-  """
-    update_JJ_VEHICLE(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: JJ_VEHICLE_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: JJ_VEHICLE_set_input
-
-        """filter the rows which have to be updated"""
-        where: JJ_VEHICLE_bool_exp!
-    ): JJ_VEHICLE_mutation_response
-
-    """
-    update single row of the table: "JJ_VEHICLE"
-  """
-    update_JJ_VEHICLE_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: JJ_VEHICLE_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: JJ_VEHICLE_set_input
-        pk_columns: JJ_VEHICLE_pk_columns_input!
-    ): JJ_VEHICLE
-
-    """
-    update data of the table: "muck_truck_category_info"
-  """
-    update_muck_truck_category_info(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: muck_truck_category_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: muck_truck_category_info_set_input
-
-        """filter the rows which have to be updated"""
-        where: muck_truck_category_info_bool_exp!
-    ): muck_truck_category_info_mutation_response
-
-    """
-    update single row of the table: "muck_truck_category_info"
-  """
-    update_muck_truck_category_info_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: muck_truck_category_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: muck_truck_category_info_set_input
-        pk_columns: muck_truck_category_info_pk_columns_input!
-    ): muck_truck_category_info
-
-    """
-    update data of the table: "muck_truck_info"
-  """
-    update_muck_truck_info(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: muck_truck_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: muck_truck_info_set_input
-
-        """filter the rows which have to be updated"""
-        where: muck_truck_info_bool_exp!
-    ): muck_truck_info_mutation_response
-
-    """
-    update single row of the table: "muck_truck_info"
-  """
-    update_muck_truck_info_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: muck_truck_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: muck_truck_info_set_input
-        pk_columns: muck_truck_info_pk_columns_input!
-    ): muck_truck_info
-
-    """
-    update data of the table: "muck_truck_preview_number"
-  """
-    update_muck_truck_preview_number(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: muck_truck_preview_number_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: muck_truck_preview_number_set_input
-
-        """filter the rows which have to be updated"""
-        where: muck_truck_preview_number_bool_exp!
-    ): muck_truck_preview_number_mutation_response
-
-    """
-    update single row of the table: "muck_truck_preview_number"
-  """
-    update_muck_truck_preview_number_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: muck_truck_preview_number_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: muck_truck_preview_number_set_input
-        pk_columns: muck_truck_preview_number_pk_columns_input!
-    ): muck_truck_preview_number
 
     """
     update data of the table: "muck_truck_worker_id_card_orders"
@@ -19135,155 +19293,113 @@ type Mutation {
         _set: muck_truck_worker_id_card_orders_set_input
         pk_columns: muck_truck_worker_id_card_orders_pk_columns_input!
     ): muck_truck_worker_id_card_orders
-
-    """
-    update data of the table: "operating_vehicle_info"
-  """
-    update_operating_vehicle_info(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: operating_vehicle_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: operating_vehicle_info_set_input
-
-        """filter the rows which have to be updated"""
-        where: operating_vehicle_info_bool_exp!
-    ): operating_vehicle_info_mutation_response
-
-    """
-    update single row of the table: "operating_vehicle_info"
-  """
-    update_operating_vehicle_info_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: operating_vehicle_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: operating_vehicle_info_set_input
-        pk_columns: operating_vehicle_info_pk_columns_input!
-    ): operating_vehicle_info
-
-    """
-    update data of the table: "owner_info"
-  """
-    update_owner_info(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: owner_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: owner_info_set_input
-
-        """filter the rows which have to be updated"""
-        where: owner_info_bool_exp!
-    ): owner_info_mutation_response
-
-    """
-    update single row of the table: "owner_info"
-  """
-    update_owner_info_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: owner_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: owner_info_set_input
-        pk_columns: owner_info_pk_columns_input!
-    ): owner_info
-
-    """
-    update data of the table: "vehicle_info"
-  """
-    update_vehicle_info(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_info_set_input
-
-        """filter the rows which have to be updated"""
-        where: vehicle_info_bool_exp!
-    ): vehicle_info_mutation_response
-
-    """
-    update single row of the table: "vehicle_info"
-  """
-    update_vehicle_info_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_info_set_input
-        pk_columns: vehicle_info_pk_columns_input!
-    ): vehicle_info
-
-    """
-    update data of the table: "vehicle_info_change_log"
-  """
-    update_vehicle_info_change_log(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_info_change_log_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_info_change_log_set_input
-
-        """filter the rows which have to be updated"""
-        where: vehicle_info_change_log_bool_exp!
-    ): vehicle_info_change_log_mutation_response
-
-    """
-    update single row of the table: "vehicle_info_change_log"
-  """
-    update_vehicle_info_change_log_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_info_change_log_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_info_change_log_set_input
-        pk_columns: vehicle_info_change_log_pk_columns_input!
-    ): vehicle_info_change_log
-
-    """
-    update data of the table: "vehicle_supervision_photo"
-  """
-    update_vehicle_supervision_photo(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_supervision_photo_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_supervision_photo_set_input
-
-        """filter the rows which have to be updated"""
-        where: vehicle_supervision_photo_bool_exp!
-    ): vehicle_supervision_photo_mutation_response
-
-    """
-    update single row of the table: "vehicle_supervision_photo"
-  """
-    update_vehicle_supervision_photo_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_supervision_photo_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_supervision_photo_set_input
-        pk_columns: vehicle_supervision_photo_pk_columns_input!
-    ): vehicle_supervision_photo
 }
 
-scalar numeric
 
-"""
-expression to compare columns of type numeric. All fields are combined with logical 'AND'.
-"""
-input numeric_comparison_exp {
-    _eq: numeric
-    _gt: numeric
-    _gte: numeric
-    _in: [numeric!]
-    _is_null: Boolean
-    _lt: numeric
-    _lte: numeric
-    _neq: numeric
-    _nin: [numeric!]
+extend type Query {
+    """
+    fetch data from the table: "muck_truck_worker_id_card_orders"
+  """
+    muck_truck_worker_id_card_orders(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_worker_id_card_orders_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_worker_id_card_orders_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_worker_id_card_orders_bool_exp
+    ): [muck_truck_worker_id_card_orders!]!
+
+    """
+    fetch aggregated fields from the table: "muck_truck_worker_id_card_orders"
+  """
+    muck_truck_worker_id_card_orders_aggregate(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_worker_id_card_orders_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_worker_id_card_orders_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_worker_id_card_orders_bool_exp
+    ): muck_truck_worker_id_card_orders_aggregate!
+
+    """
+    fetch data from the table: "muck_truck_worker_id_card_orders" using primary key columns
+    """
+    muck_truck_worker_id_card_orders_by_pk(
+        """主键"""
+        id: bigint!
+    ): muck_truck_worker_id_card_orders
 }
 
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "muck_truck_worker_id_card_orders"
+  """
+    muck_truck_worker_id_card_orders(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_worker_id_card_orders_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_worker_id_card_orders_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_worker_id_card_orders_bool_exp
+    ): [muck_truck_worker_id_card_orders!]!
+
+    """
+    fetch aggregated fields from the table: "muck_truck_worker_id_card_orders"
+  """
+    muck_truck_worker_id_card_orders_aggregate(
+        """distinct select on columns"""
+        distinct_on: [muck_truck_worker_id_card_orders_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [muck_truck_worker_id_card_orders_order_by!]
+
+        """filter the rows returned"""
+        where: muck_truck_worker_id_card_orders_bool_exp
+    ): muck_truck_worker_id_card_orders_aggregate!
+
+    """
+    fetch data from the table: "muck_truck_worker_id_card_orders" using primary key columns
+    """
+    muck_truck_worker_id_card_orders_by_pk(
+        """主键"""
+        id: bigint!
+    ): muck_truck_worker_id_card_orders
+}
+
+`, BuiltIn: false},
+	{Name: "graph/graphqls/operating_vehicle_info.graphqls", Input: `
 """
 营运车信息表
 
@@ -20272,26 +20388,179 @@ input operating_vehicle_info_variance_order_by {
     temporary_transport_bureau: order_by
 }
 
-"""column ordering options"""
-enum order_by {
-    """in the ascending order, nulls last"""
-    asc
 
-    """in the ascending order, nulls first"""
-    asc_nulls_first
 
-    """in the ascending order, nulls last"""
-    asc_nulls_last
 
-    """in the descending order, nulls first"""
-    desc
+extend type Query {
+    """
+    fetch data from the table: "operating_vehicle_info"
+  """
+    operating_vehicle_info(
+        """distinct select on columns"""
+        distinct_on: [operating_vehicle_info_select_column!]
 
-    """in the descending order, nulls first"""
-    desc_nulls_first
+        """limit the number of rows returned"""
+        limit: Int
 
-    """in the descending order, nulls last"""
-    desc_nulls_last
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [operating_vehicle_info_order_by!]
+
+        """filter the rows returned"""
+        where: operating_vehicle_info_bool_exp
+    ): [operating_vehicle_info!]!
+
+    """
+    fetch aggregated fields from the table: "operating_vehicle_info"
+  """
+    operating_vehicle_info_aggregate(
+        """distinct select on columns"""
+        distinct_on: [operating_vehicle_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [operating_vehicle_info_order_by!]
+
+        """filter the rows returned"""
+        where: operating_vehicle_info_bool_exp
+    ): operating_vehicle_info_aggregate!
+
+    """
+    fetch data from the table: "operating_vehicle_info" using primary key columns
+    """
+    operating_vehicle_info_by_pk(
+        """主键"""
+        operating_vehicle_id: bigint!
+    ): operating_vehicle_info
 }
+
+
+extend type Mutation {
+    """
+    delete data from the table: "operating_vehicle_info"
+  """
+    delete_operating_vehicle_info(
+        """filter the rows which have to be deleted"""
+        where: operating_vehicle_info_bool_exp!
+    ): operating_vehicle_info_mutation_response
+
+    """
+    delete single row from the table: "operating_vehicle_info"
+  """
+    delete_operating_vehicle_info_by_pk(
+        """主键"""
+        operating_vehicle_id: bigint!
+    ): operating_vehicle_info
+
+    """
+    insert data into the table: "operating_vehicle_info"
+  """
+    insert_operating_vehicle_info(
+        """the rows to be inserted"""
+        objects: [operating_vehicle_info_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: operating_vehicle_info_on_conflict
+    ): operating_vehicle_info_mutation_response
+
+    """
+    insert a single row into the table: "operating_vehicle_info"
+  """
+    insert_operating_vehicle_info_one(
+        """the row to be inserted"""
+        object: operating_vehicle_info_insert_input!
+
+        """on conflict condition"""
+        on_conflict: operating_vehicle_info_on_conflict
+    ): operating_vehicle_info
+
+    """
+    update data of the table: "operating_vehicle_info"
+  """
+    update_operating_vehicle_info(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: operating_vehicle_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: operating_vehicle_info_set_input
+
+        """filter the rows which have to be updated"""
+        where: operating_vehicle_info_bool_exp!
+    ): operating_vehicle_info_mutation_response
+
+    """
+    update single row of the table: "operating_vehicle_info"
+  """
+    update_operating_vehicle_info_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: operating_vehicle_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: operating_vehicle_info_set_input
+        pk_columns: operating_vehicle_info_pk_columns_input!
+    ): operating_vehicle_info
+}
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "operating_vehicle_info"
+  """
+    operating_vehicle_info(
+        """distinct select on columns"""
+        distinct_on: [operating_vehicle_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [operating_vehicle_info_order_by!]
+
+        """filter the rows returned"""
+        where: operating_vehicle_info_bool_exp
+    ): [operating_vehicle_info!]!
+
+    """
+    fetch aggregated fields from the table: "operating_vehicle_info"
+  """
+    operating_vehicle_info_aggregate(
+        """distinct select on columns"""
+        distinct_on: [operating_vehicle_info_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [operating_vehicle_info_order_by!]
+
+        """filter the rows returned"""
+        where: operating_vehicle_info_bool_exp
+    ): operating_vehicle_info_aggregate!
+
+    """
+    fetch data from the table: "operating_vehicle_info" using primary key columns
+    """
+    operating_vehicle_info_by_pk(
+        """主键"""
+        operating_vehicle_id: bigint!
+    ): operating_vehicle_info
+}
+
+`, BuiltIn: false},
+	{Name: "graph/graphqls/owner_info.graphqls", Input: `
 
 """
 车主信息表
@@ -20935,292 +21204,7 @@ input owner_info_variance_order_by {
     sex: order_by
 }
 
-"""query root"""
-type Query {
-    """
-    fetch data from the table: "JJ_VEHICLE"
-  """
-    JJ_VEHICLE(
-        """distinct select on columns"""
-        distinct_on: [JJ_VEHICLE_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [JJ_VEHICLE_order_by!]
-
-        """filter the rows returned"""
-        where: JJ_VEHICLE_bool_exp
-    ): [JJ_VEHICLE!]!
-
-    """
-    fetch aggregated fields from the table: "JJ_VEHICLE"
-  """
-    JJ_VEHICLE_aggregate(
-        """distinct select on columns"""
-        distinct_on: [JJ_VEHICLE_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [JJ_VEHICLE_order_by!]
-
-        """filter the rows returned"""
-        where: JJ_VEHICLE_bool_exp
-    ): JJ_VEHICLE_aggregate!
-
-    """fetch data from the table: "JJ_VEHICLE" using primary key columns"""
-    JJ_VEHICLE_by_pk(
-        """主键"""
-        id: bigint!
-    ): JJ_VEHICLE
-
-    """
-    fetch data from the table: "muck_truck_category_info"
-  """
-    muck_truck_category_info(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_category_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_category_info_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_category_info_bool_exp
-    ): [muck_truck_category_info!]!
-
-    """
-    fetch aggregated fields from the table: "muck_truck_category_info"
-  """
-    muck_truck_category_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_category_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_category_info_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_category_info_bool_exp
-    ): muck_truck_category_info_aggregate!
-
-    """
-    fetch data from the table: "muck_truck_category_info" using primary key columns
-    """
-    muck_truck_category_info_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_category_info
-
-    """
-    fetch data from the table: "muck_truck_info"
-  """
-    muck_truck_info(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_info_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_info_bool_exp
-    ): [muck_truck_info!]!
-
-    """
-    fetch aggregated fields from the table: "muck_truck_info"
-  """
-    muck_truck_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_info_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_info_bool_exp
-    ): muck_truck_info_aggregate!
-
-    """fetch data from the table: "muck_truck_info" using primary key columns"""
-    muck_truck_info_by_pk(
-        """主键"""
-        muck_truck_id: bigint!
-    ): muck_truck_info
-
-    """
-    fetch data from the table: "muck_truck_preview_number"
-  """
-    muck_truck_preview_number(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_preview_number_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_preview_number_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_preview_number_bool_exp
-    ): [muck_truck_preview_number!]!
-
-    """
-    fetch aggregated fields from the table: "muck_truck_preview_number"
-  """
-    muck_truck_preview_number_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_preview_number_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_preview_number_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_preview_number_bool_exp
-    ): muck_truck_preview_number_aggregate!
-
-    """
-    fetch data from the table: "muck_truck_preview_number" using primary key columns
-    """
-    muck_truck_preview_number_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_preview_number
-
-    """
-    fetch data from the table: "muck_truck_worker_id_card_orders"
-  """
-    muck_truck_worker_id_card_orders(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_worker_id_card_orders_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_worker_id_card_orders_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_worker_id_card_orders_bool_exp
-    ): [muck_truck_worker_id_card_orders!]!
-
-    """
-    fetch aggregated fields from the table: "muck_truck_worker_id_card_orders"
-  """
-    muck_truck_worker_id_card_orders_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_worker_id_card_orders_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_worker_id_card_orders_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_worker_id_card_orders_bool_exp
-    ): muck_truck_worker_id_card_orders_aggregate!
-
-    """
-    fetch data from the table: "muck_truck_worker_id_card_orders" using primary key columns
-    """
-    muck_truck_worker_id_card_orders_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_worker_id_card_orders
-
-    """
-    fetch data from the table: "operating_vehicle_info"
-  """
-    operating_vehicle_info(
-        """distinct select on columns"""
-        distinct_on: [operating_vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [operating_vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: operating_vehicle_info_bool_exp
-    ): [operating_vehicle_info!]!
-
-    """
-    fetch aggregated fields from the table: "operating_vehicle_info"
-  """
-    operating_vehicle_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [operating_vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [operating_vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: operating_vehicle_info_bool_exp
-    ): operating_vehicle_info_aggregate!
-
-    """
-    fetch data from the table: "operating_vehicle_info" using primary key columns
-    """
-    operating_vehicle_info_by_pk(
-        """主键"""
-        operating_vehicle_id: bigint!
-    ): operating_vehicle_info
-
+extend type Query {
     """
     fetch data from the table: "owner_info"
   """
@@ -21266,62 +21250,82 @@ type Query {
         """主键"""
         id: bigint!
     ): owner_info
+}
+
+extend type Mutation {
+    """
+    delete data from the table: "owner_info"
+  """
+    delete_owner_info(
+        """filter the rows which have to be deleted"""
+        where: owner_info_bool_exp!
+    ): owner_info_mutation_response
 
     """
-    fetch data from the table: "vehicle_info"
+    delete single row from the table: "owner_info"
   """
-    vehicle_info(
-        """distinct select on columns"""
-        distinct_on: [vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_info_bool_exp
-    ): [vehicle_info!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_info"
-  """
-    vehicle_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_info_bool_exp
-    ): vehicle_info_aggregate!
-
-    """fetch data from the table: "vehicle_info" using primary key columns"""
-    vehicle_info_by_pk(
+    delete_owner_info_by_pk(
         """主键"""
         id: bigint!
-
-        """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
-        vehicle_id: String!
-    ): vehicle_info
+    ): owner_info
 
     """
-    fetch data from the table: "vehicle_info_change_log"
+    insert data into the table: "owner_info"
   """
-    vehicle_info_change_log(
+    insert_owner_info(
+        """the rows to be inserted"""
+        objects: [owner_info_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: owner_info_on_conflict
+    ): owner_info_mutation_response
+
+    """
+    insert a single row into the table: "owner_info"
+  """
+    insert_owner_info_one(
+        """the row to be inserted"""
+        object: owner_info_insert_input!
+
+        """on conflict condition"""
+        on_conflict: owner_info_on_conflict
+    ): owner_info
+
+    """
+    update data of the table: "owner_info"
+  """
+    update_owner_info(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: owner_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: owner_info_set_input
+
+        """filter the rows which have to be updated"""
+        where: owner_info_bool_exp!
+    ): owner_info_mutation_response
+
+    """
+    update single row of the table: "owner_info"
+  """
+    update_owner_info_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: owner_info_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: owner_info_set_input
+        pk_columns: owner_info_pk_columns_input!
+    ): owner_info
+}
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "owner_info"
+  """
+    owner_info(
         """distinct select on columns"""
-        distinct_on: [vehicle_info_change_log_select_column!]
+        distinct_on: [owner_info_select_column!]
 
         """limit the number of rows returned"""
         limit: Int
@@ -21330,18 +21334,18 @@ type Query {
         offset: Int
 
         """sort the rows by one or more columns"""
-        order_by: [vehicle_info_change_log_order_by!]
+        order_by: [owner_info_order_by!]
 
         """filter the rows returned"""
-        where: vehicle_info_change_log_bool_exp
-    ): [vehicle_info_change_log!]!
+        where: owner_info_bool_exp
+    ): [owner_info!]!
 
     """
-    fetch aggregated fields from the table: "vehicle_info_change_log"
+    fetch aggregated fields from the table: "owner_info"
   """
-    vehicle_info_change_log_aggregate(
+    owner_info_aggregate(
         """distinct select on columns"""
-        distinct_on: [vehicle_info_change_log_select_column!]
+        distinct_on: [owner_info_select_column!]
 
         """limit the number of rows returned"""
         limit: Int
@@ -21350,73 +21354,138 @@ type Query {
         offset: Int
 
         """sort the rows by one or more columns"""
-        order_by: [vehicle_info_change_log_order_by!]
+        order_by: [owner_info_order_by!]
 
         """filter the rows returned"""
-        where: vehicle_info_change_log_bool_exp
-    ): vehicle_info_change_log_aggregate!
+        where: owner_info_bool_exp
+    ): owner_info_aggregate!
 
-    """
-    fetch data from the table: "vehicle_info_change_log" using primary key columns
-    """
-    vehicle_info_change_log_by_pk(
+    """fetch data from the table: "owner_info" using primary key columns"""
+    owner_info_by_pk(
         """主键"""
         id: bigint!
+    ): owner_info
+}
+`, BuiltIn: false},
+	{Name: "graph/graphqls/schema.graphqls", Input: `
+scalar _jsonb
+scalar bigint
+scalar numeric
+scalar timestamp
+scalar timestamptz
 
-        """车辆信息变更日志外部编码，由golang程序生成的xid，暴露到外部使用"""
-        vehicle_info_change_id: String!
-    ): vehicle_info_change_log
+"""
+expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
+"""
+input timestamptz_comparison_exp {
+    _eq: timestamptz
+    _gt: timestamptz
+    _gte: timestamptz
+    _in: [timestamptz!]
+    _is_null: Boolean
+    _lt: timestamptz
+    _lte: timestamptz
+    _neq: timestamptz
+    _nin: [timestamptz!]
+}
 
-    """
-    fetch data from the table: "vehicle_supervision_photo"
-  """
-    vehicle_supervision_photo(
-        """distinct select on columns"""
-        distinct_on: [vehicle_supervision_photo_select_column!]
 
-        """limit the number of rows returned"""
-        limit: Int
+"""
+expression to compare columns of type _jsonb. All fields are combined with logical 'AND'.
+"""
+input _jsonb_comparison_exp {
+    _eq: _jsonb
+    _gt: _jsonb
+    _gte: _jsonb
+    _in: [_jsonb!]
+    _is_null: Boolean
+    _lt: _jsonb
+    _lte: _jsonb
+    _neq: _jsonb
+    _nin: [_jsonb!]
+}
 
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
+"""
+expression to compare columns of type bigint. All fields are combined with logical 'AND'.
+"""
+input bigint_comparison_exp {
+    _eq: bigint
+    _gt: bigint
+    _gte: bigint
+    _in: [bigint!]
+    _is_null: Boolean
+    _lt: bigint
+    _lte: bigint
+    _neq: bigint
+    _nin: [bigint!]
+}
 
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_supervision_photo_order_by!]
 
-        """filter the rows returned"""
-        where: vehicle_supervision_photo_bool_exp
-    ): [vehicle_supervision_photo!]!
+"""
+expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
+"""
+input Boolean_comparison_exp {
+    _eq: Boolean
+    _gt: Boolean
+    _gte: Boolean
+    _in: [Boolean!]
+    _is_null: Boolean
+    _lt: Boolean
+    _lte: Boolean
+    _neq: Boolean
+    _nin: [Boolean!]
+}
 
-    """
-    fetch aggregated fields from the table: "vehicle_supervision_photo"
-  """
-    vehicle_supervision_photo_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_supervision_photo_select_column!]
+"""
+expression to compare columns of type Int. All fields are combined with logical 'AND'.
+"""
+input Int_comparison_exp {
+    _eq: Int
+    _gt: Int
+    _gte: Int
+    _in: [Int!]
+    _is_null: Boolean
+    _lt: Int
+    _lte: Int
+    _neq: Int
+    _nin: [Int!]
+}
 
-        """limit the number of rows returned"""
-        limit: Int
 
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
+"""
+expression to compare columns of type numeric. All fields are combined with logical 'AND'.
+"""
+input numeric_comparison_exp {
+    _eq: numeric
+    _gt: numeric
+    _gte: numeric
+    _in: [numeric!]
+    _is_null: Boolean
+    _lt: numeric
+    _lte: numeric
+    _neq: numeric
+    _nin: [numeric!]
+}
 
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_supervision_photo_order_by!]
+"""column ordering options"""
+enum order_by {
+    """in the ascending order, nulls last"""
+    asc
 
-        """filter the rows returned"""
-        where: vehicle_supervision_photo_bool_exp
-    ): vehicle_supervision_photo_aggregate!
+    """in the ascending order, nulls first"""
+    asc_nulls_first
 
-    """
-    fetch data from the table: "vehicle_supervision_photo" using primary key columns
-    """
-    vehicle_supervision_photo_by_pk(
-        """主键"""
-        id: bigint!
+    """in the ascending order, nulls last"""
+    asc_nulls_last
 
-        """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
-        supervision_photo_id: String!
-    ): vehicle_supervision_photo
+    """in the descending order, nulls first"""
+    desc
+
+    """in the descending order, nulls first"""
+    desc_nulls_first
+
+    """in the descending order, nulls last"""
+    desc_nulls_last
 }
 
 """
@@ -21440,338 +21509,95 @@ input String_comparison_exp {
     _similar: String
 }
 
-"""subscription root"""
-type Subscription {
+
+"""
+expression to compare columns of type timestamp. All fields are combined with logical 'AND'.
+"""
+input timestamp_comparison_exp {
+    _eq: timestamp
+    _gt: timestamp
+    _gte: timestamp
+    _in: [timestamp!]
+    _is_null: Boolean
+    _lt: timestamp
+    _lte: timestamp
+    _neq: timestamp
+    _nin: [timestamp!]
+}`, BuiltIn: false},
+	{Name: "graph/graphqls/vehicle_info.graphqls", Input: `
+"""mutation root"""
+type Mutation {
     """
-    fetch data from the table: "JJ_VEHICLE"
+    delete data from the table: "vehicle_info"
   """
-    JJ_VEHICLE(
-        """distinct select on columns"""
-        distinct_on: [JJ_VEHICLE_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [JJ_VEHICLE_order_by!]
-
-        """filter the rows returned"""
-        where: JJ_VEHICLE_bool_exp
-    ): [JJ_VEHICLE!]!
+    delete_vehicle_info(
+        """filter the rows which have to be deleted"""
+        where: vehicle_info_bool_exp!
+    ): vehicle_info_mutation_response
 
     """
-    fetch aggregated fields from the table: "JJ_VEHICLE"
+    delete single row from the table: "vehicle_info"
   """
-    JJ_VEHICLE_aggregate(
-        """distinct select on columns"""
-        distinct_on: [JJ_VEHICLE_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [JJ_VEHICLE_order_by!]
-
-        """filter the rows returned"""
-        where: JJ_VEHICLE_bool_exp
-    ): JJ_VEHICLE_aggregate!
-
-    """fetch data from the table: "JJ_VEHICLE" using primary key columns"""
-    JJ_VEHICLE_by_pk(
+    delete_vehicle_info_by_pk(
         """主键"""
         id: bigint!
-    ): JJ_VEHICLE
+
+        """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
+        vehicle_id: String!
+    ): vehicle_info
 
     """
-    fetch data from the table: "muck_truck_category_info"
+    insert data into the table: "vehicle_info"
   """
-    muck_truck_category_info(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_category_info_select_column!]
+    insert_vehicle_info(
+        """the rows to be inserted"""
+        objects: [vehicle_info_insert_input!]!
 
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_category_info_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_category_info_bool_exp
-    ): [muck_truck_category_info!]!
+        """on conflict condition"""
+        on_conflict: vehicle_info_on_conflict
+    ): vehicle_info_mutation_response
 
     """
-    fetch aggregated fields from the table: "muck_truck_category_info"
+    insert a single row into the table: "vehicle_info"
   """
-    muck_truck_category_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_category_info_select_column!]
+    insert_vehicle_info_one(
+        """the row to be inserted"""
+        object: vehicle_info_insert_input!
 
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_category_info_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_category_info_bool_exp
-    ): muck_truck_category_info_aggregate!
+        """on conflict condition"""
+        on_conflict: vehicle_info_on_conflict
+    ): vehicle_info
 
     """
-    fetch data from the table: "muck_truck_category_info" using primary key columns
-    """
-    muck_truck_category_info_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_category_info
-
-    """
-    fetch data from the table: "muck_truck_info"
+    update data of the table: "vehicle_info"
   """
-    muck_truck_info(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_info_select_column!]
+    update_vehicle_info(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: vehicle_info_inc_input
 
-        """limit the number of rows returned"""
-        limit: Int
+        """sets the columns of the filtered rows to the given values"""
+        _set: vehicle_info_set_input
 
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_info_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_info_bool_exp
-    ): [muck_truck_info!]!
+        """filter the rows which have to be updated"""
+        where: vehicle_info_bool_exp!
+    ): vehicle_info_mutation_response
 
     """
-    fetch aggregated fields from the table: "muck_truck_info"
+    update single row of the table: "vehicle_info"
   """
-    muck_truck_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_info_select_column!]
+    update_vehicle_info_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: vehicle_info_inc_input
 
-        """limit the number of rows returned"""
-        limit: Int
+        """sets the columns of the filtered rows to the given values"""
+        _set: vehicle_info_set_input
+        pk_columns: vehicle_info_pk_columns_input!
+    ): vehicle_info
+}
 
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
 
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_info_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_info_bool_exp
-    ): muck_truck_info_aggregate!
-
-    """fetch data from the table: "muck_truck_info" using primary key columns"""
-    muck_truck_info_by_pk(
-        """主键"""
-        muck_truck_id: bigint!
-    ): muck_truck_info
-
-    """
-    fetch data from the table: "muck_truck_preview_number"
-  """
-    muck_truck_preview_number(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_preview_number_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_preview_number_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_preview_number_bool_exp
-    ): [muck_truck_preview_number!]!
-
-    """
-    fetch aggregated fields from the table: "muck_truck_preview_number"
-  """
-    muck_truck_preview_number_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_preview_number_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_preview_number_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_preview_number_bool_exp
-    ): muck_truck_preview_number_aggregate!
-
-    """
-    fetch data from the table: "muck_truck_preview_number" using primary key columns
-    """
-    muck_truck_preview_number_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_preview_number
-
-    """
-    fetch data from the table: "muck_truck_worker_id_card_orders"
-  """
-    muck_truck_worker_id_card_orders(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_worker_id_card_orders_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_worker_id_card_orders_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_worker_id_card_orders_bool_exp
-    ): [muck_truck_worker_id_card_orders!]!
-
-    """
-    fetch aggregated fields from the table: "muck_truck_worker_id_card_orders"
-  """
-    muck_truck_worker_id_card_orders_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_worker_id_card_orders_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_worker_id_card_orders_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_worker_id_card_orders_bool_exp
-    ): muck_truck_worker_id_card_orders_aggregate!
-
-    """
-    fetch data from the table: "muck_truck_worker_id_card_orders" using primary key columns
-    """
-    muck_truck_worker_id_card_orders_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_worker_id_card_orders
-
-    """
-    fetch data from the table: "operating_vehicle_info"
-  """
-    operating_vehicle_info(
-        """distinct select on columns"""
-        distinct_on: [operating_vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [operating_vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: operating_vehicle_info_bool_exp
-    ): [operating_vehicle_info!]!
-
-    """
-    fetch aggregated fields from the table: "operating_vehicle_info"
-  """
-    operating_vehicle_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [operating_vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [operating_vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: operating_vehicle_info_bool_exp
-    ): operating_vehicle_info_aggregate!
-
-    """
-    fetch data from the table: "operating_vehicle_info" using primary key columns
-    """
-    operating_vehicle_info_by_pk(
-        """主键"""
-        operating_vehicle_id: bigint!
-    ): operating_vehicle_info
-
-    """
-    fetch data from the table: "owner_info"
-  """
-    owner_info(
-        """distinct select on columns"""
-        distinct_on: [owner_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [owner_info_order_by!]
-
-        """filter the rows returned"""
-        where: owner_info_bool_exp
-    ): [owner_info!]!
-
-    """
-    fetch aggregated fields from the table: "owner_info"
-  """
-    owner_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [owner_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [owner_info_order_by!]
-
-        """filter the rows returned"""
-        where: owner_info_bool_exp
-    ): owner_info_aggregate!
-
-    """fetch data from the table: "owner_info" using primary key columns"""
-    owner_info_by_pk(
-        """主键"""
-        id: bigint!
-    ): owner_info
-
+"""query root"""
+type Query {
     """
     fetch data from the table: "vehicle_info"
   """
@@ -21820,13 +21646,18 @@ type Subscription {
         """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
         vehicle_id: String!
     ): vehicle_info
+}
 
+
+
+"""subscription root"""
+type Subscription {
     """
-    fetch data from the table: "vehicle_info_change_log"
+    fetch data from the table: "vehicle_info"
   """
-    vehicle_info_change_log(
+    vehicle_info(
         """distinct select on columns"""
-        distinct_on: [vehicle_info_change_log_select_column!]
+        distinct_on: [vehicle_info_select_column!]
 
         """limit the number of rows returned"""
         limit: Int
@@ -21835,18 +21666,18 @@ type Subscription {
         offset: Int
 
         """sort the rows by one or more columns"""
-        order_by: [vehicle_info_change_log_order_by!]
+        order_by: [vehicle_info_order_by!]
 
         """filter the rows returned"""
-        where: vehicle_info_change_log_bool_exp
-    ): [vehicle_info_change_log!]!
+        where: vehicle_info_bool_exp
+    ): [vehicle_info!]!
 
     """
-    fetch aggregated fields from the table: "vehicle_info_change_log"
+    fetch aggregated fields from the table: "vehicle_info"
   """
-    vehicle_info_change_log_aggregate(
+    vehicle_info_aggregate(
         """distinct select on columns"""
-        distinct_on: [vehicle_info_change_log_select_column!]
+        distinct_on: [vehicle_info_select_column!]
 
         """limit the number of rows returned"""
         limit: Int
@@ -21855,108 +21686,23 @@ type Subscription {
         offset: Int
 
         """sort the rows by one or more columns"""
-        order_by: [vehicle_info_change_log_order_by!]
+        order_by: [vehicle_info_order_by!]
 
         """filter the rows returned"""
-        where: vehicle_info_change_log_bool_exp
-    ): vehicle_info_change_log_aggregate!
+        where: vehicle_info_bool_exp
+    ): vehicle_info_aggregate!
 
-    """
-    fetch data from the table: "vehicle_info_change_log" using primary key columns
-    """
-    vehicle_info_change_log_by_pk(
+    """fetch data from the table: "vehicle_info" using primary key columns"""
+    vehicle_info_by_pk(
         """主键"""
         id: bigint!
 
-        """车辆信息变更日志外部编码，由golang程序生成的xid，暴露到外部使用"""
-        vehicle_info_change_id: String!
-    ): vehicle_info_change_log
-
-    """
-    fetch data from the table: "vehicle_supervision_photo"
-  """
-    vehicle_supervision_photo(
-        """distinct select on columns"""
-        distinct_on: [vehicle_supervision_photo_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_supervision_photo_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_supervision_photo_bool_exp
-    ): [vehicle_supervision_photo!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_supervision_photo"
-  """
-    vehicle_supervision_photo_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_supervision_photo_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_supervision_photo_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_supervision_photo_bool_exp
-    ): vehicle_supervision_photo_aggregate!
-
-    """
-    fetch data from the table: "vehicle_supervision_photo" using primary key columns
-    """
-    vehicle_supervision_photo_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
-        supervision_photo_id: String!
-    ): vehicle_supervision_photo
+        """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
+        vehicle_id: String!
+    ): vehicle_info
 }
 
-scalar timestamp
 
-"""
-expression to compare columns of type timestamp. All fields are combined with logical 'AND'.
-"""
-input timestamp_comparison_exp {
-    _eq: timestamp
-    _gt: timestamp
-    _gte: timestamp
-    _in: [timestamp!]
-    _is_null: Boolean
-    _lt: timestamp
-    _lte: timestamp
-    _neq: timestamp
-    _nin: [timestamp!]
-}
-
-scalar timestamptz
-
-"""
-expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
-"""
-input timestamptz_comparison_exp {
-    _eq: timestamptz
-    _gt: timestamptz
-    _gte: timestamptz
-    _in: [timestamptz!]
-    _is_null: Boolean
-    _lt: timestamptz
-    _lte: timestamptz
-    _neq: timestamptz
-    _nin: [timestamptz!]
-}
 
 """
 车辆信息主表
@@ -22297,6 +22043,1313 @@ input vehicle_info_bool_exp {
     vehicle_state: Int_comparison_exp
     vehicle_type: Int_comparison_exp
 }
+
+"""
+unique or primary key constraints on table "vehicle_info"
+"""
+enum vehicle_info_constraint {
+    """unique or primary key constraint"""
+    vehicle_info_pkey
+}
+
+"""
+input type for incrementing integer column in table "vehicle_info"
+"""
+input vehicle_info_inc_input {
+    business_scope: Int
+    car_rental_price: numeric
+    check_state: Int
+    heavy: numeric
+    id: bigint
+    industry_category: Int
+    insurance_company: Int
+    license_plate_color: Int
+    license_plate_type: Int
+    muck_truck_id: bigint
+    operating_state: Int
+    operating_type: Int
+    operating_vehicle_id: bigint
+    quasi_driving_models: Int
+    seats: Int
+    vehicle_brand: Int
+    vehicle_state: Int
+    vehicle_type: Int
+}
+
+"""
+input type for inserting data into table "vehicle_info"
+"""
+input vehicle_info_insert_input {
+    business_scope: Int
+    car_rental_price: numeric
+    check_state: Int
+    create_at: timestamp
+    create_by: String
+    delete_at: timestamp
+    delete_by: timestamp
+    department_id: String
+    driving_licensee_pic: String
+    enterprise_id: String
+    heavy: numeric
+    id: bigint
+    industry_category: Int
+    inspection_date: timestamp
+    insurance_company: Int
+    insurance_date: timestamp
+    is_active: Boolean
+    is_apply_install_terminal: Boolean
+    is_complete: Boolean
+    is_delete: Boolean
+    is_import: Boolean
+    is_input: Boolean
+    is_upload_province: Boolean
+    license_plate_color: Int
+    license_plate_number: String
+    license_plate_type: Int
+    muck_truck_id: bigint
+    operating_route: String
+    operating_state: Int
+    operating_type: Int
+    operating_vehicle_id: bigint
+    owner: String
+    quasi_driving_models: Int
+    record_at: timestamp
+    record_by: String
+    remark_in: String
+    remarks: String
+    retirement_date: timestamp
+    road_transport_license_number: String
+    seats: Int
+    terminal_id: String
+    update_at: timestamp
+    update_by: String
+    update_time_in: timestamp
+    use_nature: String
+    vehicle_brand: Int
+    vehicle_displacement: String
+    vehicle_id: String
+    vehicle_identification_number: String
+    vehicle_maintenances: _jsonb
+    vehicle_manager: String
+    vehicle_manager_id_card: String
+    vehicle_manager_phone: String
+    vehicle_state: Int
+    vehicle_type: Int
+}
+
+"""aggregate max on columns"""
+type vehicle_info_max_fields {
+    business_scope: Int
+    car_rental_price: numeric
+    check_state: Int
+    create_at: timestamp
+    create_by: String
+    delete_at: timestamp
+    delete_by: timestamp
+    department_id: String
+    driving_licensee_pic: String
+    enterprise_id: String
+    heavy: numeric
+    id: bigint
+    industry_category: Int
+    inspection_date: timestamp
+    insurance_company: Int
+    insurance_date: timestamp
+    license_plate_color: Int
+    license_plate_number: String
+    license_plate_type: Int
+    muck_truck_id: bigint
+    operating_route: String
+    operating_state: Int
+    operating_type: Int
+    operating_vehicle_id: bigint
+    owner: String
+    quasi_driving_models: Int
+    record_at: timestamp
+    record_by: String
+    remark_in: String
+    remarks: String
+    retirement_date: timestamp
+    road_transport_license_number: String
+    seats: Int
+    terminal_id: String
+    update_at: timestamp
+    update_by: String
+    update_time_in: timestamp
+    use_nature: String
+    vehicle_brand: Int
+    vehicle_displacement: String
+    vehicle_id: String
+    vehicle_identification_number: String
+    vehicle_manager: String
+    vehicle_manager_id_card: String
+    vehicle_manager_phone: String
+    vehicle_state: Int
+    vehicle_type: Int
+}
+
+"""
+order by max() on columns of table "vehicle_info"
+"""
+input vehicle_info_max_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    create_at: order_by
+    create_by: order_by
+    delete_at: order_by
+    delete_by: order_by
+    department_id: order_by
+    driving_licensee_pic: order_by
+    enterprise_id: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    inspection_date: order_by
+    insurance_company: order_by
+    insurance_date: order_by
+    license_plate_color: order_by
+    license_plate_number: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_route: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    owner: order_by
+    quasi_driving_models: order_by
+    record_at: order_by
+    record_by: order_by
+    remark_in: order_by
+    remarks: order_by
+    retirement_date: order_by
+    road_transport_license_number: order_by
+    seats: order_by
+    terminal_id: order_by
+    update_at: order_by
+    update_by: order_by
+    update_time_in: order_by
+    use_nature: order_by
+    vehicle_brand: order_by
+    vehicle_displacement: order_by
+    vehicle_id: order_by
+    vehicle_identification_number: order_by
+    vehicle_manager: order_by
+    vehicle_manager_id_card: order_by
+    vehicle_manager_phone: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+"""aggregate min on columns"""
+type vehicle_info_min_fields {
+    business_scope: Int
+    car_rental_price: numeric
+    check_state: Int
+    create_at: timestamp
+    create_by: String
+    delete_at: timestamp
+    delete_by: timestamp
+    department_id: String
+    driving_licensee_pic: String
+    enterprise_id: String
+    heavy: numeric
+    id: bigint
+    industry_category: Int
+    inspection_date: timestamp
+    insurance_company: Int
+    insurance_date: timestamp
+    license_plate_color: Int
+    license_plate_number: String
+    license_plate_type: Int
+    muck_truck_id: bigint
+    operating_route: String
+    operating_state: Int
+    operating_type: Int
+    operating_vehicle_id: bigint
+    owner: String
+    quasi_driving_models: Int
+    record_at: timestamp
+    record_by: String
+    remark_in: String
+    remarks: String
+    retirement_date: timestamp
+    road_transport_license_number: String
+    seats: Int
+    terminal_id: String
+    update_at: timestamp
+    update_by: String
+    update_time_in: timestamp
+    use_nature: String
+    vehicle_brand: Int
+    vehicle_displacement: String
+    vehicle_id: String
+    vehicle_identification_number: String
+    vehicle_manager: String
+    vehicle_manager_id_card: String
+    vehicle_manager_phone: String
+    vehicle_state: Int
+    vehicle_type: Int
+}
+
+"""
+order by min() on columns of table "vehicle_info"
+"""
+input vehicle_info_min_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    create_at: order_by
+    create_by: order_by
+    delete_at: order_by
+    delete_by: order_by
+    department_id: order_by
+    driving_licensee_pic: order_by
+    enterprise_id: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    inspection_date: order_by
+    insurance_company: order_by
+    insurance_date: order_by
+    license_plate_color: order_by
+    license_plate_number: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_route: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    owner: order_by
+    quasi_driving_models: order_by
+    record_at: order_by
+    record_by: order_by
+    remark_in: order_by
+    remarks: order_by
+    retirement_date: order_by
+    road_transport_license_number: order_by
+    seats: order_by
+    terminal_id: order_by
+    update_at: order_by
+    update_by: order_by
+    update_time_in: order_by
+    use_nature: order_by
+    vehicle_brand: order_by
+    vehicle_displacement: order_by
+    vehicle_id: order_by
+    vehicle_identification_number: order_by
+    vehicle_manager: order_by
+    vehicle_manager_id_card: order_by
+    vehicle_manager_phone: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+"""
+response of any mutation on the table "vehicle_info"
+"""
+type vehicle_info_mutation_response {
+    """number of affected rows by the mutation"""
+    affected_rows: Int!
+
+    """data of the affected rows by the mutation"""
+    returning: [vehicle_info!]!
+}
+
+"""
+input type for inserting object relation for remote table "vehicle_info"
+"""
+input vehicle_info_obj_rel_insert_input {
+    data: vehicle_info_insert_input!
+    on_conflict: vehicle_info_on_conflict
+}
+
+"""
+on conflict condition type for table "vehicle_info"
+"""
+input vehicle_info_on_conflict {
+    constraint: vehicle_info_constraint!
+    update_columns: [vehicle_info_update_column!]!
+    where: vehicle_info_bool_exp
+}
+
+"""
+ordering options when selecting data from "vehicle_info"
+"""
+input vehicle_info_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    create_at: order_by
+    create_by: order_by
+    delete_at: order_by
+    delete_by: order_by
+    department_id: order_by
+    driving_licensee_pic: order_by
+    enterprise_id: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    inspection_date: order_by
+    insurance_company: order_by
+    insurance_date: order_by
+    is_active: order_by
+    is_apply_install_terminal: order_by
+    is_complete: order_by
+    is_delete: order_by
+    is_import: order_by
+    is_input: order_by
+    is_upload_province: order_by
+    license_plate_color: order_by
+    license_plate_number: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_route: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    owner: order_by
+    quasi_driving_models: order_by
+    record_at: order_by
+    record_by: order_by
+    remark_in: order_by
+    remarks: order_by
+    retirement_date: order_by
+    road_transport_license_number: order_by
+    seats: order_by
+    terminal_id: order_by
+    update_at: order_by
+    update_by: order_by
+    update_time_in: order_by
+    use_nature: order_by
+    vehicle_brand: order_by
+    vehicle_displacement: order_by
+    vehicle_id: order_by
+    vehicle_identification_number: order_by
+    vehicle_maintenances: order_by
+    vehicle_manager: order_by
+    vehicle_manager_id_card: order_by
+    vehicle_manager_phone: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+"""
+primary key columns input for table: "vehicle_info"
+"""
+input vehicle_info_pk_columns_input {
+    """主键"""
+    id: bigint!
+
+    """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
+    vehicle_id: String!
+}
+
+"""
+select columns of table "vehicle_info"
+"""
+enum vehicle_info_select_column {
+    """column name"""
+    business_scope
+
+    """column name"""
+    car_rental_price
+
+    """column name"""
+    check_state
+
+    """column name"""
+    create_at
+
+    """column name"""
+    create_by
+
+    """column name"""
+    delete_at
+
+    """column name"""
+    delete_by
+
+    """column name"""
+    department_id
+
+    """column name"""
+    driving_licensee_pic
+
+    """column name"""
+    enterprise_id
+
+    """column name"""
+    heavy
+
+    """column name"""
+    id
+
+    """column name"""
+    industry_category
+
+    """column name"""
+    inspection_date
+
+    """column name"""
+    insurance_company
+
+    """column name"""
+    insurance_date
+
+    """column name"""
+    is_active
+
+    """column name"""
+    is_apply_install_terminal
+
+    """column name"""
+    is_complete
+
+    """column name"""
+    is_delete
+
+    """column name"""
+    is_import
+
+    """column name"""
+    is_input
+
+    """column name"""
+    is_upload_province
+
+    """column name"""
+    license_plate_color
+
+    """column name"""
+    license_plate_number
+
+    """column name"""
+    license_plate_type
+
+    """column name"""
+    muck_truck_id
+
+    """column name"""
+    operating_route
+
+    """column name"""
+    operating_state
+
+    """column name"""
+    operating_type
+
+    """column name"""
+    operating_vehicle_id
+
+    """column name"""
+    owner
+
+    """column name"""
+    quasi_driving_models
+
+    """column name"""
+    record_at
+
+    """column name"""
+    record_by
+
+    """column name"""
+    remark_in
+
+    """column name"""
+    remarks
+
+    """column name"""
+    retirement_date
+
+    """column name"""
+    road_transport_license_number
+
+    """column name"""
+    seats
+
+    """column name"""
+    terminal_id
+
+    """column name"""
+    update_at
+
+    """column name"""
+    update_by
+
+    """column name"""
+    update_time_in
+
+    """column name"""
+    use_nature
+
+    """column name"""
+    vehicle_brand
+
+    """column name"""
+    vehicle_displacement
+
+    """column name"""
+    vehicle_id
+
+    """column name"""
+    vehicle_identification_number
+
+    """column name"""
+    vehicle_maintenances
+
+    """column name"""
+    vehicle_manager
+
+    """column name"""
+    vehicle_manager_id_card
+
+    """column name"""
+    vehicle_manager_phone
+
+    """column name"""
+    vehicle_state
+
+    """column name"""
+    vehicle_type
+}
+
+"""
+input type for updating data in table "vehicle_info"
+"""
+input vehicle_info_set_input {
+    business_scope: Int
+    car_rental_price: numeric
+    check_state: Int
+    create_at: timestamp
+    create_by: String
+    delete_at: timestamp
+    delete_by: timestamp
+    department_id: String
+    driving_licensee_pic: String
+    enterprise_id: String
+    heavy: numeric
+    id: bigint
+    industry_category: Int
+    inspection_date: timestamp
+    insurance_company: Int
+    insurance_date: timestamp
+    is_active: Boolean
+    is_apply_install_terminal: Boolean
+    is_complete: Boolean
+    is_delete: Boolean
+    is_import: Boolean
+    is_input: Boolean
+    is_upload_province: Boolean
+    license_plate_color: Int
+    license_plate_number: String
+    license_plate_type: Int
+    muck_truck_id: bigint
+    operating_route: String
+    operating_state: Int
+    operating_type: Int
+    operating_vehicle_id: bigint
+    owner: String
+    quasi_driving_models: Int
+    record_at: timestamp
+    record_by: String
+    remark_in: String
+    remarks: String
+    retirement_date: timestamp
+    road_transport_license_number: String
+    seats: Int
+    terminal_id: String
+    update_at: timestamp
+    update_by: String
+    update_time_in: timestamp
+    use_nature: String
+    vehicle_brand: Int
+    vehicle_displacement: String
+    vehicle_id: String
+    vehicle_identification_number: String
+    vehicle_maintenances: _jsonb
+    vehicle_manager: String
+    vehicle_manager_id_card: String
+    vehicle_manager_phone: String
+    vehicle_state: Int
+    vehicle_type: Int
+}
+
+"""aggregate stddev on columns"""
+type vehicle_info_stddev_fields {
+    business_scope: Float
+    car_rental_price: Float
+    check_state: Float
+    heavy: Float
+    id: Float
+    industry_category: Float
+    insurance_company: Float
+    license_plate_color: Float
+    license_plate_type: Float
+    muck_truck_id: Float
+    operating_state: Float
+    operating_type: Float
+    operating_vehicle_id: Float
+    quasi_driving_models: Float
+    seats: Float
+    vehicle_brand: Float
+    vehicle_state: Float
+    vehicle_type: Float
+}
+
+"""
+order by stddev() on columns of table "vehicle_info"
+"""
+input vehicle_info_stddev_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    insurance_company: order_by
+    license_plate_color: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    quasi_driving_models: order_by
+    seats: order_by
+    vehicle_brand: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type vehicle_info_stddev_pop_fields {
+    business_scope: Float
+    car_rental_price: Float
+    check_state: Float
+    heavy: Float
+    id: Float
+    industry_category: Float
+    insurance_company: Float
+    license_plate_color: Float
+    license_plate_type: Float
+    muck_truck_id: Float
+    operating_state: Float
+    operating_type: Float
+    operating_vehicle_id: Float
+    quasi_driving_models: Float
+    seats: Float
+    vehicle_brand: Float
+    vehicle_state: Float
+    vehicle_type: Float
+}
+
+"""
+order by stddev_pop() on columns of table "vehicle_info"
+"""
+input vehicle_info_stddev_pop_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    insurance_company: order_by
+    license_plate_color: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    quasi_driving_models: order_by
+    seats: order_by
+    vehicle_brand: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type vehicle_info_stddev_samp_fields {
+    business_scope: Float
+    car_rental_price: Float
+    check_state: Float
+    heavy: Float
+    id: Float
+    industry_category: Float
+    insurance_company: Float
+    license_plate_color: Float
+    license_plate_type: Float
+    muck_truck_id: Float
+    operating_state: Float
+    operating_type: Float
+    operating_vehicle_id: Float
+    quasi_driving_models: Float
+    seats: Float
+    vehicle_brand: Float
+    vehicle_state: Float
+    vehicle_type: Float
+}
+
+"""
+order by stddev_samp() on columns of table "vehicle_info"
+"""
+input vehicle_info_stddev_samp_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    insurance_company: order_by
+    license_plate_color: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    quasi_driving_models: order_by
+    seats: order_by
+    vehicle_brand: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+"""aggregate sum on columns"""
+type vehicle_info_sum_fields {
+    business_scope: Int
+    car_rental_price: numeric
+    check_state: Int
+    heavy: numeric
+    id: bigint
+    industry_category: Int
+    insurance_company: Int
+    license_plate_color: Int
+    license_plate_type: Int
+    muck_truck_id: bigint
+    operating_state: Int
+    operating_type: Int
+    operating_vehicle_id: bigint
+    quasi_driving_models: Int
+    seats: Int
+    vehicle_brand: Int
+    vehicle_state: Int
+    vehicle_type: Int
+}
+
+"""
+order by sum() on columns of table "vehicle_info"
+"""
+input vehicle_info_sum_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    insurance_company: order_by
+    license_plate_color: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    quasi_driving_models: order_by
+    seats: order_by
+    vehicle_brand: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+"""
+update columns of table "vehicle_info"
+"""
+enum vehicle_info_update_column {
+    """column name"""
+    business_scope
+
+    """column name"""
+    car_rental_price
+
+    """column name"""
+    check_state
+
+    """column name"""
+    create_at
+
+    """column name"""
+    create_by
+
+    """column name"""
+    delete_at
+
+    """column name"""
+    delete_by
+
+    """column name"""
+    department_id
+
+    """column name"""
+    driving_licensee_pic
+
+    """column name"""
+    enterprise_id
+
+    """column name"""
+    heavy
+
+    """column name"""
+    id
+
+    """column name"""
+    industry_category
+
+    """column name"""
+    inspection_date
+
+    """column name"""
+    insurance_company
+
+    """column name"""
+    insurance_date
+
+    """column name"""
+    is_active
+
+    """column name"""
+    is_apply_install_terminal
+
+    """column name"""
+    is_complete
+
+    """column name"""
+    is_delete
+
+    """column name"""
+    is_import
+
+    """column name"""
+    is_input
+
+    """column name"""
+    is_upload_province
+
+    """column name"""
+    license_plate_color
+
+    """column name"""
+    license_plate_number
+
+    """column name"""
+    license_plate_type
+
+    """column name"""
+    muck_truck_id
+
+    """column name"""
+    operating_route
+
+    """column name"""
+    operating_state
+
+    """column name"""
+    operating_type
+
+    """column name"""
+    operating_vehicle_id
+
+    """column name"""
+    owner
+
+    """column name"""
+    quasi_driving_models
+
+    """column name"""
+    record_at
+
+    """column name"""
+    record_by
+
+    """column name"""
+    remark_in
+
+    """column name"""
+    remarks
+
+    """column name"""
+    retirement_date
+
+    """column name"""
+    road_transport_license_number
+
+    """column name"""
+    seats
+
+    """column name"""
+    terminal_id
+
+    """column name"""
+    update_at
+
+    """column name"""
+    update_by
+
+    """column name"""
+    update_time_in
+
+    """column name"""
+    use_nature
+
+    """column name"""
+    vehicle_brand
+
+    """column name"""
+    vehicle_displacement
+
+    """column name"""
+    vehicle_id
+
+    """column name"""
+    vehicle_identification_number
+
+    """column name"""
+    vehicle_maintenances
+
+    """column name"""
+    vehicle_manager
+
+    """column name"""
+    vehicle_manager_id_card
+
+    """column name"""
+    vehicle_manager_phone
+
+    """column name"""
+    vehicle_state
+
+    """column name"""
+    vehicle_type
+}
+
+"""aggregate var_pop on columns"""
+type vehicle_info_var_pop_fields {
+    business_scope: Float
+    car_rental_price: Float
+    check_state: Float
+    heavy: Float
+    id: Float
+    industry_category: Float
+    insurance_company: Float
+    license_plate_color: Float
+    license_plate_type: Float
+    muck_truck_id: Float
+    operating_state: Float
+    operating_type: Float
+    operating_vehicle_id: Float
+    quasi_driving_models: Float
+    seats: Float
+    vehicle_brand: Float
+    vehicle_state: Float
+    vehicle_type: Float
+}
+
+"""
+order by var_pop() on columns of table "vehicle_info"
+"""
+input vehicle_info_var_pop_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    insurance_company: order_by
+    license_plate_color: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    quasi_driving_models: order_by
+    seats: order_by
+    vehicle_brand: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+"""aggregate var_samp on columns"""
+type vehicle_info_var_samp_fields {
+    business_scope: Float
+    car_rental_price: Float
+    check_state: Float
+    heavy: Float
+    id: Float
+    industry_category: Float
+    insurance_company: Float
+    license_plate_color: Float
+    license_plate_type: Float
+    muck_truck_id: Float
+    operating_state: Float
+    operating_type: Float
+    operating_vehicle_id: Float
+    quasi_driving_models: Float
+    seats: Float
+    vehicle_brand: Float
+    vehicle_state: Float
+    vehicle_type: Float
+}
+
+"""
+order by var_samp() on columns of table "vehicle_info"
+"""
+input vehicle_info_var_samp_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    insurance_company: order_by
+    license_plate_color: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    quasi_driving_models: order_by
+    seats: order_by
+    vehicle_brand: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+"""aggregate variance on columns"""
+type vehicle_info_variance_fields {
+    business_scope: Float
+    car_rental_price: Float
+    check_state: Float
+    heavy: Float
+    id: Float
+    industry_category: Float
+    insurance_company: Float
+    license_plate_color: Float
+    license_plate_type: Float
+    muck_truck_id: Float
+    operating_state: Float
+    operating_type: Float
+    operating_vehicle_id: Float
+    quasi_driving_models: Float
+    seats: Float
+    vehicle_brand: Float
+    vehicle_state: Float
+    vehicle_type: Float
+}
+
+"""
+order by variance() on columns of table "vehicle_info"
+"""
+input vehicle_info_variance_order_by {
+    business_scope: order_by
+    car_rental_price: order_by
+    check_state: order_by
+    heavy: order_by
+    id: order_by
+    industry_category: order_by
+    insurance_company: order_by
+    license_plate_color: order_by
+    license_plate_type: order_by
+    muck_truck_id: order_by
+    operating_state: order_by
+    operating_type: order_by
+    operating_vehicle_id: order_by
+    quasi_driving_models: order_by
+    seats: order_by
+    vehicle_brand: order_by
+    vehicle_state: order_by
+    vehicle_type: order_by
+}
+
+`, BuiltIn: false},
+	{Name: "graph/graphqls/vehicle_info_change_log.graphqls", Input: `
+
+extend type Mutation {
+    """
+    delete data from the table: "vehicle_info_change_log"
+  """
+    delete_vehicle_info_change_log(
+        """filter the rows which have to be deleted"""
+        where: vehicle_info_change_log_bool_exp!
+    ): vehicle_info_change_log_mutation_response
+
+    """
+    delete single row from the table: "vehicle_info_change_log"
+  """
+    delete_vehicle_info_change_log_by_pk(
+        """主键"""
+        id: bigint!
+
+        """车辆信息变更日志外部编码，由golang程序生成的xid，暴露到外部使用"""
+        vehicle_info_change_id: String!
+    ): vehicle_info_change_log
+
+    """
+    insert data into the table: "vehicle_info_change_log"
+  """
+    insert_vehicle_info_change_log(
+        """the rows to be inserted"""
+        objects: [vehicle_info_change_log_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: vehicle_info_change_log_on_conflict
+    ): vehicle_info_change_log_mutation_response
+
+    """
+    insert a single row into the table: "vehicle_info_change_log"
+  """
+    insert_vehicle_info_change_log_one(
+        """the row to be inserted"""
+        object: vehicle_info_change_log_insert_input!
+
+        """on conflict condition"""
+        on_conflict: vehicle_info_change_log_on_conflict
+    ): vehicle_info_change_log
+
+    """
+    update data of the table: "vehicle_info_change_log"
+  """
+    update_vehicle_info_change_log(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: vehicle_info_change_log_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: vehicle_info_change_log_set_input
+
+        """filter the rows which have to be updated"""
+        where: vehicle_info_change_log_bool_exp!
+    ): vehicle_info_change_log_mutation_response
+
+    """
+    update single row of the table: "vehicle_info_change_log"
+  """
+    update_vehicle_info_change_log_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: vehicle_info_change_log_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: vehicle_info_change_log_set_input
+        pk_columns: vehicle_info_change_log_pk_columns_input!
+    ): vehicle_info_change_log
+}
+
+
+extend type Query {
+    """
+    fetch data from the table: "vehicle_info_change_log"
+  """
+    vehicle_info_change_log(
+        """distinct select on columns"""
+        distinct_on: [vehicle_info_change_log_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_info_change_log_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_info_change_log_bool_exp
+    ): [vehicle_info_change_log!]!
+
+    """
+    fetch aggregated fields from the table: "vehicle_info_change_log"
+  """
+    vehicle_info_change_log_aggregate(
+        """distinct select on columns"""
+        distinct_on: [vehicle_info_change_log_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_info_change_log_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_info_change_log_bool_exp
+    ): vehicle_info_change_log_aggregate!
+
+    """
+    fetch data from the table: "vehicle_info_change_log" using primary key columns
+    """
+    vehicle_info_change_log_by_pk(
+        """主键"""
+        id: bigint!
+
+        """车辆信息变更日志外部编码，由golang程序生成的xid，暴露到外部使用"""
+        vehicle_info_change_id: String!
+    ): vehicle_info_change_log
+}
+
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "vehicle_info_change_log"
+  """
+    vehicle_info_change_log(
+        """distinct select on columns"""
+        distinct_on: [vehicle_info_change_log_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_info_change_log_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_info_change_log_bool_exp
+    ): [vehicle_info_change_log!]!
+
+    """
+    fetch aggregated fields from the table: "vehicle_info_change_log"
+  """
+    vehicle_info_change_log_aggregate(
+        """distinct select on columns"""
+        distinct_on: [vehicle_info_change_log_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_info_change_log_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_info_change_log_bool_exp
+    ): vehicle_info_change_log_aggregate!
+
+    """
+    fetch data from the table: "vehicle_info_change_log" using primary key columns
+    """
+    vehicle_info_change_log_by_pk(
+        """主键"""
+        id: bigint!
+
+        """车辆信息变更日志外部编码，由golang程序生成的xid，暴露到外部使用"""
+        vehicle_info_change_id: String!
+    ): vehicle_info_change_log
+}
+
+
 
 """
 车辆信息变更日志表
@@ -23762,1129 +24815,188 @@ input vehicle_info_change_log_variance_order_by {
     vehicle_type: order_by
 }
 
-"""
-unique or primary key constraints on table "vehicle_info"
-"""
-enum vehicle_info_constraint {
-    """unique or primary key constraint"""
-    vehicle_info_pkey
+`, BuiltIn: false},
+	{Name: "graph/graphqls/vehicle_supervision_photo.graphqls", Input: `
+extend type Mutation {
+    """
+    delete data from the table: "vehicle_supervision_photo"
+  """
+    delete_vehicle_supervision_photo(
+        """filter the rows which have to be deleted"""
+        where: vehicle_supervision_photo_bool_exp!
+    ): vehicle_supervision_photo_mutation_response
+
+    """
+    delete single row from the table: "vehicle_supervision_photo"
+  """
+    delete_vehicle_supervision_photo_by_pk(
+        """主键"""
+        id: bigint!
+
+        """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
+        supervision_photo_id: String!
+    ): vehicle_supervision_photo
+
+    """
+    insert data into the table: "vehicle_supervision_photo"
+  """
+    insert_vehicle_supervision_photo(
+        """the rows to be inserted"""
+        objects: [vehicle_supervision_photo_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: vehicle_supervision_photo_on_conflict
+    ): vehicle_supervision_photo_mutation_response
+
+    """
+    insert a single row into the table: "vehicle_supervision_photo"
+  """
+    insert_vehicle_supervision_photo_one(
+        """the row to be inserted"""
+        object: vehicle_supervision_photo_insert_input!
+
+        """on conflict condition"""
+        on_conflict: vehicle_supervision_photo_on_conflict
+    ): vehicle_supervision_photo
+
+    """
+    update data of the table: "vehicle_supervision_photo"
+  """
+    update_vehicle_supervision_photo(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: vehicle_supervision_photo_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: vehicle_supervision_photo_set_input
+
+        """filter the rows which have to be updated"""
+        where: vehicle_supervision_photo_bool_exp!
+    ): vehicle_supervision_photo_mutation_response
+
+    """
+    update single row of the table: "vehicle_supervision_photo"
+  """
+    update_vehicle_supervision_photo_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: vehicle_supervision_photo_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: vehicle_supervision_photo_set_input
+        pk_columns: vehicle_supervision_photo_pk_columns_input!
+    ): vehicle_supervision_photo
 }
 
-"""
-input type for incrementing integer column in table "vehicle_info"
-"""
-input vehicle_info_inc_input {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    insurance_company: Int
-    license_plate_color: Int
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    quasi_driving_models: Int
-    seats: Int
-    vehicle_brand: Int
-    vehicle_state: Int
-    vehicle_type: Int
+
+
+extend type Query {
+    """
+    fetch data from the table: "vehicle_supervision_photo"
+  """
+    vehicle_supervision_photo(
+        """distinct select on columns"""
+        distinct_on: [vehicle_supervision_photo_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_supervision_photo_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_supervision_photo_bool_exp
+    ): [vehicle_supervision_photo!]!
+
+    """
+    fetch aggregated fields from the table: "vehicle_supervision_photo"
+  """
+    vehicle_supervision_photo_aggregate(
+        """distinct select on columns"""
+        distinct_on: [vehicle_supervision_photo_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_supervision_photo_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_supervision_photo_bool_exp
+    ): vehicle_supervision_photo_aggregate!
+
+    """
+    fetch data from the table: "vehicle_supervision_photo" using primary key columns
+    """
+    vehicle_supervision_photo_by_pk(
+        """主键"""
+        id: bigint!
+
+        """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
+        supervision_photo_id: String!
+    ): vehicle_supervision_photo
 }
 
-"""
-input type for inserting data into table "vehicle_info"
-"""
-input vehicle_info_insert_input {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    create_at: timestamp
-    create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
-    department_id: String
-    driving_licensee_pic: String
-    enterprise_id: String
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    inspection_date: timestamp
-    insurance_company: Int
-    insurance_date: timestamp
-    is_active: Boolean
-    is_apply_install_terminal: Boolean
-    is_complete: Boolean
-    is_delete: Boolean
-    is_import: Boolean
-    is_input: Boolean
-    is_upload_province: Boolean
-    license_plate_color: Int
-    license_plate_number: String
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_route: String
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    owner: String
-    quasi_driving_models: Int
-    record_at: timestamp
-    record_by: String
-    remark_in: String
-    remarks: String
-    retirement_date: timestamp
-    road_transport_license_number: String
-    seats: Int
-    terminal_id: String
-    update_at: timestamp
-    update_by: String
-    update_time_in: timestamp
-    use_nature: String
-    vehicle_brand: Int
-    vehicle_displacement: String
-    vehicle_id: String
-    vehicle_identification_number: String
-    vehicle_maintenances: _jsonb
-    vehicle_manager: String
-    vehicle_manager_id_card: String
-    vehicle_manager_phone: String
-    vehicle_state: Int
-    vehicle_type: Int
+
+
+extend type Subscription {
+    """
+    fetch data from the table: "vehicle_supervision_photo"
+  """
+    vehicle_supervision_photo(
+        """distinct select on columns"""
+        distinct_on: [vehicle_supervision_photo_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_supervision_photo_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_supervision_photo_bool_exp
+    ): [vehicle_supervision_photo!]!
+
+    """
+    fetch aggregated fields from the table: "vehicle_supervision_photo"
+  """
+    vehicle_supervision_photo_aggregate(
+        """distinct select on columns"""
+        distinct_on: [vehicle_supervision_photo_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_supervision_photo_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_supervision_photo_bool_exp
+    ): vehicle_supervision_photo_aggregate!
+
+    """
+    fetch data from the table: "vehicle_supervision_photo" using primary key columns
+    """
+    vehicle_supervision_photo_by_pk(
+        """主键"""
+        id: bigint!
+
+        """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
+        supervision_photo_id: String!
+    ): vehicle_supervision_photo
 }
 
-"""aggregate max on columns"""
-type vehicle_info_max_fields {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    create_at: timestamp
-    create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
-    department_id: String
-    driving_licensee_pic: String
-    enterprise_id: String
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    inspection_date: timestamp
-    insurance_company: Int
-    insurance_date: timestamp
-    license_plate_color: Int
-    license_plate_number: String
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_route: String
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    owner: String
-    quasi_driving_models: Int
-    record_at: timestamp
-    record_by: String
-    remark_in: String
-    remarks: String
-    retirement_date: timestamp
-    road_transport_license_number: String
-    seats: Int
-    terminal_id: String
-    update_at: timestamp
-    update_by: String
-    update_time_in: timestamp
-    use_nature: String
-    vehicle_brand: Int
-    vehicle_displacement: String
-    vehicle_id: String
-    vehicle_identification_number: String
-    vehicle_manager: String
-    vehicle_manager_id_card: String
-    vehicle_manager_phone: String
-    vehicle_state: Int
-    vehicle_type: Int
-}
 
-"""
-order by max() on columns of table "vehicle_info"
-"""
-input vehicle_info_max_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
-    department_id: order_by
-    driving_licensee_pic: order_by
-    enterprise_id: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    inspection_date: order_by
-    insurance_company: order_by
-    insurance_date: order_by
-    license_plate_color: order_by
-    license_plate_number: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_route: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    owner: order_by
-    quasi_driving_models: order_by
-    record_at: order_by
-    record_by: order_by
-    remark_in: order_by
-    remarks: order_by
-    retirement_date: order_by
-    road_transport_license_number: order_by
-    seats: order_by
-    terminal_id: order_by
-    update_at: order_by
-    update_by: order_by
-    update_time_in: order_by
-    use_nature: order_by
-    vehicle_brand: order_by
-    vehicle_displacement: order_by
-    vehicle_id: order_by
-    vehicle_identification_number: order_by
-    vehicle_manager: order_by
-    vehicle_manager_id_card: order_by
-    vehicle_manager_phone: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate min on columns"""
-type vehicle_info_min_fields {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    create_at: timestamp
-    create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
-    department_id: String
-    driving_licensee_pic: String
-    enterprise_id: String
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    inspection_date: timestamp
-    insurance_company: Int
-    insurance_date: timestamp
-    license_plate_color: Int
-    license_plate_number: String
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_route: String
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    owner: String
-    quasi_driving_models: Int
-    record_at: timestamp
-    record_by: String
-    remark_in: String
-    remarks: String
-    retirement_date: timestamp
-    road_transport_license_number: String
-    seats: Int
-    terminal_id: String
-    update_at: timestamp
-    update_by: String
-    update_time_in: timestamp
-    use_nature: String
-    vehicle_brand: Int
-    vehicle_displacement: String
-    vehicle_id: String
-    vehicle_identification_number: String
-    vehicle_manager: String
-    vehicle_manager_id_card: String
-    vehicle_manager_phone: String
-    vehicle_state: Int
-    vehicle_type: Int
-}
-
-"""
-order by min() on columns of table "vehicle_info"
-"""
-input vehicle_info_min_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
-    department_id: order_by
-    driving_licensee_pic: order_by
-    enterprise_id: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    inspection_date: order_by
-    insurance_company: order_by
-    insurance_date: order_by
-    license_plate_color: order_by
-    license_plate_number: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_route: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    owner: order_by
-    quasi_driving_models: order_by
-    record_at: order_by
-    record_by: order_by
-    remark_in: order_by
-    remarks: order_by
-    retirement_date: order_by
-    road_transport_license_number: order_by
-    seats: order_by
-    terminal_id: order_by
-    update_at: order_by
-    update_by: order_by
-    update_time_in: order_by
-    use_nature: order_by
-    vehicle_brand: order_by
-    vehicle_displacement: order_by
-    vehicle_id: order_by
-    vehicle_identification_number: order_by
-    vehicle_manager: order_by
-    vehicle_manager_id_card: order_by
-    vehicle_manager_phone: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""
-response of any mutation on the table "vehicle_info"
-"""
-type vehicle_info_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [vehicle_info!]!
-}
-
-"""
-input type for inserting object relation for remote table "vehicle_info"
-"""
-input vehicle_info_obj_rel_insert_input {
-    data: vehicle_info_insert_input!
-    on_conflict: vehicle_info_on_conflict
-}
-
-"""
-on conflict condition type for table "vehicle_info"
-"""
-input vehicle_info_on_conflict {
-    constraint: vehicle_info_constraint!
-    update_columns: [vehicle_info_update_column!]!
-    where: vehicle_info_bool_exp
-}
-
-"""
-ordering options when selecting data from "vehicle_info"
-"""
-input vehicle_info_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
-    department_id: order_by
-    driving_licensee_pic: order_by
-    enterprise_id: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    inspection_date: order_by
-    insurance_company: order_by
-    insurance_date: order_by
-    is_active: order_by
-    is_apply_install_terminal: order_by
-    is_complete: order_by
-    is_delete: order_by
-    is_import: order_by
-    is_input: order_by
-    is_upload_province: order_by
-    license_plate_color: order_by
-    license_plate_number: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_route: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    owner: order_by
-    quasi_driving_models: order_by
-    record_at: order_by
-    record_by: order_by
-    remark_in: order_by
-    remarks: order_by
-    retirement_date: order_by
-    road_transport_license_number: order_by
-    seats: order_by
-    terminal_id: order_by
-    update_at: order_by
-    update_by: order_by
-    update_time_in: order_by
-    use_nature: order_by
-    vehicle_brand: order_by
-    vehicle_displacement: order_by
-    vehicle_id: order_by
-    vehicle_identification_number: order_by
-    vehicle_maintenances: order_by
-    vehicle_manager: order_by
-    vehicle_manager_id_card: order_by
-    vehicle_manager_phone: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""
-primary key columns input for table: "vehicle_info"
-"""
-input vehicle_info_pk_columns_input {
-    """主键"""
-    id: bigint!
-
-    """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
-    vehicle_id: String!
-}
-
-"""
-select columns of table "vehicle_info"
-"""
-enum vehicle_info_select_column {
-    """column name"""
-    business_scope
-
-    """column name"""
-    car_rental_price
-
-    """column name"""
-    check_state
-
-    """column name"""
-    create_at
-
-    """column name"""
-    create_by
-
-    """column name"""
-    delete_at
-
-    """column name"""
-    delete_by
-
-    """column name"""
-    department_id
-
-    """column name"""
-    driving_licensee_pic
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    heavy
-
-    """column name"""
-    id
-
-    """column name"""
-    industry_category
-
-    """column name"""
-    inspection_date
-
-    """column name"""
-    insurance_company
-
-    """column name"""
-    insurance_date
-
-    """column name"""
-    is_active
-
-    """column name"""
-    is_apply_install_terminal
-
-    """column name"""
-    is_complete
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_import
-
-    """column name"""
-    is_input
-
-    """column name"""
-    is_upload_province
-
-    """column name"""
-    license_plate_color
-
-    """column name"""
-    license_plate_number
-
-    """column name"""
-    license_plate_type
-
-    """column name"""
-    muck_truck_id
-
-    """column name"""
-    operating_route
-
-    """column name"""
-    operating_state
-
-    """column name"""
-    operating_type
-
-    """column name"""
-    operating_vehicle_id
-
-    """column name"""
-    owner
-
-    """column name"""
-    quasi_driving_models
-
-    """column name"""
-    record_at
-
-    """column name"""
-    record_by
-
-    """column name"""
-    remark_in
-
-    """column name"""
-    remarks
-
-    """column name"""
-    retirement_date
-
-    """column name"""
-    road_transport_license_number
-
-    """column name"""
-    seats
-
-    """column name"""
-    terminal_id
-
-    """column name"""
-    update_at
-
-    """column name"""
-    update_by
-
-    """column name"""
-    update_time_in
-
-    """column name"""
-    use_nature
-
-    """column name"""
-    vehicle_brand
-
-    """column name"""
-    vehicle_displacement
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    vehicle_identification_number
-
-    """column name"""
-    vehicle_maintenances
-
-    """column name"""
-    vehicle_manager
-
-    """column name"""
-    vehicle_manager_id_card
-
-    """column name"""
-    vehicle_manager_phone
-
-    """column name"""
-    vehicle_state
-
-    """column name"""
-    vehicle_type
-}
-
-"""
-input type for updating data in table "vehicle_info"
-"""
-input vehicle_info_set_input {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    create_at: timestamp
-    create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
-    department_id: String
-    driving_licensee_pic: String
-    enterprise_id: String
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    inspection_date: timestamp
-    insurance_company: Int
-    insurance_date: timestamp
-    is_active: Boolean
-    is_apply_install_terminal: Boolean
-    is_complete: Boolean
-    is_delete: Boolean
-    is_import: Boolean
-    is_input: Boolean
-    is_upload_province: Boolean
-    license_plate_color: Int
-    license_plate_number: String
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_route: String
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    owner: String
-    quasi_driving_models: Int
-    record_at: timestamp
-    record_by: String
-    remark_in: String
-    remarks: String
-    retirement_date: timestamp
-    road_transport_license_number: String
-    seats: Int
-    terminal_id: String
-    update_at: timestamp
-    update_by: String
-    update_time_in: timestamp
-    use_nature: String
-    vehicle_brand: Int
-    vehicle_displacement: String
-    vehicle_id: String
-    vehicle_identification_number: String
-    vehicle_maintenances: _jsonb
-    vehicle_manager: String
-    vehicle_manager_id_card: String
-    vehicle_manager_phone: String
-    vehicle_state: Int
-    vehicle_type: Int
-}
-
-"""aggregate stddev on columns"""
-type vehicle_info_stddev_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by stddev() on columns of table "vehicle_info"
-"""
-input vehicle_info_stddev_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate stddev_pop on columns"""
-type vehicle_info_stddev_pop_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by stddev_pop() on columns of table "vehicle_info"
-"""
-input vehicle_info_stddev_pop_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type vehicle_info_stddev_samp_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by stddev_samp() on columns of table "vehicle_info"
-"""
-input vehicle_info_stddev_samp_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate sum on columns"""
-type vehicle_info_sum_fields {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    insurance_company: Int
-    license_plate_color: Int
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    quasi_driving_models: Int
-    seats: Int
-    vehicle_brand: Int
-    vehicle_state: Int
-    vehicle_type: Int
-}
-
-"""
-order by sum() on columns of table "vehicle_info"
-"""
-input vehicle_info_sum_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""
-update columns of table "vehicle_info"
-"""
-enum vehicle_info_update_column {
-    """column name"""
-    business_scope
-
-    """column name"""
-    car_rental_price
-
-    """column name"""
-    check_state
-
-    """column name"""
-    create_at
-
-    """column name"""
-    create_by
-
-    """column name"""
-    delete_at
-
-    """column name"""
-    delete_by
-
-    """column name"""
-    department_id
-
-    """column name"""
-    driving_licensee_pic
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    heavy
-
-    """column name"""
-    id
-
-    """column name"""
-    industry_category
-
-    """column name"""
-    inspection_date
-
-    """column name"""
-    insurance_company
-
-    """column name"""
-    insurance_date
-
-    """column name"""
-    is_active
-
-    """column name"""
-    is_apply_install_terminal
-
-    """column name"""
-    is_complete
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_import
-
-    """column name"""
-    is_input
-
-    """column name"""
-    is_upload_province
-
-    """column name"""
-    license_plate_color
-
-    """column name"""
-    license_plate_number
-
-    """column name"""
-    license_plate_type
-
-    """column name"""
-    muck_truck_id
-
-    """column name"""
-    operating_route
-
-    """column name"""
-    operating_state
-
-    """column name"""
-    operating_type
-
-    """column name"""
-    operating_vehicle_id
-
-    """column name"""
-    owner
-
-    """column name"""
-    quasi_driving_models
-
-    """column name"""
-    record_at
-
-    """column name"""
-    record_by
-
-    """column name"""
-    remark_in
-
-    """column name"""
-    remarks
-
-    """column name"""
-    retirement_date
-
-    """column name"""
-    road_transport_license_number
-
-    """column name"""
-    seats
-
-    """column name"""
-    terminal_id
-
-    """column name"""
-    update_at
-
-    """column name"""
-    update_by
-
-    """column name"""
-    update_time_in
-
-    """column name"""
-    use_nature
-
-    """column name"""
-    vehicle_brand
-
-    """column name"""
-    vehicle_displacement
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    vehicle_identification_number
-
-    """column name"""
-    vehicle_maintenances
-
-    """column name"""
-    vehicle_manager
-
-    """column name"""
-    vehicle_manager_id_card
-
-    """column name"""
-    vehicle_manager_phone
-
-    """column name"""
-    vehicle_state
-
-    """column name"""
-    vehicle_type
-}
-
-"""aggregate var_pop on columns"""
-type vehicle_info_var_pop_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by var_pop() on columns of table "vehicle_info"
-"""
-input vehicle_info_var_pop_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate var_samp on columns"""
-type vehicle_info_var_samp_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by var_samp() on columns of table "vehicle_info"
-"""
-input vehicle_info_var_samp_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate variance on columns"""
-type vehicle_info_variance_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by variance() on columns of table "vehicle_info"
-"""
-input vehicle_info_variance_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
 
 """
 车辆监控图片表
@@ -33478,6 +33590,240 @@ func (ec *executionContext) _JJ_VEHICLE_variance_fields_id(ctx context.Context, 
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_delete_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleInfo(rctx, args["where"].(model.VehicleInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOvehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_info_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleInfoByPk(rctx, args["id"].(int64), args["vehicle_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfo)
+	fc.Result = res
+	return ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_vehicle_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertVehicleInfo(rctx, args["objects"].([]*model.VehicleInfoInsertInput), args["on_conflict"].(*model.VehicleInfoOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOvehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_vehicle_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_vehicle_info_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertVehicleInfoOne(rctx, args["object"].(model.VehicleInfoInsertInput), args["on_conflict"].(*model.VehicleInfoOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfo)
+	fc.Result = res
+	return ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleInfo(rctx, args["_inc"].(*model.VehicleInfoIncInput), args["_set"].(*model.VehicleInfoSetInput), args["where"].(model.VehicleInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOvehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_info_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleInfoByPk(rctx, args["_inc"].(*model.VehicleInfoIncInput), args["_set"].(*model.VehicleInfoSetInput), args["pk_columns"].(model.VehicleInfoPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfo)
+	fc.Result = res
+	return ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_JJ_VEHICLE(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -33543,6 +33889,162 @@ func (ec *executionContext) _Mutation_delete_JJ_VEHICLE_by_pk(ctx context.Contex
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().DeleteJjVehicleByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.JjVehicle)
+	fc.Result = res
+	return ec.marshalOJJ_VEHICLE2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐJjVehicle(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_JJ_VEHICLE(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_JJ_VEHICLE_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertJjVehicle(rctx, args["objects"].([]*model.JjVehicleInsertInput), args["on_conflict"].(*model.JjVehicleOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.JjVehicleMutationResponse)
+	fc.Result = res
+	return ec.marshalOJJ_VEHICLE_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐJjVehicleMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_JJ_VEHICLE_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_JJ_VEHICLE_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertJjVehicleOne(rctx, args["object"].(model.JjVehicleInsertInput), args["on_conflict"].(*model.JjVehicleOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.JjVehicle)
+	fc.Result = res
+	return ec.marshalOJJ_VEHICLE2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐJjVehicle(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_JJ_VEHICLE(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_JJ_VEHICLE_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateJjVehicle(rctx, args["_inc"].(*model.JjVehicleIncInput), args["_set"].(*model.JjVehicleSetInput), args["where"].(model.JjVehicleBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.JjVehicleMutationResponse)
+	fc.Result = res
+	return ec.marshalOJJ_VEHICLE_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐJjVehicleMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_JJ_VEHICLE_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_JJ_VEHICLE_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateJjVehicleByPk(rctx, args["_inc"].(*model.JjVehicleIncInput), args["_set"].(*model.JjVehicleSetInput), args["pk_columns"].(model.JjVehiclePkColumnsInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -33634,6 +34136,162 @@ func (ec *executionContext) _Mutation_delete_muck_truck_category_info_by_pk(ctx 
 	return ec.marshalOmuck_truck_category_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckCategoryInfo(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_insert_muck_truck_category_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_muck_truck_category_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertMuckTruckCategoryInfo(rctx, args["objects"].([]*model.MuckTruckCategoryInfoInsertInput), args["on_conflict"].(*model.MuckTruckCategoryInfoOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckCategoryInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOmuck_truck_category_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckCategoryInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_muck_truck_category_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_muck_truck_category_info_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertMuckTruckCategoryInfoOne(rctx, args["object"].(model.MuckTruckCategoryInfoInsertInput), args["on_conflict"].(*model.MuckTruckCategoryInfoOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckCategoryInfo)
+	fc.Result = res
+	return ec.marshalOmuck_truck_category_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckCategoryInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_muck_truck_category_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_category_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckCategoryInfo(rctx, args["_inc"].(*model.MuckTruckCategoryInfoIncInput), args["_set"].(*model.MuckTruckCategoryInfoSetInput), args["where"].(model.MuckTruckCategoryInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckCategoryInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOmuck_truck_category_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckCategoryInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_muck_truck_category_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_category_info_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckCategoryInfoByPk(rctx, args["_inc"].(*model.MuckTruckCategoryInfoIncInput), args["_set"].(*model.MuckTruckCategoryInfoSetInput), args["pk_columns"].(model.MuckTruckCategoryInfoPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckCategoryInfo)
+	fc.Result = res
+	return ec.marshalOmuck_truck_category_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckCategoryInfo(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_muck_truck_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -33699,6 +34357,162 @@ func (ec *executionContext) _Mutation_delete_muck_truck_info_by_pk(ctx context.C
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().DeleteMuckTruckInfoByPk(rctx, args["muck_truck_id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckInfo)
+	fc.Result = res
+	return ec.marshalOmuck_truck_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_muck_truck_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_muck_truck_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertMuckTruckInfo(rctx, args["objects"].([]*model.MuckTruckInfoInsertInput), args["on_conflict"].(*model.MuckTruckInfoOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOmuck_truck_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_muck_truck_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_muck_truck_info_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertMuckTruckInfoOne(rctx, args["object"].(model.MuckTruckInfoInsertInput), args["on_conflict"].(*model.MuckTruckInfoOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckInfo)
+	fc.Result = res
+	return ec.marshalOmuck_truck_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_muck_truck_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckInfo(rctx, args["_inc"].(*model.MuckTruckInfoIncInput), args["_set"].(*model.MuckTruckInfoSetInput), args["where"].(model.MuckTruckInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOmuck_truck_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_muck_truck_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_info_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckInfoByPk(rctx, args["_inc"].(*model.MuckTruckInfoIncInput), args["_set"].(*model.MuckTruckInfoSetInput), args["pk_columns"].(model.MuckTruckInfoPkColumnsInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -33790,6 +34604,162 @@ func (ec *executionContext) _Mutation_delete_muck_truck_preview_number_by_pk(ctx
 	return ec.marshalOmuck_truck_preview_number2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckPreviewNumber(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_insert_muck_truck_preview_number(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_muck_truck_preview_number_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertMuckTruckPreviewNumber(rctx, args["objects"].([]*model.MuckTruckPreviewNumberInsertInput), args["on_conflict"].(*model.MuckTruckPreviewNumberOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckPreviewNumberMutationResponse)
+	fc.Result = res
+	return ec.marshalOmuck_truck_preview_number_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckPreviewNumberMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_muck_truck_preview_number_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_muck_truck_preview_number_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertMuckTruckPreviewNumberOne(rctx, args["object"].(model.MuckTruckPreviewNumberInsertInput), args["on_conflict"].(*model.MuckTruckPreviewNumberOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckPreviewNumber)
+	fc.Result = res
+	return ec.marshalOmuck_truck_preview_number2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckPreviewNumber(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_muck_truck_preview_number(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_preview_number_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckPreviewNumber(rctx, args["_inc"].(*model.MuckTruckPreviewNumberIncInput), args["_set"].(*model.MuckTruckPreviewNumberSetInput), args["where"].(model.MuckTruckPreviewNumberBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckPreviewNumberMutationResponse)
+	fc.Result = res
+	return ec.marshalOmuck_truck_preview_number_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckPreviewNumberMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_muck_truck_preview_number_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_preview_number_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckPreviewNumberByPk(rctx, args["_inc"].(*model.MuckTruckPreviewNumberIncInput), args["_set"].(*model.MuckTruckPreviewNumberSetInput), args["pk_columns"].(model.MuckTruckPreviewNumberPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckPreviewNumber)
+	fc.Result = res
+	return ec.marshalOmuck_truck_preview_number2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckPreviewNumber(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_muck_truck_worker_id_card_orders(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -33855,6 +34825,162 @@ func (ec *executionContext) _Mutation_delete_muck_truck_worker_id_card_orders_by
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().DeleteMuckTruckWorkerIDCardOrdersByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckWorkerIDCardOrders)
+	fc.Result = res
+	return ec.marshalOmuck_truck_worker_id_card_orders2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckWorkerIDCardOrders(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_muck_truck_worker_id_card_orders(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_muck_truck_worker_id_card_orders_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertMuckTruckWorkerIDCardOrders(rctx, args["objects"].([]*model.MuckTruckWorkerIDCardOrdersInsertInput), args["on_conflict"].(*model.MuckTruckWorkerIDCardOrdersOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckWorkerIDCardOrdersMutationResponse)
+	fc.Result = res
+	return ec.marshalOmuck_truck_worker_id_card_orders_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckWorkerIDCardOrdersMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_muck_truck_worker_id_card_orders_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_muck_truck_worker_id_card_orders_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertMuckTruckWorkerIDCardOrdersOne(rctx, args["object"].(model.MuckTruckWorkerIDCardOrdersInsertInput), args["on_conflict"].(*model.MuckTruckWorkerIDCardOrdersOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckWorkerIDCardOrders)
+	fc.Result = res
+	return ec.marshalOmuck_truck_worker_id_card_orders2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckWorkerIDCardOrders(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_muck_truck_worker_id_card_orders(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_worker_id_card_orders_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckWorkerIDCardOrders(rctx, args["_inc"].(*model.MuckTruckWorkerIDCardOrdersIncInput), args["_set"].(*model.MuckTruckWorkerIDCardOrdersSetInput), args["where"].(model.MuckTruckWorkerIDCardOrdersBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.MuckTruckWorkerIDCardOrdersMutationResponse)
+	fc.Result = res
+	return ec.marshalOmuck_truck_worker_id_card_orders_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckWorkerIDCardOrdersMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_muck_truck_worker_id_card_orders_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_muck_truck_worker_id_card_orders_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateMuckTruckWorkerIDCardOrdersByPk(rctx, args["_inc"].(*model.MuckTruckWorkerIDCardOrdersIncInput), args["_set"].(*model.MuckTruckWorkerIDCardOrdersSetInput), args["pk_columns"].(model.MuckTruckWorkerIDCardOrdersPkColumnsInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -33946,6 +35072,162 @@ func (ec *executionContext) _Mutation_delete_operating_vehicle_info_by_pk(ctx co
 	return ec.marshalOoperating_vehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOperatingVehicleInfo(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_insert_operating_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_operating_vehicle_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertOperatingVehicleInfo(rctx, args["objects"].([]*model.OperatingVehicleInfoInsertInput), args["on_conflict"].(*model.OperatingVehicleInfoOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.OperatingVehicleInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOoperating_vehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOperatingVehicleInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_operating_vehicle_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_operating_vehicle_info_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertOperatingVehicleInfoOne(rctx, args["object"].(model.OperatingVehicleInfoInsertInput), args["on_conflict"].(*model.OperatingVehicleInfoOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.OperatingVehicleInfo)
+	fc.Result = res
+	return ec.marshalOoperating_vehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOperatingVehicleInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_operating_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_operating_vehicle_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateOperatingVehicleInfo(rctx, args["_inc"].(*model.OperatingVehicleInfoIncInput), args["_set"].(*model.OperatingVehicleInfoSetInput), args["where"].(model.OperatingVehicleInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.OperatingVehicleInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOoperating_vehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOperatingVehicleInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_operating_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_operating_vehicle_info_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateOperatingVehicleInfoByPk(rctx, args["_inc"].(*model.OperatingVehicleInfoIncInput), args["_set"].(*model.OperatingVehicleInfoSetInput), args["pk_columns"].(model.OperatingVehicleInfoPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.OperatingVehicleInfo)
+	fc.Result = res
+	return ec.marshalOoperating_vehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOperatingVehicleInfo(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_owner_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -34024,7 +35306,7 @@ func (ec *executionContext) _Mutation_delete_owner_info_by_pk(ctx context.Contex
 	return ec.marshalOowner_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfo(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_delete_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Mutation_insert_owner_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -34041,7 +35323,7 @@ func (ec *executionContext) _Mutation_delete_vehicle_info(ctx context.Context, f
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_vehicle_info_args(ctx, rawArgs)
+	args, err := ec.field_Mutation_insert_owner_info_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -34049,7 +35331,7 @@ func (ec *executionContext) _Mutation_delete_vehicle_info(ctx context.Context, f
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteVehicleInfo(rctx, args["where"].(model.VehicleInfoBoolExp))
+		return ec.resolvers.Mutation().InsertOwnerInfo(rctx, args["objects"].([]*model.OwnerInfoInsertInput), args["on_conflict"].(*model.OwnerInfoOnConflict))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -34058,12 +35340,12 @@ func (ec *executionContext) _Mutation_delete_vehicle_info(ctx context.Context, f
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.VehicleInfoMutationResponse)
+	res := resTmp.(*model.OwnerInfoMutationResponse)
 	fc.Result = res
-	return ec.marshalOvehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOowner_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfoMutationResponse(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_delete_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Mutation_insert_owner_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -34080,7 +35362,7 @@ func (ec *executionContext) _Mutation_delete_vehicle_info_by_pk(ctx context.Cont
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_vehicle_info_by_pk_args(ctx, rawArgs)
+	args, err := ec.field_Mutation_insert_owner_info_one_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -34088,7 +35370,7 @@ func (ec *executionContext) _Mutation_delete_vehicle_info_by_pk(ctx context.Cont
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteVehicleInfoByPk(rctx, args["id"].(int64), args["vehicle_id"].(string))
+		return ec.resolvers.Mutation().InsertOwnerInfoOne(rctx, args["object"].(model.OwnerInfoInsertInput), args["on_conflict"].(*model.OwnerInfoOnConflict))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -34097,9 +35379,87 @@ func (ec *executionContext) _Mutation_delete_vehicle_info_by_pk(ctx context.Cont
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.VehicleInfo)
+	res := resTmp.(*model.OwnerInfo)
 	fc.Result = res
-	return ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res)
+	return ec.marshalOowner_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_owner_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_owner_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateOwnerInfo(rctx, args["_inc"].(*model.OwnerInfoIncInput), args["_set"].(*model.OwnerInfoSetInput), args["where"].(model.OwnerInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.OwnerInfoMutationResponse)
+	fc.Result = res
+	return ec.marshalOowner_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfoMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_owner_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_owner_info_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateOwnerInfoByPk(rctx, args["_inc"].(*model.OwnerInfoIncInput), args["_set"].(*model.OwnerInfoSetInput), args["pk_columns"].(model.OwnerInfoPkColumnsInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.OwnerInfo)
+	fc.Result = res
+	return ec.marshalOowner_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_delete_vehicle_info_change_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -34167,6 +35527,162 @@ func (ec *executionContext) _Mutation_delete_vehicle_info_change_log_by_pk(ctx c
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().DeleteVehicleInfoChangeLogByPk(rctx, args["id"].(int64), args["vehicle_info_change_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfoChangeLog)
+	fc.Result = res
+	return ec.marshalOvehicle_info_change_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoChangeLog(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_vehicle_info_change_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_vehicle_info_change_log_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertVehicleInfoChangeLog(rctx, args["objects"].([]*model.VehicleInfoChangeLogInsertInput), args["on_conflict"].(*model.VehicleInfoChangeLogOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfoChangeLogMutationResponse)
+	fc.Result = res
+	return ec.marshalOvehicle_info_change_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoChangeLogMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_vehicle_info_change_log_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_vehicle_info_change_log_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertVehicleInfoChangeLogOne(rctx, args["object"].(model.VehicleInfoChangeLogInsertInput), args["on_conflict"].(*model.VehicleInfoChangeLogOnConflict))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfoChangeLog)
+	fc.Result = res
+	return ec.marshalOvehicle_info_change_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoChangeLog(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_vehicle_info_change_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_info_change_log_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleInfoChangeLog(rctx, args["_inc"].(*model.VehicleInfoChangeLogIncInput), args["_set"].(*model.VehicleInfoChangeLogSetInput), args["where"].(model.VehicleInfoChangeLogBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfoChangeLogMutationResponse)
+	fc.Result = res
+	return ec.marshalOvehicle_info_change_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoChangeLogMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_vehicle_info_change_log_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_info_change_log_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleInfoChangeLogByPk(rctx, args["_inc"].(*model.VehicleInfoChangeLogIncInput), args["_set"].(*model.VehicleInfoChangeLogSetInput), args["pk_columns"].(model.VehicleInfoChangeLogPkColumnsInput))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -34258,708 +35774,6 @@ func (ec *executionContext) _Mutation_delete_vehicle_supervision_photo_by_pk(ctx
 	return ec.marshalOvehicle_supervision_photo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleSupervisionPhoto(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_insert_JJ_VEHICLE(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_JJ_VEHICLE_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertJjVehicle(rctx, args["objects"].([]*model.JjVehicleInsertInput), args["on_conflict"].(*model.JjVehicleOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.JjVehicleMutationResponse)
-	fc.Result = res
-	return ec.marshalOJJ_VEHICLE_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐJjVehicleMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_JJ_VEHICLE_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_JJ_VEHICLE_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertJjVehicleOne(rctx, args["object"].(model.JjVehicleInsertInput), args["on_conflict"].(*model.JjVehicleOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.JjVehicle)
-	fc.Result = res
-	return ec.marshalOJJ_VEHICLE2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐJjVehicle(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_muck_truck_category_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_muck_truck_category_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertMuckTruckCategoryInfo(rctx, args["objects"].([]*model.MuckTruckCategoryInfoInsertInput), args["on_conflict"].(*model.MuckTruckCategoryInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckCategoryInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOmuck_truck_category_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckCategoryInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_muck_truck_category_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_muck_truck_category_info_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertMuckTruckCategoryInfoOne(rctx, args["object"].(model.MuckTruckCategoryInfoInsertInput), args["on_conflict"].(*model.MuckTruckCategoryInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckCategoryInfo)
-	fc.Result = res
-	return ec.marshalOmuck_truck_category_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckCategoryInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_muck_truck_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_muck_truck_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertMuckTruckInfo(rctx, args["objects"].([]*model.MuckTruckInfoInsertInput), args["on_conflict"].(*model.MuckTruckInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOmuck_truck_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_muck_truck_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_muck_truck_info_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertMuckTruckInfoOne(rctx, args["object"].(model.MuckTruckInfoInsertInput), args["on_conflict"].(*model.MuckTruckInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckInfo)
-	fc.Result = res
-	return ec.marshalOmuck_truck_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_muck_truck_preview_number(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_muck_truck_preview_number_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertMuckTruckPreviewNumber(rctx, args["objects"].([]*model.MuckTruckPreviewNumberInsertInput), args["on_conflict"].(*model.MuckTruckPreviewNumberOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckPreviewNumberMutationResponse)
-	fc.Result = res
-	return ec.marshalOmuck_truck_preview_number_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckPreviewNumberMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_muck_truck_preview_number_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_muck_truck_preview_number_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertMuckTruckPreviewNumberOne(rctx, args["object"].(model.MuckTruckPreviewNumberInsertInput), args["on_conflict"].(*model.MuckTruckPreviewNumberOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckPreviewNumber)
-	fc.Result = res
-	return ec.marshalOmuck_truck_preview_number2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckPreviewNumber(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_muck_truck_worker_id_card_orders(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_muck_truck_worker_id_card_orders_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertMuckTruckWorkerIDCardOrders(rctx, args["objects"].([]*model.MuckTruckWorkerIDCardOrdersInsertInput), args["on_conflict"].(*model.MuckTruckWorkerIDCardOrdersOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckWorkerIDCardOrdersMutationResponse)
-	fc.Result = res
-	return ec.marshalOmuck_truck_worker_id_card_orders_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckWorkerIDCardOrdersMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_muck_truck_worker_id_card_orders_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_muck_truck_worker_id_card_orders_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertMuckTruckWorkerIDCardOrdersOne(rctx, args["object"].(model.MuckTruckWorkerIDCardOrdersInsertInput), args["on_conflict"].(*model.MuckTruckWorkerIDCardOrdersOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckWorkerIDCardOrders)
-	fc.Result = res
-	return ec.marshalOmuck_truck_worker_id_card_orders2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckWorkerIDCardOrders(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_operating_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_operating_vehicle_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertOperatingVehicleInfo(rctx, args["objects"].([]*model.OperatingVehicleInfoInsertInput), args["on_conflict"].(*model.OperatingVehicleInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.OperatingVehicleInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOoperating_vehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOperatingVehicleInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_operating_vehicle_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_operating_vehicle_info_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertOperatingVehicleInfoOne(rctx, args["object"].(model.OperatingVehicleInfoInsertInput), args["on_conflict"].(*model.OperatingVehicleInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.OperatingVehicleInfo)
-	fc.Result = res
-	return ec.marshalOoperating_vehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOperatingVehicleInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_owner_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_owner_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertOwnerInfo(rctx, args["objects"].([]*model.OwnerInfoInsertInput), args["on_conflict"].(*model.OwnerInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.OwnerInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOowner_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_owner_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_owner_info_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertOwnerInfoOne(rctx, args["object"].(model.OwnerInfoInsertInput), args["on_conflict"].(*model.OwnerInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.OwnerInfo)
-	fc.Result = res
-	return ec.marshalOowner_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_vehicle_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertVehicleInfo(rctx, args["objects"].([]*model.VehicleInfoInsertInput), args["on_conflict"].(*model.VehicleInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOvehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_vehicle_info_change_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_vehicle_info_change_log_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertVehicleInfoChangeLog(rctx, args["objects"].([]*model.VehicleInfoChangeLogInsertInput), args["on_conflict"].(*model.VehicleInfoChangeLogOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfoChangeLogMutationResponse)
-	fc.Result = res
-	return ec.marshalOvehicle_info_change_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoChangeLogMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_vehicle_info_change_log_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_vehicle_info_change_log_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertVehicleInfoChangeLogOne(rctx, args["object"].(model.VehicleInfoChangeLogInsertInput), args["on_conflict"].(*model.VehicleInfoChangeLogOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfoChangeLog)
-	fc.Result = res
-	return ec.marshalOvehicle_info_change_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoChangeLog(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_vehicle_info_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_vehicle_info_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertVehicleInfoOne(rctx, args["object"].(model.VehicleInfoInsertInput), args["on_conflict"].(*model.VehicleInfoOnConflict))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfo)
-	fc.Result = res
-	return ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Mutation_insert_vehicle_supervision_photo(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -35038,708 +35852,6 @@ func (ec *executionContext) _Mutation_insert_vehicle_supervision_photo_one(ctx c
 	return ec.marshalOvehicle_supervision_photo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleSupervisionPhoto(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_update_JJ_VEHICLE(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_JJ_VEHICLE_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateJjVehicle(rctx, args["_inc"].(*model.JjVehicleIncInput), args["_set"].(*model.JjVehicleSetInput), args["where"].(model.JjVehicleBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.JjVehicleMutationResponse)
-	fc.Result = res
-	return ec.marshalOJJ_VEHICLE_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐJjVehicleMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_JJ_VEHICLE_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_JJ_VEHICLE_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateJjVehicleByPk(rctx, args["_inc"].(*model.JjVehicleIncInput), args["_set"].(*model.JjVehicleSetInput), args["pk_columns"].(model.JjVehiclePkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.JjVehicle)
-	fc.Result = res
-	return ec.marshalOJJ_VEHICLE2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐJjVehicle(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_muck_truck_category_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_muck_truck_category_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMuckTruckCategoryInfo(rctx, args["_inc"].(*model.MuckTruckCategoryInfoIncInput), args["_set"].(*model.MuckTruckCategoryInfoSetInput), args["where"].(model.MuckTruckCategoryInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckCategoryInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOmuck_truck_category_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckCategoryInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_muck_truck_category_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_muck_truck_category_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMuckTruckCategoryInfoByPk(rctx, args["_inc"].(*model.MuckTruckCategoryInfoIncInput), args["_set"].(*model.MuckTruckCategoryInfoSetInput), args["pk_columns"].(model.MuckTruckCategoryInfoPkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckCategoryInfo)
-	fc.Result = res
-	return ec.marshalOmuck_truck_category_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckCategoryInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_muck_truck_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_muck_truck_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMuckTruckInfo(rctx, args["_inc"].(*model.MuckTruckInfoIncInput), args["_set"].(*model.MuckTruckInfoSetInput), args["where"].(model.MuckTruckInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOmuck_truck_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_muck_truck_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_muck_truck_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMuckTruckInfoByPk(rctx, args["_inc"].(*model.MuckTruckInfoIncInput), args["_set"].(*model.MuckTruckInfoSetInput), args["pk_columns"].(model.MuckTruckInfoPkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckInfo)
-	fc.Result = res
-	return ec.marshalOmuck_truck_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_muck_truck_preview_number(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_muck_truck_preview_number_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMuckTruckPreviewNumber(rctx, args["_inc"].(*model.MuckTruckPreviewNumberIncInput), args["_set"].(*model.MuckTruckPreviewNumberSetInput), args["where"].(model.MuckTruckPreviewNumberBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckPreviewNumberMutationResponse)
-	fc.Result = res
-	return ec.marshalOmuck_truck_preview_number_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckPreviewNumberMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_muck_truck_preview_number_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_muck_truck_preview_number_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMuckTruckPreviewNumberByPk(rctx, args["_inc"].(*model.MuckTruckPreviewNumberIncInput), args["_set"].(*model.MuckTruckPreviewNumberSetInput), args["pk_columns"].(model.MuckTruckPreviewNumberPkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckPreviewNumber)
-	fc.Result = res
-	return ec.marshalOmuck_truck_preview_number2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckPreviewNumber(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_muck_truck_worker_id_card_orders(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_muck_truck_worker_id_card_orders_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMuckTruckWorkerIDCardOrders(rctx, args["_inc"].(*model.MuckTruckWorkerIDCardOrdersIncInput), args["_set"].(*model.MuckTruckWorkerIDCardOrdersSetInput), args["where"].(model.MuckTruckWorkerIDCardOrdersBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckWorkerIDCardOrdersMutationResponse)
-	fc.Result = res
-	return ec.marshalOmuck_truck_worker_id_card_orders_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckWorkerIDCardOrdersMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_muck_truck_worker_id_card_orders_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_muck_truck_worker_id_card_orders_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateMuckTruckWorkerIDCardOrdersByPk(rctx, args["_inc"].(*model.MuckTruckWorkerIDCardOrdersIncInput), args["_set"].(*model.MuckTruckWorkerIDCardOrdersSetInput), args["pk_columns"].(model.MuckTruckWorkerIDCardOrdersPkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.MuckTruckWorkerIDCardOrders)
-	fc.Result = res
-	return ec.marshalOmuck_truck_worker_id_card_orders2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐMuckTruckWorkerIDCardOrders(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_operating_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_operating_vehicle_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateOperatingVehicleInfo(rctx, args["_inc"].(*model.OperatingVehicleInfoIncInput), args["_set"].(*model.OperatingVehicleInfoSetInput), args["where"].(model.OperatingVehicleInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.OperatingVehicleInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOoperating_vehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOperatingVehicleInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_operating_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_operating_vehicle_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateOperatingVehicleInfoByPk(rctx, args["_inc"].(*model.OperatingVehicleInfoIncInput), args["_set"].(*model.OperatingVehicleInfoSetInput), args["pk_columns"].(model.OperatingVehicleInfoPkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.OperatingVehicleInfo)
-	fc.Result = res
-	return ec.marshalOoperating_vehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOperatingVehicleInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_owner_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_owner_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateOwnerInfo(rctx, args["_inc"].(*model.OwnerInfoIncInput), args["_set"].(*model.OwnerInfoSetInput), args["where"].(model.OwnerInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.OwnerInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOowner_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_owner_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_owner_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateOwnerInfoByPk(rctx, args["_inc"].(*model.OwnerInfoIncInput), args["_set"].(*model.OwnerInfoSetInput), args["pk_columns"].(model.OwnerInfoPkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.OwnerInfo)
-	fc.Result = res
-	return ec.marshalOowner_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_vehicle_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateVehicleInfo(rctx, args["_inc"].(*model.VehicleInfoIncInput), args["_set"].(*model.VehicleInfoSetInput), args["where"].(model.VehicleInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfoMutationResponse)
-	fc.Result = res
-	return ec.marshalOvehicle_info_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_vehicle_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateVehicleInfoByPk(rctx, args["_inc"].(*model.VehicleInfoIncInput), args["_set"].(*model.VehicleInfoSetInput), args["pk_columns"].(model.VehicleInfoPkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfo)
-	fc.Result = res
-	return ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_vehicle_info_change_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_vehicle_info_change_log_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateVehicleInfoChangeLog(rctx, args["_inc"].(*model.VehicleInfoChangeLogIncInput), args["_set"].(*model.VehicleInfoChangeLogSetInput), args["where"].(model.VehicleInfoChangeLogBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfoChangeLogMutationResponse)
-	fc.Result = res
-	return ec.marshalOvehicle_info_change_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoChangeLogMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_vehicle_info_change_log_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_vehicle_info_change_log_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateVehicleInfoChangeLogByPk(rctx, args["_inc"].(*model.VehicleInfoChangeLogIncInput), args["_set"].(*model.VehicleInfoChangeLogSetInput), args["pk_columns"].(model.VehicleInfoChangeLogPkColumnsInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfoChangeLog)
-	fc.Result = res
-	return ec.marshalOvehicle_info_change_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoChangeLog(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Mutation_update_vehicle_supervision_photo(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -35816,6 +35928,129 @@ func (ec *executionContext) _Mutation_update_vehicle_supervision_photo_by_pk(ctx
 	res := resTmp.(*model.VehicleSupervisionPhoto)
 	fc.Result = res
 	return ec.marshalOvehicle_supervision_photo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleSupervisionPhoto(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleInfo(rctx, args["distinct_on"].([]model.VehicleInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VehicleInfoOrderBy), args["where"].(*model.VehicleInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model.VehicleInfo)
+	fc.Result = res
+	return ec.marshalNvehicle_info2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_info_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_info_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleInfoAggregate(rctx, args["distinct_on"].([]model.VehicleInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VehicleInfoOrderBy), args["where"].(*model.VehicleInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfoAggregate)
+	fc.Result = res
+	return ec.marshalNvehicle_info_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_info_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleInfoByPk(rctx, args["id"].(int64), args["vehicle_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.VehicleInfo)
+	fc.Result = res
+	return ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_JJ_VEHICLE(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -36679,129 +36914,6 @@ func (ec *executionContext) _Query_owner_info_by_pk(ctx context.Context, field g
 	return ec.marshalOowner_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfo(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_vehicle_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().VehicleInfo(rctx, args["distinct_on"].([]model.VehicleInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VehicleInfoOrderBy), args["where"].(*model.VehicleInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model.VehicleInfo)
-	fc.Result = res
-	return ec.marshalNvehicle_info2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_vehicle_info_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_vehicle_info_aggregate_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().VehicleInfoAggregate(rctx, args["distinct_on"].([]model.VehicleInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VehicleInfoOrderBy), args["where"].(*model.VehicleInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfoAggregate)
-	fc.Result = res
-	return ec.marshalNvehicle_info_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoAggregate(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_vehicle_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().VehicleInfoByPk(rctx, args["id"].(int64), args["vehicle_id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.VehicleInfo)
-	fc.Result = res
-	return ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Query_vehicle_info_change_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -37117,6 +37229,159 @@ func (ec *executionContext) _Query___schema(ctx context.Context, field graphql.C
 	res := resTmp.(*introspection.Schema)
 	fc.Result = res
 	return ec.marshalO__Schema2ᚖgithubᚗcomᚋ99designsᚋgqlgenᚋgraphqlᚋintrospectionᚐSchema(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Subscription_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret func() graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = nil
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Subscription",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Subscription_vehicle_info_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return nil
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Subscription().VehicleInfo(rctx, args["distinct_on"].([]model.VehicleInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VehicleInfoOrderBy), args["where"].(*model.VehicleInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return nil
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return nil
+	}
+	return func() graphql.Marshaler {
+		res, ok := <-resTmp.(<-chan []*model.VehicleInfo)
+		if !ok {
+			return nil
+		}
+		return graphql.WriterFunc(func(w io.Writer) {
+			w.Write([]byte{'{'})
+			graphql.MarshalString(field.Alias).MarshalGQL(w)
+			w.Write([]byte{':'})
+			ec.marshalNvehicle_info2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoᚄ(ctx, field.Selections, res).MarshalGQL(w)
+			w.Write([]byte{'}'})
+		})
+	}
+}
+
+func (ec *executionContext) _Subscription_vehicle_info_aggregate(ctx context.Context, field graphql.CollectedField) (ret func() graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = nil
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Subscription",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Subscription_vehicle_info_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return nil
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Subscription().VehicleInfoAggregate(rctx, args["distinct_on"].([]model.VehicleInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VehicleInfoOrderBy), args["where"].(*model.VehicleInfoBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return nil
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return nil
+	}
+	return func() graphql.Marshaler {
+		res, ok := <-resTmp.(<-chan *model.VehicleInfoAggregate)
+		if !ok {
+			return nil
+		}
+		return graphql.WriterFunc(func(w io.Writer) {
+			w.Write([]byte{'{'})
+			graphql.MarshalString(field.Alias).MarshalGQL(w)
+			w.Write([]byte{':'})
+			ec.marshalNvehicle_info_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoAggregate(ctx, field.Selections, res).MarshalGQL(w)
+			w.Write([]byte{'}'})
+		})
+	}
+}
+
+func (ec *executionContext) _Subscription_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret func() graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = nil
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Subscription",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Subscription_vehicle_info_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return nil
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Subscription().VehicleInfoByPk(rctx, args["id"].(int64), args["vehicle_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return nil
+	}
+	if resTmp == nil {
+		return nil
+	}
+	return func() graphql.Marshaler {
+		res, ok := <-resTmp.(<-chan *model.VehicleInfo)
+		if !ok {
+			return nil
+		}
+		return graphql.WriterFunc(func(w io.Writer) {
+			w.Write([]byte{'{'})
+			graphql.MarshalString(field.Alias).MarshalGQL(w)
+			w.Write([]byte{':'})
+			ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res).MarshalGQL(w)
+			w.Write([]byte{'}'})
+		})
+	}
 }
 
 func (ec *executionContext) _Subscription_JJ_VEHICLE(ctx context.Context, field graphql.CollectedField) (ret func() graphql.Marshaler) {
@@ -38185,159 +38450,6 @@ func (ec *executionContext) _Subscription_owner_info_by_pk(ctx context.Context, 
 			graphql.MarshalString(field.Alias).MarshalGQL(w)
 			w.Write([]byte{':'})
 			ec.marshalOowner_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐOwnerInfo(ctx, field.Selections, res).MarshalGQL(w)
-			w.Write([]byte{'}'})
-		})
-	}
-}
-
-func (ec *executionContext) _Subscription_vehicle_info(ctx context.Context, field graphql.CollectedField) (ret func() graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = nil
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Subscription",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Subscription_vehicle_info_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return nil
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Subscription().VehicleInfo(rctx, args["distinct_on"].([]model.VehicleInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VehicleInfoOrderBy), args["where"].(*model.VehicleInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return nil
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return nil
-	}
-	return func() graphql.Marshaler {
-		res, ok := <-resTmp.(<-chan []*model.VehicleInfo)
-		if !ok {
-			return nil
-		}
-		return graphql.WriterFunc(func(w io.Writer) {
-			w.Write([]byte{'{'})
-			graphql.MarshalString(field.Alias).MarshalGQL(w)
-			w.Write([]byte{':'})
-			ec.marshalNvehicle_info2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoᚄ(ctx, field.Selections, res).MarshalGQL(w)
-			w.Write([]byte{'}'})
-		})
-	}
-}
-
-func (ec *executionContext) _Subscription_vehicle_info_aggregate(ctx context.Context, field graphql.CollectedField) (ret func() graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = nil
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Subscription",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Subscription_vehicle_info_aggregate_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return nil
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Subscription().VehicleInfoAggregate(rctx, args["distinct_on"].([]model.VehicleInfoSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.VehicleInfoOrderBy), args["where"].(*model.VehicleInfoBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return nil
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return nil
-	}
-	return func() graphql.Marshaler {
-		res, ok := <-resTmp.(<-chan *model.VehicleInfoAggregate)
-		if !ok {
-			return nil
-		}
-		return graphql.WriterFunc(func(w io.Writer) {
-			w.Write([]byte{'{'})
-			graphql.MarshalString(field.Alias).MarshalGQL(w)
-			w.Write([]byte{':'})
-			ec.marshalNvehicle_info_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfoAggregate(ctx, field.Selections, res).MarshalGQL(w)
-			w.Write([]byte{'}'})
-		})
-	}
-}
-
-func (ec *executionContext) _Subscription_vehicle_info_by_pk(ctx context.Context, field graphql.CollectedField) (ret func() graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = nil
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Subscription",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Subscription_vehicle_info_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return nil
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Subscription().VehicleInfoByPk(rctx, args["id"].(int64), args["vehicle_id"].(string))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return nil
-	}
-	if resTmp == nil {
-		return nil
-	}
-	return func() graphql.Marshaler {
-		res, ok := <-resTmp.(<-chan *model.VehicleInfo)
-		if !ok {
-			return nil
-		}
-		return graphql.WriterFunc(func(w io.Writer) {
-			w.Write([]byte{'{'})
-			graphql.MarshalString(field.Alias).MarshalGQL(w)
-			w.Write([]byte{':'})
-			ec.marshalOvehicle_info2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐVehicleInfo(ctx, field.Selections, res).MarshalGQL(w)
 			w.Write([]byte{'}'})
 		})
 	}
@@ -110686,122 +110798,122 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Mutation")
-		case "delete_JJ_VEHICLE":
-			out.Values[i] = ec._Mutation_delete_JJ_VEHICLE(ctx, field)
-		case "delete_JJ_VEHICLE_by_pk":
-			out.Values[i] = ec._Mutation_delete_JJ_VEHICLE_by_pk(ctx, field)
-		case "delete_muck_truck_category_info":
-			out.Values[i] = ec._Mutation_delete_muck_truck_category_info(ctx, field)
-		case "delete_muck_truck_category_info_by_pk":
-			out.Values[i] = ec._Mutation_delete_muck_truck_category_info_by_pk(ctx, field)
-		case "delete_muck_truck_info":
-			out.Values[i] = ec._Mutation_delete_muck_truck_info(ctx, field)
-		case "delete_muck_truck_info_by_pk":
-			out.Values[i] = ec._Mutation_delete_muck_truck_info_by_pk(ctx, field)
-		case "delete_muck_truck_preview_number":
-			out.Values[i] = ec._Mutation_delete_muck_truck_preview_number(ctx, field)
-		case "delete_muck_truck_preview_number_by_pk":
-			out.Values[i] = ec._Mutation_delete_muck_truck_preview_number_by_pk(ctx, field)
-		case "delete_muck_truck_worker_id_card_orders":
-			out.Values[i] = ec._Mutation_delete_muck_truck_worker_id_card_orders(ctx, field)
-		case "delete_muck_truck_worker_id_card_orders_by_pk":
-			out.Values[i] = ec._Mutation_delete_muck_truck_worker_id_card_orders_by_pk(ctx, field)
-		case "delete_operating_vehicle_info":
-			out.Values[i] = ec._Mutation_delete_operating_vehicle_info(ctx, field)
-		case "delete_operating_vehicle_info_by_pk":
-			out.Values[i] = ec._Mutation_delete_operating_vehicle_info_by_pk(ctx, field)
-		case "delete_owner_info":
-			out.Values[i] = ec._Mutation_delete_owner_info(ctx, field)
-		case "delete_owner_info_by_pk":
-			out.Values[i] = ec._Mutation_delete_owner_info_by_pk(ctx, field)
 		case "delete_vehicle_info":
 			out.Values[i] = ec._Mutation_delete_vehicle_info(ctx, field)
 		case "delete_vehicle_info_by_pk":
 			out.Values[i] = ec._Mutation_delete_vehicle_info_by_pk(ctx, field)
-		case "delete_vehicle_info_change_log":
-			out.Values[i] = ec._Mutation_delete_vehicle_info_change_log(ctx, field)
-		case "delete_vehicle_info_change_log_by_pk":
-			out.Values[i] = ec._Mutation_delete_vehicle_info_change_log_by_pk(ctx, field)
-		case "delete_vehicle_supervision_photo":
-			out.Values[i] = ec._Mutation_delete_vehicle_supervision_photo(ctx, field)
-		case "delete_vehicle_supervision_photo_by_pk":
-			out.Values[i] = ec._Mutation_delete_vehicle_supervision_photo_by_pk(ctx, field)
-		case "insert_JJ_VEHICLE":
-			out.Values[i] = ec._Mutation_insert_JJ_VEHICLE(ctx, field)
-		case "insert_JJ_VEHICLE_one":
-			out.Values[i] = ec._Mutation_insert_JJ_VEHICLE_one(ctx, field)
-		case "insert_muck_truck_category_info":
-			out.Values[i] = ec._Mutation_insert_muck_truck_category_info(ctx, field)
-		case "insert_muck_truck_category_info_one":
-			out.Values[i] = ec._Mutation_insert_muck_truck_category_info_one(ctx, field)
-		case "insert_muck_truck_info":
-			out.Values[i] = ec._Mutation_insert_muck_truck_info(ctx, field)
-		case "insert_muck_truck_info_one":
-			out.Values[i] = ec._Mutation_insert_muck_truck_info_one(ctx, field)
-		case "insert_muck_truck_preview_number":
-			out.Values[i] = ec._Mutation_insert_muck_truck_preview_number(ctx, field)
-		case "insert_muck_truck_preview_number_one":
-			out.Values[i] = ec._Mutation_insert_muck_truck_preview_number_one(ctx, field)
-		case "insert_muck_truck_worker_id_card_orders":
-			out.Values[i] = ec._Mutation_insert_muck_truck_worker_id_card_orders(ctx, field)
-		case "insert_muck_truck_worker_id_card_orders_one":
-			out.Values[i] = ec._Mutation_insert_muck_truck_worker_id_card_orders_one(ctx, field)
-		case "insert_operating_vehicle_info":
-			out.Values[i] = ec._Mutation_insert_operating_vehicle_info(ctx, field)
-		case "insert_operating_vehicle_info_one":
-			out.Values[i] = ec._Mutation_insert_operating_vehicle_info_one(ctx, field)
-		case "insert_owner_info":
-			out.Values[i] = ec._Mutation_insert_owner_info(ctx, field)
-		case "insert_owner_info_one":
-			out.Values[i] = ec._Mutation_insert_owner_info_one(ctx, field)
 		case "insert_vehicle_info":
 			out.Values[i] = ec._Mutation_insert_vehicle_info(ctx, field)
-		case "insert_vehicle_info_change_log":
-			out.Values[i] = ec._Mutation_insert_vehicle_info_change_log(ctx, field)
-		case "insert_vehicle_info_change_log_one":
-			out.Values[i] = ec._Mutation_insert_vehicle_info_change_log_one(ctx, field)
 		case "insert_vehicle_info_one":
 			out.Values[i] = ec._Mutation_insert_vehicle_info_one(ctx, field)
-		case "insert_vehicle_supervision_photo":
-			out.Values[i] = ec._Mutation_insert_vehicle_supervision_photo(ctx, field)
-		case "insert_vehicle_supervision_photo_one":
-			out.Values[i] = ec._Mutation_insert_vehicle_supervision_photo_one(ctx, field)
-		case "update_JJ_VEHICLE":
-			out.Values[i] = ec._Mutation_update_JJ_VEHICLE(ctx, field)
-		case "update_JJ_VEHICLE_by_pk":
-			out.Values[i] = ec._Mutation_update_JJ_VEHICLE_by_pk(ctx, field)
-		case "update_muck_truck_category_info":
-			out.Values[i] = ec._Mutation_update_muck_truck_category_info(ctx, field)
-		case "update_muck_truck_category_info_by_pk":
-			out.Values[i] = ec._Mutation_update_muck_truck_category_info_by_pk(ctx, field)
-		case "update_muck_truck_info":
-			out.Values[i] = ec._Mutation_update_muck_truck_info(ctx, field)
-		case "update_muck_truck_info_by_pk":
-			out.Values[i] = ec._Mutation_update_muck_truck_info_by_pk(ctx, field)
-		case "update_muck_truck_preview_number":
-			out.Values[i] = ec._Mutation_update_muck_truck_preview_number(ctx, field)
-		case "update_muck_truck_preview_number_by_pk":
-			out.Values[i] = ec._Mutation_update_muck_truck_preview_number_by_pk(ctx, field)
-		case "update_muck_truck_worker_id_card_orders":
-			out.Values[i] = ec._Mutation_update_muck_truck_worker_id_card_orders(ctx, field)
-		case "update_muck_truck_worker_id_card_orders_by_pk":
-			out.Values[i] = ec._Mutation_update_muck_truck_worker_id_card_orders_by_pk(ctx, field)
-		case "update_operating_vehicle_info":
-			out.Values[i] = ec._Mutation_update_operating_vehicle_info(ctx, field)
-		case "update_operating_vehicle_info_by_pk":
-			out.Values[i] = ec._Mutation_update_operating_vehicle_info_by_pk(ctx, field)
-		case "update_owner_info":
-			out.Values[i] = ec._Mutation_update_owner_info(ctx, field)
-		case "update_owner_info_by_pk":
-			out.Values[i] = ec._Mutation_update_owner_info_by_pk(ctx, field)
 		case "update_vehicle_info":
 			out.Values[i] = ec._Mutation_update_vehicle_info(ctx, field)
 		case "update_vehicle_info_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_info_by_pk(ctx, field)
+		case "delete_JJ_VEHICLE":
+			out.Values[i] = ec._Mutation_delete_JJ_VEHICLE(ctx, field)
+		case "delete_JJ_VEHICLE_by_pk":
+			out.Values[i] = ec._Mutation_delete_JJ_VEHICLE_by_pk(ctx, field)
+		case "insert_JJ_VEHICLE":
+			out.Values[i] = ec._Mutation_insert_JJ_VEHICLE(ctx, field)
+		case "insert_JJ_VEHICLE_one":
+			out.Values[i] = ec._Mutation_insert_JJ_VEHICLE_one(ctx, field)
+		case "update_JJ_VEHICLE":
+			out.Values[i] = ec._Mutation_update_JJ_VEHICLE(ctx, field)
+		case "update_JJ_VEHICLE_by_pk":
+			out.Values[i] = ec._Mutation_update_JJ_VEHICLE_by_pk(ctx, field)
+		case "delete_muck_truck_category_info":
+			out.Values[i] = ec._Mutation_delete_muck_truck_category_info(ctx, field)
+		case "delete_muck_truck_category_info_by_pk":
+			out.Values[i] = ec._Mutation_delete_muck_truck_category_info_by_pk(ctx, field)
+		case "insert_muck_truck_category_info":
+			out.Values[i] = ec._Mutation_insert_muck_truck_category_info(ctx, field)
+		case "insert_muck_truck_category_info_one":
+			out.Values[i] = ec._Mutation_insert_muck_truck_category_info_one(ctx, field)
+		case "update_muck_truck_category_info":
+			out.Values[i] = ec._Mutation_update_muck_truck_category_info(ctx, field)
+		case "update_muck_truck_category_info_by_pk":
+			out.Values[i] = ec._Mutation_update_muck_truck_category_info_by_pk(ctx, field)
+		case "delete_muck_truck_info":
+			out.Values[i] = ec._Mutation_delete_muck_truck_info(ctx, field)
+		case "delete_muck_truck_info_by_pk":
+			out.Values[i] = ec._Mutation_delete_muck_truck_info_by_pk(ctx, field)
+		case "insert_muck_truck_info":
+			out.Values[i] = ec._Mutation_insert_muck_truck_info(ctx, field)
+		case "insert_muck_truck_info_one":
+			out.Values[i] = ec._Mutation_insert_muck_truck_info_one(ctx, field)
+		case "update_muck_truck_info":
+			out.Values[i] = ec._Mutation_update_muck_truck_info(ctx, field)
+		case "update_muck_truck_info_by_pk":
+			out.Values[i] = ec._Mutation_update_muck_truck_info_by_pk(ctx, field)
+		case "delete_muck_truck_preview_number":
+			out.Values[i] = ec._Mutation_delete_muck_truck_preview_number(ctx, field)
+		case "delete_muck_truck_preview_number_by_pk":
+			out.Values[i] = ec._Mutation_delete_muck_truck_preview_number_by_pk(ctx, field)
+		case "insert_muck_truck_preview_number":
+			out.Values[i] = ec._Mutation_insert_muck_truck_preview_number(ctx, field)
+		case "insert_muck_truck_preview_number_one":
+			out.Values[i] = ec._Mutation_insert_muck_truck_preview_number_one(ctx, field)
+		case "update_muck_truck_preview_number":
+			out.Values[i] = ec._Mutation_update_muck_truck_preview_number(ctx, field)
+		case "update_muck_truck_preview_number_by_pk":
+			out.Values[i] = ec._Mutation_update_muck_truck_preview_number_by_pk(ctx, field)
+		case "delete_muck_truck_worker_id_card_orders":
+			out.Values[i] = ec._Mutation_delete_muck_truck_worker_id_card_orders(ctx, field)
+		case "delete_muck_truck_worker_id_card_orders_by_pk":
+			out.Values[i] = ec._Mutation_delete_muck_truck_worker_id_card_orders_by_pk(ctx, field)
+		case "insert_muck_truck_worker_id_card_orders":
+			out.Values[i] = ec._Mutation_insert_muck_truck_worker_id_card_orders(ctx, field)
+		case "insert_muck_truck_worker_id_card_orders_one":
+			out.Values[i] = ec._Mutation_insert_muck_truck_worker_id_card_orders_one(ctx, field)
+		case "update_muck_truck_worker_id_card_orders":
+			out.Values[i] = ec._Mutation_update_muck_truck_worker_id_card_orders(ctx, field)
+		case "update_muck_truck_worker_id_card_orders_by_pk":
+			out.Values[i] = ec._Mutation_update_muck_truck_worker_id_card_orders_by_pk(ctx, field)
+		case "delete_operating_vehicle_info":
+			out.Values[i] = ec._Mutation_delete_operating_vehicle_info(ctx, field)
+		case "delete_operating_vehicle_info_by_pk":
+			out.Values[i] = ec._Mutation_delete_operating_vehicle_info_by_pk(ctx, field)
+		case "insert_operating_vehicle_info":
+			out.Values[i] = ec._Mutation_insert_operating_vehicle_info(ctx, field)
+		case "insert_operating_vehicle_info_one":
+			out.Values[i] = ec._Mutation_insert_operating_vehicle_info_one(ctx, field)
+		case "update_operating_vehicle_info":
+			out.Values[i] = ec._Mutation_update_operating_vehicle_info(ctx, field)
+		case "update_operating_vehicle_info_by_pk":
+			out.Values[i] = ec._Mutation_update_operating_vehicle_info_by_pk(ctx, field)
+		case "delete_owner_info":
+			out.Values[i] = ec._Mutation_delete_owner_info(ctx, field)
+		case "delete_owner_info_by_pk":
+			out.Values[i] = ec._Mutation_delete_owner_info_by_pk(ctx, field)
+		case "insert_owner_info":
+			out.Values[i] = ec._Mutation_insert_owner_info(ctx, field)
+		case "insert_owner_info_one":
+			out.Values[i] = ec._Mutation_insert_owner_info_one(ctx, field)
+		case "update_owner_info":
+			out.Values[i] = ec._Mutation_update_owner_info(ctx, field)
+		case "update_owner_info_by_pk":
+			out.Values[i] = ec._Mutation_update_owner_info_by_pk(ctx, field)
+		case "delete_vehicle_info_change_log":
+			out.Values[i] = ec._Mutation_delete_vehicle_info_change_log(ctx, field)
+		case "delete_vehicle_info_change_log_by_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_info_change_log_by_pk(ctx, field)
+		case "insert_vehicle_info_change_log":
+			out.Values[i] = ec._Mutation_insert_vehicle_info_change_log(ctx, field)
+		case "insert_vehicle_info_change_log_one":
+			out.Values[i] = ec._Mutation_insert_vehicle_info_change_log_one(ctx, field)
 		case "update_vehicle_info_change_log":
 			out.Values[i] = ec._Mutation_update_vehicle_info_change_log(ctx, field)
 		case "update_vehicle_info_change_log_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_info_change_log_by_pk(ctx, field)
+		case "delete_vehicle_supervision_photo":
+			out.Values[i] = ec._Mutation_delete_vehicle_supervision_photo(ctx, field)
+		case "delete_vehicle_supervision_photo_by_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_supervision_photo_by_pk(ctx, field)
+		case "insert_vehicle_supervision_photo":
+			out.Values[i] = ec._Mutation_insert_vehicle_supervision_photo(ctx, field)
+		case "insert_vehicle_supervision_photo_one":
+			out.Values[i] = ec._Mutation_insert_vehicle_supervision_photo_one(ctx, field)
 		case "update_vehicle_supervision_photo":
 			out.Values[i] = ec._Mutation_update_vehicle_supervision_photo(ctx, field)
 		case "update_vehicle_supervision_photo_by_pk":
@@ -110832,6 +110944,45 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Query")
+		case "vehicle_info":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_info(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vehicle_info_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_info_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vehicle_info_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_info_by_pk(ctx, field)
+				return res
+			})
 		case "JJ_VEHICLE":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -111105,45 +111256,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				res = ec._Query_owner_info_by_pk(ctx, field)
 				return res
 			})
-		case "vehicle_info":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_vehicle_info(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "vehicle_info_aggregate":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_vehicle_info_aggregate(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "vehicle_info_by_pk":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_vehicle_info_by_pk(ctx, field)
-				return res
-			})
 		case "vehicle_info_change_log":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -111250,6 +111362,12 @@ func (ec *executionContext) _Subscription(ctx context.Context, sel ast.Selection
 	}
 
 	switch fields[0].Name {
+	case "vehicle_info":
+		return ec._Subscription_vehicle_info(ctx, fields[0])
+	case "vehicle_info_aggregate":
+		return ec._Subscription_vehicle_info_aggregate(ctx, fields[0])
+	case "vehicle_info_by_pk":
+		return ec._Subscription_vehicle_info_by_pk(ctx, fields[0])
 	case "JJ_VEHICLE":
 		return ec._Subscription_JJ_VEHICLE(ctx, fields[0])
 	case "JJ_VEHICLE_aggregate":
@@ -111292,12 +111410,6 @@ func (ec *executionContext) _Subscription(ctx context.Context, sel ast.Selection
 		return ec._Subscription_owner_info_aggregate(ctx, fields[0])
 	case "owner_info_by_pk":
 		return ec._Subscription_owner_info_by_pk(ctx, fields[0])
-	case "vehicle_info":
-		return ec._Subscription_vehicle_info(ctx, fields[0])
-	case "vehicle_info_aggregate":
-		return ec._Subscription_vehicle_info_aggregate(ctx, fields[0])
-	case "vehicle_info_by_pk":
-		return ec._Subscription_vehicle_info_by_pk(ctx, fields[0])
 	case "vehicle_info_change_log":
 		return ec._Subscription_vehicle_info_change_log(ctx, fields[0])
 	case "vehicle_info_change_log_aggregate":
