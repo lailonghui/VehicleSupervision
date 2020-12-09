@@ -1,0 +1,673 @@
+
+scalar bigint
+
+"""
+expression to compare columns of type bigint. All fields are combined with logical 'AND'.
+"""
+input bigint_comparison_exp {
+  _eq: bigint
+  _gt: bigint
+  _gte: bigint
+  _in: [bigint!]
+  _is_null: Boolean
+  _lt: bigint
+  _lte: bigint
+  _neq: bigint
+  _nin: [bigint!]
+}
+
+"""
+expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
+"""
+input Boolean_comparison_exp {
+  _eq: Boolean
+  _gt: Boolean
+  _gte: Boolean
+  _in: [Boolean!]
+  _is_null: Boolean
+  _lt: Boolean
+  _lte: Boolean
+  _neq: Boolean
+  _nin: [Boolean!]
+}
+
+"""
+数据字典类型
+
+
+columns and relationships of "data_dictionary_category"
+
+"""
+type data_dictionary_category {
+  """类型编号"""
+  category_code: String!
+
+  """类型名称"""
+  category_name: String!
+
+  """创建时间"""
+  create_at: timestamptz!
+
+  """创建人"""
+  create_by: String
+
+  """删除时间"""
+  delete_at: timestamptz
+
+  """删除人"""
+  delete_by: String
+
+  """字典类型ID"""
+  dictionary_category_id: String!
+
+  """ID"""
+  id: bigint!
+
+  """是否删除"""
+  is_delete: Boolean!
+
+  """备注"""
+  remarks: String
+
+  """修改时间"""
+  update_at: timestamptz
+
+  """修改人"""
+  update_by: String
+}
+
+"""
+aggregated selection of "data_dictionary_category"
+"""
+type data_dictionary_category_aggregate {
+  aggregate: data_dictionary_category_aggregate_fields
+  nodes: [data_dictionary_category!]!
+}
+
+"""
+aggregate fields of "data_dictionary_category"
+"""
+type data_dictionary_category_aggregate_fields {
+  avg: data_dictionary_category_avg_fields
+  count(columns: [data_dictionary_category_select_column!], distinct: Boolean): Int
+  max: data_dictionary_category_max_fields
+  min: data_dictionary_category_min_fields
+  stddev: data_dictionary_category_stddev_fields
+  stddev_pop: data_dictionary_category_stddev_pop_fields
+  stddev_samp: data_dictionary_category_stddev_samp_fields
+  sum: data_dictionary_category_sum_fields
+  var_pop: data_dictionary_category_var_pop_fields
+  var_samp: data_dictionary_category_var_samp_fields
+  variance: data_dictionary_category_variance_fields
+}
+
+"""
+order by aggregate values of table "data_dictionary_category"
+"""
+input data_dictionary_category_aggregate_order_by {
+  avg: data_dictionary_category_avg_order_by
+  count: order_by
+  max: data_dictionary_category_max_order_by
+  min: data_dictionary_category_min_order_by
+  stddev: data_dictionary_category_stddev_order_by
+  stddev_pop: data_dictionary_category_stddev_pop_order_by
+  stddev_samp: data_dictionary_category_stddev_samp_order_by
+  sum: data_dictionary_category_sum_order_by
+  var_pop: data_dictionary_category_var_pop_order_by
+  var_samp: data_dictionary_category_var_samp_order_by
+  variance: data_dictionary_category_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "data_dictionary_category"
+"""
+input data_dictionary_category_arr_rel_insert_input {
+  data: [data_dictionary_category_insert_input!]!
+  on_conflict: data_dictionary_category_on_conflict
+}
+
+"""aggregate avg on columns"""
+type data_dictionary_category_avg_fields {
+  id: Float
+}
+
+"""
+order by avg() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_avg_order_by {
+  id: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "data_dictionary_category". All fields are combined with a logical 'AND'.
+"""
+input data_dictionary_category_bool_exp {
+  _and: [data_dictionary_category_bool_exp]
+  _not: data_dictionary_category_bool_exp
+  _or: [data_dictionary_category_bool_exp]
+  category_code: String_comparison_exp
+  category_name: String_comparison_exp
+  create_at: timestamptz_comparison_exp
+  create_by: String_comparison_exp
+  delete_at: timestamptz_comparison_exp
+  delete_by: String_comparison_exp
+  dictionary_category_id: String_comparison_exp
+  id: bigint_comparison_exp
+  is_delete: Boolean_comparison_exp
+  remarks: String_comparison_exp
+  update_at: timestamptz_comparison_exp
+  update_by: String_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "data_dictionary_category"
+"""
+enum data_dictionary_category_constraint {
+  """unique or primary key constraint"""
+  data_dirtionary_category_pkey
+}
+
+"""
+input type for incrementing integer column in table "data_dictionary_category"
+"""
+input data_dictionary_category_inc_input {
+  id: bigint
+}
+
+"""
+input type for inserting data into table "data_dictionary_category"
+"""
+input data_dictionary_category_insert_input {
+  category_code: String
+  category_name: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  dictionary_category_id: String
+  id: bigint
+  is_delete: Boolean
+  remarks: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate max on columns"""
+type data_dictionary_category_max_fields {
+  category_code: String
+  category_name: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  dictionary_category_id: String
+  id: bigint
+  remarks: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by max() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_max_order_by {
+  category_code: order_by
+  category_name: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  dictionary_category_id: order_by
+  id: order_by
+  remarks: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""aggregate min on columns"""
+type data_dictionary_category_min_fields {
+  category_code: String
+  category_name: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  dictionary_category_id: String
+  id: bigint
+  remarks: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by min() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_min_order_by {
+  category_code: order_by
+  category_name: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  dictionary_category_id: order_by
+  id: order_by
+  remarks: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+response of any mutation on the table "data_dictionary_category"
+"""
+type data_dictionary_category_mutation_response {
+  """number of affected rows by the mutation"""
+  affected_rows: Int!
+
+  """data of the affected rows by the mutation"""
+  returning: [data_dictionary_category!]!
+}
+
+"""
+input type for inserting object relation for remote table "data_dictionary_category"
+"""
+input data_dictionary_category_obj_rel_insert_input {
+  data: data_dictionary_category_insert_input!
+  on_conflict: data_dictionary_category_on_conflict
+}
+
+"""
+on conflict condition type for table "data_dictionary_category"
+"""
+input data_dictionary_category_on_conflict {
+  constraint: data_dictionary_category_constraint!
+  update_columns: [data_dictionary_category_update_column!]!
+  where: data_dictionary_category_bool_exp
+}
+
+"""
+ordering options when selecting data from "data_dictionary_category"
+"""
+input data_dictionary_category_order_by {
+  category_code: order_by
+  category_name: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  dictionary_category_id: order_by
+  id: order_by
+  is_delete: order_by
+  remarks: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+primary key columns input for table: "data_dictionary_category"
+"""
+input data_dictionary_category_pk_columns_input {
+  """ID"""
+  id: bigint!
+}
+
+"""
+select columns of table "data_dictionary_category"
+"""
+enum data_dictionary_category_select_column {
+  """column name"""
+  category_code
+
+  """column name"""
+  category_name
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  dictionary_category_id
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  remarks
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""
+input type for updating data in table "data_dictionary_category"
+"""
+input data_dictionary_category_set_input {
+  category_code: String
+  category_name: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  dictionary_category_id: String
+  id: bigint
+  is_delete: Boolean
+  remarks: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate stddev on columns"""
+type data_dictionary_category_stddev_fields {
+  id: Float
+}
+
+"""
+order by stddev() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_stddev_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type data_dictionary_category_stddev_pop_fields {
+  id: Float
+}
+
+"""
+order by stddev_pop() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_stddev_pop_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type data_dictionary_category_stddev_samp_fields {
+  id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_stddev_samp_order_by {
+  id: order_by
+}
+
+"""aggregate sum on columns"""
+type data_dictionary_category_sum_fields {
+  id: bigint
+}
+
+"""
+order by sum() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_sum_order_by {
+  id: order_by
+}
+
+"""
+update columns of table "data_dictionary_category"
+"""
+enum data_dictionary_category_update_column {
+  """column name"""
+  category_code
+
+  """column name"""
+  category_name
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  dictionary_category_id
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  remarks
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""aggregate var_pop on columns"""
+type data_dictionary_category_var_pop_fields {
+  id: Float
+}
+
+"""
+order by var_pop() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_var_pop_order_by {
+  id: order_by
+}
+
+"""aggregate var_samp on columns"""
+type data_dictionary_category_var_samp_fields {
+  id: Float
+}
+
+"""
+order by var_samp() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_var_samp_order_by {
+  id: order_by
+}
+
+"""aggregate variance on columns"""
+type data_dictionary_category_variance_fields {
+  id: Float
+}
+
+"""
+order by variance() on columns of table "data_dictionary_category"
+"""
+input data_dictionary_category_variance_order_by {
+  id: order_by
+}
+
+"""mutation root"""
+type mutation_root {
+  """
+  delete data from the table: "data_dictionary_category"
+  """
+  delete_data_dictionary_category(
+    """filter the rows which have to be deleted"""
+    where: data_dictionary_category_bool_exp!
+  ): data_dictionary_category_mutation_response
+
+  """
+  delete single row from the table: "data_dictionary_category"
+  """
+  delete_data_dictionary_category_by_pk(
+    """ID"""
+    id: bigint!
+  ): data_dictionary_category
+
+  """
+  insert data into the table: "data_dictionary_category"
+  """
+  insert_data_dictionary_category(
+    """the rows to be inserted"""
+    objects: [data_dictionary_category_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: data_dictionary_category_on_conflict
+  ): data_dictionary_category_mutation_response
+
+  """
+  insert a single row into the table: "data_dictionary_category"
+  """
+  insert_data_dictionary_category_one(
+    """the row to be inserted"""
+    object: data_dictionary_category_insert_input!
+
+    """on conflict condition"""
+    on_conflict: data_dictionary_category_on_conflict
+  ): data_dictionary_category
+
+  """
+  update data of the table: "data_dictionary_category"
+  """
+  update_data_dictionary_category(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: data_dictionary_category_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: data_dictionary_category_set_input
+
+    """filter the rows which have to be updated"""
+    where: data_dictionary_category_bool_exp!
+  ): data_dictionary_category_mutation_response
+
+  """
+  update single row of the table: "data_dictionary_category"
+  """
+  update_data_dictionary_category_by_pk(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: data_dictionary_category_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: data_dictionary_category_set_input
+    pk_columns: data_dictionary_category_pk_columns_input!
+  ): data_dictionary_category
+}
+
+"""column ordering options"""
+enum order_by {
+  """in the ascending order, nulls last"""
+  asc
+
+  """in the ascending order, nulls first"""
+  asc_nulls_first
+
+  """in the ascending order, nulls last"""
+  asc_nulls_last
+
+  """in the descending order, nulls first"""
+  desc
+
+  """in the descending order, nulls first"""
+  desc_nulls_first
+
+  """in the descending order, nulls last"""
+  desc_nulls_last
+}
+
+"""query root"""
+type Query {
+  """
+  fetch data from the table: "data_dictionary_category"
+  """
+  data_dictionary_category(
+    """distinct select on columns"""
+    distinct_on: [data_dictionary_category_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [data_dictionary_category_order_by!]
+
+    """filter the rows returned"""
+    where: data_dictionary_category_bool_exp
+  ): [data_dictionary_category!]!
+
+  """
+  fetch aggregated fields from the table: "data_dictionary_category"
+  """
+  data_dictionary_category_aggregate(
+    """distinct select on columns"""
+    distinct_on: [data_dictionary_category_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [data_dictionary_category_order_by!]
+
+    """filter the rows returned"""
+    where: data_dictionary_category_bool_exp
+  ): data_dictionary_category_aggregate!
+
+  """
+  fetch data from the table: "data_dictionary_category" using primary key columns
+  """
+  data_dictionary_category_by_pk(
+    """ID"""
+    id: bigint!
+  ): data_dictionary_category
+}
+
+"""
+expression to compare columns of type String. All fields are combined with logical 'AND'.
+"""
+input String_comparison_exp {
+  _eq: String
+  _gt: String
+  _gte: String
+  _ilike: String
+  _in: [String!]
+  _is_null: Boolean
+  _like: String
+  _lt: String
+  _lte: String
+  _neq: String
+  _nilike: String
+  _nin: [String!]
+  _nlike: String
+  _nsimilar: String
+  _similar: String
+}
+
+scalar timestamptz
+
+"""
+expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
+"""
+input timestamptz_comparison_exp {
+  _eq: timestamptz
+  _gt: timestamptz
+  _gte: timestamptz
+  _in: [timestamptz!]
+  _is_null: Boolean
+  _lt: timestamptz
+  _lte: timestamptz
+  _neq: timestamptz
+  _nin: [timestamptz!]
+}
+
