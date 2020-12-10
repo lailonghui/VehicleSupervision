@@ -3,7 +3,7 @@
 package model
 
 import (
-	"VehicleSupervision/internal/modules/driving/log/model"
+	"VehicleSupervision/internal/modules/driving/model"
 	model1 "VehicleSupervision/pkg/graphql/model"
 	"fmt"
 	"io"
@@ -80,9 +80,9 @@ type DrivingLogBoolExp struct {
 	DeleteAt               *model1.TimestamptzComparisonExp `json:"delete_at"`
 	DeleteBy               *model1.StringComparisonExp      `json:"delete_by"`
 	DriverID               *model1.StringComparisonExp      `json:"driver_id"`
-	DrivingEndTime         *model1.DateComparisonExp        `json:"driving_end_time"`
+	DrivingEndTime         *model1.TimestamptzComparisonExp `json:"driving_end_time"`
 	DrivingLogID           *model1.StringComparisonExp      `json:"driving_log_id"`
-	DrivingStartTime       *model1.DateComparisonExp        `json:"driving_start_time"`
+	DrivingStartTime       *model1.TimestamptzComparisonExp `json:"driving_start_time"`
 	EndTime                *model1.TimestamptzComparisonExp `json:"end_time"`
 	ID                     *model1.BigintComparisonExp      `json:"id"`
 	IsDelete               *model1.BooleanComparisonExp     `json:"is_delete"`
@@ -114,9 +114,9 @@ type DrivingLogInsertInput struct {
 	DeleteAt               *time.Time `json:"delete_at"`
 	DeleteBy               *string    `json:"delete_by"`
 	DriverID               *string    `json:"driver_id"`
-	DrivingEndTime         *string    `json:"driving_end_time"`
+	DrivingEndTime         *time.Time `json:"driving_end_time"`
 	DrivingLogID           *string    `json:"driving_log_id"`
-	DrivingStartTime       *string    `json:"driving_start_time"`
+	DrivingStartTime       *time.Time `json:"driving_start_time"`
 	EndTime                *time.Time `json:"end_time"`
 	ID                     *int64     `json:"id"`
 	IsDelete               *bool      `json:"is_delete"`
@@ -141,9 +141,9 @@ type DrivingLogMaxFields struct {
 	DeleteAt               *time.Time `json:"delete_at"`
 	DeleteBy               *string    `json:"delete_by"`
 	DriverID               *string    `json:"driver_id"`
-	DrivingEndTime         *string    `json:"driving_end_time"`
+	DrivingEndTime         *time.Time `json:"driving_end_time"`
 	DrivingLogID           *string    `json:"driving_log_id"`
-	DrivingStartTime       *string    `json:"driving_start_time"`
+	DrivingStartTime       *time.Time `json:"driving_start_time"`
 	EndTime                *time.Time `json:"end_time"`
 	ID                     *int64     `json:"id"`
 	RegisterAt             *time.Time `json:"register_at"`
@@ -191,9 +191,9 @@ type DrivingLogMinFields struct {
 	DeleteAt               *time.Time `json:"delete_at"`
 	DeleteBy               *string    `json:"delete_by"`
 	DriverID               *string    `json:"driver_id"`
-	DrivingEndTime         *string    `json:"driving_end_time"`
+	DrivingEndTime         *time.Time `json:"driving_end_time"`
 	DrivingLogID           *string    `json:"driving_log_id"`
-	DrivingStartTime       *string    `json:"driving_start_time"`
+	DrivingStartTime       *time.Time `json:"driving_start_time"`
 	EndTime                *time.Time `json:"end_time"`
 	ID                     *int64     `json:"id"`
 	RegisterAt             *time.Time `json:"register_at"`
@@ -295,9 +295,9 @@ type DrivingLogSetInput struct {
 	DeleteAt               *time.Time `json:"delete_at"`
 	DeleteBy               *string    `json:"delete_by"`
 	DriverID               *string    `json:"driver_id"`
-	DrivingEndTime         *string    `json:"driving_end_time"`
+	DrivingEndTime         *time.Time `json:"driving_end_time"`
 	DrivingLogID           *string    `json:"driving_log_id"`
-	DrivingStartTime       *string    `json:"driving_start_time"`
+	DrivingStartTime       *time.Time `json:"driving_start_time"`
 	EndTime                *time.Time `json:"end_time"`
 	ID                     *int64     `json:"id"`
 	IsDelete               *bool      `json:"is_delete"`
@@ -410,14 +410,30 @@ type DrivingLogVarianceOrderBy struct {
 	ID                     *model1.OrderBy `json:"id"`
 }
 
-// subscription root
-type SubscriptionRoot struct {
-	// fetch data from the table: "driving_log"
-	DrivingLog []*model.DrivingLog `json:"driving_log"`
-	// fetch aggregated fields from the table: "driving_log"
-	DrivingLogAggregate *DrivingLogAggregate `json:"driving_log_aggregate"`
-	// fetch data from the table: "driving_log" using primary key columns
-	DrivingLogByPk *model.DrivingLog `json:"driving_log_by_pk"`
+// expression to compare columns of type numeric. All fields are combined with logical 'AND'.
+type NumericComparisonExp struct {
+	Eq     *float64  `json:"_eq"`
+	Gt     *float64  `json:"_gt"`
+	Gte    *float64  `json:"_gte"`
+	In     []float64 `json:"_in"`
+	IsNull *bool     `json:"_is_null"`
+	Lt     *float64  `json:"_lt"`
+	Lte    *float64  `json:"_lte"`
+	Neq    *float64  `json:"_neq"`
+	Nin    []float64 `json:"_nin"`
+}
+
+// expression to compare columns of type point. All fields are combined with logical 'AND'.
+type PointComparisonExp struct {
+	Eq     *string  `json:"_eq"`
+	Gt     *string  `json:"_gt"`
+	Gte    *string  `json:"_gte"`
+	In     []string `json:"_in"`
+	IsNull *bool    `json:"_is_null"`
+	Lt     *string  `json:"_lt"`
+	Lte    *string  `json:"_lte"`
+	Neq    *string  `json:"_neq"`
+	Nin    []string `json:"_nin"`
 }
 
 // unique or primary key constraints on table "driving_log"

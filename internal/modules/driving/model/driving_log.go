@@ -24,11 +24,11 @@ type DrivingLog struct {
 	// 驾驶员ID
 	DriverID string `json:"driver_id"`
 	// 用车结束日期
-	DrivingEndTime string `json:"driving_end_time"`
+	DrivingEndTime time.Time `json:"driving_end_time"`
 	// 行车日志ID
 	DrivingLogID string `json:"driving_log_id"`
 	// 用车起始日期
-	DrivingStartTime string `json:"driving_start_time"`
+	DrivingStartTime time.Time `json:"driving_start_time"`
 	// 结束时间
 	EndTime time.Time `json:"end_time"`
 	// ID

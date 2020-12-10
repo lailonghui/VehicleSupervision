@@ -35,7 +35,7 @@ omit_slice_element_pointers: false
 # gqlgen will search for any type names in the schema in these go packages
 # if they match it will use them, otherwise it will generate them.
 autobind:
-  - "VehicleSupervision/internal/modules/driving/log/model"
+  - "VehicleSupervision/internal/modules/driving/model"
 
 # This section declares type mapping between the GraphQL and go type systems
 #
@@ -78,4 +78,4 @@ models:
   order_by:
     model: VehicleSupervision/pkg/graphql/model.OrderBy
   driving_log:
-    model: VehicleSupervision/internal/modules/driving/log/model.DrivingLog
+    model: VehicleSupervision/internal/modules/driving/model.DrivingLog
