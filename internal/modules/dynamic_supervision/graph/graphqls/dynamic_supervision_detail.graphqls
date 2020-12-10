@@ -1,0 +1,1586 @@
+schema {
+    query: query_root
+    mutation: mutation_root
+    subscription: subscription_root
+}
+
+scalar bigint
+
+# expression to compare columns of type bigint. All fields are combined with logical 'AND'.
+input bigint_comparison_exp {
+    _eq: bigint
+    _gt: bigint
+    _gte: bigint
+    _in: [bigint!]
+    _is_null: Boolean
+    _lt: bigint
+    _lte: bigint
+    _neq: bigint
+    _nin: [bigint!]
+}
+
+# expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
+input Boolean_comparison_exp {
+    _eq: Boolean
+    _gt: Boolean
+    _gte: Boolean
+    _in: [Boolean!]
+    _is_null: Boolean
+    _lt: Boolean
+    _lte: Boolean
+    _neq: Boolean
+    _nin: [Boolean!]
+}
+
+# 动态监管抽查明细表
+#
+#
+# columns and relationships of "dynamic_supervision_detail"
+#
+type dynamic_supervision_detail {
+    # 卫星定位速度
+    GPS_speed: String
+
+    # 受理人
+    assignee: String
+
+    # 经营范围字典
+    business_scope: Int
+
+    # 空间数据类型point表示经纬度
+    coordinate: point
+
+    # 创建时间
+    create_at: timestamptz!
+
+    # 创建人
+    created_by: String!
+
+    # 曲线情况（曲线完整/回传异常/零速度）
+    curve: Int
+
+    # 删除时间
+    deleted_at: timestamptz
+
+    # 删除人
+    deleted_by: String
+
+    # 处置措施
+    disposal_measures: String
+
+    # 是否在线处置措施
+    disposal_measures1: String
+
+    # 是否超速处置措施
+    disposal_measures2: String
+
+    # 曲线情况处置措施
+    disposal_measures3: String
+
+    # 客运疲劳驾驶处置措施
+    disposal_measures4: String
+
+    # 客运凌晨停运处置措施
+    disposal_measures5: String
+
+    # 行车记录仪数据处置措施
+    disposal_measures6: String
+
+    # 轨迹情况处置措施
+    disposal_measures7: String
+
+    # 处置结果
+    disposal_results: String
+
+    # 是否在线处置结果
+    disposal_results1: String
+
+    # 是否超速处置结果
+    disposal_results2: String
+
+    # 曲线情况处置结果
+    disposal_results3: String
+
+    # 客运疲劳驾驶处置结果
+    disposal_results4: String
+
+    # 客运疲劳驾驶处置结果
+    disposal_results5: String
+
+    # 行车记录仪数据处置结果
+    disposal_results6: String
+
+    # 轨迹情况处置结果
+    disposal_results7: String
+
+    # 驾驶员id
+    driver_id: String
+
+    # 车辆所在企业id
+    enterprise_id: String
+
+    # 设备情况（图像正常/无图像/摄像头 号损坏）
+    equipment: Int
+
+    # 疲劳驾驶报警时间
+    fatigue_alarm_time: timestamptz
+
+    # 反馈时间
+    feedback_time: timestamptz
+
+    # 主键
+    id: bigint!
+
+    # 是否被删除
+    is_delete: Boolean
+
+    # 客运疲劳驾驶（是/否）
+    is_fatigue_driving: Boolean
+
+    # 是否定位
+    is_locate: Boolean
+
+    # 客运凌晨2-5时停运（是/否）
+    is_morning_outage: Boolean
+
+    # 是否在线（是/否）
+    is_online: Boolean
+
+    # 是否发送
+    is_send: Boolean
+
+    # 是否超速（是/否）
+    is_speeding: Boolean
+
+    # 行车记录仪数据（是否异常）
+    is_tachograph_record_normal: Boolean
+
+    # 经纬度描述
+    latitude_longitude_description: String
+
+    # 摄像头损坏号
+    lens_on: String
+
+    # 镜头位置（正/偏）
+    lens_position: Int
+
+    # 监管费到期时间
+    monitor_end_time: timestamptz
+
+    # 监控平台显示位置
+    monitoring_location: String
+
+    # 监控平台时间
+    monitoring_time: timestamptz
+
+    # 其他违规
+    other_infraction: String
+
+    # 轨迹其他情况
+    others: String
+
+    # 凌晨2点到5点停运报警时间
+    outage_alarm_time: timestamptz
+
+    # 备注
+    remarks: String
+
+    # 超速报警时间
+    speed_alarm_time: timestamptz
+
+    # 超速速度
+    speeding_speed: String
+
+    # 联合主键
+    supervision_detail_id: String!
+
+    # 动态监管抽查主表dynamic_supervision的supervision_id
+    supervision_id: String
+
+    # 行车记录仪异常数据项
+    tachograph_data_exception: String
+
+    # 行车记录仪速度
+    tachograph_speed: String
+
+    # 出租空/重车状态（空/重）
+    taxi_state: Int
+
+    # 轨迹情况（正常/漂移/其他）
+    trail: Int
+
+    # 处置时间
+    treatment_time: timestamptz
+
+    # 修改时间
+    updated_at: timestamptz
+
+    # 修改人
+    updated_by: String
+
+    # 车辆id
+    vehicle_id: String
+}
+
+# aggregated selection of "dynamic_supervision_detail"
+type dynamic_supervision_detail_aggregate {
+    aggregate: dynamic_supervision_detail_aggregate_fields
+    nodes: [dynamic_supervision_detail!]!
+}
+
+# aggregate fields of "dynamic_supervision_detail"
+type dynamic_supervision_detail_aggregate_fields {
+    avg: dynamic_supervision_detail_avg_fields
+    count(columns: [dynamic_supervision_detail_select_column!], distinct: Boolean): Int
+    max: dynamic_supervision_detail_max_fields
+    min: dynamic_supervision_detail_min_fields
+    stddev: dynamic_supervision_detail_stddev_fields
+    stddev_pop: dynamic_supervision_detail_stddev_pop_fields
+    stddev_samp: dynamic_supervision_detail_stddev_samp_fields
+    sum: dynamic_supervision_detail_sum_fields
+    var_pop: dynamic_supervision_detail_var_pop_fields
+    var_samp: dynamic_supervision_detail_var_samp_fields
+    variance: dynamic_supervision_detail_variance_fields
+}
+
+# order by aggregate values of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_aggregate_order_by {
+    avg: dynamic_supervision_detail_avg_order_by
+    count: order_by
+    max: dynamic_supervision_detail_max_order_by
+    min: dynamic_supervision_detail_min_order_by
+    stddev: dynamic_supervision_detail_stddev_order_by
+    stddev_pop: dynamic_supervision_detail_stddev_pop_order_by
+    stddev_samp: dynamic_supervision_detail_stddev_samp_order_by
+    sum: dynamic_supervision_detail_sum_order_by
+    var_pop: dynamic_supervision_detail_var_pop_order_by
+    var_samp: dynamic_supervision_detail_var_samp_order_by
+    variance: dynamic_supervision_detail_variance_order_by
+}
+
+# input type for inserting array relation for remote table "dynamic_supervision_detail"
+input dynamic_supervision_detail_arr_rel_insert_input {
+    data: [dynamic_supervision_detail_insert_input!]!
+    on_conflict: dynamic_supervision_detail_on_conflict
+}
+
+# aggregate avg on columns
+type dynamic_supervision_detail_avg_fields {
+    business_scope: Float
+    curve: Float
+    equipment: Float
+    id: Float
+    lens_position: Float
+    taxi_state: Float
+    trail: Float
+}
+
+# order by avg() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_avg_order_by {
+    business_scope: order_by
+    curve: order_by
+    equipment: order_by
+    id: order_by
+    lens_position: order_by
+    taxi_state: order_by
+    trail: order_by
+}
+
+# Boolean expression to filter rows from the table "dynamic_supervision_detail". All fields are combined with a logical 'AND'.
+input dynamic_supervision_detail_bool_exp {
+    GPS_speed: String_comparison_exp
+    _and: [dynamic_supervision_detail_bool_exp]
+    _not: dynamic_supervision_detail_bool_exp
+    _or: [dynamic_supervision_detail_bool_exp]
+    assignee: String_comparison_exp
+    business_scope: Int_comparison_exp
+    coordinate: point_comparison_exp
+    create_at: timestamptz_comparison_exp
+    created_by: String_comparison_exp
+    curve: Int_comparison_exp
+    deleted_at: timestamptz_comparison_exp
+    deleted_by: String_comparison_exp
+    disposal_measures: String_comparison_exp
+    disposal_measures1: String_comparison_exp
+    disposal_measures2: String_comparison_exp
+    disposal_measures3: String_comparison_exp
+    disposal_measures4: String_comparison_exp
+    disposal_measures5: String_comparison_exp
+    disposal_measures6: String_comparison_exp
+    disposal_measures7: String_comparison_exp
+    disposal_results: String_comparison_exp
+    disposal_results1: String_comparison_exp
+    disposal_results2: String_comparison_exp
+    disposal_results3: String_comparison_exp
+    disposal_results4: String_comparison_exp
+    disposal_results5: String_comparison_exp
+    disposal_results6: String_comparison_exp
+    disposal_results7: String_comparison_exp
+    driver_id: String_comparison_exp
+    enterprise_id: String_comparison_exp
+    equipment: Int_comparison_exp
+    fatigue_alarm_time: timestamptz_comparison_exp
+    feedback_time: timestamptz_comparison_exp
+    id: bigint_comparison_exp
+    is_delete: Boolean_comparison_exp
+    is_fatigue_driving: Boolean_comparison_exp
+    is_locate: Boolean_comparison_exp
+    is_morning_outage: Boolean_comparison_exp
+    is_online: Boolean_comparison_exp
+    is_send: Boolean_comparison_exp
+    is_speeding: Boolean_comparison_exp
+    is_tachograph_record_normal: Boolean_comparison_exp
+    latitude_longitude_description: String_comparison_exp
+    lens_on: String_comparison_exp
+    lens_position: Int_comparison_exp
+    monitor_end_time: timestamptz_comparison_exp
+    monitoring_location: String_comparison_exp
+    monitoring_time: timestamptz_comparison_exp
+    other_infraction: String_comparison_exp
+    others: String_comparison_exp
+    outage_alarm_time: timestamptz_comparison_exp
+    remarks: String_comparison_exp
+    speed_alarm_time: timestamptz_comparison_exp
+    speeding_speed: String_comparison_exp
+    supervision_detail_id: String_comparison_exp
+    supervision_id: String_comparison_exp
+    tachograph_data_exception: String_comparison_exp
+    tachograph_speed: String_comparison_exp
+    taxi_state: Int_comparison_exp
+    trail: Int_comparison_exp
+    treatment_time: timestamptz_comparison_exp
+    updated_at: timestamptz_comparison_exp
+    updated_by: String_comparison_exp
+    vehicle_id: String_comparison_exp
+}
+
+# unique or primary key constraints on table "dynamic_supervision_detail"
+enum dynamic_supervision_detail_constraint {
+    # unique or primary key constraint
+    dynamic_supervision_detail_pkey
+}
+
+# input type for incrementing integer column in table "dynamic_supervision_detail"
+input dynamic_supervision_detail_inc_input {
+    business_scope: Int
+    curve: Int
+    equipment: Int
+    id: bigint
+    lens_position: Int
+    taxi_state: Int
+    trail: Int
+}
+
+# input type for inserting data into table "dynamic_supervision_detail"
+input dynamic_supervision_detail_insert_input {
+    GPS_speed: String
+    assignee: String
+    business_scope: Int
+    coordinate: point
+    create_at: timestamptz
+    created_by: String
+    curve: Int
+    deleted_at: timestamptz
+    deleted_by: String
+    disposal_measures: String
+    disposal_measures1: String
+    disposal_measures2: String
+    disposal_measures3: String
+    disposal_measures4: String
+    disposal_measures5: String
+    disposal_measures6: String
+    disposal_measures7: String
+    disposal_results: String
+    disposal_results1: String
+    disposal_results2: String
+    disposal_results3: String
+    disposal_results4: String
+    disposal_results5: String
+    disposal_results6: String
+    disposal_results7: String
+    driver_id: String
+    enterprise_id: String
+    equipment: Int
+    fatigue_alarm_time: timestamptz
+    feedback_time: timestamptz
+    id: bigint
+    is_delete: Boolean
+    is_fatigue_driving: Boolean
+    is_locate: Boolean
+    is_morning_outage: Boolean
+    is_online: Boolean
+    is_send: Boolean
+    is_speeding: Boolean
+    is_tachograph_record_normal: Boolean
+    latitude_longitude_description: String
+    lens_on: String
+    lens_position: Int
+    monitor_end_time: timestamptz
+    monitoring_location: String
+    monitoring_time: timestamptz
+    other_infraction: String
+    others: String
+    outage_alarm_time: timestamptz
+    remarks: String
+    speed_alarm_time: timestamptz
+    speeding_speed: String
+    supervision_detail_id: String
+    supervision_id: String
+    tachograph_data_exception: String
+    tachograph_speed: String
+    taxi_state: Int
+    trail: Int
+    treatment_time: timestamptz
+    updated_at: timestamptz
+    updated_by: String
+    vehicle_id: String
+}
+
+# aggregate max on columns
+type dynamic_supervision_detail_max_fields {
+    GPS_speed: String
+    assignee: String
+    business_scope: Int
+    create_at: timestamptz
+    created_by: String
+    curve: Int
+    deleted_at: timestamptz
+    deleted_by: String
+    disposal_measures: String
+    disposal_measures1: String
+    disposal_measures2: String
+    disposal_measures3: String
+    disposal_measures4: String
+    disposal_measures5: String
+    disposal_measures6: String
+    disposal_measures7: String
+    disposal_results: String
+    disposal_results1: String
+    disposal_results2: String
+    disposal_results3: String
+    disposal_results4: String
+    disposal_results5: String
+    disposal_results6: String
+    disposal_results7: String
+    driver_id: String
+    enterprise_id: String
+    equipment: Int
+    fatigue_alarm_time: timestamptz
+    feedback_time: timestamptz
+    id: bigint
+    latitude_longitude_description: String
+    lens_on: String
+    lens_position: Int
+    monitor_end_time: timestamptz
+    monitoring_location: String
+    monitoring_time: timestamptz
+    other_infraction: String
+    others: String
+    outage_alarm_time: timestamptz
+    remarks: String
+    speed_alarm_time: timestamptz
+    speeding_speed: String
+    supervision_detail_id: String
+    supervision_id: String
+    tachograph_data_exception: String
+    tachograph_speed: String
+    taxi_state: Int
+    trail: Int
+    treatment_time: timestamptz
+    updated_at: timestamptz
+    updated_by: String
+    vehicle_id: String
+}
+
+# order by max() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_max_order_by {
+    GPS_speed: order_by
+    assignee: order_by
+    business_scope: order_by
+    create_at: order_by
+    created_by: order_by
+    curve: order_by
+    deleted_at: order_by
+    deleted_by: order_by
+    disposal_measures: order_by
+    disposal_measures1: order_by
+    disposal_measures2: order_by
+    disposal_measures3: order_by
+    disposal_measures4: order_by
+    disposal_measures5: order_by
+    disposal_measures6: order_by
+    disposal_measures7: order_by
+    disposal_results: order_by
+    disposal_results1: order_by
+    disposal_results2: order_by
+    disposal_results3: order_by
+    disposal_results4: order_by
+    disposal_results5: order_by
+    disposal_results6: order_by
+    disposal_results7: order_by
+    driver_id: order_by
+    enterprise_id: order_by
+    equipment: order_by
+    fatigue_alarm_time: order_by
+    feedback_time: order_by
+    id: order_by
+    latitude_longitude_description: order_by
+    lens_on: order_by
+    lens_position: order_by
+    monitor_end_time: order_by
+    monitoring_location: order_by
+    monitoring_time: order_by
+    other_infraction: order_by
+    others: order_by
+    outage_alarm_time: order_by
+    remarks: order_by
+    speed_alarm_time: order_by
+    speeding_speed: order_by
+    supervision_detail_id: order_by
+    supervision_id: order_by
+    tachograph_data_exception: order_by
+    tachograph_speed: order_by
+    taxi_state: order_by
+    trail: order_by
+    treatment_time: order_by
+    updated_at: order_by
+    updated_by: order_by
+    vehicle_id: order_by
+}
+
+# aggregate min on columns
+type dynamic_supervision_detail_min_fields {
+    GPS_speed: String
+    assignee: String
+    business_scope: Int
+    create_at: timestamptz
+    created_by: String
+    curve: Int
+    deleted_at: timestamptz
+    deleted_by: String
+    disposal_measures: String
+    disposal_measures1: String
+    disposal_measures2: String
+    disposal_measures3: String
+    disposal_measures4: String
+    disposal_measures5: String
+    disposal_measures6: String
+    disposal_measures7: String
+    disposal_results: String
+    disposal_results1: String
+    disposal_results2: String
+    disposal_results3: String
+    disposal_results4: String
+    disposal_results5: String
+    disposal_results6: String
+    disposal_results7: String
+    driver_id: String
+    enterprise_id: String
+    equipment: Int
+    fatigue_alarm_time: timestamptz
+    feedback_time: timestamptz
+    id: bigint
+    latitude_longitude_description: String
+    lens_on: String
+    lens_position: Int
+    monitor_end_time: timestamptz
+    monitoring_location: String
+    monitoring_time: timestamptz
+    other_infraction: String
+    others: String
+    outage_alarm_time: timestamptz
+    remarks: String
+    speed_alarm_time: timestamptz
+    speeding_speed: String
+    supervision_detail_id: String
+    supervision_id: String
+    tachograph_data_exception: String
+    tachograph_speed: String
+    taxi_state: Int
+    trail: Int
+    treatment_time: timestamptz
+    updated_at: timestamptz
+    updated_by: String
+    vehicle_id: String
+}
+
+# order by min() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_min_order_by {
+    GPS_speed: order_by
+    assignee: order_by
+    business_scope: order_by
+    create_at: order_by
+    created_by: order_by
+    curve: order_by
+    deleted_at: order_by
+    deleted_by: order_by
+    disposal_measures: order_by
+    disposal_measures1: order_by
+    disposal_measures2: order_by
+    disposal_measures3: order_by
+    disposal_measures4: order_by
+    disposal_measures5: order_by
+    disposal_measures6: order_by
+    disposal_measures7: order_by
+    disposal_results: order_by
+    disposal_results1: order_by
+    disposal_results2: order_by
+    disposal_results3: order_by
+    disposal_results4: order_by
+    disposal_results5: order_by
+    disposal_results6: order_by
+    disposal_results7: order_by
+    driver_id: order_by
+    enterprise_id: order_by
+    equipment: order_by
+    fatigue_alarm_time: order_by
+    feedback_time: order_by
+    id: order_by
+    latitude_longitude_description: order_by
+    lens_on: order_by
+    lens_position: order_by
+    monitor_end_time: order_by
+    monitoring_location: order_by
+    monitoring_time: order_by
+    other_infraction: order_by
+    others: order_by
+    outage_alarm_time: order_by
+    remarks: order_by
+    speed_alarm_time: order_by
+    speeding_speed: order_by
+    supervision_detail_id: order_by
+    supervision_id: order_by
+    tachograph_data_exception: order_by
+    tachograph_speed: order_by
+    taxi_state: order_by
+    trail: order_by
+    treatment_time: order_by
+    updated_at: order_by
+    updated_by: order_by
+    vehicle_id: order_by
+}
+
+# response of any mutation on the table "dynamic_supervision_detail"
+type dynamic_supervision_detail_mutation_response {
+    # number of affected rows by the mutation
+    affected_rows: Int!
+
+    # data of the affected rows by the mutation
+    returning: [dynamic_supervision_detail!]!
+}
+
+# input type for inserting object relation for remote table "dynamic_supervision_detail"
+input dynamic_supervision_detail_obj_rel_insert_input {
+    data: dynamic_supervision_detail_insert_input!
+    on_conflict: dynamic_supervision_detail_on_conflict
+}
+
+# on conflict condition type for table "dynamic_supervision_detail"
+input dynamic_supervision_detail_on_conflict {
+    constraint: dynamic_supervision_detail_constraint!
+    update_columns: [dynamic_supervision_detail_update_column!]!
+    where: dynamic_supervision_detail_bool_exp
+}
+
+# ordering options when selecting data from "dynamic_supervision_detail"
+input dynamic_supervision_detail_order_by {
+    GPS_speed: order_by
+    assignee: order_by
+    business_scope: order_by
+    coordinate: order_by
+    create_at: order_by
+    created_by: order_by
+    curve: order_by
+    deleted_at: order_by
+    deleted_by: order_by
+    disposal_measures: order_by
+    disposal_measures1: order_by
+    disposal_measures2: order_by
+    disposal_measures3: order_by
+    disposal_measures4: order_by
+    disposal_measures5: order_by
+    disposal_measures6: order_by
+    disposal_measures7: order_by
+    disposal_results: order_by
+    disposal_results1: order_by
+    disposal_results2: order_by
+    disposal_results3: order_by
+    disposal_results4: order_by
+    disposal_results5: order_by
+    disposal_results6: order_by
+    disposal_results7: order_by
+    driver_id: order_by
+    enterprise_id: order_by
+    equipment: order_by
+    fatigue_alarm_time: order_by
+    feedback_time: order_by
+    id: order_by
+    is_delete: order_by
+    is_fatigue_driving: order_by
+    is_locate: order_by
+    is_morning_outage: order_by
+    is_online: order_by
+    is_send: order_by
+    is_speeding: order_by
+    is_tachograph_record_normal: order_by
+    latitude_longitude_description: order_by
+    lens_on: order_by
+    lens_position: order_by
+    monitor_end_time: order_by
+    monitoring_location: order_by
+    monitoring_time: order_by
+    other_infraction: order_by
+    others: order_by
+    outage_alarm_time: order_by
+    remarks: order_by
+    speed_alarm_time: order_by
+    speeding_speed: order_by
+    supervision_detail_id: order_by
+    supervision_id: order_by
+    tachograph_data_exception: order_by
+    tachograph_speed: order_by
+    taxi_state: order_by
+    trail: order_by
+    treatment_time: order_by
+    updated_at: order_by
+    updated_by: order_by
+    vehicle_id: order_by
+}
+
+# primary key columns input for table: "dynamic_supervision_detail"
+input dynamic_supervision_detail_pk_columns_input {
+    # 主键
+    id: bigint!
+
+    # 联合主键
+    supervision_detail_id: String!
+}
+
+# select columns of table "dynamic_supervision_detail"
+enum dynamic_supervision_detail_select_column {
+    # column name
+    GPS_speed
+
+    # column name
+    assignee
+
+    # column name
+    business_scope
+
+    # column name
+    coordinate
+
+    # column name
+    create_at
+
+    # column name
+    created_by
+
+    # column name
+    curve
+
+    # column name
+    deleted_at
+
+    # column name
+    deleted_by
+
+    # column name
+    disposal_measures
+
+    # column name
+    disposal_measures1
+
+    # column name
+    disposal_measures2
+
+    # column name
+    disposal_measures3
+
+    # column name
+    disposal_measures4
+
+    # column name
+    disposal_measures5
+
+    # column name
+    disposal_measures6
+
+    # column name
+    disposal_measures7
+
+    # column name
+    disposal_results
+
+    # column name
+    disposal_results1
+
+    # column name
+    disposal_results2
+
+    # column name
+    disposal_results3
+
+    # column name
+    disposal_results4
+
+    # column name
+    disposal_results5
+
+    # column name
+    disposal_results6
+
+    # column name
+    disposal_results7
+
+    # column name
+    driver_id
+
+    # column name
+    enterprise_id
+
+    # column name
+    equipment
+
+    # column name
+    fatigue_alarm_time
+
+    # column name
+    feedback_time
+
+    # column name
+    id
+
+    # column name
+    is_delete
+
+    # column name
+    is_fatigue_driving
+
+    # column name
+    is_locate
+
+    # column name
+    is_morning_outage
+
+    # column name
+    is_online
+
+    # column name
+    is_send
+
+    # column name
+    is_speeding
+
+    # column name
+    is_tachograph_record_normal
+
+    # column name
+    latitude_longitude_description
+
+    # column name
+    lens_on
+
+    # column name
+    lens_position
+
+    # column name
+    monitor_end_time
+
+    # column name
+    monitoring_location
+
+    # column name
+    monitoring_time
+
+    # column name
+    other_infraction
+
+    # column name
+    others
+
+    # column name
+    outage_alarm_time
+
+    # column name
+    remarks
+
+    # column name
+    speed_alarm_time
+
+    # column name
+    speeding_speed
+
+    # column name
+    supervision_detail_id
+
+    # column name
+    supervision_id
+
+    # column name
+    tachograph_data_exception
+
+    # column name
+    tachograph_speed
+
+    # column name
+    taxi_state
+
+    # column name
+    trail
+
+    # column name
+    treatment_time
+
+    # column name
+    updated_at
+
+    # column name
+    updated_by
+
+    # column name
+    vehicle_id
+}
+
+# input type for updating data in table "dynamic_supervision_detail"
+input dynamic_supervision_detail_set_input {
+    GPS_speed: String
+    assignee: String
+    business_scope: Int
+    coordinate: point
+    create_at: timestamptz
+    created_by: String
+    curve: Int
+    deleted_at: timestamptz
+    deleted_by: String
+    disposal_measures: String
+    disposal_measures1: String
+    disposal_measures2: String
+    disposal_measures3: String
+    disposal_measures4: String
+    disposal_measures5: String
+    disposal_measures6: String
+    disposal_measures7: String
+    disposal_results: String
+    disposal_results1: String
+    disposal_results2: String
+    disposal_results3: String
+    disposal_results4: String
+    disposal_results5: String
+    disposal_results6: String
+    disposal_results7: String
+    driver_id: String
+    enterprise_id: String
+    equipment: Int
+    fatigue_alarm_time: timestamptz
+    feedback_time: timestamptz
+    id: bigint
+    is_delete: Boolean
+    is_fatigue_driving: Boolean
+    is_locate: Boolean
+    is_morning_outage: Boolean
+    is_online: Boolean
+    is_send: Boolean
+    is_speeding: Boolean
+    is_tachograph_record_normal: Boolean
+    latitude_longitude_description: String
+    lens_on: String
+    lens_position: Int
+    monitor_end_time: timestamptz
+    monitoring_location: String
+    monitoring_time: timestamptz
+    other_infraction: String
+    others: String
+    outage_alarm_time: timestamptz
+    remarks: String
+    speed_alarm_time: timestamptz
+    speeding_speed: String
+    supervision_detail_id: String
+    supervision_id: String
+    tachograph_data_exception: String
+    tachograph_speed: String
+    taxi_state: Int
+    trail: Int
+    treatment_time: timestamptz
+    updated_at: timestamptz
+    updated_by: String
+    vehicle_id: String
+}
+
+# aggregate stddev on columns
+type dynamic_supervision_detail_stddev_fields {
+    business_scope: Float
+    curve: Float
+    equipment: Float
+    id: Float
+    lens_position: Float
+    taxi_state: Float
+    trail: Float
+}
+
+# order by stddev() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_stddev_order_by {
+    business_scope: order_by
+    curve: order_by
+    equipment: order_by
+    id: order_by
+    lens_position: order_by
+    taxi_state: order_by
+    trail: order_by
+}
+
+# aggregate stddev_pop on columns
+type dynamic_supervision_detail_stddev_pop_fields {
+    business_scope: Float
+    curve: Float
+    equipment: Float
+    id: Float
+    lens_position: Float
+    taxi_state: Float
+    trail: Float
+}
+
+# order by stddev_pop() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_stddev_pop_order_by {
+    business_scope: order_by
+    curve: order_by
+    equipment: order_by
+    id: order_by
+    lens_position: order_by
+    taxi_state: order_by
+    trail: order_by
+}
+
+# aggregate stddev_samp on columns
+type dynamic_supervision_detail_stddev_samp_fields {
+    business_scope: Float
+    curve: Float
+    equipment: Float
+    id: Float
+    lens_position: Float
+    taxi_state: Float
+    trail: Float
+}
+
+# order by stddev_samp() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_stddev_samp_order_by {
+    business_scope: order_by
+    curve: order_by
+    equipment: order_by
+    id: order_by
+    lens_position: order_by
+    taxi_state: order_by
+    trail: order_by
+}
+
+# aggregate sum on columns
+type dynamic_supervision_detail_sum_fields {
+    business_scope: Int
+    curve: Int
+    equipment: Int
+    id: bigint
+    lens_position: Int
+    taxi_state: Int
+    trail: Int
+}
+
+# order by sum() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_sum_order_by {
+    business_scope: order_by
+    curve: order_by
+    equipment: order_by
+    id: order_by
+    lens_position: order_by
+    taxi_state: order_by
+    trail: order_by
+}
+
+# update columns of table "dynamic_supervision_detail"
+enum dynamic_supervision_detail_update_column {
+    # column name
+    GPS_speed
+
+    # column name
+    assignee
+
+    # column name
+    business_scope
+
+    # column name
+    coordinate
+
+    # column name
+    create_at
+
+    # column name
+    created_by
+
+    # column name
+    curve
+
+    # column name
+    deleted_at
+
+    # column name
+    deleted_by
+
+    # column name
+    disposal_measures
+
+    # column name
+    disposal_measures1
+
+    # column name
+    disposal_measures2
+
+    # column name
+    disposal_measures3
+
+    # column name
+    disposal_measures4
+
+    # column name
+    disposal_measures5
+
+    # column name
+    disposal_measures6
+
+    # column name
+    disposal_measures7
+
+    # column name
+    disposal_results
+
+    # column name
+    disposal_results1
+
+    # column name
+    disposal_results2
+
+    # column name
+    disposal_results3
+
+    # column name
+    disposal_results4
+
+    # column name
+    disposal_results5
+
+    # column name
+    disposal_results6
+
+    # column name
+    disposal_results7
+
+    # column name
+    driver_id
+
+    # column name
+    enterprise_id
+
+    # column name
+    equipment
+
+    # column name
+    fatigue_alarm_time
+
+    # column name
+    feedback_time
+
+    # column name
+    id
+
+    # column name
+    is_delete
+
+    # column name
+    is_fatigue_driving
+
+    # column name
+    is_locate
+
+    # column name
+    is_morning_outage
+
+    # column name
+    is_online
+
+    # column name
+    is_send
+
+    # column name
+    is_speeding
+
+    # column name
+    is_tachograph_record_normal
+
+    # column name
+    latitude_longitude_description
+
+    # column name
+    lens_on
+
+    # column name
+    lens_position
+
+    # column name
+    monitor_end_time
+
+    # column name
+    monitoring_location
+
+    # column name
+    monitoring_time
+
+    # column name
+    other_infraction
+
+    # column name
+    others
+
+    # column name
+    outage_alarm_time
+
+    # column name
+    remarks
+
+    # column name
+    speed_alarm_time
+
+    # column name
+    speeding_speed
+
+    # column name
+    supervision_detail_id
+
+    # column name
+    supervision_id
+
+    # column name
+    tachograph_data_exception
+
+    # column name
+    tachograph_speed
+
+    # column name
+    taxi_state
+
+    # column name
+    trail
+
+    # column name
+    treatment_time
+
+    # column name
+    updated_at
+
+    # column name
+    updated_by
+
+    # column name
+    vehicle_id
+}
+
+# aggregate var_pop on columns
+type dynamic_supervision_detail_var_pop_fields {
+    business_scope: Float
+    curve: Float
+    equipment: Float
+    id: Float
+    lens_position: Float
+    taxi_state: Float
+    trail: Float
+}
+
+# order by var_pop() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_var_pop_order_by {
+    business_scope: order_by
+    curve: order_by
+    equipment: order_by
+    id: order_by
+    lens_position: order_by
+    taxi_state: order_by
+    trail: order_by
+}
+
+# aggregate var_samp on columns
+type dynamic_supervision_detail_var_samp_fields {
+    business_scope: Float
+    curve: Float
+    equipment: Float
+    id: Float
+    lens_position: Float
+    taxi_state: Float
+    trail: Float
+}
+
+# order by var_samp() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_var_samp_order_by {
+    business_scope: order_by
+    curve: order_by
+    equipment: order_by
+    id: order_by
+    lens_position: order_by
+    taxi_state: order_by
+    trail: order_by
+}
+
+# aggregate variance on columns
+type dynamic_supervision_detail_variance_fields {
+    business_scope: Float
+    curve: Float
+    equipment: Float
+    id: Float
+    lens_position: Float
+    taxi_state: Float
+    trail: Float
+}
+
+# order by variance() on columns of table "dynamic_supervision_detail"
+input dynamic_supervision_detail_variance_order_by {
+    business_scope: order_by
+    curve: order_by
+    equipment: order_by
+    id: order_by
+    lens_position: order_by
+    taxi_state: order_by
+    trail: order_by
+}
+
+# expression to compare columns of type Int. All fields are combined with logical 'AND'.
+input Int_comparison_exp {
+    _eq: Int
+    _gt: Int
+    _gte: Int
+    _in: [Int!]
+    _is_null: Boolean
+    _lt: Int
+    _lte: Int
+    _neq: Int
+    _nin: [Int!]
+}
+
+# mutation root
+type mutation_root {
+    # delete data from the table: "dynamic_supervision_detail"
+    delete_dynamic_supervision_detail(
+        # filter the rows which have to be deleted
+        where: dynamic_supervision_detail_bool_exp!
+    ): dynamic_supervision_detail_mutation_response
+
+    # delete single row from the table: "dynamic_supervision_detail"
+    delete_dynamic_supervision_detail_by_pk(
+        # 主键
+        id: bigint!
+
+        # 联合主键
+        supervision_detail_id: String!
+    ): dynamic_supervision_detail
+
+    # insert data into the table: "dynamic_supervision_detail"
+    insert_dynamic_supervision_detail(
+        # the rows to be inserted
+        objects: [dynamic_supervision_detail_insert_input!]!
+
+        # on conflict condition
+        on_conflict: dynamic_supervision_detail_on_conflict
+    ): dynamic_supervision_detail_mutation_response
+
+    # insert a single row into the table: "dynamic_supervision_detail"
+    insert_dynamic_supervision_detail_one(
+        # the row to be inserted
+        object: dynamic_supervision_detail_insert_input!
+
+        # on conflict condition
+        on_conflict: dynamic_supervision_detail_on_conflict
+    ): dynamic_supervision_detail
+
+    # update data of the table: "dynamic_supervision_detail"
+    update_dynamic_supervision_detail(
+        # increments the integer columns with given value of the filtered values
+        _inc: dynamic_supervision_detail_inc_input
+
+        # sets the columns of the filtered rows to the given values
+        _set: dynamic_supervision_detail_set_input
+
+        # filter the rows which have to be updated
+        where: dynamic_supervision_detail_bool_exp!
+    ): dynamic_supervision_detail_mutation_response
+
+    # update single row of the table: "dynamic_supervision_detail"
+    update_dynamic_supervision_detail_by_pk(
+        # increments the integer columns with given value of the filtered values
+        _inc: dynamic_supervision_detail_inc_input
+
+        # sets the columns of the filtered rows to the given values
+        _set: dynamic_supervision_detail_set_input
+        pk_columns: dynamic_supervision_detail_pk_columns_input!
+    ): dynamic_supervision_detail
+}
+
+# column ordering options
+enum order_by {
+    # in the ascending order, nulls last
+    asc
+
+    # in the ascending order, nulls first
+    asc_nulls_first
+
+    # in the ascending order, nulls last
+    asc_nulls_last
+
+    # in the descending order, nulls first
+    desc
+
+    # in the descending order, nulls first
+    desc_nulls_first
+
+    # in the descending order, nulls last
+    desc_nulls_last
+}
+
+scalar point
+
+# expression to compare columns of type point. All fields are combined with logical 'AND'.
+input point_comparison_exp {
+    _eq: point
+    _gt: point
+    _gte: point
+    _in: [point!]
+    _is_null: Boolean
+    _lt: point
+    _lte: point
+    _neq: point
+    _nin: [point!]
+}
+
+# query root
+type query_root {
+    # fetch data from the table: "dynamic_supervision_detail"
+    dynamic_supervision_detail(
+        # distinct select on columns
+        distinct_on: [dynamic_supervision_detail_select_column!]
+
+        # limit the number of rows returned
+        limit: Int
+
+        # skip the first n rows. Use only with order_by
+        offset: Int
+
+        # sort the rows by one or more columns
+        order_by: [dynamic_supervision_detail_order_by!]
+
+        # filter the rows returned
+        where: dynamic_supervision_detail_bool_exp
+    ): [dynamic_supervision_detail!]!
+
+    # fetch aggregated fields from the table: "dynamic_supervision_detail"
+    dynamic_supervision_detail_aggregate(
+        # distinct select on columns
+        distinct_on: [dynamic_supervision_detail_select_column!]
+
+        # limit the number of rows returned
+        limit: Int
+
+        # skip the first n rows. Use only with order_by
+        offset: Int
+
+        # sort the rows by one or more columns
+        order_by: [dynamic_supervision_detail_order_by!]
+
+        # filter the rows returned
+        where: dynamic_supervision_detail_bool_exp
+    ): dynamic_supervision_detail_aggregate!
+
+    # fetch data from the table: "dynamic_supervision_detail" using primary key columns
+    dynamic_supervision_detail_by_pk(
+        # 主键
+        id: bigint!
+
+        # 联合主键
+        supervision_detail_id: String!
+    ): dynamic_supervision_detail
+}
+
+# expression to compare columns of type String. All fields are combined with logical 'AND'.
+input String_comparison_exp {
+    _eq: String
+    _gt: String
+    _gte: String
+    _ilike: String
+    _in: [String!]
+    _is_null: Boolean
+    _like: String
+    _lt: String
+    _lte: String
+    _neq: String
+    _nilike: String
+    _nin: [String!]
+    _nlike: String
+    _nsimilar: String
+    _similar: String
+}
+
+# subscription root
+type subscription_root {
+    # fetch data from the table: "dynamic_supervision_detail"
+    dynamic_supervision_detail(
+        # distinct select on columns
+        distinct_on: [dynamic_supervision_detail_select_column!]
+
+        # limit the number of rows returned
+        limit: Int
+
+        # skip the first n rows. Use only with order_by
+        offset: Int
+
+        # sort the rows by one or more columns
+        order_by: [dynamic_supervision_detail_order_by!]
+
+        # filter the rows returned
+        where: dynamic_supervision_detail_bool_exp
+    ): [dynamic_supervision_detail!]!
+
+    # fetch aggregated fields from the table: "dynamic_supervision_detail"
+    dynamic_supervision_detail_aggregate(
+        # distinct select on columns
+        distinct_on: [dynamic_supervision_detail_select_column!]
+
+        # limit the number of rows returned
+        limit: Int
+
+        # skip the first n rows. Use only with order_by
+        offset: Int
+
+        # sort the rows by one or more columns
+        order_by: [dynamic_supervision_detail_order_by!]
+
+        # filter the rows returned
+        where: dynamic_supervision_detail_bool_exp
+    ): dynamic_supervision_detail_aggregate!
+
+    # fetch data from the table: "dynamic_supervision_detail" using primary key columns
+    dynamic_supervision_detail_by_pk(
+        # 主键
+        id: bigint!
+
+        # 联合主键
+        supervision_detail_id: String!
+    ): dynamic_supervision_detail
+}
+
+scalar timestamptz
+
+# expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
+input timestamptz_comparison_exp {
+    _eq: timestamptz
+    _gt: timestamptz
+    _gte: timestamptz
+    _in: [timestamptz!]
+    _is_null: Boolean
+    _lt: timestamptz
+    _lte: timestamptz
+    _neq: timestamptz
+    _nin: [timestamptz!]
+}
+

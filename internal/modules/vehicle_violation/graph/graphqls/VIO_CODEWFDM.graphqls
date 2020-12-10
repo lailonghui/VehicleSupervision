@@ -1,0 +1,475 @@
+schema {
+    query: query_root
+    mutation: mutation_root
+    subscription: subscription_root
+}
+
+# mutation root
+type mutation_root {
+    # delete data from the table: "VIO_CODEWFDM"
+    delete_VIO_CODEWFDM(
+        # filter the rows which have to be deleted
+        where: VIO_CODEWFDM_bool_exp!
+    ): VIO_CODEWFDM_mutation_response
+
+    # insert data into the table: "VIO_CODEWFDM"
+    insert_VIO_CODEWFDM(
+        # the rows to be inserted
+        objects: [VIO_CODEWFDM_insert_input!]!
+    ): VIO_CODEWFDM_mutation_response
+
+    # insert a single row into the table: "VIO_CODEWFDM"
+    insert_VIO_CODEWFDM_one(
+        # the row to be inserted
+        object: VIO_CODEWFDM_insert_input!
+    ): VIO_CODEWFDM
+
+    # update data of the table: "VIO_CODEWFDM"
+    update_VIO_CODEWFDM(
+        # increments the integer columns with given value of the filtered values
+        _inc: VIO_CODEWFDM_inc_input
+
+        # sets the columns of the filtered rows to the given values
+        _set: VIO_CODEWFDM_set_input
+
+        # filter the rows which have to be updated
+        where: VIO_CODEWFDM_bool_exp!
+    ): VIO_CODEWFDM_mutation_response
+}
+
+scalar numeric
+
+# expression to compare columns of type numeric. All fields are combined with logical 'AND'.
+input numeric_comparison_exp {
+    _eq: numeric
+    _gt: numeric
+    _gte: numeric
+    _in: [numeric!]
+    _is_null: Boolean
+    _lt: numeric
+    _lte: numeric
+    _neq: numeric
+    _nin: [numeric!]
+}
+
+# column ordering options
+enum order_by {
+    # in the ascending order, nulls last
+    asc
+
+    # in the ascending order, nulls first
+    asc_nulls_first
+
+    # in the ascending order, nulls last
+    asc_nulls_last
+
+    # in the descending order, nulls first
+    desc
+
+    # in the descending order, nulls first
+    desc_nulls_first
+
+    # in the descending order, nulls last
+    desc_nulls_last
+}
+
+# query root
+type query_root {
+    # fetch data from the table: "VIO_CODEWFDM"
+    VIO_CODEWFDM(
+        # distinct select on columns
+        distinct_on: [VIO_CODEWFDM_select_column!]
+
+        # limit the number of rows returned
+        limit: Int
+
+        # skip the first n rows. Use only with order_by
+        offset: Int
+
+        # sort the rows by one or more columns
+        order_by: [VIO_CODEWFDM_order_by!]
+
+        # filter the rows returned
+        where: VIO_CODEWFDM_bool_exp
+    ): [VIO_CODEWFDM!]!
+
+    # fetch aggregated fields from the table: "VIO_CODEWFDM"
+    VIO_CODEWFDM_aggregate(
+        # distinct select on columns
+        distinct_on: [VIO_CODEWFDM_select_column!]
+
+        # limit the number of rows returned
+        limit: Int
+
+        # skip the first n rows. Use only with order_by
+        offset: Int
+
+        # sort the rows by one or more columns
+        order_by: [VIO_CODEWFDM_order_by!]
+
+        # filter the rows returned
+        where: VIO_CODEWFDM_bool_exp
+    ): VIO_CODEWFDM_aggregate!
+}
+
+# expression to compare columns of type String. All fields are combined with logical 'AND'.
+input String_comparison_exp {
+    _eq: String
+    _gt: String
+    _gte: String
+    _ilike: String
+    _in: [String!]
+    _is_null: Boolean
+    _like: String
+    _lt: String
+    _lte: String
+    _neq: String
+    _nilike: String
+    _nin: [String!]
+    _nlike: String
+    _nsimilar: String
+    _similar: String
+}
+
+# subscription root
+type subscription_root {
+    # fetch data from the table: "VIO_CODEWFDM"
+    VIO_CODEWFDM(
+        # distinct select on columns
+        distinct_on: [VIO_CODEWFDM_select_column!]
+
+        # limit the number of rows returned
+        limit: Int
+
+        # skip the first n rows. Use only with order_by
+        offset: Int
+
+        # sort the rows by one or more columns
+        order_by: [VIO_CODEWFDM_order_by!]
+
+        # filter the rows returned
+        where: VIO_CODEWFDM_bool_exp
+    ): [VIO_CODEWFDM!]!
+
+    # fetch aggregated fields from the table: "VIO_CODEWFDM"
+    VIO_CODEWFDM_aggregate(
+        # distinct select on columns
+        distinct_on: [VIO_CODEWFDM_select_column!]
+
+        # limit the number of rows returned
+        limit: Int
+
+        # skip the first n rows. Use only with order_by
+        offset: Int
+
+        # sort the rows by one or more columns
+        order_by: [VIO_CODEWFDM_order_by!]
+
+        # filter the rows returned
+        where: VIO_CODEWFDM_bool_exp
+    ): VIO_CODEWFDM_aggregate!
+}
+
+# 违法描述字典表(交警提供数据表，暂无修改)
+#
+#
+# columns and relationships of "VIO_CODEWFDM"
+#
+type VIO_CODEWFDM {
+    # 最大罚款金额
+    FKJE_MAX: numeric
+
+    # 最小罚款金额
+    FKJE_MIN: numeric
+
+    # 违法计分数
+    WFJFS: numeric
+
+    # 违法描述
+    WFMS: String
+
+    # 违法行为
+    WFXW: String!
+
+    # 序号
+    XH: String
+}
+
+# aggregated selection of "VIO_CODEWFDM"
+type VIO_CODEWFDM_aggregate {
+    aggregate: VIO_CODEWFDM_aggregate_fields
+    nodes: [VIO_CODEWFDM!]!
+}
+
+# aggregate fields of "VIO_CODEWFDM"
+type VIO_CODEWFDM_aggregate_fields {
+    avg: VIO_CODEWFDM_avg_fields
+    count(columns: [VIO_CODEWFDM_select_column!], distinct: Boolean): Int
+    max: VIO_CODEWFDM_max_fields
+    min: VIO_CODEWFDM_min_fields
+    stddev: VIO_CODEWFDM_stddev_fields
+    stddev_pop: VIO_CODEWFDM_stddev_pop_fields
+    stddev_samp: VIO_CODEWFDM_stddev_samp_fields
+    sum: VIO_CODEWFDM_sum_fields
+    var_pop: VIO_CODEWFDM_var_pop_fields
+    var_samp: VIO_CODEWFDM_var_samp_fields
+    variance: VIO_CODEWFDM_variance_fields
+}
+
+# order by aggregate values of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_aggregate_order_by {
+    avg: VIO_CODEWFDM_avg_order_by
+    count: order_by
+    max: VIO_CODEWFDM_max_order_by
+    min: VIO_CODEWFDM_min_order_by
+    stddev: VIO_CODEWFDM_stddev_order_by
+    stddev_pop: VIO_CODEWFDM_stddev_pop_order_by
+    stddev_samp: VIO_CODEWFDM_stddev_samp_order_by
+    sum: VIO_CODEWFDM_sum_order_by
+    var_pop: VIO_CODEWFDM_var_pop_order_by
+    var_samp: VIO_CODEWFDM_var_samp_order_by
+    variance: VIO_CODEWFDM_variance_order_by
+}
+
+# input type for inserting array relation for remote table "VIO_CODEWFDM"
+input VIO_CODEWFDM_arr_rel_insert_input {
+    data: [VIO_CODEWFDM_insert_input!]!
+}
+
+# aggregate avg on columns
+type VIO_CODEWFDM_avg_fields {
+    FKJE_MAX: Float
+    FKJE_MIN: Float
+    WFJFS: Float
+}
+
+# order by avg() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_avg_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+}
+
+# Boolean expression to filter rows from the table "VIO_CODEWFDM". All fields are combined with a logical 'AND'.
+input VIO_CODEWFDM_bool_exp {
+    FKJE_MAX: numeric_comparison_exp
+    FKJE_MIN: numeric_comparison_exp
+    WFJFS: numeric_comparison_exp
+    WFMS: String_comparison_exp
+    WFXW: String_comparison_exp
+    XH: String_comparison_exp
+    _and: [VIO_CODEWFDM_bool_exp]
+    _not: VIO_CODEWFDM_bool_exp
+    _or: [VIO_CODEWFDM_bool_exp]
+}
+
+# input type for incrementing integer column in table "VIO_CODEWFDM"
+input VIO_CODEWFDM_inc_input {
+    FKJE_MAX: numeric
+    FKJE_MIN: numeric
+    WFJFS: numeric
+}
+
+# input type for inserting data into table "VIO_CODEWFDM"
+input VIO_CODEWFDM_insert_input {
+    FKJE_MAX: numeric
+    FKJE_MIN: numeric
+    WFJFS: numeric
+    WFMS: String
+    WFXW: String
+    XH: String
+}
+
+# aggregate max on columns
+type VIO_CODEWFDM_max_fields {
+    FKJE_MAX: numeric
+    FKJE_MIN: numeric
+    WFJFS: numeric
+    WFMS: String
+    WFXW: String
+    XH: String
+}
+
+# order by max() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_max_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+    WFMS: order_by
+    WFXW: order_by
+    XH: order_by
+}
+
+# aggregate min on columns
+type VIO_CODEWFDM_min_fields {
+    FKJE_MAX: numeric
+    FKJE_MIN: numeric
+    WFJFS: numeric
+    WFMS: String
+    WFXW: String
+    XH: String
+}
+
+# order by min() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_min_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+    WFMS: order_by
+    WFXW: order_by
+    XH: order_by
+}
+
+# response of any mutation on the table "VIO_CODEWFDM"
+type VIO_CODEWFDM_mutation_response {
+    # number of affected rows by the mutation
+    affected_rows: Int!
+
+    # data of the affected rows by the mutation
+    returning: [VIO_CODEWFDM!]!
+}
+
+# input type for inserting object relation for remote table "VIO_CODEWFDM"
+input VIO_CODEWFDM_obj_rel_insert_input {
+    data: VIO_CODEWFDM_insert_input!
+}
+
+# ordering options when selecting data from "VIO_CODEWFDM"
+input VIO_CODEWFDM_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+    WFMS: order_by
+    WFXW: order_by
+    XH: order_by
+}
+
+# select columns of table "VIO_CODEWFDM"
+enum VIO_CODEWFDM_select_column {
+    # column name
+    FKJE_MAX
+
+    # column name
+    FKJE_MIN
+
+    # column name
+    WFJFS
+
+    # column name
+    WFMS
+
+    # column name
+    WFXW
+
+    # column name
+    XH
+}
+
+# input type for updating data in table "VIO_CODEWFDM"
+input VIO_CODEWFDM_set_input {
+    FKJE_MAX: numeric
+    FKJE_MIN: numeric
+    WFJFS: numeric
+    WFMS: String
+    WFXW: String
+    XH: String
+}
+
+# aggregate stddev on columns
+type VIO_CODEWFDM_stddev_fields {
+    FKJE_MAX: Float
+    FKJE_MIN: Float
+    WFJFS: Float
+}
+
+# order by stddev() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_stddev_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+}
+
+# aggregate stddev_pop on columns
+type VIO_CODEWFDM_stddev_pop_fields {
+    FKJE_MAX: Float
+    FKJE_MIN: Float
+    WFJFS: Float
+}
+
+# order by stddev_pop() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_stddev_pop_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+}
+
+# aggregate stddev_samp on columns
+type VIO_CODEWFDM_stddev_samp_fields {
+    FKJE_MAX: Float
+    FKJE_MIN: Float
+    WFJFS: Float
+}
+
+# order by stddev_samp() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_stddev_samp_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+}
+
+# aggregate sum on columns
+type VIO_CODEWFDM_sum_fields {
+    FKJE_MAX: numeric
+    FKJE_MIN: numeric
+    WFJFS: numeric
+}
+
+# order by sum() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_sum_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+}
+
+# aggregate var_pop on columns
+type VIO_CODEWFDM_var_pop_fields {
+    FKJE_MAX: Float
+    FKJE_MIN: Float
+    WFJFS: Float
+}
+
+# order by var_pop() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_var_pop_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+}
+
+# aggregate var_samp on columns
+type VIO_CODEWFDM_var_samp_fields {
+    FKJE_MAX: Float
+    FKJE_MIN: Float
+    WFJFS: Float
+}
+
+# order by var_samp() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_var_samp_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+}
+
+# aggregate variance on columns
+type VIO_CODEWFDM_variance_fields {
+    FKJE_MAX: Float
+    FKJE_MIN: Float
+    WFJFS: Float
+}
+
+# order by variance() on columns of table "VIO_CODEWFDM"
+input VIO_CODEWFDM_variance_order_by {
+    FKJE_MAX: order_by
+    FKJE_MIN: order_by
+    WFJFS: order_by
+}
+
