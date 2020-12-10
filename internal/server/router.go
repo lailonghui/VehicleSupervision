@@ -15,15 +15,12 @@ import (
 	dictionary "VehicleSupervision/internal/modules/dictionary"
 
 	"VehicleSupervision/internal/modules/driver"
-	drivingLogMutation "VehicleSupervision/internal/modules/driving/log/mutation"
-	drivingLogQuery "VehicleSupervision/internal/modules/driving/log/query"
+	driving "VehicleSupervision/internal/modules/driving"
 	trainingMutation "VehicleSupervision/internal/modules/training/mutation"
 	trainingQuery "VehicleSupervision/internal/modules/training/query"
 	"VehicleSupervision/internal/modules/vehicle"
-	vehicleLocationHisMutation "VehicleSupervision/internal/modules/vehiclelocation/his/mutation"
-	vehicleLocationHisQuery "VehicleSupervision/internal/modules/vehiclelocation/his/query"
-	vehicleLocationLastMutation "VehicleSupervision/internal/modules/vehiclelocation/last/mutation"
-	vehicleLocationLastQuery "VehicleSupervision/internal/modules/vehiclelocation/last/query"
+	vehicleLocation "VehicleSupervision/internal/modules/vehiclelocation"
+
 	"VehicleSupervision/pkg/logger"
 	"fmt"
 	"github.com/99designs/gqlgen/graphql/playground"
@@ -69,15 +66,10 @@ func Setup() {
 	router.Any("/dictionary", dictionary.GinEndpoint())
 	// 黑名单端点
 	router.Any("/blacklist", blacklistRecord.GinEndpoint())
-	// 行车日志端点
-	router.Any("/driving_log/query", drivingLogQuery.GinEndpoint())
-	router.Any("/driving_log/mutation", drivingLogMutation.GinEndpoint())
-	// 车辆历史位置端点
-	router.Any("/vehicle_location_his/query", vehicleLocationHisQuery.GinEndpoint())
-	router.Any("/vehicle_location_his/mutation", vehicleLocationHisMutation.GinEndpoint())
-	// 车辆最新位置端点
-	router.Any("/vehicle_location_last/query", vehicleLocationLastQuery.GinEndpoint())
-	router.Any("/vehicle_location_last/mutation", vehicleLocationLastMutation.GinEndpoint())
+	// 行车端点
+	router.Any("/driving", driving.GinEndpoint())
+	// 车辆位置端点
+	router.Any("/vehicle_location", vehicleLocation.GinEndpoint())
 	// 设备管理端点
 	router.Any("/device", device.GinEndpoint())
 	// 网约车模块
