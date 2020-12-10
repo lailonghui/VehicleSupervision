@@ -1,4 +1,5 @@
 
+
 """mutation root"""
 type Mutation {
     """
@@ -70,6 +71,7 @@ type Mutation {
 }
 
 
+
 """query root"""
 type Query {
     """
@@ -121,7 +123,6 @@ type Query {
         vehicle_id: String!
     ): vehicle_info
 }
-
 
 
 """subscription root"""
@@ -464,19 +465,19 @@ input vehicle_info_bool_exp {
     business_scope: Int_comparison_exp
     car_rental_price: numeric_comparison_exp
     check_state: Int_comparison_exp
-    create_at: timestamp_comparison_exp
+    create_at: timestamptz_comparison_exp
     create_by: String_comparison_exp
-    delete_at: timestamp_comparison_exp
-    delete_by: timestamp_comparison_exp
+    delete_at: timestamptz_comparison_exp
+    delete_by: timestamptz_comparison_exp
     department_id: String_comparison_exp
     driving_licensee_pic: String_comparison_exp
     enterprise_id: String_comparison_exp
     heavy: numeric_comparison_exp
     id: bigint_comparison_exp
     industry_category: Int_comparison_exp
-    inspection_date: timestamp_comparison_exp
+    inspection_date: timestamptz_comparison_exp
     insurance_company: Int_comparison_exp
-    insurance_date: timestamp_comparison_exp
+    insurance_date: timestamptz_comparison_exp
     is_active: Boolean_comparison_exp
     is_apply_install_terminal: Boolean_comparison_exp
     is_complete: Boolean_comparison_exp
@@ -494,17 +495,17 @@ input vehicle_info_bool_exp {
     operating_vehicle_id: bigint_comparison_exp
     owner: String_comparison_exp
     quasi_driving_models: Int_comparison_exp
-    record_at: timestamp_comparison_exp
+    record_at: timestamptz_comparison_exp
     record_by: String_comparison_exp
     remark_in: String_comparison_exp
     remarks: String_comparison_exp
-    retirement_date: timestamp_comparison_exp
+    retirement_date: timestamptz_comparison_exp
     road_transport_license_number: String_comparison_exp
     seats: Int_comparison_exp
     terminal_id: String_comparison_exp
-    update_at: timestamp_comparison_exp
+    update_at: timestamptz_comparison_exp
     update_by: String_comparison_exp
-    update_time_in: timestamp_comparison_exp
+    update_time_in: timestamptz_comparison_exp
     use_nature: String_comparison_exp
     vehicle_brand: Int_comparison_exp
     vehicle_displacement: String_comparison_exp
@@ -557,15 +558,15 @@ input vehicle_info_insert_input {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: timestamptz
+#    create_at: timestamptz
+#    create_by: String
+#    delete_at: timestamptz
+#    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
-    id: bigint
+#    id: bigint
     industry_category: Int
     inspection_date: timestamptz
     insurance_company: Int
@@ -595,13 +596,13 @@ input vehicle_info_insert_input {
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamptz
-    update_by: String
+#    update_at: timestamptz
+#    update_by: String
     update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
-    vehicle_id: String
+#    vehicle_id: String
     vehicle_identification_number: String
     vehicle_maintenances: _jsonb
     vehicle_manager: String

@@ -8,7 +8,6 @@ import (
 	"VehicleSupervision/internal/modules/area/mutation/graph/generated"
 	"VehicleSupervision/internal/modules/area/mutation/graph/model"
 	"VehicleSupervision/pkg/graphql/util"
-	"VehicleSupervision/pkg/xid"
 	"context"
 	"errors"
 	"fmt"
@@ -139,12 +138,8 @@ func (r *mutationResolver) DeleteProvinceByPk(ctx context.Context, id int64) (*m
 }
 
 func (r *mutationResolver) InsertCity(ctx context.Context, objects []*model.CityInsertInput, onConflict *model.CityOnConflict) (*model.CityMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.CityID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.City{}).Save(objects)
+	rs := r.batchCityInsertParamConvert(objects)
+	tx := db.DB.Model(&model.City{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -153,20 +148,25 @@ func (r *mutationResolver) InsertCity(ctx context.Context, objects []*model.City
 	}
 	return &model.CityMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertCityOne(ctx context.Context, object model.CityInsertInput, onConflict *model.CityOnConflict) (*model.City, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertCityParamConvert(&object)
+	tx := db.DB.Model(&model.City{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) InsertDistrict(ctx context.Context, objects []*model.DistrictInsertInput, onConflict *model.DistrictOnConflict) (*model.DistrictMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.DistrictID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.City{}).Save(objects)
+	rs := r.batchDistrictInsertParamConvert(objects)
+	tx := db.DB.Model(&model.City{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -175,20 +175,25 @@ func (r *mutationResolver) InsertDistrict(ctx context.Context, objects []*model.
 	}
 	return &model.DistrictMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertDistrictOne(ctx context.Context, object model.DistrictInsertInput, onConflict *model.DistrictOnConflict) (*model.District, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertDistrictParamConvert(&object)
+	tx := db.DB.Model(&model.District{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) InsertProvince(ctx context.Context, objects []*model.ProvinceInsertInput, onConflict *model.ProvinceOnConflict) (*model.ProvinceMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.ProvinceID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.City{}).Save(objects)
+	rs := r.batchProvinceInsertParamConvert(objects)
+	tx := db.DB.Model(&model.City{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -197,11 +202,20 @@ func (r *mutationResolver) InsertProvince(ctx context.Context, objects []*model.
 	}
 	return &model.ProvinceMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertProvinceOne(ctx context.Context, object model.ProvinceInsertInput, onConflict *model.ProvinceOnConflict) (*model.Province, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertProvinceParamConvert(&object)
+	tx := db.DB.Model(&model.Province{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) UpdateCity(ctx context.Context, inc *model.CityIncInput, set *model.CitySetInput, where model.CityBoolExp) (*model.CityMutationResponse, error) {

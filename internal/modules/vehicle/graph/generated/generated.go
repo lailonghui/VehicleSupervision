@@ -21371,7 +21371,6 @@ extend type Subscription {
 scalar _jsonb
 scalar bigint
 scalar numeric
-scalar timestamp
 scalar timestamptz
 
 """
@@ -21509,22 +21508,9 @@ input String_comparison_exp {
     _similar: String
 }
 
-
-"""
-expression to compare columns of type timestamp. All fields are combined with logical 'AND'.
-"""
-input timestamp_comparison_exp {
-    _eq: timestamp
-    _gt: timestamp
-    _gte: timestamp
-    _in: [timestamp!]
-    _is_null: Boolean
-    _lt: timestamp
-    _lte: timestamp
-    _neq: timestamp
-    _nin: [timestamp!]
-}`, BuiltIn: false},
+`, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_info.graphqls", Input: `
+
 """mutation root"""
 type Mutation {
     """
@@ -21596,6 +21582,7 @@ type Mutation {
 }
 
 
+
 """query root"""
 type Query {
     """
@@ -21647,7 +21634,6 @@ type Query {
         vehicle_id: String!
     ): vehicle_info
 }
-
 
 
 """subscription root"""
@@ -21722,16 +21708,16 @@ type vehicle_info {
     check_state: Int
 
     """创建时间"""
-    create_at: timestamp!
+    create_at: timestamptz!
 
     """创建人,"""
     create_by: String!
 
     """删除时间"""
-    delete_at: timestamp
+    delete_at: timestamptz
 
     """删除人"""
-    delete_by: timestamp
+    delete_by: timestamptz
 
     """所在部门id,department 部门信息表"""
     department_id: String
@@ -21752,13 +21738,13 @@ type vehicle_info {
     industry_category: Int
 
     """检验日期（六合一）"""
-    inspection_date: timestamp
+    inspection_date: timestamptz
 
     """投保公司"""
     insurance_company: Int
 
     """投保日期"""
-    insurance_date: timestamp
+    insurance_date: timestamptz
 
     """是否激活"""
     is_active: Boolean
@@ -21791,7 +21777,7 @@ type vehicle_info {
     license_plate_type: Int
 
     """muck_truck _info 渣土车信息表的id"""
-    muck_truck_id: bigint!
+    muck_truck_id: bigint
 
     """营运线路"""
     operating_route: String
@@ -21803,7 +21789,7 @@ type vehicle_info {
     operating_type: Int
 
     """operating_vehi cle_ info 营运车信息表的id"""
-    operating_vehicle_id: bigint!
+    operating_vehicle_id: bigint
 
     """机动车所有人（六合一）"""
     owner: String
@@ -21812,7 +21798,7 @@ type vehicle_info {
     quasi_driving_models: Int
 
     """登记时间"""
-    record_at: timestamp
+    record_at: timestamptz
 
     """登记人,system_user表的user_id"""
     record_by: String
@@ -21824,7 +21810,7 @@ type vehicle_info {
     remarks: String
 
     """报废日期（六合一）"""
-    retirement_date: timestamp
+    retirement_date: timestamptz
 
     """
     道路运输证号
@@ -21840,13 +21826,13 @@ type vehicle_info {
     terminal_id: String
 
     """修改时间"""
-    update_at: timestamp
+    update_at: timestamptz
 
     """修改人"""
     update_by: String
 
     """内网更新时间"""
-    update_time_in: timestamp
+    update_time_in: timestamptz
 
     """使用性质（六合一）"""
     use_nature: String
@@ -21990,19 +21976,19 @@ input vehicle_info_bool_exp {
     business_scope: Int_comparison_exp
     car_rental_price: numeric_comparison_exp
     check_state: Int_comparison_exp
-    create_at: timestamp_comparison_exp
+    create_at: timestamptz_comparison_exp
     create_by: String_comparison_exp
-    delete_at: timestamp_comparison_exp
-    delete_by: timestamp_comparison_exp
+    delete_at: timestamptz_comparison_exp
+    delete_by: timestamptz_comparison_exp
     department_id: String_comparison_exp
     driving_licensee_pic: String_comparison_exp
     enterprise_id: String_comparison_exp
     heavy: numeric_comparison_exp
     id: bigint_comparison_exp
     industry_category: Int_comparison_exp
-    inspection_date: timestamp_comparison_exp
+    inspection_date: timestamptz_comparison_exp
     insurance_company: Int_comparison_exp
-    insurance_date: timestamp_comparison_exp
+    insurance_date: timestamptz_comparison_exp
     is_active: Boolean_comparison_exp
     is_apply_install_terminal: Boolean_comparison_exp
     is_complete: Boolean_comparison_exp
@@ -22020,17 +22006,17 @@ input vehicle_info_bool_exp {
     operating_vehicle_id: bigint_comparison_exp
     owner: String_comparison_exp
     quasi_driving_models: Int_comparison_exp
-    record_at: timestamp_comparison_exp
+    record_at: timestamptz_comparison_exp
     record_by: String_comparison_exp
     remark_in: String_comparison_exp
     remarks: String_comparison_exp
-    retirement_date: timestamp_comparison_exp
+    retirement_date: timestamptz_comparison_exp
     road_transport_license_number: String_comparison_exp
     seats: Int_comparison_exp
     terminal_id: String_comparison_exp
-    update_at: timestamp_comparison_exp
+    update_at: timestamptz_comparison_exp
     update_by: String_comparison_exp
-    update_time_in: timestamp_comparison_exp
+    update_time_in: timestamptz_comparison_exp
     use_nature: String_comparison_exp
     vehicle_brand: Int_comparison_exp
     vehicle_displacement: String_comparison_exp
@@ -22083,19 +22069,19 @@ input vehicle_info_insert_input {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
-    create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+#    create_at: timestamptz
+#    create_by: String
+#    delete_at: timestamptz
+#    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
-    id: bigint
+#    id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     is_active: Boolean
     is_apply_install_terminal: Boolean
     is_complete: Boolean
@@ -22113,21 +22099,21 @@ input vehicle_info_insert_input {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
-    update_by: String
-    update_time_in: timestamp
+#    update_at: timestamptz
+#    update_by: String
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
-    vehicle_id: String
+#    vehicle_id: String
     vehicle_identification_number: String
     vehicle_maintenances: _jsonb
     vehicle_manager: String
@@ -22142,19 +22128,19 @@ type vehicle_info_max_fields {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     license_plate_color: Int
     license_plate_number: String
     license_plate_type: Int
@@ -22165,17 +22151,17 @@ type vehicle_info_max_fields {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -22246,19 +22232,19 @@ type vehicle_info_min_fields {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     license_plate_color: Int
     license_plate_number: String
     license_plate_type: Int
@@ -22269,17 +22255,17 @@ type vehicle_info_min_fields {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -22622,19 +22608,19 @@ input vehicle_info_set_input {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     is_active: Boolean
     is_apply_install_terminal: Boolean
     is_complete: Boolean
@@ -22652,17 +22638,17 @@ input vehicle_info_set_input {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -23241,6 +23227,7 @@ extend type Mutation {
 }
 
 
+
 extend type Query {
     """
     fetch data from the table: "vehicle_info_change_log"
@@ -23369,16 +23356,16 @@ type vehicle_info_change_log {
     check_state: Int
 
     """创建时间"""
-    create_at: timestamp!
+    create_at: timestamptz!
 
     """创建人,"""
     create_by: String!
 
     """删除时间"""
-    delete_at: timestamp
+    delete_at: timestamptz
 
     """删除人"""
-    delete_by: timestamp
+    delete_by: timestamptz
 
     """所在部门id,department 部门信息表"""
     department_id: String
@@ -23399,13 +23386,13 @@ type vehicle_info_change_log {
     industry_category: Int
 
     """检验日期（六合一）"""
-    inspection_date: timestamp
+    inspection_date: timestamptz
 
     """投保公司"""
     insurance_company: Int
 
     """投保日期"""
-    insurance_date: timestamp
+    insurance_date: timestamptz
 
     """是否激活"""
     is_active: Boolean
@@ -23459,7 +23446,7 @@ type vehicle_info_change_log {
     quasi_driving_models: Int
 
     """登记时间"""
-    record_at: timestamp
+    record_at: timestamptz
 
     """登记人,system_user表的user_id"""
     record_by: String
@@ -23471,7 +23458,7 @@ type vehicle_info_change_log {
     remarks: String
 
     """报废日期（六合一）"""
-    retirement_date: timestamp
+    retirement_date: timestamptz
 
     """
     道路运输证号
@@ -23487,13 +23474,13 @@ type vehicle_info_change_log {
     terminal_id: String
 
     """修改时间"""
-    update_at: timestamp
+    update_at: timestamptz
 
     """修改人"""
     update_by: String
 
     """内网更新时间"""
-    update_time_in: timestamp
+    update_time_in: timestamptz
 
     """使用性质（六合一）"""
     use_nature: String
@@ -23637,19 +23624,19 @@ input vehicle_info_change_log_bool_exp {
     business_scope: Int_comparison_exp
     car_rental_price: numeric_comparison_exp
     check_state: Int_comparison_exp
-    create_at: timestamp_comparison_exp
+    create_at: timestamptz_comparison_exp
     create_by: String_comparison_exp
-    delete_at: timestamp_comparison_exp
-    delete_by: timestamp_comparison_exp
+    delete_at: timestamptz_comparison_exp
+    delete_by: timestamptz_comparison_exp
     department_id: String_comparison_exp
     driving_licensee_pic: String_comparison_exp
     enterprise_id: String_comparison_exp
     heavy: numeric_comparison_exp
     id: bigint_comparison_exp
     industry_category: Int_comparison_exp
-    inspection_date: timestamp_comparison_exp
+    inspection_date: timestamptz_comparison_exp
     insurance_company: Int_comparison_exp
-    insurance_date: timestamp_comparison_exp
+    insurance_date: timestamptz_comparison_exp
     is_active: Boolean_comparison_exp
     is_apply_install_terminal: Boolean_comparison_exp
     is_complete: Boolean_comparison_exp
@@ -23667,17 +23654,17 @@ input vehicle_info_change_log_bool_exp {
     operating_vehicle_id: bigint_comparison_exp
     owner: String_comparison_exp
     quasi_driving_models: Int_comparison_exp
-    record_at: timestamp_comparison_exp
+    record_at: timestamptz_comparison_exp
     record_by: String_comparison_exp
     remark_in: String_comparison_exp
     remarks: String_comparison_exp
-    retirement_date: timestamp_comparison_exp
+    retirement_date: timestamptz_comparison_exp
     road_transport_license_number: String_comparison_exp
     seats: Int_comparison_exp
     terminal_id: String_comparison_exp
-    update_at: timestamp_comparison_exp
+    update_at: timestamptz_comparison_exp
     update_by: String_comparison_exp
-    update_time_in: timestamp_comparison_exp
+    update_time_in: timestamptz_comparison_exp
     use_nature: String_comparison_exp
     vehicle_brand: Int_comparison_exp
     vehicle_displacement: String_comparison_exp
@@ -23730,19 +23717,19 @@ input vehicle_info_change_log_insert_input {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     is_active: Boolean
     is_apply_install_terminal: Boolean
     is_complete: Boolean
@@ -23760,17 +23747,17 @@ input vehicle_info_change_log_insert_input {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -23789,19 +23776,19 @@ type vehicle_info_change_log_max_fields {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     license_plate_color: Int
     license_plate_number: String
     license_plate_type: Int
@@ -23812,17 +23799,17 @@ type vehicle_info_change_log_max_fields {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -23893,19 +23880,19 @@ type vehicle_info_change_log_min_fields {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     license_plate_color: Int
     license_plate_number: String
     license_plate_type: Int
@@ -23916,17 +23903,17 @@ type vehicle_info_change_log_min_fields {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -24269,19 +24256,19 @@ input vehicle_info_change_log_set_input {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     is_active: Boolean
     is_apply_install_terminal: Boolean
     is_complete: Boolean
@@ -24299,17 +24286,17 @@ input vehicle_info_change_log_set_input {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -63981,9 +63968,9 @@ func (ec *executionContext) _vehicle_info_create_at(ctx context.Context, field g
 		}
 		return graphql.Null
 	}
-	res := resTmp.(string)
+	res := resTmp.(time.Time)
 	fc.Result = res
-	return ec.marshalNtimestamp2string(ctx, field.Selections, res)
+	return ec.marshalNtimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -64048,9 +64035,9 @@ func (ec *executionContext) _vehicle_info_delete_at(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -64080,9 +64067,9 @@ func (ec *executionContext) _vehicle_info_delete_by(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_department_id(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -64307,9 +64294,9 @@ func (ec *executionContext) _vehicle_info_inspection_date(ctx context.Context, f
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_insurance_company(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -64371,9 +64358,9 @@ func (ec *executionContext) _vehicle_info_insurance_date(ctx context.Context, fi
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_is_active(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -64721,14 +64708,11 @@ func (ec *executionContext) _vehicle_info_muck_truck_id(ctx context.Context, fie
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
-	res := resTmp.(int64)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalNbigint2int64(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_operating_route(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -64852,14 +64836,11 @@ func (ec *executionContext) _vehicle_info_operating_vehicle_id(ctx context.Conte
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
-	res := resTmp.(int64)
+	res := resTmp.(*int64)
 	fc.Result = res
-	return ec.marshalNbigint2int64(ctx, field.Selections, res)
+	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_owner(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -64953,9 +64934,9 @@ func (ec *executionContext) _vehicle_info_record_at(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_record_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -65081,9 +65062,9 @@ func (ec *executionContext) _vehicle_info_retirement_date(ctx context.Context, f
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_road_transport_license_number(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -65209,9 +65190,9 @@ func (ec *executionContext) _vehicle_info_update_at(ctx context.Context, field g
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -65273,9 +65254,9 @@ func (ec *executionContext) _vehicle_info_update_time_in(ctx context.Context, fi
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_use_nature(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfo) (ret graphql.Marshaler) {
@@ -66761,9 +66742,9 @@ func (ec *executionContext) _vehicle_info_change_log_create_at(ctx context.Conte
 		}
 		return graphql.Null
 	}
-	res := resTmp.(string)
+	res := resTmp.(time.Time)
 	fc.Result = res
-	return ec.marshalNtimestamp2string(ctx, field.Selections, res)
+	return ec.marshalNtimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLog) (ret graphql.Marshaler) {
@@ -66828,9 +66809,9 @@ func (ec *executionContext) _vehicle_info_change_log_delete_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLog) (ret graphql.Marshaler) {
@@ -66860,9 +66841,9 @@ func (ec *executionContext) _vehicle_info_change_log_delete_by(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_department_id(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLog) (ret graphql.Marshaler) {
@@ -67087,9 +67068,9 @@ func (ec *executionContext) _vehicle_info_change_log_inspection_date(ctx context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_insurance_company(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLog) (ret graphql.Marshaler) {
@@ -67151,9 +67132,9 @@ func (ec *executionContext) _vehicle_info_change_log_insurance_date(ctx context.
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_is_active(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLog) (ret graphql.Marshaler) {
@@ -67733,9 +67714,9 @@ func (ec *executionContext) _vehicle_info_change_log_record_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_record_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLog) (ret graphql.Marshaler) {
@@ -67861,9 +67842,9 @@ func (ec *executionContext) _vehicle_info_change_log_retirement_date(ctx context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_road_transport_license_number(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLog) (ret graphql.Marshaler) {
@@ -67989,9 +67970,9 @@ func (ec *executionContext) _vehicle_info_change_log_update_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLog) (ret graphql.Marshaler) {
@@ -68053,9 +68034,9 @@ func (ec *executionContext) _vehicle_info_change_log_update_time_in(ctx context.
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_use_nature(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLog) (ret graphql.Marshaler) {
@@ -69538,9 +69519,9 @@ func (ec *executionContext) _vehicle_info_change_log_max_fields_create_at(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMaxFields) (ret graphql.Marshaler) {
@@ -69602,9 +69583,9 @@ func (ec *executionContext) _vehicle_info_change_log_max_fields_delete_at(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMaxFields) (ret graphql.Marshaler) {
@@ -69634,9 +69615,9 @@ func (ec *executionContext) _vehicle_info_change_log_max_fields_delete_by(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_max_fields_department_id(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMaxFields) (ret graphql.Marshaler) {
@@ -69858,9 +69839,9 @@ func (ec *executionContext) _vehicle_info_change_log_max_fields_inspection_date(
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_max_fields_insurance_company(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMaxFields) (ret graphql.Marshaler) {
@@ -69922,9 +69903,9 @@ func (ec *executionContext) _vehicle_info_change_log_max_fields_insurance_date(c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_max_fields_license_plate_color(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMaxFields) (ret graphql.Marshaler) {
@@ -70274,9 +70255,9 @@ func (ec *executionContext) _vehicle_info_change_log_max_fields_record_at(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_max_fields_record_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMaxFields) (ret graphql.Marshaler) {
@@ -70402,9 +70383,9 @@ func (ec *executionContext) _vehicle_info_change_log_max_fields_retirement_date(
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_max_fields_road_transport_license_number(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMaxFields) (ret graphql.Marshaler) {
@@ -70530,9 +70511,9 @@ func (ec *executionContext) _vehicle_info_change_log_max_fields_update_at(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMaxFields) (ret graphql.Marshaler) {
@@ -70594,9 +70575,9 @@ func (ec *executionContext) _vehicle_info_change_log_max_fields_update_time_in(c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_max_fields_use_nature(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMaxFields) (ret graphql.Marshaler) {
@@ -71042,9 +71023,9 @@ func (ec *executionContext) _vehicle_info_change_log_min_fields_create_at(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMinFields) (ret graphql.Marshaler) {
@@ -71106,9 +71087,9 @@ func (ec *executionContext) _vehicle_info_change_log_min_fields_delete_at(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMinFields) (ret graphql.Marshaler) {
@@ -71138,9 +71119,9 @@ func (ec *executionContext) _vehicle_info_change_log_min_fields_delete_by(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_min_fields_department_id(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMinFields) (ret graphql.Marshaler) {
@@ -71362,9 +71343,9 @@ func (ec *executionContext) _vehicle_info_change_log_min_fields_inspection_date(
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_min_fields_insurance_company(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMinFields) (ret graphql.Marshaler) {
@@ -71426,9 +71407,9 @@ func (ec *executionContext) _vehicle_info_change_log_min_fields_insurance_date(c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_min_fields_license_plate_color(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMinFields) (ret graphql.Marshaler) {
@@ -71778,9 +71759,9 @@ func (ec *executionContext) _vehicle_info_change_log_min_fields_record_at(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_min_fields_record_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMinFields) (ret graphql.Marshaler) {
@@ -71906,9 +71887,9 @@ func (ec *executionContext) _vehicle_info_change_log_min_fields_retirement_date(
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_min_fields_road_transport_license_number(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMinFields) (ret graphql.Marshaler) {
@@ -72034,9 +72015,9 @@ func (ec *executionContext) _vehicle_info_change_log_min_fields_update_at(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMinFields) (ret graphql.Marshaler) {
@@ -72098,9 +72079,9 @@ func (ec *executionContext) _vehicle_info_change_log_min_fields_update_time_in(c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_change_log_min_fields_use_nature(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoChangeLogMinFields) (ret graphql.Marshaler) {
@@ -76648,9 +76629,9 @@ func (ec *executionContext) _vehicle_info_max_fields_create_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMaxFields) (ret graphql.Marshaler) {
@@ -76712,9 +76693,9 @@ func (ec *executionContext) _vehicle_info_max_fields_delete_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMaxFields) (ret graphql.Marshaler) {
@@ -76744,9 +76725,9 @@ func (ec *executionContext) _vehicle_info_max_fields_delete_by(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_max_fields_department_id(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMaxFields) (ret graphql.Marshaler) {
@@ -76968,9 +76949,9 @@ func (ec *executionContext) _vehicle_info_max_fields_inspection_date(ctx context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_max_fields_insurance_company(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMaxFields) (ret graphql.Marshaler) {
@@ -77032,9 +77013,9 @@ func (ec *executionContext) _vehicle_info_max_fields_insurance_date(ctx context.
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_max_fields_license_plate_color(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMaxFields) (ret graphql.Marshaler) {
@@ -77384,9 +77365,9 @@ func (ec *executionContext) _vehicle_info_max_fields_record_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_max_fields_record_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMaxFields) (ret graphql.Marshaler) {
@@ -77512,9 +77493,9 @@ func (ec *executionContext) _vehicle_info_max_fields_retirement_date(ctx context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_max_fields_road_transport_license_number(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMaxFields) (ret graphql.Marshaler) {
@@ -77640,9 +77621,9 @@ func (ec *executionContext) _vehicle_info_max_fields_update_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMaxFields) (ret graphql.Marshaler) {
@@ -77704,9 +77685,9 @@ func (ec *executionContext) _vehicle_info_max_fields_update_time_in(ctx context.
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_max_fields_use_nature(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMaxFields) (ret graphql.Marshaler) {
@@ -78152,9 +78133,9 @@ func (ec *executionContext) _vehicle_info_min_fields_create_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMinFields) (ret graphql.Marshaler) {
@@ -78216,9 +78197,9 @@ func (ec *executionContext) _vehicle_info_min_fields_delete_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMinFields) (ret graphql.Marshaler) {
@@ -78248,9 +78229,9 @@ func (ec *executionContext) _vehicle_info_min_fields_delete_by(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_min_fields_department_id(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMinFields) (ret graphql.Marshaler) {
@@ -78472,9 +78453,9 @@ func (ec *executionContext) _vehicle_info_min_fields_inspection_date(ctx context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_min_fields_insurance_company(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMinFields) (ret graphql.Marshaler) {
@@ -78536,9 +78517,9 @@ func (ec *executionContext) _vehicle_info_min_fields_insurance_date(ctx context.
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_min_fields_license_plate_color(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMinFields) (ret graphql.Marshaler) {
@@ -78888,9 +78869,9 @@ func (ec *executionContext) _vehicle_info_min_fields_record_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_min_fields_record_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMinFields) (ret graphql.Marshaler) {
@@ -79016,9 +78997,9 @@ func (ec *executionContext) _vehicle_info_min_fields_retirement_date(ctx context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_min_fields_road_transport_license_number(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMinFields) (ret graphql.Marshaler) {
@@ -79144,9 +79125,9 @@ func (ec *executionContext) _vehicle_info_min_fields_update_at(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMinFields) (ret graphql.Marshaler) {
@@ -79208,9 +79189,9 @@ func (ec *executionContext) _vehicle_info_min_fields_update_time_in(ctx context.
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOtimestamp2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _vehicle_info_min_fields_use_nature(ctx context.Context, field graphql.CollectedField, obj *model.VehicleInfoMinFields) (ret graphql.Marshaler) {
@@ -100384,90 +100365,6 @@ func (ec *executionContext) unmarshalInputowner_info_variance_order_by(ctx conte
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputtimestamp_comparison_exp(ctx context.Context, obj interface{}) (model.TimestampComparisonExp, error) {
-	var it model.TimestampComparisonExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_eq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
-			it.Eq, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
-			it.Gt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
-			it.Gte, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_in":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
-			it.In, err = ec.unmarshalOtimestamp2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_is_null":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
-			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
-			it.Lt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
-			it.Lte, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_neq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
-			it.Neq, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_nin":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
-			it.Nin, err = ec.unmarshalOtimestamp2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
 func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context.Context, obj interface{}) (model1.TimestamptzComparisonExp, error) {
 	var it model1.TimestamptzComparisonExp
 	var asMap = obj.(map[string]interface{})
@@ -100894,7 +100791,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_bool_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.CreateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -100910,7 +100807,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_bool_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.DeleteAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -100918,7 +100815,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_bool_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.DeleteBy, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -100974,7 +100871,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_bool_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("inspection_date"))
-			it.InspectionDate, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.InspectionDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -100990,7 +100887,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_bool_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("insurance_date"))
-			it.InsuranceDate, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.InsuranceDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101134,7 +101031,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_bool_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.RecordAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101166,7 +101063,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_bool_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("retirement_date"))
-			it.RetirementDate, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.RetirementDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101198,7 +101095,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_bool_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.UpdateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101214,7 +101111,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_bool_exp(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101654,7 +101551,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_bool_exp(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.CreateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101670,7 +101567,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_bool_exp(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.DeleteAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101678,7 +101575,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_bool_exp(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.DeleteBy, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101734,7 +101631,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_bool_exp(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("inspection_date"))
-			it.InspectionDate, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.InspectionDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101750,7 +101647,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_bool_exp(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("insurance_date"))
-			it.InsuranceDate, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.InsuranceDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101894,7 +101791,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_bool_exp(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.RecordAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101926,7 +101823,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_bool_exp(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("retirement_date"))
-			it.RetirementDate, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.RetirementDate, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101958,7 +101855,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_bool_exp(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.UpdateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -101974,7 +101871,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_bool_exp(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -102262,7 +102159,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_insert_input(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -102278,7 +102175,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_insert_input(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -102286,7 +102183,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_insert_input(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.DeleteBy, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -102342,7 +102239,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_insert_input(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("inspection_date"))
-			it.InspectionDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.InspectionDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -102358,7 +102255,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_insert_input(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("insurance_date"))
-			it.InsuranceDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.InsuranceDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -102502,7 +102399,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_insert_input(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.RecordAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -102534,7 +102431,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_insert_input(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("retirement_date"))
-			it.RetirementDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.RetirementDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -102566,7 +102463,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_insert_input(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -102582,7 +102479,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_insert_input(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -104034,7 +103931,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_set_input(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -104050,7 +103947,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_set_input(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -104058,7 +103955,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_set_input(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.DeleteBy, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -104114,7 +104011,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_set_input(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("inspection_date"))
-			it.InspectionDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.InspectionDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -104130,7 +104027,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_set_input(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("insurance_date"))
-			it.InsuranceDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.InsuranceDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -104274,7 +104171,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_set_input(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.RecordAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -104306,7 +104203,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_set_input(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("retirement_date"))
-			it.RetirementDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.RetirementDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -104338,7 +104235,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_set_input(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -104354,7 +104251,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_change_log_set_input(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -105730,38 +105627,6 @@ func (ec *executionContext) unmarshalInputvehicle_info_insert_input(ctx context.
 			if err != nil {
 				return it, err
 			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "department_id":
 			var err error
 
@@ -105794,14 +105659,6 @@ func (ec *executionContext) unmarshalInputvehicle_info_insert_input(ctx context.
 			if err != nil {
 				return it, err
 			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "industry_category":
 			var err error
 
@@ -105814,7 +105671,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_insert_input(ctx context.
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("inspection_date"))
-			it.InspectionDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.InspectionDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -105830,7 +105687,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_insert_input(ctx context.
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("insurance_date"))
-			it.InsuranceDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.InsuranceDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -105974,7 +105831,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_insert_input(ctx context.
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.RecordAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -106006,7 +105863,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_insert_input(ctx context.
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("retirement_date"))
-			it.RetirementDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.RetirementDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -106034,27 +105891,11 @@ func (ec *executionContext) unmarshalInputvehicle_info_insert_input(ctx context.
 			if err != nil {
 				return it, err
 			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "update_time_in":
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -106079,14 +105920,6 @@ func (ec *executionContext) unmarshalInputvehicle_info_insert_input(ctx context.
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_displacement"))
 			it.VehicleDisplacement, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -107506,7 +107339,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_set_input(ctx context.Con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -107522,7 +107355,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_set_input(ctx context.Con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -107530,7 +107363,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_set_input(ctx context.Con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.DeleteBy, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -107586,7 +107419,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_set_input(ctx context.Con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("inspection_date"))
-			it.InspectionDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.InspectionDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -107602,7 +107435,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_set_input(ctx context.Con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("insurance_date"))
-			it.InsuranceDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.InsuranceDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -107746,7 +107579,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_set_input(ctx context.Con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_at"))
-			it.RecordAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.RecordAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -107778,7 +107611,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_set_input(ctx context.Con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("retirement_date"))
-			it.RetirementDate, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.RetirementDate, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -107810,7 +107643,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_set_input(ctx context.Con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -107826,7 +107659,7 @@ func (ec *executionContext) unmarshalInputvehicle_info_set_input(ctx context.Con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_time_in"))
-			it.UpdateTimeIn, err = ec.unmarshalOtimestamp2ᚖstring(ctx, v)
+			it.UpdateTimeIn, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -115209,9 +115042,6 @@ func (ec *executionContext) _vehicle_info(ctx context.Context, sel ast.Selection
 			out.Values[i] = ec._vehicle_info_license_plate_type(ctx, field, obj)
 		case "muck_truck_id":
 			out.Values[i] = ec._vehicle_info_muck_truck_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "operating_route":
 			out.Values[i] = ec._vehicle_info_operating_route(ctx, field, obj)
 		case "operating_state":
@@ -115220,9 +115050,6 @@ func (ec *executionContext) _vehicle_info(ctx context.Context, sel ast.Selection
 			out.Values[i] = ec._vehicle_info_operating_type(ctx, field, obj)
 		case "operating_vehicle_id":
 			out.Values[i] = ec._vehicle_info_operating_vehicle_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
 		case "owner":
 			out.Values[i] = ec._vehicle_info_owner(ctx, field, obj)
 		case "quasi_driving_models":
@@ -119191,21 +119018,6 @@ func (ec *executionContext) marshalNowner_info_update_column2ᚕVehicleSupervisi
 	return ret
 }
 
-func (ec *executionContext) unmarshalNtimestamp2string(ctx context.Context, v interface{}) (string, error) {
-	res, err := graphql.UnmarshalString(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNtimestamp2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
-	res := graphql.MarshalString(v)
-	if res == graphql.Null {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-	}
-	return res
-}
-
 func (ec *executionContext) unmarshalNtimestamptz2timeᚐTime(ctx context.Context, v interface{}) (time.Time, error) {
 	res, err := scalar.UnmarshalTimestamptz(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -122606,65 +122418,6 @@ func (ec *executionContext) unmarshalOowner_info_variance_order_by2ᚖVehicleSup
 		return nil, nil
 	}
 	res, err := ec.unmarshalInputowner_info_variance_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalOtimestamp2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]string, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNtimestamp2string(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalOtimestamp2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	for i := range v {
-		ret[i] = ec.marshalNtimestamp2string(ctx, sel, v[i])
-	}
-
-	return ret
-}
-
-func (ec *executionContext) unmarshalOtimestamp2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := graphql.UnmarshalString(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOtimestamp2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return graphql.MarshalString(*v)
-}
-
-func (ec *executionContext) unmarshalOtimestamp_comparison_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicleᚋgraphᚋmodelᚐTimestampComparisonExp(ctx context.Context, v interface{}) (*model.TimestampComparisonExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputtimestamp_comparison_exp(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 

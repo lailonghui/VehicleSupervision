@@ -6,6 +6,8 @@
 */
 package model
 
+import "time"
+
 // 车辆信息变更日志表
 //
 //
@@ -18,13 +20,13 @@ type VehicleInfoChangeLog struct {
 	// 校验状态
 	CheckState *int `json:"check_state"`
 	// 创建时间
-	CreateAt string `json:"create_at"`
+	CreateAt time.Time `json:"create_at"`
 	// 创建人,
 	CreateBy string `json:"create_by"`
 	// 删除时间
-	DeleteAt *string `json:"delete_at"`
+	DeleteAt *time.Time `json:"delete_at"`
 	// 删除人
-	DeleteBy *string `json:"delete_by"`
+	DeleteBy *time.Time `json:"delete_by"`
 	// 所在部门id,department 部门信息表
 	DepartmentID *string `json:"department_id"`
 	// 行驶证照片,云储存系统返回的路径
@@ -38,11 +40,11 @@ type VehicleInfoChangeLog struct {
 	// 行业类别字典
 	IndustryCategory *int `json:"industry_category"`
 	// 检验日期（六合一）
-	InspectionDate *string `json:"inspection_date"`
+	InspectionDate *time.Time `json:"inspection_date"`
 	// 投保公司
 	InsuranceCompany *int `json:"insurance_company"`
 	// 投保日期
-	InsuranceDate *string `json:"insurance_date"`
+	InsuranceDate *time.Time `json:"insurance_date"`
 	// 是否激活
 	IsActive *bool `json:"is_active"`
 	// 是否申请安装智能终端
@@ -78,7 +80,7 @@ type VehicleInfoChangeLog struct {
 	// 准驾车型
 	QuasiDrivingModels *int `json:"quasi_driving_models"`
 	// 登记时间
-	RecordAt *string `json:"record_at"`
+	RecordAt *time.Time `json:"record_at"`
 	// 登记人,system_user表的user_id
 	RecordBy *string `json:"record_by"`
 	// 车辆信息同步内网反馈信息;车辆信息同步到公安内网后内网的反馈内容，如车牌号填写错误会反馈车辆号牌错误
@@ -86,7 +88,7 @@ type VehicleInfoChangeLog struct {
 	// 备注
 	Remarks *string `json:"remarks"`
 	// 报废日期（六合一）
-	RetirementDate *string `json:"retirement_date"`
+	RetirementDate *time.Time `json:"retirement_date"`
 	// 道路运输证号
 	RoadTransportLicenseNumber *string `json:"road_transport_license_number"`
 	// 座位
@@ -94,11 +96,11 @@ type VehicleInfoChangeLog struct {
 	// 终端ID
 	TerminalID *string `json:"terminal_id"`
 	// 修改时间
-	UpdateAt *string `json:"update_at"`
+	UpdateAt *time.Time `json:"update_at"`
 	// 修改人
 	UpdateBy *string `json:"update_by"`
 	// 内网更新时间
-	UpdateTimeIn *string `json:"update_time_in"`
+	UpdateTimeIn *time.Time `json:"update_time_in"`
 	// 使用性质（六合一）
 	UseNature *string `json:"use_nature"`
 	// 车辆品牌

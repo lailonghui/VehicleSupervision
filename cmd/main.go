@@ -11,14 +11,13 @@ import (
 var configFile string
 
 func main() {
-
 	resolveCmdParam()
 
 	setup()
 }
 
 // 解析命令行参数
-func resolveCmdParam()  {
+func resolveCmdParam() {
 	flag.StringVar(&configFile, "f", "config/setting.yaml", "配置文件")
 	flag.Parse()
 }

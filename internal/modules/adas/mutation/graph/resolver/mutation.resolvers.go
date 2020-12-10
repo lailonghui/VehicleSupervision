@@ -8,7 +8,6 @@ import (
 	"VehicleSupervision/internal/modules/adas/mutation/graph/generated"
 	"VehicleSupervision/internal/modules/adas/mutation/graph/model"
 	"VehicleSupervision/pkg/graphql/util"
-	"VehicleSupervision/pkg/xid"
 	"context"
 	"errors"
 	"fmt"
@@ -99,12 +98,8 @@ func (r *mutationResolver) DeleteAdasDataByPk(ctx context.Context, id int64) (*m
 }
 
 func (r *mutationResolver) InsertAdasAttachment(ctx context.Context, objects []*model.AdasAttachmentInsertInput, onConflict *model.AdasAttachmentOnConflict) (*model.AdasAttachmentMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.AttachmentID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.AdasAttachment{}).Save(objects)
+	rs := r.batchAdasAttachmentInsertParamConvert(objects)
+	tx := db.DB.Model(&model.AdasAttachment{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -113,20 +108,25 @@ func (r *mutationResolver) InsertAdasAttachment(ctx context.Context, objects []*
 	}
 	return &model.AdasAttachmentMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertAdasAttachmentOne(ctx context.Context, object model.AdasAttachmentInsertInput, onConflict *model.AdasAttachmentOnConflict) (*model.AdasAttachment, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertAdasAttachmentParamConvert(&object)
+	tx := db.DB.Model(&model.AdasAttachment{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) InsertAdasData(ctx context.Context, objects []*model.AdasDataInsertInput, onConflict *model.AdasDataOnConflict) (*model.AdasDataMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.AlarmNo = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.AdasAttachment{}).Save(objects)
+	rs := r.batchAdasDataInsertParamConvert(objects)
+	tx := db.DB.Model(&model.AdasAttachment{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -135,11 +135,20 @@ func (r *mutationResolver) InsertAdasData(ctx context.Context, objects []*model.
 	}
 	return &model.AdasDataMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertAdasDataOne(ctx context.Context, object model.AdasDataInsertInput, onConflict *model.AdasDataOnConflict) (*model.AdasData, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertAdasDataParamConvert(&object)
+	tx := db.DB.Model(&model.AdasAttachment{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) UpdateAdasAttachment(ctx context.Context, inc *model.AdasAttachmentIncInput, set *model.AdasAttachmentSetInput, where model.AdasAttachmentBoolExp) (*model.AdasAttachmentMutationResponse, error) {
