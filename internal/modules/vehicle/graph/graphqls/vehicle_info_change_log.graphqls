@@ -70,6 +70,7 @@ extend type Mutation {
 }
 
 
+
 extend type Query {
     """
     fetch data from the table: "vehicle_info_change_log"
@@ -198,16 +199,16 @@ type vehicle_info_change_log {
     check_state: Int
 
     """创建时间"""
-    create_at: timestamp!
+    create_at: timestamptz!
 
     """创建人,"""
     create_by: String!
 
     """删除时间"""
-    delete_at: timestamp
+    delete_at: timestamptz
 
     """删除人"""
-    delete_by: timestamp
+    delete_by: timestamptz
 
     """所在部门id,department 部门信息表"""
     department_id: String
@@ -228,13 +229,13 @@ type vehicle_info_change_log {
     industry_category: Int
 
     """检验日期（六合一）"""
-    inspection_date: timestamp
+    inspection_date: timestamptz
 
     """投保公司"""
     insurance_company: Int
 
     """投保日期"""
-    insurance_date: timestamp
+    insurance_date: timestamptz
 
     """是否激活"""
     is_active: Boolean
@@ -288,7 +289,7 @@ type vehicle_info_change_log {
     quasi_driving_models: Int
 
     """登记时间"""
-    record_at: timestamp
+    record_at: timestamptz
 
     """登记人,system_user表的user_id"""
     record_by: String
@@ -300,7 +301,7 @@ type vehicle_info_change_log {
     remarks: String
 
     """报废日期（六合一）"""
-    retirement_date: timestamp
+    retirement_date: timestamptz
 
     """
     道路运输证号
@@ -316,13 +317,13 @@ type vehicle_info_change_log {
     terminal_id: String
 
     """修改时间"""
-    update_at: timestamp
+    update_at: timestamptz
 
     """修改人"""
     update_by: String
 
     """内网更新时间"""
-    update_time_in: timestamp
+    update_time_in: timestamptz
 
     """使用性质（六合一）"""
     use_nature: String
@@ -466,19 +467,19 @@ input vehicle_info_change_log_bool_exp {
     business_scope: Int_comparison_exp
     car_rental_price: numeric_comparison_exp
     check_state: Int_comparison_exp
-    create_at: timestamp_comparison_exp
+    create_at: timestamptz_comparison_exp
     create_by: String_comparison_exp
-    delete_at: timestamp_comparison_exp
-    delete_by: timestamp_comparison_exp
+    delete_at: timestamptz_comparison_exp
+    delete_by: timestamptz_comparison_exp
     department_id: String_comparison_exp
     driving_licensee_pic: String_comparison_exp
     enterprise_id: String_comparison_exp
     heavy: numeric_comparison_exp
     id: bigint_comparison_exp
     industry_category: Int_comparison_exp
-    inspection_date: timestamp_comparison_exp
+    inspection_date: timestamptz_comparison_exp
     insurance_company: Int_comparison_exp
-    insurance_date: timestamp_comparison_exp
+    insurance_date: timestamptz_comparison_exp
     is_active: Boolean_comparison_exp
     is_apply_install_terminal: Boolean_comparison_exp
     is_complete: Boolean_comparison_exp
@@ -496,17 +497,17 @@ input vehicle_info_change_log_bool_exp {
     operating_vehicle_id: bigint_comparison_exp
     owner: String_comparison_exp
     quasi_driving_models: Int_comparison_exp
-    record_at: timestamp_comparison_exp
+    record_at: timestamptz_comparison_exp
     record_by: String_comparison_exp
     remark_in: String_comparison_exp
     remarks: String_comparison_exp
-    retirement_date: timestamp_comparison_exp
+    retirement_date: timestamptz_comparison_exp
     road_transport_license_number: String_comparison_exp
     seats: Int_comparison_exp
     terminal_id: String_comparison_exp
-    update_at: timestamp_comparison_exp
+    update_at: timestamptz_comparison_exp
     update_by: String_comparison_exp
-    update_time_in: timestamp_comparison_exp
+    update_time_in: timestamptz_comparison_exp
     use_nature: String_comparison_exp
     vehicle_brand: Int_comparison_exp
     vehicle_displacement: String_comparison_exp
@@ -559,19 +560,19 @@ input vehicle_info_change_log_insert_input {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     is_active: Boolean
     is_apply_install_terminal: Boolean
     is_complete: Boolean
@@ -589,17 +590,17 @@ input vehicle_info_change_log_insert_input {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -618,19 +619,19 @@ type vehicle_info_change_log_max_fields {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     license_plate_color: Int
     license_plate_number: String
     license_plate_type: Int
@@ -641,17 +642,17 @@ type vehicle_info_change_log_max_fields {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -722,19 +723,19 @@ type vehicle_info_change_log_min_fields {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     license_plate_color: Int
     license_plate_number: String
     license_plate_type: Int
@@ -745,17 +746,17 @@ type vehicle_info_change_log_min_fields {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String
@@ -1098,19 +1099,19 @@ input vehicle_info_change_log_set_input {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamp
+    create_at: timestamptz
     create_by: String
-    delete_at: timestamp
-    delete_by: timestamp
+    delete_at: timestamptz
+    delete_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
     heavy: numeric
     id: bigint
     industry_category: Int
-    inspection_date: timestamp
+    inspection_date: timestamptz
     insurance_company: Int
-    insurance_date: timestamp
+    insurance_date: timestamptz
     is_active: Boolean
     is_apply_install_terminal: Boolean
     is_complete: Boolean
@@ -1128,17 +1129,17 @@ input vehicle_info_change_log_set_input {
     operating_vehicle_id: bigint
     owner: String
     quasi_driving_models: Int
-    record_at: timestamp
+    record_at: timestamptz
     record_by: String
     remark_in: String
     remarks: String
-    retirement_date: timestamp
+    retirement_date: timestamptz
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamp
+    update_at: timestamptz
     update_by: String
-    update_time_in: timestamp
+    update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
     vehicle_displacement: String

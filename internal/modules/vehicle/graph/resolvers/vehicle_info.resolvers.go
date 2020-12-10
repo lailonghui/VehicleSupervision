@@ -5,9 +5,12 @@ package resolvers
 
 import (
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/modules/vehicle/graph/generated"
 	"VehicleSupervision/internal/modules/vehicle/graph/model"
+	"VehicleSupervision/pkg/util"
 	"context"
 	"fmt"
+	"github.com/rs/xid"
 )
 
 func (r *mutationResolver) DeleteVehicleInfo(ctx context.Context, where model.VehicleInfoBoolExp) (*model.VehicleInfoMutationResponse, error) {
@@ -18,26 +21,19 @@ func (r *mutationResolver) DeleteVehicleInfoByPk(ctx context.Context, id int64, 
 	panic(fmt.Errorf("not implemented"))
 }
 
-//插入多条车辆信息
 func (r *mutationResolver) InsertVehicleInfo(ctx context.Context, objects []*model.VehicleInfoInsertInput, onConflict *model.VehicleInfoOnConflict) (*model.VehicleInfoMutationResponse, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-//插入一条车辆信息
 func (r *mutationResolver) InsertVehicleInfoOne(ctx context.Context, object model.VehicleInfoInsertInput, onConflict *model.VehicleInfoOnConflict) (*model.VehicleInfo, error) {
-	//vehicle := &model.VehicleInfo{}
-	//for k,v := range []byte{1,2,3} {
-	//	fmt.Println(k,v)
-	//}
-	//fmt.Println(object)
 	fmt.Println("create")
-	v := &model.VehicleInfo{}
-	v.VehicleID = "999"
-	v.CreateBy = "小灰灰"
+	v := &model.VehicleInfo{
+		VehicleID: xid.New().String(),
+		CreateBy:  "lai" + xid.New().String(),
+	}
+	util.StructAssign(v, &object)
 	err := db.DB.Create(v).Error
-	fmt.Println(err)
-	//return vehicle,nil
-	return nil, nil
+	return v, err
 }
 
 func (r *mutationResolver) UpdateVehicleInfo(ctx context.Context, inc *model.VehicleInfoIncInput, set *model.VehicleInfoSetInput, where model.VehicleInfoBoolExp) (*model.VehicleInfoMutationResponse, error) {
@@ -71,3 +67,16 @@ func (r *subscriptionResolver) VehicleInfoAggregate(ctx context.Context, distinc
 func (r *subscriptionResolver) VehicleInfoByPk(ctx context.Context, id int64, vehicleID string) (<-chan *model.VehicleInfo, error) {
 	panic(fmt.Errorf("not implemented"))
 }
+
+// Mutation returns generated.MutationResolver implementation.
+func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+
+// Query returns generated.QueryResolver implementation.
+func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+
+// Subscription returns generated.SubscriptionResolver implementation.
+func (r *Resolver) Subscription() generated.SubscriptionResolver { return &subscriptionResolver{r} }
+
+type mutationResolver struct{ *Resolver }
+type queryResolver struct{ *Resolver }
+type subscriptionResolver struct{ *Resolver }
