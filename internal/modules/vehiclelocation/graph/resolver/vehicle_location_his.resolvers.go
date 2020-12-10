@@ -5,13 +5,12 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
-	model1 "VehicleSupervision/internal/modules/vehiclelocation/his/model"
-	"VehicleSupervision/internal/modules/vehiclelocation/his/mutation/graph/generated"
-	"VehicleSupervision/internal/modules/vehiclelocation/his/mutation/graph/model"
+	"VehicleSupervision/internal/modules/vehiclelocation/graph/generated"
+	"VehicleSupervision/internal/modules/vehiclelocation/graph/model"
+	model1 "VehicleSupervision/internal/modules/vehiclelocation/model"
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
-	"fmt"
 	"gorm.io/gorm"
 )
 
@@ -68,7 +67,7 @@ func (r *mutationResolver) DeleteVehicleLocationHisByPk(ctx context.Context, id 
 }
 
 func (r *mutationResolver) InsertVehicleLocationHis(ctx context.Context, objects []*model.VehicleLocationHisInsertInput, onConflict *model.VehicleLocationHisOnConflict) (*model.VehicleLocationHisMutationResponse, error) {
-	rs := r.batchInsertParamConvert(objects)
+	rs := r.vehicleLocationHisInsertInputBatchConvert(objects)
 	tx := db.DB.Model(&model1.VehicleLocationHis{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -83,7 +82,7 @@ func (r *mutationResolver) InsertVehicleLocationHis(ctx context.Context, objects
 }
 
 func (r *mutationResolver) InsertVehicleLocationHisOne(ctx context.Context, object model.VehicleLocationHisInsertInput, onConflict *model.VehicleLocationHisOnConflict) (*model1.VehicleLocationHis, error) {
-	rs := r.insertParamConvert(&object)
+	rs := r.vehicleLocationHisInsertInputConvert(&object)
 	tx := db.DB.Model(&model1.VehicleLocationHis{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -125,8 +124,58 @@ func (r *mutationResolver) UpdateVehicleLocationHisByPk(ctx context.Context, inc
 	return &rs, nil
 }
 
-func (r *queryResolver) T(ctx context.Context) (*int, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) VehicleLocationHis(ctx context.Context, distinctOn []model.VehicleLocationHisSelectColumn, limit *int, offset *int, orderBy []*model.VehicleLocationHisOrderBy, where *model.VehicleLocationHisBoolExp) ([]*model1.VehicleLocationHis, error) {
+	qt := util.NewQueryTranslator(db.DB, &model1.VehicleLocationHis{})
+	tx := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Finish()
+	var rs []*model1.VehicleLocationHis
+	tx = tx.Find(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
+}
+
+func (r *queryResolver) VehicleLocationHisAggregate(ctx context.Context, distinctOn []model.VehicleLocationHisSelectColumn, limit *int, offset *int, orderBy []*model.VehicleLocationHisOrderBy, where *model.VehicleLocationHisBoolExp) (*model.VehicleLocationHisAggregate, error) {
+	var rs model.VehicleLocationHisAggregate
+
+	qt := util.NewQueryTranslator(db.DB, &model1.VehicleLocationHis{})
+	tx, err := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Aggregate(&rs, ctx)
+	if err != nil {
+		return nil, err
+	}
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+
+	return &rs, nil
+}
+
+func (r *queryResolver) VehicleLocationHisByPk(ctx context.Context, id int64) (*model1.VehicleLocationHis, error) {
+	var rs model1.VehicleLocationHis
+	tx := db.DB.Model(&model1.VehicleLocationHis{}).First(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &rs, nil
 }
 
 // Mutation returns generated.MutationResolver implementation.
