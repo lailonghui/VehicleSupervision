@@ -166,13 +166,6 @@ func (r *queryResolver) EnterpriseAggregate(ctx context.Context, distinctOn []mo
 }
 
 func (r *queryResolver) EnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
-	var rs model1.Enterprise
-	tx := db.DB.Model(&model1.Enterprise{}).First(&rs, id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+
+	return r.loaders(ctx).EnterpriseById.Load(id)
 }

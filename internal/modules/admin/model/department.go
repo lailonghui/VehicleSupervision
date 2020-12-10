@@ -1,7 +1,11 @@
 package model
 
-import "time"
+import (
+	"VehicleSupervision/internal/db"
+	"time"
+)
 
+//go:generate go run github.com/vektah/dataloaden DepartmentLoader int64 *VehicleSupervision/internal/modules/admin/model.Department
 // 部门
 //
 //
@@ -26,7 +30,7 @@ type Department struct {
 	// 企业ID
 	EnterpriseID string `json:"enterprise_id"`
 	// ID
-	ID int64 `json:"id"`
+	ID int64 `gorm:"primarykey" json:"id"`
 	// 排序
 	InternalNumber *int `json:"internal_number"`
 	// 是否删除
@@ -39,4 +43,20 @@ type Department struct {
 	UpdateAt *time.Time `json:"update_at"`
 	// 修改人
 	UpdateBy *string `json:"update_by"`
+}
+
+func (u *Department) TableName() string {
+	return "department"
+}
+
+func (u *Department) NewLoader() *DepartmentLoader {
+	return &DepartmentLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []int64) ([]*Department, []error) {
+			var rs []*Department
+			db.DB.Model(&Department{}).Where("id in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
 }

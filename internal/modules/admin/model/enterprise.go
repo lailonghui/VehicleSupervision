@@ -1,7 +1,13 @@
 package model
 
-import "time"
+import (
+	"VehicleSupervision/internal/db"
+	"time"
+)
 
+//go:generate go run github.com/vektah/dataloaden EnterpriseLoader int64 *VehicleSupervision/internal/modules/admin/model.Enterprise
+
+// 企业
 type Enterprise struct {
 	// 协会审核时间
 	AssociationReviewBy *time.Time `json:"association_review_by"`
@@ -54,8 +60,9 @@ type Enterprise struct {
 	// 企业级别
 	EnterpriseLevel *int `json:"enterprise_level"`
 	// 企业名称
-	EnterpriseName   *string `json:"enterprise_name"`
-	EnterpriseNature *int    `json:"enterprise_nature"`
+	EnterpriseName *string `json:"enterprise_name"`
+	// 企业性质
+	EnterpriseNature *int `json:"enterprise_nature"`
 	// 委托代理人
 	EntrustedAgent *string `json:"entrusted_agent"`
 	// 委托代理人-身份证号码
@@ -67,7 +74,7 @@ type Enterprise struct {
 	// 传真号码
 	FaxNumber *string `json:"fax_number"`
 	// ID
-	ID int64 `json:"id"`
+	ID int64 `gorm:"primarykey" json:"id"`
 	// 机构类别
 	InstitutionCategory *int64 `json:"institution_category"`
 	// 是否黑名单
@@ -118,4 +125,16 @@ type Enterprise struct {
 
 func (e Enterprise) TableName() string {
 	return "enterprise"
+}
+
+func (u *Enterprise) NewLoader() *EnterpriseLoader {
+	return &EnterpriseLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []int64) ([]*Enterprise, []error) {
+			var rs []*Enterprise
+			db.DB.Model(&Enterprise{}).Where("id in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
 }

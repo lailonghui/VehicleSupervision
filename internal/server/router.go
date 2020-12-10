@@ -4,6 +4,7 @@ import (
 	"VehicleSupervision/config"
 	adasMutation "VehicleSupervision/internal/modules/adas/mutation"
 	adasQuery "VehicleSupervision/internal/modules/adas/query"
+	"VehicleSupervision/internal/server/middle"
 
 	admin "VehicleSupervision/internal/modules/admin"
 	areaMutation "VehicleSupervision/internal/modules/area/mutation"
@@ -52,6 +53,7 @@ func Setup() {
 	// gin中间件配置
 	router.Use(ginzap.Ginzap(logger.GinLogger, time.RFC3339, true))
 	router.Use(ginzap.RecoveryWithZap(logger.GinLogger, true))
+	router.Use(middle.DataloaderMiddle(middle.DATA_LOADER_CONTEXT_KEY))
 	// 路由配置
 	router.GET("/", playgroundHandler())
 

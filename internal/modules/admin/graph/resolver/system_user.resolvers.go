@@ -166,13 +166,5 @@ func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []mo
 }
 
 func (r *queryResolver) SystemUserByPk(ctx context.Context, id int64) (*model1.SystemUser, error) {
-	var rs model1.SystemUser
-	tx := db.DB.Model(&model1.SystemUser{}).First(&rs, id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	return r.loaders(ctx).SystemUserById.Load(id)
 }

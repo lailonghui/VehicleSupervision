@@ -3,7 +3,9 @@ package resolver
 import (
 	"VehicleSupervision/internal/modules/admin/graph/model"
 	model1 "VehicleSupervision/internal/modules/admin/model"
+	"VehicleSupervision/internal/server/middle"
 	"VehicleSupervision/pkg/xid"
+	"context"
 )
 
 // This file will not be regenerated automatically.
@@ -11,6 +13,11 @@ import (
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct{}
+
+// 获取dataloader实例
+func (Resolver) loaders(ctx context.Context) *middle.Loaders {
+	return ctx.Value(middle.DATA_LOADER_CONTEXT_KEY).(*middle.Loaders)
+}
 
 func (r Resolver) departmentInsertBatchConvert(objects []*model.DepartmentInsertInput) (rs []*model1.Department) {
 	for _, v := range objects {

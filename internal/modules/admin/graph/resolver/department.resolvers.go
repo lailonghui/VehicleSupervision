@@ -167,15 +167,7 @@ func (r *queryResolver) DepartmentAggregate(ctx context.Context, distinctOn []mo
 }
 
 func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.Department, error) {
-	var rs model1.Department
-	tx := db.DB.Model(&model1.Department{}).First(&rs, id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	return r.loaders(ctx).DepartmentById.Load(id)
 }
 
 // Mutation returns generated.MutationResolver implementation.
