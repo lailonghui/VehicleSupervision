@@ -3,8 +3,9 @@
 package generated
 
 import (
+	model1 "VehicleSupervision/internal/modules/dictionary/dict/model"
 	"VehicleSupervision/internal/modules/dictionary/dict/query/graph/model"
-	model1 "VehicleSupervision/pkg/graphql/model"
+	model2 "VehicleSupervision/pkg/graphql/model"
 	"VehicleSupervision/pkg/graphql/scalar"
 	"bytes"
 	"context"
@@ -46,34 +47,35 @@ type DirectiveRoot struct {
 
 type ComplexityRoot struct {
 	Query struct {
-		DataDictionaryCategory          func(childComplexity int, distinctOn []model.DataDictionaryCategorySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryCategoryOrderBy, where *model.DataDictionaryCategoryBoolExp) int
-		DataDictionaryCategoryAggregate func(childComplexity int, distinctOn []model.DataDictionaryCategorySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryCategoryOrderBy, where *model.DataDictionaryCategoryBoolExp) int
-		DataDictionaryCategoryByPk      func(childComplexity int, id int64) int
+		DataDictionary          func(childComplexity int, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) int
+		DataDictionaryAggregate func(childComplexity int, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) int
+		DataDictionaryByPk      func(childComplexity int, id int64) int
 	}
 
-	DataDictionaryCategory struct {
-		CategoryCode         func(childComplexity int) int
-		CategoryName         func(childComplexity int) int
+	DataDictionary struct {
 		CreateAt             func(childComplexity int) int
 		CreateBy             func(childComplexity int) int
 		DeleteAt             func(childComplexity int) int
 		DeleteBy             func(childComplexity int) int
 		DictionaryCategoryID func(childComplexity int) int
+		DictionaryID         func(childComplexity int) int
 		ID                   func(childComplexity int) int
 		IsDelete             func(childComplexity int) int
+		Name                 func(childComplexity int) int
 		Remarks              func(childComplexity int) int
 		UpdateAt             func(childComplexity int) int
 		UpdateBy             func(childComplexity int) int
+		Value                func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryAggregate struct {
+	DataDictionaryAggregate struct {
 		Aggregate func(childComplexity int) int
 		Nodes     func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryAggregateFields struct {
+	DataDictionaryAggregateFields struct {
 		Avg        func(childComplexity int) int
-		Count      func(childComplexity int, columns []model.DataDictionaryCategorySelectColumn, distinct *bool) int
+		Count      func(childComplexity int, columns []model.DataDictionarySelectColumn, distinct *bool) int
 		Max        func(childComplexity int) int
 		Min        func(childComplexity int) int
 		Stddev     func(childComplexity int) int
@@ -85,85 +87,101 @@ type ComplexityRoot struct {
 		Variance   func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryAvgFields struct {
-		ID func(childComplexity int) int
+	DataDictionaryAvgFields struct {
+		ID    func(childComplexity int) int
+		Value func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryMaxFields struct {
-		CategoryCode         func(childComplexity int) int
-		CategoryName         func(childComplexity int) int
+	DataDictionaryMaxFields struct {
 		CreateAt             func(childComplexity int) int
 		CreateBy             func(childComplexity int) int
 		DeleteAt             func(childComplexity int) int
 		DeleteBy             func(childComplexity int) int
 		DictionaryCategoryID func(childComplexity int) int
+		DictionaryID         func(childComplexity int) int
 		ID                   func(childComplexity int) int
+		Name                 func(childComplexity int) int
 		Remarks              func(childComplexity int) int
 		UpdateAt             func(childComplexity int) int
 		UpdateBy             func(childComplexity int) int
+		Value                func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryMinFields struct {
-		CategoryCode         func(childComplexity int) int
-		CategoryName         func(childComplexity int) int
+	DataDictionaryMinFields struct {
 		CreateAt             func(childComplexity int) int
 		CreateBy             func(childComplexity int) int
 		DeleteAt             func(childComplexity int) int
 		DeleteBy             func(childComplexity int) int
 		DictionaryCategoryID func(childComplexity int) int
+		DictionaryID         func(childComplexity int) int
 		ID                   func(childComplexity int) int
+		Name                 func(childComplexity int) int
 		Remarks              func(childComplexity int) int
 		UpdateAt             func(childComplexity int) int
 		UpdateBy             func(childComplexity int) int
+		Value                func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryMutationResponse struct {
+	DataDictionaryMutationResponse struct {
 		AffectedRows func(childComplexity int) int
 		Returning    func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryStddevFields struct {
-		ID func(childComplexity int) int
+	DataDictionaryStddevFields struct {
+		ID    func(childComplexity int) int
+		Value func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryStddevPopFields struct {
-		ID func(childComplexity int) int
+	DataDictionaryStddevPopFields struct {
+		ID    func(childComplexity int) int
+		Value func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryStddevSampFields struct {
-		ID func(childComplexity int) int
+	DataDictionaryStddevSampFields struct {
+		ID    func(childComplexity int) int
+		Value func(childComplexity int) int
 	}
 
-	DataDictionaryCategorySumFields struct {
-		ID func(childComplexity int) int
+	DataDictionarySumFields struct {
+		ID    func(childComplexity int) int
+		Value func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryVarPopFields struct {
-		ID func(childComplexity int) int
+	DataDictionaryVarPopFields struct {
+		ID    func(childComplexity int) int
+		Value func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryVarSampFields struct {
-		ID func(childComplexity int) int
+	DataDictionaryVarSampFields struct {
+		ID    func(childComplexity int) int
+		Value func(childComplexity int) int
 	}
 
-	DataDictionaryCategoryVarianceFields struct {
-		ID func(childComplexity int) int
+	DataDictionaryVarianceFields struct {
+		ID    func(childComplexity int) int
+		Value func(childComplexity int) int
 	}
 
 	MutationRoot struct {
-		DeleteDataDictionaryCategory     func(childComplexity int, where model.DataDictionaryCategoryBoolExp) int
-		DeleteDataDictionaryCategoryByPk func(childComplexity int, id int64) int
-		InsertDataDictionaryCategory     func(childComplexity int, objects []*model.DataDictionaryCategoryInsertInput, onConflict *model.DataDictionaryCategoryOnConflict) int
-		InsertDataDictionaryCategoryOne  func(childComplexity int, object model.DataDictionaryCategoryInsertInput, onConflict *model.DataDictionaryCategoryOnConflict) int
-		UpdateDataDictionaryCategory     func(childComplexity int, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, where model.DataDictionaryCategoryBoolExp) int
-		UpdateDataDictionaryCategoryByPk func(childComplexity int, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, pkColumns model.DataDictionaryCategoryPkColumnsInput) int
+		DeleteDataDictionary     func(childComplexity int, where model.DataDictionaryBoolExp) int
+		DeleteDataDictionaryByPk func(childComplexity int, id int64) int
+		InsertDataDictionary     func(childComplexity int, objects []*model.DataDictionaryInsertInput, onConflict *model.DataDictionaryOnConflict) int
+		InsertDataDictionaryOne  func(childComplexity int, object model.DataDictionaryInsertInput, onConflict *model.DataDictionaryOnConflict) int
+		UpdateDataDictionary     func(childComplexity int, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, where model.DataDictionaryBoolExp) int
+		UpdateDataDictionaryByPk func(childComplexity int, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, pkColumns model.DataDictionaryPkColumnsInput) int
+	}
+
+	SubscriptionRoot struct {
+		DataDictionary          func(childComplexity int, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) int
+		DataDictionaryAggregate func(childComplexity int, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) int
+		DataDictionaryByPk      func(childComplexity int, id int64) int
 	}
 }
 
 type QueryResolver interface {
-	DataDictionaryCategory(ctx context.Context, distinctOn []model.DataDictionaryCategorySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryCategoryOrderBy, where *model.DataDictionaryCategoryBoolExp) ([]*model.DataDictionaryCategory, error)
-	DataDictionaryCategoryAggregate(ctx context.Context, distinctOn []model.DataDictionaryCategorySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryCategoryOrderBy, where *model.DataDictionaryCategoryBoolExp) (*model.DataDictionaryCategoryAggregate, error)
-	DataDictionaryCategoryByPk(ctx context.Context, id int64) (*model.DataDictionaryCategory, error)
+	DataDictionary(ctx context.Context, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) ([]*model1.DataDictionary, error)
+	DataDictionaryAggregate(ctx context.Context, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) (*model.DataDictionaryAggregate, error)
+	DataDictionaryByPk(ctx context.Context, id int64) (*model1.DataDictionary, error)
 }
 
 type executableSchema struct {
@@ -181,517 +199,630 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	_ = ec
 	switch typeName + "." + field {
 
-	case "Query.data_dictionary_category":
-		if e.complexity.Query.DataDictionaryCategory == nil {
+	case "Query.data_dictionary":
+		if e.complexity.Query.DataDictionary == nil {
 			break
 		}
 
-		args, err := ec.field_Query_data_dictionary_category_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_data_dictionary_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Query.DataDictionaryCategory(childComplexity, args["distinct_on"].([]model.DataDictionaryCategorySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryCategoryOrderBy), args["where"].(*model.DataDictionaryCategoryBoolExp)), true
+		return e.complexity.Query.DataDictionary(childComplexity, args["distinct_on"].([]model.DataDictionarySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryOrderBy), args["where"].(*model.DataDictionaryBoolExp)), true
 
-	case "Query.data_dictionary_category_aggregate":
-		if e.complexity.Query.DataDictionaryCategoryAggregate == nil {
+	case "Query.data_dictionary_aggregate":
+		if e.complexity.Query.DataDictionaryAggregate == nil {
 			break
 		}
 
-		args, err := ec.field_Query_data_dictionary_category_aggregate_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_data_dictionary_aggregate_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Query.DataDictionaryCategoryAggregate(childComplexity, args["distinct_on"].([]model.DataDictionaryCategorySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryCategoryOrderBy), args["where"].(*model.DataDictionaryCategoryBoolExp)), true
+		return e.complexity.Query.DataDictionaryAggregate(childComplexity, args["distinct_on"].([]model.DataDictionarySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryOrderBy), args["where"].(*model.DataDictionaryBoolExp)), true
 
-	case "Query.data_dictionary_category_by_pk":
-		if e.complexity.Query.DataDictionaryCategoryByPk == nil {
+	case "Query.data_dictionary_by_pk":
+		if e.complexity.Query.DataDictionaryByPk == nil {
 			break
 		}
 
-		args, err := ec.field_Query_data_dictionary_category_by_pk_args(context.TODO(), rawArgs)
+		args, err := ec.field_Query_data_dictionary_by_pk_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.Query.DataDictionaryCategoryByPk(childComplexity, args["id"].(int64)), true
+		return e.complexity.Query.DataDictionaryByPk(childComplexity, args["id"].(int64)), true
 
-	case "data_dictionary_category.category_code":
-		if e.complexity.DataDictionaryCategory.CategoryCode == nil {
+	case "data_dictionary.create_at":
+		if e.complexity.DataDictionary.CreateAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.CategoryCode(childComplexity), true
+		return e.complexity.DataDictionary.CreateAt(childComplexity), true
 
-	case "data_dictionary_category.category_name":
-		if e.complexity.DataDictionaryCategory.CategoryName == nil {
+	case "data_dictionary.create_by":
+		if e.complexity.DataDictionary.CreateBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.CategoryName(childComplexity), true
+		return e.complexity.DataDictionary.CreateBy(childComplexity), true
 
-	case "data_dictionary_category.create_at":
-		if e.complexity.DataDictionaryCategory.CreateAt == nil {
+	case "data_dictionary.delete_at":
+		if e.complexity.DataDictionary.DeleteAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.CreateAt(childComplexity), true
+		return e.complexity.DataDictionary.DeleteAt(childComplexity), true
 
-	case "data_dictionary_category.create_by":
-		if e.complexity.DataDictionaryCategory.CreateBy == nil {
+	case "data_dictionary.delete_by":
+		if e.complexity.DataDictionary.DeleteBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.CreateBy(childComplexity), true
+		return e.complexity.DataDictionary.DeleteBy(childComplexity), true
 
-	case "data_dictionary_category.delete_at":
-		if e.complexity.DataDictionaryCategory.DeleteAt == nil {
+	case "data_dictionary.dictionary_category_id":
+		if e.complexity.DataDictionary.DictionaryCategoryID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.DeleteAt(childComplexity), true
+		return e.complexity.DataDictionary.DictionaryCategoryID(childComplexity), true
 
-	case "data_dictionary_category.delete_by":
-		if e.complexity.DataDictionaryCategory.DeleteBy == nil {
+	case "data_dictionary.dictionary_id":
+		if e.complexity.DataDictionary.DictionaryID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.DeleteBy(childComplexity), true
+		return e.complexity.DataDictionary.DictionaryID(childComplexity), true
 
-	case "data_dictionary_category.dictionary_category_id":
-		if e.complexity.DataDictionaryCategory.DictionaryCategoryID == nil {
+	case "data_dictionary.id":
+		if e.complexity.DataDictionary.ID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.DictionaryCategoryID(childComplexity), true
+		return e.complexity.DataDictionary.ID(childComplexity), true
 
-	case "data_dictionary_category.id":
-		if e.complexity.DataDictionaryCategory.ID == nil {
+	case "data_dictionary.is_delete":
+		if e.complexity.DataDictionary.IsDelete == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.ID(childComplexity), true
+		return e.complexity.DataDictionary.IsDelete(childComplexity), true
 
-	case "data_dictionary_category.is_delete":
-		if e.complexity.DataDictionaryCategory.IsDelete == nil {
+	case "data_dictionary.name":
+		if e.complexity.DataDictionary.Name == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.IsDelete(childComplexity), true
+		return e.complexity.DataDictionary.Name(childComplexity), true
 
-	case "data_dictionary_category.remarks":
-		if e.complexity.DataDictionaryCategory.Remarks == nil {
+	case "data_dictionary.remarks":
+		if e.complexity.DataDictionary.Remarks == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.Remarks(childComplexity), true
+		return e.complexity.DataDictionary.Remarks(childComplexity), true
 
-	case "data_dictionary_category.update_at":
-		if e.complexity.DataDictionaryCategory.UpdateAt == nil {
+	case "data_dictionary.update_at":
+		if e.complexity.DataDictionary.UpdateAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.UpdateAt(childComplexity), true
+		return e.complexity.DataDictionary.UpdateAt(childComplexity), true
 
-	case "data_dictionary_category.update_by":
-		if e.complexity.DataDictionaryCategory.UpdateBy == nil {
+	case "data_dictionary.update_by":
+		if e.complexity.DataDictionary.UpdateBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategory.UpdateBy(childComplexity), true
+		return e.complexity.DataDictionary.UpdateBy(childComplexity), true
 
-	case "data_dictionary_category_aggregate.aggregate":
-		if e.complexity.DataDictionaryCategoryAggregate.Aggregate == nil {
+	case "data_dictionary.value":
+		if e.complexity.DataDictionary.Value == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregate.Aggregate(childComplexity), true
+		return e.complexity.DataDictionary.Value(childComplexity), true
 
-	case "data_dictionary_category_aggregate.nodes":
-		if e.complexity.DataDictionaryCategoryAggregate.Nodes == nil {
+	case "data_dictionary_aggregate.aggregate":
+		if e.complexity.DataDictionaryAggregate.Aggregate == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregate.Nodes(childComplexity), true
+		return e.complexity.DataDictionaryAggregate.Aggregate(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.avg":
-		if e.complexity.DataDictionaryCategoryAggregateFields.Avg == nil {
+	case "data_dictionary_aggregate.nodes":
+		if e.complexity.DataDictionaryAggregate.Nodes == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.Avg(childComplexity), true
+		return e.complexity.DataDictionaryAggregate.Nodes(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.count":
-		if e.complexity.DataDictionaryCategoryAggregateFields.Count == nil {
+	case "data_dictionary_aggregate_fields.avg":
+		if e.complexity.DataDictionaryAggregateFields.Avg == nil {
 			break
 		}
 
-		args, err := ec.field_data_dictionary_category_aggregate_fields_count_args(context.TODO(), rawArgs)
+		return e.complexity.DataDictionaryAggregateFields.Avg(childComplexity), true
+
+	case "data_dictionary_aggregate_fields.count":
+		if e.complexity.DataDictionaryAggregateFields.Count == nil {
+			break
+		}
+
+		args, err := ec.field_data_dictionary_aggregate_fields_count_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.Count(childComplexity, args["columns"].([]model.DataDictionaryCategorySelectColumn), args["distinct"].(*bool)), true
+		return e.complexity.DataDictionaryAggregateFields.Count(childComplexity, args["columns"].([]model.DataDictionarySelectColumn), args["distinct"].(*bool)), true
 
-	case "data_dictionary_category_aggregate_fields.max":
-		if e.complexity.DataDictionaryCategoryAggregateFields.Max == nil {
+	case "data_dictionary_aggregate_fields.max":
+		if e.complexity.DataDictionaryAggregateFields.Max == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.Max(childComplexity), true
+		return e.complexity.DataDictionaryAggregateFields.Max(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.min":
-		if e.complexity.DataDictionaryCategoryAggregateFields.Min == nil {
+	case "data_dictionary_aggregate_fields.min":
+		if e.complexity.DataDictionaryAggregateFields.Min == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.Min(childComplexity), true
+		return e.complexity.DataDictionaryAggregateFields.Min(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.stddev":
-		if e.complexity.DataDictionaryCategoryAggregateFields.Stddev == nil {
+	case "data_dictionary_aggregate_fields.stddev":
+		if e.complexity.DataDictionaryAggregateFields.Stddev == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.Stddev(childComplexity), true
+		return e.complexity.DataDictionaryAggregateFields.Stddev(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.stddev_pop":
-		if e.complexity.DataDictionaryCategoryAggregateFields.StddevPop == nil {
+	case "data_dictionary_aggregate_fields.stddev_pop":
+		if e.complexity.DataDictionaryAggregateFields.StddevPop == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.StddevPop(childComplexity), true
+		return e.complexity.DataDictionaryAggregateFields.StddevPop(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.stddev_samp":
-		if e.complexity.DataDictionaryCategoryAggregateFields.StddevSamp == nil {
+	case "data_dictionary_aggregate_fields.stddev_samp":
+		if e.complexity.DataDictionaryAggregateFields.StddevSamp == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.StddevSamp(childComplexity), true
+		return e.complexity.DataDictionaryAggregateFields.StddevSamp(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.sum":
-		if e.complexity.DataDictionaryCategoryAggregateFields.Sum == nil {
+	case "data_dictionary_aggregate_fields.sum":
+		if e.complexity.DataDictionaryAggregateFields.Sum == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.Sum(childComplexity), true
+		return e.complexity.DataDictionaryAggregateFields.Sum(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.var_pop":
-		if e.complexity.DataDictionaryCategoryAggregateFields.VarPop == nil {
+	case "data_dictionary_aggregate_fields.var_pop":
+		if e.complexity.DataDictionaryAggregateFields.VarPop == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.VarPop(childComplexity), true
+		return e.complexity.DataDictionaryAggregateFields.VarPop(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.var_samp":
-		if e.complexity.DataDictionaryCategoryAggregateFields.VarSamp == nil {
+	case "data_dictionary_aggregate_fields.var_samp":
+		if e.complexity.DataDictionaryAggregateFields.VarSamp == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.VarSamp(childComplexity), true
+		return e.complexity.DataDictionaryAggregateFields.VarSamp(childComplexity), true
 
-	case "data_dictionary_category_aggregate_fields.variance":
-		if e.complexity.DataDictionaryCategoryAggregateFields.Variance == nil {
+	case "data_dictionary_aggregate_fields.variance":
+		if e.complexity.DataDictionaryAggregateFields.Variance == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAggregateFields.Variance(childComplexity), true
+		return e.complexity.DataDictionaryAggregateFields.Variance(childComplexity), true
 
-	case "data_dictionary_category_avg_fields.id":
-		if e.complexity.DataDictionaryCategoryAvgFields.ID == nil {
+	case "data_dictionary_avg_fields.id":
+		if e.complexity.DataDictionaryAvgFields.ID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryAvgFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryAvgFields.ID(childComplexity), true
 
-	case "data_dictionary_category_max_fields.category_code":
-		if e.complexity.DataDictionaryCategoryMaxFields.CategoryCode == nil {
+	case "data_dictionary_avg_fields.value":
+		if e.complexity.DataDictionaryAvgFields.Value == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.CategoryCode(childComplexity), true
+		return e.complexity.DataDictionaryAvgFields.Value(childComplexity), true
 
-	case "data_dictionary_category_max_fields.category_name":
-		if e.complexity.DataDictionaryCategoryMaxFields.CategoryName == nil {
+	case "data_dictionary_max_fields.create_at":
+		if e.complexity.DataDictionaryMaxFields.CreateAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.CategoryName(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.CreateAt(childComplexity), true
 
-	case "data_dictionary_category_max_fields.create_at":
-		if e.complexity.DataDictionaryCategoryMaxFields.CreateAt == nil {
+	case "data_dictionary_max_fields.create_by":
+		if e.complexity.DataDictionaryMaxFields.CreateBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.CreateAt(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.CreateBy(childComplexity), true
 
-	case "data_dictionary_category_max_fields.create_by":
-		if e.complexity.DataDictionaryCategoryMaxFields.CreateBy == nil {
+	case "data_dictionary_max_fields.delete_at":
+		if e.complexity.DataDictionaryMaxFields.DeleteAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.CreateBy(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.DeleteAt(childComplexity), true
 
-	case "data_dictionary_category_max_fields.delete_at":
-		if e.complexity.DataDictionaryCategoryMaxFields.DeleteAt == nil {
+	case "data_dictionary_max_fields.delete_by":
+		if e.complexity.DataDictionaryMaxFields.DeleteBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.DeleteAt(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.DeleteBy(childComplexity), true
 
-	case "data_dictionary_category_max_fields.delete_by":
-		if e.complexity.DataDictionaryCategoryMaxFields.DeleteBy == nil {
+	case "data_dictionary_max_fields.dictionary_category_id":
+		if e.complexity.DataDictionaryMaxFields.DictionaryCategoryID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.DeleteBy(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.DictionaryCategoryID(childComplexity), true
 
-	case "data_dictionary_category_max_fields.dictionary_category_id":
-		if e.complexity.DataDictionaryCategoryMaxFields.DictionaryCategoryID == nil {
+	case "data_dictionary_max_fields.dictionary_id":
+		if e.complexity.DataDictionaryMaxFields.DictionaryID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.DictionaryCategoryID(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.DictionaryID(childComplexity), true
 
-	case "data_dictionary_category_max_fields.id":
-		if e.complexity.DataDictionaryCategoryMaxFields.ID == nil {
+	case "data_dictionary_max_fields.id":
+		if e.complexity.DataDictionaryMaxFields.ID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.ID(childComplexity), true
 
-	case "data_dictionary_category_max_fields.remarks":
-		if e.complexity.DataDictionaryCategoryMaxFields.Remarks == nil {
+	case "data_dictionary_max_fields.name":
+		if e.complexity.DataDictionaryMaxFields.Name == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.Remarks(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.Name(childComplexity), true
 
-	case "data_dictionary_category_max_fields.update_at":
-		if e.complexity.DataDictionaryCategoryMaxFields.UpdateAt == nil {
+	case "data_dictionary_max_fields.remarks":
+		if e.complexity.DataDictionaryMaxFields.Remarks == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.UpdateAt(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.Remarks(childComplexity), true
 
-	case "data_dictionary_category_max_fields.update_by":
-		if e.complexity.DataDictionaryCategoryMaxFields.UpdateBy == nil {
+	case "data_dictionary_max_fields.update_at":
+		if e.complexity.DataDictionaryMaxFields.UpdateAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMaxFields.UpdateBy(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.UpdateAt(childComplexity), true
 
-	case "data_dictionary_category_min_fields.category_code":
-		if e.complexity.DataDictionaryCategoryMinFields.CategoryCode == nil {
+	case "data_dictionary_max_fields.update_by":
+		if e.complexity.DataDictionaryMaxFields.UpdateBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.CategoryCode(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.UpdateBy(childComplexity), true
 
-	case "data_dictionary_category_min_fields.category_name":
-		if e.complexity.DataDictionaryCategoryMinFields.CategoryName == nil {
+	case "data_dictionary_max_fields.value":
+		if e.complexity.DataDictionaryMaxFields.Value == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.CategoryName(childComplexity), true
+		return e.complexity.DataDictionaryMaxFields.Value(childComplexity), true
 
-	case "data_dictionary_category_min_fields.create_at":
-		if e.complexity.DataDictionaryCategoryMinFields.CreateAt == nil {
+	case "data_dictionary_min_fields.create_at":
+		if e.complexity.DataDictionaryMinFields.CreateAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.CreateAt(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.CreateAt(childComplexity), true
 
-	case "data_dictionary_category_min_fields.create_by":
-		if e.complexity.DataDictionaryCategoryMinFields.CreateBy == nil {
+	case "data_dictionary_min_fields.create_by":
+		if e.complexity.DataDictionaryMinFields.CreateBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.CreateBy(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.CreateBy(childComplexity), true
 
-	case "data_dictionary_category_min_fields.delete_at":
-		if e.complexity.DataDictionaryCategoryMinFields.DeleteAt == nil {
+	case "data_dictionary_min_fields.delete_at":
+		if e.complexity.DataDictionaryMinFields.DeleteAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.DeleteAt(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.DeleteAt(childComplexity), true
 
-	case "data_dictionary_category_min_fields.delete_by":
-		if e.complexity.DataDictionaryCategoryMinFields.DeleteBy == nil {
+	case "data_dictionary_min_fields.delete_by":
+		if e.complexity.DataDictionaryMinFields.DeleteBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.DeleteBy(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.DeleteBy(childComplexity), true
 
-	case "data_dictionary_category_min_fields.dictionary_category_id":
-		if e.complexity.DataDictionaryCategoryMinFields.DictionaryCategoryID == nil {
+	case "data_dictionary_min_fields.dictionary_category_id":
+		if e.complexity.DataDictionaryMinFields.DictionaryCategoryID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.DictionaryCategoryID(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.DictionaryCategoryID(childComplexity), true
 
-	case "data_dictionary_category_min_fields.id":
-		if e.complexity.DataDictionaryCategoryMinFields.ID == nil {
+	case "data_dictionary_min_fields.dictionary_id":
+		if e.complexity.DataDictionaryMinFields.DictionaryID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.DictionaryID(childComplexity), true
 
-	case "data_dictionary_category_min_fields.remarks":
-		if e.complexity.DataDictionaryCategoryMinFields.Remarks == nil {
+	case "data_dictionary_min_fields.id":
+		if e.complexity.DataDictionaryMinFields.ID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.Remarks(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.ID(childComplexity), true
 
-	case "data_dictionary_category_min_fields.update_at":
-		if e.complexity.DataDictionaryCategoryMinFields.UpdateAt == nil {
+	case "data_dictionary_min_fields.name":
+		if e.complexity.DataDictionaryMinFields.Name == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.UpdateAt(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.Name(childComplexity), true
 
-	case "data_dictionary_category_min_fields.update_by":
-		if e.complexity.DataDictionaryCategoryMinFields.UpdateBy == nil {
+	case "data_dictionary_min_fields.remarks":
+		if e.complexity.DataDictionaryMinFields.Remarks == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMinFields.UpdateBy(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.Remarks(childComplexity), true
 
-	case "data_dictionary_category_mutation_response.affected_rows":
-		if e.complexity.DataDictionaryCategoryMutationResponse.AffectedRows == nil {
+	case "data_dictionary_min_fields.update_at":
+		if e.complexity.DataDictionaryMinFields.UpdateAt == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMutationResponse.AffectedRows(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.UpdateAt(childComplexity), true
 
-	case "data_dictionary_category_mutation_response.returning":
-		if e.complexity.DataDictionaryCategoryMutationResponse.Returning == nil {
+	case "data_dictionary_min_fields.update_by":
+		if e.complexity.DataDictionaryMinFields.UpdateBy == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryMutationResponse.Returning(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.UpdateBy(childComplexity), true
 
-	case "data_dictionary_category_stddev_fields.id":
-		if e.complexity.DataDictionaryCategoryStddevFields.ID == nil {
+	case "data_dictionary_min_fields.value":
+		if e.complexity.DataDictionaryMinFields.Value == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryStddevFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryMinFields.Value(childComplexity), true
 
-	case "data_dictionary_category_stddev_pop_fields.id":
-		if e.complexity.DataDictionaryCategoryStddevPopFields.ID == nil {
+	case "data_dictionary_mutation_response.affected_rows":
+		if e.complexity.DataDictionaryMutationResponse.AffectedRows == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryStddevPopFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryMutationResponse.AffectedRows(childComplexity), true
 
-	case "data_dictionary_category_stddev_samp_fields.id":
-		if e.complexity.DataDictionaryCategoryStddevSampFields.ID == nil {
+	case "data_dictionary_mutation_response.returning":
+		if e.complexity.DataDictionaryMutationResponse.Returning == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryStddevSampFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryMutationResponse.Returning(childComplexity), true
 
-	case "data_dictionary_category_sum_fields.id":
-		if e.complexity.DataDictionaryCategorySumFields.ID == nil {
+	case "data_dictionary_stddev_fields.id":
+		if e.complexity.DataDictionaryStddevFields.ID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategorySumFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryStddevFields.ID(childComplexity), true
 
-	case "data_dictionary_category_var_pop_fields.id":
-		if e.complexity.DataDictionaryCategoryVarPopFields.ID == nil {
+	case "data_dictionary_stddev_fields.value":
+		if e.complexity.DataDictionaryStddevFields.Value == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryVarPopFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryStddevFields.Value(childComplexity), true
 
-	case "data_dictionary_category_var_samp_fields.id":
-		if e.complexity.DataDictionaryCategoryVarSampFields.ID == nil {
+	case "data_dictionary_stddev_pop_fields.id":
+		if e.complexity.DataDictionaryStddevPopFields.ID == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryVarSampFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryStddevPopFields.ID(childComplexity), true
 
-	case "data_dictionary_category_variance_fields.id":
-		if e.complexity.DataDictionaryCategoryVarianceFields.ID == nil {
+	case "data_dictionary_stddev_pop_fields.value":
+		if e.complexity.DataDictionaryStddevPopFields.Value == nil {
 			break
 		}
 
-		return e.complexity.DataDictionaryCategoryVarianceFields.ID(childComplexity), true
+		return e.complexity.DataDictionaryStddevPopFields.Value(childComplexity), true
 
-	case "mutation_root.delete_data_dictionary_category":
-		if e.complexity.MutationRoot.DeleteDataDictionaryCategory == nil {
+	case "data_dictionary_stddev_samp_fields.id":
+		if e.complexity.DataDictionaryStddevSampFields.ID == nil {
 			break
 		}
 
-		args, err := ec.field_mutation_root_delete_data_dictionary_category_args(context.TODO(), rawArgs)
+		return e.complexity.DataDictionaryStddevSampFields.ID(childComplexity), true
+
+	case "data_dictionary_stddev_samp_fields.value":
+		if e.complexity.DataDictionaryStddevSampFields.Value == nil {
+			break
+		}
+
+		return e.complexity.DataDictionaryStddevSampFields.Value(childComplexity), true
+
+	case "data_dictionary_sum_fields.id":
+		if e.complexity.DataDictionarySumFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DataDictionarySumFields.ID(childComplexity), true
+
+	case "data_dictionary_sum_fields.value":
+		if e.complexity.DataDictionarySumFields.Value == nil {
+			break
+		}
+
+		return e.complexity.DataDictionarySumFields.Value(childComplexity), true
+
+	case "data_dictionary_var_pop_fields.id":
+		if e.complexity.DataDictionaryVarPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DataDictionaryVarPopFields.ID(childComplexity), true
+
+	case "data_dictionary_var_pop_fields.value":
+		if e.complexity.DataDictionaryVarPopFields.Value == nil {
+			break
+		}
+
+		return e.complexity.DataDictionaryVarPopFields.Value(childComplexity), true
+
+	case "data_dictionary_var_samp_fields.id":
+		if e.complexity.DataDictionaryVarSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DataDictionaryVarSampFields.ID(childComplexity), true
+
+	case "data_dictionary_var_samp_fields.value":
+		if e.complexity.DataDictionaryVarSampFields.Value == nil {
+			break
+		}
+
+		return e.complexity.DataDictionaryVarSampFields.Value(childComplexity), true
+
+	case "data_dictionary_variance_fields.id":
+		if e.complexity.DataDictionaryVarianceFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DataDictionaryVarianceFields.ID(childComplexity), true
+
+	case "data_dictionary_variance_fields.value":
+		if e.complexity.DataDictionaryVarianceFields.Value == nil {
+			break
+		}
+
+		return e.complexity.DataDictionaryVarianceFields.Value(childComplexity), true
+
+	case "mutation_root.delete_data_dictionary":
+		if e.complexity.MutationRoot.DeleteDataDictionary == nil {
+			break
+		}
+
+		args, err := ec.field_mutation_root_delete_data_dictionary_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.MutationRoot.DeleteDataDictionaryCategory(childComplexity, args["where"].(model.DataDictionaryCategoryBoolExp)), true
+		return e.complexity.MutationRoot.DeleteDataDictionary(childComplexity, args["where"].(model.DataDictionaryBoolExp)), true
 
-	case "mutation_root.delete_data_dictionary_category_by_pk":
-		if e.complexity.MutationRoot.DeleteDataDictionaryCategoryByPk == nil {
+	case "mutation_root.delete_data_dictionary_by_pk":
+		if e.complexity.MutationRoot.DeleteDataDictionaryByPk == nil {
 			break
 		}
 
-		args, err := ec.field_mutation_root_delete_data_dictionary_category_by_pk_args(context.TODO(), rawArgs)
+		args, err := ec.field_mutation_root_delete_data_dictionary_by_pk_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.MutationRoot.DeleteDataDictionaryCategoryByPk(childComplexity, args["id"].(int64)), true
+		return e.complexity.MutationRoot.DeleteDataDictionaryByPk(childComplexity, args["id"].(int64)), true
 
-	case "mutation_root.insert_data_dictionary_category":
-		if e.complexity.MutationRoot.InsertDataDictionaryCategory == nil {
+	case "mutation_root.insert_data_dictionary":
+		if e.complexity.MutationRoot.InsertDataDictionary == nil {
 			break
 		}
 
-		args, err := ec.field_mutation_root_insert_data_dictionary_category_args(context.TODO(), rawArgs)
+		args, err := ec.field_mutation_root_insert_data_dictionary_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.MutationRoot.InsertDataDictionaryCategory(childComplexity, args["objects"].([]*model.DataDictionaryCategoryInsertInput), args["on_conflict"].(*model.DataDictionaryCategoryOnConflict)), true
+		return e.complexity.MutationRoot.InsertDataDictionary(childComplexity, args["objects"].([]*model.DataDictionaryInsertInput), args["on_conflict"].(*model.DataDictionaryOnConflict)), true
 
-	case "mutation_root.insert_data_dictionary_category_one":
-		if e.complexity.MutationRoot.InsertDataDictionaryCategoryOne == nil {
+	case "mutation_root.insert_data_dictionary_one":
+		if e.complexity.MutationRoot.InsertDataDictionaryOne == nil {
 			break
 		}
 
-		args, err := ec.field_mutation_root_insert_data_dictionary_category_one_args(context.TODO(), rawArgs)
+		args, err := ec.field_mutation_root_insert_data_dictionary_one_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.MutationRoot.InsertDataDictionaryCategoryOne(childComplexity, args["object"].(model.DataDictionaryCategoryInsertInput), args["on_conflict"].(*model.DataDictionaryCategoryOnConflict)), true
+		return e.complexity.MutationRoot.InsertDataDictionaryOne(childComplexity, args["object"].(model.DataDictionaryInsertInput), args["on_conflict"].(*model.DataDictionaryOnConflict)), true
 
-	case "mutation_root.update_data_dictionary_category":
-		if e.complexity.MutationRoot.UpdateDataDictionaryCategory == nil {
+	case "mutation_root.update_data_dictionary":
+		if e.complexity.MutationRoot.UpdateDataDictionary == nil {
 			break
 		}
 
-		args, err := ec.field_mutation_root_update_data_dictionary_category_args(context.TODO(), rawArgs)
+		args, err := ec.field_mutation_root_update_data_dictionary_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.MutationRoot.UpdateDataDictionaryCategory(childComplexity, args["_inc"].(*model.DataDictionaryCategoryIncInput), args["_set"].(*model.DataDictionaryCategorySetInput), args["where"].(model.DataDictionaryCategoryBoolExp)), true
+		return e.complexity.MutationRoot.UpdateDataDictionary(childComplexity, args["_inc"].(*model.DataDictionaryIncInput), args["_set"].(*model.DataDictionarySetInput), args["where"].(model.DataDictionaryBoolExp)), true
 
-	case "mutation_root.update_data_dictionary_category_by_pk":
-		if e.complexity.MutationRoot.UpdateDataDictionaryCategoryByPk == nil {
+	case "mutation_root.update_data_dictionary_by_pk":
+		if e.complexity.MutationRoot.UpdateDataDictionaryByPk == nil {
 			break
 		}
 
-		args, err := ec.field_mutation_root_update_data_dictionary_category_by_pk_args(context.TODO(), rawArgs)
+		args, err := ec.field_mutation_root_update_data_dictionary_by_pk_args(context.TODO(), rawArgs)
 		if err != nil {
 			return 0, false
 		}
 
-		return e.complexity.MutationRoot.UpdateDataDictionaryCategoryByPk(childComplexity, args["_inc"].(*model.DataDictionaryCategoryIncInput), args["_set"].(*model.DataDictionaryCategorySetInput), args["pk_columns"].(model.DataDictionaryCategoryPkColumnsInput)), true
+		return e.complexity.MutationRoot.UpdateDataDictionaryByPk(childComplexity, args["_inc"].(*model.DataDictionaryIncInput), args["_set"].(*model.DataDictionarySetInput), args["pk_columns"].(model.DataDictionaryPkColumnsInput)), true
+
+	case "subscription_root.data_dictionary":
+		if e.complexity.SubscriptionRoot.DataDictionary == nil {
+			break
+		}
+
+		args, err := ec.field_subscription_root_data_dictionary_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.SubscriptionRoot.DataDictionary(childComplexity, args["distinct_on"].([]model.DataDictionarySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryOrderBy), args["where"].(*model.DataDictionaryBoolExp)), true
+
+	case "subscription_root.data_dictionary_aggregate":
+		if e.complexity.SubscriptionRoot.DataDictionaryAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_subscription_root_data_dictionary_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.SubscriptionRoot.DataDictionaryAggregate(childComplexity, args["distinct_on"].([]model.DataDictionarySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryOrderBy), args["where"].(*model.DataDictionaryBoolExp)), true
+
+	case "subscription_root.data_dictionary_by_pk":
+		if e.complexity.SubscriptionRoot.DataDictionaryByPk == nil {
+			break
+		}
+
+		args, err := ec.field_subscription_root_data_dictionary_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.SubscriptionRoot.DataDictionaryByPk(childComplexity, args["id"].(int64)), true
 
 	}
 	return 0, false
@@ -744,6 +875,7 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 
 var sources = []*ast.Source{
 	{Name: "graph/graphqls/generate.graphqls", Input: `
+
 scalar bigint
 
 """
@@ -777,19 +909,13 @@ input Boolean_comparison_exp {
 }
 
 """
-数据字典类型
+数据字典
 
 
-columns and relationships of "data_dictionary_category"
+columns and relationships of "data_dictionary"
 
 """
-type data_dictionary_category {
-  """类型编号"""
-  category_code: String!
-
-  """类型名称"""
-  category_name: String!
-
+type data_dictionary {
   """创建时间"""
   create_at: timestamptz!
 
@@ -805,11 +931,17 @@ type data_dictionary_category {
   """字典类型ID"""
   dictionary_category_id: String!
 
+  """字典ID"""
+  dictionary_id: String!
+
   """ID"""
   id: bigint!
 
   """是否删除"""
   is_delete: Boolean!
+
+  """名称"""
+  name: String!
 
   """备注"""
   remarks: String
@@ -819,252 +951,259 @@ type data_dictionary_category {
 
   """修改人"""
   update_by: String
+
+  """值"""
+  value: Int!
 }
 
 """
-aggregated selection of "data_dictionary_category"
+aggregated selection of "data_dictionary"
 """
-type data_dictionary_category_aggregate {
-  aggregate: data_dictionary_category_aggregate_fields
-  nodes: [data_dictionary_category!]!
+type data_dictionary_aggregate {
+  aggregate: data_dictionary_aggregate_fields
+  nodes: [data_dictionary!]!
 }
 
 """
-aggregate fields of "data_dictionary_category"
+aggregate fields of "data_dictionary"
 """
-type data_dictionary_category_aggregate_fields {
-  avg: data_dictionary_category_avg_fields
-  count(columns: [data_dictionary_category_select_column!], distinct: Boolean): Int
-  max: data_dictionary_category_max_fields
-  min: data_dictionary_category_min_fields
-  stddev: data_dictionary_category_stddev_fields
-  stddev_pop: data_dictionary_category_stddev_pop_fields
-  stddev_samp: data_dictionary_category_stddev_samp_fields
-  sum: data_dictionary_category_sum_fields
-  var_pop: data_dictionary_category_var_pop_fields
-  var_samp: data_dictionary_category_var_samp_fields
-  variance: data_dictionary_category_variance_fields
+type data_dictionary_aggregate_fields {
+  avg: data_dictionary_avg_fields
+  count(columns: [data_dictionary_select_column!], distinct: Boolean): Int
+  max: data_dictionary_max_fields
+  min: data_dictionary_min_fields
+  stddev: data_dictionary_stddev_fields
+  stddev_pop: data_dictionary_stddev_pop_fields
+  stddev_samp: data_dictionary_stddev_samp_fields
+  sum: data_dictionary_sum_fields
+  var_pop: data_dictionary_var_pop_fields
+  var_samp: data_dictionary_var_samp_fields
+  variance: data_dictionary_variance_fields
 }
 
 """
-order by aggregate values of table "data_dictionary_category"
+order by aggregate values of table "data_dictionary"
 """
-input data_dictionary_category_aggregate_order_by {
-  avg: data_dictionary_category_avg_order_by
+input data_dictionary_aggregate_order_by {
+  avg: data_dictionary_avg_order_by
   count: order_by
-  max: data_dictionary_category_max_order_by
-  min: data_dictionary_category_min_order_by
-  stddev: data_dictionary_category_stddev_order_by
-  stddev_pop: data_dictionary_category_stddev_pop_order_by
-  stddev_samp: data_dictionary_category_stddev_samp_order_by
-  sum: data_dictionary_category_sum_order_by
-  var_pop: data_dictionary_category_var_pop_order_by
-  var_samp: data_dictionary_category_var_samp_order_by
-  variance: data_dictionary_category_variance_order_by
+  max: data_dictionary_max_order_by
+  min: data_dictionary_min_order_by
+  stddev: data_dictionary_stddev_order_by
+  stddev_pop: data_dictionary_stddev_pop_order_by
+  stddev_samp: data_dictionary_stddev_samp_order_by
+  sum: data_dictionary_sum_order_by
+  var_pop: data_dictionary_var_pop_order_by
+  var_samp: data_dictionary_var_samp_order_by
+  variance: data_dictionary_variance_order_by
 }
 
 """
-input type for inserting array relation for remote table "data_dictionary_category"
+input type for inserting array relation for remote table "data_dictionary"
 """
-input data_dictionary_category_arr_rel_insert_input {
-  data: [data_dictionary_category_insert_input!]!
-  on_conflict: data_dictionary_category_on_conflict
+input data_dictionary_arr_rel_insert_input {
+  data: [data_dictionary_insert_input!]!
+  on_conflict: data_dictionary_on_conflict
 }
 
 """aggregate avg on columns"""
-type data_dictionary_category_avg_fields {
+type data_dictionary_avg_fields {
   id: Float
+  value: Float
 }
 
 """
-order by avg() on columns of table "data_dictionary_category"
+order by avg() on columns of table "data_dictionary"
 """
-input data_dictionary_category_avg_order_by {
+input data_dictionary_avg_order_by {
   id: order_by
+  value: order_by
 }
 
 """
-Boolean expression to filter rows from the table "data_dictionary_category". All fields are combined with a logical 'AND'.
+Boolean expression to filter rows from the table "data_dictionary". All fields are combined with a logical 'AND'.
 """
-input data_dictionary_category_bool_exp {
-  _and: [data_dictionary_category_bool_exp]
-  _not: data_dictionary_category_bool_exp
-  _or: [data_dictionary_category_bool_exp]
-  category_code: String_comparison_exp
-  category_name: String_comparison_exp
+input data_dictionary_bool_exp {
+  _and: [data_dictionary_bool_exp]
+  _not: data_dictionary_bool_exp
+  _or: [data_dictionary_bool_exp]
   create_at: timestamptz_comparison_exp
   create_by: String_comparison_exp
   delete_at: timestamptz_comparison_exp
   delete_by: String_comparison_exp
   dictionary_category_id: String_comparison_exp
+  dictionary_id: String_comparison_exp
   id: bigint_comparison_exp
   is_delete: Boolean_comparison_exp
+  name: String_comparison_exp
   remarks: String_comparison_exp
   update_at: timestamptz_comparison_exp
   update_by: String_comparison_exp
+  value: Int_comparison_exp
 }
 
 """
-unique or primary key constraints on table "data_dictionary_category"
+unique or primary key constraints on table "data_dictionary"
 """
-enum data_dictionary_category_constraint {
+enum data_dictionary_constraint {
   """unique or primary key constraint"""
-  data_dirtionary_category_pkey
+  data_dirtionary_pkey
 }
 
 """
-input type for incrementing integer column in table "data_dictionary_category"
+input type for incrementing integer column in table "data_dictionary"
 """
-input data_dictionary_category_inc_input {
+input data_dictionary_inc_input {
   id: bigint
+  value: Int
 }
 
 """
-input type for inserting data into table "data_dictionary_category"
+input type for inserting data into table "data_dictionary"
 """
-input data_dictionary_category_insert_input {
-  category_code: String
-  category_name: String
+input data_dictionary_insert_input {
   create_at: timestamptz
   create_by: String
   delete_at: timestamptz
   delete_by: String
   dictionary_category_id: String
+  dictionary_id: String
   id: bigint
   is_delete: Boolean
+  name: String
   remarks: String
   update_at: timestamptz
   update_by: String
+  value: Int
 }
 
 """aggregate max on columns"""
-type data_dictionary_category_max_fields {
-  category_code: String
-  category_name: String
+type data_dictionary_max_fields {
   create_at: timestamptz
   create_by: String
   delete_at: timestamptz
   delete_by: String
   dictionary_category_id: String
+  dictionary_id: String
   id: bigint
+  name: String
   remarks: String
   update_at: timestamptz
   update_by: String
+  value: Int
 }
 
 """
-order by max() on columns of table "data_dictionary_category"
+order by max() on columns of table "data_dictionary"
 """
-input data_dictionary_category_max_order_by {
-  category_code: order_by
-  category_name: order_by
+input data_dictionary_max_order_by {
   create_at: order_by
   create_by: order_by
   delete_at: order_by
   delete_by: order_by
   dictionary_category_id: order_by
+  dictionary_id: order_by
   id: order_by
+  name: order_by
   remarks: order_by
   update_at: order_by
   update_by: order_by
+  value: order_by
 }
 
 """aggregate min on columns"""
-type data_dictionary_category_min_fields {
-  category_code: String
-  category_name: String
+type data_dictionary_min_fields {
   create_at: timestamptz
   create_by: String
   delete_at: timestamptz
   delete_by: String
   dictionary_category_id: String
+  dictionary_id: String
   id: bigint
+  name: String
   remarks: String
   update_at: timestamptz
   update_by: String
+  value: Int
 }
 
 """
-order by min() on columns of table "data_dictionary_category"
+order by min() on columns of table "data_dictionary"
 """
-input data_dictionary_category_min_order_by {
-  category_code: order_by
-  category_name: order_by
+input data_dictionary_min_order_by {
   create_at: order_by
   create_by: order_by
   delete_at: order_by
   delete_by: order_by
   dictionary_category_id: order_by
+  dictionary_id: order_by
   id: order_by
+  name: order_by
   remarks: order_by
   update_at: order_by
   update_by: order_by
+  value: order_by
 }
 
 """
-response of any mutation on the table "data_dictionary_category"
+response of any mutation on the table "data_dictionary"
 """
-type data_dictionary_category_mutation_response {
+type data_dictionary_mutation_response {
   """number of affected rows by the mutation"""
   affected_rows: Int!
 
   """data of the affected rows by the mutation"""
-  returning: [data_dictionary_category!]!
+  returning: [data_dictionary!]!
 }
 
 """
-input type for inserting object relation for remote table "data_dictionary_category"
+input type for inserting object relation for remote table "data_dictionary"
 """
-input data_dictionary_category_obj_rel_insert_input {
-  data: data_dictionary_category_insert_input!
-  on_conflict: data_dictionary_category_on_conflict
+input data_dictionary_obj_rel_insert_input {
+  data: data_dictionary_insert_input!
+  on_conflict: data_dictionary_on_conflict
 }
 
 """
-on conflict condition type for table "data_dictionary_category"
+on conflict condition type for table "data_dictionary"
 """
-input data_dictionary_category_on_conflict {
-  constraint: data_dictionary_category_constraint!
-  update_columns: [data_dictionary_category_update_column!]!
-  where: data_dictionary_category_bool_exp
+input data_dictionary_on_conflict {
+  constraint: data_dictionary_constraint!
+  update_columns: [data_dictionary_update_column!]!
+  where: data_dictionary_bool_exp
 }
 
 """
-ordering options when selecting data from "data_dictionary_category"
+ordering options when selecting data from "data_dictionary"
 """
-input data_dictionary_category_order_by {
-  category_code: order_by
-  category_name: order_by
+input data_dictionary_order_by {
   create_at: order_by
   create_by: order_by
   delete_at: order_by
   delete_by: order_by
   dictionary_category_id: order_by
+  dictionary_id: order_by
   id: order_by
   is_delete: order_by
+  name: order_by
   remarks: order_by
   update_at: order_by
   update_by: order_by
+  value: order_by
 }
 
 """
-primary key columns input for table: "data_dictionary_category"
+primary key columns input for table: "data_dictionary"
 """
-input data_dictionary_category_pk_columns_input {
+input data_dictionary_pk_columns_input {
   """ID"""
   id: bigint!
 }
 
 """
-select columns of table "data_dictionary_category"
+select columns of table "data_dictionary"
 """
-enum data_dictionary_category_select_column {
-  """column name"""
-  category_code
-
-  """column name"""
-  category_name
-
+enum data_dictionary_select_column {
   """column name"""
   create_at
 
@@ -1081,10 +1220,16 @@ enum data_dictionary_category_select_column {
   dictionary_category_id
 
   """column name"""
+  dictionary_id
+
+  """column name"""
   id
 
   """column name"""
   is_delete
+
+  """column name"""
+  name
 
   """column name"""
   remarks
@@ -1094,84 +1239,90 @@ enum data_dictionary_category_select_column {
 
   """column name"""
   update_by
+
+  """column name"""
+  value
 }
 
 """
-input type for updating data in table "data_dictionary_category"
+input type for updating data in table "data_dictionary"
 """
-input data_dictionary_category_set_input {
-  category_code: String
-  category_name: String
+input data_dictionary_set_input {
   create_at: timestamptz
   create_by: String
   delete_at: timestamptz
   delete_by: String
   dictionary_category_id: String
+  dictionary_id: String
   id: bigint
   is_delete: Boolean
+  name: String
   remarks: String
   update_at: timestamptz
   update_by: String
+  value: Int
 }
 
 """aggregate stddev on columns"""
-type data_dictionary_category_stddev_fields {
+type data_dictionary_stddev_fields {
   id: Float
+  value: Float
 }
 
 """
-order by stddev() on columns of table "data_dictionary_category"
+order by stddev() on columns of table "data_dictionary"
 """
-input data_dictionary_category_stddev_order_by {
+input data_dictionary_stddev_order_by {
   id: order_by
+  value: order_by
 }
 
 """aggregate stddev_pop on columns"""
-type data_dictionary_category_stddev_pop_fields {
+type data_dictionary_stddev_pop_fields {
   id: Float
+  value: Float
 }
 
 """
-order by stddev_pop() on columns of table "data_dictionary_category"
+order by stddev_pop() on columns of table "data_dictionary"
 """
-input data_dictionary_category_stddev_pop_order_by {
+input data_dictionary_stddev_pop_order_by {
   id: order_by
+  value: order_by
 }
 
 """aggregate stddev_samp on columns"""
-type data_dictionary_category_stddev_samp_fields {
+type data_dictionary_stddev_samp_fields {
   id: Float
+  value: Float
 }
 
 """
-order by stddev_samp() on columns of table "data_dictionary_category"
+order by stddev_samp() on columns of table "data_dictionary"
 """
-input data_dictionary_category_stddev_samp_order_by {
+input data_dictionary_stddev_samp_order_by {
   id: order_by
+  value: order_by
 }
 
 """aggregate sum on columns"""
-type data_dictionary_category_sum_fields {
+type data_dictionary_sum_fields {
   id: bigint
+  value: Int
 }
 
 """
-order by sum() on columns of table "data_dictionary_category"
+order by sum() on columns of table "data_dictionary"
 """
-input data_dictionary_category_sum_order_by {
+input data_dictionary_sum_order_by {
   id: order_by
+  value: order_by
 }
 
 """
-update columns of table "data_dictionary_category"
+update columns of table "data_dictionary"
 """
-enum data_dictionary_category_update_column {
-  """column name"""
-  category_code
-
-  """column name"""
-  category_name
-
+enum data_dictionary_update_column {
   """column name"""
   create_at
 
@@ -1188,10 +1339,16 @@ enum data_dictionary_category_update_column {
   dictionary_category_id
 
   """column name"""
+  dictionary_id
+
+  """column name"""
   id
 
   """column name"""
   is_delete
+
+  """column name"""
+  name
 
   """column name"""
   remarks
@@ -1201,109 +1358,133 @@ enum data_dictionary_category_update_column {
 
   """column name"""
   update_by
+
+  """column name"""
+  value
 }
 
 """aggregate var_pop on columns"""
-type data_dictionary_category_var_pop_fields {
+type data_dictionary_var_pop_fields {
   id: Float
+  value: Float
 }
 
 """
-order by var_pop() on columns of table "data_dictionary_category"
+order by var_pop() on columns of table "data_dictionary"
 """
-input data_dictionary_category_var_pop_order_by {
+input data_dictionary_var_pop_order_by {
   id: order_by
+  value: order_by
 }
 
 """aggregate var_samp on columns"""
-type data_dictionary_category_var_samp_fields {
+type data_dictionary_var_samp_fields {
   id: Float
+  value: Float
 }
 
 """
-order by var_samp() on columns of table "data_dictionary_category"
+order by var_samp() on columns of table "data_dictionary"
 """
-input data_dictionary_category_var_samp_order_by {
+input data_dictionary_var_samp_order_by {
   id: order_by
+  value: order_by
 }
 
 """aggregate variance on columns"""
-type data_dictionary_category_variance_fields {
+type data_dictionary_variance_fields {
   id: Float
+  value: Float
 }
 
 """
-order by variance() on columns of table "data_dictionary_category"
+order by variance() on columns of table "data_dictionary"
 """
-input data_dictionary_category_variance_order_by {
+input data_dictionary_variance_order_by {
   id: order_by
+  value: order_by
+}
+
+"""
+expression to compare columns of type Int. All fields are combined with logical 'AND'.
+"""
+input Int_comparison_exp {
+  _eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
 }
 
 """mutation root"""
 type mutation_root {
   """
-  delete data from the table: "data_dictionary_category"
+  delete data from the table: "data_dictionary"
   """
-  delete_data_dictionary_category(
+  delete_data_dictionary(
     """filter the rows which have to be deleted"""
-    where: data_dictionary_category_bool_exp!
-  ): data_dictionary_category_mutation_response
+    where: data_dictionary_bool_exp!
+  ): data_dictionary_mutation_response
 
   """
-  delete single row from the table: "data_dictionary_category"
+  delete single row from the table: "data_dictionary"
   """
-  delete_data_dictionary_category_by_pk(
+  delete_data_dictionary_by_pk(
     """ID"""
     id: bigint!
-  ): data_dictionary_category
+  ): data_dictionary
 
   """
-  insert data into the table: "data_dictionary_category"
+  insert data into the table: "data_dictionary"
   """
-  insert_data_dictionary_category(
+  insert_data_dictionary(
     """the rows to be inserted"""
-    objects: [data_dictionary_category_insert_input!]!
+    objects: [data_dictionary_insert_input!]!
 
     """on conflict condition"""
-    on_conflict: data_dictionary_category_on_conflict
-  ): data_dictionary_category_mutation_response
+    on_conflict: data_dictionary_on_conflict
+  ): data_dictionary_mutation_response
 
   """
-  insert a single row into the table: "data_dictionary_category"
+  insert a single row into the table: "data_dictionary"
   """
-  insert_data_dictionary_category_one(
+  insert_data_dictionary_one(
     """the row to be inserted"""
-    object: data_dictionary_category_insert_input!
+    object: data_dictionary_insert_input!
 
     """on conflict condition"""
-    on_conflict: data_dictionary_category_on_conflict
-  ): data_dictionary_category
+    on_conflict: data_dictionary_on_conflict
+  ): data_dictionary
 
   """
-  update data of the table: "data_dictionary_category"
+  update data of the table: "data_dictionary"
   """
-  update_data_dictionary_category(
+  update_data_dictionary(
     """increments the integer columns with given value of the filtered values"""
-    _inc: data_dictionary_category_inc_input
+    _inc: data_dictionary_inc_input
 
     """sets the columns of the filtered rows to the given values"""
-    _set: data_dictionary_category_set_input
+    _set: data_dictionary_set_input
 
     """filter the rows which have to be updated"""
-    where: data_dictionary_category_bool_exp!
-  ): data_dictionary_category_mutation_response
+    where: data_dictionary_bool_exp!
+  ): data_dictionary_mutation_response
 
   """
-  update single row of the table: "data_dictionary_category"
+  update single row of the table: "data_dictionary"
   """
-  update_data_dictionary_category_by_pk(
+  update_data_dictionary_by_pk(
     """increments the integer columns with given value of the filtered values"""
-    _inc: data_dictionary_category_inc_input
+    _inc: data_dictionary_inc_input
 
     """sets the columns of the filtered rows to the given values"""
-    _set: data_dictionary_category_set_input
-    pk_columns: data_dictionary_category_pk_columns_input!
-  ): data_dictionary_category
+    _set: data_dictionary_set_input
+    pk_columns: data_dictionary_pk_columns_input!
+  ): data_dictionary
 }
 
 """column ordering options"""
@@ -1330,11 +1511,11 @@ enum order_by {
 """query root"""
 type Query {
   """
-  fetch data from the table: "data_dictionary_category"
+  fetch data from the table: "data_dictionary"
   """
-  data_dictionary_category(
+  data_dictionary(
     """distinct select on columns"""
-    distinct_on: [data_dictionary_category_select_column!]
+    distinct_on: [data_dictionary_select_column!]
 
     """limit the number of rows returned"""
     limit: Int
@@ -1343,18 +1524,18 @@ type Query {
     offset: Int
 
     """sort the rows by one or more columns"""
-    order_by: [data_dictionary_category_order_by!]
+    order_by: [data_dictionary_order_by!]
 
     """filter the rows returned"""
-    where: data_dictionary_category_bool_exp
-  ): [data_dictionary_category!]!
+    where: data_dictionary_bool_exp
+  ): [data_dictionary!]!
 
   """
-  fetch aggregated fields from the table: "data_dictionary_category"
+  fetch aggregated fields from the table: "data_dictionary"
   """
-  data_dictionary_category_aggregate(
+  data_dictionary_aggregate(
     """distinct select on columns"""
-    distinct_on: [data_dictionary_category_select_column!]
+    distinct_on: [data_dictionary_select_column!]
 
     """limit the number of rows returned"""
     limit: Int
@@ -1363,19 +1544,17 @@ type Query {
     offset: Int
 
     """sort the rows by one or more columns"""
-    order_by: [data_dictionary_category_order_by!]
+    order_by: [data_dictionary_order_by!]
 
     """filter the rows returned"""
-    where: data_dictionary_category_bool_exp
-  ): data_dictionary_category_aggregate!
+    where: data_dictionary_bool_exp
+  ): data_dictionary_aggregate!
 
-  """
-  fetch data from the table: "data_dictionary_category" using primary key columns
-  """
-  data_dictionary_category_by_pk(
+  """fetch data from the table: "data_dictionary" using primary key columns"""
+  data_dictionary_by_pk(
     """ID"""
     id: bigint!
-  ): data_dictionary_category
+  ): data_dictionary
 }
 
 """
@@ -1397,6 +1576,55 @@ input String_comparison_exp {
   _nlike: String
   _nsimilar: String
   _similar: String
+}
+
+"""subscription root"""
+type subscription_root {
+  """
+  fetch data from the table: "data_dictionary"
+  """
+  data_dictionary(
+    """distinct select on columns"""
+    distinct_on: [data_dictionary_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [data_dictionary_order_by!]
+
+    """filter the rows returned"""
+    where: data_dictionary_bool_exp
+  ): [data_dictionary!]!
+
+  """
+  fetch aggregated fields from the table: "data_dictionary"
+  """
+  data_dictionary_aggregate(
+    """distinct select on columns"""
+    distinct_on: [data_dictionary_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [data_dictionary_order_by!]
+
+    """filter the rows returned"""
+    where: data_dictionary_bool_exp
+  ): data_dictionary_aggregate!
+
+  """fetch data from the table: "data_dictionary" using primary key columns"""
+  data_dictionary_by_pk(
+    """ID"""
+    id: bigint!
+  ): data_dictionary
 }
 
 scalar timestamptz
@@ -1439,13 +1667,13 @@ func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_data_dictionary_category_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Query_data_dictionary_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []model.DataDictionaryCategorySelectColumn
+	var arg0 []model.DataDictionarySelectColumn
 	if tmp, ok := rawArgs["distinct_on"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOdata_dictionary_category_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySelectColumnᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalOdata_dictionary_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1469,19 +1697,19 @@ func (ec *executionContext) field_Query_data_dictionary_category_aggregate_args(
 		}
 	}
 	args["offset"] = arg2
-	var arg3 []*model.DataDictionaryCategoryOrderBy
+	var arg3 []*model.DataDictionaryOrderBy
 	if tmp, ok := rawArgs["order_by"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOdata_dictionary_category_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOrderByᚄ(ctx, tmp)
+		arg3, err = ec.unmarshalOdata_dictionary_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOrderByᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["order_by"] = arg3
-	var arg4 *model.DataDictionaryCategoryBoolExp
+	var arg4 *model.DataDictionaryBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOdata_dictionary_category_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx, tmp)
+		arg4, err = ec.unmarshalOdata_dictionary_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1490,13 +1718,13 @@ func (ec *executionContext) field_Query_data_dictionary_category_aggregate_args(
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_data_dictionary_category_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Query_data_dictionary_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []model.DataDictionaryCategorySelectColumn
+	var arg0 []model.DataDictionarySelectColumn
 	if tmp, ok := rawArgs["distinct_on"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOdata_dictionary_category_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySelectColumnᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalOdata_dictionary_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1520,19 +1748,19 @@ func (ec *executionContext) field_Query_data_dictionary_category_args(ctx contex
 		}
 	}
 	args["offset"] = arg2
-	var arg3 []*model.DataDictionaryCategoryOrderBy
+	var arg3 []*model.DataDictionaryOrderBy
 	if tmp, ok := rawArgs["order_by"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOdata_dictionary_category_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOrderByᚄ(ctx, tmp)
+		arg3, err = ec.unmarshalOdata_dictionary_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOrderByᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["order_by"] = arg3
-	var arg4 *model.DataDictionaryCategoryBoolExp
+	var arg4 *model.DataDictionaryBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOdata_dictionary_category_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx, tmp)
+		arg4, err = ec.unmarshalOdata_dictionary_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1541,7 +1769,7 @@ func (ec *executionContext) field_Query_data_dictionary_category_args(ctx contex
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_data_dictionary_category_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_Query_data_dictionary_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 int64
@@ -1586,13 +1814,13 @@ func (ec *executionContext) field___Type_fields_args(ctx context.Context, rawArg
 	return args, nil
 }
 
-func (ec *executionContext) field_data_dictionary_category_aggregate_fields_count_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_data_dictionary_aggregate_fields_count_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []model.DataDictionaryCategorySelectColumn
+	var arg0 []model.DataDictionarySelectColumn
 	if tmp, ok := rawArgs["columns"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
-		arg0, err = ec.unmarshalOdata_dictionary_category_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySelectColumnᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalOdata_dictionary_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1610,13 +1838,13 @@ func (ec *executionContext) field_data_dictionary_category_aggregate_fields_coun
 	return args, nil
 }
 
-func (ec *executionContext) field_mutation_root_delete_data_dictionary_category_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_mutation_root_delete_data_dictionary_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.DataDictionaryCategoryBoolExp
+	var arg0 model.DataDictionaryBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalNdata_dictionary_category_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx, tmp)
+		arg0, err = ec.unmarshalNdata_dictionary_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1625,7 +1853,7 @@ func (ec *executionContext) field_mutation_root_delete_data_dictionary_category_
 	return args, nil
 }
 
-func (ec *executionContext) field_mutation_root_delete_data_dictionary_category_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_mutation_root_delete_data_dictionary_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 int64
@@ -1640,22 +1868,22 @@ func (ec *executionContext) field_mutation_root_delete_data_dictionary_category_
 	return args, nil
 }
 
-func (ec *executionContext) field_mutation_root_insert_data_dictionary_category_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_mutation_root_insert_data_dictionary_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 []*model.DataDictionaryCategoryInsertInput
+	var arg0 []*model.DataDictionaryInsertInput
 	if tmp, ok := rawArgs["objects"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNdata_dictionary_category_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryInsertInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNdata_dictionary_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryInsertInputᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["objects"] = arg0
-	var arg1 *model.DataDictionaryCategoryOnConflict
+	var arg1 *model.DataDictionaryOnConflict
 	if tmp, ok := rawArgs["on_conflict"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-		arg1, err = ec.unmarshalOdata_dictionary_category_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOnConflict(ctx, tmp)
+		arg1, err = ec.unmarshalOdata_dictionary_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOnConflict(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1664,22 +1892,22 @@ func (ec *executionContext) field_mutation_root_insert_data_dictionary_category_
 	return args, nil
 }
 
-func (ec *executionContext) field_mutation_root_insert_data_dictionary_category_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_mutation_root_insert_data_dictionary_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 model.DataDictionaryCategoryInsertInput
+	var arg0 model.DataDictionaryInsertInput
 	if tmp, ok := rawArgs["object"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
-		arg0, err = ec.unmarshalNdata_dictionary_category_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryInsertInput(ctx, tmp)
+		arg0, err = ec.unmarshalNdata_dictionary_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryInsertInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["object"] = arg0
-	var arg1 *model.DataDictionaryCategoryOnConflict
+	var arg1 *model.DataDictionaryOnConflict
 	if tmp, ok := rawArgs["on_conflict"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-		arg1, err = ec.unmarshalOdata_dictionary_category_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOnConflict(ctx, tmp)
+		arg1, err = ec.unmarshalOdata_dictionary_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOnConflict(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1688,31 +1916,31 @@ func (ec *executionContext) field_mutation_root_insert_data_dictionary_category_
 	return args, nil
 }
 
-func (ec *executionContext) field_mutation_root_update_data_dictionary_category_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_mutation_root_update_data_dictionary_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *model.DataDictionaryCategoryIncInput
+	var arg0 *model.DataDictionaryIncInput
 	if tmp, ok := rawArgs["_inc"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOdata_dictionary_category_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryIncInput(ctx, tmp)
+		arg0, err = ec.unmarshalOdata_dictionary_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryIncInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["_inc"] = arg0
-	var arg1 *model.DataDictionaryCategorySetInput
+	var arg1 *model.DataDictionarySetInput
 	if tmp, ok := rawArgs["_set"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOdata_dictionary_category_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySetInput(ctx, tmp)
+		arg1, err = ec.unmarshalOdata_dictionary_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySetInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["_set"] = arg1
-	var arg2 model.DataDictionaryCategoryBoolExp
+	var arg2 model.DataDictionaryBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg2, err = ec.unmarshalNdata_dictionary_category_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx, tmp)
+		arg2, err = ec.unmarshalNdata_dictionary_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1721,36 +1949,153 @@ func (ec *executionContext) field_mutation_root_update_data_dictionary_category_
 	return args, nil
 }
 
-func (ec *executionContext) field_mutation_root_update_data_dictionary_category_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+func (ec *executionContext) field_mutation_root_update_data_dictionary_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
-	var arg0 *model.DataDictionaryCategoryIncInput
+	var arg0 *model.DataDictionaryIncInput
 	if tmp, ok := rawArgs["_inc"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOdata_dictionary_category_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryIncInput(ctx, tmp)
+		arg0, err = ec.unmarshalOdata_dictionary_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryIncInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["_inc"] = arg0
-	var arg1 *model.DataDictionaryCategorySetInput
+	var arg1 *model.DataDictionarySetInput
 	if tmp, ok := rawArgs["_set"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOdata_dictionary_category_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySetInput(ctx, tmp)
+		arg1, err = ec.unmarshalOdata_dictionary_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySetInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["_set"] = arg1
-	var arg2 model.DataDictionaryCategoryPkColumnsInput
+	var arg2 model.DataDictionaryPkColumnsInput
 	if tmp, ok := rawArgs["pk_columns"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
-		arg2, err = ec.unmarshalNdata_dictionary_category_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryPkColumnsInput(ctx, tmp)
+		arg2, err = ec.unmarshalNdata_dictionary_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryPkColumnsInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
 	}
 	args["pk_columns"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_subscription_root_data_dictionary_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.DataDictionarySelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOdata_dictionary_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.DataDictionaryOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOdata_dictionary_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.DataDictionaryBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOdata_dictionary_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_subscription_root_data_dictionary_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.DataDictionarySelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOdata_dictionary_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.DataDictionaryOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOdata_dictionary_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.DataDictionaryBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOdata_dictionary_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_subscription_root_data_dictionary_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
 	return args, nil
 }
 
@@ -1762,7 +2107,7 @@ func (ec *executionContext) field_mutation_root_update_data_dictionary_category_
 
 // region    **************************** field.gotpl *****************************
 
-func (ec *executionContext) _Query_data_dictionary_category(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_data_dictionary(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1779,7 +2124,7 @@ func (ec *executionContext) _Query_data_dictionary_category(ctx context.Context,
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_data_dictionary_category_args(ctx, rawArgs)
+	args, err := ec.field_Query_data_dictionary_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -1787,7 +2132,7 @@ func (ec *executionContext) _Query_data_dictionary_category(ctx context.Context,
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().DataDictionaryCategory(rctx, args["distinct_on"].([]model.DataDictionaryCategorySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryCategoryOrderBy), args["where"].(*model.DataDictionaryCategoryBoolExp))
+		return ec.resolvers.Query().DataDictionary(rctx, args["distinct_on"].([]model.DataDictionarySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryOrderBy), args["where"].(*model.DataDictionaryBoolExp))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1799,12 +2144,12 @@ func (ec *executionContext) _Query_data_dictionary_category(ctx context.Context,
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*model.DataDictionaryCategory)
+	res := resTmp.([]*model1.DataDictionary)
 	fc.Result = res
-	return ec.marshalNdata_dictionary_category2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryᚄ(ctx, field.Selections, res)
+	return ec.marshalNdata_dictionary2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionaryᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_data_dictionary_category_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_data_dictionary_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1821,7 +2166,7 @@ func (ec *executionContext) _Query_data_dictionary_category_aggregate(ctx contex
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_data_dictionary_category_aggregate_args(ctx, rawArgs)
+	args, err := ec.field_Query_data_dictionary_aggregate_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -1829,7 +2174,7 @@ func (ec *executionContext) _Query_data_dictionary_category_aggregate(ctx contex
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().DataDictionaryCategoryAggregate(rctx, args["distinct_on"].([]model.DataDictionaryCategorySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryCategoryOrderBy), args["where"].(*model.DataDictionaryCategoryBoolExp))
+		return ec.resolvers.Query().DataDictionaryAggregate(rctx, args["distinct_on"].([]model.DataDictionarySelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DataDictionaryOrderBy), args["where"].(*model.DataDictionaryBoolExp))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1841,12 +2186,12 @@ func (ec *executionContext) _Query_data_dictionary_category_aggregate(ctx contex
 		}
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryAggregate)
+	res := resTmp.(*model.DataDictionaryAggregate)
 	fc.Result = res
-	return ec.marshalNdata_dictionary_category_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryAggregate(ctx, field.Selections, res)
+	return ec.marshalNdata_dictionary_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAggregate(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_data_dictionary_category_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_data_dictionary_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -1863,7 +2208,7 @@ func (ec *executionContext) _Query_data_dictionary_category_by_pk(ctx context.Co
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_data_dictionary_category_by_pk_args(ctx, rawArgs)
+	args, err := ec.field_Query_data_dictionary_by_pk_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -1871,7 +2216,7 @@ func (ec *executionContext) _Query_data_dictionary_category_by_pk(ctx context.Co
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().DataDictionaryCategoryByPk(rctx, args["id"].(int64))
+		return ec.resolvers.Query().DataDictionaryByPk(rctx, args["id"].(int64))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -1880,9 +2225,9 @@ func (ec *executionContext) _Query_data_dictionary_category_by_pk(ctx context.Co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategory)
+	res := resTmp.(*model1.DataDictionary)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionary(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -3039,7 +3384,7 @@ func (ec *executionContext) ___Type_ofType(ctx context.Context, field graphql.Co
 	return ec.marshalO__Type2ᚖgithubᚗcomᚋ99designsᚋgqlgenᚋgraphqlᚋintrospectionᚐType(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_category_code(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3047,77 +3392,7 @@ func (ec *executionContext) _data_dictionary_category_category_code(ctx context.
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CategoryCode, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _data_dictionary_category_category_name(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CategoryName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _data_dictionary_category_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3144,7 +3419,7 @@ func (ec *executionContext) _data_dictionary_category_create_at(ctx context.Cont
 	return ec.marshalNtimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3152,7 +3427,7 @@ func (ec *executionContext) _data_dictionary_category_create_by(ctx context.Cont
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3176,7 +3451,7 @@ func (ec *executionContext) _data_dictionary_category_create_by(ctx context.Cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3184,7 +3459,7 @@ func (ec *executionContext) _data_dictionary_category_delete_at(ctx context.Cont
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3208,7 +3483,7 @@ func (ec *executionContext) _data_dictionary_category_delete_at(ctx context.Cont
 	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3216,7 +3491,7 @@ func (ec *executionContext) _data_dictionary_category_delete_by(ctx context.Cont
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3240,7 +3515,7 @@ func (ec *executionContext) _data_dictionary_category_delete_by(ctx context.Cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_dictionary_category_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_dictionary_category_id(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3248,7 +3523,7 @@ func (ec *executionContext) _data_dictionary_category_dictionary_category_id(ctx
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3275,7 +3550,7 @@ func (ec *executionContext) _data_dictionary_category_dictionary_category_id(ctx
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_dictionary_id(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3283,7 +3558,42 @@ func (ec *executionContext) _data_dictionary_category_id(ctx context.Context, fi
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DictionaryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_id(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3310,7 +3620,7 @@ func (ec *executionContext) _data_dictionary_category_id(ctx context.Context, fi
 	return ec.marshalNbigint2int64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_is_delete(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3318,7 +3628,7 @@ func (ec *executionContext) _data_dictionary_category_is_delete(ctx context.Cont
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3345,7 +3655,7 @@ func (ec *executionContext) _data_dictionary_category_is_delete(ctx context.Cont
 	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_remarks(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_name(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3353,7 +3663,42 @@ func (ec *executionContext) _data_dictionary_category_remarks(ctx context.Contex
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_remarks(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3377,7 +3722,7 @@ func (ec *executionContext) _data_dictionary_category_remarks(ctx context.Contex
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3385,7 +3730,7 @@ func (ec *executionContext) _data_dictionary_category_update_at(ctx context.Cont
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3409,7 +3754,7 @@ func (ec *executionContext) _data_dictionary_category_update_at(ctx context.Cont
 	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategory) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3417,7 +3762,7 @@ func (ec *executionContext) _data_dictionary_category_update_by(ctx context.Cont
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category",
+		Object:     "data_dictionary",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3441,7 +3786,7 @@ func (ec *executionContext) _data_dictionary_category_update_by(ctx context.Cont
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregate) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_value(ctx context.Context, field graphql.CollectedField, obj *model1.DataDictionary) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3449,7 +3794,42 @@ func (ec *executionContext) _data_dictionary_category_aggregate_aggregate(ctx co
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate",
+		Object:     "data_dictionary",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Value, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_aggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_aggregate",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3468,12 +3848,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_aggregate(ctx co
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryAggregateFields)
+	res := resTmp.(*model.DataDictionaryAggregateFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryAggregateFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAggregateFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregate) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregate) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3481,7 +3861,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_nodes(ctx contex
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate",
+		Object:     "data_dictionary_aggregate",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3503,12 +3883,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_nodes(ctx contex
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*model.DataDictionaryCategory)
+	res := resTmp.([]*model1.DataDictionary)
 	fc.Result = res
-	return ec.marshalNdata_dictionary_category2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryᚄ(ctx, field.Selections, res)
+	return ec.marshalNdata_dictionary2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionaryᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_avg(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_avg(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3516,7 +3896,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_avg(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3535,12 +3915,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_avg(ctx c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryAvgFields)
+	res := resTmp.(*model.DataDictionaryAvgFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryAvgFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAvgFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_count(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_count(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3548,7 +3928,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_count(ctx
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3557,7 +3937,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_count(ctx
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_data_dictionary_category_aggregate_fields_count_args(ctx, rawArgs)
+	args, err := ec.field_data_dictionary_aggregate_fields_count_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -3579,7 +3959,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_count(ctx
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_max(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_max(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3587,7 +3967,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_max(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3606,12 +3986,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_max(ctx c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryMaxFields)
+	res := resTmp.(*model.DataDictionaryMaxFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMaxFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMaxFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_min(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_min(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3619,7 +3999,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_min(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3638,12 +4018,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_min(ctx c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryMinFields)
+	res := resTmp.(*model.DataDictionaryMinFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMinFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMinFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3651,7 +4031,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_stddev(ct
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3670,12 +4050,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_stddev(ct
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryStddevFields)
+	res := resTmp.(*model.DataDictionaryStddevFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3683,7 +4063,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_stddev_po
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3702,12 +4082,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_stddev_po
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryStddevPopFields)
+	res := resTmp.(*model.DataDictionaryStddevPopFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevPopFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevPopFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3715,7 +4095,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_stddev_sa
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3734,12 +4114,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_stddev_sa
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryStddevSampFields)
+	res := resTmp.(*model.DataDictionaryStddevSampFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevSampFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevSampFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_sum(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_sum(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3747,7 +4127,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_sum(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3766,12 +4146,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_sum(ctx c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategorySumFields)
+	res := resTmp.(*model.DataDictionarySumFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySumFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySumFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3779,7 +4159,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_var_pop(c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3798,12 +4178,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_var_pop(c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryVarPopFields)
+	res := resTmp.(*model.DataDictionaryVarPopFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarPopFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarPopFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3811,7 +4191,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_var_samp(
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3830,12 +4210,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_var_samp(
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryVarSampFields)
+	res := resTmp.(*model.DataDictionaryVarSampFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarSampFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarSampFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields_variance(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAggregateFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_aggregate_fields_variance(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAggregateFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3843,7 +4223,7 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_variance(
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_aggregate_fields",
+		Object:     "data_dictionary_aggregate_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3862,12 +4242,12 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields_variance(
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryVarianceFields)
+	res := resTmp.(*model.DataDictionaryVarianceFields)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarianceFields(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarianceFields(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_avg_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryAvgFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_avg_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAvgFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3875,7 +4255,7 @@ func (ec *executionContext) _data_dictionary_category_avg_fields_id(ctx context.
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_avg_fields",
+		Object:     "data_dictionary_avg_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3899,7 +4279,7 @@ func (ec *executionContext) _data_dictionary_category_avg_fields_id(ctx context.
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_category_code(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_avg_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryAvgFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3907,7 +4287,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_category_code(c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_avg_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3917,7 +4297,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_category_code(c
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CategoryCode, nil
+		return obj.Value, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -3926,12 +4306,12 @@ func (ec *executionContext) _data_dictionary_category_max_fields_category_code(c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*float64)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_category_name(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -3939,39 +4319,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_category_name(c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CategoryName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _data_dictionary_category_max_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -3995,7 +4343,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_create_at(ctx c
 	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4003,7 +4351,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_create_by(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4027,7 +4375,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_create_by(ctx c
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4035,7 +4383,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_delete_at(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4059,7 +4407,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_delete_at(ctx c
 	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4067,7 +4415,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_delete_by(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4091,7 +4439,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_delete_by(ctx c
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_dictionary_category_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_dictionary_category_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4099,7 +4447,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_dictionary_cate
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4123,7 +4471,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_dictionary_cate
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_dictionary_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4131,7 +4479,39 @@ func (ec *executionContext) _data_dictionary_category_max_fields_id(ctx context.
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DictionaryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_max_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4155,7 +4535,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_id(ctx context.
 	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_name(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4163,7 +4543,39 @@ func (ec *executionContext) _data_dictionary_category_max_fields_remarks(ctx con
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_max_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_max_fields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4187,7 +4599,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_remarks(ctx con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4195,7 +4607,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_update_at(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4219,7 +4631,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_update_at(ctx c
 	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMaxFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4227,7 +4639,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_update_by(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_max_fields",
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4251,7 +4663,7 @@ func (ec *executionContext) _data_dictionary_category_max_fields_update_by(ctx c
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_category_code(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_max_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMaxFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4259,7 +4671,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_category_code(c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_max_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4269,7 +4681,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_category_code(c
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.CategoryCode, nil
+		return obj.Value, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4278,12 +4690,12 @@ func (ec *executionContext) _data_dictionary_category_min_fields_category_code(c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*int)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_category_name(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4291,39 +4703,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_category_name(c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CategoryName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _data_dictionary_category_min_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_min_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4347,7 +4727,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_create_at(ctx c
 	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4355,7 +4735,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_create_by(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_min_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4379,7 +4759,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_create_by(ctx c
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4387,7 +4767,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_delete_at(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_min_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4411,7 +4791,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_delete_at(ctx c
 	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4419,7 +4799,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_delete_by(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_min_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4443,7 +4823,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_delete_by(ctx c
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_dictionary_category_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_dictionary_category_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4451,7 +4831,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_dictionary_cate
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_min_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4475,7 +4855,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_dictionary_cate
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_dictionary_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4483,7 +4863,39 @@ func (ec *executionContext) _data_dictionary_category_min_fields_id(ctx context.
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DictionaryID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_min_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_min_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4507,7 +4919,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_id(ctx context.
 	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_name(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4515,7 +4927,39 @@ func (ec *executionContext) _data_dictionary_category_min_fields_remarks(ctx con
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Name, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_min_fields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_min_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4539,7 +4983,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_remarks(ctx con
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4547,7 +4991,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_update_at(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_min_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4571,7 +5015,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_update_at(ctx c
 	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMinFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4579,7 +5023,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_update_by(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_min_fields",
+		Object:     "data_dictionary_min_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4603,7 +5047,7 @@ func (ec *executionContext) _data_dictionary_category_min_fields_update_by(ctx c
 	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_mutation_response_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMutationResponse) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_min_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMinFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4611,7 +5055,39 @@ func (ec *executionContext) _data_dictionary_category_mutation_response_affected
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_mutation_response",
+		Object:     "data_dictionary_min_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Value, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_mutation_response_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_mutation_response",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4638,7 +5114,7 @@ func (ec *executionContext) _data_dictionary_category_mutation_response_affected
 	return ec.marshalNInt2int(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_mutation_response_returning(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryMutationResponse) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_mutation_response_returning(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryMutationResponse) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4646,7 +5122,7 @@ func (ec *executionContext) _data_dictionary_category_mutation_response_returnin
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_mutation_response",
+		Object:     "data_dictionary_mutation_response",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4668,12 +5144,12 @@ func (ec *executionContext) _data_dictionary_category_mutation_response_returnin
 		}
 		return graphql.Null
 	}
-	res := resTmp.([]*model.DataDictionaryCategory)
+	res := resTmp.([]*model1.DataDictionary)
 	fc.Result = res
-	return ec.marshalNdata_dictionary_category2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryᚄ(ctx, field.Selections, res)
+	return ec.marshalNdata_dictionary2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionaryᚄ(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_stddev_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryStddevFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_stddev_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryStddevFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4681,7 +5157,7 @@ func (ec *executionContext) _data_dictionary_category_stddev_fields_id(ctx conte
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_stddev_fields",
+		Object:     "data_dictionary_stddev_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4705,7 +5181,7 @@ func (ec *executionContext) _data_dictionary_category_stddev_fields_id(ctx conte
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_stddev_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryStddevPopFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_stddev_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryStddevFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4713,7 +5189,39 @@ func (ec *executionContext) _data_dictionary_category_stddev_pop_fields_id(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_stddev_pop_fields",
+		Object:     "data_dictionary_stddev_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Value, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_stddev_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_stddev_pop_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4737,7 +5245,7 @@ func (ec *executionContext) _data_dictionary_category_stddev_pop_fields_id(ctx c
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_stddev_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryStddevSampFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_stddev_pop_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryStddevPopFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4745,7 +5253,39 @@ func (ec *executionContext) _data_dictionary_category_stddev_samp_fields_id(ctx 
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_stddev_samp_fields",
+		Object:     "data_dictionary_stddev_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Value, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_stddev_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_stddev_samp_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4769,7 +5309,7 @@ func (ec *executionContext) _data_dictionary_category_stddev_samp_fields_id(ctx 
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_sum_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategorySumFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_stddev_samp_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryStddevSampFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4777,7 +5317,39 @@ func (ec *executionContext) _data_dictionary_category_sum_fields_id(ctx context.
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_sum_fields",
+		Object:     "data_dictionary_stddev_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Value, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_sum_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionarySumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_sum_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4801,7 +5373,7 @@ func (ec *executionContext) _data_dictionary_category_sum_fields_id(ctx context.
 	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_var_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryVarPopFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_sum_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionarySumFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4809,7 +5381,39 @@ func (ec *executionContext) _data_dictionary_category_var_pop_fields_id(ctx cont
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_var_pop_fields",
+		Object:     "data_dictionary_sum_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Value, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_var_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_var_pop_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4833,7 +5437,7 @@ func (ec *executionContext) _data_dictionary_category_var_pop_fields_id(ctx cont
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_var_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryVarSampFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_var_pop_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryVarPopFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4841,7 +5445,39 @@ func (ec *executionContext) _data_dictionary_category_var_samp_fields_id(ctx con
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_var_samp_fields",
+		Object:     "data_dictionary_var_pop_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Value, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_var_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_var_samp_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4865,7 +5501,7 @@ func (ec *executionContext) _data_dictionary_category_var_samp_fields_id(ctx con
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _data_dictionary_category_variance_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryCategoryVarianceFields) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_var_samp_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryVarSampFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4873,7 +5509,39 @@ func (ec *executionContext) _data_dictionary_category_variance_fields_id(ctx con
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "data_dictionary_category_variance_fields",
+		Object:     "data_dictionary_var_samp_fields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Value, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _data_dictionary_variance_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "data_dictionary_variance_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4897,7 +5565,7 @@ func (ec *executionContext) _data_dictionary_category_variance_fields_id(ctx con
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _mutation_root_delete_data_dictionary_category(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
+func (ec *executionContext) _data_dictionary_variance_fields_value(ctx context.Context, field graphql.CollectedField, obj *model.DataDictionaryVarianceFields) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4905,7 +5573,7 @@ func (ec *executionContext) _mutation_root_delete_data_dictionary_category(ctx c
 		}
 	}()
 	fc := &graphql.FieldContext{
-		Object:     "mutation_root",
+		Object:     "data_dictionary_variance_fields",
 		Field:      field,
 		Args:       nil,
 		IsMethod:   false,
@@ -4913,16 +5581,9 @@ func (ec *executionContext) _mutation_root_delete_data_dictionary_category(ctx c
 	}
 
 	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_delete_data_dictionary_category_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteDataDictionaryCategory, nil
+		return obj.Value, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4931,12 +5592,12 @@ func (ec *executionContext) _mutation_root_delete_data_dictionary_category(ctx c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryMutationResponse)
+	res := resTmp.(*float64)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _mutation_root_delete_data_dictionary_category_by_pk(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
+func (ec *executionContext) _mutation_root_delete_data_dictionary(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4953,7 +5614,7 @@ func (ec *executionContext) _mutation_root_delete_data_dictionary_category_by_pk
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_delete_data_dictionary_category_by_pk_args(ctx, rawArgs)
+	args, err := ec.field_mutation_root_delete_data_dictionary_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -4961,7 +5622,7 @@ func (ec *executionContext) _mutation_root_delete_data_dictionary_category_by_pk
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteDataDictionaryCategoryByPk, nil
+		return obj.DeleteDataDictionary, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -4970,12 +5631,12 @@ func (ec *executionContext) _mutation_root_delete_data_dictionary_category_by_pk
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategory)
+	res := resTmp.(*model.DataDictionaryMutationResponse)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMutationResponse(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _mutation_root_insert_data_dictionary_category(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
+func (ec *executionContext) _mutation_root_delete_data_dictionary_by_pk(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -4992,7 +5653,7 @@ func (ec *executionContext) _mutation_root_insert_data_dictionary_category(ctx c
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_insert_data_dictionary_category_args(ctx, rawArgs)
+	args, err := ec.field_mutation_root_delete_data_dictionary_by_pk_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -5000,7 +5661,7 @@ func (ec *executionContext) _mutation_root_insert_data_dictionary_category(ctx c
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.InsertDataDictionaryCategory, nil
+		return obj.DeleteDataDictionaryByPk, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5009,12 +5670,12 @@ func (ec *executionContext) _mutation_root_insert_data_dictionary_category(ctx c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryMutationResponse)
+	res := resTmp.(*model1.DataDictionary)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionary(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _mutation_root_insert_data_dictionary_category_one(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
+func (ec *executionContext) _mutation_root_insert_data_dictionary(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5031,7 +5692,7 @@ func (ec *executionContext) _mutation_root_insert_data_dictionary_category_one(c
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_insert_data_dictionary_category_one_args(ctx, rawArgs)
+	args, err := ec.field_mutation_root_insert_data_dictionary_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -5039,7 +5700,7 @@ func (ec *executionContext) _mutation_root_insert_data_dictionary_category_one(c
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.InsertDataDictionaryCategoryOne, nil
+		return obj.InsertDataDictionary, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5048,12 +5709,12 @@ func (ec *executionContext) _mutation_root_insert_data_dictionary_category_one(c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategory)
+	res := resTmp.(*model.DataDictionaryMutationResponse)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMutationResponse(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _mutation_root_update_data_dictionary_category(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
+func (ec *executionContext) _mutation_root_insert_data_dictionary_one(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5070,7 +5731,7 @@ func (ec *executionContext) _mutation_root_update_data_dictionary_category(ctx c
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_update_data_dictionary_category_args(ctx, rawArgs)
+	args, err := ec.field_mutation_root_insert_data_dictionary_one_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -5078,7 +5739,7 @@ func (ec *executionContext) _mutation_root_update_data_dictionary_category(ctx c
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateDataDictionaryCategory, nil
+		return obj.InsertDataDictionaryOne, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5087,12 +5748,12 @@ func (ec *executionContext) _mutation_root_update_data_dictionary_category(ctx c
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategoryMutationResponse)
+	res := resTmp.(*model1.DataDictionary)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionary(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _mutation_root_update_data_dictionary_category_by_pk(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
+func (ec *executionContext) _mutation_root_update_data_dictionary(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -5109,7 +5770,7 @@ func (ec *executionContext) _mutation_root_update_data_dictionary_category_by_pk
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_mutation_root_update_data_dictionary_category_by_pk_args(ctx, rawArgs)
+	args, err := ec.field_mutation_root_update_data_dictionary_args(ctx, rawArgs)
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
@@ -5117,7 +5778,7 @@ func (ec *executionContext) _mutation_root_update_data_dictionary_category_by_pk
 	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateDataDictionaryCategoryByPk, nil
+		return obj.UpdateDataDictionary, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -5126,17 +5787,179 @@ func (ec *executionContext) _mutation_root_update_data_dictionary_category_by_pk
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*model.DataDictionaryCategory)
+	res := resTmp.(*model.DataDictionaryMutationResponse)
 	fc.Result = res
-	return ec.marshalOdata_dictionary_category2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
+	return ec.marshalOdata_dictionary_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _mutation_root_update_data_dictionary_by_pk(ctx context.Context, field graphql.CollectedField, obj *model.MutationRoot) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "mutation_root",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_mutation_root_update_data_dictionary_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateDataDictionaryByPk, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DataDictionary)
+	fc.Result = res
+	return ec.marshalOdata_dictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionary(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _subscription_root_data_dictionary(ctx context.Context, field graphql.CollectedField, obj *model.SubscriptionRoot) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "subscription_root",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_subscription_root_data_dictionary_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DataDictionary, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.DataDictionary)
+	fc.Result = res
+	return ec.marshalNdata_dictionary2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionaryᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _subscription_root_data_dictionary_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.SubscriptionRoot) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "subscription_root",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_subscription_root_data_dictionary_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DataDictionaryAggregate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.DataDictionaryAggregate)
+	fc.Result = res
+	return ec.marshalNdata_dictionary_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _subscription_root_data_dictionary_by_pk(ctx context.Context, field graphql.CollectedField, obj *model.SubscriptionRoot) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "subscription_root",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_subscription_root_data_dictionary_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DataDictionaryByPk, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DataDictionary)
+	fc.Result = res
+	return ec.marshalOdata_dictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionary(ctx, field.Selections, res)
 }
 
 // endregion **************************** field.gotpl *****************************
 
 // region    **************************** input.gotpl *****************************
 
-func (ec *executionContext) unmarshalInputBoolean_comparison_exp(ctx context.Context, obj interface{}) (model1.BooleanComparisonExp, error) {
-	var it model1.BooleanComparisonExp
+func (ec *executionContext) unmarshalInputBoolean_comparison_exp(ctx context.Context, obj interface{}) (model2.BooleanComparisonExp, error) {
+	var it model2.BooleanComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -5219,8 +6042,92 @@ func (ec *executionContext) unmarshalInputBoolean_comparison_exp(ctx context.Con
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputString_comparison_exp(ctx context.Context, obj interface{}) (model1.StringComparisonExp, error) {
-	var it model1.StringComparisonExp
+func (ec *executionContext) unmarshalInputInt_comparison_exp(ctx context.Context, obj interface{}) (model2.IntComparisonExp, error) {
+	var it model2.IntComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOInt2ᚕintᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputString_comparison_exp(ctx context.Context, obj interface{}) (model2.StringComparisonExp, error) {
+	var it model2.StringComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -5351,8 +6258,8 @@ func (ec *executionContext) unmarshalInputString_comparison_exp(ctx context.Cont
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Context, obj interface{}) (model1.BigintComparisonExp, error) {
-	var it model1.BigintComparisonExp
+func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Context, obj interface{}) (model2.BigintComparisonExp, error) {
+	var it model2.BigintComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -5435,8 +6342,8 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryAggregateOrderBy, error) {
-	var it model.DataDictionaryCategoryAggregateOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_aggregate_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryAggregateOrderBy, error) {
+	var it model.DataDictionaryAggregateOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -5445,7 +6352,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("avg"))
-			it.Avg, err = ec.unmarshalOdata_dictionary_category_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryAvgOrderBy(ctx, v)
+			it.Avg, err = ec.unmarshalOdata_dictionary_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAvgOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5461,7 +6368,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("max"))
-			it.Max, err = ec.unmarshalOdata_dictionary_category_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMaxOrderBy(ctx, v)
+			it.Max, err = ec.unmarshalOdata_dictionary_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMaxOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5469,7 +6376,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("min"))
-			it.Min, err = ec.unmarshalOdata_dictionary_category_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMinOrderBy(ctx, v)
+			it.Min, err = ec.unmarshalOdata_dictionary_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMinOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5477,7 +6384,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev"))
-			it.Stddev, err = ec.unmarshalOdata_dictionary_category_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevOrderBy(ctx, v)
+			it.Stddev, err = ec.unmarshalOdata_dictionary_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5485,7 +6392,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_pop"))
-			it.StddevPop, err = ec.unmarshalOdata_dictionary_category_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevPopOrderBy(ctx, v)
+			it.StddevPop, err = ec.unmarshalOdata_dictionary_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevPopOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5493,7 +6400,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_samp"))
-			it.StddevSamp, err = ec.unmarshalOdata_dictionary_category_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevSampOrderBy(ctx, v)
+			it.StddevSamp, err = ec.unmarshalOdata_dictionary_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevSampOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5501,7 +6408,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sum"))
-			it.Sum, err = ec.unmarshalOdata_dictionary_category_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySumOrderBy(ctx, v)
+			it.Sum, err = ec.unmarshalOdata_dictionary_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySumOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5509,7 +6416,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_pop"))
-			it.VarPop, err = ec.unmarshalOdata_dictionary_category_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarPopOrderBy(ctx, v)
+			it.VarPop, err = ec.unmarshalOdata_dictionary_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarPopOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5517,7 +6424,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_samp"))
-			it.VarSamp, err = ec.unmarshalOdata_dictionary_category_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarSampOrderBy(ctx, v)
+			it.VarSamp, err = ec.unmarshalOdata_dictionary_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarSampOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5525,7 +6432,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("variance"))
-			it.Variance, err = ec.unmarshalOdata_dictionary_category_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarianceOrderBy(ctx, v)
+			it.Variance, err = ec.unmarshalOdata_dictionary_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarianceOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5535,8 +6442,8 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_aggregate_ord
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_arr_rel_insert_input(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryArrRelInsertInput, error) {
-	var it model.DataDictionaryCategoryArrRelInsertInput
+func (ec *executionContext) unmarshalInputdata_dictionary_arr_rel_insert_input(ctx context.Context, obj interface{}) (model.DataDictionaryArrRelInsertInput, error) {
+	var it model.DataDictionaryArrRelInsertInput
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -5545,7 +6452,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_arr_rel_inser
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-			it.Data, err = ec.unmarshalNdata_dictionary_category_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryInsertInputᚄ(ctx, v)
+			it.Data, err = ec.unmarshalNdata_dictionary_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryInsertInputᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5553,7 +6460,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_arr_rel_inser
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-			it.OnConflict, err = ec.unmarshalOdata_dictionary_category_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOnConflict(ctx, v)
+			it.OnConflict, err = ec.unmarshalOdata_dictionary_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOnConflict(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5563,8 +6470,8 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_arr_rel_inser
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_avg_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryAvgOrderBy, error) {
-	var it model.DataDictionaryCategoryAvgOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_avg_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryAvgOrderBy, error) {
+	var it model.DataDictionaryAvgOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -5577,14 +6484,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_avg_order_by(
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_bool_exp(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryBoolExp, error) {
-	var it model.DataDictionaryCategoryBoolExp
+func (ec *executionContext) unmarshalInputdata_dictionary_bool_exp(ctx context.Context, obj interface{}) (model.DataDictionaryBoolExp, error) {
+	var it model.DataDictionaryBoolExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -5593,7 +6508,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_bool_exp(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
-			it.And, err = ec.unmarshalOdata_dictionary_category_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx, v)
+			it.And, err = ec.unmarshalOdata_dictionary_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5601,7 +6516,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_bool_exp(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
-			it.Not, err = ec.unmarshalOdata_dictionary_category_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx, v)
+			it.Not, err = ec.unmarshalOdata_dictionary_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5609,23 +6524,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_bool_exp(ctx 
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
-			it.Or, err = ec.unmarshalOdata_dictionary_category_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "category_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_code"))
-			it.CategoryCode, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "category_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_name"))
-			it.CategoryName, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			it.Or, err = ec.unmarshalOdata_dictionary_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5669,6 +6568,14 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_bool_exp(ctx 
 			if err != nil {
 				return it, err
 			}
+		case "dictionary_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+			it.DictionaryID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "id":
 			var err error
 
@@ -5682,6 +6589,14 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_bool_exp(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
 			it.IsDelete, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5709,14 +6624,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_bool_exp(ctx 
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_inc_input(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryIncInput, error) {
-	var it model.DataDictionaryCategoryIncInput
+func (ec *executionContext) unmarshalInputdata_dictionary_inc_input(ctx context.Context, obj interface{}) (model.DataDictionaryIncInput, error) {
+	var it model.DataDictionaryIncInput
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -5729,34 +6652,26 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_inc_input(ctx
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_insert_input(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryInsertInput, error) {
-	var it model.DataDictionaryCategoryInsertInput
+func (ec *executionContext) unmarshalInputdata_dictionary_insert_input(ctx context.Context, obj interface{}) (model.DataDictionaryInsertInput, error) {
+	var it model.DataDictionaryInsertInput
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
 		switch k {
-		case "category_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_code"))
-			it.CategoryCode, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "category_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_name"))
-			it.CategoryName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "create_at":
 			var err error
 
@@ -5797,6 +6712,14 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_insert_input(
 			if err != nil {
 				return it, err
 			}
+		case "dictionary_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+			it.DictionaryID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "id":
 			var err error
 
@@ -5810,6 +6733,14 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_insert_input(
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
 			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5837,34 +6768,26 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_insert_input(
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_max_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryMaxOrderBy, error) {
-	var it model.DataDictionaryCategoryMaxOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_max_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryMaxOrderBy, error) {
+	var it model.DataDictionaryMaxOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
 		switch k {
-		case "category_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_code"))
-			it.CategoryCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "category_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_name"))
-			it.CategoryName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "create_at":
 			var err error
 
@@ -5905,11 +6828,27 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_max_order_by(
 			if err != nil {
 				return it, err
 			}
+		case "dictionary_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+			it.DictionaryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "id":
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
 			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -5937,34 +6876,26 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_max_order_by(
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_min_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryMinOrderBy, error) {
-	var it model.DataDictionaryCategoryMinOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_min_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryMinOrderBy, error) {
+	var it model.DataDictionaryMinOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
 		switch k {
-		case "category_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_code"))
-			it.CategoryCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "category_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_name"))
-			it.CategoryName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "create_at":
 			var err error
 
@@ -6005,11 +6936,27 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_min_order_by(
 			if err != nil {
 				return it, err
 			}
+		case "dictionary_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+			it.DictionaryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "id":
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
 			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -6037,14 +6984,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_min_order_by(
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_obj_rel_insert_input(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryObjRelInsertInput, error) {
-	var it model.DataDictionaryCategoryObjRelInsertInput
+func (ec *executionContext) unmarshalInputdata_dictionary_obj_rel_insert_input(ctx context.Context, obj interface{}) (model.DataDictionaryObjRelInsertInput, error) {
+	var it model.DataDictionaryObjRelInsertInput
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6053,7 +7008,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_obj_rel_inser
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-			it.Data, err = ec.unmarshalNdata_dictionary_category_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryInsertInput(ctx, v)
+			it.Data, err = ec.unmarshalNdata_dictionary_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryInsertInput(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -6061,7 +7016,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_obj_rel_inser
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-			it.OnConflict, err = ec.unmarshalOdata_dictionary_category_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOnConflict(ctx, v)
+			it.OnConflict, err = ec.unmarshalOdata_dictionary_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOnConflict(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -6071,8 +7026,8 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_obj_rel_inser
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_on_conflict(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryOnConflict, error) {
-	var it model.DataDictionaryCategoryOnConflict
+func (ec *executionContext) unmarshalInputdata_dictionary_on_conflict(ctx context.Context, obj interface{}) (model.DataDictionaryOnConflict, error) {
+	var it model.DataDictionaryOnConflict
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6081,7 +7036,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_on_conflict(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("constraint"))
-			it.Constraint, err = ec.unmarshalNdata_dictionary_category_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryConstraint(ctx, v)
+			it.Constraint, err = ec.unmarshalNdata_dictionary_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryConstraint(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -6089,7 +7044,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_on_conflict(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_columns"))
-			it.UpdateColumns, err = ec.unmarshalNdata_dictionary_category_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryUpdateColumnᚄ(ctx, v)
+			it.UpdateColumns, err = ec.unmarshalNdata_dictionary_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryUpdateColumnᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -6097,7 +7052,7 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_on_conflict(c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-			it.Where, err = ec.unmarshalOdata_dictionary_category_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx, v)
+			it.Where, err = ec.unmarshalOdata_dictionary_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -6107,28 +7062,12 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_on_conflict(c
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryOrderBy, error) {
-	var it model.DataDictionaryCategoryOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryOrderBy, error) {
+	var it model.DataDictionaryOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
 		switch k {
-		case "category_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_code"))
-			it.CategoryCode, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "category_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_name"))
-			it.CategoryName, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "create_at":
 			var err error
 
@@ -6166,6 +7105,14 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_order_by(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_category_id"))
 			it.DictionaryCategoryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "dictionary_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+			it.DictionaryID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -6185,6 +7132,14 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_order_by(ctx 
 			if err != nil {
 				return it, err
 			}
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "remarks":
 			var err error
 
@@ -6209,14 +7164,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_order_by(ctx 
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_pk_columns_input(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryPkColumnsInput, error) {
-	var it model.DataDictionaryCategoryPkColumnsInput
+func (ec *executionContext) unmarshalInputdata_dictionary_pk_columns_input(ctx context.Context, obj interface{}) (model.DataDictionaryPkColumnsInput, error) {
+	var it model.DataDictionaryPkColumnsInput
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6235,28 +7198,12 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_pk_columns_in
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_set_input(ctx context.Context, obj interface{}) (model.DataDictionaryCategorySetInput, error) {
-	var it model.DataDictionaryCategorySetInput
+func (ec *executionContext) unmarshalInputdata_dictionary_set_input(ctx context.Context, obj interface{}) (model.DataDictionarySetInput, error) {
+	var it model.DataDictionarySetInput
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
 		switch k {
-		case "category_code":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_code"))
-			it.CategoryCode, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "category_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("category_name"))
-			it.CategoryName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "create_at":
 			var err error
 
@@ -6297,6 +7244,14 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_set_input(ctx
 			if err != nil {
 				return it, err
 			}
+		case "dictionary_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+			it.DictionaryID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		case "id":
 			var err error
 
@@ -6310,6 +7265,14 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_set_input(ctx
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
 			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("name"))
+			it.Name, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -6337,14 +7300,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_set_input(ctx
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_stddev_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryStddevOrderBy, error) {
-	var it model.DataDictionaryCategoryStddevOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_stddev_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryStddevOrderBy, error) {
+	var it model.DataDictionaryStddevOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6357,14 +7328,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_stddev_order_
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_stddev_pop_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryStddevPopOrderBy, error) {
-	var it model.DataDictionaryCategoryStddevPopOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_stddev_pop_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryStddevPopOrderBy, error) {
+	var it model.DataDictionaryStddevPopOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6377,14 +7356,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_stddev_pop_or
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_stddev_samp_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryStddevSampOrderBy, error) {
-	var it model.DataDictionaryCategoryStddevSampOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_stddev_samp_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryStddevSampOrderBy, error) {
+	var it model.DataDictionaryStddevSampOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6397,14 +7384,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_stddev_samp_o
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_sum_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategorySumOrderBy, error) {
-	var it model.DataDictionaryCategorySumOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_sum_order_by(ctx context.Context, obj interface{}) (model.DataDictionarySumOrderBy, error) {
+	var it model.DataDictionarySumOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6417,14 +7412,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_sum_order_by(
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_var_pop_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryVarPopOrderBy, error) {
-	var it model.DataDictionaryCategoryVarPopOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_var_pop_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryVarPopOrderBy, error) {
+	var it model.DataDictionaryVarPopOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6437,14 +7440,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_var_pop_order
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_var_samp_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryVarSampOrderBy, error) {
-	var it model.DataDictionaryCategoryVarSampOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_var_samp_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryVarSampOrderBy, error) {
+	var it model.DataDictionaryVarSampOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6457,14 +7468,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_var_samp_orde
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdata_dictionary_category_variance_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryCategoryVarianceOrderBy, error) {
-	var it model.DataDictionaryCategoryVarianceOrderBy
+func (ec *executionContext) unmarshalInputdata_dictionary_variance_order_by(ctx context.Context, obj interface{}) (model.DataDictionaryVarianceOrderBy, error) {
+	var it model.DataDictionaryVarianceOrderBy
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6477,14 +7496,22 @@ func (ec *executionContext) unmarshalInputdata_dictionary_category_variance_orde
 			if err != nil {
 				return it, err
 			}
+		case "value":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("value"))
+			it.Value, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
 		}
 	}
 
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context.Context, obj interface{}) (model1.TimestamptzComparisonExp, error) {
-	var it model1.TimestamptzComparisonExp
+func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context.Context, obj interface{}) (model2.TimestamptzComparisonExp, error) {
+	var it model2.TimestamptzComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -6590,7 +7617,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Query")
-		case "data_dictionary_category":
+		case "data_dictionary":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
 				defer func() {
@@ -6598,13 +7625,13 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 						ec.Error(ctx, ec.Recover(ctx, r))
 					}
 				}()
-				res = ec._Query_data_dictionary_category(ctx, field)
+				res = ec._Query_data_dictionary(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
 				return res
 			})
-		case "data_dictionary_category_aggregate":
+		case "data_dictionary_aggregate":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
 				defer func() {
@@ -6612,13 +7639,13 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 						ec.Error(ctx, ec.Recover(ctx, r))
 					}
 				}()
-				res = ec._Query_data_dictionary_category_aggregate(ctx, field)
+				res = ec._Query_data_dictionary_aggregate(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
 				return res
 			})
-		case "data_dictionary_category_by_pk":
+		case "data_dictionary_by_pk":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
 				defer func() {
@@ -6626,7 +7653,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 						ec.Error(ctx, ec.Recover(ctx, r))
 					}
 				}()
-				res = ec._Query_data_dictionary_category_by_pk(ctx, field)
+				res = ec._Query_data_dictionary_by_pk(ctx, field)
 				return res
 			})
 		case "__type":
@@ -6885,59 +7912,64 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 	return out
 }
 
-var data_dictionary_categoryImplementors = []string{"data_dictionary_category"}
+var data_dictionaryImplementors = []string{"data_dictionary"}
 
-func (ec *executionContext) _data_dictionary_category(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategory) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_categoryImplementors)
+func (ec *executionContext) _data_dictionary(ctx context.Context, sel ast.SelectionSet, obj *model1.DataDictionary) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionaryImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category")
-		case "category_code":
-			out.Values[i] = ec._data_dictionary_category_category_code(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "category_name":
-			out.Values[i] = ec._data_dictionary_category_category_name(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
+			out.Values[i] = graphql.MarshalString("data_dictionary")
 		case "create_at":
-			out.Values[i] = ec._data_dictionary_category_create_at(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_create_at(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "create_by":
-			out.Values[i] = ec._data_dictionary_category_create_by(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_create_by(ctx, field, obj)
 		case "delete_at":
-			out.Values[i] = ec._data_dictionary_category_delete_at(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_delete_at(ctx, field, obj)
 		case "delete_by":
-			out.Values[i] = ec._data_dictionary_category_delete_by(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_delete_by(ctx, field, obj)
 		case "dictionary_category_id":
-			out.Values[i] = ec._data_dictionary_category_dictionary_category_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_dictionary_category_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "dictionary_id":
+			out.Values[i] = ec._data_dictionary_dictionary_id(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_id(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "is_delete":
-			out.Values[i] = ec._data_dictionary_category_is_delete(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_is_delete(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "name":
+			out.Values[i] = ec._data_dictionary_name(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "remarks":
-			out.Values[i] = ec._data_dictionary_category_remarks(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_remarks(ctx, field, obj)
 		case "update_at":
-			out.Values[i] = ec._data_dictionary_category_update_at(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_update_at(ctx, field, obj)
 		case "update_by":
-			out.Values[i] = ec._data_dictionary_category_update_by(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_update_by(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_value(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -6949,21 +7981,21 @@ func (ec *executionContext) _data_dictionary_category(ctx context.Context, sel a
 	return out
 }
 
-var data_dictionary_category_aggregateImplementors = []string{"data_dictionary_category_aggregate"}
+var data_dictionary_aggregateImplementors = []string{"data_dictionary_aggregate"}
 
-func (ec *executionContext) _data_dictionary_category_aggregate(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryAggregate) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_aggregateImplementors)
+func (ec *executionContext) _data_dictionary_aggregate(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryAggregate) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_aggregateImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_aggregate")
+			out.Values[i] = graphql.MarshalString("data_dictionary_aggregate")
 		case "aggregate":
-			out.Values[i] = ec._data_dictionary_category_aggregate_aggregate(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_aggregate(ctx, field, obj)
 		case "nodes":
-			out.Values[i] = ec._data_dictionary_category_aggregate_nodes(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_nodes(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -6978,39 +8010,39 @@ func (ec *executionContext) _data_dictionary_category_aggregate(ctx context.Cont
 	return out
 }
 
-var data_dictionary_category_aggregate_fieldsImplementors = []string{"data_dictionary_category_aggregate_fields"}
+var data_dictionary_aggregate_fieldsImplementors = []string{"data_dictionary_aggregate_fields"}
 
-func (ec *executionContext) _data_dictionary_category_aggregate_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryAggregateFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_aggregate_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_aggregate_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryAggregateFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_aggregate_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_aggregate_fields")
+			out.Values[i] = graphql.MarshalString("data_dictionary_aggregate_fields")
 		case "avg":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_avg(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_avg(ctx, field, obj)
 		case "count":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_count(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_count(ctx, field, obj)
 		case "max":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_max(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_max(ctx, field, obj)
 		case "min":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_min(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_min(ctx, field, obj)
 		case "stddev":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_stddev(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_stddev(ctx, field, obj)
 		case "stddev_pop":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_stddev_pop(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_stddev_pop(ctx, field, obj)
 		case "stddev_samp":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_stddev_samp(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_stddev_samp(ctx, field, obj)
 		case "sum":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_sum(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_sum(ctx, field, obj)
 		case "var_pop":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_var_pop(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_var_pop(ctx, field, obj)
 		case "var_samp":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_var_samp(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_var_samp(ctx, field, obj)
 		case "variance":
-			out.Values[i] = ec._data_dictionary_category_aggregate_fields_variance(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_aggregate_fields_variance(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7022,19 +8054,21 @@ func (ec *executionContext) _data_dictionary_category_aggregate_fields(ctx conte
 	return out
 }
 
-var data_dictionary_category_avg_fieldsImplementors = []string{"data_dictionary_category_avg_fields"}
+var data_dictionary_avg_fieldsImplementors = []string{"data_dictionary_avg_fields"}
 
-func (ec *executionContext) _data_dictionary_category_avg_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryAvgFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_avg_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_avg_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryAvgFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_avg_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_avg_fields")
+			out.Values[i] = graphql.MarshalString("data_dictionary_avg_fields")
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_avg_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_avg_fields_id(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_avg_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7046,39 +8080,41 @@ func (ec *executionContext) _data_dictionary_category_avg_fields(ctx context.Con
 	return out
 }
 
-var data_dictionary_category_max_fieldsImplementors = []string{"data_dictionary_category_max_fields"}
+var data_dictionary_max_fieldsImplementors = []string{"data_dictionary_max_fields"}
 
-func (ec *executionContext) _data_dictionary_category_max_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryMaxFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_max_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_max_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryMaxFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_max_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_max_fields")
-		case "category_code":
-			out.Values[i] = ec._data_dictionary_category_max_fields_category_code(ctx, field, obj)
-		case "category_name":
-			out.Values[i] = ec._data_dictionary_category_max_fields_category_name(ctx, field, obj)
+			out.Values[i] = graphql.MarshalString("data_dictionary_max_fields")
 		case "create_at":
-			out.Values[i] = ec._data_dictionary_category_max_fields_create_at(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_max_fields_create_at(ctx, field, obj)
 		case "create_by":
-			out.Values[i] = ec._data_dictionary_category_max_fields_create_by(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_max_fields_create_by(ctx, field, obj)
 		case "delete_at":
-			out.Values[i] = ec._data_dictionary_category_max_fields_delete_at(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_max_fields_delete_at(ctx, field, obj)
 		case "delete_by":
-			out.Values[i] = ec._data_dictionary_category_max_fields_delete_by(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_max_fields_delete_by(ctx, field, obj)
 		case "dictionary_category_id":
-			out.Values[i] = ec._data_dictionary_category_max_fields_dictionary_category_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_max_fields_dictionary_category_id(ctx, field, obj)
+		case "dictionary_id":
+			out.Values[i] = ec._data_dictionary_max_fields_dictionary_id(ctx, field, obj)
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_max_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_max_fields_id(ctx, field, obj)
+		case "name":
+			out.Values[i] = ec._data_dictionary_max_fields_name(ctx, field, obj)
 		case "remarks":
-			out.Values[i] = ec._data_dictionary_category_max_fields_remarks(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_max_fields_remarks(ctx, field, obj)
 		case "update_at":
-			out.Values[i] = ec._data_dictionary_category_max_fields_update_at(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_max_fields_update_at(ctx, field, obj)
 		case "update_by":
-			out.Values[i] = ec._data_dictionary_category_max_fields_update_by(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_max_fields_update_by(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_max_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7090,39 +8126,41 @@ func (ec *executionContext) _data_dictionary_category_max_fields(ctx context.Con
 	return out
 }
 
-var data_dictionary_category_min_fieldsImplementors = []string{"data_dictionary_category_min_fields"}
+var data_dictionary_min_fieldsImplementors = []string{"data_dictionary_min_fields"}
 
-func (ec *executionContext) _data_dictionary_category_min_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryMinFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_min_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_min_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryMinFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_min_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_min_fields")
-		case "category_code":
-			out.Values[i] = ec._data_dictionary_category_min_fields_category_code(ctx, field, obj)
-		case "category_name":
-			out.Values[i] = ec._data_dictionary_category_min_fields_category_name(ctx, field, obj)
+			out.Values[i] = graphql.MarshalString("data_dictionary_min_fields")
 		case "create_at":
-			out.Values[i] = ec._data_dictionary_category_min_fields_create_at(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_min_fields_create_at(ctx, field, obj)
 		case "create_by":
-			out.Values[i] = ec._data_dictionary_category_min_fields_create_by(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_min_fields_create_by(ctx, field, obj)
 		case "delete_at":
-			out.Values[i] = ec._data_dictionary_category_min_fields_delete_at(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_min_fields_delete_at(ctx, field, obj)
 		case "delete_by":
-			out.Values[i] = ec._data_dictionary_category_min_fields_delete_by(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_min_fields_delete_by(ctx, field, obj)
 		case "dictionary_category_id":
-			out.Values[i] = ec._data_dictionary_category_min_fields_dictionary_category_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_min_fields_dictionary_category_id(ctx, field, obj)
+		case "dictionary_id":
+			out.Values[i] = ec._data_dictionary_min_fields_dictionary_id(ctx, field, obj)
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_min_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_min_fields_id(ctx, field, obj)
+		case "name":
+			out.Values[i] = ec._data_dictionary_min_fields_name(ctx, field, obj)
 		case "remarks":
-			out.Values[i] = ec._data_dictionary_category_min_fields_remarks(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_min_fields_remarks(ctx, field, obj)
 		case "update_at":
-			out.Values[i] = ec._data_dictionary_category_min_fields_update_at(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_min_fields_update_at(ctx, field, obj)
 		case "update_by":
-			out.Values[i] = ec._data_dictionary_category_min_fields_update_by(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_min_fields_update_by(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_min_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7134,24 +8172,24 @@ func (ec *executionContext) _data_dictionary_category_min_fields(ctx context.Con
 	return out
 }
 
-var data_dictionary_category_mutation_responseImplementors = []string{"data_dictionary_category_mutation_response"}
+var data_dictionary_mutation_responseImplementors = []string{"data_dictionary_mutation_response"}
 
-func (ec *executionContext) _data_dictionary_category_mutation_response(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryMutationResponse) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_mutation_responseImplementors)
+func (ec *executionContext) _data_dictionary_mutation_response(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryMutationResponse) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_mutation_responseImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_mutation_response")
+			out.Values[i] = graphql.MarshalString("data_dictionary_mutation_response")
 		case "affected_rows":
-			out.Values[i] = ec._data_dictionary_category_mutation_response_affected_rows(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_mutation_response_affected_rows(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
 		case "returning":
-			out.Values[i] = ec._data_dictionary_category_mutation_response_returning(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_mutation_response_returning(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
 				invalids++
 			}
@@ -7166,19 +8204,21 @@ func (ec *executionContext) _data_dictionary_category_mutation_response(ctx cont
 	return out
 }
 
-var data_dictionary_category_stddev_fieldsImplementors = []string{"data_dictionary_category_stddev_fields"}
+var data_dictionary_stddev_fieldsImplementors = []string{"data_dictionary_stddev_fields"}
 
-func (ec *executionContext) _data_dictionary_category_stddev_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryStddevFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_stddev_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_stddev_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryStddevFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_stddev_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_stddev_fields")
+			out.Values[i] = graphql.MarshalString("data_dictionary_stddev_fields")
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_stddev_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_stddev_fields_id(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_stddev_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7190,19 +8230,21 @@ func (ec *executionContext) _data_dictionary_category_stddev_fields(ctx context.
 	return out
 }
 
-var data_dictionary_category_stddev_pop_fieldsImplementors = []string{"data_dictionary_category_stddev_pop_fields"}
+var data_dictionary_stddev_pop_fieldsImplementors = []string{"data_dictionary_stddev_pop_fields"}
 
-func (ec *executionContext) _data_dictionary_category_stddev_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryStddevPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_stddev_pop_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_stddev_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryStddevPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_stddev_pop_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_stddev_pop_fields")
+			out.Values[i] = graphql.MarshalString("data_dictionary_stddev_pop_fields")
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_stddev_pop_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_stddev_pop_fields_id(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_stddev_pop_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7214,19 +8256,21 @@ func (ec *executionContext) _data_dictionary_category_stddev_pop_fields(ctx cont
 	return out
 }
 
-var data_dictionary_category_stddev_samp_fieldsImplementors = []string{"data_dictionary_category_stddev_samp_fields"}
+var data_dictionary_stddev_samp_fieldsImplementors = []string{"data_dictionary_stddev_samp_fields"}
 
-func (ec *executionContext) _data_dictionary_category_stddev_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryStddevSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_stddev_samp_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_stddev_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryStddevSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_stddev_samp_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_stddev_samp_fields")
+			out.Values[i] = graphql.MarshalString("data_dictionary_stddev_samp_fields")
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_stddev_samp_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_stddev_samp_fields_id(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_stddev_samp_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7238,19 +8282,21 @@ func (ec *executionContext) _data_dictionary_category_stddev_samp_fields(ctx con
 	return out
 }
 
-var data_dictionary_category_sum_fieldsImplementors = []string{"data_dictionary_category_sum_fields"}
+var data_dictionary_sum_fieldsImplementors = []string{"data_dictionary_sum_fields"}
 
-func (ec *executionContext) _data_dictionary_category_sum_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategorySumFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_sum_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_sum_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionarySumFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_sum_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_sum_fields")
+			out.Values[i] = graphql.MarshalString("data_dictionary_sum_fields")
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_sum_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_sum_fields_id(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_sum_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7262,19 +8308,21 @@ func (ec *executionContext) _data_dictionary_category_sum_fields(ctx context.Con
 	return out
 }
 
-var data_dictionary_category_var_pop_fieldsImplementors = []string{"data_dictionary_category_var_pop_fields"}
+var data_dictionary_var_pop_fieldsImplementors = []string{"data_dictionary_var_pop_fields"}
 
-func (ec *executionContext) _data_dictionary_category_var_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryVarPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_var_pop_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_var_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryVarPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_var_pop_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_var_pop_fields")
+			out.Values[i] = graphql.MarshalString("data_dictionary_var_pop_fields")
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_var_pop_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_var_pop_fields_id(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_var_pop_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7286,19 +8334,21 @@ func (ec *executionContext) _data_dictionary_category_var_pop_fields(ctx context
 	return out
 }
 
-var data_dictionary_category_var_samp_fieldsImplementors = []string{"data_dictionary_category_var_samp_fields"}
+var data_dictionary_var_samp_fieldsImplementors = []string{"data_dictionary_var_samp_fields"}
 
-func (ec *executionContext) _data_dictionary_category_var_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryVarSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_var_samp_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_var_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryVarSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_var_samp_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_var_samp_fields")
+			out.Values[i] = graphql.MarshalString("data_dictionary_var_samp_fields")
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_var_samp_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_var_samp_fields_id(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_var_samp_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7310,19 +8360,21 @@ func (ec *executionContext) _data_dictionary_category_var_samp_fields(ctx contex
 	return out
 }
 
-var data_dictionary_category_variance_fieldsImplementors = []string{"data_dictionary_category_variance_fields"}
+var data_dictionary_variance_fieldsImplementors = []string{"data_dictionary_variance_fields"}
 
-func (ec *executionContext) _data_dictionary_category_variance_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryCategoryVarianceFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_category_variance_fieldsImplementors)
+func (ec *executionContext) _data_dictionary_variance_fields(ctx context.Context, sel ast.SelectionSet, obj *model.DataDictionaryVarianceFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, data_dictionary_variance_fieldsImplementors)
 
 	out := graphql.NewFieldSet(fields)
 	var invalids uint32
 	for i, field := range fields {
 		switch field.Name {
 		case "__typename":
-			out.Values[i] = graphql.MarshalString("data_dictionary_category_variance_fields")
+			out.Values[i] = graphql.MarshalString("data_dictionary_variance_fields")
 		case "id":
-			out.Values[i] = ec._data_dictionary_category_variance_fields_id(ctx, field, obj)
+			out.Values[i] = ec._data_dictionary_variance_fields_id(ctx, field, obj)
+		case "value":
+			out.Values[i] = ec._data_dictionary_variance_fields_value(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7345,18 +8397,52 @@ func (ec *executionContext) _mutation_root(ctx context.Context, sel ast.Selectio
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("mutation_root")
-		case "delete_data_dictionary_category":
-			out.Values[i] = ec._mutation_root_delete_data_dictionary_category(ctx, field, obj)
-		case "delete_data_dictionary_category_by_pk":
-			out.Values[i] = ec._mutation_root_delete_data_dictionary_category_by_pk(ctx, field, obj)
-		case "insert_data_dictionary_category":
-			out.Values[i] = ec._mutation_root_insert_data_dictionary_category(ctx, field, obj)
-		case "insert_data_dictionary_category_one":
-			out.Values[i] = ec._mutation_root_insert_data_dictionary_category_one(ctx, field, obj)
-		case "update_data_dictionary_category":
-			out.Values[i] = ec._mutation_root_update_data_dictionary_category(ctx, field, obj)
-		case "update_data_dictionary_category_by_pk":
-			out.Values[i] = ec._mutation_root_update_data_dictionary_category_by_pk(ctx, field, obj)
+		case "delete_data_dictionary":
+			out.Values[i] = ec._mutation_root_delete_data_dictionary(ctx, field, obj)
+		case "delete_data_dictionary_by_pk":
+			out.Values[i] = ec._mutation_root_delete_data_dictionary_by_pk(ctx, field, obj)
+		case "insert_data_dictionary":
+			out.Values[i] = ec._mutation_root_insert_data_dictionary(ctx, field, obj)
+		case "insert_data_dictionary_one":
+			out.Values[i] = ec._mutation_root_insert_data_dictionary_one(ctx, field, obj)
+		case "update_data_dictionary":
+			out.Values[i] = ec._mutation_root_update_data_dictionary(ctx, field, obj)
+		case "update_data_dictionary_by_pk":
+			out.Values[i] = ec._mutation_root_update_data_dictionary_by_pk(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var subscription_rootImplementors = []string{"subscription_root"}
+
+func (ec *executionContext) _subscription_root(ctx context.Context, sel ast.SelectionSet, obj *model.SubscriptionRoot) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, subscription_rootImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("subscription_root")
+		case "data_dictionary":
+			out.Values[i] = ec._subscription_root_data_dictionary(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "data_dictionary_aggregate":
+			out.Values[i] = ec._subscription_root_data_dictionary_aggregate(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "data_dictionary_by_pk":
+			out.Values[i] = ec._subscription_root_data_dictionary_by_pk(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -7661,7 +8747,7 @@ func (ec *executionContext) marshalNbigint2int64(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) marshalNdata_dictionary_category2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.DataDictionaryCategory) graphql.Marshaler {
+func (ec *executionContext) marshalNdata_dictionary2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionaryᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DataDictionary) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -7685,7 +8771,7 @@ func (ec *executionContext) marshalNdata_dictionary_category2ᚕᚖVehicleSuperv
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNdata_dictionary_category2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategory(ctx, sel, v[i])
+			ret[i] = ec.marshalNdata_dictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionary(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -7698,51 +8784,51 @@ func (ec *executionContext) marshalNdata_dictionary_category2ᚕᚖVehicleSuperv
 	return ret
 }
 
-func (ec *executionContext) marshalNdata_dictionary_category2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategory(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategory) graphql.Marshaler {
+func (ec *executionContext) marshalNdata_dictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionary(ctx context.Context, sel ast.SelectionSet, v *model1.DataDictionary) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
 		}
 		return graphql.Null
 	}
-	return ec._data_dictionary_category(ctx, sel, v)
+	return ec._data_dictionary(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalNdata_dictionary_category_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryAggregate(ctx context.Context, sel ast.SelectionSet, v model.DataDictionaryCategoryAggregate) graphql.Marshaler {
-	return ec._data_dictionary_category_aggregate(ctx, sel, &v)
+func (ec *executionContext) marshalNdata_dictionary_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAggregate(ctx context.Context, sel ast.SelectionSet, v model.DataDictionaryAggregate) graphql.Marshaler {
+	return ec._data_dictionary_aggregate(ctx, sel, &v)
 }
 
-func (ec *executionContext) marshalNdata_dictionary_category_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryAggregate(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryAggregate) graphql.Marshaler {
+func (ec *executionContext) marshalNdata_dictionary_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAggregate(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryAggregate) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
 		}
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_aggregate(ctx, sel, v)
+	return ec._data_dictionary_aggregate(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx context.Context, v interface{}) (model.DataDictionaryCategoryBoolExp, error) {
-	res, err := ec.unmarshalInputdata_dictionary_category_bool_exp(ctx, v)
+func (ec *executionContext) unmarshalNdata_dictionary_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx context.Context, v interface{}) (model.DataDictionaryBoolExp, error) {
+	res, err := ec.unmarshalInputdata_dictionary_bool_exp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryConstraint(ctx context.Context, v interface{}) (model.DataDictionaryCategoryConstraint, error) {
-	var res model.DataDictionaryCategoryConstraint
+func (ec *executionContext) unmarshalNdata_dictionary_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryConstraint(ctx context.Context, v interface{}) (model.DataDictionaryConstraint, error) {
+	var res model.DataDictionaryConstraint
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNdata_dictionary_category_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryConstraint(ctx context.Context, sel ast.SelectionSet, v model.DataDictionaryCategoryConstraint) graphql.Marshaler {
+func (ec *executionContext) marshalNdata_dictionary_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryConstraint(ctx context.Context, sel ast.SelectionSet, v model.DataDictionaryConstraint) graphql.Marshaler {
 	return v
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryInsertInput(ctx context.Context, v interface{}) (model.DataDictionaryCategoryInsertInput, error) {
-	res, err := ec.unmarshalInputdata_dictionary_category_insert_input(ctx, v)
+func (ec *executionContext) unmarshalNdata_dictionary_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryInsertInput(ctx context.Context, v interface{}) (model.DataDictionaryInsertInput, error) {
+	res, err := ec.unmarshalInputdata_dictionary_insert_input(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.DataDictionaryCategoryInsertInput, error) {
+func (ec *executionContext) unmarshalNdata_dictionary_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.DataDictionaryInsertInput, error) {
 	var vSlice []interface{}
 	if v != nil {
 		if tmp1, ok := v.([]interface{}); ok {
@@ -7752,10 +8838,10 @@ func (ec *executionContext) unmarshalNdata_dictionary_category_insert_input2ᚕ�
 		}
 	}
 	var err error
-	res := make([]*model.DataDictionaryCategoryInsertInput, len(vSlice))
+	res := make([]*model.DataDictionaryInsertInput, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNdata_dictionary_category_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryInsertInput(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNdata_dictionary_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryInsertInput(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -7763,42 +8849,42 @@ func (ec *executionContext) unmarshalNdata_dictionary_category_insert_input2ᚕ�
 	return res, nil
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryInsertInput(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryInsertInput, error) {
-	res, err := ec.unmarshalInputdata_dictionary_category_insert_input(ctx, v)
+func (ec *executionContext) unmarshalNdata_dictionary_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryInsertInput(ctx context.Context, v interface{}) (*model.DataDictionaryInsertInput, error) {
+	res, err := ec.unmarshalInputdata_dictionary_insert_input(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryOrderBy, error) {
-	res, err := ec.unmarshalInputdata_dictionary_category_order_by(ctx, v)
+func (ec *executionContext) unmarshalNdata_dictionary_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryOrderBy, error) {
+	res, err := ec.unmarshalInputdata_dictionary_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryPkColumnsInput(ctx context.Context, v interface{}) (model.DataDictionaryCategoryPkColumnsInput, error) {
-	res, err := ec.unmarshalInputdata_dictionary_category_pk_columns_input(ctx, v)
+func (ec *executionContext) unmarshalNdata_dictionary_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryPkColumnsInput(ctx context.Context, v interface{}) (model.DataDictionaryPkColumnsInput, error) {
+	res, err := ec.unmarshalInputdata_dictionary_pk_columns_input(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySelectColumn(ctx context.Context, v interface{}) (model.DataDictionaryCategorySelectColumn, error) {
-	var res model.DataDictionaryCategorySelectColumn
+func (ec *executionContext) unmarshalNdata_dictionary_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumn(ctx context.Context, v interface{}) (model.DataDictionarySelectColumn, error) {
+	var res model.DataDictionarySelectColumn
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNdata_dictionary_category_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DataDictionaryCategorySelectColumn) graphql.Marshaler {
+func (ec *executionContext) marshalNdata_dictionary_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DataDictionarySelectColumn) graphql.Marshaler {
 	return v
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryUpdateColumn(ctx context.Context, v interface{}) (model.DataDictionaryCategoryUpdateColumn, error) {
-	var res model.DataDictionaryCategoryUpdateColumn
+func (ec *executionContext) unmarshalNdata_dictionary_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryUpdateColumn(ctx context.Context, v interface{}) (model.DataDictionaryUpdateColumn, error) {
+	var res model.DataDictionaryUpdateColumn
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNdata_dictionary_category_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.DataDictionaryCategoryUpdateColumn) graphql.Marshaler {
+func (ec *executionContext) marshalNdata_dictionary_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.DataDictionaryUpdateColumn) graphql.Marshaler {
 	return v
 }
 
-func (ec *executionContext) unmarshalNdata_dictionary_category_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.DataDictionaryCategoryUpdateColumn, error) {
+func (ec *executionContext) unmarshalNdata_dictionary_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.DataDictionaryUpdateColumn, error) {
 	var vSlice []interface{}
 	if v != nil {
 		if tmp1, ok := v.([]interface{}); ok {
@@ -7808,10 +8894,10 @@ func (ec *executionContext) unmarshalNdata_dictionary_category_update_column2ᚕ
 		}
 	}
 	var err error
-	res := make([]model.DataDictionaryCategoryUpdateColumn, len(vSlice))
+	res := make([]model.DataDictionaryUpdateColumn, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNdata_dictionary_category_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryUpdateColumn(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNdata_dictionary_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryUpdateColumn(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -7819,7 +8905,7 @@ func (ec *executionContext) unmarshalNdata_dictionary_category_update_column2ᚕ
 	return res, nil
 }
 
-func (ec *executionContext) marshalNdata_dictionary_category_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DataDictionaryCategoryUpdateColumn) graphql.Marshaler {
+func (ec *executionContext) marshalNdata_dictionary_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DataDictionaryUpdateColumn) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -7843,7 +8929,7 @@ func (ec *executionContext) marshalNdata_dictionary_category_update_column2ᚕVe
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNdata_dictionary_category_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryUpdateColumn(ctx, sel, v[i])
+			ret[i] = ec.marshalNdata_dictionary_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryUpdateColumn(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -7952,7 +9038,7 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return graphql.MarshalBoolean(*v)
 }
 
-func (ec *executionContext) unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx context.Context, v interface{}) (*model1.BooleanComparisonExp, error) {
+func (ec *executionContext) unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx context.Context, v interface{}) (*model2.BooleanComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -7975,6 +9061,42 @@ func (ec *executionContext) marshalOFloat2ᚖfloat64(ctx context.Context, sel as
 	return graphql.MarshalFloat(*v)
 }
 
+func (ec *executionContext) unmarshalOInt2ᚕintᚄ(ctx context.Context, v interface{}) ([]int, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]int, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNInt2int(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOInt2ᚕintᚄ(ctx context.Context, sel ast.SelectionSet, v []int) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNInt2int(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
 func (ec *executionContext) unmarshalOInt2ᚖint(ctx context.Context, v interface{}) (*int, error) {
 	if v == nil {
 		return nil, nil
@@ -7988,6 +9110,14 @@ func (ec *executionContext) marshalOInt2ᚖint(ctx context.Context, sel ast.Sele
 		return graphql.Null
 	}
 	return graphql.MarshalInt(*v)
+}
+
+func (ec *executionContext) unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx context.Context, v interface{}) (*model2.IntComparisonExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputInt_comparison_exp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalOString2string(ctx context.Context, v interface{}) (string, error) {
@@ -8050,7 +9180,7 @@ func (ec *executionContext) marshalOString2ᚖstring(ctx context.Context, sel as
 	return graphql.MarshalString(*v)
 }
 
-func (ec *executionContext) unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx context.Context, v interface{}) (*model1.StringComparisonExp, error) {
+func (ec *executionContext) unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx context.Context, v interface{}) (*model2.StringComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -8283,7 +9413,7 @@ func (ec *executionContext) marshalObigint2ᚖint64(ctx context.Context, sel ast
 	return graphql.MarshalInt64(*v)
 }
 
-func (ec *executionContext) unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx context.Context, v interface{}) (*model1.BigintComparisonExp, error) {
+func (ec *executionContext) unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx context.Context, v interface{}) (*model2.BigintComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -8291,36 +9421,36 @@ func (ec *executionContext) unmarshalObigint_comparison_exp2ᚖVehicleSupervisio
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategory(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategory) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋmodelᚐDataDictionary(ctx context.Context, sel ast.SelectionSet, v *model1.DataDictionary) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category(ctx, sel, v)
+	return ec._data_dictionary(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryAggregateFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryAggregateFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_aggregate_fields(ctx, sel, v)
+	return ec._data_dictionary_aggregate_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryAvgFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryAvgFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_avg_fields(ctx, sel, v)
+	return ec._data_dictionary_avg_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryAvgOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryAvgOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryAvgOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryAvgOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_avg_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_avg_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx context.Context, v interface{}) ([]*model.DataDictionaryCategoryBoolExp, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx context.Context, v interface{}) ([]*model.DataDictionaryBoolExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -8333,10 +9463,10 @@ func (ec *executionContext) unmarshalOdata_dictionary_category_bool_exp2ᚕᚖVe
 		}
 	}
 	var err error
-	res := make([]*model.DataDictionaryCategoryBoolExp, len(vSlice))
+	res := make([]*model.DataDictionaryBoolExp, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalOdata_dictionary_category_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx, vSlice[i])
+		res[i], err = ec.unmarshalOdata_dictionary_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -8344,68 +9474,68 @@ func (ec *executionContext) unmarshalOdata_dictionary_category_bool_exp2ᚕᚖVe
 	return res, nil
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryBoolExp(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryBoolExp, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryBoolExp(ctx context.Context, v interface{}) (*model.DataDictionaryBoolExp, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_bool_exp(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_bool_exp(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryIncInput(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryIncInput, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryIncInput(ctx context.Context, v interface{}) (*model.DataDictionaryIncInput, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_inc_input(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_inc_input(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryMaxFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryMaxFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_max_fields(ctx, sel, v)
+	return ec._data_dictionary_max_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMaxOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryMaxOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMaxOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryMaxOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_max_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_max_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMinFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryMinFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMinFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryMinFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_min_fields(ctx, sel, v)
+	return ec._data_dictionary_min_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMinOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryMinOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMinOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryMinOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_min_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_min_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryMutationResponse) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryMutationResponse) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_mutation_response(ctx, sel, v)
+	return ec._data_dictionary_mutation_response(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOnConflict(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryOnConflict, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOnConflict(ctx context.Context, v interface{}) (*model.DataDictionaryOnConflict, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_on_conflict(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_on_conflict(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOrderByᚄ(ctx context.Context, v interface{}) ([]*model.DataDictionaryCategoryOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOrderByᚄ(ctx context.Context, v interface{}) ([]*model.DataDictionaryOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -8418,10 +9548,10 @@ func (ec *executionContext) unmarshalOdata_dictionary_category_order_by2ᚕᚖVe
 		}
 	}
 	var err error
-	res := make([]*model.DataDictionaryCategoryOrderBy, len(vSlice))
+	res := make([]*model.DataDictionaryOrderBy, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNdata_dictionary_category_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryOrderBy(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNdata_dictionary_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryOrderBy(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -8429,7 +9559,7 @@ func (ec *executionContext) unmarshalOdata_dictionary_category_order_by2ᚕᚖVe
 	return res, nil
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySelectColumnᚄ(ctx context.Context, v interface{}) ([]model.DataDictionaryCategorySelectColumn, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumnᚄ(ctx context.Context, v interface{}) ([]model.DataDictionarySelectColumn, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -8442,10 +9572,10 @@ func (ec *executionContext) unmarshalOdata_dictionary_category_select_column2ᚕ
 		}
 	}
 	var err error
-	res := make([]model.DataDictionaryCategorySelectColumn, len(vSlice))
+	res := make([]model.DataDictionarySelectColumn, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNdata_dictionary_category_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySelectColumn(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNdata_dictionary_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumn(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -8453,7 +9583,7 @@ func (ec *executionContext) unmarshalOdata_dictionary_category_select_column2ᚕ
 	return res, nil
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DataDictionaryCategorySelectColumn) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DataDictionarySelectColumn) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -8480,7 +9610,7 @@ func (ec *executionContext) marshalOdata_dictionary_category_select_column2ᚕVe
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNdata_dictionary_category_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySelectColumn(ctx, sel, v[i])
+			ret[i] = ec.marshalNdata_dictionary_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySelectColumn(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -8493,129 +9623,129 @@ func (ec *executionContext) marshalOdata_dictionary_category_select_column2ᚕVe
 	return ret
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySetInput(ctx context.Context, v interface{}) (*model.DataDictionaryCategorySetInput, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySetInput(ctx context.Context, v interface{}) (*model.DataDictionarySetInput, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_set_input(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_set_input(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryStddevFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryStddevFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_stddev_fields(ctx, sel, v)
+	return ec._data_dictionary_stddev_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryStddevOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryStddevOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_stddev_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_stddev_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryStddevPopFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryStddevPopFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_stddev_pop_fields(ctx, sel, v)
+	return ec._data_dictionary_stddev_pop_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevPopOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryStddevPopOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevPopOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryStddevPopOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_stddev_pop_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_stddev_pop_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryStddevSampFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryStddevSampFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_stddev_samp_fields(ctx, sel, v)
+	return ec._data_dictionary_stddev_samp_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryStddevSampOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryStddevSampOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryStddevSampOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryStddevSampOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_stddev_samp_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_stddev_samp_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySumFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategorySumFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySumFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionarySumFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_sum_fields(ctx, sel, v)
+	return ec._data_dictionary_sum_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategorySumOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategorySumOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionarySumOrderBy(ctx context.Context, v interface{}) (*model.DataDictionarySumOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_sum_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_sum_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryVarPopFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryVarPopFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_var_pop_fields(ctx, sel, v)
+	return ec._data_dictionary_var_pop_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarPopOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryVarPopOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarPopOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryVarPopOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_var_pop_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_var_pop_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryVarSampFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryVarSampFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_var_samp_fields(ctx, sel, v)
+	return ec._data_dictionary_var_samp_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarSampOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryVarSampOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarSampOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryVarSampOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_var_samp_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_var_samp_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdata_dictionary_category_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryCategoryVarianceFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdata_dictionary_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.DataDictionaryVarianceFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
-	return ec._data_dictionary_category_variance_fields(ctx, sel, v)
+	return ec._data_dictionary_variance_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdata_dictionary_category_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryCategoryVarianceOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryCategoryVarianceOrderBy, error) {
+func (ec *executionContext) unmarshalOdata_dictionary_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋdictᚋqueryᚋgraphᚋmodelᚐDataDictionaryVarianceOrderBy(ctx context.Context, v interface{}) (*model.DataDictionaryVarianceOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputdata_dictionary_category_variance_order_by(ctx, v)
+	res, err := ec.unmarshalInputdata_dictionary_variance_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, v interface{}) (*model1.OrderBy, error) {
+func (ec *executionContext) unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, v interface{}) (*model2.OrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
-	var res = new(model1.OrderBy)
+	var res = new(model2.OrderBy)
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, sel ast.SelectionSet, v *model1.OrderBy) graphql.Marshaler {
+func (ec *executionContext) marshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, sel ast.SelectionSet, v *model2.OrderBy) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -8673,7 +9803,7 @@ func (ec *executionContext) marshalOtimestamptz2ᚖtimeᚐTime(ctx context.Conte
 	return scalar.MarshalTimestamptz(*v)
 }
 
-func (ec *executionContext) unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx context.Context, v interface{}) (*model1.TimestamptzComparisonExp, error) {
+func (ec *executionContext) unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx context.Context, v interface{}) (*model2.TimestamptzComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}

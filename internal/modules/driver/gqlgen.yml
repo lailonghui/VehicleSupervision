@@ -76,5 +76,11 @@ models:
     model: VehicleSupervision/pkg/graphql/model.JsonbComparisonExp
   order_by:
     model: VehicleSupervision/pkg/graphql/model.OrderBy
+  numeric_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.NumericComparisonExp
+  point_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.PointComparisonExp
+  date_comparison_exp:
+    model: VehicleSupervision/pkg/graphql/model.DateComparisonExp
 
 
