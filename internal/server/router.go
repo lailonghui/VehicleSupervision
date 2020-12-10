@@ -4,23 +4,16 @@ import (
 	"VehicleSupervision/config"
 	adasMutation "VehicleSupervision/internal/modules/adas/mutation"
 	adasQuery "VehicleSupervision/internal/modules/adas/query"
-	departmentMutation "VehicleSupervision/internal/modules/admin/department/mutation"
-	departmentQuery "VehicleSupervision/internal/modules/admin/department/query"
-	enterpriseMutation "VehicleSupervision/internal/modules/admin/enterprise/mutation"
-	enterpriseQuery "VehicleSupervision/internal/modules/admin/enterprise/query"
-	systemUserMutation "VehicleSupervision/internal/modules/admin/systemuser/mutation"
-	systemUserQuery "VehicleSupervision/internal/modules/admin/systemuser/query"
+
+	admin "VehicleSupervision/internal/modules/admin"
 	areaMutation "VehicleSupervision/internal/modules/area/mutation"
 	areaQuery "VehicleSupervision/internal/modules/area/query"
-	blacklistRecordMutation "VehicleSupervision/internal/modules/blacklist/record/mutation"
-	blacklistRecordQuery "VehicleSupervision/internal/modules/blacklist/record/query"
-	deviceMutation "VehicleSupervision/internal/modules/device/mutation"
-	deviceQuery "VehicleSupervision/internal/modules/device/query"
+	blacklistRecord "VehicleSupervision/internal/modules/blacklist"
+	device "VehicleSupervision/internal/modules/device"
+	ridehailing "VehicleSupervision/internal/modules/ridehailing"
 
-	dictionaryCategoryMutation "VehicleSupervision/internal/modules/dictionary/category/mutation"
-	dictionaryCategoryQuery "VehicleSupervision/internal/modules/dictionary/category/query"
-	dictionaryMutation "VehicleSupervision/internal/modules/dictionary/dict/mutation"
-	dictionaryQuery "VehicleSupervision/internal/modules/dictionary/dict/query"
+	dictionary "VehicleSupervision/internal/modules/dictionary"
+
 	"VehicleSupervision/internal/modules/driver"
 	drivingLogMutation "VehicleSupervision/internal/modules/driving/log/mutation"
 	drivingLogQuery "VehicleSupervision/internal/modules/driving/log/query"
@@ -70,24 +63,12 @@ func Setup() {
 	//驾驶员模块端点
 	router.Any("/driver", driver.GinEndpoint())
 
-	// 企业端点
-	router.Any("/enterprise/query", enterpriseQuery.GinEndpoint())
-	router.Any("/enterprise/mutation", enterpriseMutation.GinEndpoint())
-	// 系统用户端点
-	router.Any("/system_user/query", systemUserQuery.GinEndpoint())
-	router.Any("/system_user/mutation", systemUserMutation.GinEndpoint())
-	// 部门端点
-	router.Any("/department/query", departmentQuery.GinEndpoint())
-	router.Any("/department/mutation", departmentMutation.GinEndpoint())
-	// 字典类型端点
-	router.Any("/dictionary_category/query", dictionaryCategoryQuery.GinEndpoint())
-	router.Any("/dictionary_category/mutation", dictionaryCategoryMutation.GinEndpoint())
-	// 字典端点
-	router.Any("/dictionary/query", dictionaryQuery.GinEndpoint())
-	router.Any("/dictionary/mutation", dictionaryMutation.GinEndpoint())
-	// 黑名单记录端点
-	router.Any("/blacklist_operation_record/query", blacklistRecordQuery.GinEndpoint())
-	router.Any("/blacklist_operation_record/mutation", blacklistRecordMutation.GinEndpoint())
+	// 系统管理端点
+	router.Any("/admin", admin.GinEndpoint())
+	// 字典管理端点
+	router.Any("/dictionary", dictionary.GinEndpoint())
+	// 黑名单端点
+	router.Any("/blacklist", blacklistRecord.GinEndpoint())
 	// 行车日志端点
 	router.Any("/driving_log/query", drivingLogQuery.GinEndpoint())
 	router.Any("/driving_log/mutation", drivingLogMutation.GinEndpoint())
@@ -98,8 +79,9 @@ func Setup() {
 	router.Any("/vehicle_location_last/query", vehicleLocationLastQuery.GinEndpoint())
 	router.Any("/vehicle_location_last/mutation", vehicleLocationLastMutation.GinEndpoint())
 	// 设备管理端点
-	router.Any("/device/query", deviceQuery.GinEndpoint())
-	router.Any("/device/mutation", deviceMutation.GinEndpoint())
+	router.Any("/device", device.GinEndpoint())
+	// 网约车模块
+	router.Any("/ride_hailing", ridehailing.GinEndpoint())
 
 	//adas模块端点
 	router.Any("/adas/query", adasQuery.GinEndpoint())

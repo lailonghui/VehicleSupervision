@@ -1,0 +1,649 @@
+
+extend type Mutation {
+  """
+  delete data from the table: "terminal_factory"
+  """
+  delete_terminal_factory(
+    """filter the rows which have to be deleted"""
+    where: terminal_factory_bool_exp!
+  ): terminal_factory_mutation_response
+
+  """
+  delete single row from the table: "terminal_factory"
+  """
+  delete_terminal_factory_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal_factory
+
+  """
+  insert data into the table: "terminal_factory"
+  """
+  insert_terminal_factory(
+    """the rows to be inserted"""
+    objects: [terminal_factory_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: terminal_factory_on_conflict
+  ): terminal_factory_mutation_response
+
+  """
+  insert a single row into the table: "terminal_factory"
+  """
+  insert_terminal_factory_one(
+    """the row to be inserted"""
+    object: terminal_factory_insert_input!
+
+    """on conflict condition"""
+    on_conflict: terminal_factory_on_conflict
+  ): terminal_factory
+
+  """
+  update data of the table: "terminal_factory"
+  """
+  update_terminal_factory(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_factory_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_factory_set_input
+
+    """filter the rows which have to be updated"""
+    where: terminal_factory_bool_exp!
+  ): terminal_factory_mutation_response
+
+  """
+  update single row of the table: "terminal_factory"
+  """
+  update_terminal_factory_by_pk(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: terminal_factory_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: terminal_factory_set_input
+    pk_columns: terminal_factory_pk_columns_input!
+  ): terminal_factory
+}
+
+
+extend type Query {
+  """
+  fetch data from the table: "terminal_factory"
+  """
+  terminal_factory(
+    """distinct select on columns"""
+    distinct_on: [terminal_factory_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_factory_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_factory_bool_exp
+  ): [terminal_factory!]!
+
+  """
+  fetch aggregated fields from the table: "terminal_factory"
+  """
+  terminal_factory_aggregate(
+    """distinct select on columns"""
+    distinct_on: [terminal_factory_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [terminal_factory_order_by!]
+
+    """filter the rows returned"""
+    where: terminal_factory_bool_exp
+  ): terminal_factory_aggregate!
+
+  """
+  fetch data from the table: "terminal_factory" using primary key columns
+  """
+  terminal_factory_by_pk(
+    """ID"""
+    id: bigint!
+  ): terminal_factory
+}
+
+
+"""
+终端工厂
+
+
+columns and relationships of "terminal_factory"
+
+"""
+type terminal_factory {
+  """厂家地址"""
+  address: String
+
+  """联系人"""
+  contact: String
+
+  """联系电话"""
+  contact_phone: String
+
+  """创建时间"""
+  create_at: timestamptz
+
+  """创建人"""
+  create_by: String
+
+  """删除时间"""
+  delete_at: timestamptz
+
+  """删除人"""
+  delete_by: String
+
+  """工厂ID"""
+  factory_id: String!
+
+  """厂家名称"""
+  factory_name: String!
+
+  """ID"""
+  id: bigint!
+
+  """是否删除"""
+  is_delete: Boolean!
+
+  """备注"""
+  remark: String
+
+  """技术支持人"""
+  tech_contact: String
+
+  """技术支持电话"""
+  tech_contact_phone: String
+
+  """更新时间"""
+  update_at: timestamptz
+
+  """更新人"""
+  update_by: String
+}
+
+"""
+aggregated selection of "terminal_factory"
+"""
+type terminal_factory_aggregate {
+  aggregate: terminal_factory_aggregate_fields
+  nodes: [terminal_factory!]!
+}
+
+"""
+aggregate fields of "terminal_factory"
+"""
+type terminal_factory_aggregate_fields {
+  avg: terminal_factory_avg_fields
+  count(columns: [terminal_factory_select_column!], distinct: Boolean): Int
+  max: terminal_factory_max_fields
+  min: terminal_factory_min_fields
+  stddev: terminal_factory_stddev_fields
+  stddev_pop: terminal_factory_stddev_pop_fields
+  stddev_samp: terminal_factory_stddev_samp_fields
+  sum: terminal_factory_sum_fields
+  var_pop: terminal_factory_var_pop_fields
+  var_samp: terminal_factory_var_samp_fields
+  variance: terminal_factory_variance_fields
+}
+
+"""
+order by aggregate values of table "terminal_factory"
+"""
+input terminal_factory_aggregate_order_by {
+  avg: terminal_factory_avg_order_by
+  count: order_by
+  max: terminal_factory_max_order_by
+  min: terminal_factory_min_order_by
+  stddev: terminal_factory_stddev_order_by
+  stddev_pop: terminal_factory_stddev_pop_order_by
+  stddev_samp: terminal_factory_stddev_samp_order_by
+  sum: terminal_factory_sum_order_by
+  var_pop: terminal_factory_var_pop_order_by
+  var_samp: terminal_factory_var_samp_order_by
+  variance: terminal_factory_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "terminal_factory"
+"""
+input terminal_factory_arr_rel_insert_input {
+  data: [terminal_factory_insert_input!]!
+  on_conflict: terminal_factory_on_conflict
+}
+
+"""aggregate avg on columns"""
+type terminal_factory_avg_fields {
+  id: Float
+}
+
+"""
+order by avg() on columns of table "terminal_factory"
+"""
+input terminal_factory_avg_order_by {
+  id: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "terminal_factory". All fields are combined with a logical 'AND'.
+"""
+input terminal_factory_bool_exp {
+  _and: [terminal_factory_bool_exp]
+  _not: terminal_factory_bool_exp
+  _or: [terminal_factory_bool_exp]
+  address: String_comparison_exp
+  contact: String_comparison_exp
+  contact_phone: String_comparison_exp
+  create_at: timestamptz_comparison_exp
+  create_by: String_comparison_exp
+  delete_at: timestamptz_comparison_exp
+  delete_by: String_comparison_exp
+  factory_id: String_comparison_exp
+  factory_name: String_comparison_exp
+  id: bigint_comparison_exp
+  is_delete: Boolean_comparison_exp
+  remark: String_comparison_exp
+  tech_contact: String_comparison_exp
+  tech_contact_phone: String_comparison_exp
+  update_at: timestamptz_comparison_exp
+  update_by: String_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "terminal_factory"
+"""
+enum terminal_factory_constraint {
+  """unique or primary key constraint"""
+  terminal_factory_pkey
+}
+
+"""
+input type for incrementing integer column in table "terminal_factory"
+"""
+input terminal_factory_inc_input {
+  id: bigint
+}
+
+"""
+input type for inserting data into table "terminal_factory"
+"""
+input terminal_factory_insert_input {
+  address: String
+  contact: String
+  contact_phone: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  factory_name: String
+  id: bigint
+  is_delete: Boolean
+  remark: String
+  tech_contact: String
+  tech_contact_phone: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate max on columns"""
+type terminal_factory_max_fields {
+  address: String
+  contact: String
+  contact_phone: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  factory_name: String
+  id: bigint
+  remark: String
+  tech_contact: String
+  tech_contact_phone: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by max() on columns of table "terminal_factory"
+"""
+input terminal_factory_max_order_by {
+  address: order_by
+  contact: order_by
+  contact_phone: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  factory_id: order_by
+  factory_name: order_by
+  id: order_by
+  remark: order_by
+  tech_contact: order_by
+  tech_contact_phone: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""aggregate min on columns"""
+type terminal_factory_min_fields {
+  address: String
+  contact: String
+  contact_phone: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  factory_name: String
+  id: bigint
+  remark: String
+  tech_contact: String
+  tech_contact_phone: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""
+order by min() on columns of table "terminal_factory"
+"""
+input terminal_factory_min_order_by {
+  address: order_by
+  contact: order_by
+  contact_phone: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  factory_id: order_by
+  factory_name: order_by
+  id: order_by
+  remark: order_by
+  tech_contact: order_by
+  tech_contact_phone: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+response of any mutation on the table "terminal_factory"
+"""
+type terminal_factory_mutation_response {
+  """number of affected rows by the mutation"""
+  affected_rows: Int!
+
+  """data of the affected rows by the mutation"""
+  returning: [terminal_factory!]!
+}
+
+"""
+input type for inserting object relation for remote table "terminal_factory"
+"""
+input terminal_factory_obj_rel_insert_input {
+  data: terminal_factory_insert_input!
+  on_conflict: terminal_factory_on_conflict
+}
+
+"""
+on conflict condition type for table "terminal_factory"
+"""
+input terminal_factory_on_conflict {
+  constraint: terminal_factory_constraint!
+  update_columns: [terminal_factory_update_column!]!
+  where: terminal_factory_bool_exp
+}
+
+"""
+ordering options when selecting data from "terminal_factory"
+"""
+input terminal_factory_order_by {
+  address: order_by
+  contact: order_by
+  contact_phone: order_by
+  create_at: order_by
+  create_by: order_by
+  delete_at: order_by
+  delete_by: order_by
+  factory_id: order_by
+  factory_name: order_by
+  id: order_by
+  is_delete: order_by
+  remark: order_by
+  tech_contact: order_by
+  tech_contact_phone: order_by
+  update_at: order_by
+  update_by: order_by
+}
+
+"""
+primary key columns input for table: "terminal_factory"
+"""
+input terminal_factory_pk_columns_input {
+  """ID"""
+  id: bigint!
+}
+
+"""
+select columns of table "terminal_factory"
+"""
+enum terminal_factory_select_column {
+  """column name"""
+  address
+
+  """column name"""
+  contact
+
+  """column name"""
+  contact_phone
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  factory_id
+
+  """column name"""
+  factory_name
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  remark
+
+  """column name"""
+  tech_contact
+
+  """column name"""
+  tech_contact_phone
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""
+input type for updating data in table "terminal_factory"
+"""
+input terminal_factory_set_input {
+  address: String
+  contact: String
+  contact_phone: String
+  create_at: timestamptz
+  create_by: String
+  delete_at: timestamptz
+  delete_by: String
+  factory_id: String
+  factory_name: String
+  id: bigint
+  is_delete: Boolean
+  remark: String
+  tech_contact: String
+  tech_contact_phone: String
+  update_at: timestamptz
+  update_by: String
+}
+
+"""aggregate stddev on columns"""
+type terminal_factory_stddev_fields {
+  id: Float
+}
+
+"""
+order by stddev() on columns of table "terminal_factory"
+"""
+input terminal_factory_stddev_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type terminal_factory_stddev_pop_fields {
+  id: Float
+}
+
+"""
+order by stddev_pop() on columns of table "terminal_factory"
+"""
+input terminal_factory_stddev_pop_order_by {
+  id: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type terminal_factory_stddev_samp_fields {
+  id: Float
+}
+
+"""
+order by stddev_samp() on columns of table "terminal_factory"
+"""
+input terminal_factory_stddev_samp_order_by {
+  id: order_by
+}
+
+"""aggregate sum on columns"""
+type terminal_factory_sum_fields {
+  id: bigint
+}
+
+"""
+order by sum() on columns of table "terminal_factory"
+"""
+input terminal_factory_sum_order_by {
+  id: order_by
+}
+
+"""
+update columns of table "terminal_factory"
+"""
+enum terminal_factory_update_column {
+  """column name"""
+  address
+
+  """column name"""
+  contact
+
+  """column name"""
+  contact_phone
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  delete_at
+
+  """column name"""
+  delete_by
+
+  """column name"""
+  factory_id
+
+  """column name"""
+  factory_name
+
+  """column name"""
+  id
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  remark
+
+  """column name"""
+  tech_contact
+
+  """column name"""
+  tech_contact_phone
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+}
+
+"""aggregate var_pop on columns"""
+type terminal_factory_var_pop_fields {
+  id: Float
+}
+
+"""
+order by var_pop() on columns of table "terminal_factory"
+"""
+input terminal_factory_var_pop_order_by {
+  id: order_by
+}
+
+"""aggregate var_samp on columns"""
+type terminal_factory_var_samp_fields {
+  id: Float
+}
+
+"""
+order by var_samp() on columns of table "terminal_factory"
+"""
+input terminal_factory_var_samp_order_by {
+  id: order_by
+}
+
+"""aggregate variance on columns"""
+type terminal_factory_variance_fields {
+  id: Float
+}
+
+"""
+order by variance() on columns of table "terminal_factory"
+"""
+input terminal_factory_variance_order_by {
+  id: order_by
+}

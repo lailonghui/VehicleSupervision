@@ -1,0 +1,949 @@
+
+extend type Mutation {
+  """
+  delete data from the table: "ride_hailing_driver"
+  """
+  delete_ride_hailing_driver(
+    """filter the rows which have to be deleted"""
+    where: ride_hailing_driver_bool_exp!
+  ): ride_hailing_driver_mutation_response
+
+  """
+  delete single row from the table: "ride_hailing_driver"
+  """
+  delete_ride_hailing_driver_by_pk(
+    """ID"""
+    id: bigint!
+  ): ride_hailing_driver
+
+  """
+  insert data into the table: "ride_hailing_driver"
+  """
+  insert_ride_hailing_driver(
+    """the rows to be inserted"""
+    objects: [ride_hailing_driver_insert_input!]!
+
+    """on conflict condition"""
+    on_conflict: ride_hailing_driver_on_conflict
+  ): ride_hailing_driver_mutation_response
+
+  """
+  insert a single row into the table: "ride_hailing_driver"
+  """
+  insert_ride_hailing_driver_one(
+    """the row to be inserted"""
+    object: ride_hailing_driver_insert_input!
+
+    """on conflict condition"""
+    on_conflict: ride_hailing_driver_on_conflict
+  ): ride_hailing_driver
+
+  """
+  update data of the table: "ride_hailing_driver"
+  """
+  update_ride_hailing_driver(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: ride_hailing_driver_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: ride_hailing_driver_set_input
+
+    """filter the rows which have to be updated"""
+    where: ride_hailing_driver_bool_exp!
+  ): ride_hailing_driver_mutation_response
+
+  """
+  update single row of the table: "ride_hailing_driver"
+  """
+  update_ride_hailing_driver_by_pk(
+    """increments the integer columns with given value of the filtered values"""
+    _inc: ride_hailing_driver_inc_input
+
+    """sets the columns of the filtered rows to the given values"""
+    _set: ride_hailing_driver_set_input
+    pk_columns: ride_hailing_driver_pk_columns_input!
+  ): ride_hailing_driver
+}
+
+extend type Query {
+  """
+  fetch data from the table: "ride_hailing_driver"
+  """
+  ride_hailing_driver(
+    """distinct select on columns"""
+    distinct_on: [ride_hailing_driver_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [ride_hailing_driver_order_by!]
+
+    """filter the rows returned"""
+    where: ride_hailing_driver_bool_exp
+  ): [ride_hailing_driver!]!
+
+  """
+  fetch aggregated fields from the table: "ride_hailing_driver"
+  """
+  ride_hailing_driver_aggregate(
+    """distinct select on columns"""
+    distinct_on: [ride_hailing_driver_select_column!]
+
+    """limit the number of rows returned"""
+    limit: Int
+
+    """skip the first n rows. Use only with order_by"""
+    offset: Int
+
+    """sort the rows by one or more columns"""
+    order_by: [ride_hailing_driver_order_by!]
+
+    """filter the rows returned"""
+    where: ride_hailing_driver_bool_exp
+  ): ride_hailing_driver_aggregate!
+
+  """
+  fetch data from the table: "ride_hailing_driver" using primary key columns
+  """
+  ride_hailing_driver_by_pk(
+    """ID"""
+    id: bigint!
+  ): ride_hailing_driver
+}
+
+"""
+网约车驾驶员
+
+
+columns and relationships of "ride_hailing_driver"
+
+"""
+type ride_hailing_driver {
+  """出生日期"""
+  birthday: timestamptz
+
+  """审核状态"""
+  check_station: Int
+
+  """记录时间"""
+  create_at: timestamptz
+
+  """记录人员ID"""
+  create_by: String
+
+  """现居住地址"""
+  current_address: String
+
+  """驾驶员名称"""
+  driver_name: String
+
+  """驾校ID"""
+  driver_school_id: String
+
+  """有效期截止日期"""
+  end_valid_date: timestamptz
+
+  """初次领驾驶证日期"""
+  first_time_received_date: timestamptz
+
+  """手持身份证照片"""
+  handle_id_photo: String
+
+  """ID"""
+  id: bigint!
+
+  """身份证住址"""
+  id_address: String
+
+  """驾驶员身份证号"""
+  id_number: String
+
+  """身份证图片"""
+  idcard_photo: String
+
+  """是否删除"""
+  is_delete: Boolean!
+
+  """是否旧驾驶员"""
+  is_former_driver: Boolean
+
+  """民族"""
+  nation: String
+
+  """操作员id"""
+  operator_id: String
+
+  """联系电话"""
+  phone_number: String
+
+  """资格证号"""
+  qualification_number: String
+
+  """准假车型"""
+  quasi_driving_models: Int
+
+  """备注"""
+  remarks: String
+
+  """网约车驾驶员ID"""
+  ride_hailing_driver_id: String!
+
+  """网约车驾驶员审核表ID"""
+  ride_hailing_driver_verify_id: String
+
+  """性别"""
+  sex: Int
+
+  """发证机构"""
+  sign_gov: String
+
+  """签字的照片"""
+  signnature_photo: String
+
+  """身份证-有效期起始日期"""
+  start_valid_date: timestamptz
+
+  """更新时间"""
+  update_at: timestamptz
+
+  """更新人员id"""
+  update_by: String
+
+  """内网更新时间"""
+  update_time_in: timestamptz
+}
+
+"""
+aggregated selection of "ride_hailing_driver"
+"""
+type ride_hailing_driver_aggregate {
+  aggregate: ride_hailing_driver_aggregate_fields
+  nodes: [ride_hailing_driver!]!
+}
+
+"""
+aggregate fields of "ride_hailing_driver"
+"""
+type ride_hailing_driver_aggregate_fields {
+  avg: ride_hailing_driver_avg_fields
+  count(columns: [ride_hailing_driver_select_column!], distinct: Boolean): Int
+  max: ride_hailing_driver_max_fields
+  min: ride_hailing_driver_min_fields
+  stddev: ride_hailing_driver_stddev_fields
+  stddev_pop: ride_hailing_driver_stddev_pop_fields
+  stddev_samp: ride_hailing_driver_stddev_samp_fields
+  sum: ride_hailing_driver_sum_fields
+  var_pop: ride_hailing_driver_var_pop_fields
+  var_samp: ride_hailing_driver_var_samp_fields
+  variance: ride_hailing_driver_variance_fields
+}
+
+"""
+order by aggregate values of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_aggregate_order_by {
+  avg: ride_hailing_driver_avg_order_by
+  count: order_by
+  max: ride_hailing_driver_max_order_by
+  min: ride_hailing_driver_min_order_by
+  stddev: ride_hailing_driver_stddev_order_by
+  stddev_pop: ride_hailing_driver_stddev_pop_order_by
+  stddev_samp: ride_hailing_driver_stddev_samp_order_by
+  sum: ride_hailing_driver_sum_order_by
+  var_pop: ride_hailing_driver_var_pop_order_by
+  var_samp: ride_hailing_driver_var_samp_order_by
+  variance: ride_hailing_driver_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "ride_hailing_driver"
+"""
+input ride_hailing_driver_arr_rel_insert_input {
+  data: [ride_hailing_driver_insert_input!]!
+  on_conflict: ride_hailing_driver_on_conflict
+}
+
+"""aggregate avg on columns"""
+type ride_hailing_driver_avg_fields {
+  check_station: Float
+  id: Float
+  quasi_driving_models: Float
+  sex: Float
+}
+
+"""
+order by avg() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_avg_order_by {
+  check_station: order_by
+  id: order_by
+  quasi_driving_models: order_by
+  sex: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "ride_hailing_driver". All fields are combined with a logical 'AND'.
+"""
+input ride_hailing_driver_bool_exp {
+  _and: [ride_hailing_driver_bool_exp]
+  _not: ride_hailing_driver_bool_exp
+  _or: [ride_hailing_driver_bool_exp]
+  birthday: timestamptz_comparison_exp
+  check_station: Int_comparison_exp
+  create_at: timestamptz_comparison_exp
+  create_by: String_comparison_exp
+  current_address: String_comparison_exp
+  driver_name: String_comparison_exp
+  driver_school_id: String_comparison_exp
+  end_valid_date: timestamptz_comparison_exp
+  first_time_received_date: timestamptz_comparison_exp
+  handle_id_photo: String_comparison_exp
+  id: bigint_comparison_exp
+  id_address: String_comparison_exp
+  id_number: String_comparison_exp
+  idcard_photo: String_comparison_exp
+  is_delete: Boolean_comparison_exp
+  is_former_driver: Boolean_comparison_exp
+  nation: String_comparison_exp
+  operator_id: String_comparison_exp
+  phone_number: String_comparison_exp
+  qualification_number: String_comparison_exp
+  quasi_driving_models: Int_comparison_exp
+  remarks: String_comparison_exp
+  ride_hailing_driver_id: String_comparison_exp
+  ride_hailing_driver_verify_id: String_comparison_exp
+  sex: Int_comparison_exp
+  sign_gov: String_comparison_exp
+  signnature_photo: String_comparison_exp
+  start_valid_date: timestamptz_comparison_exp
+  update_at: timestamptz_comparison_exp
+  update_by: String_comparison_exp
+  update_time_in: timestamptz_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "ride_hailing_driver"
+"""
+enum ride_hailing_driver_constraint {
+  """unique or primary key constraint"""
+  ride_hailing_driver_pkey
+}
+
+"""
+input type for incrementing integer column in table "ride_hailing_driver"
+"""
+input ride_hailing_driver_inc_input {
+  check_station: Int
+  id: bigint
+  quasi_driving_models: Int
+  sex: Int
+}
+
+"""
+input type for inserting data into table "ride_hailing_driver"
+"""
+input ride_hailing_driver_insert_input {
+  birthday: timestamptz
+  check_station: Int
+  create_at: timestamptz
+  create_by: String
+  current_address: String
+  driver_name: String
+  driver_school_id: String
+  end_valid_date: timestamptz
+  first_time_received_date: timestamptz
+  handle_id_photo: String
+  id: bigint
+  id_address: String
+  id_number: String
+  idcard_photo: String
+  is_delete: Boolean
+  is_former_driver: Boolean
+  nation: String
+  operator_id: String
+  phone_number: String
+  qualification_number: String
+  quasi_driving_models: Int
+  remarks: String
+  ride_hailing_driver_id: String
+  ride_hailing_driver_verify_id: String
+  sex: Int
+  sign_gov: String
+  signnature_photo: String
+  start_valid_date: timestamptz
+  update_at: timestamptz
+  update_by: String
+  update_time_in: timestamptz
+}
+
+"""aggregate max on columns"""
+type ride_hailing_driver_max_fields {
+  birthday: timestamptz
+  check_station: Int
+  create_at: timestamptz
+  create_by: String
+  current_address: String
+  driver_name: String
+  driver_school_id: String
+  end_valid_date: timestamptz
+  first_time_received_date: timestamptz
+  handle_id_photo: String
+  id: bigint
+  id_address: String
+  id_number: String
+  idcard_photo: String
+  nation: String
+  operator_id: String
+  phone_number: String
+  qualification_number: String
+  quasi_driving_models: Int
+  remarks: String
+  ride_hailing_driver_id: String
+  ride_hailing_driver_verify_id: String
+  sex: Int
+  sign_gov: String
+  signnature_photo: String
+  start_valid_date: timestamptz
+  update_at: timestamptz
+  update_by: String
+  update_time_in: timestamptz
+}
+
+"""
+order by max() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_max_order_by {
+  birthday: order_by
+  check_station: order_by
+  create_at: order_by
+  create_by: order_by
+  current_address: order_by
+  driver_name: order_by
+  driver_school_id: order_by
+  end_valid_date: order_by
+  first_time_received_date: order_by
+  handle_id_photo: order_by
+  id: order_by
+  id_address: order_by
+  id_number: order_by
+  idcard_photo: order_by
+  nation: order_by
+  operator_id: order_by
+  phone_number: order_by
+  qualification_number: order_by
+  quasi_driving_models: order_by
+  remarks: order_by
+  ride_hailing_driver_id: order_by
+  ride_hailing_driver_verify_id: order_by
+  sex: order_by
+  sign_gov: order_by
+  signnature_photo: order_by
+  start_valid_date: order_by
+  update_at: order_by
+  update_by: order_by
+  update_time_in: order_by
+}
+
+"""aggregate min on columns"""
+type ride_hailing_driver_min_fields {
+  birthday: timestamptz
+  check_station: Int
+  create_at: timestamptz
+  create_by: String
+  current_address: String
+  driver_name: String
+  driver_school_id: String
+  end_valid_date: timestamptz
+  first_time_received_date: timestamptz
+  handle_id_photo: String
+  id: bigint
+  id_address: String
+  id_number: String
+  idcard_photo: String
+  nation: String
+  operator_id: String
+  phone_number: String
+  qualification_number: String
+  quasi_driving_models: Int
+  remarks: String
+  ride_hailing_driver_id: String
+  ride_hailing_driver_verify_id: String
+  sex: Int
+  sign_gov: String
+  signnature_photo: String
+  start_valid_date: timestamptz
+  update_at: timestamptz
+  update_by: String
+  update_time_in: timestamptz
+}
+
+"""
+order by min() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_min_order_by {
+  birthday: order_by
+  check_station: order_by
+  create_at: order_by
+  create_by: order_by
+  current_address: order_by
+  driver_name: order_by
+  driver_school_id: order_by
+  end_valid_date: order_by
+  first_time_received_date: order_by
+  handle_id_photo: order_by
+  id: order_by
+  id_address: order_by
+  id_number: order_by
+  idcard_photo: order_by
+  nation: order_by
+  operator_id: order_by
+  phone_number: order_by
+  qualification_number: order_by
+  quasi_driving_models: order_by
+  remarks: order_by
+  ride_hailing_driver_id: order_by
+  ride_hailing_driver_verify_id: order_by
+  sex: order_by
+  sign_gov: order_by
+  signnature_photo: order_by
+  start_valid_date: order_by
+  update_at: order_by
+  update_by: order_by
+  update_time_in: order_by
+}
+
+"""
+response of any mutation on the table "ride_hailing_driver"
+"""
+type ride_hailing_driver_mutation_response {
+  """number of affected rows by the mutation"""
+  affected_rows: Int!
+
+  """data of the affected rows by the mutation"""
+  returning: [ride_hailing_driver!]!
+}
+
+"""
+input type for inserting object relation for remote table "ride_hailing_driver"
+"""
+input ride_hailing_driver_obj_rel_insert_input {
+  data: ride_hailing_driver_insert_input!
+  on_conflict: ride_hailing_driver_on_conflict
+}
+
+"""
+on conflict condition type for table "ride_hailing_driver"
+"""
+input ride_hailing_driver_on_conflict {
+  constraint: ride_hailing_driver_constraint!
+  update_columns: [ride_hailing_driver_update_column!]!
+  where: ride_hailing_driver_bool_exp
+}
+
+"""
+ordering options when selecting data from "ride_hailing_driver"
+"""
+input ride_hailing_driver_order_by {
+  birthday: order_by
+  check_station: order_by
+  create_at: order_by
+  create_by: order_by
+  current_address: order_by
+  driver_name: order_by
+  driver_school_id: order_by
+  end_valid_date: order_by
+  first_time_received_date: order_by
+  handle_id_photo: order_by
+  id: order_by
+  id_address: order_by
+  id_number: order_by
+  idcard_photo: order_by
+  is_delete: order_by
+  is_former_driver: order_by
+  nation: order_by
+  operator_id: order_by
+  phone_number: order_by
+  qualification_number: order_by
+  quasi_driving_models: order_by
+  remarks: order_by
+  ride_hailing_driver_id: order_by
+  ride_hailing_driver_verify_id: order_by
+  sex: order_by
+  sign_gov: order_by
+  signnature_photo: order_by
+  start_valid_date: order_by
+  update_at: order_by
+  update_by: order_by
+  update_time_in: order_by
+}
+
+"""
+primary key columns input for table: "ride_hailing_driver"
+"""
+input ride_hailing_driver_pk_columns_input {
+  """ID"""
+  id: bigint!
+}
+
+"""
+select columns of table "ride_hailing_driver"
+"""
+enum ride_hailing_driver_select_column {
+  """column name"""
+  birthday
+
+  """column name"""
+  check_station
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  current_address
+
+  """column name"""
+  driver_name
+
+  """column name"""
+  driver_school_id
+
+  """column name"""
+  end_valid_date
+
+  """column name"""
+  first_time_received_date
+
+  """column name"""
+  handle_id_photo
+
+  """column name"""
+  id
+
+  """column name"""
+  id_address
+
+  """column name"""
+  id_number
+
+  """column name"""
+  idcard_photo
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  is_former_driver
+
+  """column name"""
+  nation
+
+  """column name"""
+  operator_id
+
+  """column name"""
+  phone_number
+
+  """column name"""
+  qualification_number
+
+  """column name"""
+  quasi_driving_models
+
+  """column name"""
+  remarks
+
+  """column name"""
+  ride_hailing_driver_id
+
+  """column name"""
+  ride_hailing_driver_verify_id
+
+  """column name"""
+  sex
+
+  """column name"""
+  sign_gov
+
+  """column name"""
+  signnature_photo
+
+  """column name"""
+  start_valid_date
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+
+  """column name"""
+  update_time_in
+}
+
+"""
+input type for updating data in table "ride_hailing_driver"
+"""
+input ride_hailing_driver_set_input {
+  birthday: timestamptz
+  check_station: Int
+  create_at: timestamptz
+  create_by: String
+  current_address: String
+  driver_name: String
+  driver_school_id: String
+  end_valid_date: timestamptz
+  first_time_received_date: timestamptz
+  handle_id_photo: String
+  id: bigint
+  id_address: String
+  id_number: String
+  idcard_photo: String
+  is_delete: Boolean
+  is_former_driver: Boolean
+  nation: String
+  operator_id: String
+  phone_number: String
+  qualification_number: String
+  quasi_driving_models: Int
+  remarks: String
+  ride_hailing_driver_id: String
+  ride_hailing_driver_verify_id: String
+  sex: Int
+  sign_gov: String
+  signnature_photo: String
+  start_valid_date: timestamptz
+  update_at: timestamptz
+  update_by: String
+  update_time_in: timestamptz
+}
+
+"""aggregate stddev on columns"""
+type ride_hailing_driver_stddev_fields {
+  check_station: Float
+  id: Float
+  quasi_driving_models: Float
+  sex: Float
+}
+
+"""
+order by stddev() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_stddev_order_by {
+  check_station: order_by
+  id: order_by
+  quasi_driving_models: order_by
+  sex: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type ride_hailing_driver_stddev_pop_fields {
+  check_station: Float
+  id: Float
+  quasi_driving_models: Float
+  sex: Float
+}
+
+"""
+order by stddev_pop() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_stddev_pop_order_by {
+  check_station: order_by
+  id: order_by
+  quasi_driving_models: order_by
+  sex: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type ride_hailing_driver_stddev_samp_fields {
+  check_station: Float
+  id: Float
+  quasi_driving_models: Float
+  sex: Float
+}
+
+"""
+order by stddev_samp() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_stddev_samp_order_by {
+  check_station: order_by
+  id: order_by
+  quasi_driving_models: order_by
+  sex: order_by
+}
+
+"""aggregate sum on columns"""
+type ride_hailing_driver_sum_fields {
+  check_station: Int
+  id: bigint
+  quasi_driving_models: Int
+  sex: Int
+}
+
+"""
+order by sum() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_sum_order_by {
+  check_station: order_by
+  id: order_by
+  quasi_driving_models: order_by
+  sex: order_by
+}
+
+"""
+update columns of table "ride_hailing_driver"
+"""
+enum ride_hailing_driver_update_column {
+  """column name"""
+  birthday
+
+  """column name"""
+  check_station
+
+  """column name"""
+  create_at
+
+  """column name"""
+  create_by
+
+  """column name"""
+  current_address
+
+  """column name"""
+  driver_name
+
+  """column name"""
+  driver_school_id
+
+  """column name"""
+  end_valid_date
+
+  """column name"""
+  first_time_received_date
+
+  """column name"""
+  handle_id_photo
+
+  """column name"""
+  id
+
+  """column name"""
+  id_address
+
+  """column name"""
+  id_number
+
+  """column name"""
+  idcard_photo
+
+  """column name"""
+  is_delete
+
+  """column name"""
+  is_former_driver
+
+  """column name"""
+  nation
+
+  """column name"""
+  operator_id
+
+  """column name"""
+  phone_number
+
+  """column name"""
+  qualification_number
+
+  """column name"""
+  quasi_driving_models
+
+  """column name"""
+  remarks
+
+  """column name"""
+  ride_hailing_driver_id
+
+  """column name"""
+  ride_hailing_driver_verify_id
+
+  """column name"""
+  sex
+
+  """column name"""
+  sign_gov
+
+  """column name"""
+  signnature_photo
+
+  """column name"""
+  start_valid_date
+
+  """column name"""
+  update_at
+
+  """column name"""
+  update_by
+
+  """column name"""
+  update_time_in
+}
+
+"""aggregate var_pop on columns"""
+type ride_hailing_driver_var_pop_fields {
+  check_station: Float
+  id: Float
+  quasi_driving_models: Float
+  sex: Float
+}
+
+"""
+order by var_pop() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_var_pop_order_by {
+  check_station: order_by
+  id: order_by
+  quasi_driving_models: order_by
+  sex: order_by
+}
+
+"""aggregate var_samp on columns"""
+type ride_hailing_driver_var_samp_fields {
+  check_station: Float
+  id: Float
+  quasi_driving_models: Float
+  sex: Float
+}
+
+"""
+order by var_samp() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_var_samp_order_by {
+  check_station: order_by
+  id: order_by
+  quasi_driving_models: order_by
+  sex: order_by
+}
+
+"""aggregate variance on columns"""
+type ride_hailing_driver_variance_fields {
+  check_station: Float
+  id: Float
+  quasi_driving_models: Float
+  sex: Float
+}
+
+"""
+order by variance() on columns of table "ride_hailing_driver"
+"""
+input ride_hailing_driver_variance_order_by {
+  check_station: order_by
+  id: order_by
+  quasi_driving_models: order_by
+  sex: order_by
+}
