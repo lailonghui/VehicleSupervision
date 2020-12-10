@@ -70,7 +70,7 @@ func Setup() {
 	// 系统管理端点
 	router.Any("/admin", admin.GinEndpoint())
 	// 字典管理端点
-	//router.Any("/dictionary", dictionary.GinEndpoint())
+	router.Any("/dictionary", dictionary.GinEndpoint())
 	// 黑名单端点
 	router.Any("/blacklist", blacklistRecord.GinEndpoint())
 	// 行车端点
