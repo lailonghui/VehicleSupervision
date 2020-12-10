@@ -8,8 +8,7 @@ import (
 	admin "VehicleSupervision/internal/modules/admin"
 	areaMutation "VehicleSupervision/internal/modules/area/mutation"
 	areaQuery "VehicleSupervision/internal/modules/area/query"
-	blacklistRecordMutation "VehicleSupervision/internal/modules/blacklist/record/mutation"
-	blacklistRecordQuery "VehicleSupervision/internal/modules/blacklist/record/query"
+	blacklistRecord "VehicleSupervision/internal/modules/blacklist"
 	device "VehicleSupervision/internal/modules/device"
 	ridehailing "VehicleSupervision/internal/modules/ridehailing"
 
@@ -74,9 +73,8 @@ func Setup() {
 	// 字典端点
 	router.Any("/dictionary/query", dictionaryQuery.GinEndpoint())
 	router.Any("/dictionary/mutation", dictionaryMutation.GinEndpoint())
-	// 黑名单记录端点
-	router.Any("/blacklist_operation_record/query", blacklistRecordQuery.GinEndpoint())
-	router.Any("/blacklist_operation_record/mutation", blacklistRecordMutation.GinEndpoint())
+	// 黑名单端点
+	router.Any("/blacklist", blacklistRecord.GinEndpoint())
 	// 行车日志端点
 	router.Any("/driving_log/query", drivingLogQuery.GinEndpoint())
 	router.Any("/driving_log/mutation", drivingLogMutation.GinEndpoint())

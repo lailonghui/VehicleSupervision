@@ -3,7 +3,7 @@
 package model
 
 import (
-	"VehicleSupervision/internal/modules/blacklist/record/model"
+	"VehicleSupervision/internal/modules/blacklist/model"
 	model1 "VehicleSupervision/pkg/graphql/model"
 	"fmt"
 	"io"
@@ -334,14 +334,30 @@ type BlacklistOperationRecordVarianceOrderBy struct {
 	Operate       *model1.OrderBy `json:"operate"`
 }
 
-// subscription root
-type SubscriptionRoot struct {
-	// fetch data from the table: "blacklist_operation_record"
-	BlacklistOperationRecord []*model.BlacklistOperationRecord `json:"blacklist_operation_record"`
-	// fetch aggregated fields from the table: "blacklist_operation_record"
-	BlacklistOperationRecordAggregate *BlacklistOperationRecordAggregate `json:"blacklist_operation_record_aggregate"`
-	// fetch data from the table: "blacklist_operation_record" using primary key columns
-	BlacklistOperationRecordByPk *model.BlacklistOperationRecord `json:"blacklist_operation_record_by_pk"`
+// expression to compare columns of type numeric. All fields are combined with logical 'AND'.
+type NumericComparisonExp struct {
+	Eq     *float64  `json:"_eq"`
+	Gt     *float64  `json:"_gt"`
+	Gte    *float64  `json:"_gte"`
+	In     []float64 `json:"_in"`
+	IsNull *bool     `json:"_is_null"`
+	Lt     *float64  `json:"_lt"`
+	Lte    *float64  `json:"_lte"`
+	Neq    *float64  `json:"_neq"`
+	Nin    []float64 `json:"_nin"`
+}
+
+// expression to compare columns of type point. All fields are combined with logical 'AND'.
+type PointComparisonExp struct {
+	Eq     *string  `json:"_eq"`
+	Gt     *string  `json:"_gt"`
+	Gte    *string  `json:"_gte"`
+	In     []string `json:"_in"`
+	IsNull *bool    `json:"_is_null"`
+	Lt     *string  `json:"_lt"`
+	Lte    *string  `json:"_lte"`
+	Neq    *string  `json:"_neq"`
+	Nin    []string `json:"_nin"`
 }
 
 // unique or primary key constraints on table "blacklist_operation_record"

@@ -1,8 +1,8 @@
 package system
 
 import (
-	"VehicleSupervision/internal/modules/blacklist/record/query/graph/generated"
-	"VehicleSupervision/internal/modules/blacklist/record/query/graph/resolver"
+	"VehicleSupervision/internal/modules/blacklist/graph/generated"
+	"VehicleSupervision/internal/modules/blacklist/graph/resolver"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/gin-gonic/gin"
 )
