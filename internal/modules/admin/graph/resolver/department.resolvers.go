@@ -4,6 +4,7 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/admin/graph/generated"
 	"VehicleSupervision/internal/modules/admin/graph/model"
@@ -11,9 +12,19 @@ import (
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
-
 	"gorm.io/gorm"
 )
+
+func (r *departmentResolver) EnterpriseID(ctx context.Context, obj *model1.Department) (*model1.Enterprise, error) {
+	return dataloader.GetLoaders(ctx).EnterpriseLoader.Load(obj.EnterpriseID)
+}
+
+func (r *departmentResolver) SuperiorDepartmentID(ctx context.Context, obj *model1.Department) (*model1.Department, error) {
+	if obj.SuperiorDepartmentID == nil {
+		return nil, nil
+	}
+	return dataloader.GetLoaders(ctx).DepartmentLoader.Load(*obj.SuperiorDepartmentID)
+}
 
 func (r *mutationResolver) DeleteDepartment(ctx context.Context, where model.DepartmentBoolExp) (*model.DepartmentMutationResponse, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.Department{})
@@ -179,11 +190,15 @@ func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.D
 	return &rs, nil
 }
 
+// Department returns generated.DepartmentResolver implementation.
+func (r *Resolver) Department() generated.DepartmentResolver { return &departmentResolver{r} }
+
 // Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
 // Query returns generated.QueryResolver implementation.
 func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
+type departmentResolver struct{ *Resolver }
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }

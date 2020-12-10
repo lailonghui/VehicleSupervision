@@ -39,6 +39,7 @@ type Config struct {
 }
 
 type ResolverRoot interface {
+	Department() DepartmentResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
 	SystemUser() SystemUserResolver
@@ -685,6 +686,11 @@ type ComplexityRoot struct {
 	}
 }
 
+type DepartmentResolver interface {
+	EnterpriseID(ctx context.Context, obj *model1.Department) (*model1.Enterprise, error)
+
+	SuperiorDepartmentID(ctx context.Context, obj *model1.Department) (*model1.Department, error)
+}
 type MutationResolver interface {
 	DeleteDepartment(ctx context.Context, where model.DepartmentBoolExp) (*model.DepartmentMutationResponse, error)
 	DeleteDepartmentByPk(ctx context.Context, id int64) (*model1.Department, error)
@@ -4674,7 +4680,7 @@ type Department {
 	"""
 	企业ID
 	"""
-	enterprise_id: String!
+	enterprise_id: Enterprise!
 	"""
 	ID
 	"""
@@ -4694,7 +4700,7 @@ type Department {
 	"""
 	上级部门ID
 	"""
-	superior_department_id: String
+	superior_department_id: Department
 	"""
 	修改时间
 	"""
@@ -9129,14 +9135,14 @@ func (ec *executionContext) _Department_enterprise_id(ctx context.Context, field
 		Object:     "Department",
 		Field:      field,
 		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 	}
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseID, nil
+		return ec.resolvers.Department().EnterpriseID(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -9148,9 +9154,9 @@ func (ec *executionContext) _Department_enterprise_id(ctx context.Context, field
 		}
 		return graphql.Null
 	}
-	res := resTmp.(string)
+	res := resTmp.(*model1.Enterprise)
 	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
+	return ec.marshalNEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Department_id(ctx context.Context, field graphql.CollectedField, obj *model1.Department) (ret graphql.Marshaler) {
@@ -9298,14 +9304,14 @@ func (ec *executionContext) _Department_superior_department_id(ctx context.Conte
 		Object:     "Department",
 		Field:      field,
 		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 	}
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.SuperiorDepartmentID, nil
+		return ec.resolvers.Department().SuperiorDepartmentID(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -9314,9 +9320,9 @@ func (ec *executionContext) _Department_superior_department_id(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*model1.Department)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalODepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Department_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.Department) (ret graphql.Marshaler) {
@@ -34446,31 +34452,49 @@ func (ec *executionContext) _Department(ctx context.Context, sel ast.SelectionSe
 		case "department_id":
 			out.Values[i] = ec._Department_department_id(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "department_name":
 			out.Values[i] = ec._Department_department_name(ctx, field, obj)
 		case "enterprise_id":
-			out.Values[i] = ec._Department_enterprise_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Department_enterprise_id(ctx, field, obj)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "id":
 			out.Values[i] = ec._Department_id(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "internal_number":
 			out.Values[i] = ec._Department_internal_number(ctx, field, obj)
 		case "is_delete":
 			out.Values[i] = ec._Department_is_delete(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "remarks":
 			out.Values[i] = ec._Department_remarks(ctx, field, obj)
 		case "superior_department_id":
-			out.Values[i] = ec._Department_superior_department_id(ctx, field, obj)
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Department_superior_department_id(ctx, field, obj)
+				return res
+			})
 		case "update_at":
 			out.Values[i] = ec._Department_update_at(ctx, field, obj)
 		case "update_by":
@@ -37056,6 +37080,10 @@ func (ec *executionContext) marshalNDepartmentUpdateColumn2ᚕVehicleSupervision
 	}
 	wg.Wait()
 	return ret
+}
+
+func (ec *executionContext) marshalNEnterprise2VehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx context.Context, sel ast.SelectionSet, v model1.Enterprise) graphql.Marshaler {
+	return ec._Enterprise(ctx, sel, &v)
 }
 
 func (ec *executionContext) marshalNEnterprise2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.Enterprise) graphql.Marshaler {

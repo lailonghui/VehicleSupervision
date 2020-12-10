@@ -40,7 +40,7 @@ type Department {
 	"""
 	企业ID
 	"""
-	enterprise_id: String!
+	enterprise_id: Enterprise!
 	"""
 	ID
 	"""
@@ -60,7 +60,7 @@ type Department {
 	"""
 	上级部门ID
 	"""
-	superior_department_id: String
+	superior_department_id: Department
 	"""
 	修改时间
 	"""
