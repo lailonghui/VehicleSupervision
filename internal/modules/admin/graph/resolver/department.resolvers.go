@@ -4,6 +4,7 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/admin/graph/generated"
 	"VehicleSupervision/internal/modules/admin/graph/model"
@@ -167,7 +168,7 @@ func (r *queryResolver) DepartmentAggregate(ctx context.Context, distinctOn []mo
 }
 
 func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.Department, error) {
-	return r.loaders(ctx).DepartmentById.Load(id)
+	return dataloader.GetLoaders(ctx).DepartmentLoader.Load(id)
 }
 
 // Mutation returns generated.MutationResolver implementation.

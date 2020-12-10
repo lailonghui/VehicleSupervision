@@ -4,6 +4,7 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/admin/graph/model"
 	model1 "VehicleSupervision/internal/modules/admin/model"
@@ -166,5 +167,5 @@ func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []mo
 }
 
 func (r *queryResolver) SystemUserByPk(ctx context.Context, id int64) (*model1.SystemUser, error) {
-	return r.loaders(ctx).SystemUserById.Load(id)
+	return dataloader.GetLoaders(ctx).SystemUserLoader.Load(id)
 }

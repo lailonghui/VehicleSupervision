@@ -10,17 +10,18 @@ const DATA_LOADER_CONTEXT_KEY = "C_DATALOADER"
 
 // dataloader集合
 type Loaders struct {
-	EnterpriseById *model.EnterpriseLoader
-	DepartmentById *model.DepartmentLoader
-	SystemUserById *model.SystemUserLoader
+	*model.EnterpriseLoader
+	*model.DepartmentLoader
+	*model.SystemUserLoader
 }
 
+// dataloader 中间件
 func DataloaderMiddle(contextKey string) gin.HandlerFunc {
 	return func(c *gin.Context) {
 		ctx := context.WithValue(c.Request.Context(), contextKey, &Loaders{
-			EnterpriseById: (&model.Enterprise{}).NewLoader(),
-			DepartmentById: (&model.Department{}).NewLoader(),
-			SystemUserById: (&model.SystemUser{}).NewLoader(),
+			EnterpriseLoader: (&model.Enterprise{}).NewLoader(),
+			DepartmentLoader: (&model.Department{}).NewLoader(),
+			SystemUserLoader: (&model.SystemUser{}).NewLoader(),
 		})
 		c.Request = c.Request.WithContext(ctx)
 		c.Next()

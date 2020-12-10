@@ -4,6 +4,7 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/admin/graph/model"
 	model1 "VehicleSupervision/internal/modules/admin/model"
@@ -167,5 +168,5 @@ func (r *queryResolver) EnterpriseAggregate(ctx context.Context, distinctOn []mo
 
 func (r *queryResolver) EnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
 
-	return r.loaders(ctx).EnterpriseById.Load(id)
+	return dataloader.GetLoaders(ctx).EnterpriseLoader.Load(id)
 }

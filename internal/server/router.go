@@ -2,9 +2,9 @@ package server
 
 import (
 	"VehicleSupervision/config"
+	middle "VehicleSupervision/internal/dataloader/middle"
 	adasMutation "VehicleSupervision/internal/modules/adas/mutation"
 	adasQuery "VehicleSupervision/internal/modules/adas/query"
-	"VehicleSupervision/internal/server/middle"
 
 	admin "VehicleSupervision/internal/modules/admin"
 	areaMutation "VehicleSupervision/internal/modules/area/mutation"
