@@ -4,6 +4,9 @@ import (
 	"VehicleSupervision/config"
 	adasMutation "VehicleSupervision/internal/modules/adas/mutation"
 	adasQuery "VehicleSupervision/internal/modules/adas/query"
+	"VehicleSupervision/internal/modules/dynamic_supervision"
+	"VehicleSupervision/internal/modules/vehicle_alarm"
+	"VehicleSupervision/internal/modules/vehicle_violation"
 
 	admin "VehicleSupervision/internal/modules/admin"
 	areaMutation "VehicleSupervision/internal/modules/area/mutation"
@@ -11,8 +14,6 @@ import (
 	blacklistRecord "VehicleSupervision/internal/modules/blacklist"
 	device "VehicleSupervision/internal/modules/device"
 	ridehailing "VehicleSupervision/internal/modules/ridehailing"
-
-	dictionary "VehicleSupervision/internal/modules/dictionary"
 
 	"VehicleSupervision/internal/modules/driver"
 	driving "VehicleSupervision/internal/modules/driving"
@@ -59,11 +60,17 @@ func Setup() {
 	router.Any("/vehicle", vehicle.GinEndpoint())
 	//驾驶员模块端点
 	router.Any("/driver", driver.GinEndpoint())
+	//车辆报警模块端点
+	router.Any("/vehicleAlarm", vehicle_alarm.GinEndpoint())
+	//车辆违章模块端点
+	router.Any("/vehicleViolation", vehicle_violation.GinEndpoint())
+	//动态监管抽查模块端点
+	router.Any("/dynamicSupervision", dynamic_supervision.GinEndpoint())
 
 	// 系统管理端点
 	router.Any("/admin", admin.GinEndpoint())
 	// 字典管理端点
-	router.Any("/dictionary", dictionary.GinEndpoint())
+	//router.Any("/dictionary", dictionary.GinEndpoint())
 	// 黑名单端点
 	router.Any("/blacklist", blacklistRecord.GinEndpoint())
 	// 行车端点
