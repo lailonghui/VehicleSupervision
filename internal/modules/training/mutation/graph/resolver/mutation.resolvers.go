@@ -8,7 +8,6 @@ import (
 	"VehicleSupervision/internal/modules/training/mutation/graph/generated"
 	"VehicleSupervision/internal/modules/training/mutation/graph/model"
 	"VehicleSupervision/pkg/graphql/util"
-	"VehicleSupervision/pkg/xid"
 	"context"
 	"errors"
 	"fmt"
@@ -221,12 +220,8 @@ func (r *mutationResolver) DeleteTrainingMaterialByPk(ctx context.Context, id in
 }
 
 func (r *mutationResolver) InsertAnswerLog(ctx context.Context, objects []*model.AnswerLogInsertInput, onConflict *model.AnswerLogOnConflict) (*model.AnswerLogMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.AnswerLogID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.AnswerLog{}).Save(objects)
+	rs := r.batchAnswerLogInsertParamConvert(objects)
+	tx := db.DB.Model(&model.AnswerLog{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -235,20 +230,25 @@ func (r *mutationResolver) InsertAnswerLog(ctx context.Context, objects []*model
 	}
 	return &model.AnswerLogMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertAnswerLogOne(ctx context.Context, object model.AnswerLogInsertInput, onConflict *model.AnswerLogOnConflict) (*model.AnswerLog, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertAnswerLogParamConvert(&object)
+	tx := db.DB.Model(&model.AnswerLog{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) InsertDriverStudyDetails(ctx context.Context, objects []*model.DriverStudyDetailsInsertInput, onConflict *model.DriverStudyDetailsOnConflict) (*model.DriverStudyDetailsMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.DriverTrainingID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.DriverStudyDetails{}).Save(objects)
+	rs := r.batchDriverStudyInsertParamConvert(objects)
+	tx := db.DB.Model(&model.DriverStudyDetails{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -257,20 +257,25 @@ func (r *mutationResolver) InsertDriverStudyDetails(ctx context.Context, objects
 	}
 	return &model.DriverStudyDetailsMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertDriverStudyDetailsOne(ctx context.Context, object model.DriverStudyDetailsInsertInput, onConflict *model.DriverStudyDetailsOnConflict) (*model.DriverStudyDetails, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertDriverStudyParamConvert(&object)
+	tx := db.DB.Model(&model.DriverStudyDetails{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) InsertEnterpriseTraining(ctx context.Context, objects []*model.EnterpriseTrainingInsertInput, onConflict *model.EnterpriseTrainingOnConflict) (*model.EnterpriseTrainingMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.EnterpriseTrainingID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.EnterpriseTraining{}).Save(objects)
+	rs := r.batchEnterpriseTrainingInsertParamConvert(objects)
+	tx := db.DB.Model(&model.EnterpriseTraining{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -279,20 +284,25 @@ func (r *mutationResolver) InsertEnterpriseTraining(ctx context.Context, objects
 	}
 	return &model.EnterpriseTrainingMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertEnterpriseTrainingOne(ctx context.Context, object model.EnterpriseTrainingInsertInput, onConflict *model.EnterpriseTrainingOnConflict) (*model.EnterpriseTraining, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertEnterpriseTrainingParamConvert(&object)
+	tx := db.DB.Model(&model.EnterpriseTraining{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) InsertGovernmentManager(ctx context.Context, objects []*model.GovernmentManagerInsertInput, onConflict *model.GovernmentManagerOnConflict) (*model.GovernmentManagerMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.ManageID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.GovernmentManager{}).Save(objects)
+	rs := r.batchGovernmentManagerInsertParamConvert(objects)
+	tx := db.DB.Model(&model.GovernmentManager{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -301,20 +311,25 @@ func (r *mutationResolver) InsertGovernmentManager(ctx context.Context, objects 
 	}
 	return &model.GovernmentManagerMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertGovernmentManagerOne(ctx context.Context, object model.GovernmentManagerInsertInput, onConflict *model.GovernmentManagerOnConflict) (*model.GovernmentManager, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertGovernmentManagerParamConvert(&object)
+	tx := db.DB.Model(&model.GovernmentManager{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) InsertScoreLog(ctx context.Context, objects []*model.ScoreLogInsertInput, onConflict *model.ScoreLogOnConflict) (*model.ScoreLogMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.ScoreLogID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.ScoreLog{}).Save(objects)
+	rs := r.batchScoreLogInsertParamConvert(objects)
+	tx := db.DB.Model(&model.ScoreLog{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -323,20 +338,25 @@ func (r *mutationResolver) InsertScoreLog(ctx context.Context, objects []*model.
 	}
 	return &model.ScoreLogMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertScoreLogOne(ctx context.Context, object model.ScoreLogInsertInput, onConflict *model.ScoreLogOnConflict) (*model.ScoreLog, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertScoreLogParamConvert(&object)
+	tx := db.DB.Model(&model.ScoreLog{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) InsertTrainingMaterial(ctx context.Context, objects []*model.TrainingMaterialInsertInput, onConflict *model.TrainingMaterialOnConflict) (*model.TrainingMaterialMutationResponse, error) {
-	for _, input := range objects {
-		xidStr := xid.GetXid()
-		input.MaterialID = &xidStr
-		input.ID = nil
-	}
-	tx := db.DB.Model(&model.TrainingMaterial{}).Save(objects)
+	rs := r.batchTrainingMaterialInsertParamConvert(objects)
+	tx := db.DB.Model(&model.TrainingMaterial{}).Save(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
@@ -345,11 +365,20 @@ func (r *mutationResolver) InsertTrainingMaterial(ctx context.Context, objects [
 	}
 	return &model.TrainingMaterialMutationResponse{
 		AffectedRows: int(tx.RowsAffected),
+		Returning:    rs,
 	}, nil
 }
 
 func (r *mutationResolver) InsertTrainingMaterialOne(ctx context.Context, object model.TrainingMaterialInsertInput, onConflict *model.TrainingMaterialOnConflict) (*model.TrainingMaterial, error) {
-	panic(fmt.Errorf("not implemented"))
+	rs := r.insertTrainingMaterialParamConvert(&object)
+	tx := db.DB.Model(&model.TrainingMaterial{}).Create(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
 }
 
 func (r *mutationResolver) UpdateAnswerLog(ctx context.Context, inc *model.AnswerLogIncInput, set *model.AnswerLogSetInput, where model.AnswerLogBoolExp) (*model.AnswerLogMutationResponse, error) {
