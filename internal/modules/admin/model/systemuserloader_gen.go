@@ -10,7 +10,7 @@ import (
 // SystemUserLoaderConfig captures the config to create a new SystemUserLoader
 type SystemUserLoaderConfig struct {
 	// Fetch is a method that provides the data for the loader
-	Fetch func(keys []int64) ([]*SystemUser, []error)
+	Fetch func(keys []string) ([]*SystemUser, []error)
 
 	// Wait is how long wait before sending a batch
 	Wait time.Duration
@@ -31,7 +31,7 @@ func NewSystemUserLoader(config SystemUserLoaderConfig) *SystemUserLoader {
 // SystemUserLoader batches and caches requests
 type SystemUserLoader struct {
 	// this method provides the data for the loader
-	fetch func(keys []int64) ([]*SystemUser, []error)
+	fetch func(keys []string) ([]*SystemUser, []error)
 
 	// how long to done before sending a batch
 	wait time.Duration
@@ -42,7 +42,7 @@ type SystemUserLoader struct {
 	// INTERNAL
 
 	// lazily created cache
-	cache map[int64]*SystemUser
+	cache map[string]*SystemUser
 
 	// the current batch. keys will continue to be collected until timeout is hit,
 	// then everything will be sent to the fetch method and out to the listeners
@@ -53,7 +53,7 @@ type SystemUserLoader struct {
 }
 
 type systemUserLoaderBatch struct {
-	keys    []int64
+	keys    []string
 	data    []*SystemUser
 	error   []error
 	closing bool
@@ -61,14 +61,14 @@ type systemUserLoaderBatch struct {
 }
 
 // Load a SystemUser by key, batching and caching will be applied automatically
-func (l *SystemUserLoader) Load(key int64) (*SystemUser, error) {
+func (l *SystemUserLoader) Load(key string) (*SystemUser, error) {
 	return l.LoadThunk(key)()
 }
 
 // LoadThunk returns a function that when called will block waiting for a SystemUser.
 // This method should be used if you want one goroutine to make requests to many
 // different data loaders without blocking until the thunk is called.
-func (l *SystemUserLoader) LoadThunk(key int64) func() (*SystemUser, error) {
+func (l *SystemUserLoader) LoadThunk(key string) func() (*SystemUser, error) {
 	l.mu.Lock()
 	if it, ok := l.cache[key]; ok {
 		l.mu.Unlock()
@@ -111,7 +111,7 @@ func (l *SystemUserLoader) LoadThunk(key int64) func() (*SystemUser, error) {
 
 // LoadAll fetches many keys at once. It will be broken into appropriate sized
 // sub batches depending on how the loader is configured
-func (l *SystemUserLoader) LoadAll(keys []int64) ([]*SystemUser, []error) {
+func (l *SystemUserLoader) LoadAll(keys []string) ([]*SystemUser, []error) {
 	results := make([]func() (*SystemUser, error), len(keys))
 
 	for i, key := range keys {
@@ -129,7 +129,7 @@ func (l *SystemUserLoader) LoadAll(keys []int64) ([]*SystemUser, []error) {
 // LoadAllThunk returns a function that when called will block waiting for a SystemUsers.
 // This method should be used if you want one goroutine to make requests to many
 // different data loaders without blocking until the thunk is called.
-func (l *SystemUserLoader) LoadAllThunk(keys []int64) func() ([]*SystemUser, []error) {
+func (l *SystemUserLoader) LoadAllThunk(keys []string) func() ([]*SystemUser, []error) {
 	results := make([]func() (*SystemUser, error), len(keys))
 	for i, key := range keys {
 		results[i] = l.LoadThunk(key)
@@ -147,7 +147,7 @@ func (l *SystemUserLoader) LoadAllThunk(keys []int64) func() ([]*SystemUser, []e
 // Prime the cache with the provided key and value. If the key already exists, no change is made
 // and false is returned.
 // (To forcefully prime the cache, clear the key first with loader.clear(key).prime(key, value).)
-func (l *SystemUserLoader) Prime(key int64, value *SystemUser) bool {
+func (l *SystemUserLoader) Prime(key string, value *SystemUser) bool {
 	l.mu.Lock()
 	var found bool
 	if _, found = l.cache[key]; !found {
@@ -161,22 +161,22 @@ func (l *SystemUserLoader) Prime(key int64, value *SystemUser) bool {
 }
 
 // Clear the value at key from the cache, if it exists
-func (l *SystemUserLoader) Clear(key int64) {
+func (l *SystemUserLoader) Clear(key string) {
 	l.mu.Lock()
 	delete(l.cache, key)
 	l.mu.Unlock()
 }
 
-func (l *SystemUserLoader) unsafeSet(key int64, value *SystemUser) {
+func (l *SystemUserLoader) unsafeSet(key string, value *SystemUser) {
 	if l.cache == nil {
-		l.cache = map[int64]*SystemUser{}
+		l.cache = map[string]*SystemUser{}
 	}
 	l.cache[key] = value
 }
 
 // keyIndex will return the location of the key in the batch, if its not found
 // it will add the key to the batch
-func (b *systemUserLoaderBatch) keyIndex(l *SystemUserLoader, key int64) int {
+func (b *systemUserLoaderBatch) keyIndex(l *SystemUserLoader, key string) int {
 	for i, existingKey := range b.keys {
 		if key == existingKey {
 			return i

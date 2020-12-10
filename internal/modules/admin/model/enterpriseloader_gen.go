@@ -10,7 +10,7 @@ import (
 // EnterpriseLoaderConfig captures the config to create a new EnterpriseLoader
 type EnterpriseLoaderConfig struct {
 	// Fetch is a method that provides the data for the loader
-	Fetch func(keys []int64) ([]*Enterprise, []error)
+	Fetch func(keys []string) ([]*Enterprise, []error)
 
 	// Wait is how long wait before sending a batch
 	Wait time.Duration
@@ -31,7 +31,7 @@ func NewEnterpriseLoader(config EnterpriseLoaderConfig) *EnterpriseLoader {
 // EnterpriseLoader batches and caches requests
 type EnterpriseLoader struct {
 	// this method provides the data for the loader
-	fetch func(keys []int64) ([]*Enterprise, []error)
+	fetch func(keys []string) ([]*Enterprise, []error)
 
 	// how long to done before sending a batch
 	wait time.Duration
@@ -42,7 +42,7 @@ type EnterpriseLoader struct {
 	// INTERNAL
 
 	// lazily created cache
-	cache map[int64]*Enterprise
+	cache map[string]*Enterprise
 
 	// the current batch. keys will continue to be collected until timeout is hit,
 	// then everything will be sent to the fetch method and out to the listeners
@@ -53,7 +53,7 @@ type EnterpriseLoader struct {
 }
 
 type enterpriseLoaderBatch struct {
-	keys    []int64
+	keys    []string
 	data    []*Enterprise
 	error   []error
 	closing bool
@@ -61,14 +61,14 @@ type enterpriseLoaderBatch struct {
 }
 
 // Load a Enterprise by key, batching and caching will be applied automatically
-func (l *EnterpriseLoader) Load(key int64) (*Enterprise, error) {
+func (l *EnterpriseLoader) Load(key string) (*Enterprise, error) {
 	return l.LoadThunk(key)()
 }
 
 // LoadThunk returns a function that when called will block waiting for a Enterprise.
 // This method should be used if you want one goroutine to make requests to many
 // different data loaders without blocking until the thunk is called.
-func (l *EnterpriseLoader) LoadThunk(key int64) func() (*Enterprise, error) {
+func (l *EnterpriseLoader) LoadThunk(key string) func() (*Enterprise, error) {
 	l.mu.Lock()
 	if it, ok := l.cache[key]; ok {
 		l.mu.Unlock()
@@ -111,7 +111,7 @@ func (l *EnterpriseLoader) LoadThunk(key int64) func() (*Enterprise, error) {
 
 // LoadAll fetches many keys at once. It will be broken into appropriate sized
 // sub batches depending on how the loader is configured
-func (l *EnterpriseLoader) LoadAll(keys []int64) ([]*Enterprise, []error) {
+func (l *EnterpriseLoader) LoadAll(keys []string) ([]*Enterprise, []error) {
 	results := make([]func() (*Enterprise, error), len(keys))
 
 	for i, key := range keys {
@@ -129,7 +129,7 @@ func (l *EnterpriseLoader) LoadAll(keys []int64) ([]*Enterprise, []error) {
 // LoadAllThunk returns a function that when called will block waiting for a Enterprises.
 // This method should be used if you want one goroutine to make requests to many
 // different data loaders without blocking until the thunk is called.
-func (l *EnterpriseLoader) LoadAllThunk(keys []int64) func() ([]*Enterprise, []error) {
+func (l *EnterpriseLoader) LoadAllThunk(keys []string) func() ([]*Enterprise, []error) {
 	results := make([]func() (*Enterprise, error), len(keys))
 	for i, key := range keys {
 		results[i] = l.LoadThunk(key)
@@ -147,7 +147,7 @@ func (l *EnterpriseLoader) LoadAllThunk(keys []int64) func() ([]*Enterprise, []e
 // Prime the cache with the provided key and value. If the key already exists, no change is made
 // and false is returned.
 // (To forcefully prime the cache, clear the key first with loader.clear(key).prime(key, value).)
-func (l *EnterpriseLoader) Prime(key int64, value *Enterprise) bool {
+func (l *EnterpriseLoader) Prime(key string, value *Enterprise) bool {
 	l.mu.Lock()
 	var found bool
 	if _, found = l.cache[key]; !found {
@@ -161,22 +161,22 @@ func (l *EnterpriseLoader) Prime(key int64, value *Enterprise) bool {
 }
 
 // Clear the value at key from the cache, if it exists
-func (l *EnterpriseLoader) Clear(key int64) {
+func (l *EnterpriseLoader) Clear(key string) {
 	l.mu.Lock()
 	delete(l.cache, key)
 	l.mu.Unlock()
 }
 
-func (l *EnterpriseLoader) unsafeSet(key int64, value *Enterprise) {
+func (l *EnterpriseLoader) unsafeSet(key string, value *Enterprise) {
 	if l.cache == nil {
-		l.cache = map[int64]*Enterprise{}
+		l.cache = map[string]*Enterprise{}
 	}
 	l.cache[key] = value
 }
 
 // keyIndex will return the location of the key in the batch, if its not found
 // it will add the key to the batch
-func (b *enterpriseLoaderBatch) keyIndex(l *EnterpriseLoader, key int64) int {
+func (b *enterpriseLoaderBatch) keyIndex(l *EnterpriseLoader, key string) int {
 	for i, existingKey := range b.keys {
 		if key == existingKey {
 			return i

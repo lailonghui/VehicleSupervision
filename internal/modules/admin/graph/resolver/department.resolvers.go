@@ -4,7 +4,6 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
-	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/admin/graph/generated"
 	"VehicleSupervision/internal/modules/admin/graph/model"
@@ -12,6 +11,7 @@ import (
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
+
 	"gorm.io/gorm"
 )
 
@@ -168,7 +168,15 @@ func (r *queryResolver) DepartmentAggregate(ctx context.Context, distinctOn []mo
 }
 
 func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.Department, error) {
-	return dataloader.GetLoaders(ctx).DepartmentLoader.Load(id)
+	var rs model1.Department
+	tx := db.DB.Model(&model1.Department{}).First(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &rs, nil
 }
 
 // Mutation returns generated.MutationResolver implementation.

@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden SystemUserLoader int64 *VehicleSupervision/internal/modules/admin/model.SystemUser
+//go:generate go run github.com/vektah/dataloaden SystemUserLoader string *VehicleSupervision/internal/modules/admin/model.SystemUser
 
 type SystemUser struct {
 	// 是否绑定IP
@@ -73,9 +73,9 @@ func (u *SystemUser) NewLoader() *SystemUserLoader {
 	return &SystemUserLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
-		fetch: func(keys []int64) ([]*SystemUser, []error) {
+		fetch: func(keys []string) ([]*SystemUser, []error) {
 			var rs []*SystemUser
-			db.DB.Model(&SystemUser{}).Where("id in ?", keys).Find(&rs)
+			db.DB.Model(&SystemUser{}).Where("user_id in ?", keys).Find(&rs)
 			return rs, nil
 		},
 	}

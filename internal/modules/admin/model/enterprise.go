@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden EnterpriseLoader int64 *VehicleSupervision/internal/modules/admin/model.Enterprise
+//go:generate go run github.com/vektah/dataloaden EnterpriseLoader string *VehicleSupervision/internal/modules/admin/model.Enterprise
 
 // 企业
 type Enterprise struct {
@@ -131,9 +131,9 @@ func (u *Enterprise) NewLoader() *EnterpriseLoader {
 	return &EnterpriseLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
-		fetch: func(keys []int64) ([]*Enterprise, []error) {
+		fetch: func(keys []string) ([]*Enterprise, []error) {
 			var rs []*Enterprise
-			db.DB.Model(&Enterprise{}).Where("id in ?", keys).Find(&rs)
+			db.DB.Model(&Enterprise{}).Where("enterprise_id in ?", keys).Find(&rs)
 			return rs, nil
 		},
 	}

@@ -4,13 +4,13 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
-	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/admin/graph/model"
 	model1 "VehicleSupervision/internal/modules/admin/model"
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
+
 	"gorm.io/gorm"
 )
 
@@ -167,6 +167,13 @@ func (r *queryResolver) EnterpriseAggregate(ctx context.Context, distinctOn []mo
 }
 
 func (r *queryResolver) EnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
-
-	return dataloader.GetLoaders(ctx).EnterpriseLoader.Load(id)
+	var rs model1.Enterprise
+	tx := db.DB.Model(&model1.Enterprise{}).First(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &rs, nil
 }

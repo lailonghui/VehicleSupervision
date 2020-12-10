@@ -10,7 +10,7 @@ import (
 // DepartmentLoaderConfig captures the config to create a new DepartmentLoader
 type DepartmentLoaderConfig struct {
 	// Fetch is a method that provides the data for the loader
-	Fetch func(keys []int64) ([]*Department, []error)
+	Fetch func(keys []string) ([]*Department, []error)
 
 	// Wait is how long wait before sending a batch
 	Wait time.Duration
@@ -31,7 +31,7 @@ func NewDepartmentLoader(config DepartmentLoaderConfig) *DepartmentLoader {
 // DepartmentLoader batches and caches requests
 type DepartmentLoader struct {
 	// this method provides the data for the loader
-	fetch func(keys []int64) ([]*Department, []error)
+	fetch func(keys []string) ([]*Department, []error)
 
 	// how long to done before sending a batch
 	wait time.Duration
@@ -42,7 +42,7 @@ type DepartmentLoader struct {
 	// INTERNAL
 
 	// lazily created cache
-	cache map[int64]*Department
+	cache map[string]*Department
 
 	// the current batch. keys will continue to be collected until timeout is hit,
 	// then everything will be sent to the fetch method and out to the listeners
@@ -53,7 +53,7 @@ type DepartmentLoader struct {
 }
 
 type departmentLoaderBatch struct {
-	keys    []int64
+	keys    []string
 	data    []*Department
 	error   []error
 	closing bool
@@ -61,14 +61,14 @@ type departmentLoaderBatch struct {
 }
 
 // Load a Department by key, batching and caching will be applied automatically
-func (l *DepartmentLoader) Load(key int64) (*Department, error) {
+func (l *DepartmentLoader) Load(key string) (*Department, error) {
 	return l.LoadThunk(key)()
 }
 
 // LoadThunk returns a function that when called will block waiting for a Department.
 // This method should be used if you want one goroutine to make requests to many
 // different data loaders without blocking until the thunk is called.
-func (l *DepartmentLoader) LoadThunk(key int64) func() (*Department, error) {
+func (l *DepartmentLoader) LoadThunk(key string) func() (*Department, error) {
 	l.mu.Lock()
 	if it, ok := l.cache[key]; ok {
 		l.mu.Unlock()
@@ -111,7 +111,7 @@ func (l *DepartmentLoader) LoadThunk(key int64) func() (*Department, error) {
 
 // LoadAll fetches many keys at once. It will be broken into appropriate sized
 // sub batches depending on how the loader is configured
-func (l *DepartmentLoader) LoadAll(keys []int64) ([]*Department, []error) {
+func (l *DepartmentLoader) LoadAll(keys []string) ([]*Department, []error) {
 	results := make([]func() (*Department, error), len(keys))
 
 	for i, key := range keys {
@@ -129,7 +129,7 @@ func (l *DepartmentLoader) LoadAll(keys []int64) ([]*Department, []error) {
 // LoadAllThunk returns a function that when called will block waiting for a Departments.
 // This method should be used if you want one goroutine to make requests to many
 // different data loaders without blocking until the thunk is called.
-func (l *DepartmentLoader) LoadAllThunk(keys []int64) func() ([]*Department, []error) {
+func (l *DepartmentLoader) LoadAllThunk(keys []string) func() ([]*Department, []error) {
 	results := make([]func() (*Department, error), len(keys))
 	for i, key := range keys {
 		results[i] = l.LoadThunk(key)
@@ -147,7 +147,7 @@ func (l *DepartmentLoader) LoadAllThunk(keys []int64) func() ([]*Department, []e
 // Prime the cache with the provided key and value. If the key already exists, no change is made
 // and false is returned.
 // (To forcefully prime the cache, clear the key first with loader.clear(key).prime(key, value).)
-func (l *DepartmentLoader) Prime(key int64, value *Department) bool {
+func (l *DepartmentLoader) Prime(key string, value *Department) bool {
 	l.mu.Lock()
 	var found bool
 	if _, found = l.cache[key]; !found {
@@ -161,22 +161,22 @@ func (l *DepartmentLoader) Prime(key int64, value *Department) bool {
 }
 
 // Clear the value at key from the cache, if it exists
-func (l *DepartmentLoader) Clear(key int64) {
+func (l *DepartmentLoader) Clear(key string) {
 	l.mu.Lock()
 	delete(l.cache, key)
 	l.mu.Unlock()
 }
 
-func (l *DepartmentLoader) unsafeSet(key int64, value *Department) {
+func (l *DepartmentLoader) unsafeSet(key string, value *Department) {
 	if l.cache == nil {
-		l.cache = map[int64]*Department{}
+		l.cache = map[string]*Department{}
 	}
 	l.cache[key] = value
 }
 
 // keyIndex will return the location of the key in the batch, if its not found
 // it will add the key to the batch
-func (b *departmentLoaderBatch) keyIndex(l *DepartmentLoader, key int64) int {
+func (b *departmentLoaderBatch) keyIndex(l *DepartmentLoader, key string) int {
 	for i, existingKey := range b.keys {
 		if key == existingKey {
 			return i

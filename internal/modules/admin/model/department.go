@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden DepartmentLoader int64 *VehicleSupervision/internal/modules/admin/model.Department
+//go:generate go run github.com/vektah/dataloaden DepartmentLoader string *VehicleSupervision/internal/modules/admin/model.Department
 // 部门
 //
 //
@@ -53,9 +53,9 @@ func (u *Department) NewLoader() *DepartmentLoader {
 	return &DepartmentLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
-		fetch: func(keys []int64) ([]*Department, []error) {
+		fetch: func(keys []string) ([]*Department, []error) {
 			var rs []*Department
-			db.DB.Model(&Department{}).Where("id in ?", keys).Find(&rs)
+			db.DB.Model(&Department{}).Where("department_id in ?", keys).Find(&rs)
 			return rs, nil
 		},
 	}

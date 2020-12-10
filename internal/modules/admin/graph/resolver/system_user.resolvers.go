@@ -6,6 +6,7 @@ package resolver
 import (
 	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/modules/admin/graph/generated"
 	"VehicleSupervision/internal/modules/admin/graph/model"
 	model1 "VehicleSupervision/internal/modules/admin/model"
 	"VehicleSupervision/pkg/graphql/util"
@@ -167,5 +168,32 @@ func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []mo
 }
 
 func (r *queryResolver) SystemUserByPk(ctx context.Context, id int64) (*model1.SystemUser, error) {
-	return dataloader.GetLoaders(ctx).SystemUserLoader.Load(id)
+	var rs model1.SystemUser
+	tx := db.DB.Model(&model1.SystemUser{}).First(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &rs, nil
 }
+
+func (r *systemUserResolver) Department(ctx context.Context, obj *model1.SystemUser) (*model1.Department, error) {
+	if obj.DepartmentID == nil {
+		return nil, nil
+	}
+	return dataloader.GetLoaders(ctx).DepartmentLoader.Load(*obj.DepartmentID)
+}
+
+func (r *systemUserResolver) Enterprise(ctx context.Context, obj *model1.SystemUser) (*model1.Enterprise, error) {
+	if obj.EnterpriseID == nil {
+		return nil, nil
+	}
+	return dataloader.GetLoaders(ctx).EnterpriseLoader.Load(*obj.EnterpriseID)
+}
+
+// SystemUser returns generated.SystemUserResolver implementation.
+func (r *Resolver) SystemUser() generated.SystemUserResolver { return &systemUserResolver{r} }
+
+type systemUserResolver struct{ *Resolver }
