@@ -32,13 +32,13 @@ type MuckTruckCategoryInfo struct {
 	// 交强险保单图片
 	CompulsoryInsurancePolicyPicture *string `json:"compulsory_insurance_policy_picture"`
 	// 创建时间
-	CreateAt time.Time `json:"create_at"`
+	CreatedAt time.Time `json:"create_at"`
 	// 创建人
-	CreateBy string `json:"create_by"`
+	CreatedBy string `json:"create_by"`
 	// 删除时间
-	DeleteAt *time.Time `json:"delete_at"`
+	DeletedAt *time.Time `json:"delete_at"`
 	// 删除人
-	DeleteBy *string `json:"delete_by"`
+	DeletedBy *string `json:"delete_by"`
 	// 行驶证登记的车主联系电话
 	DrivingLicenseContactPhone *string `json:"driving_license_contact_phone"`
 	// 行驶证登记的车主身份证号
@@ -104,9 +104,9 @@ type MuckTruckCategoryInfo struct {
 	// 总质量
 	TotalMass *float64 `json:"total_mass"`
 	// 修改时间
-	UpdateAt *time.Time `json:"update_at"`
+	UpdatedAt *time.Time `json:"update_at"`
 	// 修改人
-	UpdateBy *string `json:"update_by"`
+	UpdatedBy *string `json:"update_by"`
 	// 车辆描述
 	VehicleDescription *string `json:"vehicle_description"`
 	// vehicle_info 车辆信息表 的vehicle_id

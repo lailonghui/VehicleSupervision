@@ -39,16 +39,16 @@ type muck_truck_category_info {
     compulsory_insurance_policy_picture: String
 
     """创建时间"""
-    create_at: timestamptz!
+    created_at: timestamptz!
 
     """创建人"""
-    create_by: String!
+    created_by: String!
 
     """删除时间"""
-    delete_at: timestamptz
+    deleted_at: timestamptz
 
     """删除人"""
-    delete_by: String
+    deleted_by: String
 
     """行驶证登记的车主联系电话"""
     driving_license_contact_phone: String
@@ -150,10 +150,10 @@ type muck_truck_category_info {
     total_mass: numeric
 
     """修改时间"""
-    update_at: timestamptz
+    updated_at: timestamptz
 
     """修改人"""
-    update_by: String
+    updated_by: String
 
     """车辆描述"""
     vehicle_description: String
@@ -258,10 +258,10 @@ input muck_truck_category_info_bool_exp {
     axes_number: Int_comparison_exp
     blacklist_deadline: timestamptz_comparison_exp
     compulsory_insurance_policy_picture: String_comparison_exp
-    create_at: timestamptz_comparison_exp
-    create_by: String_comparison_exp
-    delete_at: timestamptz_comparison_exp
-    delete_by: String_comparison_exp
+    created_at: timestamptz_comparison_exp
+    created_by: String_comparison_exp
+    deleted_at: timestamptz_comparison_exp
+    deleted_by: String_comparison_exp
     driving_license_contact_phone: String_comparison_exp
     driving_license_id_number: String_comparison_exp
     driving_liscense_owner_id_photo: String_comparison_exp
@@ -294,8 +294,8 @@ input muck_truck_category_info_bool_exp {
     third_party_insurance_expiry_time: timestamptz_comparison_exp
     third_party_insurance_policy_picture: String_comparison_exp
     total_mass: numeric_comparison_exp
-    update_at: timestamptz_comparison_exp
-    update_by: String_comparison_exp
+    updated_at: timestamptz_comparison_exp
+    updated_by: String_comparison_exp
     vehicle_description: String_comparison_exp
     vehicle_id: String_comparison_exp
     vehicle_nature: Int_comparison_exp
@@ -335,10 +335,10 @@ input muck_truck_category_info_insert_input {
     axes_number: Int
     blacklist_deadline: timestamptz
     compulsory_insurance_policy_picture: String
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     driving_license_contact_phone: String
     driving_license_id_number: String
     driving_liscense_owner_id_photo: String
@@ -371,8 +371,8 @@ input muck_truck_category_info_insert_input {
     third_party_insurance_expiry_time: timestamptz
     third_party_insurance_policy_picture: String
     total_mass: numeric
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_description: String
     vehicle_id: String
     vehicle_nature: Int
@@ -392,10 +392,10 @@ type muck_truck_category_info_max_fields {
     axes_number: Int
     blacklist_deadline: timestamptz
     compulsory_insurance_policy_picture: String
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     driving_license_contact_phone: String
     driving_license_id_number: String
     driving_liscense_owner_id_photo: String
@@ -422,8 +422,8 @@ type muck_truck_category_info_max_fields {
     third_party_insurance_expiry_time: timestamptz
     third_party_insurance_policy_picture: String
     total_mass: numeric
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_description: String
     vehicle_id: String
     vehicle_nature: Int
@@ -445,10 +445,10 @@ input muck_truck_category_info_max_order_by {
     axes_number: order_by
     blacklist_deadline: order_by
     compulsory_insurance_policy_picture: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     driving_license_contact_phone: order_by
     driving_license_id_number: order_by
     driving_liscense_owner_id_photo: order_by
@@ -475,8 +475,8 @@ input muck_truck_category_info_max_order_by {
     third_party_insurance_expiry_time: order_by
     third_party_insurance_policy_picture: order_by
     total_mass: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_description: order_by
     vehicle_id: order_by
     vehicle_nature: order_by
@@ -496,10 +496,10 @@ type muck_truck_category_info_min_fields {
     axes_number: Int
     blacklist_deadline: timestamptz
     compulsory_insurance_policy_picture: String
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     driving_license_contact_phone: String
     driving_license_id_number: String
     driving_liscense_owner_id_photo: String
@@ -526,8 +526,8 @@ type muck_truck_category_info_min_fields {
     third_party_insurance_expiry_time: timestamptz
     third_party_insurance_policy_picture: String
     total_mass: numeric
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_description: String
     vehicle_id: String
     vehicle_nature: Int
@@ -549,10 +549,10 @@ input muck_truck_category_info_min_order_by {
     axes_number: order_by
     blacklist_deadline: order_by
     compulsory_insurance_policy_picture: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     driving_license_contact_phone: order_by
     driving_license_id_number: order_by
     driving_liscense_owner_id_photo: order_by
@@ -579,8 +579,8 @@ input muck_truck_category_info_min_order_by {
     third_party_insurance_expiry_time: order_by
     third_party_insurance_policy_picture: order_by
     total_mass: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_description: order_by
     vehicle_id: order_by
     vehicle_nature: order_by
@@ -630,10 +630,10 @@ input muck_truck_category_info_order_by {
     axes_number: order_by
     blacklist_deadline: order_by
     compulsory_insurance_policy_picture: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     driving_license_contact_phone: order_by
     driving_license_id_number: order_by
     driving_liscense_owner_id_photo: order_by
@@ -666,8 +666,8 @@ input muck_truck_category_info_order_by {
     third_party_insurance_expiry_time: order_by
     third_party_insurance_policy_picture: order_by
     total_mass: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_description: order_by
     vehicle_id: order_by
     vehicle_nature: order_by
@@ -716,16 +716,16 @@ enum muck_truck_category_info_select_column {
     compulsory_insurance_policy_picture
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     driving_license_contact_phone
@@ -824,10 +824,10 @@ enum muck_truck_category_info_select_column {
     total_mass
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_description
@@ -861,10 +861,10 @@ input muck_truck_category_info_set_input {
     axes_number: Int
     blacklist_deadline: timestamptz
     compulsory_insurance_policy_picture: String
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     driving_license_contact_phone: String
     driving_license_id_number: String
     driving_liscense_owner_id_photo: String
@@ -897,8 +897,8 @@ input muck_truck_category_info_set_input {
     third_party_insurance_expiry_time: timestamptz
     third_party_insurance_policy_picture: String
     total_mass: numeric
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_description: String
     vehicle_id: String
     vehicle_nature: Int
@@ -1011,16 +1011,16 @@ enum muck_truck_category_info_update_column {
     compulsory_insurance_policy_picture
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     driving_license_contact_phone
@@ -1119,10 +1119,10 @@ enum muck_truck_category_info_update_column {
     total_mass
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_description

@@ -19,6 +19,7 @@ func GinEndpoint() gin.HandlerFunc {
 	srv := endpoint()
 
 	return func(c *gin.Context) {
+
 		srv.ServeHTTP(c.Writer, c.Request)
 	}
 }

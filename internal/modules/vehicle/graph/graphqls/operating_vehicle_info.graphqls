@@ -20,16 +20,16 @@ type operating_vehicle_info {
     contract_time: timestamptz
 
     """创建时间"""
-    create_at: timestamptz!
+    created_at: timestamptz!
 
     """创建人"""
-    create_by: String!
+    created_by: String!
 
     """删除时间"""
-    delete_at: timestamptz
+    deleted_at: timestamptz
 
     """删除人"""
-    delete_by: String
+    deleted_by: String
 
     """行驶证所有人"""
     driving_license_owner: String
@@ -119,10 +119,10 @@ type operating_vehicle_info {
     temporary_transport_bureau: Int
 
     """修改时间"""
-    update_at: timestamptz
+    updated_at: timestamptz
 
     """修改人"""
-    update_by: String
+    updated_by: String
 
     """vehicle_info 车辆信息表 的vehicle_id"""
     vehicle_id: String!
@@ -211,10 +211,10 @@ input operating_vehicle_info_bool_exp {
     agent: String_comparison_exp
     contact_number: String_comparison_exp
     contract_time: timestamptz_comparison_exp
-    create_at: timestamptz_comparison_exp
-    create_by: String_comparison_exp
-    delete_at: timestamptz_comparison_exp
-    delete_by: String_comparison_exp
+    created_at: timestamptz_comparison_exp
+    created_by: String_comparison_exp
+    deleted_at: timestamptz_comparison_exp
+    deleted_by: String_comparison_exp
     driving_license_owner: String_comparison_exp
     first_online_time: timestamptz_comparison_exp
     installation_time: timestamptz_comparison_exp
@@ -244,8 +244,8 @@ input operating_vehicle_info_bool_exp {
     speed_mode_status_time: timestamptz_comparison_exp
     temporary_library: Int_comparison_exp
     temporary_transport_bureau: Int_comparison_exp
-    update_at: timestamptz_comparison_exp
-    update_by: String_comparison_exp
+    updated_at: timestamptz_comparison_exp
+    updated_by: String_comparison_exp
     vehicle_id: String_comparison_exp
 }
 
@@ -277,10 +277,10 @@ input operating_vehicle_info_insert_input {
     agent: String
     contact_number: String
     contract_time: timestamptz
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     driving_license_owner: String
     first_online_time: timestamptz
     installation_time: timestamptz
@@ -310,8 +310,8 @@ input operating_vehicle_info_insert_input {
     speed_mode_status_time: timestamptz
     temporary_library: Int
     temporary_transport_bureau: Int
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -321,10 +321,10 @@ type operating_vehicle_info_max_fields {
     agent: String
     contact_number: String
     contract_time: timestamptz
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     driving_license_owner: String
     first_online_time: timestamptz
     installation_time: timestamptz
@@ -344,8 +344,8 @@ type operating_vehicle_info_max_fields {
     speed_mode_status_time: timestamptz
     temporary_library: Int
     temporary_transport_bureau: Int
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -357,10 +357,10 @@ input operating_vehicle_info_max_order_by {
     agent: order_by
     contact_number: order_by
     contract_time: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     driving_license_owner: order_by
     first_online_time: order_by
     installation_time: order_by
@@ -380,8 +380,8 @@ input operating_vehicle_info_max_order_by {
     speed_mode_status_time: order_by
     temporary_library: order_by
     temporary_transport_bureau: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
 }
 
@@ -391,10 +391,10 @@ type operating_vehicle_info_min_fields {
     agent: String
     contact_number: String
     contract_time: timestamptz
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     driving_license_owner: String
     first_online_time: timestamptz
     installation_time: timestamptz
@@ -414,8 +414,8 @@ type operating_vehicle_info_min_fields {
     speed_mode_status_time: timestamptz
     temporary_library: Int
     temporary_transport_bureau: Int
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -427,10 +427,10 @@ input operating_vehicle_info_min_order_by {
     agent: order_by
     contact_number: order_by
     contract_time: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     driving_license_owner: order_by
     first_online_time: order_by
     installation_time: order_by
@@ -450,8 +450,8 @@ input operating_vehicle_info_min_order_by {
     speed_mode_status_time: order_by
     temporary_library: order_by
     temporary_transport_bureau: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
 }
 
@@ -491,10 +491,10 @@ input operating_vehicle_info_order_by {
     agent: order_by
     contact_number: order_by
     contract_time: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     driving_license_owner: order_by
     first_online_time: order_by
     installation_time: order_by
@@ -524,8 +524,8 @@ input operating_vehicle_info_order_by {
     speed_mode_status_time: order_by
     temporary_library: order_by
     temporary_transport_bureau: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
 }
 
@@ -554,16 +554,16 @@ enum operating_vehicle_info_select_column {
     contract_time
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     driving_license_owner
@@ -653,10 +653,10 @@ enum operating_vehicle_info_select_column {
     temporary_transport_bureau
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_id
@@ -670,10 +670,10 @@ input operating_vehicle_info_set_input {
     agent: String
     contact_number: String
     contract_time: timestamptz
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     driving_license_owner: String
     first_online_time: timestamptz
     installation_time: timestamptz
@@ -703,8 +703,8 @@ input operating_vehicle_info_set_input {
     speed_mode_status_time: timestamptz
     temporary_library: Int
     temporary_transport_bureau: Int
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -813,16 +813,16 @@ enum operating_vehicle_info_update_column {
     contract_time
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     driving_license_owner
@@ -912,10 +912,10 @@ enum operating_vehicle_info_update_column {
     temporary_transport_bureau
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_id

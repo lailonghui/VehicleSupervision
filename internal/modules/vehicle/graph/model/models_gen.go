@@ -522,10 +522,10 @@ type MuckTruckCategoryInfoBoolExp struct {
 	AxesNumber                        *model.IntComparisonExp         `json:"axes_number"`
 	BlacklistDeadline                 *model.TimestamptzComparisonExp `json:"blacklist_deadline"`
 	CompulsoryInsurancePolicyPicture  *model.StringComparisonExp      `json:"compulsory_insurance_policy_picture"`
-	CreateAt                          *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy                          *model.StringComparisonExp      `json:"create_by"`
-	DeleteAt                          *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy                          *model.StringComparisonExp      `json:"delete_by"`
+	CreatedAt                         *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                         *model.StringComparisonExp      `json:"created_by"`
+	DeletedAt                         *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                         *model.StringComparisonExp      `json:"deleted_by"`
 	DrivingLicenseContactPhone        *model.StringComparisonExp      `json:"driving_license_contact_phone"`
 	DrivingLicenseIDNumber            *model.StringComparisonExp      `json:"driving_license_id_number"`
 	DrivingLiscenseOwnerIDPhoto       *model.StringComparisonExp      `json:"driving_liscense_owner_id_photo"`
@@ -558,8 +558,8 @@ type MuckTruckCategoryInfoBoolExp struct {
 	ThirdPartyInsuranceExpiryTime     *model.TimestamptzComparisonExp `json:"third_party_insurance_expiry_time"`
 	ThirdPartyInsurancePolicyPicture  *model.StringComparisonExp      `json:"third_party_insurance_policy_picture"`
 	TotalMass                         *model.NumericComparisonExp     `json:"total_mass"`
-	UpdateAt                          *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy                          *model.StringComparisonExp      `json:"update_by"`
+	UpdatedAt                         *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                         *model.StringComparisonExp      `json:"updated_by"`
 	VehicleDescription                *model.StringComparisonExp      `json:"vehicle_description"`
 	VehicleID                         *model.StringComparisonExp      `json:"vehicle_id"`
 	VehicleNature                     *model.IntComparisonExp         `json:"vehicle_nature"`
@@ -587,10 +587,10 @@ type MuckTruckCategoryInfoInsertInput struct {
 	AxesNumber                        *int       `json:"axes_number"`
 	BlacklistDeadline                 *time.Time `json:"blacklist_deadline"`
 	CompulsoryInsurancePolicyPicture  *string    `json:"compulsory_insurance_policy_picture"`
-	CreateAt                          *time.Time `json:"create_at"`
-	CreateBy                          *string    `json:"create_by"`
-	DeleteAt                          *time.Time `json:"delete_at"`
-	DeleteBy                          *string    `json:"delete_by"`
+	CreatedAt                         *time.Time `json:"created_at"`
+	CreatedBy                         *string    `json:"created_by"`
+	DeletedAt                         *time.Time `json:"deleted_at"`
+	DeletedBy                         *string    `json:"deleted_by"`
 	DrivingLicenseContactPhone        *string    `json:"driving_license_contact_phone"`
 	DrivingLicenseIDNumber            *string    `json:"driving_license_id_number"`
 	DrivingLiscenseOwnerIDPhoto       *string    `json:"driving_liscense_owner_id_photo"`
@@ -623,8 +623,8 @@ type MuckTruckCategoryInfoInsertInput struct {
 	ThirdPartyInsuranceExpiryTime     *time.Time `json:"third_party_insurance_expiry_time"`
 	ThirdPartyInsurancePolicyPicture  *string    `json:"third_party_insurance_policy_picture"`
 	TotalMass                         *float64   `json:"total_mass"`
-	UpdateAt                          *time.Time `json:"update_at"`
-	UpdateBy                          *string    `json:"update_by"`
+	UpdatedAt                         *time.Time `json:"updated_at"`
+	UpdatedBy                         *string    `json:"updated_by"`
 	VehicleDescription                *string    `json:"vehicle_description"`
 	VehicleID                         *string    `json:"vehicle_id"`
 	VehicleNature                     *int       `json:"vehicle_nature"`
@@ -644,10 +644,10 @@ type MuckTruckCategoryInfoMaxFields struct {
 	AxesNumber                        *int       `json:"axes_number"`
 	BlacklistDeadline                 *time.Time `json:"blacklist_deadline"`
 	CompulsoryInsurancePolicyPicture  *string    `json:"compulsory_insurance_policy_picture"`
-	CreateAt                          *time.Time `json:"create_at"`
-	CreateBy                          *string    `json:"create_by"`
-	DeleteAt                          *time.Time `json:"delete_at"`
-	DeleteBy                          *string    `json:"delete_by"`
+	CreatedAt                         *time.Time `json:"created_at"`
+	CreatedBy                         *string    `json:"created_by"`
+	DeletedAt                         *time.Time `json:"deleted_at"`
+	DeletedBy                         *string    `json:"deleted_by"`
 	DrivingLicenseContactPhone        *string    `json:"driving_license_contact_phone"`
 	DrivingLicenseIDNumber            *string    `json:"driving_license_id_number"`
 	DrivingLiscenseOwnerIDPhoto       *string    `json:"driving_liscense_owner_id_photo"`
@@ -674,8 +674,8 @@ type MuckTruckCategoryInfoMaxFields struct {
 	ThirdPartyInsuranceExpiryTime     *time.Time `json:"third_party_insurance_expiry_time"`
 	ThirdPartyInsurancePolicyPicture  *string    `json:"third_party_insurance_policy_picture"`
 	TotalMass                         *float64   `json:"total_mass"`
-	UpdateAt                          *time.Time `json:"update_at"`
-	UpdateBy                          *string    `json:"update_by"`
+	UpdatedAt                         *time.Time `json:"updated_at"`
+	UpdatedBy                         *string    `json:"updated_by"`
 	VehicleDescription                *string    `json:"vehicle_description"`
 	VehicleID                         *string    `json:"vehicle_id"`
 	VehicleNature                     *int       `json:"vehicle_nature"`
@@ -695,10 +695,10 @@ type MuckTruckCategoryInfoMaxOrderBy struct {
 	AxesNumber                        *model.OrderBy `json:"axes_number"`
 	BlacklistDeadline                 *model.OrderBy `json:"blacklist_deadline"`
 	CompulsoryInsurancePolicyPicture  *model.OrderBy `json:"compulsory_insurance_policy_picture"`
-	CreateAt                          *model.OrderBy `json:"create_at"`
-	CreateBy                          *model.OrderBy `json:"create_by"`
-	DeleteAt                          *model.OrderBy `json:"delete_at"`
-	DeleteBy                          *model.OrderBy `json:"delete_by"`
+	CreatedAt                         *model.OrderBy `json:"created_at"`
+	CreatedBy                         *model.OrderBy `json:"created_by"`
+	DeletedAt                         *model.OrderBy `json:"deleted_at"`
+	DeletedBy                         *model.OrderBy `json:"deleted_by"`
 	DrivingLicenseContactPhone        *model.OrderBy `json:"driving_license_contact_phone"`
 	DrivingLicenseIDNumber            *model.OrderBy `json:"driving_license_id_number"`
 	DrivingLiscenseOwnerIDPhoto       *model.OrderBy `json:"driving_liscense_owner_id_photo"`
@@ -725,8 +725,8 @@ type MuckTruckCategoryInfoMaxOrderBy struct {
 	ThirdPartyInsuranceExpiryTime     *model.OrderBy `json:"third_party_insurance_expiry_time"`
 	ThirdPartyInsurancePolicyPicture  *model.OrderBy `json:"third_party_insurance_policy_picture"`
 	TotalMass                         *model.OrderBy `json:"total_mass"`
-	UpdateAt                          *model.OrderBy `json:"update_at"`
-	UpdateBy                          *model.OrderBy `json:"update_by"`
+	UpdatedAt                         *model.OrderBy `json:"updated_at"`
+	UpdatedBy                         *model.OrderBy `json:"updated_by"`
 	VehicleDescription                *model.OrderBy `json:"vehicle_description"`
 	VehicleID                         *model.OrderBy `json:"vehicle_id"`
 	VehicleNature                     *model.OrderBy `json:"vehicle_nature"`
@@ -746,10 +746,10 @@ type MuckTruckCategoryInfoMinFields struct {
 	AxesNumber                        *int       `json:"axes_number"`
 	BlacklistDeadline                 *time.Time `json:"blacklist_deadline"`
 	CompulsoryInsurancePolicyPicture  *string    `json:"compulsory_insurance_policy_picture"`
-	CreateAt                          *time.Time `json:"create_at"`
-	CreateBy                          *string    `json:"create_by"`
-	DeleteAt                          *time.Time `json:"delete_at"`
-	DeleteBy                          *string    `json:"delete_by"`
+	CreatedAt                         *time.Time `json:"created_at"`
+	CreatedBy                         *string    `json:"created_by"`
+	DeletedAt                         *time.Time `json:"deleted_at"`
+	DeletedBy                         *string    `json:"deleted_by"`
 	DrivingLicenseContactPhone        *string    `json:"driving_license_contact_phone"`
 	DrivingLicenseIDNumber            *string    `json:"driving_license_id_number"`
 	DrivingLiscenseOwnerIDPhoto       *string    `json:"driving_liscense_owner_id_photo"`
@@ -776,8 +776,8 @@ type MuckTruckCategoryInfoMinFields struct {
 	ThirdPartyInsuranceExpiryTime     *time.Time `json:"third_party_insurance_expiry_time"`
 	ThirdPartyInsurancePolicyPicture  *string    `json:"third_party_insurance_policy_picture"`
 	TotalMass                         *float64   `json:"total_mass"`
-	UpdateAt                          *time.Time `json:"update_at"`
-	UpdateBy                          *string    `json:"update_by"`
+	UpdatedAt                         *time.Time `json:"updated_at"`
+	UpdatedBy                         *string    `json:"updated_by"`
 	VehicleDescription                *string    `json:"vehicle_description"`
 	VehicleID                         *string    `json:"vehicle_id"`
 	VehicleNature                     *int       `json:"vehicle_nature"`
@@ -797,10 +797,10 @@ type MuckTruckCategoryInfoMinOrderBy struct {
 	AxesNumber                        *model.OrderBy `json:"axes_number"`
 	BlacklistDeadline                 *model.OrderBy `json:"blacklist_deadline"`
 	CompulsoryInsurancePolicyPicture  *model.OrderBy `json:"compulsory_insurance_policy_picture"`
-	CreateAt                          *model.OrderBy `json:"create_at"`
-	CreateBy                          *model.OrderBy `json:"create_by"`
-	DeleteAt                          *model.OrderBy `json:"delete_at"`
-	DeleteBy                          *model.OrderBy `json:"delete_by"`
+	CreatedAt                         *model.OrderBy `json:"created_at"`
+	CreatedBy                         *model.OrderBy `json:"created_by"`
+	DeletedAt                         *model.OrderBy `json:"deleted_at"`
+	DeletedBy                         *model.OrderBy `json:"deleted_by"`
 	DrivingLicenseContactPhone        *model.OrderBy `json:"driving_license_contact_phone"`
 	DrivingLicenseIDNumber            *model.OrderBy `json:"driving_license_id_number"`
 	DrivingLiscenseOwnerIDPhoto       *model.OrderBy `json:"driving_liscense_owner_id_photo"`
@@ -827,8 +827,8 @@ type MuckTruckCategoryInfoMinOrderBy struct {
 	ThirdPartyInsuranceExpiryTime     *model.OrderBy `json:"third_party_insurance_expiry_time"`
 	ThirdPartyInsurancePolicyPicture  *model.OrderBy `json:"third_party_insurance_policy_picture"`
 	TotalMass                         *model.OrderBy `json:"total_mass"`
-	UpdateAt                          *model.OrderBy `json:"update_at"`
-	UpdateBy                          *model.OrderBy `json:"update_by"`
+	UpdatedAt                         *model.OrderBy `json:"updated_at"`
+	UpdatedBy                         *model.OrderBy `json:"updated_by"`
 	VehicleDescription                *model.OrderBy `json:"vehicle_description"`
 	VehicleID                         *model.OrderBy `json:"vehicle_id"`
 	VehicleNature                     *model.OrderBy `json:"vehicle_nature"`
@@ -869,10 +869,10 @@ type MuckTruckCategoryInfoOrderBy struct {
 	AxesNumber                        *model.OrderBy `json:"axes_number"`
 	BlacklistDeadline                 *model.OrderBy `json:"blacklist_deadline"`
 	CompulsoryInsurancePolicyPicture  *model.OrderBy `json:"compulsory_insurance_policy_picture"`
-	CreateAt                          *model.OrderBy `json:"create_at"`
-	CreateBy                          *model.OrderBy `json:"create_by"`
-	DeleteAt                          *model.OrderBy `json:"delete_at"`
-	DeleteBy                          *model.OrderBy `json:"delete_by"`
+	CreatedAt                         *model.OrderBy `json:"created_at"`
+	CreatedBy                         *model.OrderBy `json:"created_by"`
+	DeletedAt                         *model.OrderBy `json:"deleted_at"`
+	DeletedBy                         *model.OrderBy `json:"deleted_by"`
 	DrivingLicenseContactPhone        *model.OrderBy `json:"driving_license_contact_phone"`
 	DrivingLicenseIDNumber            *model.OrderBy `json:"driving_license_id_number"`
 	DrivingLiscenseOwnerIDPhoto       *model.OrderBy `json:"driving_liscense_owner_id_photo"`
@@ -905,8 +905,8 @@ type MuckTruckCategoryInfoOrderBy struct {
 	ThirdPartyInsuranceExpiryTime     *model.OrderBy `json:"third_party_insurance_expiry_time"`
 	ThirdPartyInsurancePolicyPicture  *model.OrderBy `json:"third_party_insurance_policy_picture"`
 	TotalMass                         *model.OrderBy `json:"total_mass"`
-	UpdateAt                          *model.OrderBy `json:"update_at"`
-	UpdateBy                          *model.OrderBy `json:"update_by"`
+	UpdatedAt                         *model.OrderBy `json:"updated_at"`
+	UpdatedBy                         *model.OrderBy `json:"updated_by"`
 	VehicleDescription                *model.OrderBy `json:"vehicle_description"`
 	VehicleID                         *model.OrderBy `json:"vehicle_id"`
 	VehicleNature                     *model.OrderBy `json:"vehicle_nature"`
@@ -932,10 +932,10 @@ type MuckTruckCategoryInfoSetInput struct {
 	AxesNumber                        *int       `json:"axes_number"`
 	BlacklistDeadline                 *time.Time `json:"blacklist_deadline"`
 	CompulsoryInsurancePolicyPicture  *string    `json:"compulsory_insurance_policy_picture"`
-	CreateAt                          *time.Time `json:"create_at"`
-	CreateBy                          *string    `json:"create_by"`
-	DeleteAt                          *time.Time `json:"delete_at"`
-	DeleteBy                          *string    `json:"delete_by"`
+	CreatedAt                         *time.Time `json:"created_at"`
+	CreatedBy                         *string    `json:"created_by"`
+	DeletedAt                         *time.Time `json:"deleted_at"`
+	DeletedBy                         *string    `json:"deleted_by"`
 	DrivingLicenseContactPhone        *string    `json:"driving_license_contact_phone"`
 	DrivingLicenseIDNumber            *string    `json:"driving_license_id_number"`
 	DrivingLiscenseOwnerIDPhoto       *string    `json:"driving_liscense_owner_id_photo"`
@@ -968,8 +968,8 @@ type MuckTruckCategoryInfoSetInput struct {
 	ThirdPartyInsuranceExpiryTime     *time.Time `json:"third_party_insurance_expiry_time"`
 	ThirdPartyInsurancePolicyPicture  *string    `json:"third_party_insurance_policy_picture"`
 	TotalMass                         *float64   `json:"total_mass"`
-	UpdateAt                          *time.Time `json:"update_at"`
-	UpdateBy                          *string    `json:"update_by"`
+	UpdatedAt                         *time.Time `json:"updated_at"`
+	UpdatedBy                         *string    `json:"updated_by"`
 	VehicleDescription                *string    `json:"vehicle_description"`
 	VehicleID                         *string    `json:"vehicle_id"`
 	VehicleNature                     *int       `json:"vehicle_nature"`
@@ -1154,10 +1154,10 @@ type MuckTruckInfoBoolExp struct {
 	Not                *MuckTruckInfoBoolExp           `json:"_not"`
 	Or                 []*MuckTruckInfoBoolExp         `json:"_or"`
 	AreaID             *model.BigintComparisonExp      `json:"area_id"`
-	CreateAt           *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy           *model.StringComparisonExp      `json:"create_by"`
-	DeleteAt           *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy           *model.StringComparisonExp      `json:"delete_by"`
+	CreatedAt          *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy          *model.StringComparisonExp      `json:"created_by"`
+	DeletedAt          *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy          *model.StringComparisonExp      `json:"deleted_by"`
 	ExpiryDate         *model.TimestamptzComparisonExp `json:"expiry_date"`
 	FakeIP             *model.StringComparisonExp      `json:"fake_ip"`
 	IsReserveLibrary   *model.BooleanComparisonExp     `json:"is_reserve_library"`
@@ -1169,8 +1169,8 @@ type MuckTruckInfoBoolExp struct {
 	SelfNumber         *model.StringComparisonExp      `json:"self_number"`
 	ServerID           *model.BigintComparisonExp      `json:"server_id"`
 	SimCardNumber      *model.StringComparisonExp      `json:"sim_card_number"`
-	UpdateAt           *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy           *model.StringComparisonExp      `json:"update_by"`
+	UpdatedAt          *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy          *model.StringComparisonExp      `json:"updated_by"`
 	VehicleID          *model.StringComparisonExp      `json:"vehicle_id"`
 }
 
@@ -1185,10 +1185,10 @@ type MuckTruckInfoIncInput struct {
 // input type for inserting data into table "muck_truck_info"
 type MuckTruckInfoInsertInput struct {
 	AreaID             *int64     `json:"area_id"`
-	CreateAt           *time.Time `json:"create_at"`
-	CreateBy           *string    `json:"create_by"`
-	DeleteAt           *time.Time `json:"delete_at"`
-	DeleteBy           *string    `json:"delete_by"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 	ExpiryDate         *time.Time `json:"expiry_date"`
 	FakeIP             *string    `json:"fake_ip"`
 	IsReserveLibrary   *bool      `json:"is_reserve_library"`
@@ -1200,18 +1200,18 @@ type MuckTruckInfoInsertInput struct {
 	SelfNumber         *string    `json:"self_number"`
 	ServerID           *int64     `json:"server_id"`
 	SimCardNumber      *string    `json:"sim_card_number"`
-	UpdateAt           *time.Time `json:"update_at"`
-	UpdateBy           *string    `json:"update_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
 	VehicleID          *string    `json:"vehicle_id"`
 }
 
 // aggregate max on columns
 type MuckTruckInfoMaxFields struct {
 	AreaID             *int64     `json:"area_id"`
-	CreateAt           *time.Time `json:"create_at"`
-	CreateBy           *string    `json:"create_by"`
-	DeleteAt           *time.Time `json:"delete_at"`
-	DeleteBy           *string    `json:"delete_by"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 	ExpiryDate         *time.Time `json:"expiry_date"`
 	FakeIP             *string    `json:"fake_ip"`
 	LoadCategory       *string    `json:"load_category"`
@@ -1222,18 +1222,18 @@ type MuckTruckInfoMaxFields struct {
 	SelfNumber         *string    `json:"self_number"`
 	ServerID           *int64     `json:"server_id"`
 	SimCardNumber      *string    `json:"sim_card_number"`
-	UpdateAt           *time.Time `json:"update_at"`
-	UpdateBy           *string    `json:"update_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
 	VehicleID          *string    `json:"vehicle_id"`
 }
 
 // order by max() on columns of table "muck_truck_info"
 type MuckTruckInfoMaxOrderBy struct {
 	AreaID             *model.OrderBy `json:"area_id"`
-	CreateAt           *model.OrderBy `json:"create_at"`
-	CreateBy           *model.OrderBy `json:"create_by"`
-	DeleteAt           *model.OrderBy `json:"delete_at"`
-	DeleteBy           *model.OrderBy `json:"delete_by"`
+	CreatedAt          *model.OrderBy `json:"created_at"`
+	CreatedBy          *model.OrderBy `json:"created_by"`
+	DeletedAt          *model.OrderBy `json:"deleted_at"`
+	DeletedBy          *model.OrderBy `json:"deleted_by"`
 	ExpiryDate         *model.OrderBy `json:"expiry_date"`
 	FakeIP             *model.OrderBy `json:"fake_ip"`
 	LoadCategory       *model.OrderBy `json:"load_category"`
@@ -1244,18 +1244,18 @@ type MuckTruckInfoMaxOrderBy struct {
 	SelfNumber         *model.OrderBy `json:"self_number"`
 	ServerID           *model.OrderBy `json:"server_id"`
 	SimCardNumber      *model.OrderBy `json:"sim_card_number"`
-	UpdateAt           *model.OrderBy `json:"update_at"`
-	UpdateBy           *model.OrderBy `json:"update_by"`
+	UpdatedAt          *model.OrderBy `json:"updated_at"`
+	UpdatedBy          *model.OrderBy `json:"updated_by"`
 	VehicleID          *model.OrderBy `json:"vehicle_id"`
 }
 
 // aggregate min on columns
 type MuckTruckInfoMinFields struct {
 	AreaID             *int64     `json:"area_id"`
-	CreateAt           *time.Time `json:"create_at"`
-	CreateBy           *string    `json:"create_by"`
-	DeleteAt           *time.Time `json:"delete_at"`
-	DeleteBy           *string    `json:"delete_by"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 	ExpiryDate         *time.Time `json:"expiry_date"`
 	FakeIP             *string    `json:"fake_ip"`
 	LoadCategory       *string    `json:"load_category"`
@@ -1266,18 +1266,18 @@ type MuckTruckInfoMinFields struct {
 	SelfNumber         *string    `json:"self_number"`
 	ServerID           *int64     `json:"server_id"`
 	SimCardNumber      *string    `json:"sim_card_number"`
-	UpdateAt           *time.Time `json:"update_at"`
-	UpdateBy           *string    `json:"update_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
 	VehicleID          *string    `json:"vehicle_id"`
 }
 
 // order by min() on columns of table "muck_truck_info"
 type MuckTruckInfoMinOrderBy struct {
 	AreaID             *model.OrderBy `json:"area_id"`
-	CreateAt           *model.OrderBy `json:"create_at"`
-	CreateBy           *model.OrderBy `json:"create_by"`
-	DeleteAt           *model.OrderBy `json:"delete_at"`
-	DeleteBy           *model.OrderBy `json:"delete_by"`
+	CreatedAt          *model.OrderBy `json:"created_at"`
+	CreatedBy          *model.OrderBy `json:"created_by"`
+	DeletedAt          *model.OrderBy `json:"deleted_at"`
+	DeletedBy          *model.OrderBy `json:"deleted_by"`
 	ExpiryDate         *model.OrderBy `json:"expiry_date"`
 	FakeIP             *model.OrderBy `json:"fake_ip"`
 	LoadCategory       *model.OrderBy `json:"load_category"`
@@ -1288,8 +1288,8 @@ type MuckTruckInfoMinOrderBy struct {
 	SelfNumber         *model.OrderBy `json:"self_number"`
 	ServerID           *model.OrderBy `json:"server_id"`
 	SimCardNumber      *model.OrderBy `json:"sim_card_number"`
-	UpdateAt           *model.OrderBy `json:"update_at"`
-	UpdateBy           *model.OrderBy `json:"update_by"`
+	UpdatedAt          *model.OrderBy `json:"updated_at"`
+	UpdatedBy          *model.OrderBy `json:"updated_by"`
 	VehicleID          *model.OrderBy `json:"vehicle_id"`
 }
 
@@ -1317,10 +1317,10 @@ type MuckTruckInfoOnConflict struct {
 // ordering options when selecting data from "muck_truck_info"
 type MuckTruckInfoOrderBy struct {
 	AreaID             *model.OrderBy `json:"area_id"`
-	CreateAt           *model.OrderBy `json:"create_at"`
-	CreateBy           *model.OrderBy `json:"create_by"`
-	DeleteAt           *model.OrderBy `json:"delete_at"`
-	DeleteBy           *model.OrderBy `json:"delete_by"`
+	CreatedAt          *model.OrderBy `json:"created_at"`
+	CreatedBy          *model.OrderBy `json:"created_by"`
+	DeletedAt          *model.OrderBy `json:"deleted_at"`
+	DeletedBy          *model.OrderBy `json:"deleted_by"`
 	ExpiryDate         *model.OrderBy `json:"expiry_date"`
 	FakeIP             *model.OrderBy `json:"fake_ip"`
 	IsReserveLibrary   *model.OrderBy `json:"is_reserve_library"`
@@ -1332,8 +1332,8 @@ type MuckTruckInfoOrderBy struct {
 	SelfNumber         *model.OrderBy `json:"self_number"`
 	ServerID           *model.OrderBy `json:"server_id"`
 	SimCardNumber      *model.OrderBy `json:"sim_card_number"`
-	UpdateAt           *model.OrderBy `json:"update_at"`
-	UpdateBy           *model.OrderBy `json:"update_by"`
+	UpdatedAt          *model.OrderBy `json:"updated_at"`
+	UpdatedBy          *model.OrderBy `json:"updated_by"`
 	VehicleID          *model.OrderBy `json:"vehicle_id"`
 }
 
@@ -1346,10 +1346,10 @@ type MuckTruckInfoPkColumnsInput struct {
 // input type for updating data in table "muck_truck_info"
 type MuckTruckInfoSetInput struct {
 	AreaID             *int64     `json:"area_id"`
-	CreateAt           *time.Time `json:"create_at"`
-	CreateBy           *string    `json:"create_by"`
-	DeleteAt           *time.Time `json:"delete_at"`
-	DeleteBy           *string    `json:"delete_by"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 	ExpiryDate         *time.Time `json:"expiry_date"`
 	FakeIP             *string    `json:"fake_ip"`
 	IsReserveLibrary   *bool      `json:"is_reserve_library"`
@@ -1361,8 +1361,8 @@ type MuckTruckInfoSetInput struct {
 	SelfNumber         *string    `json:"self_number"`
 	ServerID           *int64     `json:"server_id"`
 	SimCardNumber      *string    `json:"sim_card_number"`
-	UpdateAt           *time.Time `json:"update_at"`
-	UpdateBy           *string    `json:"update_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
 	VehicleID          *string    `json:"vehicle_id"`
 }
 
@@ -1548,9 +1548,9 @@ type MuckTruckPreviewNumberBoolExp struct {
 	Confirmor               *model.StringComparisonExp       `json:"confirmor"`
 	ContactPerson           *model.StringComparisonExp       `json:"contact_person"`
 	ContactPhone            *model.StringComparisonExp       `json:"contact_phone"`
-	CreateBy                *model.StringComparisonExp       `json:"create_by"`
-	DeleteAt                *model.TimestamptzComparisonExp  `json:"delete_at"`
-	DeleteBy                *model.StringComparisonExp       `json:"delete_by"`
+	CreatedBy               *model.StringComparisonExp       `json:"created_by"`
+	DeletedAt               *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy               *model.StringComparisonExp       `json:"deleted_by"`
 	FrontLicensePlate       *model.StringComparisonExp       `json:"front_license_plate"`
 	ID                      *model.BigintComparisonExp       `json:"id"`
 	InitialRegistrationDate *model.TimestamptzComparisonExp  `json:"initial_registration_date"`
@@ -1568,8 +1568,8 @@ type MuckTruckPreviewNumberBoolExp struct {
 	SideLicensePlate        *model.StringComparisonExp       `json:"side_license_plate"`
 	SvnNumber               *model.StringComparisonExp       `json:"svn_number"`
 	UnlawfulViolationNumber *model.IntComparisonExp          `json:"unlawful_violation_number"`
-	UpdateAt                *model.TimestamptzComparisonExp  `json:"update_at"`
-	UpdateBy                *model.StringComparisonExp       `json:"update_by"`
+	UpdatedAt               *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy               *model.StringComparisonExp       `json:"updated_by"`
 	VehicleID               *model.StringComparisonExp       `json:"vehicle_id"`
 	WorkNumberPlateColor    *model.StringComparisonExp       `json:"work_number_plate_color"`
 }
@@ -1590,9 +1590,9 @@ type MuckTruckPreviewNumberInsertInput struct {
 	Confirmor               *string    `json:"confirmor"`
 	ContactPerson           *string    `json:"contact_person"`
 	ContactPhone            *string    `json:"contact_phone"`
-	CreateBy                *string    `json:"create_by"`
-	DeleteAt                *time.Time `json:"delete_at"`
-	DeleteBy                *string    `json:"delete_by"`
+	CreatedBy               *string    `json:"created_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 	FrontLicensePlate       *string    `json:"front_license_plate"`
 	ID                      *int64     `json:"id"`
 	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
@@ -1610,8 +1610,8 @@ type MuckTruckPreviewNumberInsertInput struct {
 	SideLicensePlate        *string    `json:"side_license_plate"`
 	SvnNumber               *string    `json:"svn_number"`
 	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
-	UpdateAt                *time.Time `json:"update_at"`
-	UpdateBy                *string    `json:"update_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
 	VehicleID               *string    `json:"vehicle_id"`
 	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
 }
@@ -1623,9 +1623,9 @@ type MuckTruckPreviewNumberMaxFields struct {
 	Confirmor               *string    `json:"confirmor"`
 	ContactPerson           *string    `json:"contact_person"`
 	ContactPhone            *string    `json:"contact_phone"`
-	CreateBy                *string    `json:"create_by"`
-	DeleteAt                *time.Time `json:"delete_at"`
-	DeleteBy                *string    `json:"delete_by"`
+	CreatedBy               *string    `json:"created_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 	FrontLicensePlate       *string    `json:"front_license_plate"`
 	ID                      *int64     `json:"id"`
 	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
@@ -1640,8 +1640,8 @@ type MuckTruckPreviewNumberMaxFields struct {
 	SideLicensePlate        *string    `json:"side_license_plate"`
 	SvnNumber               *string    `json:"svn_number"`
 	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
-	UpdateAt                *time.Time `json:"update_at"`
-	UpdateBy                *string    `json:"update_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
 	VehicleID               *string    `json:"vehicle_id"`
 	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
 }
@@ -1653,9 +1653,9 @@ type MuckTruckPreviewNumberMaxOrderBy struct {
 	Confirmor               *model.OrderBy `json:"confirmor"`
 	ContactPerson           *model.OrderBy `json:"contact_person"`
 	ContactPhone            *model.OrderBy `json:"contact_phone"`
-	CreateBy                *model.OrderBy `json:"create_by"`
-	DeleteAt                *model.OrderBy `json:"delete_at"`
-	DeleteBy                *model.OrderBy `json:"delete_by"`
+	CreatedBy               *model.OrderBy `json:"created_by"`
+	DeletedAt               *model.OrderBy `json:"deleted_at"`
+	DeletedBy               *model.OrderBy `json:"deleted_by"`
 	FrontLicensePlate       *model.OrderBy `json:"front_license_plate"`
 	ID                      *model.OrderBy `json:"id"`
 	InitialRegistrationDate *model.OrderBy `json:"initial_registration_date"`
@@ -1670,8 +1670,8 @@ type MuckTruckPreviewNumberMaxOrderBy struct {
 	SideLicensePlate        *model.OrderBy `json:"side_license_plate"`
 	SvnNumber               *model.OrderBy `json:"svn_number"`
 	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-	UpdateAt                *model.OrderBy `json:"update_at"`
-	UpdateBy                *model.OrderBy `json:"update_by"`
+	UpdatedAt               *model.OrderBy `json:"updated_at"`
+	UpdatedBy               *model.OrderBy `json:"updated_by"`
 	VehicleID               *model.OrderBy `json:"vehicle_id"`
 	WorkNumberPlateColor    *model.OrderBy `json:"work_number_plate_color"`
 }
@@ -1683,9 +1683,9 @@ type MuckTruckPreviewNumberMinFields struct {
 	Confirmor               *string    `json:"confirmor"`
 	ContactPerson           *string    `json:"contact_person"`
 	ContactPhone            *string    `json:"contact_phone"`
-	CreateBy                *string    `json:"create_by"`
-	DeleteAt                *time.Time `json:"delete_at"`
-	DeleteBy                *string    `json:"delete_by"`
+	CreatedBy               *string    `json:"created_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 	FrontLicensePlate       *string    `json:"front_license_plate"`
 	ID                      *int64     `json:"id"`
 	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
@@ -1700,8 +1700,8 @@ type MuckTruckPreviewNumberMinFields struct {
 	SideLicensePlate        *string    `json:"side_license_plate"`
 	SvnNumber               *string    `json:"svn_number"`
 	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
-	UpdateAt                *time.Time `json:"update_at"`
-	UpdateBy                *string    `json:"update_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
 	VehicleID               *string    `json:"vehicle_id"`
 	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
 }
@@ -1713,9 +1713,9 @@ type MuckTruckPreviewNumberMinOrderBy struct {
 	Confirmor               *model.OrderBy `json:"confirmor"`
 	ContactPerson           *model.OrderBy `json:"contact_person"`
 	ContactPhone            *model.OrderBy `json:"contact_phone"`
-	CreateBy                *model.OrderBy `json:"create_by"`
-	DeleteAt                *model.OrderBy `json:"delete_at"`
-	DeleteBy                *model.OrderBy `json:"delete_by"`
+	CreatedBy               *model.OrderBy `json:"created_by"`
+	DeletedAt               *model.OrderBy `json:"deleted_at"`
+	DeletedBy               *model.OrderBy `json:"deleted_by"`
 	FrontLicensePlate       *model.OrderBy `json:"front_license_plate"`
 	ID                      *model.OrderBy `json:"id"`
 	InitialRegistrationDate *model.OrderBy `json:"initial_registration_date"`
@@ -1730,8 +1730,8 @@ type MuckTruckPreviewNumberMinOrderBy struct {
 	SideLicensePlate        *model.OrderBy `json:"side_license_plate"`
 	SvnNumber               *model.OrderBy `json:"svn_number"`
 	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-	UpdateAt                *model.OrderBy `json:"update_at"`
-	UpdateBy                *model.OrderBy `json:"update_by"`
+	UpdatedAt               *model.OrderBy `json:"updated_at"`
+	UpdatedBy               *model.OrderBy `json:"updated_by"`
 	VehicleID               *model.OrderBy `json:"vehicle_id"`
 	WorkNumberPlateColor    *model.OrderBy `json:"work_number_plate_color"`
 }
@@ -1764,9 +1764,9 @@ type MuckTruckPreviewNumberOrderBy struct {
 	Confirmor               *model.OrderBy `json:"confirmor"`
 	ContactPerson           *model.OrderBy `json:"contact_person"`
 	ContactPhone            *model.OrderBy `json:"contact_phone"`
-	CreateBy                *model.OrderBy `json:"create_by"`
-	DeleteAt                *model.OrderBy `json:"delete_at"`
-	DeleteBy                *model.OrderBy `json:"delete_by"`
+	CreatedBy               *model.OrderBy `json:"created_by"`
+	DeletedAt               *model.OrderBy `json:"deleted_at"`
+	DeletedBy               *model.OrderBy `json:"deleted_by"`
 	FrontLicensePlate       *model.OrderBy `json:"front_license_plate"`
 	ID                      *model.OrderBy `json:"id"`
 	InitialRegistrationDate *model.OrderBy `json:"initial_registration_date"`
@@ -1784,8 +1784,8 @@ type MuckTruckPreviewNumberOrderBy struct {
 	SideLicensePlate        *model.OrderBy `json:"side_license_plate"`
 	SvnNumber               *model.OrderBy `json:"svn_number"`
 	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-	UpdateAt                *model.OrderBy `json:"update_at"`
-	UpdateBy                *model.OrderBy `json:"update_by"`
+	UpdatedAt               *model.OrderBy `json:"updated_at"`
+	UpdatedBy               *model.OrderBy `json:"updated_by"`
 	VehicleID               *model.OrderBy `json:"vehicle_id"`
 	WorkNumberPlateColor    *model.OrderBy `json:"work_number_plate_color"`
 }
@@ -1803,9 +1803,9 @@ type MuckTruckPreviewNumberSetInput struct {
 	Confirmor               *string    `json:"confirmor"`
 	ContactPerson           *string    `json:"contact_person"`
 	ContactPhone            *string    `json:"contact_phone"`
-	CreateBy                *string    `json:"create_by"`
-	DeleteAt                *time.Time `json:"delete_at"`
-	DeleteBy                *string    `json:"delete_by"`
+	CreatedBy               *string    `json:"created_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 	FrontLicensePlate       *string    `json:"front_license_plate"`
 	ID                      *int64     `json:"id"`
 	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
@@ -1823,8 +1823,8 @@ type MuckTruckPreviewNumberSetInput struct {
 	SideLicensePlate        *string    `json:"side_license_plate"`
 	SvnNumber               *string    `json:"svn_number"`
 	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
-	UpdateAt                *time.Time `json:"update_at"`
-	UpdateBy                *string    `json:"update_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
 	VehicleID               *string    `json:"vehicle_id"`
 	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
 }
@@ -2015,14 +2015,14 @@ type MuckTruckWorkerIDCardOrdersBoolExp struct {
 	And             []*MuckTruckWorkerIDCardOrdersBoolExp `json:"_and"`
 	Not             *MuckTruckWorkerIDCardOrdersBoolExp   `json:"_not"`
 	Or              []*MuckTruckWorkerIDCardOrdersBoolExp `json:"_or"`
-	CreateAt        *model.TimestamptzComparisonExp       `json:"create_at"`
-	CreateBy        *model.StringComparisonExp            `json:"create_by"`
-	DeleteAt        *model.TimestamptzComparisonExp       `json:"delete_at"`
-	DeleteBy        *model.StringComparisonExp            `json:"delete_by"`
+	CreatedAt       *model.TimestamptzComparisonExp       `json:"created_at"`
+	CreatedBy       *model.StringComparisonExp            `json:"created_by"`
+	DeletedAt       *model.TimestamptzComparisonExp       `json:"deleted_at"`
+	DeletedBy       *model.StringComparisonExp            `json:"deleted_by"`
 	ID              *model.BigintComparisonExp            `json:"id"`
 	PreviewNumberID *model.BigintComparisonExp            `json:"preview_number_id"`
-	UpdateAt        *model.TimestamptzComparisonExp       `json:"update_at"`
-	UpdateBy        *model.StringComparisonExp            `json:"update_by"`
+	UpdatedAt       *model.TimestamptzComparisonExp       `json:"updated_at"`
+	UpdatedBy       *model.StringComparisonExp            `json:"updated_by"`
 	VehicleID       *model.StringComparisonExp            `json:"vehicle_id"`
 }
 
@@ -2034,66 +2034,66 @@ type MuckTruckWorkerIDCardOrdersIncInput struct {
 
 // input type for inserting data into table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersInsertInput struct {
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
 	ID              *int64     `json:"id"`
 	PreviewNumberID *int64     `json:"preview_number_id"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
 	VehicleID       *string    `json:"vehicle_id"`
 }
 
 // aggregate max on columns
 type MuckTruckWorkerIDCardOrdersMaxFields struct {
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
 	ID              *int64     `json:"id"`
 	PreviewNumberID *int64     `json:"preview_number_id"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
 	VehicleID       *string    `json:"vehicle_id"`
 }
 
 // order by max() on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersMaxOrderBy struct {
-	CreateAt        *model.OrderBy `json:"create_at"`
-	CreateBy        *model.OrderBy `json:"create_by"`
-	DeleteAt        *model.OrderBy `json:"delete_at"`
-	DeleteBy        *model.OrderBy `json:"delete_by"`
+	CreatedAt       *model.OrderBy `json:"created_at"`
+	CreatedBy       *model.OrderBy `json:"created_by"`
+	DeletedAt       *model.OrderBy `json:"deleted_at"`
+	DeletedBy       *model.OrderBy `json:"deleted_by"`
 	ID              *model.OrderBy `json:"id"`
 	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-	UpdateAt        *model.OrderBy `json:"update_at"`
-	UpdateBy        *model.OrderBy `json:"update_by"`
+	UpdatedAt       *model.OrderBy `json:"updated_at"`
+	UpdatedBy       *model.OrderBy `json:"updated_by"`
 	VehicleID       *model.OrderBy `json:"vehicle_id"`
 }
 
 // aggregate min on columns
 type MuckTruckWorkerIDCardOrdersMinFields struct {
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
 	ID              *int64     `json:"id"`
 	PreviewNumberID *int64     `json:"preview_number_id"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
 	VehicleID       *string    `json:"vehicle_id"`
 }
 
 // order by min() on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersMinOrderBy struct {
-	CreateAt        *model.OrderBy `json:"create_at"`
-	CreateBy        *model.OrderBy `json:"create_by"`
-	DeleteAt        *model.OrderBy `json:"delete_at"`
-	DeleteBy        *model.OrderBy `json:"delete_by"`
+	CreatedAt       *model.OrderBy `json:"created_at"`
+	CreatedBy       *model.OrderBy `json:"created_by"`
+	DeletedAt       *model.OrderBy `json:"deleted_at"`
+	DeletedBy       *model.OrderBy `json:"deleted_by"`
 	ID              *model.OrderBy `json:"id"`
 	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-	UpdateAt        *model.OrderBy `json:"update_at"`
-	UpdateBy        *model.OrderBy `json:"update_by"`
+	UpdatedAt       *model.OrderBy `json:"updated_at"`
+	UpdatedBy       *model.OrderBy `json:"updated_by"`
 	VehicleID       *model.OrderBy `json:"vehicle_id"`
 }
 
@@ -2120,14 +2120,14 @@ type MuckTruckWorkerIDCardOrdersOnConflict struct {
 
 // ordering options when selecting data from "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersOrderBy struct {
-	CreateAt        *model.OrderBy `json:"create_at"`
-	CreateBy        *model.OrderBy `json:"create_by"`
-	DeleteAt        *model.OrderBy `json:"delete_at"`
-	DeleteBy        *model.OrderBy `json:"delete_by"`
+	CreatedAt       *model.OrderBy `json:"created_at"`
+	CreatedBy       *model.OrderBy `json:"created_by"`
+	DeletedAt       *model.OrderBy `json:"deleted_at"`
+	DeletedBy       *model.OrderBy `json:"deleted_by"`
 	ID              *model.OrderBy `json:"id"`
 	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-	UpdateAt        *model.OrderBy `json:"update_at"`
-	UpdateBy        *model.OrderBy `json:"update_by"`
+	UpdatedAt       *model.OrderBy `json:"updated_at"`
+	UpdatedBy       *model.OrderBy `json:"updated_by"`
 	VehicleID       *model.OrderBy `json:"vehicle_id"`
 }
 
@@ -2139,14 +2139,14 @@ type MuckTruckWorkerIDCardOrdersPkColumnsInput struct {
 
 // input type for updating data in table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersSetInput struct {
-	CreateAt        *time.Time `json:"create_at"`
-	CreateBy        *string    `json:"create_by"`
-	DeleteAt        *time.Time `json:"delete_at"`
-	DeleteBy        *string    `json:"delete_by"`
+	CreatedAt       *time.Time `json:"created_at"`
+	CreatedBy       *string    `json:"created_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
 	ID              *int64     `json:"id"`
 	PreviewNumberID *int64     `json:"preview_number_id"`
-	UpdateAt        *time.Time `json:"update_at"`
-	UpdateBy        *string    `json:"update_by"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
 	VehicleID       *string    `json:"vehicle_id"`
 }
 
@@ -2305,10 +2305,10 @@ type OperatingVehicleInfoBoolExp struct {
 	Agent                        *model.StringComparisonExp      `json:"agent"`
 	ContactNumber                *model.StringComparisonExp      `json:"contact_number"`
 	ContractTime                 *model.TimestamptzComparisonExp `json:"contract_time"`
-	CreateAt                     *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy                     *model.StringComparisonExp      `json:"create_by"`
-	DeleteAt                     *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy                     *model.StringComparisonExp      `json:"delete_by"`
+	CreatedAt                    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                    *model.StringComparisonExp      `json:"created_by"`
+	DeletedAt                    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                    *model.StringComparisonExp      `json:"deleted_by"`
 	DrivingLicenseOwner          *model.StringComparisonExp      `json:"driving_license_owner"`
 	FirstOnlineTime              *model.TimestamptzComparisonExp `json:"first_online_time"`
 	InstallationTime             *model.TimestamptzComparisonExp `json:"installation_time"`
@@ -2338,8 +2338,8 @@ type OperatingVehicleInfoBoolExp struct {
 	SpeedModeStatusTime          *model.TimestamptzComparisonExp `json:"speed_mode_status_time"`
 	TemporaryLibrary             *model.IntComparisonExp         `json:"temporary_library"`
 	TemporaryTransportBureau     *model.IntComparisonExp         `json:"temporary_transport_bureau"`
-	UpdateAt                     *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy                     *model.StringComparisonExp      `json:"update_by"`
+	UpdatedAt                    *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                    *model.StringComparisonExp      `json:"updated_by"`
 	VehicleID                    *model.StringComparisonExp      `json:"vehicle_id"`
 }
 
@@ -2359,10 +2359,10 @@ type OperatingVehicleInfoInsertInput struct {
 	Agent                        *string    `json:"agent"`
 	ContactNumber                *string    `json:"contact_number"`
 	ContractTime                 *time.Time `json:"contract_time"`
-	CreateAt                     *time.Time `json:"create_at"`
-	CreateBy                     *string    `json:"create_by"`
-	DeleteAt                     *time.Time `json:"delete_at"`
-	DeleteBy                     *string    `json:"delete_by"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 	DrivingLicenseOwner          *string    `json:"driving_license_owner"`
 	FirstOnlineTime              *time.Time `json:"first_online_time"`
 	InstallationTime             *time.Time `json:"installation_time"`
@@ -2392,8 +2392,8 @@ type OperatingVehicleInfoInsertInput struct {
 	SpeedModeStatusTime          *time.Time `json:"speed_mode_status_time"`
 	TemporaryLibrary             *int       `json:"temporary_library"`
 	TemporaryTransportBureau     *int       `json:"temporary_transport_bureau"`
-	UpdateAt                     *time.Time `json:"update_at"`
-	UpdateBy                     *string    `json:"update_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
 	VehicleID                    *string    `json:"vehicle_id"`
 }
 
@@ -2403,10 +2403,10 @@ type OperatingVehicleInfoMaxFields struct {
 	Agent                    *string    `json:"agent"`
 	ContactNumber            *string    `json:"contact_number"`
 	ContractTime             *time.Time `json:"contract_time"`
-	CreateAt                 *time.Time `json:"create_at"`
-	CreateBy                 *string    `json:"create_by"`
-	DeleteAt                 *time.Time `json:"delete_at"`
-	DeleteBy                 *string    `json:"delete_by"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 	DrivingLicenseOwner      *string    `json:"driving_license_owner"`
 	FirstOnlineTime          *time.Time `json:"first_online_time"`
 	InstallationTime         *time.Time `json:"installation_time"`
@@ -2426,8 +2426,8 @@ type OperatingVehicleInfoMaxFields struct {
 	SpeedModeStatusTime      *time.Time `json:"speed_mode_status_time"`
 	TemporaryLibrary         *int       `json:"temporary_library"`
 	TemporaryTransportBureau *int       `json:"temporary_transport_bureau"`
-	UpdateAt                 *time.Time `json:"update_at"`
-	UpdateBy                 *string    `json:"update_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
 	VehicleID                *string    `json:"vehicle_id"`
 }
 
@@ -2437,10 +2437,10 @@ type OperatingVehicleInfoMaxOrderBy struct {
 	Agent                    *model.OrderBy `json:"agent"`
 	ContactNumber            *model.OrderBy `json:"contact_number"`
 	ContractTime             *model.OrderBy `json:"contract_time"`
-	CreateAt                 *model.OrderBy `json:"create_at"`
-	CreateBy                 *model.OrderBy `json:"create_by"`
-	DeleteAt                 *model.OrderBy `json:"delete_at"`
-	DeleteBy                 *model.OrderBy `json:"delete_by"`
+	CreatedAt                *model.OrderBy `json:"created_at"`
+	CreatedBy                *model.OrderBy `json:"created_by"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
 	DrivingLicenseOwner      *model.OrderBy `json:"driving_license_owner"`
 	FirstOnlineTime          *model.OrderBy `json:"first_online_time"`
 	InstallationTime         *model.OrderBy `json:"installation_time"`
@@ -2460,8 +2460,8 @@ type OperatingVehicleInfoMaxOrderBy struct {
 	SpeedModeStatusTime      *model.OrderBy `json:"speed_mode_status_time"`
 	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
 	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
-	UpdateAt                 *model.OrderBy `json:"update_at"`
-	UpdateBy                 *model.OrderBy `json:"update_by"`
+	UpdatedAt                *model.OrderBy `json:"updated_at"`
+	UpdatedBy                *model.OrderBy `json:"updated_by"`
 	VehicleID                *model.OrderBy `json:"vehicle_id"`
 }
 
@@ -2471,10 +2471,10 @@ type OperatingVehicleInfoMinFields struct {
 	Agent                    *string    `json:"agent"`
 	ContactNumber            *string    `json:"contact_number"`
 	ContractTime             *time.Time `json:"contract_time"`
-	CreateAt                 *time.Time `json:"create_at"`
-	CreateBy                 *string    `json:"create_by"`
-	DeleteAt                 *time.Time `json:"delete_at"`
-	DeleteBy                 *string    `json:"delete_by"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 	DrivingLicenseOwner      *string    `json:"driving_license_owner"`
 	FirstOnlineTime          *time.Time `json:"first_online_time"`
 	InstallationTime         *time.Time `json:"installation_time"`
@@ -2494,8 +2494,8 @@ type OperatingVehicleInfoMinFields struct {
 	SpeedModeStatusTime      *time.Time `json:"speed_mode_status_time"`
 	TemporaryLibrary         *int       `json:"temporary_library"`
 	TemporaryTransportBureau *int       `json:"temporary_transport_bureau"`
-	UpdateAt                 *time.Time `json:"update_at"`
-	UpdateBy                 *string    `json:"update_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
 	VehicleID                *string    `json:"vehicle_id"`
 }
 
@@ -2505,10 +2505,10 @@ type OperatingVehicleInfoMinOrderBy struct {
 	Agent                    *model.OrderBy `json:"agent"`
 	ContactNumber            *model.OrderBy `json:"contact_number"`
 	ContractTime             *model.OrderBy `json:"contract_time"`
-	CreateAt                 *model.OrderBy `json:"create_at"`
-	CreateBy                 *model.OrderBy `json:"create_by"`
-	DeleteAt                 *model.OrderBy `json:"delete_at"`
-	DeleteBy                 *model.OrderBy `json:"delete_by"`
+	CreatedAt                *model.OrderBy `json:"created_at"`
+	CreatedBy                *model.OrderBy `json:"created_by"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
 	DrivingLicenseOwner      *model.OrderBy `json:"driving_license_owner"`
 	FirstOnlineTime          *model.OrderBy `json:"first_online_time"`
 	InstallationTime         *model.OrderBy `json:"installation_time"`
@@ -2528,8 +2528,8 @@ type OperatingVehicleInfoMinOrderBy struct {
 	SpeedModeStatusTime      *model.OrderBy `json:"speed_mode_status_time"`
 	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
 	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
-	UpdateAt                 *model.OrderBy `json:"update_at"`
-	UpdateBy                 *model.OrderBy `json:"update_by"`
+	UpdatedAt                *model.OrderBy `json:"updated_at"`
+	UpdatedBy                *model.OrderBy `json:"updated_by"`
 	VehicleID                *model.OrderBy `json:"vehicle_id"`
 }
 
@@ -2560,10 +2560,10 @@ type OperatingVehicleInfoOrderBy struct {
 	Agent                        *model.OrderBy `json:"agent"`
 	ContactNumber                *model.OrderBy `json:"contact_number"`
 	ContractTime                 *model.OrderBy `json:"contract_time"`
-	CreateAt                     *model.OrderBy `json:"create_at"`
-	CreateBy                     *model.OrderBy `json:"create_by"`
-	DeleteAt                     *model.OrderBy `json:"delete_at"`
-	DeleteBy                     *model.OrderBy `json:"delete_by"`
+	CreatedAt                    *model.OrderBy `json:"created_at"`
+	CreatedBy                    *model.OrderBy `json:"created_by"`
+	DeletedAt                    *model.OrderBy `json:"deleted_at"`
+	DeletedBy                    *model.OrderBy `json:"deleted_by"`
 	DrivingLicenseOwner          *model.OrderBy `json:"driving_license_owner"`
 	FirstOnlineTime              *model.OrderBy `json:"first_online_time"`
 	InstallationTime             *model.OrderBy `json:"installation_time"`
@@ -2593,8 +2593,8 @@ type OperatingVehicleInfoOrderBy struct {
 	SpeedModeStatusTime          *model.OrderBy `json:"speed_mode_status_time"`
 	TemporaryLibrary             *model.OrderBy `json:"temporary_library"`
 	TemporaryTransportBureau     *model.OrderBy `json:"temporary_transport_bureau"`
-	UpdateAt                     *model.OrderBy `json:"update_at"`
-	UpdateBy                     *model.OrderBy `json:"update_by"`
+	UpdatedAt                    *model.OrderBy `json:"updated_at"`
+	UpdatedBy                    *model.OrderBy `json:"updated_by"`
 	VehicleID                    *model.OrderBy `json:"vehicle_id"`
 }
 
@@ -2610,10 +2610,10 @@ type OperatingVehicleInfoSetInput struct {
 	Agent                        *string    `json:"agent"`
 	ContactNumber                *string    `json:"contact_number"`
 	ContractTime                 *time.Time `json:"contract_time"`
-	CreateAt                     *time.Time `json:"create_at"`
-	CreateBy                     *string    `json:"create_by"`
-	DeleteAt                     *time.Time `json:"delete_at"`
-	DeleteBy                     *string    `json:"delete_by"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 	DrivingLicenseOwner          *string    `json:"driving_license_owner"`
 	FirstOnlineTime              *time.Time `json:"first_online_time"`
 	InstallationTime             *time.Time `json:"installation_time"`
@@ -2643,8 +2643,8 @@ type OperatingVehicleInfoSetInput struct {
 	SpeedModeStatusTime          *time.Time `json:"speed_mode_status_time"`
 	TemporaryLibrary             *int       `json:"temporary_library"`
 	TemporaryTransportBureau     *int       `json:"temporary_transport_bureau"`
-	UpdateAt                     *time.Time `json:"update_at"`
-	UpdateBy                     *string    `json:"update_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
 	VehicleID                    *string    `json:"vehicle_id"`
 }
 
@@ -2850,10 +2850,10 @@ type OwnerInfoBoolExp struct {
 	Address      *model.StringComparisonExp      `json:"address"`
 	Agent        *model.StringComparisonExp      `json:"agent"`
 	Cellphone    *model.StringComparisonExp      `json:"cellphone"`
-	CreateAt     *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy     *model.StringComparisonExp      `json:"create_by"`
-	DeleteAt     *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy     *model.StringComparisonExp      `json:"delete_by"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
 	DepartmentID *model.StringComparisonExp      `json:"department_id"`
 	Email        *model.StringComparisonExp      `json:"email"`
 	ExpiryDate   *model.TimestamptzComparisonExp `json:"expiry_date"`
@@ -2866,8 +2866,8 @@ type OwnerInfoBoolExp struct {
 	Remarks      *model.StringComparisonExp      `json:"remarks"`
 	Sex          *model.IntComparisonExp         `json:"sex"`
 	Telephone    *model.StringComparisonExp      `json:"telephone"`
-	UpdateAt     *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy     *model.StringComparisonExp      `json:"update_by"`
+	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
 }
 
 // input type for incrementing integer column in table "owner_info"
@@ -2881,10 +2881,10 @@ type OwnerInfoInsertInput struct {
 	Address      *string    `json:"address"`
 	Agent        *string    `json:"agent"`
 	Cellphone    *string    `json:"cellphone"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 	DepartmentID *string    `json:"department_id"`
 	Email        *string    `json:"email"`
 	ExpiryDate   *time.Time `json:"expiry_date"`
@@ -2897,8 +2897,8 @@ type OwnerInfoInsertInput struct {
 	Remarks      *string    `json:"remarks"`
 	Sex          *int       `json:"sex"`
 	Telephone    *string    `json:"telephone"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
 }
 
 // aggregate max on columns
@@ -2906,10 +2906,10 @@ type OwnerInfoMaxFields struct {
 	Address      *string    `json:"address"`
 	Agent        *string    `json:"agent"`
 	Cellphone    *string    `json:"cellphone"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 	DepartmentID *string    `json:"department_id"`
 	Email        *string    `json:"email"`
 	ExpiryDate   *time.Time `json:"expiry_date"`
@@ -2921,8 +2921,8 @@ type OwnerInfoMaxFields struct {
 	Remarks      *string    `json:"remarks"`
 	Sex          *int       `json:"sex"`
 	Telephone    *string    `json:"telephone"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
 }
 
 // order by max() on columns of table "owner_info"
@@ -2930,10 +2930,10 @@ type OwnerInfoMaxOrderBy struct {
 	Address      *model.OrderBy `json:"address"`
 	Agent        *model.OrderBy `json:"agent"`
 	Cellphone    *model.OrderBy `json:"cellphone"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
 	DepartmentID *model.OrderBy `json:"department_id"`
 	Email        *model.OrderBy `json:"email"`
 	ExpiryDate   *model.OrderBy `json:"expiry_date"`
@@ -2945,8 +2945,8 @@ type OwnerInfoMaxOrderBy struct {
 	Remarks      *model.OrderBy `json:"remarks"`
 	Sex          *model.OrderBy `json:"sex"`
 	Telephone    *model.OrderBy `json:"telephone"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
 }
 
 // aggregate min on columns
@@ -2954,10 +2954,10 @@ type OwnerInfoMinFields struct {
 	Address      *string    `json:"address"`
 	Agent        *string    `json:"agent"`
 	Cellphone    *string    `json:"cellphone"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 	DepartmentID *string    `json:"department_id"`
 	Email        *string    `json:"email"`
 	ExpiryDate   *time.Time `json:"expiry_date"`
@@ -2969,8 +2969,8 @@ type OwnerInfoMinFields struct {
 	Remarks      *string    `json:"remarks"`
 	Sex          *int       `json:"sex"`
 	Telephone    *string    `json:"telephone"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
 }
 
 // order by min() on columns of table "owner_info"
@@ -2978,10 +2978,10 @@ type OwnerInfoMinOrderBy struct {
 	Address      *model.OrderBy `json:"address"`
 	Agent        *model.OrderBy `json:"agent"`
 	Cellphone    *model.OrderBy `json:"cellphone"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
 	DepartmentID *model.OrderBy `json:"department_id"`
 	Email        *model.OrderBy `json:"email"`
 	ExpiryDate   *model.OrderBy `json:"expiry_date"`
@@ -2993,8 +2993,8 @@ type OwnerInfoMinOrderBy struct {
 	Remarks      *model.OrderBy `json:"remarks"`
 	Sex          *model.OrderBy `json:"sex"`
 	Telephone    *model.OrderBy `json:"telephone"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
 }
 
 // response of any mutation on the table "owner_info"
@@ -3023,10 +3023,10 @@ type OwnerInfoOrderBy struct {
 	Address      *model.OrderBy `json:"address"`
 	Agent        *model.OrderBy `json:"agent"`
 	Cellphone    *model.OrderBy `json:"cellphone"`
-	CreateAt     *model.OrderBy `json:"create_at"`
-	CreateBy     *model.OrderBy `json:"create_by"`
-	DeleteAt     *model.OrderBy `json:"delete_at"`
-	DeleteBy     *model.OrderBy `json:"delete_by"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
 	DepartmentID *model.OrderBy `json:"department_id"`
 	Email        *model.OrderBy `json:"email"`
 	ExpiryDate   *model.OrderBy `json:"expiry_date"`
@@ -3039,8 +3039,8 @@ type OwnerInfoOrderBy struct {
 	Remarks      *model.OrderBy `json:"remarks"`
 	Sex          *model.OrderBy `json:"sex"`
 	Telephone    *model.OrderBy `json:"telephone"`
-	UpdateAt     *model.OrderBy `json:"update_at"`
-	UpdateBy     *model.OrderBy `json:"update_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
 }
 
 // primary key columns input for table: "owner_info"
@@ -3054,10 +3054,10 @@ type OwnerInfoSetInput struct {
 	Address      *string    `json:"address"`
 	Agent        *string    `json:"agent"`
 	Cellphone    *string    `json:"cellphone"`
-	CreateAt     *time.Time `json:"create_at"`
-	CreateBy     *string    `json:"create_by"`
-	DeleteAt     *time.Time `json:"delete_at"`
-	DeleteBy     *string    `json:"delete_by"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 	DepartmentID *string    `json:"department_id"`
 	Email        *string    `json:"email"`
 	ExpiryDate   *time.Time `json:"expiry_date"`
@@ -3070,8 +3070,8 @@ type OwnerInfoSetInput struct {
 	Remarks      *string    `json:"remarks"`
 	Sex          *int       `json:"sex"`
 	Telephone    *string    `json:"telephone"`
-	UpdateAt     *time.Time `json:"update_at"`
-	UpdateBy     *string    `json:"update_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
 }
 
 // aggregate stddev on columns
@@ -3252,10 +3252,10 @@ type VehicleInfoBoolExp struct {
 	BusinessScope               *model.IntComparisonExp         `json:"business_scope"`
 	CarRentalPrice              *model.NumericComparisonExp     `json:"car_rental_price"`
 	CheckState                  *model.IntComparisonExp         `json:"check_state"`
-	CreateAt                    *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy                    *model.StringComparisonExp      `json:"create_by"`
-	DeleteAt                    *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy                    *model.TimestamptzComparisonExp `json:"delete_by"`
+	CreatedAt                   *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                   *model.StringComparisonExp      `json:"created_by"`
+	DeletedAt                   *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                   *model.TimestamptzComparisonExp `json:"deleted_by"`
 	DepartmentID                *model.StringComparisonExp      `json:"department_id"`
 	DrivingLicenseePic          *model.StringComparisonExp      `json:"driving_licensee_pic"`
 	EnterpriseID                *model.StringComparisonExp      `json:"enterprise_id"`
@@ -3290,8 +3290,8 @@ type VehicleInfoBoolExp struct {
 	RoadTransportLicenseNumber  *model.StringComparisonExp      `json:"road_transport_license_number"`
 	Seats                       *model.IntComparisonExp         `json:"seats"`
 	TerminalID                  *model.StringComparisonExp      `json:"terminal_id"`
-	UpdateAt                    *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy                    *model.StringComparisonExp      `json:"update_by"`
+	UpdatedAt                   *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                   *model.StringComparisonExp      `json:"updated_by"`
 	UpdateTimeIn                *model.TimestamptzComparisonExp `json:"update_time_in"`
 	UseNature                   *model.StringComparisonExp      `json:"use_nature"`
 	VehicleBrand                *model.IntComparisonExp         `json:"vehicle_brand"`
@@ -3400,10 +3400,10 @@ type VehicleInfoChangeLogBoolExp struct {
 	BusinessScope               *model.IntComparisonExp         `json:"business_scope"`
 	CarRentalPrice              *model.NumericComparisonExp     `json:"car_rental_price"`
 	CheckState                  *model.IntComparisonExp         `json:"check_state"`
-	CreateAt                    *model.TimestamptzComparisonExp `json:"create_at"`
-	CreateBy                    *model.StringComparisonExp      `json:"create_by"`
-	DeleteAt                    *model.TimestamptzComparisonExp `json:"delete_at"`
-	DeleteBy                    *model.TimestamptzComparisonExp `json:"delete_by"`
+	CreatedAt                   *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                   *model.StringComparisonExp      `json:"created_by"`
+	DeletedAt                   *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                   *model.TimestamptzComparisonExp `json:"deleted_by"`
 	DepartmentID                *model.StringComparisonExp      `json:"department_id"`
 	DrivingLicenseePic          *model.StringComparisonExp      `json:"driving_licensee_pic"`
 	EnterpriseID                *model.StringComparisonExp      `json:"enterprise_id"`
@@ -3438,8 +3438,8 @@ type VehicleInfoChangeLogBoolExp struct {
 	RoadTransportLicenseNumber  *model.StringComparisonExp      `json:"road_transport_license_number"`
 	Seats                       *model.IntComparisonExp         `json:"seats"`
 	TerminalID                  *model.StringComparisonExp      `json:"terminal_id"`
-	UpdateAt                    *model.TimestamptzComparisonExp `json:"update_at"`
-	UpdateBy                    *model.StringComparisonExp      `json:"update_by"`
+	UpdatedAt                   *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                   *model.StringComparisonExp      `json:"updated_by"`
 	UpdateTimeIn                *model.TimestamptzComparisonExp `json:"update_time_in"`
 	UseNature                   *model.StringComparisonExp      `json:"use_nature"`
 	VehicleBrand                *model.IntComparisonExp         `json:"vehicle_brand"`
@@ -3481,10 +3481,10 @@ type VehicleInfoChangeLogInsertInput struct {
 	BusinessScope               *int       `json:"business_scope"`
 	CarRentalPrice              *float64   `json:"car_rental_price"`
 	CheckState                  *int       `json:"check_state"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *time.Time `json:"delete_by"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *time.Time `json:"deleted_by"`
 	DepartmentID                *string    `json:"department_id"`
 	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
 	EnterpriseID                *string    `json:"enterprise_id"`
@@ -3519,8 +3519,8 @@ type VehicleInfoChangeLogInsertInput struct {
 	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
 	Seats                       *int       `json:"seats"`
 	TerminalID                  *string    `json:"terminal_id"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
 	UpdateTimeIn                *time.Time `json:"update_time_in"`
 	UseNature                   *string    `json:"use_nature"`
 	VehicleBrand                *int       `json:"vehicle_brand"`
@@ -3540,10 +3540,10 @@ type VehicleInfoChangeLogMaxFields struct {
 	BusinessScope               *int       `json:"business_scope"`
 	CarRentalPrice              *float64   `json:"car_rental_price"`
 	CheckState                  *int       `json:"check_state"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *time.Time `json:"delete_by"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *time.Time `json:"deleted_by"`
 	DepartmentID                *string    `json:"department_id"`
 	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
 	EnterpriseID                *string    `json:"enterprise_id"`
@@ -3571,8 +3571,8 @@ type VehicleInfoChangeLogMaxFields struct {
 	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
 	Seats                       *int       `json:"seats"`
 	TerminalID                  *string    `json:"terminal_id"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
 	UpdateTimeIn                *time.Time `json:"update_time_in"`
 	UseNature                   *string    `json:"use_nature"`
 	VehicleBrand                *int       `json:"vehicle_brand"`
@@ -3591,10 +3591,10 @@ type VehicleInfoChangeLogMaxOrderBy struct {
 	BusinessScope               *model.OrderBy `json:"business_scope"`
 	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
 	CheckState                  *model.OrderBy `json:"check_state"`
-	CreateAt                    *model.OrderBy `json:"create_at"`
-	CreateBy                    *model.OrderBy `json:"create_by"`
-	DeleteAt                    *model.OrderBy `json:"delete_at"`
-	DeleteBy                    *model.OrderBy `json:"delete_by"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
 	DepartmentID                *model.OrderBy `json:"department_id"`
 	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
 	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
@@ -3622,8 +3622,8 @@ type VehicleInfoChangeLogMaxOrderBy struct {
 	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
 	Seats                       *model.OrderBy `json:"seats"`
 	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdateAt                    *model.OrderBy `json:"update_at"`
-	UpdateBy                    *model.OrderBy `json:"update_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
 	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
 	UseNature                   *model.OrderBy `json:"use_nature"`
 	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
@@ -3642,10 +3642,10 @@ type VehicleInfoChangeLogMinFields struct {
 	BusinessScope               *int       `json:"business_scope"`
 	CarRentalPrice              *float64   `json:"car_rental_price"`
 	CheckState                  *int       `json:"check_state"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *time.Time `json:"delete_by"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *time.Time `json:"deleted_by"`
 	DepartmentID                *string    `json:"department_id"`
 	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
 	EnterpriseID                *string    `json:"enterprise_id"`
@@ -3673,8 +3673,8 @@ type VehicleInfoChangeLogMinFields struct {
 	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
 	Seats                       *int       `json:"seats"`
 	TerminalID                  *string    `json:"terminal_id"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
 	UpdateTimeIn                *time.Time `json:"update_time_in"`
 	UseNature                   *string    `json:"use_nature"`
 	VehicleBrand                *int       `json:"vehicle_brand"`
@@ -3693,10 +3693,10 @@ type VehicleInfoChangeLogMinOrderBy struct {
 	BusinessScope               *model.OrderBy `json:"business_scope"`
 	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
 	CheckState                  *model.OrderBy `json:"check_state"`
-	CreateAt                    *model.OrderBy `json:"create_at"`
-	CreateBy                    *model.OrderBy `json:"create_by"`
-	DeleteAt                    *model.OrderBy `json:"delete_at"`
-	DeleteBy                    *model.OrderBy `json:"delete_by"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
 	DepartmentID                *model.OrderBy `json:"department_id"`
 	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
 	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
@@ -3724,8 +3724,8 @@ type VehicleInfoChangeLogMinOrderBy struct {
 	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
 	Seats                       *model.OrderBy `json:"seats"`
 	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdateAt                    *model.OrderBy `json:"update_at"`
-	UpdateBy                    *model.OrderBy `json:"update_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
 	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
 	UseNature                   *model.OrderBy `json:"use_nature"`
 	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
@@ -3765,10 +3765,10 @@ type VehicleInfoChangeLogOrderBy struct {
 	BusinessScope               *model.OrderBy `json:"business_scope"`
 	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
 	CheckState                  *model.OrderBy `json:"check_state"`
-	CreateAt                    *model.OrderBy `json:"create_at"`
-	CreateBy                    *model.OrderBy `json:"create_by"`
-	DeleteAt                    *model.OrderBy `json:"delete_at"`
-	DeleteBy                    *model.OrderBy `json:"delete_by"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
 	DepartmentID                *model.OrderBy `json:"department_id"`
 	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
 	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
@@ -3803,8 +3803,8 @@ type VehicleInfoChangeLogOrderBy struct {
 	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
 	Seats                       *model.OrderBy `json:"seats"`
 	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdateAt                    *model.OrderBy `json:"update_at"`
-	UpdateBy                    *model.OrderBy `json:"update_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
 	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
 	UseNature                   *model.OrderBy `json:"use_nature"`
 	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
@@ -3832,10 +3832,10 @@ type VehicleInfoChangeLogSetInput struct {
 	BusinessScope               *int       `json:"business_scope"`
 	CarRentalPrice              *float64   `json:"car_rental_price"`
 	CheckState                  *int       `json:"check_state"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *time.Time `json:"delete_by"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *time.Time `json:"deleted_by"`
 	DepartmentID                *string    `json:"department_id"`
 	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
 	EnterpriseID                *string    `json:"enterprise_id"`
@@ -3870,8 +3870,8 @@ type VehicleInfoChangeLogSetInput struct {
 	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
 	Seats                       *int       `json:"seats"`
 	TerminalID                  *string    `json:"terminal_id"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
 	UpdateTimeIn                *time.Time `json:"update_time_in"`
 	UseNature                   *string    `json:"use_nature"`
 	VehicleBrand                *int       `json:"vehicle_brand"`
@@ -4272,10 +4272,10 @@ type VehicleInfoMaxFields struct {
 	BusinessScope               *int       `json:"business_scope"`
 	CarRentalPrice              *float64   `json:"car_rental_price"`
 	CheckState                  *int       `json:"check_state"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *time.Time `json:"delete_by"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *time.Time `json:"deleted_by"`
 	DepartmentID                *string    `json:"department_id"`
 	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
 	EnterpriseID                *string    `json:"enterprise_id"`
@@ -4303,8 +4303,8 @@ type VehicleInfoMaxFields struct {
 	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
 	Seats                       *int       `json:"seats"`
 	TerminalID                  *string    `json:"terminal_id"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
 	UpdateTimeIn                *time.Time `json:"update_time_in"`
 	UseNature                   *string    `json:"use_nature"`
 	VehicleBrand                *int       `json:"vehicle_brand"`
@@ -4323,10 +4323,10 @@ type VehicleInfoMaxOrderBy struct {
 	BusinessScope               *model.OrderBy `json:"business_scope"`
 	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
 	CheckState                  *model.OrderBy `json:"check_state"`
-	CreateAt                    *model.OrderBy `json:"create_at"`
-	CreateBy                    *model.OrderBy `json:"create_by"`
-	DeleteAt                    *model.OrderBy `json:"delete_at"`
-	DeleteBy                    *model.OrderBy `json:"delete_by"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
 	DepartmentID                *model.OrderBy `json:"department_id"`
 	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
 	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
@@ -4354,8 +4354,8 @@ type VehicleInfoMaxOrderBy struct {
 	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
 	Seats                       *model.OrderBy `json:"seats"`
 	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdateAt                    *model.OrderBy `json:"update_at"`
-	UpdateBy                    *model.OrderBy `json:"update_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
 	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
 	UseNature                   *model.OrderBy `json:"use_nature"`
 	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
@@ -4374,10 +4374,10 @@ type VehicleInfoMinFields struct {
 	BusinessScope               *int       `json:"business_scope"`
 	CarRentalPrice              *float64   `json:"car_rental_price"`
 	CheckState                  *int       `json:"check_state"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *time.Time `json:"delete_by"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *time.Time `json:"deleted_by"`
 	DepartmentID                *string    `json:"department_id"`
 	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
 	EnterpriseID                *string    `json:"enterprise_id"`
@@ -4405,8 +4405,8 @@ type VehicleInfoMinFields struct {
 	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
 	Seats                       *int       `json:"seats"`
 	TerminalID                  *string    `json:"terminal_id"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
 	UpdateTimeIn                *time.Time `json:"update_time_in"`
 	UseNature                   *string    `json:"use_nature"`
 	VehicleBrand                *int       `json:"vehicle_brand"`
@@ -4425,10 +4425,10 @@ type VehicleInfoMinOrderBy struct {
 	BusinessScope               *model.OrderBy `json:"business_scope"`
 	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
 	CheckState                  *model.OrderBy `json:"check_state"`
-	CreateAt                    *model.OrderBy `json:"create_at"`
-	CreateBy                    *model.OrderBy `json:"create_by"`
-	DeleteAt                    *model.OrderBy `json:"delete_at"`
-	DeleteBy                    *model.OrderBy `json:"delete_by"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
 	DepartmentID                *model.OrderBy `json:"department_id"`
 	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
 	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
@@ -4456,8 +4456,8 @@ type VehicleInfoMinOrderBy struct {
 	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
 	Seats                       *model.OrderBy `json:"seats"`
 	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdateAt                    *model.OrderBy `json:"update_at"`
-	UpdateBy                    *model.OrderBy `json:"update_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
 	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
 	UseNature                   *model.OrderBy `json:"use_nature"`
 	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
@@ -4497,10 +4497,10 @@ type VehicleInfoOrderBy struct {
 	BusinessScope               *model.OrderBy `json:"business_scope"`
 	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
 	CheckState                  *model.OrderBy `json:"check_state"`
-	CreateAt                    *model.OrderBy `json:"create_at"`
-	CreateBy                    *model.OrderBy `json:"create_by"`
-	DeleteAt                    *model.OrderBy `json:"delete_at"`
-	DeleteBy                    *model.OrderBy `json:"delete_by"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
 	DepartmentID                *model.OrderBy `json:"department_id"`
 	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
 	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
@@ -4535,8 +4535,8 @@ type VehicleInfoOrderBy struct {
 	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
 	Seats                       *model.OrderBy `json:"seats"`
 	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdateAt                    *model.OrderBy `json:"update_at"`
-	UpdateBy                    *model.OrderBy `json:"update_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
 	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
 	UseNature                   *model.OrderBy `json:"use_nature"`
 	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
@@ -4564,10 +4564,10 @@ type VehicleInfoSetInput struct {
 	BusinessScope               *int       `json:"business_scope"`
 	CarRentalPrice              *float64   `json:"car_rental_price"`
 	CheckState                  *int       `json:"check_state"`
-	CreateAt                    *time.Time `json:"create_at"`
-	CreateBy                    *string    `json:"create_by"`
-	DeleteAt                    *time.Time `json:"delete_at"`
-	DeleteBy                    *time.Time `json:"delete_by"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *time.Time `json:"deleted_by"`
 	DepartmentID                *string    `json:"department_id"`
 	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
 	EnterpriseID                *string    `json:"enterprise_id"`
@@ -4602,8 +4602,8 @@ type VehicleInfoSetInput struct {
 	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
 	Seats                       *int       `json:"seats"`
 	TerminalID                  *string    `json:"terminal_id"`
-	UpdateAt                    *time.Time `json:"update_at"`
-	UpdateBy                    *string    `json:"update_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
 	UpdateTimeIn                *time.Time `json:"update_time_in"`
 	UseNature                   *string    `json:"use_nature"`
 	VehicleBrand                *int       `json:"vehicle_brand"`
@@ -5569,13 +5569,13 @@ const (
 	// column name
 	MuckTruckCategoryInfoSelectColumnCompulsoryInsurancePolicyPicture MuckTruckCategoryInfoSelectColumn = "compulsory_insurance_policy_picture"
 	// column name
-	MuckTruckCategoryInfoSelectColumnCreateAt MuckTruckCategoryInfoSelectColumn = "create_at"
+	MuckTruckCategoryInfoSelectColumnCreatedAt MuckTruckCategoryInfoSelectColumn = "created_at"
 	// column name
-	MuckTruckCategoryInfoSelectColumnCreateBy MuckTruckCategoryInfoSelectColumn = "create_by"
+	MuckTruckCategoryInfoSelectColumnCreatedBy MuckTruckCategoryInfoSelectColumn = "created_by"
 	// column name
-	MuckTruckCategoryInfoSelectColumnDeleteAt MuckTruckCategoryInfoSelectColumn = "delete_at"
+	MuckTruckCategoryInfoSelectColumnDeletedAt MuckTruckCategoryInfoSelectColumn = "deleted_at"
 	// column name
-	MuckTruckCategoryInfoSelectColumnDeleteBy MuckTruckCategoryInfoSelectColumn = "delete_by"
+	MuckTruckCategoryInfoSelectColumnDeletedBy MuckTruckCategoryInfoSelectColumn = "deleted_by"
 	// column name
 	MuckTruckCategoryInfoSelectColumnDrivingLicenseContactPhone MuckTruckCategoryInfoSelectColumn = "driving_license_contact_phone"
 	// column name
@@ -5641,9 +5641,9 @@ const (
 	// column name
 	MuckTruckCategoryInfoSelectColumnTotalMass MuckTruckCategoryInfoSelectColumn = "total_mass"
 	// column name
-	MuckTruckCategoryInfoSelectColumnUpdateAt MuckTruckCategoryInfoSelectColumn = "update_at"
+	MuckTruckCategoryInfoSelectColumnUpdatedAt MuckTruckCategoryInfoSelectColumn = "updated_at"
 	// column name
-	MuckTruckCategoryInfoSelectColumnUpdateBy MuckTruckCategoryInfoSelectColumn = "update_by"
+	MuckTruckCategoryInfoSelectColumnUpdatedBy MuckTruckCategoryInfoSelectColumn = "updated_by"
 	// column name
 	MuckTruckCategoryInfoSelectColumnVehicleDescription MuckTruckCategoryInfoSelectColumn = "vehicle_description"
 	// column name
@@ -5668,10 +5668,10 @@ var AllMuckTruckCategoryInfoSelectColumn = []MuckTruckCategoryInfoSelectColumn{
 	MuckTruckCategoryInfoSelectColumnAxesNumber,
 	MuckTruckCategoryInfoSelectColumnBlacklistDeadline,
 	MuckTruckCategoryInfoSelectColumnCompulsoryInsurancePolicyPicture,
-	MuckTruckCategoryInfoSelectColumnCreateAt,
-	MuckTruckCategoryInfoSelectColumnCreateBy,
-	MuckTruckCategoryInfoSelectColumnDeleteAt,
-	MuckTruckCategoryInfoSelectColumnDeleteBy,
+	MuckTruckCategoryInfoSelectColumnCreatedAt,
+	MuckTruckCategoryInfoSelectColumnCreatedBy,
+	MuckTruckCategoryInfoSelectColumnDeletedAt,
+	MuckTruckCategoryInfoSelectColumnDeletedBy,
 	MuckTruckCategoryInfoSelectColumnDrivingLicenseContactPhone,
 	MuckTruckCategoryInfoSelectColumnDrivingLicenseIDNumber,
 	MuckTruckCategoryInfoSelectColumnDrivingLiscenseOwnerIDPhoto,
@@ -5704,8 +5704,8 @@ var AllMuckTruckCategoryInfoSelectColumn = []MuckTruckCategoryInfoSelectColumn{
 	MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceExpiryTime,
 	MuckTruckCategoryInfoSelectColumnThirdPartyInsurancePolicyPicture,
 	MuckTruckCategoryInfoSelectColumnTotalMass,
-	MuckTruckCategoryInfoSelectColumnUpdateAt,
-	MuckTruckCategoryInfoSelectColumnUpdateBy,
+	MuckTruckCategoryInfoSelectColumnUpdatedAt,
+	MuckTruckCategoryInfoSelectColumnUpdatedBy,
 	MuckTruckCategoryInfoSelectColumnVehicleDescription,
 	MuckTruckCategoryInfoSelectColumnVehicleID,
 	MuckTruckCategoryInfoSelectColumnVehicleNature,
@@ -5716,7 +5716,7 @@ var AllMuckTruckCategoryInfoSelectColumn = []MuckTruckCategoryInfoSelectColumn{
 
 func (e MuckTruckCategoryInfoSelectColumn) IsValid() bool {
 	switch e {
-	case MuckTruckCategoryInfoSelectColumnActualOwnerContactPhone, MuckTruckCategoryInfoSelectColumnActualOwnerIDNumber, MuckTruckCategoryInfoSelectColumnActualOwnerIDPhoto, MuckTruckCategoryInfoSelectColumnActualOwnerName, MuckTruckCategoryInfoSelectColumnAnnualInspectionExpirationTime, MuckTruckCategoryInfoSelectColumnApplyInspectionTime, MuckTruckCategoryInfoSelectColumnAxesNumber, MuckTruckCategoryInfoSelectColumnBlacklistDeadline, MuckTruckCategoryInfoSelectColumnCompulsoryInsurancePolicyPicture, MuckTruckCategoryInfoSelectColumnCreateAt, MuckTruckCategoryInfoSelectColumnCreateBy, MuckTruckCategoryInfoSelectColumnDeleteAt, MuckTruckCategoryInfoSelectColumnDeleteBy, MuckTruckCategoryInfoSelectColumnDrivingLicenseContactPhone, MuckTruckCategoryInfoSelectColumnDrivingLicenseIDNumber, MuckTruckCategoryInfoSelectColumnDrivingLiscenseOwnerIDPhoto, MuckTruckCategoryInfoSelectColumnEngineNumber, MuckTruckCategoryInfoSelectColumnID, MuckTruckCategoryInfoSelectColumnIllegalNoticeNumberEndorsement, MuckTruckCategoryInfoSelectColumnIllegalNumberEndorsement, MuckTruckCategoryInfoSelectColumnIncidentNumberEndorsement, MuckTruckCategoryInfoSelectColumnInitialRegistrationDate, MuckTruckCategoryInfoSelectColumnInsuranceExpiryTime, MuckTruckCategoryInfoSelectColumnIsBlacklist, MuckTruckCategoryInfoSelectColumnIsDelete, MuckTruckCategoryInfoSelectColumnIsDueSecurityAlarmProcessing, MuckTruckCategoryInfoSelectColumnIsFirstRegister, MuckTruckCategoryInfoSelectColumnIsMuckOfficeAudit, MuckTruckCategoryInfoSelectColumnIsSendSms, MuckTruckCategoryInfoSelectColumnIssueDateOfQuangongNumber, MuckTruckCategoryInfoSelectColumnOwnerIDPhoto, MuckTruckCategoryInfoSelectColumnProcessingNotes, MuckTruckCategoryInfoSelectColumnProcessingTime, MuckTruckCategoryInfoSelectColumnProcessor, MuckTruckCategoryInfoSelectColumnReviewNotes, MuckTruckCategoryInfoSelectColumnReviewStatus, MuckTruckCategoryInfoSelectColumnReviewTime, MuckTruckCategoryInfoSelectColumnReviewer, MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceExpiryDate, MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceLocation, MuckTruckCategoryInfoSelectColumnSigningAcceptanceApplicationTime, MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceCoverage, MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceExpiryTime, MuckTruckCategoryInfoSelectColumnThirdPartyInsurancePolicyPicture, MuckTruckCategoryInfoSelectColumnTotalMass, MuckTruckCategoryInfoSelectColumnUpdateAt, MuckTruckCategoryInfoSelectColumnUpdateBy, MuckTruckCategoryInfoSelectColumnVehicleDescription, MuckTruckCategoryInfoSelectColumnVehicleID, MuckTruckCategoryInfoSelectColumnVehicleNature, MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificateNumber, MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificatePhoto, MuckTruckCategoryInfoSelectColumnVehiclePicture:
+	case MuckTruckCategoryInfoSelectColumnActualOwnerContactPhone, MuckTruckCategoryInfoSelectColumnActualOwnerIDNumber, MuckTruckCategoryInfoSelectColumnActualOwnerIDPhoto, MuckTruckCategoryInfoSelectColumnActualOwnerName, MuckTruckCategoryInfoSelectColumnAnnualInspectionExpirationTime, MuckTruckCategoryInfoSelectColumnApplyInspectionTime, MuckTruckCategoryInfoSelectColumnAxesNumber, MuckTruckCategoryInfoSelectColumnBlacklistDeadline, MuckTruckCategoryInfoSelectColumnCompulsoryInsurancePolicyPicture, MuckTruckCategoryInfoSelectColumnCreatedAt, MuckTruckCategoryInfoSelectColumnCreatedBy, MuckTruckCategoryInfoSelectColumnDeletedAt, MuckTruckCategoryInfoSelectColumnDeletedBy, MuckTruckCategoryInfoSelectColumnDrivingLicenseContactPhone, MuckTruckCategoryInfoSelectColumnDrivingLicenseIDNumber, MuckTruckCategoryInfoSelectColumnDrivingLiscenseOwnerIDPhoto, MuckTruckCategoryInfoSelectColumnEngineNumber, MuckTruckCategoryInfoSelectColumnID, MuckTruckCategoryInfoSelectColumnIllegalNoticeNumberEndorsement, MuckTruckCategoryInfoSelectColumnIllegalNumberEndorsement, MuckTruckCategoryInfoSelectColumnIncidentNumberEndorsement, MuckTruckCategoryInfoSelectColumnInitialRegistrationDate, MuckTruckCategoryInfoSelectColumnInsuranceExpiryTime, MuckTruckCategoryInfoSelectColumnIsBlacklist, MuckTruckCategoryInfoSelectColumnIsDelete, MuckTruckCategoryInfoSelectColumnIsDueSecurityAlarmProcessing, MuckTruckCategoryInfoSelectColumnIsFirstRegister, MuckTruckCategoryInfoSelectColumnIsMuckOfficeAudit, MuckTruckCategoryInfoSelectColumnIsSendSms, MuckTruckCategoryInfoSelectColumnIssueDateOfQuangongNumber, MuckTruckCategoryInfoSelectColumnOwnerIDPhoto, MuckTruckCategoryInfoSelectColumnProcessingNotes, MuckTruckCategoryInfoSelectColumnProcessingTime, MuckTruckCategoryInfoSelectColumnProcessor, MuckTruckCategoryInfoSelectColumnReviewNotes, MuckTruckCategoryInfoSelectColumnReviewStatus, MuckTruckCategoryInfoSelectColumnReviewTime, MuckTruckCategoryInfoSelectColumnReviewer, MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceExpiryDate, MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceLocation, MuckTruckCategoryInfoSelectColumnSigningAcceptanceApplicationTime, MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceCoverage, MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceExpiryTime, MuckTruckCategoryInfoSelectColumnThirdPartyInsurancePolicyPicture, MuckTruckCategoryInfoSelectColumnTotalMass, MuckTruckCategoryInfoSelectColumnUpdatedAt, MuckTruckCategoryInfoSelectColumnUpdatedBy, MuckTruckCategoryInfoSelectColumnVehicleDescription, MuckTruckCategoryInfoSelectColumnVehicleID, MuckTruckCategoryInfoSelectColumnVehicleNature, MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificateNumber, MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificatePhoto, MuckTruckCategoryInfoSelectColumnVehiclePicture:
 		return true
 	}
 	return false
@@ -5766,13 +5766,13 @@ const (
 	// column name
 	MuckTruckCategoryInfoUpdateColumnCompulsoryInsurancePolicyPicture MuckTruckCategoryInfoUpdateColumn = "compulsory_insurance_policy_picture"
 	// column name
-	MuckTruckCategoryInfoUpdateColumnCreateAt MuckTruckCategoryInfoUpdateColumn = "create_at"
+	MuckTruckCategoryInfoUpdateColumnCreatedAt MuckTruckCategoryInfoUpdateColumn = "created_at"
 	// column name
-	MuckTruckCategoryInfoUpdateColumnCreateBy MuckTruckCategoryInfoUpdateColumn = "create_by"
+	MuckTruckCategoryInfoUpdateColumnCreatedBy MuckTruckCategoryInfoUpdateColumn = "created_by"
 	// column name
-	MuckTruckCategoryInfoUpdateColumnDeleteAt MuckTruckCategoryInfoUpdateColumn = "delete_at"
+	MuckTruckCategoryInfoUpdateColumnDeletedAt MuckTruckCategoryInfoUpdateColumn = "deleted_at"
 	// column name
-	MuckTruckCategoryInfoUpdateColumnDeleteBy MuckTruckCategoryInfoUpdateColumn = "delete_by"
+	MuckTruckCategoryInfoUpdateColumnDeletedBy MuckTruckCategoryInfoUpdateColumn = "deleted_by"
 	// column name
 	MuckTruckCategoryInfoUpdateColumnDrivingLicenseContactPhone MuckTruckCategoryInfoUpdateColumn = "driving_license_contact_phone"
 	// column name
@@ -5838,9 +5838,9 @@ const (
 	// column name
 	MuckTruckCategoryInfoUpdateColumnTotalMass MuckTruckCategoryInfoUpdateColumn = "total_mass"
 	// column name
-	MuckTruckCategoryInfoUpdateColumnUpdateAt MuckTruckCategoryInfoUpdateColumn = "update_at"
+	MuckTruckCategoryInfoUpdateColumnUpdatedAt MuckTruckCategoryInfoUpdateColumn = "updated_at"
 	// column name
-	MuckTruckCategoryInfoUpdateColumnUpdateBy MuckTruckCategoryInfoUpdateColumn = "update_by"
+	MuckTruckCategoryInfoUpdateColumnUpdatedBy MuckTruckCategoryInfoUpdateColumn = "updated_by"
 	// column name
 	MuckTruckCategoryInfoUpdateColumnVehicleDescription MuckTruckCategoryInfoUpdateColumn = "vehicle_description"
 	// column name
@@ -5865,10 +5865,10 @@ var AllMuckTruckCategoryInfoUpdateColumn = []MuckTruckCategoryInfoUpdateColumn{
 	MuckTruckCategoryInfoUpdateColumnAxesNumber,
 	MuckTruckCategoryInfoUpdateColumnBlacklistDeadline,
 	MuckTruckCategoryInfoUpdateColumnCompulsoryInsurancePolicyPicture,
-	MuckTruckCategoryInfoUpdateColumnCreateAt,
-	MuckTruckCategoryInfoUpdateColumnCreateBy,
-	MuckTruckCategoryInfoUpdateColumnDeleteAt,
-	MuckTruckCategoryInfoUpdateColumnDeleteBy,
+	MuckTruckCategoryInfoUpdateColumnCreatedAt,
+	MuckTruckCategoryInfoUpdateColumnCreatedBy,
+	MuckTruckCategoryInfoUpdateColumnDeletedAt,
+	MuckTruckCategoryInfoUpdateColumnDeletedBy,
 	MuckTruckCategoryInfoUpdateColumnDrivingLicenseContactPhone,
 	MuckTruckCategoryInfoUpdateColumnDrivingLicenseIDNumber,
 	MuckTruckCategoryInfoUpdateColumnDrivingLiscenseOwnerIDPhoto,
@@ -5901,8 +5901,8 @@ var AllMuckTruckCategoryInfoUpdateColumn = []MuckTruckCategoryInfoUpdateColumn{
 	MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceExpiryTime,
 	MuckTruckCategoryInfoUpdateColumnThirdPartyInsurancePolicyPicture,
 	MuckTruckCategoryInfoUpdateColumnTotalMass,
-	MuckTruckCategoryInfoUpdateColumnUpdateAt,
-	MuckTruckCategoryInfoUpdateColumnUpdateBy,
+	MuckTruckCategoryInfoUpdateColumnUpdatedAt,
+	MuckTruckCategoryInfoUpdateColumnUpdatedBy,
 	MuckTruckCategoryInfoUpdateColumnVehicleDescription,
 	MuckTruckCategoryInfoUpdateColumnVehicleID,
 	MuckTruckCategoryInfoUpdateColumnVehicleNature,
@@ -5913,7 +5913,7 @@ var AllMuckTruckCategoryInfoUpdateColumn = []MuckTruckCategoryInfoUpdateColumn{
 
 func (e MuckTruckCategoryInfoUpdateColumn) IsValid() bool {
 	switch e {
-	case MuckTruckCategoryInfoUpdateColumnActualOwnerContactPhone, MuckTruckCategoryInfoUpdateColumnActualOwnerIDNumber, MuckTruckCategoryInfoUpdateColumnActualOwnerIDPhoto, MuckTruckCategoryInfoUpdateColumnActualOwnerName, MuckTruckCategoryInfoUpdateColumnAnnualInspectionExpirationTime, MuckTruckCategoryInfoUpdateColumnApplyInspectionTime, MuckTruckCategoryInfoUpdateColumnAxesNumber, MuckTruckCategoryInfoUpdateColumnBlacklistDeadline, MuckTruckCategoryInfoUpdateColumnCompulsoryInsurancePolicyPicture, MuckTruckCategoryInfoUpdateColumnCreateAt, MuckTruckCategoryInfoUpdateColumnCreateBy, MuckTruckCategoryInfoUpdateColumnDeleteAt, MuckTruckCategoryInfoUpdateColumnDeleteBy, MuckTruckCategoryInfoUpdateColumnDrivingLicenseContactPhone, MuckTruckCategoryInfoUpdateColumnDrivingLicenseIDNumber, MuckTruckCategoryInfoUpdateColumnDrivingLiscenseOwnerIDPhoto, MuckTruckCategoryInfoUpdateColumnEngineNumber, MuckTruckCategoryInfoUpdateColumnID, MuckTruckCategoryInfoUpdateColumnIllegalNoticeNumberEndorsement, MuckTruckCategoryInfoUpdateColumnIllegalNumberEndorsement, MuckTruckCategoryInfoUpdateColumnIncidentNumberEndorsement, MuckTruckCategoryInfoUpdateColumnInitialRegistrationDate, MuckTruckCategoryInfoUpdateColumnInsuranceExpiryTime, MuckTruckCategoryInfoUpdateColumnIsBlacklist, MuckTruckCategoryInfoUpdateColumnIsDelete, MuckTruckCategoryInfoUpdateColumnIsDueSecurityAlarmProcessing, MuckTruckCategoryInfoUpdateColumnIsFirstRegister, MuckTruckCategoryInfoUpdateColumnIsMuckOfficeAudit, MuckTruckCategoryInfoUpdateColumnIsSendSms, MuckTruckCategoryInfoUpdateColumnIssueDateOfQuangongNumber, MuckTruckCategoryInfoUpdateColumnOwnerIDPhoto, MuckTruckCategoryInfoUpdateColumnProcessingNotes, MuckTruckCategoryInfoUpdateColumnProcessingTime, MuckTruckCategoryInfoUpdateColumnProcessor, MuckTruckCategoryInfoUpdateColumnReviewNotes, MuckTruckCategoryInfoUpdateColumnReviewStatus, MuckTruckCategoryInfoUpdateColumnReviewTime, MuckTruckCategoryInfoUpdateColumnReviewer, MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceExpiryDate, MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceLocation, MuckTruckCategoryInfoUpdateColumnSigningAcceptanceApplicationTime, MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceCoverage, MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceExpiryTime, MuckTruckCategoryInfoUpdateColumnThirdPartyInsurancePolicyPicture, MuckTruckCategoryInfoUpdateColumnTotalMass, MuckTruckCategoryInfoUpdateColumnUpdateAt, MuckTruckCategoryInfoUpdateColumnUpdateBy, MuckTruckCategoryInfoUpdateColumnVehicleDescription, MuckTruckCategoryInfoUpdateColumnVehicleID, MuckTruckCategoryInfoUpdateColumnVehicleNature, MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificateNumber, MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificatePhoto, MuckTruckCategoryInfoUpdateColumnVehiclePicture:
+	case MuckTruckCategoryInfoUpdateColumnActualOwnerContactPhone, MuckTruckCategoryInfoUpdateColumnActualOwnerIDNumber, MuckTruckCategoryInfoUpdateColumnActualOwnerIDPhoto, MuckTruckCategoryInfoUpdateColumnActualOwnerName, MuckTruckCategoryInfoUpdateColumnAnnualInspectionExpirationTime, MuckTruckCategoryInfoUpdateColumnApplyInspectionTime, MuckTruckCategoryInfoUpdateColumnAxesNumber, MuckTruckCategoryInfoUpdateColumnBlacklistDeadline, MuckTruckCategoryInfoUpdateColumnCompulsoryInsurancePolicyPicture, MuckTruckCategoryInfoUpdateColumnCreatedAt, MuckTruckCategoryInfoUpdateColumnCreatedBy, MuckTruckCategoryInfoUpdateColumnDeletedAt, MuckTruckCategoryInfoUpdateColumnDeletedBy, MuckTruckCategoryInfoUpdateColumnDrivingLicenseContactPhone, MuckTruckCategoryInfoUpdateColumnDrivingLicenseIDNumber, MuckTruckCategoryInfoUpdateColumnDrivingLiscenseOwnerIDPhoto, MuckTruckCategoryInfoUpdateColumnEngineNumber, MuckTruckCategoryInfoUpdateColumnID, MuckTruckCategoryInfoUpdateColumnIllegalNoticeNumberEndorsement, MuckTruckCategoryInfoUpdateColumnIllegalNumberEndorsement, MuckTruckCategoryInfoUpdateColumnIncidentNumberEndorsement, MuckTruckCategoryInfoUpdateColumnInitialRegistrationDate, MuckTruckCategoryInfoUpdateColumnInsuranceExpiryTime, MuckTruckCategoryInfoUpdateColumnIsBlacklist, MuckTruckCategoryInfoUpdateColumnIsDelete, MuckTruckCategoryInfoUpdateColumnIsDueSecurityAlarmProcessing, MuckTruckCategoryInfoUpdateColumnIsFirstRegister, MuckTruckCategoryInfoUpdateColumnIsMuckOfficeAudit, MuckTruckCategoryInfoUpdateColumnIsSendSms, MuckTruckCategoryInfoUpdateColumnIssueDateOfQuangongNumber, MuckTruckCategoryInfoUpdateColumnOwnerIDPhoto, MuckTruckCategoryInfoUpdateColumnProcessingNotes, MuckTruckCategoryInfoUpdateColumnProcessingTime, MuckTruckCategoryInfoUpdateColumnProcessor, MuckTruckCategoryInfoUpdateColumnReviewNotes, MuckTruckCategoryInfoUpdateColumnReviewStatus, MuckTruckCategoryInfoUpdateColumnReviewTime, MuckTruckCategoryInfoUpdateColumnReviewer, MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceExpiryDate, MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceLocation, MuckTruckCategoryInfoUpdateColumnSigningAcceptanceApplicationTime, MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceCoverage, MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceExpiryTime, MuckTruckCategoryInfoUpdateColumnThirdPartyInsurancePolicyPicture, MuckTruckCategoryInfoUpdateColumnTotalMass, MuckTruckCategoryInfoUpdateColumnUpdatedAt, MuckTruckCategoryInfoUpdateColumnUpdatedBy, MuckTruckCategoryInfoUpdateColumnVehicleDescription, MuckTruckCategoryInfoUpdateColumnVehicleID, MuckTruckCategoryInfoUpdateColumnVehicleNature, MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificateNumber, MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificatePhoto, MuckTruckCategoryInfoUpdateColumnVehiclePicture:
 		return true
 	}
 	return false
@@ -5988,13 +5988,13 @@ const (
 	// column name
 	MuckTruckInfoSelectColumnAreaID MuckTruckInfoSelectColumn = "area_id"
 	// column name
-	MuckTruckInfoSelectColumnCreateAt MuckTruckInfoSelectColumn = "create_at"
+	MuckTruckInfoSelectColumnCreatedAt MuckTruckInfoSelectColumn = "created_at"
 	// column name
-	MuckTruckInfoSelectColumnCreateBy MuckTruckInfoSelectColumn = "create_by"
+	MuckTruckInfoSelectColumnCreatedBy MuckTruckInfoSelectColumn = "created_by"
 	// column name
-	MuckTruckInfoSelectColumnDeleteAt MuckTruckInfoSelectColumn = "delete_at"
+	MuckTruckInfoSelectColumnDeletedAt MuckTruckInfoSelectColumn = "deleted_at"
 	// column name
-	MuckTruckInfoSelectColumnDeleteBy MuckTruckInfoSelectColumn = "delete_by"
+	MuckTruckInfoSelectColumnDeletedBy MuckTruckInfoSelectColumn = "deleted_by"
 	// column name
 	MuckTruckInfoSelectColumnExpiryDate MuckTruckInfoSelectColumn = "expiry_date"
 	// column name
@@ -6018,19 +6018,19 @@ const (
 	// column name
 	MuckTruckInfoSelectColumnSimCardNumber MuckTruckInfoSelectColumn = "sim_card_number"
 	// column name
-	MuckTruckInfoSelectColumnUpdateAt MuckTruckInfoSelectColumn = "update_at"
+	MuckTruckInfoSelectColumnUpdatedAt MuckTruckInfoSelectColumn = "updated_at"
 	// column name
-	MuckTruckInfoSelectColumnUpdateBy MuckTruckInfoSelectColumn = "update_by"
+	MuckTruckInfoSelectColumnUpdatedBy MuckTruckInfoSelectColumn = "updated_by"
 	// column name
 	MuckTruckInfoSelectColumnVehicleID MuckTruckInfoSelectColumn = "vehicle_id"
 )
 
 var AllMuckTruckInfoSelectColumn = []MuckTruckInfoSelectColumn{
 	MuckTruckInfoSelectColumnAreaID,
-	MuckTruckInfoSelectColumnCreateAt,
-	MuckTruckInfoSelectColumnCreateBy,
-	MuckTruckInfoSelectColumnDeleteAt,
-	MuckTruckInfoSelectColumnDeleteBy,
+	MuckTruckInfoSelectColumnCreatedAt,
+	MuckTruckInfoSelectColumnCreatedBy,
+	MuckTruckInfoSelectColumnDeletedAt,
+	MuckTruckInfoSelectColumnDeletedBy,
 	MuckTruckInfoSelectColumnExpiryDate,
 	MuckTruckInfoSelectColumnFakeIP,
 	MuckTruckInfoSelectColumnIsReserveLibrary,
@@ -6042,14 +6042,14 @@ var AllMuckTruckInfoSelectColumn = []MuckTruckInfoSelectColumn{
 	MuckTruckInfoSelectColumnSelfNumber,
 	MuckTruckInfoSelectColumnServerID,
 	MuckTruckInfoSelectColumnSimCardNumber,
-	MuckTruckInfoSelectColumnUpdateAt,
-	MuckTruckInfoSelectColumnUpdateBy,
+	MuckTruckInfoSelectColumnUpdatedAt,
+	MuckTruckInfoSelectColumnUpdatedBy,
 	MuckTruckInfoSelectColumnVehicleID,
 }
 
 func (e MuckTruckInfoSelectColumn) IsValid() bool {
 	switch e {
-	case MuckTruckInfoSelectColumnAreaID, MuckTruckInfoSelectColumnCreateAt, MuckTruckInfoSelectColumnCreateBy, MuckTruckInfoSelectColumnDeleteAt, MuckTruckInfoSelectColumnDeleteBy, MuckTruckInfoSelectColumnExpiryDate, MuckTruckInfoSelectColumnFakeIP, MuckTruckInfoSelectColumnIsReserveLibrary, MuckTruckInfoSelectColumnLoadCategory, MuckTruckInfoSelectColumnMobileCardLocation, MuckTruckInfoSelectColumnMuckTruckID, MuckTruckInfoSelectColumnMuckTruckType, MuckTruckInfoSelectColumnRegistrationDate, MuckTruckInfoSelectColumnSelfNumber, MuckTruckInfoSelectColumnServerID, MuckTruckInfoSelectColumnSimCardNumber, MuckTruckInfoSelectColumnUpdateAt, MuckTruckInfoSelectColumnUpdateBy, MuckTruckInfoSelectColumnVehicleID:
+	case MuckTruckInfoSelectColumnAreaID, MuckTruckInfoSelectColumnCreatedAt, MuckTruckInfoSelectColumnCreatedBy, MuckTruckInfoSelectColumnDeletedAt, MuckTruckInfoSelectColumnDeletedBy, MuckTruckInfoSelectColumnExpiryDate, MuckTruckInfoSelectColumnFakeIP, MuckTruckInfoSelectColumnIsReserveLibrary, MuckTruckInfoSelectColumnLoadCategory, MuckTruckInfoSelectColumnMobileCardLocation, MuckTruckInfoSelectColumnMuckTruckID, MuckTruckInfoSelectColumnMuckTruckType, MuckTruckInfoSelectColumnRegistrationDate, MuckTruckInfoSelectColumnSelfNumber, MuckTruckInfoSelectColumnServerID, MuckTruckInfoSelectColumnSimCardNumber, MuckTruckInfoSelectColumnUpdatedAt, MuckTruckInfoSelectColumnUpdatedBy, MuckTruckInfoSelectColumnVehicleID:
 		return true
 	}
 	return false
@@ -6083,13 +6083,13 @@ const (
 	// column name
 	MuckTruckInfoUpdateColumnAreaID MuckTruckInfoUpdateColumn = "area_id"
 	// column name
-	MuckTruckInfoUpdateColumnCreateAt MuckTruckInfoUpdateColumn = "create_at"
+	MuckTruckInfoUpdateColumnCreatedAt MuckTruckInfoUpdateColumn = "created_at"
 	// column name
-	MuckTruckInfoUpdateColumnCreateBy MuckTruckInfoUpdateColumn = "create_by"
+	MuckTruckInfoUpdateColumnCreatedBy MuckTruckInfoUpdateColumn = "created_by"
 	// column name
-	MuckTruckInfoUpdateColumnDeleteAt MuckTruckInfoUpdateColumn = "delete_at"
+	MuckTruckInfoUpdateColumnDeletedAt MuckTruckInfoUpdateColumn = "deleted_at"
 	// column name
-	MuckTruckInfoUpdateColumnDeleteBy MuckTruckInfoUpdateColumn = "delete_by"
+	MuckTruckInfoUpdateColumnDeletedBy MuckTruckInfoUpdateColumn = "deleted_by"
 	// column name
 	MuckTruckInfoUpdateColumnExpiryDate MuckTruckInfoUpdateColumn = "expiry_date"
 	// column name
@@ -6113,19 +6113,19 @@ const (
 	// column name
 	MuckTruckInfoUpdateColumnSimCardNumber MuckTruckInfoUpdateColumn = "sim_card_number"
 	// column name
-	MuckTruckInfoUpdateColumnUpdateAt MuckTruckInfoUpdateColumn = "update_at"
+	MuckTruckInfoUpdateColumnUpdatedAt MuckTruckInfoUpdateColumn = "updated_at"
 	// column name
-	MuckTruckInfoUpdateColumnUpdateBy MuckTruckInfoUpdateColumn = "update_by"
+	MuckTruckInfoUpdateColumnUpdatedBy MuckTruckInfoUpdateColumn = "updated_by"
 	// column name
 	MuckTruckInfoUpdateColumnVehicleID MuckTruckInfoUpdateColumn = "vehicle_id"
 )
 
 var AllMuckTruckInfoUpdateColumn = []MuckTruckInfoUpdateColumn{
 	MuckTruckInfoUpdateColumnAreaID,
-	MuckTruckInfoUpdateColumnCreateAt,
-	MuckTruckInfoUpdateColumnCreateBy,
-	MuckTruckInfoUpdateColumnDeleteAt,
-	MuckTruckInfoUpdateColumnDeleteBy,
+	MuckTruckInfoUpdateColumnCreatedAt,
+	MuckTruckInfoUpdateColumnCreatedBy,
+	MuckTruckInfoUpdateColumnDeletedAt,
+	MuckTruckInfoUpdateColumnDeletedBy,
 	MuckTruckInfoUpdateColumnExpiryDate,
 	MuckTruckInfoUpdateColumnFakeIP,
 	MuckTruckInfoUpdateColumnIsReserveLibrary,
@@ -6137,14 +6137,14 @@ var AllMuckTruckInfoUpdateColumn = []MuckTruckInfoUpdateColumn{
 	MuckTruckInfoUpdateColumnSelfNumber,
 	MuckTruckInfoUpdateColumnServerID,
 	MuckTruckInfoUpdateColumnSimCardNumber,
-	MuckTruckInfoUpdateColumnUpdateAt,
-	MuckTruckInfoUpdateColumnUpdateBy,
+	MuckTruckInfoUpdateColumnUpdatedAt,
+	MuckTruckInfoUpdateColumnUpdatedBy,
 	MuckTruckInfoUpdateColumnVehicleID,
 }
 
 func (e MuckTruckInfoUpdateColumn) IsValid() bool {
 	switch e {
-	case MuckTruckInfoUpdateColumnAreaID, MuckTruckInfoUpdateColumnCreateAt, MuckTruckInfoUpdateColumnCreateBy, MuckTruckInfoUpdateColumnDeleteAt, MuckTruckInfoUpdateColumnDeleteBy, MuckTruckInfoUpdateColumnExpiryDate, MuckTruckInfoUpdateColumnFakeIP, MuckTruckInfoUpdateColumnIsReserveLibrary, MuckTruckInfoUpdateColumnLoadCategory, MuckTruckInfoUpdateColumnMobileCardLocation, MuckTruckInfoUpdateColumnMuckTruckID, MuckTruckInfoUpdateColumnMuckTruckType, MuckTruckInfoUpdateColumnRegistrationDate, MuckTruckInfoUpdateColumnSelfNumber, MuckTruckInfoUpdateColumnServerID, MuckTruckInfoUpdateColumnSimCardNumber, MuckTruckInfoUpdateColumnUpdateAt, MuckTruckInfoUpdateColumnUpdateBy, MuckTruckInfoUpdateColumnVehicleID:
+	case MuckTruckInfoUpdateColumnAreaID, MuckTruckInfoUpdateColumnCreatedAt, MuckTruckInfoUpdateColumnCreatedBy, MuckTruckInfoUpdateColumnDeletedAt, MuckTruckInfoUpdateColumnDeletedBy, MuckTruckInfoUpdateColumnExpiryDate, MuckTruckInfoUpdateColumnFakeIP, MuckTruckInfoUpdateColumnIsReserveLibrary, MuckTruckInfoUpdateColumnLoadCategory, MuckTruckInfoUpdateColumnMobileCardLocation, MuckTruckInfoUpdateColumnMuckTruckID, MuckTruckInfoUpdateColumnMuckTruckType, MuckTruckInfoUpdateColumnRegistrationDate, MuckTruckInfoUpdateColumnSelfNumber, MuckTruckInfoUpdateColumnServerID, MuckTruckInfoUpdateColumnSimCardNumber, MuckTruckInfoUpdateColumnUpdatedAt, MuckTruckInfoUpdateColumnUpdatedBy, MuckTruckInfoUpdateColumnVehicleID:
 		return true
 	}
 	return false
@@ -6227,11 +6227,11 @@ const (
 	// column name
 	MuckTruckPreviewNumberSelectColumnContactPhone MuckTruckPreviewNumberSelectColumn = "contact_phone"
 	// column name
-	MuckTruckPreviewNumberSelectColumnCreateBy MuckTruckPreviewNumberSelectColumn = "create_by"
+	MuckTruckPreviewNumberSelectColumnCreatedBy MuckTruckPreviewNumberSelectColumn = "created_by"
 	// column name
-	MuckTruckPreviewNumberSelectColumnDeleteAt MuckTruckPreviewNumberSelectColumn = "delete_at"
+	MuckTruckPreviewNumberSelectColumnDeletedAt MuckTruckPreviewNumberSelectColumn = "deleted_at"
 	// column name
-	MuckTruckPreviewNumberSelectColumnDeleteBy MuckTruckPreviewNumberSelectColumn = "delete_by"
+	MuckTruckPreviewNumberSelectColumnDeletedBy MuckTruckPreviewNumberSelectColumn = "deleted_by"
 	// column name
 	MuckTruckPreviewNumberSelectColumnFrontLicensePlate MuckTruckPreviewNumberSelectColumn = "front_license_plate"
 	// column name
@@ -6267,9 +6267,9 @@ const (
 	// column name
 	MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber MuckTruckPreviewNumberSelectColumn = "unlawful_violation_number"
 	// column name
-	MuckTruckPreviewNumberSelectColumnUpdateAt MuckTruckPreviewNumberSelectColumn = "update_at"
+	MuckTruckPreviewNumberSelectColumnUpdatedAt MuckTruckPreviewNumberSelectColumn = "updated_at"
 	// column name
-	MuckTruckPreviewNumberSelectColumnUpdateBy MuckTruckPreviewNumberSelectColumn = "update_by"
+	MuckTruckPreviewNumberSelectColumnUpdatedBy MuckTruckPreviewNumberSelectColumn = "updated_by"
 	// column name
 	MuckTruckPreviewNumberSelectColumnVehicleID MuckTruckPreviewNumberSelectColumn = "vehicle_id"
 	// column name
@@ -6282,9 +6282,9 @@ var AllMuckTruckPreviewNumberSelectColumn = []MuckTruckPreviewNumberSelectColumn
 	MuckTruckPreviewNumberSelectColumnConfirmor,
 	MuckTruckPreviewNumberSelectColumnContactPerson,
 	MuckTruckPreviewNumberSelectColumnContactPhone,
-	MuckTruckPreviewNumberSelectColumnCreateBy,
-	MuckTruckPreviewNumberSelectColumnDeleteAt,
-	MuckTruckPreviewNumberSelectColumnDeleteBy,
+	MuckTruckPreviewNumberSelectColumnCreatedBy,
+	MuckTruckPreviewNumberSelectColumnDeletedAt,
+	MuckTruckPreviewNumberSelectColumnDeletedBy,
 	MuckTruckPreviewNumberSelectColumnFrontLicensePlate,
 	MuckTruckPreviewNumberSelectColumnID,
 	MuckTruckPreviewNumberSelectColumnInitialRegistrationDate,
@@ -6302,15 +6302,15 @@ var AllMuckTruckPreviewNumberSelectColumn = []MuckTruckPreviewNumberSelectColumn
 	MuckTruckPreviewNumberSelectColumnSideLicensePlate,
 	MuckTruckPreviewNumberSelectColumnSvnNumber,
 	MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber,
-	MuckTruckPreviewNumberSelectColumnUpdateAt,
-	MuckTruckPreviewNumberSelectColumnUpdateBy,
+	MuckTruckPreviewNumberSelectColumnUpdatedAt,
+	MuckTruckPreviewNumberSelectColumnUpdatedBy,
 	MuckTruckPreviewNumberSelectColumnVehicleID,
 	MuckTruckPreviewNumberSelectColumnWorkNumberPlateColor,
 }
 
 func (e MuckTruckPreviewNumberSelectColumn) IsValid() bool {
 	switch e {
-	case MuckTruckPreviewNumberSelectColumnConfirmStatus, MuckTruckPreviewNumberSelectColumnConfirmTime, MuckTruckPreviewNumberSelectColumnConfirmor, MuckTruckPreviewNumberSelectColumnContactPerson, MuckTruckPreviewNumberSelectColumnContactPhone, MuckTruckPreviewNumberSelectColumnCreateBy, MuckTruckPreviewNumberSelectColumnDeleteAt, MuckTruckPreviewNumberSelectColumnDeleteBy, MuckTruckPreviewNumberSelectColumnFrontLicensePlate, MuckTruckPreviewNumberSelectColumnID, MuckTruckPreviewNumberSelectColumnInitialRegistrationDate, MuckTruckPreviewNumberSelectColumnIsDelete, MuckTruckPreviewNumberSelectColumnIsRegisterSaleOrder, MuckTruckPreviewNumberSelectColumnIsReviewAutomatically, MuckTruckPreviewNumberSelectColumnMarkingTime, MuckTruckPreviewNumberSelectColumnOriginalNumber, MuckTruckPreviewNumberSelectColumnProductionStatus, MuckTruckPreviewNumberSelectColumnProductionTime, MuckTruckPreviewNumberSelectColumnProductionTimes, MuckTruckPreviewNumberSelectColumnRearLicensePlate, MuckTruckPreviewNumberSelectColumnRegistrationTime, MuckTruckPreviewNumberSelectColumnRemarks, MuckTruckPreviewNumberSelectColumnSideLicensePlate, MuckTruckPreviewNumberSelectColumnSvnNumber, MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber, MuckTruckPreviewNumberSelectColumnUpdateAt, MuckTruckPreviewNumberSelectColumnUpdateBy, MuckTruckPreviewNumberSelectColumnVehicleID, MuckTruckPreviewNumberSelectColumnWorkNumberPlateColor:
+	case MuckTruckPreviewNumberSelectColumnConfirmStatus, MuckTruckPreviewNumberSelectColumnConfirmTime, MuckTruckPreviewNumberSelectColumnConfirmor, MuckTruckPreviewNumberSelectColumnContactPerson, MuckTruckPreviewNumberSelectColumnContactPhone, MuckTruckPreviewNumberSelectColumnCreatedBy, MuckTruckPreviewNumberSelectColumnDeletedAt, MuckTruckPreviewNumberSelectColumnDeletedBy, MuckTruckPreviewNumberSelectColumnFrontLicensePlate, MuckTruckPreviewNumberSelectColumnID, MuckTruckPreviewNumberSelectColumnInitialRegistrationDate, MuckTruckPreviewNumberSelectColumnIsDelete, MuckTruckPreviewNumberSelectColumnIsRegisterSaleOrder, MuckTruckPreviewNumberSelectColumnIsReviewAutomatically, MuckTruckPreviewNumberSelectColumnMarkingTime, MuckTruckPreviewNumberSelectColumnOriginalNumber, MuckTruckPreviewNumberSelectColumnProductionStatus, MuckTruckPreviewNumberSelectColumnProductionTime, MuckTruckPreviewNumberSelectColumnProductionTimes, MuckTruckPreviewNumberSelectColumnRearLicensePlate, MuckTruckPreviewNumberSelectColumnRegistrationTime, MuckTruckPreviewNumberSelectColumnRemarks, MuckTruckPreviewNumberSelectColumnSideLicensePlate, MuckTruckPreviewNumberSelectColumnSvnNumber, MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber, MuckTruckPreviewNumberSelectColumnUpdatedAt, MuckTruckPreviewNumberSelectColumnUpdatedBy, MuckTruckPreviewNumberSelectColumnVehicleID, MuckTruckPreviewNumberSelectColumnWorkNumberPlateColor:
 		return true
 	}
 	return false
@@ -6352,11 +6352,11 @@ const (
 	// column name
 	MuckTruckPreviewNumberUpdateColumnContactPhone MuckTruckPreviewNumberUpdateColumn = "contact_phone"
 	// column name
-	MuckTruckPreviewNumberUpdateColumnCreateBy MuckTruckPreviewNumberUpdateColumn = "create_by"
+	MuckTruckPreviewNumberUpdateColumnCreatedBy MuckTruckPreviewNumberUpdateColumn = "created_by"
 	// column name
-	MuckTruckPreviewNumberUpdateColumnDeleteAt MuckTruckPreviewNumberUpdateColumn = "delete_at"
+	MuckTruckPreviewNumberUpdateColumnDeletedAt MuckTruckPreviewNumberUpdateColumn = "deleted_at"
 	// column name
-	MuckTruckPreviewNumberUpdateColumnDeleteBy MuckTruckPreviewNumberUpdateColumn = "delete_by"
+	MuckTruckPreviewNumberUpdateColumnDeletedBy MuckTruckPreviewNumberUpdateColumn = "deleted_by"
 	// column name
 	MuckTruckPreviewNumberUpdateColumnFrontLicensePlate MuckTruckPreviewNumberUpdateColumn = "front_license_plate"
 	// column name
@@ -6392,9 +6392,9 @@ const (
 	// column name
 	MuckTruckPreviewNumberUpdateColumnUnlawfulViolationNumber MuckTruckPreviewNumberUpdateColumn = "unlawful_violation_number"
 	// column name
-	MuckTruckPreviewNumberUpdateColumnUpdateAt MuckTruckPreviewNumberUpdateColumn = "update_at"
+	MuckTruckPreviewNumberUpdateColumnUpdatedAt MuckTruckPreviewNumberUpdateColumn = "updated_at"
 	// column name
-	MuckTruckPreviewNumberUpdateColumnUpdateBy MuckTruckPreviewNumberUpdateColumn = "update_by"
+	MuckTruckPreviewNumberUpdateColumnUpdatedBy MuckTruckPreviewNumberUpdateColumn = "updated_by"
 	// column name
 	MuckTruckPreviewNumberUpdateColumnVehicleID MuckTruckPreviewNumberUpdateColumn = "vehicle_id"
 	// column name
@@ -6407,9 +6407,9 @@ var AllMuckTruckPreviewNumberUpdateColumn = []MuckTruckPreviewNumberUpdateColumn
 	MuckTruckPreviewNumberUpdateColumnConfirmor,
 	MuckTruckPreviewNumberUpdateColumnContactPerson,
 	MuckTruckPreviewNumberUpdateColumnContactPhone,
-	MuckTruckPreviewNumberUpdateColumnCreateBy,
-	MuckTruckPreviewNumberUpdateColumnDeleteAt,
-	MuckTruckPreviewNumberUpdateColumnDeleteBy,
+	MuckTruckPreviewNumberUpdateColumnCreatedBy,
+	MuckTruckPreviewNumberUpdateColumnDeletedAt,
+	MuckTruckPreviewNumberUpdateColumnDeletedBy,
 	MuckTruckPreviewNumberUpdateColumnFrontLicensePlate,
 	MuckTruckPreviewNumberUpdateColumnID,
 	MuckTruckPreviewNumberUpdateColumnInitialRegistrationDate,
@@ -6427,15 +6427,15 @@ var AllMuckTruckPreviewNumberUpdateColumn = []MuckTruckPreviewNumberUpdateColumn
 	MuckTruckPreviewNumberUpdateColumnSideLicensePlate,
 	MuckTruckPreviewNumberUpdateColumnSvnNumber,
 	MuckTruckPreviewNumberUpdateColumnUnlawfulViolationNumber,
-	MuckTruckPreviewNumberUpdateColumnUpdateAt,
-	MuckTruckPreviewNumberUpdateColumnUpdateBy,
+	MuckTruckPreviewNumberUpdateColumnUpdatedAt,
+	MuckTruckPreviewNumberUpdateColumnUpdatedBy,
 	MuckTruckPreviewNumberUpdateColumnVehicleID,
 	MuckTruckPreviewNumberUpdateColumnWorkNumberPlateColor,
 }
 
 func (e MuckTruckPreviewNumberUpdateColumn) IsValid() bool {
 	switch e {
-	case MuckTruckPreviewNumberUpdateColumnConfirmStatus, MuckTruckPreviewNumberUpdateColumnConfirmTime, MuckTruckPreviewNumberUpdateColumnConfirmor, MuckTruckPreviewNumberUpdateColumnContactPerson, MuckTruckPreviewNumberUpdateColumnContactPhone, MuckTruckPreviewNumberUpdateColumnCreateBy, MuckTruckPreviewNumberUpdateColumnDeleteAt, MuckTruckPreviewNumberUpdateColumnDeleteBy, MuckTruckPreviewNumberUpdateColumnFrontLicensePlate, MuckTruckPreviewNumberUpdateColumnID, MuckTruckPreviewNumberUpdateColumnInitialRegistrationDate, MuckTruckPreviewNumberUpdateColumnIsDelete, MuckTruckPreviewNumberUpdateColumnIsRegisterSaleOrder, MuckTruckPreviewNumberUpdateColumnIsReviewAutomatically, MuckTruckPreviewNumberUpdateColumnMarkingTime, MuckTruckPreviewNumberUpdateColumnOriginalNumber, MuckTruckPreviewNumberUpdateColumnProductionStatus, MuckTruckPreviewNumberUpdateColumnProductionTime, MuckTruckPreviewNumberUpdateColumnProductionTimes, MuckTruckPreviewNumberUpdateColumnRearLicensePlate, MuckTruckPreviewNumberUpdateColumnRegistrationTime, MuckTruckPreviewNumberUpdateColumnRemarks, MuckTruckPreviewNumberUpdateColumnSideLicensePlate, MuckTruckPreviewNumberUpdateColumnSvnNumber, MuckTruckPreviewNumberUpdateColumnUnlawfulViolationNumber, MuckTruckPreviewNumberUpdateColumnUpdateAt, MuckTruckPreviewNumberUpdateColumnUpdateBy, MuckTruckPreviewNumberUpdateColumnVehicleID, MuckTruckPreviewNumberUpdateColumnWorkNumberPlateColor:
+	case MuckTruckPreviewNumberUpdateColumnConfirmStatus, MuckTruckPreviewNumberUpdateColumnConfirmTime, MuckTruckPreviewNumberUpdateColumnConfirmor, MuckTruckPreviewNumberUpdateColumnContactPerson, MuckTruckPreviewNumberUpdateColumnContactPhone, MuckTruckPreviewNumberUpdateColumnCreatedBy, MuckTruckPreviewNumberUpdateColumnDeletedAt, MuckTruckPreviewNumberUpdateColumnDeletedBy, MuckTruckPreviewNumberUpdateColumnFrontLicensePlate, MuckTruckPreviewNumberUpdateColumnID, MuckTruckPreviewNumberUpdateColumnInitialRegistrationDate, MuckTruckPreviewNumberUpdateColumnIsDelete, MuckTruckPreviewNumberUpdateColumnIsRegisterSaleOrder, MuckTruckPreviewNumberUpdateColumnIsReviewAutomatically, MuckTruckPreviewNumberUpdateColumnMarkingTime, MuckTruckPreviewNumberUpdateColumnOriginalNumber, MuckTruckPreviewNumberUpdateColumnProductionStatus, MuckTruckPreviewNumberUpdateColumnProductionTime, MuckTruckPreviewNumberUpdateColumnProductionTimes, MuckTruckPreviewNumberUpdateColumnRearLicensePlate, MuckTruckPreviewNumberUpdateColumnRegistrationTime, MuckTruckPreviewNumberUpdateColumnRemarks, MuckTruckPreviewNumberUpdateColumnSideLicensePlate, MuckTruckPreviewNumberUpdateColumnSvnNumber, MuckTruckPreviewNumberUpdateColumnUnlawfulViolationNumber, MuckTruckPreviewNumberUpdateColumnUpdatedAt, MuckTruckPreviewNumberUpdateColumnUpdatedBy, MuckTruckPreviewNumberUpdateColumnVehicleID, MuckTruckPreviewNumberUpdateColumnWorkNumberPlateColor:
 		return true
 	}
 	return false
@@ -6508,40 +6508,40 @@ type MuckTruckWorkerIDCardOrdersSelectColumn string
 
 const (
 	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnCreateAt MuckTruckWorkerIDCardOrdersSelectColumn = "create_at"
+	MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt MuckTruckWorkerIDCardOrdersSelectColumn = "created_at"
 	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnCreateBy MuckTruckWorkerIDCardOrdersSelectColumn = "create_by"
+	MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy MuckTruckWorkerIDCardOrdersSelectColumn = "created_by"
 	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnDeleteAt MuckTruckWorkerIDCardOrdersSelectColumn = "delete_at"
+	MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt MuckTruckWorkerIDCardOrdersSelectColumn = "deleted_at"
 	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnDeleteBy MuckTruckWorkerIDCardOrdersSelectColumn = "delete_by"
+	MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy MuckTruckWorkerIDCardOrdersSelectColumn = "deleted_by"
 	// column name
 	MuckTruckWorkerIDCardOrdersSelectColumnID MuckTruckWorkerIDCardOrdersSelectColumn = "id"
 	// column name
 	MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID MuckTruckWorkerIDCardOrdersSelectColumn = "preview_number_id"
 	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdateAt MuckTruckWorkerIDCardOrdersSelectColumn = "update_at"
+	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt MuckTruckWorkerIDCardOrdersSelectColumn = "updated_at"
 	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdateBy MuckTruckWorkerIDCardOrdersSelectColumn = "update_by"
+	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy MuckTruckWorkerIDCardOrdersSelectColumn = "updated_by"
 	// column name
 	MuckTruckWorkerIDCardOrdersSelectColumnVehicleID MuckTruckWorkerIDCardOrdersSelectColumn = "vehicle_id"
 )
 
 var AllMuckTruckWorkerIDCardOrdersSelectColumn = []MuckTruckWorkerIDCardOrdersSelectColumn{
-	MuckTruckWorkerIDCardOrdersSelectColumnCreateAt,
-	MuckTruckWorkerIDCardOrdersSelectColumnCreateBy,
-	MuckTruckWorkerIDCardOrdersSelectColumnDeleteAt,
-	MuckTruckWorkerIDCardOrdersSelectColumnDeleteBy,
+	MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt,
+	MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy,
+	MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt,
+	MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy,
 	MuckTruckWorkerIDCardOrdersSelectColumnID,
 	MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID,
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdateAt,
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdateBy,
+	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt,
+	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy,
 	MuckTruckWorkerIDCardOrdersSelectColumnVehicleID,
 }
 
 func (e MuckTruckWorkerIDCardOrdersSelectColumn) IsValid() bool {
 	switch e {
-	case MuckTruckWorkerIDCardOrdersSelectColumnCreateAt, MuckTruckWorkerIDCardOrdersSelectColumnCreateBy, MuckTruckWorkerIDCardOrdersSelectColumnDeleteAt, MuckTruckWorkerIDCardOrdersSelectColumnDeleteBy, MuckTruckWorkerIDCardOrdersSelectColumnID, MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID, MuckTruckWorkerIDCardOrdersSelectColumnUpdateAt, MuckTruckWorkerIDCardOrdersSelectColumnUpdateBy, MuckTruckWorkerIDCardOrdersSelectColumnVehicleID:
+	case MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt, MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy, MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt, MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy, MuckTruckWorkerIDCardOrdersSelectColumnID, MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID, MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt, MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy, MuckTruckWorkerIDCardOrdersSelectColumnVehicleID:
 		return true
 	}
 	return false
@@ -6573,40 +6573,40 @@ type MuckTruckWorkerIDCardOrdersUpdateColumn string
 
 const (
 	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnCreateAt MuckTruckWorkerIDCardOrdersUpdateColumn = "create_at"
+	MuckTruckWorkerIDCardOrdersUpdateColumnCreatedAt MuckTruckWorkerIDCardOrdersUpdateColumn = "created_at"
 	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnCreateBy MuckTruckWorkerIDCardOrdersUpdateColumn = "create_by"
+	MuckTruckWorkerIDCardOrdersUpdateColumnCreatedBy MuckTruckWorkerIDCardOrdersUpdateColumn = "created_by"
 	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnDeleteAt MuckTruckWorkerIDCardOrdersUpdateColumn = "delete_at"
+	MuckTruckWorkerIDCardOrdersUpdateColumnDeletedAt MuckTruckWorkerIDCardOrdersUpdateColumn = "deleted_at"
 	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnDeleteBy MuckTruckWorkerIDCardOrdersUpdateColumn = "delete_by"
+	MuckTruckWorkerIDCardOrdersUpdateColumnDeletedBy MuckTruckWorkerIDCardOrdersUpdateColumn = "deleted_by"
 	// column name
 	MuckTruckWorkerIDCardOrdersUpdateColumnID MuckTruckWorkerIDCardOrdersUpdateColumn = "id"
 	// column name
 	MuckTruckWorkerIDCardOrdersUpdateColumnPreviewNumberID MuckTruckWorkerIDCardOrdersUpdateColumn = "preview_number_id"
 	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnUpdateAt MuckTruckWorkerIDCardOrdersUpdateColumn = "update_at"
+	MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedAt MuckTruckWorkerIDCardOrdersUpdateColumn = "updated_at"
 	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnUpdateBy MuckTruckWorkerIDCardOrdersUpdateColumn = "update_by"
+	MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedBy MuckTruckWorkerIDCardOrdersUpdateColumn = "updated_by"
 	// column name
 	MuckTruckWorkerIDCardOrdersUpdateColumnVehicleID MuckTruckWorkerIDCardOrdersUpdateColumn = "vehicle_id"
 )
 
 var AllMuckTruckWorkerIDCardOrdersUpdateColumn = []MuckTruckWorkerIDCardOrdersUpdateColumn{
-	MuckTruckWorkerIDCardOrdersUpdateColumnCreateAt,
-	MuckTruckWorkerIDCardOrdersUpdateColumnCreateBy,
-	MuckTruckWorkerIDCardOrdersUpdateColumnDeleteAt,
-	MuckTruckWorkerIDCardOrdersUpdateColumnDeleteBy,
+	MuckTruckWorkerIDCardOrdersUpdateColumnCreatedAt,
+	MuckTruckWorkerIDCardOrdersUpdateColumnCreatedBy,
+	MuckTruckWorkerIDCardOrdersUpdateColumnDeletedAt,
+	MuckTruckWorkerIDCardOrdersUpdateColumnDeletedBy,
 	MuckTruckWorkerIDCardOrdersUpdateColumnID,
 	MuckTruckWorkerIDCardOrdersUpdateColumnPreviewNumberID,
-	MuckTruckWorkerIDCardOrdersUpdateColumnUpdateAt,
-	MuckTruckWorkerIDCardOrdersUpdateColumnUpdateBy,
+	MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedAt,
+	MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedBy,
 	MuckTruckWorkerIDCardOrdersUpdateColumnVehicleID,
 }
 
 func (e MuckTruckWorkerIDCardOrdersUpdateColumn) IsValid() bool {
 	switch e {
-	case MuckTruckWorkerIDCardOrdersUpdateColumnCreateAt, MuckTruckWorkerIDCardOrdersUpdateColumnCreateBy, MuckTruckWorkerIDCardOrdersUpdateColumnDeleteAt, MuckTruckWorkerIDCardOrdersUpdateColumnDeleteBy, MuckTruckWorkerIDCardOrdersUpdateColumnID, MuckTruckWorkerIDCardOrdersUpdateColumnPreviewNumberID, MuckTruckWorkerIDCardOrdersUpdateColumnUpdateAt, MuckTruckWorkerIDCardOrdersUpdateColumnUpdateBy, MuckTruckWorkerIDCardOrdersUpdateColumnVehicleID:
+	case MuckTruckWorkerIDCardOrdersUpdateColumnCreatedAt, MuckTruckWorkerIDCardOrdersUpdateColumnCreatedBy, MuckTruckWorkerIDCardOrdersUpdateColumnDeletedAt, MuckTruckWorkerIDCardOrdersUpdateColumnDeletedBy, MuckTruckWorkerIDCardOrdersUpdateColumnID, MuckTruckWorkerIDCardOrdersUpdateColumnPreviewNumberID, MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedAt, MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedBy, MuckTruckWorkerIDCardOrdersUpdateColumnVehicleID:
 		return true
 	}
 	return false
@@ -6687,13 +6687,13 @@ const (
 	// column name
 	OperatingVehicleInfoSelectColumnContractTime OperatingVehicleInfoSelectColumn = "contract_time"
 	// column name
-	OperatingVehicleInfoSelectColumnCreateAt OperatingVehicleInfoSelectColumn = "create_at"
+	OperatingVehicleInfoSelectColumnCreatedAt OperatingVehicleInfoSelectColumn = "created_at"
 	// column name
-	OperatingVehicleInfoSelectColumnCreateBy OperatingVehicleInfoSelectColumn = "create_by"
+	OperatingVehicleInfoSelectColumnCreatedBy OperatingVehicleInfoSelectColumn = "created_by"
 	// column name
-	OperatingVehicleInfoSelectColumnDeleteAt OperatingVehicleInfoSelectColumn = "delete_at"
+	OperatingVehicleInfoSelectColumnDeletedAt OperatingVehicleInfoSelectColumn = "deleted_at"
 	// column name
-	OperatingVehicleInfoSelectColumnDeleteBy OperatingVehicleInfoSelectColumn = "delete_by"
+	OperatingVehicleInfoSelectColumnDeletedBy OperatingVehicleInfoSelectColumn = "deleted_by"
 	// column name
 	OperatingVehicleInfoSelectColumnDrivingLicenseOwner OperatingVehicleInfoSelectColumn = "driving_license_owner"
 	// column name
@@ -6753,9 +6753,9 @@ const (
 	// column name
 	OperatingVehicleInfoSelectColumnTemporaryTransportBureau OperatingVehicleInfoSelectColumn = "temporary_transport_bureau"
 	// column name
-	OperatingVehicleInfoSelectColumnUpdateAt OperatingVehicleInfoSelectColumn = "update_at"
+	OperatingVehicleInfoSelectColumnUpdatedAt OperatingVehicleInfoSelectColumn = "updated_at"
 	// column name
-	OperatingVehicleInfoSelectColumnUpdateBy OperatingVehicleInfoSelectColumn = "update_by"
+	OperatingVehicleInfoSelectColumnUpdatedBy OperatingVehicleInfoSelectColumn = "updated_by"
 	// column name
 	OperatingVehicleInfoSelectColumnVehicleID OperatingVehicleInfoSelectColumn = "vehicle_id"
 )
@@ -6765,10 +6765,10 @@ var AllOperatingVehicleInfoSelectColumn = []OperatingVehicleInfoSelectColumn{
 	OperatingVehicleInfoSelectColumnAgent,
 	OperatingVehicleInfoSelectColumnContactNumber,
 	OperatingVehicleInfoSelectColumnContractTime,
-	OperatingVehicleInfoSelectColumnCreateAt,
-	OperatingVehicleInfoSelectColumnCreateBy,
-	OperatingVehicleInfoSelectColumnDeleteAt,
-	OperatingVehicleInfoSelectColumnDeleteBy,
+	OperatingVehicleInfoSelectColumnCreatedAt,
+	OperatingVehicleInfoSelectColumnCreatedBy,
+	OperatingVehicleInfoSelectColumnDeletedAt,
+	OperatingVehicleInfoSelectColumnDeletedBy,
 	OperatingVehicleInfoSelectColumnDrivingLicenseOwner,
 	OperatingVehicleInfoSelectColumnFirstOnlineTime,
 	OperatingVehicleInfoSelectColumnInstallationTime,
@@ -6798,14 +6798,14 @@ var AllOperatingVehicleInfoSelectColumn = []OperatingVehicleInfoSelectColumn{
 	OperatingVehicleInfoSelectColumnSpeedModeStatusTime,
 	OperatingVehicleInfoSelectColumnTemporaryLibrary,
 	OperatingVehicleInfoSelectColumnTemporaryTransportBureau,
-	OperatingVehicleInfoSelectColumnUpdateAt,
-	OperatingVehicleInfoSelectColumnUpdateBy,
+	OperatingVehicleInfoSelectColumnUpdatedAt,
+	OperatingVehicleInfoSelectColumnUpdatedBy,
 	OperatingVehicleInfoSelectColumnVehicleID,
 }
 
 func (e OperatingVehicleInfoSelectColumn) IsValid() bool {
 	switch e {
-	case OperatingVehicleInfoSelectColumnAdministrativeRegion, OperatingVehicleInfoSelectColumnAgent, OperatingVehicleInfoSelectColumnContactNumber, OperatingVehicleInfoSelectColumnContractTime, OperatingVehicleInfoSelectColumnCreateAt, OperatingVehicleInfoSelectColumnCreateBy, OperatingVehicleInfoSelectColumnDeleteAt, OperatingVehicleInfoSelectColumnDeleteBy, OperatingVehicleInfoSelectColumnDrivingLicenseOwner, OperatingVehicleInfoSelectColumnFirstOnlineTime, OperatingVehicleInfoSelectColumnInstallationTime, OperatingVehicleInfoSelectColumnIsBd, OperatingVehicleInfoSelectColumnIsActive, OperatingVehicleInfoSelectColumnIsApplayTerminalInstallation, OperatingVehicleInfoSelectColumnIsBlock, OperatingVehicleInfoSelectColumnIsEngineeringVehicle, OperatingVehicleInfoSelectColumnIsFunctionOk, OperatingVehicleInfoSelectColumnIsInOperatingSystem, OperatingVehicleInfoSelectColumnIsInUploadPlatform, OperatingVehicleInfoSelectColumnIsNeedSupervise, OperatingVehicleInfoSelectColumnIsSupervise, OperatingVehicleInfoSelectColumnLastBindingTerminalTime, OperatingVehicleInfoSelectColumnLicensePlatePhoto, OperatingVehicleInfoSelectColumnMuckTruckType, OperatingVehicleInfoSelectColumnOperatingVehicleID, OperatingVehicleInfoSelectColumnOtherPhoto, OperatingVehicleInfoSelectColumnPlatform, OperatingVehicleInfoSelectColumnPositionDbID, OperatingVehicleInfoSelectColumnScrapReason, OperatingVehicleInfoSelectColumnScrapTime, OperatingVehicleInfoSelectColumnScrapTimeCheck, OperatingVehicleInfoSelectColumnSerialNumber, OperatingVehicleInfoSelectColumnServiceExpirationTime, OperatingVehicleInfoSelectColumnSpeedModeStatus, OperatingVehicleInfoSelectColumnSpeedModeStatusTime, OperatingVehicleInfoSelectColumnTemporaryLibrary, OperatingVehicleInfoSelectColumnTemporaryTransportBureau, OperatingVehicleInfoSelectColumnUpdateAt, OperatingVehicleInfoSelectColumnUpdateBy, OperatingVehicleInfoSelectColumnVehicleID:
+	case OperatingVehicleInfoSelectColumnAdministrativeRegion, OperatingVehicleInfoSelectColumnAgent, OperatingVehicleInfoSelectColumnContactNumber, OperatingVehicleInfoSelectColumnContractTime, OperatingVehicleInfoSelectColumnCreatedAt, OperatingVehicleInfoSelectColumnCreatedBy, OperatingVehicleInfoSelectColumnDeletedAt, OperatingVehicleInfoSelectColumnDeletedBy, OperatingVehicleInfoSelectColumnDrivingLicenseOwner, OperatingVehicleInfoSelectColumnFirstOnlineTime, OperatingVehicleInfoSelectColumnInstallationTime, OperatingVehicleInfoSelectColumnIsBd, OperatingVehicleInfoSelectColumnIsActive, OperatingVehicleInfoSelectColumnIsApplayTerminalInstallation, OperatingVehicleInfoSelectColumnIsBlock, OperatingVehicleInfoSelectColumnIsEngineeringVehicle, OperatingVehicleInfoSelectColumnIsFunctionOk, OperatingVehicleInfoSelectColumnIsInOperatingSystem, OperatingVehicleInfoSelectColumnIsInUploadPlatform, OperatingVehicleInfoSelectColumnIsNeedSupervise, OperatingVehicleInfoSelectColumnIsSupervise, OperatingVehicleInfoSelectColumnLastBindingTerminalTime, OperatingVehicleInfoSelectColumnLicensePlatePhoto, OperatingVehicleInfoSelectColumnMuckTruckType, OperatingVehicleInfoSelectColumnOperatingVehicleID, OperatingVehicleInfoSelectColumnOtherPhoto, OperatingVehicleInfoSelectColumnPlatform, OperatingVehicleInfoSelectColumnPositionDbID, OperatingVehicleInfoSelectColumnScrapReason, OperatingVehicleInfoSelectColumnScrapTime, OperatingVehicleInfoSelectColumnScrapTimeCheck, OperatingVehicleInfoSelectColumnSerialNumber, OperatingVehicleInfoSelectColumnServiceExpirationTime, OperatingVehicleInfoSelectColumnSpeedModeStatus, OperatingVehicleInfoSelectColumnSpeedModeStatusTime, OperatingVehicleInfoSelectColumnTemporaryLibrary, OperatingVehicleInfoSelectColumnTemporaryTransportBureau, OperatingVehicleInfoSelectColumnUpdatedAt, OperatingVehicleInfoSelectColumnUpdatedBy, OperatingVehicleInfoSelectColumnVehicleID:
 		return true
 	}
 	return false
@@ -6845,13 +6845,13 @@ const (
 	// column name
 	OperatingVehicleInfoUpdateColumnContractTime OperatingVehicleInfoUpdateColumn = "contract_time"
 	// column name
-	OperatingVehicleInfoUpdateColumnCreateAt OperatingVehicleInfoUpdateColumn = "create_at"
+	OperatingVehicleInfoUpdateColumnCreatedAt OperatingVehicleInfoUpdateColumn = "created_at"
 	// column name
-	OperatingVehicleInfoUpdateColumnCreateBy OperatingVehicleInfoUpdateColumn = "create_by"
+	OperatingVehicleInfoUpdateColumnCreatedBy OperatingVehicleInfoUpdateColumn = "created_by"
 	// column name
-	OperatingVehicleInfoUpdateColumnDeleteAt OperatingVehicleInfoUpdateColumn = "delete_at"
+	OperatingVehicleInfoUpdateColumnDeletedAt OperatingVehicleInfoUpdateColumn = "deleted_at"
 	// column name
-	OperatingVehicleInfoUpdateColumnDeleteBy OperatingVehicleInfoUpdateColumn = "delete_by"
+	OperatingVehicleInfoUpdateColumnDeletedBy OperatingVehicleInfoUpdateColumn = "deleted_by"
 	// column name
 	OperatingVehicleInfoUpdateColumnDrivingLicenseOwner OperatingVehicleInfoUpdateColumn = "driving_license_owner"
 	// column name
@@ -6911,9 +6911,9 @@ const (
 	// column name
 	OperatingVehicleInfoUpdateColumnTemporaryTransportBureau OperatingVehicleInfoUpdateColumn = "temporary_transport_bureau"
 	// column name
-	OperatingVehicleInfoUpdateColumnUpdateAt OperatingVehicleInfoUpdateColumn = "update_at"
+	OperatingVehicleInfoUpdateColumnUpdatedAt OperatingVehicleInfoUpdateColumn = "updated_at"
 	// column name
-	OperatingVehicleInfoUpdateColumnUpdateBy OperatingVehicleInfoUpdateColumn = "update_by"
+	OperatingVehicleInfoUpdateColumnUpdatedBy OperatingVehicleInfoUpdateColumn = "updated_by"
 	// column name
 	OperatingVehicleInfoUpdateColumnVehicleID OperatingVehicleInfoUpdateColumn = "vehicle_id"
 )
@@ -6923,10 +6923,10 @@ var AllOperatingVehicleInfoUpdateColumn = []OperatingVehicleInfoUpdateColumn{
 	OperatingVehicleInfoUpdateColumnAgent,
 	OperatingVehicleInfoUpdateColumnContactNumber,
 	OperatingVehicleInfoUpdateColumnContractTime,
-	OperatingVehicleInfoUpdateColumnCreateAt,
-	OperatingVehicleInfoUpdateColumnCreateBy,
-	OperatingVehicleInfoUpdateColumnDeleteAt,
-	OperatingVehicleInfoUpdateColumnDeleteBy,
+	OperatingVehicleInfoUpdateColumnCreatedAt,
+	OperatingVehicleInfoUpdateColumnCreatedBy,
+	OperatingVehicleInfoUpdateColumnDeletedAt,
+	OperatingVehicleInfoUpdateColumnDeletedBy,
 	OperatingVehicleInfoUpdateColumnDrivingLicenseOwner,
 	OperatingVehicleInfoUpdateColumnFirstOnlineTime,
 	OperatingVehicleInfoUpdateColumnInstallationTime,
@@ -6956,14 +6956,14 @@ var AllOperatingVehicleInfoUpdateColumn = []OperatingVehicleInfoUpdateColumn{
 	OperatingVehicleInfoUpdateColumnSpeedModeStatusTime,
 	OperatingVehicleInfoUpdateColumnTemporaryLibrary,
 	OperatingVehicleInfoUpdateColumnTemporaryTransportBureau,
-	OperatingVehicleInfoUpdateColumnUpdateAt,
-	OperatingVehicleInfoUpdateColumnUpdateBy,
+	OperatingVehicleInfoUpdateColumnUpdatedAt,
+	OperatingVehicleInfoUpdateColumnUpdatedBy,
 	OperatingVehicleInfoUpdateColumnVehicleID,
 }
 
 func (e OperatingVehicleInfoUpdateColumn) IsValid() bool {
 	switch e {
-	case OperatingVehicleInfoUpdateColumnAdministrativeRegion, OperatingVehicleInfoUpdateColumnAgent, OperatingVehicleInfoUpdateColumnContactNumber, OperatingVehicleInfoUpdateColumnContractTime, OperatingVehicleInfoUpdateColumnCreateAt, OperatingVehicleInfoUpdateColumnCreateBy, OperatingVehicleInfoUpdateColumnDeleteAt, OperatingVehicleInfoUpdateColumnDeleteBy, OperatingVehicleInfoUpdateColumnDrivingLicenseOwner, OperatingVehicleInfoUpdateColumnFirstOnlineTime, OperatingVehicleInfoUpdateColumnInstallationTime, OperatingVehicleInfoUpdateColumnIsBd, OperatingVehicleInfoUpdateColumnIsActive, OperatingVehicleInfoUpdateColumnIsApplayTerminalInstallation, OperatingVehicleInfoUpdateColumnIsBlock, OperatingVehicleInfoUpdateColumnIsEngineeringVehicle, OperatingVehicleInfoUpdateColumnIsFunctionOk, OperatingVehicleInfoUpdateColumnIsInOperatingSystem, OperatingVehicleInfoUpdateColumnIsInUploadPlatform, OperatingVehicleInfoUpdateColumnIsNeedSupervise, OperatingVehicleInfoUpdateColumnIsSupervise, OperatingVehicleInfoUpdateColumnLastBindingTerminalTime, OperatingVehicleInfoUpdateColumnLicensePlatePhoto, OperatingVehicleInfoUpdateColumnMuckTruckType, OperatingVehicleInfoUpdateColumnOperatingVehicleID, OperatingVehicleInfoUpdateColumnOtherPhoto, OperatingVehicleInfoUpdateColumnPlatform, OperatingVehicleInfoUpdateColumnPositionDbID, OperatingVehicleInfoUpdateColumnScrapReason, OperatingVehicleInfoUpdateColumnScrapTime, OperatingVehicleInfoUpdateColumnScrapTimeCheck, OperatingVehicleInfoUpdateColumnSerialNumber, OperatingVehicleInfoUpdateColumnServiceExpirationTime, OperatingVehicleInfoUpdateColumnSpeedModeStatus, OperatingVehicleInfoUpdateColumnSpeedModeStatusTime, OperatingVehicleInfoUpdateColumnTemporaryLibrary, OperatingVehicleInfoUpdateColumnTemporaryTransportBureau, OperatingVehicleInfoUpdateColumnUpdateAt, OperatingVehicleInfoUpdateColumnUpdateBy, OperatingVehicleInfoUpdateColumnVehicleID:
+	case OperatingVehicleInfoUpdateColumnAdministrativeRegion, OperatingVehicleInfoUpdateColumnAgent, OperatingVehicleInfoUpdateColumnContactNumber, OperatingVehicleInfoUpdateColumnContractTime, OperatingVehicleInfoUpdateColumnCreatedAt, OperatingVehicleInfoUpdateColumnCreatedBy, OperatingVehicleInfoUpdateColumnDeletedAt, OperatingVehicleInfoUpdateColumnDeletedBy, OperatingVehicleInfoUpdateColumnDrivingLicenseOwner, OperatingVehicleInfoUpdateColumnFirstOnlineTime, OperatingVehicleInfoUpdateColumnInstallationTime, OperatingVehicleInfoUpdateColumnIsBd, OperatingVehicleInfoUpdateColumnIsActive, OperatingVehicleInfoUpdateColumnIsApplayTerminalInstallation, OperatingVehicleInfoUpdateColumnIsBlock, OperatingVehicleInfoUpdateColumnIsEngineeringVehicle, OperatingVehicleInfoUpdateColumnIsFunctionOk, OperatingVehicleInfoUpdateColumnIsInOperatingSystem, OperatingVehicleInfoUpdateColumnIsInUploadPlatform, OperatingVehicleInfoUpdateColumnIsNeedSupervise, OperatingVehicleInfoUpdateColumnIsSupervise, OperatingVehicleInfoUpdateColumnLastBindingTerminalTime, OperatingVehicleInfoUpdateColumnLicensePlatePhoto, OperatingVehicleInfoUpdateColumnMuckTruckType, OperatingVehicleInfoUpdateColumnOperatingVehicleID, OperatingVehicleInfoUpdateColumnOtherPhoto, OperatingVehicleInfoUpdateColumnPlatform, OperatingVehicleInfoUpdateColumnPositionDbID, OperatingVehicleInfoUpdateColumnScrapReason, OperatingVehicleInfoUpdateColumnScrapTime, OperatingVehicleInfoUpdateColumnScrapTimeCheck, OperatingVehicleInfoUpdateColumnSerialNumber, OperatingVehicleInfoUpdateColumnServiceExpirationTime, OperatingVehicleInfoUpdateColumnSpeedModeStatus, OperatingVehicleInfoUpdateColumnSpeedModeStatusTime, OperatingVehicleInfoUpdateColumnTemporaryLibrary, OperatingVehicleInfoUpdateColumnTemporaryTransportBureau, OperatingVehicleInfoUpdateColumnUpdatedAt, OperatingVehicleInfoUpdateColumnUpdatedBy, OperatingVehicleInfoUpdateColumnVehicleID:
 		return true
 	}
 	return false
@@ -7042,13 +7042,13 @@ const (
 	// column name
 	OwnerInfoSelectColumnCellphone OwnerInfoSelectColumn = "cellphone"
 	// column name
-	OwnerInfoSelectColumnCreateAt OwnerInfoSelectColumn = "create_at"
+	OwnerInfoSelectColumnCreatedAt OwnerInfoSelectColumn = "created_at"
 	// column name
-	OwnerInfoSelectColumnCreateBy OwnerInfoSelectColumn = "create_by"
+	OwnerInfoSelectColumnCreatedBy OwnerInfoSelectColumn = "created_by"
 	// column name
-	OwnerInfoSelectColumnDeleteAt OwnerInfoSelectColumn = "delete_at"
+	OwnerInfoSelectColumnDeletedAt OwnerInfoSelectColumn = "deleted_at"
 	// column name
-	OwnerInfoSelectColumnDeleteBy OwnerInfoSelectColumn = "delete_by"
+	OwnerInfoSelectColumnDeletedBy OwnerInfoSelectColumn = "deleted_by"
 	// column name
 	OwnerInfoSelectColumnDepartmentID OwnerInfoSelectColumn = "department_id"
 	// column name
@@ -7074,19 +7074,19 @@ const (
 	// column name
 	OwnerInfoSelectColumnTelephone OwnerInfoSelectColumn = "telephone"
 	// column name
-	OwnerInfoSelectColumnUpdateAt OwnerInfoSelectColumn = "update_at"
+	OwnerInfoSelectColumnUpdatedAt OwnerInfoSelectColumn = "updated_at"
 	// column name
-	OwnerInfoSelectColumnUpdateBy OwnerInfoSelectColumn = "update_by"
+	OwnerInfoSelectColumnUpdatedBy OwnerInfoSelectColumn = "updated_by"
 )
 
 var AllOwnerInfoSelectColumn = []OwnerInfoSelectColumn{
 	OwnerInfoSelectColumnAddress,
 	OwnerInfoSelectColumnAgent,
 	OwnerInfoSelectColumnCellphone,
-	OwnerInfoSelectColumnCreateAt,
-	OwnerInfoSelectColumnCreateBy,
-	OwnerInfoSelectColumnDeleteAt,
-	OwnerInfoSelectColumnDeleteBy,
+	OwnerInfoSelectColumnCreatedAt,
+	OwnerInfoSelectColumnCreatedBy,
+	OwnerInfoSelectColumnDeletedAt,
+	OwnerInfoSelectColumnDeletedBy,
 	OwnerInfoSelectColumnDepartmentID,
 	OwnerInfoSelectColumnEmail,
 	OwnerInfoSelectColumnExpiryDate,
@@ -7099,13 +7099,13 @@ var AllOwnerInfoSelectColumn = []OwnerInfoSelectColumn{
 	OwnerInfoSelectColumnRemarks,
 	OwnerInfoSelectColumnSex,
 	OwnerInfoSelectColumnTelephone,
-	OwnerInfoSelectColumnUpdateAt,
-	OwnerInfoSelectColumnUpdateBy,
+	OwnerInfoSelectColumnUpdatedAt,
+	OwnerInfoSelectColumnUpdatedBy,
 }
 
 func (e OwnerInfoSelectColumn) IsValid() bool {
 	switch e {
-	case OwnerInfoSelectColumnAddress, OwnerInfoSelectColumnAgent, OwnerInfoSelectColumnCellphone, OwnerInfoSelectColumnCreateAt, OwnerInfoSelectColumnCreateBy, OwnerInfoSelectColumnDeleteAt, OwnerInfoSelectColumnDeleteBy, OwnerInfoSelectColumnDepartmentID, OwnerInfoSelectColumnEmail, OwnerInfoSelectColumnExpiryDate, OwnerInfoSelectColumnID, OwnerInfoSelectColumnIDNumber, OwnerInfoSelectColumnIsDelete, OwnerInfoSelectColumnName, OwnerInfoSelectColumnOperator, OwnerInfoSelectColumnOwnerID, OwnerInfoSelectColumnRemarks, OwnerInfoSelectColumnSex, OwnerInfoSelectColumnTelephone, OwnerInfoSelectColumnUpdateAt, OwnerInfoSelectColumnUpdateBy:
+	case OwnerInfoSelectColumnAddress, OwnerInfoSelectColumnAgent, OwnerInfoSelectColumnCellphone, OwnerInfoSelectColumnCreatedAt, OwnerInfoSelectColumnCreatedBy, OwnerInfoSelectColumnDeletedAt, OwnerInfoSelectColumnDeletedBy, OwnerInfoSelectColumnDepartmentID, OwnerInfoSelectColumnEmail, OwnerInfoSelectColumnExpiryDate, OwnerInfoSelectColumnID, OwnerInfoSelectColumnIDNumber, OwnerInfoSelectColumnIsDelete, OwnerInfoSelectColumnName, OwnerInfoSelectColumnOperator, OwnerInfoSelectColumnOwnerID, OwnerInfoSelectColumnRemarks, OwnerInfoSelectColumnSex, OwnerInfoSelectColumnTelephone, OwnerInfoSelectColumnUpdatedAt, OwnerInfoSelectColumnUpdatedBy:
 		return true
 	}
 	return false
@@ -7143,13 +7143,13 @@ const (
 	// column name
 	OwnerInfoUpdateColumnCellphone OwnerInfoUpdateColumn = "cellphone"
 	// column name
-	OwnerInfoUpdateColumnCreateAt OwnerInfoUpdateColumn = "create_at"
+	OwnerInfoUpdateColumnCreatedAt OwnerInfoUpdateColumn = "created_at"
 	// column name
-	OwnerInfoUpdateColumnCreateBy OwnerInfoUpdateColumn = "create_by"
+	OwnerInfoUpdateColumnCreatedBy OwnerInfoUpdateColumn = "created_by"
 	// column name
-	OwnerInfoUpdateColumnDeleteAt OwnerInfoUpdateColumn = "delete_at"
+	OwnerInfoUpdateColumnDeletedAt OwnerInfoUpdateColumn = "deleted_at"
 	// column name
-	OwnerInfoUpdateColumnDeleteBy OwnerInfoUpdateColumn = "delete_by"
+	OwnerInfoUpdateColumnDeletedBy OwnerInfoUpdateColumn = "deleted_by"
 	// column name
 	OwnerInfoUpdateColumnDepartmentID OwnerInfoUpdateColumn = "department_id"
 	// column name
@@ -7175,19 +7175,19 @@ const (
 	// column name
 	OwnerInfoUpdateColumnTelephone OwnerInfoUpdateColumn = "telephone"
 	// column name
-	OwnerInfoUpdateColumnUpdateAt OwnerInfoUpdateColumn = "update_at"
+	OwnerInfoUpdateColumnUpdatedAt OwnerInfoUpdateColumn = "updated_at"
 	// column name
-	OwnerInfoUpdateColumnUpdateBy OwnerInfoUpdateColumn = "update_by"
+	OwnerInfoUpdateColumnUpdatedBy OwnerInfoUpdateColumn = "updated_by"
 )
 
 var AllOwnerInfoUpdateColumn = []OwnerInfoUpdateColumn{
 	OwnerInfoUpdateColumnAddress,
 	OwnerInfoUpdateColumnAgent,
 	OwnerInfoUpdateColumnCellphone,
-	OwnerInfoUpdateColumnCreateAt,
-	OwnerInfoUpdateColumnCreateBy,
-	OwnerInfoUpdateColumnDeleteAt,
-	OwnerInfoUpdateColumnDeleteBy,
+	OwnerInfoUpdateColumnCreatedAt,
+	OwnerInfoUpdateColumnCreatedBy,
+	OwnerInfoUpdateColumnDeletedAt,
+	OwnerInfoUpdateColumnDeletedBy,
 	OwnerInfoUpdateColumnDepartmentID,
 	OwnerInfoUpdateColumnEmail,
 	OwnerInfoUpdateColumnExpiryDate,
@@ -7200,13 +7200,13 @@ var AllOwnerInfoUpdateColumn = []OwnerInfoUpdateColumn{
 	OwnerInfoUpdateColumnRemarks,
 	OwnerInfoUpdateColumnSex,
 	OwnerInfoUpdateColumnTelephone,
-	OwnerInfoUpdateColumnUpdateAt,
-	OwnerInfoUpdateColumnUpdateBy,
+	OwnerInfoUpdateColumnUpdatedAt,
+	OwnerInfoUpdateColumnUpdatedBy,
 }
 
 func (e OwnerInfoUpdateColumn) IsValid() bool {
 	switch e {
-	case OwnerInfoUpdateColumnAddress, OwnerInfoUpdateColumnAgent, OwnerInfoUpdateColumnCellphone, OwnerInfoUpdateColumnCreateAt, OwnerInfoUpdateColumnCreateBy, OwnerInfoUpdateColumnDeleteAt, OwnerInfoUpdateColumnDeleteBy, OwnerInfoUpdateColumnDepartmentID, OwnerInfoUpdateColumnEmail, OwnerInfoUpdateColumnExpiryDate, OwnerInfoUpdateColumnID, OwnerInfoUpdateColumnIDNumber, OwnerInfoUpdateColumnIsDelete, OwnerInfoUpdateColumnName, OwnerInfoUpdateColumnOperator, OwnerInfoUpdateColumnOwnerID, OwnerInfoUpdateColumnRemarks, OwnerInfoUpdateColumnSex, OwnerInfoUpdateColumnTelephone, OwnerInfoUpdateColumnUpdateAt, OwnerInfoUpdateColumnUpdateBy:
+	case OwnerInfoUpdateColumnAddress, OwnerInfoUpdateColumnAgent, OwnerInfoUpdateColumnCellphone, OwnerInfoUpdateColumnCreatedAt, OwnerInfoUpdateColumnCreatedBy, OwnerInfoUpdateColumnDeletedAt, OwnerInfoUpdateColumnDeletedBy, OwnerInfoUpdateColumnDepartmentID, OwnerInfoUpdateColumnEmail, OwnerInfoUpdateColumnExpiryDate, OwnerInfoUpdateColumnID, OwnerInfoUpdateColumnIDNumber, OwnerInfoUpdateColumnIsDelete, OwnerInfoUpdateColumnName, OwnerInfoUpdateColumnOperator, OwnerInfoUpdateColumnOwnerID, OwnerInfoUpdateColumnRemarks, OwnerInfoUpdateColumnSex, OwnerInfoUpdateColumnTelephone, OwnerInfoUpdateColumnUpdatedAt, OwnerInfoUpdateColumnUpdatedBy:
 		return true
 	}
 	return false
@@ -7285,13 +7285,13 @@ const (
 	// column name
 	VehicleInfoChangeLogSelectColumnCheckState VehicleInfoChangeLogSelectColumn = "check_state"
 	// column name
-	VehicleInfoChangeLogSelectColumnCreateAt VehicleInfoChangeLogSelectColumn = "create_at"
+	VehicleInfoChangeLogSelectColumnCreatedAt VehicleInfoChangeLogSelectColumn = "created_at"
 	// column name
-	VehicleInfoChangeLogSelectColumnCreateBy VehicleInfoChangeLogSelectColumn = "create_by"
+	VehicleInfoChangeLogSelectColumnCreatedBy VehicleInfoChangeLogSelectColumn = "created_by"
 	// column name
-	VehicleInfoChangeLogSelectColumnDeleteAt VehicleInfoChangeLogSelectColumn = "delete_at"
+	VehicleInfoChangeLogSelectColumnDeletedAt VehicleInfoChangeLogSelectColumn = "deleted_at"
 	// column name
-	VehicleInfoChangeLogSelectColumnDeleteBy VehicleInfoChangeLogSelectColumn = "delete_by"
+	VehicleInfoChangeLogSelectColumnDeletedBy VehicleInfoChangeLogSelectColumn = "deleted_by"
 	// column name
 	VehicleInfoChangeLogSelectColumnDepartmentID VehicleInfoChangeLogSelectColumn = "department_id"
 	// column name
@@ -7361,9 +7361,9 @@ const (
 	// column name
 	VehicleInfoChangeLogSelectColumnTerminalID VehicleInfoChangeLogSelectColumn = "terminal_id"
 	// column name
-	VehicleInfoChangeLogSelectColumnUpdateAt VehicleInfoChangeLogSelectColumn = "update_at"
+	VehicleInfoChangeLogSelectColumnUpdatedAt VehicleInfoChangeLogSelectColumn = "updated_at"
 	// column name
-	VehicleInfoChangeLogSelectColumnUpdateBy VehicleInfoChangeLogSelectColumn = "update_by"
+	VehicleInfoChangeLogSelectColumnUpdatedBy VehicleInfoChangeLogSelectColumn = "updated_by"
 	// column name
 	VehicleInfoChangeLogSelectColumnUpdateTimeIn VehicleInfoChangeLogSelectColumn = "update_time_in"
 	// column name
@@ -7394,10 +7394,10 @@ var AllVehicleInfoChangeLogSelectColumn = []VehicleInfoChangeLogSelectColumn{
 	VehicleInfoChangeLogSelectColumnBusinessScope,
 	VehicleInfoChangeLogSelectColumnCarRentalPrice,
 	VehicleInfoChangeLogSelectColumnCheckState,
-	VehicleInfoChangeLogSelectColumnCreateAt,
-	VehicleInfoChangeLogSelectColumnCreateBy,
-	VehicleInfoChangeLogSelectColumnDeleteAt,
-	VehicleInfoChangeLogSelectColumnDeleteBy,
+	VehicleInfoChangeLogSelectColumnCreatedAt,
+	VehicleInfoChangeLogSelectColumnCreatedBy,
+	VehicleInfoChangeLogSelectColumnDeletedAt,
+	VehicleInfoChangeLogSelectColumnDeletedBy,
 	VehicleInfoChangeLogSelectColumnDepartmentID,
 	VehicleInfoChangeLogSelectColumnDrivingLicenseePic,
 	VehicleInfoChangeLogSelectColumnEnterpriseID,
@@ -7432,8 +7432,8 @@ var AllVehicleInfoChangeLogSelectColumn = []VehicleInfoChangeLogSelectColumn{
 	VehicleInfoChangeLogSelectColumnRoadTransportLicenseNumber,
 	VehicleInfoChangeLogSelectColumnSeats,
 	VehicleInfoChangeLogSelectColumnTerminalID,
-	VehicleInfoChangeLogSelectColumnUpdateAt,
-	VehicleInfoChangeLogSelectColumnUpdateBy,
+	VehicleInfoChangeLogSelectColumnUpdatedAt,
+	VehicleInfoChangeLogSelectColumnUpdatedBy,
 	VehicleInfoChangeLogSelectColumnUpdateTimeIn,
 	VehicleInfoChangeLogSelectColumnUseNature,
 	VehicleInfoChangeLogSelectColumnVehicleBrand,
@@ -7450,7 +7450,7 @@ var AllVehicleInfoChangeLogSelectColumn = []VehicleInfoChangeLogSelectColumn{
 
 func (e VehicleInfoChangeLogSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoChangeLogSelectColumnBusinessScope, VehicleInfoChangeLogSelectColumnCarRentalPrice, VehicleInfoChangeLogSelectColumnCheckState, VehicleInfoChangeLogSelectColumnCreateAt, VehicleInfoChangeLogSelectColumnCreateBy, VehicleInfoChangeLogSelectColumnDeleteAt, VehicleInfoChangeLogSelectColumnDeleteBy, VehicleInfoChangeLogSelectColumnDepartmentID, VehicleInfoChangeLogSelectColumnDrivingLicenseePic, VehicleInfoChangeLogSelectColumnEnterpriseID, VehicleInfoChangeLogSelectColumnHeavy, VehicleInfoChangeLogSelectColumnID, VehicleInfoChangeLogSelectColumnIndustryCategory, VehicleInfoChangeLogSelectColumnInspectionDate, VehicleInfoChangeLogSelectColumnInsuranceCompany, VehicleInfoChangeLogSelectColumnInsuranceDate, VehicleInfoChangeLogSelectColumnIsActive, VehicleInfoChangeLogSelectColumnIsApplyInstallTerminal, VehicleInfoChangeLogSelectColumnIsComplete, VehicleInfoChangeLogSelectColumnIsDelete, VehicleInfoChangeLogSelectColumnIsImport, VehicleInfoChangeLogSelectColumnIsInput, VehicleInfoChangeLogSelectColumnIsUploadProvince, VehicleInfoChangeLogSelectColumnLicensePlateColor, VehicleInfoChangeLogSelectColumnLicensePlateNumber, VehicleInfoChangeLogSelectColumnLicensePlateType, VehicleInfoChangeLogSelectColumnMuckTruckID, VehicleInfoChangeLogSelectColumnOperatingRoute, VehicleInfoChangeLogSelectColumnOperatingState, VehicleInfoChangeLogSelectColumnOperatingType, VehicleInfoChangeLogSelectColumnOperatingVehicleID, VehicleInfoChangeLogSelectColumnOwner, VehicleInfoChangeLogSelectColumnQuasiDrivingModels, VehicleInfoChangeLogSelectColumnRecordAt, VehicleInfoChangeLogSelectColumnRecordBy, VehicleInfoChangeLogSelectColumnRemarkIn, VehicleInfoChangeLogSelectColumnRemarks, VehicleInfoChangeLogSelectColumnRetirementDate, VehicleInfoChangeLogSelectColumnRoadTransportLicenseNumber, VehicleInfoChangeLogSelectColumnSeats, VehicleInfoChangeLogSelectColumnTerminalID, VehicleInfoChangeLogSelectColumnUpdateAt, VehicleInfoChangeLogSelectColumnUpdateBy, VehicleInfoChangeLogSelectColumnUpdateTimeIn, VehicleInfoChangeLogSelectColumnUseNature, VehicleInfoChangeLogSelectColumnVehicleBrand, VehicleInfoChangeLogSelectColumnVehicleDisplacement, VehicleInfoChangeLogSelectColumnVehicleIdentificationNumber, VehicleInfoChangeLogSelectColumnVehicleInfoChangeID, VehicleInfoChangeLogSelectColumnVehicleMaintenances, VehicleInfoChangeLogSelectColumnVehicleManager, VehicleInfoChangeLogSelectColumnVehicleManagerIDCard, VehicleInfoChangeLogSelectColumnVehicleManagerPhone, VehicleInfoChangeLogSelectColumnVehicleState, VehicleInfoChangeLogSelectColumnVehicleType:
+	case VehicleInfoChangeLogSelectColumnBusinessScope, VehicleInfoChangeLogSelectColumnCarRentalPrice, VehicleInfoChangeLogSelectColumnCheckState, VehicleInfoChangeLogSelectColumnCreatedAt, VehicleInfoChangeLogSelectColumnCreatedBy, VehicleInfoChangeLogSelectColumnDeletedAt, VehicleInfoChangeLogSelectColumnDeletedBy, VehicleInfoChangeLogSelectColumnDepartmentID, VehicleInfoChangeLogSelectColumnDrivingLicenseePic, VehicleInfoChangeLogSelectColumnEnterpriseID, VehicleInfoChangeLogSelectColumnHeavy, VehicleInfoChangeLogSelectColumnID, VehicleInfoChangeLogSelectColumnIndustryCategory, VehicleInfoChangeLogSelectColumnInspectionDate, VehicleInfoChangeLogSelectColumnInsuranceCompany, VehicleInfoChangeLogSelectColumnInsuranceDate, VehicleInfoChangeLogSelectColumnIsActive, VehicleInfoChangeLogSelectColumnIsApplyInstallTerminal, VehicleInfoChangeLogSelectColumnIsComplete, VehicleInfoChangeLogSelectColumnIsDelete, VehicleInfoChangeLogSelectColumnIsImport, VehicleInfoChangeLogSelectColumnIsInput, VehicleInfoChangeLogSelectColumnIsUploadProvince, VehicleInfoChangeLogSelectColumnLicensePlateColor, VehicleInfoChangeLogSelectColumnLicensePlateNumber, VehicleInfoChangeLogSelectColumnLicensePlateType, VehicleInfoChangeLogSelectColumnMuckTruckID, VehicleInfoChangeLogSelectColumnOperatingRoute, VehicleInfoChangeLogSelectColumnOperatingState, VehicleInfoChangeLogSelectColumnOperatingType, VehicleInfoChangeLogSelectColumnOperatingVehicleID, VehicleInfoChangeLogSelectColumnOwner, VehicleInfoChangeLogSelectColumnQuasiDrivingModels, VehicleInfoChangeLogSelectColumnRecordAt, VehicleInfoChangeLogSelectColumnRecordBy, VehicleInfoChangeLogSelectColumnRemarkIn, VehicleInfoChangeLogSelectColumnRemarks, VehicleInfoChangeLogSelectColumnRetirementDate, VehicleInfoChangeLogSelectColumnRoadTransportLicenseNumber, VehicleInfoChangeLogSelectColumnSeats, VehicleInfoChangeLogSelectColumnTerminalID, VehicleInfoChangeLogSelectColumnUpdatedAt, VehicleInfoChangeLogSelectColumnUpdatedBy, VehicleInfoChangeLogSelectColumnUpdateTimeIn, VehicleInfoChangeLogSelectColumnUseNature, VehicleInfoChangeLogSelectColumnVehicleBrand, VehicleInfoChangeLogSelectColumnVehicleDisplacement, VehicleInfoChangeLogSelectColumnVehicleIdentificationNumber, VehicleInfoChangeLogSelectColumnVehicleInfoChangeID, VehicleInfoChangeLogSelectColumnVehicleMaintenances, VehicleInfoChangeLogSelectColumnVehicleManager, VehicleInfoChangeLogSelectColumnVehicleManagerIDCard, VehicleInfoChangeLogSelectColumnVehicleManagerPhone, VehicleInfoChangeLogSelectColumnVehicleState, VehicleInfoChangeLogSelectColumnVehicleType:
 		return true
 	}
 	return false
@@ -7488,13 +7488,13 @@ const (
 	// column name
 	VehicleInfoChangeLogUpdateColumnCheckState VehicleInfoChangeLogUpdateColumn = "check_state"
 	// column name
-	VehicleInfoChangeLogUpdateColumnCreateAt VehicleInfoChangeLogUpdateColumn = "create_at"
+	VehicleInfoChangeLogUpdateColumnCreatedAt VehicleInfoChangeLogUpdateColumn = "created_at"
 	// column name
-	VehicleInfoChangeLogUpdateColumnCreateBy VehicleInfoChangeLogUpdateColumn = "create_by"
+	VehicleInfoChangeLogUpdateColumnCreatedBy VehicleInfoChangeLogUpdateColumn = "created_by"
 	// column name
-	VehicleInfoChangeLogUpdateColumnDeleteAt VehicleInfoChangeLogUpdateColumn = "delete_at"
+	VehicleInfoChangeLogUpdateColumnDeletedAt VehicleInfoChangeLogUpdateColumn = "deleted_at"
 	// column name
-	VehicleInfoChangeLogUpdateColumnDeleteBy VehicleInfoChangeLogUpdateColumn = "delete_by"
+	VehicleInfoChangeLogUpdateColumnDeletedBy VehicleInfoChangeLogUpdateColumn = "deleted_by"
 	// column name
 	VehicleInfoChangeLogUpdateColumnDepartmentID VehicleInfoChangeLogUpdateColumn = "department_id"
 	// column name
@@ -7564,9 +7564,9 @@ const (
 	// column name
 	VehicleInfoChangeLogUpdateColumnTerminalID VehicleInfoChangeLogUpdateColumn = "terminal_id"
 	// column name
-	VehicleInfoChangeLogUpdateColumnUpdateAt VehicleInfoChangeLogUpdateColumn = "update_at"
+	VehicleInfoChangeLogUpdateColumnUpdatedAt VehicleInfoChangeLogUpdateColumn = "updated_at"
 	// column name
-	VehicleInfoChangeLogUpdateColumnUpdateBy VehicleInfoChangeLogUpdateColumn = "update_by"
+	VehicleInfoChangeLogUpdateColumnUpdatedBy VehicleInfoChangeLogUpdateColumn = "updated_by"
 	// column name
 	VehicleInfoChangeLogUpdateColumnUpdateTimeIn VehicleInfoChangeLogUpdateColumn = "update_time_in"
 	// column name
@@ -7597,10 +7597,10 @@ var AllVehicleInfoChangeLogUpdateColumn = []VehicleInfoChangeLogUpdateColumn{
 	VehicleInfoChangeLogUpdateColumnBusinessScope,
 	VehicleInfoChangeLogUpdateColumnCarRentalPrice,
 	VehicleInfoChangeLogUpdateColumnCheckState,
-	VehicleInfoChangeLogUpdateColumnCreateAt,
-	VehicleInfoChangeLogUpdateColumnCreateBy,
-	VehicleInfoChangeLogUpdateColumnDeleteAt,
-	VehicleInfoChangeLogUpdateColumnDeleteBy,
+	VehicleInfoChangeLogUpdateColumnCreatedAt,
+	VehicleInfoChangeLogUpdateColumnCreatedBy,
+	VehicleInfoChangeLogUpdateColumnDeletedAt,
+	VehicleInfoChangeLogUpdateColumnDeletedBy,
 	VehicleInfoChangeLogUpdateColumnDepartmentID,
 	VehicleInfoChangeLogUpdateColumnDrivingLicenseePic,
 	VehicleInfoChangeLogUpdateColumnEnterpriseID,
@@ -7635,8 +7635,8 @@ var AllVehicleInfoChangeLogUpdateColumn = []VehicleInfoChangeLogUpdateColumn{
 	VehicleInfoChangeLogUpdateColumnRoadTransportLicenseNumber,
 	VehicleInfoChangeLogUpdateColumnSeats,
 	VehicleInfoChangeLogUpdateColumnTerminalID,
-	VehicleInfoChangeLogUpdateColumnUpdateAt,
-	VehicleInfoChangeLogUpdateColumnUpdateBy,
+	VehicleInfoChangeLogUpdateColumnUpdatedAt,
+	VehicleInfoChangeLogUpdateColumnUpdatedBy,
 	VehicleInfoChangeLogUpdateColumnUpdateTimeIn,
 	VehicleInfoChangeLogUpdateColumnUseNature,
 	VehicleInfoChangeLogUpdateColumnVehicleBrand,
@@ -7653,7 +7653,7 @@ var AllVehicleInfoChangeLogUpdateColumn = []VehicleInfoChangeLogUpdateColumn{
 
 func (e VehicleInfoChangeLogUpdateColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoChangeLogUpdateColumnBusinessScope, VehicleInfoChangeLogUpdateColumnCarRentalPrice, VehicleInfoChangeLogUpdateColumnCheckState, VehicleInfoChangeLogUpdateColumnCreateAt, VehicleInfoChangeLogUpdateColumnCreateBy, VehicleInfoChangeLogUpdateColumnDeleteAt, VehicleInfoChangeLogUpdateColumnDeleteBy, VehicleInfoChangeLogUpdateColumnDepartmentID, VehicleInfoChangeLogUpdateColumnDrivingLicenseePic, VehicleInfoChangeLogUpdateColumnEnterpriseID, VehicleInfoChangeLogUpdateColumnHeavy, VehicleInfoChangeLogUpdateColumnID, VehicleInfoChangeLogUpdateColumnIndustryCategory, VehicleInfoChangeLogUpdateColumnInspectionDate, VehicleInfoChangeLogUpdateColumnInsuranceCompany, VehicleInfoChangeLogUpdateColumnInsuranceDate, VehicleInfoChangeLogUpdateColumnIsActive, VehicleInfoChangeLogUpdateColumnIsApplyInstallTerminal, VehicleInfoChangeLogUpdateColumnIsComplete, VehicleInfoChangeLogUpdateColumnIsDelete, VehicleInfoChangeLogUpdateColumnIsImport, VehicleInfoChangeLogUpdateColumnIsInput, VehicleInfoChangeLogUpdateColumnIsUploadProvince, VehicleInfoChangeLogUpdateColumnLicensePlateColor, VehicleInfoChangeLogUpdateColumnLicensePlateNumber, VehicleInfoChangeLogUpdateColumnLicensePlateType, VehicleInfoChangeLogUpdateColumnMuckTruckID, VehicleInfoChangeLogUpdateColumnOperatingRoute, VehicleInfoChangeLogUpdateColumnOperatingState, VehicleInfoChangeLogUpdateColumnOperatingType, VehicleInfoChangeLogUpdateColumnOperatingVehicleID, VehicleInfoChangeLogUpdateColumnOwner, VehicleInfoChangeLogUpdateColumnQuasiDrivingModels, VehicleInfoChangeLogUpdateColumnRecordAt, VehicleInfoChangeLogUpdateColumnRecordBy, VehicleInfoChangeLogUpdateColumnRemarkIn, VehicleInfoChangeLogUpdateColumnRemarks, VehicleInfoChangeLogUpdateColumnRetirementDate, VehicleInfoChangeLogUpdateColumnRoadTransportLicenseNumber, VehicleInfoChangeLogUpdateColumnSeats, VehicleInfoChangeLogUpdateColumnTerminalID, VehicleInfoChangeLogUpdateColumnUpdateAt, VehicleInfoChangeLogUpdateColumnUpdateBy, VehicleInfoChangeLogUpdateColumnUpdateTimeIn, VehicleInfoChangeLogUpdateColumnUseNature, VehicleInfoChangeLogUpdateColumnVehicleBrand, VehicleInfoChangeLogUpdateColumnVehicleDisplacement, VehicleInfoChangeLogUpdateColumnVehicleIdentificationNumber, VehicleInfoChangeLogUpdateColumnVehicleInfoChangeID, VehicleInfoChangeLogUpdateColumnVehicleMaintenances, VehicleInfoChangeLogUpdateColumnVehicleManager, VehicleInfoChangeLogUpdateColumnVehicleManagerIDCard, VehicleInfoChangeLogUpdateColumnVehicleManagerPhone, VehicleInfoChangeLogUpdateColumnVehicleState, VehicleInfoChangeLogUpdateColumnVehicleType:
+	case VehicleInfoChangeLogUpdateColumnBusinessScope, VehicleInfoChangeLogUpdateColumnCarRentalPrice, VehicleInfoChangeLogUpdateColumnCheckState, VehicleInfoChangeLogUpdateColumnCreatedAt, VehicleInfoChangeLogUpdateColumnCreatedBy, VehicleInfoChangeLogUpdateColumnDeletedAt, VehicleInfoChangeLogUpdateColumnDeletedBy, VehicleInfoChangeLogUpdateColumnDepartmentID, VehicleInfoChangeLogUpdateColumnDrivingLicenseePic, VehicleInfoChangeLogUpdateColumnEnterpriseID, VehicleInfoChangeLogUpdateColumnHeavy, VehicleInfoChangeLogUpdateColumnID, VehicleInfoChangeLogUpdateColumnIndustryCategory, VehicleInfoChangeLogUpdateColumnInspectionDate, VehicleInfoChangeLogUpdateColumnInsuranceCompany, VehicleInfoChangeLogUpdateColumnInsuranceDate, VehicleInfoChangeLogUpdateColumnIsActive, VehicleInfoChangeLogUpdateColumnIsApplyInstallTerminal, VehicleInfoChangeLogUpdateColumnIsComplete, VehicleInfoChangeLogUpdateColumnIsDelete, VehicleInfoChangeLogUpdateColumnIsImport, VehicleInfoChangeLogUpdateColumnIsInput, VehicleInfoChangeLogUpdateColumnIsUploadProvince, VehicleInfoChangeLogUpdateColumnLicensePlateColor, VehicleInfoChangeLogUpdateColumnLicensePlateNumber, VehicleInfoChangeLogUpdateColumnLicensePlateType, VehicleInfoChangeLogUpdateColumnMuckTruckID, VehicleInfoChangeLogUpdateColumnOperatingRoute, VehicleInfoChangeLogUpdateColumnOperatingState, VehicleInfoChangeLogUpdateColumnOperatingType, VehicleInfoChangeLogUpdateColumnOperatingVehicleID, VehicleInfoChangeLogUpdateColumnOwner, VehicleInfoChangeLogUpdateColumnQuasiDrivingModels, VehicleInfoChangeLogUpdateColumnRecordAt, VehicleInfoChangeLogUpdateColumnRecordBy, VehicleInfoChangeLogUpdateColumnRemarkIn, VehicleInfoChangeLogUpdateColumnRemarks, VehicleInfoChangeLogUpdateColumnRetirementDate, VehicleInfoChangeLogUpdateColumnRoadTransportLicenseNumber, VehicleInfoChangeLogUpdateColumnSeats, VehicleInfoChangeLogUpdateColumnTerminalID, VehicleInfoChangeLogUpdateColumnUpdatedAt, VehicleInfoChangeLogUpdateColumnUpdatedBy, VehicleInfoChangeLogUpdateColumnUpdateTimeIn, VehicleInfoChangeLogUpdateColumnUseNature, VehicleInfoChangeLogUpdateColumnVehicleBrand, VehicleInfoChangeLogUpdateColumnVehicleDisplacement, VehicleInfoChangeLogUpdateColumnVehicleIdentificationNumber, VehicleInfoChangeLogUpdateColumnVehicleInfoChangeID, VehicleInfoChangeLogUpdateColumnVehicleMaintenances, VehicleInfoChangeLogUpdateColumnVehicleManager, VehicleInfoChangeLogUpdateColumnVehicleManagerIDCard, VehicleInfoChangeLogUpdateColumnVehicleManagerPhone, VehicleInfoChangeLogUpdateColumnVehicleState, VehicleInfoChangeLogUpdateColumnVehicleType:
 		return true
 	}
 	return false
@@ -7732,13 +7732,13 @@ const (
 	// column name
 	VehicleInfoSelectColumnCheckState VehicleInfoSelectColumn = "check_state"
 	// column name
-	VehicleInfoSelectColumnCreateAt VehicleInfoSelectColumn = "create_at"
+	VehicleInfoSelectColumnCreatedAt VehicleInfoSelectColumn = "created_at"
 	// column name
-	VehicleInfoSelectColumnCreateBy VehicleInfoSelectColumn = "create_by"
+	VehicleInfoSelectColumnCreatedBy VehicleInfoSelectColumn = "created_by"
 	// column name
-	VehicleInfoSelectColumnDeleteAt VehicleInfoSelectColumn = "delete_at"
+	VehicleInfoSelectColumnDeletedAt VehicleInfoSelectColumn = "deleted_at"
 	// column name
-	VehicleInfoSelectColumnDeleteBy VehicleInfoSelectColumn = "delete_by"
+	VehicleInfoSelectColumnDeletedBy VehicleInfoSelectColumn = "deleted_by"
 	// column name
 	VehicleInfoSelectColumnDepartmentID VehicleInfoSelectColumn = "department_id"
 	// column name
@@ -7808,9 +7808,9 @@ const (
 	// column name
 	VehicleInfoSelectColumnTerminalID VehicleInfoSelectColumn = "terminal_id"
 	// column name
-	VehicleInfoSelectColumnUpdateAt VehicleInfoSelectColumn = "update_at"
+	VehicleInfoSelectColumnUpdatedAt VehicleInfoSelectColumn = "updated_at"
 	// column name
-	VehicleInfoSelectColumnUpdateBy VehicleInfoSelectColumn = "update_by"
+	VehicleInfoSelectColumnUpdatedBy VehicleInfoSelectColumn = "updated_by"
 	// column name
 	VehicleInfoSelectColumnUpdateTimeIn VehicleInfoSelectColumn = "update_time_in"
 	// column name
@@ -7841,10 +7841,10 @@ var AllVehicleInfoSelectColumn = []VehicleInfoSelectColumn{
 	VehicleInfoSelectColumnBusinessScope,
 	VehicleInfoSelectColumnCarRentalPrice,
 	VehicleInfoSelectColumnCheckState,
-	VehicleInfoSelectColumnCreateAt,
-	VehicleInfoSelectColumnCreateBy,
-	VehicleInfoSelectColumnDeleteAt,
-	VehicleInfoSelectColumnDeleteBy,
+	VehicleInfoSelectColumnCreatedAt,
+	VehicleInfoSelectColumnCreatedBy,
+	VehicleInfoSelectColumnDeletedAt,
+	VehicleInfoSelectColumnDeletedBy,
 	VehicleInfoSelectColumnDepartmentID,
 	VehicleInfoSelectColumnDrivingLicenseePic,
 	VehicleInfoSelectColumnEnterpriseID,
@@ -7879,8 +7879,8 @@ var AllVehicleInfoSelectColumn = []VehicleInfoSelectColumn{
 	VehicleInfoSelectColumnRoadTransportLicenseNumber,
 	VehicleInfoSelectColumnSeats,
 	VehicleInfoSelectColumnTerminalID,
-	VehicleInfoSelectColumnUpdateAt,
-	VehicleInfoSelectColumnUpdateBy,
+	VehicleInfoSelectColumnUpdatedAt,
+	VehicleInfoSelectColumnUpdatedBy,
 	VehicleInfoSelectColumnUpdateTimeIn,
 	VehicleInfoSelectColumnUseNature,
 	VehicleInfoSelectColumnVehicleBrand,
@@ -7897,7 +7897,7 @@ var AllVehicleInfoSelectColumn = []VehicleInfoSelectColumn{
 
 func (e VehicleInfoSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoSelectColumnBusinessScope, VehicleInfoSelectColumnCarRentalPrice, VehicleInfoSelectColumnCheckState, VehicleInfoSelectColumnCreateAt, VehicleInfoSelectColumnCreateBy, VehicleInfoSelectColumnDeleteAt, VehicleInfoSelectColumnDeleteBy, VehicleInfoSelectColumnDepartmentID, VehicleInfoSelectColumnDrivingLicenseePic, VehicleInfoSelectColumnEnterpriseID, VehicleInfoSelectColumnHeavy, VehicleInfoSelectColumnID, VehicleInfoSelectColumnIndustryCategory, VehicleInfoSelectColumnInspectionDate, VehicleInfoSelectColumnInsuranceCompany, VehicleInfoSelectColumnInsuranceDate, VehicleInfoSelectColumnIsActive, VehicleInfoSelectColumnIsApplyInstallTerminal, VehicleInfoSelectColumnIsComplete, VehicleInfoSelectColumnIsDelete, VehicleInfoSelectColumnIsImport, VehicleInfoSelectColumnIsInput, VehicleInfoSelectColumnIsUploadProvince, VehicleInfoSelectColumnLicensePlateColor, VehicleInfoSelectColumnLicensePlateNumber, VehicleInfoSelectColumnLicensePlateType, VehicleInfoSelectColumnMuckTruckID, VehicleInfoSelectColumnOperatingRoute, VehicleInfoSelectColumnOperatingState, VehicleInfoSelectColumnOperatingType, VehicleInfoSelectColumnOperatingVehicleID, VehicleInfoSelectColumnOwner, VehicleInfoSelectColumnQuasiDrivingModels, VehicleInfoSelectColumnRecordAt, VehicleInfoSelectColumnRecordBy, VehicleInfoSelectColumnRemarkIn, VehicleInfoSelectColumnRemarks, VehicleInfoSelectColumnRetirementDate, VehicleInfoSelectColumnRoadTransportLicenseNumber, VehicleInfoSelectColumnSeats, VehicleInfoSelectColumnTerminalID, VehicleInfoSelectColumnUpdateAt, VehicleInfoSelectColumnUpdateBy, VehicleInfoSelectColumnUpdateTimeIn, VehicleInfoSelectColumnUseNature, VehicleInfoSelectColumnVehicleBrand, VehicleInfoSelectColumnVehicleDisplacement, VehicleInfoSelectColumnVehicleID, VehicleInfoSelectColumnVehicleIdentificationNumber, VehicleInfoSelectColumnVehicleMaintenances, VehicleInfoSelectColumnVehicleManager, VehicleInfoSelectColumnVehicleManagerIDCard, VehicleInfoSelectColumnVehicleManagerPhone, VehicleInfoSelectColumnVehicleState, VehicleInfoSelectColumnVehicleType:
+	case VehicleInfoSelectColumnBusinessScope, VehicleInfoSelectColumnCarRentalPrice, VehicleInfoSelectColumnCheckState, VehicleInfoSelectColumnCreatedAt, VehicleInfoSelectColumnCreatedBy, VehicleInfoSelectColumnDeletedAt, VehicleInfoSelectColumnDeletedBy, VehicleInfoSelectColumnDepartmentID, VehicleInfoSelectColumnDrivingLicenseePic, VehicleInfoSelectColumnEnterpriseID, VehicleInfoSelectColumnHeavy, VehicleInfoSelectColumnID, VehicleInfoSelectColumnIndustryCategory, VehicleInfoSelectColumnInspectionDate, VehicleInfoSelectColumnInsuranceCompany, VehicleInfoSelectColumnInsuranceDate, VehicleInfoSelectColumnIsActive, VehicleInfoSelectColumnIsApplyInstallTerminal, VehicleInfoSelectColumnIsComplete, VehicleInfoSelectColumnIsDelete, VehicleInfoSelectColumnIsImport, VehicleInfoSelectColumnIsInput, VehicleInfoSelectColumnIsUploadProvince, VehicleInfoSelectColumnLicensePlateColor, VehicleInfoSelectColumnLicensePlateNumber, VehicleInfoSelectColumnLicensePlateType, VehicleInfoSelectColumnMuckTruckID, VehicleInfoSelectColumnOperatingRoute, VehicleInfoSelectColumnOperatingState, VehicleInfoSelectColumnOperatingType, VehicleInfoSelectColumnOperatingVehicleID, VehicleInfoSelectColumnOwner, VehicleInfoSelectColumnQuasiDrivingModels, VehicleInfoSelectColumnRecordAt, VehicleInfoSelectColumnRecordBy, VehicleInfoSelectColumnRemarkIn, VehicleInfoSelectColumnRemarks, VehicleInfoSelectColumnRetirementDate, VehicleInfoSelectColumnRoadTransportLicenseNumber, VehicleInfoSelectColumnSeats, VehicleInfoSelectColumnTerminalID, VehicleInfoSelectColumnUpdatedAt, VehicleInfoSelectColumnUpdatedBy, VehicleInfoSelectColumnUpdateTimeIn, VehicleInfoSelectColumnUseNature, VehicleInfoSelectColumnVehicleBrand, VehicleInfoSelectColumnVehicleDisplacement, VehicleInfoSelectColumnVehicleID, VehicleInfoSelectColumnVehicleIdentificationNumber, VehicleInfoSelectColumnVehicleMaintenances, VehicleInfoSelectColumnVehicleManager, VehicleInfoSelectColumnVehicleManagerIDCard, VehicleInfoSelectColumnVehicleManagerPhone, VehicleInfoSelectColumnVehicleState, VehicleInfoSelectColumnVehicleType:
 		return true
 	}
 	return false
@@ -7935,13 +7935,13 @@ const (
 	// column name
 	VehicleInfoUpdateColumnCheckState VehicleInfoUpdateColumn = "check_state"
 	// column name
-	VehicleInfoUpdateColumnCreateAt VehicleInfoUpdateColumn = "create_at"
+	VehicleInfoUpdateColumnCreatedAt VehicleInfoUpdateColumn = "created_at"
 	// column name
-	VehicleInfoUpdateColumnCreateBy VehicleInfoUpdateColumn = "create_by"
+	VehicleInfoUpdateColumnCreatedBy VehicleInfoUpdateColumn = "created_by"
 	// column name
-	VehicleInfoUpdateColumnDeleteAt VehicleInfoUpdateColumn = "delete_at"
+	VehicleInfoUpdateColumnDeletedAt VehicleInfoUpdateColumn = "deleted_at"
 	// column name
-	VehicleInfoUpdateColumnDeleteBy VehicleInfoUpdateColumn = "delete_by"
+	VehicleInfoUpdateColumnDeletedBy VehicleInfoUpdateColumn = "deleted_by"
 	// column name
 	VehicleInfoUpdateColumnDepartmentID VehicleInfoUpdateColumn = "department_id"
 	// column name
@@ -8011,9 +8011,9 @@ const (
 	// column name
 	VehicleInfoUpdateColumnTerminalID VehicleInfoUpdateColumn = "terminal_id"
 	// column name
-	VehicleInfoUpdateColumnUpdateAt VehicleInfoUpdateColumn = "update_at"
+	VehicleInfoUpdateColumnUpdatedAt VehicleInfoUpdateColumn = "updated_at"
 	// column name
-	VehicleInfoUpdateColumnUpdateBy VehicleInfoUpdateColumn = "update_by"
+	VehicleInfoUpdateColumnUpdatedBy VehicleInfoUpdateColumn = "updated_by"
 	// column name
 	VehicleInfoUpdateColumnUpdateTimeIn VehicleInfoUpdateColumn = "update_time_in"
 	// column name
@@ -8044,10 +8044,10 @@ var AllVehicleInfoUpdateColumn = []VehicleInfoUpdateColumn{
 	VehicleInfoUpdateColumnBusinessScope,
 	VehicleInfoUpdateColumnCarRentalPrice,
 	VehicleInfoUpdateColumnCheckState,
-	VehicleInfoUpdateColumnCreateAt,
-	VehicleInfoUpdateColumnCreateBy,
-	VehicleInfoUpdateColumnDeleteAt,
-	VehicleInfoUpdateColumnDeleteBy,
+	VehicleInfoUpdateColumnCreatedAt,
+	VehicleInfoUpdateColumnCreatedBy,
+	VehicleInfoUpdateColumnDeletedAt,
+	VehicleInfoUpdateColumnDeletedBy,
 	VehicleInfoUpdateColumnDepartmentID,
 	VehicleInfoUpdateColumnDrivingLicenseePic,
 	VehicleInfoUpdateColumnEnterpriseID,
@@ -8082,8 +8082,8 @@ var AllVehicleInfoUpdateColumn = []VehicleInfoUpdateColumn{
 	VehicleInfoUpdateColumnRoadTransportLicenseNumber,
 	VehicleInfoUpdateColumnSeats,
 	VehicleInfoUpdateColumnTerminalID,
-	VehicleInfoUpdateColumnUpdateAt,
-	VehicleInfoUpdateColumnUpdateBy,
+	VehicleInfoUpdateColumnUpdatedAt,
+	VehicleInfoUpdateColumnUpdatedBy,
 	VehicleInfoUpdateColumnUpdateTimeIn,
 	VehicleInfoUpdateColumnUseNature,
 	VehicleInfoUpdateColumnVehicleBrand,
@@ -8100,7 +8100,7 @@ var AllVehicleInfoUpdateColumn = []VehicleInfoUpdateColumn{
 
 func (e VehicleInfoUpdateColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoUpdateColumnBusinessScope, VehicleInfoUpdateColumnCarRentalPrice, VehicleInfoUpdateColumnCheckState, VehicleInfoUpdateColumnCreateAt, VehicleInfoUpdateColumnCreateBy, VehicleInfoUpdateColumnDeleteAt, VehicleInfoUpdateColumnDeleteBy, VehicleInfoUpdateColumnDepartmentID, VehicleInfoUpdateColumnDrivingLicenseePic, VehicleInfoUpdateColumnEnterpriseID, VehicleInfoUpdateColumnHeavy, VehicleInfoUpdateColumnID, VehicleInfoUpdateColumnIndustryCategory, VehicleInfoUpdateColumnInspectionDate, VehicleInfoUpdateColumnInsuranceCompany, VehicleInfoUpdateColumnInsuranceDate, VehicleInfoUpdateColumnIsActive, VehicleInfoUpdateColumnIsApplyInstallTerminal, VehicleInfoUpdateColumnIsComplete, VehicleInfoUpdateColumnIsDelete, VehicleInfoUpdateColumnIsImport, VehicleInfoUpdateColumnIsInput, VehicleInfoUpdateColumnIsUploadProvince, VehicleInfoUpdateColumnLicensePlateColor, VehicleInfoUpdateColumnLicensePlateNumber, VehicleInfoUpdateColumnLicensePlateType, VehicleInfoUpdateColumnMuckTruckID, VehicleInfoUpdateColumnOperatingRoute, VehicleInfoUpdateColumnOperatingState, VehicleInfoUpdateColumnOperatingType, VehicleInfoUpdateColumnOperatingVehicleID, VehicleInfoUpdateColumnOwner, VehicleInfoUpdateColumnQuasiDrivingModels, VehicleInfoUpdateColumnRecordAt, VehicleInfoUpdateColumnRecordBy, VehicleInfoUpdateColumnRemarkIn, VehicleInfoUpdateColumnRemarks, VehicleInfoUpdateColumnRetirementDate, VehicleInfoUpdateColumnRoadTransportLicenseNumber, VehicleInfoUpdateColumnSeats, VehicleInfoUpdateColumnTerminalID, VehicleInfoUpdateColumnUpdateAt, VehicleInfoUpdateColumnUpdateBy, VehicleInfoUpdateColumnUpdateTimeIn, VehicleInfoUpdateColumnUseNature, VehicleInfoUpdateColumnVehicleBrand, VehicleInfoUpdateColumnVehicleDisplacement, VehicleInfoUpdateColumnVehicleID, VehicleInfoUpdateColumnVehicleIdentificationNumber, VehicleInfoUpdateColumnVehicleMaintenances, VehicleInfoUpdateColumnVehicleManager, VehicleInfoUpdateColumnVehicleManagerIDCard, VehicleInfoUpdateColumnVehicleManagerPhone, VehicleInfoUpdateColumnVehicleState, VehicleInfoUpdateColumnVehicleType:
+	case VehicleInfoUpdateColumnBusinessScope, VehicleInfoUpdateColumnCarRentalPrice, VehicleInfoUpdateColumnCheckState, VehicleInfoUpdateColumnCreatedAt, VehicleInfoUpdateColumnCreatedBy, VehicleInfoUpdateColumnDeletedAt, VehicleInfoUpdateColumnDeletedBy, VehicleInfoUpdateColumnDepartmentID, VehicleInfoUpdateColumnDrivingLicenseePic, VehicleInfoUpdateColumnEnterpriseID, VehicleInfoUpdateColumnHeavy, VehicleInfoUpdateColumnID, VehicleInfoUpdateColumnIndustryCategory, VehicleInfoUpdateColumnInspectionDate, VehicleInfoUpdateColumnInsuranceCompany, VehicleInfoUpdateColumnInsuranceDate, VehicleInfoUpdateColumnIsActive, VehicleInfoUpdateColumnIsApplyInstallTerminal, VehicleInfoUpdateColumnIsComplete, VehicleInfoUpdateColumnIsDelete, VehicleInfoUpdateColumnIsImport, VehicleInfoUpdateColumnIsInput, VehicleInfoUpdateColumnIsUploadProvince, VehicleInfoUpdateColumnLicensePlateColor, VehicleInfoUpdateColumnLicensePlateNumber, VehicleInfoUpdateColumnLicensePlateType, VehicleInfoUpdateColumnMuckTruckID, VehicleInfoUpdateColumnOperatingRoute, VehicleInfoUpdateColumnOperatingState, VehicleInfoUpdateColumnOperatingType, VehicleInfoUpdateColumnOperatingVehicleID, VehicleInfoUpdateColumnOwner, VehicleInfoUpdateColumnQuasiDrivingModels, VehicleInfoUpdateColumnRecordAt, VehicleInfoUpdateColumnRecordBy, VehicleInfoUpdateColumnRemarkIn, VehicleInfoUpdateColumnRemarks, VehicleInfoUpdateColumnRetirementDate, VehicleInfoUpdateColumnRoadTransportLicenseNumber, VehicleInfoUpdateColumnSeats, VehicleInfoUpdateColumnTerminalID, VehicleInfoUpdateColumnUpdatedAt, VehicleInfoUpdateColumnUpdatedBy, VehicleInfoUpdateColumnUpdateTimeIn, VehicleInfoUpdateColumnUseNature, VehicleInfoUpdateColumnVehicleBrand, VehicleInfoUpdateColumnVehicleDisplacement, VehicleInfoUpdateColumnVehicleID, VehicleInfoUpdateColumnVehicleIdentificationNumber, VehicleInfoUpdateColumnVehicleMaintenances, VehicleInfoUpdateColumnVehicleManager, VehicleInfoUpdateColumnVehicleManagerIDCard, VehicleInfoUpdateColumnVehicleManagerPhone, VehicleInfoUpdateColumnVehicleState, VehicleInfoUpdateColumnVehicleType:
 		return true
 	}
 	return false

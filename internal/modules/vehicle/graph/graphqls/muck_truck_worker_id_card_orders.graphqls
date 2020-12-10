@@ -9,16 +9,16 @@ columns and relationships of "muck_truck_worker_id_card_orders"
 """
 type muck_truck_worker_id_card_orders {
     """创建时间"""
-    create_at: timestamptz!
+    created_at: timestamptz!
 
     """创建人"""
-    create_by: String!
+    created_by: String!
 
     """删除时间"""
-    delete_at: timestamptz
+    deleted_at: timestamptz
 
     """删除人"""
-    delete_by: String
+    deleted_by: String
 
     """主键"""
     id: bigint!
@@ -27,10 +27,10 @@ type muck_truck_worker_id_card_orders {
     preview_number_id: bigint!
 
     """修改时间"""
-    update_at: timestamptz
+    updated_at: timestamptz
 
     """修改人"""
-    update_by: String
+    updated_by: String
 
     """vehicle_info 车辆信息表 的vehicle_id"""
     vehicle_id: String!
@@ -108,14 +108,14 @@ input muck_truck_worker_id_card_orders_bool_exp {
     _and: [muck_truck_worker_id_card_orders_bool_exp]
     _not: muck_truck_worker_id_card_orders_bool_exp
     _or: [muck_truck_worker_id_card_orders_bool_exp]
-    create_at: timestamptz_comparison_exp
-    create_by: String_comparison_exp
-    delete_at: timestamptz_comparison_exp
-    delete_by: String_comparison_exp
+    created_at: timestamptz_comparison_exp
+    created_by: String_comparison_exp
+    deleted_at: timestamptz_comparison_exp
+    deleted_by: String_comparison_exp
     id: bigint_comparison_exp
     preview_number_id: bigint_comparison_exp
-    update_at: timestamptz_comparison_exp
-    update_by: String_comparison_exp
+    updated_at: timestamptz_comparison_exp
+    updated_by: String_comparison_exp
     vehicle_id: String_comparison_exp
 }
 
@@ -139,27 +139,27 @@ input muck_truck_worker_id_card_orders_inc_input {
 input type for inserting data into table "muck_truck_worker_id_card_orders"
 """
 input muck_truck_worker_id_card_orders_insert_input {
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     id: bigint
     preview_number_id: bigint
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
 """aggregate max on columns"""
 type muck_truck_worker_id_card_orders_max_fields {
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     id: bigint
     preview_number_id: bigint
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -167,27 +167,27 @@ type muck_truck_worker_id_card_orders_max_fields {
 order by max() on columns of table "muck_truck_worker_id_card_orders"
 """
 input muck_truck_worker_id_card_orders_max_order_by {
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     id: order_by
     preview_number_id: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
 }
 
 """aggregate min on columns"""
 type muck_truck_worker_id_card_orders_min_fields {
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     id: bigint
     preview_number_id: bigint
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -195,14 +195,14 @@ type muck_truck_worker_id_card_orders_min_fields {
 order by min() on columns of table "muck_truck_worker_id_card_orders"
 """
 input muck_truck_worker_id_card_orders_min_order_by {
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     id: order_by
     preview_number_id: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
 }
 
@@ -238,14 +238,14 @@ input muck_truck_worker_id_card_orders_on_conflict {
 ordering options when selecting data from "muck_truck_worker_id_card_orders"
 """
 input muck_truck_worker_id_card_orders_order_by {
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     id: order_by
     preview_number_id: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
 }
 
@@ -262,16 +262,16 @@ select columns of table "muck_truck_worker_id_card_orders"
 """
 enum muck_truck_worker_id_card_orders_select_column {
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     id
@@ -280,10 +280,10 @@ enum muck_truck_worker_id_card_orders_select_column {
     preview_number_id
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_id
@@ -293,14 +293,14 @@ enum muck_truck_worker_id_card_orders_select_column {
 input type for updating data in table "muck_truck_worker_id_card_orders"
 """
 input muck_truck_worker_id_card_orders_set_input {
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     id: bigint
     preview_number_id: bigint
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -365,16 +365,16 @@ update columns of table "muck_truck_worker_id_card_orders"
 """
 enum muck_truck_worker_id_card_orders_update_column {
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     id
@@ -383,10 +383,10 @@ enum muck_truck_worker_id_card_orders_update_column {
     preview_number_id
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_id
