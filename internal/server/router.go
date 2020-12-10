@@ -12,10 +12,8 @@ import (
 	device "VehicleSupervision/internal/modules/device"
 	ridehailing "VehicleSupervision/internal/modules/ridehailing"
 
-	dictionaryCategoryMutation "VehicleSupervision/internal/modules/dictionary/category/mutation"
-	dictionaryCategoryQuery "VehicleSupervision/internal/modules/dictionary/category/query"
-	dictionaryMutation "VehicleSupervision/internal/modules/dictionary/dict/mutation"
-	dictionaryQuery "VehicleSupervision/internal/modules/dictionary/dict/query"
+	dictionary "VehicleSupervision/internal/modules/dictionary"
+
 	"VehicleSupervision/internal/modules/driver"
 	drivingLogMutation "VehicleSupervision/internal/modules/driving/log/mutation"
 	drivingLogQuery "VehicleSupervision/internal/modules/driving/log/query"
@@ -67,12 +65,8 @@ func Setup() {
 
 	// 系统管理端点
 	router.Any("/admin", admin.GinEndpoint())
-	// 字典类型端点
-	router.Any("/dictionary_category/query", dictionaryCategoryQuery.GinEndpoint())
-	router.Any("/dictionary_category/mutation", dictionaryCategoryMutation.GinEndpoint())
-	// 字典端点
-	router.Any("/dictionary/query", dictionaryQuery.GinEndpoint())
-	router.Any("/dictionary/mutation", dictionaryMutation.GinEndpoint())
+	// 字典管理端点
+	router.Any("/dictionary", dictionary.GinEndpoint())
 	// 黑名单端点
 	router.Any("/blacklist", blacklistRecord.GinEndpoint())
 	// 行车日志端点
