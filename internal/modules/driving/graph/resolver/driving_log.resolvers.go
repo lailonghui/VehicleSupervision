@@ -5,13 +5,12 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
-	model1 "VehicleSupervision/internal/modules/driving/log/model"
-	"VehicleSupervision/internal/modules/driving/log/mutation/graph/generated"
-	"VehicleSupervision/internal/modules/driving/log/mutation/graph/model"
+	"VehicleSupervision/internal/modules/driving/graph/generated"
+	"VehicleSupervision/internal/modules/driving/graph/model"
+	model1 "VehicleSupervision/internal/modules/driving/model"
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
-	"fmt"
 	"gorm.io/gorm"
 )
 
@@ -68,7 +67,7 @@ func (r *mutationResolver) DeleteDrivingLogByPk(ctx context.Context, id int64) (
 }
 
 func (r *mutationResolver) InsertDrivingLog(ctx context.Context, objects []*model.DrivingLogInsertInput, onConflict *model.DrivingLogOnConflict) (*model.DrivingLogMutationResponse, error) {
-	rs := r.batchInsertParamConvert(objects)
+	rs := r.drivingLogInsertInputBatchConvert(objects)
 	tx := db.DB.Model(&model1.DrivingLog{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -83,7 +82,7 @@ func (r *mutationResolver) InsertDrivingLog(ctx context.Context, objects []*mode
 }
 
 func (r *mutationResolver) InsertDrivingLogOne(ctx context.Context, object model.DrivingLogInsertInput, onConflict *model.DrivingLogOnConflict) (*model1.DrivingLog, error) {
-	rs := r.insertParamConvert(&object)
+	rs := r.drivingLogInsertInputConvert(&object)
 	tx := db.DB.Model(&model1.DrivingLog{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -125,8 +124,58 @@ func (r *mutationResolver) UpdateDrivingLogByPk(ctx context.Context, inc *model.
 	return &rs, nil
 }
 
-func (r *queryResolver) T(ctx context.Context) (*int, error) {
-	panic(fmt.Errorf("not implemented"))
+func (r *queryResolver) DrivingLog(ctx context.Context, distinctOn []model.DrivingLogSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogOrderBy, where *model.DrivingLogBoolExp) ([]*model1.DrivingLog, error) {
+	qt := util.NewQueryTranslator(db.DB, &model1.DrivingLog{})
+	tx := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Finish()
+	var rs []*model1.DrivingLog
+	tx = tx.Find(&rs)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return rs, nil
+}
+
+func (r *queryResolver) DrivingLogAggregate(ctx context.Context, distinctOn []model.DrivingLogSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogOrderBy, where *model.DrivingLogBoolExp) (*model.DrivingLogAggregate, error) {
+	var rs model.DrivingLogAggregate
+
+	qt := util.NewQueryTranslator(db.DB, &model1.DrivingLog{})
+	tx, err := qt.DistinctOn(distinctOn).
+		Limit(limit).
+		Offset(offset).
+		OrderBy(orderBy).
+		Where(where).
+		Aggregate(&rs, ctx)
+	if err != nil {
+		return nil, err
+	}
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+
+	return &rs, nil
+}
+
+func (r *queryResolver) DrivingLogByPk(ctx context.Context, id int64) (*model1.DrivingLog, error) {
+	var rs model1.DrivingLog
+	tx := db.DB.Model(&model1.DrivingLog{}).First(&rs, id)
+	if err := tx.Error; err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return &rs, nil
 }
 
 // Mutation returns generated.MutationResolver implementation.

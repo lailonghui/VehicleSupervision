@@ -1,8 +1,8 @@
 package resolver
 
 import (
-	model1 "VehicleSupervision/internal/modules/driving/log/model"
-	"VehicleSupervision/internal/modules/driving/log/mutation/graph/model"
+	"VehicleSupervision/internal/modules/driving/graph/model"
+	model1 "VehicleSupervision/internal/modules/driving/model"
 	"VehicleSupervision/pkg/xid"
 )
 
@@ -12,14 +12,14 @@ import (
 
 type Resolver struct{}
 
-func (r Resolver) batchInsertParamConvert(objects []*model.DrivingLogInsertInput) (rs []*model1.DrivingLog) {
+func (r Resolver) drivingLogInsertInputBatchConvert(objects []*model.DrivingLogInsertInput) (rs []*model1.DrivingLog) {
 	for _, v := range objects {
-		rs = append(rs, r.insertParamConvert(v))
+		rs = append(rs, r.drivingLogInsertInputConvert(v))
 	}
 	return
 }
 
-func (r Resolver) insertParamConvert(v *model.DrivingLogInsertInput) (rs *model1.DrivingLog) {
+func (r Resolver) drivingLogInsertInputConvert(v *model.DrivingLogInsertInput) (rs *model1.DrivingLog) {
 	rs = &model1.DrivingLog{
 		Cause:                  v.Cause,
 		CheckOrganizationLevel: *v.CheckOrganizationLevel,

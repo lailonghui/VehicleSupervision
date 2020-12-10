@@ -1,193 +1,77 @@
 
-
-scalar bigint
-
-"""
-expression to compare columns of type bigint. All fields are combined with logical 'AND'.
-"""
-input bigint_comparison_exp {
-  _eq: bigint
-  _gt: bigint
-  _gte: bigint
-  _in: [bigint!]
-  _is_null: Boolean
-  _lt: bigint
-  _lte: bigint
-  _neq: bigint
-  _nin: [bigint!]
-}
-
-"""
-expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
-"""
-input Boolean_comparison_exp {
-  _eq: Boolean
-  _gt: Boolean
-  _gte: Boolean
-  _in: [Boolean!]
-  _is_null: Boolean
-  _lt: Boolean
-  _lte: Boolean
-  _neq: Boolean
-  _nin: [Boolean!]
-}
-
-"""mutation root"""
-type Mutation {
+extend type Mutation {
   """
-  delete data from the table: "vehicle_location_last"
+  delete data from the table: "vehicle_location_his"
   """
-  delete_vehicle_location_last(
+  delete_vehicle_location_his(
     """filter the rows which have to be deleted"""
-    where: vehicle_location_last_bool_exp!
-  ): vehicle_location_last_mutation_response
+    where: vehicle_location_his_bool_exp!
+  ): vehicle_location_his_mutation_response
 
   """
-  delete single row from the table: "vehicle_location_last"
+  delete single row from the table: "vehicle_location_his"
   """
-  delete_vehicle_location_last_by_pk(
+  delete_vehicle_location_his_by_pk(
     """ID"""
     id: bigint!
-  ): vehicle_location_last
+  ): vehicle_location_his
 
   """
-  insert data into the table: "vehicle_location_last"
+  insert data into the table: "vehicle_location_his"
   """
-  insert_vehicle_location_last(
+  insert_vehicle_location_his(
     """the rows to be inserted"""
-    objects: [vehicle_location_last_insert_input!]!
+    objects: [vehicle_location_his_insert_input!]!
 
     """on conflict condition"""
-    on_conflict: vehicle_location_last_on_conflict
-  ): vehicle_location_last_mutation_response
+    on_conflict: vehicle_location_his_on_conflict
+  ): vehicle_location_his_mutation_response
 
   """
-  insert a single row into the table: "vehicle_location_last"
+  insert a single row into the table: "vehicle_location_his"
   """
-  insert_vehicle_location_last_one(
+  insert_vehicle_location_his_one(
     """the row to be inserted"""
-    object: vehicle_location_last_insert_input!
+    object: vehicle_location_his_insert_input!
 
     """on conflict condition"""
-    on_conflict: vehicle_location_last_on_conflict
-  ): vehicle_location_last
+    on_conflict: vehicle_location_his_on_conflict
+  ): vehicle_location_his
 
   """
-  update data of the table: "vehicle_location_last"
+  update data of the table: "vehicle_location_his"
   """
-  update_vehicle_location_last(
+  update_vehicle_location_his(
     """increments the integer columns with given value of the filtered values"""
-    _inc: vehicle_location_last_inc_input
+    _inc: vehicle_location_his_inc_input
 
     """sets the columns of the filtered rows to the given values"""
-    _set: vehicle_location_last_set_input
+    _set: vehicle_location_his_set_input
 
     """filter the rows which have to be updated"""
-    where: vehicle_location_last_bool_exp!
-  ): vehicle_location_last_mutation_response
+    where: vehicle_location_his_bool_exp!
+  ): vehicle_location_his_mutation_response
 
   """
-  update single row of the table: "vehicle_location_last"
+  update single row of the table: "vehicle_location_his"
   """
-  update_vehicle_location_last_by_pk(
+  update_vehicle_location_his_by_pk(
     """increments the integer columns with given value of the filtered values"""
-    _inc: vehicle_location_last_inc_input
+    _inc: vehicle_location_his_inc_input
 
     """sets the columns of the filtered rows to the given values"""
-    _set: vehicle_location_last_set_input
-    pk_columns: vehicle_location_last_pk_columns_input!
-  ): vehicle_location_last
+    _set: vehicle_location_his_set_input
+    pk_columns: vehicle_location_his_pk_columns_input!
+  ): vehicle_location_his
 }
 
-scalar numeric
-
-"""
-expression to compare columns of type numeric. All fields are combined with logical 'AND'.
-"""
-input numeric_comparison_exp {
-  _eq: numeric
-  _gt: numeric
-  _gte: numeric
-  _in: [numeric!]
-  _is_null: Boolean
-  _lt: numeric
-  _lte: numeric
-  _neq: numeric
-  _nin: [numeric!]
-}
-
-"""column ordering options"""
-enum order_by {
-  """in the ascending order, nulls last"""
-  asc
-
-  """in the ascending order, nulls first"""
-  asc_nulls_first
-
-  """in the ascending order, nulls last"""
-  asc_nulls_last
-
-  """in the descending order, nulls first"""
-  desc
-
-  """in the descending order, nulls first"""
-  desc_nulls_first
-
-  """in the descending order, nulls last"""
-  desc_nulls_last
-}
-
-scalar point
-
-"""
-expression to compare columns of type point. All fields are combined with logical 'AND'.
-"""
-input point_comparison_exp {
-  _eq: point
-  _gt: point
-  _gte: point
-  _in: [point!]
-  _is_null: Boolean
-  _lt: point
-  _lte: point
-  _neq: point
-  _nin: [point!]
-}
-
-"""query root"""
-type Query {
- t: Int
-}
-
-"""
-expression to compare columns of type String. All fields are combined with logical 'AND'.
-"""
-input String_comparison_exp {
-  _eq: String
-  _gt: String
-  _gte: String
-  _ilike: String
-  _in: [String!]
-  _is_null: Boolean
-  _like: String
-  _lt: String
-  _lte: String
-  _neq: String
-  _nilike: String
-  _nin: [String!]
-  _nlike: String
-  _nsimilar: String
-  _similar: String
-}
-
-"""subscription root"""
-type subscription_root {
+extend type Query {
   """
-  fetch data from the table: "vehicle_location_last"
+  fetch data from the table: "vehicle_location_his"
   """
-  vehicle_location_last(
+  vehicle_location_his(
     """distinct select on columns"""
-    distinct_on: [vehicle_location_last_select_column!]
+    distinct_on: [vehicle_location_his_select_column!]
 
     """limit the number of rows returned"""
     limit: Int
@@ -196,18 +80,18 @@ type subscription_root {
     offset: Int
 
     """sort the rows by one or more columns"""
-    order_by: [vehicle_location_last_order_by!]
+    order_by: [vehicle_location_his_order_by!]
 
     """filter the rows returned"""
-    where: vehicle_location_last_bool_exp
-  ): [vehicle_location_last!]!
+    where: vehicle_location_his_bool_exp
+  ): [vehicle_location_his!]!
 
   """
-  fetch aggregated fields from the table: "vehicle_location_last"
+  fetch aggregated fields from the table: "vehicle_location_his"
   """
-  vehicle_location_last_aggregate(
+  vehicle_location_his_aggregate(
     """distinct select on columns"""
-    distinct_on: [vehicle_location_last_select_column!]
+    distinct_on: [vehicle_location_his_select_column!]
 
     """limit the number of rows returned"""
     limit: Int
@@ -216,46 +100,30 @@ type subscription_root {
     offset: Int
 
     """sort the rows by one or more columns"""
-    order_by: [vehicle_location_last_order_by!]
+    order_by: [vehicle_location_his_order_by!]
 
     """filter the rows returned"""
-    where: vehicle_location_last_bool_exp
-  ): vehicle_location_last_aggregate!
+    where: vehicle_location_his_bool_exp
+  ): vehicle_location_his_aggregate!
 
   """
-  fetch data from the table: "vehicle_location_last" using primary key columns
+  fetch data from the table: "vehicle_location_his" using primary key columns
   """
-  vehicle_location_last_by_pk(
+  vehicle_location_his_by_pk(
     """ID"""
     id: bigint!
-  ): vehicle_location_last
+  ): vehicle_location_his
 }
 
-scalar timestamptz
 
 """
-expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
-"""
-input timestamptz_comparison_exp {
-  _eq: timestamptz
-  _gt: timestamptz
-  _gte: timestamptz
-  _in: [timestamptz!]
-  _is_null: Boolean
-  _lt: timestamptz
-  _lte: timestamptz
-  _neq: timestamptz
-  _nin: [timestamptz!]
-}
+车辆位置历史表
+
+
+columns and relationships of "vehicle_location_his"
 
 """
-车辆最新位置表
-
-
-columns and relationships of "vehicle_location_last"
-
-"""
-type vehicle_location_last {
+type vehicle_location_his {
   """加速度"""
   acceleration: String
 
@@ -333,57 +201,57 @@ type vehicle_location_last {
 }
 
 """
-aggregated selection of "vehicle_location_last"
+aggregated selection of "vehicle_location_his"
 """
-type vehicle_location_last_aggregate {
-  aggregate: vehicle_location_last_aggregate_fields
-  nodes: [vehicle_location_last!]!
+type vehicle_location_his_aggregate {
+  aggregate: vehicle_location_his_aggregate_fields
+  nodes: [vehicle_location_his!]!
 }
 
 """
-aggregate fields of "vehicle_location_last"
+aggregate fields of "vehicle_location_his"
 """
-type vehicle_location_last_aggregate_fields {
-  avg: vehicle_location_last_avg_fields
-  count(columns: [vehicle_location_last_select_column!], distinct: Boolean): Int
-  max: vehicle_location_last_max_fields
-  min: vehicle_location_last_min_fields
-  stddev: vehicle_location_last_stddev_fields
-  stddev_pop: vehicle_location_last_stddev_pop_fields
-  stddev_samp: vehicle_location_last_stddev_samp_fields
-  sum: vehicle_location_last_sum_fields
-  var_pop: vehicle_location_last_var_pop_fields
-  var_samp: vehicle_location_last_var_samp_fields
-  variance: vehicle_location_last_variance_fields
+type vehicle_location_his_aggregate_fields {
+  avg: vehicle_location_his_avg_fields
+  count(columns: [vehicle_location_his_select_column!], distinct: Boolean): Int
+  max: vehicle_location_his_max_fields
+  min: vehicle_location_his_min_fields
+  stddev: vehicle_location_his_stddev_fields
+  stddev_pop: vehicle_location_his_stddev_pop_fields
+  stddev_samp: vehicle_location_his_stddev_samp_fields
+  sum: vehicle_location_his_sum_fields
+  var_pop: vehicle_location_his_var_pop_fields
+  var_samp: vehicle_location_his_var_samp_fields
+  variance: vehicle_location_his_variance_fields
 }
 
 """
-order by aggregate values of table "vehicle_location_last"
+order by aggregate values of table "vehicle_location_his"
 """
-input vehicle_location_last_aggregate_order_by {
-  avg: vehicle_location_last_avg_order_by
+input vehicle_location_his_aggregate_order_by {
+  avg: vehicle_location_his_avg_order_by
   count: order_by
-  max: vehicle_location_last_max_order_by
-  min: vehicle_location_last_min_order_by
-  stddev: vehicle_location_last_stddev_order_by
-  stddev_pop: vehicle_location_last_stddev_pop_order_by
-  stddev_samp: vehicle_location_last_stddev_samp_order_by
-  sum: vehicle_location_last_sum_order_by
-  var_pop: vehicle_location_last_var_pop_order_by
-  var_samp: vehicle_location_last_var_samp_order_by
-  variance: vehicle_location_last_variance_order_by
+  max: vehicle_location_his_max_order_by
+  min: vehicle_location_his_min_order_by
+  stddev: vehicle_location_his_stddev_order_by
+  stddev_pop: vehicle_location_his_stddev_pop_order_by
+  stddev_samp: vehicle_location_his_stddev_samp_order_by
+  sum: vehicle_location_his_sum_order_by
+  var_pop: vehicle_location_his_var_pop_order_by
+  var_samp: vehicle_location_his_var_samp_order_by
+  variance: vehicle_location_his_variance_order_by
 }
 
 """
-input type for inserting array relation for remote table "vehicle_location_last"
+input type for inserting array relation for remote table "vehicle_location_his"
 """
-input vehicle_location_last_arr_rel_insert_input {
-  data: [vehicle_location_last_insert_input!]!
-  on_conflict: vehicle_location_last_on_conflict
+input vehicle_location_his_arr_rel_insert_input {
+  data: [vehicle_location_his_insert_input!]!
+  on_conflict: vehicle_location_his_on_conflict
 }
 
 """aggregate avg on columns"""
-type vehicle_location_last_avg_fields {
+type vehicle_location_his_avg_fields {
   gps_speed: Float
   id: Float
   speed_limit_threshold: Float
@@ -391,9 +259,9 @@ type vehicle_location_last_avg_fields {
 }
 
 """
-order by avg() on columns of table "vehicle_location_last"
+order by avg() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_avg_order_by {
+input vehicle_location_his_avg_order_by {
   gps_speed: order_by
   id: order_by
   speed_limit_threshold: order_by
@@ -401,12 +269,12 @@ input vehicle_location_last_avg_order_by {
 }
 
 """
-Boolean expression to filter rows from the table "vehicle_location_last". All fields are combined with a logical 'AND'.
+Boolean expression to filter rows from the table "vehicle_location_his". All fields are combined with a logical 'AND'.
 """
-input vehicle_location_last_bool_exp {
-  _and: [vehicle_location_last_bool_exp]
-  _not: vehicle_location_last_bool_exp
-  _or: [vehicle_location_last_bool_exp]
+input vehicle_location_his_bool_exp {
+  _and: [vehicle_location_his_bool_exp]
+  _not: vehicle_location_his_bool_exp
+  _or: [vehicle_location_his_bool_exp]
   acceleration: String_comparison_exp
   alarm_content: String_comparison_exp
   alititude: String_comparison_exp
@@ -435,17 +303,17 @@ input vehicle_location_last_bool_exp {
 }
 
 """
-unique or primary key constraints on table "vehicle_location_last"
+unique or primary key constraints on table "vehicle_location_his"
 """
-enum vehicle_location_last_constraint {
+enum vehicle_location_his_constraint {
   """unique or primary key constraint"""
-  vehicle_location_last_pkey
+  vehicle_location_his_pkey
 }
 
 """
-input type for incrementing integer column in table "vehicle_location_last"
+input type for incrementing integer column in table "vehicle_location_his"
 """
-input vehicle_location_last_inc_input {
+input vehicle_location_his_inc_input {
   gps_speed: numeric
   id: bigint
   speed_limit_threshold: numeric
@@ -453,9 +321,9 @@ input vehicle_location_last_inc_input {
 }
 
 """
-input type for inserting data into table "vehicle_location_last"
+input type for inserting data into table "vehicle_location_his"
 """
-input vehicle_location_last_insert_input {
+input vehicle_location_his_insert_input {
   acceleration: String
   alarm_content: String
   alititude: String
@@ -484,7 +352,7 @@ input vehicle_location_last_insert_input {
 }
 
 """aggregate max on columns"""
-type vehicle_location_last_max_fields {
+type vehicle_location_his_max_fields {
   acceleration: String
   alarm_content: String
   alititude: String
@@ -510,9 +378,9 @@ type vehicle_location_last_max_fields {
 }
 
 """
-order by max() on columns of table "vehicle_location_last"
+order by max() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_max_order_by {
+input vehicle_location_his_max_order_by {
   acceleration: order_by
   alarm_content: order_by
   alititude: order_by
@@ -538,7 +406,7 @@ input vehicle_location_last_max_order_by {
 }
 
 """aggregate min on columns"""
-type vehicle_location_last_min_fields {
+type vehicle_location_his_min_fields {
   acceleration: String
   alarm_content: String
   alititude: String
@@ -564,9 +432,9 @@ type vehicle_location_last_min_fields {
 }
 
 """
-order by min() on columns of table "vehicle_location_last"
+order by min() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_min_order_by {
+input vehicle_location_his_min_order_by {
   acceleration: order_by
   alarm_content: order_by
   alititude: order_by
@@ -592,37 +460,37 @@ input vehicle_location_last_min_order_by {
 }
 
 """
-response of any mutation on the table "vehicle_location_last"
+response of any mutation on the table "vehicle_location_his"
 """
-type vehicle_location_last_mutation_response {
+type vehicle_location_his_mutation_response {
   """number of affected rows by the mutation"""
   affected_rows: Int!
 
   """data of the affected rows by the mutation"""
-  returning: [vehicle_location_last!]!
+  returning: [vehicle_location_his!]!
 }
 
 """
-input type for inserting object relation for remote table "vehicle_location_last"
+input type for inserting object relation for remote table "vehicle_location_his"
 """
-input vehicle_location_last_obj_rel_insert_input {
-  data: vehicle_location_last_insert_input!
-  on_conflict: vehicle_location_last_on_conflict
+input vehicle_location_his_obj_rel_insert_input {
+  data: vehicle_location_his_insert_input!
+  on_conflict: vehicle_location_his_on_conflict
 }
 
 """
-on conflict condition type for table "vehicle_location_last"
+on conflict condition type for table "vehicle_location_his"
 """
-input vehicle_location_last_on_conflict {
-  constraint: vehicle_location_last_constraint!
-  update_columns: [vehicle_location_last_update_column!]!
-  where: vehicle_location_last_bool_exp
+input vehicle_location_his_on_conflict {
+  constraint: vehicle_location_his_constraint!
+  update_columns: [vehicle_location_his_update_column!]!
+  where: vehicle_location_his_bool_exp
 }
 
 """
-ordering options when selecting data from "vehicle_location_last"
+ordering options when selecting data from "vehicle_location_his"
 """
-input vehicle_location_last_order_by {
+input vehicle_location_his_order_by {
   acceleration: order_by
   alarm_content: order_by
   alititude: order_by
@@ -651,17 +519,17 @@ input vehicle_location_last_order_by {
 }
 
 """
-primary key columns input for table: "vehicle_location_last"
+primary key columns input for table: "vehicle_location_his"
 """
-input vehicle_location_last_pk_columns_input {
+input vehicle_location_his_pk_columns_input {
   """ID"""
   id: bigint!
 }
 
 """
-select columns of table "vehicle_location_last"
+select columns of table "vehicle_location_his"
 """
-enum vehicle_location_last_select_column {
+enum vehicle_location_his_select_column {
   """column name"""
   acceleration
 
@@ -739,9 +607,9 @@ enum vehicle_location_last_select_column {
 }
 
 """
-input type for updating data in table "vehicle_location_last"
+input type for updating data in table "vehicle_location_his"
 """
-input vehicle_location_last_set_input {
+input vehicle_location_his_set_input {
   acceleration: String
   alarm_content: String
   alititude: String
@@ -770,7 +638,7 @@ input vehicle_location_last_set_input {
 }
 
 """aggregate stddev on columns"""
-type vehicle_location_last_stddev_fields {
+type vehicle_location_his_stddev_fields {
   gps_speed: Float
   id: Float
   speed_limit_threshold: Float
@@ -778,9 +646,9 @@ type vehicle_location_last_stddev_fields {
 }
 
 """
-order by stddev() on columns of table "vehicle_location_last"
+order by stddev() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_stddev_order_by {
+input vehicle_location_his_stddev_order_by {
   gps_speed: order_by
   id: order_by
   speed_limit_threshold: order_by
@@ -788,7 +656,7 @@ input vehicle_location_last_stddev_order_by {
 }
 
 """aggregate stddev_pop on columns"""
-type vehicle_location_last_stddev_pop_fields {
+type vehicle_location_his_stddev_pop_fields {
   gps_speed: Float
   id: Float
   speed_limit_threshold: Float
@@ -796,9 +664,9 @@ type vehicle_location_last_stddev_pop_fields {
 }
 
 """
-order by stddev_pop() on columns of table "vehicle_location_last"
+order by stddev_pop() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_stddev_pop_order_by {
+input vehicle_location_his_stddev_pop_order_by {
   gps_speed: order_by
   id: order_by
   speed_limit_threshold: order_by
@@ -806,7 +674,7 @@ input vehicle_location_last_stddev_pop_order_by {
 }
 
 """aggregate stddev_samp on columns"""
-type vehicle_location_last_stddev_samp_fields {
+type vehicle_location_his_stddev_samp_fields {
   gps_speed: Float
   id: Float
   speed_limit_threshold: Float
@@ -814,9 +682,9 @@ type vehicle_location_last_stddev_samp_fields {
 }
 
 """
-order by stddev_samp() on columns of table "vehicle_location_last"
+order by stddev_samp() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_stddev_samp_order_by {
+input vehicle_location_his_stddev_samp_order_by {
   gps_speed: order_by
   id: order_by
   speed_limit_threshold: order_by
@@ -824,7 +692,7 @@ input vehicle_location_last_stddev_samp_order_by {
 }
 
 """aggregate sum on columns"""
-type vehicle_location_last_sum_fields {
+type vehicle_location_his_sum_fields {
   gps_speed: numeric
   id: bigint
   speed_limit_threshold: numeric
@@ -832,9 +700,9 @@ type vehicle_location_last_sum_fields {
 }
 
 """
-order by sum() on columns of table "vehicle_location_last"
+order by sum() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_sum_order_by {
+input vehicle_location_his_sum_order_by {
   gps_speed: order_by
   id: order_by
   speed_limit_threshold: order_by
@@ -842,9 +710,9 @@ input vehicle_location_last_sum_order_by {
 }
 
 """
-update columns of table "vehicle_location_last"
+update columns of table "vehicle_location_his"
 """
-enum vehicle_location_last_update_column {
+enum vehicle_location_his_update_column {
   """column name"""
   acceleration
 
@@ -922,7 +790,7 @@ enum vehicle_location_last_update_column {
 }
 
 """aggregate var_pop on columns"""
-type vehicle_location_last_var_pop_fields {
+type vehicle_location_his_var_pop_fields {
   gps_speed: Float
   id: Float
   speed_limit_threshold: Float
@@ -930,9 +798,9 @@ type vehicle_location_last_var_pop_fields {
 }
 
 """
-order by var_pop() on columns of table "vehicle_location_last"
+order by var_pop() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_var_pop_order_by {
+input vehicle_location_his_var_pop_order_by {
   gps_speed: order_by
   id: order_by
   speed_limit_threshold: order_by
@@ -940,7 +808,7 @@ input vehicle_location_last_var_pop_order_by {
 }
 
 """aggregate var_samp on columns"""
-type vehicle_location_last_var_samp_fields {
+type vehicle_location_his_var_samp_fields {
   gps_speed: Float
   id: Float
   speed_limit_threshold: Float
@@ -948,9 +816,9 @@ type vehicle_location_last_var_samp_fields {
 }
 
 """
-order by var_samp() on columns of table "vehicle_location_last"
+order by var_samp() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_var_samp_order_by {
+input vehicle_location_his_var_samp_order_by {
   gps_speed: order_by
   id: order_by
   speed_limit_threshold: order_by
@@ -958,7 +826,7 @@ input vehicle_location_last_var_samp_order_by {
 }
 
 """aggregate variance on columns"""
-type vehicle_location_last_variance_fields {
+type vehicle_location_his_variance_fields {
   gps_speed: Float
   id: Float
   speed_limit_threshold: Float
@@ -966,9 +834,9 @@ type vehicle_location_last_variance_fields {
 }
 
 """
-order by variance() on columns of table "vehicle_location_last"
+order by variance() on columns of table "vehicle_location_his"
 """
-input vehicle_location_last_variance_order_by {
+input vehicle_location_his_variance_order_by {
   gps_speed: order_by
   id: order_by
   speed_limit_threshold: order_by

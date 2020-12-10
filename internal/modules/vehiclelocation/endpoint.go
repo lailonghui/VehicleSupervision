@@ -1,8 +1,8 @@
 package system
 
 import (
-	"VehicleSupervision/internal/modules/vehiclelocation/last/query/graph/generated"
-	"VehicleSupervision/internal/modules/vehiclelocation/last/query/graph/resolver"
+	"VehicleSupervision/internal/modules/vehiclelocation/graph/generated"
+	"VehicleSupervision/internal/modules/vehiclelocation/graph/resolver"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/gin-gonic/gin"
 )

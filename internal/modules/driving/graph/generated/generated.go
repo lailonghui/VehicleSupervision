@@ -3,8 +3,8 @@
 package generated
 
 import (
-	model1 "VehicleSupervision/internal/modules/driving/log/model"
-	"VehicleSupervision/internal/modules/driving/log/mutation/graph/model"
+	"VehicleSupervision/internal/modules/driving/graph/model"
+	model1 "VehicleSupervision/internal/modules/driving/model"
 	model2 "VehicleSupervision/pkg/graphql/model"
 	"VehicleSupervision/pkg/graphql/scalar"
 	"bytes"
@@ -12,6 +12,7 @@ import (
 	"errors"
 	"strconv"
 	"sync"
+	"sync/atomic"
 	"time"
 
 	"github.com/99designs/gqlgen/graphql"
@@ -56,7 +57,9 @@ type ComplexityRoot struct {
 	}
 
 	Query struct {
-		T func(childComplexity int) int
+		DrivingLog          func(childComplexity int, distinctOn []model.DrivingLogSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogOrderBy, where *model.DrivingLogBoolExp) int
+		DrivingLogAggregate func(childComplexity int, distinctOn []model.DrivingLogSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogOrderBy, where *model.DrivingLogBoolExp) int
+		DrivingLogByPk      func(childComplexity int, id int64) int
 	}
 
 	DrivingLog struct {
@@ -204,12 +207,6 @@ type ComplexityRoot struct {
 		CheckState             func(childComplexity int) int
 		ID                     func(childComplexity int) int
 	}
-
-	SubscriptionRoot struct {
-		DrivingLog          func(childComplexity int, distinctOn []model.DrivingLogSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogOrderBy, where *model.DrivingLogBoolExp) int
-		DrivingLogAggregate func(childComplexity int, distinctOn []model.DrivingLogSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogOrderBy, where *model.DrivingLogBoolExp) int
-		DrivingLogByPk      func(childComplexity int, id int64) int
-	}
 }
 
 type MutationResolver interface {
@@ -221,7 +218,9 @@ type MutationResolver interface {
 	UpdateDrivingLogByPk(ctx context.Context, inc *model.DrivingLogIncInput, set *model.DrivingLogSetInput, pkColumns model.DrivingLogPkColumnsInput) (*model1.DrivingLog, error)
 }
 type QueryResolver interface {
-	T(ctx context.Context) (*int, error)
+	DrivingLog(ctx context.Context, distinctOn []model.DrivingLogSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogOrderBy, where *model.DrivingLogBoolExp) ([]*model1.DrivingLog, error)
+	DrivingLogAggregate(ctx context.Context, distinctOn []model.DrivingLogSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogOrderBy, where *model.DrivingLogBoolExp) (*model.DrivingLogAggregate, error)
+	DrivingLogByPk(ctx context.Context, id int64) (*model1.DrivingLog, error)
 }
 
 type executableSchema struct {
@@ -311,12 +310,41 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDrivingLogByPk(childComplexity, args["_inc"].(*model.DrivingLogIncInput), args["_set"].(*model.DrivingLogSetInput), args["pk_columns"].(model.DrivingLogPkColumnsInput)), true
 
-	case "Query.t":
-		if e.complexity.Query.T == nil {
+	case "Query.driving_log":
+		if e.complexity.Query.DrivingLog == nil {
 			break
 		}
 
-		return e.complexity.Query.T(childComplexity), true
+		args, err := ec.field_Query_driving_log_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DrivingLog(childComplexity, args["distinct_on"].([]model.DrivingLogSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DrivingLogOrderBy), args["where"].(*model.DrivingLogBoolExp)), true
+
+	case "Query.driving_log_aggregate":
+		if e.complexity.Query.DrivingLogAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driving_log_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DrivingLogAggregate(childComplexity, args["distinct_on"].([]model.DrivingLogSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DrivingLogOrderBy), args["where"].(*model.DrivingLogBoolExp)), true
+
+	case "Query.driving_log_by_pk":
+		if e.complexity.Query.DrivingLogByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driving_log_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DrivingLogByPk(childComplexity, args["id"].(int64)), true
 
 	case "driving_log.cause":
 		if e.complexity.DrivingLog.Cause == nil {
@@ -1051,42 +1079,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DrivingLogVarianceFields.ID(childComplexity), true
 
-	case "subscription_root.driving_log":
-		if e.complexity.SubscriptionRoot.DrivingLog == nil {
-			break
-		}
-
-		args, err := ec.field_subscription_root_driving_log_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.SubscriptionRoot.DrivingLog(childComplexity, args["distinct_on"].([]model.DrivingLogSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DrivingLogOrderBy), args["where"].(*model.DrivingLogBoolExp)), true
-
-	case "subscription_root.driving_log_aggregate":
-		if e.complexity.SubscriptionRoot.DrivingLogAggregate == nil {
-			break
-		}
-
-		args, err := ec.field_subscription_root_driving_log_aggregate_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.SubscriptionRoot.DrivingLogAggregate(childComplexity, args["distinct_on"].([]model.DrivingLogSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DrivingLogOrderBy), args["where"].(*model.DrivingLogBoolExp)), true
-
-	case "subscription_root.driving_log_by_pk":
-		if e.complexity.SubscriptionRoot.DrivingLogByPk == nil {
-			break
-		}
-
-		args, err := ec.field_subscription_root_driving_log_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.SubscriptionRoot.DrivingLogByPk(childComplexity, args["id"].(int64)), true
-
 	}
 	return 0, false
 }
@@ -1151,57 +1143,170 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "graph/graphqls/generate.graphqls", Input: `
-
-scalar bigint
+	{Name: "graph/graphqls/common.graphqls", Input: `
+"""
+expression to compare columns of type _jsonb. All fields are combined with logical 'AND'.
+"""
+input _jsonb_comparison_exp {
+    _eq: _jsonb
+    _gt: _jsonb
+    _gte: _jsonb
+    _in: [_jsonb!]
+    _is_null: Boolean
+    _lt: _jsonb
+    _lte: _jsonb
+    _neq: _jsonb
+    _nin: [_jsonb!]
+}
 
 """
 expression to compare columns of type bigint. All fields are combined with logical 'AND'.
 """
 input bigint_comparison_exp {
-  _eq: bigint
-  _gt: bigint
-  _gte: bigint
-  _in: [bigint!]
-  _is_null: Boolean
-  _lt: bigint
-  _lte: bigint
-  _neq: bigint
-  _nin: [bigint!]
+    _eq: bigint
+    _gt: bigint
+    _gte: bigint
+    _in: [bigint!]
+    _is_null: Boolean
+    _lt: bigint
+    _lte: bigint
+    _neq: bigint
+    _nin: [bigint!]
 }
+
 
 """
 expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
 """
 input Boolean_comparison_exp {
-  _eq: Boolean
-  _gt: Boolean
-  _gte: Boolean
-  _in: [Boolean!]
-  _is_null: Boolean
-  _lt: Boolean
-  _lte: Boolean
-  _neq: Boolean
-  _nin: [Boolean!]
+    _eq: Boolean
+    _gt: Boolean
+    _gte: Boolean
+    _in: [Boolean!]
+    _is_null: Boolean
+    _lt: Boolean
+    _lte: Boolean
+    _neq: Boolean
+    _nin: [Boolean!]
 }
 
-scalar date
 
 """
-expression to compare columns of type date. All fields are combined with logical 'AND'.
+expression to compare columns of type Int. All fields are combined with logical 'AND'.
 """
-input date_comparison_exp {
-  _eq: date
-  _gt: date
-  _gte: date
-  _in: [date!]
-  _is_null: Boolean
-  _lt: date
-  _lte: date
-  _neq: date
-  _nin: [date!]
+input Int_comparison_exp {
+    _eq: Int
+    _gt: Int
+    _gte: Int
+    _in: [Int!]
+    _is_null: Boolean
+    _lt: Int
+    _lte: Int
+    _neq: Int
+    _nin: [Int!]
 }
 
+
+
+"""column ordering options"""
+enum order_by {
+    """in the ascending order, nulls last"""
+    asc
+
+    """in the ascending order, nulls first"""
+    asc_nulls_first
+
+    """in the ascending order, nulls last"""
+    asc_nulls_last
+
+    """in the descending order, nulls first"""
+    desc
+
+    """in the descending order, nulls first"""
+    desc_nulls_first
+
+    """in the descending order, nulls last"""
+    desc_nulls_last
+}
+
+
+"""
+expression to compare columns of type String. All fields are combined with logical 'AND'.
+"""
+input String_comparison_exp {
+    _eq: String
+    _gt: String
+    _gte: String
+    _ilike: String
+    _in: [String!]
+    _is_null: Boolean
+    _like: String
+    _lt: String
+    _lte: String
+    _neq: String
+    _nilike: String
+    _nin: [String!]
+    _nlike: String
+    _nsimilar: String
+    _similar: String
+}
+
+
+"""
+expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
+"""
+input timestamptz_comparison_exp {
+    _eq: timestamptz
+    _gt: timestamptz
+    _gte: timestamptz
+    _in: [timestamptz!]
+    _is_null: Boolean
+    _lt: timestamptz
+    _lte: timestamptz
+    _neq: timestamptz
+    _nin: [timestamptz!]
+}
+
+"""
+expression to compare columns of type numeric. All fields are combined with logical 'AND'.
+"""
+input numeric_comparison_exp {
+    _eq: numeric
+    _gt: numeric
+    _gte: numeric
+    _in: [numeric!]
+    _is_null: Boolean
+    _lt: numeric
+    _lte: numeric
+    _neq: numeric
+    _nin: [numeric!]
+}
+
+"""
+expression to compare columns of type point. All fields are combined with logical 'AND'.
+"""
+input point_comparison_exp {
+    _eq: point
+    _gt: point
+    _gte: point
+    _in: [point!]
+    _is_null: Boolean
+    _lt: point
+    _lte: point
+    _neq: point
+    _nin: [point!]
+}
+
+
+
+
+scalar _jsonb
+scalar bigint
+scalar timestamptz
+scalar point
+scalar numeric
+`, BuiltIn: false},
+	{Name: "graph/graphqls/driving_log.graphqls", Input: `
 """
 行车日志
 
@@ -1235,13 +1340,13 @@ type driving_log {
   driver_id: String!
 
   """用车结束日期"""
-  driving_end_time: date!
+  driving_end_time: timestamptz!
 
   """行车日志ID"""
   driving_log_id: String!
 
   """用车起始日期"""
-  driving_start_time: date!
+  driving_start_time: timestamptz!
 
   """结束时间"""
   end_time: timestamptz!
@@ -1361,9 +1466,9 @@ input driving_log_bool_exp {
   delete_at: timestamptz_comparison_exp
   delete_by: String_comparison_exp
   driver_id: String_comparison_exp
-  driving_end_time: date_comparison_exp
+  driving_end_time: timestamptz_comparison_exp
   driving_log_id: String_comparison_exp
-  driving_start_time: date_comparison_exp
+  driving_start_time: timestamptz_comparison_exp
   end_time: timestamptz_comparison_exp
   id: bigint_comparison_exp
   is_delete: Boolean_comparison_exp
@@ -1407,9 +1512,9 @@ input driving_log_insert_input {
   delete_at: timestamptz
   delete_by: String
   driver_id: String
-  driving_end_time: date
+  driving_end_time: timestamptz
   driving_log_id: String
-  driving_start_time: date
+  driving_start_time: timestamptz
   end_time: timestamptz
   id: bigint
   is_delete: Boolean
@@ -1434,9 +1539,9 @@ type driving_log_max_fields {
   delete_at: timestamptz
   delete_by: String
   driver_id: String
-  driving_end_time: date
+  driving_end_time: timestamptz
   driving_log_id: String
-  driving_start_time: date
+  driving_start_time: timestamptz
   end_time: timestamptz
   id: bigint
   register_at: timestamptz
@@ -1486,9 +1591,9 @@ type driving_log_min_fields {
   delete_at: timestamptz
   delete_by: String
   driver_id: String
-  driving_end_time: date
+  driving_end_time: timestamptz
   driving_log_id: String
-  driving_start_time: date
+  driving_start_time: timestamptz
   end_time: timestamptz
   id: bigint
   register_at: timestamptz
@@ -1679,9 +1784,9 @@ input driving_log_set_input {
   delete_at: timestamptz
   delete_by: String
   driver_id: String
-  driving_end_time: date
+  driving_end_time: timestamptz
   driving_log_id: String
-  driving_start_time: date
+  driving_start_time: timestamptz
   end_time: timestamptz
   id: bigint
   is_delete: Boolean
@@ -1882,23 +1987,7 @@ input driving_log_variance_order_by {
   id: order_by
 }
 
-"""
-expression to compare columns of type Int. All fields are combined with logical 'AND'.
-"""
-input Int_comparison_exp {
-  _eq: Int
-  _gt: Int
-  _gte: Int
-  _in: [Int!]
-  _is_null: Boolean
-  _lt: Int
-  _lte: Int
-  _neq: Int
-  _nin: [Int!]
-}
-
-"""mutation root"""
-type Mutation {
+extend type Mutation {
   """
   delete data from the table: "driving_log"
   """
@@ -1964,55 +2053,7 @@ type Mutation {
   ): driving_log
 }
 
-"""column ordering options"""
-enum order_by {
-  """in the ascending order, nulls last"""
-  asc
-
-  """in the ascending order, nulls first"""
-  asc_nulls_first
-
-  """in the ascending order, nulls last"""
-  asc_nulls_last
-
-  """in the descending order, nulls first"""
-  desc
-
-  """in the descending order, nulls first"""
-  desc_nulls_first
-
-  """in the descending order, nulls last"""
-  desc_nulls_last
-}
-
-"""query root"""
-type Query {
-  t: Int
-}
-
-"""
-expression to compare columns of type String. All fields are combined with logical 'AND'.
-"""
-input String_comparison_exp {
-  _eq: String
-  _gt: String
-  _gte: String
-  _ilike: String
-  _in: [String!]
-  _is_null: Boolean
-  _like: String
-  _lt: String
-  _lte: String
-  _neq: String
-  _nilike: String
-  _nin: [String!]
-  _nlike: String
-  _nsimilar: String
-  _similar: String
-}
-
-"""subscription root"""
-type subscription_root {
+extend type Query {
   """
   fetch data from the table: "driving_log"
   """
@@ -2059,24 +2100,6 @@ type subscription_root {
     id: bigint!
   ): driving_log
 }
-
-scalar timestamptz
-
-"""
-expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
-"""
-input timestamptz_comparison_exp {
-  _eq: timestamptz
-  _gt: timestamptz
-  _gte: timestamptz
-  _in: [timestamptz!]
-  _is_null: Boolean
-  _lt: timestamptz
-  _lte: timestamptz
-  _neq: timestamptz
-  _nin: [timestamptz!]
-}
-
 `, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
@@ -2091,7 +2114,7 @@ func (ec *executionContext) field_Mutation_delete_driving_log_args(ctx context.C
 	var arg0 model.DrivingLogBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalNdriving_log_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, tmp)
+		arg0, err = ec.unmarshalNdriving_log_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2121,7 +2144,7 @@ func (ec *executionContext) field_Mutation_insert_driving_log_args(ctx context.C
 	var arg0 []*model.DrivingLogInsertInput
 	if tmp, ok := rawArgs["objects"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNdriving_log_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogInsertInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNdriving_log_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogInsertInputᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2130,7 +2153,7 @@ func (ec *executionContext) field_Mutation_insert_driving_log_args(ctx context.C
 	var arg1 *model.DrivingLogOnConflict
 	if tmp, ok := rawArgs["on_conflict"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-		arg1, err = ec.unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx, tmp)
+		arg1, err = ec.unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2145,7 +2168,7 @@ func (ec *executionContext) field_Mutation_insert_driving_log_one_args(ctx conte
 	var arg0 model.DrivingLogInsertInput
 	if tmp, ok := rawArgs["object"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
-		arg0, err = ec.unmarshalNdriving_log_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx, tmp)
+		arg0, err = ec.unmarshalNdriving_log_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2154,7 +2177,7 @@ func (ec *executionContext) field_Mutation_insert_driving_log_one_args(ctx conte
 	var arg1 *model.DrivingLogOnConflict
 	if tmp, ok := rawArgs["on_conflict"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-		arg1, err = ec.unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx, tmp)
+		arg1, err = ec.unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2169,7 +2192,7 @@ func (ec *executionContext) field_Mutation_update_driving_log_args(ctx context.C
 	var arg0 *model.DrivingLogIncInput
 	if tmp, ok := rawArgs["_inc"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOdriving_log_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogIncInput(ctx, tmp)
+		arg0, err = ec.unmarshalOdriving_log_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogIncInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2178,7 +2201,7 @@ func (ec *executionContext) field_Mutation_update_driving_log_args(ctx context.C
 	var arg1 *model.DrivingLogSetInput
 	if tmp, ok := rawArgs["_set"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOdriving_log_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSetInput(ctx, tmp)
+		arg1, err = ec.unmarshalOdriving_log_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSetInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2187,7 +2210,7 @@ func (ec *executionContext) field_Mutation_update_driving_log_args(ctx context.C
 	var arg2 model.DrivingLogBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg2, err = ec.unmarshalNdriving_log_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, tmp)
+		arg2, err = ec.unmarshalNdriving_log_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2202,7 +2225,7 @@ func (ec *executionContext) field_Mutation_update_driving_log_by_pk_args(ctx con
 	var arg0 *model.DrivingLogIncInput
 	if tmp, ok := rawArgs["_inc"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOdriving_log_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogIncInput(ctx, tmp)
+		arg0, err = ec.unmarshalOdriving_log_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogIncInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2211,7 +2234,7 @@ func (ec *executionContext) field_Mutation_update_driving_log_by_pk_args(ctx con
 	var arg1 *model.DrivingLogSetInput
 	if tmp, ok := rawArgs["_set"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOdriving_log_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSetInput(ctx, tmp)
+		arg1, err = ec.unmarshalOdriving_log_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSetInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2220,7 +2243,7 @@ func (ec *executionContext) field_Mutation_update_driving_log_by_pk_args(ctx con
 	var arg2 model.DrivingLogPkColumnsInput
 	if tmp, ok := rawArgs["pk_columns"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
-		arg2, err = ec.unmarshalNdriving_log_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogPkColumnsInput(ctx, tmp)
+		arg2, err = ec.unmarshalNdriving_log_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogPkColumnsInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2241,6 +2264,123 @@ func (ec *executionContext) field_Query___type_args(ctx context.Context, rawArgs
 		}
 	}
 	args["name"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_driving_log_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.DrivingLogSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.DrivingLogOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOdriving_log_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.DrivingLogBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_driving_log_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.DrivingLogSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.DrivingLogOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalOdriving_log_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.DrivingLogBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_driving_log_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
 	return args, nil
 }
 
@@ -2280,7 +2420,7 @@ func (ec *executionContext) field_driving_log_aggregate_fields_count_args(ctx co
 	var arg0 []model.DrivingLogSelectColumn
 	if tmp, ok := rawArgs["columns"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
-		arg0, err = ec.unmarshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2295,123 +2435,6 @@ func (ec *executionContext) field_driving_log_aggregate_fields_count_args(ctx co
 		}
 	}
 	args["distinct"] = arg1
-	return args, nil
-}
-
-func (ec *executionContext) field_subscription_root_driving_log_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []model.DrivingLogSelectColumn
-	if tmp, ok := rawArgs["distinct_on"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["distinct_on"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg2
-	var arg3 []*model.DrivingLogOrderBy
-	if tmp, ok := rawArgs["order_by"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOdriving_log_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOrderByᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["order_by"] = arg3
-	var arg4 *model.DrivingLogBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg4
-	return args, nil
-}
-
-func (ec *executionContext) field_subscription_root_driving_log_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []model.DrivingLogSelectColumn
-	if tmp, ok := rawArgs["distinct_on"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["distinct_on"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg2
-	var arg3 []*model.DrivingLogOrderBy
-	if tmp, ok := rawArgs["order_by"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOdriving_log_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOrderByᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["order_by"] = arg3
-	var arg4 *model.DrivingLogBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg4
-	return args, nil
-}
-
-func (ec *executionContext) field_subscription_root_driving_log_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 int64
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
 	return args, nil
 }
 
@@ -2459,7 +2482,7 @@ func (ec *executionContext) _Mutation_delete_driving_log(ctx context.Context, fi
 	}
 	res := resTmp.(*model.DrivingLogMutationResponse)
 	fc.Result = res
-	return ec.marshalOdriving_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMutationResponse(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_delete_driving_log_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2498,7 +2521,7 @@ func (ec *executionContext) _Mutation_delete_driving_log_by_pk(ctx context.Conte
 	}
 	res := resTmp.(*model1.DrivingLog)
 	fc.Result = res
-	return ec.marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLog(ctx, field.Selections, res)
+	return ec.marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLog(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_insert_driving_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2537,7 +2560,7 @@ func (ec *executionContext) _Mutation_insert_driving_log(ctx context.Context, fi
 	}
 	res := resTmp.(*model.DrivingLogMutationResponse)
 	fc.Result = res
-	return ec.marshalOdriving_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMutationResponse(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_insert_driving_log_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2576,7 +2599,7 @@ func (ec *executionContext) _Mutation_insert_driving_log_one(ctx context.Context
 	}
 	res := resTmp.(*model1.DrivingLog)
 	fc.Result = res
-	return ec.marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLog(ctx, field.Selections, res)
+	return ec.marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLog(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_update_driving_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2615,7 +2638,7 @@ func (ec *executionContext) _Mutation_update_driving_log(ctx context.Context, fi
 	}
 	res := resTmp.(*model.DrivingLogMutationResponse)
 	fc.Result = res
-	return ec.marshalOdriving_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMutationResponse(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_update_driving_log_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2654,10 +2677,10 @@ func (ec *executionContext) _Mutation_update_driving_log_by_pk(ctx context.Conte
 	}
 	res := resTmp.(*model1.DrivingLog)
 	fc.Result = res
-	return ec.marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLog(ctx, field.Selections, res)
+	return ec.marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLog(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_t(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+func (ec *executionContext) _Query_driving_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -2673,9 +2696,100 @@ func (ec *executionContext) _Query_t(ctx context.Context, field graphql.Collecte
 	}
 
 	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driving_log_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().T(rctx)
+		return ec.resolvers.Query().DrivingLog(rctx, args["distinct_on"].([]model.DrivingLogSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DrivingLogOrderBy), args["where"].(*model.DrivingLogBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.DrivingLog)
+	fc.Result = res
+	return ec.marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLogᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_driving_log_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driving_log_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DrivingLogAggregate(rctx, args["distinct_on"].([]model.DrivingLogSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DrivingLogOrderBy), args["where"].(*model.DrivingLogBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.DrivingLogAggregate)
+	fc.Result = res
+	return ec.marshalNdriving_log_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_driving_log_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driving_log_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DrivingLogByPk(rctx, args["id"].(int64))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -2684,9 +2798,9 @@ func (ec *executionContext) _Query_t(ctx context.Context, field graphql.Collecte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*int)
+	res := resTmp.(*model1.DrivingLog)
 	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+	return ec.marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLog(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -4141,9 +4255,9 @@ func (ec *executionContext) _driving_log_driving_end_time(ctx context.Context, f
 		}
 		return graphql.Null
 	}
-	res := resTmp.(string)
+	res := resTmp.(time.Time)
 	fc.Result = res
-	return ec.marshalNdate2string(ctx, field.Selections, res)
+	return ec.marshalNtimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_driving_log_id(ctx context.Context, field graphql.CollectedField, obj *model1.DrivingLog) (ret graphql.Marshaler) {
@@ -4211,9 +4325,9 @@ func (ec *executionContext) _driving_log_driving_start_time(ctx context.Context,
 		}
 		return graphql.Null
 	}
-	res := resTmp.(string)
+	res := resTmp.(time.Time)
 	fc.Result = res
-	return ec.marshalNdate2string(ctx, field.Selections, res)
+	return ec.marshalNtimestamptz2timeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_end_time(ctx context.Context, field graphql.CollectedField, obj *model1.DrivingLog) (ret graphql.Marshaler) {
@@ -4647,7 +4761,7 @@ func (ec *executionContext) _driving_log_aggregate_aggregate(ctx context.Context
 	}
 	res := resTmp.(*model.DrivingLogAggregateFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogAggregateFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogAggregateFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregate) (ret graphql.Marshaler) {
@@ -4682,7 +4796,7 @@ func (ec *executionContext) _driving_log_aggregate_nodes(ctx context.Context, fi
 	}
 	res := resTmp.([]*model1.DrivingLog)
 	fc.Result = res
-	return ec.marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLogᚄ(ctx, field.Selections, res)
+	return ec.marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLogᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_avg(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -4714,7 +4828,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_avg(ctx context.Contex
 	}
 	res := resTmp.(*model.DrivingLogAvgFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogAvgFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogAvgFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_count(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -4785,7 +4899,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_max(ctx context.Contex
 	}
 	res := resTmp.(*model.DrivingLogMaxFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMaxFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMaxFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_min(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -4817,7 +4931,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_min(ctx context.Contex
 	}
 	res := resTmp.(*model.DrivingLogMinFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMinFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMinFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -4849,7 +4963,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_stddev(ctx context.Con
 	}
 	res := resTmp.(*model.DrivingLogStddevFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -4881,7 +4995,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_stddev_pop(ctx context
 	}
 	res := resTmp.(*model.DrivingLogStddevPopFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevPopFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevPopFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -4913,7 +5027,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_stddev_samp(ctx contex
 	}
 	res := resTmp.(*model.DrivingLogStddevSampFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevSampFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevSampFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_sum(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -4945,7 +5059,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_sum(ctx context.Contex
 	}
 	res := resTmp.(*model.DrivingLogSumFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSumFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSumFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -4977,7 +5091,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_var_pop(ctx context.Co
 	}
 	res := resTmp.(*model.DrivingLogVarPopFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarPopFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarPopFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -5009,7 +5123,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_var_samp(ctx context.C
 	}
 	res := resTmp.(*model.DrivingLogVarSampFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarSampFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarSampFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_aggregate_fields_variance(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAggregateFields) (ret graphql.Marshaler) {
@@ -5041,7 +5155,7 @@ func (ec *executionContext) _driving_log_aggregate_fields_variance(ctx context.C
 	}
 	res := resTmp.(*model.DrivingLogVarianceFields)
 	fc.Result = res
-	return ec.marshalOdriving_log_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarianceFields(ctx, field.Selections, res)
+	return ec.marshalOdriving_log_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarianceFields(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_avg_fields_check_organization_level(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogAvgFields) (ret graphql.Marshaler) {
@@ -5423,9 +5537,9 @@ func (ec *executionContext) _driving_log_max_fields_driving_end_time(ctx context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOdate2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_max_fields_driving_log_id(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogMaxFields) (ret graphql.Marshaler) {
@@ -5487,9 +5601,9 @@ func (ec *executionContext) _driving_log_max_fields_driving_start_time(ctx conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOdate2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_max_fields_end_time(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogMaxFields) (ret graphql.Marshaler) {
@@ -6095,9 +6209,9 @@ func (ec *executionContext) _driving_log_min_fields_driving_end_time(ctx context
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOdate2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_min_fields_driving_log_id(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogMinFields) (ret graphql.Marshaler) {
@@ -6159,9 +6273,9 @@ func (ec *executionContext) _driving_log_min_fields_driving_start_time(ctx conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*time.Time)
 	fc.Result = res
-	return ec.marshalOdate2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_min_fields_end_time(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogMinFields) (ret graphql.Marshaler) {
@@ -6551,7 +6665,7 @@ func (ec *executionContext) _driving_log_mutation_response_returning(ctx context
 	}
 	res := resTmp.([]*model1.DrivingLog)
 	fc.Result = res
-	return ec.marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLogᚄ(ctx, field.Selections, res)
+	return ec.marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLogᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _driving_log_stddev_fields_check_organization_level(ctx context.Context, field graphql.CollectedField, obj *model.DrivingLogStddevFields) (ret graphql.Marshaler) {
@@ -7226,129 +7340,6 @@ func (ec *executionContext) _driving_log_variance_fields_id(ctx context.Context,
 	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _subscription_root_driving_log(ctx context.Context, field graphql.CollectedField, obj *model.SubscriptionRoot) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "subscription_root",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_subscription_root_driving_log_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DrivingLog, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model1.DrivingLog)
-	fc.Result = res
-	return ec.marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLogᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _subscription_root_driving_log_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.SubscriptionRoot) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "subscription_root",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_subscription_root_driving_log_aggregate_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DrivingLogAggregate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*model.DrivingLogAggregate)
-	fc.Result = res
-	return ec.marshalNdriving_log_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogAggregate(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _subscription_root_driving_log_by_pk(ctx context.Context, field graphql.CollectedField, obj *model.SubscriptionRoot) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "subscription_root",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_subscription_root_driving_log_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DrivingLogByPk, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model1.DrivingLog)
-	fc.Result = res
-	return ec.marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLog(ctx, field.Selections, res)
-}
-
 // endregion **************************** field.gotpl *****************************
 
 // region    **************************** input.gotpl *****************************
@@ -7653,6 +7644,90 @@ func (ec *executionContext) unmarshalInputString_comparison_exp(ctx context.Cont
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInput_jsonb_comparison_exp(ctx context.Context, obj interface{}) (model2.JsonbComparisonExp, error) {
+	var it model2.JsonbComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalO_jsonb2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalO_jsonb2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Context, obj interface{}) (model2.BigintComparisonExp, error) {
 	var it model2.BigintComparisonExp
 	var asMap = obj.(map[string]interface{})
@@ -7737,90 +7812,6 @@ func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Cont
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputdate_comparison_exp(ctx context.Context, obj interface{}) (model2.DateComparisonExp, error) {
-	var it model2.DateComparisonExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_eq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
-			it.Eq, err = ec.unmarshalOdate2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
-			it.Gt, err = ec.unmarshalOdate2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
-			it.Gte, err = ec.unmarshalOdate2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_in":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
-			it.In, err = ec.unmarshalOdate2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_is_null":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
-			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
-			it.Lt, err = ec.unmarshalOdate2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
-			it.Lte, err = ec.unmarshalOdate2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_neq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
-			it.Neq, err = ec.unmarshalOdate2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_nin":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
-			it.Nin, err = ec.unmarshalOdate2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
 func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx context.Context, obj interface{}) (model.DrivingLogAggregateOrderBy, error) {
 	var it model.DrivingLogAggregateOrderBy
 	var asMap = obj.(map[string]interface{})
@@ -7831,7 +7822,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("avg"))
-			it.Avg, err = ec.unmarshalOdriving_log_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogAvgOrderBy(ctx, v)
+			it.Avg, err = ec.unmarshalOdriving_log_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogAvgOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7847,7 +7838,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("max"))
-			it.Max, err = ec.unmarshalOdriving_log_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMaxOrderBy(ctx, v)
+			it.Max, err = ec.unmarshalOdriving_log_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMaxOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7855,7 +7846,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("min"))
-			it.Min, err = ec.unmarshalOdriving_log_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMinOrderBy(ctx, v)
+			it.Min, err = ec.unmarshalOdriving_log_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMinOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7863,7 +7854,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev"))
-			it.Stddev, err = ec.unmarshalOdriving_log_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevOrderBy(ctx, v)
+			it.Stddev, err = ec.unmarshalOdriving_log_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7871,7 +7862,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_pop"))
-			it.StddevPop, err = ec.unmarshalOdriving_log_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevPopOrderBy(ctx, v)
+			it.StddevPop, err = ec.unmarshalOdriving_log_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevPopOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7879,7 +7870,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_samp"))
-			it.StddevSamp, err = ec.unmarshalOdriving_log_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevSampOrderBy(ctx, v)
+			it.StddevSamp, err = ec.unmarshalOdriving_log_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevSampOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7887,7 +7878,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sum"))
-			it.Sum, err = ec.unmarshalOdriving_log_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSumOrderBy(ctx, v)
+			it.Sum, err = ec.unmarshalOdriving_log_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSumOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7895,7 +7886,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_pop"))
-			it.VarPop, err = ec.unmarshalOdriving_log_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarPopOrderBy(ctx, v)
+			it.VarPop, err = ec.unmarshalOdriving_log_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarPopOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7903,7 +7894,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_samp"))
-			it.VarSamp, err = ec.unmarshalOdriving_log_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarSampOrderBy(ctx, v)
+			it.VarSamp, err = ec.unmarshalOdriving_log_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarSampOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7911,7 +7902,7 @@ func (ec *executionContext) unmarshalInputdriving_log_aggregate_order_by(ctx con
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("variance"))
-			it.Variance, err = ec.unmarshalOdriving_log_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarianceOrderBy(ctx, v)
+			it.Variance, err = ec.unmarshalOdriving_log_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarianceOrderBy(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7931,7 +7922,7 @@ func (ec *executionContext) unmarshalInputdriving_log_arr_rel_insert_input(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-			it.Data, err = ec.unmarshalNdriving_log_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogInsertInputᚄ(ctx, v)
+			it.Data, err = ec.unmarshalNdriving_log_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogInsertInputᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7939,7 +7930,7 @@ func (ec *executionContext) unmarshalInputdriving_log_arr_rel_insert_input(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-			it.OnConflict, err = ec.unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx, v)
+			it.OnConflict, err = ec.unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7995,7 +7986,7 @@ func (ec *executionContext) unmarshalInputdriving_log_bool_exp(ctx context.Conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
-			it.And, err = ec.unmarshalOdriving_log_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, v)
+			it.And, err = ec.unmarshalOdriving_log_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8003,7 +7994,7 @@ func (ec *executionContext) unmarshalInputdriving_log_bool_exp(ctx context.Conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
-			it.Not, err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, v)
+			it.Not, err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8011,7 +8002,7 @@ func (ec *executionContext) unmarshalInputdriving_log_bool_exp(ctx context.Conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
-			it.Or, err = ec.unmarshalOdriving_log_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, v)
+			it.Or, err = ec.unmarshalOdriving_log_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8083,7 +8074,7 @@ func (ec *executionContext) unmarshalInputdriving_log_bool_exp(ctx context.Conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_end_time"))
-			it.DrivingEndTime, err = ec.unmarshalOdate_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐDateComparisonExp(ctx, v)
+			it.DrivingEndTime, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8099,7 +8090,7 @@ func (ec *executionContext) unmarshalInputdriving_log_bool_exp(ctx context.Conte
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_start_time"))
-			it.DrivingStartTime, err = ec.unmarshalOdate_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐDateComparisonExp(ctx, v)
+			it.DrivingStartTime, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8315,7 +8306,7 @@ func (ec *executionContext) unmarshalInputdriving_log_insert_input(ctx context.C
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_end_time"))
-			it.DrivingEndTime, err = ec.unmarshalOdate2ᚖstring(ctx, v)
+			it.DrivingEndTime, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8331,7 +8322,7 @@ func (ec *executionContext) unmarshalInputdriving_log_insert_input(ctx context.C
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_start_time"))
-			it.DrivingStartTime, err = ec.unmarshalOdate2ᚖstring(ctx, v)
+			it.DrivingStartTime, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8807,7 +8798,7 @@ func (ec *executionContext) unmarshalInputdriving_log_obj_rel_insert_input(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-			it.Data, err = ec.unmarshalNdriving_log_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx, v)
+			it.Data, err = ec.unmarshalNdriving_log_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8815,7 +8806,7 @@ func (ec *executionContext) unmarshalInputdriving_log_obj_rel_insert_input(ctx c
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-			it.OnConflict, err = ec.unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx, v)
+			it.OnConflict, err = ec.unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8835,7 +8826,7 @@ func (ec *executionContext) unmarshalInputdriving_log_on_conflict(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("constraint"))
-			it.Constraint, err = ec.unmarshalNdriving_log_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogConstraint(ctx, v)
+			it.Constraint, err = ec.unmarshalNdriving_log_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogConstraint(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8843,7 +8834,7 @@ func (ec *executionContext) unmarshalInputdriving_log_on_conflict(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_columns"))
-			it.UpdateColumns, err = ec.unmarshalNdriving_log_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogUpdateColumnᚄ(ctx, v)
+			it.UpdateColumns, err = ec.unmarshalNdriving_log_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogUpdateColumnᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8851,7 +8842,7 @@ func (ec *executionContext) unmarshalInputdriving_log_on_conflict(ctx context.Co
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-			it.Where, err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, v)
+			it.Where, err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -9151,7 +9142,7 @@ func (ec *executionContext) unmarshalInputdriving_log_set_input(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_end_time"))
-			it.DrivingEndTime, err = ec.unmarshalOdate2ᚖstring(ctx, v)
+			it.DrivingEndTime, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -9167,7 +9158,7 @@ func (ec *executionContext) unmarshalInputdriving_log_set_input(ctx context.Cont
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_start_time"))
-			it.DrivingStartTime, err = ec.unmarshalOdate2ᚖstring(ctx, v)
+			it.DrivingStartTime, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -9525,6 +9516,174 @@ func (ec *executionContext) unmarshalInputdriving_log_variance_order_by(ctx cont
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputnumeric_comparison_exp(ctx context.Context, obj interface{}) (model.NumericComparisonExp, error) {
+	var it model.NumericComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOnumeric2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOnumeric2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputpoint_comparison_exp(ctx context.Context, obj interface{}) (model.PointComparisonExp, error) {
+	var it model.PointComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOpoint2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOpoint2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context.Context, obj interface{}) (model2.TimestamptzComparisonExp, error) {
 	var it model2.TimestamptzComparisonExp
 	var asMap = obj.(map[string]interface{})
@@ -9670,7 +9829,7 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 		switch field.Name {
 		case "__typename":
 			out.Values[i] = graphql.MarshalString("Query")
-		case "t":
+		case "driving_log":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
 				defer func() {
@@ -9678,7 +9837,35 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 						ec.Error(ctx, ec.Recover(ctx, r))
 					}
 				}()
-				res = ec._Query_t(ctx, field)
+				res = ec._Query_driving_log(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "driving_log_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driving_log_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "driving_log_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driving_log_by_pk(ctx, field)
 				return res
 			})
 		case "__type":
@@ -10501,40 +10688,6 @@ func (ec *executionContext) _driving_log_variance_fields(ctx context.Context, se
 	return out
 }
 
-var subscription_rootImplementors = []string{"subscription_root"}
-
-func (ec *executionContext) _subscription_root(ctx context.Context, sel ast.SelectionSet, obj *model.SubscriptionRoot) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, subscription_rootImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("subscription_root")
-		case "driving_log":
-			out.Values[i] = ec._subscription_root_driving_log(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "driving_log_aggregate":
-			out.Values[i] = ec._subscription_root_driving_log_aggregate(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "driving_log_by_pk":
-			out.Values[i] = ec._subscription_root_driving_log_by_pk(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
 // endregion **************************** object.gotpl ****************************
 
 // region    ***************************** type.gotpl *****************************
@@ -10813,6 +10966,21 @@ func (ec *executionContext) marshalN__TypeKind2string(ctx context.Context, sel a
 	return res
 }
 
+func (ec *executionContext) unmarshalN_jsonb2string(ctx context.Context, v interface{}) (string, error) {
+	res, err := graphql.UnmarshalString(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalN_jsonb2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
+	res := graphql.MarshalString(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
 func (ec *executionContext) unmarshalNbigint2int64(ctx context.Context, v interface{}) (int64, error) {
 	res, err := graphql.UnmarshalInt64(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -10828,22 +10996,7 @@ func (ec *executionContext) marshalNbigint2int64(ctx context.Context, sel ast.Se
 	return res
 }
 
-func (ec *executionContext) unmarshalNdate2string(ctx context.Context, v interface{}) (string, error) {
-	res, err := graphql.UnmarshalString(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNdate2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
-	res := graphql.MarshalString(v)
-	if res == graphql.Null {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-	}
-	return res
-}
-
-func (ec *executionContext) marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLogᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DrivingLog) graphql.Marshaler {
+func (ec *executionContext) marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLogᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DrivingLog) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -10867,7 +11020,7 @@ func (ec *executionContext) marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinter
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLog(ctx, sel, v[i])
+			ret[i] = ec.marshalNdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLog(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -10880,7 +11033,7 @@ func (ec *executionContext) marshalNdriving_log2ᚕᚖVehicleSupervisionᚋinter
 	return ret
 }
 
-func (ec *executionContext) marshalNdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLog(ctx context.Context, sel ast.SelectionSet, v *model1.DrivingLog) graphql.Marshaler {
+func (ec *executionContext) marshalNdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLog(ctx context.Context, sel ast.SelectionSet, v *model1.DrivingLog) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -10890,7 +11043,11 @@ func (ec *executionContext) marshalNdriving_log2ᚖVehicleSupervisionᚋinternal
 	return ec._driving_log(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalNdriving_log_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogAggregate(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogAggregate) graphql.Marshaler {
+func (ec *executionContext) marshalNdriving_log_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogAggregate(ctx context.Context, sel ast.SelectionSet, v model.DrivingLogAggregate) graphql.Marshaler {
+	return ec._driving_log_aggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNdriving_log_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogAggregate(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogAggregate) graphql.Marshaler {
 	if v == nil {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -10900,27 +11057,27 @@ func (ec *executionContext) marshalNdriving_log_aggregate2ᚖVehicleSupervision�
 	return ec._driving_log_aggregate(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalNdriving_log_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx context.Context, v interface{}) (model.DrivingLogBoolExp, error) {
+func (ec *executionContext) unmarshalNdriving_log_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx context.Context, v interface{}) (model.DrivingLogBoolExp, error) {
 	res, err := ec.unmarshalInputdriving_log_bool_exp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdriving_log_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogConstraint(ctx context.Context, v interface{}) (model.DrivingLogConstraint, error) {
+func (ec *executionContext) unmarshalNdriving_log_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogConstraint(ctx context.Context, v interface{}) (model.DrivingLogConstraint, error) {
 	var res model.DrivingLogConstraint
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNdriving_log_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogConstraint(ctx context.Context, sel ast.SelectionSet, v model.DrivingLogConstraint) graphql.Marshaler {
+func (ec *executionContext) marshalNdriving_log_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogConstraint(ctx context.Context, sel ast.SelectionSet, v model.DrivingLogConstraint) graphql.Marshaler {
 	return v
 }
 
-func (ec *executionContext) unmarshalNdriving_log_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx context.Context, v interface{}) (model.DrivingLogInsertInput, error) {
+func (ec *executionContext) unmarshalNdriving_log_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx context.Context, v interface{}) (model.DrivingLogInsertInput, error) {
 	res, err := ec.unmarshalInputdriving_log_insert_input(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdriving_log_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.DrivingLogInsertInput, error) {
+func (ec *executionContext) unmarshalNdriving_log_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.DrivingLogInsertInput, error) {
 	var vSlice []interface{}
 	if v != nil {
 		if tmp1, ok := v.([]interface{}); ok {
@@ -10933,7 +11090,7 @@ func (ec *executionContext) unmarshalNdriving_log_insert_input2ᚕᚖVehicleSupe
 	res := make([]*model.DrivingLogInsertInput, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNdriving_log_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNdriving_log_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -10941,42 +11098,42 @@ func (ec *executionContext) unmarshalNdriving_log_insert_input2ᚕᚖVehicleSupe
 	return res, nil
 }
 
-func (ec *executionContext) unmarshalNdriving_log_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx context.Context, v interface{}) (*model.DrivingLogInsertInput, error) {
+func (ec *executionContext) unmarshalNdriving_log_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogInsertInput(ctx context.Context, v interface{}) (*model.DrivingLogInsertInput, error) {
 	res, err := ec.unmarshalInputdriving_log_insert_input(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdriving_log_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogOrderBy, error) {
+func (ec *executionContext) unmarshalNdriving_log_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogOrderBy, error) {
 	res, err := ec.unmarshalInputdriving_log_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdriving_log_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogPkColumnsInput(ctx context.Context, v interface{}) (model.DrivingLogPkColumnsInput, error) {
+func (ec *executionContext) unmarshalNdriving_log_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogPkColumnsInput(ctx context.Context, v interface{}) (model.DrivingLogPkColumnsInput, error) {
 	res, err := ec.unmarshalInputdriving_log_pk_columns_input(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNdriving_log_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSelectColumn(ctx context.Context, v interface{}) (model.DrivingLogSelectColumn, error) {
+func (ec *executionContext) unmarshalNdriving_log_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSelectColumn(ctx context.Context, v interface{}) (model.DrivingLogSelectColumn, error) {
 	var res model.DrivingLogSelectColumn
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNdriving_log_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DrivingLogSelectColumn) graphql.Marshaler {
+func (ec *executionContext) marshalNdriving_log_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DrivingLogSelectColumn) graphql.Marshaler {
 	return v
 }
 
-func (ec *executionContext) unmarshalNdriving_log_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogUpdateColumn(ctx context.Context, v interface{}) (model.DrivingLogUpdateColumn, error) {
+func (ec *executionContext) unmarshalNdriving_log_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogUpdateColumn(ctx context.Context, v interface{}) (model.DrivingLogUpdateColumn, error) {
 	var res model.DrivingLogUpdateColumn
 	err := res.UnmarshalGQL(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNdriving_log_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.DrivingLogUpdateColumn) graphql.Marshaler {
+func (ec *executionContext) marshalNdriving_log_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.DrivingLogUpdateColumn) graphql.Marshaler {
 	return v
 }
 
-func (ec *executionContext) unmarshalNdriving_log_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.DrivingLogUpdateColumn, error) {
+func (ec *executionContext) unmarshalNdriving_log_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.DrivingLogUpdateColumn, error) {
 	var vSlice []interface{}
 	if v != nil {
 		if tmp1, ok := v.([]interface{}); ok {
@@ -10989,7 +11146,7 @@ func (ec *executionContext) unmarshalNdriving_log_update_column2ᚕVehicleSuperv
 	res := make([]model.DrivingLogUpdateColumn, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNdriving_log_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogUpdateColumn(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNdriving_log_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogUpdateColumn(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -10997,7 +11154,7 @@ func (ec *executionContext) unmarshalNdriving_log_update_column2ᚕVehicleSuperv
 	return res, nil
 }
 
-func (ec *executionContext) marshalNdriving_log_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DrivingLogUpdateColumn) graphql.Marshaler {
+func (ec *executionContext) marshalNdriving_log_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DrivingLogUpdateColumn) graphql.Marshaler {
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -11021,7 +11178,7 @@ func (ec *executionContext) marshalNdriving_log_update_column2ᚕVehicleSupervis
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNdriving_log_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogUpdateColumn(ctx, sel, v[i])
+			ret[i] = ec.marshalNdriving_log_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogUpdateColumn(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -11032,6 +11189,36 @@ func (ec *executionContext) marshalNdriving_log_update_column2ᚕVehicleSupervis
 	}
 	wg.Wait()
 	return ret
+}
+
+func (ec *executionContext) unmarshalNnumeric2float64(ctx context.Context, v interface{}) (float64, error) {
+	res, err := graphql.UnmarshalFloat(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNnumeric2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
+	res := graphql.MarshalFloat(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
+func (ec *executionContext) unmarshalNpoint2string(ctx context.Context, v interface{}) (string, error) {
+	res, err := graphql.UnmarshalString(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNpoint2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
+	res := graphql.MarshalString(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
 }
 
 func (ec *executionContext) unmarshalNtimestamptz2timeᚐTime(ctx context.Context, v interface{}) (time.Time, error) {
@@ -11454,6 +11641,57 @@ func (ec *executionContext) marshalO__Type2ᚖgithubᚗcomᚋ99designsᚋgqlgen�
 	return ec.___Type(ctx, sel, v)
 }
 
+func (ec *executionContext) unmarshalO_jsonb2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]string, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalN_jsonb2string(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalO_jsonb2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalN_jsonb2string(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalO_jsonb2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalString(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalO_jsonb2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalString(*v)
+}
+
 func (ec *executionContext) unmarshalObigint2ᚕint64ᚄ(ctx context.Context, v interface{}) ([]int64, error) {
 	if v == nil {
 		return nil, nil
@@ -11513,87 +11751,28 @@ func (ec *executionContext) unmarshalObigint_comparison_exp2ᚖVehicleSupervisio
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOdate2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]string, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNdate2string(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalOdate2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	for i := range v {
-		ret[i] = ec.marshalNdate2string(ctx, sel, v[i])
-	}
-
-	return ret
-}
-
-func (ec *executionContext) unmarshalOdate2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := graphql.UnmarshalString(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOdate2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return graphql.MarshalString(*v)
-}
-
-func (ec *executionContext) unmarshalOdate_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐDateComparisonExp(ctx context.Context, v interface{}) (*model2.DateComparisonExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputdate_comparison_exp(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmodelᚐDrivingLog(ctx context.Context, sel ast.SelectionSet, v *model1.DrivingLog) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐDrivingLog(ctx context.Context, sel ast.SelectionSet, v *model1.DrivingLog) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOdriving_log_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogAggregateFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogAggregateFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_aggregate_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalOdriving_log_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogAvgFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogAvgFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_avg_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogAvgOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogAvgOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogAvgOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogAvgOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11601,7 +11780,7 @@ func (ec *executionContext) unmarshalOdriving_log_avg_order_by2ᚖVehicleSupervi
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx context.Context, v interface{}) ([]*model.DrivingLogBoolExp, error) {
+func (ec *executionContext) unmarshalOdriving_log_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx context.Context, v interface{}) ([]*model.DrivingLogBoolExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11617,7 +11796,7 @@ func (ec *executionContext) unmarshalOdriving_log_bool_exp2ᚕᚖVehicleSupervis
 	res := make([]*model.DrivingLogBoolExp, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, vSlice[i])
+		res[i], err = ec.unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -11625,7 +11804,7 @@ func (ec *executionContext) unmarshalOdriving_log_bool_exp2ᚕᚖVehicleSupervis
 	return res, nil
 }
 
-func (ec *executionContext) unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx context.Context, v interface{}) (*model.DrivingLogBoolExp, error) {
+func (ec *executionContext) unmarshalOdriving_log_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogBoolExp(ctx context.Context, v interface{}) (*model.DrivingLogBoolExp, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11633,7 +11812,7 @@ func (ec *executionContext) unmarshalOdriving_log_bool_exp2ᚖVehicleSupervision
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogIncInput(ctx context.Context, v interface{}) (*model.DrivingLogIncInput, error) {
+func (ec *executionContext) unmarshalOdriving_log_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogIncInput(ctx context.Context, v interface{}) (*model.DrivingLogIncInput, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11641,14 +11820,14 @@ func (ec *executionContext) unmarshalOdriving_log_inc_input2ᚖVehicleSupervisio
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogMaxFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogMaxFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_max_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMaxOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogMaxOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMaxOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogMaxOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11656,14 +11835,14 @@ func (ec *executionContext) unmarshalOdriving_log_max_order_by2ᚖVehicleSupervi
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMinFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogMinFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMinFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogMinFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_min_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMinOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogMinOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMinOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogMinOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11671,14 +11850,14 @@ func (ec *executionContext) unmarshalOdriving_log_min_order_by2ᚖVehicleSupervi
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogMutationResponse) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogMutationResponse) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_mutation_response(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx context.Context, v interface{}) (*model.DrivingLogOnConflict, error) {
+func (ec *executionContext) unmarshalOdriving_log_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOnConflict(ctx context.Context, v interface{}) (*model.DrivingLogOnConflict, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11686,7 +11865,7 @@ func (ec *executionContext) unmarshalOdriving_log_on_conflict2ᚖVehicleSupervis
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOrderByᚄ(ctx context.Context, v interface{}) ([]*model.DrivingLogOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOrderByᚄ(ctx context.Context, v interface{}) ([]*model.DrivingLogOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11702,7 +11881,7 @@ func (ec *executionContext) unmarshalOdriving_log_order_by2ᚕᚖVehicleSupervis
 	res := make([]*model.DrivingLogOrderBy, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNdriving_log_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogOrderBy(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNdriving_log_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogOrderBy(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -11710,7 +11889,7 @@ func (ec *executionContext) unmarshalOdriving_log_order_by2ᚕᚖVehicleSupervis
 	return res, nil
 }
 
-func (ec *executionContext) unmarshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.DrivingLogSelectColumn, error) {
+func (ec *executionContext) unmarshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.DrivingLogSelectColumn, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11726,7 +11905,7 @@ func (ec *executionContext) unmarshalOdriving_log_select_column2ᚕVehicleSuperv
 	res := make([]model.DrivingLogSelectColumn, len(vSlice))
 	for i := range vSlice {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNdriving_log_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSelectColumn(ctx, vSlice[i])
+		res[i], err = ec.unmarshalNdriving_log_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSelectColumn(ctx, vSlice[i])
 		if err != nil {
 			return nil, err
 		}
@@ -11734,7 +11913,7 @@ func (ec *executionContext) unmarshalOdriving_log_select_column2ᚕVehicleSuperv
 	return res, nil
 }
 
-func (ec *executionContext) marshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DrivingLogSelectColumn) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DrivingLogSelectColumn) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
@@ -11761,7 +11940,7 @@ func (ec *executionContext) marshalOdriving_log_select_column2ᚕVehicleSupervis
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNdriving_log_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSelectColumn(ctx, sel, v[i])
+			ret[i] = ec.marshalNdriving_log_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSelectColumn(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -11774,7 +11953,7 @@ func (ec *executionContext) marshalOdriving_log_select_column2ᚕVehicleSupervis
 	return ret
 }
 
-func (ec *executionContext) unmarshalOdriving_log_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSetInput(ctx context.Context, v interface{}) (*model.DrivingLogSetInput, error) {
+func (ec *executionContext) unmarshalOdriving_log_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSetInput(ctx context.Context, v interface{}) (*model.DrivingLogSetInput, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11782,14 +11961,14 @@ func (ec *executionContext) unmarshalOdriving_log_set_input2ᚖVehicleSupervisio
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogStddevFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogStddevFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_stddev_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogStddevOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogStddevOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11797,14 +11976,14 @@ func (ec *executionContext) unmarshalOdriving_log_stddev_order_by2ᚖVehicleSupe
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogStddevPopFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogStddevPopFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_stddev_pop_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevPopOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogStddevPopOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevPopOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogStddevPopOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11812,14 +11991,14 @@ func (ec *executionContext) unmarshalOdriving_log_stddev_pop_order_by2ᚖVehicle
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogStddevSampFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogStddevSampFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_stddev_samp_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogStddevSampOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogStddevSampOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogStddevSampOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogStddevSampOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11827,14 +12006,14 @@ func (ec *executionContext) unmarshalOdriving_log_stddev_samp_order_by2ᚖVehicl
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSumFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogSumFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSumFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogSumFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_sum_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogSumOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogSumOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogSumOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogSumOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11842,14 +12021,14 @@ func (ec *executionContext) unmarshalOdriving_log_sum_order_by2ᚖVehicleSupervi
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogVarPopFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogVarPopFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_var_pop_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarPopOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogVarPopOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarPopOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogVarPopOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11857,14 +12036,14 @@ func (ec *executionContext) unmarshalOdriving_log_var_pop_order_by2ᚖVehicleSup
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogVarSampFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogVarSampFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_var_samp_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarSampOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogVarSampOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarSampOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogVarSampOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
@@ -11872,19 +12051,70 @@ func (ec *executionContext) unmarshalOdriving_log_var_samp_order_by2ᚖVehicleSu
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalOdriving_log_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogVarianceFields) graphql.Marshaler {
+func (ec *executionContext) marshalOdriving_log_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.DrivingLogVarianceFields) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
 	}
 	return ec._driving_log_variance_fields(ctx, sel, v)
 }
 
-func (ec *executionContext) unmarshalOdriving_log_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋlogᚋmutationᚋgraphᚋmodelᚐDrivingLogVarianceOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogVarianceOrderBy, error) {
+func (ec *executionContext) unmarshalOdriving_log_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐDrivingLogVarianceOrderBy(ctx context.Context, v interface{}) (*model.DrivingLogVarianceOrderBy, error) {
 	if v == nil {
 		return nil, nil
 	}
 	res, err := ec.unmarshalInputdriving_log_variance_order_by(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOnumeric2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]float64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNnumeric2float64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOnumeric2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNnumeric2float64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOnumeric2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloat(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOnumeric2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalFloat(*v)
 }
 
 func (ec *executionContext) unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, v interface{}) (*model2.OrderBy, error) {
@@ -11901,6 +12131,57 @@ func (ec *executionContext) marshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraph
 		return graphql.Null
 	}
 	return v
+}
+
+func (ec *executionContext) unmarshalOpoint2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]string, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNpoint2string(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOpoint2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNpoint2string(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOpoint2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalString(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOpoint2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalString(*v)
 }
 
 func (ec *executionContext) unmarshalOtimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx context.Context, v interface{}) ([]*time.Time, error) {
