@@ -24,11 +24,11 @@ type MuckTruckPreviewNumber struct {
 	// 联系电话
 	ContactPhone *string `json:"contact_phone"`
 	// 创建人
-	CreateBy string `json:"create_by"`
+	CreatedBy string `json:"create_by"`
 	// 删除时间
-	DeleteAt *time.Time `json:"delete_at"`
+	DeletedAt *time.Time `json:"delete_at"`
 	// 删除人
-	DeleteBy *string `json:"delete_by"`
+	DeletedBy *string `json:"delete_by"`
 	// 前车牌
 	FrontLicensePlate *string `json:"front_license_plate"`
 	// 主键
@@ -64,9 +64,9 @@ type MuckTruckPreviewNumber struct {
 	// 违法未处理数
 	UnlawfulViolationNumber *int `json:"unlawful_violation_number"`
 	// 修改时间
-	UpdateAt time.Time `json:"update_at"`
+	UpdatedAt time.Time `json:"update_at"`
 	// 修改人
-	UpdateBy *string `json:"update_by"`
+	UpdatedBy *string `json:"update_by"`
 	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID string `json:"vehicle_id"`
 	// 工号牌颜色（green.绿色 yellow.黄色）

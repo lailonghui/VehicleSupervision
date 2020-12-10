@@ -20,13 +20,13 @@ type OwnerInfo struct {
 	// 固定电话
 	Cellphone *string `json:"cellphone"`
 	// 创建时间
-	CreateAt time.Time `json:"create_at"`
+	CreatedAt time.Time `json:"create_at"`
 	// 创建人
-	CreateBy string `json:"create_by"`
+	CreatedBy string `json:"create_by"`
 	// 删除时间
-	DeleteAt *time.Time `json:"delete_at"`
+	DeletedAt *time.Time `json:"delete_at"`
 	// 删除人
-	DeleteBy *string `json:"delete_by"`
+	DeletedBy *string `json:"delete_by"`
 	// department 部门信息表
 	DepartmentID *string `json:"department_id"`
 	// 邮箱地址
@@ -53,7 +53,7 @@ type OwnerInfo struct {
 	// 手机号码
 	Telephone *string `json:"telephone"`
 	// 修改时间
-	UpdateAt *time.Time `json:"update_at"`
+	UpdatedAt *time.Time `json:"update_at"`
 	// 修改人
-	UpdateBy *string `json:"update_by"`
+	UpdatedBy *string `json:"update_by"`
 }

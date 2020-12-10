@@ -14,9 +14,9 @@ import "time"
 // columns and relationships of "vehicle_info"
 type VehicleInfo struct {
 	// 主键
-	ID int64 `json:"id" gorm:"column:id;default:id_generator();"`
+	ID int64 `json:"id"`
 	// 车辆外部编码，由golang程序生成的xid，暴露到外部使用
-	VehicleID string `json:"vehicle_id" gorm:"column:vehicle_id"`
+	VehicleID string `json:"vehicle_id" `
 	// 经营范围字典
 	BusinessScope *int `json:"business_scope" `
 	// 租车标准价格
@@ -24,13 +24,13 @@ type VehicleInfo struct {
 	// 校验状态
 	CheckState *int `json:"check_state"`
 	// 创建时间
-	CreateAt time.Time `json:"create_at" gorm:"column:create_at"`
+	CreatedAt time.Time `json:"create_at"`
 	// 创建人,
-	CreateBy string `json:"create_by"`
+	CreatedBy string `json:"create_by"`
 	// 删除时间
-	DeleteAt *time.Time `json:"delete_at"`
+	DeletedAt *time.Time `json:"delete_at"`
 	// 删除人
-	DeleteBy *string `json:"delete_by"`
+	DeletedBy *string `json:"delete_by"`
 	// 所在部门id,department 部门信息表
 	DepartmentID *string `json:"department_id"`
 	// 行驶证照片,云储存系统返回的路径
@@ -98,9 +98,9 @@ type VehicleInfo struct {
 	// 终端ID
 	TerminalID *string `json:"terminal_id"`
 	// 修改时间
-	UpdateAt *time.Time `json:"update_at"`
+	UpdatedAt *time.Time `json:"update_at"`
 	// 修改人
-	UpdateBy *string `json:"update_by"`
+	UpdatedBy *string `json:"update_by"`
 	// 内网更新时间
 	UpdateTimeIn *time.Time `json:"update_time_in"`
 	// 使用性质（六合一）

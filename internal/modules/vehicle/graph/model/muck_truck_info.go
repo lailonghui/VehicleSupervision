@@ -16,13 +16,13 @@ type MuckTruckInfo struct {
 	// 地区ID
 	AreaID *int64 `json:"area_id"`
 	// 创建时间
-	CreateAt time.Time `json:"create_at"`
+	CreatedAt time.Time `json:"create_at"`
 	// 创建人
-	CreateBy string `json:"create_by"`
+	CreatedBy string `json:"create_by"`
 	// 删除时间
-	DeleteAt *time.Time `json:"delete_at"`
+	DeletedAt *time.Time `json:"delete_at"`
 	// 删除人
-	DeleteBy *string `json:"delete_by"`
+	DeletedBy *string `json:"delete_by"`
 	// 费用到期时间
 	ExpiryDate *time.Time `json:"expiry_date"`
 	// 伪IP
@@ -46,9 +46,9 @@ type MuckTruckInfo struct {
 	// SIM卡号
 	SimCardNumber *string `json:"sim_card_number"`
 	// 修改时间
-	UpdateAt *time.Time `json:"update_at"`
+	UpdatedAt *time.Time `json:"update_at"`
 	// 修改人
-	UpdateBy *string `json:"update_by"`
+	UpdatedBy *string `json:"update_by"`
 	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID string `json:"vehicle_id"`
 }

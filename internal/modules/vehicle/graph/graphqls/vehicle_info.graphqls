@@ -197,16 +197,16 @@ type vehicle_info {
     check_state: Int
 
     """创建时间"""
-    create_at: timestamptz!
+    created_at: timestamptz!
 
     """创建人,"""
-    create_by: String!
+    created_by: String!
 
     """删除时间"""
-    delete_at: timestamptz
+    deleted_at: timestamptz
 
     """删除人"""
-    delete_by: timestamptz
+    deleted_by: String
 
     """所在部门id,department 部门信息表"""
     department_id: String
@@ -315,10 +315,10 @@ type vehicle_info {
     terminal_id: String
 
     """修改时间"""
-    update_at: timestamptz
+    updated_at: timestamptz
 
     """修改人"""
-    update_by: String
+    updated_by: String
 
     """内网更新时间"""
     update_time_in: timestamptz
@@ -465,10 +465,10 @@ input vehicle_info_bool_exp {
     business_scope: Int_comparison_exp
     car_rental_price: numeric_comparison_exp
     check_state: Int_comparison_exp
-    create_at: timestamptz_comparison_exp
-    create_by: String_comparison_exp
-    delete_at: timestamptz_comparison_exp
-    delete_by: timestamptz_comparison_exp
+    created_at: timestamptz_comparison_exp
+    created_by: String_comparison_exp
+    deleted_at: timestamptz_comparison_exp
+    deleted_by: timestamptz_comparison_exp
     department_id: String_comparison_exp
     driving_licensee_pic: String_comparison_exp
     enterprise_id: String_comparison_exp
@@ -503,8 +503,8 @@ input vehicle_info_bool_exp {
     road_transport_license_number: String_comparison_exp
     seats: Int_comparison_exp
     terminal_id: String_comparison_exp
-    update_at: timestamptz_comparison_exp
-    update_by: String_comparison_exp
+    updated_at: timestamptz_comparison_exp
+    updated_by: String_comparison_exp
     update_time_in: timestamptz_comparison_exp
     use_nature: String_comparison_exp
     vehicle_brand: Int_comparison_exp
@@ -558,10 +558,10 @@ input vehicle_info_insert_input {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-#    create_at: timestamptz
-#    create_by: String
-#    delete_at: timestamptz
-#    delete_by: timestamptz
+#    created_at: timestamptz
+#    created_by: String
+#    deleted_at: timestamptz
+#    deleted_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
@@ -596,8 +596,8 @@ input vehicle_info_insert_input {
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-#    update_at: timestamptz
-#    update_by: String
+#    updated_at: timestamptz
+#    updated_by: String
     update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
@@ -617,10 +617,10 @@ type vehicle_info_max_fields {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: timestamptz
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
@@ -648,8 +648,8 @@ type vehicle_info_max_fields {
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
@@ -670,10 +670,10 @@ input vehicle_info_max_order_by {
     business_scope: order_by
     car_rental_price: order_by
     check_state: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     department_id: order_by
     driving_licensee_pic: order_by
     enterprise_id: order_by
@@ -701,8 +701,8 @@ input vehicle_info_max_order_by {
     road_transport_license_number: order_by
     seats: order_by
     terminal_id: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     update_time_in: order_by
     use_nature: order_by
     vehicle_brand: order_by
@@ -721,10 +721,10 @@ type vehicle_info_min_fields {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: timestamptz
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
@@ -752,8 +752,8 @@ type vehicle_info_min_fields {
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
@@ -774,10 +774,10 @@ input vehicle_info_min_order_by {
     business_scope: order_by
     car_rental_price: order_by
     check_state: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     department_id: order_by
     driving_licensee_pic: order_by
     enterprise_id: order_by
@@ -805,8 +805,8 @@ input vehicle_info_min_order_by {
     road_transport_license_number: order_by
     seats: order_by
     terminal_id: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     update_time_in: order_by
     use_nature: order_by
     vehicle_brand: order_by
@@ -855,10 +855,10 @@ input vehicle_info_order_by {
     business_scope: order_by
     car_rental_price: order_by
     check_state: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     department_id: order_by
     driving_licensee_pic: order_by
     enterprise_id: order_by
@@ -893,8 +893,8 @@ input vehicle_info_order_by {
     road_transport_license_number: order_by
     seats: order_by
     terminal_id: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     update_time_in: order_by
     use_nature: order_by
     vehicle_brand: order_by
@@ -934,16 +934,16 @@ enum vehicle_info_select_column {
     check_state
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     department_id
@@ -1048,10 +1048,10 @@ enum vehicle_info_select_column {
     terminal_id
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     update_time_in
@@ -1097,10 +1097,10 @@ input vehicle_info_set_input {
     business_scope: Int
     car_rental_price: numeric
     check_state: Int
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: timestamptz
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: timestamptz
     department_id: String
     driving_licensee_pic: String
     enterprise_id: String
@@ -1135,8 +1135,8 @@ input vehicle_info_set_input {
     road_transport_license_number: String
     seats: Int
     terminal_id: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     update_time_in: timestamptz
     use_nature: String
     vehicle_brand: Int
@@ -1349,16 +1349,16 @@ enum vehicle_info_update_column {
     check_state
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     department_id
@@ -1463,10 +1463,10 @@ enum vehicle_info_update_column {
     terminal_id
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     update_time_in

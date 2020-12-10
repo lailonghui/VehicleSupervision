@@ -23,13 +23,13 @@ type muck_truck_preview_number {
     contact_phone: String
 
     """创建人"""
-    create_by: String!
+    created_by: String!
 
     """删除时间"""
-    delete_at: timestamptz
+    deleted_at: timestamptz
 
     """删除人"""
-    delete_by: String
+    deleted_by: String
 
     """前车牌"""
     front_license_plate: String
@@ -83,10 +83,10 @@ type muck_truck_preview_number {
     unlawful_violation_number: Int
 
     """修改时间"""
-    update_at: timestamptz!
+    updated_at: timestamptz!
 
     """修改人"""
-    update_by: String
+    updated_by: String
 
     """vehicle_info 车辆信息表 的vehicle_id"""
     vehicle_id: String!
@@ -177,9 +177,9 @@ input muck_truck_preview_number_bool_exp {
     confirmor: String_comparison_exp
     contact_person: String_comparison_exp
     contact_phone: String_comparison_exp
-    create_by: String_comparison_exp
-    delete_at: timestamptz_comparison_exp
-    delete_by: String_comparison_exp
+    created_by: String_comparison_exp
+    deleted_at: timestamptz_comparison_exp
+    deleted_by: String_comparison_exp
     front_license_plate: String_comparison_exp
     id: bigint_comparison_exp
     initial_registration_date: timestamptz_comparison_exp
@@ -197,8 +197,8 @@ input muck_truck_preview_number_bool_exp {
     side_license_plate: String_comparison_exp
     svn_number: String_comparison_exp
     unlawful_violation_number: Int_comparison_exp
-    update_at: timestamptz_comparison_exp
-    update_by: String_comparison_exp
+    updated_at: timestamptz_comparison_exp
+    updated_by: String_comparison_exp
     vehicle_id: String_comparison_exp
     work_number_plate_color: String_comparison_exp
 }
@@ -231,9 +231,9 @@ input muck_truck_preview_number_insert_input {
     confirmor: String
     contact_person: String
     contact_phone: String
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     front_license_plate: String
     id: bigint
     initial_registration_date: timestamptz
@@ -251,8 +251,8 @@ input muck_truck_preview_number_insert_input {
     side_license_plate: String
     svn_number: String
     unlawful_violation_number: Int
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
     work_number_plate_color: String
 }
@@ -264,9 +264,9 @@ type muck_truck_preview_number_max_fields {
     confirmor: String
     contact_person: String
     contact_phone: String
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     front_license_plate: String
     id: bigint
     initial_registration_date: timestamptz
@@ -281,8 +281,8 @@ type muck_truck_preview_number_max_fields {
     side_license_plate: String
     svn_number: String
     unlawful_violation_number: Int
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
     work_number_plate_color: String
 }
@@ -296,9 +296,9 @@ input muck_truck_preview_number_max_order_by {
     confirmor: order_by
     contact_person: order_by
     contact_phone: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     front_license_plate: order_by
     id: order_by
     initial_registration_date: order_by
@@ -313,8 +313,8 @@ input muck_truck_preview_number_max_order_by {
     side_license_plate: order_by
     svn_number: order_by
     unlawful_violation_number: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
     work_number_plate_color: order_by
 }
@@ -326,9 +326,9 @@ type muck_truck_preview_number_min_fields {
     confirmor: String
     contact_person: String
     contact_phone: String
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     front_license_plate: String
     id: bigint
     initial_registration_date: timestamptz
@@ -343,8 +343,8 @@ type muck_truck_preview_number_min_fields {
     side_license_plate: String
     svn_number: String
     unlawful_violation_number: Int
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
     work_number_plate_color: String
 }
@@ -358,9 +358,9 @@ input muck_truck_preview_number_min_order_by {
     confirmor: order_by
     contact_person: order_by
     contact_phone: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     front_license_plate: order_by
     id: order_by
     initial_registration_date: order_by
@@ -375,8 +375,8 @@ input muck_truck_preview_number_min_order_by {
     side_license_plate: order_by
     svn_number: order_by
     unlawful_violation_number: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
     work_number_plate_color: order_by
 }
@@ -418,9 +418,9 @@ input muck_truck_preview_number_order_by {
     confirmor: order_by
     contact_person: order_by
     contact_phone: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     front_license_plate: order_by
     id: order_by
     initial_registration_date: order_by
@@ -438,8 +438,8 @@ input muck_truck_preview_number_order_by {
     side_license_plate: order_by
     svn_number: order_by
     unlawful_violation_number: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
     work_number_plate_color: order_by
 }
@@ -472,13 +472,13 @@ enum muck_truck_preview_number_select_column {
     contact_phone
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     front_license_plate
@@ -532,10 +532,10 @@ enum muck_truck_preview_number_select_column {
     unlawful_violation_number
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_id
@@ -553,9 +553,9 @@ input muck_truck_preview_number_set_input {
     confirmor: String
     contact_person: String
     contact_phone: String
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     front_license_plate: String
     id: bigint
     initial_registration_date: timestamptz
@@ -573,8 +573,8 @@ input muck_truck_preview_number_set_input {
     side_license_plate: String
     svn_number: String
     unlawful_violation_number: Int
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
     work_number_plate_color: String
 }
@@ -679,13 +679,13 @@ enum muck_truck_preview_number_update_column {
     contact_phone
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     front_license_plate
@@ -739,10 +739,10 @@ enum muck_truck_preview_number_update_column {
     unlawful_violation_number
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_id

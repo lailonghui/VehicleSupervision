@@ -18,16 +18,16 @@ type owner_info {
     cellphone: String
 
     """创建时间"""
-    create_at: timestamptz!
+    created_at: timestamptz!
 
     """创建人"""
-    create_by: String!
+    created_by: String!
 
     """删除时间"""
-    delete_at: timestamptz
+    deleted_at: timestamptz
 
     """删除人"""
-    delete_by: String
+    deleted_by: String
 
     """
     department 部门信息表
@@ -75,10 +75,10 @@ type owner_info {
     telephone: String
 
     """修改时间"""
-    update_at: timestamptz
+    updated_at: timestamptz
 
     """修改人"""
-    update_by: String
+    updated_by: String
 }
 
 """
@@ -155,10 +155,10 @@ input owner_info_bool_exp {
     address: String_comparison_exp
     agent: String_comparison_exp
     cellphone: String_comparison_exp
-    create_at: timestamptz_comparison_exp
-    create_by: String_comparison_exp
-    delete_at: timestamptz_comparison_exp
-    delete_by: String_comparison_exp
+    created_at: timestamptz_comparison_exp
+    created_by: String_comparison_exp
+    deleted_at: timestamptz_comparison_exp
+    deleted_by: String_comparison_exp
     department_id: String_comparison_exp
     email: String_comparison_exp
     expiry_date: timestamptz_comparison_exp
@@ -171,8 +171,8 @@ input owner_info_bool_exp {
     remarks: String_comparison_exp
     sex: Int_comparison_exp
     telephone: String_comparison_exp
-    update_at: timestamptz_comparison_exp
-    update_by: String_comparison_exp
+    updated_at: timestamptz_comparison_exp
+    updated_by: String_comparison_exp
 }
 
 """
@@ -198,10 +198,10 @@ input owner_info_insert_input {
     address: String
     agent: String
     cellphone: String
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     department_id: String
     email: String
     expiry_date: timestamptz
@@ -214,8 +214,8 @@ input owner_info_insert_input {
     remarks: String
     sex: Int
     telephone: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
 }
 
 """aggregate max on columns"""
@@ -223,10 +223,10 @@ type owner_info_max_fields {
     address: String
     agent: String
     cellphone: String
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     department_id: String
     email: String
     expiry_date: timestamptz
@@ -238,8 +238,8 @@ type owner_info_max_fields {
     remarks: String
     sex: Int
     telephone: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
 }
 
 """
@@ -249,10 +249,10 @@ input owner_info_max_order_by {
     address: order_by
     agent: order_by
     cellphone: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     department_id: order_by
     email: order_by
     expiry_date: order_by
@@ -264,8 +264,8 @@ input owner_info_max_order_by {
     remarks: order_by
     sex: order_by
     telephone: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
 }
 
 """aggregate min on columns"""
@@ -273,10 +273,10 @@ type owner_info_min_fields {
     address: String
     agent: String
     cellphone: String
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     department_id: String
     email: String
     expiry_date: timestamptz
@@ -288,8 +288,8 @@ type owner_info_min_fields {
     remarks: String
     sex: Int
     telephone: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
 }
 
 """
@@ -299,10 +299,10 @@ input owner_info_min_order_by {
     address: order_by
     agent: order_by
     cellphone: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     department_id: order_by
     email: order_by
     expiry_date: order_by
@@ -314,8 +314,8 @@ input owner_info_min_order_by {
     remarks: order_by
     sex: order_by
     telephone: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
 }
 
 """
@@ -353,10 +353,10 @@ input owner_info_order_by {
     address: order_by
     agent: order_by
     cellphone: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     department_id: order_by
     email: order_by
     expiry_date: order_by
@@ -369,8 +369,8 @@ input owner_info_order_by {
     remarks: order_by
     sex: order_by
     telephone: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
 }
 
 """
@@ -395,16 +395,16 @@ enum owner_info_select_column {
     cellphone
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     department_id
@@ -443,10 +443,10 @@ enum owner_info_select_column {
     telephone
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 }
 
 """
@@ -456,10 +456,10 @@ input owner_info_set_input {
     address: String
     agent: String
     cellphone: String
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     department_id: String
     email: String
     expiry_date: timestamptz
@@ -472,8 +472,8 @@ input owner_info_set_input {
     remarks: String
     sex: Int
     telephone: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
 }
 
 """aggregate stddev on columns"""
@@ -546,16 +546,16 @@ enum owner_info_update_column {
     cellphone
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     department_id
@@ -594,10 +594,10 @@ enum owner_info_update_column {
     telephone
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 }
 
 """aggregate var_pop on columns"""

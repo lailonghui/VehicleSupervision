@@ -11,16 +11,16 @@ type muck_truck_info {
     area_id: bigint
 
     """创建时间"""
-    create_at: timestamptz!
+    created_at: timestamptz!
 
     """创建人"""
-    create_by: String!
+    created_by: String!
 
     """删除时间"""
-    delete_at: timestamptz
+    deleted_at: timestamptz
 
     """删除人"""
-    delete_by: String
+    deleted_by: String
 
     """费用到期时间"""
     expiry_date: timestamptz
@@ -56,10 +56,10 @@ type muck_truck_info {
     sim_card_number: String
 
     """修改时间"""
-    update_at: timestamptz
+    updated_at: timestamptz
 
     """修改人"""
-    update_by: String
+    updated_by: String
 
     """vehicle_info 车辆信息表 的vehicle_id"""
     vehicle_id: String!
@@ -141,10 +141,10 @@ input muck_truck_info_bool_exp {
     _not: muck_truck_info_bool_exp
     _or: [muck_truck_info_bool_exp]
     area_id: bigint_comparison_exp
-    create_at: timestamptz_comparison_exp
-    create_by: String_comparison_exp
-    delete_at: timestamptz_comparison_exp
-    delete_by: String_comparison_exp
+    created_at: timestamptz_comparison_exp
+    created_by: String_comparison_exp
+    deleted_at: timestamptz_comparison_exp
+    deleted_by: String_comparison_exp
     expiry_date: timestamptz_comparison_exp
     fake_ip: String_comparison_exp
     is_reserve_library: Boolean_comparison_exp
@@ -156,8 +156,8 @@ input muck_truck_info_bool_exp {
     self_number: String_comparison_exp
     server_id: bigint_comparison_exp
     sim_card_number: String_comparison_exp
-    update_at: timestamptz_comparison_exp
-    update_by: String_comparison_exp
+    updated_at: timestamptz_comparison_exp
+    updated_by: String_comparison_exp
     vehicle_id: String_comparison_exp
 }
 
@@ -184,10 +184,10 @@ input type for inserting data into table "muck_truck_info"
 """
 input muck_truck_info_insert_input {
     area_id: bigint
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     expiry_date: timestamptz
     fake_ip: String
     is_reserve_library: Boolean
@@ -199,18 +199,18 @@ input muck_truck_info_insert_input {
     self_number: String
     server_id: bigint
     sim_card_number: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
 """aggregate max on columns"""
 type muck_truck_info_max_fields {
     area_id: bigint
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     expiry_date: timestamptz
     fake_ip: String
     load_category: String
@@ -221,8 +221,8 @@ type muck_truck_info_max_fields {
     self_number: String
     server_id: bigint
     sim_card_number: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -231,10 +231,10 @@ order by max() on columns of table "muck_truck_info"
 """
 input muck_truck_info_max_order_by {
     area_id: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     expiry_date: order_by
     fake_ip: order_by
     load_category: order_by
@@ -245,18 +245,18 @@ input muck_truck_info_max_order_by {
     self_number: order_by
     server_id: order_by
     sim_card_number: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
 }
 
 """aggregate min on columns"""
 type muck_truck_info_min_fields {
     area_id: bigint
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     expiry_date: timestamptz
     fake_ip: String
     load_category: String
@@ -267,8 +267,8 @@ type muck_truck_info_min_fields {
     self_number: String
     server_id: bigint
     sim_card_number: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -277,10 +277,10 @@ order by min() on columns of table "muck_truck_info"
 """
 input muck_truck_info_min_order_by {
     area_id: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     expiry_date: order_by
     fake_ip: order_by
     load_category: order_by
@@ -291,8 +291,8 @@ input muck_truck_info_min_order_by {
     self_number: order_by
     server_id: order_by
     sim_card_number: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
 }
 
@@ -329,10 +329,10 @@ ordering options when selecting data from "muck_truck_info"
 """
 input muck_truck_info_order_by {
     area_id: order_by
-    create_at: order_by
-    create_by: order_by
-    delete_at: order_by
-    delete_by: order_by
+    created_at: order_by
+    created_by: order_by
+    deleted_at: order_by
+    deleted_by: order_by
     expiry_date: order_by
     fake_ip: order_by
     is_reserve_library: order_by
@@ -344,8 +344,8 @@ input muck_truck_info_order_by {
     self_number: order_by
     server_id: order_by
     sim_card_number: order_by
-    update_at: order_by
-    update_by: order_by
+    updated_at: order_by
+    updated_by: order_by
     vehicle_id: order_by
 }
 
@@ -365,16 +365,16 @@ enum muck_truck_info_select_column {
     area_id
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     expiry_date
@@ -410,10 +410,10 @@ enum muck_truck_info_select_column {
     sim_card_number
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_id
@@ -424,10 +424,10 @@ input type for updating data in table "muck_truck_info"
 """
 input muck_truck_info_set_input {
     area_id: bigint
-    create_at: timestamptz
-    create_by: String
-    delete_at: timestamptz
-    delete_by: String
+    created_at: timestamptz
+    created_by: String
+    deleted_at: timestamptz
+    deleted_by: String
     expiry_date: timestamptz
     fake_ip: String
     is_reserve_library: Boolean
@@ -439,8 +439,8 @@ input muck_truck_info_set_input {
     self_number: String
     server_id: bigint
     sim_card_number: String
-    update_at: timestamptz
-    update_by: String
+    updated_at: timestamptz
+    updated_by: String
     vehicle_id: String
 }
 
@@ -524,16 +524,16 @@ enum muck_truck_info_update_column {
     area_id
 
     """column name"""
-    create_at
+    created_at
 
     """column name"""
-    create_by
+    created_by
 
     """column name"""
-    delete_at
+    deleted_at
 
     """column name"""
-    delete_by
+    deleted_by
 
     """column name"""
     expiry_date
@@ -569,10 +569,10 @@ enum muck_truck_info_update_column {
     sim_card_number
 
     """column name"""
-    update_at
+    updated_at
 
     """column name"""
-    update_by
+    updated_by
 
     """column name"""
     vehicle_id
