@@ -1,908 +1,974 @@
-
-extend type Mutation {
-  """
-  delete data from the table: "system_user"
-  """
-  delete_system_user(
-    """filter the rows which have to be deleted"""
-    where: system_user_bool_exp!
-  ): system_user_mutation_response
-
-  """
-  delete single row from the table: "system_user"
-  """
-  delete_system_user_by_pk(
-    """ID"""
-    id: bigint!
-  ): system_user
-
-  """
-  insert data into the table: "system_user"
-  """
-  insert_system_user(
-    """the rows to be inserted"""
-    objects: [system_user_insert_input!]!
-
-    """on conflict condition"""
-    on_conflict: system_user_on_conflict
-  ): system_user_mutation_response
-
-  """
-  insert a single row into the table: "system_user"
-  """
-  insert_system_user_one(
-    """the row to be inserted"""
-    object: system_user_insert_input!
-
-    """on conflict condition"""
-    on_conflict: system_user_on_conflict
-  ): system_user
-
-  """
-  update data of the table: "system_user"
-  """
-  update_system_user(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: system_user_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: system_user_set_input
-
-    """filter the rows which have to be updated"""
-    where: system_user_bool_exp!
-  ): system_user_mutation_response
-
-  """
-  update single row of the table: "system_user"
-  """
-  update_system_user_by_pk(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: system_user_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: system_user_set_input
-    pk_columns: system_user_pk_columns_input!
-  ): system_user
-}
-
-extend type Query {
-  """
-  fetch data from the table: "system_user"
-  """
-  system_user(
-    """distinct select on columns"""
-    distinct_on: [system_user_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [system_user_order_by!]
-
-    """filter the rows returned"""
-    where: system_user_bool_exp
-  ): [system_user!]!
-
-  """
-  fetch aggregated fields from the table: "system_user"
-  """
-  system_user_aggregate(
-    """distinct select on columns"""
-    distinct_on: [system_user_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [system_user_order_by!]
-
-    """filter the rows returned"""
-    where: system_user_bool_exp
-  ): system_user_aggregate!
-
-  """fetch data from the table: "system_user" using primary key columns"""
-  system_user_by_pk(
-    """ID"""
-    id: bigint!
-  ): system_user
-}
-
 """
 系统用户
 
 
 columns and relationships of "system_user"
-
 """
-type system_user {
-  """是否绑定IP"""
-  Is_bind_ip: Boolean
-
-  """客户端版本号"""
-  app_version: String
-
-  """审核等级"""
-  audit_level: Int
-
-  """创建人"""
-  create_by: String
-
-  """创建时间"""
-  created_at: timestamptz
-
-  """删除时间"""
-  delete_at: timestamptz
-
-  """删除人"""
-  delete_by: String
-
-  """部门ID"""
-  department_id: String
-
-  """邮箱"""
-  email: String
-
-  """企业ID"""
-  enterprise_id: String
-
-  """级别"""
-  grade: Int
-
-  """ID"""
-  id: bigint!
-
-  """ip地址"""
-  ip_address: String
-
-  """是否删除"""
-  is_delete: Boolean!
-
-  """是否有效"""
-  is_valid: Boolean
-
-  """手机串号"""
-  mkey: String
-
-  """手机号码"""
-  mobile: String
-
-  """密码"""
-  password: String!
-  proxy_user: String
-
-  """备注"""
-  remarks: String
-
-  """电话号码"""
-  telephone: String
-
-  """用户名"""
-  username: String!
-
-  """加密串码"""
-  ukey: String
-
-  """修改时间"""
-  update_at: timestamptz
-
-  """修改人"""
-  update_by: String
-
-  """用户ID"""
-  user_id: String!
-
-  """状态"""
-  user_state: Int
-
-  """用户类型"""
-  user_type: Int
+type SystemUser {
+	"""
+	是否绑定IP
+	"""
+	Is_bind_ip: Boolean
+	"""
+	客户端版本号
+	"""
+	app_version: String
+	"""
+	审核等级
+	"""
+	audit_level: Int
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	创建时间
+	"""
+	created_at: Timestamptz
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	部门
+	"""
+	department: Department
+	"""
+	邮箱
+	"""
+	email: String
+	"""
+	企业ID
+	"""
+	enterprise: Enterprise
+	"""
+	级别
+	"""
+	grade: Int
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	ip地址
+	"""
+	ip_address: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	是否有效
+	"""
+	is_valid: Boolean
+	"""
+	手机串号
+	"""
+	mkey: String
+	"""
+	手机号码
+	"""
+	mobile: String
+	"""
+	密码
+	"""
+	password: String!
+	proxy_user: String
+	"""
+	备注
+	"""
+	remarks: String
+	"""
+	电话号码
+	"""
+	telephone: String
+	"""
+	用户名
+	"""
+	username: String!
+	"""
+	加密串码
+	"""
+	ukey: String
+	"""
+	修改时间
+	"""
+	update_at: Timestamptz
+	"""
+	修改人
+	"""
+	update_by: String
+	"""
+	用户ID
+	"""
+	user_id: String!
+	"""
+	状态
+	"""
+	user_state: Int
+	"""
+	用户类型
+	"""
+	user_type: Int
 }
-
 """
 aggregated selection of "system_user"
 """
-type system_user_aggregate {
-  aggregate: system_user_aggregate_fields
-  nodes: [system_user!]!
+type SystemUserAggregate {
+	aggregate: SystemUserAggregateFields
+	nodes: [SystemUser!]!
 }
-
 """
 aggregate fields of "system_user"
 """
-type system_user_aggregate_fields {
-  avg: system_user_avg_fields
-  count(columns: [system_user_select_column!], distinct: Boolean): Int
-  max: system_user_max_fields
-  min: system_user_min_fields
-  stddev: system_user_stddev_fields
-  stddev_pop: system_user_stddev_pop_fields
-  stddev_samp: system_user_stddev_samp_fields
-  sum: system_user_sum_fields
-  var_pop: system_user_var_pop_fields
-  var_samp: system_user_var_samp_fields
-  variance: system_user_variance_fields
+type SystemUserAggregateFields {
+	avg: SystemUserAvgFields
+	count(columns: [SystemUserSelectColumn!], distinct: Boolean): Int
+	max: SystemUserMaxFields
+	min: SystemUserMinFields
+	stddev: SystemUserStddevFields
+	stddev_pop: SystemUserStddevPopFields
+	stddev_samp: SystemUserStddevSampFields
+	sum: SystemUserSumFields
+	var_pop: SystemUserVarPopFields
+	var_samp: SystemUserVarSampFields
+	variance: SystemUserVarianceFields
 }
-
 """
 order by aggregate values of table "system_user"
 """
-input system_user_aggregate_order_by {
-  avg: system_user_avg_order_by
-  count: order_by
-  max: system_user_max_order_by
-  min: system_user_min_order_by
-  stddev: system_user_stddev_order_by
-  stddev_pop: system_user_stddev_pop_order_by
-  stddev_samp: system_user_stddev_samp_order_by
-  sum: system_user_sum_order_by
-  var_pop: system_user_var_pop_order_by
-  var_samp: system_user_var_samp_order_by
-  variance: system_user_variance_order_by
+input SystemUserAggregateOrderBy {
+	avg: SystemUserAvgOrderBy
+	count: OrderBy
+	max: SystemUserMaxOrderBy
+	min: SystemUserMinOrderBy
+	stddev: SystemUserStddevOrderBy
+	stddev_pop: SystemUserStddevPopOrderBy
+	stddev_samp: SystemUserStddevSampOrderBy
+	sum: SystemUserSumOrderBy
+	var_pop: SystemUserVarPopOrderBy
+	var_samp: SystemUserVarSampOrderBy
+	variance: SystemUserVarianceOrderBy
 }
-
 """
 input type for inserting array relation for remote table "system_user"
 """
-input system_user_arr_rel_insert_input {
-  data: [system_user_insert_input!]!
-  on_conflict: system_user_on_conflict
+input SystemUserArrRelInsertInput {
+	data: [SystemUserInsertInput!]!
+	on_conflict: SystemUserOnConflict
 }
-
-"""aggregate avg on columns"""
-type system_user_avg_fields {
-  audit_level: Float
-  grade: Float
-  id: Float
-  user_state: Float
-  user_type: Float
+"""
+aggregate avg on columns
+"""
+type SystemUserAvgFields {
+	audit_level: Float
+	grade: Float
+	id: Float
+	user_state: Float
+	user_type: Float
 }
-
 """
 order by avg() on columns of table "system_user"
 """
-input system_user_avg_order_by {
-  audit_level: order_by
-  grade: order_by
-  id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserAvgOrderBy {
+	audit_level: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
 """
 Boolean expression to filter rows from the table "system_user". All fields are combined with a logical 'AND'.
 """
-input system_user_bool_exp {
-  Is_bind_ip: Boolean_comparison_exp
-  _and: [system_user_bool_exp]
-  _not: system_user_bool_exp
-  _or: [system_user_bool_exp]
-  app_version: String_comparison_exp
-  audit_level: Int_comparison_exp
-  create_by: String_comparison_exp
-  created_at: timestamptz_comparison_exp
-  delete_at: timestamptz_comparison_exp
-  delete_by: String_comparison_exp
-  department_id: String_comparison_exp
-  email: String_comparison_exp
-  enterprise_id: String_comparison_exp
-  grade: Int_comparison_exp
-  id: bigint_comparison_exp
-  ip_address: String_comparison_exp
-  is_delete: Boolean_comparison_exp
-  is_valid: Boolean_comparison_exp
-  mkey: String_comparison_exp
-  mobile: String_comparison_exp
-  password: String_comparison_exp
-  proxy_user: String_comparison_exp
-  remarks: String_comparison_exp
-  telephone: String_comparison_exp
-  username: String_comparison_exp
-  ukey: String_comparison_exp
-  update_at: timestamptz_comparison_exp
-  update_by: String_comparison_exp
-  user_id: String_comparison_exp
-  user_state: Int_comparison_exp
-  user_type: Int_comparison_exp
+input SystemUserBoolExp {
+	Is_bind_ip: BooleanComparisonExp
+	_and: [SystemUserBoolExp]
+	_not: SystemUserBoolExp
+	_or: [SystemUserBoolExp]
+	app_version: StringComparisonExp
+	audit_level: IntComparisonExp
+	create_by: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	department_id: StringComparisonExp
+	email: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	grade: IntComparisonExp
+	id: BigintComparisonExp
+	ip_address: StringComparisonExp
+	is_delete: BooleanComparisonExp
+	is_valid: BooleanComparisonExp
+	mkey: StringComparisonExp
+	mobile: StringComparisonExp
+	password: StringComparisonExp
+	proxy_user: StringComparisonExp
+	remarks: StringComparisonExp
+	telephone: StringComparisonExp
+	username: StringComparisonExp
+	ukey: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	user_id: StringComparisonExp
+	user_state: IntComparisonExp
+	user_type: IntComparisonExp
 }
-
 """
 unique or primary key constraints on table "system_user"
 """
-enum system_user_constraint {
-  """unique or primary key constraint"""
-  system_user_pkey
+enum SystemUserConstraint {
+	"""
+	unique or primary key constraint
+	"""
+	system_user_pkey
 }
-
 """
 input type for incrementing integer column in table "system_user"
 """
-input system_user_inc_input {
-  audit_level: Int
-  grade: Int
-  id: bigint
-  user_state: Int
-  user_type: Int
+input SystemUserIncInput {
+	audit_level: Int
+	grade: Int
+	id: Bigint
+	user_state: Int
+	user_type: Int
 }
-
 """
 input type for inserting data into table "system_user"
 """
-input system_user_insert_input {
-  Is_bind_ip: Boolean
-  app_version: String
-  audit_level: Int
-  create_by: String
-  created_at: timestamptz
-  delete_at: timestamptz
-  delete_by: String
-  department_id: String
-  email: String
-  enterprise_id: String
-  grade: Int
-  id: bigint
-  ip_address: String
-  is_delete: Boolean
-  is_valid: Boolean
-  mkey: String
-  mobile: String
-  password: String
-  proxy_user: String
-  remarks: String
-  telephone: String
-  username: String
-  ukey: String
-  update_at: timestamptz
-  update_by: String
-  user_id: String
-  user_state: Int
-  user_type: Int
+input SystemUserInsertInput {
+	Is_bind_ip: Boolean
+	app_version: String
+	audit_level: Int
+	create_by: String
+	created_at: Timestamptz
+	delete_at: Timestamptz
+	delete_by: String
+	department_id: String
+	email: String
+	enterprise_id: String
+	grade: Int
+	id: Bigint
+	ip_address: String
+	is_delete: Boolean
+	is_valid: Boolean
+	mkey: String
+	mobile: String
+	password: String
+	proxy_user: String
+	remarks: String
+	telephone: String
+	username: String
+	ukey: String
+	update_at: Timestamptz
+	update_by: String
+	user_id: String
+	user_state: Int
+	user_type: Int
 }
-
-"""aggregate max on columns"""
-type system_user_max_fields {
-  app_version: String
-  audit_level: Int
-  create_by: String
-  created_at: timestamptz
-  delete_at: timestamptz
-  delete_by: String
-  department_id: String
-  email: String
-  enterprise_id: String
-  grade: Int
-  id: bigint
-  ip_address: String
-  mkey: String
-  mobile: String
-  password: String
-  proxy_user: String
-  remarks: String
-  telephone: String
-  username: String
-  ukey: String
-  update_at: timestamptz
-  update_by: String
-  user_id: String
-  user_state: Int
-  user_type: Int
+"""
+aggregate max on columns
+"""
+type SystemUserMaxFields {
+	app_version: String
+	audit_level: Int
+	create_by: String
+	created_at: Timestamptz
+	delete_at: Timestamptz
+	delete_by: String
+	department_id: String
+	email: String
+	enterprise_id: String
+	grade: Int
+	id: Bigint
+	ip_address: String
+	mkey: String
+	mobile: String
+	password: String
+	proxy_user: String
+	remarks: String
+	telephone: String
+	username: String
+	ukey: String
+	update_at: Timestamptz
+	update_by: String
+	user_id: String
+	user_state: Int
+	user_type: Int
 }
-
 """
 order by max() on columns of table "system_user"
 """
-input system_user_max_order_by {
-  app_version: order_by
-  audit_level: order_by
-  create_by: order_by
-  created_at: order_by
-  delete_at: order_by
-  delete_by: order_by
-  department_id: order_by
-  email: order_by
-  enterprise_id: order_by
-  grade: order_by
-  id: order_by
-  ip_address: order_by
-  mkey: order_by
-  mobile: order_by
-  password: order_by
-  proxy_user: order_by
-  remarks: order_by
-  telephone: order_by
-  username: order_by
-  ukey: order_by
-  update_at: order_by
-  update_by: order_by
-  user_id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserMaxOrderBy {
+	app_version: OrderBy
+	audit_level: OrderBy
+	create_by: OrderBy
+	created_at: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	department_id: OrderBy
+	email: OrderBy
+	enterprise_id: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	ip_address: OrderBy
+	mkey: OrderBy
+	mobile: OrderBy
+	password: OrderBy
+	proxy_user: OrderBy
+	remarks: OrderBy
+	telephone: OrderBy
+	username: OrderBy
+	ukey: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	user_id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
-"""aggregate min on columns"""
-type system_user_min_fields {
-  app_version: String
-  audit_level: Int
-  create_by: String
-  created_at: timestamptz
-  delete_at: timestamptz
-  delete_by: String
-  department_id: String
-  email: String
-  enterprise_id: String
-  grade: Int
-  id: bigint
-  ip_address: String
-  mkey: String
-  mobile: String
-  password: String
-  proxy_user: String
-  remarks: String
-  telephone: String
-  username: String
-  ukey: String
-  update_at: timestamptz
-  update_by: String
-  user_id: String
-  user_state: Int
-  user_type: Int
+"""
+aggregate min on columns
+"""
+type SystemUserMinFields {
+	app_version: String
+	audit_level: Int
+	create_by: String
+	created_at: Timestamptz
+	delete_at: Timestamptz
+	delete_by: String
+	department_id: String
+	email: String
+	enterprise_id: String
+	grade: Int
+	id: Bigint
+	ip_address: String
+	mkey: String
+	mobile: String
+	password: String
+	proxy_user: String
+	remarks: String
+	telephone: String
+	username: String
+	ukey: String
+	update_at: Timestamptz
+	update_by: String
+	user_id: String
+	user_state: Int
+	user_type: Int
 }
-
 """
 order by min() on columns of table "system_user"
 """
-input system_user_min_order_by {
-  app_version: order_by
-  audit_level: order_by
-  create_by: order_by
-  created_at: order_by
-  delete_at: order_by
-  delete_by: order_by
-  department_id: order_by
-  email: order_by
-  enterprise_id: order_by
-  grade: order_by
-  id: order_by
-  ip_address: order_by
-  mkey: order_by
-  mobile: order_by
-  password: order_by
-  proxy_user: order_by
-  remarks: order_by
-  telephone: order_by
-  username: order_by
-  ukey: order_by
-  update_at: order_by
-  update_by: order_by
-  user_id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserMinOrderBy {
+	app_version: OrderBy
+	audit_level: OrderBy
+	create_by: OrderBy
+	created_at: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	department_id: OrderBy
+	email: OrderBy
+	enterprise_id: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	ip_address: OrderBy
+	mkey: OrderBy
+	mobile: OrderBy
+	password: OrderBy
+	proxy_user: OrderBy
+	remarks: OrderBy
+	telephone: OrderBy
+	username: OrderBy
+	ukey: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	user_id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
 """
 response of any mutation on the table "system_user"
 """
-type system_user_mutation_response {
-  """number of affected rows by the mutation"""
-  affected_rows: Int!
-
-  """data of the affected rows by the mutation"""
-  returning: [system_user!]!
+type SystemUserMutationResponse {
+	"""
+	number of affected rows by the mutation
+	"""
+	affected_rows: Int!
+	"""
+	data of the affected rows by the mutation
+	"""
+	returning: [SystemUser!]!
 }
-
 """
 input type for inserting object relation for remote table "system_user"
 """
-input system_user_obj_rel_insert_input {
-  data: system_user_insert_input!
-  on_conflict: system_user_on_conflict
+input SystemUserObjRelInsertInput {
+	data: SystemUserInsertInput!
+	on_conflict: SystemUserOnConflict
 }
-
 """
 on conflict condition type for table "system_user"
 """
-input system_user_on_conflict {
-  constraint: system_user_constraint!
-  update_columns: [system_user_update_column!]!
-  where: system_user_bool_exp
+input SystemUserOnConflict {
+	constraint: SystemUserConstraint!
+	update_columns: [SystemUserUpdateColumn!]!
+	where: SystemUserBoolExp
 }
-
 """
 ordering options when selecting data from "system_user"
 """
-input system_user_order_by {
-  Is_bind_ip: order_by
-  app_version: order_by
-  audit_level: order_by
-  create_by: order_by
-  created_at: order_by
-  delete_at: order_by
-  delete_by: order_by
-  department_id: order_by
-  email: order_by
-  enterprise_id: order_by
-  grade: order_by
-  id: order_by
-  ip_address: order_by
-  is_delete: order_by
-  is_valid: order_by
-  mkey: order_by
-  mobile: order_by
-  password: order_by
-  proxy_user: order_by
-  remarks: order_by
-  telephone: order_by
-  username: order_by
-  ukey: order_by
-  update_at: order_by
-  update_by: order_by
-  user_id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserOrderBy {
+	Is_bind_ip: OrderBy
+	app_version: OrderBy
+	audit_level: OrderBy
+	create_by: OrderBy
+	created_at: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	department_id: OrderBy
+	email: OrderBy
+	enterprise_id: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	ip_address: OrderBy
+	is_delete: OrderBy
+	is_valid: OrderBy
+	mkey: OrderBy
+	mobile: OrderBy
+	password: OrderBy
+	proxy_user: OrderBy
+	remarks: OrderBy
+	telephone: OrderBy
+	username: OrderBy
+	ukey: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	user_id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
 """
 primary key columns input for table: "system_user"
 """
-input system_user_pk_columns_input {
-  """ID"""
-  id: bigint!
+input SystemUserPkColumnsInput {
+	"""
+	ID
+	"""
+	id: Bigint!
 }
-
 """
 select columns of table "system_user"
 """
-enum system_user_select_column {
-  """column name"""
-  Is_bind_ip
-
-  """column name"""
-  app_version
-
-  """column name"""
-  audit_level
-
-  """column name"""
-  create_by
-
-  """column name"""
-  created_at
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  department_id
-
-  """column name"""
-  email
-
-  """column name"""
-  enterprise_id
-
-  """column name"""
-  grade
-
-  """column name"""
-  id
-
-  """column name"""
-  ip_address
-
-  """column name"""
-  is_delete
-
-  """column name"""
-  is_valid
-
-  """column name"""
-  mkey
-
-  """column name"""
-  mobile
-
-  """column name"""
-  password
-
-  """column name"""
-  proxy_user
-
-  """column name"""
-  remarks
-
-  """column name"""
-  telephone
-
-  """column name"""
-  username
-
-  """column name"""
-  ukey
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
-
-  """column name"""
-  user_id
-
-  """column name"""
-  user_state
-
-  """column name"""
-  user_type
+enum SystemUserSelectColumn {
+	"""
+	column name
+	"""
+	Is_bind_ip
+	"""
+	column name
+	"""
+	app_version
+	"""
+	column name
+	"""
+	audit_level
+	"""
+	column name
+	"""
+	create_by
+	"""
+	column name
+	"""
+	created_at
+	"""
+	column name
+	"""
+	delete_at
+	"""
+	column name
+	"""
+	delete_by
+	"""
+	column name
+	"""
+	department_id
+	"""
+	column name
+	"""
+	email
+	"""
+	column name
+	"""
+	enterprise_id
+	"""
+	column name
+	"""
+	grade
+	"""
+	column name
+	"""
+	id
+	"""
+	column name
+	"""
+	ip_address
+	"""
+	column name
+	"""
+	is_delete
+	"""
+	column name
+	"""
+	is_valid
+	"""
+	column name
+	"""
+	mkey
+	"""
+	column name
+	"""
+	mobile
+	"""
+	column name
+	"""
+	password
+	"""
+	column name
+	"""
+	proxy_user
+	"""
+	column name
+	"""
+	remarks
+	"""
+	column name
+	"""
+	telephone
+	"""
+	column name
+	"""
+	username
+	"""
+	column name
+	"""
+	ukey
+	"""
+	column name
+	"""
+	update_at
+	"""
+	column name
+	"""
+	update_by
+	"""
+	column name
+	"""
+	user_id
+	"""
+	column name
+	"""
+	user_state
+	"""
+	column name
+	"""
+	user_type
 }
-
 """
 input type for updating data in table "system_user"
 """
-input system_user_set_input {
-  Is_bind_ip: Boolean
-  app_version: String
-  audit_level: Int
-  create_by: String
-  created_at: timestamptz
-  delete_at: timestamptz
-  delete_by: String
-  department_id: String
-  email: String
-  enterprise_id: String
-  grade: Int
-  id: bigint
-  ip_address: String
-  is_delete: Boolean
-  is_valid: Boolean
-  mkey: String
-  mobile: String
-  password: String
-  proxy_user: String
-  remarks: String
-  telephone: String
-  username: String
-  ukey: String
-  update_at: timestamptz
-  update_by: String
-  user_id: String
-  user_state: Int
-  user_type: Int
+input SystemUserSetInput {
+	Is_bind_ip: Boolean
+	app_version: String
+	audit_level: Int
+	create_by: String
+	created_at: Timestamptz
+	delete_at: Timestamptz
+	delete_by: String
+	department_id: String
+	email: String
+	enterprise_id: String
+	grade: Int
+	id: Bigint
+	ip_address: String
+	is_delete: Boolean
+	is_valid: Boolean
+	mkey: String
+	mobile: String
+	password: String
+	proxy_user: String
+	remarks: String
+	telephone: String
+	username: String
+	ukey: String
+	update_at: Timestamptz
+	update_by: String
+	user_id: String
+	user_state: Int
+	user_type: Int
 }
-
-"""aggregate stddev on columns"""
-type system_user_stddev_fields {
-  audit_level: Float
-  grade: Float
-  id: Float
-  user_state: Float
-  user_type: Float
+"""
+aggregate stddev on columns
+"""
+type SystemUserStddevFields {
+	audit_level: Float
+	grade: Float
+	id: Float
+	user_state: Float
+	user_type: Float
 }
-
 """
 order by stddev() on columns of table "system_user"
 """
-input system_user_stddev_order_by {
-  audit_level: order_by
-  grade: order_by
-  id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserStddevOrderBy {
+	audit_level: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
-"""aggregate stddev_pop on columns"""
-type system_user_stddev_pop_fields {
-  audit_level: Float
-  grade: Float
-  id: Float
-  user_state: Float
-  user_type: Float
+"""
+aggregate stddev_pop on columns
+"""
+type SystemUserStddevPopFields {
+	audit_level: Float
+	grade: Float
+	id: Float
+	user_state: Float
+	user_type: Float
 }
-
 """
 order by stddev_pop() on columns of table "system_user"
 """
-input system_user_stddev_pop_order_by {
-  audit_level: order_by
-  grade: order_by
-  id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserStddevPopOrderBy {
+	audit_level: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
-"""aggregate stddev_samp on columns"""
-type system_user_stddev_samp_fields {
-  audit_level: Float
-  grade: Float
-  id: Float
-  user_state: Float
-  user_type: Float
+"""
+aggregate stddev_samp on columns
+"""
+type SystemUserStddevSampFields {
+	audit_level: Float
+	grade: Float
+	id: Float
+	user_state: Float
+	user_type: Float
 }
-
 """
 order by stddev_samp() on columns of table "system_user"
 """
-input system_user_stddev_samp_order_by {
-  audit_level: order_by
-  grade: order_by
-  id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserStddevSampOrderBy {
+	audit_level: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
-"""aggregate sum on columns"""
-type system_user_sum_fields {
-  audit_level: Int
-  grade: Int
-  id: bigint
-  user_state: Int
-  user_type: Int
+"""
+aggregate sum on columns
+"""
+type SystemUserSumFields {
+	audit_level: Int
+	grade: Int
+	id: Bigint
+	user_state: Int
+	user_type: Int
 }
-
 """
 order by sum() on columns of table "system_user"
 """
-input system_user_sum_order_by {
-  audit_level: order_by
-  grade: order_by
-  id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserSumOrderBy {
+	audit_level: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
 """
 update columns of table "system_user"
 """
-enum system_user_update_column {
-  """column name"""
-  Is_bind_ip
-
-  """column name"""
-  app_version
-
-  """column name"""
-  audit_level
-
-  """column name"""
-  create_by
-
-  """column name"""
-  created_at
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  department_id
-
-  """column name"""
-  email
-
-  """column name"""
-  enterprise_id
-
-  """column name"""
-  grade
-
-  """column name"""
-  id
-
-  """column name"""
-  ip_address
-
-  """column name"""
-  is_delete
-
-  """column name"""
-  is_valid
-
-  """column name"""
-  mkey
-
-  """column name"""
-  mobile
-
-  """column name"""
-  password
-
-  """column name"""
-  proxy_user
-
-  """column name"""
-  remarks
-
-  """column name"""
-  telephone
-
-  """column name"""
-  username
-
-  """column name"""
-  ukey
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
-
-  """column name"""
-  user_id
-
-  """column name"""
-  user_state
-
-  """column name"""
-  user_type
+enum SystemUserUpdateColumn {
+	"""
+	column name
+	"""
+	Is_bind_ip
+	"""
+	column name
+	"""
+	app_version
+	"""
+	column name
+	"""
+	audit_level
+	"""
+	column name
+	"""
+	create_by
+	"""
+	column name
+	"""
+	created_at
+	"""
+	column name
+	"""
+	delete_at
+	"""
+	column name
+	"""
+	delete_by
+	"""
+	column name
+	"""
+	department_id
+	"""
+	column name
+	"""
+	email
+	"""
+	column name
+	"""
+	enterprise_id
+	"""
+	column name
+	"""
+	grade
+	"""
+	column name
+	"""
+	id
+	"""
+	column name
+	"""
+	ip_address
+	"""
+	column name
+	"""
+	is_delete
+	"""
+	column name
+	"""
+	is_valid
+	"""
+	column name
+	"""
+	mkey
+	"""
+	column name
+	"""
+	mobile
+	"""
+	column name
+	"""
+	password
+	"""
+	column name
+	"""
+	proxy_user
+	"""
+	column name
+	"""
+	remarks
+	"""
+	column name
+	"""
+	telephone
+	"""
+	column name
+	"""
+	username
+	"""
+	column name
+	"""
+	ukey
+	"""
+	column name
+	"""
+	update_at
+	"""
+	column name
+	"""
+	update_by
+	"""
+	column name
+	"""
+	user_id
+	"""
+	column name
+	"""
+	user_state
+	"""
+	column name
+	"""
+	user_type
 }
-
-"""aggregate var_pop on columns"""
-type system_user_var_pop_fields {
-  audit_level: Float
-  grade: Float
-  id: Float
-  user_state: Float
-  user_type: Float
+"""
+aggregate var_pop on columns
+"""
+type SystemUserVarPopFields {
+	audit_level: Float
+	grade: Float
+	id: Float
+	user_state: Float
+	user_type: Float
 }
-
 """
 order by var_pop() on columns of table "system_user"
 """
-input system_user_var_pop_order_by {
-  audit_level: order_by
-  grade: order_by
-  id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserVarPopOrderBy {
+	audit_level: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
-"""aggregate var_samp on columns"""
-type system_user_var_samp_fields {
-  audit_level: Float
-  grade: Float
-  id: Float
-  user_state: Float
-  user_type: Float
+"""
+aggregate var_samp on columns
+"""
+type SystemUserVarSampFields {
+	audit_level: Float
+	grade: Float
+	id: Float
+	user_state: Float
+	user_type: Float
 }
-
 """
 order by var_samp() on columns of table "system_user"
 """
-input system_user_var_samp_order_by {
-  audit_level: order_by
-  grade: order_by
-  id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserVarSampOrderBy {
+	audit_level: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
-"""aggregate variance on columns"""
-type system_user_variance_fields {
-  audit_level: Float
-  grade: Float
-  id: Float
-  user_state: Float
-  user_type: Float
+"""
+aggregate variance on columns
+"""
+type SystemUserVarianceFields {
+	audit_level: Float
+	grade: Float
+	id: Float
+	user_state: Float
+	user_type: Float
 }
-
 """
 order by variance() on columns of table "system_user"
 """
-input system_user_variance_order_by {
-  audit_level: order_by
-  grade: order_by
-  id: order_by
-  user_state: order_by
-  user_type: order_by
+input SystemUserVarianceOrderBy {
+	audit_level: OrderBy
+	grade: OrderBy
+	id: OrderBy
+	user_state: OrderBy
+	user_type: OrderBy
 }
-
+extend type Mutation {
+	"""
+	delete data from the table: "system_user"
+	"""
+	delete_system_user("""
+	filter the rows which have to be deleted
+	"""
+	where: SystemUserBoolExp!): SystemUserMutationResponse
+	"""
+	delete single row from the table: "system_user"
+	"""
+	delete_system_user_by_pk("""
+	ID
+	"""
+	id: Bigint!): SystemUser
+	"""
+	insert data into the table: "system_user"
+	"""
+	insert_system_user("""
+	the rows to be inserted
+	"""
+	objects: [SystemUserInsertInput!]!, """
+	on conflict condition
+	"""
+	on_conflict: SystemUserOnConflict): SystemUserMutationResponse
+	"""
+	insert a single row into the table: "system_user"
+	"""
+	insert_system_user_one("""
+	the row to be inserted
+	"""
+	object: SystemUserInsertInput!, """
+	on conflict condition
+	"""
+	on_conflict: SystemUserOnConflict): SystemUser
+	"""
+	update data of the table: "system_user"
+	"""
+	update_system_user("""
+	increments the integer columns with given value of the filtered values
+	"""
+	_inc: SystemUserIncInput, """
+	sets the columns of the filtered rows to the given values
+	"""
+	_set: SystemUserSetInput, """
+	filter the rows which have to be updated
+	"""
+	where: SystemUserBoolExp!): SystemUserMutationResponse
+	"""
+	update single row of the table: "system_user"
+	"""
+	update_system_user_by_pk("""
+	increments the integer columns with given value of the filtered values
+	"""
+	_inc: SystemUserIncInput, """
+	sets the columns of the filtered rows to the given values
+	"""
+	_set: SystemUserSetInput, pk_columns: SystemUserPkColumnsInput!): SystemUser
+}
+extend type Query {
+	"""
+	fetch data from the table: "system_user"
+	"""
+	system_user("""
+	distinct select on columns
+	"""
+	distinct_on: [SystemUserSelectColumn!], """
+	limit the number of rows returned
+	"""
+	limit: Int, """
+	skip the first n rows. Use only with order_by
+	"""
+	offset: Int, """
+	sort the rows by one or more columns
+	"""
+	order_by: [SystemUserOrderBy!], """
+	filter the rows returned
+	"""
+	where: SystemUserBoolExp): [SystemUser!]!
+	"""
+	fetch aggregated fields from the table: "system_user"
+	"""
+	system_user_aggregate("""
+	distinct select on columns
+	"""
+	distinct_on: [SystemUserSelectColumn!], """
+	limit the number of rows returned
+	"""
+	limit: Int, """
+	skip the first n rows. Use only with order_by
+	"""
+	offset: Int, """
+	sort the rows by one or more columns
+	"""
+	order_by: [SystemUserOrderBy!], """
+	filter the rows returned
+	"""
+	where: SystemUserBoolExp): SystemUserAggregate!
+	"""
+	fetch data from the table: "system_user" using primary key columns
+	"""
+	system_user_by_pk("""
+	ID
+	"""
+	id: Bigint!): SystemUser
+}

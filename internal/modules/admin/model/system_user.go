@@ -1,6 +1,11 @@
 package model
 
-import "time"
+import (
+	"VehicleSupervision/internal/db"
+	"time"
+)
+
+//go:generate go run github.com/vektah/dataloaden SystemUserLoader string *VehicleSupervision/internal/modules/admin/model.SystemUser
 
 type SystemUser struct {
 	// 是否绑定IP
@@ -22,11 +27,11 @@ type SystemUser struct {
 	// 邮箱
 	Email *string `json:"email"`
 	// 企业ID
-	EnterpriseID *string `json:"enterprise_id"`
+	EnterpriseID *string `json:"SystemUser_id"`
 	// 级别
 	Grade *int `json:"grade"`
 	// ID
-	ID int64 `json:"id"`
+	ID int64 `gorm:"primarykey" json:"id"`
 	// ip地址
 	IPAddress *string `json:"ip_address"`
 	// 是否删除
@@ -62,4 +67,16 @@ type SystemUser struct {
 
 func (s SystemUser) TableName() string {
 	return "system_user"
+}
+
+func (u *SystemUser) NewLoader() *SystemUserLoader {
+	return &SystemUserLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*SystemUser, []error) {
+			var rs []*SystemUser
+			db.DB.Model(&SystemUser{}).Where("user_id in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
 }

@@ -1642,7 +1642,7 @@ func (e *DepartmentConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = DepartmentConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid department_constraint", str)
+		return fmt.Errorf("%s is not a valid DepartmentConstraint", str)
 	}
 	return nil
 }
@@ -1728,7 +1728,7 @@ func (e *DepartmentSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = DepartmentSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid department_select_column", str)
+		return fmt.Errorf("%s is not a valid DepartmentSelectColumn", str)
 	}
 	return nil
 }
@@ -1814,7 +1814,7 @@ func (e *DepartmentUpdateColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = DepartmentUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid department_update_column", str)
+		return fmt.Errorf("%s is not a valid DepartmentUpdateColumn", str)
 	}
 	return nil
 }
@@ -1855,7 +1855,7 @@ func (e *EnterpriseConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = EnterpriseConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_constraint", str)
+		return fmt.Errorf("%s is not a valid EnterpriseConstraint", str)
 	}
 	return nil
 }
@@ -2061,7 +2061,7 @@ func (e *EnterpriseSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = EnterpriseSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_select_column", str)
+		return fmt.Errorf("%s is not a valid EnterpriseSelectColumn", str)
 	}
 	return nil
 }
@@ -2267,7 +2267,7 @@ func (e *EnterpriseUpdateColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = EnterpriseUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_update_column", str)
+		return fmt.Errorf("%s is not a valid EnterpriseUpdateColumn", str)
 	}
 	return nil
 }
@@ -2308,7 +2308,7 @@ func (e *SystemUserConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = SystemUserConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid system_user_constraint", str)
+		return fmt.Errorf("%s is not a valid SystemUserConstraint", str)
 	}
 	return nil
 }
@@ -2430,7 +2430,7 @@ func (e *SystemUserSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = SystemUserSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid system_user_select_column", str)
+		return fmt.Errorf("%s is not a valid SystemUserSelectColumn", str)
 	}
 	return nil
 }
@@ -2552,7 +2552,7 @@ func (e *SystemUserUpdateColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = SystemUserUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid system_user_update_column", str)
+		return fmt.Errorf("%s is not a valid SystemUserUpdateColumn", str)
 	}
 	return nil
 }
