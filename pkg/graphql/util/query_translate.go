@@ -220,7 +220,6 @@ func (t *QueryTranslator) Inc(rs interface{}) (re *QueryTranslator) {
 			fieldKind := fieldValue.Kind()
 			switch fieldKind {
 			case reflect.Ptr:
-				// 指针的情况，包括not子句和普通条件查询
 				rFieldValue := fieldValue.Elem()
 				columnName := valueType.Field(i).Tag.Get("json")
 				t.updates[columnName] = gorm.Expr(columnName+" + ?", rFieldValue.Int())
@@ -251,7 +250,6 @@ func (t *QueryTranslator) Set(rs interface{}) (re *QueryTranslator) {
 			fieldKind := fieldValue.Kind()
 			switch fieldKind {
 			case reflect.Ptr:
-				// 指针的情况，包括not子句和普通条件查询
 				rFieldValue := fieldValue.Elem()
 				columnName := valueType.Field(i).Tag.Get("json")
 				t.updates[columnName] = rFieldValue.Interface()
@@ -658,19 +656,19 @@ func stringCompare(tx *gorm.DB, exp model.StringComparisonExp, columnName string
 		tx = tx.Where(columnName+" like ?% ", exp.Like)
 	}
 	if exp.Ilike != nil {
-		tx = tx.Where(columnName+" like ?% ", exp.Ilike)
+		tx = tx.Where(columnName+" ilike ?% ", exp.Ilike)
 	}
 	if exp.Similar != nil {
-		tx = tx.Where(columnName+" like ?% ", exp.Similar)
+		tx = tx.Where(columnName+" similar to ?% ", exp.Similar)
 	}
 	if exp.Nlike != nil {
 		tx = tx.Not(columnName+" like ?% ", exp.Nlike)
 	}
 	if exp.Nilike != nil {
-		tx = tx.Not(columnName+" like ?% ", exp.Nilike)
+		tx = tx.Not(columnName+" ilike ?% ", exp.Nilike)
 	}
 	if exp.Nsimilar != nil {
-		tx = tx.Not(columnName+" like ?% ", exp.Nsimilar)
+		tx = tx.Not(columnName+" similar to ?% ", exp.Nsimilar)
 	}
 
 	return tx
