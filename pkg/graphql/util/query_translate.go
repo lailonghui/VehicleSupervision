@@ -659,7 +659,7 @@ func stringCompare(tx *gorm.DB, exp model.StringComparisonExp, columnName string
 		tx = tx.Where(columnName+" ilike ?% ", exp.Ilike)
 	}
 	if exp.Similar != nil {
-		tx = tx.Where(columnName+" similar to ?% ", exp.Similar)
+		tx = tx.Where(columnName+" similar to ? ", exp.Similar)
 	}
 	if exp.Nlike != nil {
 		tx = tx.Not(columnName+" like ?% ", exp.Nlike)
@@ -668,7 +668,7 @@ func stringCompare(tx *gorm.DB, exp model.StringComparisonExp, columnName string
 		tx = tx.Not(columnName+" ilike ?% ", exp.Nilike)
 	}
 	if exp.Nsimilar != nil {
-		tx = tx.Not(columnName+" similar to ?% ", exp.Nsimilar)
+		tx = tx.Not(columnName+" similar to ? ", exp.Nsimilar)
 	}
 
 	return tx
