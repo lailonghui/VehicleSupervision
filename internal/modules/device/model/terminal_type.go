@@ -1,6 +1,11 @@
 package model
 
-import "time"
+import (
+	"VehicleSupervision/internal/db"
+	"time"
+)
+
+//go:generate go run github.com/vektah/dataloaden TerminalTypeLoader string *VehicleSupervision/internal/modules/device/model.TerminalType
 
 // 终端类型
 //
@@ -33,4 +38,16 @@ type TerminalType struct {
 
 func (t TerminalType) TableName() string {
 	return "terminal_types"
+}
+
+func (u *TerminalType) NewLoader() *TerminalTypeLoader {
+	return &TerminalTypeLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*TerminalType, []error) {
+			var rs []*TerminalType
+			db.DB.Model(&TerminalType{}).Where("sim_card_flow_id in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
 }

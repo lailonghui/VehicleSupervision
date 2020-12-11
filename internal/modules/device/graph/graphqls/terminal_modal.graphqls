@@ -1,698 +1,741 @@
-
-extend type Mutation {
-  """
-  delete data from the table: "terminal_modal"
-  """
-  delete_terminal_modal(
-    """filter the rows which have to be deleted"""
-    where: terminal_modal_bool_exp!
-  ): terminal_modal_mutation_response
-
-  """
-  delete single row from the table: "terminal_modal"
-  """
-  delete_terminal_modal_by_pk(
-    """ID"""
-    id: bigint!
-  ): terminal_modal
-
-  """
-  insert data into the table: "terminal_modal"
-  """
-  insert_terminal_modal(
-    """the rows to be inserted"""
-    objects: [terminal_modal_insert_input!]!
-
-    """on conflict condition"""
-    on_conflict: terminal_modal_on_conflict
-  ): terminal_modal_mutation_response
-
-  """
-  insert a single row into the table: "terminal_modal"
-  """
-  insert_terminal_modal_one(
-    """the row to be inserted"""
-    object: terminal_modal_insert_input!
-
-    """on conflict condition"""
-    on_conflict: terminal_modal_on_conflict
-  ): terminal_modal
-
-  """
-  update data of the table: "terminal_modal"
-  """
-  update_terminal_modal(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: terminal_modal_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: terminal_modal_set_input
-
-    """filter the rows which have to be updated"""
-    where: terminal_modal_bool_exp!
-  ): terminal_modal_mutation_response
-
-  """
-  update single row of the table: "terminal_modal"
-  """
-  update_terminal_modal_by_pk(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: terminal_modal_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: terminal_modal_set_input
-    pk_columns: terminal_modal_pk_columns_input!
-  ): terminal_modal
-}
-
-extend type Query {
-  """
-  fetch data from the table: "terminal_modal"
-  """
-  terminal_modal(
-    """distinct select on columns"""
-    distinct_on: [terminal_modal_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [terminal_modal_order_by!]
-
-    """filter the rows returned"""
-    where: terminal_modal_bool_exp
-  ): [terminal_modal!]!
-
-  """
-  fetch aggregated fields from the table: "terminal_modal"
-  """
-  terminal_modal_aggregate(
-    """distinct select on columns"""
-    distinct_on: [terminal_modal_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [terminal_modal_order_by!]
-
-    """filter the rows returned"""
-    where: terminal_modal_bool_exp
-  ): terminal_modal_aggregate!
-
-  """fetch data from the table: "terminal_modal" using primary key columns"""
-  terminal_modal_by_pk(
-    """ID"""
-    id: bigint!
-  ): terminal_modal
-}
-
-
 """
 终端型号
 
 
 columns and relationships of "terminal_modal"
-
 """
-type terminal_modal {
-  """adas型号"""
-  adas_modal: String
-
-  """创建时间"""
-  create_at: timestamptz!
-
-  """创建人"""
-  create_by: String
-
-  """删除时间"""
-  delete_at: timestamptz
-
-  """删除人"""
-  delete_by: String
-
-  """生产厂家ID"""
-  factory_id: String
-
-  """ID"""
-  id: bigint!
-
-  """是否被删除"""
-  is_delete: Boolean!
-
-  """终端具备出租汽车电召、电子上岗证等功能"""
-  is_electronics_post_card: Boolean
-
-  """是否渣土车终端"""
-  is_slag_car_teminal: Boolean
-
-  """是否提交终端技术要求通过相关检测情况"""
-  is_testing_situation: Boolean
-
-  """是否交通局4G终端"""
-  is_transport_dept_4g: Boolean
-
-  """型号"""
-  modal_name: String
-
-  """代理商ID"""
-  proxyrg_id: String
-
-  """备案编号"""
-  record_no: String
-
-  """备注"""
-  remark: String
-
-  """终端型号ID"""
-  terminal_modal_id: String!
-
-  """终端类型ID"""
-  terminal_type_id: String
-
-  """修改时间"""
-  update_at: timestamptz
-
-  """修改人"""
-  update_by: String
+type TerminalModal {
+	"""
+	adas型号
+	"""
+	adas_modal: String
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	生产厂家ID
+	"""
+	factory_id: String
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	是否被删除
+	"""
+	is_delete: Boolean!
+	"""
+	终端具备出租汽车电召、电子上岗证等功能
+	"""
+	is_electronics_post_card: Boolean
+	"""
+	是否渣土车终端
+	"""
+	is_slag_car_teminal: Boolean
+	"""
+	是否提交终端技术要求通过相关检测情况
+	"""
+	is_testing_situation: Boolean
+	"""
+	是否交通局4G终端
+	"""
+	is_transport_dept_4g: Boolean
+	"""
+	型号
+	"""
+	modal_name: String
+	"""
+	代理商ID
+	"""
+	proxyrg_id: String
+	"""
+	备案编号
+	"""
+	record_no: String
+	"""
+	备注
+	"""
+	remark: String
+	"""
+	终端型号ID
+	"""
+	terminal_modal_id: String!
+	"""
+	终端类型ID
+	"""
+	terminal_type_id: TerminalType
+	"""
+	修改时间
+	"""
+	update_at: Timestamptz
+	"""
+	修改人
+	"""
+	update_by: String
 }
-
 """
 aggregated selection of "terminal_modal"
 """
-type terminal_modal_aggregate {
-  aggregate: terminal_modal_aggregate_fields
-  nodes: [terminal_modal!]!
+type TerminalModalAggregate {
+	aggregate: TerminalModalAggregateFields
+	nodes: [TerminalModal!]!
 }
-
 """
 aggregate fields of "terminal_modal"
 """
-type terminal_modal_aggregate_fields {
-  avg: terminal_modal_avg_fields
-  count(columns: [terminal_modal_select_column!], distinct: Boolean): Int
-  max: terminal_modal_max_fields
-  min: terminal_modal_min_fields
-  stddev: terminal_modal_stddev_fields
-  stddev_pop: terminal_modal_stddev_pop_fields
-  stddev_samp: terminal_modal_stddev_samp_fields
-  sum: terminal_modal_sum_fields
-  var_pop: terminal_modal_var_pop_fields
-  var_samp: terminal_modal_var_samp_fields
-  variance: terminal_modal_variance_fields
+type TerminalModalAggregateFields {
+	avg: TerminalModalAvgFields
+	count(columns: [TerminalModalSelectColumn!], distinct: Boolean): Int
+	max: TerminalModalMaxFields
+	min: TerminalModalMinFields
+	stddev: TerminalModalStddevFields
+	stddev_pop: TerminalModalStddevPopFields
+	stddev_samp: TerminalModalStddevSampFields
+	sum: TerminalModalSumFields
+	var_pop: TerminalModalVarPopFields
+	var_samp: TerminalModalVarSampFields
+	variance: TerminalModalVarianceFields
 }
-
 """
 order by aggregate values of table "terminal_modal"
 """
-input terminal_modal_aggregate_order_by {
-  avg: terminal_modal_avg_order_by
-  count: order_by
-  max: terminal_modal_max_order_by
-  min: terminal_modal_min_order_by
-  stddev: terminal_modal_stddev_order_by
-  stddev_pop: terminal_modal_stddev_pop_order_by
-  stddev_samp: terminal_modal_stddev_samp_order_by
-  sum: terminal_modal_sum_order_by
-  var_pop: terminal_modal_var_pop_order_by
-  var_samp: terminal_modal_var_samp_order_by
-  variance: terminal_modal_variance_order_by
+input TerminalModalAggregateOrderBy {
+	avg: TerminalModalAvgOrderBy
+	count: OrderBy
+	max: TerminalModalMaxOrderBy
+	min: TerminalModalMinOrderBy
+	stddev: TerminalModalStddevOrderBy
+	stddev_pop: TerminalModalStddevPopOrderBy
+	stddev_samp: TerminalModalStddevSampOrderBy
+	sum: TerminalModalSumOrderBy
+	var_pop: TerminalModalVarPopOrderBy
+	var_samp: TerminalModalVarSampOrderBy
+	variance: TerminalModalVarianceOrderBy
 }
-
 """
 input type for inserting array relation for remote table "terminal_modal"
 """
-input terminal_modal_arr_rel_insert_input {
-  data: [terminal_modal_insert_input!]!
-  on_conflict: terminal_modal_on_conflict
+input TerminalModalArrRelInsertInput {
+	data: [TerminalModalInsertInput!]!
+	on_conflict: TerminalModalOnConflict
 }
-
-"""aggregate avg on columns"""
-type terminal_modal_avg_fields {
-  id: Float
+"""
+aggregate avg on columns
+"""
+type TerminalModalAvgFields {
+	id: Float
 }
-
 """
 order by avg() on columns of table "terminal_modal"
 """
-input terminal_modal_avg_order_by {
-  id: order_by
+input TerminalModalAvgOrderBy {
+	id: OrderBy
 }
-
 """
 Boolean expression to filter rows from the table "terminal_modal". All fields are combined with a logical 'AND'.
 """
-input terminal_modal_bool_exp {
-  _and: [terminal_modal_bool_exp]
-  _not: terminal_modal_bool_exp
-  _or: [terminal_modal_bool_exp]
-  adas_modal: String_comparison_exp
-  create_at: timestamptz_comparison_exp
-  create_by: String_comparison_exp
-  delete_at: timestamptz_comparison_exp
-  delete_by: String_comparison_exp
-  factory_id: String_comparison_exp
-  id: bigint_comparison_exp
-  is_delete: Boolean_comparison_exp
-  is_electronics_post_card: Boolean_comparison_exp
-  is_slag_car_teminal: Boolean_comparison_exp
-  is_testing_situation: Boolean_comparison_exp
-  is_transport_dept_4g: Boolean_comparison_exp
-  modal_name: String_comparison_exp
-  proxyrg_id: String_comparison_exp
-  record_no: String_comparison_exp
-  remark: String_comparison_exp
-  terminal_modal_id: String_comparison_exp
-  terminal_type_id: String_comparison_exp
-  update_at: timestamptz_comparison_exp
-  update_by: String_comparison_exp
+input TerminalModalBoolExp {
+	_and: [TerminalModalBoolExp]
+	_not: TerminalModalBoolExp
+	_or: [TerminalModalBoolExp]
+	adas_modal: StringComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	factory_id: StringComparisonExp
+	id: BigintComparisonExp
+	is_delete: BooleanComparisonExp
+	is_electronics_post_card: BooleanComparisonExp
+	is_slag_car_teminal: BooleanComparisonExp
+	is_testing_situation: BooleanComparisonExp
+	is_transport_dept_4g: BooleanComparisonExp
+	modal_name: StringComparisonExp
+	proxyrg_id: StringComparisonExp
+	record_no: StringComparisonExp
+	remark: StringComparisonExp
+	terminal_modal_id: StringComparisonExp
+	terminal_type_id: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
 }
-
 """
 unique or primary key constraints on table "terminal_modal"
 """
-enum terminal_modal_constraint {
-  """unique or primary key constraint"""
-  terminal_modal_pkey
+enum TerminalModalConstraint {
+	"""
+	unique or primary key constraint
+	"""
+	terminal_modal_pkey
 }
-
 """
 input type for incrementing integer column in table "terminal_modal"
 """
-input terminal_modal_inc_input {
-  id: bigint
+input TerminalModalIncInput {
+	id: Bigint
 }
-
 """
 input type for inserting data into table "terminal_modal"
 """
-input terminal_modal_insert_input {
-  adas_modal: String
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  factory_id: String
-  id: bigint
-  is_delete: Boolean
-  is_electronics_post_card: Boolean
-  is_slag_car_teminal: Boolean
-  is_testing_situation: Boolean
-  is_transport_dept_4g: Boolean
-  modal_name: String
-  proxyrg_id: String
-  record_no: String
-  remark: String
-  terminal_modal_id: String
-  terminal_type_id: String
-  update_at: timestamptz
-  update_by: String
+input TerminalModalInsertInput {
+	adas_modal: String
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	factory_id: String
+	id: Bigint
+	is_delete: Boolean
+	is_electronics_post_card: Boolean
+	is_slag_car_teminal: Boolean
+	is_testing_situation: Boolean
+	is_transport_dept_4g: Boolean
+	modal_name: String
+	proxyrg_id: String
+	record_no: String
+	remark: String
+	terminal_modal_id: String
+	terminal_type_id: String
+	update_at: Timestamptz
+	update_by: String
 }
-
-"""aggregate max on columns"""
-type terminal_modal_max_fields {
-  adas_modal: String
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  factory_id: String
-  id: bigint
-  modal_name: String
-  proxyrg_id: String
-  record_no: String
-  remark: String
-  terminal_modal_id: String
-  terminal_type_id: String
-  update_at: timestamptz
-  update_by: String
+"""
+aggregate max on columns
+"""
+type TerminalModalMaxFields {
+	adas_modal: String
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	factory_id: String
+	id: Bigint
+	modal_name: String
+	proxyrg_id: String
+	record_no: String
+	remark: String
+	terminal_modal_id: String
+	terminal_type_id: String
+	update_at: Timestamptz
+	update_by: String
 }
-
 """
 order by max() on columns of table "terminal_modal"
 """
-input terminal_modal_max_order_by {
-  adas_modal: order_by
-  create_at: order_by
-  create_by: order_by
-  delete_at: order_by
-  delete_by: order_by
-  factory_id: order_by
-  id: order_by
-  modal_name: order_by
-  proxyrg_id: order_by
-  record_no: order_by
-  remark: order_by
-  terminal_modal_id: order_by
-  terminal_type_id: order_by
-  update_at: order_by
-  update_by: order_by
+input TerminalModalMaxOrderBy {
+	adas_modal: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	factory_id: OrderBy
+	id: OrderBy
+	modal_name: OrderBy
+	proxyrg_id: OrderBy
+	record_no: OrderBy
+	remark: OrderBy
+	terminal_modal_id: OrderBy
+	terminal_type_id: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
 }
-
-"""aggregate min on columns"""
-type terminal_modal_min_fields {
-  adas_modal: String
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  factory_id: String
-  id: bigint
-  modal_name: String
-  proxyrg_id: String
-  record_no: String
-  remark: String
-  terminal_modal_id: String
-  terminal_type_id: String
-  update_at: timestamptz
-  update_by: String
+"""
+aggregate min on columns
+"""
+type TerminalModalMinFields {
+	adas_modal: String
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	factory_id: String
+	id: Bigint
+	modal_name: String
+	proxyrg_id: String
+	record_no: String
+	remark: String
+	terminal_modal_id: String
+	terminal_type_id: String
+	update_at: Timestamptz
+	update_by: String
 }
-
 """
 order by min() on columns of table "terminal_modal"
 """
-input terminal_modal_min_order_by {
-  adas_modal: order_by
-  create_at: order_by
-  create_by: order_by
-  delete_at: order_by
-  delete_by: order_by
-  factory_id: order_by
-  id: order_by
-  modal_name: order_by
-  proxyrg_id: order_by
-  record_no: order_by
-  remark: order_by
-  terminal_modal_id: order_by
-  terminal_type_id: order_by
-  update_at: order_by
-  update_by: order_by
+input TerminalModalMinOrderBy {
+	adas_modal: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	factory_id: OrderBy
+	id: OrderBy
+	modal_name: OrderBy
+	proxyrg_id: OrderBy
+	record_no: OrderBy
+	remark: OrderBy
+	terminal_modal_id: OrderBy
+	terminal_type_id: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
 }
-
 """
 response of any mutation on the table "terminal_modal"
 """
-type terminal_modal_mutation_response {
-  """number of affected rows by the mutation"""
-  affected_rows: Int!
-
-  """data of the affected rows by the mutation"""
-  returning: [terminal_modal!]!
+type TerminalModalMutationResponse {
+	"""
+	number of affected rows by the mutation
+	"""
+	affected_rows: Int!
+	"""
+	data of the affected rows by the mutation
+	"""
+	returning: [TerminalModal!]!
 }
-
 """
 input type for inserting object relation for remote table "terminal_modal"
 """
-input terminal_modal_obj_rel_insert_input {
-  data: terminal_modal_insert_input!
-  on_conflict: terminal_modal_on_conflict
+input TerminalModalObjRelInsertInput {
+	data: TerminalModalInsertInput!
+	on_conflict: TerminalModalOnConflict
 }
-
 """
 on conflict condition type for table "terminal_modal"
 """
-input terminal_modal_on_conflict {
-  constraint: terminal_modal_constraint!
-  update_columns: [terminal_modal_update_column!]!
-  where: terminal_modal_bool_exp
+input TerminalModalOnConflict {
+	constraint: TerminalModalConstraint!
+	update_columns: [TerminalModalUpdateColumn!]!
+	where: TerminalModalBoolExp
 }
-
 """
 ordering options when selecting data from "terminal_modal"
 """
-input terminal_modal_order_by {
-  adas_modal: order_by
-  create_at: order_by
-  create_by: order_by
-  delete_at: order_by
-  delete_by: order_by
-  factory_id: order_by
-  id: order_by
-  is_delete: order_by
-  is_electronics_post_card: order_by
-  is_slag_car_teminal: order_by
-  is_testing_situation: order_by
-  is_transport_dept_4g: order_by
-  modal_name: order_by
-  proxyrg_id: order_by
-  record_no: order_by
-  remark: order_by
-  terminal_modal_id: order_by
-  terminal_type_id: order_by
-  update_at: order_by
-  update_by: order_by
+input TerminalModalOrderBy {
+	adas_modal: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	factory_id: OrderBy
+	id: OrderBy
+	is_delete: OrderBy
+	is_electronics_post_card: OrderBy
+	is_slag_car_teminal: OrderBy
+	is_testing_situation: OrderBy
+	is_transport_dept_4g: OrderBy
+	modal_name: OrderBy
+	proxyrg_id: OrderBy
+	record_no: OrderBy
+	remark: OrderBy
+	terminal_modal_id: OrderBy
+	terminal_type_id: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
 }
-
 """
 primary key columns input for table: "terminal_modal"
 """
-input terminal_modal_pk_columns_input {
-  """ID"""
-  id: bigint!
+input TerminalModalPkColumnsInput {
+	"""
+	ID
+	"""
+	id: Bigint!
 }
-
 """
 select columns of table "terminal_modal"
 """
-enum terminal_modal_select_column {
-  """column name"""
-  adas_modal
-
-  """column name"""
-  create_at
-
-  """column name"""
-  create_by
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  factory_id
-
-  """column name"""
-  id
-
-  """column name"""
-  is_delete
-
-  """column name"""
-  is_electronics_post_card
-
-  """column name"""
-  is_slag_car_teminal
-
-  """column name"""
-  is_testing_situation
-
-  """column name"""
-  is_transport_dept_4g
-
-  """column name"""
-  modal_name
-
-  """column name"""
-  proxyrg_id
-
-  """column name"""
-  record_no
-
-  """column name"""
-  remark
-
-  """column name"""
-  terminal_modal_id
-
-  """column name"""
-  terminal_type_id
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
+enum TerminalModalSelectColumn {
+	"""
+	column name
+	"""
+	adas_modal
+	"""
+	column name
+	"""
+	create_at
+	"""
+	column name
+	"""
+	create_by
+	"""
+	column name
+	"""
+	delete_at
+	"""
+	column name
+	"""
+	delete_by
+	"""
+	column name
+	"""
+	factory_id
+	"""
+	column name
+	"""
+	id
+	"""
+	column name
+	"""
+	is_delete
+	"""
+	column name
+	"""
+	is_electronics_post_card
+	"""
+	column name
+	"""
+	is_slag_car_teminal
+	"""
+	column name
+	"""
+	is_testing_situation
+	"""
+	column name
+	"""
+	is_transport_dept_4g
+	"""
+	column name
+	"""
+	modal_name
+	"""
+	column name
+	"""
+	proxyrg_id
+	"""
+	column name
+	"""
+	record_no
+	"""
+	column name
+	"""
+	remark
+	"""
+	column name
+	"""
+	terminal_modal_id
+	"""
+	column name
+	"""
+	terminal_type_id
+	"""
+	column name
+	"""
+	update_at
+	"""
+	column name
+	"""
+	update_by
 }
-
 """
 input type for updating data in table "terminal_modal"
 """
-input terminal_modal_set_input {
-  adas_modal: String
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  factory_id: String
-  id: bigint
-  is_delete: Boolean
-  is_electronics_post_card: Boolean
-  is_slag_car_teminal: Boolean
-  is_testing_situation: Boolean
-  is_transport_dept_4g: Boolean
-  modal_name: String
-  proxyrg_id: String
-  record_no: String
-  remark: String
-  terminal_modal_id: String
-  terminal_type_id: String
-  update_at: timestamptz
-  update_by: String
+input TerminalModalSetInput {
+	adas_modal: String
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	factory_id: String
+	id: Bigint
+	is_delete: Boolean
+	is_electronics_post_card: Boolean
+	is_slag_car_teminal: Boolean
+	is_testing_situation: Boolean
+	is_transport_dept_4g: Boolean
+	modal_name: String
+	proxyrg_id: String
+	record_no: String
+	remark: String
+	terminal_modal_id: String
+	terminal_type_id: String
+	update_at: Timestamptz
+	update_by: String
 }
-
-"""aggregate stddev on columns"""
-type terminal_modal_stddev_fields {
-  id: Float
+"""
+aggregate stddev on columns
+"""
+type TerminalModalStddevFields {
+	id: Float
 }
-
 """
 order by stddev() on columns of table "terminal_modal"
 """
-input terminal_modal_stddev_order_by {
-  id: order_by
+input TerminalModalStddevOrderBy {
+	id: OrderBy
 }
-
-"""aggregate stddev_pop on columns"""
-type terminal_modal_stddev_pop_fields {
-  id: Float
+"""
+aggregate stddev_pop on columns
+"""
+type TerminalModalStddevPopFields {
+	id: Float
 }
-
 """
 order by stddev_pop() on columns of table "terminal_modal"
 """
-input terminal_modal_stddev_pop_order_by {
-  id: order_by
+input TerminalModalStddevPopOrderBy {
+	id: OrderBy
 }
-
-"""aggregate stddev_samp on columns"""
-type terminal_modal_stddev_samp_fields {
-  id: Float
+"""
+aggregate stddev_samp on columns
+"""
+type TerminalModalStddevSampFields {
+	id: Float
 }
-
 """
 order by stddev_samp() on columns of table "terminal_modal"
 """
-input terminal_modal_stddev_samp_order_by {
-  id: order_by
+input TerminalModalStddevSampOrderBy {
+	id: OrderBy
 }
-
-"""aggregate sum on columns"""
-type terminal_modal_sum_fields {
-  id: bigint
+"""
+aggregate sum on columns
+"""
+type TerminalModalSumFields {
+	id: Bigint
 }
-
 """
 order by sum() on columns of table "terminal_modal"
 """
-input terminal_modal_sum_order_by {
-  id: order_by
+input TerminalModalSumOrderBy {
+	id: OrderBy
 }
-
 """
 update columns of table "terminal_modal"
 """
-enum terminal_modal_update_column {
-  """column name"""
-  adas_modal
-
-  """column name"""
-  create_at
-
-  """column name"""
-  create_by
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  factory_id
-
-  """column name"""
-  id
-
-  """column name"""
-  is_delete
-
-  """column name"""
-  is_electronics_post_card
-
-  """column name"""
-  is_slag_car_teminal
-
-  """column name"""
-  is_testing_situation
-
-  """column name"""
-  is_transport_dept_4g
-
-  """column name"""
-  modal_name
-
-  """column name"""
-  proxyrg_id
-
-  """column name"""
-  record_no
-
-  """column name"""
-  remark
-
-  """column name"""
-  terminal_modal_id
-
-  """column name"""
-  terminal_type_id
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
+enum TerminalModalUpdateColumn {
+	"""
+	column name
+	"""
+	adas_modal
+	"""
+	column name
+	"""
+	create_at
+	"""
+	column name
+	"""
+	create_by
+	"""
+	column name
+	"""
+	delete_at
+	"""
+	column name
+	"""
+	delete_by
+	"""
+	column name
+	"""
+	factory_id
+	"""
+	column name
+	"""
+	id
+	"""
+	column name
+	"""
+	is_delete
+	"""
+	column name
+	"""
+	is_electronics_post_card
+	"""
+	column name
+	"""
+	is_slag_car_teminal
+	"""
+	column name
+	"""
+	is_testing_situation
+	"""
+	column name
+	"""
+	is_transport_dept_4g
+	"""
+	column name
+	"""
+	modal_name
+	"""
+	column name
+	"""
+	proxyrg_id
+	"""
+	column name
+	"""
+	record_no
+	"""
+	column name
+	"""
+	remark
+	"""
+	column name
+	"""
+	terminal_modal_id
+	"""
+	column name
+	"""
+	terminal_type_id
+	"""
+	column name
+	"""
+	update_at
+	"""
+	column name
+	"""
+	update_by
 }
-
-"""aggregate var_pop on columns"""
-type terminal_modal_var_pop_fields {
-  id: Float
+"""
+aggregate var_pop on columns
+"""
+type TerminalModalVarPopFields {
+	id: Float
 }
-
 """
 order by var_pop() on columns of table "terminal_modal"
 """
-input terminal_modal_var_pop_order_by {
-  id: order_by
+input TerminalModalVarPopOrderBy {
+	id: OrderBy
 }
-
-"""aggregate var_samp on columns"""
-type terminal_modal_var_samp_fields {
-  id: Float
+"""
+aggregate var_samp on columns
+"""
+type TerminalModalVarSampFields {
+	id: Float
 }
-
 """
 order by var_samp() on columns of table "terminal_modal"
 """
-input terminal_modal_var_samp_order_by {
-  id: order_by
+input TerminalModalVarSampOrderBy {
+	id: OrderBy
 }
-
-"""aggregate variance on columns"""
-type terminal_modal_variance_fields {
-  id: Float
+"""
+aggregate variance on columns
+"""
+type TerminalModalVarianceFields {
+	id: Float
 }
-
 """
 order by variance() on columns of table "terminal_modal"
 """
-input terminal_modal_variance_order_by {
-  id: order_by
+input TerminalModalVarianceOrderBy {
+	id: OrderBy
+}
+extend type Mutation {
+	"""
+	delete data from the table: "terminal_modal"
+	"""
+	delete_terminal_modal("""
+	filter the rows which have to be deleted
+	"""
+	where: TerminalModalBoolExp!): TerminalModalMutationResponse
+	"""
+	delete single row from the table: "terminal_modal"
+	"""
+	delete_terminal_modal_by_pk("""
+	ID
+	"""
+	id: Bigint!): TerminalModal
+	"""
+	insert data into the table: "terminal_modal"
+	"""
+	insert_terminal_modal("""
+	the rows to be inserted
+	"""
+	objects: [TerminalModalInsertInput!]!, """
+	on conflict condition
+	"""
+	on_conflict: TerminalModalOnConflict): TerminalModalMutationResponse
+	"""
+	insert a single row into the table: "terminal_modal"
+	"""
+	insert_terminal_modal_one("""
+	the row to be inserted
+	"""
+	object: TerminalModalInsertInput!, """
+	on conflict condition
+	"""
+	on_conflict: TerminalModalOnConflict): TerminalModal
+	"""
+	update data of the table: "terminal_modal"
+	"""
+	update_terminal_modal("""
+	increments the integer columns with given value of the filtered values
+	"""
+	_inc: TerminalModalIncInput, """
+	sets the columns of the filtered rows to the given values
+	"""
+	_set: TerminalModalSetInput, """
+	filter the rows which have to be updated
+	"""
+	where: TerminalModalBoolExp!): TerminalModalMutationResponse
+	"""
+	update single row of the table: "terminal_modal"
+	"""
+	update_terminal_modal_by_pk("""
+	increments the integer columns with given value of the filtered values
+	"""
+	_inc: TerminalModalIncInput, """
+	sets the columns of the filtered rows to the given values
+	"""
+	_set: TerminalModalSetInput, pk_columns: TerminalModalPkColumnsInput!): TerminalModal
+}
+extend type Query {
+	"""
+	fetch data from the table: "terminal_modal"
+	"""
+	terminal_modal("""
+	distinct select on columns
+	"""
+	distinct_on: [TerminalModalSelectColumn!], """
+	limit the number of rows returned
+	"""
+	limit: Int, """
+	skip the first n rows. Use only with order_by
+	"""
+	offset: Int, """
+	sort the rows by one or more columns
+	"""
+	order_by: [TerminalModalOrderBy!], """
+	filter the rows returned
+	"""
+	where: TerminalModalBoolExp): [TerminalModal!]!
+	"""
+	fetch aggregated fields from the table: "terminal_modal"
+	"""
+	terminal_modal_aggregate("""
+	distinct select on columns
+	"""
+	distinct_on: [TerminalModalSelectColumn!], """
+	limit the number of rows returned
+	"""
+	limit: Int, """
+	skip the first n rows. Use only with order_by
+	"""
+	offset: Int, """
+	sort the rows by one or more columns
+	"""
+	order_by: [TerminalModalOrderBy!], """
+	filter the rows returned
+	"""
+	where: TerminalModalBoolExp): TerminalModalAggregate!
+	"""
+	fetch data from the table: "terminal_modal" using primary key columns
+	"""
+	terminal_modal_by_pk("""
+	ID
+	"""
+	id: Bigint!): TerminalModal
 }

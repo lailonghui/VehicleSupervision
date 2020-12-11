@@ -4,6 +4,7 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
 	"VehicleSupervision/internal/modules/device/graph/generated"
 	"VehicleSupervision/internal/modules/device/graph/model"
@@ -11,7 +12,6 @@ import (
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
-
 	"gorm.io/gorm"
 )
 
@@ -179,11 +179,22 @@ func (r *queryResolver) SimCardByPk(ctx context.Context, id int64) (*model1.SimC
 	return &rs, nil
 }
 
+func (r *simCardResolver) TerminalID(ctx context.Context, obj *model1.SimCard) (*model1.Terminal, error) {
+	if obj.TerminalID == nil || *obj.TerminalID == "" {
+		return nil, nil
+	}
+	return dataloader.GetLoaders(ctx).TerminalLoader.Load(*obj.TerminalID)
+}
+
 // Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
 // Query returns generated.QueryResolver implementation.
 func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
+// SimCard returns generated.SimCardResolver implementation.
+func (r *Resolver) SimCard() generated.SimCardResolver { return &simCardResolver{r} }
+
 type mutationResolver struct{ *Resolver }
 type queryResolver struct{ *Resolver }
+type simCardResolver struct{ *Resolver }

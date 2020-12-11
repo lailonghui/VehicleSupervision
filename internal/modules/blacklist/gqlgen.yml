@@ -61,4 +61,4 @@ models:
   Numeric:
     model: github.com/99designs/gqlgen/graphql.Float
   Timestamptz:
-    model: VehicleSupervision/pkg/graphql/scalar.Timestamptz
+    model: github.com/99designs/gqlgen/graphql.Time

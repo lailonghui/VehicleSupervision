@@ -4,13 +4,14 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/modules/device/graph/generated"
 	"VehicleSupervision/internal/modules/device/graph/model"
 	model1 "VehicleSupervision/internal/modules/device/model"
 	"VehicleSupervision/pkg/graphql/util"
 	"context"
 	"errors"
-
 	"gorm.io/gorm"
 )
 
@@ -150,7 +151,6 @@ func (r *queryResolver) TerminalAggregate(ctx context.Context, distinctOn []mode
 	tx, err := qt.DistinctOn(distinctOn).
 		Limit(limit).
 		Offset(offset).
-		OrderBy(orderBy).
 		Where(where).
 		Aggregate(&rs, ctx)
 	if err != nil {
@@ -177,3 +177,22 @@ func (r *queryResolver) TerminalByPk(ctx context.Context, id int64) (*model1.Ter
 	}
 	return &rs, nil
 }
+
+func (r *terminalResolver) SimID(ctx context.Context, obj *model1.Terminal) (*model1.SimCard, error) {
+	if obj.SimID == nil || *obj.SimID == "" {
+		return nil, nil
+	}
+	return dataloader.GetLoaders(ctx).SimCardLoader.Load(*obj.SimID)
+}
+
+func (r *terminalResolver) TypeID(ctx context.Context, obj *model1.Terminal) (*model1.TerminalType, error) {
+	if obj.TypeID == nil || *obj.TypeID == "" {
+		return nil, nil
+	}
+	return dataloader.GetLoaders(ctx).TerminalTypeLoader.Load(*obj.TypeID)
+}
+
+// Terminal returns generated.TerminalResolver implementation.
+func (r *Resolver) Terminal() generated.TerminalResolver { return &terminalResolver{r} }
+
+type terminalResolver struct{ *Resolver }

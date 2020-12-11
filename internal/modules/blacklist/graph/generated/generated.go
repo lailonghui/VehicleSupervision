@@ -6,7 +6,6 @@ import (
 	"VehicleSupervision/internal/modules/blacklist/graph/model"
 	model1 "VehicleSupervision/internal/modules/blacklist/model"
 	model2 "VehicleSupervision/pkg/graphql/model"
-	"VehicleSupervision/pkg/graphql/scalar"
 	"bytes"
 	"context"
 	"errors"
@@ -9164,12 +9163,12 @@ func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.S
 }
 
 func (ec *executionContext) unmarshalNTimestamptz2timeᚐTime(ctx context.Context, v interface{}) (time.Time, error) {
-	res, err := scalar.UnmarshalTimestamptz(v)
+	res, err := graphql.UnmarshalTime(v)
 	return res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) marshalNTimestamptz2timeᚐTime(ctx context.Context, sel ast.SelectionSet, v time.Time) graphql.Marshaler {
-	res := scalar.MarshalTimestamptz(v)
+	res := graphql.MarshalTime(v)
 	if res == graphql.Null {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -9179,7 +9178,7 @@ func (ec *executionContext) marshalNTimestamptz2timeᚐTime(ctx context.Context,
 }
 
 func (ec *executionContext) unmarshalNTimestamptz2ᚖtimeᚐTime(ctx context.Context, v interface{}) (*time.Time, error) {
-	res, err := scalar.UnmarshalTimestamptz(v)
+	res, err := graphql.UnmarshalTime(v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
@@ -9190,7 +9189,7 @@ func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 		}
 		return graphql.Null
 	}
-	res := scalar.MarshalTimestamptz(*v)
+	res := graphql.MarshalTime(*v)
 	if res == graphql.Null {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -10221,7 +10220,7 @@ func (ec *executionContext) unmarshalOTimestamptz2ᚖtimeᚐTime(ctx context.Con
 	if v == nil {
 		return nil, nil
 	}
-	res, err := scalar.UnmarshalTimestamptz(v)
+	res, err := graphql.UnmarshalTime(v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
@@ -10229,7 +10228,7 @@ func (ec *executionContext) marshalOTimestamptz2ᚖtimeᚐTime(ctx context.Conte
 	if v == nil {
 		return graphql.Null
 	}
-	return scalar.MarshalTimestamptz(*v)
+	return graphql.MarshalTime(*v)
 }
 
 func (ec *executionContext) unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx context.Context, v interface{}) (*model2.TimestamptzComparisonExp, error) {
