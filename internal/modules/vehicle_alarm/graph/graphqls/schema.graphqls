@@ -3,6 +3,7 @@ scalar _jsonb
 scalar bigint
 scalar numeric
 scalar timestamptz
+scalar _text
 
 """
 expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
@@ -138,4 +139,19 @@ input String_comparison_exp {
     _nsimilar: String
     _similar: String
 }
+
+
+"expression to compare columns of type _text. All fields are combined with logical 'AND'."
+input _text_comparison_exp {
+    _eq: _text
+    _gt: _text
+    _gte: _text
+    _in: [_text!]
+    _is_null: Boolean
+    _lt: _text
+    _lte: _text
+    _neq: _text
+    _nin: [_text!]
+}
+
 

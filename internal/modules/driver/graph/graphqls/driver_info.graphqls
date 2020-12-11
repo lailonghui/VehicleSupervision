@@ -1,159 +1,133 @@
-schema {
-    query: query_root
-    mutation: mutation_root
-    subscription: subscription_root
-}
 
-scalar bigint
 
-# expression to compare columns of type bigint. All fields are combined with logical 'AND'.
-input bigint_comparison_exp {
-    _eq: bigint
-    _gt: bigint
-    _gte: bigint
-    _in: [bigint!]
-    _is_null: Boolean
-    _lt: bigint
-    _lte: bigint
-    _neq: bigint
-    _nin: [bigint!]
-}
+"""
+驾驶员信息表
 
-# expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
-input Boolean_comparison_exp {
-    _eq: Boolean
-    _gt: Boolean
-    _gte: Boolean
-    _in: [Boolean!]
-    _is_null: Boolean
-    _lt: Boolean
-    _lte: Boolean
-    _neq: Boolean
-    _nin: [Boolean!]
-}
 
-# 驾驶员信息表
-#
-#
-# columns and relationships of "driver_info"
-#
+columns and relationships of "driver_info"
+
+"""
 type driver_info {
-    # 代理商
+    """代理商"""
     agent: String
 
-    # 检验时间
+    """检验时间"""
     check_at: timestamptz
 
-    # 校验人
+    """校验人"""
     check_by: String
 
-    # 联系地址
+    """联系地址"""
     contact_address: String
 
-    # 创建时间
+    """创建时间"""
     created_at: timestamptz!
 
-    # 创建人
+    """创建人"""
     created_by: String!
 
-    # 删除时间
+    """删除时间"""
     deleted_at: timestamptz
 
-    # 删除人
+    """删除人"""
     deleted_by: String
 
-    # 所在部门id
+    """所在部门id"""
     department_id: String
 
-    # 联合主键
+    """联合主键"""
     driver_id: String!
 
-    # 驾驶员身份验证信息ID
+    """驾驶员身份验证信息ID"""
     driver_identity_id: String
 
-    # 驾驶员姓名
+    """驾驶员姓名"""
     driver_name: String
 
-    # 所在企业id
+    """所在企业id"""
     enterprise_id: String
 
-    # 档案编号(后6位)
+    """档案编号(后6位)"""
     files_number: String
 
-    # 主键
+    """主键"""
     id: bigint!
 
-    # 录入时间
+    """录入时间"""
     input_at: timestamptz
 
-    # 录入人
+    """录入人"""
     input_by: String
 
-    # 是否黑名单
+    """是否黑名单"""
     is_black: Boolean
 
-    # 是否校验数据,该字段代表是否用于校验驾驶员信息，未正式录入系统，但会同步到公安内容，用于查询驾驶员的违章数据。
+    """是否校验数据,该字段代表是否用于校验驾驶员信息，未正式录入系统，但会同步到公安内容，用于查询驾驶员的违章数据。"""
     is_check_data: Boolean
 
-    # 是否通过短信验证
+    """是否通过短信验证"""
     is_check_sms: Boolean
 
-    # 是否删除
+    """是否删除"""
     is_delete: Boolean
 
-    # 是否录入
+    """是否录入"""
     is_input: Boolean
 
-    # 是否手动录入,驾驶员资料分为使用身份证读卡器读取身份证自动录入资料和手动填写资料
+    """是否手动录入,驾驶员资料分为使用身份证读卡器读取身份证自动录入资料和手动填写资料"""
     is_manual_input: Boolean
 
-    # 是否提交,用于标志驾驶员资料是否处于确定状态。未确定状态的驾驶员信息在系统上除驾驶员管理外的功能中都查不到。
+    """是否提交,用于标志驾驶员资料是否处于确定状态。未确定状态的驾驶员信息在系统上除驾驶员管理外的功能中都查不到。"""
     is_submit: Boolean
 
-    # 邮寄地址
+    """邮寄地址"""
     mailing_address: String
 
-    # 运营商
+    """运营商"""
     operator: String
 
-    # 驾驶员信息同步内网反馈信息。驾驶员信息同步到公安内网后内网的反馈内容，如档案编号填写错误会反馈档案编号后六位不正确
+    """驾驶员信息同步内网反馈信息。驾驶员信息同步到公安内网后内网的反馈内容，如档案编号填写错误会反馈档案编号后六位不正确"""
     remark_in: String
 
-    # 备注
+    """备注"""
     remarks: String
 
-    # 性别字典
+    """性别字典"""
     sex: Int
 
-    # 提交时间
+    """提交时间"""
     submit_at: timestamptz
 
-    # 提交人
+    """提交人"""
     submit_by: String
 
-    # 提交内容
+    """提交内容"""
     submit_content: String
 
-    # 手机号码
+    """手机号码"""
     telephone: String
 
-    # 内网更新时间
+    """内网更新时间"""
     update_time_in: timestamptz
 
-    # 修改时间
+    """修改时间"""
     updated_at: timestamptz
 
-    # 修改人
+    """修改人"""
     updated_by: String
 }
 
-# aggregated selection of "driver_info"
+"""
+aggregated selection of "driver_info"
+"""
 type driver_info_aggregate {
     aggregate: driver_info_aggregate_fields
     nodes: [driver_info!]!
 }
 
-# aggregate fields of "driver_info"
+"""
+aggregate fields of "driver_info"
+"""
 type driver_info_aggregate_fields {
     avg: driver_info_avg_fields
     count(columns: [driver_info_select_column!], distinct: Boolean): Int
@@ -168,7 +142,9 @@ type driver_info_aggregate_fields {
     variance: driver_info_variance_fields
 }
 
-# order by aggregate values of table "driver_info"
+"""
+order by aggregate values of table "driver_info"
+"""
 input driver_info_aggregate_order_by {
     avg: driver_info_avg_order_by
     count: order_by
@@ -183,25 +159,31 @@ input driver_info_aggregate_order_by {
     variance: driver_info_variance_order_by
 }
 
-# input type for inserting array relation for remote table "driver_info"
+"""
+input type for inserting array relation for remote table "driver_info"
+"""
 input driver_info_arr_rel_insert_input {
     data: [driver_info_insert_input!]!
     on_conflict: driver_info_on_conflict
 }
 
-# aggregate avg on columns
+"""aggregate avg on columns"""
 type driver_info_avg_fields {
     id: Float
     sex: Float
 }
 
-# order by avg() on columns of table "driver_info"
+"""
+order by avg() on columns of table "driver_info"
+"""
 input driver_info_avg_order_by {
     id: order_by
     sex: order_by
 }
 
-# Boolean expression to filter rows from the table "driver_info". All fields are combined with a logical 'AND'.
+"""
+Boolean expression to filter rows from the table "driver_info". All fields are combined with a logical 'AND'.
+"""
 input driver_info_bool_exp {
     _and: [driver_info_bool_exp]
     _not: driver_info_bool_exp
@@ -244,19 +226,25 @@ input driver_info_bool_exp {
     updated_by: String_comparison_exp
 }
 
-# unique or primary key constraints on table "driver_info"
+"""
+unique or primary key constraints on table "driver_info"
+"""
 enum driver_info_constraint {
-    # unique or primary key constraint
+    """unique or primary key constraint"""
     driver_info_pkey
 }
 
-# input type for incrementing integer column in table "driver_info"
+"""
+input type for incrementing integer column in table "driver_info"
+"""
 input driver_info_inc_input {
     id: bigint
     sex: Int
 }
 
-# input type for inserting data into table "driver_info"
+"""
+input type for inserting data into table "driver_info"
+"""
 input driver_info_insert_input {
     agent: String
     check_at: timestamptz
@@ -296,7 +284,7 @@ input driver_info_insert_input {
     updated_by: String
 }
 
-# aggregate max on columns
+"""aggregate max on columns"""
 type driver_info_max_fields {
     agent: String
     check_at: timestamptz
@@ -329,7 +317,9 @@ type driver_info_max_fields {
     updated_by: String
 }
 
-# order by max() on columns of table "driver_info"
+"""
+order by max() on columns of table "driver_info"
+"""
 input driver_info_max_order_by {
     agent: order_by
     check_at: order_by
@@ -362,7 +352,7 @@ input driver_info_max_order_by {
     updated_by: order_by
 }
 
-# aggregate min on columns
+"""aggregate min on columns"""
 type driver_info_min_fields {
     agent: String
     check_at: timestamptz
@@ -395,7 +385,9 @@ type driver_info_min_fields {
     updated_by: String
 }
 
-# order by min() on columns of table "driver_info"
+"""
+order by min() on columns of table "driver_info"
+"""
 input driver_info_min_order_by {
     agent: order_by
     check_at: order_by
@@ -428,29 +420,37 @@ input driver_info_min_order_by {
     updated_by: order_by
 }
 
-# response of any mutation on the table "driver_info"
+"""
+response of any mutation on the table "driver_info"
+"""
 type driver_info_mutation_response {
-    # number of affected rows by the mutation
+    """number of affected rows by the mutation"""
     affected_rows: Int!
 
-    # data of the affected rows by the mutation
+    """data of the affected rows by the mutation"""
     returning: [driver_info!]!
 }
 
-# input type for inserting object relation for remote table "driver_info"
+"""
+input type for inserting object relation for remote table "driver_info"
+"""
 input driver_info_obj_rel_insert_input {
     data: driver_info_insert_input!
     on_conflict: driver_info_on_conflict
 }
 
-# on conflict condition type for table "driver_info"
+"""
+on conflict condition type for table "driver_info"
+"""
 input driver_info_on_conflict {
     constraint: driver_info_constraint!
     update_columns: [driver_info_update_column!]!
     where: driver_info_bool_exp
 }
 
-# ordering options when selecting data from "driver_info"
+"""
+ordering options when selecting data from "driver_info"
+"""
 input driver_info_order_by {
     agent: order_by
     check_at: order_by
@@ -490,127 +490,133 @@ input driver_info_order_by {
     updated_by: order_by
 }
 
-# primary key columns input for table: "driver_info"
+"""
+primary key columns input for table: "driver_info"
+"""
 input driver_info_pk_columns_input {
-    # 联合主键
+    """联合主键"""
     driver_id: String!
 
-    # 主键
+    """主键"""
     id: bigint!
 }
 
-# select columns of table "driver_info"
+"""
+select columns of table "driver_info"
+"""
 enum driver_info_select_column {
-    # column name
+    """column name"""
     agent
 
-    # column name
+    """column name"""
     check_at
 
-    # column name
+    """column name"""
     check_by
 
-    # column name
+    """column name"""
     contact_address
 
-    # column name
+    """column name"""
     created_at
 
-    # column name
+    """column name"""
     created_by
 
-    # column name
+    """column name"""
     deleted_at
 
-    # column name
+    """column name"""
     deleted_by
 
-    # column name
+    """column name"""
     department_id
 
-    # column name
+    """column name"""
     driver_id
 
-    # column name
+    """column name"""
     driver_identity_id
 
-    # column name
+    """column name"""
     driver_name
 
-    # column name
+    """column name"""
     enterprise_id
 
-    # column name
+    """column name"""
     files_number
 
-    # column name
+    """column name"""
     id
 
-    # column name
+    """column name"""
     input_at
 
-    # column name
+    """column name"""
     input_by
 
-    # column name
+    """column name"""
     is_black
 
-    # column name
+    """column name"""
     is_check_data
 
-    # column name
+    """column name"""
     is_check_sms
 
-    # column name
+    """column name"""
     is_delete
 
-    # column name
+    """column name"""
     is_input
 
-    # column name
+    """column name"""
     is_manual_input
 
-    # column name
+    """column name"""
     is_submit
 
-    # column name
+    """column name"""
     mailing_address
 
-    # column name
+    """column name"""
     operator
 
-    # column name
+    """column name"""
     remark_in
 
-    # column name
+    """column name"""
     remarks
 
-    # column name
+    """column name"""
     sex
 
-    # column name
+    """column name"""
     submit_at
 
-    # column name
+    """column name"""
     submit_by
 
-    # column name
+    """column name"""
     submit_content
 
-    # column name
+    """column name"""
     telephone
 
-    # column name
+    """column name"""
     update_time_in
 
-    # column name
+    """column name"""
     updated_at
 
-    # column name
+    """column name"""
     updated_by
 }
 
-# input type for updating data in table "driver_info"
+"""
+input type for updating data in table "driver_info"
+"""
 input driver_info_set_input {
     agent: String
     check_at: timestamptz
@@ -650,420 +656,390 @@ input driver_info_set_input {
     updated_by: String
 }
 
-# aggregate stddev on columns
+"""aggregate stddev on columns"""
 type driver_info_stddev_fields {
     id: Float
     sex: Float
 }
 
-# order by stddev() on columns of table "driver_info"
+"""
+order by stddev() on columns of table "driver_info"
+"""
 input driver_info_stddev_order_by {
     id: order_by
     sex: order_by
 }
 
-# aggregate stddev_pop on columns
+"""aggregate stddev_pop on columns"""
 type driver_info_stddev_pop_fields {
     id: Float
     sex: Float
 }
 
-# order by stddev_pop() on columns of table "driver_info"
+"""
+order by stddev_pop() on columns of table "driver_info"
+"""
 input driver_info_stddev_pop_order_by {
     id: order_by
     sex: order_by
 }
 
-# aggregate stddev_samp on columns
+"""aggregate stddev_samp on columns"""
 type driver_info_stddev_samp_fields {
     id: Float
     sex: Float
 }
 
-# order by stddev_samp() on columns of table "driver_info"
+"""
+order by stddev_samp() on columns of table "driver_info"
+"""
 input driver_info_stddev_samp_order_by {
     id: order_by
     sex: order_by
 }
 
-# aggregate sum on columns
+"""aggregate sum on columns"""
 type driver_info_sum_fields {
     id: bigint
     sex: Int
 }
 
-# order by sum() on columns of table "driver_info"
+"""
+order by sum() on columns of table "driver_info"
+"""
 input driver_info_sum_order_by {
     id: order_by
     sex: order_by
 }
 
-# update columns of table "driver_info"
+"""
+update columns of table "driver_info"
+"""
 enum driver_info_update_column {
-    # column name
+    """column name"""
     agent
 
-    # column name
+    """column name"""
     check_at
 
-    # column name
+    """column name"""
     check_by
 
-    # column name
+    """column name"""
     contact_address
 
-    # column name
+    """column name"""
     created_at
 
-    # column name
+    """column name"""
     created_by
 
-    # column name
+    """column name"""
     deleted_at
 
-    # column name
+    """column name"""
     deleted_by
 
-    # column name
+    """column name"""
     department_id
 
-    # column name
+    """column name"""
     driver_id
 
-    # column name
+    """column name"""
     driver_identity_id
 
-    # column name
+    """column name"""
     driver_name
 
-    # column name
+    """column name"""
     enterprise_id
 
-    # column name
+    """column name"""
     files_number
 
-    # column name
+    """column name"""
     id
 
-    # column name
+    """column name"""
     input_at
 
-    # column name
+    """column name"""
     input_by
 
-    # column name
+    """column name"""
     is_black
 
-    # column name
+    """column name"""
     is_check_data
 
-    # column name
+    """column name"""
     is_check_sms
 
-    # column name
+    """column name"""
     is_delete
 
-    # column name
+    """column name"""
     is_input
 
-    # column name
+    """column name"""
     is_manual_input
 
-    # column name
+    """column name"""
     is_submit
 
-    # column name
+    """column name"""
     mailing_address
 
-    # column name
+    """column name"""
     operator
 
-    # column name
+    """column name"""
     remark_in
 
-    # column name
+    """column name"""
     remarks
 
-    # column name
+    """column name"""
     sex
 
-    # column name
+    """column name"""
     submit_at
 
-    # column name
+    """column name"""
     submit_by
 
-    # column name
+    """column name"""
     submit_content
 
-    # column name
+    """column name"""
     telephone
 
-    # column name
+    """column name"""
     update_time_in
 
-    # column name
+    """column name"""
     updated_at
 
-    # column name
+    """column name"""
     updated_by
 }
 
-# aggregate var_pop on columns
+"""aggregate var_pop on columns"""
 type driver_info_var_pop_fields {
     id: Float
     sex: Float
 }
 
-# order by var_pop() on columns of table "driver_info"
+"""
+order by var_pop() on columns of table "driver_info"
+"""
 input driver_info_var_pop_order_by {
     id: order_by
     sex: order_by
 }
 
-# aggregate var_samp on columns
+"""aggregate var_samp on columns"""
 type driver_info_var_samp_fields {
     id: Float
     sex: Float
 }
 
-# order by var_samp() on columns of table "driver_info"
+"""
+order by var_samp() on columns of table "driver_info"
+"""
 input driver_info_var_samp_order_by {
     id: order_by
     sex: order_by
 }
 
-# aggregate variance on columns
+"""aggregate variance on columns"""
 type driver_info_variance_fields {
     id: Float
     sex: Float
 }
 
-# order by variance() on columns of table "driver_info"
+"""
+order by variance() on columns of table "driver_info"
+"""
 input driver_info_variance_order_by {
     id: order_by
     sex: order_by
 }
 
-# expression to compare columns of type Int. All fields are combined with logical 'AND'.
-input Int_comparison_exp {
-    _eq: Int
-    _gt: Int
-    _gte: Int
-    _in: [Int!]
-    _is_null: Boolean
-    _lt: Int
-    _lte: Int
-    _neq: Int
-    _nin: [Int!]
-}
 
-# mutation root
-type mutation_root {
-    # delete data from the table: "driver_info"
+extend type Mutation {
+    """
+    delete data from the table: "driver_info"
+  """
     delete_driver_info(
-        # filter the rows which have to be deleted
+        """filter the rows which have to be deleted"""
         where: driver_info_bool_exp!
     ): driver_info_mutation_response
 
-    # delete single row from the table: "driver_info"
+    """
+    delete single row from the table: "driver_info"
+  """
     delete_driver_info_by_pk(
-        # 联合主键
+        """联合主键"""
         driver_id: String!
 
-        # 主键
+        """主键"""
         id: bigint!
     ): driver_info
 
-    # insert data into the table: "driver_info"
+    """
+    insert data into the table: "driver_info"
+  """
     insert_driver_info(
-        # the rows to be inserted
+        """the rows to be inserted"""
         objects: [driver_info_insert_input!]!
 
-        # on conflict condition
+        """on conflict condition"""
         on_conflict: driver_info_on_conflict
     ): driver_info_mutation_response
 
-    # insert a single row into the table: "driver_info"
+    """
+    insert a single row into the table: "driver_info"
+  """
     insert_driver_info_one(
-        # the row to be inserted
+        """the row to be inserted"""
         object: driver_info_insert_input!
 
-        # on conflict condition
+        """on conflict condition"""
         on_conflict: driver_info_on_conflict
     ): driver_info
 
-    # update data of the table: "driver_info"
+    """
+    update data of the table: "driver_info"
+  """
     update_driver_info(
-        # increments the integer columns with given value of the filtered values
+        """increments the integer columns with given value of the filtered values"""
         _inc: driver_info_inc_input
 
-        # sets the columns of the filtered rows to the given values
+        """sets the columns of the filtered rows to the given values"""
         _set: driver_info_set_input
 
-        # filter the rows which have to be updated
+        """filter the rows which have to be updated"""
         where: driver_info_bool_exp!
     ): driver_info_mutation_response
 
-    # update single row of the table: "driver_info"
+    """
+    update single row of the table: "driver_info"
+  """
     update_driver_info_by_pk(
-        # increments the integer columns with given value of the filtered values
+        """increments the integer columns with given value of the filtered values"""
         _inc: driver_info_inc_input
 
-        # sets the columns of the filtered rows to the given values
+        """sets the columns of the filtered rows to the given values"""
         _set: driver_info_set_input
         pk_columns: driver_info_pk_columns_input!
     ): driver_info
 }
 
-# column ordering options
-enum order_by {
-    # in the ascending order, nulls last
-    asc
 
-    # in the ascending order, nulls first
-    asc_nulls_first
 
-    # in the ascending order, nulls last
-    asc_nulls_last
-
-    # in the descending order, nulls first
-    desc
-
-    # in the descending order, nulls first
-    desc_nulls_first
-
-    # in the descending order, nulls last
-    desc_nulls_last
-}
-
-# query root
-type query_root {
-    # fetch data from the table: "driver_info"
+extend type Query {
+    """
+    fetch data from the table: "driver_info"
+  """
     driver_info(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [driver_info_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [driver_info_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: driver_info_bool_exp
     ): [driver_info!]!
 
-    # fetch aggregated fields from the table: "driver_info"
+    """
+    fetch aggregated fields from the table: "driver_info"
+  """
     driver_info_aggregate(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [driver_info_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [driver_info_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: driver_info_bool_exp
     ): driver_info_aggregate!
 
-    # fetch data from the table: "driver_info" using primary key columns
+    """fetch data from the table: "driver_info" using primary key columns"""
     driver_info_by_pk(
-        # 联合主键
+        """联合主键"""
         driver_id: String!
 
-        # 主键
+        """主键"""
         id: bigint!
     ): driver_info
 }
 
-# expression to compare columns of type String. All fields are combined with logical 'AND'.
-input String_comparison_exp {
-    _eq: String
-    _gt: String
-    _gte: String
-    _ilike: String
-    _in: [String!]
-    _is_null: Boolean
-    _like: String
-    _lt: String
-    _lte: String
-    _neq: String
-    _nilike: String
-    _nin: [String!]
-    _nlike: String
-    _nsimilar: String
-    _similar: String
-}
 
-# subscription root
-type subscription_root {
-    # fetch data from the table: "driver_info"
+
+extend type Subscription {
+    """
+    fetch data from the table: "driver_info"
+  """
     driver_info(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [driver_info_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [driver_info_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: driver_info_bool_exp
     ): [driver_info!]!
 
-    # fetch aggregated fields from the table: "driver_info"
+    """
+    fetch aggregated fields from the table: "driver_info"
+  """
     driver_info_aggregate(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [driver_info_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [driver_info_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: driver_info_bool_exp
     ): driver_info_aggregate!
 
-    # fetch data from the table: "driver_info" using primary key columns
+    """fetch data from the table: "driver_info" using primary key columns"""
     driver_info_by_pk(
-        # 联合主键
+        """联合主键"""
         driver_id: String!
 
-        # 主键
+        """主键"""
         id: bigint!
     ): driver_info
-}
-
-scalar timestamptz
-
-# expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
-input timestamptz_comparison_exp {
-    _eq: timestamptz
-    _gt: timestamptz
-    _gte: timestamptz
-    _in: [timestamptz!]
-    _is_null: Boolean
-    _lt: timestamptz
-    _lte: timestamptz
-    _neq: timestamptz
-    _nin: [timestamptz!]
 }
 
