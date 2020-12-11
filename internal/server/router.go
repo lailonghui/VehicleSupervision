@@ -14,6 +14,7 @@ import (
 	areaQuery "VehicleSupervision/internal/modules/area/query"
 	blacklistRecord "VehicleSupervision/internal/modules/blacklist"
 	device "VehicleSupervision/internal/modules/device"
+	dictionary "VehicleSupervision/internal/modules/dictionary"
 	ridehailing "VehicleSupervision/internal/modules/ridehailing"
 
 	"VehicleSupervision/internal/modules/driver"

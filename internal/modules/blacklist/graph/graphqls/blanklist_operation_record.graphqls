@@ -1,630 +1,651 @@
-
 """
 黑名单操作记录表
 
 
 columns and relationships of "blacklist_operation_record"
-
 """
-type blacklist_operation_record {
-  """黑名单记录ID"""
-  blacklist_record_id: String!
-
-  """黑名单类别"""
-  blacklist_type: Int!
-
-  """创建时间"""
-  create_at: timestamptz!
-
-  """创建人"""
-  create_by: String
-
-  """删除时间"""
-  delete_at: timestamptz
-
-  """删除人"""
-  delete_by: String
-
-  """ID"""
-  id: bigint!
-
-  """是否删除"""
-  is_delete: Boolean!
-
-  """操作类别"""
-  operate: Int!
-
-  """备注"""
-  remarks: String
-
-  """修改时间"""
-  update_at: timestamptz
-
-  """修改人"""
-  update_by: String
-
-  """驾驶员ID或者企业ID或者车辆ID"""
-  v_seqn: String!
+type BlacklistOperationRecord {
+	"""
+	黑名单记录ID
+	"""
+	blacklist_record_id: String!
+	"""
+	黑名单类别
+	"""
+	blacklist_type: Int!
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	操作类别
+	"""
+	operate: Int!
+	"""
+	备注
+	"""
+	remarks: String
+	"""
+	修改时间
+	"""
+	update_at: Timestamptz
+	"""
+	修改人
+	"""
+	update_by: String
+	"""
+	驾驶员ID或者企业ID或者车辆ID
+	"""
+	v_seqn: String!
 }
-
 """
 aggregated selection of "blacklist_operation_record"
 """
-type blacklist_operation_record_aggregate {
-  aggregate: blacklist_operation_record_aggregate_fields
-  nodes: [blacklist_operation_record!]!
+type BlacklistOperationRecordAggregate {
+	aggregate: BlacklistOperationRecordAggregateFields
+	nodes: [BlacklistOperationRecord!]!
 }
-
 """
 aggregate fields of "blacklist_operation_record"
 """
-type blacklist_operation_record_aggregate_fields {
-  avg: blacklist_operation_record_avg_fields
-  count(columns: [blacklist_operation_record_select_column!], distinct: Boolean): Int
-  max: blacklist_operation_record_max_fields
-  min: blacklist_operation_record_min_fields
-  stddev: blacklist_operation_record_stddev_fields
-  stddev_pop: blacklist_operation_record_stddev_pop_fields
-  stddev_samp: blacklist_operation_record_stddev_samp_fields
-  sum: blacklist_operation_record_sum_fields
-  var_pop: blacklist_operation_record_var_pop_fields
-  var_samp: blacklist_operation_record_var_samp_fields
-  variance: blacklist_operation_record_variance_fields
+type BlacklistOperationRecordAggregateFields {
+	avg: BlacklistOperationRecordAvgFields
+	count(columns: [BlacklistOperationRecordSelectColumn!], distinct: Boolean): Int
+	max: BlacklistOperationRecordMaxFields
+	min: BlacklistOperationRecordMinFields
+	stddev: BlacklistOperationRecordStddevFields
+	stddev_pop: BlacklistOperationRecordStddevPopFields
+	stddev_samp: BlacklistOperationRecordStddevSampFields
+	sum: BlacklistOperationRecordSumFields
+	var_pop: BlacklistOperationRecordVarPopFields
+	var_samp: BlacklistOperationRecordVarSampFields
+	variance: BlacklistOperationRecordVarianceFields
 }
-
 """
 order by aggregate values of table "blacklist_operation_record"
 """
-input blacklist_operation_record_aggregate_order_by {
-  avg: blacklist_operation_record_avg_order_by
-  count: order_by
-  max: blacklist_operation_record_max_order_by
-  min: blacklist_operation_record_min_order_by
-  stddev: blacklist_operation_record_stddev_order_by
-  stddev_pop: blacklist_operation_record_stddev_pop_order_by
-  stddev_samp: blacklist_operation_record_stddev_samp_order_by
-  sum: blacklist_operation_record_sum_order_by
-  var_pop: blacklist_operation_record_var_pop_order_by
-  var_samp: blacklist_operation_record_var_samp_order_by
-  variance: blacklist_operation_record_variance_order_by
+input BlacklistOperationRecordAggregateOrderBy {
+	avg: BlacklistOperationRecordAvgOrderBy
+	count: OrderBy
+	max: BlacklistOperationRecordMaxOrderBy
+	min: BlacklistOperationRecordMinOrderBy
+	stddev: BlacklistOperationRecordStddevOrderBy
+	stddev_pop: BlacklistOperationRecordStddevPopOrderBy
+	stddev_samp: BlacklistOperationRecordStddevSampOrderBy
+	sum: BlacklistOperationRecordSumOrderBy
+	var_pop: BlacklistOperationRecordVarPopOrderBy
+	var_samp: BlacklistOperationRecordVarSampOrderBy
+	variance: BlacklistOperationRecordVarianceOrderBy
 }
-
 """
 input type for inserting array relation for remote table "blacklist_operation_record"
 """
-input blacklist_operation_record_arr_rel_insert_input {
-  data: [blacklist_operation_record_insert_input!]!
-  on_conflict: blacklist_operation_record_on_conflict
+input BlacklistOperationRecordArrRelInsertInput {
+	data: [BlacklistOperationRecordInsertInput!]!
+	on_conflict: BlacklistOperationRecordOnConflict
 }
-
-"""aggregate avg on columns"""
-type blacklist_operation_record_avg_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate avg on columns
+"""
+type BlacklistOperationRecordAvgFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by avg() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_avg_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordAvgOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'AND'.
 """
-input blacklist_operation_record_bool_exp {
-  _and: [blacklist_operation_record_bool_exp]
-  _not: blacklist_operation_record_bool_exp
-  _or: [blacklist_operation_record_bool_exp]
-  blacklist_record_id: String_comparison_exp
-  blacklist_type: Int_comparison_exp
-  create_at: timestamptz_comparison_exp
-  create_by: String_comparison_exp
-  delete_at: timestamptz_comparison_exp
-  delete_by: String_comparison_exp
-  id: bigint_comparison_exp
-  is_delete: Boolean_comparison_exp
-  operate: Int_comparison_exp
-  remarks: String_comparison_exp
-  update_at: timestamptz_comparison_exp
-  update_by: String_comparison_exp
-  v_seqn: String_comparison_exp
+input BlacklistOperationRecordBoolExp {
+	_and: [BlacklistOperationRecordBoolExp]
+	_not: BlacklistOperationRecordBoolExp
+	_or: [BlacklistOperationRecordBoolExp]
+	blacklist_record_id: StringComparisonExp
+	blacklist_type: IntComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	id: BigintComparisonExp
+	is_delete: BooleanComparisonExp
+	operate: IntComparisonExp
+	remarks: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	v_seqn: StringComparisonExp
 }
-
 """
 unique or primary key constraints on table "blacklist_operation_record"
 """
-enum blacklist_operation_record_constraint {
-  """unique or primary key constraint"""
-  blacklist_operation_record_pkey
+enum BlacklistOperationRecordConstraint {
+	"""
+	unique or primary key constraint
+	"""
+	blacklist_operation_record_pkey
 }
-
 """
 input type for incrementing integer column in table "blacklist_operation_record"
 """
-input blacklist_operation_record_inc_input {
-  blacklist_type: Int
-  id: bigint
-  operate: Int
+input BlacklistOperationRecordIncInput {
+	blacklist_type: Int
+	id: Bigint
+	operate: Int
 }
-
 """
 input type for inserting data into table "blacklist_operation_record"
 """
-input blacklist_operation_record_insert_input {
-  blacklist_record_id: String
-  blacklist_type: Int
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  id: bigint
-  is_delete: Boolean
-  operate: Int
-  remarks: String
-  update_at: timestamptz
-  update_by: String
-  v_seqn: String
+input BlacklistOperationRecordInsertInput {
+	blacklist_record_id: String
+	blacklist_type: Int
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	id: Bigint
+	is_delete: Boolean
+	operate: Int
+	remarks: String
+	update_at: Timestamptz
+	update_by: String
+	v_seqn: String
 }
-
-"""aggregate max on columns"""
-type blacklist_operation_record_max_fields {
-  blacklist_record_id: String
-  blacklist_type: Int
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  id: bigint
-  operate: Int
-  remarks: String
-  update_at: timestamptz
-  update_by: String
-  v_seqn: String
+"""
+aggregate max on columns
+"""
+type BlacklistOperationRecordMaxFields {
+	blacklist_record_id: String
+	blacklist_type: Int
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	id: Bigint
+	operate: Int
+	remarks: String
+	update_at: Timestamptz
+	update_by: String
+	v_seqn: String
 }
-
 """
 order by max() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_max_order_by {
-  blacklist_record_id: order_by
-  blacklist_type: order_by
-  create_at: order_by
-  create_by: order_by
-  delete_at: order_by
-  delete_by: order_by
-  id: order_by
-  operate: order_by
-  remarks: order_by
-  update_at: order_by
-  update_by: order_by
-  v_seqn: order_by
+input BlacklistOperationRecordMaxOrderBy {
+	blacklist_record_id: OrderBy
+	blacklist_type: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	id: OrderBy
+	operate: OrderBy
+	remarks: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	v_seqn: OrderBy
 }
-
-"""aggregate min on columns"""
-type blacklist_operation_record_min_fields {
-  blacklist_record_id: String
-  blacklist_type: Int
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  id: bigint
-  operate: Int
-  remarks: String
-  update_at: timestamptz
-  update_by: String
-  v_seqn: String
+"""
+aggregate min on columns
+"""
+type BlacklistOperationRecordMinFields {
+	blacklist_record_id: String
+	blacklist_type: Int
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	id: Bigint
+	operate: Int
+	remarks: String
+	update_at: Timestamptz
+	update_by: String
+	v_seqn: String
 }
-
 """
 order by min() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_min_order_by {
-  blacklist_record_id: order_by
-  blacklist_type: order_by
-  create_at: order_by
-  create_by: order_by
-  delete_at: order_by
-  delete_by: order_by
-  id: order_by
-  operate: order_by
-  remarks: order_by
-  update_at: order_by
-  update_by: order_by
-  v_seqn: order_by
+input BlacklistOperationRecordMinOrderBy {
+	blacklist_record_id: OrderBy
+	blacklist_type: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	id: OrderBy
+	operate: OrderBy
+	remarks: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	v_seqn: OrderBy
 }
-
 """
 response of any mutation on the table "blacklist_operation_record"
 """
-type blacklist_operation_record_mutation_response {
-  """number of affected rows by the mutation"""
-  affected_rows: Int!
-
-  """data of the affected rows by the mutation"""
-  returning: [blacklist_operation_record!]!
+type BlacklistOperationRecordMutationResponse {
+	"""
+	number of affected rows by the mutation
+	"""
+	affected_rows: Int!
+	"""
+	data of the affected rows by the mutation
+	"""
+	returning: [BlacklistOperationRecord!]!
 }
-
 """
 input type for inserting object relation for remote table "blacklist_operation_record"
 """
-input blacklist_operation_record_obj_rel_insert_input {
-  data: blacklist_operation_record_insert_input!
-  on_conflict: blacklist_operation_record_on_conflict
+input BlacklistOperationRecordObjRelInsertInput {
+	data: BlacklistOperationRecordInsertInput!
+	on_conflict: BlacklistOperationRecordOnConflict
 }
-
 """
 on conflict condition type for table "blacklist_operation_record"
 """
-input blacklist_operation_record_on_conflict {
-  constraint: blacklist_operation_record_constraint!
-  update_columns: [blacklist_operation_record_update_column!]!
-  where: blacklist_operation_record_bool_exp
+input BlacklistOperationRecordOnConflict {
+	constraint: BlacklistOperationRecordConstraint!
+	update_columns: [BlacklistOperationRecordUpdateColumn!]!
+	where: BlacklistOperationRecordBoolExp
 }
-
 """
 ordering options when selecting data from "blacklist_operation_record"
 """
-input blacklist_operation_record_order_by {
-  blacklist_record_id: order_by
-  blacklist_type: order_by
-  create_at: order_by
-  create_by: order_by
-  delete_at: order_by
-  delete_by: order_by
-  id: order_by
-  is_delete: order_by
-  operate: order_by
-  remarks: order_by
-  update_at: order_by
-  update_by: order_by
-  v_seqn: order_by
+input BlacklistOperationRecordOrderBy {
+	blacklist_record_id: OrderBy
+	blacklist_type: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	id: OrderBy
+	is_delete: OrderBy
+	operate: OrderBy
+	remarks: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	v_seqn: OrderBy
 }
-
 """
 primary key columns input for table: "blacklist_operation_record"
 """
-input blacklist_operation_record_pk_columns_input {
-  """ID"""
-  id: bigint!
+input BlacklistOperationRecordPkColumnsInput {
+	"""
+	ID
+	"""
+	id: Bigint!
 }
-
 """
 select columns of table "blacklist_operation_record"
 """
-enum blacklist_operation_record_select_column {
-  """column name"""
-  blacklist_record_id
-
-  """column name"""
-  blacklist_type
-
-  """column name"""
-  create_at
-
-  """column name"""
-  create_by
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  id
-
-  """column name"""
-  is_delete
-
-  """column name"""
-  operate
-
-  """column name"""
-  remarks
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
-
-  """column name"""
-  v_seqn
+enum BlacklistOperationRecordSelectColumn {
+	"""
+	column name
+	"""
+	blacklist_record_id
+	"""
+	column name
+	"""
+	blacklist_type
+	"""
+	column name
+	"""
+	create_at
+	"""
+	column name
+	"""
+	create_by
+	"""
+	column name
+	"""
+	delete_at
+	"""
+	column name
+	"""
+	delete_by
+	"""
+	column name
+	"""
+	id
+	"""
+	column name
+	"""
+	is_delete
+	"""
+	column name
+	"""
+	operate
+	"""
+	column name
+	"""
+	remarks
+	"""
+	column name
+	"""
+	update_at
+	"""
+	column name
+	"""
+	update_by
+	"""
+	column name
+	"""
+	v_seqn
 }
-
 """
 input type for updating data in table "blacklist_operation_record"
 """
-input blacklist_operation_record_set_input {
-  blacklist_record_id: String
-  blacklist_type: Int
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  id: bigint
-  is_delete: Boolean
-  operate: Int
-  remarks: String
-  update_at: timestamptz
-  update_by: String
-  v_seqn: String
+input BlacklistOperationRecordSetInput {
+	blacklist_record_id: String
+	blacklist_type: Int
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	id: Bigint
+	is_delete: Boolean
+	operate: Int
+	remarks: String
+	update_at: Timestamptz
+	update_by: String
+	v_seqn: String
 }
-
-"""aggregate stddev on columns"""
-type blacklist_operation_record_stddev_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate stddev on columns
+"""
+type BlacklistOperationRecordStddevFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by stddev() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_stddev_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordStddevOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate stddev_pop on columns"""
-type blacklist_operation_record_stddev_pop_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate stddev_pop on columns
+"""
+type BlacklistOperationRecordStddevPopFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by stddev_pop() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_stddev_pop_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordStddevPopOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate stddev_samp on columns"""
-type blacklist_operation_record_stddev_samp_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate stddev_samp on columns
+"""
+type BlacklistOperationRecordStddevSampFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by stddev_samp() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_stddev_samp_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordStddevSampOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate sum on columns"""
-type blacklist_operation_record_sum_fields {
-  blacklist_type: Int
-  id: bigint
-  operate: Int
+"""
+aggregate sum on columns
+"""
+type BlacklistOperationRecordSumFields {
+	blacklist_type: Int
+	id: Bigint
+	operate: Int
 }
-
 """
 order by sum() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_sum_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordSumOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
 """
 update columns of table "blacklist_operation_record"
 """
-enum blacklist_operation_record_update_column {
-  """column name"""
-  blacklist_record_id
-
-  """column name"""
-  blacklist_type
-
-  """column name"""
-  create_at
-
-  """column name"""
-  create_by
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  id
-
-  """column name"""
-  is_delete
-
-  """column name"""
-  operate
-
-  """column name"""
-  remarks
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
-
-  """column name"""
-  v_seqn
+enum BlacklistOperationRecordUpdateColumn {
+	"""
+	column name
+	"""
+	blacklist_record_id
+	"""
+	column name
+	"""
+	blacklist_type
+	"""
+	column name
+	"""
+	create_at
+	"""
+	column name
+	"""
+	create_by
+	"""
+	column name
+	"""
+	delete_at
+	"""
+	column name
+	"""
+	delete_by
+	"""
+	column name
+	"""
+	id
+	"""
+	column name
+	"""
+	is_delete
+	"""
+	column name
+	"""
+	operate
+	"""
+	column name
+	"""
+	remarks
+	"""
+	column name
+	"""
+	update_at
+	"""
+	column name
+	"""
+	update_by
+	"""
+	column name
+	"""
+	v_seqn
 }
-
-"""aggregate var_pop on columns"""
-type blacklist_operation_record_var_pop_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate var_pop on columns
+"""
+type BlacklistOperationRecordVarPopFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by var_pop() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_var_pop_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordVarPopOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate var_samp on columns"""
-type blacklist_operation_record_var_samp_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate var_samp on columns
+"""
+type BlacklistOperationRecordVarSampFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by var_samp() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_var_samp_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordVarSampOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate variance on columns"""
-type blacklist_operation_record_variance_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate variance on columns
+"""
+type BlacklistOperationRecordVarianceFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by variance() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_variance_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordVarianceOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
 extend type Mutation {
-  """
-  delete data from the table: "blacklist_operation_record"
-  """
-  delete_blacklist_operation_record(
-    """filter the rows which have to be deleted"""
-    where: blacklist_operation_record_bool_exp!
-  ): blacklist_operation_record_mutation_response
-
-  """
-  delete single row from the table: "blacklist_operation_record"
-  """
-  delete_blacklist_operation_record_by_pk(
-    """ID"""
-    id: bigint!
-  ): blacklist_operation_record
-
-  """
-  insert data into the table: "blacklist_operation_record"
-  """
-  insert_blacklist_operation_record(
-    """the rows to be inserted"""
-    objects: [blacklist_operation_record_insert_input!]!
-
-    """on conflict condition"""
-    on_conflict: blacklist_operation_record_on_conflict
-  ): blacklist_operation_record_mutation_response
-
-  """
-  insert a single row into the table: "blacklist_operation_record"
-  """
-  insert_blacklist_operation_record_one(
-    """the row to be inserted"""
-    object: blacklist_operation_record_insert_input!
-
-    """on conflict condition"""
-    on_conflict: blacklist_operation_record_on_conflict
-  ): blacklist_operation_record
-
-  """
-  update data of the table: "blacklist_operation_record"
-  """
-  update_blacklist_operation_record(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: blacklist_operation_record_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: blacklist_operation_record_set_input
-
-    """filter the rows which have to be updated"""
-    where: blacklist_operation_record_bool_exp!
-  ): blacklist_operation_record_mutation_response
-
-  """
-  update single row of the table: "blacklist_operation_record"
-  """
-  update_blacklist_operation_record_by_pk(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: blacklist_operation_record_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: blacklist_operation_record_set_input
-    pk_columns: blacklist_operation_record_pk_columns_input!
-  ): blacklist_operation_record
+	"""
+	delete data from the table: "blacklist_operation_record"
+	"""
+	delete_blacklist_operation_record("""
+	filter the rows which have to be deleted
+	"""
+	where: BlacklistOperationRecordBoolExp!): BlacklistOperationRecordMutationResponse
+	"""
+	delete single row from the table: "blacklist_operation_record"
+	"""
+	delete_blacklist_operation_record_by_pk("""
+	ID
+	"""
+	id: Bigint!): BlacklistOperationRecord
+	"""
+	insert data into the table: "blacklist_operation_record"
+	"""
+	insert_blacklist_operation_record("""
+	the rows to be inserted
+	"""
+	objects: [BlacklistOperationRecordInsertInput!]!, """
+	on conflict condition
+	"""
+	on_conflict: BlacklistOperationRecordOnConflict): BlacklistOperationRecordMutationResponse
+	"""
+	insert a single row into the table: "blacklist_operation_record"
+	"""
+	insert_blacklist_operation_record_one("""
+	the row to be inserted
+	"""
+	object: BlacklistOperationRecordInsertInput!, """
+	on conflict condition
+	"""
+	on_conflict: BlacklistOperationRecordOnConflict): BlacklistOperationRecord
+	"""
+	update data of the table: "blacklist_operation_record"
+	"""
+	update_blacklist_operation_record("""
+	increments the integer columns with given value of the filtered values
+	"""
+	_inc: BlacklistOperationRecordIncInput, """
+	sets the columns of the filtered rows to the given values
+	"""
+	_set: BlacklistOperationRecordSetInput, """
+	filter the rows which have to be updated
+	"""
+	where: BlacklistOperationRecordBoolExp!): BlacklistOperationRecordMutationResponse
+	"""
+	update single row of the table: "blacklist_operation_record"
+	"""
+	update_blacklist_operation_record_by_pk("""
+	increments the integer columns with given value of the filtered values
+	"""
+	_inc: BlacklistOperationRecordIncInput, """
+	sets the columns of the filtered rows to the given values
+	"""
+	_set: BlacklistOperationRecordSetInput, pk_columns: BlacklistOperationRecordPkColumnsInput!): BlacklistOperationRecord
 }
-
 extend type Query {
-  """
-  fetch data from the table: "blacklist_operation_record"
-  """
-  blacklist_operation_record(
-    """distinct select on columns"""
-    distinct_on: [blacklist_operation_record_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [blacklist_operation_record_order_by!]
-
-    """filter the rows returned"""
-    where: blacklist_operation_record_bool_exp
-  ): [blacklist_operation_record!]!
-
-  """
-  fetch aggregated fields from the table: "blacklist_operation_record"
-  """
-  blacklist_operation_record_aggregate(
-    """distinct select on columns"""
-    distinct_on: [blacklist_operation_record_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [blacklist_operation_record_order_by!]
-
-    """filter the rows returned"""
-    where: blacklist_operation_record_bool_exp
-  ): blacklist_operation_record_aggregate!
-
-  """
-  fetch data from the table: "blacklist_operation_record" using primary key columns
-  """
-  blacklist_operation_record_by_pk(
-    """ID"""
-    id: bigint!
-  ): blacklist_operation_record
+	"""
+	fetch data from the table: "blacklist_operation_record"
+	"""
+	blacklist_operation_record("""
+	distinct select on columns
+	"""
+	distinct_on: [BlacklistOperationRecordSelectColumn!], """
+	limit the number of rows returned
+	"""
+	limit: Int, """
+	skip the first n rows. Use only with order_by
+	"""
+	offset: Int, """
+	sort the rows by one or more columns
+	"""
+	order_by: [BlacklistOperationRecordOrderBy!], """
+	filter the rows returned
+	"""
+	where: BlacklistOperationRecordBoolExp): [BlacklistOperationRecord!]!
+	"""
+	fetch aggregated fields from the table: "blacklist_operation_record"
+	"""
+	blacklist_operation_record_aggregate("""
+	distinct select on columns
+	"""
+	distinct_on: [BlacklistOperationRecordSelectColumn!], """
+	limit the number of rows returned
+	"""
+	limit: Int, """
+	skip the first n rows. Use only with order_by
+	"""
+	offset: Int, """
+	sort the rows by one or more columns
+	"""
+	order_by: [BlacklistOperationRecordOrderBy!], """
+	filter the rows returned
+	"""
+	where: BlacklistOperationRecordBoolExp): BlacklistOperationRecordAggregate!
+	"""
+	fetch data from the table: "blacklist_operation_record" using primary key columns
+	"""
+	blacklist_operation_record_by_pk("""
+	ID
+	"""
+	id: Bigint!): BlacklistOperationRecord
 }

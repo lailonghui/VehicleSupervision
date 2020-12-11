@@ -6,6 +6,7 @@ import (
 	"VehicleSupervision/pkg/xid"
 )
 
+//go:generate go run github.com/99designs/gqlgen
 // This file will not be regenerated automatically.
 //
 // It serves as dependency injection for your app, add any dependencies you require here.
@@ -57,7 +58,7 @@ func simCardFlowInsertInputConvert(v *model.SimCardFlowInsertInput) (rs *model1.
 		DeleteBy:       v.DeleteBy,
 		EnterpriseID:   v.EnterpriseID,
 		Iccid:          v.Iccid,
-		IotCardNo:      *v.IotCardNo,
+		SimCardID:      *v.SimCardID,
 		IsDelete:       false,
 		IsSharePool:    *v.IsSharePool,
 		PoolAvgFlow:    v.PoolAvgFlow,

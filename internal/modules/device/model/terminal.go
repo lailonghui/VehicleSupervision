@@ -1,6 +1,11 @@
 package model
 
-import "time"
+import (
+	"VehicleSupervision/internal/db"
+	"time"
+)
+
+//go:generate go run github.com/vektah/dataloaden TerminalLoader string *VehicleSupervision/internal/modules/device/model.Terminal
 
 // 终端
 //
@@ -81,4 +86,16 @@ type Terminal struct {
 
 func (t Terminal) TableName() string {
 	return "terminal"
+}
+
+func (u *Terminal) NewLoader() *TerminalLoader {
+	return &TerminalLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*Terminal, []error) {
+			var rs []*Terminal
+			db.DB.Model(&Terminal{}).Where("terminal_id in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
 }

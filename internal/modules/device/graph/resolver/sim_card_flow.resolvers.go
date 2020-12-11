@@ -4,7 +4,9 @@ package resolver
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
+	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/modules/device/graph/generated"
 	"VehicleSupervision/internal/modules/device/graph/model"
 	model1 "VehicleSupervision/internal/modules/device/model"
 	"VehicleSupervision/pkg/graphql/util"
@@ -177,3 +179,12 @@ func (r *queryResolver) SimCardFlowByPk(ctx context.Context, id int64) (*model1.
 	}
 	return &rs, nil
 }
+
+func (r *simCardFlowResolver) SimCardID(ctx context.Context, obj *model1.SimCardFlow) (*model1.SimCard, error) {
+	return dataloader.GetLoaders(ctx).SimCardLoader.Load(obj.SimCardID)
+}
+
+// SimCardFlow returns generated.SimCardFlowResolver implementation.
+func (r *Resolver) SimCardFlow() generated.SimCardFlowResolver { return &simCardFlowResolver{r} }
+
+type simCardFlowResolver struct{ *Resolver }

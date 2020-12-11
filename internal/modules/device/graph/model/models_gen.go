@@ -174,11 +174,11 @@ type SimCardFlowBoolExp struct {
 	EnterpriseID   *model1.StringComparisonExp      `json:"enterprise_id"`
 	Iccid          *model1.StringComparisonExp      `json:"iccid"`
 	ID             *model1.BigintComparisonExp      `json:"id"`
-	IotCardNo      *model1.StringComparisonExp      `json:"iot_card_no"`
 	IsDelete       *model1.BooleanComparisonExp     `json:"is_delete"`
 	IsSharePool    *model1.BooleanComparisonExp     `json:"is_share_pool"`
 	PoolAvgFlow    *model1.NumericComparisonExp     `json:"pool_avg_flow"`
 	SimCardFlowID  *model1.StringComparisonExp      `json:"sim_card_flow_id"`
+	SimCardID      *model1.StringComparisonExp      `json:"sim_card_id"`
 	SuitFlow       *model1.NumericComparisonExp     `json:"suit_flow"`
 	SuitLeftFlow   *model1.NumericComparisonExp     `json:"suit_left_flow"`
 	SuitOverFlow   *model1.NumericComparisonExp     `json:"suit_over_flow"`
@@ -217,11 +217,11 @@ type SimCardFlowInsertInput struct {
 	EnterpriseID   *string    `json:"enterprise_id"`
 	Iccid          *string    `json:"iccid"`
 	ID             *int64     `json:"id"`
-	IotCardNo      *string    `json:"iot_card_no"`
 	IsDelete       *bool      `json:"is_delete"`
 	IsSharePool    *bool      `json:"is_share_pool"`
 	PoolAvgFlow    *float64   `json:"pool_avg_flow"`
 	SimCardFlowID  *string    `json:"sim_card_flow_id"`
+	SimCardID      *string    `json:"sim_card_id"`
 	SuitFlow       *float64   `json:"suit_flow"`
 	SuitLeftFlow   *float64   `json:"suit_left_flow"`
 	SuitOverFlow   *float64   `json:"suit_over_flow"`
@@ -245,9 +245,9 @@ type SimCardFlowMaxFields struct {
 	EnterpriseID   *string    `json:"enterprise_id"`
 	Iccid          *string    `json:"iccid"`
 	ID             *int64     `json:"id"`
-	IotCardNo      *string    `json:"iot_card_no"`
 	PoolAvgFlow    *float64   `json:"pool_avg_flow"`
 	SimCardFlowID  *string    `json:"sim_card_flow_id"`
+	SimCardID      *string    `json:"sim_card_id"`
 	SuitFlow       *float64   `json:"suit_flow"`
 	SuitLeftFlow   *float64   `json:"suit_left_flow"`
 	SuitOverFlow   *float64   `json:"suit_over_flow"`
@@ -271,9 +271,9 @@ type SimCardFlowMaxOrderBy struct {
 	EnterpriseID   *model1.OrderBy `json:"enterprise_id"`
 	Iccid          *model1.OrderBy `json:"iccid"`
 	ID             *model1.OrderBy `json:"id"`
-	IotCardNo      *model1.OrderBy `json:"iot_card_no"`
 	PoolAvgFlow    *model1.OrderBy `json:"pool_avg_flow"`
 	SimCardFlowID  *model1.OrderBy `json:"sim_card_flow_id"`
+	SimCardID      *model1.OrderBy `json:"sim_card_id"`
 	SuitFlow       *model1.OrderBy `json:"suit_flow"`
 	SuitLeftFlow   *model1.OrderBy `json:"suit_left_flow"`
 	SuitOverFlow   *model1.OrderBy `json:"suit_over_flow"`
@@ -297,9 +297,9 @@ type SimCardFlowMinFields struct {
 	EnterpriseID   *string    `json:"enterprise_id"`
 	Iccid          *string    `json:"iccid"`
 	ID             *int64     `json:"id"`
-	IotCardNo      *string    `json:"iot_card_no"`
 	PoolAvgFlow    *float64   `json:"pool_avg_flow"`
 	SimCardFlowID  *string    `json:"sim_card_flow_id"`
+	SimCardID      *string    `json:"sim_card_id"`
 	SuitFlow       *float64   `json:"suit_flow"`
 	SuitLeftFlow   *float64   `json:"suit_left_flow"`
 	SuitOverFlow   *float64   `json:"suit_over_flow"`
@@ -323,9 +323,9 @@ type SimCardFlowMinOrderBy struct {
 	EnterpriseID   *model1.OrderBy `json:"enterprise_id"`
 	Iccid          *model1.OrderBy `json:"iccid"`
 	ID             *model1.OrderBy `json:"id"`
-	IotCardNo      *model1.OrderBy `json:"iot_card_no"`
 	PoolAvgFlow    *model1.OrderBy `json:"pool_avg_flow"`
 	SimCardFlowID  *model1.OrderBy `json:"sim_card_flow_id"`
+	SimCardID      *model1.OrderBy `json:"sim_card_id"`
 	SuitFlow       *model1.OrderBy `json:"suit_flow"`
 	SuitLeftFlow   *model1.OrderBy `json:"suit_left_flow"`
 	SuitOverFlow   *model1.OrderBy `json:"suit_over_flow"`
@@ -370,11 +370,11 @@ type SimCardFlowOrderBy struct {
 	EnterpriseID   *model1.OrderBy `json:"enterprise_id"`
 	Iccid          *model1.OrderBy `json:"iccid"`
 	ID             *model1.OrderBy `json:"id"`
-	IotCardNo      *model1.OrderBy `json:"iot_card_no"`
 	IsDelete       *model1.OrderBy `json:"is_delete"`
 	IsSharePool    *model1.OrderBy `json:"is_share_pool"`
 	PoolAvgFlow    *model1.OrderBy `json:"pool_avg_flow"`
 	SimCardFlowID  *model1.OrderBy `json:"sim_card_flow_id"`
+	SimCardID      *model1.OrderBy `json:"sim_card_id"`
 	SuitFlow       *model1.OrderBy `json:"suit_flow"`
 	SuitLeftFlow   *model1.OrderBy `json:"suit_left_flow"`
 	SuitOverFlow   *model1.OrderBy `json:"suit_over_flow"`
@@ -404,11 +404,11 @@ type SimCardFlowSetInput struct {
 	EnterpriseID   *string    `json:"enterprise_id"`
 	Iccid          *string    `json:"iccid"`
 	ID             *int64     `json:"id"`
-	IotCardNo      *string    `json:"iot_card_no"`
 	IsDelete       *bool      `json:"is_delete"`
 	IsSharePool    *bool      `json:"is_share_pool"`
 	PoolAvgFlow    *float64   `json:"pool_avg_flow"`
 	SimCardFlowID  *string    `json:"sim_card_flow_id"`
+	SimCardID      *string    `json:"sim_card_id"`
 	SuitFlow       *float64   `json:"suit_flow"`
 	SuitLeftFlow   *float64   `json:"suit_left_flow"`
 	SuitOverFlow   *float64   `json:"suit_over_flow"`
@@ -2305,7 +2305,7 @@ func (e *SimCardConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = SimCardConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid sim_card_constraint", str)
+		return fmt.Errorf("%s is not a valid SimCardConstraint", str)
 	}
 	return nil
 }
@@ -2346,7 +2346,7 @@ func (e *SimCardFlowConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = SimCardFlowConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid sim_card_flow_constraint", str)
+		return fmt.Errorf("%s is not a valid SimCardFlowConstraint", str)
 	}
 	return nil
 }
@@ -2378,8 +2378,6 @@ const (
 	// column name
 	SimCardFlowSelectColumnID SimCardFlowSelectColumn = "id"
 	// column name
-	SimCardFlowSelectColumnIotCardNo SimCardFlowSelectColumn = "iot_card_no"
-	// column name
 	SimCardFlowSelectColumnIsDelete SimCardFlowSelectColumn = "is_delete"
 	// column name
 	SimCardFlowSelectColumnIsSharePool SimCardFlowSelectColumn = "is_share_pool"
@@ -2387,6 +2385,8 @@ const (
 	SimCardFlowSelectColumnPoolAvgFlow SimCardFlowSelectColumn = "pool_avg_flow"
 	// column name
 	SimCardFlowSelectColumnSimCardFlowID SimCardFlowSelectColumn = "sim_card_flow_id"
+	// column name
+	SimCardFlowSelectColumnSimCardID SimCardFlowSelectColumn = "sim_card_id"
 	// column name
 	SimCardFlowSelectColumnSuitFlow SimCardFlowSelectColumn = "suit_flow"
 	// column name
@@ -2419,11 +2419,11 @@ var AllSimCardFlowSelectColumn = []SimCardFlowSelectColumn{
 	SimCardFlowSelectColumnEnterpriseID,
 	SimCardFlowSelectColumnIccid,
 	SimCardFlowSelectColumnID,
-	SimCardFlowSelectColumnIotCardNo,
 	SimCardFlowSelectColumnIsDelete,
 	SimCardFlowSelectColumnIsSharePool,
 	SimCardFlowSelectColumnPoolAvgFlow,
 	SimCardFlowSelectColumnSimCardFlowID,
+	SimCardFlowSelectColumnSimCardID,
 	SimCardFlowSelectColumnSuitFlow,
 	SimCardFlowSelectColumnSuitLeftFlow,
 	SimCardFlowSelectColumnSuitOverFlow,
@@ -2438,7 +2438,7 @@ var AllSimCardFlowSelectColumn = []SimCardFlowSelectColumn{
 
 func (e SimCardFlowSelectColumn) IsValid() bool {
 	switch e {
-	case SimCardFlowSelectColumnCardAvgFlow, SimCardFlowSelectColumnCardNoRemark, SimCardFlowSelectColumnCreateAt, SimCardFlowSelectColumnCreateBy, SimCardFlowSelectColumnDeleteAt, SimCardFlowSelectColumnDeleteBy, SimCardFlowSelectColumnEnterpriseID, SimCardFlowSelectColumnIccid, SimCardFlowSelectColumnID, SimCardFlowSelectColumnIotCardNo, SimCardFlowSelectColumnIsDelete, SimCardFlowSelectColumnIsSharePool, SimCardFlowSelectColumnPoolAvgFlow, SimCardFlowSelectColumnSimCardFlowID, SimCardFlowSelectColumnSuitFlow, SimCardFlowSelectColumnSuitLeftFlow, SimCardFlowSelectColumnSuitOverFlow, SimCardFlowSelectColumnSuitSmsLeftNum, SimCardFlowSelectColumnSuitSmsNum, SimCardFlowSelectColumnSuitSmsOverNum, SimCardFlowSelectColumnSuitUseSmsNum, SimCardFlowSelectColumnUpdateAt, SimCardFlowSelectColumnUpdateBy, SimCardFlowSelectColumnUseFlow:
+	case SimCardFlowSelectColumnCardAvgFlow, SimCardFlowSelectColumnCardNoRemark, SimCardFlowSelectColumnCreateAt, SimCardFlowSelectColumnCreateBy, SimCardFlowSelectColumnDeleteAt, SimCardFlowSelectColumnDeleteBy, SimCardFlowSelectColumnEnterpriseID, SimCardFlowSelectColumnIccid, SimCardFlowSelectColumnID, SimCardFlowSelectColumnIsDelete, SimCardFlowSelectColumnIsSharePool, SimCardFlowSelectColumnPoolAvgFlow, SimCardFlowSelectColumnSimCardFlowID, SimCardFlowSelectColumnSimCardID, SimCardFlowSelectColumnSuitFlow, SimCardFlowSelectColumnSuitLeftFlow, SimCardFlowSelectColumnSuitOverFlow, SimCardFlowSelectColumnSuitSmsLeftNum, SimCardFlowSelectColumnSuitSmsNum, SimCardFlowSelectColumnSuitSmsOverNum, SimCardFlowSelectColumnSuitUseSmsNum, SimCardFlowSelectColumnUpdateAt, SimCardFlowSelectColumnUpdateBy, SimCardFlowSelectColumnUseFlow:
 		return true
 	}
 	return false
@@ -2456,7 +2456,7 @@ func (e *SimCardFlowSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = SimCardFlowSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid sim_card_flow_select_column", str)
+		return fmt.Errorf("%s is not a valid SimCardFlowSelectColumn", str)
 	}
 	return nil
 }
@@ -2488,8 +2488,6 @@ const (
 	// column name
 	SimCardFlowUpdateColumnID SimCardFlowUpdateColumn = "id"
 	// column name
-	SimCardFlowUpdateColumnIotCardNo SimCardFlowUpdateColumn = "iot_card_no"
-	// column name
 	SimCardFlowUpdateColumnIsDelete SimCardFlowUpdateColumn = "is_delete"
 	// column name
 	SimCardFlowUpdateColumnIsSharePool SimCardFlowUpdateColumn = "is_share_pool"
@@ -2497,6 +2495,8 @@ const (
 	SimCardFlowUpdateColumnPoolAvgFlow SimCardFlowUpdateColumn = "pool_avg_flow"
 	// column name
 	SimCardFlowUpdateColumnSimCardFlowID SimCardFlowUpdateColumn = "sim_card_flow_id"
+	// column name
+	SimCardFlowUpdateColumnSimCardID SimCardFlowUpdateColumn = "sim_card_id"
 	// column name
 	SimCardFlowUpdateColumnSuitFlow SimCardFlowUpdateColumn = "suit_flow"
 	// column name
@@ -2529,11 +2529,11 @@ var AllSimCardFlowUpdateColumn = []SimCardFlowUpdateColumn{
 	SimCardFlowUpdateColumnEnterpriseID,
 	SimCardFlowUpdateColumnIccid,
 	SimCardFlowUpdateColumnID,
-	SimCardFlowUpdateColumnIotCardNo,
 	SimCardFlowUpdateColumnIsDelete,
 	SimCardFlowUpdateColumnIsSharePool,
 	SimCardFlowUpdateColumnPoolAvgFlow,
 	SimCardFlowUpdateColumnSimCardFlowID,
+	SimCardFlowUpdateColumnSimCardID,
 	SimCardFlowUpdateColumnSuitFlow,
 	SimCardFlowUpdateColumnSuitLeftFlow,
 	SimCardFlowUpdateColumnSuitOverFlow,
@@ -2548,7 +2548,7 @@ var AllSimCardFlowUpdateColumn = []SimCardFlowUpdateColumn{
 
 func (e SimCardFlowUpdateColumn) IsValid() bool {
 	switch e {
-	case SimCardFlowUpdateColumnCardAvgFlow, SimCardFlowUpdateColumnCardNoRemark, SimCardFlowUpdateColumnCreateAt, SimCardFlowUpdateColumnCreateBy, SimCardFlowUpdateColumnDeleteAt, SimCardFlowUpdateColumnDeleteBy, SimCardFlowUpdateColumnEnterpriseID, SimCardFlowUpdateColumnIccid, SimCardFlowUpdateColumnID, SimCardFlowUpdateColumnIotCardNo, SimCardFlowUpdateColumnIsDelete, SimCardFlowUpdateColumnIsSharePool, SimCardFlowUpdateColumnPoolAvgFlow, SimCardFlowUpdateColumnSimCardFlowID, SimCardFlowUpdateColumnSuitFlow, SimCardFlowUpdateColumnSuitLeftFlow, SimCardFlowUpdateColumnSuitOverFlow, SimCardFlowUpdateColumnSuitSmsLeftNum, SimCardFlowUpdateColumnSuitSmsNum, SimCardFlowUpdateColumnSuitSmsOverNum, SimCardFlowUpdateColumnSuitUseSmsNum, SimCardFlowUpdateColumnUpdateAt, SimCardFlowUpdateColumnUpdateBy, SimCardFlowUpdateColumnUseFlow:
+	case SimCardFlowUpdateColumnCardAvgFlow, SimCardFlowUpdateColumnCardNoRemark, SimCardFlowUpdateColumnCreateAt, SimCardFlowUpdateColumnCreateBy, SimCardFlowUpdateColumnDeleteAt, SimCardFlowUpdateColumnDeleteBy, SimCardFlowUpdateColumnEnterpriseID, SimCardFlowUpdateColumnIccid, SimCardFlowUpdateColumnID, SimCardFlowUpdateColumnIsDelete, SimCardFlowUpdateColumnIsSharePool, SimCardFlowUpdateColumnPoolAvgFlow, SimCardFlowUpdateColumnSimCardFlowID, SimCardFlowUpdateColumnSimCardID, SimCardFlowUpdateColumnSuitFlow, SimCardFlowUpdateColumnSuitLeftFlow, SimCardFlowUpdateColumnSuitOverFlow, SimCardFlowUpdateColumnSuitSmsLeftNum, SimCardFlowUpdateColumnSuitSmsNum, SimCardFlowUpdateColumnSuitSmsOverNum, SimCardFlowUpdateColumnSuitUseSmsNum, SimCardFlowUpdateColumnUpdateAt, SimCardFlowUpdateColumnUpdateBy, SimCardFlowUpdateColumnUseFlow:
 		return true
 	}
 	return false
@@ -2566,7 +2566,7 @@ func (e *SimCardFlowUpdateColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = SimCardFlowUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid sim_card_flow_update_column", str)
+		return fmt.Errorf("%s is not a valid SimCardFlowUpdateColumn", str)
 	}
 	return nil
 }
@@ -2652,7 +2652,7 @@ func (e *SimCardSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = SimCardSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid sim_card_select_column", str)
+		return fmt.Errorf("%s is not a valid SimCardSelectColumn", str)
 	}
 	return nil
 }
@@ -2738,7 +2738,7 @@ func (e *SimCardUpdateColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = SimCardUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid sim_card_update_column", str)
+		return fmt.Errorf("%s is not a valid SimCardUpdateColumn", str)
 	}
 	return nil
 }
@@ -2779,7 +2779,7 @@ func (e *TerminalConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_constraint", str)
+		return fmt.Errorf("%s is not a valid TerminalConstraint", str)
 	}
 	return nil
 }
@@ -2820,7 +2820,7 @@ func (e *TerminalFactoryConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalFactoryConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_factory_constraint", str)
+		return fmt.Errorf("%s is not a valid TerminalFactoryConstraint", str)
 	}
 	return nil
 }
@@ -2906,7 +2906,7 @@ func (e *TerminalFactorySelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalFactorySelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_factory_select_column", str)
+		return fmt.Errorf("%s is not a valid TerminalFactorySelectColumn", str)
 	}
 	return nil
 }
@@ -2992,7 +2992,7 @@ func (e *TerminalFactoryUpdateColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalFactoryUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_factory_update_column", str)
+		return fmt.Errorf("%s is not a valid TerminalFactoryUpdateColumn", str)
 	}
 	return nil
 }
@@ -3033,7 +3033,7 @@ func (e *TerminalModalConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalModalConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_modal_constraint", str)
+		return fmt.Errorf("%s is not a valid TerminalModalConstraint", str)
 	}
 	return nil
 }
@@ -3131,7 +3131,7 @@ func (e *TerminalModalSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalModalSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_modal_select_column", str)
+		return fmt.Errorf("%s is not a valid TerminalModalSelectColumn", str)
 	}
 	return nil
 }
@@ -3229,7 +3229,7 @@ func (e *TerminalModalUpdateColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalModalUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_modal_update_column", str)
+		return fmt.Errorf("%s is not a valid TerminalModalUpdateColumn", str)
 	}
 	return nil
 }
@@ -3372,7 +3372,7 @@ func (e *TerminalSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_select_column", str)
+		return fmt.Errorf("%s is not a valid TerminalSelectColumn", str)
 	}
 	return nil
 }
@@ -3413,7 +3413,7 @@ func (e *TerminalTypesConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalTypesConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_types_constraint", str)
+		return fmt.Errorf("%s is not a valid TerminalTypesConstraint", str)
 	}
 	return nil
 }
@@ -3484,7 +3484,7 @@ func (e *TerminalTypesSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalTypesSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_types_select_column", str)
+		return fmt.Errorf("%s is not a valid TerminalTypesSelectColumn", str)
 	}
 	return nil
 }
@@ -3555,7 +3555,7 @@ func (e *TerminalTypesUpdateColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalTypesUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_types_update_column", str)
+		return fmt.Errorf("%s is not a valid TerminalTypesUpdateColumn", str)
 	}
 	return nil
 }
@@ -3698,7 +3698,7 @@ func (e *TerminalUpdateColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = TerminalUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid terminal_update_column", str)
+		return fmt.Errorf("%s is not a valid TerminalUpdateColumn", str)
 	}
 	return nil
 }

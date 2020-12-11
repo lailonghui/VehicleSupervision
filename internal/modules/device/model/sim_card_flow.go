@@ -1,6 +1,11 @@
 package model
 
-import "time"
+import (
+	"VehicleSupervision/internal/db"
+	"time"
+)
+
+//go:generate go run github.com/vektah/dataloaden SimCardFlowLoader string *VehicleSupervision/internal/modules/device/model.SimCardFlow
 
 // sim卡流量信息
 //
@@ -26,7 +31,7 @@ type SimCardFlow struct {
 	// ID
 	ID int64 `json:"id"`
 	// 物联卡号
-	IotCardNo string `json:"iot_card_no"`
+	SimCardID string `json:"sim_card_id"`
 	// 是否删除
 	IsDelete bool `json:"is_delete"`
 	// 是否共享池
@@ -59,4 +64,16 @@ type SimCardFlow struct {
 
 func (s SimCardFlow) TableName() string {
 	return "sim_card_flow"
+}
+
+func (u *SimCardFlow) NewLoader() *SimCardFlowLoader {
+	return &SimCardFlowLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*SimCardFlow, []error) {
+			var rs []*SimCardFlow
+			db.DB.Model(&SimCardFlow{}).Where("sim_card_flow_id in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
 }

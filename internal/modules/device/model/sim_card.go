@@ -1,6 +1,11 @@
 package model
 
-import "time"
+import (
+	"VehicleSupervision/internal/db"
+	"time"
+)
+
+//go:generate go run github.com/vektah/dataloaden SimCardLoader string *VehicleSupervision/internal/modules/device/model.SimCard
 
 type SimCard struct {
 	// 创建时间
@@ -39,4 +44,16 @@ type SimCard struct {
 
 func (s SimCard) TableName() string {
 	return "sim_card"
+}
+
+func (u *SimCard) NewLoader() *SimCardLoader {
+	return &SimCardLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*SimCard, []error) {
+			var rs []*SimCard
+			db.DB.Model(&SimCard{}).Where("sim_card_id in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
 }
