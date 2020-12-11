@@ -124,3 +124,7 @@ type VehicleInfoChangeLog struct {
 	// 车辆类型字典
 	VehicleType *int `json:"vehicle_type"`
 }
+
+func (VehicleInfoChangeLog) TableName() string {
+	return "vehicle_info_change_log"
+}

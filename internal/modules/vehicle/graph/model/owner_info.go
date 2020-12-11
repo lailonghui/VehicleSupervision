@@ -57,3 +57,7 @@ type OwnerInfo struct {
 	// 修改人
 	UpdatedBy *string `json:"update_by"`
 }
+
+func (OwnerInfo) TableName() string {
+	return "owner_info"
+}

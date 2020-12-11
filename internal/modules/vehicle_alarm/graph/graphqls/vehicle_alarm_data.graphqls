@@ -1,412 +1,315 @@
-schema {
-    query: query_root
-    mutation: mutation_root
-    subscription: subscription_root
-}
 
-scalar bigint
-
-# expression to compare columns of type bigint. All fields are combined with logical 'AND'.
-input bigint_comparison_exp {
-    _eq: bigint
-    _gt: bigint
-    _gte: bigint
-    _in: [bigint!]
-    _is_null: Boolean
-    _lt: bigint
-    _lte: bigint
-    _neq: bigint
-    _nin: [bigint!]
-}
-
-# expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
-input Boolean_comparison_exp {
-    _eq: Boolean
-    _gt: Boolean
-    _gte: Boolean
-    _in: [Boolean!]
-    _is_null: Boolean
-    _lt: Boolean
-    _lte: Boolean
-    _neq: Boolean
-    _nin: [Boolean!]
-}
-
-# expression to compare columns of type Int. All fields are combined with logical 'AND'.
-input Int_comparison_exp {
-    _eq: Int
-    _gt: Int
-    _gte: Int
-    _in: [Int!]
-    _is_null: Boolean
-    _lt: Int
-    _lte: Int
-    _neq: Int
-    _nin: [Int!]
-}
-
-# mutation root
-type mutation_root {
-    # delete data from the table: "vehicle_alarm_data"
+extend type Mutation {
+    """
+    delete data from the table: "vehicle_alarm_data"
+  """
     delete_vehicle_alarm_data(
-        # filter the rows which have to be deleted
+        """filter the rows which have to be deleted"""
         where: vehicle_alarm_data_bool_exp!
     ): vehicle_alarm_data_mutation_response
 
-    # delete single row from the table: "vehicle_alarm_data"
+    """
+    delete single row from the table: "vehicle_alarm_data"
+  """
     delete_vehicle_alarm_data_by_pk(
-        # 主键
+        """主键"""
         id: bigint!
 
-        # 报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键
+        """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
         vehicle_alarm_data_id: String!
     ): vehicle_alarm_data
 
-    # insert data into the table: "vehicle_alarm_data"
+    """
+    insert data into the table: "vehicle_alarm_data"
+  """
     insert_vehicle_alarm_data(
-        # the rows to be inserted
+        """the rows to be inserted"""
         objects: [vehicle_alarm_data_insert_input!]!
 
-        # on conflict condition
+        """on conflict condition"""
         on_conflict: vehicle_alarm_data_on_conflict
     ): vehicle_alarm_data_mutation_response
 
-    # insert a single row into the table: "vehicle_alarm_data"
+    """
+    insert a single row into the table: "vehicle_alarm_data"
+  """
     insert_vehicle_alarm_data_one(
-        # the row to be inserted
+        """the row to be inserted"""
         object: vehicle_alarm_data_insert_input!
 
-        # on conflict condition
+        """on conflict condition"""
         on_conflict: vehicle_alarm_data_on_conflict
     ): vehicle_alarm_data
 
-    # update data of the table: "vehicle_alarm_data"
+    """
+    update data of the table: "vehicle_alarm_data"
+  """
     update_vehicle_alarm_data(
-        # increments the integer columns with given value of the filtered values
+        """increments the integer columns with given value of the filtered values"""
         _inc: vehicle_alarm_data_inc_input
 
-        # sets the columns of the filtered rows to the given values
+        """sets the columns of the filtered rows to the given values"""
         _set: vehicle_alarm_data_set_input
 
-        # filter the rows which have to be updated
+        """filter the rows which have to be updated"""
         where: vehicle_alarm_data_bool_exp!
     ): vehicle_alarm_data_mutation_response
 
-    # update single row of the table: "vehicle_alarm_data"
+    """
+    update single row of the table: "vehicle_alarm_data"
+  """
     update_vehicle_alarm_data_by_pk(
-        # increments the integer columns with given value of the filtered values
+        """increments the integer columns with given value of the filtered values"""
         _inc: vehicle_alarm_data_inc_input
 
-        # sets the columns of the filtered rows to the given values
+        """sets the columns of the filtered rows to the given values"""
         _set: vehicle_alarm_data_set_input
         pk_columns: vehicle_alarm_data_pk_columns_input!
     ): vehicle_alarm_data
 }
 
-scalar numeric
 
-# expression to compare columns of type numeric. All fields are combined with logical 'AND'.
-input numeric_comparison_exp {
-    _eq: numeric
-    _gt: numeric
-    _gte: numeric
-    _in: [numeric!]
-    _is_null: Boolean
-    _lt: numeric
-    _lte: numeric
-    _neq: numeric
-    _nin: [numeric!]
-}
-
-# column ordering options
-enum order_by {
-    # in the ascending order, nulls last
-    asc
-
-    # in the ascending order, nulls first
-    asc_nulls_first
-
-    # in the ascending order, nulls last
-    asc_nulls_last
-
-    # in the descending order, nulls first
-    desc
-
-    # in the descending order, nulls first
-    desc_nulls_first
-
-    # in the descending order, nulls last
-    desc_nulls_last
-}
-
-scalar point
-
-# expression to compare columns of type point. All fields are combined with logical 'AND'.
-input point_comparison_exp {
-    _eq: point
-    _gt: point
-    _gte: point
-    _in: [point!]
-    _is_null: Boolean
-    _lt: point
-    _lte: point
-    _neq: point
-    _nin: [point!]
-}
-
-# query root
-type query_root {
-    # fetch data from the table: "vehicle_alarm_data"
+extend type Query {
+    """
+    fetch data from the table: "vehicle_alarm_data"
+  """
     vehicle_alarm_data(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [vehicle_alarm_data_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [vehicle_alarm_data_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: vehicle_alarm_data_bool_exp
     ): [vehicle_alarm_data!]!
 
-    # fetch aggregated fields from the table: "vehicle_alarm_data"
+    """
+    fetch aggregated fields from the table: "vehicle_alarm_data"
+  """
     vehicle_alarm_data_aggregate(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [vehicle_alarm_data_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [vehicle_alarm_data_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: vehicle_alarm_data_bool_exp
     ): vehicle_alarm_data_aggregate!
 
-    # fetch data from the table: "vehicle_alarm_data" using primary key columns
+    """
+    fetch data from the table: "vehicle_alarm_data" using primary key columns
+    """
     vehicle_alarm_data_by_pk(
-        # 主键
+        """主键"""
         id: bigint!
 
-        # 报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键
+        """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
         vehicle_alarm_data_id: String!
     ): vehicle_alarm_data
 }
 
-# expression to compare columns of type String. All fields are combined with logical 'AND'.
-input String_comparison_exp {
-    _eq: String
-    _gt: String
-    _gte: String
-    _ilike: String
-    _in: [String!]
-    _is_null: Boolean
-    _like: String
-    _lt: String
-    _lte: String
-    _neq: String
-    _nilike: String
-    _nin: [String!]
-    _nlike: String
-    _nsimilar: String
-    _similar: String
-}
 
-# subscription root
-type subscription_root {
-    # fetch data from the table: "vehicle_alarm_data"
+
+extend type Subscription {
+    """
+    fetch data from the table: "vehicle_alarm_data"
+  """
     vehicle_alarm_data(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [vehicle_alarm_data_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [vehicle_alarm_data_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: vehicle_alarm_data_bool_exp
     ): [vehicle_alarm_data!]!
 
-    # fetch aggregated fields from the table: "vehicle_alarm_data"
+    """
+    fetch aggregated fields from the table: "vehicle_alarm_data"
+  """
     vehicle_alarm_data_aggregate(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [vehicle_alarm_data_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [vehicle_alarm_data_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: vehicle_alarm_data_bool_exp
     ): vehicle_alarm_data_aggregate!
 
-    # fetch data from the table: "vehicle_alarm_data" using primary key columns
+    """
+    fetch data from the table: "vehicle_alarm_data" using primary key columns
+    """
     vehicle_alarm_data_by_pk(
-        # 主键
+        """主键"""
         id: bigint!
 
-        # 报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键
+        """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
         vehicle_alarm_data_id: String!
     ): vehicle_alarm_data
 }
 
-scalar timestamptz
 
-# expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
-input timestamptz_comparison_exp {
-    _eq: timestamptz
-    _gt: timestamptz
-    _gte: timestamptz
-    _in: [timestamptz!]
-    _is_null: Boolean
-    _lt: timestamptz
-    _lte: timestamptz
-    _neq: timestamptz
-    _nin: [timestamptz!]
-}
 
-# 报警数据表
-#
-#
-# columns and relationships of "vehicle_alarm_data"
-#
+"""
+报警数据表
+
+
+columns and relationships of "vehicle_alarm_data"
+
+"""
 type vehicle_alarm_data {
-    # GPS速度
+    """GPS速度"""
     GPS_speed: numeric
 
-    # 处警ID
+    """处警ID"""
     alarm_deal_id: String
 
-    # 报警结束位置
+    """报警结束位置"""
     alarm_end_position: String
 
-    # 报警结束时间
+    """报警结束时间"""
     alarm_end_time: timestamptz
 
-    # 报警来源字典
+    """报警来源字典"""
     alarm_source: String
 
-    # 报警开始时间
+    """报警开始时间"""
     alarm_start_time: timestamptz
 
-    # 报警类型字典
+    """报警类型字典"""
     alarm_type: String
 
-    # 进区域ID
+    """进区域ID"""
     area_id: String
 
-    # 空间数据类型point表示经度(longitude)和纬度(latitude)
+    """空间数据类型point表示经度(longitude)和纬度(latitude)"""
     coordinate: point
 
-    # 持续时间
+    """持续时间"""
     duration: String
 
-    # 主键
+    """主键"""
     id: bigint!
 
-    # 报警是否有效
+    """报警是否有效"""
     is_alarm_effective: Boolean
 
-    # 报警是否结束
+    """报警是否结束"""
     is_alarm_over: Boolean
 
-    # 是否取消报警
+    """是否取消报警"""
     is_cancel_alarm: Boolean
 
-    # 是否解析
+    """是否解析"""
     is_resolve: Boolean
 
-    # 是否监管
+    """是否监管"""
     is_supervise: Boolean
 
-    # 最新报警位置
+    """最新报警位置"""
     latest_alarm_position: Int
 
-    # 最新报警时间
+    """最新报警时间"""
     latest_alarm_time: timestamptz
 
-    # 位置描述
+    """位置描述"""
     location_description: String
 
-    # 最高速度
+    """最高速度"""
     maximum_speed: numeric
 
-    # 地区
+    """地区"""
     pid: String
 
-    # 处理描述
+    """处理描述"""
     processing_description: String
 
-    # 处警处理方式字典
+    """处警处理方式字典"""
     processing_method: String
 
-    # 处警处理状态字典
-    #
+    """
+    处警处理状态字典
+
+    """
     processing_status: String
 
-    # 处理时间
+    """处理时间"""
     processing_time: timestamptz
 
-    # 处理人
+    """处理人"""
     processor: String
 
-    # 记录时间
+    """记录时间"""
     record_time: timestamptz
 
-    # 道路等级字典
+    """道路等级字典"""
     road_grade: String
 
-    # 道路名称
+    """道路名称"""
     road_name: String
 
-    # 限速阀值
+    """限速阀值"""
     speed_limit_threshold: numeric
 
-    # 监管备注
+    """监管备注"""
     supervision_note: String
 
-    # 监管时间
+    """监管时间"""
     supervision_time: timestamptz
 
-    # 监管人
+    """监管人"""
     supervisor: String
 
-    # 行驶记录仪速度
+    """行驶记录仪速度"""
     tachograph_speed: numeric
 
-    # 报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键
+    """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
     vehicle_alarm_data_id: String!
 
-    # 车辆ID
+    """车辆ID"""
     vehicle_id: String
 }
 
-# aggregated selection of "vehicle_alarm_data"
+"""
+aggregated selection of "vehicle_alarm_data"
+"""
 type vehicle_alarm_data_aggregate {
     aggregate: vehicle_alarm_data_aggregate_fields
     nodes: [vehicle_alarm_data!]!
 }
 
-# aggregate fields of "vehicle_alarm_data"
+"""
+aggregate fields of "vehicle_alarm_data"
+"""
 type vehicle_alarm_data_aggregate_fields {
     avg: vehicle_alarm_data_avg_fields
     count(columns: [vehicle_alarm_data_select_column!], distinct: Boolean): Int
@@ -421,7 +324,9 @@ type vehicle_alarm_data_aggregate_fields {
     variance: vehicle_alarm_data_variance_fields
 }
 
-# order by aggregate values of table "vehicle_alarm_data"
+"""
+order by aggregate values of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_aggregate_order_by {
     avg: vehicle_alarm_data_avg_order_by
     count: order_by
@@ -436,13 +341,15 @@ input vehicle_alarm_data_aggregate_order_by {
     variance: vehicle_alarm_data_variance_order_by
 }
 
-# input type for inserting array relation for remote table "vehicle_alarm_data"
+"""
+input type for inserting array relation for remote table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_arr_rel_insert_input {
     data: [vehicle_alarm_data_insert_input!]!
     on_conflict: vehicle_alarm_data_on_conflict
 }
 
-# aggregate avg on columns
+"""aggregate avg on columns"""
 type vehicle_alarm_data_avg_fields {
     GPS_speed: Float
     id: Float
@@ -452,7 +359,9 @@ type vehicle_alarm_data_avg_fields {
     tachograph_speed: Float
 }
 
-# order by avg() on columns of table "vehicle_alarm_data"
+"""
+order by avg() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_avg_order_by {
     GPS_speed: order_by
     id: order_by
@@ -462,7 +371,9 @@ input vehicle_alarm_data_avg_order_by {
     tachograph_speed: order_by
 }
 
-# Boolean expression to filter rows from the table "vehicle_alarm_data". All fields are combined with a logical 'AND'.
+"""
+Boolean expression to filter rows from the table "vehicle_alarm_data". All fields are combined with a logical 'AND'.
+"""
 input vehicle_alarm_data_bool_exp {
     GPS_speed: numeric_comparison_exp
     _and: [vehicle_alarm_data_bool_exp]
@@ -505,13 +416,17 @@ input vehicle_alarm_data_bool_exp {
     vehicle_id: String_comparison_exp
 }
 
-# unique or primary key constraints on table "vehicle_alarm_data"
+"""
+unique or primary key constraints on table "vehicle_alarm_data"
+"""
 enum vehicle_alarm_data_constraint {
-    # unique or primary key constraint
+    """unique or primary key constraint"""
     vehicle_alarm_data_pkey
 }
 
-# input type for incrementing integer column in table "vehicle_alarm_data"
+"""
+input type for incrementing integer column in table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_inc_input {
     GPS_speed: numeric
     id: bigint
@@ -521,7 +436,9 @@ input vehicle_alarm_data_inc_input {
     tachograph_speed: numeric
 }
 
-# input type for inserting data into table "vehicle_alarm_data"
+"""
+input type for inserting data into table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_insert_input {
     GPS_speed: numeric
     alarm_deal_id: String
@@ -561,7 +478,7 @@ input vehicle_alarm_data_insert_input {
     vehicle_id: String
 }
 
-# aggregate max on columns
+"""aggregate max on columns"""
 type vehicle_alarm_data_max_fields {
     GPS_speed: numeric
     alarm_deal_id: String
@@ -595,7 +512,9 @@ type vehicle_alarm_data_max_fields {
     vehicle_id: String
 }
 
-# order by max() on columns of table "vehicle_alarm_data"
+"""
+order by max() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_max_order_by {
     GPS_speed: order_by
     alarm_deal_id: order_by
@@ -629,7 +548,7 @@ input vehicle_alarm_data_max_order_by {
     vehicle_id: order_by
 }
 
-# aggregate min on columns
+"""aggregate min on columns"""
 type vehicle_alarm_data_min_fields {
     GPS_speed: numeric
     alarm_deal_id: String
@@ -663,7 +582,9 @@ type vehicle_alarm_data_min_fields {
     vehicle_id: String
 }
 
-# order by min() on columns of table "vehicle_alarm_data"
+"""
+order by min() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_min_order_by {
     GPS_speed: order_by
     alarm_deal_id: order_by
@@ -697,29 +618,37 @@ input vehicle_alarm_data_min_order_by {
     vehicle_id: order_by
 }
 
-# response of any mutation on the table "vehicle_alarm_data"
+"""
+response of any mutation on the table "vehicle_alarm_data"
+"""
 type vehicle_alarm_data_mutation_response {
-    # number of affected rows by the mutation
+    """number of affected rows by the mutation"""
     affected_rows: Int!
 
-    # data of the affected rows by the mutation
+    """data of the affected rows by the mutation"""
     returning: [vehicle_alarm_data!]!
 }
 
-# input type for inserting object relation for remote table "vehicle_alarm_data"
+"""
+input type for inserting object relation for remote table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_obj_rel_insert_input {
     data: vehicle_alarm_data_insert_input!
     on_conflict: vehicle_alarm_data_on_conflict
 }
 
-# on conflict condition type for table "vehicle_alarm_data"
+"""
+on conflict condition type for table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_on_conflict {
     constraint: vehicle_alarm_data_constraint!
     update_columns: [vehicle_alarm_data_update_column!]!
     where: vehicle_alarm_data_bool_exp
 }
 
-# ordering options when selecting data from "vehicle_alarm_data"
+"""
+ordering options when selecting data from "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_order_by {
     GPS_speed: order_by
     alarm_deal_id: order_by
@@ -759,127 +688,133 @@ input vehicle_alarm_data_order_by {
     vehicle_id: order_by
 }
 
-# primary key columns input for table: "vehicle_alarm_data"
+"""
+primary key columns input for table: "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_pk_columns_input {
-    # 主键
+    """主键"""
     id: bigint!
 
-    # 报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键
+    """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
     vehicle_alarm_data_id: String!
 }
 
-# select columns of table "vehicle_alarm_data"
+"""
+select columns of table "vehicle_alarm_data"
+"""
 enum vehicle_alarm_data_select_column {
-    # column name
+    """column name"""
     GPS_speed
 
-    # column name
+    """column name"""
     alarm_deal_id
 
-    # column name
+    """column name"""
     alarm_end_position
 
-    # column name
+    """column name"""
     alarm_end_time
 
-    # column name
+    """column name"""
     alarm_source
 
-    # column name
+    """column name"""
     alarm_start_time
 
-    # column name
+    """column name"""
     alarm_type
 
-    # column name
+    """column name"""
     area_id
 
-    # column name
+    """column name"""
     coordinate
 
-    # column name
+    """column name"""
     duration
 
-    # column name
+    """column name"""
     id
 
-    # column name
+    """column name"""
     is_alarm_effective
 
-    # column name
+    """column name"""
     is_alarm_over
 
-    # column name
+    """column name"""
     is_cancel_alarm
 
-    # column name
+    """column name"""
     is_resolve
 
-    # column name
+    """column name"""
     is_supervise
 
-    # column name
+    """column name"""
     latest_alarm_position
 
-    # column name
+    """column name"""
     latest_alarm_time
 
-    # column name
+    """column name"""
     location_description
 
-    # column name
+    """column name"""
     maximum_speed
 
-    # column name
+    """column name"""
     pid
 
-    # column name
+    """column name"""
     processing_description
 
-    # column name
+    """column name"""
     processing_method
 
-    # column name
+    """column name"""
     processing_status
 
-    # column name
+    """column name"""
     processing_time
 
-    # column name
+    """column name"""
     processor
 
-    # column name
+    """column name"""
     record_time
 
-    # column name
+    """column name"""
     road_grade
 
-    # column name
+    """column name"""
     road_name
 
-    # column name
+    """column name"""
     speed_limit_threshold
 
-    # column name
+    """column name"""
     supervision_note
 
-    # column name
+    """column name"""
     supervision_time
 
-    # column name
+    """column name"""
     supervisor
 
-    # column name
+    """column name"""
     tachograph_speed
 
-    # column name
+    """column name"""
     vehicle_alarm_data_id
 
-    # column name
+    """column name"""
     vehicle_id
 }
 
-# input type for updating data in table "vehicle_alarm_data"
+"""
+input type for updating data in table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_set_input {
     GPS_speed: numeric
     alarm_deal_id: String
@@ -919,7 +854,7 @@ input vehicle_alarm_data_set_input {
     vehicle_id: String
 }
 
-# aggregate stddev on columns
+"""aggregate stddev on columns"""
 type vehicle_alarm_data_stddev_fields {
     GPS_speed: Float
     id: Float
@@ -929,7 +864,9 @@ type vehicle_alarm_data_stddev_fields {
     tachograph_speed: Float
 }
 
-# order by stddev() on columns of table "vehicle_alarm_data"
+"""
+order by stddev() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_stddev_order_by {
     GPS_speed: order_by
     id: order_by
@@ -939,7 +876,7 @@ input vehicle_alarm_data_stddev_order_by {
     tachograph_speed: order_by
 }
 
-# aggregate stddev_pop on columns
+"""aggregate stddev_pop on columns"""
 type vehicle_alarm_data_stddev_pop_fields {
     GPS_speed: Float
     id: Float
@@ -949,7 +886,9 @@ type vehicle_alarm_data_stddev_pop_fields {
     tachograph_speed: Float
 }
 
-# order by stddev_pop() on columns of table "vehicle_alarm_data"
+"""
+order by stddev_pop() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_stddev_pop_order_by {
     GPS_speed: order_by
     id: order_by
@@ -959,7 +898,7 @@ input vehicle_alarm_data_stddev_pop_order_by {
     tachograph_speed: order_by
 }
 
-# aggregate stddev_samp on columns
+"""aggregate stddev_samp on columns"""
 type vehicle_alarm_data_stddev_samp_fields {
     GPS_speed: Float
     id: Float
@@ -969,7 +908,9 @@ type vehicle_alarm_data_stddev_samp_fields {
     tachograph_speed: Float
 }
 
-# order by stddev_samp() on columns of table "vehicle_alarm_data"
+"""
+order by stddev_samp() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_stddev_samp_order_by {
     GPS_speed: order_by
     id: order_by
@@ -979,7 +920,7 @@ input vehicle_alarm_data_stddev_samp_order_by {
     tachograph_speed: order_by
 }
 
-# aggregate sum on columns
+"""aggregate sum on columns"""
 type vehicle_alarm_data_sum_fields {
     GPS_speed: numeric
     id: bigint
@@ -989,7 +930,9 @@ type vehicle_alarm_data_sum_fields {
     tachograph_speed: numeric
 }
 
-# order by sum() on columns of table "vehicle_alarm_data"
+"""
+order by sum() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_sum_order_by {
     GPS_speed: order_by
     id: order_by
@@ -999,118 +942,120 @@ input vehicle_alarm_data_sum_order_by {
     tachograph_speed: order_by
 }
 
-# update columns of table "vehicle_alarm_data"
+"""
+update columns of table "vehicle_alarm_data"
+"""
 enum vehicle_alarm_data_update_column {
-    # column name
+    """column name"""
     GPS_speed
 
-    # column name
+    """column name"""
     alarm_deal_id
 
-    # column name
+    """column name"""
     alarm_end_position
 
-    # column name
+    """column name"""
     alarm_end_time
 
-    # column name
+    """column name"""
     alarm_source
 
-    # column name
+    """column name"""
     alarm_start_time
 
-    # column name
+    """column name"""
     alarm_type
 
-    # column name
+    """column name"""
     area_id
 
-    # column name
+    """column name"""
     coordinate
 
-    # column name
+    """column name"""
     duration
 
-    # column name
+    """column name"""
     id
 
-    # column name
+    """column name"""
     is_alarm_effective
 
-    # column name
+    """column name"""
     is_alarm_over
 
-    # column name
+    """column name"""
     is_cancel_alarm
 
-    # column name
+    """column name"""
     is_resolve
 
-    # column name
+    """column name"""
     is_supervise
 
-    # column name
+    """column name"""
     latest_alarm_position
 
-    # column name
+    """column name"""
     latest_alarm_time
 
-    # column name
+    """column name"""
     location_description
 
-    # column name
+    """column name"""
     maximum_speed
 
-    # column name
+    """column name"""
     pid
 
-    # column name
+    """column name"""
     processing_description
 
-    # column name
+    """column name"""
     processing_method
 
-    # column name
+    """column name"""
     processing_status
 
-    # column name
+    """column name"""
     processing_time
 
-    # column name
+    """column name"""
     processor
 
-    # column name
+    """column name"""
     record_time
 
-    # column name
+    """column name"""
     road_grade
 
-    # column name
+    """column name"""
     road_name
 
-    # column name
+    """column name"""
     speed_limit_threshold
 
-    # column name
+    """column name"""
     supervision_note
 
-    # column name
+    """column name"""
     supervision_time
 
-    # column name
+    """column name"""
     supervisor
 
-    # column name
+    """column name"""
     tachograph_speed
 
-    # column name
+    """column name"""
     vehicle_alarm_data_id
 
-    # column name
+    """column name"""
     vehicle_id
 }
 
-# aggregate var_pop on columns
+"""aggregate var_pop on columns"""
 type vehicle_alarm_data_var_pop_fields {
     GPS_speed: Float
     id: Float
@@ -1120,7 +1065,9 @@ type vehicle_alarm_data_var_pop_fields {
     tachograph_speed: Float
 }
 
-# order by var_pop() on columns of table "vehicle_alarm_data"
+"""
+order by var_pop() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_var_pop_order_by {
     GPS_speed: order_by
     id: order_by
@@ -1130,7 +1077,7 @@ input vehicle_alarm_data_var_pop_order_by {
     tachograph_speed: order_by
 }
 
-# aggregate var_samp on columns
+"""aggregate var_samp on columns"""
 type vehicle_alarm_data_var_samp_fields {
     GPS_speed: Float
     id: Float
@@ -1140,7 +1087,9 @@ type vehicle_alarm_data_var_samp_fields {
     tachograph_speed: Float
 }
 
-# order by var_samp() on columns of table "vehicle_alarm_data"
+"""
+order by var_samp() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_var_samp_order_by {
     GPS_speed: order_by
     id: order_by
@@ -1150,7 +1099,7 @@ input vehicle_alarm_data_var_samp_order_by {
     tachograph_speed: order_by
 }
 
-# aggregate variance on columns
+"""aggregate variance on columns"""
 type vehicle_alarm_data_variance_fields {
     GPS_speed: Float
     id: Float
@@ -1160,7 +1109,9 @@ type vehicle_alarm_data_variance_fields {
     tachograph_speed: Float
 }
 
-# order by variance() on columns of table "vehicle_alarm_data"
+"""
+order by variance() on columns of table "vehicle_alarm_data"
+"""
 input vehicle_alarm_data_variance_order_by {
     GPS_speed: order_by
     id: order_by

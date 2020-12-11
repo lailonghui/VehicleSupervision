@@ -1,116 +1,93 @@
-schema {
-    query: query_root
-    mutation: mutation_root
-    subscription: subscription_root
-}
 
-scalar bigint
 
-# expression to compare columns of type bigint. All fields are combined with logical 'AND'.
-input bigint_comparison_exp {
-    _eq: bigint
-    _gt: bigint
-    _gte: bigint
-    _in: [bigint!]
-    _is_null: Boolean
-    _lt: bigint
-    _lte: bigint
-    _neq: bigint
-    _nin: [bigint!]
-}
+"""
+动态监管抽查主表
 
-# expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
-input Boolean_comparison_exp {
-    _eq: Boolean
-    _gt: Boolean
-    _gte: Boolean
-    _in: [Boolean!]
-    _is_null: Boolean
-    _lt: Boolean
-    _lte: Boolean
-    _neq: Boolean
-    _nin: [Boolean!]
-}
 
-# 动态监管抽查主表
-#
-#
-# columns and relationships of "dynamic_supervision"
-#
+columns and relationships of "dynamic_supervision"
+
+"""
 type dynamic_supervision {
-    # 抽查人员
+    """抽查人员"""
     check_user_id: String
 
-    # 抽查人员位置的城市ID
+    """抽查人员位置的城市ID"""
     city_id: String
 
-    # 创建时间
-    create_at: timestamptz!
+    """创建时间"""
+    created_at: timestamptz!
 
-    # 创建人
+    """创建人"""
     created_by: String!
 
-    # 日
+    """日"""
     day: Int
 
-    # 删除时间
+    """删除时间"""
     deleted_at: timestamptz
 
-    # 删除人
+    """删除人"""
     deleted_by: String
 
-    # 抽查人员位置的区域ID
+    """抽查人员位置的区域ID"""
     district_id: String
 
-    # 主键
-    #
-    #
+    """
+    主键
+
+
+
+    """
     id: bigint!
 
-    # 是否被删除
+    """是否被删除"""
     is_delete: Boolean
 
-    # 月
+    """月"""
     month: Int
 
-    # 抽查人员位置的省份ID
+    """抽查人员位置的省份ID"""
     province_id: String
 
-    # 抽查日期
+    """抽查日期"""
     spot_check_date: timestamptz
 
-    # 抽查数量
+    """抽查数量"""
     spot_check_number: Int
 
-    # 抽查比例
+    """抽查比例"""
     spot_check_ratio: numeric
 
-    # 抽查总数
+    """抽查总数"""
     spot_check_total_number: Int
 
-    # 联合主键
+    """联合主键"""
     supervision_id: String!
 
-    # 总车辆数
+    """总车辆数"""
     total_number_vehicle: Int
 
-    # 修改时间
+    """修改时间"""
     updated_at: timestamptz
 
-    # 修改人
+    """修改人"""
     updated_by: String
 
-    # 年
+    """年"""
     year: Int
 }
 
-# aggregated selection of "dynamic_supervision"
+"""
+aggregated selection of "dynamic_supervision"
+"""
 type dynamic_supervision_aggregate {
     aggregate: dynamic_supervision_aggregate_fields
     nodes: [dynamic_supervision!]!
 }
 
-# aggregate fields of "dynamic_supervision"
+"""
+aggregate fields of "dynamic_supervision"
+"""
 type dynamic_supervision_aggregate_fields {
     avg: dynamic_supervision_avg_fields
     count(columns: [dynamic_supervision_select_column!], distinct: Boolean): Int
@@ -125,7 +102,9 @@ type dynamic_supervision_aggregate_fields {
     variance: dynamic_supervision_variance_fields
 }
 
-# order by aggregate values of table "dynamic_supervision"
+"""
+order by aggregate values of table "dynamic_supervision"
+"""
 input dynamic_supervision_aggregate_order_by {
     avg: dynamic_supervision_avg_order_by
     count: order_by
@@ -140,13 +119,15 @@ input dynamic_supervision_aggregate_order_by {
     variance: dynamic_supervision_variance_order_by
 }
 
-# input type for inserting array relation for remote table "dynamic_supervision"
+"""
+input type for inserting array relation for remote table "dynamic_supervision"
+"""
 input dynamic_supervision_arr_rel_insert_input {
     data: [dynamic_supervision_insert_input!]!
     on_conflict: dynamic_supervision_on_conflict
 }
 
-# aggregate avg on columns
+"""aggregate avg on columns"""
 type dynamic_supervision_avg_fields {
     day: Float
     id: Float
@@ -158,7 +139,9 @@ type dynamic_supervision_avg_fields {
     year: Float
 }
 
-# order by avg() on columns of table "dynamic_supervision"
+"""
+order by avg() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_avg_order_by {
     day: order_by
     id: order_by
@@ -170,14 +153,16 @@ input dynamic_supervision_avg_order_by {
     year: order_by
 }
 
-# Boolean expression to filter rows from the table "dynamic_supervision". All fields are combined with a logical 'AND'.
+"""
+Boolean expression to filter rows from the table "dynamic_supervision". All fields are combined with a logical 'AND'.
+"""
 input dynamic_supervision_bool_exp {
     _and: [dynamic_supervision_bool_exp]
     _not: dynamic_supervision_bool_exp
     _or: [dynamic_supervision_bool_exp]
     check_user_id: String_comparison_exp
     city_id: String_comparison_exp
-    create_at: timestamptz_comparison_exp
+    created_at: timestamptz_comparison_exp
     created_by: String_comparison_exp
     day: Int_comparison_exp
     deleted_at: timestamptz_comparison_exp
@@ -198,13 +183,17 @@ input dynamic_supervision_bool_exp {
     year: Int_comparison_exp
 }
 
-# unique or primary key constraints on table "dynamic_supervision"
+"""
+unique or primary key constraints on table "dynamic_supervision"
+"""
 enum dynamic_supervision_constraint {
-    # unique or primary key constraint
+    """unique or primary key constraint"""
     dynamic_supervision_pkey
 }
 
-# input type for incrementing integer column in table "dynamic_supervision"
+"""
+input type for incrementing integer column in table "dynamic_supervision"
+"""
 input dynamic_supervision_inc_input {
     day: Int
     id: bigint
@@ -216,11 +205,13 @@ input dynamic_supervision_inc_input {
     year: Int
 }
 
-# input type for inserting data into table "dynamic_supervision"
+"""
+input type for inserting data into table "dynamic_supervision"
+"""
 input dynamic_supervision_insert_input {
     check_user_id: String
     city_id: String
-    create_at: timestamptz
+    created_at: timestamptz
     created_by: String
     day: Int
     deleted_at: timestamptz
@@ -241,11 +232,11 @@ input dynamic_supervision_insert_input {
     year: Int
 }
 
-# aggregate max on columns
+"""aggregate max on columns"""
 type dynamic_supervision_max_fields {
     check_user_id: String
     city_id: String
-    create_at: timestamptz
+    created_at: timestamptz
     created_by: String
     day: Int
     deleted_at: timestamptz
@@ -265,11 +256,13 @@ type dynamic_supervision_max_fields {
     year: Int
 }
 
-# order by max() on columns of table "dynamic_supervision"
+"""
+order by max() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_max_order_by {
     check_user_id: order_by
     city_id: order_by
-    create_at: order_by
+    created_at: order_by
     created_by: order_by
     day: order_by
     deleted_at: order_by
@@ -289,11 +282,11 @@ input dynamic_supervision_max_order_by {
     year: order_by
 }
 
-# aggregate min on columns
+"""aggregate min on columns"""
 type dynamic_supervision_min_fields {
     check_user_id: String
     city_id: String
-    create_at: timestamptz
+    created_at: timestamptz
     created_by: String
     day: Int
     deleted_at: timestamptz
@@ -313,11 +306,13 @@ type dynamic_supervision_min_fields {
     year: Int
 }
 
-# order by min() on columns of table "dynamic_supervision"
+"""
+order by min() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_min_order_by {
     check_user_id: order_by
     city_id: order_by
-    create_at: order_by
+    created_at: order_by
     created_by: order_by
     day: order_by
     deleted_at: order_by
@@ -337,33 +332,41 @@ input dynamic_supervision_min_order_by {
     year: order_by
 }
 
-# response of any mutation on the table "dynamic_supervision"
+"""
+response of any mutation on the table "dynamic_supervision"
+"""
 type dynamic_supervision_mutation_response {
-    # number of affected rows by the mutation
+    """number of affected rows by the mutation"""
     affected_rows: Int!
 
-    # data of the affected rows by the mutation
+    """data of the affected rows by the mutation"""
     returning: [dynamic_supervision!]!
 }
 
-# input type for inserting object relation for remote table "dynamic_supervision"
+"""
+input type for inserting object relation for remote table "dynamic_supervision"
+"""
 input dynamic_supervision_obj_rel_insert_input {
     data: dynamic_supervision_insert_input!
     on_conflict: dynamic_supervision_on_conflict
 }
 
-# on conflict condition type for table "dynamic_supervision"
+"""
+on conflict condition type for table "dynamic_supervision"
+"""
 input dynamic_supervision_on_conflict {
     constraint: dynamic_supervision_constraint!
     update_columns: [dynamic_supervision_update_column!]!
     where: dynamic_supervision_bool_exp
 }
 
-# ordering options when selecting data from "dynamic_supervision"
+"""
+ordering options when selecting data from "dynamic_supervision"
+"""
 input dynamic_supervision_order_by {
     check_user_id: order_by
     city_id: order_by
-    create_at: order_by
+    created_at: order_by
     created_by: order_by
     day: order_by
     deleted_at: order_by
@@ -384,88 +387,97 @@ input dynamic_supervision_order_by {
     year: order_by
 }
 
-# primary key columns input for table: "dynamic_supervision"
+"""
+primary key columns input for table: "dynamic_supervision"
+"""
 input dynamic_supervision_pk_columns_input {
-    # 主键
-    #
-    #
+    """
+    主键
+
+
+
+    """
     id: bigint!
 
-    # 联合主键
+    """联合主键"""
     supervision_id: String!
 }
 
-# select columns of table "dynamic_supervision"
+"""
+select columns of table "dynamic_supervision"
+"""
 enum dynamic_supervision_select_column {
-    # column name
+    """column name"""
     check_user_id
 
-    # column name
+    """column name"""
     city_id
 
-    # column name
-    create_at
+    """column name"""
+    created_at
 
-    # column name
+    """column name"""
     created_by
 
-    # column name
+    """column name"""
     day
 
-    # column name
+    """column name"""
     deleted_at
 
-    # column name
+    """column name"""
     deleted_by
 
-    # column name
+    """column name"""
     district_id
 
-    # column name
+    """column name"""
     id
 
-    # column name
+    """column name"""
     is_delete
 
-    # column name
+    """column name"""
     month
 
-    # column name
+    """column name"""
     province_id
 
-    # column name
+    """column name"""
     spot_check_date
 
-    # column name
+    """column name"""
     spot_check_number
 
-    # column name
+    """column name"""
     spot_check_ratio
 
-    # column name
+    """column name"""
     spot_check_total_number
 
-    # column name
+    """column name"""
     supervision_id
 
-    # column name
+    """column name"""
     total_number_vehicle
 
-    # column name
+    """column name"""
     updated_at
 
-    # column name
+    """column name"""
     updated_by
 
-    # column name
+    """column name"""
     year
 }
 
-# input type for updating data in table "dynamic_supervision"
+"""
+input type for updating data in table "dynamic_supervision"
+"""
 input dynamic_supervision_set_input {
     check_user_id: String
     city_id: String
-    create_at: timestamptz
+    created_at: timestamptz
     created_by: String
     day: Int
     deleted_at: timestamptz
@@ -486,7 +498,7 @@ input dynamic_supervision_set_input {
     year: Int
 }
 
-# aggregate stddev on columns
+"""aggregate stddev on columns"""
 type dynamic_supervision_stddev_fields {
     day: Float
     id: Float
@@ -498,7 +510,9 @@ type dynamic_supervision_stddev_fields {
     year: Float
 }
 
-# order by stddev() on columns of table "dynamic_supervision"
+"""
+order by stddev() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_stddev_order_by {
     day: order_by
     id: order_by
@@ -510,7 +524,7 @@ input dynamic_supervision_stddev_order_by {
     year: order_by
 }
 
-# aggregate stddev_pop on columns
+"""aggregate stddev_pop on columns"""
 type dynamic_supervision_stddev_pop_fields {
     day: Float
     id: Float
@@ -522,7 +536,9 @@ type dynamic_supervision_stddev_pop_fields {
     year: Float
 }
 
-# order by stddev_pop() on columns of table "dynamic_supervision"
+"""
+order by stddev_pop() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_stddev_pop_order_by {
     day: order_by
     id: order_by
@@ -534,7 +550,7 @@ input dynamic_supervision_stddev_pop_order_by {
     year: order_by
 }
 
-# aggregate stddev_samp on columns
+"""aggregate stddev_samp on columns"""
 type dynamic_supervision_stddev_samp_fields {
     day: Float
     id: Float
@@ -546,7 +562,9 @@ type dynamic_supervision_stddev_samp_fields {
     year: Float
 }
 
-# order by stddev_samp() on columns of table "dynamic_supervision"
+"""
+order by stddev_samp() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_stddev_samp_order_by {
     day: order_by
     id: order_by
@@ -558,7 +576,7 @@ input dynamic_supervision_stddev_samp_order_by {
     year: order_by
 }
 
-# aggregate sum on columns
+"""aggregate sum on columns"""
 type dynamic_supervision_sum_fields {
     day: Int
     id: bigint
@@ -570,7 +588,9 @@ type dynamic_supervision_sum_fields {
     year: Int
 }
 
-# order by sum() on columns of table "dynamic_supervision"
+"""
+order by sum() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_sum_order_by {
     day: order_by
     id: order_by
@@ -582,73 +602,75 @@ input dynamic_supervision_sum_order_by {
     year: order_by
 }
 
-# update columns of table "dynamic_supervision"
+"""
+update columns of table "dynamic_supervision"
+"""
 enum dynamic_supervision_update_column {
-    # column name
+    """column name"""
     check_user_id
 
-    # column name
+    """column name"""
     city_id
 
-    # column name
-    create_at
+    """column name"""
+    created_at
 
-    # column name
+    """column name"""
     created_by
 
-    # column name
+    """column name"""
     day
 
-    # column name
+    """column name"""
     deleted_at
 
-    # column name
+    """column name"""
     deleted_by
 
-    # column name
+    """column name"""
     district_id
 
-    # column name
+    """column name"""
     id
 
-    # column name
+    """column name"""
     is_delete
 
-    # column name
+    """column name"""
     month
 
-    # column name
+    """column name"""
     province_id
 
-    # column name
+    """column name"""
     spot_check_date
 
-    # column name
+    """column name"""
     spot_check_number
 
-    # column name
+    """column name"""
     spot_check_ratio
 
-    # column name
+    """column name"""
     spot_check_total_number
 
-    # column name
+    """column name"""
     supervision_id
 
-    # column name
+    """column name"""
     total_number_vehicle
 
-    # column name
+    """column name"""
     updated_at
 
-    # column name
+    """column name"""
     updated_by
 
-    # column name
+    """column name"""
     year
 }
 
-# aggregate var_pop on columns
+"""aggregate var_pop on columns"""
 type dynamic_supervision_var_pop_fields {
     day: Float
     id: Float
@@ -660,7 +682,9 @@ type dynamic_supervision_var_pop_fields {
     year: Float
 }
 
-# order by var_pop() on columns of table "dynamic_supervision"
+"""
+order by var_pop() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_var_pop_order_by {
     day: order_by
     id: order_by
@@ -672,7 +696,7 @@ input dynamic_supervision_var_pop_order_by {
     year: order_by
 }
 
-# aggregate var_samp on columns
+"""aggregate var_samp on columns"""
 type dynamic_supervision_var_samp_fields {
     day: Float
     id: Float
@@ -684,7 +708,9 @@ type dynamic_supervision_var_samp_fields {
     year: Float
 }
 
-# order by var_samp() on columns of table "dynamic_supervision"
+"""
+order by var_samp() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_var_samp_order_by {
     day: order_by
     id: order_by
@@ -696,7 +722,7 @@ input dynamic_supervision_var_samp_order_by {
     year: order_by
 }
 
-# aggregate variance on columns
+"""aggregate variance on columns"""
 type dynamic_supervision_variance_fields {
     day: Float
     id: Float
@@ -708,7 +734,9 @@ type dynamic_supervision_variance_fields {
     year: Float
 }
 
-# order by variance() on columns of table "dynamic_supervision"
+"""
+order by variance() on columns of table "dynamic_supervision"
+"""
 input dynamic_supervision_variance_order_by {
     day: order_by
     id: order_by
@@ -720,246 +748,202 @@ input dynamic_supervision_variance_order_by {
     year: order_by
 }
 
-# expression to compare columns of type Int. All fields are combined with logical 'AND'.
-input Int_comparison_exp {
-    _eq: Int
-    _gt: Int
-    _gte: Int
-    _in: [Int!]
-    _is_null: Boolean
-    _lt: Int
-    _lte: Int
-    _neq: Int
-    _nin: [Int!]
-}
 
-# mutation root
-type mutation_root {
-    # delete data from the table: "dynamic_supervision"
+
+"""mutation root"""
+type Mutation {
+    """
+    delete data from the table: "dynamic_supervision"
+  """
     delete_dynamic_supervision(
-        # filter the rows which have to be deleted
+        """filter the rows which have to be deleted"""
         where: dynamic_supervision_bool_exp!
     ): dynamic_supervision_mutation_response
 
-    # delete single row from the table: "dynamic_supervision"
+    """
+    delete single row from the table: "dynamic_supervision"
+  """
     delete_dynamic_supervision_by_pk(
-        # 主键
-        #
-        #
+        """
+        主键
+
+
+
+        """
         id: bigint!
 
-        # 联合主键
+        """联合主键"""
         supervision_id: String!
     ): dynamic_supervision
 
-    # insert data into the table: "dynamic_supervision"
+    """
+    insert data into the table: "dynamic_supervision"
+  """
     insert_dynamic_supervision(
-        # the rows to be inserted
+        """the rows to be inserted"""
         objects: [dynamic_supervision_insert_input!]!
 
-        # on conflict condition
+        """on conflict condition"""
         on_conflict: dynamic_supervision_on_conflict
     ): dynamic_supervision_mutation_response
 
-    # insert a single row into the table: "dynamic_supervision"
+    """
+    insert a single row into the table: "dynamic_supervision"
+  """
     insert_dynamic_supervision_one(
-        # the row to be inserted
+        """the row to be inserted"""
         object: dynamic_supervision_insert_input!
 
-        # on conflict condition
+        """on conflict condition"""
         on_conflict: dynamic_supervision_on_conflict
     ): dynamic_supervision
 
-    # update data of the table: "dynamic_supervision"
+    """
+    update data of the table: "dynamic_supervision"
+  """
     update_dynamic_supervision(
-        # increments the integer columns with given value of the filtered values
+        """increments the integer columns with given value of the filtered values"""
         _inc: dynamic_supervision_inc_input
 
-        # sets the columns of the filtered rows to the given values
+        """sets the columns of the filtered rows to the given values"""
         _set: dynamic_supervision_set_input
 
-        # filter the rows which have to be updated
+        """filter the rows which have to be updated"""
         where: dynamic_supervision_bool_exp!
     ): dynamic_supervision_mutation_response
 
-    # update single row of the table: "dynamic_supervision"
+    """
+    update single row of the table: "dynamic_supervision"
+  """
     update_dynamic_supervision_by_pk(
-        # increments the integer columns with given value of the filtered values
+        """increments the integer columns with given value of the filtered values"""
         _inc: dynamic_supervision_inc_input
 
-        # sets the columns of the filtered rows to the given values
+        """sets the columns of the filtered rows to the given values"""
         _set: dynamic_supervision_set_input
         pk_columns: dynamic_supervision_pk_columns_input!
     ): dynamic_supervision
 }
 
-scalar numeric
 
-# expression to compare columns of type numeric. All fields are combined with logical 'AND'.
-input numeric_comparison_exp {
-    _eq: numeric
-    _gt: numeric
-    _gte: numeric
-    _in: [numeric!]
-    _is_null: Boolean
-    _lt: numeric
-    _lte: numeric
-    _neq: numeric
-    _nin: [numeric!]
-}
 
-# column ordering options
-enum order_by {
-    # in the ascending order, nulls last
-    asc
 
-    # in the ascending order, nulls first
-    asc_nulls_first
 
-    # in the ascending order, nulls last
-    asc_nulls_last
-
-    # in the descending order, nulls first
-    desc
-
-    # in the descending order, nulls first
-    desc_nulls_first
-
-    # in the descending order, nulls last
-    desc_nulls_last
-}
-
-# query root
-type query_root {
-    # fetch data from the table: "dynamic_supervision"
+"""query root"""
+type Query {
+    """
+    fetch data from the table: "dynamic_supervision"
+  """
     dynamic_supervision(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [dynamic_supervision_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [dynamic_supervision_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: dynamic_supervision_bool_exp
     ): [dynamic_supervision!]!
 
-    # fetch aggregated fields from the table: "dynamic_supervision"
+    """
+    fetch aggregated fields from the table: "dynamic_supervision"
+  """
     dynamic_supervision_aggregate(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [dynamic_supervision_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [dynamic_supervision_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: dynamic_supervision_bool_exp
     ): dynamic_supervision_aggregate!
 
-    # fetch data from the table: "dynamic_supervision" using primary key columns
+    """
+    fetch data from the table: "dynamic_supervision" using primary key columns
+    """
     dynamic_supervision_by_pk(
-        # 主键
-        #
-        #
+        """
+        主键
+
+
+
+        """
         id: bigint!
 
-        # 联合主键
+        """联合主键"""
         supervision_id: String!
     ): dynamic_supervision
 }
 
-# expression to compare columns of type String. All fields are combined with logical 'AND'.
-input String_comparison_exp {
-    _eq: String
-    _gt: String
-    _gte: String
-    _ilike: String
-    _in: [String!]
-    _is_null: Boolean
-    _like: String
-    _lt: String
-    _lte: String
-    _neq: String
-    _nilike: String
-    _nin: [String!]
-    _nlike: String
-    _nsimilar: String
-    _similar: String
-}
 
-# subscription root
-type subscription_root {
-    # fetch data from the table: "dynamic_supervision"
+"""subscription root"""
+type Subscription {
+    """
+    fetch data from the table: "dynamic_supervision"
+  """
     dynamic_supervision(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [dynamic_supervision_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [dynamic_supervision_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: dynamic_supervision_bool_exp
     ): [dynamic_supervision!]!
 
-    # fetch aggregated fields from the table: "dynamic_supervision"
+    """
+    fetch aggregated fields from the table: "dynamic_supervision"
+  """
     dynamic_supervision_aggregate(
-        # distinct select on columns
+        """distinct select on columns"""
         distinct_on: [dynamic_supervision_select_column!]
 
-        # limit the number of rows returned
+        """limit the number of rows returned"""
         limit: Int
 
-        # skip the first n rows. Use only with order_by
+        """skip the first n rows. Use only with order_by"""
         offset: Int
 
-        # sort the rows by one or more columns
+        """sort the rows by one or more columns"""
         order_by: [dynamic_supervision_order_by!]
 
-        # filter the rows returned
+        """filter the rows returned"""
         where: dynamic_supervision_bool_exp
     ): dynamic_supervision_aggregate!
 
-    # fetch data from the table: "dynamic_supervision" using primary key columns
+    """
+    fetch data from the table: "dynamic_supervision" using primary key columns
+    """
     dynamic_supervision_by_pk(
-        # 主键
-        #
-        #
+        """
+        主键
+
+
+
+        """
         id: bigint!
 
-        # 联合主键
+        """联合主键"""
         supervision_id: String!
     ): dynamic_supervision
 }
-
-scalar timestamptz
-
-# expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
-input timestamptz_comparison_exp {
-    _eq: timestamptz
-    _gt: timestamptz
-    _gte: timestamptz
-    _in: [timestamptz!]
-    _is_null: Boolean
-    _lt: timestamptz
-    _lte: timestamptz
-    _neq: timestamptz
-    _nin: [timestamptz!]
-}
-

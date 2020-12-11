@@ -94,3 +94,7 @@ type OperatingVehicleInfo struct {
 	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID string `json:"vehicle_id"`
 }
+
+func (OperatingVehicleInfo) TableName() string {
+	return "operating_vehicle_info"
+}

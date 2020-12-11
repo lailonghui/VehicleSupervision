@@ -32,3 +32,7 @@ type MuckTruckWorkerIDCardOrders struct {
 	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID string `json:"vehicle_id"`
 }
+
+func (MuckTruckWorkerIDCardOrders) TableName() string {
+	return "muck_truck_worker_id_card_orders"
+}

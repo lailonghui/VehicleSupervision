@@ -1,0 +1,752 @@
+
+extend type Mutation {
+    """
+    delete data from the table: "vehicle_detain_details"
+  """
+    delete_vehicle_detain_details(
+        """filter the rows which have to be deleted"""
+        where: vehicle_detain_details_bool_exp!
+    ): vehicle_detain_details_mutation_response
+
+    """
+    delete single row from the table: "vehicle_detain_details"
+  """
+    delete_vehicle_detain_details_by_pk(
+        """主键"""
+        id: bigint!
+    ): vehicle_detain_details
+
+    """
+    insert data into the table: "vehicle_detain_details"
+  """
+    insert_vehicle_detain_details(
+        """the rows to be inserted"""
+        objects: [vehicle_detain_details_insert_input!]!
+
+        """on conflict condition"""
+        on_conflict: vehicle_detain_details_on_conflict
+    ): vehicle_detain_details_mutation_response
+
+    """
+    insert a single row into the table: "vehicle_detain_details"
+  """
+    insert_vehicle_detain_details_one(
+        """the row to be inserted"""
+        object: vehicle_detain_details_insert_input!
+
+        """on conflict condition"""
+        on_conflict: vehicle_detain_details_on_conflict
+    ): vehicle_detain_details
+
+    """
+    update data of the table: "vehicle_detain_details"
+  """
+    update_vehicle_detain_details(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: vehicle_detain_details_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: vehicle_detain_details_set_input
+
+        """filter the rows which have to be updated"""
+        where: vehicle_detain_details_bool_exp!
+    ): vehicle_detain_details_mutation_response
+
+    """
+    update single row of the table: "vehicle_detain_details"
+  """
+    update_vehicle_detain_details_by_pk(
+        """increments the integer columns with given value of the filtered values"""
+        _inc: vehicle_detain_details_inc_input
+
+        """sets the columns of the filtered rows to the given values"""
+        _set: vehicle_detain_details_set_input
+        pk_columns: vehicle_detain_details_pk_columns_input!
+    ): vehicle_detain_details
+}
+
+
+extend type Query {
+    """
+    fetch data from the table: "vehicle_detain_details"
+  """
+    vehicle_detain_details(
+        """distinct select on columns"""
+        distinct_on: [vehicle_detain_details_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_detain_details_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_detain_details_bool_exp
+    ): [vehicle_detain_details!]!
+
+    """
+    fetch aggregated fields from the table: "vehicle_detain_details"
+  """
+    vehicle_detain_details_aggregate(
+        """distinct select on columns"""
+        distinct_on: [vehicle_detain_details_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_detain_details_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_detain_details_bool_exp
+    ): vehicle_detain_details_aggregate!
+
+    """
+    fetch data from the table: "vehicle_detain_details" using primary key columns
+    """
+    vehicle_detain_details_by_pk(
+        """主键"""
+        id: bigint!
+    ): vehicle_detain_details
+}
+
+extend type Subscription {
+    """
+    fetch data from the table: "vehicle_detain_details"
+  """
+    vehicle_detain_details(
+        """distinct select on columns"""
+        distinct_on: [vehicle_detain_details_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_detain_details_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_detain_details_bool_exp
+    ): [vehicle_detain_details!]!
+
+    """
+    fetch aggregated fields from the table: "vehicle_detain_details"
+  """
+    vehicle_detain_details_aggregate(
+        """distinct select on columns"""
+        distinct_on: [vehicle_detain_details_select_column!]
+
+        """limit the number of rows returned"""
+        limit: Int
+
+        """skip the first n rows. Use only with order_by"""
+        offset: Int
+
+        """sort the rows by one or more columns"""
+        order_by: [vehicle_detain_details_order_by!]
+
+        """filter the rows returned"""
+        where: vehicle_detain_details_bool_exp
+    ): vehicle_detain_details_aggregate!
+
+    """
+    fetch data from the table: "vehicle_detain_details" using primary key columns
+    """
+    vehicle_detain_details_by_pk(
+        """主键"""
+        id: bigint!
+    ): vehicle_detain_details
+}
+
+
+"""
+扣车明细表
+
+
+columns and relationships of "vehicle_detain_details"
+
+"""
+type vehicle_detain_details {
+    """卡口图片"""
+    bayonet_picture: String
+
+    """主键"""
+    id: bigint!
+
+    """卡口判断(是否通过)"""
+    is_bayonet: Boolean
+
+    """是否目录库"""
+    is_category: Boolean
+
+    """是否删除"""
+    is_delete: Boolean
+
+    """违法判断(是否通过)"""
+    is_illegal: Boolean
+
+    """卫星定位判断(是否通过)"""
+    is_satellite_judgment: Boolean
+
+    """车牌颜色字典"""
+    license_plate_color: String
+
+    """车牌号码"""
+    license_plate_number: String
+
+    """记录时间"""
+    record_time: timestamptz
+
+    """登记所在机构"""
+    register_region: String
+
+    """登记用户"""
+    register_user: String
+
+    """备注"""
+    remarks: String
+
+    """更新时间"""
+    update_time: timestamptz
+
+    """扣车图片"""
+    vehicle_detain_picture: String
+
+    """状态(车辆扣车状态字典)"""
+    vehicle_detain_status: Int
+
+    """扣车时间"""
+    vehicle_detain_time: timestamptz
+
+    """放车图片"""
+    vehicle_release_picture: String
+
+    """放车时间"""
+    vehicle_release_time: timestamptz
+}
+
+"""
+aggregated selection of "vehicle_detain_details"
+"""
+type vehicle_detain_details_aggregate {
+    aggregate: vehicle_detain_details_aggregate_fields
+    nodes: [vehicle_detain_details!]!
+}
+
+"""
+aggregate fields of "vehicle_detain_details"
+"""
+type vehicle_detain_details_aggregate_fields {
+    avg: vehicle_detain_details_avg_fields
+    count(columns: [vehicle_detain_details_select_column!], distinct: Boolean): Int
+    max: vehicle_detain_details_max_fields
+    min: vehicle_detain_details_min_fields
+    stddev: vehicle_detain_details_stddev_fields
+    stddev_pop: vehicle_detain_details_stddev_pop_fields
+    stddev_samp: vehicle_detain_details_stddev_samp_fields
+    sum: vehicle_detain_details_sum_fields
+    var_pop: vehicle_detain_details_var_pop_fields
+    var_samp: vehicle_detain_details_var_samp_fields
+    variance: vehicle_detain_details_variance_fields
+}
+
+"""
+order by aggregate values of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_aggregate_order_by {
+    avg: vehicle_detain_details_avg_order_by
+    count: order_by
+    max: vehicle_detain_details_max_order_by
+    min: vehicle_detain_details_min_order_by
+    stddev: vehicle_detain_details_stddev_order_by
+    stddev_pop: vehicle_detain_details_stddev_pop_order_by
+    stddev_samp: vehicle_detain_details_stddev_samp_order_by
+    sum: vehicle_detain_details_sum_order_by
+    var_pop: vehicle_detain_details_var_pop_order_by
+    var_samp: vehicle_detain_details_var_samp_order_by
+    variance: vehicle_detain_details_variance_order_by
+}
+
+"""
+input type for inserting array relation for remote table "vehicle_detain_details"
+"""
+input vehicle_detain_details_arr_rel_insert_input {
+    data: [vehicle_detain_details_insert_input!]!
+    on_conflict: vehicle_detain_details_on_conflict
+}
+
+"""aggregate avg on columns"""
+type vehicle_detain_details_avg_fields {
+    id: Float
+    vehicle_detain_status: Float
+}
+
+"""
+order by avg() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_avg_order_by {
+    id: order_by
+    vehicle_detain_status: order_by
+}
+
+"""
+Boolean expression to filter rows from the table "vehicle_detain_details". All fields are combined with a logical 'AND'.
+"""
+input vehicle_detain_details_bool_exp {
+    _and: [vehicle_detain_details_bool_exp]
+    _not: vehicle_detain_details_bool_exp
+    _or: [vehicle_detain_details_bool_exp]
+    bayonet_picture: String_comparison_exp
+    id: bigint_comparison_exp
+    is_bayonet: Boolean_comparison_exp
+    is_category: Boolean_comparison_exp
+    is_delete: Boolean_comparison_exp
+    is_illegal: Boolean_comparison_exp
+    is_satellite_judgment: Boolean_comparison_exp
+    license_plate_color: String_comparison_exp
+    license_plate_number: String_comparison_exp
+    record_time: timestamptz_comparison_exp
+    register_region: String_comparison_exp
+    register_user: String_comparison_exp
+    remarks: String_comparison_exp
+    update_time: timestamptz_comparison_exp
+    vehicle_detain_picture: String_comparison_exp
+    vehicle_detain_status: Int_comparison_exp
+    vehicle_detain_time: timestamptz_comparison_exp
+    vehicle_release_picture: String_comparison_exp
+    vehicle_release_time: timestamptz_comparison_exp
+}
+
+"""
+unique or primary key constraints on table "vehicle_detain_details"
+"""
+enum vehicle_detain_details_constraint {
+    """unique or primary key constraint"""
+    vehicle_detain_details_pkey
+}
+
+"""
+input type for incrementing integer column in table "vehicle_detain_details"
+"""
+input vehicle_detain_details_inc_input {
+    id: bigint
+    vehicle_detain_status: Int
+}
+
+"""
+input type for inserting data into table "vehicle_detain_details"
+"""
+input vehicle_detain_details_insert_input {
+    bayonet_picture: String
+    id: bigint
+    is_bayonet: Boolean
+    is_category: Boolean
+    is_delete: Boolean
+    is_illegal: Boolean
+    is_satellite_judgment: Boolean
+    license_plate_color: String
+    license_plate_number: String
+    record_time: timestamptz
+    register_region: String
+    register_user: String
+    remarks: String
+    update_time: timestamptz
+    vehicle_detain_picture: String
+    vehicle_detain_status: Int
+    vehicle_detain_time: timestamptz
+    vehicle_release_picture: String
+    vehicle_release_time: timestamptz
+}
+
+"""aggregate max on columns"""
+type vehicle_detain_details_max_fields {
+    bayonet_picture: String
+    id: bigint
+    license_plate_color: String
+    license_plate_number: String
+    record_time: timestamptz
+    register_region: String
+    register_user: String
+    remarks: String
+    update_time: timestamptz
+    vehicle_detain_picture: String
+    vehicle_detain_status: Int
+    vehicle_detain_time: timestamptz
+    vehicle_release_picture: String
+    vehicle_release_time: timestamptz
+}
+
+"""
+order by max() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_max_order_by {
+    bayonet_picture: order_by
+    id: order_by
+    license_plate_color: order_by
+    license_plate_number: order_by
+    record_time: order_by
+    register_region: order_by
+    register_user: order_by
+    remarks: order_by
+    update_time: order_by
+    vehicle_detain_picture: order_by
+    vehicle_detain_status: order_by
+    vehicle_detain_time: order_by
+    vehicle_release_picture: order_by
+    vehicle_release_time: order_by
+}
+
+"""aggregate min on columns"""
+type vehicle_detain_details_min_fields {
+    bayonet_picture: String
+    id: bigint
+    license_plate_color: String
+    license_plate_number: String
+    record_time: timestamptz
+    register_region: String
+    register_user: String
+    remarks: String
+    update_time: timestamptz
+    vehicle_detain_picture: String
+    vehicle_detain_status: Int
+    vehicle_detain_time: timestamptz
+    vehicle_release_picture: String
+    vehicle_release_time: timestamptz
+}
+
+"""
+order by min() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_min_order_by {
+    bayonet_picture: order_by
+    id: order_by
+    license_plate_color: order_by
+    license_plate_number: order_by
+    record_time: order_by
+    register_region: order_by
+    register_user: order_by
+    remarks: order_by
+    update_time: order_by
+    vehicle_detain_picture: order_by
+    vehicle_detain_status: order_by
+    vehicle_detain_time: order_by
+    vehicle_release_picture: order_by
+    vehicle_release_time: order_by
+}
+
+"""
+response of any mutation on the table "vehicle_detain_details"
+"""
+type vehicle_detain_details_mutation_response {
+    """number of affected rows by the mutation"""
+    affected_rows: Int!
+
+    """data of the affected rows by the mutation"""
+    returning: [vehicle_detain_details!]!
+}
+
+"""
+input type for inserting object relation for remote table "vehicle_detain_details"
+"""
+input vehicle_detain_details_obj_rel_insert_input {
+    data: vehicle_detain_details_insert_input!
+    on_conflict: vehicle_detain_details_on_conflict
+}
+
+"""
+on conflict condition type for table "vehicle_detain_details"
+"""
+input vehicle_detain_details_on_conflict {
+    constraint: vehicle_detain_details_constraint!
+    update_columns: [vehicle_detain_details_update_column!]!
+    where: vehicle_detain_details_bool_exp
+}
+
+"""
+ordering options when selecting data from "vehicle_detain_details"
+"""
+input vehicle_detain_details_order_by {
+    bayonet_picture: order_by
+    id: order_by
+    is_bayonet: order_by
+    is_category: order_by
+    is_delete: order_by
+    is_illegal: order_by
+    is_satellite_judgment: order_by
+    license_plate_color: order_by
+    license_plate_number: order_by
+    record_time: order_by
+    register_region: order_by
+    register_user: order_by
+    remarks: order_by
+    update_time: order_by
+    vehicle_detain_picture: order_by
+    vehicle_detain_status: order_by
+    vehicle_detain_time: order_by
+    vehicle_release_picture: order_by
+    vehicle_release_time: order_by
+}
+
+"""
+primary key columns input for table: "vehicle_detain_details"
+"""
+input vehicle_detain_details_pk_columns_input {
+    """主键"""
+    id: bigint!
+}
+
+"""
+select columns of table "vehicle_detain_details"
+"""
+enum vehicle_detain_details_select_column {
+    """column name"""
+    bayonet_picture
+
+    """column name"""
+    id
+
+    """column name"""
+    is_bayonet
+
+    """column name"""
+    is_category
+
+    """column name"""
+    is_delete
+
+    """column name"""
+    is_illegal
+
+    """column name"""
+    is_satellite_judgment
+
+    """column name"""
+    license_plate_color
+
+    """column name"""
+    license_plate_number
+
+    """column name"""
+    record_time
+
+    """column name"""
+    register_region
+
+    """column name"""
+    register_user
+
+    """column name"""
+    remarks
+
+    """column name"""
+    update_time
+
+    """column name"""
+    vehicle_detain_picture
+
+    """column name"""
+    vehicle_detain_status
+
+    """column name"""
+    vehicle_detain_time
+
+    """column name"""
+    vehicle_release_picture
+
+    """column name"""
+    vehicle_release_time
+}
+
+"""
+input type for updating data in table "vehicle_detain_details"
+"""
+input vehicle_detain_details_set_input {
+    bayonet_picture: String
+    id: bigint
+    is_bayonet: Boolean
+    is_category: Boolean
+    is_delete: Boolean
+    is_illegal: Boolean
+    is_satellite_judgment: Boolean
+    license_plate_color: String
+    license_plate_number: String
+    record_time: timestamptz
+    register_region: String
+    register_user: String
+    remarks: String
+    update_time: timestamptz
+    vehicle_detain_picture: String
+    vehicle_detain_status: Int
+    vehicle_detain_time: timestamptz
+    vehicle_release_picture: String
+    vehicle_release_time: timestamptz
+}
+
+"""aggregate stddev on columns"""
+type vehicle_detain_details_stddev_fields {
+    id: Float
+    vehicle_detain_status: Float
+}
+
+"""
+order by stddev() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_stddev_order_by {
+    id: order_by
+    vehicle_detain_status: order_by
+}
+
+"""aggregate stddev_pop on columns"""
+type vehicle_detain_details_stddev_pop_fields {
+    id: Float
+    vehicle_detain_status: Float
+}
+
+"""
+order by stddev_pop() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_stddev_pop_order_by {
+    id: order_by
+    vehicle_detain_status: order_by
+}
+
+"""aggregate stddev_samp on columns"""
+type vehicle_detain_details_stddev_samp_fields {
+    id: Float
+    vehicle_detain_status: Float
+}
+
+"""
+order by stddev_samp() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_stddev_samp_order_by {
+    id: order_by
+    vehicle_detain_status: order_by
+}
+
+"""aggregate sum on columns"""
+type vehicle_detain_details_sum_fields {
+    id: bigint
+    vehicle_detain_status: Int
+}
+
+"""
+order by sum() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_sum_order_by {
+    id: order_by
+    vehicle_detain_status: order_by
+}
+
+"""
+update columns of table "vehicle_detain_details"
+"""
+enum vehicle_detain_details_update_column {
+    """column name"""
+    bayonet_picture
+
+    """column name"""
+    id
+
+    """column name"""
+    is_bayonet
+
+    """column name"""
+    is_category
+
+    """column name"""
+    is_delete
+
+    """column name"""
+    is_illegal
+
+    """column name"""
+    is_satellite_judgment
+
+    """column name"""
+    license_plate_color
+
+    """column name"""
+    license_plate_number
+
+    """column name"""
+    record_time
+
+    """column name"""
+    register_region
+
+    """column name"""
+    register_user
+
+    """column name"""
+    remarks
+
+    """column name"""
+    update_time
+
+    """column name"""
+    vehicle_detain_picture
+
+    """column name"""
+    vehicle_detain_status
+
+    """column name"""
+    vehicle_detain_time
+
+    """column name"""
+    vehicle_release_picture
+
+    """column name"""
+    vehicle_release_time
+}
+
+"""aggregate var_pop on columns"""
+type vehicle_detain_details_var_pop_fields {
+    id: Float
+    vehicle_detain_status: Float
+}
+
+"""
+order by var_pop() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_var_pop_order_by {
+    id: order_by
+    vehicle_detain_status: order_by
+}
+
+"""aggregate var_samp on columns"""
+type vehicle_detain_details_var_samp_fields {
+    id: Float
+    vehicle_detain_status: Float
+}
+
+"""
+order by var_samp() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_var_samp_order_by {
+    id: order_by
+    vehicle_detain_status: order_by
+}
+
+"""aggregate variance on columns"""
+type vehicle_detain_details_variance_fields {
+    id: Float
+    vehicle_detain_status: Float
+}
+
+"""
+order by variance() on columns of table "vehicle_detain_details"
+"""
+input vehicle_detain_details_variance_order_by {
+    id: order_by
+    vehicle_detain_status: order_by
+}
+

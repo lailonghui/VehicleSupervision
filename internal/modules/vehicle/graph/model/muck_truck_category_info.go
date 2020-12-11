@@ -120,3 +120,7 @@ type MuckTruckCategoryInfo struct {
 	// 车辆图片
 	VehiclePicture *string `json:"vehicle_picture"`
 }
+
+func (MuckTruckCategoryInfo) TableName() string {
+	return "muck_truck_category_info"
+}

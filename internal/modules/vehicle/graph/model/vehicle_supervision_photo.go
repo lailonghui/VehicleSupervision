@@ -40,3 +40,7 @@ type VehicleSupervisionPhoto struct {
 	// vehicle_info表vehicle_id
 	VehicleID string `json:"vehicle_id"`
 }
+
+func (VehicleSupervisionPhoto) TableName() string {
+	return "vehicle_supervision_photo"
+}

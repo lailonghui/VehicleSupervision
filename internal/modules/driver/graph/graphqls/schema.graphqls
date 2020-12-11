@@ -155,3 +155,19 @@ input _text_comparison_exp {
 }
 
 
+scalar point
+
+"""
+expression to compare columns of type point. All fields are combined with logical 'AND'.
+"""
+input point_comparison_exp {
+    _eq: point
+    _gt: point
+    _gte: point
+    _in: [point!]
+    _is_null: Boolean
+    _lt: point
+    _lte: point
+    _neq: point
+    _nin: [point!]
+}

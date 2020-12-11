@@ -72,3 +72,7 @@ type MuckTruckPreviewNumber struct {
 	// 工号牌颜色（green.绿色 yellow.黄色）
 	WorkNumberPlateColor *string `json:"work_number_plate_color"`
 }
+
+func (MuckTruckPreviewNumber) TableName() string {
+	return "muck_truck_preview_number"
+}
