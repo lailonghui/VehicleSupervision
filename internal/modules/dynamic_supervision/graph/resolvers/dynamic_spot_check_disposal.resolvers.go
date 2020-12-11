@@ -12,6 +12,7 @@ import (
 func (r *mutationResolver) DeleteDynamicSpotCheckDisposal(ctx context.Context, where model.DynamicSpotCheckDisposalBoolExp) (*model.DynamicSpotCheckDisposalMutationResponse, error) {
 	panic(fmt.Errorf("not implemented"))
 }
+
 func (r *mutationResolver) DeleteDynamicSpotCheckDisposalByPk(ctx context.Context, id int64) (*model.DynamicSpotCheckDisposal, error) {
 	panic(fmt.Errorf("not implemented"))
 }

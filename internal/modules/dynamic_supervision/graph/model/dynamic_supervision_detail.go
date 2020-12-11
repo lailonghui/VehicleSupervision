@@ -2,7 +2,7 @@
 @Time : 2020/12/11 14:35
 @Author : lai
 @Description :
-@File : dynamic_supervision
+@File : dynamic_supervision_detail
 */
 package model
 

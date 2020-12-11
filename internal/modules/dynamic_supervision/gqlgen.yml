@@ -43,6 +43,12 @@ autobind:
 # modelgen, the others will be allowed when binding to fields. Configure them to
 # your liking
 models:
+  dynamic_spot_check_disposal:
+    model: VehicleSupervision/internal/modules/dynamic_supervision/graph/model.DynamicSpotCheckDisposal
+  dynamic_supervision:
+    model: VehicleSupervision/internal/modules/dynamic_supervision/graph/model.DynamicSupervision
+  dynamic_supervision_detail:
+    model: VehicleSupervision/internal/modules/dynamic_supervision/graph/model.DynamicSupervisionDetail
   ID:
     model:
       - github.com/99designs/gqlgen/graphql.ID

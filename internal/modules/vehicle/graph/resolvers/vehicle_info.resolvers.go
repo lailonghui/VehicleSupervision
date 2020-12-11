@@ -17,8 +17,10 @@ import (
 	"github.com/rs/xid"
 )
 
-//根据选定条件删除车辆信息
 func (r *mutationResolver) DeleteVehicleInfo(ctx context.Context, where model.VehicleInfoBoolExp) (*model.VehicleInfoMutationResponse, error) {
+	/*
+	   根据选定条件删除车辆信息
+	*/
 	var err error
 	var rs []*model.VehicleInfo
 	qt := util2.NewQueryTranslator(db.DB, &model.VehicleInfo{})
@@ -47,8 +49,10 @@ func (r *mutationResolver) DeleteVehicleInfo(ctx context.Context, where model.Ve
 	}, nil
 }
 
-//根据主键删除车辆信息
 func (r *mutationResolver) DeleteVehicleInfoByPk(ctx context.Context, id int64, vehicleID string) (*model.VehicleInfo, error) {
+	/*
+	   根据主键删除车辆信息
+	*/
 	var rs model.VehicleInfo
 	var err error
 	tx := db.DB.Model(&model.VehicleInfo{})
@@ -72,9 +76,10 @@ func (r *mutationResolver) DeleteVehicleInfoByPk(ctx context.Context, id int64, 
 	return &rs, nil
 }
 
-//插入一条车辆信息
 func (r *mutationResolver) InsertVehicleInfoOne(ctx context.Context, object model.VehicleInfoInsertInput, onConflict *model.VehicleInfoOnConflict) (*model.VehicleInfo, error) {
-	//fmt.Println("create")
+	/*
+	   插入一条车辆信息
+	*/
 	v := &model.VehicleInfo{
 		VehicleID: xid.New().String(),
 		CreatedBy: "lai" + xid.New().String(),
@@ -87,9 +92,10 @@ func (r *mutationResolver) InsertVehicleInfoOne(ctx context.Context, object mode
 	return v, err
 }
 
-//根据选定条件更新车辆信息
 func (r *mutationResolver) UpdateVehicleInfo(ctx context.Context, inc *model.VehicleInfoIncInput, set *model.VehicleInfoSetInput, where model.VehicleInfoBoolExp) (*model.VehicleInfoMutationResponse, error) {
-	//fmt.Println("update all")
+	/*
+	   根据选定条件更新车辆信息
+	*/
 	var err error
 	qt := util2.NewQueryTranslator(db.DB, &model.VehicleInfo{})
 	tx := qt.Where(where).Inc(inc).Set(set).DoUpdate()
@@ -107,9 +113,10 @@ func (r *mutationResolver) UpdateVehicleInfo(ctx context.Context, inc *model.Veh
 	}, err
 }
 
-//根据主键更新车辆信息
 func (r *mutationResolver) UpdateVehicleInfoByPk(ctx context.Context, inc *model.VehicleInfoIncInput, set *model.VehicleInfoSetInput, pkColumns model.VehicleInfoPkColumnsInput) (*model.VehicleInfo, error) {
-	//fmt.Println("update")
+	/*
+	  根据主键更新车辆信息
+	*/
 	var err error
 	tx := db.DB.Where("vehicle_id = ? and id = ? ", pkColumns.VehicleID, pkColumns.ID)
 	qt := util2.NewQueryTranslator(tx, &model.VehicleInfo{})
@@ -123,8 +130,10 @@ func (r *mutationResolver) UpdateVehicleInfoByPk(ctx context.Context, inc *model
 	return &rs, err
 }
 
-//根据选定条件获取车辆信息集合
 func (r *queryResolver) VehicleInfo(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) ([]*model.VehicleInfo, error) {
+	/*
+	   根据选定条件获取车辆信息集合
+	*/
 	var err error
 	qt := util2.NewQueryTranslator(db.DB, &model.VehicleInfo{})
 	tx := qt.DistinctOn(distinctOn).
@@ -144,8 +153,10 @@ func (r *queryResolver) VehicleInfo(ctx context.Context, distinctOn []model.Vehi
 	return rs, err
 }
 
-//根据选定条件获取车辆信息统计数据
 func (r *queryResolver) VehicleInfoAggregate(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) (*model.VehicleInfoAggregate, error) {
+	/*
+	   根据选定条件获取车辆信息统计数据
+	*/
 	var rs model.VehicleInfoAggregate
 	qt := util2.NewQueryTranslator(db.DB, &model.VehicleInfo{})
 	tx, err := qt.DistinctOn(distinctOn).
@@ -169,15 +180,19 @@ func (r *queryResolver) VehicleInfoAggregate(ctx context.Context, distinctOn []m
 	return &rs, err
 }
 
-//根据主键获取车辆信息
 func (r *queryResolver) VehicleInfoByPk(ctx context.Context, id int64, vehicleID string) (*model.VehicleInfo, error) {
+	/*
+	   根据主键获取车辆信息
+	*/
 	var rs model.VehicleInfo
 	err := db.DB.Where("id = ? and vehicle_id = ?", id, vehicleID).First(&rs).Error
 	return &rs, err
 }
 
-//插入多条车辆信息
 func (r *mutationResolver) InsertVehicleInfo(ctx context.Context, objects []*model.VehicleInfoInsertInput, onConflict *model.VehicleInfoOnConflict) (*model.VehicleInfoMutationResponse, error) {
+	/*
+	   插入多条车辆信息
+	*/
 	panic(fmt.Errorf("not implemented"))
 }
 

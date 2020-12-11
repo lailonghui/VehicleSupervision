@@ -43,6 +43,14 @@ autobind:
 # modelgen, the others will be allowed when binding to fields. Configure them to
 # your liking
 models:
+  driver_info:
+    model: VehicleSupervision/internal/modules/driver/graph/model.DriverInfo
+  driver_identity:
+    model: VehicleSupervision/internal/modules/driver/graph/model.DriverIdentity
+  driver_info_change_log:
+    model: VehicleSupervision/internal/modules/driver/graph/model.DriverInfoChangeLog
+  vehicle_driver_binding:
+    model: VehicleSupervision/internal/modules/driver/graph/model.VehicleDriverBinding
   ID:
     model:
       - github.com/99designs/gqlgen/graphql.ID

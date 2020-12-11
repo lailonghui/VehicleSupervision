@@ -43,6 +43,34 @@ autobind:
 # modelgen, the others will be allowed when binding to fields. Configure them to
 # your liking
 models:
+  app_enforcement:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.AppEnforcement
+  dispute_violation_record:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.DisputeViolationRecord
+  dispute_violation_record_log:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.DisputeViolationRecordLog
+  driver_peccancy_check:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.DriverPeccancyCheck
+  enterprise_deduction_items:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.EnterpriseDeductionItems
+  enterprise_deduction_operation_record:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.EnterpriseDeductionOperationRecord
+  illegal_photo:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.IllegalPhoto
+  regional_violation_register:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.RegionalViolationRegister
+  user_operation_log:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.UserOperationLog
+  vehicle_detain_details:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VehicleDetainDetails
+  vehicle_violation_details:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VehicleViolationDetails
+  vehicle_violation_scoring_items:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VehicleViolationScoringItems
+  vehicle_violation_scoring_record:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VehicleViolationScoringRecord
+  VIO_CODEWFDM:
+    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VioCodewfdm
   ID:
     model:
       - github.com/99designs/gqlgen/graphql.ID
