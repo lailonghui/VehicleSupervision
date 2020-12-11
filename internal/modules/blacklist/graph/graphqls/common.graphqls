@@ -1,162 +1,152 @@
-
 """
 expression to compare columns of type _jsonb. All fields are combined with logical 'AND'.
 """
-input _jsonb_comparison_exp {
-    _eq: _jsonb
-    _gt: _jsonb
-    _gte: _jsonb
-    _in: [_jsonb!]
-    _is_null: Boolean
-    _lt: _jsonb
-    _lte: _jsonb
-    _neq: _jsonb
-    _nin: [_jsonb!]
+input JsonbComparisonExp {
+	_eq: Jsonb
+	_gt: Jsonb
+	_gte: Jsonb
+	_in: [Jsonb!]
+	_is_null: Boolean
+	_lt: Jsonb
+	_lte: Jsonb
+	_neq: Jsonb
+	_nin: [Jsonb!]
 }
-
 """
 expression to compare columns of type bigint. All fields are combined with logical 'AND'.
 """
-input bigint_comparison_exp {
-    _eq: bigint
-    _gt: bigint
-    _gte: bigint
-    _in: [bigint!]
-    _is_null: Boolean
-    _lt: bigint
-    _lte: bigint
-    _neq: bigint
-    _nin: [bigint!]
+input BigintComparisonExp {
+	_eq: Bigint
+	_gt: Bigint
+	_gte: Bigint
+	_in: [Bigint!]
+	_is_null: Boolean
+	_lt: Bigint
+	_lte: Bigint
+	_neq: Bigint
+	_nin: [Bigint!]
 }
-
-
 """
 expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
 """
-input Boolean_comparison_exp {
-    _eq: Boolean
-    _gt: Boolean
-    _gte: Boolean
-    _in: [Boolean!]
-    _is_null: Boolean
-    _lt: Boolean
-    _lte: Boolean
-    _neq: Boolean
-    _nin: [Boolean!]
+input BooleanComparisonExp {
+	_eq: Boolean
+	_gt: Boolean
+	_gte: Boolean
+	_in: [Boolean!]
+	_is_null: Boolean
+	_lt: Boolean
+	_lte: Boolean
+	_neq: Boolean
+	_nin: [Boolean!]
 }
-
-
 """
 expression to compare columns of type Int. All fields are combined with logical 'AND'.
 """
-input Int_comparison_exp {
-    _eq: Int
-    _gt: Int
-    _gte: Int
-    _in: [Int!]
-    _is_null: Boolean
-    _lt: Int
-    _lte: Int
-    _neq: Int
-    _nin: [Int!]
+input IntComparisonExp {
+	_eq: Int
+	_gt: Int
+	_gte: Int
+	_in: [Int!]
+	_is_null: Boolean
+	_lt: Int
+	_lte: Int
+	_neq: Int
+	_nin: [Int!]
 }
-
-
-
-"""column ordering options"""
-enum order_by {
-    """in the ascending order, nulls last"""
-    asc
-
-    """in the ascending order, nulls first"""
-    asc_nulls_first
-
-    """in the ascending order, nulls last"""
-    asc_nulls_last
-
-    """in the descending order, nulls first"""
-    desc
-
-    """in the descending order, nulls first"""
-    desc_nulls_first
-
-    """in the descending order, nulls last"""
-    desc_nulls_last
+"""
+column ordering options
+"""
+enum OrderBy {
+	"""
+	in the ascending order, nulls last
+	"""
+	asc
+	"""
+	in the ascending order, nulls first
+	"""
+	asc_nulls_first
+	"""
+	in the ascending order, nulls last
+	"""
+	asc_nulls_last
+	"""
+	in the descending order, nulls first
+	"""
+	desc
+	"""
+	in the descending order, nulls first
+	"""
+	desc_nulls_first
+	"""
+	in the descending order, nulls last
+	"""
+	desc_nulls_last
 }
-
-
 """
 expression to compare columns of type String. All fields are combined with logical 'AND'.
 """
-input String_comparison_exp {
-    _eq: String
-    _gt: String
-    _gte: String
-    _ilike: String
-    _in: [String!]
-    _is_null: Boolean
-    _like: String
-    _lt: String
-    _lte: String
-    _neq: String
-    _nilike: String
-    _nin: [String!]
-    _nlike: String
-    _nsimilar: String
-    _similar: String
+input StringComparisonExp {
+	_eq: String
+	_gt: String
+	_gte: String
+	_ilike: String
+	_in: [String!]
+	_is_null: Boolean
+	_like: String
+	_lt: String
+	_lte: String
+	_neq: String
+	_nilike: String
+	_nin: [String!]
+	_nlike: String
+	_nsimilar: String
+	_similar: String
 }
-
-
 """
 expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
 """
-input timestamptz_comparison_exp {
-    _eq: timestamptz
-    _gt: timestamptz
-    _gte: timestamptz
-    _in: [timestamptz!]
-    _is_null: Boolean
-    _lt: timestamptz
-    _lte: timestamptz
-    _neq: timestamptz
-    _nin: [timestamptz!]
+input TimestamptzComparisonExp {
+	_eq: Timestamptz
+	_gt: Timestamptz
+	_gte: Timestamptz
+	_in: [Timestamptz!]
+	_is_null: Boolean
+	_lt: Timestamptz
+	_lte: Timestamptz
+	_neq: Timestamptz
+	_nin: [Timestamptz!]
 }
-
 """
 expression to compare columns of type numeric. All fields are combined with logical 'AND'.
 """
-input numeric_comparison_exp {
-    _eq: numeric
-    _gt: numeric
-    _gte: numeric
-    _in: [numeric!]
-    _is_null: Boolean
-    _lt: numeric
-    _lte: numeric
-    _neq: numeric
-    _nin: [numeric!]
+input NumericComparisonExp {
+	_eq: Numeric
+	_gt: Numeric
+	_gte: Numeric
+	_in: [Numeric!]
+	_is_null: Boolean
+	_lt: Numeric
+	_lte: Numeric
+	_neq: Numeric
+	_nin: [Numeric!]
 }
-
 """
 expression to compare columns of type point. All fields are combined with logical 'AND'.
 """
-input point_comparison_exp {
-    _eq: point
-    _gt: point
-    _gte: point
-    _in: [point!]
-    _is_null: Boolean
-    _lt: point
-    _lte: point
-    _neq: point
-    _nin: [point!]
+input PointComparisonExp {
+	_eq: Point
+	_gt: Point
+	_gte: Point
+	_in: [Point!]
+	_is_null: Boolean
+	_lt: Point
+	_lte: Point
+	_neq: Point
+	_nin: [Point!]
 }
-
-
-
-
-scalar _jsonb
-scalar bigint
-scalar timestamptz
-scalar point
-scalar numeric
+scalar Jsonb
+scalar Bigint
+scalar Timestamptz
+scalar Point
+scalar Numeric

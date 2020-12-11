@@ -47,21 +47,6 @@ type DirectiveRoot struct {
 }
 
 type ComplexityRoot struct {
-	Mutation struct {
-		DeleteBlacklistOperationRecord     func(childComplexity int, where model.BlacklistOperationRecordBoolExp) int
-		DeleteBlacklistOperationRecordByPk func(childComplexity int, id int64) int
-		InsertBlacklistOperationRecord     func(childComplexity int, objects []*model.BlacklistOperationRecordInsertInput, onConflict *model.BlacklistOperationRecordOnConflict) int
-		InsertBlacklistOperationRecordOne  func(childComplexity int, object model.BlacklistOperationRecordInsertInput, onConflict *model.BlacklistOperationRecordOnConflict) int
-		UpdateBlacklistOperationRecord     func(childComplexity int, inc *model.BlacklistOperationRecordIncInput, set *model.BlacklistOperationRecordSetInput, where model.BlacklistOperationRecordBoolExp) int
-		UpdateBlacklistOperationRecordByPk func(childComplexity int, inc *model.BlacklistOperationRecordIncInput, set *model.BlacklistOperationRecordSetInput, pkColumns model.BlacklistOperationRecordPkColumnsInput) int
-	}
-
-	Query struct {
-		BlacklistOperationRecord          func(childComplexity int, distinctOn []model.BlacklistOperationRecordSelectColumn, limit *int, offset *int, orderBy []*model.BlacklistOperationRecordOrderBy, where *model.BlacklistOperationRecordBoolExp) int
-		BlacklistOperationRecordAggregate func(childComplexity int, distinctOn []model.BlacklistOperationRecordSelectColumn, limit *int, offset *int, orderBy []*model.BlacklistOperationRecordOrderBy, where *model.BlacklistOperationRecordBoolExp) int
-		BlacklistOperationRecordByPk      func(childComplexity int, id int64) int
-	}
-
 	BlacklistOperationRecord struct {
 		BlacklistRecordID func(childComplexity int) int
 		BlacklistType     func(childComplexity int) int
@@ -179,6 +164,21 @@ type ComplexityRoot struct {
 		ID            func(childComplexity int) int
 		Operate       func(childComplexity int) int
 	}
+
+	Mutation struct {
+		DeleteBlacklistOperationRecord     func(childComplexity int, where model.BlacklistOperationRecordBoolExp) int
+		DeleteBlacklistOperationRecordByPk func(childComplexity int, id int64) int
+		InsertBlacklistOperationRecord     func(childComplexity int, objects []*model.BlacklistOperationRecordInsertInput, onConflict *model.BlacklistOperationRecordOnConflict) int
+		InsertBlacklistOperationRecordOne  func(childComplexity int, object model.BlacklistOperationRecordInsertInput, onConflict *model.BlacklistOperationRecordOnConflict) int
+		UpdateBlacklistOperationRecord     func(childComplexity int, inc *model.BlacklistOperationRecordIncInput, set *model.BlacklistOperationRecordSetInput, where model.BlacklistOperationRecordBoolExp) int
+		UpdateBlacklistOperationRecordByPk func(childComplexity int, inc *model.BlacklistOperationRecordIncInput, set *model.BlacklistOperationRecordSetInput, pkColumns model.BlacklistOperationRecordPkColumnsInput) int
+	}
+
+	Query struct {
+		BlacklistOperationRecord          func(childComplexity int, distinctOn []model.BlacklistOperationRecordSelectColumn, limit *int, offset *int, orderBy []*model.BlacklistOperationRecordOrderBy, where *model.BlacklistOperationRecordBoolExp) int
+		BlacklistOperationRecordAggregate func(childComplexity int, distinctOn []model.BlacklistOperationRecordSelectColumn, limit *int, offset *int, orderBy []*model.BlacklistOperationRecordOrderBy, where *model.BlacklistOperationRecordBoolExp) int
+		BlacklistOperationRecordByPk      func(childComplexity int, id int64) int
+	}
 }
 
 type MutationResolver interface {
@@ -209,6 +209,543 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 	ec := executionContext{nil, e}
 	_ = ec
 	switch typeName + "." + field {
+
+	case "BlacklistOperationRecord.blacklist_record_id":
+		if e.complexity.BlacklistOperationRecord.BlacklistRecordID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.BlacklistRecordID(childComplexity), true
+
+	case "BlacklistOperationRecord.blacklist_type":
+		if e.complexity.BlacklistOperationRecord.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecord.create_at":
+		if e.complexity.BlacklistOperationRecord.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.CreateAt(childComplexity), true
+
+	case "BlacklistOperationRecord.create_by":
+		if e.complexity.BlacklistOperationRecord.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.CreateBy(childComplexity), true
+
+	case "BlacklistOperationRecord.delete_at":
+		if e.complexity.BlacklistOperationRecord.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.DeleteAt(childComplexity), true
+
+	case "BlacklistOperationRecord.delete_by":
+		if e.complexity.BlacklistOperationRecord.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.DeleteBy(childComplexity), true
+
+	case "BlacklistOperationRecord.id":
+		if e.complexity.BlacklistOperationRecord.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.ID(childComplexity), true
+
+	case "BlacklistOperationRecord.is_delete":
+		if e.complexity.BlacklistOperationRecord.IsDelete == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.IsDelete(childComplexity), true
+
+	case "BlacklistOperationRecord.operate":
+		if e.complexity.BlacklistOperationRecord.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.Operate(childComplexity), true
+
+	case "BlacklistOperationRecord.remarks":
+		if e.complexity.BlacklistOperationRecord.Remarks == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.Remarks(childComplexity), true
+
+	case "BlacklistOperationRecord.update_at":
+		if e.complexity.BlacklistOperationRecord.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.UpdateAt(childComplexity), true
+
+	case "BlacklistOperationRecord.update_by":
+		if e.complexity.BlacklistOperationRecord.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.UpdateBy(childComplexity), true
+
+	case "BlacklistOperationRecord.v_seqn":
+		if e.complexity.BlacklistOperationRecord.VSeqn == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecord.VSeqn(childComplexity), true
+
+	case "BlacklistOperationRecordAggregate.aggregate":
+		if e.complexity.BlacklistOperationRecordAggregate.Aggregate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregate.Aggregate(childComplexity), true
+
+	case "BlacklistOperationRecordAggregate.nodes":
+		if e.complexity.BlacklistOperationRecordAggregate.Nodes == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregate.Nodes(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.avg":
+		if e.complexity.BlacklistOperationRecordAggregateFields.Avg == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.Avg(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.count":
+		if e.complexity.BlacklistOperationRecordAggregateFields.Count == nil {
+			break
+		}
+
+		args, err := ec.field_BlacklistOperationRecordAggregateFields_count_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.Count(childComplexity, args["columns"].([]model.BlacklistOperationRecordSelectColumn), args["distinct"].(*bool)), true
+
+	case "BlacklistOperationRecordAggregateFields.max":
+		if e.complexity.BlacklistOperationRecordAggregateFields.Max == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.Max(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.min":
+		if e.complexity.BlacklistOperationRecordAggregateFields.Min == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.Min(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.stddev":
+		if e.complexity.BlacklistOperationRecordAggregateFields.Stddev == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.Stddev(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.stddev_pop":
+		if e.complexity.BlacklistOperationRecordAggregateFields.StddevPop == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.StddevPop(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.stddev_samp":
+		if e.complexity.BlacklistOperationRecordAggregateFields.StddevSamp == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.StddevSamp(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.sum":
+		if e.complexity.BlacklistOperationRecordAggregateFields.Sum == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.Sum(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.var_pop":
+		if e.complexity.BlacklistOperationRecordAggregateFields.VarPop == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.VarPop(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.var_samp":
+		if e.complexity.BlacklistOperationRecordAggregateFields.VarSamp == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.VarSamp(childComplexity), true
+
+	case "BlacklistOperationRecordAggregateFields.variance":
+		if e.complexity.BlacklistOperationRecordAggregateFields.Variance == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAggregateFields.Variance(childComplexity), true
+
+	case "BlacklistOperationRecordAvgFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordAvgFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAvgFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordAvgFields.id":
+		if e.complexity.BlacklistOperationRecordAvgFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAvgFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordAvgFields.operate":
+		if e.complexity.BlacklistOperationRecordAvgFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordAvgFields.Operate(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.blacklist_record_id":
+		if e.complexity.BlacklistOperationRecordMaxFields.BlacklistRecordID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.BlacklistRecordID(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordMaxFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.create_at":
+		if e.complexity.BlacklistOperationRecordMaxFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.CreateAt(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.create_by":
+		if e.complexity.BlacklistOperationRecordMaxFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.CreateBy(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.delete_at":
+		if e.complexity.BlacklistOperationRecordMaxFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.DeleteAt(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.delete_by":
+		if e.complexity.BlacklistOperationRecordMaxFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.DeleteBy(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.id":
+		if e.complexity.BlacklistOperationRecordMaxFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.operate":
+		if e.complexity.BlacklistOperationRecordMaxFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.Operate(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.remarks":
+		if e.complexity.BlacklistOperationRecordMaxFields.Remarks == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.Remarks(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.update_at":
+		if e.complexity.BlacklistOperationRecordMaxFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.UpdateAt(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.update_by":
+		if e.complexity.BlacklistOperationRecordMaxFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.UpdateBy(childComplexity), true
+
+	case "BlacklistOperationRecordMaxFields.v_seqn":
+		if e.complexity.BlacklistOperationRecordMaxFields.VSeqn == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMaxFields.VSeqn(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.blacklist_record_id":
+		if e.complexity.BlacklistOperationRecordMinFields.BlacklistRecordID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.BlacklistRecordID(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordMinFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.create_at":
+		if e.complexity.BlacklistOperationRecordMinFields.CreateAt == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.CreateAt(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.create_by":
+		if e.complexity.BlacklistOperationRecordMinFields.CreateBy == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.CreateBy(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.delete_at":
+		if e.complexity.BlacklistOperationRecordMinFields.DeleteAt == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.DeleteAt(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.delete_by":
+		if e.complexity.BlacklistOperationRecordMinFields.DeleteBy == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.DeleteBy(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.id":
+		if e.complexity.BlacklistOperationRecordMinFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.operate":
+		if e.complexity.BlacklistOperationRecordMinFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.Operate(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.remarks":
+		if e.complexity.BlacklistOperationRecordMinFields.Remarks == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.Remarks(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.update_at":
+		if e.complexity.BlacklistOperationRecordMinFields.UpdateAt == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.UpdateAt(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.update_by":
+		if e.complexity.BlacklistOperationRecordMinFields.UpdateBy == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.UpdateBy(childComplexity), true
+
+	case "BlacklistOperationRecordMinFields.v_seqn":
+		if e.complexity.BlacklistOperationRecordMinFields.VSeqn == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMinFields.VSeqn(childComplexity), true
+
+	case "BlacklistOperationRecordMutationResponse.affected_rows":
+		if e.complexity.BlacklistOperationRecordMutationResponse.AffectedRows == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMutationResponse.AffectedRows(childComplexity), true
+
+	case "BlacklistOperationRecordMutationResponse.returning":
+		if e.complexity.BlacklistOperationRecordMutationResponse.Returning == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordMutationResponse.Returning(childComplexity), true
+
+	case "BlacklistOperationRecordStddevFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordStddevFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordStddevFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordStddevFields.id":
+		if e.complexity.BlacklistOperationRecordStddevFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordStddevFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordStddevFields.operate":
+		if e.complexity.BlacklistOperationRecordStddevFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordStddevFields.Operate(childComplexity), true
+
+	case "BlacklistOperationRecordStddevPopFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordStddevPopFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordStddevPopFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordStddevPopFields.id":
+		if e.complexity.BlacklistOperationRecordStddevPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordStddevPopFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordStddevPopFields.operate":
+		if e.complexity.BlacklistOperationRecordStddevPopFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordStddevPopFields.Operate(childComplexity), true
+
+	case "BlacklistOperationRecordStddevSampFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordStddevSampFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordStddevSampFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordStddevSampFields.id":
+		if e.complexity.BlacklistOperationRecordStddevSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordStddevSampFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordStddevSampFields.operate":
+		if e.complexity.BlacklistOperationRecordStddevSampFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordStddevSampFields.Operate(childComplexity), true
+
+	case "BlacklistOperationRecordSumFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordSumFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordSumFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordSumFields.id":
+		if e.complexity.BlacklistOperationRecordSumFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordSumFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordSumFields.operate":
+		if e.complexity.BlacklistOperationRecordSumFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordSumFields.Operate(childComplexity), true
+
+	case "BlacklistOperationRecordVarPopFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordVarPopFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordVarPopFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordVarPopFields.id":
+		if e.complexity.BlacklistOperationRecordVarPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordVarPopFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordVarPopFields.operate":
+		if e.complexity.BlacklistOperationRecordVarPopFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordVarPopFields.Operate(childComplexity), true
+
+	case "BlacklistOperationRecordVarSampFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordVarSampFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordVarSampFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordVarSampFields.id":
+		if e.complexity.BlacklistOperationRecordVarSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordVarSampFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordVarSampFields.operate":
+		if e.complexity.BlacklistOperationRecordVarSampFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordVarSampFields.Operate(childComplexity), true
+
+	case "BlacklistOperationRecordVarianceFields.blacklist_type":
+		if e.complexity.BlacklistOperationRecordVarianceFields.BlacklistType == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordVarianceFields.BlacklistType(childComplexity), true
+
+	case "BlacklistOperationRecordVarianceFields.id":
+		if e.complexity.BlacklistOperationRecordVarianceFields.ID == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordVarianceFields.ID(childComplexity), true
+
+	case "BlacklistOperationRecordVarianceFields.operate":
+		if e.complexity.BlacklistOperationRecordVarianceFields.Operate == nil {
+			break
+		}
+
+		return e.complexity.BlacklistOperationRecordVarianceFields.Operate(childComplexity), true
 
 	case "Mutation.delete_blacklist_operation_record":
 		if e.complexity.Mutation.DeleteBlacklistOperationRecord == nil {
@@ -318,543 +855,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.BlacklistOperationRecordByPk(childComplexity, args["id"].(int64)), true
 
-	case "blacklist_operation_record.blacklist_record_id":
-		if e.complexity.BlacklistOperationRecord.BlacklistRecordID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.BlacklistRecordID(childComplexity), true
-
-	case "blacklist_operation_record.blacklist_type":
-		if e.complexity.BlacklistOperationRecord.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record.create_at":
-		if e.complexity.BlacklistOperationRecord.CreateAt == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.CreateAt(childComplexity), true
-
-	case "blacklist_operation_record.create_by":
-		if e.complexity.BlacklistOperationRecord.CreateBy == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.CreateBy(childComplexity), true
-
-	case "blacklist_operation_record.delete_at":
-		if e.complexity.BlacklistOperationRecord.DeleteAt == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.DeleteAt(childComplexity), true
-
-	case "blacklist_operation_record.delete_by":
-		if e.complexity.BlacklistOperationRecord.DeleteBy == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.DeleteBy(childComplexity), true
-
-	case "blacklist_operation_record.id":
-		if e.complexity.BlacklistOperationRecord.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.ID(childComplexity), true
-
-	case "blacklist_operation_record.is_delete":
-		if e.complexity.BlacklistOperationRecord.IsDelete == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.IsDelete(childComplexity), true
-
-	case "blacklist_operation_record.operate":
-		if e.complexity.BlacklistOperationRecord.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.Operate(childComplexity), true
-
-	case "blacklist_operation_record.remarks":
-		if e.complexity.BlacklistOperationRecord.Remarks == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.Remarks(childComplexity), true
-
-	case "blacklist_operation_record.update_at":
-		if e.complexity.BlacklistOperationRecord.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.UpdateAt(childComplexity), true
-
-	case "blacklist_operation_record.update_by":
-		if e.complexity.BlacklistOperationRecord.UpdateBy == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.UpdateBy(childComplexity), true
-
-	case "blacklist_operation_record.v_seqn":
-		if e.complexity.BlacklistOperationRecord.VSeqn == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecord.VSeqn(childComplexity), true
-
-	case "blacklist_operation_record_aggregate.aggregate":
-		if e.complexity.BlacklistOperationRecordAggregate.Aggregate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregate.Aggregate(childComplexity), true
-
-	case "blacklist_operation_record_aggregate.nodes":
-		if e.complexity.BlacklistOperationRecordAggregate.Nodes == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregate.Nodes(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.avg":
-		if e.complexity.BlacklistOperationRecordAggregateFields.Avg == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.Avg(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.count":
-		if e.complexity.BlacklistOperationRecordAggregateFields.Count == nil {
-			break
-		}
-
-		args, err := ec.field_blacklist_operation_record_aggregate_fields_count_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.Count(childComplexity, args["columns"].([]model.BlacklistOperationRecordSelectColumn), args["distinct"].(*bool)), true
-
-	case "blacklist_operation_record_aggregate_fields.max":
-		if e.complexity.BlacklistOperationRecordAggregateFields.Max == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.Max(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.min":
-		if e.complexity.BlacklistOperationRecordAggregateFields.Min == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.Min(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.stddev":
-		if e.complexity.BlacklistOperationRecordAggregateFields.Stddev == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.Stddev(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.stddev_pop":
-		if e.complexity.BlacklistOperationRecordAggregateFields.StddevPop == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.StddevPop(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.stddev_samp":
-		if e.complexity.BlacklistOperationRecordAggregateFields.StddevSamp == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.StddevSamp(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.sum":
-		if e.complexity.BlacklistOperationRecordAggregateFields.Sum == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.Sum(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.var_pop":
-		if e.complexity.BlacklistOperationRecordAggregateFields.VarPop == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.VarPop(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.var_samp":
-		if e.complexity.BlacklistOperationRecordAggregateFields.VarSamp == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.VarSamp(childComplexity), true
-
-	case "blacklist_operation_record_aggregate_fields.variance":
-		if e.complexity.BlacklistOperationRecordAggregateFields.Variance == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAggregateFields.Variance(childComplexity), true
-
-	case "blacklist_operation_record_avg_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordAvgFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAvgFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_avg_fields.id":
-		if e.complexity.BlacklistOperationRecordAvgFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAvgFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_avg_fields.operate":
-		if e.complexity.BlacklistOperationRecordAvgFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordAvgFields.Operate(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.blacklist_record_id":
-		if e.complexity.BlacklistOperationRecordMaxFields.BlacklistRecordID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.BlacklistRecordID(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordMaxFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.create_at":
-		if e.complexity.BlacklistOperationRecordMaxFields.CreateAt == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.CreateAt(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.create_by":
-		if e.complexity.BlacklistOperationRecordMaxFields.CreateBy == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.CreateBy(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.delete_at":
-		if e.complexity.BlacklistOperationRecordMaxFields.DeleteAt == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.DeleteAt(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.delete_by":
-		if e.complexity.BlacklistOperationRecordMaxFields.DeleteBy == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.DeleteBy(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.id":
-		if e.complexity.BlacklistOperationRecordMaxFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.operate":
-		if e.complexity.BlacklistOperationRecordMaxFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.Operate(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.remarks":
-		if e.complexity.BlacklistOperationRecordMaxFields.Remarks == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.Remarks(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.update_at":
-		if e.complexity.BlacklistOperationRecordMaxFields.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.UpdateAt(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.update_by":
-		if e.complexity.BlacklistOperationRecordMaxFields.UpdateBy == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.UpdateBy(childComplexity), true
-
-	case "blacklist_operation_record_max_fields.v_seqn":
-		if e.complexity.BlacklistOperationRecordMaxFields.VSeqn == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMaxFields.VSeqn(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.blacklist_record_id":
-		if e.complexity.BlacklistOperationRecordMinFields.BlacklistRecordID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.BlacklistRecordID(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordMinFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.create_at":
-		if e.complexity.BlacklistOperationRecordMinFields.CreateAt == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.CreateAt(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.create_by":
-		if e.complexity.BlacklistOperationRecordMinFields.CreateBy == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.CreateBy(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.delete_at":
-		if e.complexity.BlacklistOperationRecordMinFields.DeleteAt == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.DeleteAt(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.delete_by":
-		if e.complexity.BlacklistOperationRecordMinFields.DeleteBy == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.DeleteBy(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.id":
-		if e.complexity.BlacklistOperationRecordMinFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.operate":
-		if e.complexity.BlacklistOperationRecordMinFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.Operate(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.remarks":
-		if e.complexity.BlacklistOperationRecordMinFields.Remarks == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.Remarks(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.update_at":
-		if e.complexity.BlacklistOperationRecordMinFields.UpdateAt == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.UpdateAt(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.update_by":
-		if e.complexity.BlacklistOperationRecordMinFields.UpdateBy == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.UpdateBy(childComplexity), true
-
-	case "blacklist_operation_record_min_fields.v_seqn":
-		if e.complexity.BlacklistOperationRecordMinFields.VSeqn == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMinFields.VSeqn(childComplexity), true
-
-	case "blacklist_operation_record_mutation_response.affected_rows":
-		if e.complexity.BlacklistOperationRecordMutationResponse.AffectedRows == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMutationResponse.AffectedRows(childComplexity), true
-
-	case "blacklist_operation_record_mutation_response.returning":
-		if e.complexity.BlacklistOperationRecordMutationResponse.Returning == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordMutationResponse.Returning(childComplexity), true
-
-	case "blacklist_operation_record_stddev_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordStddevFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordStddevFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_stddev_fields.id":
-		if e.complexity.BlacklistOperationRecordStddevFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordStddevFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_stddev_fields.operate":
-		if e.complexity.BlacklistOperationRecordStddevFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordStddevFields.Operate(childComplexity), true
-
-	case "blacklist_operation_record_stddev_pop_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordStddevPopFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordStddevPopFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_stddev_pop_fields.id":
-		if e.complexity.BlacklistOperationRecordStddevPopFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordStddevPopFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_stddev_pop_fields.operate":
-		if e.complexity.BlacklistOperationRecordStddevPopFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordStddevPopFields.Operate(childComplexity), true
-
-	case "blacklist_operation_record_stddev_samp_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordStddevSampFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordStddevSampFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_stddev_samp_fields.id":
-		if e.complexity.BlacklistOperationRecordStddevSampFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordStddevSampFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_stddev_samp_fields.operate":
-		if e.complexity.BlacklistOperationRecordStddevSampFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordStddevSampFields.Operate(childComplexity), true
-
-	case "blacklist_operation_record_sum_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordSumFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordSumFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_sum_fields.id":
-		if e.complexity.BlacklistOperationRecordSumFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordSumFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_sum_fields.operate":
-		if e.complexity.BlacklistOperationRecordSumFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordSumFields.Operate(childComplexity), true
-
-	case "blacklist_operation_record_var_pop_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordVarPopFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordVarPopFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_var_pop_fields.id":
-		if e.complexity.BlacklistOperationRecordVarPopFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordVarPopFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_var_pop_fields.operate":
-		if e.complexity.BlacklistOperationRecordVarPopFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordVarPopFields.Operate(childComplexity), true
-
-	case "blacklist_operation_record_var_samp_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordVarSampFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordVarSampFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_var_samp_fields.id":
-		if e.complexity.BlacklistOperationRecordVarSampFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordVarSampFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_var_samp_fields.operate":
-		if e.complexity.BlacklistOperationRecordVarSampFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordVarSampFields.Operate(childComplexity), true
-
-	case "blacklist_operation_record_variance_fields.blacklist_type":
-		if e.complexity.BlacklistOperationRecordVarianceFields.BlacklistType == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordVarianceFields.BlacklistType(childComplexity), true
-
-	case "blacklist_operation_record_variance_fields.id":
-		if e.complexity.BlacklistOperationRecordVarianceFields.ID == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordVarianceFields.ID(childComplexity), true
-
-	case "blacklist_operation_record_variance_fields.operate":
-		if e.complexity.BlacklistOperationRecordVarianceFields.Operate == nil {
-			break
-		}
-
-		return e.complexity.BlacklistOperationRecordVarianceFields.Operate(childComplexity), true
-
 	}
 	return 0, false
 }
@@ -919,799 +919,810 @@ func (ec *executionContext) introspectType(name string) (*introspection.Type, er
 }
 
 var sources = []*ast.Source{
-	{Name: "graph/graphqls/blanklist_operation_record.graphqls", Input: `
-"""
+	{Name: "graph/graphqls/blanklist_operation_record.graphqls", Input: `"""
 黑名单操作记录表
 
 
 columns and relationships of "blacklist_operation_record"
-
 """
-type blacklist_operation_record {
-  """黑名单记录ID"""
-  blacklist_record_id: String!
-
-  """黑名单类别"""
-  blacklist_type: Int!
-
-  """创建时间"""
-  create_at: timestamptz!
-
-  """创建人"""
-  create_by: String
-
-  """删除时间"""
-  delete_at: timestamptz
-
-  """删除人"""
-  delete_by: String
-
-  """ID"""
-  id: bigint!
-
-  """是否删除"""
-  is_delete: Boolean!
-
-  """操作类别"""
-  operate: Int!
-
-  """备注"""
-  remarks: String
-
-  """修改时间"""
-  update_at: timestamptz
-
-  """修改人"""
-  update_by: String
-
-  """驾驶员ID或者企业ID或者车辆ID"""
-  v_seqn: String!
+type BlacklistOperationRecord {
+	"""
+	黑名单记录ID
+	"""
+	blacklist_record_id: String!
+	"""
+	黑名单类别
+	"""
+	blacklist_type: Int!
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	操作类别
+	"""
+	operate: Int!
+	"""
+	备注
+	"""
+	remarks: String
+	"""
+	修改时间
+	"""
+	update_at: Timestamptz
+	"""
+	修改人
+	"""
+	update_by: String
+	"""
+	驾驶员ID或者企业ID或者车辆ID
+	"""
+	v_seqn: String!
 }
-
 """
 aggregated selection of "blacklist_operation_record"
 """
-type blacklist_operation_record_aggregate {
-  aggregate: blacklist_operation_record_aggregate_fields
-  nodes: [blacklist_operation_record!]!
+type BlacklistOperationRecordAggregate {
+	aggregate: BlacklistOperationRecordAggregateFields
+	nodes: [BlacklistOperationRecord!]!
 }
-
 """
 aggregate fields of "blacklist_operation_record"
 """
-type blacklist_operation_record_aggregate_fields {
-  avg: blacklist_operation_record_avg_fields
-  count(columns: [blacklist_operation_record_select_column!], distinct: Boolean): Int
-  max: blacklist_operation_record_max_fields
-  min: blacklist_operation_record_min_fields
-  stddev: blacklist_operation_record_stddev_fields
-  stddev_pop: blacklist_operation_record_stddev_pop_fields
-  stddev_samp: blacklist_operation_record_stddev_samp_fields
-  sum: blacklist_operation_record_sum_fields
-  var_pop: blacklist_operation_record_var_pop_fields
-  var_samp: blacklist_operation_record_var_samp_fields
-  variance: blacklist_operation_record_variance_fields
+type BlacklistOperationRecordAggregateFields {
+	avg: BlacklistOperationRecordAvgFields
+	count(columns: [BlacklistOperationRecordSelectColumn!], distinct: Boolean): Int
+	max: BlacklistOperationRecordMaxFields
+	min: BlacklistOperationRecordMinFields
+	stddev: BlacklistOperationRecordStddevFields
+	stddev_pop: BlacklistOperationRecordStddevPopFields
+	stddev_samp: BlacklistOperationRecordStddevSampFields
+	sum: BlacklistOperationRecordSumFields
+	var_pop: BlacklistOperationRecordVarPopFields
+	var_samp: BlacklistOperationRecordVarSampFields
+	variance: BlacklistOperationRecordVarianceFields
 }
-
 """
 order by aggregate values of table "blacklist_operation_record"
 """
-input blacklist_operation_record_aggregate_order_by {
-  avg: blacklist_operation_record_avg_order_by
-  count: order_by
-  max: blacklist_operation_record_max_order_by
-  min: blacklist_operation_record_min_order_by
-  stddev: blacklist_operation_record_stddev_order_by
-  stddev_pop: blacklist_operation_record_stddev_pop_order_by
-  stddev_samp: blacklist_operation_record_stddev_samp_order_by
-  sum: blacklist_operation_record_sum_order_by
-  var_pop: blacklist_operation_record_var_pop_order_by
-  var_samp: blacklist_operation_record_var_samp_order_by
-  variance: blacklist_operation_record_variance_order_by
+input BlacklistOperationRecordAggregateOrderBy {
+	avg: BlacklistOperationRecordAvgOrderBy
+	count: OrderBy
+	max: BlacklistOperationRecordMaxOrderBy
+	min: BlacklistOperationRecordMinOrderBy
+	stddev: BlacklistOperationRecordStddevOrderBy
+	stddev_pop: BlacklistOperationRecordStddevPopOrderBy
+	stddev_samp: BlacklistOperationRecordStddevSampOrderBy
+	sum: BlacklistOperationRecordSumOrderBy
+	var_pop: BlacklistOperationRecordVarPopOrderBy
+	var_samp: BlacklistOperationRecordVarSampOrderBy
+	variance: BlacklistOperationRecordVarianceOrderBy
 }
-
 """
 input type for inserting array relation for remote table "blacklist_operation_record"
 """
-input blacklist_operation_record_arr_rel_insert_input {
-  data: [blacklist_operation_record_insert_input!]!
-  on_conflict: blacklist_operation_record_on_conflict
+input BlacklistOperationRecordArrRelInsertInput {
+	data: [BlacklistOperationRecordInsertInput!]!
+	on_conflict: BlacklistOperationRecordOnConflict
 }
-
-"""aggregate avg on columns"""
-type blacklist_operation_record_avg_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate avg on columns
+"""
+type BlacklistOperationRecordAvgFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by avg() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_avg_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordAvgOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
 """
 Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'AND'.
 """
-input blacklist_operation_record_bool_exp {
-  _and: [blacklist_operation_record_bool_exp]
-  _not: blacklist_operation_record_bool_exp
-  _or: [blacklist_operation_record_bool_exp]
-  blacklist_record_id: String_comparison_exp
-  blacklist_type: Int_comparison_exp
-  create_at: timestamptz_comparison_exp
-  create_by: String_comparison_exp
-  delete_at: timestamptz_comparison_exp
-  delete_by: String_comparison_exp
-  id: bigint_comparison_exp
-  is_delete: Boolean_comparison_exp
-  operate: Int_comparison_exp
-  remarks: String_comparison_exp
-  update_at: timestamptz_comparison_exp
-  update_by: String_comparison_exp
-  v_seqn: String_comparison_exp
+input BlacklistOperationRecordBoolExp {
+	_and: [BlacklistOperationRecordBoolExp]
+	_not: BlacklistOperationRecordBoolExp
+	_or: [BlacklistOperationRecordBoolExp]
+	blacklist_record_id: StringComparisonExp
+	blacklist_type: IntComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	id: BigintComparisonExp
+	is_delete: BooleanComparisonExp
+	operate: IntComparisonExp
+	remarks: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	v_seqn: StringComparisonExp
 }
-
 """
 unique or primary key constraints on table "blacklist_operation_record"
 """
-enum blacklist_operation_record_constraint {
-  """unique or primary key constraint"""
-  blacklist_operation_record_pkey
+enum BlacklistOperationRecordConstraint {
+	"""
+	unique or primary key constraint
+	"""
+	blacklist_operation_record_pkey
 }
-
 """
 input type for incrementing integer column in table "blacklist_operation_record"
 """
-input blacklist_operation_record_inc_input {
-  blacklist_type: Int
-  id: bigint
-  operate: Int
+input BlacklistOperationRecordIncInput {
+	blacklist_type: Int
+	id: Bigint
+	operate: Int
 }
-
 """
 input type for inserting data into table "blacklist_operation_record"
 """
-input blacklist_operation_record_insert_input {
-  blacklist_record_id: String
-  blacklist_type: Int
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  id: bigint
-  is_delete: Boolean
-  operate: Int
-  remarks: String
-  update_at: timestamptz
-  update_by: String
-  v_seqn: String
+input BlacklistOperationRecordInsertInput {
+	blacklist_record_id: String
+	blacklist_type: Int
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	id: Bigint
+	is_delete: Boolean
+	operate: Int
+	remarks: String
+	update_at: Timestamptz
+	update_by: String
+	v_seqn: String
 }
-
-"""aggregate max on columns"""
-type blacklist_operation_record_max_fields {
-  blacklist_record_id: String
-  blacklist_type: Int
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  id: bigint
-  operate: Int
-  remarks: String
-  update_at: timestamptz
-  update_by: String
-  v_seqn: String
+"""
+aggregate max on columns
+"""
+type BlacklistOperationRecordMaxFields {
+	blacklist_record_id: String
+	blacklist_type: Int
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	id: Bigint
+	operate: Int
+	remarks: String
+	update_at: Timestamptz
+	update_by: String
+	v_seqn: String
 }
-
 """
 order by max() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_max_order_by {
-  blacklist_record_id: order_by
-  blacklist_type: order_by
-  create_at: order_by
-  create_by: order_by
-  delete_at: order_by
-  delete_by: order_by
-  id: order_by
-  operate: order_by
-  remarks: order_by
-  update_at: order_by
-  update_by: order_by
-  v_seqn: order_by
+input BlacklistOperationRecordMaxOrderBy {
+	blacklist_record_id: OrderBy
+	blacklist_type: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	id: OrderBy
+	operate: OrderBy
+	remarks: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	v_seqn: OrderBy
 }
-
-"""aggregate min on columns"""
-type blacklist_operation_record_min_fields {
-  blacklist_record_id: String
-  blacklist_type: Int
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  id: bigint
-  operate: Int
-  remarks: String
-  update_at: timestamptz
-  update_by: String
-  v_seqn: String
+"""
+aggregate min on columns
+"""
+type BlacklistOperationRecordMinFields {
+	blacklist_record_id: String
+	blacklist_type: Int
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	id: Bigint
+	operate: Int
+	remarks: String
+	update_at: Timestamptz
+	update_by: String
+	v_seqn: String
 }
-
 """
 order by min() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_min_order_by {
-  blacklist_record_id: order_by
-  blacklist_type: order_by
-  create_at: order_by
-  create_by: order_by
-  delete_at: order_by
-  delete_by: order_by
-  id: order_by
-  operate: order_by
-  remarks: order_by
-  update_at: order_by
-  update_by: order_by
-  v_seqn: order_by
+input BlacklistOperationRecordMinOrderBy {
+	blacklist_record_id: OrderBy
+	blacklist_type: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	id: OrderBy
+	operate: OrderBy
+	remarks: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	v_seqn: OrderBy
 }
-
 """
 response of any mutation on the table "blacklist_operation_record"
 """
-type blacklist_operation_record_mutation_response {
-  """number of affected rows by the mutation"""
-  affected_rows: Int!
-
-  """data of the affected rows by the mutation"""
-  returning: [blacklist_operation_record!]!
+type BlacklistOperationRecordMutationResponse {
+	"""
+	number of affected rows by the mutation
+	"""
+	affected_rows: Int!
+	"""
+	data of the affected rows by the mutation
+	"""
+	returning: [BlacklistOperationRecord!]!
 }
-
 """
 input type for inserting object relation for remote table "blacklist_operation_record"
 """
-input blacklist_operation_record_obj_rel_insert_input {
-  data: blacklist_operation_record_insert_input!
-  on_conflict: blacklist_operation_record_on_conflict
+input BlacklistOperationRecordObjRelInsertInput {
+	data: BlacklistOperationRecordInsertInput!
+	on_conflict: BlacklistOperationRecordOnConflict
 }
-
 """
 on conflict condition type for table "blacklist_operation_record"
 """
-input blacklist_operation_record_on_conflict {
-  constraint: blacklist_operation_record_constraint!
-  update_columns: [blacklist_operation_record_update_column!]!
-  where: blacklist_operation_record_bool_exp
+input BlacklistOperationRecordOnConflict {
+	constraint: BlacklistOperationRecordConstraint!
+	update_columns: [BlacklistOperationRecordUpdateColumn!]!
+	where: BlacklistOperationRecordBoolExp
 }
-
 """
 ordering options when selecting data from "blacklist_operation_record"
 """
-input blacklist_operation_record_order_by {
-  blacklist_record_id: order_by
-  blacklist_type: order_by
-  create_at: order_by
-  create_by: order_by
-  delete_at: order_by
-  delete_by: order_by
-  id: order_by
-  is_delete: order_by
-  operate: order_by
-  remarks: order_by
-  update_at: order_by
-  update_by: order_by
-  v_seqn: order_by
+input BlacklistOperationRecordOrderBy {
+	blacklist_record_id: OrderBy
+	blacklist_type: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	id: OrderBy
+	is_delete: OrderBy
+	operate: OrderBy
+	remarks: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	v_seqn: OrderBy
 }
-
 """
 primary key columns input for table: "blacklist_operation_record"
 """
-input blacklist_operation_record_pk_columns_input {
-  """ID"""
-  id: bigint!
+input BlacklistOperationRecordPkColumnsInput {
+	"""
+	ID
+	"""
+	id: Bigint!
 }
-
 """
 select columns of table "blacklist_operation_record"
 """
-enum blacklist_operation_record_select_column {
-  """column name"""
-  blacklist_record_id
-
-  """column name"""
-  blacklist_type
-
-  """column name"""
-  create_at
-
-  """column name"""
-  create_by
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  id
-
-  """column name"""
-  is_delete
-
-  """column name"""
-  operate
-
-  """column name"""
-  remarks
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
-
-  """column name"""
-  v_seqn
+enum BlacklistOperationRecordSelectColumn {
+	"""
+	column name
+	"""
+	blacklist_record_id
+	"""
+	column name
+	"""
+	blacklist_type
+	"""
+	column name
+	"""
+	create_at
+	"""
+	column name
+	"""
+	create_by
+	"""
+	column name
+	"""
+	delete_at
+	"""
+	column name
+	"""
+	delete_by
+	"""
+	column name
+	"""
+	id
+	"""
+	column name
+	"""
+	is_delete
+	"""
+	column name
+	"""
+	operate
+	"""
+	column name
+	"""
+	remarks
+	"""
+	column name
+	"""
+	update_at
+	"""
+	column name
+	"""
+	update_by
+	"""
+	column name
+	"""
+	v_seqn
 }
-
 """
 input type for updating data in table "blacklist_operation_record"
 """
-input blacklist_operation_record_set_input {
-  blacklist_record_id: String
-  blacklist_type: Int
-  create_at: timestamptz
-  create_by: String
-  delete_at: timestamptz
-  delete_by: String
-  id: bigint
-  is_delete: Boolean
-  operate: Int
-  remarks: String
-  update_at: timestamptz
-  update_by: String
-  v_seqn: String
+input BlacklistOperationRecordSetInput {
+	blacklist_record_id: String
+	blacklist_type: Int
+	create_at: Timestamptz
+	create_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	id: Bigint
+	is_delete: Boolean
+	operate: Int
+	remarks: String
+	update_at: Timestamptz
+	update_by: String
+	v_seqn: String
 }
-
-"""aggregate stddev on columns"""
-type blacklist_operation_record_stddev_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate stddev on columns
+"""
+type BlacklistOperationRecordStddevFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by stddev() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_stddev_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordStddevOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate stddev_pop on columns"""
-type blacklist_operation_record_stddev_pop_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate stddev_pop on columns
+"""
+type BlacklistOperationRecordStddevPopFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by stddev_pop() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_stddev_pop_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordStddevPopOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate stddev_samp on columns"""
-type blacklist_operation_record_stddev_samp_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate stddev_samp on columns
+"""
+type BlacklistOperationRecordStddevSampFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by stddev_samp() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_stddev_samp_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordStddevSampOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate sum on columns"""
-type blacklist_operation_record_sum_fields {
-  blacklist_type: Int
-  id: bigint
-  operate: Int
+"""
+aggregate sum on columns
+"""
+type BlacklistOperationRecordSumFields {
+	blacklist_type: Int
+	id: Bigint
+	operate: Int
 }
-
 """
 order by sum() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_sum_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordSumOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
 """
 update columns of table "blacklist_operation_record"
 """
-enum blacklist_operation_record_update_column {
-  """column name"""
-  blacklist_record_id
-
-  """column name"""
-  blacklist_type
-
-  """column name"""
-  create_at
-
-  """column name"""
-  create_by
-
-  """column name"""
-  delete_at
-
-  """column name"""
-  delete_by
-
-  """column name"""
-  id
-
-  """column name"""
-  is_delete
-
-  """column name"""
-  operate
-
-  """column name"""
-  remarks
-
-  """column name"""
-  update_at
-
-  """column name"""
-  update_by
-
-  """column name"""
-  v_seqn
+enum BlacklistOperationRecordUpdateColumn {
+	"""
+	column name
+	"""
+	blacklist_record_id
+	"""
+	column name
+	"""
+	blacklist_type
+	"""
+	column name
+	"""
+	create_at
+	"""
+	column name
+	"""
+	create_by
+	"""
+	column name
+	"""
+	delete_at
+	"""
+	column name
+	"""
+	delete_by
+	"""
+	column name
+	"""
+	id
+	"""
+	column name
+	"""
+	is_delete
+	"""
+	column name
+	"""
+	operate
+	"""
+	column name
+	"""
+	remarks
+	"""
+	column name
+	"""
+	update_at
+	"""
+	column name
+	"""
+	update_by
+	"""
+	column name
+	"""
+	v_seqn
 }
-
-"""aggregate var_pop on columns"""
-type blacklist_operation_record_var_pop_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate var_pop on columns
+"""
+type BlacklistOperationRecordVarPopFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by var_pop() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_var_pop_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordVarPopOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate var_samp on columns"""
-type blacklist_operation_record_var_samp_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate var_samp on columns
+"""
+type BlacklistOperationRecordVarSampFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by var_samp() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_var_samp_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordVarSampOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
-"""aggregate variance on columns"""
-type blacklist_operation_record_variance_fields {
-  blacklist_type: Float
-  id: Float
-  operate: Float
+"""
+aggregate variance on columns
+"""
+type BlacklistOperationRecordVarianceFields {
+	blacklist_type: Float
+	id: Float
+	operate: Float
 }
-
 """
 order by variance() on columns of table "blacklist_operation_record"
 """
-input blacklist_operation_record_variance_order_by {
-  blacklist_type: order_by
-  id: order_by
-  operate: order_by
+input BlacklistOperationRecordVarianceOrderBy {
+	blacklist_type: OrderBy
+	id: OrderBy
+	operate: OrderBy
 }
-
 extend type Mutation {
-  """
-  delete data from the table: "blacklist_operation_record"
-  """
-  delete_blacklist_operation_record(
-    """filter the rows which have to be deleted"""
-    where: blacklist_operation_record_bool_exp!
-  ): blacklist_operation_record_mutation_response
-
-  """
-  delete single row from the table: "blacklist_operation_record"
-  """
-  delete_blacklist_operation_record_by_pk(
-    """ID"""
-    id: bigint!
-  ): blacklist_operation_record
-
-  """
-  insert data into the table: "blacklist_operation_record"
-  """
-  insert_blacklist_operation_record(
-    """the rows to be inserted"""
-    objects: [blacklist_operation_record_insert_input!]!
-
-    """on conflict condition"""
-    on_conflict: blacklist_operation_record_on_conflict
-  ): blacklist_operation_record_mutation_response
-
-  """
-  insert a single row into the table: "blacklist_operation_record"
-  """
-  insert_blacklist_operation_record_one(
-    """the row to be inserted"""
-    object: blacklist_operation_record_insert_input!
-
-    """on conflict condition"""
-    on_conflict: blacklist_operation_record_on_conflict
-  ): blacklist_operation_record
-
-  """
-  update data of the table: "blacklist_operation_record"
-  """
-  update_blacklist_operation_record(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: blacklist_operation_record_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: blacklist_operation_record_set_input
-
-    """filter the rows which have to be updated"""
-    where: blacklist_operation_record_bool_exp!
-  ): blacklist_operation_record_mutation_response
-
-  """
-  update single row of the table: "blacklist_operation_record"
-  """
-  update_blacklist_operation_record_by_pk(
-    """increments the integer columns with given value of the filtered values"""
-    _inc: blacklist_operation_record_inc_input
-
-    """sets the columns of the filtered rows to the given values"""
-    _set: blacklist_operation_record_set_input
-    pk_columns: blacklist_operation_record_pk_columns_input!
-  ): blacklist_operation_record
+	"""
+	delete data from the table: "blacklist_operation_record"
+	"""
+	delete_blacklist_operation_record("""
+	filter the rows which have to be deleted
+	"""
+	where: BlacklistOperationRecordBoolExp!): BlacklistOperationRecordMutationResponse
+	"""
+	delete single row from the table: "blacklist_operation_record"
+	"""
+	delete_blacklist_operation_record_by_pk("""
+	ID
+	"""
+	id: Bigint!): BlacklistOperationRecord
+	"""
+	insert data into the table: "blacklist_operation_record"
+	"""
+	insert_blacklist_operation_record("""
+	the rows to be inserted
+	"""
+	objects: [BlacklistOperationRecordInsertInput!]!, """
+	on conflict condition
+	"""
+	on_conflict: BlacklistOperationRecordOnConflict): BlacklistOperationRecordMutationResponse
+	"""
+	insert a single row into the table: "blacklist_operation_record"
+	"""
+	insert_blacklist_operation_record_one("""
+	the row to be inserted
+	"""
+	object: BlacklistOperationRecordInsertInput!, """
+	on conflict condition
+	"""
+	on_conflict: BlacklistOperationRecordOnConflict): BlacklistOperationRecord
+	"""
+	update data of the table: "blacklist_operation_record"
+	"""
+	update_blacklist_operation_record("""
+	increments the integer columns with given value of the filtered values
+	"""
+	_inc: BlacklistOperationRecordIncInput, """
+	sets the columns of the filtered rows to the given values
+	"""
+	_set: BlacklistOperationRecordSetInput, """
+	filter the rows which have to be updated
+	"""
+	where: BlacklistOperationRecordBoolExp!): BlacklistOperationRecordMutationResponse
+	"""
+	update single row of the table: "blacklist_operation_record"
+	"""
+	update_blacklist_operation_record_by_pk("""
+	increments the integer columns with given value of the filtered values
+	"""
+	_inc: BlacklistOperationRecordIncInput, """
+	sets the columns of the filtered rows to the given values
+	"""
+	_set: BlacklistOperationRecordSetInput, pk_columns: BlacklistOperationRecordPkColumnsInput!): BlacklistOperationRecord
 }
-
 extend type Query {
-  """
-  fetch data from the table: "blacklist_operation_record"
-  """
-  blacklist_operation_record(
-    """distinct select on columns"""
-    distinct_on: [blacklist_operation_record_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [blacklist_operation_record_order_by!]
-
-    """filter the rows returned"""
-    where: blacklist_operation_record_bool_exp
-  ): [blacklist_operation_record!]!
-
-  """
-  fetch aggregated fields from the table: "blacklist_operation_record"
-  """
-  blacklist_operation_record_aggregate(
-    """distinct select on columns"""
-    distinct_on: [blacklist_operation_record_select_column!]
-
-    """limit the number of rows returned"""
-    limit: Int
-
-    """skip the first n rows. Use only with order_by"""
-    offset: Int
-
-    """sort the rows by one or more columns"""
-    order_by: [blacklist_operation_record_order_by!]
-
-    """filter the rows returned"""
-    where: blacklist_operation_record_bool_exp
-  ): blacklist_operation_record_aggregate!
-
-  """
-  fetch data from the table: "blacklist_operation_record" using primary key columns
-  """
-  blacklist_operation_record_by_pk(
-    """ID"""
-    id: bigint!
-  ): blacklist_operation_record
+	"""
+	fetch data from the table: "blacklist_operation_record"
+	"""
+	blacklist_operation_record("""
+	distinct select on columns
+	"""
+	distinct_on: [BlacklistOperationRecordSelectColumn!], """
+	limit the number of rows returned
+	"""
+	limit: Int, """
+	skip the first n rows. Use only with order_by
+	"""
+	offset: Int, """
+	sort the rows by one or more columns
+	"""
+	order_by: [BlacklistOperationRecordOrderBy!], """
+	filter the rows returned
+	"""
+	where: BlacklistOperationRecordBoolExp): [BlacklistOperationRecord!]!
+	"""
+	fetch aggregated fields from the table: "blacklist_operation_record"
+	"""
+	blacklist_operation_record_aggregate("""
+	distinct select on columns
+	"""
+	distinct_on: [BlacklistOperationRecordSelectColumn!], """
+	limit the number of rows returned
+	"""
+	limit: Int, """
+	skip the first n rows. Use only with order_by
+	"""
+	offset: Int, """
+	sort the rows by one or more columns
+	"""
+	order_by: [BlacklistOperationRecordOrderBy!], """
+	filter the rows returned
+	"""
+	where: BlacklistOperationRecordBoolExp): BlacklistOperationRecordAggregate!
+	"""
+	fetch data from the table: "blacklist_operation_record" using primary key columns
+	"""
+	blacklist_operation_record_by_pk("""
+	ID
+	"""
+	id: Bigint!): BlacklistOperationRecord
 }
 `, BuiltIn: false},
-	{Name: "graph/graphqls/common.graphqls", Input: `
-"""
+	{Name: "graph/graphqls/common.graphqls", Input: `"""
 expression to compare columns of type _jsonb. All fields are combined with logical 'AND'.
 """
-input _jsonb_comparison_exp {
-    _eq: _jsonb
-    _gt: _jsonb
-    _gte: _jsonb
-    _in: [_jsonb!]
-    _is_null: Boolean
-    _lt: _jsonb
-    _lte: _jsonb
-    _neq: _jsonb
-    _nin: [_jsonb!]
+input JsonbComparisonExp {
+	_eq: Jsonb
+	_gt: Jsonb
+	_gte: Jsonb
+	_in: [Jsonb!]
+	_is_null: Boolean
+	_lt: Jsonb
+	_lte: Jsonb
+	_neq: Jsonb
+	_nin: [Jsonb!]
 }
-
 """
 expression to compare columns of type bigint. All fields are combined with logical 'AND'.
 """
-input bigint_comparison_exp {
-    _eq: bigint
-    _gt: bigint
-    _gte: bigint
-    _in: [bigint!]
-    _is_null: Boolean
-    _lt: bigint
-    _lte: bigint
-    _neq: bigint
-    _nin: [bigint!]
+input BigintComparisonExp {
+	_eq: Bigint
+	_gt: Bigint
+	_gte: Bigint
+	_in: [Bigint!]
+	_is_null: Boolean
+	_lt: Bigint
+	_lte: Bigint
+	_neq: Bigint
+	_nin: [Bigint!]
 }
-
-
 """
 expression to compare columns of type Boolean. All fields are combined with logical 'AND'.
 """
-input Boolean_comparison_exp {
-    _eq: Boolean
-    _gt: Boolean
-    _gte: Boolean
-    _in: [Boolean!]
-    _is_null: Boolean
-    _lt: Boolean
-    _lte: Boolean
-    _neq: Boolean
-    _nin: [Boolean!]
+input BooleanComparisonExp {
+	_eq: Boolean
+	_gt: Boolean
+	_gte: Boolean
+	_in: [Boolean!]
+	_is_null: Boolean
+	_lt: Boolean
+	_lte: Boolean
+	_neq: Boolean
+	_nin: [Boolean!]
 }
-
-
 """
 expression to compare columns of type Int. All fields are combined with logical 'AND'.
 """
-input Int_comparison_exp {
-    _eq: Int
-    _gt: Int
-    _gte: Int
-    _in: [Int!]
-    _is_null: Boolean
-    _lt: Int
-    _lte: Int
-    _neq: Int
-    _nin: [Int!]
+input IntComparisonExp {
+	_eq: Int
+	_gt: Int
+	_gte: Int
+	_in: [Int!]
+	_is_null: Boolean
+	_lt: Int
+	_lte: Int
+	_neq: Int
+	_nin: [Int!]
 }
-
-
-
-"""column ordering options"""
-enum order_by {
-    """in the ascending order, nulls last"""
-    asc
-
-    """in the ascending order, nulls first"""
-    asc_nulls_first
-
-    """in the ascending order, nulls last"""
-    asc_nulls_last
-
-    """in the descending order, nulls first"""
-    desc
-
-    """in the descending order, nulls first"""
-    desc_nulls_first
-
-    """in the descending order, nulls last"""
-    desc_nulls_last
+"""
+column ordering options
+"""
+enum OrderBy {
+	"""
+	in the ascending order, nulls last
+	"""
+	asc
+	"""
+	in the ascending order, nulls first
+	"""
+	asc_nulls_first
+	"""
+	in the ascending order, nulls last
+	"""
+	asc_nulls_last
+	"""
+	in the descending order, nulls first
+	"""
+	desc
+	"""
+	in the descending order, nulls first
+	"""
+	desc_nulls_first
+	"""
+	in the descending order, nulls last
+	"""
+	desc_nulls_last
 }
-
-
 """
 expression to compare columns of type String. All fields are combined with logical 'AND'.
 """
-input String_comparison_exp {
-    _eq: String
-    _gt: String
-    _gte: String
-    _ilike: String
-    _in: [String!]
-    _is_null: Boolean
-    _like: String
-    _lt: String
-    _lte: String
-    _neq: String
-    _nilike: String
-    _nin: [String!]
-    _nlike: String
-    _nsimilar: String
-    _similar: String
+input StringComparisonExp {
+	_eq: String
+	_gt: String
+	_gte: String
+	_ilike: String
+	_in: [String!]
+	_is_null: Boolean
+	_like: String
+	_lt: String
+	_lte: String
+	_neq: String
+	_nilike: String
+	_nin: [String!]
+	_nlike: String
+	_nsimilar: String
+	_similar: String
 }
-
-
 """
 expression to compare columns of type timestamptz. All fields are combined with logical 'AND'.
 """
-input timestamptz_comparison_exp {
-    _eq: timestamptz
-    _gt: timestamptz
-    _gte: timestamptz
-    _in: [timestamptz!]
-    _is_null: Boolean
-    _lt: timestamptz
-    _lte: timestamptz
-    _neq: timestamptz
-    _nin: [timestamptz!]
+input TimestamptzComparisonExp {
+	_eq: Timestamptz
+	_gt: Timestamptz
+	_gte: Timestamptz
+	_in: [Timestamptz!]
+	_is_null: Boolean
+	_lt: Timestamptz
+	_lte: Timestamptz
+	_neq: Timestamptz
+	_nin: [Timestamptz!]
 }
-
 """
 expression to compare columns of type numeric. All fields are combined with logical 'AND'.
 """
-input numeric_comparison_exp {
-    _eq: numeric
-    _gt: numeric
-    _gte: numeric
-    _in: [numeric!]
-    _is_null: Boolean
-    _lt: numeric
-    _lte: numeric
-    _neq: numeric
-    _nin: [numeric!]
+input NumericComparisonExp {
+	_eq: Numeric
+	_gt: Numeric
+	_gte: Numeric
+	_in: [Numeric!]
+	_is_null: Boolean
+	_lt: Numeric
+	_lte: Numeric
+	_neq: Numeric
+	_nin: [Numeric!]
 }
-
 """
 expression to compare columns of type point. All fields are combined with logical 'AND'.
 """
-input point_comparison_exp {
-    _eq: point
-    _gt: point
-    _gte: point
-    _in: [point!]
-    _is_null: Boolean
-    _lt: point
-    _lte: point
-    _neq: point
-    _nin: [point!]
+input PointComparisonExp {
+	_eq: Point
+	_gt: Point
+	_gte: Point
+	_in: [Point!]
+	_is_null: Boolean
+	_lt: Point
+	_lte: Point
+	_neq: Point
+	_nin: [Point!]
 }
-
-
-
-
-scalar _jsonb
-scalar bigint
-scalar timestamptz
-scalar point
-scalar numeric
+scalar Jsonb
+scalar Bigint
+scalar Timestamptz
+scalar Point
+scalar Numeric
 `, BuiltIn: false},
 }
 var parsedSchema = gqlparser.MustLoadSchema(sources...)
@@ -1720,13 +1731,37 @@ var parsedSchema = gqlparser.MustLoadSchema(sources...)
 
 // region    ***************************** args.gotpl *****************************
 
+func (ec *executionContext) field_BlacklistOperationRecordAggregateFields_count_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.BlacklistOperationRecordSelectColumn
+	if tmp, ok := rawArgs["columns"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
+		arg0, err = ec.unmarshalOBlacklistOperationRecordSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["columns"] = arg0
+	var arg1 *bool
+	if tmp, ok := rawArgs["distinct"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct"))
+		arg1, err = ec.unmarshalOBoolean2ᚖbool(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct"] = arg1
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_blacklist_operation_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 model.BlacklistOperationRecordBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalNblacklist_operation_record_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, tmp)
+		arg0, err = ec.unmarshalNBlacklistOperationRecordBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1741,7 +1776,7 @@ func (ec *executionContext) field_Mutation_delete_blacklist_operation_record_by_
 	var arg0 int64
 	if tmp, ok := rawArgs["id"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1756,7 +1791,7 @@ func (ec *executionContext) field_Mutation_insert_blacklist_operation_record_arg
 	var arg0 []*model.BlacklistOperationRecordInsertInput
 	if tmp, ok := rawArgs["objects"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNblacklist_operation_record_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInputᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalNBlacklistOperationRecordInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInputᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1765,7 +1800,7 @@ func (ec *executionContext) field_Mutation_insert_blacklist_operation_record_arg
 	var arg1 *model.BlacklistOperationRecordOnConflict
 	if tmp, ok := rawArgs["on_conflict"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-		arg1, err = ec.unmarshalOblacklist_operation_record_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx, tmp)
+		arg1, err = ec.unmarshalOBlacklistOperationRecordOnConflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1780,7 +1815,7 @@ func (ec *executionContext) field_Mutation_insert_blacklist_operation_record_one
 	var arg0 model.BlacklistOperationRecordInsertInput
 	if tmp, ok := rawArgs["object"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("object"))
-		arg0, err = ec.unmarshalNblacklist_operation_record_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx, tmp)
+		arg0, err = ec.unmarshalNBlacklistOperationRecordInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1789,7 +1824,7 @@ func (ec *executionContext) field_Mutation_insert_blacklist_operation_record_one
 	var arg1 *model.BlacklistOperationRecordOnConflict
 	if tmp, ok := rawArgs["on_conflict"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-		arg1, err = ec.unmarshalOblacklist_operation_record_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx, tmp)
+		arg1, err = ec.unmarshalOBlacklistOperationRecordOnConflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1804,7 +1839,7 @@ func (ec *executionContext) field_Mutation_update_blacklist_operation_record_arg
 	var arg0 *model.BlacklistOperationRecordIncInput
 	if tmp, ok := rawArgs["_inc"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOblacklist_operation_record_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordIncInput(ctx, tmp)
+		arg0, err = ec.unmarshalOBlacklistOperationRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordIncInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1813,7 +1848,7 @@ func (ec *executionContext) field_Mutation_update_blacklist_operation_record_arg
 	var arg1 *model.BlacklistOperationRecordSetInput
 	if tmp, ok := rawArgs["_set"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOblacklist_operation_record_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSetInput(ctx, tmp)
+		arg1, err = ec.unmarshalOBlacklistOperationRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSetInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1822,7 +1857,7 @@ func (ec *executionContext) field_Mutation_update_blacklist_operation_record_arg
 	var arg2 model.BlacklistOperationRecordBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg2, err = ec.unmarshalNblacklist_operation_record_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, tmp)
+		arg2, err = ec.unmarshalNBlacklistOperationRecordBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1837,7 +1872,7 @@ func (ec *executionContext) field_Mutation_update_blacklist_operation_record_by_
 	var arg0 *model.BlacklistOperationRecordIncInput
 	if tmp, ok := rawArgs["_inc"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalOblacklist_operation_record_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordIncInput(ctx, tmp)
+		arg0, err = ec.unmarshalOBlacklistOperationRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordIncInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1846,7 +1881,7 @@ func (ec *executionContext) field_Mutation_update_blacklist_operation_record_by_
 	var arg1 *model.BlacklistOperationRecordSetInput
 	if tmp, ok := rawArgs["_set"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalOblacklist_operation_record_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSetInput(ctx, tmp)
+		arg1, err = ec.unmarshalOBlacklistOperationRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSetInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1855,7 +1890,7 @@ func (ec *executionContext) field_Mutation_update_blacklist_operation_record_by_
 	var arg2 model.BlacklistOperationRecordPkColumnsInput
 	if tmp, ok := rawArgs["pk_columns"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("pk_columns"))
-		arg2, err = ec.unmarshalNblacklist_operation_record_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordPkColumnsInput(ctx, tmp)
+		arg2, err = ec.unmarshalNBlacklistOperationRecordPkColumnsInput2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordPkColumnsInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1885,7 +1920,7 @@ func (ec *executionContext) field_Query_blacklist_operation_record_aggregate_arg
 	var arg0 []model.BlacklistOperationRecordSelectColumn
 	if tmp, ok := rawArgs["distinct_on"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOblacklist_operation_record_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalOBlacklistOperationRecordSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1912,7 +1947,7 @@ func (ec *executionContext) field_Query_blacklist_operation_record_aggregate_arg
 	var arg3 []*model.BlacklistOperationRecordOrderBy
 	if tmp, ok := rawArgs["order_by"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOblacklist_operation_record_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderByᚄ(ctx, tmp)
+		arg3, err = ec.unmarshalOBlacklistOperationRecordOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderByᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1921,7 +1956,7 @@ func (ec *executionContext) field_Query_blacklist_operation_record_aggregate_arg
 	var arg4 *model.BlacklistOperationRecordBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOblacklist_operation_record_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, tmp)
+		arg4, err = ec.unmarshalOBlacklistOperationRecordBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1936,7 +1971,7 @@ func (ec *executionContext) field_Query_blacklist_operation_record_args(ctx cont
 	var arg0 []model.BlacklistOperationRecordSelectColumn
 	if tmp, ok := rawArgs["distinct_on"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalOblacklist_operation_record_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx, tmp)
+		arg0, err = ec.unmarshalOBlacklistOperationRecordSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1963,7 +1998,7 @@ func (ec *executionContext) field_Query_blacklist_operation_record_args(ctx cont
 	var arg3 []*model.BlacklistOperationRecordOrderBy
 	if tmp, ok := rawArgs["order_by"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalOblacklist_operation_record_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderByᚄ(ctx, tmp)
+		arg3, err = ec.unmarshalOBlacklistOperationRecordOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderByᚄ(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1972,7 +2007,7 @@ func (ec *executionContext) field_Query_blacklist_operation_record_args(ctx cont
 	var arg4 *model.BlacklistOperationRecordBoolExp
 	if tmp, ok := rawArgs["where"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalOblacklist_operation_record_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, tmp)
+		arg4, err = ec.unmarshalOBlacklistOperationRecordBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -1987,7 +2022,7 @@ func (ec *executionContext) field_Query_blacklist_operation_record_by_pk_args(ct
 	var arg0 int64
 	if tmp, ok := rawArgs["id"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNbigint2int64(ctx, tmp)
+		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -2026,30 +2061,6 @@ func (ec *executionContext) field___Type_fields_args(ctx context.Context, rawArg
 	return args, nil
 }
 
-func (ec *executionContext) field_blacklist_operation_record_aggregate_fields_count_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []model.BlacklistOperationRecordSelectColumn
-	if tmp, ok := rawArgs["columns"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("columns"))
-		arg0, err = ec.unmarshalOblacklist_operation_record_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["columns"] = arg0
-	var arg1 *bool
-	if tmp, ok := rawArgs["distinct"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct"))
-		arg1, err = ec.unmarshalOBoolean2ᚖbool(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["distinct"] = arg1
-	return args, nil
-}
-
 // endregion ***************************** args.gotpl *****************************
 
 // region    ************************** directives.gotpl **************************
@@ -2057,6 +2068,2475 @@ func (ec *executionContext) field_blacklist_operation_record_aggregate_fields_co
 // endregion ************************** directives.gotpl **************************
 
 // region    **************************** field.gotpl *****************************
+
+func (ec *executionContext) _BlacklistOperationRecord_blacklist_record_id(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistRecordID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_id(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int64)
+	fc.Result = res
+	return ec.marshalNBigint2int64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IsDelete, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(bool)
+	fc.Result = res
+	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_operate(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_remarks(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remarks, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecord_v_seqn(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecord",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VSeqn, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Aggregate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordAggregateFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregateFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Nodes, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.BlacklistOperationRecord)
+	fc.Result = res
+	return ec.marshalNBlacklistOperationRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecordᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_avg(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Avg, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordAvgFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAvgFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_count(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_BlacklistOperationRecordAggregateFields_count_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Count, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_max(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Max, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordMaxFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMaxFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_min(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Min, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordMinFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMinFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Stddev, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordStddevFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordStddevPopFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordStddevSampFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_sum(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Sum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordSumFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSumFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordVarPopFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordVarSampFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields_variance(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Variance, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.BlacklistOperationRecordVarianceFields)
+	fc.Result = res
+	return ec.marshalOBlacklistOperationRecordVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarianceFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAvgFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAvgFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAvgFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAvgFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordAvgFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordAvgFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_blacklist_record_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistRecordID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remarks, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields_v_seqn(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VSeqn, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_blacklist_record_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistRecordID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeleteBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Remarks, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdateBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields_v_seqn(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VSeqn, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMutationResponse_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMutationResponse",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AffectedRows, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordMutationResponse_returning(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordMutationResponse",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Returning, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.BlacklistOperationRecord)
+	fc.Result = res
+	return ec.marshalNBlacklistOperationRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecordᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordStddevFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordStddevFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordStddevFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevPopFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordStddevPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordStddevPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevPopFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordStddevPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevSampFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordStddevSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordStddevSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevSampFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordStddevSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordSumFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordSumFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordSumFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordSumFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordSumFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordSumFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordVarPopFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordVarPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordVarPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordVarPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordVarPopFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordVarPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordVarSampFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordVarSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordVarSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordVarSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordVarSampFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordVarSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordVarianceFields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordVarianceFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.BlacklistType, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordVarianceFields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordVarianceFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _BlacklistOperationRecordVarianceFields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "BlacklistOperationRecordVarianceFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Operate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*float64)
+	fc.Result = res
+	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
+}
 
 func (ec *executionContext) _Mutation_delete_blacklist_operation_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
@@ -2094,7 +4574,7 @@ func (ec *executionContext) _Mutation_delete_blacklist_operation_record(ctx cont
 	}
 	res := resTmp.(*model.BlacklistOperationRecordMutationResponse)
 	fc.Result = res
-	return ec.marshalOblacklist_operation_record_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOBlacklistOperationRecordMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMutationResponse(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_delete_blacklist_operation_record_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2133,7 +4613,7 @@ func (ec *executionContext) _Mutation_delete_blacklist_operation_record_by_pk(ct
 	}
 	res := resTmp.(*model1.BlacklistOperationRecord)
 	fc.Result = res
-	return ec.marshalOblacklist_operation_record2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, field.Selections, res)
+	return ec.marshalOBlacklistOperationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_insert_blacklist_operation_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2172,7 +4652,7 @@ func (ec *executionContext) _Mutation_insert_blacklist_operation_record(ctx cont
 	}
 	res := resTmp.(*model.BlacklistOperationRecordMutationResponse)
 	fc.Result = res
-	return ec.marshalOblacklist_operation_record_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOBlacklistOperationRecordMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMutationResponse(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_insert_blacklist_operation_record_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2211,7 +4691,7 @@ func (ec *executionContext) _Mutation_insert_blacklist_operation_record_one(ctx 
 	}
 	res := resTmp.(*model1.BlacklistOperationRecord)
 	fc.Result = res
-	return ec.marshalOblacklist_operation_record2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, field.Selections, res)
+	return ec.marshalOBlacklistOperationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_update_blacklist_operation_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2250,7 +4730,7 @@ func (ec *executionContext) _Mutation_update_blacklist_operation_record(ctx cont
 	}
 	res := resTmp.(*model.BlacklistOperationRecordMutationResponse)
 	fc.Result = res
-	return ec.marshalOblacklist_operation_record_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMutationResponse(ctx, field.Selections, res)
+	return ec.marshalOBlacklistOperationRecordMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMutationResponse(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_update_blacklist_operation_record_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2289,7 +4769,7 @@ func (ec *executionContext) _Mutation_update_blacklist_operation_record_by_pk(ct
 	}
 	res := resTmp.(*model1.BlacklistOperationRecord)
 	fc.Result = res
-	return ec.marshalOblacklist_operation_record2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, field.Selections, res)
+	return ec.marshalOBlacklistOperationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_blacklist_operation_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2331,7 +4811,7 @@ func (ec *executionContext) _Query_blacklist_operation_record(ctx context.Contex
 	}
 	res := resTmp.([]*model1.BlacklistOperationRecord)
 	fc.Result = res
-	return ec.marshalNblacklist_operation_record2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecordᚄ(ctx, field.Selections, res)
+	return ec.marshalNBlacklistOperationRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecordᚄ(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_blacklist_operation_record_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2373,7 +4853,7 @@ func (ec *executionContext) _Query_blacklist_operation_record_aggregate(ctx cont
 	}
 	res := resTmp.(*model.BlacklistOperationRecordAggregate)
 	fc.Result = res
-	return ec.marshalNblacklist_operation_record_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregate(ctx, field.Selections, res)
+	return ec.marshalNBlacklistOperationRecordAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregate(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_blacklist_operation_record_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -2412,7 +4892,7 @@ func (ec *executionContext) _Query_blacklist_operation_record_by_pk(ctx context.
 	}
 	res := resTmp.(*model1.BlacklistOperationRecord)
 	fc.Result = res
-	return ec.marshalOblacklist_operation_record2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, field.Selections, res)
+	return ec.marshalOBlacklistOperationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query___type(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -3569,2480 +6049,1335 @@ func (ec *executionContext) ___Type_ofType(ctx context.Context, field graphql.Co
 	return ec.marshalO__Type2ᚖgithubᚗcomᚋ99designsᚋgqlgenᚋgraphqlᚋintrospectionᚐType(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _blacklist_operation_record_blacklist_record_id(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistRecordID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int)
-	fc.Result = res
-	return ec.marshalNInt2int(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_create_at(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNtimestamptz2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_create_by(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_delete_at(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_delete_by(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_id(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int64)
-	fc.Result = res
-	return ec.marshalNbigint2int64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_is_delete(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IsDelete, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(bool)
-	fc.Result = res
-	return ec.marshalNBoolean2bool(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_operate(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int)
-	fc.Result = res
-	return ec.marshalNInt2int(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_remarks(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Remarks, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_update_at(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_update_by(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_v_seqn(ctx context.Context, field graphql.CollectedField, obj *model1.BlacklistOperationRecord) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VSeqn, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregate) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Aggregate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordAggregateFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregateFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_nodes(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregate) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Nodes, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model1.BlacklistOperationRecord)
-	fc.Result = res
-	return ec.marshalNblacklist_operation_record2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecordᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_avg(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Avg, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordAvgFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAvgFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_count(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_blacklist_operation_record_aggregate_fields_count_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Count, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_max(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Max, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordMaxFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMaxFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_min(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Min, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordMinFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMinFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Stddev, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordStddevFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StddevPop, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordStddevPopFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevPopFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StddevSamp, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordStddevSampFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevSampFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_sum(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Sum, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordSumFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSumFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VarPop, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordVarPopFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarPopFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VarSamp, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordVarSampFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarSampFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields_variance(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_aggregate_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Variance, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.BlacklistOperationRecordVarianceFields)
-	fc.Result = res
-	return ec.marshalOblacklist_operation_record_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarianceFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_avg_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAvgFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_avg_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_avg_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAvgFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_avg_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_avg_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordAvgFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_avg_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_blacklist_record_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistRecordID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Remarks, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields_v_seqn(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_max_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VSeqn, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_blacklist_record_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistRecordID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_create_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_create_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_delete_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_delete_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeleteBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_remarks(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Remarks, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_update_at(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOtimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_update_by(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdateBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields_v_seqn(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_min_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VSeqn, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_mutation_response_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_mutation_response",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.AffectedRows, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int)
-	fc.Result = res
-	return ec.marshalNInt2int(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_mutation_response_returning(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_mutation_response",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Returning, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model1.BlacklistOperationRecord)
-	fc.Result = res
-	return ec.marshalNblacklist_operation_record2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecordᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_stddev_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_stddev_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_stddev_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_pop_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_stddev_pop_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_stddev_pop_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_pop_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_stddev_pop_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_samp_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_stddev_samp_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_stddev_samp_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_samp_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordStddevSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_stddev_samp_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_sum_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordSumFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_sum_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_sum_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordSumFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_sum_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalObigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_sum_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordSumFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_sum_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_var_pop_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_var_pop_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_var_pop_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_var_pop_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_var_pop_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_var_pop_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_var_samp_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_var_samp_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_var_samp_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_var_samp_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_var_samp_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_var_samp_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_variance_fields_blacklist_type(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarianceFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_variance_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.BlacklistType, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_variance_fields_id(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarianceFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_variance_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _blacklist_operation_record_variance_fields_operate(ctx context.Context, field graphql.CollectedField, obj *model.BlacklistOperationRecordVarianceFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "blacklist_operation_record_variance_fields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Operate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*float64)
-	fc.Result = res
-	return ec.marshalOFloat2ᚖfloat64(ctx, field.Selections, res)
-}
-
 // endregion **************************** field.gotpl *****************************
 
 // region    **************************** input.gotpl *****************************
 
-func (ec *executionContext) unmarshalInputBoolean_comparison_exp(ctx context.Context, obj interface{}) (model2.BooleanComparisonExp, error) {
+func (ec *executionContext) unmarshalInputBigintComparisonExp(ctx context.Context, obj interface{}) (model2.BigintComparisonExp, error) {
+	var it model2.BigintComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOBigint2ᚕint64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOBigint2ᚕint64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordAggregateOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordAggregateOrderBy, error) {
+	var it model.BlacklistOperationRecordAggregateOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "avg":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("avg"))
+			it.Avg, err = ec.unmarshalOBlacklistOperationRecordAvgOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAvgOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "count":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("count"))
+			it.Count, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "max":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("max"))
+			it.Max, err = ec.unmarshalOBlacklistOperationRecordMaxOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMaxOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "min":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("min"))
+			it.Min, err = ec.unmarshalOBlacklistOperationRecordMinOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMinOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev"))
+			it.Stddev, err = ec.unmarshalOBlacklistOperationRecordStddevOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_pop"))
+			it.StddevPop, err = ec.unmarshalOBlacklistOperationRecordStddevPopOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "stddev_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_samp"))
+			it.StddevSamp, err = ec.unmarshalOBlacklistOperationRecordStddevSampOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "sum":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sum"))
+			it.Sum, err = ec.unmarshalOBlacklistOperationRecordSumOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSumOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_pop":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_pop"))
+			it.VarPop, err = ec.unmarshalOBlacklistOperationRecordVarPopOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarPopOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "var_samp":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_samp"))
+			it.VarSamp, err = ec.unmarshalOBlacklistOperationRecordVarSampOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarSampOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "variance":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("variance"))
+			it.Variance, err = ec.unmarshalOBlacklistOperationRecordVarianceOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarianceOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordArrRelInsertInput(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordArrRelInsertInput, error) {
+	var it model.BlacklistOperationRecordArrRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNBlacklistOperationRecordInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInputᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOBlacklistOperationRecordOnConflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordAvgOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordAvgOrderBy, error) {
+	var it model.BlacklistOperationRecordAvgOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordBoolExp(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordBoolExp, error) {
+	var it model.BlacklistOperationRecordBoolExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_and":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
+			it.And, err = ec.unmarshalOBlacklistOperationRecordBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_not":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
+			it.Not, err = ec.unmarshalOBlacklistOperationRecordBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_or":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
+			it.Or, err = ec.unmarshalOBlacklistOperationRecordBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "blacklist_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
+			it.BlacklistRecordID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOIntComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOBigintComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOIntComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "v_seqn":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
+			it.VSeqn, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordIncInput(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordIncInput, error) {
+	var it model.BlacklistOperationRecordIncInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordInsertInput(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordInsertInput, error) {
+	var it model.BlacklistOperationRecordInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
+			it.BlacklistRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "v_seqn":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
+			it.VSeqn, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordMaxOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordMaxOrderBy, error) {
+	var it model.BlacklistOperationRecordMaxOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
+			it.BlacklistRecordID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "v_seqn":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
+			it.VSeqn, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordMinOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordMinOrderBy, error) {
+	var it model.BlacklistOperationRecordMinOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
+			it.BlacklistRecordID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "v_seqn":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
+			it.VSeqn, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordObjRelInsertInput(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordObjRelInsertInput, error) {
+	var it model.BlacklistOperationRecordObjRelInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "data":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
+			it.Data, err = ec.unmarshalNBlacklistOperationRecordInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "on_conflict":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
+			it.OnConflict, err = ec.unmarshalOBlacklistOperationRecordOnConflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordOnConflict(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordOnConflict, error) {
+	var it model.BlacklistOperationRecordOnConflict
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "constraint":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("constraint"))
+			it.Constraint, err = ec.unmarshalNBlacklistOperationRecordConstraint2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordConstraint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_columns":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_columns"))
+			it.UpdateColumns, err = ec.unmarshalNBlacklistOperationRecordUpdateColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumnᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "where":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+			it.Where, err = ec.unmarshalOBlacklistOperationRecordBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordOrderBy, error) {
+	var it model.BlacklistOperationRecordOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
+			it.BlacklistRecordID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "v_seqn":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
+			it.VSeqn, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordPkColumnsInput(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordPkColumnsInput, error) {
+	var it model.BlacklistOperationRecordPkColumnsInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalNBigint2int64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordSetInput(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordSetInput, error) {
+	var it model.BlacklistOperationRecordSetInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_record_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
+			it.BlacklistRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
+			it.CreateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "create_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
+			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
+			it.DeleteAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "delete_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
+			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "is_delete":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
+			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "remarks":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
+			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
+			it.UpdateAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "update_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
+			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "v_seqn":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
+			it.VSeqn, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordStddevOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordStddevOrderBy, error) {
+	var it model.BlacklistOperationRecordStddevOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordStddevPopOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordStddevPopOrderBy, error) {
+	var it model.BlacklistOperationRecordStddevPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordStddevSampOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordStddevSampOrderBy, error) {
+	var it model.BlacklistOperationRecordStddevSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordSumOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordSumOrderBy, error) {
+	var it model.BlacklistOperationRecordSumOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordVarPopOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordVarPopOrderBy, error) {
+	var it model.BlacklistOperationRecordVarPopOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordVarSampOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordVarSampOrderBy, error) {
+	var it model.BlacklistOperationRecordVarSampOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBlacklistOperationRecordVarianceOrderBy(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordVarianceOrderBy, error) {
+	var it model.BlacklistOperationRecordVarianceOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "blacklist_type":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
+			it.BlacklistType, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operate":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
+			it.Operate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputBooleanComparisonExp(ctx context.Context, obj interface{}) (model2.BooleanComparisonExp, error) {
 	var it model2.BooleanComparisonExp
 	var asMap = obj.(map[string]interface{})
 
@@ -6126,7 +7461,7 @@ func (ec *executionContext) unmarshalInputBoolean_comparison_exp(ctx context.Con
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputInt_comparison_exp(ctx context.Context, obj interface{}) (model2.IntComparisonExp, error) {
+func (ec *executionContext) unmarshalInputIntComparisonExp(ctx context.Context, obj interface{}) (model2.IntComparisonExp, error) {
 	var it model2.IntComparisonExp
 	var asMap = obj.(map[string]interface{})
 
@@ -6210,7 +7545,259 @@ func (ec *executionContext) unmarshalInputInt_comparison_exp(ctx context.Context
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputString_comparison_exp(ctx context.Context, obj interface{}) (model2.StringComparisonExp, error) {
+func (ec *executionContext) unmarshalInputJsonbComparisonExp(ctx context.Context, obj interface{}) (model2.JsonbComparisonExp, error) {
+	var it model2.JsonbComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOJsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOJsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOJsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOJsonb2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOJsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOJsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOJsonb2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOJsonb2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputNumericComparisonExp(ctx context.Context, obj interface{}) (model2.NumericComparisonExp, error) {
+	var it model2.NumericComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalONumeric2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalONumeric2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputPointComparisonExp(ctx context.Context, obj interface{}) (model2.PointComparisonExp, error) {
+	var it model2.PointComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOPoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOPoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOPoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOPoint2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOPoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOPoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOPoint2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOPoint2ᚕstringᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputStringComparisonExp(ctx context.Context, obj interface{}) (model2.StringComparisonExp, error) {
 	var it model2.StringComparisonExp
 	var asMap = obj.(map[string]interface{})
 
@@ -6342,1583 +7929,7 @@ func (ec *executionContext) unmarshalInputString_comparison_exp(ctx context.Cont
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInput_jsonb_comparison_exp(ctx context.Context, obj interface{}) (model2.JsonbComparisonExp, error) {
-	var it model2.JsonbComparisonExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_eq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
-			it.Eq, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
-			it.Gt, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
-			it.Gte, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_in":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
-			it.In, err = ec.unmarshalO_jsonb2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_is_null":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
-			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
-			it.Lt, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
-			it.Lte, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_neq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
-			it.Neq, err = ec.unmarshalO_jsonb2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_nin":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
-			it.Nin, err = ec.unmarshalO_jsonb2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputbigint_comparison_exp(ctx context.Context, obj interface{}) (model2.BigintComparisonExp, error) {
-	var it model2.BigintComparisonExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_eq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
-			it.Eq, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
-			it.Gt, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
-			it.Gte, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_in":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
-			it.In, err = ec.unmarshalObigint2ᚕint64ᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_is_null":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
-			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
-			it.Lt, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
-			it.Lte, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_neq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
-			it.Neq, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_nin":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
-			it.Nin, err = ec.unmarshalObigint2ᚕint64ᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_aggregate_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordAggregateOrderBy, error) {
-	var it model.BlacklistOperationRecordAggregateOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "avg":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("avg"))
-			it.Avg, err = ec.unmarshalOblacklist_operation_record_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAvgOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "count":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("count"))
-			it.Count, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "max":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("max"))
-			it.Max, err = ec.unmarshalOblacklist_operation_record_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMaxOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "min":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("min"))
-			it.Min, err = ec.unmarshalOblacklist_operation_record_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMinOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "stddev":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev"))
-			it.Stddev, err = ec.unmarshalOblacklist_operation_record_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "stddev_pop":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_pop"))
-			it.StddevPop, err = ec.unmarshalOblacklist_operation_record_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevPopOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "stddev_samp":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("stddev_samp"))
-			it.StddevSamp, err = ec.unmarshalOblacklist_operation_record_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevSampOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "sum":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sum"))
-			it.Sum, err = ec.unmarshalOblacklist_operation_record_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSumOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "var_pop":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_pop"))
-			it.VarPop, err = ec.unmarshalOblacklist_operation_record_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarPopOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "var_samp":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("var_samp"))
-			it.VarSamp, err = ec.unmarshalOblacklist_operation_record_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarSampOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "variance":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("variance"))
-			it.Variance, err = ec.unmarshalOblacklist_operation_record_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarianceOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_arr_rel_insert_input(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordArrRelInsertInput, error) {
-	var it model.BlacklistOperationRecordArrRelInsertInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "data":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-			it.Data, err = ec.unmarshalNblacklist_operation_record_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInputᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "on_conflict":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-			it.OnConflict, err = ec.unmarshalOblacklist_operation_record_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_avg_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordAvgOrderBy, error) {
-	var it model.BlacklistOperationRecordAvgOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_bool_exp(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordBoolExp, error) {
-	var it model.BlacklistOperationRecordBoolExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_and":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
-			it.And, err = ec.unmarshalOblacklist_operation_record_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_not":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
-			it.Not, err = ec.unmarshalOblacklist_operation_record_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_or":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
-			it.Or, err = ec.unmarshalOblacklist_operation_record_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "blacklist_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
-			it.BlacklistRecordID, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_delete":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "remarks":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "v_seqn":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
-			it.VSeqn, err = ec.unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_inc_input(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordIncInput, error) {
-	var it model.BlacklistOperationRecordIncInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_insert_input(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordInsertInput, error) {
-	var it model.BlacklistOperationRecordInsertInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
-			it.BlacklistRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_delete":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "remarks":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "v_seqn":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
-			it.VSeqn, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_max_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordMaxOrderBy, error) {
-	var it model.BlacklistOperationRecordMaxOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
-			it.BlacklistRecordID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "remarks":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "v_seqn":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
-			it.VSeqn, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_min_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordMinOrderBy, error) {
-	var it model.BlacklistOperationRecordMinOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
-			it.BlacklistRecordID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "remarks":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "v_seqn":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
-			it.VSeqn, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_obj_rel_insert_input(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordObjRelInsertInput, error) {
-	var it model.BlacklistOperationRecordObjRelInsertInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "data":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("data"))
-			it.Data, err = ec.unmarshalNblacklist_operation_record_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "on_conflict":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("on_conflict"))
-			it.OnConflict, err = ec.unmarshalOblacklist_operation_record_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_on_conflict(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordOnConflict, error) {
-	var it model.BlacklistOperationRecordOnConflict
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "constraint":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("constraint"))
-			it.Constraint, err = ec.unmarshalNblacklist_operation_record_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordConstraint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_columns":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_columns"))
-			it.UpdateColumns, err = ec.unmarshalNblacklist_operation_record_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumnᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "where":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-			it.Where, err = ec.unmarshalOblacklist_operation_record_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordOrderBy, error) {
-	var it model.BlacklistOperationRecordOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
-			it.BlacklistRecordID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_delete":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "remarks":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "v_seqn":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
-			it.VSeqn, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_pk_columns_input(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordPkColumnsInput, error) {
-	var it model.BlacklistOperationRecordPkColumnsInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalNbigint2int64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_set_input(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordSetInput, error) {
-	var it model.BlacklistOperationRecordSetInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_record_id"))
-			it.BlacklistRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_at"))
-			it.CreateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "create_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("create_by"))
-			it.CreateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_at"))
-			it.DeleteAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "delete_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("delete_by"))
-			it.DeleteBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalObigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "is_delete":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_delete"))
-			it.IsDelete, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "remarks":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
-			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_at"))
-			it.UpdateAt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "update_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("update_by"))
-			it.UpdateBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "v_seqn":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("v_seqn"))
-			it.VSeqn, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_stddev_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordStddevOrderBy, error) {
-	var it model.BlacklistOperationRecordStddevOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_stddev_pop_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordStddevPopOrderBy, error) {
-	var it model.BlacklistOperationRecordStddevPopOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_stddev_samp_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordStddevSampOrderBy, error) {
-	var it model.BlacklistOperationRecordStddevSampOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_sum_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordSumOrderBy, error) {
-	var it model.BlacklistOperationRecordSumOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_var_pop_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordVarPopOrderBy, error) {
-	var it model.BlacklistOperationRecordVarPopOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_var_samp_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordVarSampOrderBy, error) {
-	var it model.BlacklistOperationRecordVarSampOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputblacklist_operation_record_variance_order_by(ctx context.Context, obj interface{}) (model.BlacklistOperationRecordVarianceOrderBy, error) {
-	var it model.BlacklistOperationRecordVarianceOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "blacklist_type":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_type"))
-			it.BlacklistType, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operate":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operate"))
-			it.Operate, err = ec.unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputnumeric_comparison_exp(ctx context.Context, obj interface{}) (model.NumericComparisonExp, error) {
-	var it model.NumericComparisonExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_eq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
-			it.Eq, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
-			it.Gt, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
-			it.Gte, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_in":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
-			it.In, err = ec.unmarshalOnumeric2ᚕfloat64ᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_is_null":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
-			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
-			it.Lt, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
-			it.Lte, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_neq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
-			it.Neq, err = ec.unmarshalOnumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_nin":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
-			it.Nin, err = ec.unmarshalOnumeric2ᚕfloat64ᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputpoint_comparison_exp(ctx context.Context, obj interface{}) (model.PointComparisonExp, error) {
-	var it model.PointComparisonExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_eq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
-			it.Eq, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
-			it.Gt, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_gte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
-			it.Gte, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_in":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
-			it.In, err = ec.unmarshalOpoint2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_is_null":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
-			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lt":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
-			it.Lt, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_lte":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
-			it.Lte, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_neq":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
-			it.Neq, err = ec.unmarshalOpoint2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_nin":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
-			it.Nin, err = ec.unmarshalOpoint2ᚕstringᚄ(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context.Context, obj interface{}) (model2.TimestamptzComparisonExp, error) {
+func (ec *executionContext) unmarshalInputTimestamptzComparisonExp(ctx context.Context, obj interface{}) (model2.TimestamptzComparisonExp, error) {
 	var it model2.TimestamptzComparisonExp
 	var asMap = obj.(map[string]interface{})
 
@@ -7928,7 +7939,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
-			it.Eq, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			it.Eq, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7936,7 +7947,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
-			it.Gt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			it.Gt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7944,7 +7955,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
-			it.Gte, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			it.Gte, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7952,7 +7963,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
-			it.In, err = ec.unmarshalOtimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx, v)
+			it.In, err = ec.unmarshalOTimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7968,7 +7979,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
-			it.Lt, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			it.Lt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7976,7 +7987,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
-			it.Lte, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			it.Lte, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7984,7 +7995,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
-			it.Neq, err = ec.unmarshalOtimestamptz2ᚖtimeᚐTime(ctx, v)
+			it.Neq, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -7992,7 +8003,7 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
-			it.Nin, err = ec.unmarshalOtimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx, v)
+			it.Nin, err = ec.unmarshalOTimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -8009,6 +8020,496 @@ func (ec *executionContext) unmarshalInputtimestamptz_comparison_exp(ctx context
 // endregion ************************** interface.gotpl ***************************
 
 // region    **************************** object.gotpl ****************************
+
+var blacklistOperationRecordImplementors = []string{"BlacklistOperationRecord"}
+
+func (ec *executionContext) _BlacklistOperationRecord(ctx context.Context, sel ast.SelectionSet, obj *model1.BlacklistOperationRecord) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecord")
+		case "blacklist_record_id":
+			out.Values[i] = ec._BlacklistOperationRecord_blacklist_record_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecord_blacklist_type(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "create_at":
+			out.Values[i] = ec._BlacklistOperationRecord_create_at(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "create_by":
+			out.Values[i] = ec._BlacklistOperationRecord_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._BlacklistOperationRecord_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._BlacklistOperationRecord_delete_by(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecord_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "is_delete":
+			out.Values[i] = ec._BlacklistOperationRecord_is_delete(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecord_operate(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "remarks":
+			out.Values[i] = ec._BlacklistOperationRecord_remarks(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._BlacklistOperationRecord_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._BlacklistOperationRecord_update_by(ctx, field, obj)
+		case "v_seqn":
+			out.Values[i] = ec._BlacklistOperationRecord_v_seqn(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordAggregateImplementors = []string{"BlacklistOperationRecordAggregate"}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregate(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordAggregate) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordAggregateImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordAggregate")
+		case "aggregate":
+			out.Values[i] = ec._BlacklistOperationRecordAggregate_aggregate(ctx, field, obj)
+		case "nodes":
+			out.Values[i] = ec._BlacklistOperationRecordAggregate_nodes(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordAggregateFieldsImplementors = []string{"BlacklistOperationRecordAggregateFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordAggregateFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordAggregateFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordAggregateFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordAggregateFields")
+		case "avg":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_avg(ctx, field, obj)
+		case "count":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_count(ctx, field, obj)
+		case "max":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_max(ctx, field, obj)
+		case "min":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_min(ctx, field, obj)
+		case "stddev":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_stddev(ctx, field, obj)
+		case "stddev_pop":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_stddev_pop(ctx, field, obj)
+		case "stddev_samp":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_stddev_samp(ctx, field, obj)
+		case "sum":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_sum(ctx, field, obj)
+		case "var_pop":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_var_pop(ctx, field, obj)
+		case "var_samp":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_var_samp(ctx, field, obj)
+		case "variance":
+			out.Values[i] = ec._BlacklistOperationRecordAggregateFields_variance(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordAvgFieldsImplementors = []string{"BlacklistOperationRecordAvgFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordAvgFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordAvgFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordAvgFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordAvgFields")
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordAvgFields_blacklist_type(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordAvgFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordAvgFields_operate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordMaxFieldsImplementors = []string{"BlacklistOperationRecordMaxFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordMaxFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordMaxFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordMaxFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordMaxFields")
+		case "blacklist_record_id":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_blacklist_record_id(ctx, field, obj)
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_blacklist_type(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_delete_by(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_operate(ctx, field, obj)
+		case "remarks":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_remarks(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_update_by(ctx, field, obj)
+		case "v_seqn":
+			out.Values[i] = ec._BlacklistOperationRecordMaxFields_v_seqn(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordMinFieldsImplementors = []string{"BlacklistOperationRecordMinFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordMinFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordMinFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordMinFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordMinFields")
+		case "blacklist_record_id":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_blacklist_record_id(ctx, field, obj)
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_blacklist_type(ctx, field, obj)
+		case "create_at":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_create_at(ctx, field, obj)
+		case "create_by":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_create_by(ctx, field, obj)
+		case "delete_at":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_delete_at(ctx, field, obj)
+		case "delete_by":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_delete_by(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_operate(ctx, field, obj)
+		case "remarks":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_remarks(ctx, field, obj)
+		case "update_at":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_update_at(ctx, field, obj)
+		case "update_by":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_update_by(ctx, field, obj)
+		case "v_seqn":
+			out.Values[i] = ec._BlacklistOperationRecordMinFields_v_seqn(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordMutationResponseImplementors = []string{"BlacklistOperationRecordMutationResponse"}
+
+func (ec *executionContext) _BlacklistOperationRecordMutationResponse(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordMutationResponse) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordMutationResponseImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordMutationResponse")
+		case "affected_rows":
+			out.Values[i] = ec._BlacklistOperationRecordMutationResponse_affected_rows(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "returning":
+			out.Values[i] = ec._BlacklistOperationRecordMutationResponse_returning(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordStddevFieldsImplementors = []string{"BlacklistOperationRecordStddevFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordStddevFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordStddevFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordStddevFields")
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordStddevFields_blacklist_type(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordStddevFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordStddevFields_operate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordStddevPopFieldsImplementors = []string{"BlacklistOperationRecordStddevPopFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordStddevPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordStddevPopFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordStddevPopFields")
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordStddevPopFields_blacklist_type(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordStddevPopFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordStddevPopFields_operate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordStddevSampFieldsImplementors = []string{"BlacklistOperationRecordStddevSampFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordStddevSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordStddevSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordStddevSampFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordStddevSampFields")
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordStddevSampFields_blacklist_type(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordStddevSampFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordStddevSampFields_operate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordSumFieldsImplementors = []string{"BlacklistOperationRecordSumFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordSumFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordSumFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordSumFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordSumFields")
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordSumFields_blacklist_type(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordSumFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordSumFields_operate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordVarPopFieldsImplementors = []string{"BlacklistOperationRecordVarPopFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordVarPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordVarPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordVarPopFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordVarPopFields")
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordVarPopFields_blacklist_type(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordVarPopFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordVarPopFields_operate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordVarSampFieldsImplementors = []string{"BlacklistOperationRecordVarSampFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordVarSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordVarSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordVarSampFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordVarSampFields")
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordVarSampFields_blacklist_type(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordVarSampFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordVarSampFields_operate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var blacklistOperationRecordVarianceFieldsImplementors = []string{"BlacklistOperationRecordVarianceFields"}
+
+func (ec *executionContext) _BlacklistOperationRecordVarianceFields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordVarianceFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, blacklistOperationRecordVarianceFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("BlacklistOperationRecordVarianceFields")
+		case "blacklist_type":
+			out.Values[i] = ec._BlacklistOperationRecordVarianceFields_blacklist_type(ctx, field, obj)
+		case "id":
+			out.Values[i] = ec._BlacklistOperationRecordVarianceFields_id(ctx, field, obj)
+		case "operate":
+			out.Values[i] = ec._BlacklistOperationRecordVarianceFields_operate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
 
 var mutationImplementors = []string{"Mutation"}
 
@@ -8358,499 +8859,219 @@ func (ec *executionContext) ___Type(ctx context.Context, sel ast.SelectionSet, o
 	return out
 }
 
-var blacklist_operation_recordImplementors = []string{"blacklist_operation_record"}
-
-func (ec *executionContext) _blacklist_operation_record(ctx context.Context, sel ast.SelectionSet, obj *model1.BlacklistOperationRecord) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_recordImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record")
-		case "blacklist_record_id":
-			out.Values[i] = ec._blacklist_operation_record_blacklist_record_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_blacklist_type(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "create_at":
-			out.Values[i] = ec._blacklist_operation_record_create_at(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "create_by":
-			out.Values[i] = ec._blacklist_operation_record_create_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._blacklist_operation_record_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._blacklist_operation_record_delete_by(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "is_delete":
-			out.Values[i] = ec._blacklist_operation_record_is_delete(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_operate(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "remarks":
-			out.Values[i] = ec._blacklist_operation_record_remarks(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._blacklist_operation_record_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._blacklist_operation_record_update_by(ctx, field, obj)
-		case "v_seqn":
-			out.Values[i] = ec._blacklist_operation_record_v_seqn(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_aggregateImplementors = []string{"blacklist_operation_record_aggregate"}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordAggregate) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_aggregateImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_aggregate")
-		case "aggregate":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_aggregate(ctx, field, obj)
-		case "nodes":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_nodes(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_aggregate_fieldsImplementors = []string{"blacklist_operation_record_aggregate_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_aggregate_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordAggregateFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_aggregate_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_aggregate_fields")
-		case "avg":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_avg(ctx, field, obj)
-		case "count":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_count(ctx, field, obj)
-		case "max":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_max(ctx, field, obj)
-		case "min":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_min(ctx, field, obj)
-		case "stddev":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_stddev(ctx, field, obj)
-		case "stddev_pop":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_stddev_pop(ctx, field, obj)
-		case "stddev_samp":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_stddev_samp(ctx, field, obj)
-		case "sum":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_sum(ctx, field, obj)
-		case "var_pop":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_var_pop(ctx, field, obj)
-		case "var_samp":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_var_samp(ctx, field, obj)
-		case "variance":
-			out.Values[i] = ec._blacklist_operation_record_aggregate_fields_variance(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_avg_fieldsImplementors = []string{"blacklist_operation_record_avg_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_avg_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordAvgFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_avg_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_avg_fields")
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_avg_fields_blacklist_type(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_avg_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_avg_fields_operate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_max_fieldsImplementors = []string{"blacklist_operation_record_max_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_max_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordMaxFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_max_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_max_fields")
-		case "blacklist_record_id":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_blacklist_record_id(ctx, field, obj)
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_blacklist_type(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_create_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_delete_by(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_operate(ctx, field, obj)
-		case "remarks":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_remarks(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_update_by(ctx, field, obj)
-		case "v_seqn":
-			out.Values[i] = ec._blacklist_operation_record_max_fields_v_seqn(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_min_fieldsImplementors = []string{"blacklist_operation_record_min_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_min_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordMinFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_min_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_min_fields")
-		case "blacklist_record_id":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_blacklist_record_id(ctx, field, obj)
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_blacklist_type(ctx, field, obj)
-		case "create_at":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_create_at(ctx, field, obj)
-		case "create_by":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_create_by(ctx, field, obj)
-		case "delete_at":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_delete_at(ctx, field, obj)
-		case "delete_by":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_delete_by(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_operate(ctx, field, obj)
-		case "remarks":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_remarks(ctx, field, obj)
-		case "update_at":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_update_at(ctx, field, obj)
-		case "update_by":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_update_by(ctx, field, obj)
-		case "v_seqn":
-			out.Values[i] = ec._blacklist_operation_record_min_fields_v_seqn(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_mutation_responseImplementors = []string{"blacklist_operation_record_mutation_response"}
-
-func (ec *executionContext) _blacklist_operation_record_mutation_response(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordMutationResponse) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_mutation_responseImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_mutation_response")
-		case "affected_rows":
-			out.Values[i] = ec._blacklist_operation_record_mutation_response_affected_rows(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "returning":
-			out.Values[i] = ec._blacklist_operation_record_mutation_response_returning(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_stddev_fieldsImplementors = []string{"blacklist_operation_record_stddev_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordStddevFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_stddev_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_stddev_fields")
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_stddev_fields_blacklist_type(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_stddev_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_stddev_fields_operate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_stddev_pop_fieldsImplementors = []string{"blacklist_operation_record_stddev_pop_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordStddevPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_stddev_pop_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_stddev_pop_fields")
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_stddev_pop_fields_blacklist_type(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_stddev_pop_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_stddev_pop_fields_operate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_stddev_samp_fieldsImplementors = []string{"blacklist_operation_record_stddev_samp_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_stddev_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordStddevSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_stddev_samp_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_stddev_samp_fields")
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_stddev_samp_fields_blacklist_type(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_stddev_samp_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_stddev_samp_fields_operate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_sum_fieldsImplementors = []string{"blacklist_operation_record_sum_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_sum_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordSumFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_sum_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_sum_fields")
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_sum_fields_blacklist_type(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_sum_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_sum_fields_operate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_var_pop_fieldsImplementors = []string{"blacklist_operation_record_var_pop_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_var_pop_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordVarPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_var_pop_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_var_pop_fields")
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_var_pop_fields_blacklist_type(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_var_pop_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_var_pop_fields_operate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_var_samp_fieldsImplementors = []string{"blacklist_operation_record_var_samp_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_var_samp_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordVarSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_var_samp_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_var_samp_fields")
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_var_samp_fields_blacklist_type(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_var_samp_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_var_samp_fields_operate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var blacklist_operation_record_variance_fieldsImplementors = []string{"blacklist_operation_record_variance_fields"}
-
-func (ec *executionContext) _blacklist_operation_record_variance_fields(ctx context.Context, sel ast.SelectionSet, obj *model.BlacklistOperationRecordVarianceFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, blacklist_operation_record_variance_fieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("blacklist_operation_record_variance_fields")
-		case "blacklist_type":
-			out.Values[i] = ec._blacklist_operation_record_variance_fields_blacklist_type(ctx, field, obj)
-		case "id":
-			out.Values[i] = ec._blacklist_operation_record_variance_fields_id(ctx, field, obj)
-		case "operate":
-			out.Values[i] = ec._blacklist_operation_record_variance_fields_operate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
 // endregion **************************** object.gotpl ****************************
 
 // region    ***************************** type.gotpl *****************************
+
+func (ec *executionContext) unmarshalNBigint2int64(ctx context.Context, v interface{}) (int64, error) {
+	res, err := graphql.UnmarshalInt64(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNBigint2int64(ctx context.Context, sel ast.SelectionSet, v int64) graphql.Marshaler {
+	res := graphql.MarshalInt64(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
+func (ec *executionContext) marshalNBlacklistOperationRecord2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.BlacklistOperationRecord) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNBlacklistOperationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalNBlacklistOperationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx context.Context, sel ast.SelectionSet, v *model1.BlacklistOperationRecord) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecord(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNBlacklistOperationRecordAggregate2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregate(ctx context.Context, sel ast.SelectionSet, v model.BlacklistOperationRecordAggregate) graphql.Marshaler {
+	return ec._BlacklistOperationRecordAggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNBlacklistOperationRecordAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregate(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordAggregate) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordAggregate(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx context.Context, v interface{}) (model.BlacklistOperationRecordBoolExp, error) {
+	res, err := ec.unmarshalInputBlacklistOperationRecordBoolExp(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordConstraint2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordConstraint(ctx context.Context, v interface{}) (model.BlacklistOperationRecordConstraint, error) {
+	var res model.BlacklistOperationRecordConstraint
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNBlacklistOperationRecordConstraint2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordConstraint(ctx context.Context, sel ast.SelectionSet, v model.BlacklistOperationRecordConstraint) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx context.Context, v interface{}) (model.BlacklistOperationRecordInsertInput, error) {
+	res, err := ec.unmarshalInputBlacklistOperationRecordInsertInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.BlacklistOperationRecordInsertInput, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.BlacklistOperationRecordInsertInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNBlacklistOperationRecordInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordInsertInput, error) {
+	res, err := ec.unmarshalInputBlacklistOperationRecordInsertInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordOrderBy, error) {
+	res, err := ec.unmarshalInputBlacklistOperationRecordOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordPkColumnsInput2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordPkColumnsInput(ctx context.Context, v interface{}) (model.BlacklistOperationRecordPkColumnsInput, error) {
+	res, err := ec.unmarshalInputBlacklistOperationRecordPkColumnsInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumn(ctx context.Context, v interface{}) (model.BlacklistOperationRecordSelectColumn, error) {
+	var res model.BlacklistOperationRecordSelectColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNBlacklistOperationRecordSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.BlacklistOperationRecordSelectColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordUpdateColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumn(ctx context.Context, v interface{}) (model.BlacklistOperationRecordUpdateColumn, error) {
+	var res model.BlacklistOperationRecordUpdateColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNBlacklistOperationRecordUpdateColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.BlacklistOperationRecordUpdateColumn) graphql.Marshaler {
+	return v
+}
+
+func (ec *executionContext) unmarshalNBlacklistOperationRecordUpdateColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.BlacklistOperationRecordUpdateColumn, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.BlacklistOperationRecordUpdateColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNBlacklistOperationRecordUpdateColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalNBlacklistOperationRecordUpdateColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.BlacklistOperationRecordUpdateColumn) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNBlacklistOperationRecordUpdateColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
 
 func (ec *executionContext) unmarshalNBoolean2bool(ctx context.Context, v interface{}) (bool, error) {
 	res, err := graphql.UnmarshalBoolean(v)
@@ -8882,6 +9103,51 @@ func (ec *executionContext) marshalNInt2int(ctx context.Context, sel ast.Selecti
 	return res
 }
 
+func (ec *executionContext) unmarshalNJsonb2string(ctx context.Context, v interface{}) (string, error) {
+	res, err := graphql.UnmarshalString(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNJsonb2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
+	res := graphql.MarshalString(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
+func (ec *executionContext) unmarshalNNumeric2float64(ctx context.Context, v interface{}) (float64, error) {
+	res, err := graphql.UnmarshalFloat(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNNumeric2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
+	res := graphql.MarshalFloat(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
+func (ec *executionContext) unmarshalNPoint2string(ctx context.Context, v interface{}) (string, error) {
+	res, err := graphql.UnmarshalString(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNPoint2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
+	res := graphql.MarshalString(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
 func (ec *executionContext) unmarshalNString2string(ctx context.Context, v interface{}) (string, error) {
 	res, err := graphql.UnmarshalString(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -8889,6 +9155,42 @@ func (ec *executionContext) unmarshalNString2string(ctx context.Context, v inter
 
 func (ec *executionContext) marshalNString2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
 	res := graphql.MarshalString(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
+func (ec *executionContext) unmarshalNTimestamptz2timeᚐTime(ctx context.Context, v interface{}) (time.Time, error) {
+	res, err := scalar.UnmarshalTimestamptz(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNTimestamptz2timeᚐTime(ctx context.Context, sel ast.SelectionSet, v time.Time) graphql.Marshaler {
+	res := scalar.MarshalTimestamptz(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
+func (ec *executionContext) unmarshalNTimestamptz2ᚖtimeᚐTime(ctx context.Context, v interface{}) (*time.Time, error) {
+	res, err := scalar.UnmarshalTimestamptz(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNTimestamptz2ᚖtimeᚐTime(ctx context.Context, sel ast.SelectionSet, v *time.Time) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := scalar.MarshalTimestamptz(*v)
 	if res == graphql.Null {
 		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
 			ec.Errorf(ctx, "must not be null")
@@ -9126,37 +9428,231 @@ func (ec *executionContext) marshalN__TypeKind2string(ctx context.Context, sel a
 	return res
 }
 
-func (ec *executionContext) unmarshalN_jsonb2string(ctx context.Context, v interface{}) (string, error) {
-	res, err := graphql.UnmarshalString(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalN_jsonb2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
-	res := graphql.MarshalString(v)
-	if res == graphql.Null {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
+func (ec *executionContext) unmarshalOBigint2ᚕint64ᚄ(ctx context.Context, v interface{}) ([]int64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
 		}
 	}
-	return res
+	var err error
+	res := make([]int64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNBigint2int64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
 }
 
-func (ec *executionContext) unmarshalNbigint2int64(ctx context.Context, v interface{}) (int64, error) {
+func (ec *executionContext) marshalOBigint2ᚕint64ᚄ(ctx context.Context, sel ast.SelectionSet, v []int64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNBigint2int64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOBigint2ᚖint64(ctx context.Context, v interface{}) (*int64, error) {
+	if v == nil {
+		return nil, nil
+	}
 	res, err := graphql.UnmarshalInt64(v)
-	return res, graphql.ErrorOnPath(ctx, err)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) marshalNbigint2int64(ctx context.Context, sel ast.SelectionSet, v int64) graphql.Marshaler {
-	res := graphql.MarshalInt64(v)
-	if res == graphql.Null {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
+func (ec *executionContext) marshalOBigint2ᚖint64(ctx context.Context, sel ast.SelectionSet, v *int64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalInt64(*v)
+}
+
+func (ec *executionContext) unmarshalOBigintComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx context.Context, v interface{}) (*model2.BigintComparisonExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBigintComparisonExp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx context.Context, sel ast.SelectionSet, v *model1.BlacklistOperationRecord) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecord(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordAggregateFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordAggregateFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordAvgFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordAvgFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordAvgOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAvgOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordAvgOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordAvgOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx context.Context, v interface{}) ([]*model.BlacklistOperationRecordBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
 		}
 	}
-	return res
+	var err error
+	res := make([]*model.BlacklistOperationRecordBoolExp, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalOBlacklistOperationRecordBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
 }
 
-func (ec *executionContext) marshalNblacklist_operation_record2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecordᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.BlacklistOperationRecord) graphql.Marshaler {
+func (ec *executionContext) unmarshalOBlacklistOperationRecordBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordBoolExp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordIncInput(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordIncInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordMaxFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordMaxFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordMaxOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMaxOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordMaxOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordMaxOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMinFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordMinFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordMinFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordMinOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMinOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordMinOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordMinOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordMutationResponse) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordMutationResponse(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordOnConflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordOnConflict, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordOnConflict(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderByᚄ(ctx context.Context, v interface{}) ([]*model.BlacklistOperationRecordOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.BlacklistOperationRecordOrderBy, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNBlacklistOperationRecordOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderBy(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.BlacklistOperationRecordSelectColumn, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.BlacklistOperationRecordSelectColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNBlacklistOperationRecordSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.BlacklistOperationRecordSelectColumn) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
 	ret := make(graphql.Array, len(v))
 	var wg sync.WaitGroup
 	isLen1 := len(v) == 1
@@ -9180,7 +9676,7 @@ func (ec *executionContext) marshalNblacklist_operation_record2ᚕᚖVehicleSupe
 			if !isLen1 {
 				defer wg.Done()
 			}
-			ret[i] = ec.marshalNblacklist_operation_record2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx, sel, v[i])
+			ret[i] = ec.marshalNBlacklistOperationRecordSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumn(ctx, sel, v[i])
 		}
 		if isLen1 {
 			f(i)
@@ -9193,228 +9689,117 @@ func (ec *executionContext) marshalNblacklist_operation_record2ᚕᚖVehicleSupe
 	return ret
 }
 
-func (ec *executionContext) marshalNblacklist_operation_record2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx context.Context, sel ast.SelectionSet, v *model1.BlacklistOperationRecord) graphql.Marshaler {
+func (ec *executionContext) unmarshalOBlacklistOperationRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSetInput(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordSetInput, error) {
 	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
+		return nil, nil
 	}
-	return ec._blacklist_operation_record(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalNblacklist_operation_record_aggregate2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregate(ctx context.Context, sel ast.SelectionSet, v model.BlacklistOperationRecordAggregate) graphql.Marshaler {
-	return ec._blacklist_operation_record_aggregate(ctx, sel, &v)
-}
-
-func (ec *executionContext) marshalNblacklist_operation_record_aggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregate(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordAggregate) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_aggregate(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalNblacklist_operation_record_bool_exp2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx context.Context, v interface{}) (model.BlacklistOperationRecordBoolExp, error) {
-	res, err := ec.unmarshalInputblacklist_operation_record_bool_exp(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNblacklist_operation_record_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordConstraint(ctx context.Context, v interface{}) (model.BlacklistOperationRecordConstraint, error) {
-	var res model.BlacklistOperationRecordConstraint
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNblacklist_operation_record_constraint2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordConstraint(ctx context.Context, sel ast.SelectionSet, v model.BlacklistOperationRecordConstraint) graphql.Marshaler {
-	return v
-}
-
-func (ec *executionContext) unmarshalNblacklist_operation_record_insert_input2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx context.Context, v interface{}) (model.BlacklistOperationRecordInsertInput, error) {
-	res, err := ec.unmarshalInputblacklist_operation_record_insert_input(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNblacklist_operation_record_insert_input2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.BlacklistOperationRecordInsertInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.BlacklistOperationRecordInsertInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNblacklist_operation_record_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNblacklist_operation_record_insert_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordInsertInput(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordInsertInput, error) {
-	res, err := ec.unmarshalInputblacklist_operation_record_insert_input(ctx, v)
+	res, err := ec.unmarshalInputBlacklistOperationRecordSetInput(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
-func (ec *executionContext) unmarshalNblacklist_operation_record_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordOrderBy, error) {
-	res, err := ec.unmarshalInputblacklist_operation_record_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNblacklist_operation_record_pk_columns_input2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordPkColumnsInput(ctx context.Context, v interface{}) (model.BlacklistOperationRecordPkColumnsInput, error) {
-	res, err := ec.unmarshalInputblacklist_operation_record_pk_columns_input(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNblacklist_operation_record_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumn(ctx context.Context, v interface{}) (model.BlacklistOperationRecordSelectColumn, error) {
-	var res model.BlacklistOperationRecordSelectColumn
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNblacklist_operation_record_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.BlacklistOperationRecordSelectColumn) graphql.Marshaler {
-	return v
-}
-
-func (ec *executionContext) unmarshalNblacklist_operation_record_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumn(ctx context.Context, v interface{}) (model.BlacklistOperationRecordUpdateColumn, error) {
-	var res model.BlacklistOperationRecordUpdateColumn
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNblacklist_operation_record_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumn(ctx context.Context, sel ast.SelectionSet, v model.BlacklistOperationRecordUpdateColumn) graphql.Marshaler {
-	return v
-}
-
-func (ec *executionContext) unmarshalNblacklist_operation_record_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumnᚄ(ctx context.Context, v interface{}) ([]model.BlacklistOperationRecordUpdateColumn, error) {
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]model.BlacklistOperationRecordUpdateColumn, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNblacklist_operation_record_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumn(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalNblacklist_operation_record_update_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.BlacklistOperationRecordUpdateColumn) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNblacklist_operation_record_update_column2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordUpdateColumn(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
-func (ec *executionContext) unmarshalNnumeric2float64(ctx context.Context, v interface{}) (float64, error) {
-	res, err := graphql.UnmarshalFloat(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNnumeric2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
-	res := graphql.MarshalFloat(v)
-	if res == graphql.Null {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-	}
-	return res
-}
-
-func (ec *executionContext) unmarshalNpoint2string(ctx context.Context, v interface{}) (string, error) {
-	res, err := graphql.UnmarshalString(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNpoint2string(ctx context.Context, sel ast.SelectionSet, v string) graphql.Marshaler {
-	res := graphql.MarshalString(v)
-	if res == graphql.Null {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-	}
-	return res
-}
-
-func (ec *executionContext) unmarshalNtimestamptz2timeᚐTime(ctx context.Context, v interface{}) (time.Time, error) {
-	res, err := scalar.UnmarshalTimestamptz(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNtimestamptz2timeᚐTime(ctx context.Context, sel ast.SelectionSet, v time.Time) graphql.Marshaler {
-	res := scalar.MarshalTimestamptz(v)
-	if res == graphql.Null {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-	}
-	return res
-}
-
-func (ec *executionContext) unmarshalNtimestamptz2ᚖtimeᚐTime(ctx context.Context, v interface{}) (*time.Time, error) {
-	res, err := scalar.UnmarshalTimestamptz(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNtimestamptz2ᚖtimeᚐTime(ctx context.Context, sel ast.SelectionSet, v *time.Time) graphql.Marshaler {
+func (ec *executionContext) marshalOBlacklistOperationRecordStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordStddevFields) graphql.Marshaler {
 	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
-	res := scalar.MarshalTimestamptz(*v)
-	if res == graphql.Null {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
+	return ec._BlacklistOperationRecordStddevFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordStddevOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordStddevOrderBy, error) {
+	if v == nil {
+		return nil, nil
 	}
-	return res
+	res, err := ec.unmarshalInputBlacklistOperationRecordStddevOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordStddevPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordStddevPopFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordStddevPopOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevPopOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordStddevPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordStddevPopOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordStddevSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordStddevSampFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordStddevSampOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevSampOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordStddevSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordStddevSampOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSumFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordSumFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordSumFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordSumOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSumOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordSumOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordSumOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordVarPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordVarPopFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordVarPopOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarPopOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordVarPopOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordVarPopOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordVarSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordVarSampFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordVarSampOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarSampOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordVarSampOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordVarSampOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOBlacklistOperationRecordVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordVarianceFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._BlacklistOperationRecordVarianceFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOBlacklistOperationRecordVarianceOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarianceOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordVarianceOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputBlacklistOperationRecordVarianceOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 func (ec *executionContext) unmarshalOBoolean2bool(ctx context.Context, v interface{}) (bool, error) {
@@ -9477,11 +9862,11 @@ func (ec *executionContext) marshalOBoolean2ᚖbool(ctx context.Context, sel ast
 	return graphql.MarshalBoolean(*v)
 }
 
-func (ec *executionContext) unmarshalOBoolean_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx context.Context, v interface{}) (*model2.BooleanComparisonExp, error) {
+func (ec *executionContext) unmarshalOBooleanComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBooleanComparisonExp(ctx context.Context, v interface{}) (*model2.BooleanComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputBoolean_comparison_exp(ctx, v)
+	res, err := ec.unmarshalInputBooleanComparisonExp(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
@@ -9551,12 +9936,181 @@ func (ec *executionContext) marshalOInt2ᚖint(ctx context.Context, sel ast.Sele
 	return graphql.MarshalInt(*v)
 }
 
-func (ec *executionContext) unmarshalOInt_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx context.Context, v interface{}) (*model2.IntComparisonExp, error) {
+func (ec *executionContext) unmarshalOIntComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx context.Context, v interface{}) (*model2.IntComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputInt_comparison_exp(ctx, v)
+	res, err := ec.unmarshalInputIntComparisonExp(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOJsonb2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]string, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNJsonb2string(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOJsonb2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNJsonb2string(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOJsonb2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalString(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOJsonb2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalString(*v)
+}
+
+func (ec *executionContext) unmarshalONumeric2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]float64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNNumeric2float64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalONumeric2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNNumeric2float64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalONumeric2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloat(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalONumeric2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalFloat(*v)
+}
+
+func (ec *executionContext) unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, v interface{}) (*model2.OrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var res = new(model2.OrderBy)
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, sel ast.SelectionSet, v *model2.OrderBy) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return v
+}
+
+func (ec *executionContext) unmarshalOPoint2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]string, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNPoint2string(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOPoint2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNPoint2string(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOPoint2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalString(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOPoint2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalString(*v)
 }
 
 func (ec *executionContext) unmarshalOString2string(ctx context.Context, v interface{}) (string, error) {
@@ -9619,11 +10173,70 @@ func (ec *executionContext) marshalOString2ᚖstring(ctx context.Context, sel as
 	return graphql.MarshalString(*v)
 }
 
-func (ec *executionContext) unmarshalOString_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx context.Context, v interface{}) (*model2.StringComparisonExp, error) {
+func (ec *executionContext) unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx context.Context, v interface{}) (*model2.StringComparisonExp, error) {
 	if v == nil {
 		return nil, nil
 	}
-	res, err := ec.unmarshalInputString_comparison_exp(ctx, v)
+	res, err := ec.unmarshalInputStringComparisonExp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOTimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx context.Context, v interface{}) ([]*time.Time, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*time.Time, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNTimestamptz2ᚖtimeᚐTime(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOTimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx context.Context, sel ast.SelectionSet, v []*time.Time) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNTimestamptz2ᚖtimeᚐTime(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOTimestamptz2ᚖtimeᚐTime(ctx context.Context, v interface{}) (*time.Time, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := scalar.UnmarshalTimestamptz(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOTimestamptz2ᚖtimeᚐTime(ctx context.Context, sel ast.SelectionSet, v *time.Time) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return scalar.MarshalTimestamptz(*v)
+}
+
+func (ec *executionContext) unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx context.Context, v interface{}) (*model2.TimestamptzComparisonExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputTimestamptzComparisonExp(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
@@ -9799,608 +10412,6 @@ func (ec *executionContext) marshalO__Type2ᚖgithubᚗcomᚋ99designsᚋgqlgen�
 		return graphql.Null
 	}
 	return ec.___Type(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalO_jsonb2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]string, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalN_jsonb2string(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalO_jsonb2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	for i := range v {
-		ret[i] = ec.marshalN_jsonb2string(ctx, sel, v[i])
-	}
-
-	return ret
-}
-
-func (ec *executionContext) unmarshalO_jsonb2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := graphql.UnmarshalString(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalO_jsonb2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return graphql.MarshalString(*v)
-}
-
-func (ec *executionContext) unmarshalObigint2ᚕint64ᚄ(ctx context.Context, v interface{}) ([]int64, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]int64, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNbigint2int64(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalObigint2ᚕint64ᚄ(ctx context.Context, sel ast.SelectionSet, v []int64) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	for i := range v {
-		ret[i] = ec.marshalNbigint2int64(ctx, sel, v[i])
-	}
-
-	return ret
-}
-
-func (ec *executionContext) unmarshalObigint2ᚖint64(ctx context.Context, v interface{}) (*int64, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := graphql.UnmarshalInt64(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalObigint2ᚖint64(ctx context.Context, sel ast.SelectionSet, v *int64) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return graphql.MarshalInt64(*v)
-}
-
-func (ec *executionContext) unmarshalObigint_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx context.Context, v interface{}) (*model2.BigintComparisonExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputbigint_comparison_exp(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐBlacklistOperationRecord(ctx context.Context, sel ast.SelectionSet, v *model1.BlacklistOperationRecord) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_aggregate_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordAggregateFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_aggregate_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_avg_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordAvgFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_avg_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_avg_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordAvgOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordAvgOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_avg_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_bool_exp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx context.Context, v interface{}) ([]*model.BlacklistOperationRecordBoolExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.BlacklistOperationRecordBoolExp, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalOblacklist_operation_record_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_bool_exp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordBoolExp(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordBoolExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_bool_exp(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_inc_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordIncInput(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordIncInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_inc_input(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_max_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordMaxFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_max_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_max_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMaxOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordMaxOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_max_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_min_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMinFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordMinFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_min_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_min_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMinOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordMinOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_min_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_mutation_response2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordMutationResponse) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_mutation_response(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_on_conflict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOnConflict(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordOnConflict, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_on_conflict(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_order_by2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderByᚄ(ctx context.Context, v interface{}) ([]*model.BlacklistOperationRecordOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.BlacklistOperationRecordOrderBy, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNblacklist_operation_record_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordOrderBy(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.BlacklistOperationRecordSelectColumn, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]model.BlacklistOperationRecordSelectColumn, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNblacklist_operation_record_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumn(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_select_column2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.BlacklistOperationRecordSelectColumn) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNblacklist_operation_record_select_column2VehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSelectColumn(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_set_input2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSetInput(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordSetInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_set_input(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_stddev_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordStddevFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_stddev_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_stddev_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordStddevOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_stddev_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_stddev_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordStddevPopFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_stddev_pop_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_stddev_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevPopOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordStddevPopOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_stddev_pop_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_stddev_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordStddevSampFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_stddev_samp_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_stddev_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordStddevSampOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordStddevSampOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_stddev_samp_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_sum_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSumFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordSumFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_sum_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_sum_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordSumOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordSumOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_sum_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_var_pop_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordVarPopFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_var_pop_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_var_pop_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarPopOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordVarPopOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_var_pop_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_var_samp_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordVarSampFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_var_samp_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_var_samp_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarSampOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordVarSampOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_var_samp_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOblacklist_operation_record_variance_fields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.BlacklistOperationRecordVarianceFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._blacklist_operation_record_variance_fields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalOblacklist_operation_record_variance_order_by2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐBlacklistOperationRecordVarianceOrderBy(ctx context.Context, v interface{}) (*model.BlacklistOperationRecordVarianceOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputblacklist_operation_record_variance_order_by(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalOnumeric2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]float64, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNnumeric2float64(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalOnumeric2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	for i := range v {
-		ret[i] = ec.marshalNnumeric2float64(ctx, sel, v[i])
-	}
-
-	return ret
-}
-
-func (ec *executionContext) unmarshalOnumeric2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := graphql.UnmarshalFloat(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOnumeric2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return graphql.MarshalFloat(*v)
-}
-
-func (ec *executionContext) unmarshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, v interface{}) (*model2.OrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var res = new(model2.OrderBy)
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOorder_by2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx context.Context, sel ast.SelectionSet, v *model2.OrderBy) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return v
-}
-
-func (ec *executionContext) unmarshalOpoint2ᚕstringᚄ(ctx context.Context, v interface{}) ([]string, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]string, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNpoint2string(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalOpoint2ᚕstringᚄ(ctx context.Context, sel ast.SelectionSet, v []string) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	for i := range v {
-		ret[i] = ec.marshalNpoint2string(ctx, sel, v[i])
-	}
-
-	return ret
-}
-
-func (ec *executionContext) unmarshalOpoint2ᚖstring(ctx context.Context, v interface{}) (*string, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := graphql.UnmarshalString(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOpoint2ᚖstring(ctx context.Context, sel ast.SelectionSet, v *string) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return graphql.MarshalString(*v)
-}
-
-func (ec *executionContext) unmarshalOtimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx context.Context, v interface{}) ([]*time.Time, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*time.Time, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNtimestamptz2ᚖtimeᚐTime(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalOtimestamptz2ᚕᚖtimeᚐTimeᚄ(ctx context.Context, sel ast.SelectionSet, v []*time.Time) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	for i := range v {
-		ret[i] = ec.marshalNtimestamptz2ᚖtimeᚐTime(ctx, sel, v[i])
-	}
-
-	return ret
-}
-
-func (ec *executionContext) unmarshalOtimestamptz2ᚖtimeᚐTime(ctx context.Context, v interface{}) (*time.Time, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := scalar.UnmarshalTimestamptz(v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalOtimestamptz2ᚖtimeᚐTime(ctx context.Context, sel ast.SelectionSet, v *time.Time) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return scalar.MarshalTimestamptz(*v)
-}
-
-func (ec *executionContext) unmarshalOtimestamptz_comparison_exp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx context.Context, v interface{}) (*model2.TimestamptzComparisonExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputtimestamptz_comparison_exp(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
 }
 
 // endregion ***************************** type.gotpl *****************************

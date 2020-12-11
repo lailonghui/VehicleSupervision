@@ -334,32 +334,6 @@ type BlacklistOperationRecordVarianceOrderBy struct {
 	Operate       *model1.OrderBy `json:"operate"`
 }
 
-// expression to compare columns of type numeric. All fields are combined with logical 'AND'.
-type NumericComparisonExp struct {
-	Eq     *float64  `json:"_eq"`
-	Gt     *float64  `json:"_gt"`
-	Gte    *float64  `json:"_gte"`
-	In     []float64 `json:"_in"`
-	IsNull *bool     `json:"_is_null"`
-	Lt     *float64  `json:"_lt"`
-	Lte    *float64  `json:"_lte"`
-	Neq    *float64  `json:"_neq"`
-	Nin    []float64 `json:"_nin"`
-}
-
-// expression to compare columns of type point. All fields are combined with logical 'AND'.
-type PointComparisonExp struct {
-	Eq     *string  `json:"_eq"`
-	Gt     *string  `json:"_gt"`
-	Gte    *string  `json:"_gte"`
-	In     []string `json:"_in"`
-	IsNull *bool    `json:"_is_null"`
-	Lt     *string  `json:"_lt"`
-	Lte    *string  `json:"_lte"`
-	Neq    *string  `json:"_neq"`
-	Nin    []string `json:"_nin"`
-}
-
 // unique or primary key constraints on table "blacklist_operation_record"
 type BlacklistOperationRecordConstraint string
 
@@ -392,7 +366,7 @@ func (e *BlacklistOperationRecordConstraint) UnmarshalGQL(v interface{}) error {
 
 	*e = BlacklistOperationRecordConstraint(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid blacklist_operation_record_constraint", str)
+		return fmt.Errorf("%s is not a valid BlacklistOperationRecordConstraint", str)
 	}
 	return nil
 }
@@ -469,7 +443,7 @@ func (e *BlacklistOperationRecordSelectColumn) UnmarshalGQL(v interface{}) error
 
 	*e = BlacklistOperationRecordSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid blacklist_operation_record_select_column", str)
+		return fmt.Errorf("%s is not a valid BlacklistOperationRecordSelectColumn", str)
 	}
 	return nil
 }
@@ -546,7 +520,7 @@ func (e *BlacklistOperationRecordUpdateColumn) UnmarshalGQL(v interface{}) error
 
 	*e = BlacklistOperationRecordUpdateColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid blacklist_operation_record_update_column", str)
+		return fmt.Errorf("%s is not a valid BlacklistOperationRecordUpdateColumn", str)
 	}
 	return nil
 }
