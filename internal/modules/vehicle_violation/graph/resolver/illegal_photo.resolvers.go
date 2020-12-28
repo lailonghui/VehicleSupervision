@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteIllegalPhotoByPk(ctx context.Context, Id int64)
 }
 
 func (r *mutationResolver) InsertIllegalPhoto(ctx context.Context, objects []*model.IllegalPhotoInsertInput) (*model.IllegalPhotoMutationResponse, error) {
-	rs := []*model1.IllegalPhoto{}
+	rs := make([]*model1.IllegalPhoto, 0)
 	for _, object := range objects {
 		v := &model1.IllegalPhoto{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.IllegalPhoto{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateIllegalPhotoByPk(ctx context.Context, inc *mode
 	qt := util.NewQueryTranslator(tx, &model1.IllegalPhoto{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.IllegalPhoto
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) IllegalPhoto(ctx context.Context, distinctOn []model.Ill
 		Finish()
 	var rs []*model1.IllegalPhoto
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) IllegalPhotoAggregate(ctx context.Context, distinctOn []model.IllegalPhotoSelectColumn, limit *int, offset *int, orderBy []*model.IllegalPhotoOrderBy, where *model.IllegalPhotoBoolExp) (*model.IllegalPhotoAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) IllegalPhotoAggregate(ctx context.Context, distinctOn []
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) IllegalPhotoByPk(ctx context.Context, Id int64) (*model1.IllegalPhoto, error) {
 	var rs model1.IllegalPhoto
 	tx := db.DB.Model(&model1.IllegalPhoto{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

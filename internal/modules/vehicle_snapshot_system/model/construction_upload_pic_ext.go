@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden ConstructionUploadPicLoader string *VehicleSupervision/internal/modules/vehicle_snapshot_system/model.ConstructionUploadPic
 
 func (t ConstructionUploadPic) TableName() string {
-	return "ConstructionUploadPic"
+	return "construction_upload_pic"
 }
 
 func (t *ConstructionUploadPic) NewLoader() *ConstructionUploadPicLoader {

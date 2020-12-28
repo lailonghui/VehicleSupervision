@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteConstructionUploadPicByPk(ctx context.Context, 
 }
 
 func (r *mutationResolver) InsertConstructionUploadPic(ctx context.Context, objects []*model.ConstructionUploadPicInsertInput) (*model.ConstructionUploadPicMutationResponse, error) {
-	rs := []*model1.ConstructionUploadPic{}
+	rs := make([]*model1.ConstructionUploadPic, 0)
 	for _, object := range objects {
 		v := &model1.ConstructionUploadPic{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.ConstructionUploadPic{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateConstructionUploadPicByPk(ctx context.Context, 
 	qt := util.NewQueryTranslator(tx, &model1.ConstructionUploadPic{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.ConstructionUploadPic
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) ConstructionUploadPic(ctx context.Context, distinctOn []
 		Finish()
 	var rs []*model1.ConstructionUploadPic
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) ConstructionUploadPicAggregate(ctx context.Context, distinctOn []model.ConstructionUploadPicSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionUploadPicOrderBy, where *model.ConstructionUploadPicBoolExp) (*model.ConstructionUploadPicAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) ConstructionUploadPicAggregate(ctx context.Context, dist
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) ConstructionUploadPicByPk(ctx context.Context, Id int64) (*model1.ConstructionUploadPic, error) {
 	var rs model1.ConstructionUploadPic
 	tx := db.DB.Model(&model1.ConstructionUploadPic{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

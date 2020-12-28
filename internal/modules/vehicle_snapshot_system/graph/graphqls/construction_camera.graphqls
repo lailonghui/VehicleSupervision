@@ -11,19 +11,19 @@ type ConstructionCamera {
 	"""
 	construction_camera_id: String!
 	"""
-	 设备名称                                        (                                                        )
+	 设备名称                                        
 	"""
 	device_name: String
 	"""
-	 IP地址                                          (                                                        )
+	 IP地址                                          
 	"""
 	ip_address: String
 	"""
-	 端口                                            (                                                        )
+	 端口                                            
 	"""
 	port: String
 	"""
-	 设备编号                                        (                                                        )
+	 设备编号                                        
 	"""
 	device_id: String
 	"""
@@ -31,19 +31,19 @@ type ConstructionCamera {
 	"""
 	construction_info_id: String
 	"""
-	 卡号                                            (                                                        )
+	 卡号                                            
 	"""
 	sim_number: String
 	"""
-	 登记时间                                        (                                                        )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 是否删除                                        (                                                        )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                        )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -51,7 +51,7 @@ type ConstructionCamera {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                        )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -59,7 +59,7 @@ type ConstructionCamera {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                        )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -235,8 +235,6 @@ input ConstructionCameraBoolExp {
 input type for inserting data into table "construction_camera"
 """
 input ConstructionCameraInsertInput {
-	id: Bigint
-	construction_camera_id: String
 	device_name: String
 	ip_address: String
 	port: String
@@ -245,8 +243,6 @@ input ConstructionCameraInsertInput {
 	sim_number: String
 	registration_time: Timestamptz
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -292,19 +288,19 @@ enum ConstructionCameraSelectColumn {
 	"""
 	construction_camera_id
 	"""
-	 设备名称                                        (                                                        )
+	 设备名称                                        
 	"""
 	device_name
 	"""
-	 IP地址                                          (                                                        )
+	 IP地址                                          
 	"""
 	ip_address
 	"""
-	 端口                                            (                                                        )
+	 端口                                            
 	"""
 	port
 	"""
-	 设备编号                                        (                                                        )
+	 设备编号                                        
 	"""
 	device_id
 	"""
@@ -312,19 +308,19 @@ enum ConstructionCameraSelectColumn {
 	"""
 	construction_info_id
 	"""
-	 卡号                                            (                                                        )
+	 卡号                                            
 	"""
 	sim_number
 	"""
-	 登记时间                                        (                                                        )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 是否删除                                        (                                                        )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                        )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -332,7 +328,7 @@ enum ConstructionCameraSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                        )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -340,7 +336,7 @@ enum ConstructionCameraSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                        )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

@@ -66,10 +66,10 @@ func (r *mutationResolver) DeleteVehicleInfoByPk(ctx context.Context, Id int64) 
 }
 
 func (r *mutationResolver) InsertVehicleInfo(ctx context.Context, objects []*model.VehicleInfoInsertInput) (*model.VehicleInfoMutationResponse, error) {
-	rs := []*model1.VehicleInfo{}
+	rs := make([]*model1.VehicleInfo, 0)
 	for _, object := range objects {
 		v := &model1.VehicleInfo{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleInfo{}).Create(&rs)
@@ -119,13 +119,13 @@ func (r *mutationResolver) UpdateVehicleInfoByPk(ctx context.Context, inc *model
 	qt := util.NewQueryTranslator(tx, &model1.VehicleInfo{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleInfo
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -139,13 +139,8 @@ func (r *queryResolver) VehicleInfo(ctx context.Context, distinctOn []model.Vehi
 		Finish()
 	var rs []*model1.VehicleInfo
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleInfoAggregate(ctx context.Context, distinctOn []model.VehicleInfoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleInfoOrderBy, where *model.VehicleInfoBoolExp) (*model.VehicleInfoAggregate, error) {
@@ -161,26 +156,15 @@ func (r *queryResolver) VehicleInfoAggregate(ctx context.Context, distinctOn []m
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleInfoByPk(ctx context.Context, Id int64) (*model1.VehicleInfo, error) {
 	var rs model1.VehicleInfo
 	tx := db.DB.Model(&model1.VehicleInfo{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }
 
 // Mutation returns generated.MutationResolver implementation.

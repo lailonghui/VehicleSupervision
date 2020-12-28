@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VoiceAlarmRecordLoader string *VehicleSupervision/internal/modules/vehicle_alarm/model.VoiceAlarmRecord
 
 func (t VoiceAlarmRecord) TableName() string {
-	return "VoiceAlarmRecord"
+	return "voice_alarm_record"
 }
 
 func (t *VoiceAlarmRecord) NewLoader() *VoiceAlarmRecordLoader {

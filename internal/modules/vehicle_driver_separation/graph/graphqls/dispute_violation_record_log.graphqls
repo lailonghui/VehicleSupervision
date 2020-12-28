@@ -19,19 +19,19 @@ type DisputeViolationRecordLog {
 	"""
 	reviewer: String
 	"""
-	 审核时间                                                     (                                                    )
+	 审核时间                                                     
 	"""
 	review_time: Timestamptz
 	"""
-	 审核意见                                                     (                                                    )
+	 审核意见                                                     
 	"""
 	review_opinion: String
 	"""
-	 审核结果                                                     (                                                    )
+	 审核结果                                                     
 	"""
 	review_result: String
 	"""
-	 审核动作名称                                                 (                                                    )
+	 审核动作名称                                                 
 	"""
 	review_action_name: String
 	"""
@@ -39,7 +39,7 @@ type DisputeViolationRecordLog {
 	"""
 	approver: String
 	"""
-	 内网更新时间                                                 (                                                    )
+	 内网更新时间                                                 
 	"""
 	update_time_in: String
 }
@@ -187,8 +187,6 @@ input DisputeViolationRecordLogBoolExp {
 input type for inserting data into table "dispute_violation_record_log"
 """
 input DisputeViolationRecordLogInsertInput {
-	id: Bigint
-	dispute_violation_log_id: String
 	dispute_violation_id: String
 	reviewer: String
 	review_time: Timestamptz
@@ -240,19 +238,19 @@ enum DisputeViolationRecordLogSelectColumn {
 	"""
 	reviewer
 	"""
-	 审核时间                                                     (                                                    )
+	 审核时间                                                     
 	"""
 	review_time
 	"""
-	 审核意见                                                     (                                                    )
+	 审核意见                                                     
 	"""
 	review_opinion
 	"""
-	 审核结果                                                     (                                                    )
+	 审核结果                                                     
 	"""
 	review_result
 	"""
-	 审核动作名称                                                 (                                                    )
+	 审核动作名称                                                 
 	"""
 	review_action_name
 	"""
@@ -260,7 +258,7 @@ enum DisputeViolationRecordLogSelectColumn {
 	"""
 	approver
 	"""
-	 内网更新时间                                                 (                                                    )
+	 内网更新时间                                                 
 	"""
 	update_time_in
 }

@@ -11,15 +11,15 @@ type VehicleOperationHistory {
 	"""
 	vehicle_operation_history_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 备注                                            (                            )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 操作类型  1.添加  2.删除                        (                            )
+	 操作类型  1.添加  2.删除                        
 	"""
 	operation_type: Int
 	"""
@@ -27,11 +27,11 @@ type VehicleOperationHistory {
 	"""
 	operator: String
 	"""
-	 审核状态  0.未审批  1.已审批                    (                            )
+	 审核状态  0.未审批  1.已审批                    
 	"""
 	review_status: Int
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area: String
 	"""
@@ -39,7 +39,7 @@ type VehicleOperationHistory {
 	"""
 	reviewer: String
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -47,7 +47,7 @@ type VehicleOperationHistory {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -55,7 +55,7 @@ type VehicleOperationHistory {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -243,17 +243,12 @@ input VehicleOperationHistoryBoolExp {
 input type for inserting data into table "vehicle_operation_history"
 """
 input VehicleOperationHistoryInsertInput {
-	id: Bigint
-	vehicle_operation_history_id: String
-	vehicle_id: String
 	remarks: String
 	operation_type: Int
 	operator: String
 	review_status: Int
 	area: String
 	reviewer: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -300,15 +295,15 @@ enum VehicleOperationHistorySelectColumn {
 	"""
 	vehicle_operation_history_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 备注                                            (                            )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 操作类型  1.添加  2.删除                        (                            )
+	 操作类型  1.添加  2.删除                        
 	"""
 	operation_type
 	"""
@@ -316,11 +311,11 @@ enum VehicleOperationHistorySelectColumn {
 	"""
 	operator
 	"""
-	 审核状态  0.未审批  1.已审批                    (                            )
+	 审核状态  0.未审批  1.已审批                    
 	"""
 	review_status
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area
 	"""
@@ -328,7 +323,7 @@ enum VehicleOperationHistorySelectColumn {
 	"""
 	reviewer
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -336,7 +331,7 @@ enum VehicleOperationHistorySelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -344,7 +339,7 @@ enum VehicleOperationHistorySelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

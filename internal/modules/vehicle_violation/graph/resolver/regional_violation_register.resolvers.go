@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteRegionalViolationRegisterByPk(ctx context.Conte
 }
 
 func (r *mutationResolver) InsertRegionalViolationRegister(ctx context.Context, objects []*model.RegionalViolationRegisterInsertInput) (*model.RegionalViolationRegisterMutationResponse, error) {
-	rs := []*model1.RegionalViolationRegister{}
+	rs := make([]*model1.RegionalViolationRegister, 0)
 	for _, object := range objects {
 		v := &model1.RegionalViolationRegister{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.RegionalViolationRegister{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateRegionalViolationRegisterByPk(ctx context.Conte
 	qt := util.NewQueryTranslator(tx, &model1.RegionalViolationRegister{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.RegionalViolationRegister
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) RegionalViolationRegister(ctx context.Context, distinctO
 		Finish()
 	var rs []*model1.RegionalViolationRegister
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) RegionalViolationRegisterAggregate(ctx context.Context, distinctOn []model.RegionalViolationRegisterSelectColumn, limit *int, offset *int, orderBy []*model.RegionalViolationRegisterOrderBy, where *model.RegionalViolationRegisterBoolExp) (*model.RegionalViolationRegisterAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) RegionalViolationRegisterAggregate(ctx context.Context, 
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) RegionalViolationRegisterByPk(ctx context.Context, Id int64) (*model1.RegionalViolationRegister, error) {
 	var rs model1.RegionalViolationRegister
 	tx := db.DB.Model(&model1.RegionalViolationRegister{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

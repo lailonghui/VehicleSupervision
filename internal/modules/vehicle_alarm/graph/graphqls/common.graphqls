@@ -56,6 +56,20 @@ input IntComparisonExp {
 	_nin: [Int!]
 }
 """
+expression to compare columns of type Float. All fields are combined with logical 'AND'.
+"""
+input FloatComparisonExp{
+	_eq: Float
+	_gt: Float
+	_gte: Float
+	_in: [Float!]
+	_is_null: Boolean
+	_lt: Float
+	_lte: Float
+	_neq: Float
+	_nin: [Float!]
+}
+"""
 column ordering options
 """
 enum OrderBy {

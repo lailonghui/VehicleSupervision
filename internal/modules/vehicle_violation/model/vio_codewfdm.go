@@ -4,16 +4,16 @@ package model
 
 // 违法描述字典表(交警提供数据表，暂无修改)
 type VioCodewfdm struct {
-	// 违法行为     (         )
+	// 违法行为
 	Wfxw string `json:"wfxw"`
-	// 违法描述     (         )
+	// 违法描述
 	Wfms *string `json:"wfms"`
-	// 违法计分数   (         )
+	// 违法计分数
 	Wfjfs *float64 `json:"wfjfs"`
-	// 最小罚款金额 (         )
+	// 最小罚款金额
 	FkjeMin *float64 `json:"fkje_min"`
-	// 最大罚款金额 (         )
+	// 最大罚款金额
 	FkjeMax *float64 `json:"fkje_max"`
-	// 序号         (         )
+	// 序号
 	Xh *string `json:"xh"`
 }

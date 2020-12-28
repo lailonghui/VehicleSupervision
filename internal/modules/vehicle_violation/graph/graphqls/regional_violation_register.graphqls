@@ -27,7 +27,7 @@ type RegionalViolationRegister {
 	"""
 	illegal_code: Int
 	"""
-	 违法时间                                                     (                                                    )
+	 违法时间                                                     
 	"""
 	illegal_time: Timestamptz
 	"""
@@ -35,11 +35,11 @@ type RegionalViolationRegister {
 	"""
 	illegal_type: Int
 	"""
-	 登记时间                                                     (                                                    )
+	 登记时间                                                     
 	"""
 	register_time: Timestamptz
 	"""
-	 处理机关                                                     (                                                    )
+	 处理机关                                                     
 	"""
 	processing_agency: String
 	"""
@@ -51,7 +51,7 @@ type RegionalViolationRegister {
 	"""
 	is_register: Boolean
 	"""
-	 创建时间                                                     (                                                    )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -59,7 +59,7 @@ type RegionalViolationRegister {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                                    )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -67,7 +67,7 @@ type RegionalViolationRegister {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                                    )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -75,7 +75,7 @@ type RegionalViolationRegister {
 	"""
 	deleted_by: String
 	"""
-	 是否删除                                                     (                                                    )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 }
@@ -275,8 +275,6 @@ input RegionalViolationRegisterBoolExp {
 input type for inserting data into table "regional_violation_register"
 """
 input RegionalViolationRegisterInsertInput {
-	id: Bigint
-	regional_violation_register_id: String
 	violation_detail_id: String
 	vehicle_id: String
 	driver_id: String
@@ -287,8 +285,6 @@ input RegionalViolationRegisterInsertInput {
 	processing_agency: String
 	operator: String
 	is_register: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -356,7 +352,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	illegal_code
 	"""
-	 违法时间                                                     (                                                    )
+	 违法时间                                                     
 	"""
 	illegal_time
 	"""
@@ -364,11 +360,11 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	illegal_type
 	"""
-	 登记时间                                                     (                                                    )
+	 登记时间                                                     
 	"""
 	register_time
 	"""
-	 处理机关                                                     (                                                    )
+	 处理机关                                                     
 	"""
 	processing_agency
 	"""
@@ -380,7 +376,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	is_register
 	"""
-	 创建时间                                                     (                                                    )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -388,7 +384,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                                    )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -396,7 +392,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                                    )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -404,7 +400,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否删除                                                     (                                                    )
+	 是否删除                                                     
 	"""
 	is_deleted
 }

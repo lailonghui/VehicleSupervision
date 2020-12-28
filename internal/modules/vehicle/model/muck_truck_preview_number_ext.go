@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden MuckTruckPreviewNumberLoader string *VehicleSupervision/internal/modules/vehicle/model.MuckTruckPreviewNumber
 
 func (t MuckTruckPreviewNumber) TableName() string {
-	return "MuckTruckPreviewNumber"
+	return "muck_truck_preview_number"
 }
 
 func (t *MuckTruckPreviewNumber) NewLoader() *MuckTruckPreviewNumberLoader {

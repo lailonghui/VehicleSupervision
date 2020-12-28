@@ -12,17 +12,17 @@ type DynamicSupervision struct {
 	ID int64 `json:"id"`
 	// 动态监管抽查主表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
 	SupervisionID string `json:"supervision_id"`
-	// 抽查日期                                                     (                                )
+	// 抽查日期
 	SpotCheckDate *time.Time `json:"spot_check_date"`
-	// 抽查总数                                                     (                                )
+	// 抽查总数
 	SpotCheckTotalNumber *int `json:"spot_check_total_number"`
-	// 抽查数量                                                     (                                )
+	// 抽查数量
 	SpotCheckNumber *int `json:"spot_check_number"`
-	// 抽查比例                                                     (                                )
+	// 抽查比例
 	SpotCheckRatio *float64 `json:"spot_check_ratio"`
 	// 抽查人员                                                     ( 引用system_user表的user_id )
 	CheckUserID *string `json:"check_user_id"`
-	// 总车辆数                                                     (                                )
+	// 总车辆数
 	TotalNumberVehicle *int `json:"total_number_vehicle"`
 	// 抽查人员位置的省份ID                                         ( 省份表province_id              )
 	ProvinceID *string `json:"province_id"`
@@ -30,24 +30,37 @@ type DynamicSupervision struct {
 	CityID *string `json:"city_id"`
 	// 抽查人员位置的区域ID                                         ( 区域表district_id              )
 	DistrictID *string `json:"district_id"`
-	// 年                                                           (                                )
+	// 年
 	Year *int `json:"year"`
-	// 月                                                           (                                )
+	// 月
 	Month *int `json:"month"`
-	// 日                                                           (                                )
+	// 日
 	Day *int `json:"day"`
-	// 创建时间                                                     (                                )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                                       ( system_user表的user_id     )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                                     (                                )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                                       ( system_user表的user_id     )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                                     (                                )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                                       ( system_user表的user_id     )
 	DeletedBy *string `json:"deleted_by"`
-	// 是否被删除                                                   (                                )
+	// 是否被删除
 	IsDeleted *bool `json:"is_deleted"`
+}
+
+// expression to compare columns of type Float. All fields are combined with logical 'AND'.
+type FloatComparisonExp struct {
+	Eq     *float64  `json:"_eq"`
+	Gt     *float64  `json:"_gt"`
+	Gte    *float64  `json:"_gte"`
+	In     []float64 `json:"_in"`
+	IsNull *bool     `json:"_is_null"`
+	Lt     *float64  `json:"_lt"`
+	Lte    *float64  `json:"_lte"`
+	Neq    *float64  `json:"_neq"`
+	Nin    []float64 `json:"_nin"`
 }

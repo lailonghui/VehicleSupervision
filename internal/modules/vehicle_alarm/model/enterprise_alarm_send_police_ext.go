@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden EnterpriseAlarmSendPoliceLoader string *VehicleSupervision/internal/modules/vehicle_alarm/model.EnterpriseAlarmSendPolice
 
 func (t EnterpriseAlarmSendPolice) TableName() string {
-	return "EnterpriseAlarmSendPolice"
+	return "enterprise_alarm_send_police"
 }
 
 func (t *EnterpriseAlarmSendPolice) NewLoader() *EnterpriseAlarmSendPoliceLoader {

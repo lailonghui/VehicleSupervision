@@ -12,80 +12,93 @@ type ConstructionInfo struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	ConstructionInfoID string `json:"construction_info_id"`
-	// 项目名称                                        (                            )
+	// 项目名称
 	ProjectName *string `json:"project_name"`
-	// 工程项目代码                                    (                            )
+	// 工程项目代码
 	ProjectCode *string `json:"project_code"`
-	// 合同开工日期                                    (                            )
+	// 合同开工日期
 	ContractStartDate *time.Time `json:"contract_start_date"`
-	// 合同竣工日期                                    (                            )
+	// 合同竣工日期
 	ContractCompletionDate *time.Time `json:"contract_completion_date"`
-	// 建设单位                                        (                            )
+	// 建设单位
 	BuildAgency *string `json:"build_agency"`
-	// 项目负责人                                      (                            )
+	// 项目负责人
 	ProjectManager *string `json:"project_manager"`
-	// 地区                                            (                            )
+	// 地区
 	AreaID *string `json:"area_id"`
-	// 地址                                            (                            )
+	// 地址
 	Address *string `json:"address"`
-	// 地图经纬度                                      (                            )
+	// 地图经纬度
 	MapCoordinate *string `json:"map_coordinate"`
 	// 施工单位                                        ( 与建设单位的区别？         )
 	ConstructionAgency *string `json:"construction_agency"`
-	// 监理单位                                        (                            )
+	// 监理单位
 	SupervisionAgency *string `json:"supervision_agency"`
-	// 设备安装单位                                    (                            )
+	// 设备安装单位
 	DeviceInstallationAgency *string `json:"device_installation_agency"`
-	// 设备安装地点                                    (                            )
+	// 设备安装地点
 	DeviceInstallationLocation *string `json:"device_installation_location"`
-	// 服务合同编号                                    (                            )
+	// 服务合同编号
 	ServiceContractNumber *string `json:"service_contract_number"`
-	// 合同签署时间                                    (                            )
+	// 合同签署时间
 	ContractSigningTime *time.Time `json:"contract_signing_time"`
-	// 服务启用日期                                    (                            )
+	// 服务启用日期
 	ServiceActivationDate *time.Time `json:"service_activation_date"`
-	// 证明有效期                                      (                            )
+	// 证明有效期
 	ProofValidDate *time.Time `json:"proof_valid_date"`
-	// 经纬度                                          (                            )
+	// 经纬度
 	Coordinate *string `json:"coordinate"`
-	// 安装时间                                        (                            )
+	// 安装时间
 	InstallationTime *time.Time `json:"installation_time"`
-	// 项目名称标签                                    (                            )
+	// 项目名称标签
 	ProjectNameTag *string `json:"project_name_tag"`
-	// 进出口数量                                      (                            )
+	// 进出口数量
 	ImportExportQuantity *string `json:"import_export_quantity"`
-	// 停用原因                                        (                            )
+	// 停用原因
 	DeactivationReason *string `json:"deactivation_reason"`
-	// 未安装原因                                      (                            )
+	// 未安装原因
 	UninstalledReason *string `json:"uninstalled_reason"`
-	// 证明起始有效期                                  (                            )
+	// 证明起始有效期
 	ProofValidDateUntil *time.Time `json:"proof_valid_date_until"`
-	// 类型（1.工地 2.矿山）                           (                            )
+	// 类型（1.工地 2.矿山）
 	ConstructionType *int `json:"construction_type"`
-	// 联系人                                          (                            )
+	// 联系人
 	ContactPerson *string `json:"contact_person"`
-	// 联系电话                                        (                            )
+	// 联系电话
 	ContactPhone *string `json:"contact_phone"`
-	// 是否完工（0.未完工 1.已完工 2.已停用）          (                            )
+	// 是否完工（0.未完工 1.已完工 2.已停用）
 	Finished *int `json:"finished"`
-	// 是否市直属                                      (                            )
+	// 是否市直属
 	IsCityDirectly *string `json:"is_city_directly"`
-	// 是否安装（0.未申请 1.已安装 2.已申请未安装）    (                            )
+	// 是否安装（0.未申请 1.已安装 2.已申请未安装）
 	IsInstallation *string `json:"is_installation"`
-	// 是否删除                                        (                            )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
-	// 登记时间                                        (                            )
+	// 登记时间
 	RegistrationTime *time.Time `json:"registration_time"`
-	// 创建时间                                        (                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id )
 	DeletedBy *string `json:"deleted_by"`
+}
+
+// expression to compare columns of type Float. All fields are combined with logical 'AND'.
+type FloatComparisonExp struct {
+	Eq     *float64  `json:"_eq"`
+	Gt     *float64  `json:"_gt"`
+	Gte    *float64  `json:"_gte"`
+	In     []float64 `json:"_in"`
+	IsNull *bool     `json:"_is_null"`
+	Lt     *float64  `json:"_lt"`
+	Lte    *float64  `json:"_lte"`
+	Neq    *float64  `json:"_neq"`
+	Nin    []float64 `json:"_nin"`
 }

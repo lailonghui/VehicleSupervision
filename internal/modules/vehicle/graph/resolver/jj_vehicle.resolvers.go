@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteJjVehicleByPk(ctx context.Context, Id int64) (*
 }
 
 func (r *mutationResolver) InsertJjVehicle(ctx context.Context, objects []*model.JjVehicleInsertInput) (*model.JjVehicleMutationResponse, error) {
-	rs := []*model1.JjVehicle{}
+	rs := make([]*model1.JjVehicle, 0)
 	for _, object := range objects {
 		v := &model1.JjVehicle{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.JjVehicle{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateJjVehicleByPk(ctx context.Context, inc *model.J
 	qt := util.NewQueryTranslator(tx, &model1.JjVehicle{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.JjVehicle
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) JjVehicle(ctx context.Context, distinctOn []model.JjVehi
 		Finish()
 	var rs []*model1.JjVehicle
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) JjVehicleAggregate(ctx context.Context, distinctOn []model.JjVehicleSelectColumn, limit *int, offset *int, orderBy []*model.JjVehicleOrderBy, where *model.JjVehicleBoolExp) (*model.JjVehicleAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) JjVehicleAggregate(ctx context.Context, distinctOn []mod
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) JjVehicleByPk(ctx context.Context, Id int64) (*model1.JjVehicle, error) {
 	var rs model1.JjVehicle
 	tx := db.DB.Model(&model1.JjVehicle{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

@@ -31,19 +31,19 @@ type VehicleSupervisionPhoto {
 	"""
 	photo_condition: String
 	"""
-	 终端上报时间                                                (                                      )
+	 终端上报时间                                                
 	"""
 	update_time: Timestamptz
 	"""
-	 监控图片名称                                                (                                      )
+	 监控图片名称                                                
 	"""
 	monitoring_pic_name: String
 	"""
-	 监控图片地址                                                (                                      )
+	 监控图片地址                                                
 	"""
 	monitoring_pic_address: String
 	"""
-	 监控图片上传时间                                            (                                      )
+	 监控图片上传时间                                            
 	"""
 	monitoring_pic_upload_time: Timestamptz
 	"""
@@ -51,7 +51,7 @@ type VehicleSupervisionPhoto {
 	"""
 	imel: String
 	"""
-	 SIM卡号                                                     (                                      )
+	 SIM卡号                                                     
 	"""
 	sim_number: String
 }
@@ -219,9 +219,6 @@ input VehicleSupervisionPhotoBoolExp {
 input type for inserting data into table "vehicle_supervision_photo"
 """
 input VehicleSupervisionPhotoInsertInput {
-	id: Bigint
-	supervision_photo_id: String
-	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
 	camera_id: Int
@@ -291,19 +288,19 @@ enum VehicleSupervisionPhotoSelectColumn {
 	"""
 	photo_condition
 	"""
-	 终端上报时间                                                (                                      )
+	 终端上报时间                                                
 	"""
 	update_time
 	"""
-	 监控图片名称                                                (                                      )
+	 监控图片名称                                                
 	"""
 	monitoring_pic_name
 	"""
-	 监控图片地址                                                (                                      )
+	 监控图片地址                                                
 	"""
 	monitoring_pic_address
 	"""
-	 监控图片上传时间                                            (                                      )
+	 监控图片上传时间                                            
 	"""
 	monitoring_pic_upload_time
 	"""
@@ -311,7 +308,7 @@ enum VehicleSupervisionPhotoSelectColumn {
 	"""
 	imel
 	"""
-	 SIM卡号                                                     (                                      )
+	 SIM卡号                                                     
 	"""
 	sim_number
 }

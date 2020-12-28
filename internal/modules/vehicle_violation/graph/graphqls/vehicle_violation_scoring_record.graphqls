@@ -19,19 +19,19 @@ type VehicleViolationScoringRecord {
 	"""
 	violation_scoring_item_id: String
 	"""
-	 扣分分值                                                     (                                                              )
+	 扣分分值                                                     
 	"""
 	demerit_points: Numeric
 	"""
-	 备注                                                         (                                                              )
+	 备注                                                         
 	"""
 	remarks: String
 	"""
-	 是否删除                                                     (                                                              )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                     (                                                              )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -39,7 +39,7 @@ type VehicleViolationScoringRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                                              )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -47,7 +47,7 @@ type VehicleViolationScoringRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                                              )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -219,15 +219,11 @@ input VehicleViolationScoringRecordBoolExp {
 input type for inserting data into table "vehicle_violation_scoring_record"
 """
 input VehicleViolationScoringRecordInsertInput {
-	id: Bigint
-	violation_scoring_id: String
 	vehicle_id: String
 	violation_scoring_item_id: String
 	demerit_points: Numeric
 	remarks: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -279,19 +275,19 @@ enum VehicleViolationScoringRecordSelectColumn {
 	"""
 	violation_scoring_item_id
 	"""
-	 扣分分值                                                     (                                                              )
+	 扣分分值                                                     
 	"""
 	demerit_points
 	"""
-	 备注                                                         (                                                              )
+	 备注                                                         
 	"""
 	remarks
 	"""
-	 是否删除                                                     (                                                              )
+	 是否删除                                                     
 	"""
 	is_deleted
 	"""
-	 创建时间                                                     (                                                              )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -299,7 +295,7 @@ enum VehicleViolationScoringRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                                              )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -307,7 +303,7 @@ enum VehicleViolationScoringRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                                              )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""

@@ -15,15 +15,15 @@ type VehicleOfflineDisposal {
 	"""
 	enterprise_id: String
 	"""
-	 手机号码                                        (                                                              )
+	 手机号码                                        
 	"""
 	telephone: String
 	"""
-	 内容                                            (                                                              )
+	 内容                                            
 	"""
 	content: String
 	"""
-	 发送时间                                        (                                                              )
+	 发送时间                                        
 	"""
 	send_time: Timestamptz
 	"""
@@ -31,31 +31,31 @@ type VehicleOfflineDisposal {
 	"""
 	user_id: String
 	"""
-	 是否短信推送                                    (                                                              )
+	 是否短信推送                                    
 	"""
 	is_sms_push: Boolean
 	"""
-	 是否通报                                        (                                                              )
+	 是否通报                                        
 	"""
 	is_report: Boolean
 	"""
-	 是否语音通知                                    (                                                              )
+	 是否语音通知                                    
 	"""
 	is_voice_notification: Boolean
 	"""
-	 是否APP推送                                     (                                                              )
+	 是否APP推送                                     
 	"""
 	is_app_push: Boolean
 	"""
-	 通报内容                                        (                                                              )
+	 通报内容                                        
 	"""
 	notification_content: String
 	"""
-	 语音内容                                        (                                                              )
+	 语音内容                                        
 	"""
 	voice_content: String
 	"""
-	 APP推送内容                                     (                                                              )
+	 APP推送内容                                     
 	"""
 	app_push_content: String
 	"""
@@ -63,15 +63,15 @@ type VehicleOfflineDisposal {
 	"""
 	supervision_detail_id: String
 	"""
-	 处置方式                                        (                                                              )
+	 处置方式                                        
 	"""
 	disposal_method: String
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -79,7 +79,7 @@ type VehicleOfflineDisposal {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -87,7 +87,7 @@ type VehicleOfflineDisposal {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -291,8 +291,6 @@ input VehicleOfflineDisposalBoolExp {
 input type for inserting data into table "vehicle_offline_disposal"
 """
 input VehicleOfflineDisposalInsertInput {
-	id: Bigint
-	vehicle_offline_disposal_id: String
 	enterprise_id: String
 	telephone: String
 	content: String
@@ -308,8 +306,6 @@ input VehicleOfflineDisposalInsertInput {
 	supervision_detail_id: String
 	disposal_method: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -366,15 +362,15 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 手机号码                                        (                                                              )
+	 手机号码                                        
 	"""
 	telephone
 	"""
-	 内容                                            (                                                              )
+	 内容                                            
 	"""
 	content
 	"""
-	 发送时间                                        (                                                              )
+	 发送时间                                        
 	"""
 	send_time
 	"""
@@ -382,31 +378,31 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	user_id
 	"""
-	 是否短信推送                                    (                                                              )
+	 是否短信推送                                    
 	"""
 	is_sms_push
 	"""
-	 是否通报                                        (                                                              )
+	 是否通报                                        
 	"""
 	is_report
 	"""
-	 是否语音通知                                    (                                                              )
+	 是否语音通知                                    
 	"""
 	is_voice_notification
 	"""
-	 是否APP推送                                     (                                                              )
+	 是否APP推送                                     
 	"""
 	is_app_push
 	"""
-	 通报内容                                        (                                                              )
+	 通报内容                                        
 	"""
 	notification_content
 	"""
-	 语音内容                                        (                                                              )
+	 语音内容                                        
 	"""
 	voice_content
 	"""
-	 APP推送内容                                     (                                                              )
+	 APP推送内容                                     
 	"""
 	app_push_content
 	"""
@@ -414,15 +410,15 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	supervision_detail_id
 	"""
-	 处置方式                                        (                                                              )
+	 处置方式                                        
 	"""
 	disposal_method
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -430,7 +426,7 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -438,7 +434,7 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

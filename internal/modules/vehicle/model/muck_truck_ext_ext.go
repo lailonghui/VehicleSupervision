@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden MuckTruckExtLoader string *VehicleSupervision/internal/modules/vehicle/model.MuckTruckExt
 
 func (t MuckTruckExt) TableName() string {
-	return "MuckTruckExt"
+	return "muck_truck_ext"
 }
 
 func (t *MuckTruckExt) NewLoader() *MuckTruckExtLoader {

@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden JjVehicleLoader string *VehicleSupervision/internal/modules/vehicle/model.JjVehicle
 
 func (t JjVehicle) TableName() string {
-	return "JjVehicle"
+	return "jj_vehicle"
 }
 
 func (t *JjVehicle) NewLoader() *JjVehicleLoader {

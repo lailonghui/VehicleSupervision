@@ -11,19 +11,19 @@ type OutageFilingUploadFile {
 	"""
 	outage_filing_upload_file_id: String!
 	"""
-	 文件路径                                        (                            )
+	 文件路径                                        
 	"""
 	file_path: String
 	"""
-	 文件类型(commitment.承诺书 other.其他)          (                            )
+	 文件类型(commitment.承诺书 other.其他)          
 	"""
 	file_type: String
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -31,7 +31,7 @@ type OutageFilingUploadFile {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -39,7 +39,7 @@ type OutageFilingUploadFile {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -195,13 +195,9 @@ input OutageFilingUploadFileBoolExp {
 input type for inserting data into table "outage_filing_upload_file"
 """
 input OutageFilingUploadFileInsertInput {
-	id: Bigint
-	outage_filing_upload_file_id: String
 	file_path: String
 	file_type: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -242,19 +238,19 @@ enum OutageFilingUploadFileSelectColumn {
 	"""
 	outage_filing_upload_file_id
 	"""
-	 文件路径                                        (                            )
+	 文件路径                                        
 	"""
 	file_path
 	"""
-	 文件类型(commitment.承诺书 other.其他)          (                            )
+	 文件类型(commitment.承诺书 other.其他)          
 	"""
 	file_type
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -262,7 +258,7 @@ enum OutageFilingUploadFileSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -270,7 +266,7 @@ enum OutageFilingUploadFileSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

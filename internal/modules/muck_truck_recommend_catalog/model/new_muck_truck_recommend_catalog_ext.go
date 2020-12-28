@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden NewMuckTruckRecommendCatalogLoader string *VehicleSupervision/internal/modules/muck_truck_recommend_catalog/model.NewMuckTruckRecommendCatalog
 
 func (t NewMuckTruckRecommendCatalog) TableName() string {
-	return "NewMuckTruckRecommendCatalog"
+	return "new_muck_truck_recommend_catalog"
 }
 
 func (t *NewMuckTruckRecommendCatalog) NewLoader() *NewMuckTruckRecommendCatalogLoader {

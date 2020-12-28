@@ -11,15 +11,15 @@ type DeductionReport {
 	"""
 	deduction_report_id: String!
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area_id: String
 	"""
-	 年份.月份  如2015.3                             (                            )
+	 年份.月份  如2015.3                             
 	"""
 	date: String
 	"""
-	 扣分事由                                        (                            )
+	 扣分事由                                        
 	"""
 	cause: String
 	"""
@@ -27,15 +27,15 @@ type DeductionReport {
 	"""
 	input_person: String
 	"""
-	 录入时间                                        (                            )
+	 录入时间                                        
 	"""
 	input_time: Timestamptz
 	"""
-	 扣分分值                                        (                            )
+	 扣分分值                                        
 	"""
 	demerit_points: Numeric
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -43,7 +43,7 @@ type DeductionReport {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -51,7 +51,7 @@ type DeductionReport {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -227,16 +227,12 @@ input DeductionReportBoolExp {
 input type for inserting data into table "deduction_report"
 """
 input DeductionReportInsertInput {
-	id: Bigint
-	deduction_report_id: String
 	area_id: String
 	date: String
 	cause: String
 	input_person: String
 	input_time: Timestamptz
 	demerit_points: Numeric
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -281,15 +277,15 @@ enum DeductionReportSelectColumn {
 	"""
 	deduction_report_id
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area_id
 	"""
-	 年份.月份  如2015.3                             (                            )
+	 年份.月份  如2015.3                             
 	"""
 	date
 	"""
-	 扣分事由                                        (                            )
+	 扣分事由                                        
 	"""
 	cause
 	"""
@@ -297,15 +293,15 @@ enum DeductionReportSelectColumn {
 	"""
 	input_person
 	"""
-	 录入时间                                        (                            )
+	 录入时间                                        
 	"""
 	input_time
 	"""
-	 扣分分值                                        (                            )
+	 扣分分值                                        
 	"""
 	demerit_points
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -313,7 +309,7 @@ enum DeductionReportSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -321,7 +317,7 @@ enum DeductionReportSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

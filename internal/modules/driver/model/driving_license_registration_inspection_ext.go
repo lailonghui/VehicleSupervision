@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DrivingLicenseRegistrationInspectionLoader string *VehicleSupervision/internal/modules/driver/model.DrivingLicenseRegistrationInspection
 
 func (t DrivingLicenseRegistrationInspection) TableName() string {
-	return "DrivingLicenseRegistrationInspection"
+	return "driving_license_registration_inspection"
 }
 
 func (t *DrivingLicenseRegistrationInspection) NewLoader() *DrivingLicenseRegistrationInspectionLoader {

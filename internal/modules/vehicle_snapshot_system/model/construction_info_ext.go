@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden ConstructionInfoLoader string *VehicleSupervision/internal/modules/vehicle_snapshot_system/model.ConstructionInfo
 
 func (t ConstructionInfo) TableName() string {
-	return "ConstructionInfo"
+	return "construction_info"
 }
 
 func (t *ConstructionInfo) NewLoader() *ConstructionInfoLoader {

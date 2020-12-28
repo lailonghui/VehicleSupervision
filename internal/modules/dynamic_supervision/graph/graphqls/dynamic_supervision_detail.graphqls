@@ -27,35 +27,35 @@ type DynamicSupervisionDetail {
 	"""
 	vehicle_id: String
 	"""
-	 监控平台时间                                                 (                                                         )
+	 监控平台时间                                                 
 	"""
 	monitoring_time: Timestamptz
 	"""
-	 监控平台显示位置                                             (                                                         )
+	 监控平台显示位置                                             
 	"""
 	monitoring_location: String
 	"""
-	 是否在线（是/否）                                            (                                                         )
+	 是否在线（是/否）                                            
 	"""
 	is_online: Boolean
 	"""
-	 行车记录仪数据（是否异常）                                   (                                                         )
+	 行车记录仪数据（是否异常）                                   
 	"""
 	is_tachograph_record_normal: Boolean
 	"""
-	 行车记录仪异常数据项                                         (                                                         )
+	 行车记录仪异常数据项                                         
 	"""
 	tachograph_data_exception: String
 	"""
-	 行车记录仪速度                                               (                                                         )
+	 行车记录仪速度                                               
 	"""
 	tachograph_speed: String
 	"""
-	 卫星定位速度                                                 (                                                         )
+	 卫星定位速度                                                 
 	"""
 	gps_speed: String
 	"""
-	 是否超速（是/否）                                            (                                                         )
+	 是否超速（是/否）                                            
 	"""
 	is_speeding: Boolean
 	"""
@@ -63,11 +63,11 @@ type DynamicSupervisionDetail {
 	"""
 	taxi_state: Int
 	"""
-	 客运疲劳驾驶（是/否）                                        (                                                         )
+	 客运疲劳驾驶（是/否）                                        
 	"""
 	is_fatigue_driving: Boolean
 	"""
-	 客运凌晨2-5时停运（是/否）                                   (                                                         )
+	 客运凌晨2-5时停运（是/否）                                   
 	"""
 	is_morning_outage: Boolean
 	"""
@@ -87,59 +87,59 @@ type DynamicSupervisionDetail {
 	"""
 	equipment: Int
 	"""
-	 其他违规                                                     (                                                         )
+	 其他违规                                                     
 	"""
 	other_infraction: String
 	"""
-	 处置措施                                                     (                                                         )
+	 处置措施                                                     
 	"""
 	disposal_measures: String
 	"""
-	 处置结果                                                     (                                                         )
+	 处置结果                                                     
 	"""
 	disposal_results: String
 	"""
-	 处置时间                                                     (                                                         )
+	 处置时间                                                     
 	"""
 	treatment_time: Timestamptz
 	"""
-	 受理人                                                       (                                                         )
+	 受理人                                                       
 	"""
 	assignee: String
 	"""
-	 反馈时间                                                     (                                                         )
+	 反馈时间                                                     
 	"""
 	feedback_time: Timestamptz
 	"""
-	 备注                                                         (                                                         )
+	 备注                                                         
 	"""
 	remarks: String
 	"""
-	 轨迹其他情况                                                 (                                                         )
+	 轨迹其他情况                                                 
 	"""
 	others: String
 	"""
-	 摄像头损坏号                                                 (                                                         )
+	 摄像头损坏号                                                 
 	"""
 	lens_on: String
 	"""
-	 监管费到期时间                                               (                                                         )
+	 监管费到期时间                                               
 	"""
 	monitor_end_time: Timestamptz
 	"""
-	 是否定位                                                     (                                                         )
+	 是否定位                                                     
 	"""
 	is_locate: Boolean
 	"""
-	 空间数据类型point表示经纬度                                  (                                                         )
+	 空间数据类型point表示经纬度                                  
 	"""
 	coordinate: Point
 	"""
-	 经纬度描述                                                   (                                                         )
+	 经纬度描述                                                   
 	"""
 	latitude_longitude_description: String
 	"""
-	 是否发送                                                     (                                                         )
+	 是否发送                                                     
 	"""
 	is_send: Boolean
 	"""
@@ -147,83 +147,83 @@ type DynamicSupervisionDetail {
 	"""
 	business_scope: Int
 	"""
-	 凌晨2点到5点停运报警时间                                     (                                                         )
+	 凌晨2点到5点停运报警时间                                     
 	"""
 	outage_alarm_time: Timestamptz
 	"""
-	 超速报警时间                                                 (                                                         )
+	 超速报警时间                                                 
 	"""
 	speed_alarm_time: Timestamptz
 	"""
-	 超速速度                                                     (                                                         )
+	 超速速度                                                     
 	"""
 	speeding_speed: String
 	"""
-	 疲劳驾驶报警时间                                             (                                                         )
+	 疲劳驾驶报警时间                                             
 	"""
 	fatigue_alarm_time: Timestamptz
 	"""
-	 是否在线处置措施                                             (                                                         )
+	 是否在线处置措施                                             
 	"""
 	disposal_measures1: String
 	"""
-	 是否超速处置措施                                             (                                                         )
+	 是否超速处置措施                                             
 	"""
 	disposal_measures2: String
 	"""
-	 曲线情况处置措施                                             (                                                         )
+	 曲线情况处置措施                                             
 	"""
 	disposal_measures3: String
 	"""
-	 客运疲劳驾驶处置措施                                         (                                                         )
+	 客运疲劳驾驶处置措施                                         
 	"""
 	disposal_measures4: String
 	"""
-	 客运凌晨停运处置措施                                         (                                                         )
+	 客运凌晨停运处置措施                                         
 	"""
 	disposal_measures5: String
 	"""
-	 行车记录仪数据处置措施                                       (                                                         )
+	 行车记录仪数据处置措施                                       
 	"""
 	disposal_measures6: String
 	"""
-	 轨迹情况处置措施                                             (                                                         )
+	 轨迹情况处置措施                                             
 	"""
 	disposal_measures7: String
 	"""
-	 是否在线处置结果                                             (                                                         )
+	 是否在线处置结果                                             
 	"""
 	disposal_results1: String
 	"""
-	 是否超速处置结果                                             (                                                         )
+	 是否超速处置结果                                             
 	"""
 	disposal_results2: String
 	"""
-	 曲线情况处置结果                                             (                                                         )
+	 曲线情况处置结果                                             
 	"""
 	disposal_results3: String
 	"""
-	 客运疲劳驾驶处置结果                                         (                                                         )
+	 客运疲劳驾驶处置结果                                         
 	"""
 	disposal_results4: String
 	"""
-	 客运疲劳驾驶处置结果                                         (                                                         )
+	 客运疲劳驾驶处置结果                                         
 	"""
 	disposal_results5: String
 	"""
-	 行车记录仪数据处置结果                                       (                                                         )
+	 行车记录仪数据处置结果                                       
 	"""
 	disposal_results6: String
 	"""
-	 轨迹情况处置结果                                             (                                                         )
+	 轨迹情况处置结果                                             
 	"""
 	disposal_results7: String
 	"""
-	 是否被删除                                                   (                                                         )
+	 是否被删除                                                   
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                     (                                                         )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -231,7 +231,7 @@ type DynamicSupervisionDetail {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                                         )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -239,7 +239,7 @@ type DynamicSupervisionDetail {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                                         )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -643,8 +643,6 @@ input DynamicSupervisionDetailBoolExp {
 input type for inserting data into table "dynamic_supervision_detail"
 """
 input DynamicSupervisionDetailInsertInput {
-	id: Bigint
-	supervision_detail_id: String
 	supervision_id: String
 	driver_id: String
 	enterprise_id: String
@@ -698,8 +696,6 @@ input DynamicSupervisionDetailInsertInput {
 	disposal_results6: String
 	disposal_results7: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -812,35 +808,35 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 监控平台时间                                                 (                                                         )
+	 监控平台时间                                                 
 	"""
 	monitoring_time
 	"""
-	 监控平台显示位置                                             (                                                         )
+	 监控平台显示位置                                             
 	"""
 	monitoring_location
 	"""
-	 是否在线（是/否）                                            (                                                         )
+	 是否在线（是/否）                                            
 	"""
 	is_online
 	"""
-	 行车记录仪数据（是否异常）                                   (                                                         )
+	 行车记录仪数据（是否异常）                                   
 	"""
 	is_tachograph_record_normal
 	"""
-	 行车记录仪异常数据项                                         (                                                         )
+	 行车记录仪异常数据项                                         
 	"""
 	tachograph_data_exception
 	"""
-	 行车记录仪速度                                               (                                                         )
+	 行车记录仪速度                                               
 	"""
 	tachograph_speed
 	"""
-	 卫星定位速度                                                 (                                                         )
+	 卫星定位速度                                                 
 	"""
 	gps_speed
 	"""
-	 是否超速（是/否）                                            (                                                         )
+	 是否超速（是/否）                                            
 	"""
 	is_speeding
 	"""
@@ -848,11 +844,11 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	taxi_state
 	"""
-	 客运疲劳驾驶（是/否）                                        (                                                         )
+	 客运疲劳驾驶（是/否）                                        
 	"""
 	is_fatigue_driving
 	"""
-	 客运凌晨2-5时停运（是/否）                                   (                                                         )
+	 客运凌晨2-5时停运（是/否）                                   
 	"""
 	is_morning_outage
 	"""
@@ -872,59 +868,59 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	equipment
 	"""
-	 其他违规                                                     (                                                         )
+	 其他违规                                                     
 	"""
 	other_infraction
 	"""
-	 处置措施                                                     (                                                         )
+	 处置措施                                                     
 	"""
 	disposal_measures
 	"""
-	 处置结果                                                     (                                                         )
+	 处置结果                                                     
 	"""
 	disposal_results
 	"""
-	 处置时间                                                     (                                                         )
+	 处置时间                                                     
 	"""
 	treatment_time
 	"""
-	 受理人                                                       (                                                         )
+	 受理人                                                       
 	"""
 	assignee
 	"""
-	 反馈时间                                                     (                                                         )
+	 反馈时间                                                     
 	"""
 	feedback_time
 	"""
-	 备注                                                         (                                                         )
+	 备注                                                         
 	"""
 	remarks
 	"""
-	 轨迹其他情况                                                 (                                                         )
+	 轨迹其他情况                                                 
 	"""
 	others
 	"""
-	 摄像头损坏号                                                 (                                                         )
+	 摄像头损坏号                                                 
 	"""
 	lens_on
 	"""
-	 监管费到期时间                                               (                                                         )
+	 监管费到期时间                                               
 	"""
 	monitor_end_time
 	"""
-	 是否定位                                                     (                                                         )
+	 是否定位                                                     
 	"""
 	is_locate
 	"""
-	 空间数据类型point表示经纬度                                  (                                                         )
+	 空间数据类型point表示经纬度                                  
 	"""
 	coordinate
 	"""
-	 经纬度描述                                                   (                                                         )
+	 经纬度描述                                                   
 	"""
 	latitude_longitude_description
 	"""
-	 是否发送                                                     (                                                         )
+	 是否发送                                                     
 	"""
 	is_send
 	"""
@@ -932,83 +928,83 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	business_scope
 	"""
-	 凌晨2点到5点停运报警时间                                     (                                                         )
+	 凌晨2点到5点停运报警时间                                     
 	"""
 	outage_alarm_time
 	"""
-	 超速报警时间                                                 (                                                         )
+	 超速报警时间                                                 
 	"""
 	speed_alarm_time
 	"""
-	 超速速度                                                     (                                                         )
+	 超速速度                                                     
 	"""
 	speeding_speed
 	"""
-	 疲劳驾驶报警时间                                             (                                                         )
+	 疲劳驾驶报警时间                                             
 	"""
 	fatigue_alarm_time
 	"""
-	 是否在线处置措施                                             (                                                         )
+	 是否在线处置措施                                             
 	"""
 	disposal_measures1
 	"""
-	 是否超速处置措施                                             (                                                         )
+	 是否超速处置措施                                             
 	"""
 	disposal_measures2
 	"""
-	 曲线情况处置措施                                             (                                                         )
+	 曲线情况处置措施                                             
 	"""
 	disposal_measures3
 	"""
-	 客运疲劳驾驶处置措施                                         (                                                         )
+	 客运疲劳驾驶处置措施                                         
 	"""
 	disposal_measures4
 	"""
-	 客运凌晨停运处置措施                                         (                                                         )
+	 客运凌晨停运处置措施                                         
 	"""
 	disposal_measures5
 	"""
-	 行车记录仪数据处置措施                                       (                                                         )
+	 行车记录仪数据处置措施                                       
 	"""
 	disposal_measures6
 	"""
-	 轨迹情况处置措施                                             (                                                         )
+	 轨迹情况处置措施                                             
 	"""
 	disposal_measures7
 	"""
-	 是否在线处置结果                                             (                                                         )
+	 是否在线处置结果                                             
 	"""
 	disposal_results1
 	"""
-	 是否超速处置结果                                             (                                                         )
+	 是否超速处置结果                                             
 	"""
 	disposal_results2
 	"""
-	 曲线情况处置结果                                             (                                                         )
+	 曲线情况处置结果                                             
 	"""
 	disposal_results3
 	"""
-	 客运疲劳驾驶处置结果                                         (                                                         )
+	 客运疲劳驾驶处置结果                                         
 	"""
 	disposal_results4
 	"""
-	 客运疲劳驾驶处置结果                                         (                                                         )
+	 客运疲劳驾驶处置结果                                         
 	"""
 	disposal_results5
 	"""
-	 行车记录仪数据处置结果                                       (                                                         )
+	 行车记录仪数据处置结果                                       
 	"""
 	disposal_results6
 	"""
-	 轨迹情况处置结果                                             (                                                         )
+	 轨迹情况处置结果                                             
 	"""
 	disposal_results7
 	"""
-	 是否被删除                                                   (                                                         )
+	 是否被删除                                                   
 	"""
 	is_deleted
 	"""
-	 创建时间                                                     (                                                         )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -1016,7 +1012,7 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                                         )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -1024,7 +1020,7 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                                         )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""

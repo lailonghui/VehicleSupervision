@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleSupervisionPhotoByPk(ctx context.Context
 }
 
 func (r *mutationResolver) InsertVehicleSupervisionPhoto(ctx context.Context, objects []*model.VehicleSupervisionPhotoInsertInput) (*model.VehicleSupervisionPhotoMutationResponse, error) {
-	rs := []*model1.VehicleSupervisionPhoto{}
+	rs := make([]*model1.VehicleSupervisionPhoto, 0)
 	for _, object := range objects {
 		v := &model1.VehicleSupervisionPhoto{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleSupervisionPhoto{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleSupervisionPhotoByPk(ctx context.Context
 	qt := util.NewQueryTranslator(tx, &model1.VehicleSupervisionPhoto{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleSupervisionPhoto
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleSupervisionPhoto(ctx context.Context, distinctOn 
 		Finish()
 	var rs []*model1.VehicleSupervisionPhoto
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleSupervisionPhotoAggregate(ctx context.Context, distinctOn []model.VehicleSupervisionPhotoSelectColumn, limit *int, offset *int, orderBy []*model.VehicleSupervisionPhotoOrderBy, where *model.VehicleSupervisionPhotoBoolExp) (*model.VehicleSupervisionPhotoAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleSupervisionPhotoAggregate(ctx context.Context, di
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleSupervisionPhotoByPk(ctx context.Context, Id int64) (*model1.VehicleSupervisionPhoto, error) {
 	var rs model1.VehicleSupervisionPhoto
 	tx := db.DB.Model(&model1.VehicleSupervisionPhoto{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

@@ -11,91 +11,91 @@ type DriverIdentity {
 	"""
 	identity_id: String!
 	"""
-	 身份证号码                                      (                            )
+	 身份证号码                                      
 	"""
 	id_card_num: String
 	"""
-	 身份证出生日期                                  (                            )
+	 身份证出生日期                                  
 	"""
 	id_card_birthday: Timestamptz
 	"""
-	 身份证签发机关                                  (                            )
+	 身份证签发机关                                  
 	"""
 	id_card_sign_government: String
 	"""
-	 身份证民族                                      (                            )
+	 身份证民族                                      
 	"""
 	id_card_nation: String
 	"""
-	 身份证有效起始日期                              (                            )
+	 身份证有效起始日期                              
 	"""
 	id_card_start_date: Timestamptz
 	"""
-	 身份证有效截止日期                              (                            )
+	 身份证有效截止日期                              
 	"""
 	id_card_end_date: Timestamptz
 	"""
-	 身份证正面照，云存储地址                        (                            )
+	 身份证正面照，云存储地址                        
 	"""
 	id_card_front_pic: String
 	"""
-	 身份证背面照，云存储地址                        (                            )
+	 身份证背面照，云存储地址                        
 	"""
 	id_card_back_pic: String
 	"""
-	 身份证住址                                      (                            )
+	 身份证住址                                      
 	"""
 	id_card_address: String
 	"""
-	 驾驶员手持身份证照片,云储存系统返回的路径       (                            )
+	 驾驶员手持身份证照片,云储存系统返回的路径       
 	"""
 	driver_holding_id_photo: String
 	"""
-	 驾驶员的正面照,云储存系统返回的路径             (                            )
+	 驾驶员的正面照,云储存系统返回的路径             
 	"""
 	driver_photo: String
 	"""
-	 驾驶员签名,云储存系统返回的路径                 (                            )
+	 驾驶员签名,云储存系统返回的路径                 
 	"""
 	driver_signature: String
 	"""
-	 从业资格证号码                                  (                            )
+	 从业资格证号码                                  
 	"""
 	occupational_number: String
 	"""
-	 从业资格证有效期至                              (                            )
+	 从业资格证有效期至                              
 	"""
 	occupational_expire_date: Timestamptz
 	"""
-	 从业资格证发证机构                              (                            )
+	 从业资格证发证机构                              
 	"""
 	occupational_issuing_authority: String
 	"""
-	 劳动合同,云储存系统返回的完整劳动合同的图片路径 (                            )
+	 劳动合同,云储存系统返回的完整劳动合同的图片路径 
 	"""
 	labor_contract: String
 	"""
-	 驾驶员驾驶证,云储存系统返回的路径               (                            )
+	 驾驶员驾驶证,云储存系统返回的路径               
 	"""
 	driver_license_pic: String
 	"""
-	 驾驶证发证机关                                  (                            )
+	 驾驶证发证机关                                  
 	"""
 	driver_license_issuing_authority: String
 	"""
-	 年审日期（六合一）                              (                            )
+	 年审日期（六合一）                              
 	"""
 	annual_review_date: Timestamptz
 	"""
-	 换证日期（六合一）                              (                            )
+	 换证日期（六合一）                              
 	"""
 	renewal_date: Timestamptz
 	"""
-	 累计积分（六合一）                              (                            )
+	 累计积分（六合一）                              
 	"""
 	accumulatived_points: Numeric
 	"""
-	 清分日期（六合一）                              (                            )
+	 清分日期（六合一）                              
 	"""
 	sorting_date: Timestamptz
 	"""
@@ -119,19 +119,19 @@ type DriverIdentity {
 	"""
 	driver_license_status: Int
 	"""
-	 驾驶证初次领证日期                              (                            )
+	 驾驶证初次领证日期                              
 	"""
 	driver_license_issue_date: Timestamptz
 	"""
-	 从业时间                                        (                            )
+	 从业时间                                        
 	"""
 	working_time: Timestamptz
 	"""
-	 是否审核                                        (                            )
+	 是否审核                                        
 	"""
 	is_review: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -139,7 +139,7 @@ type DriverIdentity {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -147,7 +147,7 @@ type DriverIdentity {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -155,7 +155,7 @@ type DriverIdentity {
 	"""
 	deleted_by: String
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 }
@@ -443,8 +443,6 @@ input DriverIdentityBoolExp {
 input type for inserting data into table "driver_identity"
 """
 input DriverIdentityInsertInput {
-	id: Bigint
-	identity_id: String
 	id_card_num: String
 	id_card_birthday: Timestamptz
 	id_card_sign_government: String
@@ -475,8 +473,6 @@ input DriverIdentityInsertInput {
 	driver_license_issue_date: Timestamptz
 	working_time: Timestamptz
 	is_review: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -549,91 +545,91 @@ enum DriverIdentitySelectColumn {
 	"""
 	identity_id
 	"""
-	 身份证号码                                      (                            )
+	 身份证号码                                      
 	"""
 	id_card_num
 	"""
-	 身份证出生日期                                  (                            )
+	 身份证出生日期                                  
 	"""
 	id_card_birthday
 	"""
-	 身份证签发机关                                  (                            )
+	 身份证签发机关                                  
 	"""
 	id_card_sign_government
 	"""
-	 身份证民族                                      (                            )
+	 身份证民族                                      
 	"""
 	id_card_nation
 	"""
-	 身份证有效起始日期                              (                            )
+	 身份证有效起始日期                              
 	"""
 	id_card_start_date
 	"""
-	 身份证有效截止日期                              (                            )
+	 身份证有效截止日期                              
 	"""
 	id_card_end_date
 	"""
-	 身份证正面照，云存储地址                        (                            )
+	 身份证正面照，云存储地址                        
 	"""
 	id_card_front_pic
 	"""
-	 身份证背面照，云存储地址                        (                            )
+	 身份证背面照，云存储地址                        
 	"""
 	id_card_back_pic
 	"""
-	 身份证住址                                      (                            )
+	 身份证住址                                      
 	"""
 	id_card_address
 	"""
-	 驾驶员手持身份证照片,云储存系统返回的路径       (                            )
+	 驾驶员手持身份证照片,云储存系统返回的路径       
 	"""
 	driver_holding_id_photo
 	"""
-	 驾驶员的正面照,云储存系统返回的路径             (                            )
+	 驾驶员的正面照,云储存系统返回的路径             
 	"""
 	driver_photo
 	"""
-	 驾驶员签名,云储存系统返回的路径                 (                            )
+	 驾驶员签名,云储存系统返回的路径                 
 	"""
 	driver_signature
 	"""
-	 从业资格证号码                                  (                            )
+	 从业资格证号码                                  
 	"""
 	occupational_number
 	"""
-	 从业资格证有效期至                              (                            )
+	 从业资格证有效期至                              
 	"""
 	occupational_expire_date
 	"""
-	 从业资格证发证机构                              (                            )
+	 从业资格证发证机构                              
 	"""
 	occupational_issuing_authority
 	"""
-	 劳动合同,云储存系统返回的完整劳动合同的图片路径 (                            )
+	 劳动合同,云储存系统返回的完整劳动合同的图片路径 
 	"""
 	labor_contract
 	"""
-	 驾驶员驾驶证,云储存系统返回的路径               (                            )
+	 驾驶员驾驶证,云储存系统返回的路径               
 	"""
 	driver_license_pic
 	"""
-	 驾驶证发证机关                                  (                            )
+	 驾驶证发证机关                                  
 	"""
 	driver_license_issuing_authority
 	"""
-	 年审日期（六合一）                              (                            )
+	 年审日期（六合一）                              
 	"""
 	annual_review_date
 	"""
-	 换证日期（六合一）                              (                            )
+	 换证日期（六合一）                              
 	"""
 	renewal_date
 	"""
-	 累计积分（六合一）                              (                            )
+	 累计积分（六合一）                              
 	"""
 	accumulatived_points
 	"""
-	 清分日期（六合一）                              (                            )
+	 清分日期（六合一）                              
 	"""
 	sorting_date
 	"""
@@ -657,19 +653,19 @@ enum DriverIdentitySelectColumn {
 	"""
 	driver_license_status
 	"""
-	 驾驶证初次领证日期                              (                            )
+	 驾驶证初次领证日期                              
 	"""
 	driver_license_issue_date
 	"""
-	 从业时间                                        (                            )
+	 从业时间                                        
 	"""
 	working_time
 	"""
-	 是否审核                                        (                            )
+	 是否审核                                        
 	"""
 	is_review
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -677,7 +673,7 @@ enum DriverIdentitySelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -685,7 +681,7 @@ enum DriverIdentitySelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -693,7 +689,7 @@ enum DriverIdentitySelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 }

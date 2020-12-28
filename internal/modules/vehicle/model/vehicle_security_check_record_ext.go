@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleSecurityCheckRecordLoader string *VehicleSupervision/internal/modules/vehicle/model.VehicleSecurityCheckRecord
 
 func (t VehicleSecurityCheckRecord) TableName() string {
-	return "VehicleSecurityCheckRecord"
+	return "vehicle_security_check_record"
 }
 
 func (t *VehicleSecurityCheckRecord) NewLoader() *VehicleSecurityCheckRecordLoader {

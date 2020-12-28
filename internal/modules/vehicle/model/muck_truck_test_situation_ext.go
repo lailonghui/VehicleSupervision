@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden MuckTruckTestSituationLoader string *VehicleSupervision/internal/modules/vehicle/model.MuckTruckTestSituation
 
 func (t MuckTruckTestSituation) TableName() string {
-	return "MuckTruckTestSituation"
+	return "muck_truck_test_situation"
 }
 
 func (t *MuckTruckTestSituation) NewLoader() *MuckTruckTestSituationLoader {

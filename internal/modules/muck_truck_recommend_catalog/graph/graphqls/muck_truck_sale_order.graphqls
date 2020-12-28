@@ -11,7 +11,7 @@ type MuckTruckSaleOrder {
 	"""
 	muck_truck_sale_order_id: String!
 	"""
-	 顾客企业id                                      (                                          )
+	 顾客企业id                                      
 	"""
 	customer_name: String
 	"""
@@ -19,47 +19,47 @@ type MuckTruckSaleOrder {
 	"""
 	customer_id: String
 	"""
-	 身份证号                                        (                                          )
+	 身份证号                                        
 	"""
 	id_card_num: String
 	"""
-	 联系电话                                        (                                          )
+	 联系电话                                        
 	"""
 	contact_phone: String
 	"""
-	 告知书                                          (                                          )
+	 告知书                                          
 	"""
 	notification: String
 	"""
-	 汽车销售合同(销售合同照片地址)                  (                                          )
+	 汽车销售合同(销售合同照片地址)                  
 	"""
 	vehicle_sale_contract: String
 	"""
-	 订金合同(订金合同照片地址)                      (                                          )
+	 订金合同(订金合同照片地址)                      
 	"""
 	vehicle_deposit_contract: String
 	"""
-	 承诺书                                          (                                          )
+	 承诺书                                          
 	"""
 	commitment: String
 	"""
-	 订车日期                                        (                                          )
+	 订车日期                                        
 	"""
 	book_date: Timestamptz
 	"""
-	 登记时间                                        (                                          )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 所属单位                                        (                                          )
+	 所属单位                                        
 	"""
 	belonging_enterprise: String
 	"""
-	 身份证(身份证照片路径)                          (                                          )
+	 身份证(身份证照片路径)                          
 	"""
 	id_card_picture: String
 	"""
-	 进度                                            (                                          )
+	 进度                                            
 	"""
 	progress: Numeric
 	"""
@@ -67,63 +67,63 @@ type MuckTruckSaleOrder {
 	"""
 	vehicle_sale_record_id: String
 	"""
-	 订购车辆数                                      (                                          )
+	 订购车辆数                                      
 	"""
 	book_vehicle_number: Int
 	"""
-	 整车长度                                        (                                          )
+	 整车长度                                        
 	"""
 	vehicle_length: Numeric
 	"""
-	 整车宽度                                        (                                          )
+	 整车宽度                                        
 	"""
 	vehicle_width: Numeric
 	"""
-	 整车高度                                        (                                          )
+	 整车高度                                        
 	"""
 	vehicle_height: Numeric
 	"""
-	 自卸车长度                                      (                                          )
+	 自卸车长度                                      
 	"""
 	tipper_length: Numeric
 	"""
-	 自卸车宽度                                      (                                          )
+	 自卸车宽度                                      
 	"""
 	tipper_width: Numeric
 	"""
-	 自卸车高度                                      (                                          )
+	 自卸车高度                                      
 	"""
 	tipper_height: Numeric
 	"""
-	 罐车标注容积                                    (                                          )
+	 罐车标注容积                                    
 	"""
 	tank_truck_marked_volume: Numeric
 	"""
-	 罐车实际搅动容积                                (                                          )
+	 罐车实际搅动容积                                
 	"""
 	tank_truck_actual_volume: Numeric
 	"""
-	 车厢密闭装置                                    (                                          )
+	 车厢密闭装置                                    
 	"""
 	carriage_sealing_device: String
 	"""
-	 U型货箱                                         (                                          )
+	 U型货箱                                         
 	"""
 	u_shaped_cargo_box: String
 	"""
-	 是否其他汽车型号                                (                                          )
+	 是否其他汽车型号                                
 	"""
 	is_other_vehicle_model: Boolean
 	"""
-	 是否完成                                        (                                          )
+	 是否完成                                        
 	"""
 	is_completed: Boolean
 	"""
-	 是否删除                                        (                                          )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                          )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -131,7 +131,7 @@ type MuckTruckSaleOrder {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                          )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -139,7 +139,7 @@ type MuckTruckSaleOrder {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                          )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -475,8 +475,6 @@ input MuckTruckSaleOrderBoolExp {
 input type for inserting data into table "muck_truck_sale_order"
 """
 input MuckTruckSaleOrderInsertInput {
-	id: Bigint
-	muck_truck_sale_order_id: String
 	customer_name: String
 	customer_id: String
 	id_card_num: String
@@ -505,8 +503,6 @@ input MuckTruckSaleOrderInsertInput {
 	is_other_vehicle_model: Boolean
 	is_completed: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -582,7 +578,7 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	muck_truck_sale_order_id
 	"""
-	 顾客企业id                                      (                                          )
+	 顾客企业id                                      
 	"""
 	customer_name
 	"""
@@ -590,47 +586,47 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	customer_id
 	"""
-	 身份证号                                        (                                          )
+	 身份证号                                        
 	"""
 	id_card_num
 	"""
-	 联系电话                                        (                                          )
+	 联系电话                                        
 	"""
 	contact_phone
 	"""
-	 告知书                                          (                                          )
+	 告知书                                          
 	"""
 	notification
 	"""
-	 汽车销售合同(销售合同照片地址)                  (                                          )
+	 汽车销售合同(销售合同照片地址)                  
 	"""
 	vehicle_sale_contract
 	"""
-	 订金合同(订金合同照片地址)                      (                                          )
+	 订金合同(订金合同照片地址)                      
 	"""
 	vehicle_deposit_contract
 	"""
-	 承诺书                                          (                                          )
+	 承诺书                                          
 	"""
 	commitment
 	"""
-	 订车日期                                        (                                          )
+	 订车日期                                        
 	"""
 	book_date
 	"""
-	 登记时间                                        (                                          )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 所属单位                                        (                                          )
+	 所属单位                                        
 	"""
 	belonging_enterprise
 	"""
-	 身份证(身份证照片路径)                          (                                          )
+	 身份证(身份证照片路径)                          
 	"""
 	id_card_picture
 	"""
-	 进度                                            (                                          )
+	 进度                                            
 	"""
 	progress
 	"""
@@ -638,63 +634,63 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	vehicle_sale_record_id
 	"""
-	 订购车辆数                                      (                                          )
+	 订购车辆数                                      
 	"""
 	book_vehicle_number
 	"""
-	 整车长度                                        (                                          )
+	 整车长度                                        
 	"""
 	vehicle_length
 	"""
-	 整车宽度                                        (                                          )
+	 整车宽度                                        
 	"""
 	vehicle_width
 	"""
-	 整车高度                                        (                                          )
+	 整车高度                                        
 	"""
 	vehicle_height
 	"""
-	 自卸车长度                                      (                                          )
+	 自卸车长度                                      
 	"""
 	tipper_length
 	"""
-	 自卸车宽度                                      (                                          )
+	 自卸车宽度                                      
 	"""
 	tipper_width
 	"""
-	 自卸车高度                                      (                                          )
+	 自卸车高度                                      
 	"""
 	tipper_height
 	"""
-	 罐车标注容积                                    (                                          )
+	 罐车标注容积                                    
 	"""
 	tank_truck_marked_volume
 	"""
-	 罐车实际搅动容积                                (                                          )
+	 罐车实际搅动容积                                
 	"""
 	tank_truck_actual_volume
 	"""
-	 车厢密闭装置                                    (                                          )
+	 车厢密闭装置                                    
 	"""
 	carriage_sealing_device
 	"""
-	 U型货箱                                         (                                          )
+	 U型货箱                                         
 	"""
 	u_shaped_cargo_box
 	"""
-	 是否其他汽车型号                                (                                          )
+	 是否其他汽车型号                                
 	"""
 	is_other_vehicle_model
 	"""
-	 是否完成                                        (                                          )
+	 是否完成                                        
 	"""
 	is_completed
 	"""
-	 是否删除                                        (                                          )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                          )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -702,7 +698,7 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                          )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -710,7 +706,7 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                          )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

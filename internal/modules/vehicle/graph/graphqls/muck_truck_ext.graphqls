@@ -7,19 +7,19 @@ type MuckTruckExt {
 	"""
 	id: Bigint!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id               (                            )
+	 vehicle_info 车辆信息表 的vehicle_id               
 	"""
 	vehicle_id: String!
 	"""
-	 车辆图片                                               (                            )
+	 车辆图片                                               
 	"""
 	vehicle_picture: String
 	"""
-	 发动机号                                               (                            )
+	 发动机号                                               
 	"""
 	engine_number: String
 	"""
-	 审核时间                                               (                            )
+	 审核时间                                               
 	"""
 	review_time: Timestamptz
 	"""
@@ -27,35 +27,35 @@ type MuckTruckExt {
 	"""
 	reviewer: String
 	"""
-	 审核备注                                               (                            )
+	 审核备注                                               
 	"""
 	review_notes: String
 	"""
-	 审核状态                                               (                            )
+	 审核状态                                               
 	"""
 	review_status: String
 	"""
-	 保险到期时间                                           (                            )
+	 保险到期时间                                           
 	"""
 	insurance_expiry_time: Timestamptz
 	"""
-	 年检到期时间                                           (                            )
+	 年检到期时间                                           
 	"""
 	annual_inspection_expiration_time: Timestamptz
 	"""
-	 车辆描述                                               (                            )
+	 车辆描述                                               
 	"""
 	vehicle_description: String
 	"""
-	 行驶证登记的车主身份证号                               (                            )
+	 行驶证登记的车主身份证号                               
 	"""
 	driving_license_id_number: String
 	"""
-	 行驶证登记的车主联系电话                               (                            )
+	 行驶证登记的车主联系电话                               
 	"""
 	driving_license_contact_phone: String
 	"""
-	 是否安检到期报警处理                                   (                            )
+	 是否安检到期报警处理                                   
 	"""
 	is_due_security_alarm_processing: Boolean
 	"""
@@ -63,155 +63,155 @@ type MuckTruckExt {
 	"""
 	processor: String
 	"""
-	 处理时间                                               (                            )
+	 处理时间                                               
 	"""
 	processing_time: Timestamptz
 	"""
-	 处理备注                                               (                            )
+	 处理备注                                               
 	"""
 	processing_notes: String
 	"""
-	 是否发送短信                                           (                            )
+	 是否发送短信                                           
 	"""
 	is_send_sms: Boolean
 	"""
-	 是否黑名单                                             (                            )
+	 是否黑名单                                             
 	"""
 	is_blacklist: Boolean
 	"""
-	 黑名单截止日期                                         (                            )
+	 黑名单截止日期                                         
 	"""
 	blacklist_deadline: Timestamptz
 	"""
-	 交强险到期时间                                         (                            )
+	 交强险到期时间                                         
 	"""
 	compulsory_traffic_insurance_expiry_date: Timestamptz
 	"""
-	 车主身份证照片                                         (                            )
+	 车主身份证照片                                         
 	"""
 	owner_id_photo: String
 	"""
-	 车辆性质  1.本企业车辆  2.企业挂靠车辆  3.车队挂靠车辆 (                            )
+	 车辆性质  1.本企业车辆  2.企业挂靠车辆  3.车队挂靠车辆 
 	"""
 	vehicle_nature: Int
 	"""
-	 实际车主姓名                                           (                            )
+	 实际车主姓名                                           
 	"""
 	actual_owner_name: String
 	"""
-	 实际车主身份证号                                       (                            )
+	 实际车主身份证号                                       
 	"""
 	actual_owner_id_number: String
 	"""
-	 实际车主身份证照片                                     (                            )
+	 实际车主身份证照片                                     
 	"""
 	actual_owner_id_photo: String
 	"""
-	 实际车主联系电话                                       (                            )
+	 实际车主联系电话                                       
 	"""
 	actual_owner_contact_phone: String
 	"""
-	 违法编号签注                                           (                            )
+	 违法编号签注                                           
 	"""
 	illegal_number_endorsement: String
 	"""
-	 违法通知书编号签注                                     (                            )
+	 违法通知书编号签注                                     
 	"""
 	illegal_notice_number_endorsement: String
 	"""
-	 违法强制措施编号签注                                   (                            )
+	 违法强制措施编号签注                                   
 	"""
 	illegal_compulsory_measures_number: String
 	"""
-	 事故编号签注                                           (                            )
+	 事故编号签注                                           
 	"""
 	incident_number_endorsement: String
 	"""
-	 是否渣土办审核                                         (                            )
+	 是否渣土办审核                                         
 	"""
 	is_muck_office_audit: Boolean
 	"""
-	 是否首次注册                                           (                            )
+	 是否首次注册                                           
 	"""
 	is_first_register: Boolean
 	"""
-	 二级维护地点                                           (                            )
+	 二级维护地点                                           
 	"""
 	secondary_maintenance_location: String
 	"""
-	 二级维护检测到期时间                                   (                            )
+	 二级维护检测到期时间                                   
 	"""
 	secondary_maintenance_expiry_date: Timestamptz
 	"""
-	 总质量                                                 (                            )
+	 总质量                                                 
 	"""
 	total_mass: Numeric
 	"""
-	 轴数                                                   (                            )
+	 轴数                                                   
 	"""
 	axes_number: Int
 	"""
-	 行驶证登记的车主身份证照片                             (                            )
+	 行驶证登记的车主身份证照片                             
 	"""
 	driving_liscense_owner_id_photo: String
 	"""
-	 初次登记日期                                           (                            )
+	 初次登记日期                                           
 	"""
 	initial_registration_date: Timestamptz
 	"""
-	 车辆营运证号                                           (                            )
+	 车辆营运证号                                           
 	"""
 	vehicle_operating_certificate_number: String
 	"""
-	 车辆营运证照片                                         (                            )
+	 车辆营运证照片                                         
 	"""
 	vehicle_operating_certificate_photo: String
 	"""
-	 泉工号发放日期                                         (                            )
+	 泉工号发放日期                                         
 	"""
 	issue_date_of_quangong_number: Timestamptz
 	"""
-	 申请验车时间                                           (                            )
+	 申请验车时间                                           
 	"""
 	apply_inspection_time: Timestamptz
 	"""
-	 签收验车申请时间                                       (                            )
+	 签收验车申请时间                                       
 	"""
 	signing_acceptance_application_time: Timestamptz
 	"""
-	 第三者保险到期时间                                     (                            )
+	 第三者保险到期时间                                     
 	"""
 	third_party_insurance_expiry_time: Timestamptz
 	"""
-	 第三者保额                                             (                            )
+	 第三者保额                                             
 	"""
 	third_party_insurance_coverage: String
 	"""
-	 第三者保单图片                                         (                            )
+	 第三者保单图片                                         
 	"""
 	third_party_insurance_policy_picture: String
 	"""
-	 交强险保单图片                                         (                            )
+	 交强险保单图片                                         
 	"""
 	compulsory_insurance_policy_picture: String
 	"""
-	 是否删除                                               (                            )
+	 是否删除                                               
 	"""
 	is_deleted: Boolean
 	"""
-	 SIM卡号                                                (                            )
+	 SIM卡号                                                
 	"""
 	sim_card_number: String
 	"""
-	 注册日期                                               (                            )
+	 注册日期                                               
 	"""
 	registration_date: Timestamptz
 	"""
-	 地区ID                                                 (                            )
+	 地区ID                                                 
 	"""
 	area_id: Bigint
 	"""
-	 费用到期时间                                           (                            )
+	 费用到期时间                                           
 	"""
 	expiry_date: Timestamptz
 	"""
@@ -219,23 +219,23 @@ type MuckTruckExt {
 	"""
 	muck_truck_type: Int
 	"""
-	 是否预备库                                             (                            )
+	 是否预备库                                             
 	"""
 	is_reserve_library: Boolean
 	"""
-	 自编号                                                 (                            )
+	 自编号                                                 
 	"""
 	self_number: String
 	"""
-	 移动办卡地                                             (                            )
+	 移动办卡地                                             
 	"""
 	mobile_card_location: String
 	"""
-	 装载类别                                               (                            )
+	 装载类别                                               
 	"""
 	load_category: String
 	"""
-	 创建时间                                               (                            )
+	 创建时间                                               
 	"""
 	created_at: Timestamptz!
 	"""
@@ -243,7 +243,7 @@ type MuckTruckExt {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                               (                            )
+	 修改时间                                               
 	"""
 	updated_at: Timestamptz
 	"""
@@ -251,7 +251,7 @@ type MuckTruckExt {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                               (                            )
+	 删除时间                                               
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -659,8 +659,6 @@ input MuckTruckExtBoolExp {
 input type for inserting data into table "muck_truck_ext"
 """
 input MuckTruckExtInsertInput {
-	id: Bigint
-	vehicle_id: String
 	vehicle_picture: String
 	engine_number: String
 	review_time: Timestamptz
@@ -717,8 +715,6 @@ input MuckTruckExtInsertInput {
 	self_number: String
 	mobile_card_location: String
 	load_category: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -813,19 +809,19 @@ enum MuckTruckExtSelectColumn {
 	"""
 	id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id               (                            )
+	 vehicle_info 车辆信息表 的vehicle_id               
 	"""
 	vehicle_id
 	"""
-	 车辆图片                                               (                            )
+	 车辆图片                                               
 	"""
 	vehicle_picture
 	"""
-	 发动机号                                               (                            )
+	 发动机号                                               
 	"""
 	engine_number
 	"""
-	 审核时间                                               (                            )
+	 审核时间                                               
 	"""
 	review_time
 	"""
@@ -833,35 +829,35 @@ enum MuckTruckExtSelectColumn {
 	"""
 	reviewer
 	"""
-	 审核备注                                               (                            )
+	 审核备注                                               
 	"""
 	review_notes
 	"""
-	 审核状态                                               (                            )
+	 审核状态                                               
 	"""
 	review_status
 	"""
-	 保险到期时间                                           (                            )
+	 保险到期时间                                           
 	"""
 	insurance_expiry_time
 	"""
-	 年检到期时间                                           (                            )
+	 年检到期时间                                           
 	"""
 	annual_inspection_expiration_time
 	"""
-	 车辆描述                                               (                            )
+	 车辆描述                                               
 	"""
 	vehicle_description
 	"""
-	 行驶证登记的车主身份证号                               (                            )
+	 行驶证登记的车主身份证号                               
 	"""
 	driving_license_id_number
 	"""
-	 行驶证登记的车主联系电话                               (                            )
+	 行驶证登记的车主联系电话                               
 	"""
 	driving_license_contact_phone
 	"""
-	 是否安检到期报警处理                                   (                            )
+	 是否安检到期报警处理                                   
 	"""
 	is_due_security_alarm_processing
 	"""
@@ -869,155 +865,155 @@ enum MuckTruckExtSelectColumn {
 	"""
 	processor
 	"""
-	 处理时间                                               (                            )
+	 处理时间                                               
 	"""
 	processing_time
 	"""
-	 处理备注                                               (                            )
+	 处理备注                                               
 	"""
 	processing_notes
 	"""
-	 是否发送短信                                           (                            )
+	 是否发送短信                                           
 	"""
 	is_send_sms
 	"""
-	 是否黑名单                                             (                            )
+	 是否黑名单                                             
 	"""
 	is_blacklist
 	"""
-	 黑名单截止日期                                         (                            )
+	 黑名单截止日期                                         
 	"""
 	blacklist_deadline
 	"""
-	 交强险到期时间                                         (                            )
+	 交强险到期时间                                         
 	"""
 	compulsory_traffic_insurance_expiry_date
 	"""
-	 车主身份证照片                                         (                            )
+	 车主身份证照片                                         
 	"""
 	owner_id_photo
 	"""
-	 车辆性质  1.本企业车辆  2.企业挂靠车辆  3.车队挂靠车辆 (                            )
+	 车辆性质  1.本企业车辆  2.企业挂靠车辆  3.车队挂靠车辆 
 	"""
 	vehicle_nature
 	"""
-	 实际车主姓名                                           (                            )
+	 实际车主姓名                                           
 	"""
 	actual_owner_name
 	"""
-	 实际车主身份证号                                       (                            )
+	 实际车主身份证号                                       
 	"""
 	actual_owner_id_number
 	"""
-	 实际车主身份证照片                                     (                            )
+	 实际车主身份证照片                                     
 	"""
 	actual_owner_id_photo
 	"""
-	 实际车主联系电话                                       (                            )
+	 实际车主联系电话                                       
 	"""
 	actual_owner_contact_phone
 	"""
-	 违法编号签注                                           (                            )
+	 违法编号签注                                           
 	"""
 	illegal_number_endorsement
 	"""
-	 违法通知书编号签注                                     (                            )
+	 违法通知书编号签注                                     
 	"""
 	illegal_notice_number_endorsement
 	"""
-	 违法强制措施编号签注                                   (                            )
+	 违法强制措施编号签注                                   
 	"""
 	illegal_compulsory_measures_number
 	"""
-	 事故编号签注                                           (                            )
+	 事故编号签注                                           
 	"""
 	incident_number_endorsement
 	"""
-	 是否渣土办审核                                         (                            )
+	 是否渣土办审核                                         
 	"""
 	is_muck_office_audit
 	"""
-	 是否首次注册                                           (                            )
+	 是否首次注册                                           
 	"""
 	is_first_register
 	"""
-	 二级维护地点                                           (                            )
+	 二级维护地点                                           
 	"""
 	secondary_maintenance_location
 	"""
-	 二级维护检测到期时间                                   (                            )
+	 二级维护检测到期时间                                   
 	"""
 	secondary_maintenance_expiry_date
 	"""
-	 总质量                                                 (                            )
+	 总质量                                                 
 	"""
 	total_mass
 	"""
-	 轴数                                                   (                            )
+	 轴数                                                   
 	"""
 	axes_number
 	"""
-	 行驶证登记的车主身份证照片                             (                            )
+	 行驶证登记的车主身份证照片                             
 	"""
 	driving_liscense_owner_id_photo
 	"""
-	 初次登记日期                                           (                            )
+	 初次登记日期                                           
 	"""
 	initial_registration_date
 	"""
-	 车辆营运证号                                           (                            )
+	 车辆营运证号                                           
 	"""
 	vehicle_operating_certificate_number
 	"""
-	 车辆营运证照片                                         (                            )
+	 车辆营运证照片                                         
 	"""
 	vehicle_operating_certificate_photo
 	"""
-	 泉工号发放日期                                         (                            )
+	 泉工号发放日期                                         
 	"""
 	issue_date_of_quangong_number
 	"""
-	 申请验车时间                                           (                            )
+	 申请验车时间                                           
 	"""
 	apply_inspection_time
 	"""
-	 签收验车申请时间                                       (                            )
+	 签收验车申请时间                                       
 	"""
 	signing_acceptance_application_time
 	"""
-	 第三者保险到期时间                                     (                            )
+	 第三者保险到期时间                                     
 	"""
 	third_party_insurance_expiry_time
 	"""
-	 第三者保额                                             (                            )
+	 第三者保额                                             
 	"""
 	third_party_insurance_coverage
 	"""
-	 第三者保单图片                                         (                            )
+	 第三者保单图片                                         
 	"""
 	third_party_insurance_policy_picture
 	"""
-	 交强险保单图片                                         (                            )
+	 交强险保单图片                                         
 	"""
 	compulsory_insurance_policy_picture
 	"""
-	 是否删除                                               (                            )
+	 是否删除                                               
 	"""
 	is_deleted
 	"""
-	 SIM卡号                                                (                            )
+	 SIM卡号                                                
 	"""
 	sim_card_number
 	"""
-	 注册日期                                               (                            )
+	 注册日期                                               
 	"""
 	registration_date
 	"""
-	 地区ID                                                 (                            )
+	 地区ID                                                 
 	"""
 	area_id
 	"""
-	 费用到期时间                                           (                            )
+	 费用到期时间                                           
 	"""
 	expiry_date
 	"""
@@ -1025,23 +1021,23 @@ enum MuckTruckExtSelectColumn {
 	"""
 	muck_truck_type
 	"""
-	 是否预备库                                             (                            )
+	 是否预备库                                             
 	"""
 	is_reserve_library
 	"""
-	 自编号                                                 (                            )
+	 自编号                                                 
 	"""
 	self_number
 	"""
-	 移动办卡地                                             (                            )
+	 移动办卡地                                             
 	"""
 	mobile_card_location
 	"""
-	 装载类别                                               (                            )
+	 装载类别                                               
 	"""
 	load_category
 	"""
-	 创建时间                                               (                            )
+	 创建时间                                               
 	"""
 	created_at
 	"""
@@ -1049,7 +1045,7 @@ enum MuckTruckExtSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                               (                            )
+	 修改时间                                               
 	"""
 	updated_at
 	"""
@@ -1057,7 +1053,7 @@ enum MuckTruckExtSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                               (                            )
+	 删除时间                                               
 	"""
 	deleted_at
 	"""

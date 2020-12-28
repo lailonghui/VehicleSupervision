@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteDistrictAlarmContentPushByPk(ctx context.Contex
 }
 
 func (r *mutationResolver) InsertDistrictAlarmContentPush(ctx context.Context, objects []*model.DistrictAlarmContentPushInsertInput) (*model.DistrictAlarmContentPushMutationResponse, error) {
-	rs := []*model1.DistrictAlarmContentPush{}
+	rs := make([]*model1.DistrictAlarmContentPush, 0)
 	for _, object := range objects {
 		v := &model1.DistrictAlarmContentPush{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DistrictAlarmContentPush{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateDistrictAlarmContentPushByPk(ctx context.Contex
 	qt := util.NewQueryTranslator(tx, &model1.DistrictAlarmContentPush{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DistrictAlarmContentPush
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) DistrictAlarmContentPush(ctx context.Context, distinctOn
 		Finish()
 	var rs []*model1.DistrictAlarmContentPush
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DistrictAlarmContentPushAggregate(ctx context.Context, distinctOn []model.DistrictAlarmContentPushSelectColumn, limit *int, offset *int, orderBy []*model.DistrictAlarmContentPushOrderBy, where *model.DistrictAlarmContentPushBoolExp) (*model.DistrictAlarmContentPushAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) DistrictAlarmContentPushAggregate(ctx context.Context, d
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DistrictAlarmContentPushByPk(ctx context.Context, Id int64) (*model1.DistrictAlarmContentPush, error) {
 	var rs model1.DistrictAlarmContentPush
 	tx := db.DB.Model(&model1.DistrictAlarmContentPush{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

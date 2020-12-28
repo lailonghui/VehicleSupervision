@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden OutageRegistrationLoader string *VehicleSupervision/internal/modules/vehicle/model.OutageRegistration
 
 func (t OutageRegistration) TableName() string {
-	return "OutageRegistration"
+	return "outage_registration"
 }
 
 func (t *OutageRegistration) NewLoader() *OutageRegistrationLoader {

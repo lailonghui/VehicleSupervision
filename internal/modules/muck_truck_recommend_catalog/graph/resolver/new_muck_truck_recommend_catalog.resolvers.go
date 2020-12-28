@@ -66,10 +66,10 @@ func (r *mutationResolver) DeleteNewMuckTruckRecommendCatalogByPk(ctx context.Co
 }
 
 func (r *mutationResolver) InsertNewMuckTruckRecommendCatalog(ctx context.Context, objects []*model.NewMuckTruckRecommendCatalogInsertInput) (*model.NewMuckTruckRecommendCatalogMutationResponse, error) {
-	rs := []*model1.NewMuckTruckRecommendCatalog{}
+	rs := make([]*model1.NewMuckTruckRecommendCatalog, 0)
 	for _, object := range objects {
 		v := &model1.NewMuckTruckRecommendCatalog{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.NewMuckTruckRecommendCatalog{}).Create(&rs)
@@ -119,13 +119,13 @@ func (r *mutationResolver) UpdateNewMuckTruckRecommendCatalogByPk(ctx context.Co
 	qt := util.NewQueryTranslator(tx, &model1.NewMuckTruckRecommendCatalog{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.NewMuckTruckRecommendCatalog
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -139,13 +139,8 @@ func (r *queryResolver) NewMuckTruckRecommendCatalog(ctx context.Context, distin
 		Finish()
 	var rs []*model1.NewMuckTruckRecommendCatalog
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) NewMuckTruckRecommendCatalogAggregate(ctx context.Context, distinctOn []model.NewMuckTruckRecommendCatalogSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckRecommendCatalogOrderBy, where *model.NewMuckTruckRecommendCatalogBoolExp) (*model.NewMuckTruckRecommendCatalogAggregate, error) {
@@ -161,26 +156,15 @@ func (r *queryResolver) NewMuckTruckRecommendCatalogAggregate(ctx context.Contex
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) NewMuckTruckRecommendCatalogByPk(ctx context.Context, Id int64) (*model1.NewMuckTruckRecommendCatalog, error) {
 	var rs model1.NewMuckTruckRecommendCatalog
 	tx := db.DB.Model(&model1.NewMuckTruckRecommendCatalog{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }
 
 // Mutation returns generated.MutationResolver implementation.

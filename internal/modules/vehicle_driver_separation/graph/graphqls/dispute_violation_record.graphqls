@@ -15,63 +15,63 @@ type DisputeViolationRecord {
 	"""
 	violation_detail_id: String
 	"""
-	 书面申请材料                                                 (                                                        )
+	 书面申请材料                                                 
 	"""
 	written_application_materials: String
 	"""
-	 劳动合同或租赁合同                                           (                                                        )
+	 劳动合同或租赁合同                                           
 	"""
 	labor_contract: String
 	"""
-	 行车日志                                                     (                                                        )
+	 行车日志                                                     
 	"""
 	driving_log: String
 	"""
-	 证人证言                                                     (                                                        )
+	 证人证言                                                     
 	"""
 	witness: String
 	"""
-	 当事人陈述                                                   (                                                        )
+	 当事人陈述                                                   
 	"""
 	statement: String
 	"""
-	 图像证据材料                                                 (                                                        )
+	 图像证据材料                                                 
 	"""
 	pic_evidence: String
 	"""
-	 行为人驾驶证                                                 (                                                        )
+	 行为人驾驶证                                                 
 	"""
 	driver_license: String
 	"""
-	 机动车行驶证                                                 (                                                        )
+	 机动车行驶证                                                 
 	"""
 	driving_license: String
 	"""
-	 行为人身份证                                                 (                                                        )
+	 行为人身份证                                                 
 	"""
 	id_card: String
 	"""
-	 机动车所有人营业执照                                         (                                                        )
+	 机动车所有人营业执照                                         
 	"""
 	business_license: String
 	"""
-	 机动车所有人组织机构代码证                                   (                                                        )
+	 机动车所有人组织机构代码证                                   
 	"""
 	organization_code: String
 	"""
-	 法定代表人身份证                                             (                                                        )
+	 法定代表人身份证                                             
 	"""
 	legal_person_id_number: String
 	"""
-	 委托代理人身份证                                             (                                                        )
+	 委托代理人身份证                                             
 	"""
 	agent_id_number: String
 	"""
-	 机动车管理人身份证                                           (                                                        )
+	 机动车管理人身份证                                           
 	"""
 	vehicle_manager_id_card: String
 	"""
-	 其他证据材料                                                 (                                                        )
+	 其他证据材料                                                 
 	"""
 	other_evidence: String
 	"""
@@ -79,15 +79,15 @@ type DisputeViolationRecord {
 	"""
 	approve_state: Int
 	"""
-	 内网更新时间                                                 (                                                        )
+	 内网更新时间                                                 
 	"""
 	update_time_in: Timestamptz
 	"""
-	 联系地址                                                     (                                                        )
+	 联系地址                                                     
 	"""
 	contact_address: String
 	"""
-	 创建时间                                                     (                                                        )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -95,7 +95,7 @@ type DisputeViolationRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                                        )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -103,7 +103,7 @@ type DisputeViolationRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                                        )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -111,7 +111,7 @@ type DisputeViolationRecord {
 	"""
 	deleted_by: String
 	"""
-	 是否删除                                                     (                                                        )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 }
@@ -339,8 +339,6 @@ input DisputeViolationRecordBoolExp {
 input type for inserting data into table "dispute_violation_record"
 """
 input DisputeViolationRecordInsertInput {
-	id: Bigint
-	dispute_violation_id: String
 	violation_detail_id: String
 	written_application_materials: String
 	labor_contract: String
@@ -360,8 +358,6 @@ input DisputeViolationRecordInsertInput {
 	approve_state: Int
 	update_time_in: Timestamptz
 	contact_address: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -425,63 +421,63 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	violation_detail_id
 	"""
-	 书面申请材料                                                 (                                                        )
+	 书面申请材料                                                 
 	"""
 	written_application_materials
 	"""
-	 劳动合同或租赁合同                                           (                                                        )
+	 劳动合同或租赁合同                                           
 	"""
 	labor_contract
 	"""
-	 行车日志                                                     (                                                        )
+	 行车日志                                                     
 	"""
 	driving_log
 	"""
-	 证人证言                                                     (                                                        )
+	 证人证言                                                     
 	"""
 	witness
 	"""
-	 当事人陈述                                                   (                                                        )
+	 当事人陈述                                                   
 	"""
 	statement
 	"""
-	 图像证据材料                                                 (                                                        )
+	 图像证据材料                                                 
 	"""
 	pic_evidence
 	"""
-	 行为人驾驶证                                                 (                                                        )
+	 行为人驾驶证                                                 
 	"""
 	driver_license
 	"""
-	 机动车行驶证                                                 (                                                        )
+	 机动车行驶证                                                 
 	"""
 	driving_license
 	"""
-	 行为人身份证                                                 (                                                        )
+	 行为人身份证                                                 
 	"""
 	id_card
 	"""
-	 机动车所有人营业执照                                         (                                                        )
+	 机动车所有人营业执照                                         
 	"""
 	business_license
 	"""
-	 机动车所有人组织机构代码证                                   (                                                        )
+	 机动车所有人组织机构代码证                                   
 	"""
 	organization_code
 	"""
-	 法定代表人身份证                                             (                                                        )
+	 法定代表人身份证                                             
 	"""
 	legal_person_id_number
 	"""
-	 委托代理人身份证                                             (                                                        )
+	 委托代理人身份证                                             
 	"""
 	agent_id_number
 	"""
-	 机动车管理人身份证                                           (                                                        )
+	 机动车管理人身份证                                           
 	"""
 	vehicle_manager_id_card
 	"""
-	 其他证据材料                                                 (                                                        )
+	 其他证据材料                                                 
 	"""
 	other_evidence
 	"""
@@ -489,15 +485,15 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	approve_state
 	"""
-	 内网更新时间                                                 (                                                        )
+	 内网更新时间                                                 
 	"""
 	update_time_in
 	"""
-	 联系地址                                                     (                                                        )
+	 联系地址                                                     
 	"""
 	contact_address
 	"""
-	 创建时间                                                     (                                                        )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -505,7 +501,7 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                                        )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -513,7 +509,7 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                                        )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -521,7 +517,7 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否删除                                                     (                                                        )
+	 是否删除                                                     
 	"""
 	is_deleted
 }

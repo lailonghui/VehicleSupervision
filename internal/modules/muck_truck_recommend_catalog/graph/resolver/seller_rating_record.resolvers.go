@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteSellerRatingRecordByPk(ctx context.Context, Id 
 }
 
 func (r *mutationResolver) InsertSellerRatingRecord(ctx context.Context, objects []*model.SellerRatingRecordInsertInput) (*model.SellerRatingRecordMutationResponse, error) {
-	rs := []*model1.SellerRatingRecord{}
+	rs := make([]*model1.SellerRatingRecord, 0)
 	for _, object := range objects {
 		v := &model1.SellerRatingRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.SellerRatingRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateSellerRatingRecordByPk(ctx context.Context, inc
 	qt := util.NewQueryTranslator(tx, &model1.SellerRatingRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.SellerRatingRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) SellerRatingRecord(ctx context.Context, distinctOn []mod
 		Finish()
 	var rs []*model1.SellerRatingRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) SellerRatingRecordAggregate(ctx context.Context, distinctOn []model.SellerRatingRecordSelectColumn, limit *int, offset *int, orderBy []*model.SellerRatingRecordOrderBy, where *model.SellerRatingRecordBoolExp) (*model.SellerRatingRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) SellerRatingRecordAggregate(ctx context.Context, distinc
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) SellerRatingRecordByPk(ctx context.Context, Id int64) (*model1.SellerRatingRecord, error) {
 	var rs model1.SellerRatingRecord
 	tx := db.DB.Model(&model1.SellerRatingRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

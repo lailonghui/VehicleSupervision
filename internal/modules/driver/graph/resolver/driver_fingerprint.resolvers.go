@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteDriverFingerprintByPk(ctx context.Context, Id i
 }
 
 func (r *mutationResolver) InsertDriverFingerprint(ctx context.Context, objects []*model.DriverFingerprintInsertInput) (*model.DriverFingerprintMutationResponse, error) {
-	rs := []*model1.DriverFingerprint{}
+	rs := make([]*model1.DriverFingerprint, 0)
 	for _, object := range objects {
 		v := &model1.DriverFingerprint{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DriverFingerprint{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateDriverFingerprintByPk(ctx context.Context, inc 
 	qt := util.NewQueryTranslator(tx, &model1.DriverFingerprint{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DriverFingerprint
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) DriverFingerprint(ctx context.Context, distinctOn []mode
 		Finish()
 	var rs []*model1.DriverFingerprint
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DriverFingerprintAggregate(ctx context.Context, distinctOn []model.DriverFingerprintSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintOrderBy, where *model.DriverFingerprintBoolExp) (*model.DriverFingerprintAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) DriverFingerprintAggregate(ctx context.Context, distinct
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DriverFingerprintByPk(ctx context.Context, Id int64) (*model1.DriverFingerprint, error) {
 	var rs model1.DriverFingerprint
 	tx := db.DB.Model(&model1.DriverFingerprint{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

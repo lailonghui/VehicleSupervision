@@ -11,7 +11,7 @@ type OutageRegistration {
 	"""
 	outage_registration_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
@@ -19,15 +19,15 @@ type OutageRegistration {
 	"""
 	user_id: String
 	"""
-	 停运起始时间                                    (                                                              )
+	 停运起始时间                                    
 	"""
 	outage_start_time: Timestamptz
 	"""
-	 停运截止时间                                    (                                                              )
+	 停运截止时间                                    
 	"""
 	outage_end_time: Timestamptz
 	"""
-	 审核状态                                        (                                                              )
+	 审核状态                                        
 	"""
 	review_status: String
 	"""
@@ -35,7 +35,7 @@ type OutageRegistration {
 	"""
 	reviewer: String
 	"""
-	 审核时间                                        (                                                              )
+	 审核时间                                        
 	"""
 	review_time: Timestamptz
 	"""
@@ -43,39 +43,39 @@ type OutageRegistration {
 	"""
 	outage_filing_upload_file_id: String
 	"""
-	 停运起始经纬度                                  (                                                              )
+	 停运起始经纬度                                  
 	"""
 	outage_start_coordinate: Point
 	"""
-	 停运结束经纬度                                  (                                                              )
+	 停运结束经纬度                                  
 	"""
 	outage_end_coordinate: Point
 	"""
-	 上线时间                                        (                                                              )
+	 上线时间                                        
 	"""
 	online_time: Timestamptz
 	"""
-	 停运起始位置                                    (                                                              )
+	 停运起始位置                                    
 	"""
 	outage_start_position: String
 	"""
-	 是否管理部门审核                                (                                                              )
+	 是否管理部门审核                                
 	"""
 	is_management_review: Boolean
 	"""
-	 是否失效                                        (                                                              )
+	 是否失效                                        
 	"""
 	is_invalid: Boolean
 	"""
-	 是否最新                                        (                                                              )
+	 是否最新                                        
 	"""
 	is_latest: Boolean
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -83,7 +83,7 @@ type OutageRegistration {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -91,7 +91,7 @@ type OutageRegistration {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -299,9 +299,6 @@ input OutageRegistrationBoolExp {
 input type for inserting data into table "outage_registration"
 """
 input OutageRegistrationInsertInput {
-	id: Bigint
-	outage_registration_id: String
-	vehicle_id: String
 	user_id: String
 	outage_start_time: Timestamptz
 	outage_end_time: Timestamptz
@@ -317,8 +314,6 @@ input OutageRegistrationInsertInput {
 	is_invalid: Boolean
 	is_latest: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -372,7 +367,7 @@ enum OutageRegistrationSelectColumn {
 	"""
 	outage_registration_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
@@ -380,15 +375,15 @@ enum OutageRegistrationSelectColumn {
 	"""
 	user_id
 	"""
-	 停运起始时间                                    (                                                              )
+	 停运起始时间                                    
 	"""
 	outage_start_time
 	"""
-	 停运截止时间                                    (                                                              )
+	 停运截止时间                                    
 	"""
 	outage_end_time
 	"""
-	 审核状态                                        (                                                              )
+	 审核状态                                        
 	"""
 	review_status
 	"""
@@ -396,7 +391,7 @@ enum OutageRegistrationSelectColumn {
 	"""
 	reviewer
 	"""
-	 审核时间                                        (                                                              )
+	 审核时间                                        
 	"""
 	review_time
 	"""
@@ -404,39 +399,39 @@ enum OutageRegistrationSelectColumn {
 	"""
 	outage_filing_upload_file_id
 	"""
-	 停运起始经纬度                                  (                                                              )
+	 停运起始经纬度                                  
 	"""
 	outage_start_coordinate
 	"""
-	 停运结束经纬度                                  (                                                              )
+	 停运结束经纬度                                  
 	"""
 	outage_end_coordinate
 	"""
-	 上线时间                                        (                                                              )
+	 上线时间                                        
 	"""
 	online_time
 	"""
-	 停运起始位置                                    (                                                              )
+	 停运起始位置                                    
 	"""
 	outage_start_position
 	"""
-	 是否管理部门审核                                (                                                              )
+	 是否管理部门审核                                
 	"""
 	is_management_review
 	"""
-	 是否失效                                        (                                                              )
+	 是否失效                                        
 	"""
 	is_invalid
 	"""
-	 是否最新                                        (                                                              )
+	 是否最新                                        
 	"""
 	is_latest
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -444,7 +439,7 @@ enum OutageRegistrationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -452,7 +447,7 @@ enum OutageRegistrationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

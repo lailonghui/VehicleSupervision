@@ -22,27 +22,27 @@ type AlarmSupervisionPictureUpload struct {
 	CameraID *int `json:"camera_id"`
 	// 拍照条件                                                     ( 拍照条件字典                     )
 	PhotoCondition *string `json:"photo_condition"`
-	// 终端上报时间                                                 (                                      )
+	// 终端上报时间
 	UpdateTime *time.Time `json:"update_time"`
-	// 报警监控图片名称                                             (                                      )
+	// 报警监控图片名称
 	MonitoringPicName *string `json:"monitoring_pic_name"`
-	// 报警监控图片地址                                             (                                      )
+	// 报警监控图片地址
 	MonitoringPicAddress *string `json:"monitoring_pic_address"`
-	// 报警监控图片上传时间                                         (                                      )
+	// 报警监控图片上传时间
 	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
 	// 终端IMEI                                                     ( 国际移动设备标识别码                 )
 	Imel *string `json:"imel"`
-	// SIM卡号                                                      (                                      )
+	// SIM卡号
 	SimNumber *string `json:"sim_number"`
-	// 创建时间                                                     (                                      )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                                       ( system_user表的user_id           )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                                     (                                      )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                                       ( system_user表的user_id           )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                                     (                                      )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                                       ( system_user表的user_id           )
 	DeletedBy *string `json:"deleted_by"`

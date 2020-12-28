@@ -11,19 +11,19 @@ type VehicleStatusChangeLog {
 	"""
 	vehicle_status_change_log_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 终端ID                                          (                            )
+	 终端ID                                          
 	"""
 	terminal_id: String
 	"""
-	 开始时间                                        (                            )
+	 开始时间                                        
 	"""
 	start_time: Timestamptz
 	"""
-	 结束时间                                        (                            )
+	 结束时间                                        
 	"""
 	end_time: Timestamptz
 	"""
@@ -31,15 +31,15 @@ type VehicleStatusChangeLog {
 	"""
 	vehicle_status_type: Int
 	"""
-	 值                                              (                            )
+	 值                                              
 	"""
 	value: String
 	"""
-	 是否完成                                        (                            )
+	 是否完成                                        
 	"""
 	is_completed: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -47,7 +47,7 @@ type VehicleStatusChangeLog {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -55,7 +55,7 @@ type VehicleStatusChangeLog {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -235,17 +235,12 @@ input VehicleStatusChangeLogBoolExp {
 input type for inserting data into table "vehicle_status_change_log"
 """
 input VehicleStatusChangeLogInsertInput {
-	id: Bigint
-	vehicle_status_change_log_id: String
-	vehicle_id: String
 	terminal_id: String
 	start_time: Timestamptz
 	end_time: Timestamptz
 	vehicle_status_type: Int
 	value: String
 	is_completed: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -291,19 +286,19 @@ enum VehicleStatusChangeLogSelectColumn {
 	"""
 	vehicle_status_change_log_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 终端ID                                          (                            )
+	 终端ID                                          
 	"""
 	terminal_id
 	"""
-	 开始时间                                        (                            )
+	 开始时间                                        
 	"""
 	start_time
 	"""
-	 结束时间                                        (                            )
+	 结束时间                                        
 	"""
 	end_time
 	"""
@@ -311,15 +306,15 @@ enum VehicleStatusChangeLogSelectColumn {
 	"""
 	vehicle_status_type
 	"""
-	 值                                              (                            )
+	 值                                              
 	"""
 	value
 	"""
-	 是否完成                                        (                            )
+	 是否完成                                        
 	"""
 	is_completed
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -327,7 +322,7 @@ enum VehicleStatusChangeLogSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -335,7 +330,7 @@ enum VehicleStatusChangeLogSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

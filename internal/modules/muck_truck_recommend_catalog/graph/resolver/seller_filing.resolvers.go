@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteSellerFilingByPk(ctx context.Context, Id int64)
 }
 
 func (r *mutationResolver) InsertSellerFiling(ctx context.Context, objects []*model.SellerFilingInsertInput) (*model.SellerFilingMutationResponse, error) {
-	rs := []*model1.SellerFiling{}
+	rs := make([]*model1.SellerFiling, 0)
 	for _, object := range objects {
 		v := &model1.SellerFiling{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.SellerFiling{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateSellerFilingByPk(ctx context.Context, inc *mode
 	qt := util.NewQueryTranslator(tx, &model1.SellerFiling{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.SellerFiling
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) SellerFiling(ctx context.Context, distinctOn []model.Sel
 		Finish()
 	var rs []*model1.SellerFiling
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) SellerFilingAggregate(ctx context.Context, distinctOn []model.SellerFilingSelectColumn, limit *int, offset *int, orderBy []*model.SellerFilingOrderBy, where *model.SellerFilingBoolExp) (*model.SellerFilingAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) SellerFilingAggregate(ctx context.Context, distinctOn []
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) SellerFilingByPk(ctx context.Context, Id int64) (*model1.SellerFiling, error) {
 	var rs model1.SellerFiling
 	tx := db.DB.Model(&model1.SellerFiling{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

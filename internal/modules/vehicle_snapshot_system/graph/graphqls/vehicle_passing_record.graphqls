@@ -11,19 +11,19 @@ type VehiclePassingRecord {
 	"""
 	vehicle_passing_record_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 车牌号                                          (                                                              )
+	 车牌号                                          
 	"""
 	license_plate_number: String
 	"""
-	 过车时间                                        (                                                              )
+	 过车时间                                        
 	"""
 	passing_time: Timestamptz
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
@@ -31,27 +31,27 @@ type VehiclePassingRecord {
 	"""
 	camera_id: String
 	"""
-	 过车类型                                        (                                                              )
+	 过车类型                                        
 	"""
 	pass_type: String
 	"""
-	 图片地址                                        (                                                              )
+	 图片地址                                        
 	"""
 	picture_url: String
 	"""
-	 审核状态                                        (                                                              )
+	 审核状态                                        
 	"""
 	review_status: String
 	"""
-	 车辆类型                                        (                                                              )
+	 车辆类型                                        
 	"""
 	vehicle_type: String
 	"""
-	 是否在线                                        (                                                              )
+	 是否在线                                        
 	"""
 	is_online: Boolean
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -59,7 +59,7 @@ type VehiclePassingRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -67,7 +67,7 @@ type VehiclePassingRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -251,9 +251,6 @@ input VehiclePassingRecordBoolExp {
 input type for inserting data into table "vehicle_passing_record"
 """
 input VehiclePassingRecordInsertInput {
-	id: Bigint
-	vehicle_passing_record_id: String
-	vehicle_id: String
 	license_plate_number: String
 	passing_time: Timestamptz
 	registration_time: Timestamptz
@@ -263,8 +260,6 @@ input VehiclePassingRecordInsertInput {
 	review_status: String
 	vehicle_type: String
 	is_online: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -312,19 +307,19 @@ enum VehiclePassingRecordSelectColumn {
 	"""
 	vehicle_passing_record_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 车牌号                                          (                                                              )
+	 车牌号                                          
 	"""
 	license_plate_number
 	"""
-	 过车时间                                        (                                                              )
+	 过车时间                                        
 	"""
 	passing_time
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
@@ -332,27 +327,27 @@ enum VehiclePassingRecordSelectColumn {
 	"""
 	camera_id
 	"""
-	 过车类型                                        (                                                              )
+	 过车类型                                        
 	"""
 	pass_type
 	"""
-	 图片地址                                        (                                                              )
+	 图片地址                                        
 	"""
 	picture_url
 	"""
-	 审核状态                                        (                                                              )
+	 审核状态                                        
 	"""
 	review_status
 	"""
-	 车辆类型                                        (                                                              )
+	 车辆类型                                        
 	"""
 	vehicle_type
 	"""
-	 是否在线                                        (                                                              )
+	 是否在线                                        
 	"""
 	is_online
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -360,7 +355,7 @@ enum VehiclePassingRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -368,7 +363,7 @@ enum VehiclePassingRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

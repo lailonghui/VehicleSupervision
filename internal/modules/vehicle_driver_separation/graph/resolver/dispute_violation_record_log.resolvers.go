@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteDisputeViolationRecordLogByPk(ctx context.Conte
 }
 
 func (r *mutationResolver) InsertDisputeViolationRecordLog(ctx context.Context, objects []*model.DisputeViolationRecordLogInsertInput) (*model.DisputeViolationRecordLogMutationResponse, error) {
-	rs := []*model1.DisputeViolationRecordLog{}
+	rs := make([]*model1.DisputeViolationRecordLog, 0)
 	for _, object := range objects {
 		v := &model1.DisputeViolationRecordLog{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DisputeViolationRecordLog{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateDisputeViolationRecordLogByPk(ctx context.Conte
 	qt := util.NewQueryTranslator(tx, &model1.DisputeViolationRecordLog{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DisputeViolationRecordLog
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) DisputeViolationRecordLog(ctx context.Context, distinctO
 		Finish()
 	var rs []*model1.DisputeViolationRecordLog
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DisputeViolationRecordLogAggregate(ctx context.Context, distinctOn []model.DisputeViolationRecordLogSelectColumn, limit *int, offset *int, orderBy []*model.DisputeViolationRecordLogOrderBy, where *model.DisputeViolationRecordLogBoolExp) (*model.DisputeViolationRecordLogAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) DisputeViolationRecordLogAggregate(ctx context.Context, 
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DisputeViolationRecordLogByPk(ctx context.Context, Id int64) (*model1.DisputeViolationRecordLog, error) {
 	var rs model1.DisputeViolationRecordLog
 	tx := db.DB.Model(&model1.DisputeViolationRecordLog{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

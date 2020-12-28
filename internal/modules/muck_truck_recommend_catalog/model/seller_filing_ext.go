@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden SellerFilingLoader string *VehicleSupervision/internal/modules/muck_truck_recommend_catalog/model.SellerFiling
 
 func (t SellerFiling) TableName() string {
-	return "SellerFiling"
+	return "seller_filing"
 }
 
 func (t *SellerFiling) NewLoader() *SellerFilingLoader {

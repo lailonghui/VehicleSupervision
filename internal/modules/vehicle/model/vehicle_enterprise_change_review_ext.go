@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleEnterpriseChangeReviewLoader string *VehicleSupervision/internal/modules/vehicle/model.VehicleEnterpriseChangeReview
 
 func (t VehicleEnterpriseChangeReview) TableName() string {
-	return "VehicleEnterpriseChangeReview"
+	return "vehicle_enterprise_change_review"
 }
 
 func (t *VehicleEnterpriseChangeReview) NewLoader() *VehicleEnterpriseChangeReviewLoader {

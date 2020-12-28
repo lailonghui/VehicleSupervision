@@ -6,6 +6,19 @@ import (
 	"time"
 )
 
+// expression to compare columns of type Float. All fields are combined with logical 'AND'.
+type FloatComparisonExp struct {
+	Eq     *float64  `json:"_eq"`
+	Gt     *float64  `json:"_gt"`
+	Gte    *float64  `json:"_gte"`
+	In     []float64 `json:"_in"`
+	IsNull *bool     `json:"_is_null"`
+	Lt     *float64  `json:"_lt"`
+	Lte    *float64  `json:"_lte"`
+	Neq    *float64  `json:"_neq"`
+	Nin    []float64 `json:"_nin"`
+}
+
 // 车辆驾驶员绑定表
 type VehicleDriverBinding struct {
 	// 按指定方法生成                                               ( 主键                           )
@@ -16,20 +29,20 @@ type VehicleDriverBinding struct {
 	DriverID *string `json:"driver_id"`
 	// 车辆id                                                       ( vehicle_info表的vehicle_id )
 	VehicleID *string `json:"vehicle_id"`
-	// 备注                                                         (                                )
+	// 备注
 	Remarks *string `json:"remarks"`
-	// 创建时间                                                     (                                )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                                       ( system_user表的user_id     )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                                     (                                )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                                       ( system_user表的user_id     )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                                     (                                )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                                       ( system_user表的user_id     )
 	DeletedBy *string `json:"deleted_by"`
-	// 是否删除                                                     (                                )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
 }

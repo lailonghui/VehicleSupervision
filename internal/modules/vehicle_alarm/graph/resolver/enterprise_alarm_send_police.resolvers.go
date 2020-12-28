@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteEnterpriseAlarmSendPoliceByPk(ctx context.Conte
 }
 
 func (r *mutationResolver) InsertEnterpriseAlarmSendPolice(ctx context.Context, objects []*model.EnterpriseAlarmSendPoliceInsertInput) (*model.EnterpriseAlarmSendPoliceMutationResponse, error) {
-	rs := []*model1.EnterpriseAlarmSendPolice{}
+	rs := make([]*model1.EnterpriseAlarmSendPolice, 0)
 	for _, object := range objects {
 		v := &model1.EnterpriseAlarmSendPolice{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.EnterpriseAlarmSendPolice{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateEnterpriseAlarmSendPoliceByPk(ctx context.Conte
 	qt := util.NewQueryTranslator(tx, &model1.EnterpriseAlarmSendPolice{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.EnterpriseAlarmSendPolice
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) EnterpriseAlarmSendPolice(ctx context.Context, distinctO
 		Finish()
 	var rs []*model1.EnterpriseAlarmSendPolice
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) EnterpriseAlarmSendPoliceAggregate(ctx context.Context, distinctOn []model.EnterpriseAlarmSendPoliceSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseAlarmSendPoliceOrderBy, where *model.EnterpriseAlarmSendPoliceBoolExp) (*model.EnterpriseAlarmSendPoliceAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) EnterpriseAlarmSendPoliceAggregate(ctx context.Context, 
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) EnterpriseAlarmSendPoliceByPk(ctx context.Context, Id int64) (*model1.EnterpriseAlarmSendPolice, error) {
 	var rs model1.EnterpriseAlarmSendPolice
 	tx := db.DB.Model(&model1.EnterpriseAlarmSendPolice{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

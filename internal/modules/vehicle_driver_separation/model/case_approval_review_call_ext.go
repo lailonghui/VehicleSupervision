@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden CaseApprovalReviewCallLoader string *VehicleSupervision/internal/modules/vehicle_driver_separation/model.CaseApprovalReviewCall
 
 func (t CaseApprovalReviewCall) TableName() string {
-	return "CaseApprovalReviewCall"
+	return "case_approval_review_call"
 }
 
 func (t *CaseApprovalReviewCall) NewLoader() *CaseApprovalReviewCallLoader {

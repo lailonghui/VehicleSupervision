@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden OfflineRegistrationRecordLoader string *VehicleSupervision/internal/modules/vehicle_snapshot_system/model.OfflineRegistrationRecord
 
 func (t OfflineRegistrationRecord) TableName() string {
-	return "OfflineRegistrationRecord"
+	return "offline_registration_record"
 }
 
 func (t *OfflineRegistrationRecord) NewLoader() *OfflineRegistrationRecordLoader {

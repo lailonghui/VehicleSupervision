@@ -15,71 +15,71 @@ type SellerFiling {
 	"""
 	seller: String
 	"""
-	 工商营业执照                                    (                                                         )
+	 工商营业执照                                    
 	"""
 	business_license: String
 	"""
-	 组织机构代码证                                  (                                                         )
+	 组织机构代码证                                  
 	"""
 	organization_code: String
 	"""
-	 法人代表身份证                                  (                                                         )
+	 法人代表身份证                                  
 	"""
 	legal_representative_id_card: String
 	"""
-	 委托代理人身份证                                (                                                         )
+	 委托代理人身份证                                
 	"""
 	entrusted_agent_id_card: String
 	"""
-	 工信部汽车生产销售许可证明                      (                                                         )
+	 工信部汽车生产销售许可证明                      
 	"""
 	ministry_production_sale_permit: String
 	"""
-	 行业自律承诺书                                  (                                                         )
+	 行业自律承诺书                                  
 	"""
 	industry_self_discipline_commitment: String
 	"""
-	 汽车厂家汽车销售许可证明                        (                                                         )
+	 汽车厂家汽车销售许可证明                        
 	"""
 	manufacturer_production_sale_permit: String
 	"""
-	 维修服务服务站名称                              (                                                         )
+	 维修服务服务站名称                              
 	"""
 	repair_service_station_name: String
 	"""
-	 维修服务服务站地址                              (                                                         )
+	 维修服务服务站地址                              
 	"""
 	repair_service_station_address: String
 	"""
-	 维修服务服务站相关材料                          (                                                         )
+	 维修服务服务站相关材料                          
 	"""
 	repair_service_station_material: String
 	"""
-	 服务人员名称                                    (                                                         )
+	 服务人员名称                                    
 	"""
 	service_staff_name: String
 	"""
-	 服务人员电话                                    (                                                         )
+	 服务人员电话                                    
 	"""
 	service_staff_phone: String
 	"""
-	 服务人员身份证                                  (                                                         )
+	 服务人员身份证                                  
 	"""
 	service_staff_id: String
 	"""
-	 服务人员相关材料                                (                                                         )
+	 服务人员相关材料                                
 	"""
 	service_staff_material: String
 	"""
-	 其他相关材料                                    (                                                         )
+	 其他相关材料                                    
 	"""
 	other_material: String
 	"""
-	 备注                                            (                                                         )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 登记日期                                        (                                                         )
+	 登记日期                                        
 	"""
 	registration_time: Timestamptz
 	"""
@@ -87,11 +87,11 @@ type SellerFiling {
 	"""
 	registration_user: String
 	"""
-	 是否核查                                        (                                                         )
+	 是否核查                                        
 	"""
 	is_verify: Boolean
 	"""
-	 原因                                            (                                                         )
+	 原因                                            
 	"""
 	cause: String
 	"""
@@ -99,15 +99,15 @@ type SellerFiling {
 	"""
 	catalog_id: String
 	"""
-	 平台对接技术协议                                (                                                         )
+	 平台对接技术协议                                
 	"""
 	platform_docking_technology_agreement: String
 	"""
-	 是否删除                                        (                                                         )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                         )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -115,7 +115,7 @@ type SellerFiling {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                         )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -123,7 +123,7 @@ type SellerFiling {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                         )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -363,8 +363,6 @@ input SellerFilingBoolExp {
 input type for inserting data into table "seller_filing"
 """
 input SellerFilingInsertInput {
-	id: Bigint
-	seller_filing_id: String
 	seller: String
 	business_license: String
 	organization_code: String
@@ -389,8 +387,6 @@ input SellerFilingInsertInput {
 	catalog_id: String
 	platform_docking_technology_agreement: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -456,71 +452,71 @@ enum SellerFilingSelectColumn {
 	"""
 	seller
 	"""
-	 工商营业执照                                    (                                                         )
+	 工商营业执照                                    
 	"""
 	business_license
 	"""
-	 组织机构代码证                                  (                                                         )
+	 组织机构代码证                                  
 	"""
 	organization_code
 	"""
-	 法人代表身份证                                  (                                                         )
+	 法人代表身份证                                  
 	"""
 	legal_representative_id_card
 	"""
-	 委托代理人身份证                                (                                                         )
+	 委托代理人身份证                                
 	"""
 	entrusted_agent_id_card
 	"""
-	 工信部汽车生产销售许可证明                      (                                                         )
+	 工信部汽车生产销售许可证明                      
 	"""
 	ministry_production_sale_permit
 	"""
-	 行业自律承诺书                                  (                                                         )
+	 行业自律承诺书                                  
 	"""
 	industry_self_discipline_commitment
 	"""
-	 汽车厂家汽车销售许可证明                        (                                                         )
+	 汽车厂家汽车销售许可证明                        
 	"""
 	manufacturer_production_sale_permit
 	"""
-	 维修服务服务站名称                              (                                                         )
+	 维修服务服务站名称                              
 	"""
 	repair_service_station_name
 	"""
-	 维修服务服务站地址                              (                                                         )
+	 维修服务服务站地址                              
 	"""
 	repair_service_station_address
 	"""
-	 维修服务服务站相关材料                          (                                                         )
+	 维修服务服务站相关材料                          
 	"""
 	repair_service_station_material
 	"""
-	 服务人员名称                                    (                                                         )
+	 服务人员名称                                    
 	"""
 	service_staff_name
 	"""
-	 服务人员电话                                    (                                                         )
+	 服务人员电话                                    
 	"""
 	service_staff_phone
 	"""
-	 服务人员身份证                                  (                                                         )
+	 服务人员身份证                                  
 	"""
 	service_staff_id
 	"""
-	 服务人员相关材料                                (                                                         )
+	 服务人员相关材料                                
 	"""
 	service_staff_material
 	"""
-	 其他相关材料                                    (                                                         )
+	 其他相关材料                                    
 	"""
 	other_material
 	"""
-	 备注                                            (                                                         )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 登记日期                                        (                                                         )
+	 登记日期                                        
 	"""
 	registration_time
 	"""
@@ -528,11 +524,11 @@ enum SellerFilingSelectColumn {
 	"""
 	registration_user
 	"""
-	 是否核查                                        (                                                         )
+	 是否核查                                        
 	"""
 	is_verify
 	"""
-	 原因                                            (                                                         )
+	 原因                                            
 	"""
 	cause
 	"""
@@ -540,15 +536,15 @@ enum SellerFilingSelectColumn {
 	"""
 	catalog_id
 	"""
-	 平台对接技术协议                                (                                                         )
+	 平台对接技术协议                                
 	"""
 	platform_docking_technology_agreement
 	"""
-	 是否删除                                        (                                                         )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                         )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -556,7 +552,7 @@ enum SellerFilingSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                         )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -564,7 +560,7 @@ enum SellerFilingSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                         )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

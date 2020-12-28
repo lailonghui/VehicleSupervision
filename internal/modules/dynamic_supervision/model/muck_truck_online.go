@@ -12,37 +12,37 @@ type MuckTruckOnline struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	MuckTruckOnlineID string `json:"muck_truck_online_id"`
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID string `json:"vehicle_id"`
-	// 是否在线                                        (                            )
+	// 是否在线
 	IsOnline *bool `json:"is_online"`
-	// 是否缴费                                        (                            )
+	// 是否缴费
 	IsPay *bool `json:"is_pay"`
-	// 是否GPS在线                                     (                            )
+	// 是否GPS在线
 	IsGpsOnline *bool `json:"is_gps_online"`
-	// 是否目录库                                      (                            )
+	// 是否目录库
 	IsCatalogLibrary *bool `json:"is_catalog_library"`
-	// 是否安装                                        (                            )
+	// 是否安装
 	IsInstall *bool `json:"is_install"`
-	// 是否验车通过                                    (                            )
+	// 是否验车通过
 	IsVehiclePassInspection *bool `json:"is_vehicle_pass_inspection"`
-	// 是否新型渣土车                                  (                            )
+	// 是否新型渣土车
 	IsNewVehicle *bool `json:"is_new_vehicle"`
-	// 定位时间                                        (                            )
+	// 定位时间
 	LocationTime *time.Time `json:"location_time"`
-	// 自编号                                          (                            )
+	// 自编号
 	SelfNumber *string `json:"self_number"`
-	// 地区                                            (                            )
+	// 地区
 	Area *string `json:"area"`
-	// 创建时间                                        (                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id )
 	DeletedBy *string `json:"deleted_by"`

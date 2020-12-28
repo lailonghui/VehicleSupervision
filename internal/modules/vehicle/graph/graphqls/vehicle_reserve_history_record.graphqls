@@ -11,11 +11,11 @@ type VehicleReserveHistoryRecord {
 	"""
 	vehicle_reserve_history_record_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 操作 1.加入预备库  2.移出预备库                 (                            )
+	 操作 1.加入预备库  2.移出预备库                 
 	"""
 	operation: Int
 	"""
@@ -23,15 +23,15 @@ type VehicleReserveHistoryRecord {
 	"""
 	operation_user: String
 	"""
-	 操作时间                                        (                            )
+	 操作时间                                        
 	"""
 	operation_time: Timestamptz
 	"""
-	 操作来源 1.车辆  2.驾驶员                       (                            )
+	 操作来源 1.车辆  2.驾驶员                       
 	"""
 	operation_source: Int
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -39,7 +39,7 @@ type VehicleReserveHistoryRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -47,7 +47,7 @@ type VehicleReserveHistoryRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -227,15 +227,10 @@ input VehicleReserveHistoryRecordBoolExp {
 input type for inserting data into table "vehicle_reserve_history_record"
 """
 input VehicleReserveHistoryRecordInsertInput {
-	id: Bigint
-	vehicle_reserve_history_record_id: String
-	vehicle_id: String
 	operation: Int
 	operation_user: String
 	operation_time: Timestamptz
 	operation_source: Int
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -280,11 +275,11 @@ enum VehicleReserveHistoryRecordSelectColumn {
 	"""
 	vehicle_reserve_history_record_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 操作 1.加入预备库  2.移出预备库                 (                            )
+	 操作 1.加入预备库  2.移出预备库                 
 	"""
 	operation
 	"""
@@ -292,15 +287,15 @@ enum VehicleReserveHistoryRecordSelectColumn {
 	"""
 	operation_user
 	"""
-	 操作时间                                        (                            )
+	 操作时间                                        
 	"""
 	operation_time
 	"""
-	 操作来源 1.车辆  2.驾驶员                       (                            )
+	 操作来源 1.车辆  2.驾驶员                       
 	"""
 	operation_source
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -308,7 +303,7 @@ enum VehicleReserveHistoryRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -316,7 +311,7 @@ enum VehicleReserveHistoryRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

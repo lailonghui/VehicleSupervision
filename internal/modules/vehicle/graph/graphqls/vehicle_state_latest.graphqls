@@ -11,11 +11,11 @@ type VehicleStateLatest {
 	"""
 	vehicle_state_latest_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 操作类型（lock.锁车 speed.限速 lift.限举）      (                                      )
+	 操作类型（lock.锁车 speed.限速 lift.限举）      
 	"""
 	operation_type: String
 	"""
@@ -27,15 +27,15 @@ type VehicleStateLatest {
 	"""
 	operator_institution: String
 	"""
-	 状态                                            (                                      )
+	 状态                                            
 	"""
 	status: String
 	"""
-	 限速值                                          (                                      )
+	 限速值                                          
 	"""
 	speed_limit: String
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -43,7 +43,7 @@ type VehicleStateLatest {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -51,7 +51,7 @@ type VehicleStateLatest {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -219,16 +219,11 @@ input VehicleStateLatestBoolExp {
 input type for inserting data into table "vehicle_state_latest"
 """
 input VehicleStateLatestInsertInput {
-	id: Bigint
-	vehicle_state_latest_id: String
-	vehicle_id: String
 	operation_type: String
 	operator: String
 	operator_institution: String
 	status: String
 	speed_limit: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -272,11 +267,11 @@ enum VehicleStateLatestSelectColumn {
 	"""
 	vehicle_state_latest_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 操作类型（lock.锁车 speed.限速 lift.限举）      (                                      )
+	 操作类型（lock.锁车 speed.限速 lift.限举）      
 	"""
 	operation_type
 	"""
@@ -288,15 +283,15 @@ enum VehicleStateLatestSelectColumn {
 	"""
 	operator_institution
 	"""
-	 状态                                            (                                      )
+	 状态                                            
 	"""
 	status
 	"""
-	 限速值                                          (                                      )
+	 限速值                                          
 	"""
 	speed_limit
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -304,7 +299,7 @@ enum VehicleStateLatestSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -312,7 +307,7 @@ enum VehicleStateLatestSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

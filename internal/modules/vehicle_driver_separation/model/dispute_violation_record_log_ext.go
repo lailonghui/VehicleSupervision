@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DisputeViolationRecordLogLoader string *VehicleSupervision/internal/modules/vehicle_driver_separation/model.DisputeViolationRecordLog
 
 func (t DisputeViolationRecordLog) TableName() string {
-	return "DisputeViolationRecordLog"
+	return "dispute_violation_record_log"
 }
 
 func (t *DisputeViolationRecordLog) NewLoader() *DisputeViolationRecordLogLoader {

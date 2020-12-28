@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden SellerRatingRecordLoader string *VehicleSupervision/internal/modules/muck_truck_recommend_catalog/model.SellerRatingRecord
 
 func (t SellerRatingRecord) TableName() string {
-	return "SellerRatingRecord"
+	return "seller_rating_record"
 }
 
 func (t *SellerRatingRecord) NewLoader() *SellerRatingRecordLoader {

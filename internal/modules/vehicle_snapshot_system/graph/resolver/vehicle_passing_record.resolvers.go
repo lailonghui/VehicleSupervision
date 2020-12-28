@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehiclePassingRecordByPk(ctx context.Context, I
 }
 
 func (r *mutationResolver) InsertVehiclePassingRecord(ctx context.Context, objects []*model.VehiclePassingRecordInsertInput) (*model.VehiclePassingRecordMutationResponse, error) {
-	rs := []*model1.VehiclePassingRecord{}
+	rs := make([]*model1.VehiclePassingRecord, 0)
 	for _, object := range objects {
 		v := &model1.VehiclePassingRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehiclePassingRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehiclePassingRecordByPk(ctx context.Context, i
 	qt := util.NewQueryTranslator(tx, &model1.VehiclePassingRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehiclePassingRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehiclePassingRecord(ctx context.Context, distinctOn []m
 		Finish()
 	var rs []*model1.VehiclePassingRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehiclePassingRecordAggregate(ctx context.Context, distinctOn []model.VehiclePassingRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehiclePassingRecordOrderBy, where *model.VehiclePassingRecordBoolExp) (*model.VehiclePassingRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehiclePassingRecordAggregate(ctx context.Context, disti
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehiclePassingRecordByPk(ctx context.Context, Id int64) (*model1.VehiclePassingRecord, error) {
 	var rs model1.VehiclePassingRecord
 	tx := db.DB.Model(&model1.VehiclePassingRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

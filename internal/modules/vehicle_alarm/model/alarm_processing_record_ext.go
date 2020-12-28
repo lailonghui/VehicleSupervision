@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden AlarmProcessingRecordLoader string *VehicleSupervision/internal/modules/vehicle_alarm/model.AlarmProcessingRecord
 
 func (t AlarmProcessingRecord) TableName() string {
-	return "AlarmProcessingRecord"
+	return "alarm_processing_record"
 }
 
 func (t *AlarmProcessingRecord) NewLoader() *AlarmProcessingRecordLoader {

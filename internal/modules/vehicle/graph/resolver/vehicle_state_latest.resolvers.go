@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleStateLatestByPk(ctx context.Context, Id 
 }
 
 func (r *mutationResolver) InsertVehicleStateLatest(ctx context.Context, objects []*model.VehicleStateLatestInsertInput) (*model.VehicleStateLatestMutationResponse, error) {
-	rs := []*model1.VehicleStateLatest{}
+	rs := make([]*model1.VehicleStateLatest, 0)
 	for _, object := range objects {
 		v := &model1.VehicleStateLatest{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleStateLatest{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleStateLatestByPk(ctx context.Context, inc
 	qt := util.NewQueryTranslator(tx, &model1.VehicleStateLatest{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleStateLatest
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleStateLatest(ctx context.Context, distinctOn []mod
 		Finish()
 	var rs []*model1.VehicleStateLatest
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleStateLatestAggregate(ctx context.Context, distinctOn []model.VehicleStateLatestSelectColumn, limit *int, offset *int, orderBy []*model.VehicleStateLatestOrderBy, where *model.VehicleStateLatestBoolExp) (*model.VehicleStateLatestAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleStateLatestAggregate(ctx context.Context, distinc
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleStateLatestByPk(ctx context.Context, Id int64) (*model1.VehicleStateLatest, error) {
 	var rs model1.VehicleStateLatest
 	tx := db.DB.Model(&model1.VehicleStateLatest{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

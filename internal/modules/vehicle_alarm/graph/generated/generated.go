@@ -7635,23 +7635,23 @@ type AlarmProcessingRecord {
 	"""
 	id: Bigint!
 	"""
-	 vehicle_alarm_data报警数据表的alarm_data_id              (                            )
+	 vehicle_alarm_data报警数据表的alarm_data_id              
 	"""
 	alarm_data_id: String!
 	"""
-	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id (                            )
+	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id 
 	"""
 	alarm_supervision_picture_id: Bigint!
 	"""
-	 处理内容                                                     (                            )
+	 处理内容                                                     
 	"""
 	processing_content: String
 	"""
-	 处理时间                                                     (                            )
+	 处理时间                                                     
 	"""
 	processing_time: Timestamptz
 	"""
-	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 (                            )
+	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 
 	"""
 	processing_type: Int
 	"""
@@ -7659,31 +7659,31 @@ type AlarmProcessingRecord {
 	"""
 	operation_user: String
 	"""
-	 是否短信推送                                                 (                            )
+	 是否短信推送                                                 
 	"""
 	is_sms_push: Boolean
 	"""
-	 是否通报                                                     (                            )
+	 是否通报                                                     
 	"""
 	is_notify: Boolean
 	"""
-	 是否语音通知                                                 (                            )
+	 是否语音通知                                                 
 	"""
 	is_announce: Boolean
 	"""
-	 是否APP推送                                                  (                            )
+	 是否APP推送                                                  
 	"""
 	is_app_push: Boolean
 	"""
-	 通报内容                                                     (                            )
+	 通报内容                                                     
 	"""
 	notify_content: String
 	"""
-	 语音内容                                                     (                            )
+	 语音内容                                                     
 	"""
 	announce_content: String
 	"""
-	 APP推送内容                                                  (                            )
+	 APP推送内容                                                  
 	"""
 	app_push_content: String
 	"""
@@ -7691,7 +7691,7 @@ type AlarmProcessingRecord {
 	"""
 	disposal_method: Int
 	"""
-	 处置结果                                                     (                            )
+	 处置结果                                                     
 	"""
 	disposal_result: String
 	"""
@@ -7699,7 +7699,7 @@ type AlarmProcessingRecord {
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -7707,7 +7707,7 @@ type AlarmProcessingRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -7715,7 +7715,7 @@ type AlarmProcessingRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -7943,9 +7943,6 @@ input AlarmProcessingRecordBoolExp {
 input type for inserting data into table "alarm_processing_record"
 """
 input AlarmProcessingRecordInsertInput {
-	id: Bigint
-	alarm_data_id: String
-	alarm_supervision_picture_id: Bigint
 	processing_content: String
 	processing_time: Timestamptz
 	processing_type: Int
@@ -7960,8 +7957,6 @@ input AlarmProcessingRecordInsertInput {
 	disposal_method: Int
 	disposal_result: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -8013,23 +8008,23 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	id
 	"""
-	 vehicle_alarm_data报警数据表的alarm_data_id              (                            )
+	 vehicle_alarm_data报警数据表的alarm_data_id              
 	"""
 	alarm_data_id
 	"""
-	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id (                            )
+	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id 
 	"""
 	alarm_supervision_picture_id
 	"""
-	 处理内容                                                     (                            )
+	 处理内容                                                     
 	"""
 	processing_content
 	"""
-	 处理时间                                                     (                            )
+	 处理时间                                                     
 	"""
 	processing_time
 	"""
-	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 (                            )
+	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 
 	"""
 	processing_type
 	"""
@@ -8037,31 +8032,31 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	operation_user
 	"""
-	 是否短信推送                                                 (                            )
+	 是否短信推送                                                 
 	"""
 	is_sms_push
 	"""
-	 是否通报                                                     (                            )
+	 是否通报                                                     
 	"""
 	is_notify
 	"""
-	 是否语音通知                                                 (                            )
+	 是否语音通知                                                 
 	"""
 	is_announce
 	"""
-	 是否APP推送                                                  (                            )
+	 是否APP推送                                                  
 	"""
 	is_app_push
 	"""
-	 通报内容                                                     (                            )
+	 通报内容                                                     
 	"""
 	notify_content
 	"""
-	 语音内容                                                     (                            )
+	 语音内容                                                     
 	"""
 	announce_content
 	"""
-	 APP推送内容                                                  (                            )
+	 APP推送内容                                                  
 	"""
 	app_push_content
 	"""
@@ -8069,7 +8064,7 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	disposal_method
 	"""
-	 处置结果                                                     (                            )
+	 处置结果                                                     
 	"""
 	disposal_result
 	"""
@@ -8077,7 +8072,7 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	is_deleted
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -8085,7 +8080,7 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -8093,7 +8088,7 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -8175,19 +8170,19 @@ type AlarmSupervisionPictureUpload {
 	"""
 	photo_condition: String
 	"""
-	 终端上报时间                                                 (                                      )
+	 终端上报时间                                                 
 	"""
 	update_time: Timestamptz
 	"""
-	 报警监控图片名称                                             (                                      )
+	 报警监控图片名称                                             
 	"""
 	monitoring_pic_name: String
 	"""
-	 报警监控图片地址                                             (                                      )
+	 报警监控图片地址                                             
 	"""
 	monitoring_pic_address: String
 	"""
-	 报警监控图片上传时间                                         (                                      )
+	 报警监控图片上传时间                                         
 	"""
 	monitoring_pic_upload_time: Timestamptz
 	"""
@@ -8195,11 +8190,11 @@ type AlarmSupervisionPictureUpload {
 	"""
 	imel: String
 	"""
-	 SIM卡号                                                      (                                      )
+	 SIM卡号                                                      
 	"""
 	sim_number: String
 	"""
-	 创建时间                                                     (                                      )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -8207,7 +8202,7 @@ type AlarmSupervisionPictureUpload {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                      )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -8215,7 +8210,7 @@ type AlarmSupervisionPictureUpload {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                      )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -8411,9 +8406,6 @@ input AlarmSupervisionPictureUploadBoolExp {
 input type for inserting data into table "alarm_supervision_picture_upload"
 """
 input AlarmSupervisionPictureUploadInsertInput {
-	id: Bigint
-	alarm_supervision_picture_id: String
-	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
 	camera_id: Int
@@ -8424,8 +8416,6 @@ input AlarmSupervisionPictureUploadInsertInput {
 	monitoring_pic_upload_time: Timestamptz
 	imel: String
 	sim_number: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -8495,19 +8485,19 @@ enum AlarmSupervisionPictureUploadSelectColumn {
 	"""
 	photo_condition
 	"""
-	 终端上报时间                                                 (                                      )
+	 终端上报时间                                                 
 	"""
 	update_time
 	"""
-	 报警监控图片名称                                             (                                      )
+	 报警监控图片名称                                             
 	"""
 	monitoring_pic_name
 	"""
-	 报警监控图片地址                                             (                                      )
+	 报警监控图片地址                                             
 	"""
 	monitoring_pic_address
 	"""
-	 报警监控图片上传时间                                         (                                      )
+	 报警监控图片上传时间                                         
 	"""
 	monitoring_pic_upload_time
 	"""
@@ -8515,11 +8505,11 @@ enum AlarmSupervisionPictureUploadSelectColumn {
 	"""
 	imel
 	"""
-	 SIM卡号                                                      (                                      )
+	 SIM卡号                                                      
 	"""
 	sim_number
 	"""
-	 创建时间                                                     (                                      )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -8527,7 +8517,7 @@ enum AlarmSupervisionPictureUploadSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                      )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -8535,7 +8525,7 @@ enum AlarmSupervisionPictureUploadSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                      )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -8640,6 +8630,20 @@ input IntComparisonExp {
 	_lte: Int
 	_neq: Int
 	_nin: [Int!]
+}
+"""
+expression to compare columns of type Float. All fields are combined with logical 'AND'.
+"""
+input FloatComparisonExp{
+	_eq: Float
+	_gt: Float
+	_gte: Float
+	_in: [Float!]
+	_is_null: Boolean
+	_lt: Float
+	_lte: Float
+	_neq: Float
+	_nin: [Float!]
 }
 """
 column ordering options
@@ -8748,7 +8752,7 @@ type DistrictAlarmContentPush {
 	"""
 	id: Bigint!
 	"""
-	 vehicle_alarm_data报警数据表的alarm_data_id (                            )
+	 vehicle_alarm_data报警数据表的alarm_data_id 
 	"""
 	alarm_data_id: String!
 	"""
@@ -8756,7 +8760,7 @@ type DistrictAlarmContentPush {
 	"""
 	alarm_type: String
 	"""
-	 内容                                            (                            )
+	 内容                                            
 	"""
 	alarm_content: String
 	"""
@@ -8776,7 +8780,7 @@ type DistrictAlarmContentPush {
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -8784,7 +8788,7 @@ type DistrictAlarmContentPush {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -8792,7 +8796,7 @@ type DistrictAlarmContentPush {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -8960,16 +8964,12 @@ input DistrictAlarmContentPushBoolExp {
 input type for inserting data into table "district_alarm_content_push"
 """
 input DistrictAlarmContentPushInsertInput {
-	id: Bigint
-	alarm_data_id: String
 	alarm_type: String
 	alarm_content: String
 	province_id: String
 	city_id: String
 	district_id: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9009,7 +9009,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	id
 	"""
-	 vehicle_alarm_data报警数据表的alarm_data_id (                            )
+	 vehicle_alarm_data报警数据表的alarm_data_id 
 	"""
 	alarm_data_id
 	"""
@@ -9017,7 +9017,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	alarm_type
 	"""
-	 内容                                            (                            )
+	 内容                                            
 	"""
 	alarm_content
 	"""
@@ -9037,7 +9037,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -9045,7 +9045,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -9053,7 +9053,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -9119,31 +9119,31 @@ type EnterpriseAlarmSendPolice {
 	"""
 	enterprise_id: String
 	"""
-	 企业名称                                        (                                      )
+	 企业名称                                        
 	"""
 	enterprise_name: String
 	"""
-	 企业联系人                                      (                                      )
+	 企业联系人                                      
 	"""
 	enterprise_contact: String
 	"""
-	 企业联系电话                                    (                                      )
+	 企业联系电话                                    
 	"""
 	enterprise_phone: String
 	"""
-	 交警                                            (                                      )
+	 交警                                            
 	"""
 	police: String
 	"""
-	 交警联系电话                                    (                                      )
+	 交警联系电话                                    
 	"""
 	police_phone: String
 	"""
-	 交警所属部门                                    (                                      )
+	 交警所属部门                                    
 	"""
 	phlice_department: String
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -9151,7 +9151,7 @@ type EnterpriseAlarmSendPolice {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -9159,7 +9159,7 @@ type EnterpriseAlarmSendPolice {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -9331,8 +9331,6 @@ input EnterpriseAlarmSendPoliceBoolExp {
 input type for inserting data into table "enterprise_alarm_send_police"
 """
 input EnterpriseAlarmSendPoliceInsertInput {
-	id: Bigint
-	enterprise_alarm_send_police_id: String
 	enterprise_id: String
 	enterprise_name: String
 	enterprise_contact: String
@@ -9340,8 +9338,6 @@ input EnterpriseAlarmSendPoliceInsertInput {
 	police: String
 	police_phone: String
 	phlice_department: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9390,31 +9386,31 @@ enum EnterpriseAlarmSendPoliceSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 企业名称                                        (                                      )
+	 企业名称                                        
 	"""
 	enterprise_name
 	"""
-	 企业联系人                                      (                                      )
+	 企业联系人                                      
 	"""
 	enterprise_contact
 	"""
-	 企业联系电话                                    (                                      )
+	 企业联系电话                                    
 	"""
 	enterprise_phone
 	"""
-	 交警                                            (                                      )
+	 交警                                            
 	"""
 	police
 	"""
-	 交警联系电话                                    (                                      )
+	 交警联系电话                                    
 	"""
 	police_phone
 	"""
-	 交警所属部门                                    (                                      )
+	 交警所属部门                                    
 	"""
 	phlice_department
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -9422,7 +9418,7 @@ enum EnterpriseAlarmSendPoliceSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -9430,7 +9426,7 @@ enum EnterpriseAlarmSendPoliceSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -9492,15 +9488,15 @@ type OfflineAlarmRegistration {
 	"""
 	offline_alarm_registration_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 离线开始时间                                    (                            )
+	 离线开始时间                                    
 	"""
 	offline_start_time: Timestamptz
 	"""
-	 离线结束时间                                    (                            )
+	 离线结束时间                                    
 	"""
 	offline_end_time: Timestamptz
 	"""
@@ -9508,27 +9504,27 @@ type OfflineAlarmRegistration {
 	"""
 	registration_user: String
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 短信发送内容                                    (                            )
+	 短信发送内容                                    
 	"""
 	sms_content: String
 	"""
-	 电话提醒内容                                    (                            )
+	 电话提醒内容                                    
 	"""
 	phone_reminder_content: String
 	"""
-	 短信发送时间                                    (                            )
+	 短信发送时间                                    
 	"""
 	sms_send_time: Timestamptz
 	"""
-	 电话提醒时间                                    (                            )
+	 电话提醒时间                                    
 	"""
 	phone_reminder_time: Timestamptz
 	"""
-	 离线原因                                        (                            )
+	 离线原因                                        
 	"""
 	offline_reason: String
 	"""
@@ -9536,23 +9532,23 @@ type OfflineAlarmRegistration {
 	"""
 	alarm_type: Int
 	"""
-	 是否登记                                        (                            )
+	 是否登记                                        
 	"""
 	is_registration: Boolean
 	"""
-	 是否结束报警                                    (                            )
+	 是否结束报警                                    
 	"""
 	is_end_alarm: Boolean
 	"""
-	 是否发送短信                                    (                            )
+	 是否发送短信                                    
 	"""
 	is_send_sms: Boolean
 	"""
-	 是否需要维护                                    (                            )
+	 是否需要维护                                    
 	"""
 	is_need_maintain: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -9560,7 +9556,7 @@ type OfflineAlarmRegistration {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -9568,7 +9564,7 @@ type OfflineAlarmRegistration {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -9780,9 +9776,6 @@ input OfflineAlarmRegistrationBoolExp {
 input type for inserting data into table "offline_alarm_registration"
 """
 input OfflineAlarmRegistrationInsertInput {
-	id: Bigint
-	offline_alarm_registration_id: String
-	vehicle_id: String
 	offline_start_time: Timestamptz
 	offline_end_time: Timestamptz
 	registration_user: String
@@ -9797,8 +9790,6 @@ input OfflineAlarmRegistrationInsertInput {
 	is_end_alarm: Boolean
 	is_send_sms: Boolean
 	is_need_maintain: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9852,15 +9843,15 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	offline_alarm_registration_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 离线开始时间                                    (                            )
+	 离线开始时间                                    
 	"""
 	offline_start_time
 	"""
-	 离线结束时间                                    (                            )
+	 离线结束时间                                    
 	"""
 	offline_end_time
 	"""
@@ -9868,27 +9859,27 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	registration_user
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 短信发送内容                                    (                            )
+	 短信发送内容                                    
 	"""
 	sms_content
 	"""
-	 电话提醒内容                                    (                            )
+	 电话提醒内容                                    
 	"""
 	phone_reminder_content
 	"""
-	 短信发送时间                                    (                            )
+	 短信发送时间                                    
 	"""
 	sms_send_time
 	"""
-	 电话提醒时间                                    (                            )
+	 电话提醒时间                                    
 	"""
 	phone_reminder_time
 	"""
-	 离线原因                                        (                            )
+	 离线原因                                        
 	"""
 	offline_reason
 	"""
@@ -9896,23 +9887,23 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	alarm_type
 	"""
-	 是否登记                                        (                            )
+	 是否登记                                        
 	"""
 	is_registration
 	"""
-	 是否结束报警                                    (                            )
+	 是否结束报警                                    
 	"""
 	is_end_alarm
 	"""
-	 是否发送短信                                    (                            )
+	 是否发送短信                                    
 	"""
 	is_send_sms
 	"""
-	 是否需要维护                                    (                            )
+	 是否需要维护                                    
 	"""
 	is_need_maintain
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -9920,7 +9911,7 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -9928,7 +9919,7 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -9998,35 +9989,35 @@ type VehicleAlarmData {
 	"""
 	alarm_type: String
 	"""
-	 报警开始时间                                            (                                    )
+	 报警开始时间                                            
 	"""
 	alarm_start_time: Timestamptz
 	"""
-	 报警结束时间                                            (                                    )
+	 报警结束时间                                            
 	"""
 	alarm_end_time: Timestamptz
 	"""
-	 报警结束位置                                            (                                    )
+	 报警结束位置                                            
 	"""
 	alarm_end_position: String
 	"""
-	 最新报警时间                                            (                                    )
+	 最新报警时间                                            
 	"""
 	latest_alarm_time: Timestamptz
 	"""
-	 最新报警位置                                            (                                    )
+	 最新报警位置                                            
 	"""
 	latest_alarm_position: Int
 	"""
-	 报警是否有效                                            (                                    )
+	 报警是否有效                                            
 	"""
 	is_alarm_effective: Boolean
 	"""
-	 报警是否结束                                            (                                    )
+	 报警是否结束                                            
 	"""
 	is_alarm_over: Boolean
 	"""
-	 是否取消报警                                            (                                    )
+	 是否取消报警                                            
 	"""
 	is_cancel_alarm: Boolean
 	"""
@@ -10034,7 +10025,7 @@ type VehicleAlarmData {
 	"""
 	alarm_source: String
 	"""
-	 处理时间                                                (                                    )
+	 处理时间                                                
 	"""
 	processing_time: Timestamptz
 	"""
@@ -10042,7 +10033,7 @@ type VehicleAlarmData {
 	"""
 	processing_method: String
 	"""
-	 处理描述                                                (                                    )
+	 处理描述                                                
 	"""
 	processing_description: String
 	"""
@@ -10054,31 +10045,31 @@ type VehicleAlarmData {
 	"""
 	processing_status: String
 	"""
-	 行驶记录仪速度                                          (                                    )
+	 行驶记录仪速度                                          
 	"""
 	tachograph_speed: Numeric
 	"""
-	 GPS速度                                                 (                                    )
+	 GPS速度                                                 
 	"""
 	gps_speed: Numeric
 	"""
-	 最高速度                                                (                                    )
+	 最高速度                                                
 	"""
 	maximum_speed: Numeric
 	"""
-	 限速阀值                                                (                                    )
+	 限速阀值                                                
 	"""
 	speed_limit_threshold: Numeric
 	"""
-	 空间数据类型point表示经度(longitude)和纬度(latitude)    (                                    )
+	 空间数据类型point表示经度(longitude)和纬度(latitude)    
 	"""
 	coordinate: Point
 	"""
-	 位置描述                                                (                                    )
+	 位置描述                                                
 	"""
 	location_description: String
 	"""
-	 持续时间                                                (                                    )
+	 持续时间                                                
 	"""
 	duration: String
 	"""
@@ -10086,23 +10077,23 @@ type VehicleAlarmData {
 	"""
 	road_grade: String
 	"""
-	 道路名称                                                (                                    )
+	 道路名称                                                
 	"""
 	road_name: String
 	"""
-	 进区域ID                                                (                                    )
+	 进区域ID                                                
 	"""
 	area_id: String
 	"""
-	 处警ID                                                  (                                    )
+	 处警ID                                                  
 	"""
 	alarm_deal_id: String
 	"""
-	 地区                                                    (                                    )
+	 地区                                                    
 	"""
 	pid: String
 	"""
-	 记录时间                                                (                                    )
+	 记录时间                                                
 	"""
 	record_time: Timestamptz
 	"""
@@ -10110,31 +10101,31 @@ type VehicleAlarmData {
 	"""
 	supervisor: String
 	"""
-	 管理部门是否监管                                        (                                    )
+	 管理部门是否监管                                        
 	"""
 	is_supervise: Boolean
 	"""
-	 管理部门监管时间                                        (                                    )
+	 管理部门监管时间                                        
 	"""
 	supervision_time: Timestamptz
 	"""
-	 监管备注                                                (                                    )
+	 监管备注                                                
 	"""
 	supervision_note: String
 	"""
-	 是否解析                                                (                                    )
+	 是否解析                                                
 	"""
 	is_resolve: Boolean
 	"""
-	 工地是否处理                                            (                                    )
+	 工地是否处理                                            
 	"""
 	is_construction_site_handle: Boolean
 	"""
-	 工地处理时间                                            (                                    )
+	 工地处理时间                                            
 	"""
 	construction_site_handle_time: Timestamptz
 	"""
-	 创建时间                                                (                                    )
+	 创建时间                                                
 	"""
 	created_at: Timestamptz!
 	"""
@@ -10142,7 +10133,7 @@ type VehicleAlarmData {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                (                                    )
+	 修改时间                                                
 	"""
 	updated_at: Timestamptz
 	"""
@@ -10150,7 +10141,7 @@ type VehicleAlarmData {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                (                                    )
+	 删除时间                                                
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -10478,8 +10469,6 @@ input VehicleAlarmDataBoolExp {
 input type for inserting data into table "vehicle_alarm_data"
 """
 input VehicleAlarmDataInsertInput {
-	id: Bigint
-	vehicle_alarm_data_id: String
 	vehicle_id: String
 	alarm_type: String
 	alarm_start_time: Timestamptz
@@ -10516,8 +10505,6 @@ input VehicleAlarmDataInsertInput {
 	is_resolve: Boolean
 	is_construction_site_handle: Boolean
 	construction_site_handle_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10604,35 +10591,35 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	alarm_type
 	"""
-	 报警开始时间                                            (                                    )
+	 报警开始时间                                            
 	"""
 	alarm_start_time
 	"""
-	 报警结束时间                                            (                                    )
+	 报警结束时间                                            
 	"""
 	alarm_end_time
 	"""
-	 报警结束位置                                            (                                    )
+	 报警结束位置                                            
 	"""
 	alarm_end_position
 	"""
-	 最新报警时间                                            (                                    )
+	 最新报警时间                                            
 	"""
 	latest_alarm_time
 	"""
-	 最新报警位置                                            (                                    )
+	 最新报警位置                                            
 	"""
 	latest_alarm_position
 	"""
-	 报警是否有效                                            (                                    )
+	 报警是否有效                                            
 	"""
 	is_alarm_effective
 	"""
-	 报警是否结束                                            (                                    )
+	 报警是否结束                                            
 	"""
 	is_alarm_over
 	"""
-	 是否取消报警                                            (                                    )
+	 是否取消报警                                            
 	"""
 	is_cancel_alarm
 	"""
@@ -10640,7 +10627,7 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	alarm_source
 	"""
-	 处理时间                                                (                                    )
+	 处理时间                                                
 	"""
 	processing_time
 	"""
@@ -10648,7 +10635,7 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	processing_method
 	"""
-	 处理描述                                                (                                    )
+	 处理描述                                                
 	"""
 	processing_description
 	"""
@@ -10660,31 +10647,31 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	processing_status
 	"""
-	 行驶记录仪速度                                          (                                    )
+	 行驶记录仪速度                                          
 	"""
 	tachograph_speed
 	"""
-	 GPS速度                                                 (                                    )
+	 GPS速度                                                 
 	"""
 	gps_speed
 	"""
-	 最高速度                                                (                                    )
+	 最高速度                                                
 	"""
 	maximum_speed
 	"""
-	 限速阀值                                                (                                    )
+	 限速阀值                                                
 	"""
 	speed_limit_threshold
 	"""
-	 空间数据类型point表示经度(longitude)和纬度(latitude)    (                                    )
+	 空间数据类型point表示经度(longitude)和纬度(latitude)    
 	"""
 	coordinate
 	"""
-	 位置描述                                                (                                    )
+	 位置描述                                                
 	"""
 	location_description
 	"""
-	 持续时间                                                (                                    )
+	 持续时间                                                
 	"""
 	duration
 	"""
@@ -10692,23 +10679,23 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	road_grade
 	"""
-	 道路名称                                                (                                    )
+	 道路名称                                                
 	"""
 	road_name
 	"""
-	 进区域ID                                                (                                    )
+	 进区域ID                                                
 	"""
 	area_id
 	"""
-	 处警ID                                                  (                                    )
+	 处警ID                                                  
 	"""
 	alarm_deal_id
 	"""
-	 地区                                                    (                                    )
+	 地区                                                    
 	"""
 	pid
 	"""
-	 记录时间                                                (                                    )
+	 记录时间                                                
 	"""
 	record_time
 	"""
@@ -10716,31 +10703,31 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	supervisor
 	"""
-	 管理部门是否监管                                        (                                    )
+	 管理部门是否监管                                        
 	"""
 	is_supervise
 	"""
-	 管理部门监管时间                                        (                                    )
+	 管理部门监管时间                                        
 	"""
 	supervision_time
 	"""
-	 监管备注                                                (                                    )
+	 监管备注                                                
 	"""
 	supervision_note
 	"""
-	 是否解析                                                (                                    )
+	 是否解析                                                
 	"""
 	is_resolve
 	"""
-	 工地是否处理                                            (                                    )
+	 工地是否处理                                            
 	"""
 	is_construction_site_handle
 	"""
-	 工地处理时间                                            (                                    )
+	 工地处理时间                                            
 	"""
 	construction_site_handle_time
 	"""
-	 创建时间                                                (                                    )
+	 创建时间                                                
 	"""
 	created_at
 	"""
@@ -10748,7 +10735,7 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                (                                    )
+	 修改时间                                                
 	"""
 	updated_at
 	"""
@@ -10756,7 +10743,7 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                (                                    )
+	 删除时间                                                
 	"""
 	deleted_at
 	"""
@@ -10822,11 +10809,11 @@ type VideoPlatformAlarmType {
 	"""
 	vehicle_alarm_data_id: Int
 	"""
-	 报警类型                                        (                                                           )
+	 报警类型                                        
 	"""
 	alarm_type: String
 	"""
-	 报警来源                                        (                                                           )
+	 报警来源                                        
 	"""
 	alarm_source: String
 	"""
@@ -10834,15 +10821,15 @@ type VideoPlatformAlarmType {
 	"""
 	alarm_classify: String
 	"""
-	 报警代码                                        (                                                           )
+	 报警代码                                        
 	"""
 	alarm_code: String
 	"""
-	 是否删除                                        (                                                           )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                           )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -10850,7 +10837,7 @@ type VideoPlatformAlarmType {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                           )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -10858,7 +10845,7 @@ type VideoPlatformAlarmType {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                           )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -11034,16 +11021,12 @@ input VideoPlatformAlarmTypeBoolExp {
 input type for inserting data into table "video_platform_alarm_type"
 """
 input VideoPlatformAlarmTypeInsertInput {
-	id: Bigint
-	video_platform_alarm_type_id: String
 	vehicle_alarm_data_id: Int
 	alarm_type: String
 	alarm_source: String
 	alarm_classify: String
 	alarm_code: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11092,11 +11075,11 @@ enum VideoPlatformAlarmTypeSelectColumn {
 	"""
 	vehicle_alarm_data_id
 	"""
-	 报警类型                                        (                                                           )
+	 报警类型                                        
 	"""
 	alarm_type
 	"""
-	 报警来源                                        (                                                           )
+	 报警来源                                        
 	"""
 	alarm_source
 	"""
@@ -11104,15 +11087,15 @@ enum VideoPlatformAlarmTypeSelectColumn {
 	"""
 	alarm_classify
 	"""
-	 报警代码                                        (                                                           )
+	 报警代码                                        
 	"""
 	alarm_code
 	"""
-	 是否删除                                        (                                                           )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                           )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -11120,7 +11103,7 @@ enum VideoPlatformAlarmTypeSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                           )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -11128,7 +11111,7 @@ enum VideoPlatformAlarmTypeSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                           )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -11190,23 +11173,23 @@ type VoiceAlarmRecord {
 	"""
 	vioce_alarm_record_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 报警时间                                        (                            )
+	 报警时间                                        
 	"""
 	alarm_time: Timestamptz
 	"""
-	 报警类型                                        (                            )
+	 报警类型                                        
 	"""
 	alarm_type: String
 	"""
-	 提醒时间                                        (                            )
+	 提醒时间                                        
 	"""
 	remind_time: Timestamptz
 	"""
-	 提醒内容                                        (                            )
+	 提醒内容                                        
 	"""
 	remind_content: String
 	"""
@@ -11214,15 +11197,15 @@ type VoiceAlarmRecord {
 	"""
 	input_person: String
 	"""
-	 录入时间                                        (                            )
+	 录入时间                                        
 	"""
 	input_time: Timestamptz
 	"""
-	 是否成功                                        (                            )
+	 是否成功                                        
 	"""
 	is_success: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -11230,7 +11213,7 @@ type VoiceAlarmRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -11238,7 +11221,7 @@ type VoiceAlarmRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -11414,9 +11397,6 @@ input VoiceAlarmRecordBoolExp {
 input type for inserting data into table "voice_alarm_record"
 """
 input VoiceAlarmRecordInsertInput {
-	id: Bigint
-	vioce_alarm_record_id: String
-	vehicle_id: String
 	alarm_time: Timestamptz
 	alarm_type: String
 	remind_time: Timestamptz
@@ -11424,8 +11404,6 @@ input VoiceAlarmRecordInsertInput {
 	input_person: String
 	input_time: Timestamptz
 	is_success: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11471,23 +11449,23 @@ enum VoiceAlarmRecordSelectColumn {
 	"""
 	vioce_alarm_record_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 报警时间                                        (                            )
+	 报警时间                                        
 	"""
 	alarm_time
 	"""
-	 报警类型                                        (                            )
+	 报警类型                                        
 	"""
 	alarm_type
 	"""
-	 提醒时间                                        (                            )
+	 提醒时间                                        
 	"""
 	remind_time
 	"""
-	 提醒内容                                        (                            )
+	 提醒内容                                        
 	"""
 	remind_content
 	"""
@@ -11495,15 +11473,15 @@ enum VoiceAlarmRecordSelectColumn {
 	"""
 	input_person
 	"""
-	 录入时间                                        (                            )
+	 录入时间                                        
 	"""
 	input_time
 	"""
-	 是否成功                                        (                            )
+	 是否成功                                        
 	"""
 	is_success
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -11511,7 +11489,7 @@ enum VoiceAlarmRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -11519,7 +11497,7 @@ enum VoiceAlarmRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -42612,30 +42590,6 @@ func (ec *executionContext) unmarshalInputAlarmProcessingRecordInsertInput(ctx c
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "alarm_data_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_data_id"))
-			it.AlarmDataID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "alarm_supervision_picture_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_supervision_picture_id"))
-			it.AlarmSupervisionPictureID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "processing_content":
 			var err error
 
@@ -42745,22 +42699,6 @@ func (ec *executionContext) unmarshalInputAlarmProcessingRecordInsertInput(ctx c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -43416,30 +43354,6 @@ func (ec *executionContext) unmarshalInputAlarmSupervisionPictureUploadInsertInp
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "alarm_supervision_picture_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_supervision_picture_id"))
-			it.AlarmSupervisionPictureID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "driver_id":
 			var err error
 
@@ -43517,22 +43431,6 @@ func (ec *executionContext) unmarshalInputAlarmSupervisionPictureUploadInsertInp
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("sim_number"))
 			it.SimNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -44244,22 +44142,6 @@ func (ec *executionContext) unmarshalInputDistrictAlarmContentPushInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "alarm_data_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_data_id"))
-			it.AlarmDataID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "alarm_type":
 			var err error
 
@@ -44305,22 +44187,6 @@ func (ec *executionContext) unmarshalInputDistrictAlarmContentPushInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -44792,22 +44658,6 @@ func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceInsertInput(c
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "enterprise_alarm_send_police_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_alarm_send_police_id"))
-			it.EnterpriseAlarmSendPoliceID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "enterprise_id":
 			var err error
 
@@ -44861,22 +44711,6 @@ func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceInsertInput(c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("phlice_department"))
 			it.PhliceDepartment, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -45173,6 +45007,90 @@ func (ec *executionContext) unmarshalInputEnterpriseAlarmSendPoliceSetInput(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
 			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
+	var it model1.FloatComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -45688,30 +45606,6 @@ func (ec *executionContext) unmarshalInputOfflineAlarmRegistrationInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "offline_alarm_registration_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_alarm_registration_id"))
-			it.OfflineAlarmRegistrationID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "offline_start_time":
 			var err error
 
@@ -45821,22 +45715,6 @@ func (ec *executionContext) unmarshalInputOfflineAlarmRegistrationInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_need_maintain"))
 			it.IsNeedMaintain, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -47024,22 +46902,6 @@ func (ec *executionContext) unmarshalInputVehicleAlarmDataInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_alarm_data_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_data_id"))
-			it.VehicleAlarmDataID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -47325,22 +47187,6 @@ func (ec *executionContext) unmarshalInputVehicleAlarmDataInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_site_handle_time"))
 			it.ConstructionSiteHandleTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -48292,22 +48138,6 @@ func (ec *executionContext) unmarshalInputVideoPlatformAlarmTypeInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "video_platform_alarm_type_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("video_platform_alarm_type_id"))
-			it.VideoPlatformAlarmTypeID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_alarm_data_id":
 			var err error
 
@@ -48353,22 +48183,6 @@ func (ec *executionContext) unmarshalInputVideoPlatformAlarmTypeInsertInput(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -48848,30 +48662,6 @@ func (ec *executionContext) unmarshalInputVoiceAlarmRecordInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vioce_alarm_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vioce_alarm_record_id"))
-			it.VioceAlarmRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "alarm_time":
 			var err error
 
@@ -48925,22 +48715,6 @@ func (ec *executionContext) unmarshalInputVoiceAlarmRecordInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_success"))
 			it.IsSuccess, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -54653,6 +54427,21 @@ func (ec *executionContext) marshalNEnterpriseAlarmSendPoliceSelectColumn2Vehicl
 	return v
 }
 
+func (ec *executionContext) unmarshalNFloat2float64(ctx context.Context, v interface{}) (float64, error) {
+	res, err := graphql.UnmarshalFloat(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNFloat2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
+	res := graphql.MarshalFloat(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
 func (ec *executionContext) unmarshalNInt2int(ctx context.Context, v interface{}) (int, error) {
 	res, err := graphql.UnmarshalInt(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -56490,6 +56279,57 @@ func (ec *executionContext) marshalOEnterpriseAlarmSendPoliceVarianceFields2ᚖV
 		return graphql.Null
 	}
 	return ec._EnterpriseAlarmSendPoliceVarianceFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]float64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNFloat2float64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOFloat2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNFloat2float64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloat(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOFloat2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalFloat(*v)
 }
 
 func (ec *executionContext) unmarshalOInt2ᚕintᚄ(ctx context.Context, v interface{}) ([]int, error) {

@@ -8855,7 +8855,7 @@ type AppEnforcement {
 	"""
 	illegal_photo_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	 vehicle_info 车辆信息表 的vehicle_id                     
 	"""
 	vehicle_id: String
 	"""
@@ -8863,15 +8863,15 @@ type AppEnforcement {
 	"""
 	operation_user: String
 	"""
-	 编辑文本                                                     (                            )
+	 编辑文本                                                     
 	"""
 	edit_text: String
 	"""
-	 空间数据类型point表示经度(longitude)和纬度(latitude)         (                            )
+	 空间数据类型point表示经度(longitude)和纬度(latitude)         
 	"""
 	coordinate: Point
 	"""
-	 位置描述                                                     (                            )
+	 位置描述                                                     
 	"""
 	location_description: String
 	"""
@@ -8879,11 +8879,11 @@ type AppEnforcement {
 	"""
 	enterprise_type: String
 	"""
-	 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车） (                            )
+	 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车） 
 	"""
 	picket_status: Int
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -8891,7 +8891,7 @@ type AppEnforcement {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -8899,7 +8899,7 @@ type AppEnforcement {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -9079,8 +9079,6 @@ input AppEnforcementBoolExp {
 input type for inserting data into table "app_enforcement"
 """
 input AppEnforcementInsertInput {
-	id: Bigint
-	illegal_photo_id: String
 	vehicle_id: String
 	operation_user: String
 	edit_text: String
@@ -9088,8 +9086,6 @@ input AppEnforcementInsertInput {
 	location_description: String
 	enterprise_type: String
 	picket_status: Int
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9135,7 +9131,7 @@ enum AppEnforcementSelectColumn {
 	"""
 	illegal_photo_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	 vehicle_info 车辆信息表 的vehicle_id                     
 	"""
 	vehicle_id
 	"""
@@ -9143,15 +9139,15 @@ enum AppEnforcementSelectColumn {
 	"""
 	operation_user
 	"""
-	 编辑文本                                                     (                            )
+	 编辑文本                                                     
 	"""
 	edit_text
 	"""
-	 空间数据类型point表示经度(longitude)和纬度(latitude)         (                            )
+	 空间数据类型point表示经度(longitude)和纬度(latitude)         
 	"""
 	coordinate
 	"""
-	 位置描述                                                     (                            )
+	 位置描述                                                     
 	"""
 	location_description
 	"""
@@ -9159,11 +9155,11 @@ enum AppEnforcementSelectColumn {
 	"""
 	enterprise_type
 	"""
-	 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车） (                            )
+	 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车） 
 	"""
 	picket_status
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -9171,7 +9167,7 @@ enum AppEnforcementSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -9179,7 +9175,7 @@ enum AppEnforcementSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -9284,6 +9280,20 @@ input IntComparisonExp {
 	_lte: Int
 	_neq: Int
 	_nin: [Int!]
+}
+"""
+expression to compare columns of type Float. All fields are combined with logical 'AND'.
+"""
+input FloatComparisonExp{
+	_eq: Float
+	_gt: Float
+	_gte: Float
+	_in: [Float!]
+	_is_null: Boolean
+	_lt: Float
+	_lte: Float
+	_neq: Float
+	_nin: [Float!]
 }
 """
 column ordering options
@@ -9396,15 +9406,15 @@ type DeductionReport {
 	"""
 	deduction_report_id: String!
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area_id: String
 	"""
-	 年份.月份  如2015.3                             (                            )
+	 年份.月份  如2015.3                             
 	"""
 	date: String
 	"""
-	 扣分事由                                        (                            )
+	 扣分事由                                        
 	"""
 	cause: String
 	"""
@@ -9412,15 +9422,15 @@ type DeductionReport {
 	"""
 	input_person: String
 	"""
-	 录入时间                                        (                            )
+	 录入时间                                        
 	"""
 	input_time: Timestamptz
 	"""
-	 扣分分值                                        (                            )
+	 扣分分值                                        
 	"""
 	demerit_points: Numeric
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -9428,7 +9438,7 @@ type DeductionReport {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -9436,7 +9446,7 @@ type DeductionReport {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -9612,16 +9622,12 @@ input DeductionReportBoolExp {
 input type for inserting data into table "deduction_report"
 """
 input DeductionReportInsertInput {
-	id: Bigint
-	deduction_report_id: String
 	area_id: String
 	date: String
 	cause: String
 	input_person: String
 	input_time: Timestamptz
 	demerit_points: Numeric
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9666,15 +9672,15 @@ enum DeductionReportSelectColumn {
 	"""
 	deduction_report_id
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area_id
 	"""
-	 年份.月份  如2015.3                             (                            )
+	 年份.月份  如2015.3                             
 	"""
 	date
 	"""
-	 扣分事由                                        (                            )
+	 扣分事由                                        
 	"""
 	cause
 	"""
@@ -9682,15 +9688,15 @@ enum DeductionReportSelectColumn {
 	"""
 	input_person
 	"""
-	 录入时间                                        (                            )
+	 录入时间                                        
 	"""
 	input_time
 	"""
-	 扣分分值                                        (                            )
+	 扣分分值                                        
 	"""
 	demerit_points
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -9698,7 +9704,7 @@ enum DeductionReportSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -9706,7 +9712,7 @@ enum DeductionReportSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -9776,7 +9782,7 @@ type DriverPeccancyCheck {
 	"""
 	enterprise_id: String
 	"""
-	 创建时间       (                                      )
+	 创建时间       
 	"""
 	created_at: Timestamptz!
 	"""
@@ -9784,7 +9790,7 @@ type DriverPeccancyCheck {
 	"""
 	created_by: String!
 	"""
-	 修改时间       (                                      )
+	 修改时间       
 	"""
 	updated_at: Timestamptz
 	"""
@@ -9792,7 +9798,7 @@ type DriverPeccancyCheck {
 	"""
 	updated_by: String
 	"""
-	 删除时间       (                                      )
+	 删除时间       
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -9944,12 +9950,9 @@ input DriverPeccancyCheckBoolExp {
 input type for inserting data into table "driver_peccancy_check"
 """
 input DriverPeccancyCheckInsertInput {
-	id: Bigint
 	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9997,7 +10000,7 @@ enum DriverPeccancyCheckSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 创建时间       (                                      )
+	 创建时间       
 	"""
 	created_at
 	"""
@@ -10005,7 +10008,7 @@ enum DriverPeccancyCheckSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间       (                                      )
+	 修改时间       
 	"""
 	updated_at
 	"""
@@ -10013,7 +10016,7 @@ enum DriverPeccancyCheckSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间       (                                      )
+	 删除时间       
 	"""
 	deleted_at
 	"""
@@ -10075,11 +10078,11 @@ type IllegalPhoto {
 	"""
 	illegal_photo_id: String!
 	"""
-	 违法照片名称                                              (                            )
+	 违法照片名称                                              
 	"""
 	picture_name: String
 	"""
-	 违法照片地址                                              (                            )
+	 违法照片地址                                              
 	"""
 	picture_address: String
 	"""
@@ -10091,7 +10094,7 @@ type IllegalPhoto {
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                  (                            )
+	 创建时间                                                  
 	"""
 	created_at: Timestamptz!
 	"""
@@ -10099,7 +10102,7 @@ type IllegalPhoto {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                  (                            )
+	 修改时间                                                  
 	"""
 	updated_at: Timestamptz
 	"""
@@ -10107,7 +10110,7 @@ type IllegalPhoto {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                  (                            )
+	 删除时间                                                  
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -10267,14 +10270,10 @@ input IllegalPhotoBoolExp {
 input type for inserting data into table "illegal_photo"
 """
 input IllegalPhotoInsertInput {
-	id: Bigint
-	illegal_photo_id: String
 	picture_name: String
 	picture_address: String
 	is_synchronized: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10316,11 +10315,11 @@ enum IllegalPhotoSelectColumn {
 	"""
 	illegal_photo_id
 	"""
-	 违法照片名称                                              (                            )
+	 违法照片名称                                              
 	"""
 	picture_name
 	"""
-	 违法照片地址                                              (                            )
+	 违法照片地址                                              
 	"""
 	picture_address
 	"""
@@ -10332,7 +10331,7 @@ enum IllegalPhotoSelectColumn {
 	"""
 	is_deleted
 	"""
-	 创建时间                                                  (                            )
+	 创建时间                                                  
 	"""
 	created_at
 	"""
@@ -10340,7 +10339,7 @@ enum IllegalPhotoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                  (                            )
+	 修改时间                                                  
 	"""
 	updated_at
 	"""
@@ -10348,7 +10347,7 @@ enum IllegalPhotoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                  (                            )
+	 删除时间                                                  
 	"""
 	deleted_at
 	"""
@@ -10426,7 +10425,7 @@ type RegionalViolationRegister {
 	"""
 	illegal_code: Int
 	"""
-	 违法时间                                                     (                                                    )
+	 违法时间                                                     
 	"""
 	illegal_time: Timestamptz
 	"""
@@ -10434,11 +10433,11 @@ type RegionalViolationRegister {
 	"""
 	illegal_type: Int
 	"""
-	 登记时间                                                     (                                                    )
+	 登记时间                                                     
 	"""
 	register_time: Timestamptz
 	"""
-	 处理机关                                                     (                                                    )
+	 处理机关                                                     
 	"""
 	processing_agency: String
 	"""
@@ -10450,7 +10449,7 @@ type RegionalViolationRegister {
 	"""
 	is_register: Boolean
 	"""
-	 创建时间                                                     (                                                    )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -10458,7 +10457,7 @@ type RegionalViolationRegister {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                                    )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -10466,7 +10465,7 @@ type RegionalViolationRegister {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                                    )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -10474,7 +10473,7 @@ type RegionalViolationRegister {
 	"""
 	deleted_by: String
 	"""
-	 是否删除                                                     (                                                    )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 }
@@ -10674,8 +10673,6 @@ input RegionalViolationRegisterBoolExp {
 input type for inserting data into table "regional_violation_register"
 """
 input RegionalViolationRegisterInsertInput {
-	id: Bigint
-	regional_violation_register_id: String
 	violation_detail_id: String
 	vehicle_id: String
 	driver_id: String
@@ -10686,8 +10683,6 @@ input RegionalViolationRegisterInsertInput {
 	processing_agency: String
 	operator: String
 	is_register: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10755,7 +10750,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	illegal_code
 	"""
-	 违法时间                                                     (                                                    )
+	 违法时间                                                     
 	"""
 	illegal_time
 	"""
@@ -10763,11 +10758,11 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	illegal_type
 	"""
-	 登记时间                                                     (                                                    )
+	 登记时间                                                     
 	"""
 	register_time
 	"""
-	 处理机关                                                     (                                                    )
+	 处理机关                                                     
 	"""
 	processing_agency
 	"""
@@ -10779,7 +10774,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	is_register
 	"""
-	 创建时间                                                     (                                                    )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -10787,7 +10782,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                                    )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -10795,7 +10790,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                                    )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -10803,7 +10798,7 @@ enum RegionalViolationRegisterSelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否删除                                                     (                                                    )
+	 是否删除                                                     
 	"""
 	is_deleted
 }
@@ -10869,11 +10864,11 @@ type SeriousTrafficViolation {
 	"""
 	illegal_code: String
 	"""
-	 违法日期                                        (                                 )
+	 违法日期                                        
 	"""
 	illegal_time: Timestamptz
 	"""
-	 创建时间                                        (                                 )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -10881,7 +10876,7 @@ type SeriousTrafficViolation {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                 )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -10889,7 +10884,7 @@ type SeriousTrafficViolation {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                 )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -11045,13 +11040,9 @@ input SeriousTrafficViolationBoolExp {
 input type for inserting data into table "serious_traffic_violation"
 """
 input SeriousTrafficViolationInsertInput {
-	id: Bigint
-	serious_traffic_violation_id: String
 	vehicle_id: String
 	illegal_code: String
 	illegal_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11100,11 +11091,11 @@ enum SeriousTrafficViolationSelectColumn {
 	"""
 	illegal_code
 	"""
-	 违法日期                                        (                                 )
+	 违法日期                                        
 	"""
 	illegal_time
 	"""
-	 创建时间                                        (                                 )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -11112,7 +11103,7 @@ enum SeriousTrafficViolationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                 )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -11120,7 +11111,7 @@ enum SeriousTrafficViolationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                 )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -11198,7 +11189,7 @@ type VehicleViolationDetails {
 	"""
 	illegal_code: String
 	"""
-	 违法时间                                                    (                                                              )
+	 违法时间                                                    
 	"""
 	illegal_time: Timestamptz
 	"""
@@ -11206,7 +11197,7 @@ type VehicleViolationDetails {
 	"""
 	illegal_handling_status: Int
 	"""
-	 违法地点                                                    (                                                              )
+	 违法地点                                                    
 	"""
 	illegal_location: String
 	"""
@@ -11218,23 +11209,23 @@ type VehicleViolationDetails {
 	"""
 	measured_value: String
 	"""
-	 发现机构                                                    (                                                              )
+	 发现机构                                                    
 	"""
 	discovery_agency: String
 	"""
-	 违法照片                                                    (                                                              )
+	 违法照片                                                    
 	"""
 	illegal_photo: String
 	"""
-	 是否通知驾驶员                                              (                                                              )
+	 是否通知驾驶员                                              
 	"""
 	is_notice_driver: Boolean
 	"""
-	 通知时间                                                    (                                                              )
+	 通知时间                                                    
 	"""
 	notice_time: Timestamptz
 	"""
-	 决定书号                                                    (                                                              )
+	 决定书号                                                    
 	"""
 	decision_number: String
 	"""
@@ -11242,7 +11233,7 @@ type VehicleViolationDetails {
 	"""
 	payment_mark: Int
 	"""
-	 当事人姓名                                                  (                                                              )
+	 当事人姓名                                                  
 	"""
 	party_name: String
 	"""
@@ -11250,15 +11241,15 @@ type VehicleViolationDetails {
 	"""
 	information_source: Int
 	"""
-	 驾驶人处理的交通违法记录对应的机动车信息                    (                                                              )
+	 驾驶人处理的交通违法记录对应的机动车信息                    
 	"""
 	vehicle_information: String
 	"""
-	 内网更新时间                                                (                                                              )
+	 内网更新时间                                                
 	"""
 	update_time_in: Timestamptz
 	"""
-	 是否处理                                                    (                                                              )
+	 是否处理                                                    
 	"""
 	is_handle: Boolean
 	"""
@@ -11266,19 +11257,19 @@ type VehicleViolationDetails {
 	"""
 	handle_by: String
 	"""
-	 处理时间                                                    (                                                              )
+	 处理时间                                                    
 	"""
 	handle_at: Timestamptz
 	"""
-	 是否发送短信                                                (                                                              )
+	 是否发送短信                                                
 	"""
 	is_send: Boolean
 	"""
-	 是否删除                                                    (                                                              )
+	 是否删除                                                    
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                    (                                                              )
+	 创建时间                                                    
 	"""
 	created_at: Timestamptz!
 	"""
@@ -11286,7 +11277,7 @@ type VehicleViolationDetails {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                    (                                                              )
+	 修改时间                                                    
 	"""
 	updated_at: Timestamptz
 	"""
@@ -11294,7 +11285,7 @@ type VehicleViolationDetails {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                    (                                                              )
+	 删除时间                                                    
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -11558,8 +11549,6 @@ input VehicleViolationDetailsBoolExp {
 input type for inserting data into table "vehicle_violation_details"
 """
 input VehicleViolationDetailsInsertInput {
-	id: Bigint
-	violation_detail_id: String
 	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
@@ -11584,8 +11573,6 @@ input VehicleViolationDetailsInsertInput {
 	handle_at: Timestamptz
 	is_send: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11666,7 +11653,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	illegal_code
 	"""
-	 违法时间                                                    (                                                              )
+	 违法时间                                                    
 	"""
 	illegal_time
 	"""
@@ -11674,7 +11661,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	illegal_handling_status
 	"""
-	 违法地点                                                    (                                                              )
+	 违法地点                                                    
 	"""
 	illegal_location
 	"""
@@ -11686,23 +11673,23 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	measured_value
 	"""
-	 发现机构                                                    (                                                              )
+	 发现机构                                                    
 	"""
 	discovery_agency
 	"""
-	 违法照片                                                    (                                                              )
+	 违法照片                                                    
 	"""
 	illegal_photo
 	"""
-	 是否通知驾驶员                                              (                                                              )
+	 是否通知驾驶员                                              
 	"""
 	is_notice_driver
 	"""
-	 通知时间                                                    (                                                              )
+	 通知时间                                                    
 	"""
 	notice_time
 	"""
-	 决定书号                                                    (                                                              )
+	 决定书号                                                    
 	"""
 	decision_number
 	"""
@@ -11710,7 +11697,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	payment_mark
 	"""
-	 当事人姓名                                                  (                                                              )
+	 当事人姓名                                                  
 	"""
 	party_name
 	"""
@@ -11718,15 +11705,15 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	information_source
 	"""
-	 驾驶人处理的交通违法记录对应的机动车信息                    (                                                              )
+	 驾驶人处理的交通违法记录对应的机动车信息                    
 	"""
 	vehicle_information
 	"""
-	 内网更新时间                                                (                                                              )
+	 内网更新时间                                                
 	"""
 	update_time_in
 	"""
-	 是否处理                                                    (                                                              )
+	 是否处理                                                    
 	"""
 	is_handle
 	"""
@@ -11734,19 +11721,19 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	handle_by
 	"""
-	 处理时间                                                    (                                                              )
+	 处理时间                                                    
 	"""
 	handle_at
 	"""
-	 是否发送短信                                                (                                                              )
+	 是否发送短信                                                
 	"""
 	is_send
 	"""
-	 是否删除                                                    (                                                              )
+	 是否删除                                                    
 	"""
 	is_deleted
 	"""
-	 创建时间                                                    (                                                              )
+	 创建时间                                                    
 	"""
 	created_at
 	"""
@@ -11754,7 +11741,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                    (                                                              )
+	 修改时间                                                    
 	"""
 	updated_at
 	"""
@@ -11762,7 +11749,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                    (                                                              )
+	 删除时间                                                    
 	"""
 	deleted_at
 	"""
@@ -11824,7 +11811,7 @@ type VehicleViolationScoringItems {
 	"""
 	violation_scoring_item_id: String!
 	"""
-	 扣分事项描述                                                 (                            )
+	 扣分事项描述                                                 
 	"""
 	deduction_item_description: String
 	"""
@@ -11832,15 +11819,15 @@ type VehicleViolationScoringItems {
 	"""
 	deduction_category: Int
 	"""
-	 扣分分值                                                     (                            )
+	 扣分分值                                                     
 	"""
 	demerit_points: Numeric
 	"""
-	 是否删除                                                     (                            )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -11848,7 +11835,7 @@ type VehicleViolationScoringItems {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -11856,7 +11843,7 @@ type VehicleViolationScoringItems {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -12032,14 +12019,10 @@ input VehicleViolationScoringItemsBoolExp {
 input type for inserting data into table "vehicle_violation_scoring_items"
 """
 input VehicleViolationScoringItemsInsertInput {
-	id: Bigint
-	violation_scoring_item_id: String
 	deduction_item_description: String
 	deduction_category: Int
 	demerit_points: Numeric
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -12083,7 +12066,7 @@ enum VehicleViolationScoringItemsSelectColumn {
 	"""
 	violation_scoring_item_id
 	"""
-	 扣分事项描述                                                 (                            )
+	 扣分事项描述                                                 
 	"""
 	deduction_item_description
 	"""
@@ -12091,15 +12074,15 @@ enum VehicleViolationScoringItemsSelectColumn {
 	"""
 	deduction_category
 	"""
-	 扣分分值                                                     (                            )
+	 扣分分值                                                     
 	"""
 	demerit_points
 	"""
-	 是否删除                                                     (                            )
+	 是否删除                                                     
 	"""
 	is_deleted
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -12107,7 +12090,7 @@ enum VehicleViolationScoringItemsSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -12115,7 +12098,7 @@ enum VehicleViolationScoringItemsSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -12185,19 +12168,19 @@ type VehicleViolationScoringRecord {
 	"""
 	violation_scoring_item_id: String
 	"""
-	 扣分分值                                                     (                                                              )
+	 扣分分值                                                     
 	"""
 	demerit_points: Numeric
 	"""
-	 备注                                                         (                                                              )
+	 备注                                                         
 	"""
 	remarks: String
 	"""
-	 是否删除                                                     (                                                              )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                     (                                                              )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -12205,7 +12188,7 @@ type VehicleViolationScoringRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                                              )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -12213,7 +12196,7 @@ type VehicleViolationScoringRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                                              )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -12385,15 +12368,11 @@ input VehicleViolationScoringRecordBoolExp {
 input type for inserting data into table "vehicle_violation_scoring_record"
 """
 input VehicleViolationScoringRecordInsertInput {
-	id: Bigint
-	violation_scoring_id: String
 	vehicle_id: String
 	violation_scoring_item_id: String
 	demerit_points: Numeric
 	remarks: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -12445,19 +12424,19 @@ enum VehicleViolationScoringRecordSelectColumn {
 	"""
 	violation_scoring_item_id
 	"""
-	 扣分分值                                                     (                                                              )
+	 扣分分值                                                     
 	"""
 	demerit_points
 	"""
-	 备注                                                         (                                                              )
+	 备注                                                         
 	"""
 	remarks
 	"""
-	 是否删除                                                     (                                                              )
+	 是否删除                                                     
 	"""
 	is_deleted
 	"""
-	 创建时间                                                     (                                                              )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -12465,7 +12444,7 @@ enum VehicleViolationScoringRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                                              )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -12473,7 +12452,7 @@ enum VehicleViolationScoringRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                                              )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -12527,27 +12506,27 @@ extend type Mutation {
 """
 type VioCodewfdm {
 	"""
-	 违法行为     (         )
+	 违法行为     
 	"""
 	wfxw: String!
 	"""
-	 违法描述     (         )
+	 违法描述     
 	"""
 	wfms: String
 	"""
-	 违法计分数   (         )
+	 违法计分数   
 	"""
 	wfjfs: Numeric
 	"""
-	 最小罚款金额 (         )
+	 最小罚款金额 
 	"""
 	fkje_min: Numeric
 	"""
-	 最大罚款金额 (         )
+	 最大罚款金额 
 	"""
 	fkje_max: Numeric
 	"""
-	 序号         (         )
+	 序号         
 	"""
 	xh: String
 }
@@ -12695,7 +12674,6 @@ input VioCodewfdmBoolExp {
 input type for inserting data into table "vio_codewfdm"
 """
 input VioCodewfdmInsertInput {
-	wfxw: String
 	wfms: String
 	wfjfs: Numeric
 	fkje_min: Numeric
@@ -12726,27 +12704,27 @@ input VioCodewfdmSetInput {
 """
 enum VioCodewfdmSelectColumn {
 	"""
-	 违法行为     (         )
+	 违法行为     
 	"""
 	wfxw
 	"""
-	 违法描述     (         )
+	 违法描述     
 	"""
 	wfms
 	"""
-	 违法计分数   (         )
+	 违法计分数   
 	"""
 	wfjfs
 	"""
-	 最小罚款金额 (         )
+	 最小罚款金额 
 	"""
 	fkje_min
 	"""
-	 最大罚款金额 (         )
+	 最大罚款金额 
 	"""
 	fkje_max
 	"""
-	 序号         (         )
+	 序号         
 	"""
 	xh
 }
@@ -12808,27 +12786,27 @@ type ViolationRegistration {
 	"""
 	vehicle_id: String
 	"""
-	 车牌号                                          (                                )
+	 车牌号                                          
 	"""
 	license_plate_number: String
 	"""
-	 码身份证号                                      (                                )
+	 码身份证号                                      
 	"""
 	id_card_num: String
 	"""
-	 姓名                                            (                                )
+	 姓名                                            
 	"""
 	name: String
 	"""
-	 地点                                            (                                )
+	 地点                                            
 	"""
 	location: String
 	"""
-	 原因                                            (                                )
+	 原因                                            
 	"""
 	cause: String
 	"""
-	 违法时间                                        (                                )
+	 违法时间                                        
 	"""
 	illegal_time: Timestamptz
 	"""
@@ -12836,19 +12814,19 @@ type ViolationRegistration {
 	"""
 	operator: String
 	"""
-	 违法地区                                        (                                )
+	 违法地区                                        
 	"""
 	illegal_area: String
 	"""
-	 违法代码                                        (                                )
+	 违法代码                                        
 	"""
 	illegal_code: String
 	"""
-	 车辆所属地区                                    (                                )
+	 车辆所属地区                                    
 	"""
 	vehicle_area: String
 	"""
-	 车辆所属单位                                    (                                )
+	 车辆所属单位                                    
 	"""
 	vehicle_enterprise: String
 	"""
@@ -12864,31 +12842,31 @@ type ViolationRegistration {
 	"""
 	district_id: String
 	"""
-	 监管人                                          (                                )
+	 监管人                                          
 	"""
 	supervisor: String
 	"""
-	 监管时间                                        (                                )
+	 监管时间                                        
 	"""
 	supervision_time: String
 	"""
-	 监管备注                                        (                                )
+	 监管备注                                        
 	"""
 	sepervision_remarks: String
 	"""
-	 是否监管                                        (                                )
+	 是否监管                                        
 	"""
 	is_supervised: String
 	"""
-	 是否事故                                        (                                )
+	 是否事故                                        
 	"""
 	is_accident: String
 	"""
-	 是否删除                                        (                                )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -12896,7 +12874,7 @@ type ViolationRegistration {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -12904,7 +12882,7 @@ type ViolationRegistration {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -13132,8 +13110,6 @@ input ViolationRegistrationBoolExp {
 input type for inserting data into table "violation_registration"
 """
 input ViolationRegistrationInsertInput {
-	id: Bigint
-	violation_registration_id: String
 	vehicle_id: String
 	license_plate_number: String
 	id_card_num: String
@@ -13155,8 +13131,6 @@ input ViolationRegistrationInsertInput {
 	is_supervised: String
 	is_accident: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -13219,27 +13193,27 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 车牌号                                          (                                )
+	 车牌号                                          
 	"""
 	license_plate_number
 	"""
-	 码身份证号                                      (                                )
+	 码身份证号                                      
 	"""
 	id_card_num
 	"""
-	 姓名                                            (                                )
+	 姓名                                            
 	"""
 	name
 	"""
-	 地点                                            (                                )
+	 地点                                            
 	"""
 	location
 	"""
-	 原因                                            (                                )
+	 原因                                            
 	"""
 	cause
 	"""
-	 违法时间                                        (                                )
+	 违法时间                                        
 	"""
 	illegal_time
 	"""
@@ -13247,19 +13221,19 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	operator
 	"""
-	 违法地区                                        (                                )
+	 违法地区                                        
 	"""
 	illegal_area
 	"""
-	 违法代码                                        (                                )
+	 违法代码                                        
 	"""
 	illegal_code
 	"""
-	 车辆所属地区                                    (                                )
+	 车辆所属地区                                    
 	"""
 	vehicle_area
 	"""
-	 车辆所属单位                                    (                                )
+	 车辆所属单位                                    
 	"""
 	vehicle_enterprise
 	"""
@@ -13275,31 +13249,31 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	district_id
 	"""
-	 监管人                                          (                                )
+	 监管人                                          
 	"""
 	supervisor
 	"""
-	 监管时间                                        (                                )
+	 监管时间                                        
 	"""
 	supervision_time
 	"""
-	 监管备注                                        (                                )
+	 监管备注                                        
 	"""
 	sepervision_remarks
 	"""
-	 是否监管                                        (                                )
+	 是否监管                                        
 	"""
 	is_supervised
 	"""
-	 是否事故                                        (                                )
+	 是否事故                                        
 	"""
 	is_accident
 	"""
-	 是否删除                                        (                                )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -13307,7 +13281,7 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -13315,7 +13289,7 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -49015,22 +48989,6 @@ func (ec *executionContext) unmarshalInputAppEnforcementInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "illegal_photo_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("illegal_photo_id"))
-			it.IllegalPhotoID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -49084,22 +49042,6 @@ func (ec *executionContext) unmarshalInputAppEnforcementInsertInput(ctx context.
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("picket_status"))
 			it.PicketStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -49755,22 +49697,6 @@ func (ec *executionContext) unmarshalInputDeductionReportInsertInput(ctx context
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "deduction_report_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deduction_report_id"))
-			it.DeductionReportID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "area_id":
 			var err error
 
@@ -49816,22 +49742,6 @@ func (ec *executionContext) unmarshalInputDeductionReportInsertInput(ctx context
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("demerit_points"))
 			it.DemeritPoints, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -50263,14 +50173,6 @@ func (ec *executionContext) unmarshalInputDriverPeccancyCheckInsertInput(ctx con
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -50292,22 +50194,6 @@ func (ec *executionContext) unmarshalInputDriverPeccancyCheckInsertInput(ctx con
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
 			it.EnterpriseID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -50533,6 +50419,90 @@ func (ec *executionContext) unmarshalInputDriverPeccancyCheckSetInput(ctx contex
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
+	var it model1.FloatComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputIllegalPhotoBoolExp(ctx context.Context, obj interface{}) (model.IllegalPhotoBoolExp, error) {
 	var it model.IllegalPhotoBoolExp
 	var asMap = obj.(map[string]interface{})
@@ -50691,22 +50661,6 @@ func (ec *executionContext) unmarshalInputIllegalPhotoInsertInput(ctx context.Co
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "illegal_photo_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("illegal_photo_id"))
-			it.IllegalPhotoID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "picture_name":
 			var err error
 
@@ -50736,22 +50690,6 @@ func (ec *executionContext) unmarshalInputIllegalPhotoInsertInput(ctx context.Co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -51575,22 +51513,6 @@ func (ec *executionContext) unmarshalInputRegionalViolationRegisterInsertInput(c
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "regional_violation_register_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("regional_violation_register_id"))
-			it.RegionalViolationRegisterID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "violation_detail_id":
 			var err error
 
@@ -51668,22 +51590,6 @@ func (ec *executionContext) unmarshalInputRegionalViolationRegisterInsertInput(c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_register"))
 			it.IsRegister, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -52211,22 +52117,6 @@ func (ec *executionContext) unmarshalInputSeriousTrafficViolationInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "serious_traffic_violation_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("serious_traffic_violation_id"))
-			it.SeriousTrafficViolationID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -52248,22 +52138,6 @@ func (ec *executionContext) unmarshalInputSeriousTrafficViolationInsertInput(ctx
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("illegal_time"))
 			it.IllegalTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -53063,22 +52937,6 @@ func (ec *executionContext) unmarshalInputVehicleViolationDetailsInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "violation_detail_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_detail_id"))
-			it.ViolationDetailID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -53268,22 +53126,6 @@ func (ec *executionContext) unmarshalInputVehicleViolationDetailsInsertInput(ctx
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -54035,22 +53877,6 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringItemsInsertInpu
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "violation_scoring_item_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_scoring_item_id"))
-			it.ViolationScoringItemID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "deduction_item_description":
 			var err error
 
@@ -54080,22 +53906,6 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringItemsInsertInpu
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -54527,22 +54337,6 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringRecordInsertInp
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "violation_scoring_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_scoring_id"))
-			it.ViolationScoringID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -54580,22 +54374,6 @@ func (ec *executionContext) unmarshalInputVehicleViolationScoringRecordInsertInp
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -54995,14 +54773,6 @@ func (ec *executionContext) unmarshalInputVioCodewfdmInsertInput(ctx context.Con
 
 	for k, v := range asMap {
 		switch k {
-		case "wfxw":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("wfxw"))
-			it.Wfxw, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "wfms":
 			var err error
 
@@ -55463,22 +55233,6 @@ func (ec *executionContext) unmarshalInputViolationRegistrationInsertInput(ctx c
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "violation_registration_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("violation_registration_id"))
-			it.ViolationRegistrationID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -55644,22 +55398,6 @@ func (ec *executionContext) unmarshalInputViolationRegistrationInsertInput(ctx c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -62758,6 +62496,21 @@ func (ec *executionContext) marshalNDriverPeccancyCheckSelectColumn2VehicleSuper
 	return v
 }
 
+func (ec *executionContext) unmarshalNFloat2float64(ctx context.Context, v interface{}) (float64, error) {
+	res, err := graphql.UnmarshalFloat(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNFloat2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
+	res := graphql.MarshalFloat(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
 func (ec *executionContext) marshalNIllegalPhoto2VehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx context.Context, sel ast.SelectionSet, v model1.IllegalPhoto) graphql.Marshaler {
 	return ec._IllegalPhoto(ctx, sel, &v)
 }
@@ -64832,6 +64585,57 @@ func (ec *executionContext) marshalODriverPeccancyCheckVarianceFields2ᚖVehicle
 		return graphql.Null
 	}
 	return ec._DriverPeccancyCheckVarianceFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]float64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNFloat2float64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOFloat2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNFloat2float64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloat(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOFloat2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalFloat(*v)
 }
 
 func (ec *executionContext) marshalOIllegalPhoto2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋvehicle_violationᚋmodelᚐIllegalPhoto(ctx context.Context, sel ast.SelectionSet, v *model1.IllegalPhoto) graphql.Marshaler {

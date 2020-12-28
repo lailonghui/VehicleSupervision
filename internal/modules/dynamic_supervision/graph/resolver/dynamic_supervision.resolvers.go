@@ -66,10 +66,10 @@ func (r *mutationResolver) DeleteDynamicSupervisionByPk(ctx context.Context, Id 
 }
 
 func (r *mutationResolver) InsertDynamicSupervision(ctx context.Context, objects []*model.DynamicSupervisionInsertInput) (*model.DynamicSupervisionMutationResponse, error) {
-	rs := []*model1.DynamicSupervision{}
+	rs := make([]*model1.DynamicSupervision, 0)
 	for _, object := range objects {
 		v := &model1.DynamicSupervision{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DynamicSupervision{}).Create(&rs)
@@ -119,13 +119,13 @@ func (r *mutationResolver) UpdateDynamicSupervisionByPk(ctx context.Context, inc
 	qt := util.NewQueryTranslator(tx, &model1.DynamicSupervision{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DynamicSupervision
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -139,13 +139,8 @@ func (r *queryResolver) DynamicSupervision(ctx context.Context, distinctOn []mod
 		Finish()
 	var rs []*model1.DynamicSupervision
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DynamicSupervisionAggregate(ctx context.Context, distinctOn []model.DynamicSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionOrderBy, where *model.DynamicSupervisionBoolExp) (*model.DynamicSupervisionAggregate, error) {
@@ -161,26 +156,15 @@ func (r *queryResolver) DynamicSupervisionAggregate(ctx context.Context, distinc
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DynamicSupervisionByPk(ctx context.Context, Id int64) (*model1.DynamicSupervision, error) {
 	var rs model1.DynamicSupervision
 	tx := db.DB.Model(&model1.DynamicSupervision{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }
 
 // Mutation returns generated.MutationResolver implementation.

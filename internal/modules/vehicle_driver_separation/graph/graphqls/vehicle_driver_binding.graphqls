@@ -19,11 +19,11 @@ type VehicleDriverBinding {
 	"""
 	vehicle_id: String
 	"""
-	 备注                                                         (                                )
+	 备注                                                         
 	"""
 	remarks: String
 	"""
-	 创建时间                                                     (                                )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -31,7 +31,7 @@ type VehicleDriverBinding {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -39,7 +39,7 @@ type VehicleDriverBinding {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -47,7 +47,7 @@ type VehicleDriverBinding {
 	"""
 	deleted_by: String
 	"""
-	 是否删除                                                     (                                )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 }
@@ -203,13 +203,9 @@ input VehicleDriverBindingBoolExp {
 input type for inserting data into table "vehicle_driver_binding"
 """
 input VehicleDriverBindingInsertInput {
-	id: Bigint
-	vehicle_driver_binding_id: String
 	driver_id: String
 	vehicle_id: String
 	remarks: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -260,11 +256,11 @@ enum VehicleDriverBindingSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 备注                                                         (                                )
+	 备注                                                         
 	"""
 	remarks
 	"""
-	 创建时间                                                     (                                )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -272,7 +268,7 @@ enum VehicleDriverBindingSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -280,7 +276,7 @@ enum VehicleDriverBindingSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -288,7 +284,7 @@ enum VehicleDriverBindingSelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否删除                                                     (                                )
+	 是否删除                                                     
 	"""
 	is_deleted
 }

@@ -15,27 +15,27 @@ type ViolationRegistration {
 	"""
 	vehicle_id: String
 	"""
-	 车牌号                                          (                                )
+	 车牌号                                          
 	"""
 	license_plate_number: String
 	"""
-	 码身份证号                                      (                                )
+	 码身份证号                                      
 	"""
 	id_card_num: String
 	"""
-	 姓名                                            (                                )
+	 姓名                                            
 	"""
 	name: String
 	"""
-	 地点                                            (                                )
+	 地点                                            
 	"""
 	location: String
 	"""
-	 原因                                            (                                )
+	 原因                                            
 	"""
 	cause: String
 	"""
-	 违法时间                                        (                                )
+	 违法时间                                        
 	"""
 	illegal_time: Timestamptz
 	"""
@@ -43,19 +43,19 @@ type ViolationRegistration {
 	"""
 	operator: String
 	"""
-	 违法地区                                        (                                )
+	 违法地区                                        
 	"""
 	illegal_area: String
 	"""
-	 违法代码                                        (                                )
+	 违法代码                                        
 	"""
 	illegal_code: String
 	"""
-	 车辆所属地区                                    (                                )
+	 车辆所属地区                                    
 	"""
 	vehicle_area: String
 	"""
-	 车辆所属单位                                    (                                )
+	 车辆所属单位                                    
 	"""
 	vehicle_enterprise: String
 	"""
@@ -71,31 +71,31 @@ type ViolationRegistration {
 	"""
 	district_id: String
 	"""
-	 监管人                                          (                                )
+	 监管人                                          
 	"""
 	supervisor: String
 	"""
-	 监管时间                                        (                                )
+	 监管时间                                        
 	"""
 	supervision_time: String
 	"""
-	 监管备注                                        (                                )
+	 监管备注                                        
 	"""
 	sepervision_remarks: String
 	"""
-	 是否监管                                        (                                )
+	 是否监管                                        
 	"""
 	is_supervised: String
 	"""
-	 是否事故                                        (                                )
+	 是否事故                                        
 	"""
 	is_accident: String
 	"""
-	 是否删除                                        (                                )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -103,7 +103,7 @@ type ViolationRegistration {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -111,7 +111,7 @@ type ViolationRegistration {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -339,8 +339,6 @@ input ViolationRegistrationBoolExp {
 input type for inserting data into table "violation_registration"
 """
 input ViolationRegistrationInsertInput {
-	id: Bigint
-	violation_registration_id: String
 	vehicle_id: String
 	license_plate_number: String
 	id_card_num: String
@@ -362,8 +360,6 @@ input ViolationRegistrationInsertInput {
 	is_supervised: String
 	is_accident: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -426,27 +422,27 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 车牌号                                          (                                )
+	 车牌号                                          
 	"""
 	license_plate_number
 	"""
-	 码身份证号                                      (                                )
+	 码身份证号                                      
 	"""
 	id_card_num
 	"""
-	 姓名                                            (                                )
+	 姓名                                            
 	"""
 	name
 	"""
-	 地点                                            (                                )
+	 地点                                            
 	"""
 	location
 	"""
-	 原因                                            (                                )
+	 原因                                            
 	"""
 	cause
 	"""
-	 违法时间                                        (                                )
+	 违法时间                                        
 	"""
 	illegal_time
 	"""
@@ -454,19 +450,19 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	operator
 	"""
-	 违法地区                                        (                                )
+	 违法地区                                        
 	"""
 	illegal_area
 	"""
-	 违法代码                                        (                                )
+	 违法代码                                        
 	"""
 	illegal_code
 	"""
-	 车辆所属地区                                    (                                )
+	 车辆所属地区                                    
 	"""
 	vehicle_area
 	"""
-	 车辆所属单位                                    (                                )
+	 车辆所属单位                                    
 	"""
 	vehicle_enterprise
 	"""
@@ -482,31 +478,31 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	district_id
 	"""
-	 监管人                                          (                                )
+	 监管人                                          
 	"""
 	supervisor
 	"""
-	 监管时间                                        (                                )
+	 监管时间                                        
 	"""
 	supervision_time
 	"""
-	 监管备注                                        (                                )
+	 监管备注                                        
 	"""
 	sepervision_remarks
 	"""
-	 是否监管                                        (                                )
+	 是否监管                                        
 	"""
 	is_supervised
 	"""
-	 是否事故                                        (                                )
+	 是否事故                                        
 	"""
 	is_accident
 	"""
-	 是否删除                                        (                                )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -514,7 +510,7 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -522,7 +518,7 @@ enum ViolationRegistrationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

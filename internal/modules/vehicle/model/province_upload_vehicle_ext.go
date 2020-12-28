@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden ProvinceUploadVehicleLoader string *VehicleSupervision/internal/modules/vehicle/model.ProvinceUploadVehicle
 
 func (t ProvinceUploadVehicle) TableName() string {
-	return "ProvinceUploadVehicle"
+	return "province_upload_vehicle"
 }
 
 func (t *ProvinceUploadVehicle) NewLoader() *ProvinceUploadVehicleLoader {

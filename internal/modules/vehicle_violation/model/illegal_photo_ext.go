@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden IllegalPhotoLoader string *VehicleSupervision/internal/modules/vehicle_violation/model.IllegalPhoto
 
 func (t IllegalPhoto) TableName() string {
-	return "IllegalPhoto"
+	return "illegal_photo"
 }
 
 func (t *IllegalPhoto) NewLoader() *IllegalPhotoLoader {

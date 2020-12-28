@@ -15,11 +15,11 @@ type MuckTruckPurchaseIntention {
 	"""
 	supplier: String
 	"""
-	 购车用户姓名                                    (                                      )
+	 购车用户姓名                                    
 	"""
 	customer_name: String
 	"""
-	 购车用户电话                                    (                                      )
+	 购车用户电话                                    
 	"""
 	customer_phone: String
 	"""
@@ -39,23 +39,23 @@ type MuckTruckPurchaseIntention {
 	"""
 	district_id: String
 	"""
-	 运力申请                                        (                                      )
+	 运力申请                                        
 	"""
 	capacigy_application: String
 	"""
-	 品牌型号                                        (                                      )
+	 品牌型号                                        
 	"""
 	brand_model: String
 	"""
-	 购车数量                                        (                                      )
+	 购车数量                                        
 	"""
 	vehicle_purchase: Int
 	"""
-	 编码                                            (                                      )
+	 编码                                            
 	"""
 	code: String
 	"""
-	 登记日期                                        (                                      )
+	 登记日期                                        
 	"""
 	registration_time: Timestamptz
 	"""
@@ -63,19 +63,19 @@ type MuckTruckPurchaseIntention {
 	"""
 	registration_user: String
 	"""
-	 审核                                            (                                      )
+	 审核                                            
 	"""
 	review: String
 	"""
-	 备注                                            (                                      )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 是否删除                                        (                                      )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -83,7 +83,7 @@ type MuckTruckPurchaseIntention {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -91,7 +91,7 @@ type MuckTruckPurchaseIntention {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -307,8 +307,6 @@ input MuckTruckPurchaseIntentionBoolExp {
 input type for inserting data into table "muck_truck_purchase_intention"
 """
 input MuckTruckPurchaseIntentionInsertInput {
-	id: Bigint
-	muck_truck_purchase_intention_id: String
 	supplier: String
 	customer_name: String
 	customer_phone: String
@@ -325,8 +323,6 @@ input MuckTruckPurchaseIntentionInsertInput {
 	review: String
 	remarks: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -385,11 +381,11 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	supplier
 	"""
-	 购车用户姓名                                    (                                      )
+	 购车用户姓名                                    
 	"""
 	customer_name
 	"""
-	 购车用户电话                                    (                                      )
+	 购车用户电话                                    
 	"""
 	customer_phone
 	"""
@@ -409,23 +405,23 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	district_id
 	"""
-	 运力申请                                        (                                      )
+	 运力申请                                        
 	"""
 	capacigy_application
 	"""
-	 品牌型号                                        (                                      )
+	 品牌型号                                        
 	"""
 	brand_model
 	"""
-	 购车数量                                        (                                      )
+	 购车数量                                        
 	"""
 	vehicle_purchase
 	"""
-	 编码                                            (                                      )
+	 编码                                            
 	"""
 	code
 	"""
-	 登记日期                                        (                                      )
+	 登记日期                                        
 	"""
 	registration_time
 	"""
@@ -433,19 +429,19 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	registration_user
 	"""
-	 审核                                            (                                      )
+	 审核                                            
 	"""
 	review
 	"""
-	 备注                                            (                                      )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 是否删除                                        (                                      )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -453,7 +449,7 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -461,7 +457,7 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

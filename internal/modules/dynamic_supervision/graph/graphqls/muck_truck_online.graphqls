@@ -11,51 +11,51 @@ type MuckTruckOnline {
 	"""
 	muck_truck_online_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 是否在线                                        (                            )
+	 是否在线                                        
 	"""
 	is_online: Boolean
 	"""
-	 是否缴费                                        (                            )
+	 是否缴费                                        
 	"""
 	is_pay: Boolean
 	"""
-	 是否GPS在线                                     (                            )
+	 是否GPS在线                                     
 	"""
 	is_gps_online: Boolean
 	"""
-	 是否目录库                                      (                            )
+	 是否目录库                                      
 	"""
 	is_catalog_library: Boolean
 	"""
-	 是否安装                                        (                            )
+	 是否安装                                        
 	"""
 	is_install: Boolean
 	"""
-	 是否验车通过                                    (                            )
+	 是否验车通过                                    
 	"""
 	is_vehicle_pass_inspection: Boolean
 	"""
-	 是否新型渣土车                                  (                            )
+	 是否新型渣土车                                  
 	"""
 	is_new_vehicle: Boolean
 	"""
-	 定位时间                                        (                            )
+	 定位时间                                        
 	"""
 	location_time: Timestamptz
 	"""
-	 自编号                                          (                            )
+	 自编号                                          
 	"""
 	self_number: String
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area: String
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -63,7 +63,7 @@ type MuckTruckOnline {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -71,7 +71,7 @@ type MuckTruckOnline {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -259,9 +259,6 @@ input MuckTruckOnlineBoolExp {
 input type for inserting data into table "muck_truck_online"
 """
 input MuckTruckOnlineInsertInput {
-	id: Bigint
-	muck_truck_online_id: String
-	vehicle_id: String
 	is_online: Boolean
 	is_pay: Boolean
 	is_gps_online: Boolean
@@ -272,8 +269,6 @@ input MuckTruckOnlineInsertInput {
 	location_time: Timestamptz
 	self_number: String
 	area: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -322,51 +317,51 @@ enum MuckTruckOnlineSelectColumn {
 	"""
 	muck_truck_online_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 是否在线                                        (                            )
+	 是否在线                                        
 	"""
 	is_online
 	"""
-	 是否缴费                                        (                            )
+	 是否缴费                                        
 	"""
 	is_pay
 	"""
-	 是否GPS在线                                     (                            )
+	 是否GPS在线                                     
 	"""
 	is_gps_online
 	"""
-	 是否目录库                                      (                            )
+	 是否目录库                                      
 	"""
 	is_catalog_library
 	"""
-	 是否安装                                        (                            )
+	 是否安装                                        
 	"""
 	is_install
 	"""
-	 是否验车通过                                    (                            )
+	 是否验车通过                                    
 	"""
 	is_vehicle_pass_inspection
 	"""
-	 是否新型渣土车                                  (                            )
+	 是否新型渣土车                                  
 	"""
 	is_new_vehicle
 	"""
-	 定位时间                                        (                            )
+	 定位时间                                        
 	"""
 	location_time
 	"""
-	 自编号                                          (                            )
+	 自编号                                          
 	"""
 	self_number
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -374,7 +369,7 @@ enum MuckTruckOnlineSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -382,7 +377,7 @@ enum MuckTruckOnlineSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

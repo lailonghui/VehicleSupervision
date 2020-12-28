@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteOwnerInfoByPk(ctx context.Context, Id int64) (*
 }
 
 func (r *mutationResolver) InsertOwnerInfo(ctx context.Context, objects []*model.OwnerInfoInsertInput) (*model.OwnerInfoMutationResponse, error) {
-	rs := []*model1.OwnerInfo{}
+	rs := make([]*model1.OwnerInfo, 0)
 	for _, object := range objects {
 		v := &model1.OwnerInfo{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.OwnerInfo{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateOwnerInfoByPk(ctx context.Context, inc *model.O
 	qt := util.NewQueryTranslator(tx, &model1.OwnerInfo{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.OwnerInfo
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) OwnerInfo(ctx context.Context, distinctOn []model.OwnerI
 		Finish()
 	var rs []*model1.OwnerInfo
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) OwnerInfoAggregate(ctx context.Context, distinctOn []model.OwnerInfoSelectColumn, limit *int, offset *int, orderBy []*model.OwnerInfoOrderBy, where *model.OwnerInfoBoolExp) (*model.OwnerInfoAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) OwnerInfoAggregate(ctx context.Context, distinctOn []mod
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) OwnerInfoByPk(ctx context.Context, Id int64) (*model1.OwnerInfo, error) {
 	var rs model1.OwnerInfo
 	tx := db.DB.Model(&model1.OwnerInfo{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

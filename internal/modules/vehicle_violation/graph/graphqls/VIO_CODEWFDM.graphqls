@@ -3,27 +3,27 @@
 """
 type VioCodewfdm {
 	"""
-	 违法行为     (         )
+	 违法行为     
 	"""
 	wfxw: String!
 	"""
-	 违法描述     (         )
+	 违法描述     
 	"""
 	wfms: String
 	"""
-	 违法计分数   (         )
+	 违法计分数   
 	"""
 	wfjfs: Numeric
 	"""
-	 最小罚款金额 (         )
+	 最小罚款金额 
 	"""
 	fkje_min: Numeric
 	"""
-	 最大罚款金额 (         )
+	 最大罚款金额 
 	"""
 	fkje_max: Numeric
 	"""
-	 序号         (         )
+	 序号         
 	"""
 	xh: String
 }
@@ -171,7 +171,6 @@ input VioCodewfdmBoolExp {
 input type for inserting data into table "vio_codewfdm"
 """
 input VioCodewfdmInsertInput {
-	wfxw: String
 	wfms: String
 	wfjfs: Numeric
 	fkje_min: Numeric
@@ -202,27 +201,27 @@ input VioCodewfdmSetInput {
 """
 enum VioCodewfdmSelectColumn {
 	"""
-	 违法行为     (         )
+	 违法行为     
 	"""
 	wfxw
 	"""
-	 违法描述     (         )
+	 违法描述     
 	"""
 	wfms
 	"""
-	 违法计分数   (         )
+	 违法计分数   
 	"""
 	wfjfs
 	"""
-	 最小罚款金额 (         )
+	 最小罚款金额 
 	"""
 	fkje_min
 	"""
-	 最大罚款金额 (         )
+	 最大罚款金额 
 	"""
 	fkje_max
 	"""
-	 序号         (         )
+	 序号         
 	"""
 	xh
 }

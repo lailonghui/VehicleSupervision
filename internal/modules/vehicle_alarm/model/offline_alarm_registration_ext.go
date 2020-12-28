@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden OfflineAlarmRegistrationLoader string *VehicleSupervision/internal/modules/vehicle_alarm/model.OfflineAlarmRegistration
 
 func (t OfflineAlarmRegistration) TableName() string {
-	return "OfflineAlarmRegistration"
+	return "offline_alarm_registration"
 }
 
 func (t *OfflineAlarmRegistration) NewLoader() *OfflineAlarmRegistrationLoader {

@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteConstructionCameraByPk(ctx context.Context, Id 
 }
 
 func (r *mutationResolver) InsertConstructionCamera(ctx context.Context, objects []*model.ConstructionCameraInsertInput) (*model.ConstructionCameraMutationResponse, error) {
-	rs := []*model1.ConstructionCamera{}
+	rs := make([]*model1.ConstructionCamera, 0)
 	for _, object := range objects {
 		v := &model1.ConstructionCamera{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.ConstructionCamera{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateConstructionCameraByPk(ctx context.Context, inc
 	qt := util.NewQueryTranslator(tx, &model1.ConstructionCamera{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.ConstructionCamera
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) ConstructionCamera(ctx context.Context, distinctOn []mod
 		Finish()
 	var rs []*model1.ConstructionCamera
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) ConstructionCameraAggregate(ctx context.Context, distinctOn []model.ConstructionCameraSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionCameraOrderBy, where *model.ConstructionCameraBoolExp) (*model.ConstructionCameraAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) ConstructionCameraAggregate(ctx context.Context, distinc
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) ConstructionCameraByPk(ctx context.Context, Id int64) (*model1.ConstructionCamera, error) {
 	var rs model1.ConstructionCamera
 	tx := db.DB.Model(&model1.ConstructionCamera{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

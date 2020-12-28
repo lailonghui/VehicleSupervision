@@ -11,23 +11,23 @@ type VoiceAlarmRecord {
 	"""
 	vioce_alarm_record_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 报警时间                                        (                            )
+	 报警时间                                        
 	"""
 	alarm_time: Timestamptz
 	"""
-	 报警类型                                        (                            )
+	 报警类型                                        
 	"""
 	alarm_type: String
 	"""
-	 提醒时间                                        (                            )
+	 提醒时间                                        
 	"""
 	remind_time: Timestamptz
 	"""
-	 提醒内容                                        (                            )
+	 提醒内容                                        
 	"""
 	remind_content: String
 	"""
@@ -35,15 +35,15 @@ type VoiceAlarmRecord {
 	"""
 	input_person: String
 	"""
-	 录入时间                                        (                            )
+	 录入时间                                        
 	"""
 	input_time: Timestamptz
 	"""
-	 是否成功                                        (                            )
+	 是否成功                                        
 	"""
 	is_success: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -51,7 +51,7 @@ type VoiceAlarmRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -59,7 +59,7 @@ type VoiceAlarmRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -235,9 +235,6 @@ input VoiceAlarmRecordBoolExp {
 input type for inserting data into table "voice_alarm_record"
 """
 input VoiceAlarmRecordInsertInput {
-	id: Bigint
-	vioce_alarm_record_id: String
-	vehicle_id: String
 	alarm_time: Timestamptz
 	alarm_type: String
 	remind_time: Timestamptz
@@ -245,8 +242,6 @@ input VoiceAlarmRecordInsertInput {
 	input_person: String
 	input_time: Timestamptz
 	is_success: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -292,23 +287,23 @@ enum VoiceAlarmRecordSelectColumn {
 	"""
 	vioce_alarm_record_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 报警时间                                        (                            )
+	 报警时间                                        
 	"""
 	alarm_time
 	"""
-	 报警类型                                        (                            )
+	 报警类型                                        
 	"""
 	alarm_type
 	"""
-	 提醒时间                                        (                            )
+	 提醒时间                                        
 	"""
 	remind_time
 	"""
-	 提醒内容                                        (                            )
+	 提醒内容                                        
 	"""
 	remind_content
 	"""
@@ -316,15 +311,15 @@ enum VoiceAlarmRecordSelectColumn {
 	"""
 	input_person
 	"""
-	 录入时间                                        (                            )
+	 录入时间                                        
 	"""
 	input_time
 	"""
-	 是否成功                                        (                            )
+	 是否成功                                        
 	"""
 	is_success
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -332,7 +327,7 @@ enum VoiceAlarmRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -340,7 +335,7 @@ enum VoiceAlarmRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

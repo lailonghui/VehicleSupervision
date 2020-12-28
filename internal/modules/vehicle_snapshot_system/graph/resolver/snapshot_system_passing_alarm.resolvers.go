@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteSnapshotSystemPassingAlarmByPk(ctx context.Cont
 }
 
 func (r *mutationResolver) InsertSnapshotSystemPassingAlarm(ctx context.Context, objects []*model.SnapshotSystemPassingAlarmInsertInput) (*model.SnapshotSystemPassingAlarmMutationResponse, error) {
-	rs := []*model1.SnapshotSystemPassingAlarm{}
+	rs := make([]*model1.SnapshotSystemPassingAlarm, 0)
 	for _, object := range objects {
 		v := &model1.SnapshotSystemPassingAlarm{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.SnapshotSystemPassingAlarm{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateSnapshotSystemPassingAlarmByPk(ctx context.Cont
 	qt := util.NewQueryTranslator(tx, &model1.SnapshotSystemPassingAlarm{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.SnapshotSystemPassingAlarm
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) SnapshotSystemPassingAlarm(ctx context.Context, distinct
 		Finish()
 	var rs []*model1.SnapshotSystemPassingAlarm
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) SnapshotSystemPassingAlarmAggregate(ctx context.Context, distinctOn []model.SnapshotSystemPassingAlarmSelectColumn, limit *int, offset *int, orderBy []*model.SnapshotSystemPassingAlarmOrderBy, where *model.SnapshotSystemPassingAlarmBoolExp) (*model.SnapshotSystemPassingAlarmAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) SnapshotSystemPassingAlarmAggregate(ctx context.Context,
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) SnapshotSystemPassingAlarmByPk(ctx context.Context, Id int64) (*model1.SnapshotSystemPassingAlarm, error) {
 	var rs model1.SnapshotSystemPassingAlarm
 	tx := db.DB.Model(&model1.SnapshotSystemPassingAlarm{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

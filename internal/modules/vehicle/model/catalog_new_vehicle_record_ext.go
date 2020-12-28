@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden CatalogNewVehicleRecordLoader string *VehicleSupervision/internal/modules/vehicle/model.CatalogNewVehicleRecord
 
 func (t CatalogNewVehicleRecord) TableName() string {
-	return "CatalogNewVehicleRecord"
+	return "catalog_new_vehicle_record"
 }
 
 func (t *CatalogNewVehicleRecord) NewLoader() *CatalogNewVehicleRecordLoader {

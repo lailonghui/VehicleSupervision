@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVioCodewfdmByPk(ctx context.Context, Wfxw strin
 }
 
 func (r *mutationResolver) InsertVioCodewfdm(ctx context.Context, objects []*model.VioCodewfdmInsertInput) (*model.VioCodewfdmMutationResponse, error) {
-	rs := []*model1.VioCodewfdm{}
+	rs := make([]*model1.VioCodewfdm, 0)
 	for _, object := range objects {
 		v := &model1.VioCodewfdm{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VioCodewfdm{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVioCodewfdmByPk(ctx context.Context, inc *model
 	qt := util.NewQueryTranslator(tx, &model1.VioCodewfdm{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VioCodewfdm
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VioCodewfdm(ctx context.Context, distinctOn []model.VioC
 		Finish()
 	var rs []*model1.VioCodewfdm
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VioCodewfdmAggregate(ctx context.Context, distinctOn []model.VioCodewfdmSelectColumn, limit *int, offset *int, orderBy []*model.VioCodewfdmOrderBy, where *model.VioCodewfdmBoolExp) (*model.VioCodewfdmAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VioCodewfdmAggregate(ctx context.Context, distinctOn []m
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VioCodewfdmByPk(ctx context.Context, Wfxw string) (*model1.VioCodewfdm, error) {
 	var rs model1.VioCodewfdm
 	tx := db.DB.Model(&model1.VioCodewfdm{}).First(&rs, Wfxw)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

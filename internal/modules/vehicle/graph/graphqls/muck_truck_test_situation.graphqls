@@ -11,87 +11,87 @@ type MuckTruckTestSituation {
 	"""
 	muck_truck_test_situation_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 密闭状态                                        (                            )
+	 密闭状态                                        
 	"""
 	airtight_state: Int
 	"""
-	 载重状态                                        (                            )
+	 载重状态                                        
 	"""
 	load_state: Int
 	"""
-	 举升状态                                        (                            )
+	 举升状态                                        
 	"""
 	lifting_status: Int
 	"""
-	 视频                                            (                            )
+	 视频                                            
 	"""
 	video: Int
 	"""
-	 指纹                                            (                            )
+	 指纹                                            
 	"""
 	fingerprint: Int
 	"""
-	 锁车功能                                        (                            )
+	 锁车功能                                        
 	"""
 	car_lock_function: Int
 	"""
-	 限速功能                                        (                            )
+	 限速功能                                        
 	"""
 	speed_limit_function: Int
 	"""
-	 部标功能                                        (                            )
+	 部标功能                                        
 	"""
 	ministry_standard_function: Int
 	"""
-	 限举功能                                        (                            )
+	 限举功能                                        
 	"""
 	weight_limit_function: Int
 	"""
-	 左转灯                                          (                            )
+	 左转灯                                          
 	"""
 	left_turn_light: Int
 	"""
-	 右转灯                                          (                            )
+	 右转灯                                          
 	"""
 	right_turn_right: Int
 	"""
-	 远光灯                                          (                            )
+	 远光灯                                          
 	"""
 	high_beam: Int
 	"""
-	 近光灯                                          (                            )
+	 近光灯                                          
 	"""
 	low_beam: Int
 	"""
-	 刹车                                            (                            )
+	 刹车                                            
 	"""
 	brake: Int
 	"""
-	 车速                                            (                            )
+	 车速                                            
 	"""
 	speed: Int
 	"""
-	 是否检测非法弃土                                (                            )
+	 是否检测非法弃土                                
 	"""
 	is_detect_illegal_spoil: Boolean
 	"""
-	 是否检测违规启动                                (                            )
+	 是否检测违规启动                                
 	"""
 	is_detect_illegal_start: Boolean
 	"""
-	 是否通过                                        (                            )
+	 是否通过                                        
 	"""
 	is_passed: Boolean
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -99,7 +99,7 @@ type MuckTruckTestSituation {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -107,7 +107,7 @@ type MuckTruckTestSituation {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -451,9 +451,6 @@ input MuckTruckTestSituationBoolExp {
 input type for inserting data into table "muck_truck_test_situation"
 """
 input MuckTruckTestSituationInsertInput {
-	id: Bigint
-	muck_truck_test_situation_id: String
-	vehicle_id: String
 	airtight_state: Int
 	load_state: Int
 	lifting_status: Int
@@ -473,8 +470,6 @@ input MuckTruckTestSituationInsertInput {
 	is_detect_illegal_start: Boolean
 	is_passed: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -547,87 +542,87 @@ enum MuckTruckTestSituationSelectColumn {
 	"""
 	muck_truck_test_situation_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 密闭状态                                        (                            )
+	 密闭状态                                        
 	"""
 	airtight_state
 	"""
-	 载重状态                                        (                            )
+	 载重状态                                        
 	"""
 	load_state
 	"""
-	 举升状态                                        (                            )
+	 举升状态                                        
 	"""
 	lifting_status
 	"""
-	 视频                                            (                            )
+	 视频                                            
 	"""
 	video
 	"""
-	 指纹                                            (                            )
+	 指纹                                            
 	"""
 	fingerprint
 	"""
-	 锁车功能                                        (                            )
+	 锁车功能                                        
 	"""
 	car_lock_function
 	"""
-	 限速功能                                        (                            )
+	 限速功能                                        
 	"""
 	speed_limit_function
 	"""
-	 部标功能                                        (                            )
+	 部标功能                                        
 	"""
 	ministry_standard_function
 	"""
-	 限举功能                                        (                            )
+	 限举功能                                        
 	"""
 	weight_limit_function
 	"""
-	 左转灯                                          (                            )
+	 左转灯                                          
 	"""
 	left_turn_light
 	"""
-	 右转灯                                          (                            )
+	 右转灯                                          
 	"""
 	right_turn_right
 	"""
-	 远光灯                                          (                            )
+	 远光灯                                          
 	"""
 	high_beam
 	"""
-	 近光灯                                          (                            )
+	 近光灯                                          
 	"""
 	low_beam
 	"""
-	 刹车                                            (                            )
+	 刹车                                            
 	"""
 	brake
 	"""
-	 车速                                            (                            )
+	 车速                                            
 	"""
 	speed
 	"""
-	 是否检测非法弃土                                (                            )
+	 是否检测非法弃土                                
 	"""
 	is_detect_illegal_spoil
 	"""
-	 是否检测违规启动                                (                            )
+	 是否检测违规启动                                
 	"""
 	is_detect_illegal_start
 	"""
-	 是否通过                                        (                            )
+	 是否通过                                        
 	"""
 	is_passed
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -635,7 +630,7 @@ enum MuckTruckTestSituationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -643,7 +638,7 @@ enum MuckTruckTestSituationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

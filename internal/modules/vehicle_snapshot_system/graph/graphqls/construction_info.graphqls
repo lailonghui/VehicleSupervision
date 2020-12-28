@@ -11,39 +11,39 @@ type ConstructionInfo {
 	"""
 	construction_info_id: String!
 	"""
-	 项目名称                                        (                            )
+	 项目名称                                        
 	"""
 	project_name: String
 	"""
-	 工程项目代码                                    (                            )
+	 工程项目代码                                    
 	"""
 	project_code: String
 	"""
-	 合同开工日期                                    (                            )
+	 合同开工日期                                    
 	"""
 	contract_start_date: Timestamptz
 	"""
-	 合同竣工日期                                    (                            )
+	 合同竣工日期                                    
 	"""
 	contract_completion_date: Timestamptz
 	"""
-	 建设单位                                        (                            )
+	 建设单位                                        
 	"""
 	build_agency: String
 	"""
-	 项目负责人                                      (                            )
+	 项目负责人                                      
 	"""
 	project_manager: String
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area_id: String
 	"""
-	 地址                                            (                            )
+	 地址                                            
 	"""
 	address: String
 	"""
-	 地图经纬度                                      (                            )
+	 地图经纬度                                      
 	"""
 	map_coordinate: Point
 	"""
@@ -51,95 +51,95 @@ type ConstructionInfo {
 	"""
 	construction_agency: String
 	"""
-	 监理单位                                        (                            )
+	 监理单位                                        
 	"""
 	supervision_agency: String
 	"""
-	 设备安装单位                                    (                            )
+	 设备安装单位                                    
 	"""
 	device_installation_agency: String
 	"""
-	 设备安装地点                                    (                            )
+	 设备安装地点                                    
 	"""
 	device_installation_location: String
 	"""
-	 服务合同编号                                    (                            )
+	 服务合同编号                                    
 	"""
 	service_contract_number: String
 	"""
-	 合同签署时间                                    (                            )
+	 合同签署时间                                    
 	"""
 	contract_signing_time: Timestamptz
 	"""
-	 服务启用日期                                    (                            )
+	 服务启用日期                                    
 	"""
 	service_activation_date: Timestamptz
 	"""
-	 证明有效期                                      (                            )
+	 证明有效期                                      
 	"""
 	proof_valid_date: Timestamptz
 	"""
-	 经纬度                                          (                            )
+	 经纬度                                          
 	"""
 	coordinate: Point
 	"""
-	 安装时间                                        (                            )
+	 安装时间                                        
 	"""
 	installation_time: Timestamptz
 	"""
-	 项目名称标签                                    (                            )
+	 项目名称标签                                    
 	"""
 	project_name_tag: String
 	"""
-	 进出口数量                                      (                            )
+	 进出口数量                                      
 	"""
 	import_export_quantity: String
 	"""
-	 停用原因                                        (                            )
+	 停用原因                                        
 	"""
 	deactivation_reason: String
 	"""
-	 未安装原因                                      (                            )
+	 未安装原因                                      
 	"""
 	uninstalled_reason: String
 	"""
-	 证明起始有效期                                  (                            )
+	 证明起始有效期                                  
 	"""
 	proof_valid_date_until: Timestamptz
 	"""
-	 类型（1.工地 2.矿山）                           (                            )
+	 类型（1.工地 2.矿山）                           
 	"""
 	construction_type: Int
 	"""
-	 联系人                                          (                            )
+	 联系人                                          
 	"""
 	contact_person: String
 	"""
-	 联系电话                                        (                            )
+	 联系电话                                        
 	"""
 	contact_phone: String
 	"""
-	 是否完工（0.未完工 1.已完工 2.已停用）          (                            )
+	 是否完工（0.未完工 1.已完工 2.已停用）          
 	"""
 	finished: Int
 	"""
-	 是否市直属                                      (                            )
+	 是否市直属                                      
 	"""
 	is_city_directly: String
 	"""
-	 是否安装（0.未申请 1.已安装 2.已申请未安装）    (                            )
+	 是否安装（0.未申请 1.已安装 2.已申请未安装）    
 	"""
 	is_installation: String
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -147,7 +147,7 @@ type ConstructionInfo {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -155,7 +155,7 @@ type ConstructionInfo {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -443,8 +443,6 @@ input ConstructionInfoBoolExp {
 input type for inserting data into table "construction_info"
 """
 input ConstructionInfoInsertInput {
-	id: Bigint
-	construction_info_id: String
 	project_name: String
 	project_code: String
 	contract_start_date: Timestamptz
@@ -477,8 +475,6 @@ input ConstructionInfoInsertInput {
 	is_installation: String
 	is_deleted: Boolean
 	registration_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -550,39 +546,39 @@ enum ConstructionInfoSelectColumn {
 	"""
 	construction_info_id
 	"""
-	 项目名称                                        (                            )
+	 项目名称                                        
 	"""
 	project_name
 	"""
-	 工程项目代码                                    (                            )
+	 工程项目代码                                    
 	"""
 	project_code
 	"""
-	 合同开工日期                                    (                            )
+	 合同开工日期                                    
 	"""
 	contract_start_date
 	"""
-	 合同竣工日期                                    (                            )
+	 合同竣工日期                                    
 	"""
 	contract_completion_date
 	"""
-	 建设单位                                        (                            )
+	 建设单位                                        
 	"""
 	build_agency
 	"""
-	 项目负责人                                      (                            )
+	 项目负责人                                      
 	"""
 	project_manager
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area_id
 	"""
-	 地址                                            (                            )
+	 地址                                            
 	"""
 	address
 	"""
-	 地图经纬度                                      (                            )
+	 地图经纬度                                      
 	"""
 	map_coordinate
 	"""
@@ -590,95 +586,95 @@ enum ConstructionInfoSelectColumn {
 	"""
 	construction_agency
 	"""
-	 监理单位                                        (                            )
+	 监理单位                                        
 	"""
 	supervision_agency
 	"""
-	 设备安装单位                                    (                            )
+	 设备安装单位                                    
 	"""
 	device_installation_agency
 	"""
-	 设备安装地点                                    (                            )
+	 设备安装地点                                    
 	"""
 	device_installation_location
 	"""
-	 服务合同编号                                    (                            )
+	 服务合同编号                                    
 	"""
 	service_contract_number
 	"""
-	 合同签署时间                                    (                            )
+	 合同签署时间                                    
 	"""
 	contract_signing_time
 	"""
-	 服务启用日期                                    (                            )
+	 服务启用日期                                    
 	"""
 	service_activation_date
 	"""
-	 证明有效期                                      (                            )
+	 证明有效期                                      
 	"""
 	proof_valid_date
 	"""
-	 经纬度                                          (                            )
+	 经纬度                                          
 	"""
 	coordinate
 	"""
-	 安装时间                                        (                            )
+	 安装时间                                        
 	"""
 	installation_time
 	"""
-	 项目名称标签                                    (                            )
+	 项目名称标签                                    
 	"""
 	project_name_tag
 	"""
-	 进出口数量                                      (                            )
+	 进出口数量                                      
 	"""
 	import_export_quantity
 	"""
-	 停用原因                                        (                            )
+	 停用原因                                        
 	"""
 	deactivation_reason
 	"""
-	 未安装原因                                      (                            )
+	 未安装原因                                      
 	"""
 	uninstalled_reason
 	"""
-	 证明起始有效期                                  (                            )
+	 证明起始有效期                                  
 	"""
 	proof_valid_date_until
 	"""
-	 类型（1.工地 2.矿山）                           (                            )
+	 类型（1.工地 2.矿山）                           
 	"""
 	construction_type
 	"""
-	 联系人                                          (                            )
+	 联系人                                          
 	"""
 	contact_person
 	"""
-	 联系电话                                        (                            )
+	 联系电话                                        
 	"""
 	contact_phone
 	"""
-	 是否完工（0.未完工 1.已完工 2.已停用）          (                            )
+	 是否完工（0.未完工 1.已完工 2.已停用）          
 	"""
 	finished
 	"""
-	 是否市直属                                      (                            )
+	 是否市直属                                      
 	"""
 	is_city_directly
 	"""
-	 是否安装（0.未申请 1.已安装 2.已申请未安装）    (                            )
+	 是否安装（0.未申请 1.已安装 2.已申请未安装）    
 	"""
 	is_installation
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -686,7 +682,7 @@ enum ConstructionInfoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -694,7 +690,7 @@ enum ConstructionInfoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

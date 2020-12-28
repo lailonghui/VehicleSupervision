@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DriverFingerprintLoader string *VehicleSupervision/internal/modules/driver/model.DriverFingerprint
 
 func (t DriverFingerprint) TableName() string {
-	return "DriverFingerprint"
+	return "driver_fingerprint"
 }
 
 func (t *DriverFingerprint) NewLoader() *DriverFingerprintLoader {

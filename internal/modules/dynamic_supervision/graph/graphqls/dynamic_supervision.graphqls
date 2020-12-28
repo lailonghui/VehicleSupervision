@@ -11,19 +11,19 @@ type DynamicSupervision {
 	"""
 	supervision_id: String!
 	"""
-	 抽查日期                                                     (                                )
+	 抽查日期                                                     
 	"""
 	spot_check_date: Timestamptz
 	"""
-	 抽查总数                                                     (                                )
+	 抽查总数                                                     
 	"""
 	spot_check_total_number: Int
 	"""
-	 抽查数量                                                     (                                )
+	 抽查数量                                                     
 	"""
 	spot_check_number: Int
 	"""
-	 抽查比例                                                     (                                )
+	 抽查比例                                                     
 	"""
 	spot_check_ratio: Numeric
 	"""
@@ -31,7 +31,7 @@ type DynamicSupervision {
 	"""
 	check_user_id: String
 	"""
-	 总车辆数                                                     (                                )
+	 总车辆数                                                     
 	"""
 	total_number_vehicle: Int
 	"""
@@ -47,19 +47,19 @@ type DynamicSupervision {
 	"""
 	district_id: String
 	"""
-	 年                                                           (                                )
+	 年                                                           
 	"""
 	year: Int
 	"""
-	 月                                                           (                                )
+	 月                                                           
 	"""
 	month: Int
 	"""
-	 日                                                           (                                )
+	 日                                                           
 	"""
 	day: Int
 	"""
-	 创建时间                                                     (                                )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -67,7 +67,7 @@ type DynamicSupervision {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -75,7 +75,7 @@ type DynamicSupervision {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -83,7 +83,7 @@ type DynamicSupervision {
 	"""
 	deleted_by: String
 	"""
-	 是否被删除                                                   (                                )
+	 是否被删除                                                   
 	"""
 	is_deleted: Boolean
 }
@@ -331,8 +331,6 @@ input DynamicSupervisionBoolExp {
 input type for inserting data into table "dynamic_supervision"
 """
 input DynamicSupervisionInsertInput {
-	id: Bigint
-	supervision_id: String
 	spot_check_date: Timestamptz
 	spot_check_total_number: Int
 	spot_check_number: Int
@@ -345,8 +343,6 @@ input DynamicSupervisionInsertInput {
 	year: Int
 	month: Int
 	day: Int
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -405,19 +401,19 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	supervision_id
 	"""
-	 抽查日期                                                     (                                )
+	 抽查日期                                                     
 	"""
 	spot_check_date
 	"""
-	 抽查总数                                                     (                                )
+	 抽查总数                                                     
 	"""
 	spot_check_total_number
 	"""
-	 抽查数量                                                     (                                )
+	 抽查数量                                                     
 	"""
 	spot_check_number
 	"""
-	 抽查比例                                                     (                                )
+	 抽查比例                                                     
 	"""
 	spot_check_ratio
 	"""
@@ -425,7 +421,7 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	check_user_id
 	"""
-	 总车辆数                                                     (                                )
+	 总车辆数                                                     
 	"""
 	total_number_vehicle
 	"""
@@ -441,19 +437,19 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	district_id
 	"""
-	 年                                                           (                                )
+	 年                                                           
 	"""
 	year
 	"""
-	 月                                                           (                                )
+	 月                                                           
 	"""
 	month
 	"""
-	 日                                                           (                                )
+	 日                                                           
 	"""
 	day
 	"""
-	 创建时间                                                     (                                )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -461,7 +457,7 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -469,7 +465,7 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -477,7 +473,7 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否被删除                                                   (                                )
+	 是否被删除                                                   
 	"""
 	is_deleted
 }

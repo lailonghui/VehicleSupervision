@@ -7,7 +7,7 @@ type DistrictAlarmContentPush {
 	"""
 	id: Bigint!
 	"""
-	 vehicle_alarm_data报警数据表的alarm_data_id (                            )
+	 vehicle_alarm_data报警数据表的alarm_data_id 
 	"""
 	alarm_data_id: String!
 	"""
@@ -15,7 +15,7 @@ type DistrictAlarmContentPush {
 	"""
 	alarm_type: String
 	"""
-	 内容                                            (                            )
+	 内容                                            
 	"""
 	alarm_content: String
 	"""
@@ -35,7 +35,7 @@ type DistrictAlarmContentPush {
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -43,7 +43,7 @@ type DistrictAlarmContentPush {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -51,7 +51,7 @@ type DistrictAlarmContentPush {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -219,16 +219,12 @@ input DistrictAlarmContentPushBoolExp {
 input type for inserting data into table "district_alarm_content_push"
 """
 input DistrictAlarmContentPushInsertInput {
-	id: Bigint
-	alarm_data_id: String
 	alarm_type: String
 	alarm_content: String
 	province_id: String
 	city_id: String
 	district_id: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -268,7 +264,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	id
 	"""
-	 vehicle_alarm_data报警数据表的alarm_data_id (                            )
+	 vehicle_alarm_data报警数据表的alarm_data_id 
 	"""
 	alarm_data_id
 	"""
@@ -276,7 +272,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	alarm_type
 	"""
-	 内容                                            (                            )
+	 内容                                            
 	"""
 	alarm_content
 	"""
@@ -296,7 +292,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -304,7 +300,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -312,7 +308,7 @@ enum DistrictAlarmContentPushSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

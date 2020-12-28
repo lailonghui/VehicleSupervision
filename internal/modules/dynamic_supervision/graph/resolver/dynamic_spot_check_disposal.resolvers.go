@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteDynamicSpotCheckDisposalByPk(ctx context.Contex
 }
 
 func (r *mutationResolver) InsertDynamicSpotCheckDisposal(ctx context.Context, objects []*model.DynamicSpotCheckDisposalInsertInput) (*model.DynamicSpotCheckDisposalMutationResponse, error) {
-	rs := []*model1.DynamicSpotCheckDisposal{}
+	rs := make([]*model1.DynamicSpotCheckDisposal, 0)
 	for _, object := range objects {
 		v := &model1.DynamicSpotCheckDisposal{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DynamicSpotCheckDisposal{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateDynamicSpotCheckDisposalByPk(ctx context.Contex
 	qt := util.NewQueryTranslator(tx, &model1.DynamicSpotCheckDisposal{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DynamicSpotCheckDisposal
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) DynamicSpotCheckDisposal(ctx context.Context, distinctOn
 		Finish()
 	var rs []*model1.DynamicSpotCheckDisposal
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DynamicSpotCheckDisposalAggregate(ctx context.Context, distinctOn []model.DynamicSpotCheckDisposalSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSpotCheckDisposalOrderBy, where *model.DynamicSpotCheckDisposalBoolExp) (*model.DynamicSpotCheckDisposalAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) DynamicSpotCheckDisposalAggregate(ctx context.Context, d
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DynamicSpotCheckDisposalByPk(ctx context.Context, Id int64) (*model1.DynamicSpotCheckDisposal, error) {
 	var rs model1.DynamicSpotCheckDisposal
 	tx := db.DB.Model(&model1.DynamicSpotCheckDisposal{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

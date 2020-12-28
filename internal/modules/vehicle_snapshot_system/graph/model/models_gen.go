@@ -66,22 +66,18 @@ type ConstructionCameraIncInput struct {
 
 // input type for inserting data into table "construction_camera"
 type ConstructionCameraInsertInput struct {
-	ID                   *int64     `json:"id"`
-	ConstructionCameraID *string    `json:"construction_camera_id"`
-	DeviceName           *string    `json:"device_name"`
-	IPAddress            *string    `json:"ip_address"`
-	Port                 *string    `json:"port"`
-	DeviceID             *string    `json:"device_id"`
-	ConstructionInfoID   *string    `json:"construction_info_id"`
-	SimNumber            *string    `json:"sim_number"`
-	RegistrationTime     *time.Time `json:"registration_time"`
-	IsDeleted            *bool      `json:"is_deleted"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
+	DeviceName         *string    `json:"device_name"`
+	IPAddress          *string    `json:"ip_address"`
+	Port               *string    `json:"port"`
+	DeviceID           *string    `json:"device_id"`
+	ConstructionInfoID *string    `json:"construction_info_id"`
+	SimNumber          *string    `json:"sim_number"`
+	RegistrationTime   *time.Time `json:"registration_time"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "construction_camera"
@@ -288,8 +284,6 @@ type ConstructionInfoIncInput struct {
 
 // input type for inserting data into table "construction_info"
 type ConstructionInfoInsertInput struct {
-	ID                         *int64     `json:"id"`
-	ConstructionInfoID         *string    `json:"construction_info_id"`
 	ProjectName                *string    `json:"project_name"`
 	ProjectCode                *string    `json:"project_code"`
 	ContractStartDate          *time.Time `json:"contract_start_date"`
@@ -322,8 +316,6 @@ type ConstructionInfoInsertInput struct {
 	IsInstallation             *string    `json:"is_installation"`
 	IsDeleted                  *bool      `json:"is_deleted"`
 	RegistrationTime           *time.Time `json:"registration_time"`
-	CreatedAt                  *time.Time `json:"created_at"`
-	CreatedBy                  *string    `json:"created_by"`
 	UpdatedAt                  *time.Time `json:"updated_at"`
 	UpdatedBy                  *string    `json:"updated_by"`
 	DeletedAt                  *time.Time `json:"deleted_at"`
@@ -611,17 +603,13 @@ type ConstructionUploadPicIncInput struct {
 
 // input type for inserting data into table "construction_upload_pic"
 type ConstructionUploadPicInsertInput struct {
-	ID                      *int64     `json:"id"`
-	ConstructionUploadPicID *string    `json:"construction_upload_pic_id"`
-	ConstructionInfoID      *string    `json:"construction_info_id"`
-	PictureURL              *string    `json:"picture_url"`
-	IsDeleted               *bool      `json:"is_deleted"`
-	CreatedAt               *time.Time `json:"created_at"`
-	CreatedBy               *string    `json:"created_by"`
-	UpdatedAt               *time.Time `json:"updated_at"`
-	UpdatedBy               *string    `json:"updated_by"`
-	DeletedAt               *time.Time `json:"deleted_at"`
-	DeletedBy               *string    `json:"deleted_by"`
+	ConstructionInfoID *string    `json:"construction_info_id"`
+	PictureURL         *string    `json:"picture_url"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "construction_upload_pic"
@@ -777,19 +765,15 @@ type OfflineRegistrationRecordIncInput struct {
 
 // input type for inserting data into table "offline_registration_record"
 type OfflineRegistrationRecordInsertInput struct {
-	ID                        *int64     `json:"id"`
-	OfflineRegistrationRecord *string    `json:"offline_registration_record"`
-	OutageRegistrationID      *string    `json:"outage_registration_id"`
-	RegistrationContent       *string    `json:"registration_content"`
-	RegistrationTime          *time.Time `json:"registration_time"`
-	Registrant                *string    `json:"registrant"`
-	IsDeleted                 *bool      `json:"is_deleted"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
+	OutageRegistrationID *string    `json:"outage_registration_id"`
+	RegistrationContent  *string    `json:"registration_content"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	Registrant           *string    `json:"registrant"`
+	IsDeleted            *bool      `json:"is_deleted"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "offline_registration_record"
@@ -964,26 +948,21 @@ type SnapshotSystemPassingAlarmIncInput struct {
 
 // input type for inserting data into table "snapshot_system_passing_alarm"
 type SnapshotSystemPassingAlarmInsertInput struct {
-	ID                           *int64     `json:"id"`
-	SnapshotSystemPassingAlarmID *string    `json:"snapshot_system_passing_alarm_id"`
-	PassingID                    *string    `json:"passing_id"`
-	VehicleID                    *string    `json:"vehicle_id"`
-	LicensePlateNumber           *string    `json:"license_plate_number"`
-	RegistrationTime             *time.Time `json:"registration_time"`
-	SupervisionTime              *time.Time `json:"supervision_time"`
-	Remarks                      *string    `json:"remarks"`
-	CameraID                     *string    `json:"camera_id"`
-	AlarmType                    *int       `json:"alarm_type"`
-	ReviewStatus                 *string    `json:"review_status"`
-	VehicleType                  *int       `json:"vehicle_type"`
-	IsOnline                     *bool      `json:"is_online"`
-	IsSupervision                *bool      `json:"is_supervision"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
-	UpdatedAt                    *time.Time `json:"updated_at"`
-	UpdatedBy                    *string    `json:"updated_by"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
+	PassingID          *string    `json:"passing_id"`
+	LicensePlateNumber *string    `json:"license_plate_number"`
+	RegistrationTime   *time.Time `json:"registration_time"`
+	SupervisionTime    *time.Time `json:"supervision_time"`
+	Remarks            *string    `json:"remarks"`
+	CameraID           *string    `json:"camera_id"`
+	AlarmType          *int       `json:"alarm_type"`
+	ReviewStatus       *string    `json:"review_status"`
+	VehicleType        *int       `json:"vehicle_type"`
+	IsOnline           *bool      `json:"is_online"`
+	IsSupervision      *bool      `json:"is_supervision"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "snapshot_system_passing_alarm"
@@ -1194,24 +1173,19 @@ type VehiclePassingRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_passing_record"
 type VehiclePassingRecordInsertInput struct {
-	ID                     *int64     `json:"id"`
-	VehiclePassingRecordID *string    `json:"vehicle_passing_record_id"`
-	VehicleID              *string    `json:"vehicle_id"`
-	LicensePlateNumber     *string    `json:"license_plate_number"`
-	PassingTime            *time.Time `json:"passing_time"`
-	RegistrationTime       *time.Time `json:"registration_time"`
-	CameraID               *string    `json:"camera_id"`
-	PassType               *string    `json:"pass_type"`
-	PictureURL             *string    `json:"picture_url"`
-	ReviewStatus           *string    `json:"review_status"`
-	VehicleType            *string    `json:"vehicle_type"`
-	IsOnline               *bool      `json:"is_online"`
-	CreatedAt              *time.Time `json:"created_at"`
-	CreatedBy              *string    `json:"created_by"`
-	UpdatedAt              *time.Time `json:"updated_at"`
-	UpdatedBy              *string    `json:"updated_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
+	LicensePlateNumber *string    `json:"license_plate_number"`
+	PassingTime        *time.Time `json:"passing_time"`
+	RegistrationTime   *time.Time `json:"registration_time"`
+	CameraID           *string    `json:"camera_id"`
+	PassType           *string    `json:"pass_type"`
+	PictureURL         *string    `json:"picture_url"`
+	ReviewStatus       *string    `json:"review_status"`
+	VehicleType        *string    `json:"vehicle_type"`
+	IsOnline           *bool      `json:"is_online"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_passing_record"
@@ -1351,31 +1325,31 @@ const (
 	ConstructionCameraSelectColumnID ConstructionCameraSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                               )
 	ConstructionCameraSelectColumnConstructionCameraID ConstructionCameraSelectColumn = "construction_camera_id"
-	// 设备名称                                        (                                                        )
+	// 设备名称
 	ConstructionCameraSelectColumnDeviceName ConstructionCameraSelectColumn = "device_name"
-	// IP地址                                          (                                                        )
+	// IP地址
 	ConstructionCameraSelectColumnIPAddress ConstructionCameraSelectColumn = "ip_address"
-	// 端口                                            (                                                        )
+	// 端口
 	ConstructionCameraSelectColumnPort ConstructionCameraSelectColumn = "port"
-	// 设备编号                                        (                                                        )
+	// 设备编号
 	ConstructionCameraSelectColumnDeviceID ConstructionCameraSelectColumn = "device_id"
 	// 关联工地                                        ( construction_info 工地信息表的construction_info_id )
 	ConstructionCameraSelectColumnConstructionInfoID ConstructionCameraSelectColumn = "construction_info_id"
-	// 卡号                                            (                                                        )
+	// 卡号
 	ConstructionCameraSelectColumnSimNumber ConstructionCameraSelectColumn = "sim_number"
-	// 登记时间                                        (                                                        )
+	// 登记时间
 	ConstructionCameraSelectColumnRegistrationTime ConstructionCameraSelectColumn = "registration_time"
-	// 是否删除                                        (                                                        )
+	// 是否删除
 	ConstructionCameraSelectColumnIsDeleted ConstructionCameraSelectColumn = "is_deleted"
-	// 创建时间                                        (                                                        )
+	// 创建时间
 	ConstructionCameraSelectColumnCreatedAt ConstructionCameraSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                             )
 	ConstructionCameraSelectColumnCreatedBy ConstructionCameraSelectColumn = "created_by"
-	// 修改时间                                        (                                                        )
+	// 修改时间
 	ConstructionCameraSelectColumnUpdatedAt ConstructionCameraSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                             )
 	ConstructionCameraSelectColumnUpdatedBy ConstructionCameraSelectColumn = "updated_by"
-	// 删除时间                                        (                                                        )
+	// 删除时间
 	ConstructionCameraSelectColumnDeletedAt ConstructionCameraSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                             )
 	ConstructionCameraSelectColumnDeletedBy ConstructionCameraSelectColumn = "deleted_by"
@@ -1437,79 +1411,79 @@ const (
 	ConstructionInfoSelectColumnID ConstructionInfoSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	ConstructionInfoSelectColumnConstructionInfoID ConstructionInfoSelectColumn = "construction_info_id"
-	// 项目名称                                        (                            )
+	// 项目名称
 	ConstructionInfoSelectColumnProjectName ConstructionInfoSelectColumn = "project_name"
-	// 工程项目代码                                    (                            )
+	// 工程项目代码
 	ConstructionInfoSelectColumnProjectCode ConstructionInfoSelectColumn = "project_code"
-	// 合同开工日期                                    (                            )
+	// 合同开工日期
 	ConstructionInfoSelectColumnContractStartDate ConstructionInfoSelectColumn = "contract_start_date"
-	// 合同竣工日期                                    (                            )
+	// 合同竣工日期
 	ConstructionInfoSelectColumnContractCompletionDate ConstructionInfoSelectColumn = "contract_completion_date"
-	// 建设单位                                        (                            )
+	// 建设单位
 	ConstructionInfoSelectColumnBuildAgency ConstructionInfoSelectColumn = "build_agency"
-	// 项目负责人                                      (                            )
+	// 项目负责人
 	ConstructionInfoSelectColumnProjectManager ConstructionInfoSelectColumn = "project_manager"
-	// 地区                                            (                            )
+	// 地区
 	ConstructionInfoSelectColumnAreaID ConstructionInfoSelectColumn = "area_id"
-	// 地址                                            (                            )
+	// 地址
 	ConstructionInfoSelectColumnAddress ConstructionInfoSelectColumn = "address"
-	// 地图经纬度                                      (                            )
+	// 地图经纬度
 	ConstructionInfoSelectColumnMapCoordinate ConstructionInfoSelectColumn = "map_coordinate"
 	// 施工单位                                        ( 与建设单位的区别？         )
 	ConstructionInfoSelectColumnConstructionAgency ConstructionInfoSelectColumn = "construction_agency"
-	// 监理单位                                        (                            )
+	// 监理单位
 	ConstructionInfoSelectColumnSupervisionAgency ConstructionInfoSelectColumn = "supervision_agency"
-	// 设备安装单位                                    (                            )
+	// 设备安装单位
 	ConstructionInfoSelectColumnDeviceInstallationAgency ConstructionInfoSelectColumn = "device_installation_agency"
-	// 设备安装地点                                    (                            )
+	// 设备安装地点
 	ConstructionInfoSelectColumnDeviceInstallationLocation ConstructionInfoSelectColumn = "device_installation_location"
-	// 服务合同编号                                    (                            )
+	// 服务合同编号
 	ConstructionInfoSelectColumnServiceContractNumber ConstructionInfoSelectColumn = "service_contract_number"
-	// 合同签署时间                                    (                            )
+	// 合同签署时间
 	ConstructionInfoSelectColumnContractSigningTime ConstructionInfoSelectColumn = "contract_signing_time"
-	// 服务启用日期                                    (                            )
+	// 服务启用日期
 	ConstructionInfoSelectColumnServiceActivationDate ConstructionInfoSelectColumn = "service_activation_date"
-	// 证明有效期                                      (                            )
+	// 证明有效期
 	ConstructionInfoSelectColumnProofValidDate ConstructionInfoSelectColumn = "proof_valid_date"
-	// 经纬度                                          (                            )
+	// 经纬度
 	ConstructionInfoSelectColumnCoordinate ConstructionInfoSelectColumn = "coordinate"
-	// 安装时间                                        (                            )
+	// 安装时间
 	ConstructionInfoSelectColumnInstallationTime ConstructionInfoSelectColumn = "installation_time"
-	// 项目名称标签                                    (                            )
+	// 项目名称标签
 	ConstructionInfoSelectColumnProjectNameTag ConstructionInfoSelectColumn = "project_name_tag"
-	// 进出口数量                                      (                            )
+	// 进出口数量
 	ConstructionInfoSelectColumnImportExportQuantity ConstructionInfoSelectColumn = "import_export_quantity"
-	// 停用原因                                        (                            )
+	// 停用原因
 	ConstructionInfoSelectColumnDeactivationReason ConstructionInfoSelectColumn = "deactivation_reason"
-	// 未安装原因                                      (                            )
+	// 未安装原因
 	ConstructionInfoSelectColumnUninstalledReason ConstructionInfoSelectColumn = "uninstalled_reason"
-	// 证明起始有效期                                  (                            )
+	// 证明起始有效期
 	ConstructionInfoSelectColumnProofValidDateUntil ConstructionInfoSelectColumn = "proof_valid_date_until"
-	// 类型（1.工地 2.矿山）                           (                            )
+	// 类型（1.工地 2.矿山）
 	ConstructionInfoSelectColumnConstructionType ConstructionInfoSelectColumn = "construction_type"
-	// 联系人                                          (                            )
+	// 联系人
 	ConstructionInfoSelectColumnContactPerson ConstructionInfoSelectColumn = "contact_person"
-	// 联系电话                                        (                            )
+	// 联系电话
 	ConstructionInfoSelectColumnContactPhone ConstructionInfoSelectColumn = "contact_phone"
-	// 是否完工（0.未完工 1.已完工 2.已停用）          (                            )
+	// 是否完工（0.未完工 1.已完工 2.已停用）
 	ConstructionInfoSelectColumnFinished ConstructionInfoSelectColumn = "finished"
-	// 是否市直属                                      (                            )
+	// 是否市直属
 	ConstructionInfoSelectColumnIsCityDirectly ConstructionInfoSelectColumn = "is_city_directly"
-	// 是否安装（0.未申请 1.已安装 2.已申请未安装）    (                            )
+	// 是否安装（0.未申请 1.已安装 2.已申请未安装）
 	ConstructionInfoSelectColumnIsInstallation ConstructionInfoSelectColumn = "is_installation"
-	// 是否删除                                        (                            )
+	// 是否删除
 	ConstructionInfoSelectColumnIsDeleted ConstructionInfoSelectColumn = "is_deleted"
-	// 登记时间                                        (                            )
+	// 登记时间
 	ConstructionInfoSelectColumnRegistrationTime ConstructionInfoSelectColumn = "registration_time"
-	// 创建时间                                        (                            )
+	// 创建时间
 	ConstructionInfoSelectColumnCreatedAt ConstructionInfoSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	ConstructionInfoSelectColumnCreatedBy ConstructionInfoSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	ConstructionInfoSelectColumnUpdatedAt ConstructionInfoSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	ConstructionInfoSelectColumnUpdatedBy ConstructionInfoSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	ConstructionInfoSelectColumnDeletedAt ConstructionInfoSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	ConstructionInfoSelectColumnDeletedBy ConstructionInfoSelectColumn = "deleted_by"
@@ -1597,19 +1571,19 @@ const (
 	ConstructionUploadPicSelectColumnConstructionUploadPicID ConstructionUploadPicSelectColumn = "construction_upload_pic_id"
 	// 工地ID                                          ( construction_info 工地信息表的construction_info_id )
 	ConstructionUploadPicSelectColumnConstructionInfoID ConstructionUploadPicSelectColumn = "construction_info_id"
-	// 图片                                            (                                                        )
+	// 图片
 	ConstructionUploadPicSelectColumnPictureURL ConstructionUploadPicSelectColumn = "picture_url"
-	// 是否删除                                        (                                                        )
+	// 是否删除
 	ConstructionUploadPicSelectColumnIsDeleted ConstructionUploadPicSelectColumn = "is_deleted"
-	// 创建时间                                        (                                                        )
+	// 创建时间
 	ConstructionUploadPicSelectColumnCreatedAt ConstructionUploadPicSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                             )
 	ConstructionUploadPicSelectColumnCreatedBy ConstructionUploadPicSelectColumn = "created_by"
-	// 修改时间                                        (                                                        )
+	// 修改时间
 	ConstructionUploadPicSelectColumnUpdatedAt ConstructionUploadPicSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                             )
 	ConstructionUploadPicSelectColumnUpdatedBy ConstructionUploadPicSelectColumn = "updated_by"
-	// 删除时间                                        (                                                        )
+	// 删除时间
 	ConstructionUploadPicSelectColumnDeletedAt ConstructionUploadPicSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                             )
 	ConstructionUploadPicSelectColumnDeletedBy ConstructionUploadPicSelectColumn = "deleted_by"
@@ -1668,23 +1642,23 @@ const (
 	OfflineRegistrationRecordSelectColumnOfflineRegistrationRecord OfflineRegistrationRecordSelectColumn = "offline_registration_record"
 	// 停运登记表的ID                                  ( outage_registration 停运登记表的outage_registration_id )
 	OfflineRegistrationRecordSelectColumnOutageRegistrationID OfflineRegistrationRecordSelectColumn = "outage_registration_id"
-	// 登记内容                                        (                                                            )
+	// 登记内容
 	OfflineRegistrationRecordSelectColumnRegistrationContent OfflineRegistrationRecordSelectColumn = "registration_content"
-	// 登记时间                                        (                                                            )
+	// 登记时间
 	OfflineRegistrationRecordSelectColumnRegistrationTime OfflineRegistrationRecordSelectColumn = "registration_time"
-	// 登记人                                          (                                                            )
+	// 登记人
 	OfflineRegistrationRecordSelectColumnRegistrant OfflineRegistrationRecordSelectColumn = "registrant"
-	// 是否删除                                        (                                                            )
+	// 是否删除
 	OfflineRegistrationRecordSelectColumnIsDeleted OfflineRegistrationRecordSelectColumn = "is_deleted"
-	// 创建时间                                        (                                                            )
+	// 创建时间
 	OfflineRegistrationRecordSelectColumnCreatedAt OfflineRegistrationRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                                 )
 	OfflineRegistrationRecordSelectColumnCreatedBy OfflineRegistrationRecordSelectColumn = "created_by"
-	// 修改时间                                        (                                                            )
+	// 修改时间
 	OfflineRegistrationRecordSelectColumnUpdatedAt OfflineRegistrationRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                                 )
 	OfflineRegistrationRecordSelectColumnUpdatedBy OfflineRegistrationRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                                                            )
+	// 删除时间
 	OfflineRegistrationRecordSelectColumnDeletedAt OfflineRegistrationRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                                 )
 	OfflineRegistrationRecordSelectColumnDeletedBy OfflineRegistrationRecordSelectColumn = "deleted_by"
@@ -1745,37 +1719,37 @@ const (
 	SnapshotSystemPassingAlarmSelectColumnSnapshotSystemPassingAlarmID SnapshotSystemPassingAlarmSelectColumn = "snapshot_system_passing_alarm_id"
 	// 过车记录ID                                                 ( vehicle_passing_record 过车记录表的vehicle_passing_record_id )
 	SnapshotSystemPassingAlarmSelectColumnPassingID SnapshotSystemPassingAlarmSelectColumn = "passing_id"
-	// vehicle_info 车辆信息表 的vehicle_id                   (                                                              )
+	// vehicle_info 车辆信息表 的vehicle_id
 	SnapshotSystemPassingAlarmSelectColumnVehicleID SnapshotSystemPassingAlarmSelectColumn = "vehicle_id"
-	// 车牌号                                                     (                                                              )
+	// 车牌号
 	SnapshotSystemPassingAlarmSelectColumnLicensePlateNumber SnapshotSystemPassingAlarmSelectColumn = "license_plate_number"
-	// 登记时间                                                   (                                                              )
+	// 登记时间
 	SnapshotSystemPassingAlarmSelectColumnRegistrationTime SnapshotSystemPassingAlarmSelectColumn = "registration_time"
-	// 监管时间                                                   (                                                              )
+	// 监管时间
 	SnapshotSystemPassingAlarmSelectColumnSupervisionTime SnapshotSystemPassingAlarmSelectColumn = "supervision_time"
-	// 备注                                                       (                                                              )
+	// 备注
 	SnapshotSystemPassingAlarmSelectColumnRemarks SnapshotSystemPassingAlarmSelectColumn = "remarks"
 	// 摄像头ID                                                   ( construction_camera 工地摄像头表的construction_camera_id )
 	SnapshotSystemPassingAlarmSelectColumnCameraID SnapshotSystemPassingAlarmSelectColumn = "camera_id"
-	// 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） (                                                              )
+	// 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台）
 	SnapshotSystemPassingAlarmSelectColumnAlarmType SnapshotSystemPassingAlarmSelectColumn = "alarm_type"
-	// 审核状态                                                   (                                                              )
+	// 审核状态
 	SnapshotSystemPassingAlarmSelectColumnReviewStatus SnapshotSystemPassingAlarmSelectColumn = "review_status"
 	// 车辆类型                                                   ( 车辆类型字典                                             )
 	SnapshotSystemPassingAlarmSelectColumnVehicleType SnapshotSystemPassingAlarmSelectColumn = "vehicle_type"
-	// 是否在线                                                   (                                                              )
+	// 是否在线
 	SnapshotSystemPassingAlarmSelectColumnIsOnline SnapshotSystemPassingAlarmSelectColumn = "is_online"
-	// 是否监管                                                   (                                                              )
+	// 是否监管
 	SnapshotSystemPassingAlarmSelectColumnIsSupervision SnapshotSystemPassingAlarmSelectColumn = "is_supervision"
-	// 创建时间                                                   (                                                              )
+	// 创建时间
 	SnapshotSystemPassingAlarmSelectColumnCreatedAt SnapshotSystemPassingAlarmSelectColumn = "created_at"
 	// 创建人                                                     ( system_user表的user_id                                   )
 	SnapshotSystemPassingAlarmSelectColumnCreatedBy SnapshotSystemPassingAlarmSelectColumn = "created_by"
-	// 修改时间                                                   (                                                              )
+	// 修改时间
 	SnapshotSystemPassingAlarmSelectColumnUpdatedAt SnapshotSystemPassingAlarmSelectColumn = "updated_at"
 	// 修改人                                                     ( system_user表的user_id                                   )
 	SnapshotSystemPassingAlarmSelectColumnUpdatedBy SnapshotSystemPassingAlarmSelectColumn = "updated_by"
-	// 删除时间                                                   (                                                              )
+	// 删除时间
 	SnapshotSystemPassingAlarmSelectColumnDeletedAt SnapshotSystemPassingAlarmSelectColumn = "deleted_at"
 	// 删除人                                                     ( system_user表的user_id                                   )
 	SnapshotSystemPassingAlarmSelectColumnDeletedBy SnapshotSystemPassingAlarmSelectColumn = "deleted_by"
@@ -1841,35 +1815,35 @@ const (
 	VehiclePassingRecordSelectColumnID VehiclePassingRecordSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
 	VehiclePassingRecordSelectColumnVehiclePassingRecordID VehiclePassingRecordSelectColumn = "vehicle_passing_record_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehiclePassingRecordSelectColumnVehicleID VehiclePassingRecordSelectColumn = "vehicle_id"
-	// 车牌号                                          (                                                              )
+	// 车牌号
 	VehiclePassingRecordSelectColumnLicensePlateNumber VehiclePassingRecordSelectColumn = "license_plate_number"
-	// 过车时间                                        (                                                              )
+	// 过车时间
 	VehiclePassingRecordSelectColumnPassingTime VehiclePassingRecordSelectColumn = "passing_time"
-	// 登记时间                                        (                                                              )
+	// 登记时间
 	VehiclePassingRecordSelectColumnRegistrationTime VehiclePassingRecordSelectColumn = "registration_time"
 	// 摄像头ID                                        ( construction_camera 工地摄像头表的construction_camera_id )
 	VehiclePassingRecordSelectColumnCameraID VehiclePassingRecordSelectColumn = "camera_id"
-	// 过车类型                                        (                                                              )
+	// 过车类型
 	VehiclePassingRecordSelectColumnPassType VehiclePassingRecordSelectColumn = "pass_type"
-	// 图片地址                                        (                                                              )
+	// 图片地址
 	VehiclePassingRecordSelectColumnPictureURL VehiclePassingRecordSelectColumn = "picture_url"
-	// 审核状态                                        (                                                              )
+	// 审核状态
 	VehiclePassingRecordSelectColumnReviewStatus VehiclePassingRecordSelectColumn = "review_status"
-	// 车辆类型                                        (                                                              )
+	// 车辆类型
 	VehiclePassingRecordSelectColumnVehicleType VehiclePassingRecordSelectColumn = "vehicle_type"
-	// 是否在线                                        (                                                              )
+	// 是否在线
 	VehiclePassingRecordSelectColumnIsOnline VehiclePassingRecordSelectColumn = "is_online"
-	// 创建时间                                        (                                                              )
+	// 创建时间
 	VehiclePassingRecordSelectColumnCreatedAt VehiclePassingRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                                   )
 	VehiclePassingRecordSelectColumnCreatedBy VehiclePassingRecordSelectColumn = "created_by"
-	// 修改时间                                        (                                                              )
+	// 修改时间
 	VehiclePassingRecordSelectColumnUpdatedAt VehiclePassingRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                                   )
 	VehiclePassingRecordSelectColumnUpdatedBy VehiclePassingRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                                                              )
+	// 删除时间
 	VehiclePassingRecordSelectColumnDeletedAt VehiclePassingRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                                   )
 	VehiclePassingRecordSelectColumnDeletedBy VehiclePassingRecordSelectColumn = "deleted_by"

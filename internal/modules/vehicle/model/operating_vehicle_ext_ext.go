@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden OperatingVehicleExtLoader string *VehicleSupervision/internal/modules/vehicle/model.OperatingVehicleExt
 
 func (t OperatingVehicleExt) TableName() string {
-	return "OperatingVehicleExt"
+	return "operating_vehicle_ext"
 }
 
 func (t *OperatingVehicleExt) NewLoader() *OperatingVehicleExtLoader {

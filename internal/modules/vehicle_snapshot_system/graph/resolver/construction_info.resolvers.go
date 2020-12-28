@@ -66,10 +66,10 @@ func (r *mutationResolver) DeleteConstructionInfoByPk(ctx context.Context, Id in
 }
 
 func (r *mutationResolver) InsertConstructionInfo(ctx context.Context, objects []*model.ConstructionInfoInsertInput) (*model.ConstructionInfoMutationResponse, error) {
-	rs := []*model1.ConstructionInfo{}
+	rs := make([]*model1.ConstructionInfo, 0)
 	for _, object := range objects {
 		v := &model1.ConstructionInfo{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.ConstructionInfo{}).Create(&rs)
@@ -119,13 +119,13 @@ func (r *mutationResolver) UpdateConstructionInfoByPk(ctx context.Context, inc *
 	qt := util.NewQueryTranslator(tx, &model1.ConstructionInfo{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.ConstructionInfo
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -139,13 +139,8 @@ func (r *queryResolver) ConstructionInfo(ctx context.Context, distinctOn []model
 		Finish()
 	var rs []*model1.ConstructionInfo
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) ConstructionInfoAggregate(ctx context.Context, distinctOn []model.ConstructionInfoSelectColumn, limit *int, offset *int, orderBy []*model.ConstructionInfoOrderBy, where *model.ConstructionInfoBoolExp) (*model.ConstructionInfoAggregate, error) {
@@ -161,26 +156,15 @@ func (r *queryResolver) ConstructionInfoAggregate(ctx context.Context, distinctO
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) ConstructionInfoByPk(ctx context.Context, Id int64) (*model1.ConstructionInfo, error) {
 	var rs model1.ConstructionInfo
 	tx := db.DB.Model(&model1.ConstructionInfo{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }
 
 // Mutation returns generated.MutationResolver implementation.

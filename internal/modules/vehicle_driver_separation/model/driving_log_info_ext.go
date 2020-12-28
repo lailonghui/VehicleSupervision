@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DrivingLogInfoLoader string *VehicleSupervision/internal/modules/vehicle_driver_separation/model.DrivingLogInfo
 
 func (t DrivingLogInfo) TableName() string {
-	return "DrivingLogInfo"
+	return "driving_log_info"
 }
 
 func (t *DrivingLogInfo) NewLoader() *DrivingLogInfoLoader {

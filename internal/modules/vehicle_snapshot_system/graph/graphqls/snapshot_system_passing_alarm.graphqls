@@ -15,23 +15,23 @@ type SnapshotSystemPassingAlarm {
 	"""
 	passing_id: String
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                   (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id                   
 	"""
 	vehicle_id: String!
 	"""
-	 车牌号                                                     (                                                              )
+	 车牌号                                                     
 	"""
 	license_plate_number: String
 	"""
-	 登记时间                                                   (                                                              )
+	 登记时间                                                   
 	"""
 	registration_time: Timestamptz
 	"""
-	 监管时间                                                   (                                                              )
+	 监管时间                                                   
 	"""
 	supervision_time: Timestamptz
 	"""
-	 备注                                                       (                                                              )
+	 备注                                                       
 	"""
 	remarks: String
 	"""
@@ -39,11 +39,11 @@ type SnapshotSystemPassingAlarm {
 	"""
 	camera_id: String
 	"""
-	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） (                                                              )
+	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） 
 	"""
 	alarm_type: Int
 	"""
-	 审核状态                                                   (                                                              )
+	 审核状态                                                   
 	"""
 	review_status: String
 	"""
@@ -51,15 +51,15 @@ type SnapshotSystemPassingAlarm {
 	"""
 	vehicle_type: Int
 	"""
-	 是否在线                                                   (                                                              )
+	 是否在线                                                   
 	"""
 	is_online: Boolean
 	"""
-	 是否监管                                                   (                                                              )
+	 是否监管                                                   
 	"""
 	is_supervision: Boolean
 	"""
-	 创建时间                                                   (                                                              )
+	 创建时间                                                   
 	"""
 	created_at: Timestamptz!
 	"""
@@ -67,7 +67,7 @@ type SnapshotSystemPassingAlarm {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                   (                                                              )
+	 修改时间                                                   
 	"""
 	updated_at: Timestamptz
 	"""
@@ -75,7 +75,7 @@ type SnapshotSystemPassingAlarm {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                   (                                                              )
+	 删除时间                                                   
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -283,10 +283,7 @@ input SnapshotSystemPassingAlarmBoolExp {
 input type for inserting data into table "snapshot_system_passing_alarm"
 """
 input SnapshotSystemPassingAlarmInsertInput {
-	id: Bigint
-	snapshot_system_passing_alarm_id: String
 	passing_id: String
-	vehicle_id: String
 	license_plate_number: String
 	registration_time: Timestamptz
 	supervision_time: Timestamptz
@@ -297,8 +294,6 @@ input SnapshotSystemPassingAlarmInsertInput {
 	vehicle_type: Int
 	is_online: Boolean
 	is_supervision: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -354,23 +349,23 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	passing_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                   (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id                   
 	"""
 	vehicle_id
 	"""
-	 车牌号                                                     (                                                              )
+	 车牌号                                                     
 	"""
 	license_plate_number
 	"""
-	 登记时间                                                   (                                                              )
+	 登记时间                                                   
 	"""
 	registration_time
 	"""
-	 监管时间                                                   (                                                              )
+	 监管时间                                                   
 	"""
 	supervision_time
 	"""
-	 备注                                                       (                                                              )
+	 备注                                                       
 	"""
 	remarks
 	"""
@@ -378,11 +373,11 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	camera_id
 	"""
-	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） (                                                              )
+	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） 
 	"""
 	alarm_type
 	"""
-	 审核状态                                                   (                                                              )
+	 审核状态                                                   
 	"""
 	review_status
 	"""
@@ -390,15 +385,15 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	vehicle_type
 	"""
-	 是否在线                                                   (                                                              )
+	 是否在线                                                   
 	"""
 	is_online
 	"""
-	 是否监管                                                   (                                                              )
+	 是否监管                                                   
 	"""
 	is_supervision
 	"""
-	 创建时间                                                   (                                                              )
+	 创建时间                                                   
 	"""
 	created_at
 	"""
@@ -406,7 +401,7 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                   (                                                              )
+	 修改时间                                                   
 	"""
 	updated_at
 	"""
@@ -414,7 +409,7 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                   (                                                              )
+	 删除时间                                                   
 	"""
 	deleted_at
 	"""

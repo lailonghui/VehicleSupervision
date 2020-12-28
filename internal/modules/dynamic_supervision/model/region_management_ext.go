@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden RegionManagementLoader string *VehicleSupervision/internal/modules/dynamic_supervision/model.RegionManagement
 
 func (t RegionManagement) TableName() string {
-	return "RegionManagement"
+	return "region_management"
 }
 
 func (t *RegionManagement) NewLoader() *RegionManagementLoader {

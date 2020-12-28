@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleAlarmTimesRecordByPk(ctx context.Context
 }
 
 func (r *mutationResolver) InsertVehicleAlarmTimesRecord(ctx context.Context, objects []*model.VehicleAlarmTimesRecordInsertInput) (*model.VehicleAlarmTimesRecordMutationResponse, error) {
-	rs := []*model1.VehicleAlarmTimesRecord{}
+	rs := make([]*model1.VehicleAlarmTimesRecord, 0)
 	for _, object := range objects {
 		v := &model1.VehicleAlarmTimesRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleAlarmTimesRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleAlarmTimesRecordByPk(ctx context.Context
 	qt := util.NewQueryTranslator(tx, &model1.VehicleAlarmTimesRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleAlarmTimesRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleAlarmTimesRecord(ctx context.Context, distinctOn 
 		Finish()
 	var rs []*model1.VehicleAlarmTimesRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleAlarmTimesRecordAggregate(ctx context.Context, distinctOn []model.VehicleAlarmTimesRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmTimesRecordOrderBy, where *model.VehicleAlarmTimesRecordBoolExp) (*model.VehicleAlarmTimesRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleAlarmTimesRecordAggregate(ctx context.Context, di
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleAlarmTimesRecordByPk(ctx context.Context, Id int64) (*model1.VehicleAlarmTimesRecord, error) {
 	var rs model1.VehicleAlarmTimesRecord
 	tx := db.DB.Model(&model1.VehicleAlarmTimesRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

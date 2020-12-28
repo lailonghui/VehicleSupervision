@@ -27,7 +27,7 @@ type VehicleViolationDetails {
 	"""
 	illegal_code: String
 	"""
-	 违法时间                                                    (                                                              )
+	 违法时间                                                    
 	"""
 	illegal_time: Timestamptz
 	"""
@@ -35,7 +35,7 @@ type VehicleViolationDetails {
 	"""
 	illegal_handling_status: Int
 	"""
-	 违法地点                                                    (                                                              )
+	 违法地点                                                    
 	"""
 	illegal_location: String
 	"""
@@ -47,23 +47,23 @@ type VehicleViolationDetails {
 	"""
 	measured_value: String
 	"""
-	 发现机构                                                    (                                                              )
+	 发现机构                                                    
 	"""
 	discovery_agency: String
 	"""
-	 违法照片                                                    (                                                              )
+	 违法照片                                                    
 	"""
 	illegal_photo: String
 	"""
-	 是否通知驾驶员                                              (                                                              )
+	 是否通知驾驶员                                              
 	"""
 	is_notice_driver: Boolean
 	"""
-	 通知时间                                                    (                                                              )
+	 通知时间                                                    
 	"""
 	notice_time: Timestamptz
 	"""
-	 决定书号                                                    (                                                              )
+	 决定书号                                                    
 	"""
 	decision_number: String
 	"""
@@ -71,7 +71,7 @@ type VehicleViolationDetails {
 	"""
 	payment_mark: Int
 	"""
-	 当事人姓名                                                  (                                                              )
+	 当事人姓名                                                  
 	"""
 	party_name: String
 	"""
@@ -79,15 +79,15 @@ type VehicleViolationDetails {
 	"""
 	information_source: Int
 	"""
-	 驾驶人处理的交通违法记录对应的机动车信息                    (                                                              )
+	 驾驶人处理的交通违法记录对应的机动车信息                    
 	"""
 	vehicle_information: String
 	"""
-	 内网更新时间                                                (                                                              )
+	 内网更新时间                                                
 	"""
 	update_time_in: Timestamptz
 	"""
-	 是否处理                                                    (                                                              )
+	 是否处理                                                    
 	"""
 	is_handle: Boolean
 	"""
@@ -95,19 +95,19 @@ type VehicleViolationDetails {
 	"""
 	handle_by: String
 	"""
-	 处理时间                                                    (                                                              )
+	 处理时间                                                    
 	"""
 	handle_at: Timestamptz
 	"""
-	 是否发送短信                                                (                                                              )
+	 是否发送短信                                                
 	"""
 	is_send: Boolean
 	"""
-	 是否删除                                                    (                                                              )
+	 是否删除                                                    
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                    (                                                              )
+	 创建时间                                                    
 	"""
 	created_at: Timestamptz!
 	"""
@@ -115,7 +115,7 @@ type VehicleViolationDetails {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                    (                                                              )
+	 修改时间                                                    
 	"""
 	updated_at: Timestamptz
 	"""
@@ -123,7 +123,7 @@ type VehicleViolationDetails {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                    (                                                              )
+	 删除时间                                                    
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -387,8 +387,6 @@ input VehicleViolationDetailsBoolExp {
 input type for inserting data into table "vehicle_violation_details"
 """
 input VehicleViolationDetailsInsertInput {
-	id: Bigint
-	violation_detail_id: String
 	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
@@ -413,8 +411,6 @@ input VehicleViolationDetailsInsertInput {
 	handle_at: Timestamptz
 	is_send: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -495,7 +491,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	illegal_code
 	"""
-	 违法时间                                                    (                                                              )
+	 违法时间                                                    
 	"""
 	illegal_time
 	"""
@@ -503,7 +499,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	illegal_handling_status
 	"""
-	 违法地点                                                    (                                                              )
+	 违法地点                                                    
 	"""
 	illegal_location
 	"""
@@ -515,23 +511,23 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	measured_value
 	"""
-	 发现机构                                                    (                                                              )
+	 发现机构                                                    
 	"""
 	discovery_agency
 	"""
-	 违法照片                                                    (                                                              )
+	 违法照片                                                    
 	"""
 	illegal_photo
 	"""
-	 是否通知驾驶员                                              (                                                              )
+	 是否通知驾驶员                                              
 	"""
 	is_notice_driver
 	"""
-	 通知时间                                                    (                                                              )
+	 通知时间                                                    
 	"""
 	notice_time
 	"""
-	 决定书号                                                    (                                                              )
+	 决定书号                                                    
 	"""
 	decision_number
 	"""
@@ -539,7 +535,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	payment_mark
 	"""
-	 当事人姓名                                                  (                                                              )
+	 当事人姓名                                                  
 	"""
 	party_name
 	"""
@@ -547,15 +543,15 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	information_source
 	"""
-	 驾驶人处理的交通违法记录对应的机动车信息                    (                                                              )
+	 驾驶人处理的交通违法记录对应的机动车信息                    
 	"""
 	vehicle_information
 	"""
-	 内网更新时间                                                (                                                              )
+	 内网更新时间                                                
 	"""
 	update_time_in
 	"""
-	 是否处理                                                    (                                                              )
+	 是否处理                                                    
 	"""
 	is_handle
 	"""
@@ -563,19 +559,19 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	handle_by
 	"""
-	 处理时间                                                    (                                                              )
+	 处理时间                                                    
 	"""
 	handle_at
 	"""
-	 是否发送短信                                                (                                                              )
+	 是否发送短信                                                
 	"""
 	is_send
 	"""
-	 是否删除                                                    (                                                              )
+	 是否删除                                                    
 	"""
 	is_deleted
 	"""
-	 创建时间                                                    (                                                              )
+	 创建时间                                                    
 	"""
 	created_at
 	"""
@@ -583,7 +579,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                    (                                                              )
+	 修改时间                                                    
 	"""
 	updated_at
 	"""
@@ -591,7 +587,7 @@ enum VehicleViolationDetailsSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                    (                                                              )
+	 删除时间                                                    
 	"""
 	deleted_at
 	"""

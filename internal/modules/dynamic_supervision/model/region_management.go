@@ -12,41 +12,41 @@ type RegionManagement struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	RegionManagementID string `json:"region_management_id"`
-	// 区域ID                                          (                            )
+	// 区域ID
 	RegionID *string `json:"region_id"`
-	// 区域名称                                        (                            )
+	// 区域名称
 	RegionName *string `json:"region_name"`
-	// 区域类型                                        (                            )
+	// 区域类型
 	RegionType *string `json:"region_type"`
-	// 区域性质                                        (                            )
+	// 区域性质
 	RegionNature *string `json:"region_nature"`
-	// 报警开始时间                                    (                            )
+	// 报警开始时间
 	AlarmBeginTime *time.Time `json:"alarm_begin_time"`
-	// 报警截止时间                                    (                            )
+	// 报警截止时间
 	AlarmEndTime *time.Time `json:"alarm_end_time"`
-	// 企业名称                                        (                            )
+	// 企业名称
 	EnterpriseName *string `json:"enterprise_name"`
-	// 持续时间                                        (                            )
+	// 持续时间
 	Duration *int `json:"duration_"`
-	// 最高速度                                        (                            )
+	// 最高速度
 	MaxSpeed *int `json:"max_speed"`
-	// 圆形半径                                        (                            )
+	// 圆形半径
 	CircleRadius *int `json:"circle_radius"`
-	// 区域经纬度                                      (                            )
+	// 区域经纬度
 	RegionCoordinate *string `json:"region_coordinate"`
-	// 是否超级区域                                    (                            )
+	// 是否超级区域
 	IsSuperRegion *bool `json:"is_super_region"`
-	// 是否删除                                        (                            )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
-	// 创建时间                                        (                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id )
 	DeletedBy *string `json:"deleted_by"`

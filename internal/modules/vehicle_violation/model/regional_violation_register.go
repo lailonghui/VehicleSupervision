@@ -20,30 +20,30 @@ type RegionalViolationRegister struct {
 	DriverID *string `json:"driver_id"`
 	// 违法代码                                                     ( VIO_CODEWFDM 违法描述字典表                    )
 	IllegalCode *int `json:"illegal_code"`
-	// 违法时间                                                     (                                                    )
+	// 违法时间
 	IllegalTime *time.Time `json:"illegal_time"`
 	// 类型(1车辆2驾驶员)                                           ( 违法类型字典表                                 )
 	IllegalType *int `json:"illegal_type"`
-	// 登记时间                                                     (                                                    )
+	// 登记时间
 	RegisterTime *time.Time `json:"register_time"`
-	// 处理机关                                                     (                                                    )
+	// 处理机关
 	ProcessingAgency *string `json:"processing_agency"`
 	// 操作员                                                       ( system_user表的user_id                         )
 	Operator *string `json:"operator"`
 	// 类型(false未登记true已登记)                                  ( fase                                               )
 	IsRegister *bool `json:"is_register"`
-	// 创建时间                                                     (                                                    )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                                       ( system_user表的user_id                         )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                                     (                                                    )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                                       ( system_user表的user_id                         )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                                     (                                                    )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                                       ( system_user表的user_id                         )
 	DeletedBy *string `json:"deleted_by"`
-	// 是否删除                                                     (                                                    )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
 }

@@ -15,15 +15,15 @@ type ConstructionUploadPic {
 	"""
 	construction_info_id: String
 	"""
-	 图片                                            (                                                        )
+	 图片                                            
 	"""
 	picture_url: String
 	"""
-	 是否删除                                        (                                                        )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                        )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -31,7 +31,7 @@ type ConstructionUploadPic {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                        )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -39,7 +39,7 @@ type ConstructionUploadPic {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                        )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -195,13 +195,9 @@ input ConstructionUploadPicBoolExp {
 input type for inserting data into table "construction_upload_pic"
 """
 input ConstructionUploadPicInsertInput {
-	id: Bigint
-	construction_upload_pic_id: String
 	construction_info_id: String
 	picture_url: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -246,15 +242,15 @@ enum ConstructionUploadPicSelectColumn {
 	"""
 	construction_info_id
 	"""
-	 图片                                            (                                                        )
+	 图片                                            
 	"""
 	picture_url
 	"""
-	 是否删除                                        (                                                        )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                        )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -262,7 +258,7 @@ enum ConstructionUploadPicSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                        )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -270,7 +266,7 @@ enum ConstructionUploadPicSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                        )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

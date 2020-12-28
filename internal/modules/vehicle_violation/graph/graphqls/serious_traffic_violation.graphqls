@@ -19,11 +19,11 @@ type SeriousTrafficViolation {
 	"""
 	illegal_code: String
 	"""
-	 违法日期                                        (                                 )
+	 违法日期                                        
 	"""
 	illegal_time: Timestamptz
 	"""
-	 创建时间                                        (                                 )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -31,7 +31,7 @@ type SeriousTrafficViolation {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                 )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -39,7 +39,7 @@ type SeriousTrafficViolation {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                 )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -195,13 +195,9 @@ input SeriousTrafficViolationBoolExp {
 input type for inserting data into table "serious_traffic_violation"
 """
 input SeriousTrafficViolationInsertInput {
-	id: Bigint
-	serious_traffic_violation_id: String
 	vehicle_id: String
 	illegal_code: String
 	illegal_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -250,11 +246,11 @@ enum SeriousTrafficViolationSelectColumn {
 	"""
 	illegal_code
 	"""
-	 违法日期                                        (                                 )
+	 违法日期                                        
 	"""
 	illegal_time
 	"""
-	 创建时间                                        (                                 )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -262,7 +258,7 @@ enum SeriousTrafficViolationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                 )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -270,7 +266,7 @@ enum SeriousTrafficViolationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                 )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

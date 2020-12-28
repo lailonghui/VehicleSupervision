@@ -11,7 +11,7 @@ type VehicleExitCatalogReview {
 	"""
 	vehicle_exit_catalog_review_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                     (                                      )
+	 vehicle_info 车辆信息表 的vehicle_id                     
 	"""
 	vehicle_id: String!
 	"""
@@ -19,23 +19,23 @@ type VehicleExitCatalogReview {
 	"""
 	enterprise_id: String
 	"""
-	 备注                                                         (                                      )
+	 备注                                                         
 	"""
 	remarks: String
 	"""
-	 审核状态  0.未完成 1.完成                                    (                                      )
+	 审核状态  0.未完成 1.完成                                    
 	"""
 	review_status: Int
 	"""
-	 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             (                                      )
+	 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             
 	"""
 	exit_type: Int
 	"""
-	 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} (                                      )
+	 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} 
 	"""
 	exit_step: Int
 	"""
-	 地区ID                                                       (                                      )
+	 地区ID                                                       
 	"""
 	area_id: String
 	"""
@@ -43,19 +43,19 @@ type VehicleExitCatalogReview {
 	"""
 	original_enterprise_id: String
 	"""
-	 原单位名称                                                   (                                      )
+	 原单位名称                                                   
 	"""
 	original_enterprise_name: String
 	"""
-	 原自编号                                                     (                                      )
+	 原自编号                                                     
 	"""
 	original_self_number: String
 	"""
-	 是否删除                                                     (                                      )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                     (                                      )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -63,7 +63,7 @@ type VehicleExitCatalogReview {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                      )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -71,7 +71,7 @@ type VehicleExitCatalogReview {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                      )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -283,9 +283,6 @@ input VehicleExitCatalogReviewBoolExp {
 input type for inserting data into table "vehicle_exit_catalog_review"
 """
 input VehicleExitCatalogReviewInsertInput {
-	id: Bigint
-	vehicle_exit_catalog_review_id: String
-	vehicle_id: String
 	enterprise_id: String
 	remarks: String
 	review_status: Int
@@ -296,8 +293,6 @@ input VehicleExitCatalogReviewInsertInput {
 	original_enterprise_name: String
 	original_self_number: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -349,7 +344,7 @@ enum VehicleExitCatalogReviewSelectColumn {
 	"""
 	vehicle_exit_catalog_review_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                     (                                      )
+	 vehicle_info 车辆信息表 的vehicle_id                     
 	"""
 	vehicle_id
 	"""
@@ -357,23 +352,23 @@ enum VehicleExitCatalogReviewSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 备注                                                         (                                      )
+	 备注                                                         
 	"""
 	remarks
 	"""
-	 审核状态  0.未完成 1.完成                                    (                                      )
+	 审核状态  0.未完成 1.完成                                    
 	"""
 	review_status
 	"""
-	 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             (                                      )
+	 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             
 	"""
 	exit_type
 	"""
-	 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} (                                      )
+	 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} 
 	"""
 	exit_step
 	"""
-	 地区ID                                                       (                                      )
+	 地区ID                                                       
 	"""
 	area_id
 	"""
@@ -381,19 +376,19 @@ enum VehicleExitCatalogReviewSelectColumn {
 	"""
 	original_enterprise_id
 	"""
-	 原单位名称                                                   (                                      )
+	 原单位名称                                                   
 	"""
 	original_enterprise_name
 	"""
-	 原自编号                                                     (                                      )
+	 原自编号                                                     
 	"""
 	original_self_number
 	"""
-	 是否删除                                                     (                                      )
+	 是否删除                                                     
 	"""
 	is_deleted
 	"""
-	 创建时间                                                     (                                      )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -401,7 +396,7 @@ enum VehicleExitCatalogReviewSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                      )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -409,7 +404,7 @@ enum VehicleExitCatalogReviewSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                      )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""

@@ -11,11 +11,11 @@ type VehicleEnterpriseChangeLog {
 	"""
 	vehicle_enterprise_change_log_id: String!
 	"""
-	 变更类型                                        (                                                             )
+	 变更类型                                        
 	"""
 	changed_type: Int
 	"""
-	 变更步骤                                        (                                                             )
+	 变更步骤                                        
 	"""
 	changed_step: Int
 	"""
@@ -27,11 +27,11 @@ type VehicleEnterpriseChangeLog {
 	"""
 	change_review_id: String
 	"""
-	 审核状态  0.未审核  1.通过  2.退回  3.撤销      (                                                             )
+	 审核状态  0.未审核  1.通过  2.退回  3.撤销      
 	"""
 	review_status: Int
 	"""
-	 创建时间                                        (                                                             )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -39,7 +39,7 @@ type VehicleEnterpriseChangeLog {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                             )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -47,7 +47,7 @@ type VehicleEnterpriseChangeLog {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                             )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -235,15 +235,11 @@ input VehicleEnterpriseChangeLogBoolExp {
 input type for inserting data into table "vehicle_enterprise_change_log"
 """
 input VehicleEnterpriseChangeLogInsertInput {
-	id: Bigint
-	vehicle_enterprise_change_log_id: String
 	changed_type: Int
 	changed_step: Int
 	operator: String
 	change_review_id: String
 	review_status: Int
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -289,11 +285,11 @@ enum VehicleEnterpriseChangeLogSelectColumn {
 	"""
 	vehicle_enterprise_change_log_id
 	"""
-	 变更类型                                        (                                                             )
+	 变更类型                                        
 	"""
 	changed_type
 	"""
-	 变更步骤                                        (                                                             )
+	 变更步骤                                        
 	"""
 	changed_step
 	"""
@@ -305,11 +301,11 @@ enum VehicleEnterpriseChangeLogSelectColumn {
 	"""
 	change_review_id
 	"""
-	 审核状态  0.未审核  1.通过  2.退回  3.撤销      (                                                             )
+	 审核状态  0.未审核  1.通过  2.退回  3.撤销      
 	"""
 	review_status
 	"""
-	 创建时间                                        (                                                             )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -317,7 +313,7 @@ enum VehicleEnterpriseChangeLogSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                             )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -325,7 +321,7 @@ enum VehicleEnterpriseChangeLogSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                             )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

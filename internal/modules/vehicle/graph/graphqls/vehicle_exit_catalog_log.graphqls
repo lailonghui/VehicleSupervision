@@ -15,27 +15,27 @@ type VehicleExitCatalogLog {
 	"""
 	vehicle_exit_catalog_review_id: String
 	"""
-	 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             (                                                              )
+	 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             
 	"""
 	exit_type: Int
 	"""
-	 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} (                                                              )
+	 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} 
 	"""
 	exit_step: Int
 	"""
-	 操作人                                                       (                                                              )
+	 操作人                                                       
 	"""
 	operator: String
 	"""
-	 审核状态  0.申请  1.审批  2.退回  3.撤销                     (                                                              )
+	 审核状态  0.申请  1.审批  2.退回  3.撤销                     
 	"""
 	review_status: Int
 	"""
-	 审批用户组  1.运输企业  2.管理部门                           (                                                              )
+	 审批用户组  1.运输企业  2.管理部门                           
 	"""
 	review_user_group: Int
 	"""
-	 创建时间                                                     (                                                              )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -43,7 +43,7 @@ type VehicleExitCatalogLog {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                                              )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -51,7 +51,7 @@ type VehicleExitCatalogLog {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                                              )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -251,16 +251,12 @@ input VehicleExitCatalogLogBoolExp {
 input type for inserting data into table "vehicle_exit_catalog_log"
 """
 input VehicleExitCatalogLogInsertInput {
-	id: Bigint
-	vehicle_exit_catalog_log_id: String
 	vehicle_exit_catalog_review_id: String
 	exit_type: Int
 	exit_step: Int
 	operator: String
 	review_status: Int
 	review_user_group: Int
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -312,27 +308,27 @@ enum VehicleExitCatalogLogSelectColumn {
 	"""
 	vehicle_exit_catalog_review_id
 	"""
-	 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             (                                                              )
+	 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             
 	"""
 	exit_type
 	"""
-	 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} (                                                              )
+	 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} 
 	"""
 	exit_step
 	"""
-	 操作人                                                       (                                                              )
+	 操作人                                                       
 	"""
 	operator
 	"""
-	 审核状态  0.申请  1.审批  2.退回  3.撤销                     (                                                              )
+	 审核状态  0.申请  1.审批  2.退回  3.撤销                     
 	"""
 	review_status
 	"""
-	 审批用户组  1.运输企业  2.管理部门                           (                                                              )
+	 审批用户组  1.运输企业  2.管理部门                           
 	"""
 	review_user_group
 	"""
-	 创建时间                                                     (                                                              )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -340,7 +336,7 @@ enum VehicleExitCatalogLogSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                                              )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -348,7 +344,7 @@ enum VehicleExitCatalogLogSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                                              )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""

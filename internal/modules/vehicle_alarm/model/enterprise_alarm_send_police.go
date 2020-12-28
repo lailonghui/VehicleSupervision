@@ -14,27 +14,27 @@ type EnterpriseAlarmSendPolice struct {
 	EnterpriseAlarmSendPoliceID string `json:"enterprise_alarm_send_police_id"`
 	// 所在企业id                                      ( enterprise_info表的enterprise_id )
 	EnterpriseID *string `json:"enterprise_id"`
-	// 企业名称                                        (                                      )
+	// 企业名称
 	EnterpriseName *string `json:"enterprise_name"`
-	// 企业联系人                                      (                                      )
+	// 企业联系人
 	EnterpriseContact *string `json:"enterprise_contact"`
-	// 企业联系电话                                    (                                      )
+	// 企业联系电话
 	EnterprisePhone *string `json:"enterprise_phone"`
-	// 交警                                            (                                      )
+	// 交警
 	Police *string `json:"police"`
-	// 交警联系电话                                    (                                      )
+	// 交警联系电话
 	PolicePhone *string `json:"police_phone"`
-	// 交警所属部门                                    (                                      )
+	// 交警所属部门
 	PhliceDepartment *string `json:"phlice_department"`
-	// 创建时间                                        (                                      )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id           )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                                      )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id           )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                                      )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id           )
 	DeletedBy *string `json:"deleted_by"`

@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteMuckTruckOnlineByPk(ctx context.Context, Id int
 }
 
 func (r *mutationResolver) InsertMuckTruckOnline(ctx context.Context, objects []*model.MuckTruckOnlineInsertInput) (*model.MuckTruckOnlineMutationResponse, error) {
-	rs := []*model1.MuckTruckOnline{}
+	rs := make([]*model1.MuckTruckOnline, 0)
 	for _, object := range objects {
 		v := &model1.MuckTruckOnline{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.MuckTruckOnline{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateMuckTruckOnlineByPk(ctx context.Context, inc *m
 	qt := util.NewQueryTranslator(tx, &model1.MuckTruckOnline{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.MuckTruckOnline
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) MuckTruckOnline(ctx context.Context, distinctOn []model.
 		Finish()
 	var rs []*model1.MuckTruckOnline
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) MuckTruckOnlineAggregate(ctx context.Context, distinctOn []model.MuckTruckOnlineSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckOnlineOrderBy, where *model.MuckTruckOnlineBoolExp) (*model.MuckTruckOnlineAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) MuckTruckOnlineAggregate(ctx context.Context, distinctOn
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) MuckTruckOnlineByPk(ctx context.Context, Id int64) (*model1.MuckTruckOnline, error) {
 	var rs model1.MuckTruckOnline
 	tx := db.DB.Model(&model1.MuckTruckOnline{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

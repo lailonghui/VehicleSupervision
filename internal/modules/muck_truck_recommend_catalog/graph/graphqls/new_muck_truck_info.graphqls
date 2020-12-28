@@ -15,43 +15,43 @@ type NewMuckTruckInfo {
 	"""
 	vehicle_id: String
 	"""
-	 车牌号                                          (                                )
+	 车牌号                                          
 	"""
 	license_plate_number: String
 	"""
-	 登记注册时间                                    (                                )
+	 登记注册时间                                    
 	"""
 	registration_time: Timestamptz
 	"""
-	 排放标准                                        (                                )
+	 排放标准                                        
 	"""
 	emission_standard: String
 	"""
-	 是否U型货箱                                     (                                )
+	 是否U型货箱                                     
 	"""
 	is_u_shaped_cargo_box: Boolean
 	"""
-	 长                                              (                                )
+	 长                                              
 	"""
 	length: String
 	"""
-	 宽                                              (                                )
+	 宽                                              
 	"""
 	width: String
 	"""
-	 高                                              (                                )
+	 高                                              
 	"""
 	height: String
 	"""
-	 密封设备                                        (                                )
+	 密封设备                                        
 	"""
 	sealing_device: String
 	"""
-	 顶盖高度                                        (                                )
+	 顶盖高度                                        
 	"""
 	top_cover_height: String
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -59,7 +59,7 @@ type NewMuckTruckInfo {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -67,7 +67,7 @@ type NewMuckTruckInfo {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -251,8 +251,6 @@ input NewMuckTruckInfoBoolExp {
 input type for inserting data into table "new_muck_truck_info"
 """
 input NewMuckTruckInfoInsertInput {
-	id: Bigint
-	new_muck_truck_info_id: String
 	vehicle_id: String
 	license_plate_number: String
 	registration_time: Timestamptz
@@ -263,8 +261,6 @@ input NewMuckTruckInfoInsertInput {
 	height: String
 	sealing_device: String
 	top_cover_height: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -316,43 +312,43 @@ enum NewMuckTruckInfoSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 车牌号                                          (                                )
+	 车牌号                                          
 	"""
 	license_plate_number
 	"""
-	 登记注册时间                                    (                                )
+	 登记注册时间                                    
 	"""
 	registration_time
 	"""
-	 排放标准                                        (                                )
+	 排放标准                                        
 	"""
 	emission_standard
 	"""
-	 是否U型货箱                                     (                                )
+	 是否U型货箱                                     
 	"""
 	is_u_shaped_cargo_box
 	"""
-	 长                                              (                                )
+	 长                                              
 	"""
 	length
 	"""
-	 宽                                              (                                )
+	 宽                                              
 	"""
 	width
 	"""
-	 高                                              (                                )
+	 高                                              
 	"""
 	height
 	"""
-	 密封设备                                        (                                )
+	 密封设备                                        
 	"""
 	sealing_device
 	"""
-	 顶盖高度                                        (                                )
+	 顶盖高度                                        
 	"""
 	top_cover_height
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -360,7 +356,7 @@ enum NewMuckTruckInfoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -368,7 +364,7 @@ enum NewMuckTruckInfoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

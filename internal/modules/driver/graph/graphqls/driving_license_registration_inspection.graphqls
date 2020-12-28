@@ -11,7 +11,7 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	driver_id_info_report_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
@@ -19,15 +19,15 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	ic_card_status: Int
 	"""
-	 操作时间                                        (                            )
+	 操作时间                                        
 	"""
 	operation_time: Timestamptz
 	"""
-	 驾驶员姓名                                      (                            )
+	 驾驶员姓名                                      
 	"""
 	driver_name: String
 	"""
-	 证件号码                                        (                            )
+	 证件号码                                        
 	"""
 	license_number: String
 	"""
@@ -39,23 +39,23 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	ic_card_reading_result: String
 	"""
-	 从业资格证编码                                  (                            )
+	 从业资格证编码                                  
 	"""
 	occupational_number: String
 	"""
-	 发证机构名称                                    (                            )
+	 发证机构名称                                    
 	"""
 	driver_license_name: String
 	"""
-	 证件有效期                                      (                            )
+	 证件有效期                                      
 	"""
 	license_expire_date: Timestamptz
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -63,7 +63,7 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -71,7 +71,7 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -267,9 +267,6 @@ input DrivingLicenseRegistrationInspectionBoolExp {
 input type for inserting data into table "driving_license_registration_inspection"
 """
 input DrivingLicenseRegistrationInspectionInsertInput {
-	id: Bigint
-	driver_id_info_report_id: String
-	vehicle_id: String
 	ic_card_status: Int
 	operation_time: Timestamptz
 	driver_name: String
@@ -280,8 +277,6 @@ input DrivingLicenseRegistrationInspectionInsertInput {
 	driver_license_name: String
 	license_expire_date: Timestamptz
 	registration_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -331,7 +326,7 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	driver_id_info_report_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
@@ -339,15 +334,15 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	ic_card_status
 	"""
-	 操作时间                                        (                            )
+	 操作时间                                        
 	"""
 	operation_time
 	"""
-	 驾驶员姓名                                      (                            )
+	 驾驶员姓名                                      
 	"""
 	driver_name
 	"""
-	 证件号码                                        (                            )
+	 证件号码                                        
 	"""
 	license_number
 	"""
@@ -359,23 +354,23 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	ic_card_reading_result
 	"""
-	 从业资格证编码                                  (                            )
+	 从业资格证编码                                  
 	"""
 	occupational_number
 	"""
-	 发证机构名称                                    (                            )
+	 发证机构名称                                    
 	"""
 	driver_license_name
 	"""
-	 证件有效期                                      (                            )
+	 证件有效期                                      
 	"""
 	license_expire_date
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -383,7 +378,7 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -391,7 +386,7 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

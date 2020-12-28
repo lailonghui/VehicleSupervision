@@ -15,7 +15,7 @@ type NewMuckTruckPhoto {
 	"""
 	vehicle_id: String
 	"""
-	 路径                                            (                                )
+	 路径                                            
 	"""
 	file_path: String
 	"""
@@ -23,7 +23,7 @@ type NewMuckTruckPhoto {
 	"""
 	upload_user: String
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -31,7 +31,7 @@ type NewMuckTruckPhoto {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -39,7 +39,7 @@ type NewMuckTruckPhoto {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -195,13 +195,9 @@ input NewMuckTruckPhotoBoolExp {
 input type for inserting data into table "new_muck_truck_photo"
 """
 input NewMuckTruckPhotoInsertInput {
-	id: Bigint
-	new_muck_truck_photo_id: String
 	vehicle_id: String
 	file_path: String
 	upload_user: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -246,7 +242,7 @@ enum NewMuckTruckPhotoSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 路径                                            (                                )
+	 路径                                            
 	"""
 	file_path
 	"""
@@ -254,7 +250,7 @@ enum NewMuckTruckPhotoSelectColumn {
 	"""
 	upload_user
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -262,7 +258,7 @@ enum NewMuckTruckPhotoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -270,7 +266,7 @@ enum NewMuckTruckPhotoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

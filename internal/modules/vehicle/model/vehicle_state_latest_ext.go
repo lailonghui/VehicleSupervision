@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleStateLatestLoader string *VehicleSupervision/internal/modules/vehicle/model.VehicleStateLatest
 
 func (t VehicleStateLatest) TableName() string {
-	return "VehicleStateLatest"
+	return "vehicle_state_latest"
 }
 
 func (t *VehicleStateLatest) NewLoader() *VehicleStateLatestLoader {

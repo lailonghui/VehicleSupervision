@@ -11,23 +11,23 @@ type CaseApprovalReviewOperation {
 	"""
 	case_approval_review_operation_id: String!
 	"""
-	 审核意见                                        (                            )
+	 审核意见                                        
 	"""
 	review_opinion: String
 	"""
-	 审核结果                                        (                            )
+	 审核结果                                        
 	"""
 	review_result: String
 	"""
-	 审核人                                          (                            )
+	 审核人                                          
 	"""
 	reviewer: String
 	"""
-	 审核时间                                        (                            )
+	 审核时间                                        
 	"""
 	review_time: Timestamptz
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -35,7 +35,7 @@ type CaseApprovalReviewOperation {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -43,7 +43,7 @@ type CaseApprovalReviewOperation {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -203,14 +203,10 @@ input CaseApprovalReviewOperationBoolExp {
 input type for inserting data into table "case_approval_review_operation"
 """
 input CaseApprovalReviewOperationInsertInput {
-	id: Bigint
-	case_approval_review_operation_id: String
 	review_opinion: String
 	review_result: String
 	reviewer: String
 	review_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -252,23 +248,23 @@ enum CaseApprovalReviewOperationSelectColumn {
 	"""
 	case_approval_review_operation_id
 	"""
-	 审核意见                                        (                            )
+	 审核意见                                        
 	"""
 	review_opinion
 	"""
-	 审核结果                                        (                            )
+	 审核结果                                        
 	"""
 	review_result
 	"""
-	 审核人                                          (                            )
+	 审核人                                          
 	"""
 	reviewer
 	"""
-	 审核时间                                        (                            )
+	 审核时间                                        
 	"""
 	review_time
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -276,7 +272,7 @@ enum CaseApprovalReviewOperationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -284,7 +280,7 @@ enum CaseApprovalReviewOperationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

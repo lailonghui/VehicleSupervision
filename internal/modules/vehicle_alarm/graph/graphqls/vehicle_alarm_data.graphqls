@@ -19,35 +19,35 @@ type VehicleAlarmData {
 	"""
 	alarm_type: String
 	"""
-	 报警开始时间                                            (                                    )
+	 报警开始时间                                            
 	"""
 	alarm_start_time: Timestamptz
 	"""
-	 报警结束时间                                            (                                    )
+	 报警结束时间                                            
 	"""
 	alarm_end_time: Timestamptz
 	"""
-	 报警结束位置                                            (                                    )
+	 报警结束位置                                            
 	"""
 	alarm_end_position: String
 	"""
-	 最新报警时间                                            (                                    )
+	 最新报警时间                                            
 	"""
 	latest_alarm_time: Timestamptz
 	"""
-	 最新报警位置                                            (                                    )
+	 最新报警位置                                            
 	"""
 	latest_alarm_position: Int
 	"""
-	 报警是否有效                                            (                                    )
+	 报警是否有效                                            
 	"""
 	is_alarm_effective: Boolean
 	"""
-	 报警是否结束                                            (                                    )
+	 报警是否结束                                            
 	"""
 	is_alarm_over: Boolean
 	"""
-	 是否取消报警                                            (                                    )
+	 是否取消报警                                            
 	"""
 	is_cancel_alarm: Boolean
 	"""
@@ -55,7 +55,7 @@ type VehicleAlarmData {
 	"""
 	alarm_source: String
 	"""
-	 处理时间                                                (                                    )
+	 处理时间                                                
 	"""
 	processing_time: Timestamptz
 	"""
@@ -63,7 +63,7 @@ type VehicleAlarmData {
 	"""
 	processing_method: String
 	"""
-	 处理描述                                                (                                    )
+	 处理描述                                                
 	"""
 	processing_description: String
 	"""
@@ -75,31 +75,31 @@ type VehicleAlarmData {
 	"""
 	processing_status: String
 	"""
-	 行驶记录仪速度                                          (                                    )
+	 行驶记录仪速度                                          
 	"""
 	tachograph_speed: Numeric
 	"""
-	 GPS速度                                                 (                                    )
+	 GPS速度                                                 
 	"""
 	gps_speed: Numeric
 	"""
-	 最高速度                                                (                                    )
+	 最高速度                                                
 	"""
 	maximum_speed: Numeric
 	"""
-	 限速阀值                                                (                                    )
+	 限速阀值                                                
 	"""
 	speed_limit_threshold: Numeric
 	"""
-	 空间数据类型point表示经度(longitude)和纬度(latitude)    (                                    )
+	 空间数据类型point表示经度(longitude)和纬度(latitude)    
 	"""
 	coordinate: Point
 	"""
-	 位置描述                                                (                                    )
+	 位置描述                                                
 	"""
 	location_description: String
 	"""
-	 持续时间                                                (                                    )
+	 持续时间                                                
 	"""
 	duration: String
 	"""
@@ -107,23 +107,23 @@ type VehicleAlarmData {
 	"""
 	road_grade: String
 	"""
-	 道路名称                                                (                                    )
+	 道路名称                                                
 	"""
 	road_name: String
 	"""
-	 进区域ID                                                (                                    )
+	 进区域ID                                                
 	"""
 	area_id: String
 	"""
-	 处警ID                                                  (                                    )
+	 处警ID                                                  
 	"""
 	alarm_deal_id: String
 	"""
-	 地区                                                    (                                    )
+	 地区                                                    
 	"""
 	pid: String
 	"""
-	 记录时间                                                (                                    )
+	 记录时间                                                
 	"""
 	record_time: Timestamptz
 	"""
@@ -131,31 +131,31 @@ type VehicleAlarmData {
 	"""
 	supervisor: String
 	"""
-	 管理部门是否监管                                        (                                    )
+	 管理部门是否监管                                        
 	"""
 	is_supervise: Boolean
 	"""
-	 管理部门监管时间                                        (                                    )
+	 管理部门监管时间                                        
 	"""
 	supervision_time: Timestamptz
 	"""
-	 监管备注                                                (                                    )
+	 监管备注                                                
 	"""
 	supervision_note: String
 	"""
-	 是否解析                                                (                                    )
+	 是否解析                                                
 	"""
 	is_resolve: Boolean
 	"""
-	 工地是否处理                                            (                                    )
+	 工地是否处理                                            
 	"""
 	is_construction_site_handle: Boolean
 	"""
-	 工地处理时间                                            (                                    )
+	 工地处理时间                                            
 	"""
 	construction_site_handle_time: Timestamptz
 	"""
-	 创建时间                                                (                                    )
+	 创建时间                                                
 	"""
 	created_at: Timestamptz!
 	"""
@@ -163,7 +163,7 @@ type VehicleAlarmData {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                (                                    )
+	 修改时间                                                
 	"""
 	updated_at: Timestamptz
 	"""
@@ -171,7 +171,7 @@ type VehicleAlarmData {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                (                                    )
+	 删除时间                                                
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -499,8 +499,6 @@ input VehicleAlarmDataBoolExp {
 input type for inserting data into table "vehicle_alarm_data"
 """
 input VehicleAlarmDataInsertInput {
-	id: Bigint
-	vehicle_alarm_data_id: String
 	vehicle_id: String
 	alarm_type: String
 	alarm_start_time: Timestamptz
@@ -537,8 +535,6 @@ input VehicleAlarmDataInsertInput {
 	is_resolve: Boolean
 	is_construction_site_handle: Boolean
 	construction_site_handle_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -625,35 +621,35 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	alarm_type
 	"""
-	 报警开始时间                                            (                                    )
+	 报警开始时间                                            
 	"""
 	alarm_start_time
 	"""
-	 报警结束时间                                            (                                    )
+	 报警结束时间                                            
 	"""
 	alarm_end_time
 	"""
-	 报警结束位置                                            (                                    )
+	 报警结束位置                                            
 	"""
 	alarm_end_position
 	"""
-	 最新报警时间                                            (                                    )
+	 最新报警时间                                            
 	"""
 	latest_alarm_time
 	"""
-	 最新报警位置                                            (                                    )
+	 最新报警位置                                            
 	"""
 	latest_alarm_position
 	"""
-	 报警是否有效                                            (                                    )
+	 报警是否有效                                            
 	"""
 	is_alarm_effective
 	"""
-	 报警是否结束                                            (                                    )
+	 报警是否结束                                            
 	"""
 	is_alarm_over
 	"""
-	 是否取消报警                                            (                                    )
+	 是否取消报警                                            
 	"""
 	is_cancel_alarm
 	"""
@@ -661,7 +657,7 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	alarm_source
 	"""
-	 处理时间                                                (                                    )
+	 处理时间                                                
 	"""
 	processing_time
 	"""
@@ -669,7 +665,7 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	processing_method
 	"""
-	 处理描述                                                (                                    )
+	 处理描述                                                
 	"""
 	processing_description
 	"""
@@ -681,31 +677,31 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	processing_status
 	"""
-	 行驶记录仪速度                                          (                                    )
+	 行驶记录仪速度                                          
 	"""
 	tachograph_speed
 	"""
-	 GPS速度                                                 (                                    )
+	 GPS速度                                                 
 	"""
 	gps_speed
 	"""
-	 最高速度                                                (                                    )
+	 最高速度                                                
 	"""
 	maximum_speed
 	"""
-	 限速阀值                                                (                                    )
+	 限速阀值                                                
 	"""
 	speed_limit_threshold
 	"""
-	 空间数据类型point表示经度(longitude)和纬度(latitude)    (                                    )
+	 空间数据类型point表示经度(longitude)和纬度(latitude)    
 	"""
 	coordinate
 	"""
-	 位置描述                                                (                                    )
+	 位置描述                                                
 	"""
 	location_description
 	"""
-	 持续时间                                                (                                    )
+	 持续时间                                                
 	"""
 	duration
 	"""
@@ -713,23 +709,23 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	road_grade
 	"""
-	 道路名称                                                (                                    )
+	 道路名称                                                
 	"""
 	road_name
 	"""
-	 进区域ID                                                (                                    )
+	 进区域ID                                                
 	"""
 	area_id
 	"""
-	 处警ID                                                  (                                    )
+	 处警ID                                                  
 	"""
 	alarm_deal_id
 	"""
-	 地区                                                    (                                    )
+	 地区                                                    
 	"""
 	pid
 	"""
-	 记录时间                                                (                                    )
+	 记录时间                                                
 	"""
 	record_time
 	"""
@@ -737,31 +733,31 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	supervisor
 	"""
-	 管理部门是否监管                                        (                                    )
+	 管理部门是否监管                                        
 	"""
 	is_supervise
 	"""
-	 管理部门监管时间                                        (                                    )
+	 管理部门监管时间                                        
 	"""
 	supervision_time
 	"""
-	 监管备注                                                (                                    )
+	 监管备注                                                
 	"""
 	supervision_note
 	"""
-	 是否解析                                                (                                    )
+	 是否解析                                                
 	"""
 	is_resolve
 	"""
-	 工地是否处理                                            (                                    )
+	 工地是否处理                                            
 	"""
 	is_construction_site_handle
 	"""
-	 工地处理时间                                            (                                    )
+	 工地处理时间                                            
 	"""
 	construction_site_handle_time
 	"""
-	 创建时间                                                (                                    )
+	 创建时间                                                
 	"""
 	created_at
 	"""
@@ -769,7 +765,7 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                (                                    )
+	 修改时间                                                
 	"""
 	updated_at
 	"""
@@ -777,7 +773,7 @@ enum VehicleAlarmDataSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                (                                    )
+	 删除时间                                                
 	"""
 	deleted_at
 	"""

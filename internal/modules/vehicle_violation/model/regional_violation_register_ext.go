@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden RegionalViolationRegisterLoader string *VehicleSupervision/internal/modules/vehicle_violation/model.RegionalViolationRegister
 
 func (t RegionalViolationRegister) TableName() string {
-	return "RegionalViolationRegister"
+	return "regional_violation_register"
 }
 
 func (t *RegionalViolationRegister) NewLoader() *RegionalViolationRegisterLoader {

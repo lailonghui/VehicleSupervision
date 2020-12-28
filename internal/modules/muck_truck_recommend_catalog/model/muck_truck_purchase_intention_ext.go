@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden MuckTruckPurchaseIntentionLoader string *VehicleSupervision/internal/modules/muck_truck_recommend_catalog/model.MuckTruckPurchaseIntention
 
 func (t MuckTruckPurchaseIntention) TableName() string {
-	return "MuckTruckPurchaseIntention"
+	return "muck_truck_purchase_intention"
 }
 
 func (t *MuckTruckPurchaseIntention) NewLoader() *MuckTruckPurchaseIntentionLoader {

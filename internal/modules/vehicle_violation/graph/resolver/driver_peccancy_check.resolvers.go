@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteDriverPeccancyCheckByPk(ctx context.Context, Id
 }
 
 func (r *mutationResolver) InsertDriverPeccancyCheck(ctx context.Context, objects []*model.DriverPeccancyCheckInsertInput) (*model.DriverPeccancyCheckMutationResponse, error) {
-	rs := []*model1.DriverPeccancyCheck{}
+	rs := make([]*model1.DriverPeccancyCheck, 0)
 	for _, object := range objects {
 		v := &model1.DriverPeccancyCheck{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DriverPeccancyCheck{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateDriverPeccancyCheckByPk(ctx context.Context, in
 	qt := util.NewQueryTranslator(tx, &model1.DriverPeccancyCheck{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DriverPeccancyCheck
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) DriverPeccancyCheck(ctx context.Context, distinctOn []mo
 		Finish()
 	var rs []*model1.DriverPeccancyCheck
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DriverPeccancyCheckAggregate(ctx context.Context, distinctOn []model.DriverPeccancyCheckSelectColumn, limit *int, offset *int, orderBy []*model.DriverPeccancyCheckOrderBy, where *model.DriverPeccancyCheckBoolExp) (*model.DriverPeccancyCheckAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) DriverPeccancyCheckAggregate(ctx context.Context, distin
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DriverPeccancyCheckByPk(ctx context.Context, Id int64) (*model1.DriverPeccancyCheck, error) {
 	var rs model1.DriverPeccancyCheck
 	tx := db.DB.Model(&model1.DriverPeccancyCheck{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

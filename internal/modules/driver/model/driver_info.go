@@ -18,49 +18,49 @@ type DriverInfo struct {
 	DepartmentID *string `json:"department_id"`
 	// 驾驶员身份验证信息ID                            ( driver_identity表的driver_identity_id                    )
 	DriverIdentityID *string `json:"driver_identity_id"`
-	// 驾驶员姓名                                      (                                                              )
+	// 驾驶员姓名
 	DriverName *string `json:"driver_name"`
-	// 手机号码                                        (                                                              )
+	// 手机号码
 	Telephone *string `json:"telephone"`
 	// 性别                                            ( 性别字典                                                 )
 	Sex *int `json:"sex"`
-	// 档案编号(后6位)                                 (                                                              )
+	// 档案编号(后6位)
 	FilesNumber *string `json:"files_number"`
-	// 联系地址                                        (                                                              )
+	// 联系地址
 	ContactAddress *string `json:"contact_address"`
-	// 邮寄地址                                        (                                                              )
+	// 邮寄地址
 	MailingAddress *string `json:"mailing_address"`
 	// 是否提交                                        ( 用于标志驾驶员资料是否处于确定状态。未确定状态的驾驶员信息在系统上除驾驶员管理外的功能中都查不到。 )
 	IsSubmit *bool `json:"is_submit"`
-	// 提交内容                                        (                                                              )
+	// 提交内容
 	SubmitContent *string `json:"submit_content"`
-	// 提交时间                                        (                                                              )
+	// 提交时间
 	SubmitAt *time.Time `json:"submit_at"`
 	// 提交人                                          ( system_user表的user_id                                       )
 	SubmitBy *string `json:"submit_by"`
 	// 是否手动录入                                    ( 驾驶员资料分为使用身份证读卡器读取身份证自动录入资料和手动填写资料 )
 	IsManualInput *bool `json:"is_manual_input"`
-	// 是否录入                                        (                                                              )
+	// 是否录入
 	IsInput *bool `json:"is_input"`
-	// 录入时间                                        (                                                              )
+	// 录入时间
 	InputAt *time.Time `json:"input_at"`
 	// 录入人                                          ( system_user表的user_id                                   )
 	InputBy *string `json:"input_by"`
 	// 是否校验数据                                    ( 该字段代表是否用于校验驾驶员信息，未正式录入系统，但会同步到公安内容，用于查询驾驶员的违章数据。 )
 	IsCheckData *bool `json:"is_check_data"`
-	// 检验时间                                        (                                                              )
+	// 检验时间
 	CheckAt *time.Time `json:"check_at"`
 	// 校验人                                          ( system_user表的user_id                                   )
 	CheckBy *string `json:"check_by"`
 	// 驾驶员信息同步内网反馈信息                      ( 驾驶员信息同步内网反馈信息。驾驶员信息同步到公安内网后内网的反馈内容，如档案编号填写错误会反馈档案编号后六位不正确 )
 	RemarkIn *string `json:"remark_in"`
-	// 内网更新时间                                    (                                                              )
+	// 内网更新时间
 	UpdateTimeIn *time.Time `json:"update_time_in"`
-	// 是否通过短信验证                                (                                                              )
+	// 是否通过短信验证
 	IsCheckSms *bool `json:"is_check_sms"`
-	// 备注                                            (                                                              )
+	// 备注
 	Remarks *string `json:"remarks"`
-	// 是否删除                                        (                                                              )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
 	// 代理商                                          ( enterprise_info表的enterprise_id                         )
 	Agent *string `json:"agent"`
@@ -68,18 +68,31 @@ type DriverInfo struct {
 	Operator *string `json:"operator"`
 	// 是否黑名单                                      ( false                                                        )
 	IsBlacklist *bool `json:"is_blacklist"`
-	// 黑名单截止日期                                  (                                                              )
+	// 黑名单截止日期
 	BlacklistDeadline *time.Time `json:"blacklist_deadline"`
-	// 创建时间                                        (                                                              )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id                                   )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                                                              )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id                                   )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                                                              )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id                                   )
 	DeletedBy *string `json:"deleted_by"`
+}
+
+// expression to compare columns of type Float. All fields are combined with logical 'AND'.
+type FloatComparisonExp struct {
+	Eq     *float64  `json:"_eq"`
+	Gt     *float64  `json:"_gt"`
+	Gte    *float64  `json:"_gte"`
+	In     []float64 `json:"_in"`
+	IsNull *bool     `json:"_is_null"`
+	Lt     *float64  `json:"_lt"`
+	Lte    *float64  `json:"_lte"`
+	Neq    *float64  `json:"_neq"`
+	Nin    []float64 `json:"_nin"`
 }

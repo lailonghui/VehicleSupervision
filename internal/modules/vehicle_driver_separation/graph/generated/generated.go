@@ -4735,35 +4735,35 @@ type CaseApprovalReviewCall {
 	"""
 	case_approval_review_call_id: String!
 	"""
-	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id (                            )
+	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id 
 	"""
 	case_approval_review_operation_id: String
 	"""
-	 电话号码                                                     (                            )
+	 电话号码                                                     
 	"""
 	telephone_number: String
 	"""
-	 拨打时间                                                     (                            )
+	 拨打时间                                                     
 	"""
 	dial_time: Timestamptz
 	"""
-	 是否接通                                                     (                            )
+	 是否接通                                                     
 	"""
 	is_connected: Boolean
 	"""
-	 告知内容                                                     (                            )
+	 告知内容                                                     
 	"""
 	inform_content: String
 	"""
-	 审核人                                                       (                            )
+	 审核人                                                       
 	"""
 	reviewer: String
 	"""
-	 审核时间                                                     (                            )
+	 审核时间                                                     
 	"""
 	review_time: Timestamptz
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -4771,7 +4771,7 @@ type CaseApprovalReviewCall {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -4779,7 +4779,7 @@ type CaseApprovalReviewCall {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -4951,8 +4951,6 @@ input CaseApprovalReviewCallBoolExp {
 input type for inserting data into table "case_approval_review_call"
 """
 input CaseApprovalReviewCallInsertInput {
-	id: Bigint
-	case_approval_review_call_id: String
 	case_approval_review_operation_id: String
 	telephone_number: String
 	dial_time: Timestamptz
@@ -4960,8 +4958,6 @@ input CaseApprovalReviewCallInsertInput {
 	inform_content: String
 	reviewer: String
 	review_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -5006,35 +5002,35 @@ enum CaseApprovalReviewCallSelectColumn {
 	"""
 	case_approval_review_call_id
 	"""
-	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id (                            )
+	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id 
 	"""
 	case_approval_review_operation_id
 	"""
-	 电话号码                                                     (                            )
+	 电话号码                                                     
 	"""
 	telephone_number
 	"""
-	 拨打时间                                                     (                            )
+	 拨打时间                                                     
 	"""
 	dial_time
 	"""
-	 是否接通                                                     (                            )
+	 是否接通                                                     
 	"""
 	is_connected
 	"""
-	 告知内容                                                     (                            )
+	 告知内容                                                     
 	"""
 	inform_content
 	"""
-	 审核人                                                       (                            )
+	 审核人                                                       
 	"""
 	reviewer
 	"""
-	 审核时间                                                     (                            )
+	 审核时间                                                     
 	"""
 	review_time
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -5042,7 +5038,7 @@ enum CaseApprovalReviewCallSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -5050,7 +5046,7 @@ enum CaseApprovalReviewCallSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -5112,23 +5108,23 @@ type CaseApprovalReviewOperation {
 	"""
 	case_approval_review_operation_id: String!
 	"""
-	 审核意见                                        (                            )
+	 审核意见                                        
 	"""
 	review_opinion: String
 	"""
-	 审核结果                                        (                            )
+	 审核结果                                        
 	"""
 	review_result: String
 	"""
-	 审核人                                          (                            )
+	 审核人                                          
 	"""
 	reviewer: String
 	"""
-	 审核时间                                        (                            )
+	 审核时间                                        
 	"""
 	review_time: Timestamptz
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -5136,7 +5132,7 @@ type CaseApprovalReviewOperation {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -5144,7 +5140,7 @@ type CaseApprovalReviewOperation {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -5304,14 +5300,10 @@ input CaseApprovalReviewOperationBoolExp {
 input type for inserting data into table "case_approval_review_operation"
 """
 input CaseApprovalReviewOperationInsertInput {
-	id: Bigint
-	case_approval_review_operation_id: String
 	review_opinion: String
 	review_result: String
 	reviewer: String
 	review_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -5353,23 +5345,23 @@ enum CaseApprovalReviewOperationSelectColumn {
 	"""
 	case_approval_review_operation_id
 	"""
-	 审核意见                                        (                            )
+	 审核意见                                        
 	"""
 	review_opinion
 	"""
-	 审核结果                                        (                            )
+	 审核结果                                        
 	"""
 	review_result
 	"""
-	 审核人                                          (                            )
+	 审核人                                          
 	"""
 	reviewer
 	"""
-	 审核时间                                        (                            )
+	 审核时间                                        
 	"""
 	review_time
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -5377,7 +5369,7 @@ enum CaseApprovalReviewOperationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -5385,7 +5377,7 @@ enum CaseApprovalReviewOperationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -5490,6 +5482,20 @@ input IntComparisonExp {
 	_lte: Int
 	_neq: Int
 	_nin: [Int!]
+}
+"""
+expression to compare columns of type Float. All fields are combined with logical 'AND'.
+"""
+input FloatComparisonExp{
+	_eq: Float
+	_gt: Float
+	_gte: Float
+	_in: [Float!]
+	_is_null: Boolean
+	_lt: Float
+	_lte: Float
+	_neq: Float
+	_nin: [Float!]
 }
 """
 column ordering options
@@ -5606,63 +5612,63 @@ type DisputeViolationRecord {
 	"""
 	violation_detail_id: String
 	"""
-	 书面申请材料                                                 (                                                        )
+	 书面申请材料                                                 
 	"""
 	written_application_materials: String
 	"""
-	 劳动合同或租赁合同                                           (                                                        )
+	 劳动合同或租赁合同                                           
 	"""
 	labor_contract: String
 	"""
-	 行车日志                                                     (                                                        )
+	 行车日志                                                     
 	"""
 	driving_log: String
 	"""
-	 证人证言                                                     (                                                        )
+	 证人证言                                                     
 	"""
 	witness: String
 	"""
-	 当事人陈述                                                   (                                                        )
+	 当事人陈述                                                   
 	"""
 	statement: String
 	"""
-	 图像证据材料                                                 (                                                        )
+	 图像证据材料                                                 
 	"""
 	pic_evidence: String
 	"""
-	 行为人驾驶证                                                 (                                                        )
+	 行为人驾驶证                                                 
 	"""
 	driver_license: String
 	"""
-	 机动车行驶证                                                 (                                                        )
+	 机动车行驶证                                                 
 	"""
 	driving_license: String
 	"""
-	 行为人身份证                                                 (                                                        )
+	 行为人身份证                                                 
 	"""
 	id_card: String
 	"""
-	 机动车所有人营业执照                                         (                                                        )
+	 机动车所有人营业执照                                         
 	"""
 	business_license: String
 	"""
-	 机动车所有人组织机构代码证                                   (                                                        )
+	 机动车所有人组织机构代码证                                   
 	"""
 	organization_code: String
 	"""
-	 法定代表人身份证                                             (                                                        )
+	 法定代表人身份证                                             
 	"""
 	legal_person_id_number: String
 	"""
-	 委托代理人身份证                                             (                                                        )
+	 委托代理人身份证                                             
 	"""
 	agent_id_number: String
 	"""
-	 机动车管理人身份证                                           (                                                        )
+	 机动车管理人身份证                                           
 	"""
 	vehicle_manager_id_card: String
 	"""
-	 其他证据材料                                                 (                                                        )
+	 其他证据材料                                                 
 	"""
 	other_evidence: String
 	"""
@@ -5670,15 +5676,15 @@ type DisputeViolationRecord {
 	"""
 	approve_state: Int
 	"""
-	 内网更新时间                                                 (                                                        )
+	 内网更新时间                                                 
 	"""
 	update_time_in: Timestamptz
 	"""
-	 联系地址                                                     (                                                        )
+	 联系地址                                                     
 	"""
 	contact_address: String
 	"""
-	 创建时间                                                     (                                                        )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -5686,7 +5692,7 @@ type DisputeViolationRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                                        )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -5694,7 +5700,7 @@ type DisputeViolationRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                                        )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -5702,7 +5708,7 @@ type DisputeViolationRecord {
 	"""
 	deleted_by: String
 	"""
-	 是否删除                                                     (                                                        )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 }
@@ -5930,8 +5936,6 @@ input DisputeViolationRecordBoolExp {
 input type for inserting data into table "dispute_violation_record"
 """
 input DisputeViolationRecordInsertInput {
-	id: Bigint
-	dispute_violation_id: String
 	violation_detail_id: String
 	written_application_materials: String
 	labor_contract: String
@@ -5951,8 +5955,6 @@ input DisputeViolationRecordInsertInput {
 	approve_state: Int
 	update_time_in: Timestamptz
 	contact_address: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6016,63 +6018,63 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	violation_detail_id
 	"""
-	 书面申请材料                                                 (                                                        )
+	 书面申请材料                                                 
 	"""
 	written_application_materials
 	"""
-	 劳动合同或租赁合同                                           (                                                        )
+	 劳动合同或租赁合同                                           
 	"""
 	labor_contract
 	"""
-	 行车日志                                                     (                                                        )
+	 行车日志                                                     
 	"""
 	driving_log
 	"""
-	 证人证言                                                     (                                                        )
+	 证人证言                                                     
 	"""
 	witness
 	"""
-	 当事人陈述                                                   (                                                        )
+	 当事人陈述                                                   
 	"""
 	statement
 	"""
-	 图像证据材料                                                 (                                                        )
+	 图像证据材料                                                 
 	"""
 	pic_evidence
 	"""
-	 行为人驾驶证                                                 (                                                        )
+	 行为人驾驶证                                                 
 	"""
 	driver_license
 	"""
-	 机动车行驶证                                                 (                                                        )
+	 机动车行驶证                                                 
 	"""
 	driving_license
 	"""
-	 行为人身份证                                                 (                                                        )
+	 行为人身份证                                                 
 	"""
 	id_card
 	"""
-	 机动车所有人营业执照                                         (                                                        )
+	 机动车所有人营业执照                                         
 	"""
 	business_license
 	"""
-	 机动车所有人组织机构代码证                                   (                                                        )
+	 机动车所有人组织机构代码证                                   
 	"""
 	organization_code
 	"""
-	 法定代表人身份证                                             (                                                        )
+	 法定代表人身份证                                             
 	"""
 	legal_person_id_number
 	"""
-	 委托代理人身份证                                             (                                                        )
+	 委托代理人身份证                                             
 	"""
 	agent_id_number
 	"""
-	 机动车管理人身份证                                           (                                                        )
+	 机动车管理人身份证                                           
 	"""
 	vehicle_manager_id_card
 	"""
-	 其他证据材料                                                 (                                                        )
+	 其他证据材料                                                 
 	"""
 	other_evidence
 	"""
@@ -6080,15 +6082,15 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	approve_state
 	"""
-	 内网更新时间                                                 (                                                        )
+	 内网更新时间                                                 
 	"""
 	update_time_in
 	"""
-	 联系地址                                                     (                                                        )
+	 联系地址                                                     
 	"""
 	contact_address
 	"""
-	 创建时间                                                     (                                                        )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -6096,7 +6098,7 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                                        )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -6104,7 +6106,7 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                                        )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -6112,7 +6114,7 @@ enum DisputeViolationRecordSelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否删除                                                     (                                                        )
+	 是否删除                                                     
 	"""
 	is_deleted
 }
@@ -6178,19 +6180,19 @@ type DisputeViolationRecordLog {
 	"""
 	reviewer: String
 	"""
-	 审核时间                                                     (                                                    )
+	 审核时间                                                     
 	"""
 	review_time: Timestamptz
 	"""
-	 审核意见                                                     (                                                    )
+	 审核意见                                                     
 	"""
 	review_opinion: String
 	"""
-	 审核结果                                                     (                                                    )
+	 审核结果                                                     
 	"""
 	review_result: String
 	"""
-	 审核动作名称                                                 (                                                    )
+	 审核动作名称                                                 
 	"""
 	review_action_name: String
 	"""
@@ -6198,7 +6200,7 @@ type DisputeViolationRecordLog {
 	"""
 	approver: String
 	"""
-	 内网更新时间                                                 (                                                    )
+	 内网更新时间                                                 
 	"""
 	update_time_in: String
 }
@@ -6346,8 +6348,6 @@ input DisputeViolationRecordLogBoolExp {
 input type for inserting data into table "dispute_violation_record_log"
 """
 input DisputeViolationRecordLogInsertInput {
-	id: Bigint
-	dispute_violation_log_id: String
 	dispute_violation_id: String
 	reviewer: String
 	review_time: Timestamptz
@@ -6399,19 +6399,19 @@ enum DisputeViolationRecordLogSelectColumn {
 	"""
 	reviewer
 	"""
-	 审核时间                                                     (                                                    )
+	 审核时间                                                     
 	"""
 	review_time
 	"""
-	 审核意见                                                     (                                                    )
+	 审核意见                                                     
 	"""
 	review_opinion
 	"""
-	 审核结果                                                     (                                                    )
+	 审核结果                                                     
 	"""
 	review_result
 	"""
-	 审核动作名称                                                 (                                                    )
+	 审核动作名称                                                 
 	"""
 	review_action_name
 	"""
@@ -6419,7 +6419,7 @@ enum DisputeViolationRecordLogSelectColumn {
 	"""
 	approver
 	"""
-	 内网更新时间                                                 (                                                    )
+	 内网更新时间                                                 
 	"""
 	update_time_in
 }
@@ -6485,47 +6485,47 @@ type DrivingLogInfo {
 	"""
 	driver_id: String
 	"""
-	 用车起始日期                                    (                                )
+	 用车起始日期                                    
 	"""
 	driving_start_time: Timestamptz
 	"""
-	 用车结束日期                                    (                                )
+	 用车结束日期                                    
 	"""
 	driving_end_time: Timestamptz
 	"""
-	 事由                                            (                                )
+	 事由                                            
 	"""
 	cause: String
 	"""
-	 路线                                            (                                )
+	 路线                                            
 	"""
 	route: String
 	"""
-	 备注                                            (                                )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 开始时间                                        (                                )
+	 开始时间                                        
 	"""
 	start_time: String
 	"""
-	 结束时间                                        (                                )
+	 结束时间                                        
 	"""
 	end_time: String
 	"""
-	 审核状态                                        (                                )
+	 审核状态                                        
 	"""
 	review_status: Int
 	"""
-	 审核机构级别                                    (                                )
+	 审核机构级别                                    
 	"""
 	review_agecy_level: Int
 	"""
-	 是否补录                                        (                                )
+	 是否补录                                        
 	"""
 	is_markup: Boolean
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -6533,7 +6533,7 @@ type DrivingLogInfo {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -6541,7 +6541,7 @@ type DrivingLogInfo {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -6749,8 +6749,6 @@ input DrivingLogInfoBoolExp {
 input type for inserting data into table "driving_log_info"
 """
 input DrivingLogInfoInsertInput {
-	id: Bigint
-	driving_log_info_id: String
 	vehicle_id: String
 	driver_id: String
 	driving_start_time: Timestamptz
@@ -6763,8 +6761,6 @@ input DrivingLogInfoInsertInput {
 	review_status: Int
 	review_agecy_level: Int
 	is_markup: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6824,47 +6820,47 @@ enum DrivingLogInfoSelectColumn {
 	"""
 	driver_id
 	"""
-	 用车起始日期                                    (                                )
+	 用车起始日期                                    
 	"""
 	driving_start_time
 	"""
-	 用车结束日期                                    (                                )
+	 用车结束日期                                    
 	"""
 	driving_end_time
 	"""
-	 事由                                            (                                )
+	 事由                                            
 	"""
 	cause
 	"""
-	 路线                                            (                                )
+	 路线                                            
 	"""
 	route
 	"""
-	 备注                                            (                                )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 开始时间                                        (                                )
+	 开始时间                                        
 	"""
 	start_time
 	"""
-	 结束时间                                        (                                )
+	 结束时间                                        
 	"""
 	end_time
 	"""
-	 审核状态                                        (                                )
+	 审核状态                                        
 	"""
 	review_status
 	"""
-	 审核机构级别                                    (                                )
+	 审核机构级别                                    
 	"""
 	review_agecy_level
 	"""
-	 是否补录                                        (                                )
+	 是否补录                                        
 	"""
 	is_markup
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -6872,7 +6868,7 @@ enum DrivingLogInfoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -6880,7 +6876,7 @@ enum DrivingLogInfoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -6950,11 +6946,11 @@ type VehicleDriverBinding {
 	"""
 	vehicle_id: String
 	"""
-	 备注                                                         (                                )
+	 备注                                                         
 	"""
 	remarks: String
 	"""
-	 创建时间                                                     (                                )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -6962,7 +6958,7 @@ type VehicleDriverBinding {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -6970,7 +6966,7 @@ type VehicleDriverBinding {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -6978,7 +6974,7 @@ type VehicleDriverBinding {
 	"""
 	deleted_by: String
 	"""
-	 是否删除                                                     (                                )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 }
@@ -7134,13 +7130,9 @@ input VehicleDriverBindingBoolExp {
 input type for inserting data into table "vehicle_driver_binding"
 """
 input VehicleDriverBindingInsertInput {
-	id: Bigint
-	vehicle_driver_binding_id: String
 	driver_id: String
 	vehicle_id: String
 	remarks: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -7191,11 +7183,11 @@ enum VehicleDriverBindingSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 备注                                                         (                                )
+	 备注                                                         
 	"""
 	remarks
 	"""
-	 创建时间                                                     (                                )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -7203,7 +7195,7 @@ enum VehicleDriverBindingSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -7211,7 +7203,7 @@ enum VehicleDriverBindingSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -7219,7 +7211,7 @@ enum VehicleDriverBindingSelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否删除                                                     (                                )
+	 是否删除                                                     
 	"""
 	is_deleted
 }
@@ -26856,22 +26848,6 @@ func (ec *executionContext) unmarshalInputCaseApprovalReviewCallInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "case_approval_review_call_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_call_id"))
-			it.CaseApprovalReviewCallID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "case_approval_review_operation_id":
 			var err error
 
@@ -26925,22 +26901,6 @@ func (ec *executionContext) unmarshalInputCaseApprovalReviewCallInsertInput(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("review_time"))
 			it.ReviewTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -27404,22 +27364,6 @@ func (ec *executionContext) unmarshalInputCaseApprovalReviewOperationInsertInput
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "case_approval_review_operation_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("case_approval_review_operation_id"))
-			it.CaseApprovalReviewOperationID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "review_opinion":
 			var err error
 
@@ -27449,22 +27393,6 @@ func (ec *executionContext) unmarshalInputCaseApprovalReviewOperationInsertInput
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("review_time"))
 			it.ReviewTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -28016,22 +27944,6 @@ func (ec *executionContext) unmarshalInputDisputeViolationRecordInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "dispute_violation_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dispute_violation_id"))
-			it.DisputeViolationID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "violation_detail_id":
 			var err error
 
@@ -28181,22 +28093,6 @@ func (ec *executionContext) unmarshalInputDisputeViolationRecordInsertInput(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_address"))
 			it.ContactAddress, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -28388,22 +28284,6 @@ func (ec *executionContext) unmarshalInputDisputeViolationRecordLogInsertInput(c
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "dispute_violation_log_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dispute_violation_log_id"))
-			it.DisputeViolationLogID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "dispute_violation_id":
 			var err error
 
@@ -29368,22 +29248,6 @@ func (ec *executionContext) unmarshalInputDrivingLogInfoInsertInput(ctx context.
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driving_log_info_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driving_log_info_id"))
-			it.DrivingLogInfoID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -29477,22 +29341,6 @@ func (ec *executionContext) unmarshalInputDrivingLogInfoInsertInput(ctx context.
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_markup"))
 			it.IsMarkup, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -29869,6 +29717,90 @@ func (ec *executionContext) unmarshalInputDrivingLogInfoSetInput(ctx context.Con
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
 			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
+	var it model1.FloatComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -30588,22 +30520,6 @@ func (ec *executionContext) unmarshalInputVehicleDriverBindingInsertInput(ctx co
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_driver_binding_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_driver_binding_id"))
-			it.VehicleDriverBindingID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "driver_id":
 			var err error
 
@@ -30625,22 +30541,6 @@ func (ec *executionContext) unmarshalInputVehicleDriverBindingInsertInput(ctx co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("remarks"))
 			it.Remarks, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -34993,6 +34893,21 @@ func (ec *executionContext) marshalNDrivingLogInfoSelectColumn2VehicleSupervisio
 	return v
 }
 
+func (ec *executionContext) unmarshalNFloat2float64(ctx context.Context, v interface{}) (float64, error) {
+	res, err := graphql.UnmarshalFloat(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNFloat2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
+	res := graphql.MarshalFloat(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
 func (ec *executionContext) unmarshalNInt2int(ctx context.Context, v interface{}) (int, error) {
 	res, err := graphql.UnmarshalInt(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -36709,6 +36624,57 @@ func (ec *executionContext) marshalODrivingLogInfoVarianceFields2ᚖVehicleSuper
 		return graphql.Null
 	}
 	return ec._DrivingLogInfoVarianceFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]float64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNFloat2float64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOFloat2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNFloat2float64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloat(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOFloat2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalFloat(*v)
 }
 
 func (ec *executionContext) unmarshalOInt2ᚕintᚄ(ctx context.Context, v interface{}) ([]int, error) {

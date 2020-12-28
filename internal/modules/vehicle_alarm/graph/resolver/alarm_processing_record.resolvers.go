@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteAlarmProcessingRecordByPk(ctx context.Context, 
 }
 
 func (r *mutationResolver) InsertAlarmProcessingRecord(ctx context.Context, objects []*model.AlarmProcessingRecordInsertInput) (*model.AlarmProcessingRecordMutationResponse, error) {
-	rs := []*model1.AlarmProcessingRecord{}
+	rs := make([]*model1.AlarmProcessingRecord, 0)
 	for _, object := range objects {
 		v := &model1.AlarmProcessingRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.AlarmProcessingRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateAlarmProcessingRecordByPk(ctx context.Context, 
 	qt := util.NewQueryTranslator(tx, &model1.AlarmProcessingRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.AlarmProcessingRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) AlarmProcessingRecord(ctx context.Context, distinctOn []
 		Finish()
 	var rs []*model1.AlarmProcessingRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) AlarmProcessingRecordAggregate(ctx context.Context, distinctOn []model.AlarmProcessingRecordSelectColumn, limit *int, offset *int, orderBy []*model.AlarmProcessingRecordOrderBy, where *model.AlarmProcessingRecordBoolExp) (*model.AlarmProcessingRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) AlarmProcessingRecordAggregate(ctx context.Context, dist
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) AlarmProcessingRecordByPk(ctx context.Context, Id int64) (*model1.AlarmProcessingRecord, error) {
 	var rs model1.AlarmProcessingRecord
 	tx := db.DB.Model(&model1.AlarmProcessingRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

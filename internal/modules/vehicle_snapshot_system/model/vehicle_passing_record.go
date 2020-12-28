@@ -12,35 +12,35 @@ type VehiclePassingRecord struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
 	VehiclePassingRecordID string `json:"vehicle_passing_record_id"`
-	// vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID string `json:"vehicle_id"`
-	// 车牌号                                          (                                                              )
+	// 车牌号
 	LicensePlateNumber *string `json:"license_plate_number"`
-	// 过车时间                                        (                                                              )
+	// 过车时间
 	PassingTime *time.Time `json:"passing_time"`
-	// 登记时间                                        (                                                              )
+	// 登记时间
 	RegistrationTime *time.Time `json:"registration_time"`
 	// 摄像头ID                                        ( construction_camera 工地摄像头表的construction_camera_id )
 	CameraID *string `json:"camera_id"`
-	// 过车类型                                        (                                                              )
+	// 过车类型
 	PassType *string `json:"pass_type"`
-	// 图片地址                                        (                                                              )
+	// 图片地址
 	PictureURL *string `json:"picture_url"`
-	// 审核状态                                        (                                                              )
+	// 审核状态
 	ReviewStatus *string `json:"review_status"`
-	// 车辆类型                                        (                                                              )
+	// 车辆类型
 	VehicleType *string `json:"vehicle_type"`
-	// 是否在线                                        (                                                              )
+	// 是否在线
 	IsOnline *bool `json:"is_online"`
-	// 创建时间                                        (                                                              )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id                                   )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                                                              )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id                                   )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                                                              )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id                                   )
 	DeletedBy *string `json:"deleted_by"`

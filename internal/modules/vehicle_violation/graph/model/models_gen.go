@@ -67,8 +67,6 @@ type AppEnforcementIncInput struct {
 
 // input type for inserting data into table "app_enforcement"
 type AppEnforcementInsertInput struct {
-	ID                  *int64     `json:"id"`
-	IllegalPhotoID      *string    `json:"illegal_photo_id"`
 	VehicleID           *string    `json:"vehicle_id"`
 	OperationUser       *string    `json:"operation_user"`
 	EditText            *string    `json:"edit_text"`
@@ -76,8 +74,6 @@ type AppEnforcementInsertInput struct {
 	LocationDescription *string    `json:"location_description"`
 	EnterpriseType      *string    `json:"enterprise_type"`
 	PicketStatus        *int       `json:"picket_status"`
-	CreatedAt           *time.Time `json:"created_at"`
-	CreatedBy           *string    `json:"created_by"`
 	UpdatedAt           *time.Time `json:"updated_at"`
 	UpdatedBy           *string    `json:"updated_by"`
 	DeletedAt           *time.Time `json:"deleted_at"`
@@ -263,20 +259,16 @@ type DeductionReportIncInput struct {
 
 // input type for inserting data into table "deduction_report"
 type DeductionReportInsertInput struct {
-	ID                *int64     `json:"id"`
-	DeductionReportID *string    `json:"deduction_report_id"`
-	AreaID            *string    `json:"area_id"`
-	Date              *string    `json:"date"`
-	Cause             *string    `json:"cause"`
-	InputPerson       *string    `json:"input_person"`
-	InputTime         *time.Time `json:"input_time"`
-	DemeritPoints     *float64   `json:"demerit_points"`
-	CreatedAt         *time.Time `json:"created_at"`
-	CreatedBy         *string    `json:"created_by"`
-	UpdatedAt         *time.Time `json:"updated_at"`
-	UpdatedBy         *string    `json:"updated_by"`
-	DeletedAt         *time.Time `json:"deleted_at"`
-	DeletedBy         *string    `json:"deleted_by"`
+	AreaID        *string    `json:"area_id"`
+	Date          *string    `json:"date"`
+	Cause         *string    `json:"cause"`
+	InputPerson   *string    `json:"input_person"`
+	InputTime     *time.Time `json:"input_time"`
+	DemeritPoints *float64   `json:"demerit_points"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "deduction_report"
@@ -448,12 +440,9 @@ type DriverPeccancyCheckIncInput struct {
 
 // input type for inserting data into table "driver_peccancy_check"
 type DriverPeccancyCheckInsertInput struct {
-	ID           *int64     `json:"id"`
 	VehicleID    *string    `json:"vehicle_id"`
 	DriverID     *string    `json:"driver_id"`
 	EnterpriseID *string    `json:"enterprise_id"`
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
 	DeletedAt    *time.Time `json:"deleted_at"`
@@ -608,14 +597,10 @@ type IllegalPhotoIncInput struct {
 
 // input type for inserting data into table "illegal_photo"
 type IllegalPhotoInsertInput struct {
-	ID             *int64     `json:"id"`
-	IllegalPhotoID *string    `json:"illegal_photo_id"`
 	PictureName    *string    `json:"picture_name"`
 	PictureAddress *string    `json:"picture_address"`
 	IsSynchronized *bool      `json:"is_synchronized"`
 	IsDeleted      *bool      `json:"is_deleted"`
-	CreatedAt      *time.Time `json:"created_at"`
-	CreatedBy      *string    `json:"created_by"`
 	UpdatedAt      *time.Time `json:"updated_at"`
 	UpdatedBy      *string    `json:"updated_by"`
 	DeletedAt      *time.Time `json:"deleted_at"`
@@ -789,25 +774,21 @@ type RegionalViolationRegisterIncInput struct {
 
 // input type for inserting data into table "regional_violation_register"
 type RegionalViolationRegisterInsertInput struct {
-	ID                          *int64     `json:"id"`
-	RegionalViolationRegisterID *string    `json:"regional_violation_register_id"`
-	ViolationDetailID           *string    `json:"violation_detail_id"`
-	VehicleID                   *string    `json:"vehicle_id"`
-	DriverID                    *string    `json:"driver_id"`
-	IllegalCode                 *int       `json:"illegal_code"`
-	IllegalTime                 *time.Time `json:"illegal_time"`
-	IllegalType                 *int       `json:"illegal_type"`
-	RegisterTime                *time.Time `json:"register_time"`
-	ProcessingAgency            *string    `json:"processing_agency"`
-	Operator                    *string    `json:"operator"`
-	IsRegister                  *bool      `json:"is_register"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
-	IsDeleted                   *bool      `json:"is_deleted"`
+	ViolationDetailID *string    `json:"violation_detail_id"`
+	VehicleID         *string    `json:"vehicle_id"`
+	DriverID          *string    `json:"driver_id"`
+	IllegalCode       *int       `json:"illegal_code"`
+	IllegalTime       *time.Time `json:"illegal_time"`
+	IllegalType       *int       `json:"illegal_type"`
+	RegisterTime      *time.Time `json:"register_time"`
+	ProcessingAgency  *string    `json:"processing_agency"`
+	Operator          *string    `json:"operator"`
+	IsRegister        *bool      `json:"is_register"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
+	IsDeleted         *bool      `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "regional_violation_register"
@@ -1007,17 +988,13 @@ type SeriousTrafficViolationIncInput struct {
 
 // input type for inserting data into table "serious_traffic_violation"
 type SeriousTrafficViolationInsertInput struct {
-	ID                        *int64     `json:"id"`
-	SeriousTrafficViolationID *string    `json:"serious_traffic_violation_id"`
-	VehicleID                 *string    `json:"vehicle_id"`
-	IllegalCode               *string    `json:"illegal_code"`
-	IllegalTime               *time.Time `json:"illegal_time"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
+	VehicleID   *string    `json:"vehicle_id"`
+	IllegalCode *string    `json:"illegal_code"`
+	IllegalTime *time.Time `json:"illegal_time"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "serious_traffic_violation"
@@ -1198,8 +1175,6 @@ type VehicleViolationDetailsIncInput struct {
 
 // input type for inserting data into table "vehicle_violation_details"
 type VehicleViolationDetailsInsertInput struct {
-	ID                    *int64     `json:"id"`
-	ViolationDetailID     *string    `json:"violation_detail_id"`
 	VehicleID             *string    `json:"vehicle_id"`
 	DriverID              *string    `json:"driver_id"`
 	EnterpriseID          *string    `json:"enterprise_id"`
@@ -1224,8 +1199,6 @@ type VehicleViolationDetailsInsertInput struct {
 	HandleAt              *time.Time `json:"handle_at"`
 	IsSend                *bool      `json:"is_send"`
 	IsDeleted             *bool      `json:"is_deleted"`
-	CreatedAt             *time.Time `json:"created_at"`
-	CreatedBy             *string    `json:"created_by"`
 	UpdatedAt             *time.Time `json:"updated_at"`
 	UpdatedBy             *string    `json:"updated_by"`
 	DeletedAt             *time.Time `json:"deleted_at"`
@@ -1493,14 +1466,10 @@ type VehicleViolationScoringItemsIncInput struct {
 
 // input type for inserting data into table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsInsertInput struct {
-	ID                       *int64     `json:"id"`
-	ViolationScoringItemID   *string    `json:"violation_scoring_item_id"`
 	DeductionItemDescription *string    `json:"deduction_item_description"`
 	DeductionCategory        *int       `json:"deduction_category"`
 	DemeritPoints            *float64   `json:"demerit_points"`
 	IsDeleted                *bool      `json:"is_deleted"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
 	DeletedAt                *time.Time `json:"deleted_at"`
@@ -1680,15 +1649,11 @@ type VehicleViolationScoringRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordInsertInput struct {
-	ID                     *int64     `json:"id"`
-	ViolationScoringID     *string    `json:"violation_scoring_id"`
 	VehicleID              *string    `json:"vehicle_id"`
 	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
 	DemeritPoints          *float64   `json:"demerit_points"`
 	Remarks                *string    `json:"remarks"`
 	IsDeleted              *bool      `json:"is_deleted"`
-	CreatedAt              *time.Time `json:"created_at"`
-	CreatedBy              *string    `json:"created_by"`
 	UpdatedAt              *time.Time `json:"updated_at"`
 	UpdatedBy              *string    `json:"updated_by"`
 	DeletedAt              *time.Time `json:"deleted_at"`
@@ -1860,7 +1825,6 @@ type VioCodewfdmIncInput struct {
 
 // input type for inserting data into table "vio_codewfdm"
 type VioCodewfdmInsertInput struct {
-	Wfxw    *string  `json:"wfxw"`
 	Wfms    *string  `json:"wfms"`
 	Wfjfs   *float64 `json:"wfjfs"`
 	FkjeMin *float64 `json:"fkje_min"`
@@ -2031,35 +1995,31 @@ type ViolationRegistrationIncInput struct {
 
 // input type for inserting data into table "violation_registration"
 type ViolationRegistrationInsertInput struct {
-	ID                      *int64     `json:"id"`
-	ViolationRegistrationID *string    `json:"violation_registration_id"`
-	VehicleID               *string    `json:"vehicle_id"`
-	LicensePlateNumber      *string    `json:"license_plate_number"`
-	IDCardNum               *string    `json:"id_card_num"`
-	Name                    *string    `json:"name"`
-	Location                *string    `json:"location"`
-	Cause                   *string    `json:"cause"`
-	IllegalTime             *time.Time `json:"illegal_time"`
-	Operator                *string    `json:"operator"`
-	IllegalArea             *string    `json:"illegal_area"`
-	IllegalCode             *string    `json:"illegal_code"`
-	VehicleArea             *string    `json:"vehicle_area"`
-	VehicleEnterprise       *string    `json:"vehicle_enterprise"`
-	ProvinceID              *string    `json:"province_id"`
-	CityID                  *string    `json:"city_id"`
-	DistrictID              *string    `json:"district_id"`
-	Supervisor              *string    `json:"supervisor"`
-	SupervisionTime         *string    `json:"supervision_time"`
-	SepervisionRemarks      *string    `json:"sepervision_remarks"`
-	IsSupervised            *string    `json:"is_supervised"`
-	IsAccident              *string    `json:"is_accident"`
-	IsDeleted               *bool      `json:"is_deleted"`
-	CreatedAt               *time.Time `json:"created_at"`
-	CreatedBy               *string    `json:"created_by"`
-	UpdatedAt               *time.Time `json:"updated_at"`
-	UpdatedBy               *string    `json:"updated_by"`
-	DeletedAt               *time.Time `json:"deleted_at"`
-	DeletedBy               *string    `json:"deleted_by"`
+	VehicleID          *string    `json:"vehicle_id"`
+	LicensePlateNumber *string    `json:"license_plate_number"`
+	IDCardNum          *string    `json:"id_card_num"`
+	Name               *string    `json:"name"`
+	Location           *string    `json:"location"`
+	Cause              *string    `json:"cause"`
+	IllegalTime        *time.Time `json:"illegal_time"`
+	Operator           *string    `json:"operator"`
+	IllegalArea        *string    `json:"illegal_area"`
+	IllegalCode        *string    `json:"illegal_code"`
+	VehicleArea        *string    `json:"vehicle_area"`
+	VehicleEnterprise  *string    `json:"vehicle_enterprise"`
+	ProvinceID         *string    `json:"province_id"`
+	CityID             *string    `json:"city_id"`
+	DistrictID         *string    `json:"district_id"`
+	Supervisor         *string    `json:"supervisor"`
+	SupervisionTime    *string    `json:"supervision_time"`
+	SepervisionRemarks *string    `json:"sepervision_remarks"`
+	IsSupervised       *string    `json:"is_supervised"`
+	IsAccident         *string    `json:"is_accident"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "violation_registration"
@@ -2243,29 +2203,29 @@ const (
 	AppEnforcementSelectColumnID AppEnforcementSelectColumn = "id"
 	// APP现场执法表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	AppEnforcementSelectColumnIllegalPhotoID AppEnforcementSelectColumn = "illegal_photo_id"
-	// vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	AppEnforcementSelectColumnVehicleID AppEnforcementSelectColumn = "vehicle_id"
 	// 操作用户                                                     ( system_user表的user_id )
 	AppEnforcementSelectColumnOperationUser AppEnforcementSelectColumn = "operation_user"
-	// 编辑文本                                                     (                            )
+	// 编辑文本
 	AppEnforcementSelectColumnEditText AppEnforcementSelectColumn = "edit_text"
-	// 空间数据类型point表示经度(longitude)和纬度(latitude)         (                            )
+	// 空间数据类型point表示经度(longitude)和纬度(latitude)
 	AppEnforcementSelectColumnCoordinate AppEnforcementSelectColumn = "coordinate"
-	// 位置描述                                                     (                            )
+	// 位置描述
 	AppEnforcementSelectColumnLocationDescription AppEnforcementSelectColumn = "location_description"
 	// 企业类型                                                     ( 企业类型字典           )
 	AppEnforcementSelectColumnEnterpriseType AppEnforcementSelectColumn = "enterprise_type"
-	// 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车） (                            )
+	// 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车）
 	AppEnforcementSelectColumnPicketStatus AppEnforcementSelectColumn = "picket_status"
-	// 创建时间                                                     (                            )
+	// 创建时间
 	AppEnforcementSelectColumnCreatedAt AppEnforcementSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id )
 	AppEnforcementSelectColumnCreatedBy AppEnforcementSelectColumn = "created_by"
-	// 修改时间                                                     (                            )
+	// 修改时间
 	AppEnforcementSelectColumnUpdatedAt AppEnforcementSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id )
 	AppEnforcementSelectColumnUpdatedBy AppEnforcementSelectColumn = "updated_by"
-	// 删除时间                                                     (                            )
+	// 删除时间
 	AppEnforcementSelectColumnDeletedAt AppEnforcementSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id )
 	AppEnforcementSelectColumnDeletedBy AppEnforcementSelectColumn = "deleted_by"
@@ -2326,27 +2286,27 @@ const (
 	DeductionReportSelectColumnID DeductionReportSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	DeductionReportSelectColumnDeductionReportID DeductionReportSelectColumn = "deduction_report_id"
-	// 地区                                            (                            )
+	// 地区
 	DeductionReportSelectColumnAreaID DeductionReportSelectColumn = "area_id"
-	// 年份.月份  如2015.3                             (                            )
+	// 年份.月份  如2015.3
 	DeductionReportSelectColumnDate DeductionReportSelectColumn = "date"
-	// 扣分事由                                        (                            )
+	// 扣分事由
 	DeductionReportSelectColumnCause DeductionReportSelectColumn = "cause"
 	// 录入人                                          ( system_user表的user_id )
 	DeductionReportSelectColumnInputPerson DeductionReportSelectColumn = "input_person"
-	// 录入时间                                        (                            )
+	// 录入时间
 	DeductionReportSelectColumnInputTime DeductionReportSelectColumn = "input_time"
-	// 扣分分值                                        (                            )
+	// 扣分分值
 	DeductionReportSelectColumnDemeritPoints DeductionReportSelectColumn = "demerit_points"
-	// 创建时间                                        (                            )
+	// 创建时间
 	DeductionReportSelectColumnCreatedAt DeductionReportSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	DeductionReportSelectColumnCreatedBy DeductionReportSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	DeductionReportSelectColumnUpdatedAt DeductionReportSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	DeductionReportSelectColumnUpdatedBy DeductionReportSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	DeductionReportSelectColumnDeletedAt DeductionReportSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	DeductionReportSelectColumnDeletedBy DeductionReportSelectColumn = "deleted_by"
@@ -2410,15 +2370,15 @@ const (
 	DriverPeccancyCheckSelectColumnDriverID DriverPeccancyCheckSelectColumn = "driver_id"
 	// 所在企业id     ( enterprise_info表的enterprise_id )
 	DriverPeccancyCheckSelectColumnEnterpriseID DriverPeccancyCheckSelectColumn = "enterprise_id"
-	// 创建时间       (                                      )
+	// 创建时间
 	DriverPeccancyCheckSelectColumnCreatedAt DriverPeccancyCheckSelectColumn = "created_at"
 	// 创建人         ( system_user表的user_id           )
 	DriverPeccancyCheckSelectColumnCreatedBy DriverPeccancyCheckSelectColumn = "created_by"
-	// 修改时间       (                                      )
+	// 修改时间
 	DriverPeccancyCheckSelectColumnUpdatedAt DriverPeccancyCheckSelectColumn = "updated_at"
 	// 修改人         ( system_user表的user_id           )
 	DriverPeccancyCheckSelectColumnUpdatedBy DriverPeccancyCheckSelectColumn = "updated_by"
-	// 删除时间       (                                      )
+	// 删除时间
 	DriverPeccancyCheckSelectColumnDeletedAt DriverPeccancyCheckSelectColumn = "deleted_at"
 	// 删除人         ( system_user表的user_id           )
 	DriverPeccancyCheckSelectColumnDeletedBy DriverPeccancyCheckSelectColumn = "deleted_by"
@@ -2474,23 +2434,23 @@ const (
 	IllegalPhotoSelectColumnID IllegalPhotoSelectColumn = "id"
 	// 违法照片表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	IllegalPhotoSelectColumnIllegalPhotoID IllegalPhotoSelectColumn = "illegal_photo_id"
-	// 违法照片名称                                              (                            )
+	// 违法照片名称
 	IllegalPhotoSelectColumnPictureName IllegalPhotoSelectColumn = "picture_name"
-	// 违法照片地址                                              (                            )
+	// 违法照片地址
 	IllegalPhotoSelectColumnPictureAddress IllegalPhotoSelectColumn = "picture_address"
 	// 是否同步                                                  ( false                      )
 	IllegalPhotoSelectColumnIsSynchronized IllegalPhotoSelectColumn = "is_synchronized"
 	// 是否删除                                                  ( false                      )
 	IllegalPhotoSelectColumnIsDeleted IllegalPhotoSelectColumn = "is_deleted"
-	// 创建时间                                                  (                            )
+	// 创建时间
 	IllegalPhotoSelectColumnCreatedAt IllegalPhotoSelectColumn = "created_at"
 	// 创建人                                                    ( system_user表的user_id )
 	IllegalPhotoSelectColumnCreatedBy IllegalPhotoSelectColumn = "created_by"
-	// 修改时间                                                  (                            )
+	// 修改时间
 	IllegalPhotoSelectColumnUpdatedAt IllegalPhotoSelectColumn = "updated_at"
 	// 修改人                                                    ( system_user表的user_id )
 	IllegalPhotoSelectColumnUpdatedBy IllegalPhotoSelectColumn = "updated_by"
-	// 删除时间                                                  (                            )
+	// 删除时间
 	IllegalPhotoSelectColumnDeletedAt IllegalPhotoSelectColumn = "deleted_at"
 	// 删除人                                                    ( system_user表的user_id )
 	IllegalPhotoSelectColumnDeletedBy IllegalPhotoSelectColumn = "deleted_by"
@@ -2556,31 +2516,31 @@ const (
 	RegionalViolationRegisterSelectColumnDriverID RegionalViolationRegisterSelectColumn = "driver_id"
 	// 违法代码                                                     ( VIO_CODEWFDM 违法描述字典表                    )
 	RegionalViolationRegisterSelectColumnIllegalCode RegionalViolationRegisterSelectColumn = "illegal_code"
-	// 违法时间                                                     (                                                    )
+	// 违法时间
 	RegionalViolationRegisterSelectColumnIllegalTime RegionalViolationRegisterSelectColumn = "illegal_time"
 	// 类型(1车辆2驾驶员)                                           ( 违法类型字典表                                 )
 	RegionalViolationRegisterSelectColumnIllegalType RegionalViolationRegisterSelectColumn = "illegal_type"
-	// 登记时间                                                     (                                                    )
+	// 登记时间
 	RegionalViolationRegisterSelectColumnRegisterTime RegionalViolationRegisterSelectColumn = "register_time"
-	// 处理机关                                                     (                                                    )
+	// 处理机关
 	RegionalViolationRegisterSelectColumnProcessingAgency RegionalViolationRegisterSelectColumn = "processing_agency"
 	// 操作员                                                       ( system_user表的user_id                         )
 	RegionalViolationRegisterSelectColumnOperator RegionalViolationRegisterSelectColumn = "operator"
 	// 类型(false未登记true已登记)                                  ( fase                                               )
 	RegionalViolationRegisterSelectColumnIsRegister RegionalViolationRegisterSelectColumn = "is_register"
-	// 创建时间                                                     (                                                    )
+	// 创建时间
 	RegionalViolationRegisterSelectColumnCreatedAt RegionalViolationRegisterSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id                         )
 	RegionalViolationRegisterSelectColumnCreatedBy RegionalViolationRegisterSelectColumn = "created_by"
-	// 修改时间                                                     (                                                    )
+	// 修改时间
 	RegionalViolationRegisterSelectColumnUpdatedAt RegionalViolationRegisterSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id                         )
 	RegionalViolationRegisterSelectColumnUpdatedBy RegionalViolationRegisterSelectColumn = "updated_by"
-	// 删除时间                                                     (                                                    )
+	// 删除时间
 	RegionalViolationRegisterSelectColumnDeletedAt RegionalViolationRegisterSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id                         )
 	RegionalViolationRegisterSelectColumnDeletedBy RegionalViolationRegisterSelectColumn = "deleted_by"
-	// 是否删除                                                     (                                                    )
+	// 是否删除
 	RegionalViolationRegisterSelectColumnIsDeleted RegionalViolationRegisterSelectColumn = "is_deleted"
 )
 
@@ -2647,17 +2607,17 @@ const (
 	SeriousTrafficViolationSelectColumnVehicleID SeriousTrafficViolationSelectColumn = "vehicle_id"
 	// 违法代码                                        ( VIO_CODEWFDM 违法描述字典表 )
 	SeriousTrafficViolationSelectColumnIllegalCode SeriousTrafficViolationSelectColumn = "illegal_code"
-	// 违法日期                                        (                                 )
+	// 违法日期
 	SeriousTrafficViolationSelectColumnIllegalTime SeriousTrafficViolationSelectColumn = "illegal_time"
-	// 创建时间                                        (                                 )
+	// 创建时间
 	SeriousTrafficViolationSelectColumnCreatedAt SeriousTrafficViolationSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id      )
 	SeriousTrafficViolationSelectColumnCreatedBy SeriousTrafficViolationSelectColumn = "created_by"
-	// 修改时间                                        (                                 )
+	// 修改时间
 	SeriousTrafficViolationSelectColumnUpdatedAt SeriousTrafficViolationSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id      )
 	SeriousTrafficViolationSelectColumnUpdatedBy SeriousTrafficViolationSelectColumn = "updated_by"
-	// 删除时间                                        (                                 )
+	// 删除时间
 	SeriousTrafficViolationSelectColumnDeletedAt SeriousTrafficViolationSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id      )
 	SeriousTrafficViolationSelectColumnDeletedBy SeriousTrafficViolationSelectColumn = "deleted_by"
@@ -2722,55 +2682,55 @@ const (
 	VehicleViolationDetailsSelectColumnEnterpriseID VehicleViolationDetailsSelectColumn = "enterprise_id"
 	// 违法代码                                                    ( VIO_CODEWFDM 违法描述字典表                              )
 	VehicleViolationDetailsSelectColumnIllegalCode VehicleViolationDetailsSelectColumn = "illegal_code"
-	// 违法时间                                                    (                                                              )
+	// 违法时间
 	VehicleViolationDetailsSelectColumnIllegalTime VehicleViolationDetailsSelectColumn = "illegal_time"
 	// 违法处理状态                                                ( 车辆违法处理状态字典                                     )
 	VehicleViolationDetailsSelectColumnIllegalHandlingStatus VehicleViolationDetailsSelectColumn = "illegal_handling_status"
-	// 违法地点                                                    (                                                              )
+	// 违法地点
 	VehicleViolationDetailsSelectColumnIllegalLocation VehicleViolationDetailsSelectColumn = "illegal_location"
 	// 标准值                                                      ( 路段的限速阈值或核载的人数，根据违法的种类不同而不同。       )
 	VehicleViolationDetailsSelectColumnStandardValue VehicleViolationDetailsSelectColumn = "standard_value"
 	// 实测值                                                      ( 车辆实际行驶的车速或实际载的人数，根据违法的种类不同而不同。 )
 	VehicleViolationDetailsSelectColumnMeasuredValue VehicleViolationDetailsSelectColumn = "measured_value"
-	// 发现机构                                                    (                                                              )
+	// 发现机构
 	VehicleViolationDetailsSelectColumnDiscoveryAgency VehicleViolationDetailsSelectColumn = "discovery_agency"
-	// 违法照片                                                    (                                                              )
+	// 违法照片
 	VehicleViolationDetailsSelectColumnIllegalPhoto VehicleViolationDetailsSelectColumn = "illegal_photo"
-	// 是否通知驾驶员                                              (                                                              )
+	// 是否通知驾驶员
 	VehicleViolationDetailsSelectColumnIsNoticeDriver VehicleViolationDetailsSelectColumn = "is_notice_driver"
-	// 通知时间                                                    (                                                              )
+	// 通知时间
 	VehicleViolationDetailsSelectColumnNoticeTime VehicleViolationDetailsSelectColumn = "notice_time"
-	// 决定书号                                                    (                                                              )
+	// 决定书号
 	VehicleViolationDetailsSelectColumnDecisionNumber VehicleViolationDetailsSelectColumn = "decision_number"
 	// 缴款标记                                                    ( 是否缴款字典                                             )
 	VehicleViolationDetailsSelectColumnPaymentMark VehicleViolationDetailsSelectColumn = "payment_mark"
-	// 当事人姓名                                                  (                                                              )
+	// 当事人姓名
 	VehicleViolationDetailsSelectColumnPartyName VehicleViolationDetailsSelectColumn = "party_name"
 	// 信息来源：1，强制，2，非现场，0，简易                       ( 信息来源字典表                                           )
 	VehicleViolationDetailsSelectColumnInformationSource VehicleViolationDetailsSelectColumn = "information_source"
-	// 驾驶人处理的交通违法记录对应的机动车信息                    (                                                              )
+	// 驾驶人处理的交通违法记录对应的机动车信息
 	VehicleViolationDetailsSelectColumnVehicleInformation VehicleViolationDetailsSelectColumn = "vehicle_information"
-	// 内网更新时间                                                (                                                              )
+	// 内网更新时间
 	VehicleViolationDetailsSelectColumnUpdateTimeIn VehicleViolationDetailsSelectColumn = "update_time_in"
-	// 是否处理                                                    (                                                              )
+	// 是否处理
 	VehicleViolationDetailsSelectColumnIsHandle VehicleViolationDetailsSelectColumn = "is_handle"
 	// 处理人                                                      ( system_user表的user_id                                   )
 	VehicleViolationDetailsSelectColumnHandleBy VehicleViolationDetailsSelectColumn = "handle_by"
-	// 处理时间                                                    (                                                              )
+	// 处理时间
 	VehicleViolationDetailsSelectColumnHandleAt VehicleViolationDetailsSelectColumn = "handle_at"
-	// 是否发送短信                                                (                                                              )
+	// 是否发送短信
 	VehicleViolationDetailsSelectColumnIsSend VehicleViolationDetailsSelectColumn = "is_send"
-	// 是否删除                                                    (                                                              )
+	// 是否删除
 	VehicleViolationDetailsSelectColumnIsDeleted VehicleViolationDetailsSelectColumn = "is_deleted"
-	// 创建时间                                                    (                                                              )
+	// 创建时间
 	VehicleViolationDetailsSelectColumnCreatedAt VehicleViolationDetailsSelectColumn = "created_at"
 	// 创建人                                                      ( system_user表的user_id                                   )
 	VehicleViolationDetailsSelectColumnCreatedBy VehicleViolationDetailsSelectColumn = "created_by"
-	// 修改时间                                                    (                                                              )
+	// 修改时间
 	VehicleViolationDetailsSelectColumnUpdatedAt VehicleViolationDetailsSelectColumn = "updated_at"
 	// 修改人                                                      ( system_user表的user_id                                   )
 	VehicleViolationDetailsSelectColumnUpdatedBy VehicleViolationDetailsSelectColumn = "updated_by"
-	// 删除时间                                                    (                                                              )
+	// 删除时间
 	VehicleViolationDetailsSelectColumnDeletedAt VehicleViolationDetailsSelectColumn = "deleted_at"
 	// 删除人                                                      ( system_user表的user_id                                   )
 	VehicleViolationDetailsSelectColumnDeletedBy VehicleViolationDetailsSelectColumn = "deleted_by"
@@ -2848,23 +2808,23 @@ const (
 	VehicleViolationScoringItemsSelectColumnID VehicleViolationScoringItemsSelectColumn = "id"
 	// 车辆违规计分项表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	VehicleViolationScoringItemsSelectColumnViolationScoringItemID VehicleViolationScoringItemsSelectColumn = "violation_scoring_item_id"
-	// 扣分事项描述                                                 (                            )
+	// 扣分事项描述
 	VehicleViolationScoringItemsSelectColumnDeductionItemDescription VehicleViolationScoringItemsSelectColumn = "deduction_item_description"
 	// 扣分事项类别                                                 ( 车辆评分扣分类别字典   )
 	VehicleViolationScoringItemsSelectColumnDeductionCategory VehicleViolationScoringItemsSelectColumn = "deduction_category"
-	// 扣分分值                                                     (                            )
+	// 扣分分值
 	VehicleViolationScoringItemsSelectColumnDemeritPoints VehicleViolationScoringItemsSelectColumn = "demerit_points"
-	// 是否删除                                                     (                            )
+	// 是否删除
 	VehicleViolationScoringItemsSelectColumnIsDeleted VehicleViolationScoringItemsSelectColumn = "is_deleted"
-	// 创建时间                                                     (                            )
+	// 创建时间
 	VehicleViolationScoringItemsSelectColumnCreatedAt VehicleViolationScoringItemsSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id )
 	VehicleViolationScoringItemsSelectColumnCreatedBy VehicleViolationScoringItemsSelectColumn = "created_by"
-	// 修改时间                                                     (                            )
+	// 修改时间
 	VehicleViolationScoringItemsSelectColumnUpdatedAt VehicleViolationScoringItemsSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id )
 	VehicleViolationScoringItemsSelectColumnUpdatedBy VehicleViolationScoringItemsSelectColumn = "updated_by"
-	// 删除时间                                                     (                            )
+	// 删除时间
 	VehicleViolationScoringItemsSelectColumnDeletedAt VehicleViolationScoringItemsSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id )
 	VehicleViolationScoringItemsSelectColumnDeletedBy VehicleViolationScoringItemsSelectColumn = "deleted_by"
@@ -2926,21 +2886,21 @@ const (
 	VehicleViolationScoringRecordSelectColumnVehicleID VehicleViolationScoringRecordSelectColumn = "vehicle_id"
 	// 扣分明细id                                                   ( vehicle_violation_scoring_ items表的violation_scoring_item_id )
 	VehicleViolationScoringRecordSelectColumnViolationScoringItemID VehicleViolationScoringRecordSelectColumn = "violation_scoring_item_id"
-	// 扣分分值                                                     (                                                              )
+	// 扣分分值
 	VehicleViolationScoringRecordSelectColumnDemeritPoints VehicleViolationScoringRecordSelectColumn = "demerit_points"
-	// 备注                                                         (                                                              )
+	// 备注
 	VehicleViolationScoringRecordSelectColumnRemarks VehicleViolationScoringRecordSelectColumn = "remarks"
-	// 是否删除                                                     (                                                              )
+	// 是否删除
 	VehicleViolationScoringRecordSelectColumnIsDeleted VehicleViolationScoringRecordSelectColumn = "is_deleted"
-	// 创建时间                                                     (                                                              )
+	// 创建时间
 	VehicleViolationScoringRecordSelectColumnCreatedAt VehicleViolationScoringRecordSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id                                   )
 	VehicleViolationScoringRecordSelectColumnCreatedBy VehicleViolationScoringRecordSelectColumn = "created_by"
-	// 修改时间                                                     (                                                              )
+	// 修改时间
 	VehicleViolationScoringRecordSelectColumnUpdatedAt VehicleViolationScoringRecordSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id                                   )
 	VehicleViolationScoringRecordSelectColumnUpdatedBy VehicleViolationScoringRecordSelectColumn = "updated_by"
-	// 删除时间                                                     (                                                              )
+	// 删除时间
 	VehicleViolationScoringRecordSelectColumnDeletedAt VehicleViolationScoringRecordSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id                                   )
 	VehicleViolationScoringRecordSelectColumnDeletedBy VehicleViolationScoringRecordSelectColumn = "deleted_by"
@@ -2995,17 +2955,17 @@ func (e VehicleViolationScoringRecordSelectColumn) MarshalGQL(w io.Writer) {
 type VioCodewfdmSelectColumn string
 
 const (
-	// 违法行为     (         )
+	// 违法行为
 	VioCodewfdmSelectColumnWfxw VioCodewfdmSelectColumn = "wfxw"
-	// 违法描述     (         )
+	// 违法描述
 	VioCodewfdmSelectColumnWfms VioCodewfdmSelectColumn = "wfms"
-	// 违法计分数   (         )
+	// 违法计分数
 	VioCodewfdmSelectColumnWfjfs VioCodewfdmSelectColumn = "wfjfs"
-	// 最小罚款金额 (         )
+	// 最小罚款金额
 	VioCodewfdmSelectColumnFkjeMin VioCodewfdmSelectColumn = "fkje_min"
-	// 最大罚款金额 (         )
+	// 最大罚款金额
 	VioCodewfdmSelectColumnFkjeMax VioCodewfdmSelectColumn = "fkje_max"
-	// 序号         (         )
+	// 序号
 	VioCodewfdmSelectColumnXh VioCodewfdmSelectColumn = "xh"
 )
 
@@ -3057,27 +3017,27 @@ const (
 	ViolationRegistrationSelectColumnViolationRegistrationID ViolationRegistrationSelectColumn = "violation_registration_id"
 	// 违章车辆id                                      ( vehicle_info表的vehicle_id )
 	ViolationRegistrationSelectColumnVehicleID ViolationRegistrationSelectColumn = "vehicle_id"
-	// 车牌号                                          (                                )
+	// 车牌号
 	ViolationRegistrationSelectColumnLicensePlateNumber ViolationRegistrationSelectColumn = "license_plate_number"
-	// 码身份证号                                      (                                )
+	// 码身份证号
 	ViolationRegistrationSelectColumnIDCardNum ViolationRegistrationSelectColumn = "id_card_num"
-	// 姓名                                            (                                )
+	// 姓名
 	ViolationRegistrationSelectColumnName ViolationRegistrationSelectColumn = "name"
-	// 地点                                            (                                )
+	// 地点
 	ViolationRegistrationSelectColumnLocation ViolationRegistrationSelectColumn = "location"
-	// 原因                                            (                                )
+	// 原因
 	ViolationRegistrationSelectColumnCause ViolationRegistrationSelectColumn = "cause"
-	// 违法时间                                        (                                )
+	// 违法时间
 	ViolationRegistrationSelectColumnIllegalTime ViolationRegistrationSelectColumn = "illegal_time"
 	// 操作人                                          ( system_user表的user_id     )
 	ViolationRegistrationSelectColumnOperator ViolationRegistrationSelectColumn = "operator"
-	// 违法地区                                        (                                )
+	// 违法地区
 	ViolationRegistrationSelectColumnIllegalArea ViolationRegistrationSelectColumn = "illegal_area"
-	// 违法代码                                        (                                )
+	// 违法代码
 	ViolationRegistrationSelectColumnIllegalCode ViolationRegistrationSelectColumn = "illegal_code"
-	// 车辆所属地区                                    (                                )
+	// 车辆所属地区
 	ViolationRegistrationSelectColumnVehicleArea ViolationRegistrationSelectColumn = "vehicle_area"
-	// 车辆所属单位                                    (                                )
+	// 车辆所属单位
 	ViolationRegistrationSelectColumnVehicleEnterprise ViolationRegistrationSelectColumn = "vehicle_enterprise"
 	// 所在省                                          ( 省份表province_id          )
 	ViolationRegistrationSelectColumnProvinceID ViolationRegistrationSelectColumn = "province_id"
@@ -3085,27 +3045,27 @@ const (
 	ViolationRegistrationSelectColumnCityID ViolationRegistrationSelectColumn = "city_id"
 	// 所在县                                          ( 区域表district_id          )
 	ViolationRegistrationSelectColumnDistrictID ViolationRegistrationSelectColumn = "district_id"
-	// 监管人                                          (                                )
+	// 监管人
 	ViolationRegistrationSelectColumnSupervisor ViolationRegistrationSelectColumn = "supervisor"
-	// 监管时间                                        (                                )
+	// 监管时间
 	ViolationRegistrationSelectColumnSupervisionTime ViolationRegistrationSelectColumn = "supervision_time"
-	// 监管备注                                        (                                )
+	// 监管备注
 	ViolationRegistrationSelectColumnSepervisionRemarks ViolationRegistrationSelectColumn = "sepervision_remarks"
-	// 是否监管                                        (                                )
+	// 是否监管
 	ViolationRegistrationSelectColumnIsSupervised ViolationRegistrationSelectColumn = "is_supervised"
-	// 是否事故                                        (                                )
+	// 是否事故
 	ViolationRegistrationSelectColumnIsAccident ViolationRegistrationSelectColumn = "is_accident"
-	// 是否删除                                        (                                )
+	// 是否删除
 	ViolationRegistrationSelectColumnIsDeleted ViolationRegistrationSelectColumn = "is_deleted"
-	// 创建时间                                        (                                )
+	// 创建时间
 	ViolationRegistrationSelectColumnCreatedAt ViolationRegistrationSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id     )
 	ViolationRegistrationSelectColumnCreatedBy ViolationRegistrationSelectColumn = "created_by"
-	// 修改时间                                        (                                )
+	// 修改时间
 	ViolationRegistrationSelectColumnUpdatedAt ViolationRegistrationSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id     )
 	ViolationRegistrationSelectColumnUpdatedBy ViolationRegistrationSelectColumn = "updated_by"
-	// 删除时间                                        (                                )
+	// 删除时间
 	ViolationRegistrationSelectColumnDeletedAt ViolationRegistrationSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id     )
 	ViolationRegistrationSelectColumnDeletedBy ViolationRegistrationSelectColumn = "deleted_by"

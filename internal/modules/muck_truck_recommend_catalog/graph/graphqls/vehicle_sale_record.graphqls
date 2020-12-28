@@ -15,31 +15,31 @@ type VehicleSaleRecord {
 	"""
 	seller: String
 	"""
-	 汽车型号                                        (                                                         )
+	 汽车型号                                        
 	"""
 	vehicle_model: String
 	"""
-	 汽车相关图片的路径                              (                                                         )
+	 汽车相关图片的路径                              
 	"""
 	vehicle_picture: String
 	"""
-	 汽车参数                                        (                                                         )
+	 汽车参数                                        
 	"""
 	vehicle_parameter: String
 	"""
-	 参考报价                                        (                                                         )
+	 参考报价                                        
 	"""
 	reference_price: String
 	"""
-	 其他相关材料                                    (                                                         )
+	 其他相关材料                                    
 	"""
 	other_material: String
 	"""
-	 备注                                            (                                                         )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 登记日期                                        (                                                         )
+	 登记日期                                        
 	"""
 	registration_time: Timestamptz
 	"""
@@ -47,7 +47,7 @@ type VehicleSaleRecord {
 	"""
 	registration_user: String
 	"""
-	 原因                                            (                                                         )
+	 原因                                            
 	"""
 	cause: String
 	"""
@@ -59,19 +59,19 @@ type VehicleSaleRecord {
 	"""
 	axis_type: Int
 	"""
-	 运输方量                                        (                                                         )
+	 运输方量                                        
 	"""
 	transport_volume: String
 	"""
-	 是否审核                                        (                                                         )
+	 是否审核                                        
 	"""
 	is_review: Boolean
 	"""
-	 是否删除                                        (                                                         )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                         )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -79,7 +79,7 @@ type VehicleSaleRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                         )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -87,7 +87,7 @@ type VehicleSaleRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                         )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -299,8 +299,6 @@ input VehicleSaleRecordBoolExp {
 input type for inserting data into table "vehicle_sale_record"
 """
 input VehicleSaleRecordInsertInput {
-	id: Bigint
-	vehicle_sale_record_id: String
 	seller: String
 	vehicle_model: String
 	vehicle_picture: String
@@ -316,8 +314,6 @@ input VehicleSaleRecordInsertInput {
 	transport_volume: String
 	is_review: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -375,31 +371,31 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	seller
 	"""
-	 汽车型号                                        (                                                         )
+	 汽车型号                                        
 	"""
 	vehicle_model
 	"""
-	 汽车相关图片的路径                              (                                                         )
+	 汽车相关图片的路径                              
 	"""
 	vehicle_picture
 	"""
-	 汽车参数                                        (                                                         )
+	 汽车参数                                        
 	"""
 	vehicle_parameter
 	"""
-	 参考报价                                        (                                                         )
+	 参考报价                                        
 	"""
 	reference_price
 	"""
-	 其他相关材料                                    (                                                         )
+	 其他相关材料                                    
 	"""
 	other_material
 	"""
-	 备注                                            (                                                         )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 登记日期                                        (                                                         )
+	 登记日期                                        
 	"""
 	registration_time
 	"""
@@ -407,7 +403,7 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	registration_user
 	"""
-	 原因                                            (                                                         )
+	 原因                                            
 	"""
 	cause
 	"""
@@ -419,19 +415,19 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	axis_type
 	"""
-	 运输方量                                        (                                                         )
+	 运输方量                                        
 	"""
 	transport_volume
 	"""
-	 是否审核                                        (                                                         )
+	 是否审核                                        
 	"""
 	is_review
 	"""
-	 是否删除                                        (                                                         )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                         )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -439,7 +435,7 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                         )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -447,7 +443,7 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                         )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

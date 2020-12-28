@@ -15,35 +15,35 @@ type OwnerInfo {
 	"""
 	department_id: String
 	"""
-	 车主姓名                                                (                                      )
+	 车主姓名                                                
 	"""
 	name: String
 	"""
-	 联系地址                                                (                                      )
+	 联系地址                                                
 	"""
 	address: String
 	"""
-	 固定电话                                                (                                      )
+	 固定电话                                                
 	"""
 	cellphone: String
 	"""
-	 手机号码                                                (                                      )
+	 手机号码                                                
 	"""
 	telephone: String
 	"""
-	 邮箱地址                                                (                                      )
+	 邮箱地址                                                
 	"""
 	email: String
 	"""
-	 证件过期日期                                            (                                      )
+	 证件过期日期                                            
 	"""
 	expiry_date: Timestamptz
 	"""
-	 身份证号                                                (                                      )
+	 身份证号                                                
 	"""
 	id_number: String
 	"""
-	 备注                                                    (                                      )
+	 备注                                                    
 	"""
 	remarks: String
 	"""
@@ -59,11 +59,11 @@ type OwnerInfo {
 	"""
 	operator: String
 	"""
-	 是否删除                                                (                                      )
+	 是否删除                                                
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                (                                      )
+	 创建时间                                                
 	"""
 	created_at: Timestamptz!
 	"""
@@ -71,7 +71,7 @@ type OwnerInfo {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                (                                      )
+	 修改时间                                                
 	"""
 	updated_at: Timestamptz
 	"""
@@ -79,7 +79,7 @@ type OwnerInfo {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                (                                      )
+	 删除时间                                                
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -283,8 +283,6 @@ input OwnerInfoBoolExp {
 input type for inserting data into table "owner_info"
 """
 input OwnerInfoInsertInput {
-	id: Bigint
-	owner_id: String
 	department_id: String
 	name: String
 	address: String
@@ -298,8 +296,6 @@ input OwnerInfoInsertInput {
 	agent: String
 	operator: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -355,35 +351,35 @@ enum OwnerInfoSelectColumn {
 	"""
 	department_id
 	"""
-	 车主姓名                                                (                                      )
+	 车主姓名                                                
 	"""
 	name
 	"""
-	 联系地址                                                (                                      )
+	 联系地址                                                
 	"""
 	address
 	"""
-	 固定电话                                                (                                      )
+	 固定电话                                                
 	"""
 	cellphone
 	"""
-	 手机号码                                                (                                      )
+	 手机号码                                                
 	"""
 	telephone
 	"""
-	 邮箱地址                                                (                                      )
+	 邮箱地址                                                
 	"""
 	email
 	"""
-	 证件过期日期                                            (                                      )
+	 证件过期日期                                            
 	"""
 	expiry_date
 	"""
-	 身份证号                                                (                                      )
+	 身份证号                                                
 	"""
 	id_number
 	"""
-	 备注                                                    (                                      )
+	 备注                                                    
 	"""
 	remarks
 	"""
@@ -399,11 +395,11 @@ enum OwnerInfoSelectColumn {
 	"""
 	operator
 	"""
-	 是否删除                                                (                                      )
+	 是否删除                                                
 	"""
 	is_deleted
 	"""
-	 创建时间                                                (                                      )
+	 创建时间                                                
 	"""
 	created_at
 	"""
@@ -411,7 +407,7 @@ enum OwnerInfoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                (                                      )
+	 修改时间                                                
 	"""
 	updated_at
 	"""
@@ -419,7 +415,7 @@ enum OwnerInfoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                (                                      )
+	 删除时间                                                
 	"""
 	deleted_at
 	"""

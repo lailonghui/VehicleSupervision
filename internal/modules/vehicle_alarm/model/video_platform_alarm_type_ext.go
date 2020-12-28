@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VideoPlatformAlarmTypeLoader string *VehicleSupervision/internal/modules/vehicle_alarm/model.VideoPlatformAlarmType
 
 func (t VideoPlatformAlarmType) TableName() string {
-	return "VideoPlatformAlarmType"
+	return "video_platform_alarm_type"
 }
 
 func (t *VideoPlatformAlarmType) NewLoader() *VideoPlatformAlarmTypeLoader {

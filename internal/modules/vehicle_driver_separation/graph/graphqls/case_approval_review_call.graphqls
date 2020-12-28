@@ -11,35 +11,35 @@ type CaseApprovalReviewCall {
 	"""
 	case_approval_review_call_id: String!
 	"""
-	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id (                            )
+	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id 
 	"""
 	case_approval_review_operation_id: String
 	"""
-	 电话号码                                                     (                            )
+	 电话号码                                                     
 	"""
 	telephone_number: String
 	"""
-	 拨打时间                                                     (                            )
+	 拨打时间                                                     
 	"""
 	dial_time: Timestamptz
 	"""
-	 是否接通                                                     (                            )
+	 是否接通                                                     
 	"""
 	is_connected: Boolean
 	"""
-	 告知内容                                                     (                            )
+	 告知内容                                                     
 	"""
 	inform_content: String
 	"""
-	 审核人                                                       (                            )
+	 审核人                                                       
 	"""
 	reviewer: String
 	"""
-	 审核时间                                                     (                            )
+	 审核时间                                                     
 	"""
 	review_time: Timestamptz
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -47,7 +47,7 @@ type CaseApprovalReviewCall {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -55,7 +55,7 @@ type CaseApprovalReviewCall {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -227,8 +227,6 @@ input CaseApprovalReviewCallBoolExp {
 input type for inserting data into table "case_approval_review_call"
 """
 input CaseApprovalReviewCallInsertInput {
-	id: Bigint
-	case_approval_review_call_id: String
 	case_approval_review_operation_id: String
 	telephone_number: String
 	dial_time: Timestamptz
@@ -236,8 +234,6 @@ input CaseApprovalReviewCallInsertInput {
 	inform_content: String
 	reviewer: String
 	review_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -282,35 +278,35 @@ enum CaseApprovalReviewCallSelectColumn {
 	"""
 	case_approval_review_call_id
 	"""
-	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id (                            )
+	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id 
 	"""
 	case_approval_review_operation_id
 	"""
-	 电话号码                                                     (                            )
+	 电话号码                                                     
 	"""
 	telephone_number
 	"""
-	 拨打时间                                                     (                            )
+	 拨打时间                                                     
 	"""
 	dial_time
 	"""
-	 是否接通                                                     (                            )
+	 是否接通                                                     
 	"""
 	is_connected
 	"""
-	 告知内容                                                     (                            )
+	 告知内容                                                     
 	"""
 	inform_content
 	"""
-	 审核人                                                       (                            )
+	 审核人                                                       
 	"""
 	reviewer
 	"""
-	 审核时间                                                     (                            )
+	 审核时间                                                     
 	"""
 	review_time
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -318,7 +314,7 @@ enum CaseApprovalReviewCallSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -326,7 +322,7 @@ enum CaseApprovalReviewCallSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""

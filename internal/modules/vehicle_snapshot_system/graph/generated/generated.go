@@ -5348,6 +5348,20 @@ input IntComparisonExp {
 	_nin: [Int!]
 }
 """
+expression to compare columns of type Float. All fields are combined with logical 'AND'.
+"""
+input FloatComparisonExp{
+	_eq: Float
+	_gt: Float
+	_gte: Float
+	_in: [Float!]
+	_is_null: Boolean
+	_lt: Float
+	_lte: Float
+	_neq: Float
+	_nin: [Float!]
+}
+"""
 column ordering options
 """
 enum OrderBy {
@@ -5458,19 +5472,19 @@ type ConstructionCamera {
 	"""
 	construction_camera_id: String!
 	"""
-	 设备名称                                        (                                                        )
+	 设备名称                                        
 	"""
 	device_name: String
 	"""
-	 IP地址                                          (                                                        )
+	 IP地址                                          
 	"""
 	ip_address: String
 	"""
-	 端口                                            (                                                        )
+	 端口                                            
 	"""
 	port: String
 	"""
-	 设备编号                                        (                                                        )
+	 设备编号                                        
 	"""
 	device_id: String
 	"""
@@ -5478,19 +5492,19 @@ type ConstructionCamera {
 	"""
 	construction_info_id: String
 	"""
-	 卡号                                            (                                                        )
+	 卡号                                            
 	"""
 	sim_number: String
 	"""
-	 登记时间                                        (                                                        )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 是否删除                                        (                                                        )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                        )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -5498,7 +5512,7 @@ type ConstructionCamera {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                        )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -5506,7 +5520,7 @@ type ConstructionCamera {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                        )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -5682,8 +5696,6 @@ input ConstructionCameraBoolExp {
 input type for inserting data into table "construction_camera"
 """
 input ConstructionCameraInsertInput {
-	id: Bigint
-	construction_camera_id: String
 	device_name: String
 	ip_address: String
 	port: String
@@ -5692,8 +5704,6 @@ input ConstructionCameraInsertInput {
 	sim_number: String
 	registration_time: Timestamptz
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -5739,19 +5749,19 @@ enum ConstructionCameraSelectColumn {
 	"""
 	construction_camera_id
 	"""
-	 设备名称                                        (                                                        )
+	 设备名称                                        
 	"""
 	device_name
 	"""
-	 IP地址                                          (                                                        )
+	 IP地址                                          
 	"""
 	ip_address
 	"""
-	 端口                                            (                                                        )
+	 端口                                            
 	"""
 	port
 	"""
-	 设备编号                                        (                                                        )
+	 设备编号                                        
 	"""
 	device_id
 	"""
@@ -5759,19 +5769,19 @@ enum ConstructionCameraSelectColumn {
 	"""
 	construction_info_id
 	"""
-	 卡号                                            (                                                        )
+	 卡号                                            
 	"""
 	sim_number
 	"""
-	 登记时间                                        (                                                        )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 是否删除                                        (                                                        )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                        )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -5779,7 +5789,7 @@ enum ConstructionCameraSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                        )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -5787,7 +5797,7 @@ enum ConstructionCameraSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                        )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -5849,39 +5859,39 @@ type ConstructionInfo {
 	"""
 	construction_info_id: String!
 	"""
-	 项目名称                                        (                            )
+	 项目名称                                        
 	"""
 	project_name: String
 	"""
-	 工程项目代码                                    (                            )
+	 工程项目代码                                    
 	"""
 	project_code: String
 	"""
-	 合同开工日期                                    (                            )
+	 合同开工日期                                    
 	"""
 	contract_start_date: Timestamptz
 	"""
-	 合同竣工日期                                    (                            )
+	 合同竣工日期                                    
 	"""
 	contract_completion_date: Timestamptz
 	"""
-	 建设单位                                        (                            )
+	 建设单位                                        
 	"""
 	build_agency: String
 	"""
-	 项目负责人                                      (                            )
+	 项目负责人                                      
 	"""
 	project_manager: String
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area_id: String
 	"""
-	 地址                                            (                            )
+	 地址                                            
 	"""
 	address: String
 	"""
-	 地图经纬度                                      (                            )
+	 地图经纬度                                      
 	"""
 	map_coordinate: Point
 	"""
@@ -5889,95 +5899,95 @@ type ConstructionInfo {
 	"""
 	construction_agency: String
 	"""
-	 监理单位                                        (                            )
+	 监理单位                                        
 	"""
 	supervision_agency: String
 	"""
-	 设备安装单位                                    (                            )
+	 设备安装单位                                    
 	"""
 	device_installation_agency: String
 	"""
-	 设备安装地点                                    (                            )
+	 设备安装地点                                    
 	"""
 	device_installation_location: String
 	"""
-	 服务合同编号                                    (                            )
+	 服务合同编号                                    
 	"""
 	service_contract_number: String
 	"""
-	 合同签署时间                                    (                            )
+	 合同签署时间                                    
 	"""
 	contract_signing_time: Timestamptz
 	"""
-	 服务启用日期                                    (                            )
+	 服务启用日期                                    
 	"""
 	service_activation_date: Timestamptz
 	"""
-	 证明有效期                                      (                            )
+	 证明有效期                                      
 	"""
 	proof_valid_date: Timestamptz
 	"""
-	 经纬度                                          (                            )
+	 经纬度                                          
 	"""
 	coordinate: Point
 	"""
-	 安装时间                                        (                            )
+	 安装时间                                        
 	"""
 	installation_time: Timestamptz
 	"""
-	 项目名称标签                                    (                            )
+	 项目名称标签                                    
 	"""
 	project_name_tag: String
 	"""
-	 进出口数量                                      (                            )
+	 进出口数量                                      
 	"""
 	import_export_quantity: String
 	"""
-	 停用原因                                        (                            )
+	 停用原因                                        
 	"""
 	deactivation_reason: String
 	"""
-	 未安装原因                                      (                            )
+	 未安装原因                                      
 	"""
 	uninstalled_reason: String
 	"""
-	 证明起始有效期                                  (                            )
+	 证明起始有效期                                  
 	"""
 	proof_valid_date_until: Timestamptz
 	"""
-	 类型（1.工地 2.矿山）                           (                            )
+	 类型（1.工地 2.矿山）                           
 	"""
 	construction_type: Int
 	"""
-	 联系人                                          (                            )
+	 联系人                                          
 	"""
 	contact_person: String
 	"""
-	 联系电话                                        (                            )
+	 联系电话                                        
 	"""
 	contact_phone: String
 	"""
-	 是否完工（0.未完工 1.已完工 2.已停用）          (                            )
+	 是否完工（0.未完工 1.已完工 2.已停用）          
 	"""
 	finished: Int
 	"""
-	 是否市直属                                      (                            )
+	 是否市直属                                      
 	"""
 	is_city_directly: String
 	"""
-	 是否安装（0.未申请 1.已安装 2.已申请未安装）    (                            )
+	 是否安装（0.未申请 1.已安装 2.已申请未安装）    
 	"""
 	is_installation: String
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -5985,7 +5995,7 @@ type ConstructionInfo {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -5993,7 +6003,7 @@ type ConstructionInfo {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -6281,8 +6291,6 @@ input ConstructionInfoBoolExp {
 input type for inserting data into table "construction_info"
 """
 input ConstructionInfoInsertInput {
-	id: Bigint
-	construction_info_id: String
 	project_name: String
 	project_code: String
 	contract_start_date: Timestamptz
@@ -6315,8 +6323,6 @@ input ConstructionInfoInsertInput {
 	is_installation: String
 	is_deleted: Boolean
 	registration_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6388,39 +6394,39 @@ enum ConstructionInfoSelectColumn {
 	"""
 	construction_info_id
 	"""
-	 项目名称                                        (                            )
+	 项目名称                                        
 	"""
 	project_name
 	"""
-	 工程项目代码                                    (                            )
+	 工程项目代码                                    
 	"""
 	project_code
 	"""
-	 合同开工日期                                    (                            )
+	 合同开工日期                                    
 	"""
 	contract_start_date
 	"""
-	 合同竣工日期                                    (                            )
+	 合同竣工日期                                    
 	"""
 	contract_completion_date
 	"""
-	 建设单位                                        (                            )
+	 建设单位                                        
 	"""
 	build_agency
 	"""
-	 项目负责人                                      (                            )
+	 项目负责人                                      
 	"""
 	project_manager
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area_id
 	"""
-	 地址                                            (                            )
+	 地址                                            
 	"""
 	address
 	"""
-	 地图经纬度                                      (                            )
+	 地图经纬度                                      
 	"""
 	map_coordinate
 	"""
@@ -6428,95 +6434,95 @@ enum ConstructionInfoSelectColumn {
 	"""
 	construction_agency
 	"""
-	 监理单位                                        (                            )
+	 监理单位                                        
 	"""
 	supervision_agency
 	"""
-	 设备安装单位                                    (                            )
+	 设备安装单位                                    
 	"""
 	device_installation_agency
 	"""
-	 设备安装地点                                    (                            )
+	 设备安装地点                                    
 	"""
 	device_installation_location
 	"""
-	 服务合同编号                                    (                            )
+	 服务合同编号                                    
 	"""
 	service_contract_number
 	"""
-	 合同签署时间                                    (                            )
+	 合同签署时间                                    
 	"""
 	contract_signing_time
 	"""
-	 服务启用日期                                    (                            )
+	 服务启用日期                                    
 	"""
 	service_activation_date
 	"""
-	 证明有效期                                      (                            )
+	 证明有效期                                      
 	"""
 	proof_valid_date
 	"""
-	 经纬度                                          (                            )
+	 经纬度                                          
 	"""
 	coordinate
 	"""
-	 安装时间                                        (                            )
+	 安装时间                                        
 	"""
 	installation_time
 	"""
-	 项目名称标签                                    (                            )
+	 项目名称标签                                    
 	"""
 	project_name_tag
 	"""
-	 进出口数量                                      (                            )
+	 进出口数量                                      
 	"""
 	import_export_quantity
 	"""
-	 停用原因                                        (                            )
+	 停用原因                                        
 	"""
 	deactivation_reason
 	"""
-	 未安装原因                                      (                            )
+	 未安装原因                                      
 	"""
 	uninstalled_reason
 	"""
-	 证明起始有效期                                  (                            )
+	 证明起始有效期                                  
 	"""
 	proof_valid_date_until
 	"""
-	 类型（1.工地 2.矿山）                           (                            )
+	 类型（1.工地 2.矿山）                           
 	"""
 	construction_type
 	"""
-	 联系人                                          (                            )
+	 联系人                                          
 	"""
 	contact_person
 	"""
-	 联系电话                                        (                            )
+	 联系电话                                        
 	"""
 	contact_phone
 	"""
-	 是否完工（0.未完工 1.已完工 2.已停用）          (                            )
+	 是否完工（0.未完工 1.已完工 2.已停用）          
 	"""
 	finished
 	"""
-	 是否市直属                                      (                            )
+	 是否市直属                                      
 	"""
 	is_city_directly
 	"""
-	 是否安装（0.未申请 1.已安装 2.已申请未安装）    (                            )
+	 是否安装（0.未申请 1.已安装 2.已申请未安装）    
 	"""
 	is_installation
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -6524,7 +6530,7 @@ enum ConstructionInfoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -6532,7 +6538,7 @@ enum ConstructionInfoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -6598,15 +6604,15 @@ type ConstructionUploadPic {
 	"""
 	construction_info_id: String
 	"""
-	 图片                                            (                                                        )
+	 图片                                            
 	"""
 	picture_url: String
 	"""
-	 是否删除                                        (                                                        )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                        )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -6614,7 +6620,7 @@ type ConstructionUploadPic {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                        )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -6622,7 +6628,7 @@ type ConstructionUploadPic {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                        )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -6778,13 +6784,9 @@ input ConstructionUploadPicBoolExp {
 input type for inserting data into table "construction_upload_pic"
 """
 input ConstructionUploadPicInsertInput {
-	id: Bigint
-	construction_upload_pic_id: String
 	construction_info_id: String
 	picture_url: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6829,15 +6831,15 @@ enum ConstructionUploadPicSelectColumn {
 	"""
 	construction_info_id
 	"""
-	 图片                                            (                                                        )
+	 图片                                            
 	"""
 	picture_url
 	"""
-	 是否删除                                        (                                                        )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                        )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -6845,7 +6847,7 @@ enum ConstructionUploadPicSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                        )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -6853,7 +6855,7 @@ enum ConstructionUploadPicSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                        )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -6919,23 +6921,23 @@ type OfflineRegistrationRecord {
 	"""
 	outage_registration_id: String
 	"""
-	 登记内容                                        (                                                            )
+	 登记内容                                        
 	"""
 	registration_content: String
 	"""
-	 登记时间                                        (                                                            )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 登记人                                          (                                                            )
+	 登记人                                          
 	"""
 	registrant: String
 	"""
-	 是否删除                                        (                                                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -6943,7 +6945,7 @@ type OfflineRegistrationRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -6951,7 +6953,7 @@ type OfflineRegistrationRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -7115,15 +7117,11 @@ input OfflineRegistrationRecordBoolExp {
 input type for inserting data into table "offline_registration_record"
 """
 input OfflineRegistrationRecordInsertInput {
-	id: Bigint
-	offline_registration_record: String
 	outage_registration_id: String
 	registration_content: String
 	registration_time: Timestamptz
 	registrant: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -7170,23 +7168,23 @@ enum OfflineRegistrationRecordSelectColumn {
 	"""
 	outage_registration_id
 	"""
-	 登记内容                                        (                                                            )
+	 登记内容                                        
 	"""
 	registration_content
 	"""
-	 登记时间                                        (                                                            )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 登记人                                          (                                                            )
+	 登记人                                          
 	"""
 	registrant
 	"""
-	 是否删除                                        (                                                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -7194,7 +7192,7 @@ enum OfflineRegistrationRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -7202,7 +7200,7 @@ enum OfflineRegistrationRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -7268,23 +7266,23 @@ type SnapshotSystemPassingAlarm {
 	"""
 	passing_id: String
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                   (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id                   
 	"""
 	vehicle_id: String!
 	"""
-	 车牌号                                                     (                                                              )
+	 车牌号                                                     
 	"""
 	license_plate_number: String
 	"""
-	 登记时间                                                   (                                                              )
+	 登记时间                                                   
 	"""
 	registration_time: Timestamptz
 	"""
-	 监管时间                                                   (                                                              )
+	 监管时间                                                   
 	"""
 	supervision_time: Timestamptz
 	"""
-	 备注                                                       (                                                              )
+	 备注                                                       
 	"""
 	remarks: String
 	"""
@@ -7292,11 +7290,11 @@ type SnapshotSystemPassingAlarm {
 	"""
 	camera_id: String
 	"""
-	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） (                                                              )
+	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） 
 	"""
 	alarm_type: Int
 	"""
-	 审核状态                                                   (                                                              )
+	 审核状态                                                   
 	"""
 	review_status: String
 	"""
@@ -7304,15 +7302,15 @@ type SnapshotSystemPassingAlarm {
 	"""
 	vehicle_type: Int
 	"""
-	 是否在线                                                   (                                                              )
+	 是否在线                                                   
 	"""
 	is_online: Boolean
 	"""
-	 是否监管                                                   (                                                              )
+	 是否监管                                                   
 	"""
 	is_supervision: Boolean
 	"""
-	 创建时间                                                   (                                                              )
+	 创建时间                                                   
 	"""
 	created_at: Timestamptz!
 	"""
@@ -7320,7 +7318,7 @@ type SnapshotSystemPassingAlarm {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                   (                                                              )
+	 修改时间                                                   
 	"""
 	updated_at: Timestamptz
 	"""
@@ -7328,7 +7326,7 @@ type SnapshotSystemPassingAlarm {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                   (                                                              )
+	 删除时间                                                   
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -7536,10 +7534,7 @@ input SnapshotSystemPassingAlarmBoolExp {
 input type for inserting data into table "snapshot_system_passing_alarm"
 """
 input SnapshotSystemPassingAlarmInsertInput {
-	id: Bigint
-	snapshot_system_passing_alarm_id: String
 	passing_id: String
-	vehicle_id: String
 	license_plate_number: String
 	registration_time: Timestamptz
 	supervision_time: Timestamptz
@@ -7550,8 +7545,6 @@ input SnapshotSystemPassingAlarmInsertInput {
 	vehicle_type: Int
 	is_online: Boolean
 	is_supervision: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -7607,23 +7600,23 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	passing_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                   (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id                   
 	"""
 	vehicle_id
 	"""
-	 车牌号                                                     (                                                              )
+	 车牌号                                                     
 	"""
 	license_plate_number
 	"""
-	 登记时间                                                   (                                                              )
+	 登记时间                                                   
 	"""
 	registration_time
 	"""
-	 监管时间                                                   (                                                              )
+	 监管时间                                                   
 	"""
 	supervision_time
 	"""
-	 备注                                                       (                                                              )
+	 备注                                                       
 	"""
 	remarks
 	"""
@@ -7631,11 +7624,11 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	camera_id
 	"""
-	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） (                                                              )
+	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） 
 	"""
 	alarm_type
 	"""
-	 审核状态                                                   (                                                              )
+	 审核状态                                                   
 	"""
 	review_status
 	"""
@@ -7643,15 +7636,15 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	vehicle_type
 	"""
-	 是否在线                                                   (                                                              )
+	 是否在线                                                   
 	"""
 	is_online
 	"""
-	 是否监管                                                   (                                                              )
+	 是否监管                                                   
 	"""
 	is_supervision
 	"""
-	 创建时间                                                   (                                                              )
+	 创建时间                                                   
 	"""
 	created_at
 	"""
@@ -7659,7 +7652,7 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                   (                                                              )
+	 修改时间                                                   
 	"""
 	updated_at
 	"""
@@ -7667,7 +7660,7 @@ enum SnapshotSystemPassingAlarmSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                   (                                                              )
+	 删除时间                                                   
 	"""
 	deleted_at
 	"""
@@ -7729,19 +7722,19 @@ type VehiclePassingRecord {
 	"""
 	vehicle_passing_record_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 车牌号                                          (                                                              )
+	 车牌号                                          
 	"""
 	license_plate_number: String
 	"""
-	 过车时间                                        (                                                              )
+	 过车时间                                        
 	"""
 	passing_time: Timestamptz
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
@@ -7749,27 +7742,27 @@ type VehiclePassingRecord {
 	"""
 	camera_id: String
 	"""
-	 过车类型                                        (                                                              )
+	 过车类型                                        
 	"""
 	pass_type: String
 	"""
-	 图片地址                                        (                                                              )
+	 图片地址                                        
 	"""
 	picture_url: String
 	"""
-	 审核状态                                        (                                                              )
+	 审核状态                                        
 	"""
 	review_status: String
 	"""
-	 车辆类型                                        (                                                              )
+	 车辆类型                                        
 	"""
 	vehicle_type: String
 	"""
-	 是否在线                                        (                                                              )
+	 是否在线                                        
 	"""
 	is_online: Boolean
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -7777,7 +7770,7 @@ type VehiclePassingRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -7785,7 +7778,7 @@ type VehiclePassingRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -7969,9 +7962,6 @@ input VehiclePassingRecordBoolExp {
 input type for inserting data into table "vehicle_passing_record"
 """
 input VehiclePassingRecordInsertInput {
-	id: Bigint
-	vehicle_passing_record_id: String
-	vehicle_id: String
 	license_plate_number: String
 	passing_time: Timestamptz
 	registration_time: Timestamptz
@@ -7981,8 +7971,6 @@ input VehiclePassingRecordInsertInput {
 	review_status: String
 	vehicle_type: String
 	is_online: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -8030,19 +8018,19 @@ enum VehiclePassingRecordSelectColumn {
 	"""
 	vehicle_passing_record_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 车牌号                                          (                                                              )
+	 车牌号                                          
 	"""
 	license_plate_number
 	"""
-	 过车时间                                        (                                                              )
+	 过车时间                                        
 	"""
 	passing_time
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
@@ -8050,27 +8038,27 @@ enum VehiclePassingRecordSelectColumn {
 	"""
 	camera_id
 	"""
-	 过车类型                                        (                                                              )
+	 过车类型                                        
 	"""
 	pass_type
 	"""
-	 图片地址                                        (                                                              )
+	 图片地址                                        
 	"""
 	picture_url
 	"""
-	 审核状态                                        (                                                              )
+	 审核状态                                        
 	"""
 	review_status
 	"""
-	 车辆类型                                        (                                                              )
+	 车辆类型                                        
 	"""
 	vehicle_type
 	"""
-	 是否在线                                        (                                                              )
+	 是否在线                                        
 	"""
 	is_online
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -8078,7 +8066,7 @@ enum VehiclePassingRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -8086,7 +8074,7 @@ enum VehiclePassingRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -30019,22 +30007,6 @@ func (ec *executionContext) unmarshalInputConstructionCameraInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "construction_camera_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_camera_id"))
-			it.ConstructionCameraID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "device_name":
 			var err error
 
@@ -30096,22 +30068,6 @@ func (ec *executionContext) unmarshalInputConstructionCameraInsertInput(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -30831,22 +30787,6 @@ func (ec *executionContext) unmarshalInputConstructionInfoInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "construction_info_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_info_id"))
-			it.ConstructionInfoID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "project_name":
 			var err error
 
@@ -31100,22 +31040,6 @@ func (ec *executionContext) unmarshalInputConstructionInfoInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
 			it.RegistrationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -31971,22 +31895,6 @@ func (ec *executionContext) unmarshalInputConstructionUploadPicInsertInput(ctx c
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "construction_upload_pic_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("construction_upload_pic_id"))
-			it.ConstructionUploadPicID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "construction_info_id":
 			var err error
 
@@ -32008,22 +31916,6 @@ func (ec *executionContext) unmarshalInputConstructionUploadPicInsertInput(ctx c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -32256,6 +32148,90 @@ func (ec *executionContext) unmarshalInputConstructionUploadPicSetInput(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
 			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
+	var it model1.FloatComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -32683,22 +32659,6 @@ func (ec *executionContext) unmarshalInputOfflineRegistrationRecordInsertInput(c
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "offline_registration_record":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offline_registration_record"))
-			it.OfflineRegistrationRecord, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "outage_registration_id":
 			var err error
 
@@ -32736,22 +32696,6 @@ func (ec *executionContext) unmarshalInputOfflineRegistrationRecordInsertInput(c
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33347,35 +33291,11 @@ func (ec *executionContext) unmarshalInputSnapshotSystemPassingAlarmInsertInput(
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "snapshot_system_passing_alarm_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("snapshot_system_passing_alarm_id"))
-			it.SnapshotSystemPassingAlarmID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "passing_id":
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("passing_id"))
 			it.PassingID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -33456,22 +33376,6 @@ func (ec *executionContext) unmarshalInputSnapshotSystemPassingAlarmInsertInput(
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_supervision"))
 			it.IsSupervision, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -34279,30 +34183,6 @@ func (ec *executionContext) unmarshalInputVehiclePassingRecordInsertInput(ctx co
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_passing_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_passing_record_id"))
-			it.VehiclePassingRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "license_plate_number":
 			var err error
 
@@ -34372,22 +34252,6 @@ func (ec *executionContext) unmarshalInputVehiclePassingRecordInsertInput(ctx co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_online"))
 			it.IsOnline, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -38750,6 +38614,21 @@ func (ec *executionContext) marshalNConstructionUploadPicSelectColumn2VehicleSup
 	return v
 }
 
+func (ec *executionContext) unmarshalNFloat2float64(ctx context.Context, v interface{}) (float64, error) {
+	res, err := graphql.UnmarshalFloat(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNFloat2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
+	res := graphql.MarshalFloat(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
 func (ec *executionContext) unmarshalNInt2int(ctx context.Context, v interface{}) (int, error) {
 	res, err := graphql.UnmarshalInt(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -40244,6 +40123,57 @@ func (ec *executionContext) marshalOConstructionUploadPicVarianceFields2ᚖVehic
 		return graphql.Null
 	}
 	return ec._ConstructionUploadPicVarianceFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]float64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNFloat2float64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOFloat2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNFloat2float64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloat(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOFloat2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalFloat(*v)
 }
 
 func (ec *executionContext) unmarshalOInt2ᚕintᚄ(ctx context.Context, v interface{}) ([]int, error) {

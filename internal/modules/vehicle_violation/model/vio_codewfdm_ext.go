@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VioCodewfdmLoader string *VehicleSupervision/internal/modules/vehicle_violation/model.VioCodewfdm
 
 func (t VioCodewfdm) TableName() string {
-	return "VioCodewfdm"
+	return "vio_codewfdm"
 }
 
 func (t *VioCodewfdm) NewLoader() *VioCodewfdmLoader {

@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteRegionManagementByPk(ctx context.Context, Id in
 }
 
 func (r *mutationResolver) InsertRegionManagement(ctx context.Context, objects []*model.RegionManagementInsertInput) (*model.RegionManagementMutationResponse, error) {
-	rs := []*model1.RegionManagement{}
+	rs := make([]*model1.RegionManagement, 0)
 	for _, object := range objects {
 		v := &model1.RegionManagement{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.RegionManagement{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateRegionManagementByPk(ctx context.Context, inc *
 	qt := util.NewQueryTranslator(tx, &model1.RegionManagement{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.RegionManagement
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) RegionManagement(ctx context.Context, distinctOn []model
 		Finish()
 	var rs []*model1.RegionManagement
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) RegionManagementAggregate(ctx context.Context, distinctOn []model.RegionManagementSelectColumn, limit *int, offset *int, orderBy []*model.RegionManagementOrderBy, where *model.RegionManagementBoolExp) (*model.RegionManagementAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) RegionManagementAggregate(ctx context.Context, distinctO
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) RegionManagementByPk(ctx context.Context, Id int64) (*model1.RegionManagement, error) {
 	var rs model1.RegionManagement
 	tx := db.DB.Model(&model1.RegionManagement{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

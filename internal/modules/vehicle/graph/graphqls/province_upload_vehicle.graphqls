@@ -11,7 +11,7 @@ type ProvinceUploadVehicle {
 	"""
 	province_upload_vehicle_id: String!
 	"""
-	 车牌号码                                        (                                      )
+	 车牌号码                                        
 	"""
 	license_plate_number: String
 	"""
@@ -27,7 +27,7 @@ type ProvinceUploadVehicle {
 	"""
 	operator: String
 	"""
-	 车籍地(行驶证上的车辆注册地 )                   (                                      )
+	 车籍地(行驶证上的车辆注册地 )                   
 	"""
 	vehicle_registration_place: String
 	"""
@@ -35,15 +35,15 @@ type ProvinceUploadVehicle {
 	"""
 	vehicle_type: Int
 	"""
-	 吨位                                            (                                      )
+	 吨位                                            
 	"""
 	heavy: Numeric
 	"""
-	 座位                                            (                                      )
+	 座位                                            
 	"""
 	seats: Int
 	"""
-	 运营标识                                        (                                      )
+	 运营标识                                        
 	"""
 	operating_flag: String
 	"""
@@ -51,39 +51,39 @@ type ProvinceUploadVehicle {
 	"""
 	operating_state: Int
 	"""
-	 备注                                            (                                      )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 在线状态                                        (                                      )
+	 在线状态                                        
 	"""
 	online_status: String
 	"""
-	 最后汇报时间                                    (                                      )
+	 最后汇报时间                                    
 	"""
 	last_report_time: Timestamptz
 	"""
-	 运政同步标识                                    (                                      )
+	 运政同步标识                                    
 	"""
 	transport_agency_synchronization_flag: String
 	"""
-	 是否运政同步                                    (                                      )
+	 是否运政同步                                    
 	"""
 	is_transport_agency_synchronization: Boolean
 	"""
-	 运政同步时间                                    (                                      )
+	 运政同步时间                                    
 	"""
 	transport_agency_synchronization_time: Timestamptz
 	"""
-	 设备型号                                        (                                      )
+	 设备型号                                        
 	"""
 	device_model: String
 	"""
-	 终端型号                                        (                                      )
+	 终端型号                                        
 	"""
 	terminal_model: String
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -91,7 +91,7 @@ type ProvinceUploadVehicle {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -99,7 +99,7 @@ type ProvinceUploadVehicle {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -355,8 +355,6 @@ input ProvinceUploadVehicleBoolExp {
 input type for inserting data into table "province_upload_vehicle"
 """
 input ProvinceUploadVehicleInsertInput {
-	id: Bigint
-	province_upload_vehicle_id: String
 	license_plate_number: String
 	license_plate_color: Int
 	enterprise_id: String
@@ -375,8 +373,6 @@ input ProvinceUploadVehicleInsertInput {
 	transport_agency_synchronization_time: Timestamptz
 	device_model: String
 	terminal_model: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -437,7 +433,7 @@ enum ProvinceUploadVehicleSelectColumn {
 	"""
 	province_upload_vehicle_id
 	"""
-	 车牌号码                                        (                                      )
+	 车牌号码                                        
 	"""
 	license_plate_number
 	"""
@@ -453,7 +449,7 @@ enum ProvinceUploadVehicleSelectColumn {
 	"""
 	operator
 	"""
-	 车籍地(行驶证上的车辆注册地 )                   (                                      )
+	 车籍地(行驶证上的车辆注册地 )                   
 	"""
 	vehicle_registration_place
 	"""
@@ -461,15 +457,15 @@ enum ProvinceUploadVehicleSelectColumn {
 	"""
 	vehicle_type
 	"""
-	 吨位                                            (                                      )
+	 吨位                                            
 	"""
 	heavy
 	"""
-	 座位                                            (                                      )
+	 座位                                            
 	"""
 	seats
 	"""
-	 运营标识                                        (                                      )
+	 运营标识                                        
 	"""
 	operating_flag
 	"""
@@ -477,39 +473,39 @@ enum ProvinceUploadVehicleSelectColumn {
 	"""
 	operating_state
 	"""
-	 备注                                            (                                      )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 在线状态                                        (                                      )
+	 在线状态                                        
 	"""
 	online_status
 	"""
-	 最后汇报时间                                    (                                      )
+	 最后汇报时间                                    
 	"""
 	last_report_time
 	"""
-	 运政同步标识                                    (                                      )
+	 运政同步标识                                    
 	"""
 	transport_agency_synchronization_flag
 	"""
-	 是否运政同步                                    (                                      )
+	 是否运政同步                                    
 	"""
 	is_transport_agency_synchronization
 	"""
-	 运政同步时间                                    (                                      )
+	 运政同步时间                                    
 	"""
 	transport_agency_synchronization_time
 	"""
-	 设备型号                                        (                                      )
+	 设备型号                                        
 	"""
 	device_model
 	"""
-	 终端型号                                        (                                      )
+	 终端型号                                        
 	"""
 	terminal_model
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -517,7 +513,7 @@ enum ProvinceUploadVehicleSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -525,7 +521,7 @@ enum ProvinceUploadVehicleSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

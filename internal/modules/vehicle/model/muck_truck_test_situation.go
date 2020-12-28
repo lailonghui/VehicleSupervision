@@ -12,55 +12,55 @@ type MuckTruckTestSituation struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	MuckTruckTestSituationID string `json:"muck_truck_test_situation_id"`
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID string `json:"vehicle_id"`
-	// 密闭状态                                        (                            )
+	// 密闭状态
 	AirtightState *int `json:"airtight_state"`
-	// 载重状态                                        (                            )
+	// 载重状态
 	LoadState *int `json:"load_state"`
-	// 举升状态                                        (                            )
+	// 举升状态
 	LiftingStatus *int `json:"lifting_status"`
-	// 视频                                            (                            )
+	// 视频
 	Video *int `json:"video"`
-	// 指纹                                            (                            )
+	// 指纹
 	Fingerprint *int `json:"fingerprint"`
-	// 锁车功能                                        (                            )
+	// 锁车功能
 	CarLockFunction *int `json:"car_lock_function"`
-	// 限速功能                                        (                            )
+	// 限速功能
 	SpeedLimitFunction *int `json:"speed_limit_function"`
-	// 部标功能                                        (                            )
+	// 部标功能
 	MinistryStandardFunction *int `json:"ministry_standard_function"`
-	// 限举功能                                        (                            )
+	// 限举功能
 	WeightLimitFunction *int `json:"weight_limit_function"`
-	// 左转灯                                          (                            )
+	// 左转灯
 	LeftTurnLight *int `json:"left_turn_light"`
-	// 右转灯                                          (                            )
+	// 右转灯
 	RightTurnRight *int `json:"right_turn_right"`
-	// 远光灯                                          (                            )
+	// 远光灯
 	HighBeam *int `json:"high_beam"`
-	// 近光灯                                          (                            )
+	// 近光灯
 	LowBeam *int `json:"low_beam"`
-	// 刹车                                            (                            )
+	// 刹车
 	Brake *int `json:"brake"`
-	// 车速                                            (                            )
+	// 车速
 	Speed *int `json:"speed"`
-	// 是否检测非法弃土                                (                            )
+	// 是否检测非法弃土
 	IsDetectIllegalSpoil *bool `json:"is_detect_illegal_spoil"`
-	// 是否检测违规启动                                (                            )
+	// 是否检测违规启动
 	IsDetectIllegalStart *bool `json:"is_detect_illegal_start"`
-	// 是否通过                                        (                            )
+	// 是否通过
 	IsPassed *bool `json:"is_passed"`
-	// 是否删除                                        (                            )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
-	// 创建时间                                        (                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id )
 	DeletedBy *string `json:"deleted_by"`

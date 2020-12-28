@@ -11,59 +11,59 @@ type RegionManagement {
 	"""
 	region_management_id: String!
 	"""
-	 区域ID                                          (                            )
+	 区域ID                                          
 	"""
 	region_id: String
 	"""
-	 区域名称                                        (                            )
+	 区域名称                                        
 	"""
 	region_name: String
 	"""
-	 区域类型                                        (                            )
+	 区域类型                                        
 	"""
 	region_type: String
 	"""
-	 区域性质                                        (                            )
+	 区域性质                                        
 	"""
 	region_nature: String
 	"""
-	 报警开始时间                                    (                            )
+	 报警开始时间                                    
 	"""
 	alarm_begin_time: Timestamptz
 	"""
-	 报警截止时间                                    (                            )
+	 报警截止时间                                    
 	"""
 	alarm_end_time: Timestamptz
 	"""
-	 企业名称                                        (                            )
+	 企业名称                                        
 	"""
 	enterprise_name: String
 	"""
-	 持续时间                                        (                            )
+	 持续时间                                        
 	"""
 	duration_: Int
 	"""
-	 最高速度                                        (                            )
+	 最高速度                                        
 	"""
 	max_speed: Int
 	"""
-	 圆形半径                                        (                            )
+	 圆形半径                                        
 	"""
 	circle_radius: Int
 	"""
-	 区域经纬度                                      (                            )
+	 区域经纬度                                      
 	"""
 	region_coordinate: Point
 	"""
-	 是否超级区域                                    (                            )
+	 是否超级区域                                    
 	"""
 	is_super_region: Boolean
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -71,7 +71,7 @@ type RegionManagement {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -79,7 +79,7 @@ type RegionManagement {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -299,8 +299,6 @@ input RegionManagementBoolExp {
 input type for inserting data into table "region_management"
 """
 input RegionManagementInsertInput {
-	id: Bigint
-	region_management_id: String
 	region_id: String
 	region_name: String
 	region_type: String
@@ -314,8 +312,6 @@ input RegionManagementInsertInput {
 	region_coordinate: Point
 	is_super_region: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -369,59 +365,59 @@ enum RegionManagementSelectColumn {
 	"""
 	region_management_id
 	"""
-	 区域ID                                          (                            )
+	 区域ID                                          
 	"""
 	region_id
 	"""
-	 区域名称                                        (                            )
+	 区域名称                                        
 	"""
 	region_name
 	"""
-	 区域类型                                        (                            )
+	 区域类型                                        
 	"""
 	region_type
 	"""
-	 区域性质                                        (                            )
+	 区域性质                                        
 	"""
 	region_nature
 	"""
-	 报警开始时间                                    (                            )
+	 报警开始时间                                    
 	"""
 	alarm_begin_time
 	"""
-	 报警截止时间                                    (                            )
+	 报警截止时间                                    
 	"""
 	alarm_end_time
 	"""
-	 企业名称                                        (                            )
+	 企业名称                                        
 	"""
 	enterprise_name
 	"""
-	 持续时间                                        (                            )
+	 持续时间                                        
 	"""
 	duration_
 	"""
-	 最高速度                                        (                            )
+	 最高速度                                        
 	"""
 	max_speed
 	"""
-	 圆形半径                                        (                            )
+	 圆形半径                                        
 	"""
 	circle_radius
 	"""
-	 区域经纬度                                      (                            )
+	 区域经纬度                                      
 	"""
 	region_coordinate
 	"""
-	 是否超级区域                                    (                            )
+	 是否超级区域                                    
 	"""
 	is_super_region
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -429,7 +425,7 @@ enum RegionManagementSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -437,7 +433,7 @@ enum RegionManagementSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

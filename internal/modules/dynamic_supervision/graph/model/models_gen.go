@@ -79,8 +79,6 @@ type DynamicSpotCheckDisposalIncInput struct {
 
 // input type for inserting data into table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalInsertInput struct {
-	ID                            *int64     `json:"id"`
-	VehicleID                     *string    `json:"vehicle_id"`
 	EnterpriseID                  *string    `json:"enterprise_id"`
 	Telephone                     *string    `json:"telephone"`
 	SendTime                      *time.Time `json:"send_time"`
@@ -100,8 +98,6 @@ type DynamicSpotCheckDisposalInsertInput struct {
 	DisposalMethod                *int       `json:"disposal_method"`
 	DisposalResult                *string    `json:"disposal_result"`
 	IsDeleted                     *bool      `json:"is_deleted"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
 	DeletedAt                     *time.Time `json:"deleted_at"`
@@ -452,8 +448,6 @@ type DynamicSupervisionDetailIncInput struct {
 
 // input type for inserting data into table "dynamic_supervision_detail"
 type DynamicSupervisionDetailInsertInput struct {
-	ID                           *int64     `json:"id"`
-	SupervisionDetailID          *string    `json:"supervision_detail_id"`
 	SupervisionID                *string    `json:"supervision_id"`
 	DriverID                     *string    `json:"driver_id"`
 	EnterpriseID                 *string    `json:"enterprise_id"`
@@ -507,8 +501,6 @@ type DynamicSupervisionDetailInsertInput struct {
 	DisposalResults6             *string    `json:"disposal_results6"`
 	DisposalResults7             *string    `json:"disposal_results7"`
 	IsDeleted                    *bool      `json:"is_deleted"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
 	DeletedAt                    *time.Time `json:"deleted_at"`
@@ -872,8 +864,6 @@ type DynamicSupervisionIncInput struct {
 
 // input type for inserting data into table "dynamic_supervision"
 type DynamicSupervisionInsertInput struct {
-	ID                   *int64     `json:"id"`
-	SupervisionID        *string    `json:"supervision_id"`
 	SpotCheckDate        *time.Time `json:"spot_check_date"`
 	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
 	SpotCheckNumber      *int       `json:"spot_check_number"`
@@ -886,8 +876,6 @@ type DynamicSupervisionInsertInput struct {
 	Year                 *int       `json:"year"`
 	Month                *int       `json:"month"`
 	Day                  *int       `json:"day"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
 	UpdatedAt            *time.Time `json:"updated_at"`
 	UpdatedBy            *string    `json:"updated_by"`
 	DeletedAt            *time.Time `json:"deleted_at"`
@@ -1143,9 +1131,6 @@ type MuckTruckOnlineIncInput struct {
 
 // input type for inserting data into table "muck_truck_online"
 type MuckTruckOnlineInsertInput struct {
-	ID                      *int64     `json:"id"`
-	MuckTruckOnlineID       *string    `json:"muck_truck_online_id"`
-	VehicleID               *string    `json:"vehicle_id"`
 	IsOnline                *bool      `json:"is_online"`
 	IsPay                   *bool      `json:"is_pay"`
 	IsGpsOnline             *bool      `json:"is_gps_online"`
@@ -1156,8 +1141,6 @@ type MuckTruckOnlineInsertInput struct {
 	LocationTime            *time.Time `json:"location_time"`
 	SelfNumber              *string    `json:"self_number"`
 	Area                    *string    `json:"area"`
-	CreatedAt               *time.Time `json:"created_at"`
-	CreatedBy               *string    `json:"created_by"`
 	UpdatedAt               *time.Time `json:"updated_at"`
 	UpdatedBy               *string    `json:"updated_by"`
 	DeletedAt               *time.Time `json:"deleted_at"`
@@ -1346,16 +1329,12 @@ type RegionIssuedIncInput struct {
 
 // input type for inserting data into table "region_issued"
 type RegionIssuedInsertInput struct {
-	ID             *int64     `json:"id"`
-	RegionIssuedID *string    `json:"region_issued_id"`
-	RegionName     *string    `json:"region_name"`
-	Imel           *string    `json:"imel"`
-	CreatedAt      *time.Time `json:"created_at"`
-	CreatedBy      *string    `json:"created_by"`
-	UpdatedAt      *time.Time `json:"updated_at"`
-	UpdatedBy      *string    `json:"updated_by"`
-	DeletedAt      *time.Time `json:"deleted_at"`
-	DeletedBy      *string    `json:"deleted_by"`
+	RegionName *string    `json:"region_name"`
+	Imel       *string    `json:"imel"`
+	UpdatedAt  *time.Time `json:"updated_at"`
+	UpdatedBy  *string    `json:"updated_by"`
+	DeletedAt  *time.Time `json:"deleted_at"`
+	DeletedBy  *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "region_issued"
@@ -1521,27 +1500,23 @@ type RegionManagementIncInput struct {
 
 // input type for inserting data into table "region_management"
 type RegionManagementInsertInput struct {
-	ID                 *int64     `json:"id"`
-	RegionManagementID *string    `json:"region_management_id"`
-	RegionID           *string    `json:"region_id"`
-	RegionName         *string    `json:"region_name"`
-	RegionType         *string    `json:"region_type"`
-	RegionNature       *string    `json:"region_nature"`
-	AlarmBeginTime     *time.Time `json:"alarm_begin_time"`
-	AlarmEndTime       *time.Time `json:"alarm_end_time"`
-	EnterpriseName     *string    `json:"enterprise_name"`
-	Duration           *int       `json:"duration_"`
-	MaxSpeed           *int       `json:"max_speed"`
-	CircleRadius       *int       `json:"circle_radius"`
-	RegionCoordinate   *string    `json:"region_coordinate"`
-	IsSuperRegion      *bool      `json:"is_super_region"`
-	IsDeleted          *bool      `json:"is_deleted"`
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
+	RegionID         *string    `json:"region_id"`
+	RegionName       *string    `json:"region_name"`
+	RegionType       *string    `json:"region_type"`
+	RegionNature     *string    `json:"region_nature"`
+	AlarmBeginTime   *time.Time `json:"alarm_begin_time"`
+	AlarmEndTime     *time.Time `json:"alarm_end_time"`
+	EnterpriseName   *string    `json:"enterprise_name"`
+	Duration         *int       `json:"duration_"`
+	MaxSpeed         *int       `json:"max_speed"`
+	CircleRadius     *int       `json:"circle_radius"`
+	RegionCoordinate *string    `json:"region_coordinate"`
+	IsSuperRegion    *bool      `json:"is_super_region"`
+	IsDeleted        *bool      `json:"is_deleted"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "region_management"
@@ -1802,8 +1777,6 @@ type VehicleAlarmSupervisionIncInput struct {
 
 // input type for inserting data into table "vehicle_alarm_supervision"
 type VehicleAlarmSupervisionInsertInput struct {
-	ID                                *int64     `json:"id"`
-	VehicleAlarmSupervisionID         *string    `json:"vehicle_alarm_supervision_id"`
 	SuperivisionAuthorityID           *string    `json:"superivision_authority_id"`
 	SuperivisionType                  *string    `json:"superivision_type"`
 	AreaID                            *string    `json:"area_id"`
@@ -1827,8 +1800,6 @@ type VehicleAlarmSupervisionInsertInput struct {
 	CheckAbnormalVehicleNumber        *int       `json:"check_abnormal_vehicle_number"`
 	AbnormalDisposalNumber            *int       `json:"abnormal_disposal_number"`
 	AbnormalDisposalRate              *float64   `json:"abnormal_disposal_rate"`
-	CreatedAt                         *time.Time `json:"created_at"`
-	CreatedBy                         *string    `json:"created_by"`
 	UpdatedAt                         *time.Time `json:"updated_at"`
 	UpdatedBy                         *string    `json:"updated_by"`
 	DeletedAt                         *time.Time `json:"deleted_at"`
@@ -2167,25 +2138,20 @@ type VehicleAlarmTimesRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_alarm_times_record"
 type VehicleAlarmTimesRecordInsertInput struct {
-	ID                        *int64     `json:"id"`
-	VehicleAlarmTimesRecordID *string    `json:"vehicle_alarm_times_record_id"`
-	VehicleID                 *string    `json:"vehicle_id"`
-	AlarmType                 *string    `json:"alarm_type"`
-	DisposalMeasure           *string    `json:"disposal_measure"`
-	DisposalTime              *time.Time `json:"disposal_time"`
-	DisposalResult            *string    `json:"disposal_result"`
-	IsDisposal                *bool      `json:"is_disposal"`
-	DisposalMethod            *int       `json:"disposal_method"`
-	DutyPerson                *string    `json:"duty_person"`
-	AlarmTimes                *string    `json:"alarm_times"`
-	Remarks                   *string    `json:"remarks"`
-	RecordTime                *time.Time `json:"record_time"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
+	AlarmType       *string    `json:"alarm_type"`
+	DisposalMeasure *string    `json:"disposal_measure"`
+	DisposalTime    *time.Time `json:"disposal_time"`
+	DisposalResult  *string    `json:"disposal_result"`
+	IsDisposal      *bool      `json:"is_disposal"`
+	DisposalMethod  *int       `json:"disposal_method"`
+	DutyPerson      *string    `json:"duty_person"`
+	AlarmTimes      *string    `json:"alarm_times"`
+	Remarks         *string    `json:"remarks"`
+	RecordTime      *time.Time `json:"record_time"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_alarm_times_record"
@@ -2390,29 +2356,25 @@ type VehicleOfflineDisposalIncInput struct {
 
 // input type for inserting data into table "vehicle_offline_disposal"
 type VehicleOfflineDisposalInsertInput struct {
-	ID                       *int64     `json:"id"`
-	VehicleOfflineDisposalID *string    `json:"vehicle_offline_disposal_id"`
-	EnterpriseID             *string    `json:"enterprise_id"`
-	Telephone                *string    `json:"telephone"`
-	Content                  *string    `json:"content"`
-	SendTime                 *time.Time `json:"send_time"`
-	UserID                   *string    `json:"user_id"`
-	IsSmsPush                *bool      `json:"is_sms_push"`
-	IsReport                 *bool      `json:"is_report"`
-	IsVoiceNotification      *bool      `json:"is_voice_notification"`
-	IsAppPush                *bool      `json:"is_app_push"`
-	NotificationContent      *string    `json:"notification_content"`
-	VoiceContent             *string    `json:"voice_content"`
-	AppPushContent           *string    `json:"app_push_content"`
-	SupervisionDetailID      *string    `json:"supervision_detail_id"`
-	DisposalMethod           *string    `json:"disposal_method"`
-	IsDeleted                *bool      `json:"is_deleted"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
-	UpdatedAt                *time.Time `json:"updated_at"`
-	UpdatedBy                *string    `json:"updated_by"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
+	EnterpriseID        *string    `json:"enterprise_id"`
+	Telephone           *string    `json:"telephone"`
+	Content             *string    `json:"content"`
+	SendTime            *time.Time `json:"send_time"`
+	UserID              *string    `json:"user_id"`
+	IsSmsPush           *bool      `json:"is_sms_push"`
+	IsReport            *bool      `json:"is_report"`
+	IsVoiceNotification *bool      `json:"is_voice_notification"`
+	IsAppPush           *bool      `json:"is_app_push"`
+	NotificationContent *string    `json:"notification_content"`
+	VoiceContent        *string    `json:"voice_content"`
+	AppPushContent      *string    `json:"app_push_content"`
+	SupervisionDetailID *string    `json:"supervision_detail_id"`
+	DisposalMethod      *string    `json:"disposal_method"`
+	IsDeleted           *bool      `json:"is_deleted"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_offline_disposal"
@@ -2570,55 +2532,55 @@ type DynamicSpotCheckDisposalSelectColumn string
 const (
 	// 按指定方法生成                           ( 主键                                                         )
 	DynamicSpotCheckDisposalSelectColumnID DynamicSpotCheckDisposalSelectColumn = "id"
-	// vehicle_info 车辆信息表 的vehicle_id (                                                              )
+	// vehicle_info 车辆信息表 的vehicle_id
 	DynamicSpotCheckDisposalSelectColumnVehicleID DynamicSpotCheckDisposalSelectColumn = "vehicle_id"
 	// 所在企业id                               ( enterprise_info表的enterprise_id                         )
 	DynamicSpotCheckDisposalSelectColumnEnterpriseID DynamicSpotCheckDisposalSelectColumn = "enterprise_id"
-	// 手机号码                                 (                                                              )
+	// 手机号码
 	DynamicSpotCheckDisposalSelectColumnTelephone DynamicSpotCheckDisposalSelectColumn = "telephone"
-	// 发送时间                                 (                                                              )
+	// 发送时间
 	DynamicSpotCheckDisposalSelectColumnSendTime DynamicSpotCheckDisposalSelectColumn = "send_time"
 	// 动态监管抽查明细表id                     ( dynamic_supervision_ detail 动态监管抽查明细表的supervision_detail_id )
 	DynamicSpotCheckDisposalSelectColumnSupervisionDetailID DynamicSpotCheckDisposalSelectColumn = "supervision_detail_id"
-	// 图像异常处置措施                         (                                                              )
+	// 图像异常处置措施
 	DynamicSpotCheckDisposalSelectColumnImageAbnormalHandingMeasure DynamicSpotCheckDisposalSelectColumn = "image_abnormal_handing_measure"
-	// 反馈时间                                 (                                                              )
+	// 反馈时间
 	DynamicSpotCheckDisposalSelectColumnFeedbackTime DynamicSpotCheckDisposalSelectColumn = "feedback_time"
-	// 行车记录仪数据处置措施                   (                                                              )
+	// 行车记录仪数据处置措施
 	DynamicSpotCheckDisposalSelectColumnTachographDataDisposalMeasure DynamicSpotCheckDisposalSelectColumn = "tachograph_data_disposal_measure"
 	// 操作用户                                 ( system_user表的user_id                                   )
 	DynamicSpotCheckDisposalSelectColumnOperationUser DynamicSpotCheckDisposalSelectColumn = "operation_user"
-	// 是否短信推送                             (                                                              )
+	// 是否短信推送
 	DynamicSpotCheckDisposalSelectColumnIsSmsPush DynamicSpotCheckDisposalSelectColumn = "is_sms_push"
-	// 是否通报                                 (                                                              )
+	// 是否通报
 	DynamicSpotCheckDisposalSelectColumnIsNotify DynamicSpotCheckDisposalSelectColumn = "is_notify"
-	// 是否语音通知                             (                                                              )
+	// 是否语音通知
 	DynamicSpotCheckDisposalSelectColumnIsAnnounce DynamicSpotCheckDisposalSelectColumn = "is_announce"
-	// 是否APP推送                              (                                                              )
+	// 是否APP推送
 	DynamicSpotCheckDisposalSelectColumnIsAppPush DynamicSpotCheckDisposalSelectColumn = "is_app_push"
-	// 通报内容                                 (                                                              )
+	// 通报内容
 	DynamicSpotCheckDisposalSelectColumnNotifyContent DynamicSpotCheckDisposalSelectColumn = "notify_content"
-	// 语音内容                                 (                                                              )
+	// 语音内容
 	DynamicSpotCheckDisposalSelectColumnAnnounceContent DynamicSpotCheckDisposalSelectColumn = "announce_content"
-	// APP推送内容                              (                                                              )
+	// APP推送内容
 	DynamicSpotCheckDisposalSelectColumnAppPushContent DynamicSpotCheckDisposalSelectColumn = "app_push_content"
-	// 处置内容                                 (                                                              )
+	// 处置内容
 	DynamicSpotCheckDisposalSelectColumnDisposalContent DynamicSpotCheckDisposalSelectColumn = "disposal_content"
 	// 处置方式                                 ( 处置方式字典                                             )
 	DynamicSpotCheckDisposalSelectColumnDisposalMethod DynamicSpotCheckDisposalSelectColumn = "disposal_method"
-	// 处置结果                                 (                                                              )
+	// 处置结果
 	DynamicSpotCheckDisposalSelectColumnDisposalResult DynamicSpotCheckDisposalSelectColumn = "disposal_result"
 	// 是否删除                                 ( false                                                        )
 	DynamicSpotCheckDisposalSelectColumnIsDeleted DynamicSpotCheckDisposalSelectColumn = "is_deleted"
-	// 创建时间                                 (                                                              )
+	// 创建时间
 	DynamicSpotCheckDisposalSelectColumnCreatedAt DynamicSpotCheckDisposalSelectColumn = "created_at"
 	// 创建人                                   ( system_user表的user_id                                   )
 	DynamicSpotCheckDisposalSelectColumnCreatedBy DynamicSpotCheckDisposalSelectColumn = "created_by"
-	// 修改时间                                 (                                                              )
+	// 修改时间
 	DynamicSpotCheckDisposalSelectColumnUpdatedAt DynamicSpotCheckDisposalSelectColumn = "updated_at"
 	// 修改人                                   ( system_user表的user_id                                   )
 	DynamicSpotCheckDisposalSelectColumnUpdatedBy DynamicSpotCheckDisposalSelectColumn = "updated_by"
-	// 删除时间                                 (                                                              )
+	// 删除时间
 	DynamicSpotCheckDisposalSelectColumnDeletedAt DynamicSpotCheckDisposalSelectColumn = "deleted_at"
 	// 删除人                                   ( system_user表的user_id                                   )
 	DynamicSpotCheckDisposalSelectColumnDeletedBy DynamicSpotCheckDisposalSelectColumn = "deleted_by"
@@ -2699,27 +2661,27 @@ const (
 	DynamicSupervisionDetailSelectColumnEnterpriseID DynamicSupervisionDetailSelectColumn = "enterprise_id"
 	// 车辆id                                                       ( vehicle_info 表的vehicle_id                         )
 	DynamicSupervisionDetailSelectColumnVehicleID DynamicSupervisionDetailSelectColumn = "vehicle_id"
-	// 监控平台时间                                                 (                                                         )
+	// 监控平台时间
 	DynamicSupervisionDetailSelectColumnMonitoringTime DynamicSupervisionDetailSelectColumn = "monitoring_time"
-	// 监控平台显示位置                                             (                                                         )
+	// 监控平台显示位置
 	DynamicSupervisionDetailSelectColumnMonitoringLocation DynamicSupervisionDetailSelectColumn = "monitoring_location"
-	// 是否在线（是/否）                                            (                                                         )
+	// 是否在线（是/否）
 	DynamicSupervisionDetailSelectColumnIsOnline DynamicSupervisionDetailSelectColumn = "is_online"
-	// 行车记录仪数据（是否异常）                                   (                                                         )
+	// 行车记录仪数据（是否异常）
 	DynamicSupervisionDetailSelectColumnIsTachographRecordNormal DynamicSupervisionDetailSelectColumn = "is_tachograph_record_normal"
-	// 行车记录仪异常数据项                                         (                                                         )
+	// 行车记录仪异常数据项
 	DynamicSupervisionDetailSelectColumnTachographDataException DynamicSupervisionDetailSelectColumn = "tachograph_data_exception"
-	// 行车记录仪速度                                               (                                                         )
+	// 行车记录仪速度
 	DynamicSupervisionDetailSelectColumnTachographSpeed DynamicSupervisionDetailSelectColumn = "tachograph_speed"
-	// 卫星定位速度                                                 (                                                         )
+	// 卫星定位速度
 	DynamicSupervisionDetailSelectColumnGpsSpeed DynamicSupervisionDetailSelectColumn = "gps_speed"
-	// 是否超速（是/否）                                            (                                                         )
+	// 是否超速（是/否）
 	DynamicSupervisionDetailSelectColumnIsSpeeding DynamicSupervisionDetailSelectColumn = "is_speeding"
 	// 出租空/重车状态（空/重）                                     ( 出租车空/重车状态字典                               )
 	DynamicSupervisionDetailSelectColumnTaxiState DynamicSupervisionDetailSelectColumn = "taxi_state"
-	// 客运疲劳驾驶（是/否）                                        (                                                         )
+	// 客运疲劳驾驶（是/否）
 	DynamicSupervisionDetailSelectColumnIsFatigueDriving DynamicSupervisionDetailSelectColumn = "is_fatigue_driving"
-	// 客运凌晨2-5时停运（是/否）                                   (                                                         )
+	// 客运凌晨2-5时停运（是/否）
 	DynamicSupervisionDetailSelectColumnIsMorningOutage DynamicSupervisionDetailSelectColumn = "is_morning_outage"
 	// 曲线情况（曲线完整/回传异常/零速度）                         ( 曲线情况字典                                        )
 	DynamicSupervisionDetailSelectColumnCurve DynamicSupervisionDetailSelectColumn = "curve"
@@ -2729,83 +2691,83 @@ const (
 	DynamicSupervisionDetailSelectColumnLensPosition DynamicSupervisionDetailSelectColumn = "lens_position"
 	// 设备情况（图像正常/无图像/摄像头 号损坏）                    ( 设备情况字典                                        )
 	DynamicSupervisionDetailSelectColumnEquipment DynamicSupervisionDetailSelectColumn = "equipment"
-	// 其他违规                                                     (                                                         )
+	// 其他违规
 	DynamicSupervisionDetailSelectColumnOtherInfraction DynamicSupervisionDetailSelectColumn = "other_infraction"
-	// 处置措施                                                     (                                                         )
+	// 处置措施
 	DynamicSupervisionDetailSelectColumnDisposalMeasures DynamicSupervisionDetailSelectColumn = "disposal_measures"
-	// 处置结果                                                     (                                                         )
+	// 处置结果
 	DynamicSupervisionDetailSelectColumnDisposalResults DynamicSupervisionDetailSelectColumn = "disposal_results"
-	// 处置时间                                                     (                                                         )
+	// 处置时间
 	DynamicSupervisionDetailSelectColumnTreatmentTime DynamicSupervisionDetailSelectColumn = "treatment_time"
-	// 受理人                                                       (                                                         )
+	// 受理人
 	DynamicSupervisionDetailSelectColumnAssignee DynamicSupervisionDetailSelectColumn = "assignee"
-	// 反馈时间                                                     (                                                         )
+	// 反馈时间
 	DynamicSupervisionDetailSelectColumnFeedbackTime DynamicSupervisionDetailSelectColumn = "feedback_time"
-	// 备注                                                         (                                                         )
+	// 备注
 	DynamicSupervisionDetailSelectColumnRemarks DynamicSupervisionDetailSelectColumn = "remarks"
-	// 轨迹其他情况                                                 (                                                         )
+	// 轨迹其他情况
 	DynamicSupervisionDetailSelectColumnOthers DynamicSupervisionDetailSelectColumn = "others"
-	// 摄像头损坏号                                                 (                                                         )
+	// 摄像头损坏号
 	DynamicSupervisionDetailSelectColumnLensOn DynamicSupervisionDetailSelectColumn = "lens_on"
-	// 监管费到期时间                                               (                                                         )
+	// 监管费到期时间
 	DynamicSupervisionDetailSelectColumnMonitorEndTime DynamicSupervisionDetailSelectColumn = "monitor_end_time"
-	// 是否定位                                                     (                                                         )
+	// 是否定位
 	DynamicSupervisionDetailSelectColumnIsLocate DynamicSupervisionDetailSelectColumn = "is_locate"
-	// 空间数据类型point表示经纬度                                  (                                                         )
+	// 空间数据类型point表示经纬度
 	DynamicSupervisionDetailSelectColumnCoordinate DynamicSupervisionDetailSelectColumn = "coordinate"
-	// 经纬度描述                                                   (                                                         )
+	// 经纬度描述
 	DynamicSupervisionDetailSelectColumnLatitudeLongitudeDescription DynamicSupervisionDetailSelectColumn = "latitude_longitude_description"
-	// 是否发送                                                     (                                                         )
+	// 是否发送
 	DynamicSupervisionDetailSelectColumnIsSend DynamicSupervisionDetailSelectColumn = "is_send"
 	// 经营范围                                                     ( 经营范围字典                                        )
 	DynamicSupervisionDetailSelectColumnBusinessScope DynamicSupervisionDetailSelectColumn = "business_scope"
-	// 凌晨2点到5点停运报警时间                                     (                                                         )
+	// 凌晨2点到5点停运报警时间
 	DynamicSupervisionDetailSelectColumnOutageAlarmTime DynamicSupervisionDetailSelectColumn = "outage_alarm_time"
-	// 超速报警时间                                                 (                                                         )
+	// 超速报警时间
 	DynamicSupervisionDetailSelectColumnSpeedAlarmTime DynamicSupervisionDetailSelectColumn = "speed_alarm_time"
-	// 超速速度                                                     (                                                         )
+	// 超速速度
 	DynamicSupervisionDetailSelectColumnSpeedingSpeed DynamicSupervisionDetailSelectColumn = "speeding_speed"
-	// 疲劳驾驶报警时间                                             (                                                         )
+	// 疲劳驾驶报警时间
 	DynamicSupervisionDetailSelectColumnFatigueAlarmTime DynamicSupervisionDetailSelectColumn = "fatigue_alarm_time"
-	// 是否在线处置措施                                             (                                                         )
+	// 是否在线处置措施
 	DynamicSupervisionDetailSelectColumnDisposalMeasures1 DynamicSupervisionDetailSelectColumn = "disposal_measures1"
-	// 是否超速处置措施                                             (                                                         )
+	// 是否超速处置措施
 	DynamicSupervisionDetailSelectColumnDisposalMeasures2 DynamicSupervisionDetailSelectColumn = "disposal_measures2"
-	// 曲线情况处置措施                                             (                                                         )
+	// 曲线情况处置措施
 	DynamicSupervisionDetailSelectColumnDisposalMeasures3 DynamicSupervisionDetailSelectColumn = "disposal_measures3"
-	// 客运疲劳驾驶处置措施                                         (                                                         )
+	// 客运疲劳驾驶处置措施
 	DynamicSupervisionDetailSelectColumnDisposalMeasures4 DynamicSupervisionDetailSelectColumn = "disposal_measures4"
-	// 客运凌晨停运处置措施                                         (                                                         )
+	// 客运凌晨停运处置措施
 	DynamicSupervisionDetailSelectColumnDisposalMeasures5 DynamicSupervisionDetailSelectColumn = "disposal_measures5"
-	// 行车记录仪数据处置措施                                       (                                                         )
+	// 行车记录仪数据处置措施
 	DynamicSupervisionDetailSelectColumnDisposalMeasures6 DynamicSupervisionDetailSelectColumn = "disposal_measures6"
-	// 轨迹情况处置措施                                             (                                                         )
+	// 轨迹情况处置措施
 	DynamicSupervisionDetailSelectColumnDisposalMeasures7 DynamicSupervisionDetailSelectColumn = "disposal_measures7"
-	// 是否在线处置结果                                             (                                                         )
+	// 是否在线处置结果
 	DynamicSupervisionDetailSelectColumnDisposalResults1 DynamicSupervisionDetailSelectColumn = "disposal_results1"
-	// 是否超速处置结果                                             (                                                         )
+	// 是否超速处置结果
 	DynamicSupervisionDetailSelectColumnDisposalResults2 DynamicSupervisionDetailSelectColumn = "disposal_results2"
-	// 曲线情况处置结果                                             (                                                         )
+	// 曲线情况处置结果
 	DynamicSupervisionDetailSelectColumnDisposalResults3 DynamicSupervisionDetailSelectColumn = "disposal_results3"
-	// 客运疲劳驾驶处置结果                                         (                                                         )
+	// 客运疲劳驾驶处置结果
 	DynamicSupervisionDetailSelectColumnDisposalResults4 DynamicSupervisionDetailSelectColumn = "disposal_results4"
-	// 客运疲劳驾驶处置结果                                         (                                                         )
+	// 客运疲劳驾驶处置结果
 	DynamicSupervisionDetailSelectColumnDisposalResults5 DynamicSupervisionDetailSelectColumn = "disposal_results5"
-	// 行车记录仪数据处置结果                                       (                                                         )
+	// 行车记录仪数据处置结果
 	DynamicSupervisionDetailSelectColumnDisposalResults6 DynamicSupervisionDetailSelectColumn = "disposal_results6"
-	// 轨迹情况处置结果                                             (                                                         )
+	// 轨迹情况处置结果
 	DynamicSupervisionDetailSelectColumnDisposalResults7 DynamicSupervisionDetailSelectColumn = "disposal_results7"
-	// 是否被删除                                                   (                                                         )
+	// 是否被删除
 	DynamicSupervisionDetailSelectColumnIsDeleted DynamicSupervisionDetailSelectColumn = "is_deleted"
-	// 创建时间                                                     (                                                         )
+	// 创建时间
 	DynamicSupervisionDetailSelectColumnCreatedAt DynamicSupervisionDetailSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id                              )
 	DynamicSupervisionDetailSelectColumnCreatedBy DynamicSupervisionDetailSelectColumn = "created_by"
-	// 修改时间                                                     (                                                         )
+	// 修改时间
 	DynamicSupervisionDetailSelectColumnUpdatedAt DynamicSupervisionDetailSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id                              )
 	DynamicSupervisionDetailSelectColumnUpdatedBy DynamicSupervisionDetailSelectColumn = "updated_by"
-	// 删除时间                                                     (                                                         )
+	// 删除时间
 	DynamicSupervisionDetailSelectColumnDeletedAt DynamicSupervisionDetailSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id                              )
 	DynamicSupervisionDetailSelectColumnDeletedBy DynamicSupervisionDetailSelectColumn = "deleted_by"
@@ -2912,17 +2874,17 @@ const (
 	DynamicSupervisionSelectColumnID DynamicSupervisionSelectColumn = "id"
 	// 动态监管抽查主表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
 	DynamicSupervisionSelectColumnSupervisionID DynamicSupervisionSelectColumn = "supervision_id"
-	// 抽查日期                                                     (                                )
+	// 抽查日期
 	DynamicSupervisionSelectColumnSpotCheckDate DynamicSupervisionSelectColumn = "spot_check_date"
-	// 抽查总数                                                     (                                )
+	// 抽查总数
 	DynamicSupervisionSelectColumnSpotCheckTotalNumber DynamicSupervisionSelectColumn = "spot_check_total_number"
-	// 抽查数量                                                     (                                )
+	// 抽查数量
 	DynamicSupervisionSelectColumnSpotCheckNumber DynamicSupervisionSelectColumn = "spot_check_number"
-	// 抽查比例                                                     (                                )
+	// 抽查比例
 	DynamicSupervisionSelectColumnSpotCheckRatio DynamicSupervisionSelectColumn = "spot_check_ratio"
 	// 抽查人员                                                     ( 引用system_user表的user_id )
 	DynamicSupervisionSelectColumnCheckUserID DynamicSupervisionSelectColumn = "check_user_id"
-	// 总车辆数                                                     (                                )
+	// 总车辆数
 	DynamicSupervisionSelectColumnTotalNumberVehicle DynamicSupervisionSelectColumn = "total_number_vehicle"
 	// 抽查人员位置的省份ID                                         ( 省份表province_id              )
 	DynamicSupervisionSelectColumnProvinceID DynamicSupervisionSelectColumn = "province_id"
@@ -2930,25 +2892,25 @@ const (
 	DynamicSupervisionSelectColumnCityID DynamicSupervisionSelectColumn = "city_id"
 	// 抽查人员位置的区域ID                                         ( 区域表district_id              )
 	DynamicSupervisionSelectColumnDistrictID DynamicSupervisionSelectColumn = "district_id"
-	// 年                                                           (                                )
+	// 年
 	DynamicSupervisionSelectColumnYear DynamicSupervisionSelectColumn = "year"
-	// 月                                                           (                                )
+	// 月
 	DynamicSupervisionSelectColumnMonth DynamicSupervisionSelectColumn = "month"
-	// 日                                                           (                                )
+	// 日
 	DynamicSupervisionSelectColumnDay DynamicSupervisionSelectColumn = "day"
-	// 创建时间                                                     (                                )
+	// 创建时间
 	DynamicSupervisionSelectColumnCreatedAt DynamicSupervisionSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id     )
 	DynamicSupervisionSelectColumnCreatedBy DynamicSupervisionSelectColumn = "created_by"
-	// 修改时间                                                     (                                )
+	// 修改时间
 	DynamicSupervisionSelectColumnUpdatedAt DynamicSupervisionSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id     )
 	DynamicSupervisionSelectColumnUpdatedBy DynamicSupervisionSelectColumn = "updated_by"
-	// 删除时间                                                     (                                )
+	// 删除时间
 	DynamicSupervisionSelectColumnDeletedAt DynamicSupervisionSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id     )
 	DynamicSupervisionSelectColumnDeletedBy DynamicSupervisionSelectColumn = "deleted_by"
-	// 是否被删除                                                   (                                )
+	// 是否被删除
 	DynamicSupervisionSelectColumnIsDeleted DynamicSupervisionSelectColumn = "is_deleted"
 )
 
@@ -3013,37 +2975,37 @@ const (
 	MuckTruckOnlineSelectColumnID MuckTruckOnlineSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	MuckTruckOnlineSelectColumnMuckTruckOnlineID MuckTruckOnlineSelectColumn = "muck_truck_online_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	MuckTruckOnlineSelectColumnVehicleID MuckTruckOnlineSelectColumn = "vehicle_id"
-	// 是否在线                                        (                            )
+	// 是否在线
 	MuckTruckOnlineSelectColumnIsOnline MuckTruckOnlineSelectColumn = "is_online"
-	// 是否缴费                                        (                            )
+	// 是否缴费
 	MuckTruckOnlineSelectColumnIsPay MuckTruckOnlineSelectColumn = "is_pay"
-	// 是否GPS在线                                     (                            )
+	// 是否GPS在线
 	MuckTruckOnlineSelectColumnIsGpsOnline MuckTruckOnlineSelectColumn = "is_gps_online"
-	// 是否目录库                                      (                            )
+	// 是否目录库
 	MuckTruckOnlineSelectColumnIsCatalogLibrary MuckTruckOnlineSelectColumn = "is_catalog_library"
-	// 是否安装                                        (                            )
+	// 是否安装
 	MuckTruckOnlineSelectColumnIsInstall MuckTruckOnlineSelectColumn = "is_install"
-	// 是否验车通过                                    (                            )
+	// 是否验车通过
 	MuckTruckOnlineSelectColumnIsVehiclePassInspection MuckTruckOnlineSelectColumn = "is_vehicle_pass_inspection"
-	// 是否新型渣土车                                  (                            )
+	// 是否新型渣土车
 	MuckTruckOnlineSelectColumnIsNewVehicle MuckTruckOnlineSelectColumn = "is_new_vehicle"
-	// 定位时间                                        (                            )
+	// 定位时间
 	MuckTruckOnlineSelectColumnLocationTime MuckTruckOnlineSelectColumn = "location_time"
-	// 自编号                                          (                            )
+	// 自编号
 	MuckTruckOnlineSelectColumnSelfNumber MuckTruckOnlineSelectColumn = "self_number"
-	// 地区                                            (                            )
+	// 地区
 	MuckTruckOnlineSelectColumnArea MuckTruckOnlineSelectColumn = "area"
-	// 创建时间                                        (                            )
+	// 创建时间
 	MuckTruckOnlineSelectColumnCreatedAt MuckTruckOnlineSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	MuckTruckOnlineSelectColumnCreatedBy MuckTruckOnlineSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	MuckTruckOnlineSelectColumnUpdatedAt MuckTruckOnlineSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	MuckTruckOnlineSelectColumnUpdatedBy MuckTruckOnlineSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	MuckTruckOnlineSelectColumnDeletedAt MuckTruckOnlineSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	MuckTruckOnlineSelectColumnDeletedBy MuckTruckOnlineSelectColumn = "deleted_by"
@@ -3108,19 +3070,19 @@ const (
 	RegionIssuedSelectColumnID RegionIssuedSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	RegionIssuedSelectColumnRegionIssuedID RegionIssuedSelectColumn = "region_issued_id"
-	// 区域名称                                        (                            )
+	// 区域名称
 	RegionIssuedSelectColumnRegionName RegionIssuedSelectColumn = "region_name"
-	// 终端IMEI                                        (                            )
+	// 终端IMEI
 	RegionIssuedSelectColumnImel RegionIssuedSelectColumn = "imel"
-	// 创建时间                                        (                            )
+	// 创建时间
 	RegionIssuedSelectColumnCreatedAt RegionIssuedSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	RegionIssuedSelectColumnCreatedBy RegionIssuedSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	RegionIssuedSelectColumnUpdatedAt RegionIssuedSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	RegionIssuedSelectColumnUpdatedBy RegionIssuedSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	RegionIssuedSelectColumnDeletedAt RegionIssuedSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	RegionIssuedSelectColumnDeletedBy RegionIssuedSelectColumn = "deleted_by"
@@ -3176,41 +3138,41 @@ const (
 	RegionManagementSelectColumnID RegionManagementSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	RegionManagementSelectColumnRegionManagementID RegionManagementSelectColumn = "region_management_id"
-	// 区域ID                                          (                            )
+	// 区域ID
 	RegionManagementSelectColumnRegionID RegionManagementSelectColumn = "region_id"
-	// 区域名称                                        (                            )
+	// 区域名称
 	RegionManagementSelectColumnRegionName RegionManagementSelectColumn = "region_name"
-	// 区域类型                                        (                            )
+	// 区域类型
 	RegionManagementSelectColumnRegionType RegionManagementSelectColumn = "region_type"
-	// 区域性质                                        (                            )
+	// 区域性质
 	RegionManagementSelectColumnRegionNature RegionManagementSelectColumn = "region_nature"
-	// 报警开始时间                                    (                            )
+	// 报警开始时间
 	RegionManagementSelectColumnAlarmBeginTime RegionManagementSelectColumn = "alarm_begin_time"
-	// 报警截止时间                                    (                            )
+	// 报警截止时间
 	RegionManagementSelectColumnAlarmEndTime RegionManagementSelectColumn = "alarm_end_time"
-	// 企业名称                                        (                            )
+	// 企业名称
 	RegionManagementSelectColumnEnterpriseName RegionManagementSelectColumn = "enterprise_name"
-	// 持续时间                                        (                            )
+	// 持续时间
 	RegionManagementSelectColumnDuration RegionManagementSelectColumn = "duration_"
-	// 最高速度                                        (                            )
+	// 最高速度
 	RegionManagementSelectColumnMaxSpeed RegionManagementSelectColumn = "max_speed"
-	// 圆形半径                                        (                            )
+	// 圆形半径
 	RegionManagementSelectColumnCircleRadius RegionManagementSelectColumn = "circle_radius"
-	// 区域经纬度                                      (                            )
+	// 区域经纬度
 	RegionManagementSelectColumnRegionCoordinate RegionManagementSelectColumn = "region_coordinate"
-	// 是否超级区域                                    (                            )
+	// 是否超级区域
 	RegionManagementSelectColumnIsSuperRegion RegionManagementSelectColumn = "is_super_region"
-	// 是否删除                                        (                            )
+	// 是否删除
 	RegionManagementSelectColumnIsDeleted RegionManagementSelectColumn = "is_deleted"
-	// 创建时间                                        (                            )
+	// 创建时间
 	RegionManagementSelectColumnCreatedAt RegionManagementSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	RegionManagementSelectColumnCreatedBy RegionManagementSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	RegionManagementSelectColumnUpdatedAt RegionManagementSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	RegionManagementSelectColumnUpdatedBy RegionManagementSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	RegionManagementSelectColumnDeletedAt RegionManagementSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	RegionManagementSelectColumnDeletedBy RegionManagementSelectColumn = "deleted_by"
@@ -3277,61 +3239,61 @@ const (
 	VehicleAlarmSupervisionSelectColumnID VehicleAlarmSupervisionSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
 	VehicleAlarmSupervisionSelectColumnVehicleAlarmSupervisionID VehicleAlarmSupervisionSelectColumn = "vehicle_alarm_supervision_id"
-	// 监管单位id                                      (                                                              )
+	// 监管单位id
 	VehicleAlarmSupervisionSelectColumnSuperivisionAuthorityID VehicleAlarmSupervisionSelectColumn = "superivision_authority_id"
 	// 监管类型                                        ( 地区机构监管，企业监管，执法机构监管，执法人员监管，地区抽查机构监管 )
 	VehicleAlarmSupervisionSelectColumnSuperivisionType VehicleAlarmSupervisionSelectColumn = "superivision_type"
-	// 区域ID                                          (                                                              )
+	// 区域ID
 	VehicleAlarmSupervisionSelectColumnAreaID VehicleAlarmSupervisionSelectColumn = "area_id"
-	// 报警车辆数                                      (                                                              )
+	// 报警车辆数
 	VehicleAlarmSupervisionSelectColumnVehicleAlarmNumber VehicleAlarmSupervisionSelectColumn = "vehicle_alarm_number"
-	// 报警类型                                        (                                                              )
+	// 报警类型
 	VehicleAlarmSupervisionSelectColumnAlarmType VehicleAlarmSupervisionSelectColumn = "alarm_type"
-	// 报警次数                                        (                                                              )
+	// 报警次数
 	VehicleAlarmSupervisionSelectColumnAlarmTimes VehicleAlarmSupervisionSelectColumn = "alarm_times"
-	// 处置次数                                        (                                                              )
+	// 处置次数
 	VehicleAlarmSupervisionSelectColumnDisposalTimes VehicleAlarmSupervisionSelectColumn = "disposal_times"
-	// 报警处置率                                      (                                                              )
+	// 报警处置率
 	VehicleAlarmSupervisionSelectColumnAlarmDisposalRate VehicleAlarmSupervisionSelectColumn = "alarm_disposal_rate"
-	// 县级提出的整改                                  (                                                              )
+	// 县级提出的整改
 	VehicleAlarmSupervisionSelectColumnDistrictRectification VehicleAlarmSupervisionSelectColumn = "district_rectification"
-	// 市级提出的整改                                  (                                                              )
+	// 市级提出的整改
 	VehicleAlarmSupervisionSelectColumnCityRectification VehicleAlarmSupervisionSelectColumn = "city_rectification"
-	// 省级提出的整改                                  (                                                              )
+	// 省级提出的整改
 	VehicleAlarmSupervisionSelectColumnProvinceRectification VehicleAlarmSupervisionSelectColumn = "province_rectification"
-	// 部级提出的整改                                  (                                                              )
+	// 部级提出的整改
 	VehicleAlarmSupervisionSelectColumnCountryRectification VehicleAlarmSupervisionSelectColumn = "country_rectification"
-	// 登记时间                                        (                                                              )
+	// 登记时间
 	VehicleAlarmSupervisionSelectColumnRegistrationTime VehicleAlarmSupervisionSelectColumn = "registration_time"
-	// 统计日期                                        (                                                              )
+	// 统计日期
 	VehicleAlarmSupervisionSelectColumnStatisticsDate VehicleAlarmSupervisionSelectColumn = "statistics_date"
-	// 应监管企业数                                    (                                                              )
+	// 应监管企业数
 	VehicleAlarmSupervisionSelectColumnShouldSupervisionEnterpriseNumber VehicleAlarmSupervisionSelectColumn = "should_supervision_enterprise_number"
-	// 实监管企业数                                    (                                                              )
+	// 实监管企业数
 	VehicleAlarmSupervisionSelectColumnActualSupervisionEnterpriseNumber VehicleAlarmSupervisionSelectColumn = "actual_supervision_enterprise_number"
-	// 监管率                                          (                                                              )
+	// 监管率
 	VehicleAlarmSupervisionSelectColumnSupervisionRate VehicleAlarmSupervisionSelectColumn = "supervision_rate"
 	// 经营范围                                        ( 经营范围字典                                             )
 	VehicleAlarmSupervisionSelectColumnBusinessScope VehicleAlarmSupervisionSelectColumn = "business_scope"
-	// 应检查车辆数                                    (                                                              )
+	// 应检查车辆数
 	VehicleAlarmSupervisionSelectColumnShouldCheckVehicleNumber VehicleAlarmSupervisionSelectColumn = "should_check_vehicle_number"
-	// 实检查车辆数                                    (                                                              )
+	// 实检查车辆数
 	VehicleAlarmSupervisionSelectColumnActualCheckVechicleNumber VehicleAlarmSupervisionSelectColumn = "actual_check_vechicle_number"
-	// 检查异常车辆数                                  (                                                              )
+	// 检查异常车辆数
 	VehicleAlarmSupervisionSelectColumnCheckAbnormalVehicleNumber VehicleAlarmSupervisionSelectColumn = "check_abnormal_vehicle_number"
-	// 异常处置数                                      (                                                              )
+	// 异常处置数
 	VehicleAlarmSupervisionSelectColumnAbnormalDisposalNumber VehicleAlarmSupervisionSelectColumn = "abnormal_disposal_number"
-	// 异常处置率                                      (                                                              )
+	// 异常处置率
 	VehicleAlarmSupervisionSelectColumnAbnormalDisposalRate VehicleAlarmSupervisionSelectColumn = "abnormal_disposal_rate"
-	// 创建时间                                        (                                                              )
+	// 创建时间
 	VehicleAlarmSupervisionSelectColumnCreatedAt VehicleAlarmSupervisionSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                                   )
 	VehicleAlarmSupervisionSelectColumnCreatedBy VehicleAlarmSupervisionSelectColumn = "created_by"
-	// 修改时间                                        (                                                              )
+	// 修改时间
 	VehicleAlarmSupervisionSelectColumnUpdatedAt VehicleAlarmSupervisionSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                                   )
 	VehicleAlarmSupervisionSelectColumnUpdatedBy VehicleAlarmSupervisionSelectColumn = "updated_by"
-	// 删除时间                                        (                                                              )
+	// 删除时间
 	VehicleAlarmSupervisionSelectColumnDeletedAt VehicleAlarmSupervisionSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                                   )
 	VehicleAlarmSupervisionSelectColumnDeletedBy VehicleAlarmSupervisionSelectColumn = "deleted_by"
@@ -3408,37 +3370,37 @@ const (
 	VehicleAlarmTimesRecordSelectColumnID VehicleAlarmTimesRecordSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	VehicleAlarmTimesRecordSelectColumnVehicleAlarmTimesRecordID VehicleAlarmTimesRecordSelectColumn = "vehicle_alarm_times_record_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleAlarmTimesRecordSelectColumnVehicleID VehicleAlarmTimesRecordSelectColumn = "vehicle_id"
 	// 报警类型                                        ( 报警类型字典           )
 	VehicleAlarmTimesRecordSelectColumnAlarmType VehicleAlarmTimesRecordSelectColumn = "alarm_type"
-	// 处置措施                                        (                            )
+	// 处置措施
 	VehicleAlarmTimesRecordSelectColumnDisposalMeasure VehicleAlarmTimesRecordSelectColumn = "disposal_measure"
-	// 处置时间                                        (                            )
+	// 处置时间
 	VehicleAlarmTimesRecordSelectColumnDisposalTime VehicleAlarmTimesRecordSelectColumn = "disposal_time"
-	// 处置结果                                        (                            )
+	// 处置结果
 	VehicleAlarmTimesRecordSelectColumnDisposalResult VehicleAlarmTimesRecordSelectColumn = "disposal_result"
-	// 是否处置                                        (                            )
+	// 是否处置
 	VehicleAlarmTimesRecordSelectColumnIsDisposal VehicleAlarmTimesRecordSelectColumn = "is_disposal"
 	// 处置方式                                        ( 处置方式字典           )
 	VehicleAlarmTimesRecordSelectColumnDisposalMethod VehicleAlarmTimesRecordSelectColumn = "disposal_method"
-	// 值班人                                          (                            )
+	// 值班人
 	VehicleAlarmTimesRecordSelectColumnDutyPerson VehicleAlarmTimesRecordSelectColumn = "duty_person"
-	// 报警次数                                        (                            )
+	// 报警次数
 	VehicleAlarmTimesRecordSelectColumnAlarmTimes VehicleAlarmTimesRecordSelectColumn = "alarm_times"
-	// 备注                                            (                            )
+	// 备注
 	VehicleAlarmTimesRecordSelectColumnRemarks VehicleAlarmTimesRecordSelectColumn = "remarks"
-	// 记录时间                                        (                            )
+	// 记录时间
 	VehicleAlarmTimesRecordSelectColumnRecordTime VehicleAlarmTimesRecordSelectColumn = "record_time"
-	// 创建时间                                        (                            )
+	// 创建时间
 	VehicleAlarmTimesRecordSelectColumnCreatedAt VehicleAlarmTimesRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	VehicleAlarmTimesRecordSelectColumnCreatedBy VehicleAlarmTimesRecordSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	VehicleAlarmTimesRecordSelectColumnUpdatedAt VehicleAlarmTimesRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	VehicleAlarmTimesRecordSelectColumnUpdatedBy VehicleAlarmTimesRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	VehicleAlarmTimesRecordSelectColumnDeletedAt VehicleAlarmTimesRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	VehicleAlarmTimesRecordSelectColumnDeletedBy VehicleAlarmTimesRecordSelectColumn = "deleted_by"
@@ -3505,43 +3467,43 @@ const (
 	VehicleOfflineDisposalSelectColumnVehicleOfflineDisposalID VehicleOfflineDisposalSelectColumn = "vehicle_offline_disposal_id"
 	// 所在企业id                                      ( enterprise_info表的enterprise_id                         )
 	VehicleOfflineDisposalSelectColumnEnterpriseID VehicleOfflineDisposalSelectColumn = "enterprise_id"
-	// 手机号码                                        (                                                              )
+	// 手机号码
 	VehicleOfflineDisposalSelectColumnTelephone VehicleOfflineDisposalSelectColumn = "telephone"
-	// 内容                                            (                                                              )
+	// 内容
 	VehicleOfflineDisposalSelectColumnContent VehicleOfflineDisposalSelectColumn = "content"
-	// 发送时间                                        (                                                              )
+	// 发送时间
 	VehicleOfflineDisposalSelectColumnSendTime VehicleOfflineDisposalSelectColumn = "send_time"
 	// 用户ID                                          ( system_user表的user_id                                   )
 	VehicleOfflineDisposalSelectColumnUserID VehicleOfflineDisposalSelectColumn = "user_id"
-	// 是否短信推送                                    (                                                              )
+	// 是否短信推送
 	VehicleOfflineDisposalSelectColumnIsSmsPush VehicleOfflineDisposalSelectColumn = "is_sms_push"
-	// 是否通报                                        (                                                              )
+	// 是否通报
 	VehicleOfflineDisposalSelectColumnIsReport VehicleOfflineDisposalSelectColumn = "is_report"
-	// 是否语音通知                                    (                                                              )
+	// 是否语音通知
 	VehicleOfflineDisposalSelectColumnIsVoiceNotification VehicleOfflineDisposalSelectColumn = "is_voice_notification"
-	// 是否APP推送                                     (                                                              )
+	// 是否APP推送
 	VehicleOfflineDisposalSelectColumnIsAppPush VehicleOfflineDisposalSelectColumn = "is_app_push"
-	// 通报内容                                        (                                                              )
+	// 通报内容
 	VehicleOfflineDisposalSelectColumnNotificationContent VehicleOfflineDisposalSelectColumn = "notification_content"
-	// 语音内容                                        (                                                              )
+	// 语音内容
 	VehicleOfflineDisposalSelectColumnVoiceContent VehicleOfflineDisposalSelectColumn = "voice_content"
-	// APP推送内容                                     (                                                              )
+	// APP推送内容
 	VehicleOfflineDisposalSelectColumnAppPushContent VehicleOfflineDisposalSelectColumn = "app_push_content"
 	// 抽查表ID                                        ( dynamic_supervision_detail 动态监管抽查明细表的supervision_detail_id )
 	VehicleOfflineDisposalSelectColumnSupervisionDetailID VehicleOfflineDisposalSelectColumn = "supervision_detail_id"
-	// 处置方式                                        (                                                              )
+	// 处置方式
 	VehicleOfflineDisposalSelectColumnDisposalMethod VehicleOfflineDisposalSelectColumn = "disposal_method"
-	// 是否删除                                        (                                                              )
+	// 是否删除
 	VehicleOfflineDisposalSelectColumnIsDeleted VehicleOfflineDisposalSelectColumn = "is_deleted"
-	// 创建时间                                        (                                                              )
+	// 创建时间
 	VehicleOfflineDisposalSelectColumnCreatedAt VehicleOfflineDisposalSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                                   )
 	VehicleOfflineDisposalSelectColumnCreatedBy VehicleOfflineDisposalSelectColumn = "created_by"
-	// 修改时间                                        (                                                              )
+	// 修改时间
 	VehicleOfflineDisposalSelectColumnUpdatedAt VehicleOfflineDisposalSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                                   )
 	VehicleOfflineDisposalSelectColumnUpdatedBy VehicleOfflineDisposalSelectColumn = "updated_by"
-	// 删除时间                                        (                                                              )
+	// 删除时间
 	VehicleOfflineDisposalSelectColumnDeletedAt VehicleOfflineDisposalSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                                   )
 	VehicleOfflineDisposalSelectColumnDeletedBy VehicleOfflineDisposalSelectColumn = "deleted_by"

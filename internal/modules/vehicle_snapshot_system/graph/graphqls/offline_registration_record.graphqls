@@ -15,23 +15,23 @@ type OfflineRegistrationRecord {
 	"""
 	outage_registration_id: String
 	"""
-	 登记内容                                        (                                                            )
+	 登记内容                                        
 	"""
 	registration_content: String
 	"""
-	 登记时间                                        (                                                            )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 登记人                                          (                                                            )
+	 登记人                                          
 	"""
 	registrant: String
 	"""
-	 是否删除                                        (                                                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -39,7 +39,7 @@ type OfflineRegistrationRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -47,7 +47,7 @@ type OfflineRegistrationRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -211,15 +211,11 @@ input OfflineRegistrationRecordBoolExp {
 input type for inserting data into table "offline_registration_record"
 """
 input OfflineRegistrationRecordInsertInput {
-	id: Bigint
-	offline_registration_record: String
 	outage_registration_id: String
 	registration_content: String
 	registration_time: Timestamptz
 	registrant: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -266,23 +262,23 @@ enum OfflineRegistrationRecordSelectColumn {
 	"""
 	outage_registration_id
 	"""
-	 登记内容                                        (                                                            )
+	 登记内容                                        
 	"""
 	registration_content
 	"""
-	 登记时间                                        (                                                            )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 登记人                                          (                                                            )
+	 登记人                                          
 	"""
 	registrant
 	"""
-	 是否删除                                        (                                                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -290,7 +286,7 @@ enum OfflineRegistrationRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -298,7 +294,7 @@ enum OfflineRegistrationRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

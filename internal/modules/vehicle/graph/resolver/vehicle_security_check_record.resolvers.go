@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleSecurityCheckRecordByPk(ctx context.Cont
 }
 
 func (r *mutationResolver) InsertVehicleSecurityCheckRecord(ctx context.Context, objects []*model.VehicleSecurityCheckRecordInsertInput) (*model.VehicleSecurityCheckRecordMutationResponse, error) {
-	rs := []*model1.VehicleSecurityCheckRecord{}
+	rs := make([]*model1.VehicleSecurityCheckRecord, 0)
 	for _, object := range objects {
 		v := &model1.VehicleSecurityCheckRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleSecurityCheckRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleSecurityCheckRecordByPk(ctx context.Cont
 	qt := util.NewQueryTranslator(tx, &model1.VehicleSecurityCheckRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleSecurityCheckRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleSecurityCheckRecord(ctx context.Context, distinct
 		Finish()
 	var rs []*model1.VehicleSecurityCheckRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleSecurityCheckRecordAggregate(ctx context.Context, distinctOn []model.VehicleSecurityCheckRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleSecurityCheckRecordOrderBy, where *model.VehicleSecurityCheckRecordBoolExp) (*model.VehicleSecurityCheckRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleSecurityCheckRecordAggregate(ctx context.Context,
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleSecurityCheckRecordByPk(ctx context.Context, Id int64) (*model1.VehicleSecurityCheckRecord, error) {
 	var rs model1.VehicleSecurityCheckRecord
 	tx := db.DB.Model(&model1.VehicleSecurityCheckRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

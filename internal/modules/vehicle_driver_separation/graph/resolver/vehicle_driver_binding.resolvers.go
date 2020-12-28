@@ -66,10 +66,10 @@ func (r *mutationResolver) DeleteVehicleDriverBindingByPk(ctx context.Context, I
 }
 
 func (r *mutationResolver) InsertVehicleDriverBinding(ctx context.Context, objects []*model.VehicleDriverBindingInsertInput) (*model.VehicleDriverBindingMutationResponse, error) {
-	rs := []*model1.VehicleDriverBinding{}
+	rs := make([]*model1.VehicleDriverBinding, 0)
 	for _, object := range objects {
 		v := &model1.VehicleDriverBinding{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleDriverBinding{}).Create(&rs)
@@ -119,13 +119,13 @@ func (r *mutationResolver) UpdateVehicleDriverBindingByPk(ctx context.Context, i
 	qt := util.NewQueryTranslator(tx, &model1.VehicleDriverBinding{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleDriverBinding
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -139,13 +139,8 @@ func (r *queryResolver) VehicleDriverBinding(ctx context.Context, distinctOn []m
 		Finish()
 	var rs []*model1.VehicleDriverBinding
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleDriverBindingAggregate(ctx context.Context, distinctOn []model.VehicleDriverBindingSelectColumn, limit *int, offset *int, orderBy []*model.VehicleDriverBindingOrderBy, where *model.VehicleDriverBindingBoolExp) (*model.VehicleDriverBindingAggregate, error) {
@@ -161,26 +156,15 @@ func (r *queryResolver) VehicleDriverBindingAggregate(ctx context.Context, disti
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleDriverBindingByPk(ctx context.Context, Id int64) (*model1.VehicleDriverBinding, error) {
 	var rs model1.VehicleDriverBinding
 	tx := db.DB.Model(&model1.VehicleDriverBinding{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }
 
 // Mutation returns generated.MutationResolver implementation.

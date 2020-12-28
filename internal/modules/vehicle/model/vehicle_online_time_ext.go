@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleOnlineTimeLoader string *VehicleSupervision/internal/modules/vehicle/model.VehicleOnlineTime
 
 func (t VehicleOnlineTime) TableName() string {
-	return "VehicleOnlineTime"
+	return "vehicle_online_time"
 }
 
 func (t *VehicleOnlineTime) NewLoader() *VehicleOnlineTimeLoader {

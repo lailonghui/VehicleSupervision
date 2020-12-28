@@ -14,25 +14,25 @@ type VideoPlatformAlarmType struct {
 	VideoPlatformAlarmTypeID string `json:"video_platform_alarm_type_id"`
 	// 报警数据表id                                    ( vehicle_alarm_data  报警数据表的vehicle_alarm_data_id )
 	VehicleAlarmDataID *int `json:"vehicle_alarm_data_id"`
-	// 报警类型                                        (                                                           )
+	// 报警类型
 	AlarmType *string `json:"alarm_type"`
-	// 报警来源                                        (                                                           )
+	// 报警来源
 	AlarmSource *string `json:"alarm_source"`
 	// 报警分类                                        ( Adas报警字典                                          )
 	AlarmClassify *string `json:"alarm_classify"`
-	// 报警代码                                        (                                                           )
+	// 报警代码
 	AlarmCode *string `json:"alarm_code"`
-	// 是否删除                                        (                                                           )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
-	// 创建时间                                        (                                                           )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id                                )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                                                           )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id                                )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                                                           )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id                                )
 	DeletedBy *string `json:"deleted_by"`

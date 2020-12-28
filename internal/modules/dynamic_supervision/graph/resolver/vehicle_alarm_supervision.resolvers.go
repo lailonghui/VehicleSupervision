@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleAlarmSupervisionByPk(ctx context.Context
 }
 
 func (r *mutationResolver) InsertVehicleAlarmSupervision(ctx context.Context, objects []*model.VehicleAlarmSupervisionInsertInput) (*model.VehicleAlarmSupervisionMutationResponse, error) {
-	rs := []*model1.VehicleAlarmSupervision{}
+	rs := make([]*model1.VehicleAlarmSupervision, 0)
 	for _, object := range objects {
 		v := &model1.VehicleAlarmSupervision{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleAlarmSupervision{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleAlarmSupervisionByPk(ctx context.Context
 	qt := util.NewQueryTranslator(tx, &model1.VehicleAlarmSupervision{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleAlarmSupervision
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleAlarmSupervision(ctx context.Context, distinctOn 
 		Finish()
 	var rs []*model1.VehicleAlarmSupervision
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleAlarmSupervisionAggregate(ctx context.Context, distinctOn []model.VehicleAlarmSupervisionSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmSupervisionOrderBy, where *model.VehicleAlarmSupervisionBoolExp) (*model.VehicleAlarmSupervisionAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleAlarmSupervisionAggregate(ctx context.Context, di
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleAlarmSupervisionByPk(ctx context.Context, Id int64) (*model1.VehicleAlarmSupervision, error) {
 	var rs model1.VehicleAlarmSupervision
 	tx := db.DB.Model(&model1.VehicleAlarmSupervision{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

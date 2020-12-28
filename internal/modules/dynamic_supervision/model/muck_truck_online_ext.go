@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden MuckTruckOnlineLoader string *VehicleSupervision/internal/modules/dynamic_supervision/model.MuckTruckOnline
 
 func (t MuckTruckOnline) TableName() string {
-	return "MuckTruckOnline"
+	return "muck_truck_online"
 }
 
 func (t *MuckTruckOnline) NewLoader() *MuckTruckOnlineLoader {

@@ -23,11 +23,11 @@ type DriverInfo {
 	"""
 	driver_identity_id: String
 	"""
-	 驾驶员姓名                                      (                                                              )
+	 驾驶员姓名                                      
 	"""
 	driver_name: String
 	"""
-	 手机号码                                        (                                                              )
+	 手机号码                                        
 	"""
 	telephone: String
 	"""
@@ -35,15 +35,15 @@ type DriverInfo {
 	"""
 	sex: Int
 	"""
-	 档案编号(后6位)                                 (                                                              )
+	 档案编号(后6位)                                 
 	"""
 	files_number: String
 	"""
-	 联系地址                                        (                                                              )
+	 联系地址                                        
 	"""
 	contact_address: String
 	"""
-	 邮寄地址                                        (                                                              )
+	 邮寄地址                                        
 	"""
 	mailing_address: String
 	"""
@@ -51,11 +51,11 @@ type DriverInfo {
 	"""
 	is_submit: Boolean
 	"""
-	 提交内容                                        (                                                              )
+	 提交内容                                        
 	"""
 	submit_content: String
 	"""
-	 提交时间                                        (                                                              )
+	 提交时间                                        
 	"""
 	submit_at: Timestamptz
 	"""
@@ -67,11 +67,11 @@ type DriverInfo {
 	"""
 	is_manual_input: Boolean
 	"""
-	 是否录入                                        (                                                              )
+	 是否录入                                        
 	"""
 	is_input: Boolean
 	"""
-	 录入时间                                        (                                                              )
+	 录入时间                                        
 	"""
 	input_at: Timestamptz
 	"""
@@ -83,7 +83,7 @@ type DriverInfo {
 	"""
 	is_check_data: Boolean
 	"""
-	 检验时间                                        (                                                              )
+	 检验时间                                        
 	"""
 	check_at: Timestamptz
 	"""
@@ -95,19 +95,19 @@ type DriverInfo {
 	"""
 	remark_in: String
 	"""
-	 内网更新时间                                    (                                                              )
+	 内网更新时间                                    
 	"""
 	update_time_in: Timestamptz
 	"""
-	 是否通过短信验证                                (                                                              )
+	 是否通过短信验证                                
 	"""
 	is_check_sms: Boolean
 	"""
-	 备注                                            (                                                              )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
@@ -123,11 +123,11 @@ type DriverInfo {
 	"""
 	is_blacklist: Boolean
 	"""
-	 黑名单截止日期                                  (                                                              )
+	 黑名单截止日期                                  
 	"""
 	blacklist_deadline: Timestamptz
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -135,7 +135,7 @@ type DriverInfo {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -143,7 +143,7 @@ type DriverInfo {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -411,8 +411,6 @@ input DriverInfoBoolExp {
 input type for inserting data into table "driver_info"
 """
 input DriverInfoInsertInput {
-	id: Bigint
-	driver_id: String
 	enterprise_id: String
 	department_id: String
 	driver_identity_id: String
@@ -442,8 +440,6 @@ input DriverInfoInsertInput {
 	operator: String
 	is_blacklist: Boolean
 	blacklist_deadline: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -523,11 +519,11 @@ enum DriverInfoSelectColumn {
 	"""
 	driver_identity_id
 	"""
-	 驾驶员姓名                                      (                                                              )
+	 驾驶员姓名                                      
 	"""
 	driver_name
 	"""
-	 手机号码                                        (                                                              )
+	 手机号码                                        
 	"""
 	telephone
 	"""
@@ -535,15 +531,15 @@ enum DriverInfoSelectColumn {
 	"""
 	sex
 	"""
-	 档案编号(后6位)                                 (                                                              )
+	 档案编号(后6位)                                 
 	"""
 	files_number
 	"""
-	 联系地址                                        (                                                              )
+	 联系地址                                        
 	"""
 	contact_address
 	"""
-	 邮寄地址                                        (                                                              )
+	 邮寄地址                                        
 	"""
 	mailing_address
 	"""
@@ -551,11 +547,11 @@ enum DriverInfoSelectColumn {
 	"""
 	is_submit
 	"""
-	 提交内容                                        (                                                              )
+	 提交内容                                        
 	"""
 	submit_content
 	"""
-	 提交时间                                        (                                                              )
+	 提交时间                                        
 	"""
 	submit_at
 	"""
@@ -567,11 +563,11 @@ enum DriverInfoSelectColumn {
 	"""
 	is_manual_input
 	"""
-	 是否录入                                        (                                                              )
+	 是否录入                                        
 	"""
 	is_input
 	"""
-	 录入时间                                        (                                                              )
+	 录入时间                                        
 	"""
 	input_at
 	"""
@@ -583,7 +579,7 @@ enum DriverInfoSelectColumn {
 	"""
 	is_check_data
 	"""
-	 检验时间                                        (                                                              )
+	 检验时间                                        
 	"""
 	check_at
 	"""
@@ -595,19 +591,19 @@ enum DriverInfoSelectColumn {
 	"""
 	remark_in
 	"""
-	 内网更新时间                                    (                                                              )
+	 内网更新时间                                    
 	"""
 	update_time_in
 	"""
-	 是否通过短信验证                                (                                                              )
+	 是否通过短信验证                                
 	"""
 	is_check_sms
 	"""
-	 备注                                            (                                                              )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
@@ -623,11 +619,11 @@ enum DriverInfoSelectColumn {
 	"""
 	is_blacklist
 	"""
-	 黑名单截止日期                                  (                                                              )
+	 黑名单截止日期                                  
 	"""
 	blacklist_deadline
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -635,7 +631,7 @@ enum DriverInfoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -643,7 +639,7 @@ enum DriverInfoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

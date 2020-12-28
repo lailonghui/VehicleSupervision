@@ -16,15 +16,15 @@ type DriverPeccancyCheck struct {
 	DriverID *string `json:"driver_id"`
 	// 所在企业id     ( enterprise_info表的enterprise_id )
 	EnterpriseID *string `json:"enterprise_id"`
-	// 创建时间       (                                      )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人         ( system_user表的user_id           )
 	CreatedBy string `json:"created_by"`
-	// 修改时间       (                                      )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人         ( system_user表的user_id           )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间       (                                      )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人         ( system_user表的user_id           )
 	DeletedBy *string `json:"deleted_by"`

@@ -14,19 +14,19 @@ type NewMuckTruckPhoto struct {
 	NewMuckTruckPhotoID string `json:"new_muck_truck_photo_id"`
 	// 扣分车辆id                                      ( vehicle_info表的vehicle_id )
 	VehicleID *string `json:"vehicle_id"`
-	// 路径                                            (                                )
+	// 路径
 	FilePath *string `json:"file_path"`
 	// 上传用户                                        ( system_user表的user_id     )
 	UploadUser *string `json:"upload_user"`
-	// 创建时间                                        (                                )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id     )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                                )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id     )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                                )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id     )
 	DeletedBy *string `json:"deleted_by"`

@@ -12,71 +12,71 @@ type MuckTruckSaleOrder struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                 )
 	MuckTruckSaleOrderID string `json:"muck_truck_sale_order_id"`
-	// 顾客企业id                                      (                                          )
+	// 顾客企业id
 	CustomerName *string `json:"customer_name"`
 	// 购车企业或个人姓名                              ( enterprise_info表的enterprise_id     )
 	CustomerID *string `json:"customer_id"`
-	// 身份证号                                        (                                          )
+	// 身份证号
 	IDCardNum *string `json:"id_card_num"`
-	// 联系电话                                        (                                          )
+	// 联系电话
 	ContactPhone *string `json:"contact_phone"`
-	// 告知书                                          (                                          )
+	// 告知书
 	Notification *string `json:"notification"`
-	// 汽车销售合同(销售合同照片地址)                  (                                          )
+	// 汽车销售合同(销售合同照片地址)
 	VehicleSaleContract *string `json:"vehicle_sale_contract"`
-	// 订金合同(订金合同照片地址)                      (                                          )
+	// 订金合同(订金合同照片地址)
 	VehicleDepositContract *string `json:"vehicle_deposit_contract"`
-	// 承诺书                                          (                                          )
+	// 承诺书
 	Commitment *string `json:"commitment"`
-	// 订车日期                                        (                                          )
+	// 订车日期
 	BookDate *time.Time `json:"book_date"`
-	// 登记时间                                        (                                          )
+	// 登记时间
 	RegistrationTime *time.Time `json:"registration_time"`
-	// 所属单位                                        (                                          )
+	// 所属单位
 	BelongingEnterprise *string `json:"belonging_enterprise"`
-	// 身份证(身份证照片路径)                          (                                          )
+	// 身份证(身份证照片路径)
 	IDCardPicture *string `json:"id_card_picture"`
-	// 进度                                            (                                          )
+	// 进度
 	Progress *float64 `json:"progress"`
 	// 汽车型号                                        ( vehicle_sale_record 汽车销售备案的id )
 	VehicleSaleRecordID *string `json:"vehicle_sale_record_id"`
-	// 订购车辆数                                      (                                          )
+	// 订购车辆数
 	BookVehicleNumber *int `json:"book_vehicle_number"`
-	// 整车长度                                        (                                          )
+	// 整车长度
 	VehicleLength *float64 `json:"vehicle_length"`
-	// 整车宽度                                        (                                          )
+	// 整车宽度
 	VehicleWidth *float64 `json:"vehicle_width"`
-	// 整车高度                                        (                                          )
+	// 整车高度
 	VehicleHeight *float64 `json:"vehicle_height"`
-	// 自卸车长度                                      (                                          )
+	// 自卸车长度
 	TipperLength *float64 `json:"tipper_length"`
-	// 自卸车宽度                                      (                                          )
+	// 自卸车宽度
 	TipperWidth *float64 `json:"tipper_width"`
-	// 自卸车高度                                      (                                          )
+	// 自卸车高度
 	TipperHeight *float64 `json:"tipper_height"`
-	// 罐车标注容积                                    (                                          )
+	// 罐车标注容积
 	TankTruckMarkedVolume *float64 `json:"tank_truck_marked_volume"`
-	// 罐车实际搅动容积                                (                                          )
+	// 罐车实际搅动容积
 	TankTruckActualVolume *float64 `json:"tank_truck_actual_volume"`
-	// 车厢密闭装置                                    (                                          )
+	// 车厢密闭装置
 	CarriageSealingDevice *string `json:"carriage_sealing_device"`
-	// U型货箱                                         (                                          )
+	// U型货箱
 	UShapedCargoBox *string `json:"u_shaped_cargo_box"`
-	// 是否其他汽车型号                                (                                          )
+	// 是否其他汽车型号
 	IsOtherVehicleModel *bool `json:"is_other_vehicle_model"`
-	// 是否完成                                        (                                          )
+	// 是否完成
 	IsCompleted *bool `json:"is_completed"`
-	// 是否删除                                        (                                          )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
-	// 创建时间                                        (                                          )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id               )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                                          )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id               )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                                          )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id               )
 	DeletedBy *string `json:"deleted_by"`

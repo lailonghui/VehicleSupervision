@@ -10844,6 +10844,20 @@ input IntComparisonExp {
 	_nin: [Int!]
 }
 """
+expression to compare columns of type Float. All fields are combined with logical 'AND'.
+"""
+input FloatComparisonExp{
+	_eq: Float
+	_gt: Float
+	_gte: Float
+	_in: [Float!]
+	_is_null: Boolean
+	_lt: Float
+	_lte: Float
+	_neq: Float
+	_nin: [Float!]
+}
+"""
 column ordering options
 """
 enum OrderBy {
@@ -10950,7 +10964,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	id: Bigint!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id 
 	"""
 	vehicle_id: String!
 	"""
@@ -10958,11 +10972,11 @@ type DynamicSpotCheckDisposal {
 	"""
 	enterprise_id: String
 	"""
-	 手机号码                                 (                                                              )
+	 手机号码                                 
 	"""
 	telephone: String
 	"""
-	 发送时间                                 (                                                              )
+	 发送时间                                 
 	"""
 	send_time: Timestamptz
 	"""
@@ -10970,15 +10984,15 @@ type DynamicSpotCheckDisposal {
 	"""
 	supervision_detail_id: String
 	"""
-	 图像异常处置措施                         (                                                              )
+	 图像异常处置措施                         
 	"""
 	image_abnormal_handing_measure: String
 	"""
-	 反馈时间                                 (                                                              )
+	 反馈时间                                 
 	"""
 	feedback_time: Timestamptz
 	"""
-	 行车记录仪数据处置措施                   (                                                              )
+	 行车记录仪数据处置措施                   
 	"""
 	tachograph_data_disposal_measure: String
 	"""
@@ -10986,35 +11000,35 @@ type DynamicSpotCheckDisposal {
 	"""
 	operation_user: String
 	"""
-	 是否短信推送                             (                                                              )
+	 是否短信推送                             
 	"""
 	is_sms_push: Boolean
 	"""
-	 是否通报                                 (                                                              )
+	 是否通报                                 
 	"""
 	is_notify: Boolean
 	"""
-	 是否语音通知                             (                                                              )
+	 是否语音通知                             
 	"""
 	is_announce: Boolean
 	"""
-	 是否APP推送                              (                                                              )
+	 是否APP推送                              
 	"""
 	is_app_push: Boolean
 	"""
-	 通报内容                                 (                                                              )
+	 通报内容                                 
 	"""
 	notify_content: String
 	"""
-	 语音内容                                 (                                                              )
+	 语音内容                                 
 	"""
 	announce_content: String
 	"""
-	 APP推送内容                              (                                                              )
+	 APP推送内容                              
 	"""
 	app_push_content: String
 	"""
-	 处置内容                                 (                                                              )
+	 处置内容                                 
 	"""
 	disposal_content: String
 	"""
@@ -11022,7 +11036,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	disposal_method: Int
 	"""
-	 处置结果                                 (                                                              )
+	 处置结果                                 
 	"""
 	disposal_result: String
 	"""
@@ -11030,7 +11044,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                 (                                                              )
+	 创建时间                                 
 	"""
 	created_at: Timestamptz!
 	"""
@@ -11038,7 +11052,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                 (                                                              )
+	 修改时间                                 
 	"""
 	updated_at: Timestamptz
 	"""
@@ -11046,7 +11060,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                 (                                                              )
+	 删除时间                                 
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -11274,8 +11288,6 @@ input DynamicSpotCheckDisposalBoolExp {
 input type for inserting data into table "dynamic_spot_check_disposal"
 """
 input DynamicSpotCheckDisposalInsertInput {
-	id: Bigint
-	vehicle_id: String
 	enterprise_id: String
 	telephone: String
 	send_time: Timestamptz
@@ -11295,8 +11307,6 @@ input DynamicSpotCheckDisposalInsertInput {
 	disposal_method: Int
 	disposal_result: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11350,7 +11360,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id 
 	"""
 	vehicle_id
 	"""
@@ -11358,11 +11368,11 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 手机号码                                 (                                                              )
+	 手机号码                                 
 	"""
 	telephone
 	"""
-	 发送时间                                 (                                                              )
+	 发送时间                                 
 	"""
 	send_time
 	"""
@@ -11370,15 +11380,15 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	supervision_detail_id
 	"""
-	 图像异常处置措施                         (                                                              )
+	 图像异常处置措施                         
 	"""
 	image_abnormal_handing_measure
 	"""
-	 反馈时间                                 (                                                              )
+	 反馈时间                                 
 	"""
 	feedback_time
 	"""
-	 行车记录仪数据处置措施                   (                                                              )
+	 行车记录仪数据处置措施                   
 	"""
 	tachograph_data_disposal_measure
 	"""
@@ -11386,35 +11396,35 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	operation_user
 	"""
-	 是否短信推送                             (                                                              )
+	 是否短信推送                             
 	"""
 	is_sms_push
 	"""
-	 是否通报                                 (                                                              )
+	 是否通报                                 
 	"""
 	is_notify
 	"""
-	 是否语音通知                             (                                                              )
+	 是否语音通知                             
 	"""
 	is_announce
 	"""
-	 是否APP推送                              (                                                              )
+	 是否APP推送                              
 	"""
 	is_app_push
 	"""
-	 通报内容                                 (                                                              )
+	 通报内容                                 
 	"""
 	notify_content
 	"""
-	 语音内容                                 (                                                              )
+	 语音内容                                 
 	"""
 	announce_content
 	"""
-	 APP推送内容                              (                                                              )
+	 APP推送内容                              
 	"""
 	app_push_content
 	"""
-	 处置内容                                 (                                                              )
+	 处置内容                                 
 	"""
 	disposal_content
 	"""
@@ -11422,7 +11432,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	disposal_method
 	"""
-	 处置结果                                 (                                                              )
+	 处置结果                                 
 	"""
 	disposal_result
 	"""
@@ -11430,7 +11440,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	is_deleted
 	"""
-	 创建时间                                 (                                                              )
+	 创建时间                                 
 	"""
 	created_at
 	"""
@@ -11438,7 +11448,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                 (                                                              )
+	 修改时间                                 
 	"""
 	updated_at
 	"""
@@ -11446,7 +11456,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                 (                                                              )
+	 删除时间                                 
 	"""
 	deleted_at
 	"""
@@ -11508,19 +11518,19 @@ type DynamicSupervision {
 	"""
 	supervision_id: String!
 	"""
-	 抽查日期                                                     (                                )
+	 抽查日期                                                     
 	"""
 	spot_check_date: Timestamptz
 	"""
-	 抽查总数                                                     (                                )
+	 抽查总数                                                     
 	"""
 	spot_check_total_number: Int
 	"""
-	 抽查数量                                                     (                                )
+	 抽查数量                                                     
 	"""
 	spot_check_number: Int
 	"""
-	 抽查比例                                                     (                                )
+	 抽查比例                                                     
 	"""
 	spot_check_ratio: Numeric
 	"""
@@ -11528,7 +11538,7 @@ type DynamicSupervision {
 	"""
 	check_user_id: String
 	"""
-	 总车辆数                                                     (                                )
+	 总车辆数                                                     
 	"""
 	total_number_vehicle: Int
 	"""
@@ -11544,19 +11554,19 @@ type DynamicSupervision {
 	"""
 	district_id: String
 	"""
-	 年                                                           (                                )
+	 年                                                           
 	"""
 	year: Int
 	"""
-	 月                                                           (                                )
+	 月                                                           
 	"""
 	month: Int
 	"""
-	 日                                                           (                                )
+	 日                                                           
 	"""
 	day: Int
 	"""
-	 创建时间                                                     (                                )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -11564,7 +11574,7 @@ type DynamicSupervision {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -11572,7 +11582,7 @@ type DynamicSupervision {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -11580,7 +11590,7 @@ type DynamicSupervision {
 	"""
 	deleted_by: String
 	"""
-	 是否被删除                                                   (                                )
+	 是否被删除                                                   
 	"""
 	is_deleted: Boolean
 }
@@ -11828,8 +11838,6 @@ input DynamicSupervisionBoolExp {
 input type for inserting data into table "dynamic_supervision"
 """
 input DynamicSupervisionInsertInput {
-	id: Bigint
-	supervision_id: String
 	spot_check_date: Timestamptz
 	spot_check_total_number: Int
 	spot_check_number: Int
@@ -11842,8 +11850,6 @@ input DynamicSupervisionInsertInput {
 	year: Int
 	month: Int
 	day: Int
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11902,19 +11908,19 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	supervision_id
 	"""
-	 抽查日期                                                     (                                )
+	 抽查日期                                                     
 	"""
 	spot_check_date
 	"""
-	 抽查总数                                                     (                                )
+	 抽查总数                                                     
 	"""
 	spot_check_total_number
 	"""
-	 抽查数量                                                     (                                )
+	 抽查数量                                                     
 	"""
 	spot_check_number
 	"""
-	 抽查比例                                                     (                                )
+	 抽查比例                                                     
 	"""
 	spot_check_ratio
 	"""
@@ -11922,7 +11928,7 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	check_user_id
 	"""
-	 总车辆数                                                     (                                )
+	 总车辆数                                                     
 	"""
 	total_number_vehicle
 	"""
@@ -11938,19 +11944,19 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	district_id
 	"""
-	 年                                                           (                                )
+	 年                                                           
 	"""
 	year
 	"""
-	 月                                                           (                                )
+	 月                                                           
 	"""
 	month
 	"""
-	 日                                                           (                                )
+	 日                                                           
 	"""
 	day
 	"""
-	 创建时间                                                     (                                )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -11958,7 +11964,7 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -11966,7 +11972,7 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -11974,7 +11980,7 @@ enum DynamicSupervisionSelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否被删除                                                   (                                )
+	 是否被删除                                                   
 	"""
 	is_deleted
 }
@@ -12048,35 +12054,35 @@ type DynamicSupervisionDetail {
 	"""
 	vehicle_id: String
 	"""
-	 监控平台时间                                                 (                                                         )
+	 监控平台时间                                                 
 	"""
 	monitoring_time: Timestamptz
 	"""
-	 监控平台显示位置                                             (                                                         )
+	 监控平台显示位置                                             
 	"""
 	monitoring_location: String
 	"""
-	 是否在线（是/否）                                            (                                                         )
+	 是否在线（是/否）                                            
 	"""
 	is_online: Boolean
 	"""
-	 行车记录仪数据（是否异常）                                   (                                                         )
+	 行车记录仪数据（是否异常）                                   
 	"""
 	is_tachograph_record_normal: Boolean
 	"""
-	 行车记录仪异常数据项                                         (                                                         )
+	 行车记录仪异常数据项                                         
 	"""
 	tachograph_data_exception: String
 	"""
-	 行车记录仪速度                                               (                                                         )
+	 行车记录仪速度                                               
 	"""
 	tachograph_speed: String
 	"""
-	 卫星定位速度                                                 (                                                         )
+	 卫星定位速度                                                 
 	"""
 	gps_speed: String
 	"""
-	 是否超速（是/否）                                            (                                                         )
+	 是否超速（是/否）                                            
 	"""
 	is_speeding: Boolean
 	"""
@@ -12084,11 +12090,11 @@ type DynamicSupervisionDetail {
 	"""
 	taxi_state: Int
 	"""
-	 客运疲劳驾驶（是/否）                                        (                                                         )
+	 客运疲劳驾驶（是/否）                                        
 	"""
 	is_fatigue_driving: Boolean
 	"""
-	 客运凌晨2-5时停运（是/否）                                   (                                                         )
+	 客运凌晨2-5时停运（是/否）                                   
 	"""
 	is_morning_outage: Boolean
 	"""
@@ -12108,59 +12114,59 @@ type DynamicSupervisionDetail {
 	"""
 	equipment: Int
 	"""
-	 其他违规                                                     (                                                         )
+	 其他违规                                                     
 	"""
 	other_infraction: String
 	"""
-	 处置措施                                                     (                                                         )
+	 处置措施                                                     
 	"""
 	disposal_measures: String
 	"""
-	 处置结果                                                     (                                                         )
+	 处置结果                                                     
 	"""
 	disposal_results: String
 	"""
-	 处置时间                                                     (                                                         )
+	 处置时间                                                     
 	"""
 	treatment_time: Timestamptz
 	"""
-	 受理人                                                       (                                                         )
+	 受理人                                                       
 	"""
 	assignee: String
 	"""
-	 反馈时间                                                     (                                                         )
+	 反馈时间                                                     
 	"""
 	feedback_time: Timestamptz
 	"""
-	 备注                                                         (                                                         )
+	 备注                                                         
 	"""
 	remarks: String
 	"""
-	 轨迹其他情况                                                 (                                                         )
+	 轨迹其他情况                                                 
 	"""
 	others: String
 	"""
-	 摄像头损坏号                                                 (                                                         )
+	 摄像头损坏号                                                 
 	"""
 	lens_on: String
 	"""
-	 监管费到期时间                                               (                                                         )
+	 监管费到期时间                                               
 	"""
 	monitor_end_time: Timestamptz
 	"""
-	 是否定位                                                     (                                                         )
+	 是否定位                                                     
 	"""
 	is_locate: Boolean
 	"""
-	 空间数据类型point表示经纬度                                  (                                                         )
+	 空间数据类型point表示经纬度                                  
 	"""
 	coordinate: Point
 	"""
-	 经纬度描述                                                   (                                                         )
+	 经纬度描述                                                   
 	"""
 	latitude_longitude_description: String
 	"""
-	 是否发送                                                     (                                                         )
+	 是否发送                                                     
 	"""
 	is_send: Boolean
 	"""
@@ -12168,83 +12174,83 @@ type DynamicSupervisionDetail {
 	"""
 	business_scope: Int
 	"""
-	 凌晨2点到5点停运报警时间                                     (                                                         )
+	 凌晨2点到5点停运报警时间                                     
 	"""
 	outage_alarm_time: Timestamptz
 	"""
-	 超速报警时间                                                 (                                                         )
+	 超速报警时间                                                 
 	"""
 	speed_alarm_time: Timestamptz
 	"""
-	 超速速度                                                     (                                                         )
+	 超速速度                                                     
 	"""
 	speeding_speed: String
 	"""
-	 疲劳驾驶报警时间                                             (                                                         )
+	 疲劳驾驶报警时间                                             
 	"""
 	fatigue_alarm_time: Timestamptz
 	"""
-	 是否在线处置措施                                             (                                                         )
+	 是否在线处置措施                                             
 	"""
 	disposal_measures1: String
 	"""
-	 是否超速处置措施                                             (                                                         )
+	 是否超速处置措施                                             
 	"""
 	disposal_measures2: String
 	"""
-	 曲线情况处置措施                                             (                                                         )
+	 曲线情况处置措施                                             
 	"""
 	disposal_measures3: String
 	"""
-	 客运疲劳驾驶处置措施                                         (                                                         )
+	 客运疲劳驾驶处置措施                                         
 	"""
 	disposal_measures4: String
 	"""
-	 客运凌晨停运处置措施                                         (                                                         )
+	 客运凌晨停运处置措施                                         
 	"""
 	disposal_measures5: String
 	"""
-	 行车记录仪数据处置措施                                       (                                                         )
+	 行车记录仪数据处置措施                                       
 	"""
 	disposal_measures6: String
 	"""
-	 轨迹情况处置措施                                             (                                                         )
+	 轨迹情况处置措施                                             
 	"""
 	disposal_measures7: String
 	"""
-	 是否在线处置结果                                             (                                                         )
+	 是否在线处置结果                                             
 	"""
 	disposal_results1: String
 	"""
-	 是否超速处置结果                                             (                                                         )
+	 是否超速处置结果                                             
 	"""
 	disposal_results2: String
 	"""
-	 曲线情况处置结果                                             (                                                         )
+	 曲线情况处置结果                                             
 	"""
 	disposal_results3: String
 	"""
-	 客运疲劳驾驶处置结果                                         (                                                         )
+	 客运疲劳驾驶处置结果                                         
 	"""
 	disposal_results4: String
 	"""
-	 客运疲劳驾驶处置结果                                         (                                                         )
+	 客运疲劳驾驶处置结果                                         
 	"""
 	disposal_results5: String
 	"""
-	 行车记录仪数据处置结果                                       (                                                         )
+	 行车记录仪数据处置结果                                       
 	"""
 	disposal_results6: String
 	"""
-	 轨迹情况处置结果                                             (                                                         )
+	 轨迹情况处置结果                                             
 	"""
 	disposal_results7: String
 	"""
-	 是否被删除                                                   (                                                         )
+	 是否被删除                                                   
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                     (                                                         )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -12252,7 +12258,7 @@ type DynamicSupervisionDetail {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                                                         )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -12260,7 +12266,7 @@ type DynamicSupervisionDetail {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                                                         )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -12664,8 +12670,6 @@ input DynamicSupervisionDetailBoolExp {
 input type for inserting data into table "dynamic_supervision_detail"
 """
 input DynamicSupervisionDetailInsertInput {
-	id: Bigint
-	supervision_detail_id: String
 	supervision_id: String
 	driver_id: String
 	enterprise_id: String
@@ -12719,8 +12723,6 @@ input DynamicSupervisionDetailInsertInput {
 	disposal_results6: String
 	disposal_results7: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -12833,35 +12835,35 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 监控平台时间                                                 (                                                         )
+	 监控平台时间                                                 
 	"""
 	monitoring_time
 	"""
-	 监控平台显示位置                                             (                                                         )
+	 监控平台显示位置                                             
 	"""
 	monitoring_location
 	"""
-	 是否在线（是/否）                                            (                                                         )
+	 是否在线（是/否）                                            
 	"""
 	is_online
 	"""
-	 行车记录仪数据（是否异常）                                   (                                                         )
+	 行车记录仪数据（是否异常）                                   
 	"""
 	is_tachograph_record_normal
 	"""
-	 行车记录仪异常数据项                                         (                                                         )
+	 行车记录仪异常数据项                                         
 	"""
 	tachograph_data_exception
 	"""
-	 行车记录仪速度                                               (                                                         )
+	 行车记录仪速度                                               
 	"""
 	tachograph_speed
 	"""
-	 卫星定位速度                                                 (                                                         )
+	 卫星定位速度                                                 
 	"""
 	gps_speed
 	"""
-	 是否超速（是/否）                                            (                                                         )
+	 是否超速（是/否）                                            
 	"""
 	is_speeding
 	"""
@@ -12869,11 +12871,11 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	taxi_state
 	"""
-	 客运疲劳驾驶（是/否）                                        (                                                         )
+	 客运疲劳驾驶（是/否）                                        
 	"""
 	is_fatigue_driving
 	"""
-	 客运凌晨2-5时停运（是/否）                                   (                                                         )
+	 客运凌晨2-5时停运（是/否）                                   
 	"""
 	is_morning_outage
 	"""
@@ -12893,59 +12895,59 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	equipment
 	"""
-	 其他违规                                                     (                                                         )
+	 其他违规                                                     
 	"""
 	other_infraction
 	"""
-	 处置措施                                                     (                                                         )
+	 处置措施                                                     
 	"""
 	disposal_measures
 	"""
-	 处置结果                                                     (                                                         )
+	 处置结果                                                     
 	"""
 	disposal_results
 	"""
-	 处置时间                                                     (                                                         )
+	 处置时间                                                     
 	"""
 	treatment_time
 	"""
-	 受理人                                                       (                                                         )
+	 受理人                                                       
 	"""
 	assignee
 	"""
-	 反馈时间                                                     (                                                         )
+	 反馈时间                                                     
 	"""
 	feedback_time
 	"""
-	 备注                                                         (                                                         )
+	 备注                                                         
 	"""
 	remarks
 	"""
-	 轨迹其他情况                                                 (                                                         )
+	 轨迹其他情况                                                 
 	"""
 	others
 	"""
-	 摄像头损坏号                                                 (                                                         )
+	 摄像头损坏号                                                 
 	"""
 	lens_on
 	"""
-	 监管费到期时间                                               (                                                         )
+	 监管费到期时间                                               
 	"""
 	monitor_end_time
 	"""
-	 是否定位                                                     (                                                         )
+	 是否定位                                                     
 	"""
 	is_locate
 	"""
-	 空间数据类型point表示经纬度                                  (                                                         )
+	 空间数据类型point表示经纬度                                  
 	"""
 	coordinate
 	"""
-	 经纬度描述                                                   (                                                         )
+	 经纬度描述                                                   
 	"""
 	latitude_longitude_description
 	"""
-	 是否发送                                                     (                                                         )
+	 是否发送                                                     
 	"""
 	is_send
 	"""
@@ -12953,83 +12955,83 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	business_scope
 	"""
-	 凌晨2点到5点停运报警时间                                     (                                                         )
+	 凌晨2点到5点停运报警时间                                     
 	"""
 	outage_alarm_time
 	"""
-	 超速报警时间                                                 (                                                         )
+	 超速报警时间                                                 
 	"""
 	speed_alarm_time
 	"""
-	 超速速度                                                     (                                                         )
+	 超速速度                                                     
 	"""
 	speeding_speed
 	"""
-	 疲劳驾驶报警时间                                             (                                                         )
+	 疲劳驾驶报警时间                                             
 	"""
 	fatigue_alarm_time
 	"""
-	 是否在线处置措施                                             (                                                         )
+	 是否在线处置措施                                             
 	"""
 	disposal_measures1
 	"""
-	 是否超速处置措施                                             (                                                         )
+	 是否超速处置措施                                             
 	"""
 	disposal_measures2
 	"""
-	 曲线情况处置措施                                             (                                                         )
+	 曲线情况处置措施                                             
 	"""
 	disposal_measures3
 	"""
-	 客运疲劳驾驶处置措施                                         (                                                         )
+	 客运疲劳驾驶处置措施                                         
 	"""
 	disposal_measures4
 	"""
-	 客运凌晨停运处置措施                                         (                                                         )
+	 客运凌晨停运处置措施                                         
 	"""
 	disposal_measures5
 	"""
-	 行车记录仪数据处置措施                                       (                                                         )
+	 行车记录仪数据处置措施                                       
 	"""
 	disposal_measures6
 	"""
-	 轨迹情况处置措施                                             (                                                         )
+	 轨迹情况处置措施                                             
 	"""
 	disposal_measures7
 	"""
-	 是否在线处置结果                                             (                                                         )
+	 是否在线处置结果                                             
 	"""
 	disposal_results1
 	"""
-	 是否超速处置结果                                             (                                                         )
+	 是否超速处置结果                                             
 	"""
 	disposal_results2
 	"""
-	 曲线情况处置结果                                             (                                                         )
+	 曲线情况处置结果                                             
 	"""
 	disposal_results3
 	"""
-	 客运疲劳驾驶处置结果                                         (                                                         )
+	 客运疲劳驾驶处置结果                                         
 	"""
 	disposal_results4
 	"""
-	 客运疲劳驾驶处置结果                                         (                                                         )
+	 客运疲劳驾驶处置结果                                         
 	"""
 	disposal_results5
 	"""
-	 行车记录仪数据处置结果                                       (                                                         )
+	 行车记录仪数据处置结果                                       
 	"""
 	disposal_results6
 	"""
-	 轨迹情况处置结果                                             (                                                         )
+	 轨迹情况处置结果                                             
 	"""
 	disposal_results7
 	"""
-	 是否被删除                                                   (                                                         )
+	 是否被删除                                                   
 	"""
 	is_deleted
 	"""
-	 创建时间                                                     (                                                         )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -13037,7 +13039,7 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                                                         )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -13045,7 +13047,7 @@ enum DynamicSupervisionDetailSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                                                         )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""
@@ -13107,51 +13109,51 @@ type MuckTruckOnline {
 	"""
 	muck_truck_online_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 是否在线                                        (                            )
+	 是否在线                                        
 	"""
 	is_online: Boolean
 	"""
-	 是否缴费                                        (                            )
+	 是否缴费                                        
 	"""
 	is_pay: Boolean
 	"""
-	 是否GPS在线                                     (                            )
+	 是否GPS在线                                     
 	"""
 	is_gps_online: Boolean
 	"""
-	 是否目录库                                      (                            )
+	 是否目录库                                      
 	"""
 	is_catalog_library: Boolean
 	"""
-	 是否安装                                        (                            )
+	 是否安装                                        
 	"""
 	is_install: Boolean
 	"""
-	 是否验车通过                                    (                            )
+	 是否验车通过                                    
 	"""
 	is_vehicle_pass_inspection: Boolean
 	"""
-	 是否新型渣土车                                  (                            )
+	 是否新型渣土车                                  
 	"""
 	is_new_vehicle: Boolean
 	"""
-	 定位时间                                        (                            )
+	 定位时间                                        
 	"""
 	location_time: Timestamptz
 	"""
-	 自编号                                          (                            )
+	 自编号                                          
 	"""
 	self_number: String
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area: String
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -13159,7 +13161,7 @@ type MuckTruckOnline {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -13167,7 +13169,7 @@ type MuckTruckOnline {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -13355,9 +13357,6 @@ input MuckTruckOnlineBoolExp {
 input type for inserting data into table "muck_truck_online"
 """
 input MuckTruckOnlineInsertInput {
-	id: Bigint
-	muck_truck_online_id: String
-	vehicle_id: String
 	is_online: Boolean
 	is_pay: Boolean
 	is_gps_online: Boolean
@@ -13368,8 +13367,6 @@ input MuckTruckOnlineInsertInput {
 	location_time: Timestamptz
 	self_number: String
 	area: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -13418,51 +13415,51 @@ enum MuckTruckOnlineSelectColumn {
 	"""
 	muck_truck_online_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 是否在线                                        (                            )
+	 是否在线                                        
 	"""
 	is_online
 	"""
-	 是否缴费                                        (                            )
+	 是否缴费                                        
 	"""
 	is_pay
 	"""
-	 是否GPS在线                                     (                            )
+	 是否GPS在线                                     
 	"""
 	is_gps_online
 	"""
-	 是否目录库                                      (                            )
+	 是否目录库                                      
 	"""
 	is_catalog_library
 	"""
-	 是否安装                                        (                            )
+	 是否安装                                        
 	"""
 	is_install
 	"""
-	 是否验车通过                                    (                            )
+	 是否验车通过                                    
 	"""
 	is_vehicle_pass_inspection
 	"""
-	 是否新型渣土车                                  (                            )
+	 是否新型渣土车                                  
 	"""
 	is_new_vehicle
 	"""
-	 定位时间                                        (                            )
+	 定位时间                                        
 	"""
 	location_time
 	"""
-	 自编号                                          (                            )
+	 自编号                                          
 	"""
 	self_number
 	"""
-	 地区                                            (                            )
+	 地区                                            
 	"""
 	area
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -13470,7 +13467,7 @@ enum MuckTruckOnlineSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -13478,7 +13475,7 @@ enum MuckTruckOnlineSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -13540,15 +13537,15 @@ type RegionIssued {
 	"""
 	region_issued_id: String!
 	"""
-	 区域名称                                        (                            )
+	 区域名称                                        
 	"""
 	region_name: String
 	"""
-	 终端IMEI                                        (                            )
+	 终端IMEI                                        
 	"""
 	imel: String
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -13556,7 +13553,7 @@ type RegionIssued {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -13564,7 +13561,7 @@ type RegionIssued {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -13716,12 +13713,8 @@ input RegionIssuedBoolExp {
 input type for inserting data into table "region_issued"
 """
 input RegionIssuedInsertInput {
-	id: Bigint
-	region_issued_id: String
 	region_name: String
 	imel: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -13761,15 +13754,15 @@ enum RegionIssuedSelectColumn {
 	"""
 	region_issued_id
 	"""
-	 区域名称                                        (                            )
+	 区域名称                                        
 	"""
 	region_name
 	"""
-	 终端IMEI                                        (                            )
+	 终端IMEI                                        
 	"""
 	imel
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -13777,7 +13770,7 @@ enum RegionIssuedSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -13785,7 +13778,7 @@ enum RegionIssuedSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -13847,59 +13840,59 @@ type RegionManagement {
 	"""
 	region_management_id: String!
 	"""
-	 区域ID                                          (                            )
+	 区域ID                                          
 	"""
 	region_id: String
 	"""
-	 区域名称                                        (                            )
+	 区域名称                                        
 	"""
 	region_name: String
 	"""
-	 区域类型                                        (                            )
+	 区域类型                                        
 	"""
 	region_type: String
 	"""
-	 区域性质                                        (                            )
+	 区域性质                                        
 	"""
 	region_nature: String
 	"""
-	 报警开始时间                                    (                            )
+	 报警开始时间                                    
 	"""
 	alarm_begin_time: Timestamptz
 	"""
-	 报警截止时间                                    (                            )
+	 报警截止时间                                    
 	"""
 	alarm_end_time: Timestamptz
 	"""
-	 企业名称                                        (                            )
+	 企业名称                                        
 	"""
 	enterprise_name: String
 	"""
-	 持续时间                                        (                            )
+	 持续时间                                        
 	"""
 	duration_: Int
 	"""
-	 最高速度                                        (                            )
+	 最高速度                                        
 	"""
 	max_speed: Int
 	"""
-	 圆形半径                                        (                            )
+	 圆形半径                                        
 	"""
 	circle_radius: Int
 	"""
-	 区域经纬度                                      (                            )
+	 区域经纬度                                      
 	"""
 	region_coordinate: Point
 	"""
-	 是否超级区域                                    (                            )
+	 是否超级区域                                    
 	"""
 	is_super_region: Boolean
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -13907,7 +13900,7 @@ type RegionManagement {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -13915,7 +13908,7 @@ type RegionManagement {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -14135,8 +14128,6 @@ input RegionManagementBoolExp {
 input type for inserting data into table "region_management"
 """
 input RegionManagementInsertInput {
-	id: Bigint
-	region_management_id: String
 	region_id: String
 	region_name: String
 	region_type: String
@@ -14150,8 +14141,6 @@ input RegionManagementInsertInput {
 	region_coordinate: Point
 	is_super_region: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -14205,59 +14194,59 @@ enum RegionManagementSelectColumn {
 	"""
 	region_management_id
 	"""
-	 区域ID                                          (                            )
+	 区域ID                                          
 	"""
 	region_id
 	"""
-	 区域名称                                        (                            )
+	 区域名称                                        
 	"""
 	region_name
 	"""
-	 区域类型                                        (                            )
+	 区域类型                                        
 	"""
 	region_type
 	"""
-	 区域性质                                        (                            )
+	 区域性质                                        
 	"""
 	region_nature
 	"""
-	 报警开始时间                                    (                            )
+	 报警开始时间                                    
 	"""
 	alarm_begin_time
 	"""
-	 报警截止时间                                    (                            )
+	 报警截止时间                                    
 	"""
 	alarm_end_time
 	"""
-	 企业名称                                        (                            )
+	 企业名称                                        
 	"""
 	enterprise_name
 	"""
-	 持续时间                                        (                            )
+	 持续时间                                        
 	"""
 	duration_
 	"""
-	 最高速度                                        (                            )
+	 最高速度                                        
 	"""
 	max_speed
 	"""
-	 圆形半径                                        (                            )
+	 圆形半径                                        
 	"""
 	circle_radius
 	"""
-	 区域经纬度                                      (                            )
+	 区域经纬度                                      
 	"""
 	region_coordinate
 	"""
-	 是否超级区域                                    (                            )
+	 是否超级区域                                    
 	"""
 	is_super_region
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -14265,7 +14254,7 @@ enum RegionManagementSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -14273,7 +14262,7 @@ enum RegionManagementSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -14335,7 +14324,7 @@ type VehicleAlarmSupervision {
 	"""
 	vehicle_alarm_supervision_id: String!
 	"""
-	 监管单位id                                      (                                                              )
+	 监管单位id                                      
 	"""
 	superivision_authority_id: String
 	"""
@@ -14343,63 +14332,63 @@ type VehicleAlarmSupervision {
 	"""
 	superivision_type: String
 	"""
-	 区域ID                                          (                                                              )
+	 区域ID                                          
 	"""
 	area_id: String
 	"""
-	 报警车辆数                                      (                                                              )
+	 报警车辆数                                      
 	"""
 	vehicle_alarm_number: Int
 	"""
-	 报警类型                                        (                                                              )
+	 报警类型                                        
 	"""
 	alarm_type: String
 	"""
-	 报警次数                                        (                                                              )
+	 报警次数                                        
 	"""
 	alarm_times: Int
 	"""
-	 处置次数                                        (                                                              )
+	 处置次数                                        
 	"""
 	disposal_times: Int
 	"""
-	 报警处置率                                      (                                                              )
+	 报警处置率                                      
 	"""
 	alarm_disposal_rate: Numeric
 	"""
-	 县级提出的整改                                  (                                                              )
+	 县级提出的整改                                  
 	"""
 	district_rectification: String
 	"""
-	 市级提出的整改                                  (                                                              )
+	 市级提出的整改                                  
 	"""
 	city_rectification: String
 	"""
-	 省级提出的整改                                  (                                                              )
+	 省级提出的整改                                  
 	"""
 	province_rectification: String
 	"""
-	 部级提出的整改                                  (                                                              )
+	 部级提出的整改                                  
 	"""
 	country_rectification: String
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 统计日期                                        (                                                              )
+	 统计日期                                        
 	"""
 	statistics_date: String
 	"""
-	 应监管企业数                                    (                                                              )
+	 应监管企业数                                    
 	"""
 	should_supervision_enterprise_number: Int
 	"""
-	 实监管企业数                                    (                                                              )
+	 实监管企业数                                    
 	"""
 	actual_supervision_enterprise_number: Int
 	"""
-	 监管率                                          (                                                              )
+	 监管率                                          
 	"""
 	supervision_rate: Numeric
 	"""
@@ -14407,27 +14396,27 @@ type VehicleAlarmSupervision {
 	"""
 	business_scope: Int
 	"""
-	 应检查车辆数                                    (                                                              )
+	 应检查车辆数                                    
 	"""
 	should_check_vehicle_number: Int
 	"""
-	 实检查车辆数                                    (                                                              )
+	 实检查车辆数                                    
 	"""
 	actual_check_vechicle_number: Int
 	"""
-	 检查异常车辆数                                  (                                                              )
+	 检查异常车辆数                                  
 	"""
 	check_abnormal_vehicle_number: Int
 	"""
-	 异常处置数                                      (                                                              )
+	 异常处置数                                      
 	"""
 	abnormal_disposal_number: Int
 	"""
-	 异常处置率                                      (                                                              )
+	 异常处置率                                      
 	"""
 	abnormal_disposal_rate: Numeric
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -14435,7 +14424,7 @@ type VehicleAlarmSupervision {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -14443,7 +14432,7 @@ type VehicleAlarmSupervision {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -14783,8 +14772,6 @@ input VehicleAlarmSupervisionBoolExp {
 input type for inserting data into table "vehicle_alarm_supervision"
 """
 input VehicleAlarmSupervisionInsertInput {
-	id: Bigint
-	vehicle_alarm_supervision_id: String
 	superivision_authority_id: String
 	superivision_type: String
 	area_id: String
@@ -14808,8 +14795,6 @@ input VehicleAlarmSupervisionInsertInput {
 	check_abnormal_vehicle_number: Int
 	abnormal_disposal_number: Int
 	abnormal_disposal_rate: Numeric
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -14883,7 +14868,7 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	vehicle_alarm_supervision_id
 	"""
-	 监管单位id                                      (                                                              )
+	 监管单位id                                      
 	"""
 	superivision_authority_id
 	"""
@@ -14891,63 +14876,63 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	superivision_type
 	"""
-	 区域ID                                          (                                                              )
+	 区域ID                                          
 	"""
 	area_id
 	"""
-	 报警车辆数                                      (                                                              )
+	 报警车辆数                                      
 	"""
 	vehicle_alarm_number
 	"""
-	 报警类型                                        (                                                              )
+	 报警类型                                        
 	"""
 	alarm_type
 	"""
-	 报警次数                                        (                                                              )
+	 报警次数                                        
 	"""
 	alarm_times
 	"""
-	 处置次数                                        (                                                              )
+	 处置次数                                        
 	"""
 	disposal_times
 	"""
-	 报警处置率                                      (                                                              )
+	 报警处置率                                      
 	"""
 	alarm_disposal_rate
 	"""
-	 县级提出的整改                                  (                                                              )
+	 县级提出的整改                                  
 	"""
 	district_rectification
 	"""
-	 市级提出的整改                                  (                                                              )
+	 市级提出的整改                                  
 	"""
 	city_rectification
 	"""
-	 省级提出的整改                                  (                                                              )
+	 省级提出的整改                                  
 	"""
 	province_rectification
 	"""
-	 部级提出的整改                                  (                                                              )
+	 部级提出的整改                                  
 	"""
 	country_rectification
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 统计日期                                        (                                                              )
+	 统计日期                                        
 	"""
 	statistics_date
 	"""
-	 应监管企业数                                    (                                                              )
+	 应监管企业数                                    
 	"""
 	should_supervision_enterprise_number
 	"""
-	 实监管企业数                                    (                                                              )
+	 实监管企业数                                    
 	"""
 	actual_supervision_enterprise_number
 	"""
-	 监管率                                          (                                                              )
+	 监管率                                          
 	"""
 	supervision_rate
 	"""
@@ -14955,27 +14940,27 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	business_scope
 	"""
-	 应检查车辆数                                    (                                                              )
+	 应检查车辆数                                    
 	"""
 	should_check_vehicle_number
 	"""
-	 实检查车辆数                                    (                                                              )
+	 实检查车辆数                                    
 	"""
 	actual_check_vechicle_number
 	"""
-	 检查异常车辆数                                  (                                                              )
+	 检查异常车辆数                                  
 	"""
 	check_abnormal_vehicle_number
 	"""
-	 异常处置数                                      (                                                              )
+	 异常处置数                                      
 	"""
 	abnormal_disposal_number
 	"""
-	 异常处置率                                      (                                                              )
+	 异常处置率                                      
 	"""
 	abnormal_disposal_rate
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -14983,7 +14968,7 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -14991,7 +14976,7 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -15053,7 +15038,7 @@ type VehicleAlarmTimesRecord {
 	"""
 	vehicle_alarm_times_record_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
@@ -15061,19 +15046,19 @@ type VehicleAlarmTimesRecord {
 	"""
 	alarm_type: String
 	"""
-	 处置措施                                        (                            )
+	 处置措施                                        
 	"""
 	disposal_measure: String
 	"""
-	 处置时间                                        (                            )
+	 处置时间                                        
 	"""
 	disposal_time: Timestamptz
 	"""
-	 处置结果                                        (                            )
+	 处置结果                                        
 	"""
 	disposal_result: String
 	"""
-	 是否处置                                        (                            )
+	 是否处置                                        
 	"""
 	is_disposal: Boolean
 	"""
@@ -15081,23 +15066,23 @@ type VehicleAlarmTimesRecord {
 	"""
 	disposal_method: Int
 	"""
-	 值班人                                          (                            )
+	 值班人                                          
 	"""
 	duty_person: String
 	"""
-	 报警次数                                        (                            )
+	 报警次数                                        
 	"""
 	alarm_times: String
 	"""
-	 备注                                            (                            )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 记录时间                                        (                            )
+	 记录时间                                        
 	"""
 	record_time: Timestamptz
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -15105,7 +15090,7 @@ type VehicleAlarmTimesRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -15113,7 +15098,7 @@ type VehicleAlarmTimesRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -15309,9 +15294,6 @@ input VehicleAlarmTimesRecordBoolExp {
 input type for inserting data into table "vehicle_alarm_times_record"
 """
 input VehicleAlarmTimesRecordInsertInput {
-	id: Bigint
-	vehicle_alarm_times_record_id: String
-	vehicle_id: String
 	alarm_type: String
 	disposal_measure: String
 	disposal_time: Timestamptz
@@ -15322,8 +15304,6 @@ input VehicleAlarmTimesRecordInsertInput {
 	alarm_times: String
 	remarks: String
 	record_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -15373,7 +15353,7 @@ enum VehicleAlarmTimesRecordSelectColumn {
 	"""
 	vehicle_alarm_times_record_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
@@ -15381,19 +15361,19 @@ enum VehicleAlarmTimesRecordSelectColumn {
 	"""
 	alarm_type
 	"""
-	 处置措施                                        (                            )
+	 处置措施                                        
 	"""
 	disposal_measure
 	"""
-	 处置时间                                        (                            )
+	 处置时间                                        
 	"""
 	disposal_time
 	"""
-	 处置结果                                        (                            )
+	 处置结果                                        
 	"""
 	disposal_result
 	"""
-	 是否处置                                        (                            )
+	 是否处置                                        
 	"""
 	is_disposal
 	"""
@@ -15401,23 +15381,23 @@ enum VehicleAlarmTimesRecordSelectColumn {
 	"""
 	disposal_method
 	"""
-	 值班人                                          (                            )
+	 值班人                                          
 	"""
 	duty_person
 	"""
-	 报警次数                                        (                            )
+	 报警次数                                        
 	"""
 	alarm_times
 	"""
-	 备注                                            (                            )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 记录时间                                        (                            )
+	 记录时间                                        
 	"""
 	record_time
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -15425,7 +15405,7 @@ enum VehicleAlarmTimesRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -15433,7 +15413,7 @@ enum VehicleAlarmTimesRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -15499,15 +15479,15 @@ type VehicleOfflineDisposal {
 	"""
 	enterprise_id: String
 	"""
-	 手机号码                                        (                                                              )
+	 手机号码                                        
 	"""
 	telephone: String
 	"""
-	 内容                                            (                                                              )
+	 内容                                            
 	"""
 	content: String
 	"""
-	 发送时间                                        (                                                              )
+	 发送时间                                        
 	"""
 	send_time: Timestamptz
 	"""
@@ -15515,31 +15495,31 @@ type VehicleOfflineDisposal {
 	"""
 	user_id: String
 	"""
-	 是否短信推送                                    (                                                              )
+	 是否短信推送                                    
 	"""
 	is_sms_push: Boolean
 	"""
-	 是否通报                                        (                                                              )
+	 是否通报                                        
 	"""
 	is_report: Boolean
 	"""
-	 是否语音通知                                    (                                                              )
+	 是否语音通知                                    
 	"""
 	is_voice_notification: Boolean
 	"""
-	 是否APP推送                                     (                                                              )
+	 是否APP推送                                     
 	"""
 	is_app_push: Boolean
 	"""
-	 通报内容                                        (                                                              )
+	 通报内容                                        
 	"""
 	notification_content: String
 	"""
-	 语音内容                                        (                                                              )
+	 语音内容                                        
 	"""
 	voice_content: String
 	"""
-	 APP推送内容                                     (                                                              )
+	 APP推送内容                                     
 	"""
 	app_push_content: String
 	"""
@@ -15547,15 +15527,15 @@ type VehicleOfflineDisposal {
 	"""
 	supervision_detail_id: String
 	"""
-	 处置方式                                        (                                                              )
+	 处置方式                                        
 	"""
 	disposal_method: String
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -15563,7 +15543,7 @@ type VehicleOfflineDisposal {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -15571,7 +15551,7 @@ type VehicleOfflineDisposal {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -15775,8 +15755,6 @@ input VehicleOfflineDisposalBoolExp {
 input type for inserting data into table "vehicle_offline_disposal"
 """
 input VehicleOfflineDisposalInsertInput {
-	id: Bigint
-	vehicle_offline_disposal_id: String
 	enterprise_id: String
 	telephone: String
 	content: String
@@ -15792,8 +15770,6 @@ input VehicleOfflineDisposalInsertInput {
 	supervision_detail_id: String
 	disposal_method: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -15850,15 +15826,15 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 手机号码                                        (                                                              )
+	 手机号码                                        
 	"""
 	telephone
 	"""
-	 内容                                            (                                                              )
+	 内容                                            
 	"""
 	content
 	"""
-	 发送时间                                        (                                                              )
+	 发送时间                                        
 	"""
 	send_time
 	"""
@@ -15866,31 +15842,31 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	user_id
 	"""
-	 是否短信推送                                    (                                                              )
+	 是否短信推送                                    
 	"""
 	is_sms_push
 	"""
-	 是否通报                                        (                                                              )
+	 是否通报                                        
 	"""
 	is_report
 	"""
-	 是否语音通知                                    (                                                              )
+	 是否语音通知                                    
 	"""
 	is_voice_notification
 	"""
-	 是否APP推送                                     (                                                              )
+	 是否APP推送                                     
 	"""
 	is_app_push
 	"""
-	 通报内容                                        (                                                              )
+	 通报内容                                        
 	"""
 	notification_content
 	"""
-	 语音内容                                        (                                                              )
+	 语音内容                                        
 	"""
 	voice_content
 	"""
-	 APP推送内容                                     (                                                              )
+	 APP推送内容                                     
 	"""
 	app_push_content
 	"""
@@ -15898,15 +15874,15 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	supervision_detail_id
 	"""
-	 处置方式                                        (                                                              )
+	 处置方式                                        
 	"""
 	disposal_method
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -15914,7 +15890,7 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -15922,7 +15898,7 @@ enum VehicleOfflineDisposalSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -59782,22 +59758,6 @@ func (ec *executionContext) unmarshalInputDynamicSpotCheckDisposalInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "enterprise_id":
 			var err error
 
@@ -59947,22 +59907,6 @@ func (ec *executionContext) unmarshalInputDynamicSpotCheckDisposalInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -61262,22 +61206,6 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionDetailInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "supervision_detail_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_detail_id"))
-			it.SupervisionDetailID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "supervision_id":
 			var err error
 
@@ -61699,22 +61627,6 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionDetailInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -62838,22 +62750,6 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "supervision_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("supervision_id"))
-			it.SupervisionID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "spot_check_date":
 			var err error
 
@@ -62947,22 +62843,6 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionInsertInput(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("day"))
 			it.Day, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -63372,6 +63252,90 @@ func (ec *executionContext) unmarshalInputDynamicSupervisionSetInput(ctx context
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
+	var it model1.FloatComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputIntComparisonExp(ctx context.Context, obj interface{}) (model2.IntComparisonExp, error) {
 	var it model2.IntComparisonExp
 	var asMap = obj.(map[string]interface{})
@@ -63754,30 +63718,6 @@ func (ec *executionContext) unmarshalInputMuckTruckOnlineInsertInput(ctx context
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "muck_truck_online_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_online_id"))
-			it.MuckTruckOnlineID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "is_online":
 			var err error
 
@@ -63855,22 +63795,6 @@ func (ec *executionContext) unmarshalInputMuckTruckOnlineInsertInput(ctx context
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("area"))
 			it.Area, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -64550,22 +64474,6 @@ func (ec *executionContext) unmarshalInputRegionIssuedInsertInput(ctx context.Co
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "region_issued_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_issued_id"))
-			it.RegionIssuedID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "region_name":
 			var err error
 
@@ -64579,22 +64487,6 @@ func (ec *executionContext) unmarshalInputRegionIssuedInsertInput(ctx context.Co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
 			it.Imel, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -65074,22 +64966,6 @@ func (ec *executionContext) unmarshalInputRegionManagementInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "region_management_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("region_management_id"))
-			it.RegionManagementID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "region_id":
 			var err error
 
@@ -65191,22 +65067,6 @@ func (ec *executionContext) unmarshalInputRegionManagementInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -66238,22 +66098,6 @@ func (ec *executionContext) unmarshalInputVehicleAlarmSupervisionInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_alarm_supervision_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_supervision_id"))
-			it.VehicleAlarmSupervisionID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "superivision_authority_id":
 			var err error
 
@@ -66435,22 +66279,6 @@ func (ec *executionContext) unmarshalInputVehicleAlarmSupervisionInsertInput(ctx
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("abnormal_disposal_rate"))
 			it.AbnormalDisposalRate, err = ec.unmarshalONumeric2ᚖfloat64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -67234,30 +67062,6 @@ func (ec *executionContext) unmarshalInputVehicleAlarmTimesRecordInsertInput(ctx
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_alarm_times_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_alarm_times_record_id"))
-			it.VehicleAlarmTimesRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "alarm_type":
 			var err error
 
@@ -67335,22 +67139,6 @@ func (ec *executionContext) unmarshalInputVehicleAlarmTimesRecordInsertInput(ctx
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_time"))
 			it.RecordTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -67966,22 +67754,6 @@ func (ec *executionContext) unmarshalInputVehicleOfflineDisposalInsertInput(ctx 
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_offline_disposal_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_offline_disposal_id"))
-			it.VehicleOfflineDisposalID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "enterprise_id":
 			var err error
 
@@ -68099,22 +67871,6 @@ func (ec *executionContext) unmarshalInputVehicleOfflineDisposalInsertInput(ctx 
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -74945,6 +74701,21 @@ func (ec *executionContext) marshalNDynamicSupervisionSelectColumn2VehicleSuperv
 	return v
 }
 
+func (ec *executionContext) unmarshalNFloat2float64(ctx context.Context, v interface{}) (float64, error) {
+	res, err := graphql.UnmarshalFloat(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNFloat2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
+	res := graphql.MarshalFloat(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
 func (ec *executionContext) unmarshalNInt2int(ctx context.Context, v interface{}) (int, error) {
 	res, err := graphql.UnmarshalInt(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -76787,6 +76558,57 @@ func (ec *executionContext) marshalODynamicSupervisionVarianceFields2ᚖVehicleS
 		return graphql.Null
 	}
 	return ec._DynamicSupervisionVarianceFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]float64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNFloat2float64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOFloat2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNFloat2float64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloat(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOFloat2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalFloat(*v)
 }
 
 func (ec *executionContext) unmarshalOInt2ᚕintᚄ(ctx context.Context, v interface{}) ([]int, error) {

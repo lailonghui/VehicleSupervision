@@ -11,15 +11,15 @@ type OfflineAlarmRegistration {
 	"""
 	offline_alarm_registration_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 离线开始时间                                    (                            )
+	 离线开始时间                                    
 	"""
 	offline_start_time: Timestamptz
 	"""
-	 离线结束时间                                    (                            )
+	 离线结束时间                                    
 	"""
 	offline_end_time: Timestamptz
 	"""
@@ -27,27 +27,27 @@ type OfflineAlarmRegistration {
 	"""
 	registration_user: String
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 短信发送内容                                    (                            )
+	 短信发送内容                                    
 	"""
 	sms_content: String
 	"""
-	 电话提醒内容                                    (                            )
+	 电话提醒内容                                    
 	"""
 	phone_reminder_content: String
 	"""
-	 短信发送时间                                    (                            )
+	 短信发送时间                                    
 	"""
 	sms_send_time: Timestamptz
 	"""
-	 电话提醒时间                                    (                            )
+	 电话提醒时间                                    
 	"""
 	phone_reminder_time: Timestamptz
 	"""
-	 离线原因                                        (                            )
+	 离线原因                                        
 	"""
 	offline_reason: String
 	"""
@@ -55,23 +55,23 @@ type OfflineAlarmRegistration {
 	"""
 	alarm_type: Int
 	"""
-	 是否登记                                        (                            )
+	 是否登记                                        
 	"""
 	is_registration: Boolean
 	"""
-	 是否结束报警                                    (                            )
+	 是否结束报警                                    
 	"""
 	is_end_alarm: Boolean
 	"""
-	 是否发送短信                                    (                            )
+	 是否发送短信                                    
 	"""
 	is_send_sms: Boolean
 	"""
-	 是否需要维护                                    (                            )
+	 是否需要维护                                    
 	"""
 	is_need_maintain: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -79,7 +79,7 @@ type OfflineAlarmRegistration {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -87,7 +87,7 @@ type OfflineAlarmRegistration {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -299,9 +299,6 @@ input OfflineAlarmRegistrationBoolExp {
 input type for inserting data into table "offline_alarm_registration"
 """
 input OfflineAlarmRegistrationInsertInput {
-	id: Bigint
-	offline_alarm_registration_id: String
-	vehicle_id: String
 	offline_start_time: Timestamptz
 	offline_end_time: Timestamptz
 	registration_user: String
@@ -316,8 +313,6 @@ input OfflineAlarmRegistrationInsertInput {
 	is_end_alarm: Boolean
 	is_send_sms: Boolean
 	is_need_maintain: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -371,15 +366,15 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	offline_alarm_registration_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 离线开始时间                                    (                            )
+	 离线开始时间                                    
 	"""
 	offline_start_time
 	"""
-	 离线结束时间                                    (                            )
+	 离线结束时间                                    
 	"""
 	offline_end_time
 	"""
@@ -387,27 +382,27 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	registration_user
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 短信发送内容                                    (                            )
+	 短信发送内容                                    
 	"""
 	sms_content
 	"""
-	 电话提醒内容                                    (                            )
+	 电话提醒内容                                    
 	"""
 	phone_reminder_content
 	"""
-	 短信发送时间                                    (                            )
+	 短信发送时间                                    
 	"""
 	sms_send_time
 	"""
-	 电话提醒时间                                    (                            )
+	 电话提醒时间                                    
 	"""
 	phone_reminder_time
 	"""
-	 离线原因                                        (                            )
+	 离线原因                                        
 	"""
 	offline_reason
 	"""
@@ -415,23 +410,23 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	alarm_type
 	"""
-	 是否登记                                        (                            )
+	 是否登记                                        
 	"""
 	is_registration
 	"""
-	 是否结束报警                                    (                            )
+	 是否结束报警                                    
 	"""
 	is_end_alarm
 	"""
-	 是否发送短信                                    (                            )
+	 是否发送短信                                    
 	"""
 	is_send_sms
 	"""
-	 是否需要维护                                    (                            )
+	 是否需要维护                                    
 	"""
 	is_need_maintain
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -439,7 +434,7 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -447,7 +442,7 @@ enum OfflineAlarmRegistrationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

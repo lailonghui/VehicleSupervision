@@ -83,19 +83,14 @@ type DriverFingerprintAssociationIncInput struct {
 
 // input type for inserting data into table "driver_fingerprint_association"
 type DriverFingerprintAssociationInsertInput struct {
-	ID                             *int64     `json:"id"`
-	DriverFingerprintAssociationID *string    `json:"driver_fingerprint_association_id"`
-	DriverID                       *string    `json:"driver_id"`
-	FingerprintName                *string    `json:"fingerprint_name"`
-	DriverFingerprintID            *string    `json:"driver_fingerprint_id"`
-	PictureAddress                 *string    `json:"picture_address"`
-	IsDeleted                      *bool      `json:"is_deleted"`
-	CreatedAt                      *time.Time `json:"created_at"`
-	CreatedBy                      *string    `json:"created_by"`
-	UpdatedAt                      *time.Time `json:"updated_at"`
-	UpdatedBy                      *string    `json:"updated_by"`
-	DeletedAt                      *time.Time `json:"deleted_at"`
-	DeletedBy                      *string    `json:"deleted_by"`
+	FingerprintName     *string    `json:"fingerprint_name"`
+	DriverFingerprintID *string    `json:"driver_fingerprint_id"`
+	PictureAddress      *string    `json:"picture_address"`
+	IsDeleted           *bool      `json:"is_deleted"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "driver_fingerprint_association"
@@ -251,29 +246,24 @@ type DriverFingerprintIncInput struct {
 
 // input type for inserting data into table "driver_fingerprint"
 type DriverFingerprintInsertInput struct {
-	ID                  *int64     `json:"id"`
-	DriverFingerprintID *string    `json:"driver_fingerprint_id"`
-	DriverID            *string    `json:"driver_id"`
-	DriverName          *string    `json:"driver_name"`
-	UserID              *string    `json:"user_id"`
-	Signature           *string    `json:"signature"`
-	FingerprintName     *string    `json:"fingerprint_name"`
-	SimNumber           *string    `json:"sim_number"`
-	InstructionID       *string    `json:"instruction_id"`
-	OperationType       *int       `json:"operation_type"`
-	Content             *string    `json:"content"`
-	OperationTime       *time.Time `json:"operation_time"`
-	UploadTime          *time.Time `json:"upload_time"`
-	Timestamp           *string    `json:"timestamp"`
-	TernimalID          *string    `json:"ternimal_id"`
-	IsSuccess           *bool      `json:"is_success"`
-	IsDeleted           *bool      `json:"is_deleted"`
-	CreatedAt           *time.Time `json:"created_at"`
-	CreatedBy           *string    `json:"created_by"`
-	UpdatedAt           *time.Time `json:"updated_at"`
-	UpdatedBy           *string    `json:"updated_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
+	DriverName      *string    `json:"driver_name"`
+	UserID          *string    `json:"user_id"`
+	Signature       *string    `json:"signature"`
+	FingerprintName *string    `json:"fingerprint_name"`
+	SimNumber       *string    `json:"sim_number"`
+	InstructionID   *string    `json:"instruction_id"`
+	OperationType   *int       `json:"operation_type"`
+	Content         *string    `json:"content"`
+	OperationTime   *time.Time `json:"operation_time"`
+	UploadTime      *time.Time `json:"upload_time"`
+	Timestamp       *string    `json:"timestamp"`
+	TernimalID      *string    `json:"ternimal_id"`
+	IsSuccess       *bool      `json:"is_success"`
+	IsDeleted       *bool      `json:"is_deleted"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "driver_fingerprint"
@@ -432,269 +422,6 @@ type DriverFingerprintVarianceFields struct {
 	OperationType *int   `json:"operation_type"`
 }
 
-// 驾驶员身份信息采集上报
-type DriverIDInfoReport struct {
-	// 按指定方法生成                                  ( 主键                       )
-	ID int64 `json:"id"`
-	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
-	DriverIDInfoReportID string `json:"driver_id_info_report_id"`
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
-	VehicleID string `json:"vehicle_id"`
-	// IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
-	IcCardStatus *int `json:"ic_card_status"`
-	// 操作时间                                        (                            )
-	OperationTime *time.Time `json:"operation_time"`
-	// 驾驶员姓名                                      (                            )
-	DriverName *string `json:"driver_name"`
-	// 证件号码                                        (                            )
-	LicenseNumber *string `json:"license_number"`
-	// 终端IMEI                                        ( 国际移动设备标识别码       )
-	Imel *string `json:"imel"`
-	// IC卡读取结果                                    ( IC卡读卡字典           )
-	IcCardReadingResult *string `json:"ic_card_reading_result"`
-	// 从业资格证编码                                  (                            )
-	OccupationalNumber *string `json:"occupational_number"`
-	// 发证机构名称                                    (                            )
-	DriverLicenseName *string `json:"driver_license_name"`
-	// 证件有效期                                      (                            )
-	LicenseExpireDate *time.Time `json:"license_expire_date"`
-	// 登记时间                                        (                            )
-	RegistrationTime *time.Time `json:"registration_time"`
-	// 创建时间                                        (                            )
-	CreatedAt time.Time `json:"created_at"`
-	// 创建人                                          ( system_user表的user_id )
-	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                            )
-	UpdatedAt *time.Time `json:"updated_at"`
-	// 修改人                                          ( system_user表的user_id )
-	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                            )
-	DeletedAt *time.Time `json:"deleted_at"`
-	// 删除人                                          ( system_user表的user_id )
-	DeletedBy *string `json:"deleted_by"`
-}
-
-// aggregated selection of "driver_id_info_report"
-type DriverIDInfoReportAggregate struct {
-	Aggregate *DriverIDInfoReportAggregateFields `json:"aggregate"`
-}
-
-// aggregate fields of "driver_id_info_report"
-type DriverIDInfoReportAggregateFields struct {
-	Avg        *DriverIDInfoReportAvgFields        `json:"avg"`
-	Count      *int                                `json:"count"`
-	Max        *DriverIDInfoReportMaxFields        `json:"max"`
-	Min        *DriverIDInfoReportMinFields        `json:"min"`
-	Stddev     *DriverIDInfoReportStddevFields     `json:"stddev"`
-	StddevPop  *DriverIDInfoReportStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *DriverIDInfoReportStddevSampFields `json:"stddev_samp"`
-	Sum        *DriverIDInfoReportSumFields        `json:"sum"`
-	VarPop     *DriverIDInfoReportVarPopFields     `json:"var_pop"`
-	VarSamp    *DriverIDInfoReportVarSampFields    `json:"var_samp"`
-	Variance   *DriverIDInfoReportVarianceFields   `json:"variance"`
-}
-
-// aggregate avg on columns of table "driver_id_info_report"
-type DriverIDInfoReportAvgFields struct {
-	ID           *int64 `json:"id"`
-	IcCardStatus *int   `json:"ic_card_status"`
-}
-
-// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_id_info_report'.
-type DriverIDInfoReportBoolExp struct {
-	And                  []*DriverIDInfoReportBoolExp    `json:"_and"`
-	Not                  *DriverIDInfoReportBoolExp      `json:"_not"`
-	Or                   []*DriverIDInfoReportBoolExp    `json:"_or"`
-	ID                   *model.BigintComparisonExp      `json:"id"`
-	DriverIDInfoReportID *model.StringComparisonExp      `json:"driver_id_info_report_id"`
-	VehicleID            *model.StringComparisonExp      `json:"vehicle_id"`
-	IcCardStatus         *model.IntComparisonExp         `json:"ic_card_status"`
-	OperationTime        *model.TimestamptzComparisonExp `json:"operation_time"`
-	DriverName           *model.StringComparisonExp      `json:"driver_name"`
-	LicenseNumber        *model.StringComparisonExp      `json:"license_number"`
-	Imel                 *model.StringComparisonExp      `json:"imel"`
-	IcCardReadingResult  *model.StringComparisonExp      `json:"ic_card_reading_result"`
-	OccupationalNumber   *model.StringComparisonExp      `json:"occupational_number"`
-	DriverLicenseName    *model.StringComparisonExp      `json:"driver_license_name"`
-	LicenseExpireDate    *model.TimestamptzComparisonExp `json:"license_expire_date"`
-	RegistrationTime     *model.TimestamptzComparisonExp `json:"registration_time"`
-	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
-	UpdatedAt            *model.TimestamptzComparisonExp `json:"updated_at"`
-	UpdatedBy            *model.StringComparisonExp      `json:"updated_by"`
-	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
-}
-
-// input type for incrementing integer column in table "driver_id_info_report"
-type DriverIDInfoReportIncInput struct {
-	ID           *int64 `json:"id"`
-	IcCardStatus *int   `json:"ic_card_status"`
-}
-
-// input type for inserting data into table "driver_id_info_report"
-type DriverIDInfoReportInsertInput struct {
-	ID                   *int64     `json:"id"`
-	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	IcCardStatus         *int       `json:"ic_card_status"`
-	OperationTime        *time.Time `json:"operation_time"`
-	DriverName           *string    `json:"driver_name"`
-	LicenseNumber        *string    `json:"license_number"`
-	Imel                 *string    `json:"imel"`
-	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
-	OccupationalNumber   *string    `json:"occupational_number"`
-	DriverLicenseName    *string    `json:"driver_license_name"`
-	LicenseExpireDate    *time.Time `json:"license_expire_date"`
-	RegistrationTime     *time.Time `json:"registration_time"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-}
-
-// aggregate max on columns of table "driver_id_info_report"
-type DriverIDInfoReportMaxFields struct {
-	ID                   *int64     `json:"id"`
-	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	IcCardStatus         *int       `json:"ic_card_status"`
-	OperationTime        *time.Time `json:"operation_time"`
-	DriverName           *string    `json:"driver_name"`
-	LicenseNumber        *string    `json:"license_number"`
-	Imel                 *string    `json:"imel"`
-	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
-	OccupationalNumber   *string    `json:"occupational_number"`
-	DriverLicenseName    *string    `json:"driver_license_name"`
-	LicenseExpireDate    *time.Time `json:"license_expire_date"`
-	RegistrationTime     *time.Time `json:"registration_time"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-}
-
-// aggregate min on columns of table "driver_id_info_report"
-type DriverIDInfoReportMinFields struct {
-	ID                   *int64     `json:"id"`
-	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	IcCardStatus         *int       `json:"ic_card_status"`
-	OperationTime        *time.Time `json:"operation_time"`
-	DriverName           *string    `json:"driver_name"`
-	LicenseNumber        *string    `json:"license_number"`
-	Imel                 *string    `json:"imel"`
-	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
-	OccupationalNumber   *string    `json:"occupational_number"`
-	DriverLicenseName    *string    `json:"driver_license_name"`
-	LicenseExpireDate    *time.Time `json:"license_expire_date"`
-	RegistrationTime     *time.Time `json:"registration_time"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-}
-
-// response of any mutation on the table "driver_id_info_report"
-type DriverIDInfoReportMutationResponse struct {
-	AffectedRows int                   `json:"affected_rows"`
-	Returning    []*DriverIDInfoReport `json:"returning"`
-}
-
-// ordering options when selecting data from "driver_id_info_report"
-type DriverIDInfoReportOrderBy struct {
-	ID                   *model.OrderBy `json:"id"`
-	DriverIDInfoReportID *model.OrderBy `json:"driver_id_info_report_id"`
-	VehicleID            *model.OrderBy `json:"vehicle_id"`
-	IcCardStatus         *model.OrderBy `json:"ic_card_status"`
-	OperationTime        *model.OrderBy `json:"operation_time"`
-	DriverName           *model.OrderBy `json:"driver_name"`
-	LicenseNumber        *model.OrderBy `json:"license_number"`
-	Imel                 *model.OrderBy `json:"imel"`
-	IcCardReadingResult  *model.OrderBy `json:"ic_card_reading_result"`
-	OccupationalNumber   *model.OrderBy `json:"occupational_number"`
-	DriverLicenseName    *model.OrderBy `json:"driver_license_name"`
-	LicenseExpireDate    *model.OrderBy `json:"license_expire_date"`
-	RegistrationTime     *model.OrderBy `json:"registration_time"`
-	CreatedAt            *model.OrderBy `json:"created_at"`
-	CreatedBy            *model.OrderBy `json:"created_by"`
-	UpdatedAt            *model.OrderBy `json:"updated_at"`
-	UpdatedBy            *model.OrderBy `json:"updated_by"`
-	DeletedAt            *model.OrderBy `json:"deleted_at"`
-	DeletedBy            *model.OrderBy `json:"deleted_by"`
-}
-
-// input type for updating data in table "driver_id_info_report"
-type DriverIDInfoReportSetInput struct {
-	ID                   *int64     `json:"id"`
-	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	IcCardStatus         *int       `json:"ic_card_status"`
-	OperationTime        *time.Time `json:"operation_time"`
-	DriverName           *string    `json:"driver_name"`
-	LicenseNumber        *string    `json:"license_number"`
-	Imel                 *string    `json:"imel"`
-	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
-	OccupationalNumber   *string    `json:"occupational_number"`
-	DriverLicenseName    *string    `json:"driver_license_name"`
-	LicenseExpireDate    *time.Time `json:"license_expire_date"`
-	RegistrationTime     *time.Time `json:"registration_time"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-}
-
-// aggregate stddev on columns of table "driver_id_info_report"
-type DriverIDInfoReportStddevFields struct {
-	ID           *int64 `json:"id"`
-	IcCardStatus *int   `json:"ic_card_status"`
-}
-
-// aggregate stddev_pop on columns of table "driver_id_info_report"
-type DriverIDInfoReportStddevPopFields struct {
-	ID           *int64 `json:"id"`
-	IcCardStatus *int   `json:"ic_card_status"`
-}
-
-// aggregate stddev_samp on columns of table "driver_id_info_report"
-type DriverIDInfoReportStddevSampFields struct {
-	ID           *int64 `json:"id"`
-	IcCardStatus *int   `json:"ic_card_status"`
-}
-
-// aggregate sum on columns of table "driver_id_info_report"
-type DriverIDInfoReportSumFields struct {
-	ID           *int64 `json:"id"`
-	IcCardStatus *int   `json:"ic_card_status"`
-}
-
-// aggregate var_pop on columns of table "driver_id_info_report"
-type DriverIDInfoReportVarPopFields struct {
-	ID           *int64 `json:"id"`
-	IcCardStatus *int   `json:"ic_card_status"`
-}
-
-// aggregate var_samp on columns of table "driver_id_info_report"
-type DriverIDInfoReportVarSampFields struct {
-	ID           *int64 `json:"id"`
-	IcCardStatus *int   `json:"ic_card_status"`
-}
-
-// aggregate variance on columns of table "driver_id_info_report"
-type DriverIDInfoReportVarianceFields struct {
-	ID           *int64 `json:"id"`
-	IcCardStatus *int   `json:"ic_card_status"`
-}
-
 // aggregated selection of "driver_identity"
 type DriverIdentityAggregate struct {
 	Aggregate *DriverIdentityAggregateFields `json:"aggregate"`
@@ -777,10 +504,224 @@ type DriverIdentityIncInput struct {
 	DriverLicenseStatus *int     `json:"driver_license_status"`
 }
 
+// aggregated selection of "driver_identity_info_report"
+type DriverIdentityInfoReportAggregate struct {
+	Aggregate *DriverIdentityInfoReportAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "driver_identity_info_report"
+type DriverIdentityInfoReportAggregateFields struct {
+	Avg        *DriverIdentityInfoReportAvgFields        `json:"avg"`
+	Count      *int                                      `json:"count"`
+	Max        *DriverIdentityInfoReportMaxFields        `json:"max"`
+	Min        *DriverIdentityInfoReportMinFields        `json:"min"`
+	Stddev     *DriverIdentityInfoReportStddevFields     `json:"stddev"`
+	StddevPop  *DriverIdentityInfoReportStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *DriverIdentityInfoReportStddevSampFields `json:"stddev_samp"`
+	Sum        *DriverIdentityInfoReportSumFields        `json:"sum"`
+	VarPop     *DriverIdentityInfoReportVarPopFields     `json:"var_pop"`
+	VarSamp    *DriverIdentityInfoReportVarSampFields    `json:"var_samp"`
+	Variance   *DriverIdentityInfoReportVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportAvgFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_identity_info_report'.
+type DriverIdentityInfoReportBoolExp struct {
+	And                        []*DriverIdentityInfoReportBoolExp `json:"_and"`
+	Not                        *DriverIdentityInfoReportBoolExp   `json:"_not"`
+	Or                         []*DriverIdentityInfoReportBoolExp `json:"_or"`
+	ID                         *model.BigintComparisonExp         `json:"id"`
+	DriverIdentityInfoReportID *model.StringComparisonExp         `json:"driver_identity_info_report_id"`
+	VehicleID                  *model.StringComparisonExp         `json:"vehicle_id"`
+	IcCardStatus               *model.IntComparisonExp            `json:"ic_card_status"`
+	OperationTime              *model.TimestamptzComparisonExp    `json:"operation_time"`
+	DriverName                 *model.StringComparisonExp         `json:"driver_name"`
+	LicenseNumber              *model.StringComparisonExp         `json:"license_number"`
+	Imel                       *model.StringComparisonExp         `json:"imel"`
+	IcCardReadingResult        *model.StringComparisonExp         `json:"ic_card_reading_result"`
+	OccupationalNumber         *model.StringComparisonExp         `json:"occupational_number"`
+	DriverLicenseName          *model.StringComparisonExp         `json:"driver_license_name"`
+	LicenseExpireDate          *model.TimestamptzComparisonExp    `json:"license_expire_date"`
+	RegistrationTime           *model.TimestamptzComparisonExp    `json:"registration_time"`
+	CreatedAt                  *model.TimestamptzComparisonExp    `json:"created_at"`
+	CreatedBy                  *model.StringComparisonExp         `json:"created_by"`
+	UpdatedAt                  *model.TimestamptzComparisonExp    `json:"updated_at"`
+	UpdatedBy                  *model.StringComparisonExp         `json:"updated_by"`
+	DeletedAt                  *model.TimestamptzComparisonExp    `json:"deleted_at"`
+	DeletedBy                  *model.StringComparisonExp         `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "driver_identity_info_report"
+type DriverIdentityInfoReportIncInput struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// input type for inserting data into table "driver_identity_info_report"
+type DriverIdentityInfoReportInsertInput struct {
+	IcCardStatus        *int       `json:"ic_card_status"`
+	OperationTime       *time.Time `json:"operation_time"`
+	DriverName          *string    `json:"driver_name"`
+	LicenseNumber       *string    `json:"license_number"`
+	Imel                *string    `json:"imel"`
+	IcCardReadingResult *string    `json:"ic_card_reading_result"`
+	OccupationalNumber  *string    `json:"occupational_number"`
+	DriverLicenseName   *string    `json:"driver_license_name"`
+	LicenseExpireDate   *time.Time `json:"license_expire_date"`
+	RegistrationTime    *time.Time `json:"registration_time"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportMaxFields struct {
+	ID                         *int64     `json:"id"`
+	DriverIdentityInfoReportID *string    `json:"driver_identity_info_report_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	IcCardStatus               *int       `json:"ic_card_status"`
+	OperationTime              *time.Time `json:"operation_time"`
+	DriverName                 *string    `json:"driver_name"`
+	LicenseNumber              *string    `json:"license_number"`
+	Imel                       *string    `json:"imel"`
+	IcCardReadingResult        *string    `json:"ic_card_reading_result"`
+	OccupationalNumber         *string    `json:"occupational_number"`
+	DriverLicenseName          *string    `json:"driver_license_name"`
+	LicenseExpireDate          *time.Time `json:"license_expire_date"`
+	RegistrationTime           *time.Time `json:"registration_time"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportMinFields struct {
+	ID                         *int64     `json:"id"`
+	DriverIdentityInfoReportID *string    `json:"driver_identity_info_report_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	IcCardStatus               *int       `json:"ic_card_status"`
+	OperationTime              *time.Time `json:"operation_time"`
+	DriverName                 *string    `json:"driver_name"`
+	LicenseNumber              *string    `json:"license_number"`
+	Imel                       *string    `json:"imel"`
+	IcCardReadingResult        *string    `json:"ic_card_reading_result"`
+	OccupationalNumber         *string    `json:"occupational_number"`
+	DriverLicenseName          *string    `json:"driver_license_name"`
+	LicenseExpireDate          *time.Time `json:"license_expire_date"`
+	RegistrationTime           *time.Time `json:"registration_time"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "driver_identity_info_report"
+type DriverIdentityInfoReportMutationResponse struct {
+	AffectedRows int                                `json:"affected_rows"`
+	Returning    []*model1.DriverIdentityInfoReport `json:"returning"`
+}
+
+// ordering options when selecting data from "driver_identity_info_report"
+type DriverIdentityInfoReportOrderBy struct {
+	ID                         *model.OrderBy `json:"id"`
+	DriverIdentityInfoReportID *model.OrderBy `json:"driver_identity_info_report_id"`
+	VehicleID                  *model.OrderBy `json:"vehicle_id"`
+	IcCardStatus               *model.OrderBy `json:"ic_card_status"`
+	OperationTime              *model.OrderBy `json:"operation_time"`
+	DriverName                 *model.OrderBy `json:"driver_name"`
+	LicenseNumber              *model.OrderBy `json:"license_number"`
+	Imel                       *model.OrderBy `json:"imel"`
+	IcCardReadingResult        *model.OrderBy `json:"ic_card_reading_result"`
+	OccupationalNumber         *model.OrderBy `json:"occupational_number"`
+	DriverLicenseName          *model.OrderBy `json:"driver_license_name"`
+	LicenseExpireDate          *model.OrderBy `json:"license_expire_date"`
+	RegistrationTime           *model.OrderBy `json:"registration_time"`
+	CreatedAt                  *model.OrderBy `json:"created_at"`
+	CreatedBy                  *model.OrderBy `json:"created_by"`
+	UpdatedAt                  *model.OrderBy `json:"updated_at"`
+	UpdatedBy                  *model.OrderBy `json:"updated_by"`
+	DeletedAt                  *model.OrderBy `json:"deleted_at"`
+	DeletedBy                  *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "driver_identity_info_report"
+type DriverIdentityInfoReportSetInput struct {
+	ID                         *int64     `json:"id"`
+	DriverIdentityInfoReportID *string    `json:"driver_identity_info_report_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	IcCardStatus               *int       `json:"ic_card_status"`
+	OperationTime              *time.Time `json:"operation_time"`
+	DriverName                 *string    `json:"driver_name"`
+	LicenseNumber              *string    `json:"license_number"`
+	Imel                       *string    `json:"imel"`
+	IcCardReadingResult        *string    `json:"ic_card_reading_result"`
+	OccupationalNumber         *string    `json:"occupational_number"`
+	DriverLicenseName          *string    `json:"driver_license_name"`
+	LicenseExpireDate          *time.Time `json:"license_expire_date"`
+	RegistrationTime           *time.Time `json:"registration_time"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportStddevFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate stddev_pop on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportStddevPopFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate stddev_samp on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportStddevSampFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate sum on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportSumFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate var_pop on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportVarPopFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate var_samp on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportVarSampFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate variance on columns of table "driver_identity_info_report"
+type DriverIdentityInfoReportVarianceFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
 // input type for inserting data into table "driver_identity"
 type DriverIdentityInsertInput struct {
-	ID                            *int64     `json:"id"`
-	IdentityID                    *string    `json:"identity_id"`
 	IDCardNum                     *string    `json:"id_card_num"`
 	IDCardBirthday                *time.Time `json:"id_card_birthday"`
 	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
@@ -811,8 +752,6 @@ type DriverIdentityInsertInput struct {
 	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
 	WorkingTime                   *time.Time `json:"working_time"`
 	IsReview                      *bool      `json:"is_review"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
 	DeletedAt                     *time.Time `json:"deleted_at"`
@@ -1132,8 +1071,6 @@ type DriverInfoIncInput struct {
 
 // input type for inserting data into table "driver_info"
 type DriverInfoInsertInput struct {
-	ID                *int64     `json:"id"`
-	DriverID          *string    `json:"driver_id"`
 	EnterpriseID      *string    `json:"enterprise_id"`
 	DepartmentID      *string    `json:"department_id"`
 	DriverIdentityID  *string    `json:"driver_identity_id"`
@@ -1163,8 +1100,6 @@ type DriverInfoInsertInput struct {
 	Operator          *string    `json:"operator"`
 	IsBlacklist       *bool      `json:"is_blacklist"`
 	BlacklistDeadline *time.Time `json:"blacklist_deadline"`
-	CreatedAt         *time.Time `json:"created_at"`
-	CreatedBy         *string    `json:"created_by"`
 	UpdatedAt         *time.Time `json:"updated_at"`
 	UpdatedBy         *string    `json:"updated_by"`
 	DeletedAt         *time.Time `json:"deleted_at"`
@@ -1443,25 +1378,20 @@ type DrivingLicenseRegistrationInspectionIncInput struct {
 
 // input type for inserting data into table "driving_license_registration_inspection"
 type DrivingLicenseRegistrationInspectionInsertInput struct {
-	ID                   *int64     `json:"id"`
-	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	IcCardStatus         *int       `json:"ic_card_status"`
-	OperationTime        *time.Time `json:"operation_time"`
-	DriverName           *string    `json:"driver_name"`
-	LicenseNumber        *string    `json:"license_number"`
-	Imel                 *string    `json:"imel"`
-	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
-	OccupationalNumber   *string    `json:"occupational_number"`
-	DriverLicenseName    *string    `json:"driver_license_name"`
-	LicenseExpireDate    *time.Time `json:"license_expire_date"`
-	RegistrationTime     *time.Time `json:"registration_time"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
+	IcCardStatus        *int       `json:"ic_card_status"`
+	OperationTime       *time.Time `json:"operation_time"`
+	DriverName          *string    `json:"driver_name"`
+	LicenseNumber       *string    `json:"license_number"`
+	Imel                *string    `json:"imel"`
+	IcCardReadingResult *string    `json:"ic_card_reading_result"`
+	OccupationalNumber  *string    `json:"occupational_number"`
+	DriverLicenseName   *string    `json:"driver_license_name"`
+	LicenseExpireDate   *time.Time `json:"license_expire_date"`
+	RegistrationTime    *time.Time `json:"registration_time"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "driving_license_registration_inspection"
@@ -1612,25 +1542,25 @@ const (
 	DriverFingerprintAssociationSelectColumnID DriverFingerprintAssociationSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用            ( 联合主键                   )
 	DriverFingerprintAssociationSelectColumnDriverFingerprintAssociationID DriverFingerprintAssociationSelectColumn = "driver_fingerprint_association_id"
-	// driver_info驾驶员信息表的driver_id                     (                            )
+	// driver_info驾驶员信息表的driver_id
 	DriverFingerprintAssociationSelectColumnDriverID DriverFingerprintAssociationSelectColumn = "driver_id"
-	// 指纹名称                                                   (                            )
+	// 指纹名称
 	DriverFingerprintAssociationSelectColumnFingerprintName DriverFingerprintAssociationSelectColumn = "fingerprint_name"
-	// driver_fingerprint 驾驶员指纹表的driver_fingerprint_id (                            )
+	// driver_fingerprint 驾驶员指纹表的driver_fingerprint_id
 	DriverFingerprintAssociationSelectColumnDriverFingerprintID DriverFingerprintAssociationSelectColumn = "driver_fingerprint_id"
-	// 图片地址                                                   (                            )
+	// 图片地址
 	DriverFingerprintAssociationSelectColumnPictureAddress DriverFingerprintAssociationSelectColumn = "picture_address"
-	// 是否删除                                                   (                            )
+	// 是否删除
 	DriverFingerprintAssociationSelectColumnIsDeleted DriverFingerprintAssociationSelectColumn = "is_deleted"
-	// 创建时间                                                   (                            )
+	// 创建时间
 	DriverFingerprintAssociationSelectColumnCreatedAt DriverFingerprintAssociationSelectColumn = "created_at"
 	// 创建人                                                     ( system_user表的user_id )
 	DriverFingerprintAssociationSelectColumnCreatedBy DriverFingerprintAssociationSelectColumn = "created_by"
-	// 修改时间                                                   (                            )
+	// 修改时间
 	DriverFingerprintAssociationSelectColumnUpdatedAt DriverFingerprintAssociationSelectColumn = "updated_at"
 	// 修改人                                                     ( system_user表的user_id )
 	DriverFingerprintAssociationSelectColumnUpdatedBy DriverFingerprintAssociationSelectColumn = "updated_by"
-	// 删除时间                                                   (                            )
+	// 删除时间
 	DriverFingerprintAssociationSelectColumnDeletedAt DriverFingerprintAssociationSelectColumn = "deleted_at"
 	// 删除人                                                     ( system_user表的user_id )
 	DriverFingerprintAssociationSelectColumnDeletedBy DriverFingerprintAssociationSelectColumn = "deleted_by"
@@ -1689,45 +1619,45 @@ const (
 	DriverFingerprintSelectColumnID DriverFingerprintSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	DriverFingerprintSelectColumnDriverFingerprintID DriverFingerprintSelectColumn = "driver_fingerprint_id"
-	// driver_info驾驶员信息表的driver_id          (                            )
+	// driver_info驾驶员信息表的driver_id
 	DriverFingerprintSelectColumnDriverID DriverFingerprintSelectColumn = "driver_id"
-	// 驾驶员姓名                                      (                            )
+	// 驾驶员姓名
 	DriverFingerprintSelectColumnDriverName DriverFingerprintSelectColumn = "driver_name"
 	// 用户ID                                          ( system_user表的user_id )
 	DriverFingerprintSelectColumnUserID DriverFingerprintSelectColumn = "user_id"
-	// 特征码                                          (                            )
+	// 特征码
 	DriverFingerprintSelectColumnSignature DriverFingerprintSelectColumn = "signature"
-	// 指纹名称                                        (                            )
+	// 指纹名称
 	DriverFingerprintSelectColumnFingerprintName DriverFingerprintSelectColumn = "fingerprint_name"
-	// SIM卡号                                         (                            )
+	// SIM卡号
 	DriverFingerprintSelectColumnSimNumber DriverFingerprintSelectColumn = "sim_number"
-	// 指令ID                                          (                            )
+	// 指令ID
 	DriverFingerprintSelectColumnInstructionID DriverFingerprintSelectColumn = "instruction_id"
-	// 操作类型                                        (                            )
+	// 操作类型
 	DriverFingerprintSelectColumnOperationType DriverFingerprintSelectColumn = "operation_type"
-	// 内容                                            (                            )
+	// 内容
 	DriverFingerprintSelectColumnContent DriverFingerprintSelectColumn = "content"
-	// 操作时间                                        (                            )
+	// 操作时间
 	DriverFingerprintSelectColumnOperationTime DriverFingerprintSelectColumn = "operation_time"
-	// 上传时间                                        (                            )
+	// 上传时间
 	DriverFingerprintSelectColumnUploadTime DriverFingerprintSelectColumn = "upload_time"
-	// 时间戳                                          (                            )
+	// 时间戳
 	DriverFingerprintSelectColumnTimestamp DriverFingerprintSelectColumn = "timestamp"
-	// 终端ID                                          (                            )
+	// 终端ID
 	DriverFingerprintSelectColumnTernimalID DriverFingerprintSelectColumn = "ternimal_id"
-	// 是否成功                                        (                            )
+	// 是否成功
 	DriverFingerprintSelectColumnIsSuccess DriverFingerprintSelectColumn = "is_success"
-	// 是否删除                                        (                            )
+	// 是否删除
 	DriverFingerprintSelectColumnIsDeleted DriverFingerprintSelectColumn = "is_deleted"
-	// 创建时间                                        (                            )
+	// 创建时间
 	DriverFingerprintSelectColumnCreatedAt DriverFingerprintSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	DriverFingerprintSelectColumnCreatedBy DriverFingerprintSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	DriverFingerprintSelectColumnUpdatedAt DriverFingerprintSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	DriverFingerprintSelectColumnUpdatedBy DriverFingerprintSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	DriverFingerprintSelectColumnDeletedAt DriverFingerprintSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	DriverFingerprintSelectColumnDeletedBy DriverFingerprintSelectColumn = "deleted_by"
@@ -1789,97 +1719,97 @@ func (e DriverFingerprintSelectColumn) MarshalGQL(w io.Writer) {
 }
 
 // 可选select
-type DriverIDInfoReportSelectColumn string
+type DriverIdentityInfoReportSelectColumn string
 
 const (
 	// 按指定方法生成                                  ( 主键                       )
-	DriverIDInfoReportSelectColumnID DriverIDInfoReportSelectColumn = "id"
+	DriverIdentityInfoReportSelectColumnID DriverIdentityInfoReportSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
-	DriverIDInfoReportSelectColumnDriverIDInfoReportID DriverIDInfoReportSelectColumn = "driver_id_info_report_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
-	DriverIDInfoReportSelectColumnVehicleID DriverIDInfoReportSelectColumn = "vehicle_id"
+	DriverIdentityInfoReportSelectColumnDriverIdentityInfoReportID DriverIdentityInfoReportSelectColumn = "driver_identity_info_report_id"
+	// vehicle_info 车辆信息表 的vehicle_id
+	DriverIdentityInfoReportSelectColumnVehicleID DriverIdentityInfoReportSelectColumn = "vehicle_id"
 	// IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
-	DriverIDInfoReportSelectColumnIcCardStatus DriverIDInfoReportSelectColumn = "ic_card_status"
-	// 操作时间                                        (                            )
-	DriverIDInfoReportSelectColumnOperationTime DriverIDInfoReportSelectColumn = "operation_time"
-	// 驾驶员姓名                                      (                            )
-	DriverIDInfoReportSelectColumnDriverName DriverIDInfoReportSelectColumn = "driver_name"
-	// 证件号码                                        (                            )
-	DriverIDInfoReportSelectColumnLicenseNumber DriverIDInfoReportSelectColumn = "license_number"
+	DriverIdentityInfoReportSelectColumnIcCardStatus DriverIdentityInfoReportSelectColumn = "ic_card_status"
+	// 操作时间
+	DriverIdentityInfoReportSelectColumnOperationTime DriverIdentityInfoReportSelectColumn = "operation_time"
+	// 驾驶员姓名
+	DriverIdentityInfoReportSelectColumnDriverName DriverIdentityInfoReportSelectColumn = "driver_name"
+	// 证件号码
+	DriverIdentityInfoReportSelectColumnLicenseNumber DriverIdentityInfoReportSelectColumn = "license_number"
 	// 终端IMEI                                        ( 国际移动设备标识别码       )
-	DriverIDInfoReportSelectColumnImel DriverIDInfoReportSelectColumn = "imel"
+	DriverIdentityInfoReportSelectColumnImel DriverIdentityInfoReportSelectColumn = "imel"
 	// IC卡读取结果                                    ( IC卡读卡字典           )
-	DriverIDInfoReportSelectColumnIcCardReadingResult DriverIDInfoReportSelectColumn = "ic_card_reading_result"
-	// 从业资格证编码                                  (                            )
-	DriverIDInfoReportSelectColumnOccupationalNumber DriverIDInfoReportSelectColumn = "occupational_number"
-	// 发证机构名称                                    (                            )
-	DriverIDInfoReportSelectColumnDriverLicenseName DriverIDInfoReportSelectColumn = "driver_license_name"
-	// 证件有效期                                      (                            )
-	DriverIDInfoReportSelectColumnLicenseExpireDate DriverIDInfoReportSelectColumn = "license_expire_date"
-	// 登记时间                                        (                            )
-	DriverIDInfoReportSelectColumnRegistrationTime DriverIDInfoReportSelectColumn = "registration_time"
-	// 创建时间                                        (                            )
-	DriverIDInfoReportSelectColumnCreatedAt DriverIDInfoReportSelectColumn = "created_at"
+	DriverIdentityInfoReportSelectColumnIcCardReadingResult DriverIdentityInfoReportSelectColumn = "ic_card_reading_result"
+	// 从业资格证编码
+	DriverIdentityInfoReportSelectColumnOccupationalNumber DriverIdentityInfoReportSelectColumn = "occupational_number"
+	// 发证机构名称
+	DriverIdentityInfoReportSelectColumnDriverLicenseName DriverIdentityInfoReportSelectColumn = "driver_license_name"
+	// 证件有效期
+	DriverIdentityInfoReportSelectColumnLicenseExpireDate DriverIdentityInfoReportSelectColumn = "license_expire_date"
+	// 登记时间
+	DriverIdentityInfoReportSelectColumnRegistrationTime DriverIdentityInfoReportSelectColumn = "registration_time"
+	// 创建时间
+	DriverIdentityInfoReportSelectColumnCreatedAt DriverIdentityInfoReportSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
-	DriverIDInfoReportSelectColumnCreatedBy DriverIDInfoReportSelectColumn = "created_by"
-	// 修改时间                                        (                            )
-	DriverIDInfoReportSelectColumnUpdatedAt DriverIDInfoReportSelectColumn = "updated_at"
+	DriverIdentityInfoReportSelectColumnCreatedBy DriverIdentityInfoReportSelectColumn = "created_by"
+	// 修改时间
+	DriverIdentityInfoReportSelectColumnUpdatedAt DriverIdentityInfoReportSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
-	DriverIDInfoReportSelectColumnUpdatedBy DriverIDInfoReportSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
-	DriverIDInfoReportSelectColumnDeletedAt DriverIDInfoReportSelectColumn = "deleted_at"
+	DriverIdentityInfoReportSelectColumnUpdatedBy DriverIdentityInfoReportSelectColumn = "updated_by"
+	// 删除时间
+	DriverIdentityInfoReportSelectColumnDeletedAt DriverIdentityInfoReportSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
-	DriverIDInfoReportSelectColumnDeletedBy DriverIDInfoReportSelectColumn = "deleted_by"
+	DriverIdentityInfoReportSelectColumnDeletedBy DriverIdentityInfoReportSelectColumn = "deleted_by"
 )
 
-var AllDriverIDInfoReportSelectColumn = []DriverIDInfoReportSelectColumn{
-	DriverIDInfoReportSelectColumnID,
-	DriverIDInfoReportSelectColumnDriverIDInfoReportID,
-	DriverIDInfoReportSelectColumnVehicleID,
-	DriverIDInfoReportSelectColumnIcCardStatus,
-	DriverIDInfoReportSelectColumnOperationTime,
-	DriverIDInfoReportSelectColumnDriverName,
-	DriverIDInfoReportSelectColumnLicenseNumber,
-	DriverIDInfoReportSelectColumnImel,
-	DriverIDInfoReportSelectColumnIcCardReadingResult,
-	DriverIDInfoReportSelectColumnOccupationalNumber,
-	DriverIDInfoReportSelectColumnDriverLicenseName,
-	DriverIDInfoReportSelectColumnLicenseExpireDate,
-	DriverIDInfoReportSelectColumnRegistrationTime,
-	DriverIDInfoReportSelectColumnCreatedAt,
-	DriverIDInfoReportSelectColumnCreatedBy,
-	DriverIDInfoReportSelectColumnUpdatedAt,
-	DriverIDInfoReportSelectColumnUpdatedBy,
-	DriverIDInfoReportSelectColumnDeletedAt,
-	DriverIDInfoReportSelectColumnDeletedBy,
+var AllDriverIdentityInfoReportSelectColumn = []DriverIdentityInfoReportSelectColumn{
+	DriverIdentityInfoReportSelectColumnID,
+	DriverIdentityInfoReportSelectColumnDriverIdentityInfoReportID,
+	DriverIdentityInfoReportSelectColumnVehicleID,
+	DriverIdentityInfoReportSelectColumnIcCardStatus,
+	DriverIdentityInfoReportSelectColumnOperationTime,
+	DriverIdentityInfoReportSelectColumnDriverName,
+	DriverIdentityInfoReportSelectColumnLicenseNumber,
+	DriverIdentityInfoReportSelectColumnImel,
+	DriverIdentityInfoReportSelectColumnIcCardReadingResult,
+	DriverIdentityInfoReportSelectColumnOccupationalNumber,
+	DriverIdentityInfoReportSelectColumnDriverLicenseName,
+	DriverIdentityInfoReportSelectColumnLicenseExpireDate,
+	DriverIdentityInfoReportSelectColumnRegistrationTime,
+	DriverIdentityInfoReportSelectColumnCreatedAt,
+	DriverIdentityInfoReportSelectColumnCreatedBy,
+	DriverIdentityInfoReportSelectColumnUpdatedAt,
+	DriverIdentityInfoReportSelectColumnUpdatedBy,
+	DriverIdentityInfoReportSelectColumnDeletedAt,
+	DriverIdentityInfoReportSelectColumnDeletedBy,
 }
 
-func (e DriverIDInfoReportSelectColumn) IsValid() bool {
+func (e DriverIdentityInfoReportSelectColumn) IsValid() bool {
 	switch e {
-	case DriverIDInfoReportSelectColumnID, DriverIDInfoReportSelectColumnDriverIDInfoReportID, DriverIDInfoReportSelectColumnVehicleID, DriverIDInfoReportSelectColumnIcCardStatus, DriverIDInfoReportSelectColumnOperationTime, DriverIDInfoReportSelectColumnDriverName, DriverIDInfoReportSelectColumnLicenseNumber, DriverIDInfoReportSelectColumnImel, DriverIDInfoReportSelectColumnIcCardReadingResult, DriverIDInfoReportSelectColumnOccupationalNumber, DriverIDInfoReportSelectColumnDriverLicenseName, DriverIDInfoReportSelectColumnLicenseExpireDate, DriverIDInfoReportSelectColumnRegistrationTime, DriverIDInfoReportSelectColumnCreatedAt, DriverIDInfoReportSelectColumnCreatedBy, DriverIDInfoReportSelectColumnUpdatedAt, DriverIDInfoReportSelectColumnUpdatedBy, DriverIDInfoReportSelectColumnDeletedAt, DriverIDInfoReportSelectColumnDeletedBy:
+	case DriverIdentityInfoReportSelectColumnID, DriverIdentityInfoReportSelectColumnDriverIdentityInfoReportID, DriverIdentityInfoReportSelectColumnVehicleID, DriverIdentityInfoReportSelectColumnIcCardStatus, DriverIdentityInfoReportSelectColumnOperationTime, DriverIdentityInfoReportSelectColumnDriverName, DriverIdentityInfoReportSelectColumnLicenseNumber, DriverIdentityInfoReportSelectColumnImel, DriverIdentityInfoReportSelectColumnIcCardReadingResult, DriverIdentityInfoReportSelectColumnOccupationalNumber, DriverIdentityInfoReportSelectColumnDriverLicenseName, DriverIdentityInfoReportSelectColumnLicenseExpireDate, DriverIdentityInfoReportSelectColumnRegistrationTime, DriverIdentityInfoReportSelectColumnCreatedAt, DriverIdentityInfoReportSelectColumnCreatedBy, DriverIdentityInfoReportSelectColumnUpdatedAt, DriverIdentityInfoReportSelectColumnUpdatedBy, DriverIdentityInfoReportSelectColumnDeletedAt, DriverIdentityInfoReportSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e DriverIDInfoReportSelectColumn) String() string {
+func (e DriverIdentityInfoReportSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *DriverIDInfoReportSelectColumn) UnmarshalGQL(v interface{}) error {
+func (e *DriverIdentityInfoReportSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = DriverIDInfoReportSelectColumn(str)
+	*e = DriverIdentityInfoReportSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid DriverIdInfoReportSelectColumn", str)
+		return fmt.Errorf("%s is not a valid DriverIdentityInfoReportSelectColumn", str)
 	}
 	return nil
 }
 
-func (e DriverIDInfoReportSelectColumn) MarshalGQL(w io.Writer) {
+func (e DriverIdentityInfoReportSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
@@ -1891,49 +1821,49 @@ const (
 	DriverIdentitySelectColumnID DriverIdentitySelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	DriverIdentitySelectColumnIdentityID DriverIdentitySelectColumn = "identity_id"
-	// 身份证号码                                      (                            )
+	// 身份证号码
 	DriverIdentitySelectColumnIDCardNum DriverIdentitySelectColumn = "id_card_num"
-	// 身份证出生日期                                  (                            )
+	// 身份证出生日期
 	DriverIdentitySelectColumnIDCardBirthday DriverIdentitySelectColumn = "id_card_birthday"
-	// 身份证签发机关                                  (                            )
+	// 身份证签发机关
 	DriverIdentitySelectColumnIDCardSignGovernment DriverIdentitySelectColumn = "id_card_sign_government"
-	// 身份证民族                                      (                            )
+	// 身份证民族
 	DriverIdentitySelectColumnIDCardNation DriverIdentitySelectColumn = "id_card_nation"
-	// 身份证有效起始日期                              (                            )
+	// 身份证有效起始日期
 	DriverIdentitySelectColumnIDCardStartDate DriverIdentitySelectColumn = "id_card_start_date"
-	// 身份证有效截止日期                              (                            )
+	// 身份证有效截止日期
 	DriverIdentitySelectColumnIDCardEndDate DriverIdentitySelectColumn = "id_card_end_date"
-	// 身份证正面照，云存储地址                        (                            )
+	// 身份证正面照，云存储地址
 	DriverIdentitySelectColumnIDCardFrontPic DriverIdentitySelectColumn = "id_card_front_pic"
-	// 身份证背面照，云存储地址                        (                            )
+	// 身份证背面照，云存储地址
 	DriverIdentitySelectColumnIDCardBackPic DriverIdentitySelectColumn = "id_card_back_pic"
-	// 身份证住址                                      (                            )
+	// 身份证住址
 	DriverIdentitySelectColumnIDCardAddress DriverIdentitySelectColumn = "id_card_address"
-	// 驾驶员手持身份证照片,云储存系统返回的路径       (                            )
+	// 驾驶员手持身份证照片,云储存系统返回的路径
 	DriverIdentitySelectColumnDriverHoldingIDPhoto DriverIdentitySelectColumn = "driver_holding_id_photo"
-	// 驾驶员的正面照,云储存系统返回的路径             (                            )
+	// 驾驶员的正面照,云储存系统返回的路径
 	DriverIdentitySelectColumnDriverPhoto DriverIdentitySelectColumn = "driver_photo"
-	// 驾驶员签名,云储存系统返回的路径                 (                            )
+	// 驾驶员签名,云储存系统返回的路径
 	DriverIdentitySelectColumnDriverSignature DriverIdentitySelectColumn = "driver_signature"
-	// 从业资格证号码                                  (                            )
+	// 从业资格证号码
 	DriverIdentitySelectColumnOccupationalNumber DriverIdentitySelectColumn = "occupational_number"
-	// 从业资格证有效期至                              (                            )
+	// 从业资格证有效期至
 	DriverIdentitySelectColumnOccupationalExpireDate DriverIdentitySelectColumn = "occupational_expire_date"
-	// 从业资格证发证机构                              (                            )
+	// 从业资格证发证机构
 	DriverIdentitySelectColumnOccupationalIssuingAuthority DriverIdentitySelectColumn = "occupational_issuing_authority"
-	// 劳动合同,云储存系统返回的完整劳动合同的图片路径 (                            )
+	// 劳动合同,云储存系统返回的完整劳动合同的图片路径
 	DriverIdentitySelectColumnLaborContract DriverIdentitySelectColumn = "labor_contract"
-	// 驾驶员驾驶证,云储存系统返回的路径               (                            )
+	// 驾驶员驾驶证,云储存系统返回的路径
 	DriverIdentitySelectColumnDriverLicensePic DriverIdentitySelectColumn = "driver_license_pic"
-	// 驾驶证发证机关                                  (                            )
+	// 驾驶证发证机关
 	DriverIdentitySelectColumnDriverLicenseIssuingAuthority DriverIdentitySelectColumn = "driver_license_issuing_authority"
-	// 年审日期（六合一）                              (                            )
+	// 年审日期（六合一）
 	DriverIdentitySelectColumnAnnualReviewDate DriverIdentitySelectColumn = "annual_review_date"
-	// 换证日期（六合一）                              (                            )
+	// 换证日期（六合一）
 	DriverIdentitySelectColumnRenewalDate DriverIdentitySelectColumn = "renewal_date"
-	// 累计积分（六合一）                              (                            )
+	// 累计积分（六合一）
 	DriverIdentitySelectColumnAccumulativedPoints DriverIdentitySelectColumn = "accumulatived_points"
-	// 清分日期（六合一）                              (                            )
+	// 清分日期（六合一）
 	DriverIdentitySelectColumnSortingDate DriverIdentitySelectColumn = "sorting_date"
 	// 准驾车型（六合一）                              ( 准驾车型字典           )
 	DriverIdentitySelectColumnQuasiDrivingModels DriverIdentitySelectColumn = "quasi_driving_models"
@@ -1945,25 +1875,25 @@ const (
 	DriverIdentitySelectColumnDriverLicenseDistrictID DriverIdentitySelectColumn = "driver_license_district_id"
 	// 驾驶证状态                                      ( 驾驶证状态字典         )
 	DriverIdentitySelectColumnDriverLicenseStatus DriverIdentitySelectColumn = "driver_license_status"
-	// 驾驶证初次领证日期                              (                            )
+	// 驾驶证初次领证日期
 	DriverIdentitySelectColumnDriverLicenseIssueDate DriverIdentitySelectColumn = "driver_license_issue_date"
-	// 从业时间                                        (                            )
+	// 从业时间
 	DriverIdentitySelectColumnWorkingTime DriverIdentitySelectColumn = "working_time"
-	// 是否审核                                        (                            )
+	// 是否审核
 	DriverIdentitySelectColumnIsReview DriverIdentitySelectColumn = "is_review"
-	// 创建时间                                        (                            )
+	// 创建时间
 	DriverIdentitySelectColumnCreatedAt DriverIdentitySelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	DriverIdentitySelectColumnCreatedBy DriverIdentitySelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	DriverIdentitySelectColumnUpdatedAt DriverIdentitySelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	DriverIdentitySelectColumnUpdatedBy DriverIdentitySelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	DriverIdentitySelectColumnDeletedAt DriverIdentitySelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	DriverIdentitySelectColumnDeletedBy DriverIdentitySelectColumn = "deleted_by"
-	// 是否删除                                        (                            )
+	// 是否删除
 	DriverIdentitySelectColumnIsDeleted DriverIdentitySelectColumn = "is_deleted"
 )
 
@@ -2052,49 +1982,49 @@ const (
 	DriverInfoSelectColumnDepartmentID DriverInfoSelectColumn = "department_id"
 	// 驾驶员身份验证信息ID                            ( driver_identity表的driver_identity_id                    )
 	DriverInfoSelectColumnDriverIdentityID DriverInfoSelectColumn = "driver_identity_id"
-	// 驾驶员姓名                                      (                                                              )
+	// 驾驶员姓名
 	DriverInfoSelectColumnDriverName DriverInfoSelectColumn = "driver_name"
-	// 手机号码                                        (                                                              )
+	// 手机号码
 	DriverInfoSelectColumnTelephone DriverInfoSelectColumn = "telephone"
 	// 性别                                            ( 性别字典                                                 )
 	DriverInfoSelectColumnSex DriverInfoSelectColumn = "sex"
-	// 档案编号(后6位)                                 (                                                              )
+	// 档案编号(后6位)
 	DriverInfoSelectColumnFilesNumber DriverInfoSelectColumn = "files_number"
-	// 联系地址                                        (                                                              )
+	// 联系地址
 	DriverInfoSelectColumnContactAddress DriverInfoSelectColumn = "contact_address"
-	// 邮寄地址                                        (                                                              )
+	// 邮寄地址
 	DriverInfoSelectColumnMailingAddress DriverInfoSelectColumn = "mailing_address"
 	// 是否提交                                        ( 用于标志驾驶员资料是否处于确定状态。未确定状态的驾驶员信息在系统上除驾驶员管理外的功能中都查不到。 )
 	DriverInfoSelectColumnIsSubmit DriverInfoSelectColumn = "is_submit"
-	// 提交内容                                        (                                                              )
+	// 提交内容
 	DriverInfoSelectColumnSubmitContent DriverInfoSelectColumn = "submit_content"
-	// 提交时间                                        (                                                              )
+	// 提交时间
 	DriverInfoSelectColumnSubmitAt DriverInfoSelectColumn = "submit_at"
 	// 提交人                                          ( system_user表的user_id                                       )
 	DriverInfoSelectColumnSubmitBy DriverInfoSelectColumn = "submit_by"
 	// 是否手动录入                                    ( 驾驶员资料分为使用身份证读卡器读取身份证自动录入资料和手动填写资料 )
 	DriverInfoSelectColumnIsManualInput DriverInfoSelectColumn = "is_manual_input"
-	// 是否录入                                        (                                                              )
+	// 是否录入
 	DriverInfoSelectColumnIsInput DriverInfoSelectColumn = "is_input"
-	// 录入时间                                        (                                                              )
+	// 录入时间
 	DriverInfoSelectColumnInputAt DriverInfoSelectColumn = "input_at"
 	// 录入人                                          ( system_user表的user_id                                   )
 	DriverInfoSelectColumnInputBy DriverInfoSelectColumn = "input_by"
 	// 是否校验数据                                    ( 该字段代表是否用于校验驾驶员信息，未正式录入系统，但会同步到公安内容，用于查询驾驶员的违章数据。 )
 	DriverInfoSelectColumnIsCheckData DriverInfoSelectColumn = "is_check_data"
-	// 检验时间                                        (                                                              )
+	// 检验时间
 	DriverInfoSelectColumnCheckAt DriverInfoSelectColumn = "check_at"
 	// 校验人                                          ( system_user表的user_id                                   )
 	DriverInfoSelectColumnCheckBy DriverInfoSelectColumn = "check_by"
 	// 驾驶员信息同步内网反馈信息                      ( 驾驶员信息同步内网反馈信息。驾驶员信息同步到公安内网后内网的反馈内容，如档案编号填写错误会反馈档案编号后六位不正确 )
 	DriverInfoSelectColumnRemarkIn DriverInfoSelectColumn = "remark_in"
-	// 内网更新时间                                    (                                                              )
+	// 内网更新时间
 	DriverInfoSelectColumnUpdateTimeIn DriverInfoSelectColumn = "update_time_in"
-	// 是否通过短信验证                                (                                                              )
+	// 是否通过短信验证
 	DriverInfoSelectColumnIsCheckSms DriverInfoSelectColumn = "is_check_sms"
-	// 备注                                            (                                                              )
+	// 备注
 	DriverInfoSelectColumnRemarks DriverInfoSelectColumn = "remarks"
-	// 是否删除                                        (                                                              )
+	// 是否删除
 	DriverInfoSelectColumnIsDeleted DriverInfoSelectColumn = "is_deleted"
 	// 代理商                                          ( enterprise_info表的enterprise_id                         )
 	DriverInfoSelectColumnAgent DriverInfoSelectColumn = "agent"
@@ -2102,17 +2032,17 @@ const (
 	DriverInfoSelectColumnOperator DriverInfoSelectColumn = "operator"
 	// 是否黑名单                                      ( false                                                        )
 	DriverInfoSelectColumnIsBlacklist DriverInfoSelectColumn = "is_blacklist"
-	// 黑名单截止日期                                  (                                                              )
+	// 黑名单截止日期
 	DriverInfoSelectColumnBlacklistDeadline DriverInfoSelectColumn = "blacklist_deadline"
-	// 创建时间                                        (                                                              )
+	// 创建时间
 	DriverInfoSelectColumnCreatedAt DriverInfoSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                                   )
 	DriverInfoSelectColumnCreatedBy DriverInfoSelectColumn = "created_by"
-	// 修改时间                                        (                                                              )
+	// 修改时间
 	DriverInfoSelectColumnUpdatedAt DriverInfoSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                                   )
 	DriverInfoSelectColumnUpdatedBy DriverInfoSelectColumn = "updated_by"
-	// 删除时间                                        (                                                              )
+	// 删除时间
 	DriverInfoSelectColumnDeletedAt DriverInfoSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                                   )
 	DriverInfoSelectColumnDeletedBy DriverInfoSelectColumn = "deleted_by"
@@ -2195,37 +2125,37 @@ const (
 	DrivingLicenseRegistrationInspectionSelectColumnID DrivingLicenseRegistrationInspectionSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	DrivingLicenseRegistrationInspectionSelectColumnDriverIDInfoReportID DrivingLicenseRegistrationInspectionSelectColumn = "driver_id_info_report_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	DrivingLicenseRegistrationInspectionSelectColumnVehicleID DrivingLicenseRegistrationInspectionSelectColumn = "vehicle_id"
 	// IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
 	DrivingLicenseRegistrationInspectionSelectColumnIcCardStatus DrivingLicenseRegistrationInspectionSelectColumn = "ic_card_status"
-	// 操作时间                                        (                            )
+	// 操作时间
 	DrivingLicenseRegistrationInspectionSelectColumnOperationTime DrivingLicenseRegistrationInspectionSelectColumn = "operation_time"
-	// 驾驶员姓名                                      (                            )
+	// 驾驶员姓名
 	DrivingLicenseRegistrationInspectionSelectColumnDriverName DrivingLicenseRegistrationInspectionSelectColumn = "driver_name"
-	// 证件号码                                        (                            )
+	// 证件号码
 	DrivingLicenseRegistrationInspectionSelectColumnLicenseNumber DrivingLicenseRegistrationInspectionSelectColumn = "license_number"
 	// 终端IMEI                                        ( 国际移动设备标识别码       )
 	DrivingLicenseRegistrationInspectionSelectColumnImel DrivingLicenseRegistrationInspectionSelectColumn = "imel"
 	// IC卡读取结果                                    ( IC卡读卡字典           )
 	DrivingLicenseRegistrationInspectionSelectColumnIcCardReadingResult DrivingLicenseRegistrationInspectionSelectColumn = "ic_card_reading_result"
-	// 从业资格证编码                                  (                            )
+	// 从业资格证编码
 	DrivingLicenseRegistrationInspectionSelectColumnOccupationalNumber DrivingLicenseRegistrationInspectionSelectColumn = "occupational_number"
-	// 发证机构名称                                    (                            )
+	// 发证机构名称
 	DrivingLicenseRegistrationInspectionSelectColumnDriverLicenseName DrivingLicenseRegistrationInspectionSelectColumn = "driver_license_name"
-	// 证件有效期                                      (                            )
+	// 证件有效期
 	DrivingLicenseRegistrationInspectionSelectColumnLicenseExpireDate DrivingLicenseRegistrationInspectionSelectColumn = "license_expire_date"
-	// 登记时间                                        (                            )
+	// 登记时间
 	DrivingLicenseRegistrationInspectionSelectColumnRegistrationTime DrivingLicenseRegistrationInspectionSelectColumn = "registration_time"
-	// 创建时间                                        (                            )
+	// 创建时间
 	DrivingLicenseRegistrationInspectionSelectColumnCreatedAt DrivingLicenseRegistrationInspectionSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	DrivingLicenseRegistrationInspectionSelectColumnCreatedBy DrivingLicenseRegistrationInspectionSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	DrivingLicenseRegistrationInspectionSelectColumnUpdatedAt DrivingLicenseRegistrationInspectionSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	DrivingLicenseRegistrationInspectionSelectColumnUpdatedBy DrivingLicenseRegistrationInspectionSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	DrivingLicenseRegistrationInspectionSelectColumnDeletedAt DrivingLicenseRegistrationInspectionSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	DrivingLicenseRegistrationInspectionSelectColumnDeletedBy DrivingLicenseRegistrationInspectionSelectColumn = "deleted_by"

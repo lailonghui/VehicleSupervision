@@ -12,23 +12,23 @@ type VehicleViolationScoringItems struct {
 	ID int64 `json:"id"`
 	// 车辆违规计分项表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	ViolationScoringItemID string `json:"violation_scoring_item_id"`
-	// 扣分事项描述                                                 (                            )
+	// 扣分事项描述
 	DeductionItemDescription *string `json:"deduction_item_description"`
 	// 扣分事项类别                                                 ( 车辆评分扣分类别字典   )
 	DeductionCategory *int `json:"deduction_category"`
-	// 扣分分值                                                     (                            )
+	// 扣分分值
 	DemeritPoints *float64 `json:"demerit_points"`
-	// 是否删除                                                     (                            )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
-	// 创建时间                                                     (                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                                       ( system_user表的user_id )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                                     (                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                                       ( system_user表的user_id )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                                     (                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                                       ( system_user表的user_id )
 	DeletedBy *string `json:"deleted_by"`

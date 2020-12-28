@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteCatalogNewVehicleRecordByPk(ctx context.Context
 }
 
 func (r *mutationResolver) InsertCatalogNewVehicleRecord(ctx context.Context, objects []*model.CatalogNewVehicleRecordInsertInput) (*model.CatalogNewVehicleRecordMutationResponse, error) {
-	rs := []*model1.CatalogNewVehicleRecord{}
+	rs := make([]*model1.CatalogNewVehicleRecord, 0)
 	for _, object := range objects {
 		v := &model1.CatalogNewVehicleRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.CatalogNewVehicleRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateCatalogNewVehicleRecordByPk(ctx context.Context
 	qt := util.NewQueryTranslator(tx, &model1.CatalogNewVehicleRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.CatalogNewVehicleRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) CatalogNewVehicleRecord(ctx context.Context, distinctOn 
 		Finish()
 	var rs []*model1.CatalogNewVehicleRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) CatalogNewVehicleRecordAggregate(ctx context.Context, distinctOn []model.CatalogNewVehicleRecordSelectColumn, limit *int, offset *int, orderBy []*model.CatalogNewVehicleRecordOrderBy, where *model.CatalogNewVehicleRecordBoolExp) (*model.CatalogNewVehicleRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) CatalogNewVehicleRecordAggregate(ctx context.Context, di
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) CatalogNewVehicleRecordByPk(ctx context.Context, Id int64) (*model1.CatalogNewVehicleRecord, error) {
 	var rs model1.CatalogNewVehicleRecord
 	tx := db.DB.Model(&model1.CatalogNewVehicleRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

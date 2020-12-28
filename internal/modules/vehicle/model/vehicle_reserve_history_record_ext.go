@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleReserveHistoryRecordLoader string *VehicleSupervision/internal/modules/vehicle/model.VehicleReserveHistoryRecord
 
 func (t VehicleReserveHistoryRecord) TableName() string {
-	return "VehicleReserveHistoryRecord"
+	return "vehicle_reserve_history_record"
 }
 
 func (t *VehicleReserveHistoryRecord) NewLoader() *VehicleReserveHistoryRecordLoader {

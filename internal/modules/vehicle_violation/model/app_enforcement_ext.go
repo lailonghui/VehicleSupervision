@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden AppEnforcementLoader string *VehicleSupervision/internal/modules/vehicle_violation/model.AppEnforcement
 
 func (t AppEnforcement) TableName() string {
-	return "AppEnforcement"
+	return "app_enforcement"
 }
 
 func (t *AppEnforcement) NewLoader() *AppEnforcementLoader {

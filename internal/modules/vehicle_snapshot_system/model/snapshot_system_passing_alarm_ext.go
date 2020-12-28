@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden SnapshotSystemPassingAlarmLoader string *VehicleSupervision/internal/modules/vehicle_snapshot_system/model.SnapshotSystemPassingAlarm
 
 func (t SnapshotSystemPassingAlarm) TableName() string {
-	return "SnapshotSystemPassingAlarm"
+	return "snapshot_system_passing_alarm"
 }
 
 func (t *SnapshotSystemPassingAlarm) NewLoader() *SnapshotSystemPassingAlarmLoader {

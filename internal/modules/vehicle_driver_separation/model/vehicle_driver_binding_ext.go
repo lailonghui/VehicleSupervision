@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleDriverBindingLoader string *VehicleSupervision/internal/modules/vehicle_driver_separation/model.VehicleDriverBinding
 
 func (t VehicleDriverBinding) TableName() string {
-	return "VehicleDriverBinding"
+	return "vehicle_driver_binding"
 }
 
 func (t *VehicleDriverBinding) NewLoader() *VehicleDriverBindingLoader {

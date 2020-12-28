@@ -12,23 +12,23 @@ type CatalogNewVehicleRecord struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	CatalogNewVehicleRecordID string `json:"catalog_new_vehicle_record_id"`
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID string `json:"vehicle_id"`
-	// 终端ID                                          (                            )
+	// 终端ID
 	TerminalID *string `json:"terminal_id"`
 	// 审核人                                          ( system_user表的user_id )
 	Reviewer *string `json:"reviewer"`
-	// 是否删除                                        (                            )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
-	// 创建时间                                        (                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id )
 	DeletedBy *string `json:"deleted_by"`

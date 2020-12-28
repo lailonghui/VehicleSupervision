@@ -79,29 +79,24 @@ type AlarmProcessingRecordIncInput struct {
 
 // input type for inserting data into table "alarm_processing_record"
 type AlarmProcessingRecordInsertInput struct {
-	ID                        *int64     `json:"id"`
-	AlarmDataID               *string    `json:"alarm_data_id"`
-	AlarmSupervisionPictureID *int64     `json:"alarm_supervision_picture_id"`
-	ProcessingContent         *string    `json:"processing_content"`
-	ProcessingTime            *time.Time `json:"processing_time"`
-	ProcessingType            *int       `json:"processing_type"`
-	OperationUser             *string    `json:"operation_user"`
-	IsSmsPush                 *bool      `json:"is_sms_push"`
-	IsNotify                  *bool      `json:"is_notify"`
-	IsAnnounce                *bool      `json:"is_announce"`
-	IsAppPush                 *bool      `json:"is_app_push"`
-	NotifyContent             *string    `json:"notify_content"`
-	AnnounceContent           *string    `json:"announce_content"`
-	AppPushContent            *string    `json:"app_push_content"`
-	DisposalMethod            *int       `json:"disposal_method"`
-	DisposalResult            *string    `json:"disposal_result"`
-	IsDeleted                 *bool      `json:"is_deleted"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
+	ProcessingContent *string    `json:"processing_content"`
+	ProcessingTime    *time.Time `json:"processing_time"`
+	ProcessingType    *int       `json:"processing_type"`
+	OperationUser     *string    `json:"operation_user"`
+	IsSmsPush         *bool      `json:"is_sms_push"`
+	IsNotify          *bool      `json:"is_notify"`
+	IsAnnounce        *bool      `json:"is_announce"`
+	IsAppPush         *bool      `json:"is_app_push"`
+	NotifyContent     *string    `json:"notify_content"`
+	AnnounceContent   *string    `json:"announce_content"`
+	AppPushContent    *string    `json:"app_push_content"`
+	DisposalMethod    *int       `json:"disposal_method"`
+	DisposalResult    *string    `json:"disposal_result"`
+	IsDeleted         *bool      `json:"is_deleted"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "alarm_processing_record"
@@ -334,25 +329,20 @@ type AlarmSupervisionPictureUploadIncInput struct {
 
 // input type for inserting data into table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadInsertInput struct {
-	ID                        *int64     `json:"id"`
-	AlarmSupervisionPictureID *string    `json:"alarm_supervision_picture_id"`
-	VehicleID                 *string    `json:"vehicle_id"`
-	DriverID                  *string    `json:"driver_id"`
-	EnterpriseID              *string    `json:"enterprise_id"`
-	CameraID                  *int       `json:"camera_id"`
-	PhotoCondition            *string    `json:"photo_condition"`
-	UpdateTime                *time.Time `json:"update_time"`
-	MonitoringPicName         *string    `json:"monitoring_pic_name"`
-	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
-	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
-	Imel                      *string    `json:"imel"`
-	SimNumber                 *string    `json:"sim_number"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
+	DriverID                *string    `json:"driver_id"`
+	EnterpriseID            *string    `json:"enterprise_id"`
+	CameraID                *int       `json:"camera_id"`
+	PhotoCondition          *string    `json:"photo_condition"`
+	UpdateTime              *time.Time `json:"update_time"`
+	MonitoringPicName       *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                    *string    `json:"imel"`
+	SimNumber               *string    `json:"sim_number"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "alarm_supervision_picture_upload"
@@ -548,16 +538,12 @@ type DistrictAlarmContentPushIncInput struct {
 
 // input type for inserting data into table "district_alarm_content_push"
 type DistrictAlarmContentPushInsertInput struct {
-	ID           *int64     `json:"id"`
-	AlarmDataID  *string    `json:"alarm_data_id"`
 	AlarmType    *string    `json:"alarm_type"`
 	AlarmContent *string    `json:"alarm_content"`
 	ProvinceID   *string    `json:"province_id"`
 	CityID       *string    `json:"city_id"`
 	DistrictID   *string    `json:"district_id"`
 	IsDeleted    *bool      `json:"is_deleted"`
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
 	DeletedAt    *time.Time `json:"deleted_at"`
@@ -731,21 +717,17 @@ type EnterpriseAlarmSendPoliceIncInput struct {
 
 // input type for inserting data into table "enterprise_alarm_send_police"
 type EnterpriseAlarmSendPoliceInsertInput struct {
-	ID                          *int64     `json:"id"`
-	EnterpriseAlarmSendPoliceID *string    `json:"enterprise_alarm_send_police_id"`
-	EnterpriseID                *string    `json:"enterprise_id"`
-	EnterpriseName              *string    `json:"enterprise_name"`
-	EnterpriseContact           *string    `json:"enterprise_contact"`
-	EnterprisePhone             *string    `json:"enterprise_phone"`
-	Police                      *string    `json:"police"`
-	PolicePhone                 *string    `json:"police_phone"`
-	PhliceDepartment            *string    `json:"phlice_department"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
+	EnterpriseID      *string    `json:"enterprise_id"`
+	EnterpriseName    *string    `json:"enterprise_name"`
+	EnterpriseContact *string    `json:"enterprise_contact"`
+	EnterprisePhone   *string    `json:"enterprise_phone"`
+	Police            *string    `json:"police"`
+	PolicePhone       *string    `json:"police_phone"`
+	PhliceDepartment  *string    `json:"phlice_department"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "enterprise_alarm_send_police"
@@ -929,29 +911,24 @@ type OfflineAlarmRegistrationIncInput struct {
 
 // input type for inserting data into table "offline_alarm_registration"
 type OfflineAlarmRegistrationInsertInput struct {
-	ID                         *int64     `json:"id"`
-	OfflineAlarmRegistrationID *string    `json:"offline_alarm_registration_id"`
-	VehicleID                  *string    `json:"vehicle_id"`
-	OfflineStartTime           *time.Time `json:"offline_start_time"`
-	OfflineEndTime             *time.Time `json:"offline_end_time"`
-	RegistrationUser           *string    `json:"registration_user"`
-	RegistrationTime           *time.Time `json:"registration_time"`
-	SmsContent                 *string    `json:"sms_content"`
-	PhoneReminderContent       *string    `json:"phone_reminder_content"`
-	SmsSendTime                *time.Time `json:"sms_send_time"`
-	PhoneReminderTime          *time.Time `json:"phone_reminder_time"`
-	OfflineReason              *string    `json:"offline_reason"`
-	AlarmType                  *int       `json:"alarm_type"`
-	IsRegistration             *bool      `json:"is_registration"`
-	IsEndAlarm                 *bool      `json:"is_end_alarm"`
-	IsSendSms                  *bool      `json:"is_send_sms"`
-	IsNeedMaintain             *bool      `json:"is_need_maintain"`
-	CreatedAt                  *time.Time `json:"created_at"`
-	CreatedBy                  *string    `json:"created_by"`
-	UpdatedAt                  *time.Time `json:"updated_at"`
-	UpdatedBy                  *string    `json:"updated_by"`
-	DeletedAt                  *time.Time `json:"deleted_at"`
-	DeletedBy                  *string    `json:"deleted_by"`
+	OfflineStartTime     *time.Time `json:"offline_start_time"`
+	OfflineEndTime       *time.Time `json:"offline_end_time"`
+	RegistrationUser     *string    `json:"registration_user"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	SmsContent           *string    `json:"sms_content"`
+	PhoneReminderContent *string    `json:"phone_reminder_content"`
+	SmsSendTime          *time.Time `json:"sms_send_time"`
+	PhoneReminderTime    *time.Time `json:"phone_reminder_time"`
+	OfflineReason        *string    `json:"offline_reason"`
+	AlarmType            *int       `json:"alarm_type"`
+	IsRegistration       *bool      `json:"is_registration"`
+	IsEndAlarm           *bool      `json:"is_end_alarm"`
+	IsSendSms            *bool      `json:"is_send_sms"`
+	IsNeedMaintain       *bool      `json:"is_need_maintain"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "offline_alarm_registration"
@@ -1203,8 +1180,6 @@ type VehicleAlarmDataIncInput struct {
 
 // input type for inserting data into table "vehicle_alarm_data"
 type VehicleAlarmDataInsertInput struct {
-	ID                         *int64     `json:"id"`
-	VehicleAlarmDataID         *string    `json:"vehicle_alarm_data_id"`
 	VehicleID                  *string    `json:"vehicle_id"`
 	AlarmType                  *string    `json:"alarm_type"`
 	AlarmStartTime             *time.Time `json:"alarm_start_time"`
@@ -1241,8 +1216,6 @@ type VehicleAlarmDataInsertInput struct {
 	IsResolve                  *bool      `json:"is_resolve"`
 	IsConstructionSiteHandle   *bool      `json:"is_construction_site_handle"`
 	ConstructionSiteHandleTime *time.Time `json:"construction_site_handle_time"`
-	CreatedAt                  *time.Time `json:"created_at"`
-	CreatedBy                  *string    `json:"created_by"`
 	UpdatedAt                  *time.Time `json:"updated_at"`
 	UpdatedBy                  *string    `json:"updated_by"`
 	DeletedAt                  *time.Time `json:"deleted_at"`
@@ -1572,20 +1545,16 @@ type VideoPlatformAlarmTypeIncInput struct {
 
 // input type for inserting data into table "video_platform_alarm_type"
 type VideoPlatformAlarmTypeInsertInput struct {
-	ID                       *int64     `json:"id"`
-	VideoPlatformAlarmTypeID *string    `json:"video_platform_alarm_type_id"`
-	VehicleAlarmDataID       *int       `json:"vehicle_alarm_data_id"`
-	AlarmType                *string    `json:"alarm_type"`
-	AlarmSource              *string    `json:"alarm_source"`
-	AlarmClassify            *string    `json:"alarm_classify"`
-	AlarmCode                *string    `json:"alarm_code"`
-	IsDeleted                *bool      `json:"is_deleted"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
-	UpdatedAt                *time.Time `json:"updated_at"`
-	UpdatedBy                *string    `json:"updated_by"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
+	VehicleAlarmDataID *int       `json:"vehicle_alarm_data_id"`
+	AlarmType          *string    `json:"alarm_type"`
+	AlarmSource        *string    `json:"alarm_source"`
+	AlarmClassify      *string    `json:"alarm_classify"`
+	AlarmCode          *string    `json:"alarm_code"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "video_platform_alarm_type"
@@ -1763,22 +1732,17 @@ type VoiceAlarmRecordIncInput struct {
 
 // input type for inserting data into table "voice_alarm_record"
 type VoiceAlarmRecordInsertInput struct {
-	ID                 *int64     `json:"id"`
-	VioceAlarmRecordID *string    `json:"vioce_alarm_record_id"`
-	VehicleID          *string    `json:"vehicle_id"`
-	AlarmTime          *time.Time `json:"alarm_time"`
-	AlarmType          *string    `json:"alarm_type"`
-	RemindTime         *time.Time `json:"remind_time"`
-	RemindContent      *string    `json:"remind_content"`
-	InputPerson        *string    `json:"input_person"`
-	InputTime          *time.Time `json:"input_time"`
-	IsSuccess          *bool      `json:"is_success"`
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
+	AlarmTime     *time.Time `json:"alarm_time"`
+	AlarmType     *string    `json:"alarm_type"`
+	RemindTime    *time.Time `json:"remind_time"`
+	RemindContent *string    `json:"remind_content"`
+	InputPerson   *string    `json:"input_person"`
+	InputTime     *time.Time `json:"input_time"`
+	IsSuccess     *bool      `json:"is_success"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "voice_alarm_record"
@@ -1908,47 +1872,47 @@ type AlarmProcessingRecordSelectColumn string
 const (
 	// 按指定方法生成                                               ( 主键                       )
 	AlarmProcessingRecordSelectColumnID AlarmProcessingRecordSelectColumn = "id"
-	// vehicle_alarm_data报警数据表的alarm_data_id              (                            )
+	// vehicle_alarm_data报警数据表的alarm_data_id
 	AlarmProcessingRecordSelectColumnAlarmDataID AlarmProcessingRecordSelectColumn = "alarm_data_id"
-	// alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id (                            )
+	// alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id
 	AlarmProcessingRecordSelectColumnAlarmSupervisionPictureID AlarmProcessingRecordSelectColumn = "alarm_supervision_picture_id"
-	// 处理内容                                                     (                            )
+	// 处理内容
 	AlarmProcessingRecordSelectColumnProcessingContent AlarmProcessingRecordSelectColumn = "processing_content"
-	// 处理时间                                                     (                            )
+	// 处理时间
 	AlarmProcessingRecordSelectColumnProcessingTime AlarmProcessingRecordSelectColumn = "processing_time"
-	// 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 (                            )
+	// 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警
 	AlarmProcessingRecordSelectColumnProcessingType AlarmProcessingRecordSelectColumn = "processing_type"
 	// 操作用户                                                     ( system_user表的user_id )
 	AlarmProcessingRecordSelectColumnOperationUser AlarmProcessingRecordSelectColumn = "operation_user"
-	// 是否短信推送                                                 (                            )
+	// 是否短信推送
 	AlarmProcessingRecordSelectColumnIsSmsPush AlarmProcessingRecordSelectColumn = "is_sms_push"
-	// 是否通报                                                     (                            )
+	// 是否通报
 	AlarmProcessingRecordSelectColumnIsNotify AlarmProcessingRecordSelectColumn = "is_notify"
-	// 是否语音通知                                                 (                            )
+	// 是否语音通知
 	AlarmProcessingRecordSelectColumnIsAnnounce AlarmProcessingRecordSelectColumn = "is_announce"
-	// 是否APP推送                                                  (                            )
+	// 是否APP推送
 	AlarmProcessingRecordSelectColumnIsAppPush AlarmProcessingRecordSelectColumn = "is_app_push"
-	// 通报内容                                                     (                            )
+	// 通报内容
 	AlarmProcessingRecordSelectColumnNotifyContent AlarmProcessingRecordSelectColumn = "notify_content"
-	// 语音内容                                                     (                            )
+	// 语音内容
 	AlarmProcessingRecordSelectColumnAnnounceContent AlarmProcessingRecordSelectColumn = "announce_content"
-	// APP推送内容                                                  (                            )
+	// APP推送内容
 	AlarmProcessingRecordSelectColumnAppPushContent AlarmProcessingRecordSelectColumn = "app_push_content"
 	// 处置方式                                                     ( 处置方式字典           )
 	AlarmProcessingRecordSelectColumnDisposalMethod AlarmProcessingRecordSelectColumn = "disposal_method"
-	// 处置结果                                                     (                            )
+	// 处置结果
 	AlarmProcessingRecordSelectColumnDisposalResult AlarmProcessingRecordSelectColumn = "disposal_result"
 	// 是否删除                                                     ( false                      )
 	AlarmProcessingRecordSelectColumnIsDeleted AlarmProcessingRecordSelectColumn = "is_deleted"
-	// 创建时间                                                     (                            )
+	// 创建时间
 	AlarmProcessingRecordSelectColumnCreatedAt AlarmProcessingRecordSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id )
 	AlarmProcessingRecordSelectColumnCreatedBy AlarmProcessingRecordSelectColumn = "created_by"
-	// 修改时间                                                     (                            )
+	// 修改时间
 	AlarmProcessingRecordSelectColumnUpdatedAt AlarmProcessingRecordSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id )
 	AlarmProcessingRecordSelectColumnUpdatedBy AlarmProcessingRecordSelectColumn = "updated_by"
-	// 删除时间                                                     (                            )
+	// 删除时间
 	AlarmProcessingRecordSelectColumnDeletedAt AlarmProcessingRecordSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id )
 	AlarmProcessingRecordSelectColumnDeletedBy AlarmProcessingRecordSelectColumn = "deleted_by"
@@ -2027,27 +1991,27 @@ const (
 	AlarmSupervisionPictureUploadSelectColumnCameraID AlarmSupervisionPictureUploadSelectColumn = "camera_id"
 	// 拍照条件                                                     ( 拍照条件字典                     )
 	AlarmSupervisionPictureUploadSelectColumnPhotoCondition AlarmSupervisionPictureUploadSelectColumn = "photo_condition"
-	// 终端上报时间                                                 (                                      )
+	// 终端上报时间
 	AlarmSupervisionPictureUploadSelectColumnUpdateTime AlarmSupervisionPictureUploadSelectColumn = "update_time"
-	// 报警监控图片名称                                             (                                      )
+	// 报警监控图片名称
 	AlarmSupervisionPictureUploadSelectColumnMonitoringPicName AlarmSupervisionPictureUploadSelectColumn = "monitoring_pic_name"
-	// 报警监控图片地址                                             (                                      )
+	// 报警监控图片地址
 	AlarmSupervisionPictureUploadSelectColumnMonitoringPicAddress AlarmSupervisionPictureUploadSelectColumn = "monitoring_pic_address"
-	// 报警监控图片上传时间                                         (                                      )
+	// 报警监控图片上传时间
 	AlarmSupervisionPictureUploadSelectColumnMonitoringPicUploadTime AlarmSupervisionPictureUploadSelectColumn = "monitoring_pic_upload_time"
 	// 终端IMEI                                                     ( 国际移动设备标识别码                 )
 	AlarmSupervisionPictureUploadSelectColumnImel AlarmSupervisionPictureUploadSelectColumn = "imel"
-	// SIM卡号                                                      (                                      )
+	// SIM卡号
 	AlarmSupervisionPictureUploadSelectColumnSimNumber AlarmSupervisionPictureUploadSelectColumn = "sim_number"
-	// 创建时间                                                     (                                      )
+	// 创建时间
 	AlarmSupervisionPictureUploadSelectColumnCreatedAt AlarmSupervisionPictureUploadSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id           )
 	AlarmSupervisionPictureUploadSelectColumnCreatedBy AlarmSupervisionPictureUploadSelectColumn = "created_by"
-	// 修改时间                                                     (                                      )
+	// 修改时间
 	AlarmSupervisionPictureUploadSelectColumnUpdatedAt AlarmSupervisionPictureUploadSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id           )
 	AlarmSupervisionPictureUploadSelectColumnUpdatedBy AlarmSupervisionPictureUploadSelectColumn = "updated_by"
-	// 删除时间                                                     (                                      )
+	// 删除时间
 	AlarmSupervisionPictureUploadSelectColumnDeletedAt AlarmSupervisionPictureUploadSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id           )
 	AlarmSupervisionPictureUploadSelectColumnDeletedBy AlarmSupervisionPictureUploadSelectColumn = "deleted_by"
@@ -2110,11 +2074,11 @@ type DistrictAlarmContentPushSelectColumn string
 const (
 	// 按指定方法生成                                  ( 主键                       )
 	DistrictAlarmContentPushSelectColumnID DistrictAlarmContentPushSelectColumn = "id"
-	// vehicle_alarm_data报警数据表的alarm_data_id (                            )
+	// vehicle_alarm_data报警数据表的alarm_data_id
 	DistrictAlarmContentPushSelectColumnAlarmDataID DistrictAlarmContentPushSelectColumn = "alarm_data_id"
 	// 报警类型                                        ( 报警类型字典           )
 	DistrictAlarmContentPushSelectColumnAlarmType DistrictAlarmContentPushSelectColumn = "alarm_type"
-	// 内容                                            (                            )
+	// 内容
 	DistrictAlarmContentPushSelectColumnAlarmContent DistrictAlarmContentPushSelectColumn = "alarm_content"
 	// 省份ID                                          ( 省份表province_id      )
 	DistrictAlarmContentPushSelectColumnProvinceID DistrictAlarmContentPushSelectColumn = "province_id"
@@ -2124,15 +2088,15 @@ const (
 	DistrictAlarmContentPushSelectColumnDistrictID DistrictAlarmContentPushSelectColumn = "district_id"
 	// 是否删除                                        ( false                      )
 	DistrictAlarmContentPushSelectColumnIsDeleted DistrictAlarmContentPushSelectColumn = "is_deleted"
-	// 创建时间                                        (                            )
+	// 创建时间
 	DistrictAlarmContentPushSelectColumnCreatedAt DistrictAlarmContentPushSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	DistrictAlarmContentPushSelectColumnCreatedBy DistrictAlarmContentPushSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	DistrictAlarmContentPushSelectColumnUpdatedAt DistrictAlarmContentPushSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	DistrictAlarmContentPushSelectColumnUpdatedBy DistrictAlarmContentPushSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	DistrictAlarmContentPushSelectColumnDeletedAt DistrictAlarmContentPushSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	DistrictAlarmContentPushSelectColumnDeletedBy DistrictAlarmContentPushSelectColumn = "deleted_by"
@@ -2194,27 +2158,27 @@ const (
 	EnterpriseAlarmSendPoliceSelectColumnEnterpriseAlarmSendPoliceID EnterpriseAlarmSendPoliceSelectColumn = "enterprise_alarm_send_police_id"
 	// 所在企业id                                      ( enterprise_info表的enterprise_id )
 	EnterpriseAlarmSendPoliceSelectColumnEnterpriseID EnterpriseAlarmSendPoliceSelectColumn = "enterprise_id"
-	// 企业名称                                        (                                      )
+	// 企业名称
 	EnterpriseAlarmSendPoliceSelectColumnEnterpriseName EnterpriseAlarmSendPoliceSelectColumn = "enterprise_name"
-	// 企业联系人                                      (                                      )
+	// 企业联系人
 	EnterpriseAlarmSendPoliceSelectColumnEnterpriseContact EnterpriseAlarmSendPoliceSelectColumn = "enterprise_contact"
-	// 企业联系电话                                    (                                      )
+	// 企业联系电话
 	EnterpriseAlarmSendPoliceSelectColumnEnterprisePhone EnterpriseAlarmSendPoliceSelectColumn = "enterprise_phone"
-	// 交警                                            (                                      )
+	// 交警
 	EnterpriseAlarmSendPoliceSelectColumnPolice EnterpriseAlarmSendPoliceSelectColumn = "police"
-	// 交警联系电话                                    (                                      )
+	// 交警联系电话
 	EnterpriseAlarmSendPoliceSelectColumnPolicePhone EnterpriseAlarmSendPoliceSelectColumn = "police_phone"
-	// 交警所属部门                                    (                                      )
+	// 交警所属部门
 	EnterpriseAlarmSendPoliceSelectColumnPhliceDepartment EnterpriseAlarmSendPoliceSelectColumn = "phlice_department"
-	// 创建时间                                        (                                      )
+	// 创建时间
 	EnterpriseAlarmSendPoliceSelectColumnCreatedAt EnterpriseAlarmSendPoliceSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id           )
 	EnterpriseAlarmSendPoliceSelectColumnCreatedBy EnterpriseAlarmSendPoliceSelectColumn = "created_by"
-	// 修改时间                                        (                                      )
+	// 修改时间
 	EnterpriseAlarmSendPoliceSelectColumnUpdatedAt EnterpriseAlarmSendPoliceSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id           )
 	EnterpriseAlarmSendPoliceSelectColumnUpdatedBy EnterpriseAlarmSendPoliceSelectColumn = "updated_by"
-	// 删除时间                                        (                                      )
+	// 删除时间
 	EnterpriseAlarmSendPoliceSelectColumnDeletedAt EnterpriseAlarmSendPoliceSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id           )
 	EnterpriseAlarmSendPoliceSelectColumnDeletedBy EnterpriseAlarmSendPoliceSelectColumn = "deleted_by"
@@ -2275,45 +2239,45 @@ const (
 	OfflineAlarmRegistrationSelectColumnID OfflineAlarmRegistrationSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	OfflineAlarmRegistrationSelectColumnOfflineAlarmRegistrationID OfflineAlarmRegistrationSelectColumn = "offline_alarm_registration_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	OfflineAlarmRegistrationSelectColumnVehicleID OfflineAlarmRegistrationSelectColumn = "vehicle_id"
-	// 离线开始时间                                    (                            )
+	// 离线开始时间
 	OfflineAlarmRegistrationSelectColumnOfflineStartTime OfflineAlarmRegistrationSelectColumn = "offline_start_time"
-	// 离线结束时间                                    (                            )
+	// 离线结束时间
 	OfflineAlarmRegistrationSelectColumnOfflineEndTime OfflineAlarmRegistrationSelectColumn = "offline_end_time"
 	// 登记用户                                        ( system_user表的user_id )
 	OfflineAlarmRegistrationSelectColumnRegistrationUser OfflineAlarmRegistrationSelectColumn = "registration_user"
-	// 登记时间                                        (                            )
+	// 登记时间
 	OfflineAlarmRegistrationSelectColumnRegistrationTime OfflineAlarmRegistrationSelectColumn = "registration_time"
-	// 短信发送内容                                    (                            )
+	// 短信发送内容
 	OfflineAlarmRegistrationSelectColumnSmsContent OfflineAlarmRegistrationSelectColumn = "sms_content"
-	// 电话提醒内容                                    (                            )
+	// 电话提醒内容
 	OfflineAlarmRegistrationSelectColumnPhoneReminderContent OfflineAlarmRegistrationSelectColumn = "phone_reminder_content"
-	// 短信发送时间                                    (                            )
+	// 短信发送时间
 	OfflineAlarmRegistrationSelectColumnSmsSendTime OfflineAlarmRegistrationSelectColumn = "sms_send_time"
-	// 电话提醒时间                                    (                            )
+	// 电话提醒时间
 	OfflineAlarmRegistrationSelectColumnPhoneReminderTime OfflineAlarmRegistrationSelectColumn = "phone_reminder_time"
-	// 离线原因                                        (                            )
+	// 离线原因
 	OfflineAlarmRegistrationSelectColumnOfflineReason OfflineAlarmRegistrationSelectColumn = "offline_reason"
 	// 报警类型                                        ( 报警类型字典           )
 	OfflineAlarmRegistrationSelectColumnAlarmType OfflineAlarmRegistrationSelectColumn = "alarm_type"
-	// 是否登记                                        (                            )
+	// 是否登记
 	OfflineAlarmRegistrationSelectColumnIsRegistration OfflineAlarmRegistrationSelectColumn = "is_registration"
-	// 是否结束报警                                    (                            )
+	// 是否结束报警
 	OfflineAlarmRegistrationSelectColumnIsEndAlarm OfflineAlarmRegistrationSelectColumn = "is_end_alarm"
-	// 是否发送短信                                    (                            )
+	// 是否发送短信
 	OfflineAlarmRegistrationSelectColumnIsSendSms OfflineAlarmRegistrationSelectColumn = "is_send_sms"
-	// 是否需要维护                                    (                            )
+	// 是否需要维护
 	OfflineAlarmRegistrationSelectColumnIsNeedMaintain OfflineAlarmRegistrationSelectColumn = "is_need_maintain"
-	// 创建时间                                        (                            )
+	// 创建时间
 	OfflineAlarmRegistrationSelectColumnCreatedAt OfflineAlarmRegistrationSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	OfflineAlarmRegistrationSelectColumnCreatedBy OfflineAlarmRegistrationSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	OfflineAlarmRegistrationSelectColumnUpdatedAt OfflineAlarmRegistrationSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	OfflineAlarmRegistrationSelectColumnUpdatedBy OfflineAlarmRegistrationSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	OfflineAlarmRegistrationSelectColumnDeletedAt OfflineAlarmRegistrationSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	OfflineAlarmRegistrationSelectColumnDeletedBy OfflineAlarmRegistrationSelectColumn = "deleted_by"
@@ -2386,83 +2350,83 @@ const (
 	VehicleAlarmDataSelectColumnVehicleID VehicleAlarmDataSelectColumn = "vehicle_id"
 	// 报警类型                                                ( 报警类型字典                   )
 	VehicleAlarmDataSelectColumnAlarmType VehicleAlarmDataSelectColumn = "alarm_type"
-	// 报警开始时间                                            (                                    )
+	// 报警开始时间
 	VehicleAlarmDataSelectColumnAlarmStartTime VehicleAlarmDataSelectColumn = "alarm_start_time"
-	// 报警结束时间                                            (                                    )
+	// 报警结束时间
 	VehicleAlarmDataSelectColumnAlarmEndTime VehicleAlarmDataSelectColumn = "alarm_end_time"
-	// 报警结束位置                                            (                                    )
+	// 报警结束位置
 	VehicleAlarmDataSelectColumnAlarmEndPosition VehicleAlarmDataSelectColumn = "alarm_end_position"
-	// 最新报警时间                                            (                                    )
+	// 最新报警时间
 	VehicleAlarmDataSelectColumnLatestAlarmTime VehicleAlarmDataSelectColumn = "latest_alarm_time"
-	// 最新报警位置                                            (                                    )
+	// 最新报警位置
 	VehicleAlarmDataSelectColumnLatestAlarmPosition VehicleAlarmDataSelectColumn = "latest_alarm_position"
-	// 报警是否有效                                            (                                    )
+	// 报警是否有效
 	VehicleAlarmDataSelectColumnIsAlarmEffective VehicleAlarmDataSelectColumn = "is_alarm_effective"
-	// 报警是否结束                                            (                                    )
+	// 报警是否结束
 	VehicleAlarmDataSelectColumnIsAlarmOver VehicleAlarmDataSelectColumn = "is_alarm_over"
-	// 是否取消报警                                            (                                    )
+	// 是否取消报警
 	VehicleAlarmDataSelectColumnIsCancelAlarm VehicleAlarmDataSelectColumn = "is_cancel_alarm"
 	// 报警来源:1.终端报警 2.平台报警                          ( 报警来源字典                   )
 	VehicleAlarmDataSelectColumnAlarmSource VehicleAlarmDataSelectColumn = "alarm_source"
-	// 处理时间                                                (                                    )
+	// 处理时间
 	VehicleAlarmDataSelectColumnProcessingTime VehicleAlarmDataSelectColumn = "processing_time"
 	// 处理方式                                                ( 处警处理方式字典               )
 	VehicleAlarmDataSelectColumnProcessingMethod VehicleAlarmDataSelectColumn = "processing_method"
-	// 处理描述                                                (                                    )
+	// 处理描述
 	VehicleAlarmDataSelectColumnProcessingDescription VehicleAlarmDataSelectColumn = "processing_description"
 	// 处理人                                                  ( system_user表的user_id         )
 	VehicleAlarmDataSelectColumnProcessor VehicleAlarmDataSelectColumn = "processor"
 	// 处理状态                                                ( 处警处理状态字典               )
 	VehicleAlarmDataSelectColumnProcessingStatus VehicleAlarmDataSelectColumn = "processing_status"
-	// 行驶记录仪速度                                          (                                    )
+	// 行驶记录仪速度
 	VehicleAlarmDataSelectColumnTachographSpeed VehicleAlarmDataSelectColumn = "tachograph_speed"
-	// GPS速度                                                 (                                    )
+	// GPS速度
 	VehicleAlarmDataSelectColumnGpsSpeed VehicleAlarmDataSelectColumn = "gps_speed"
-	// 最高速度                                                (                                    )
+	// 最高速度
 	VehicleAlarmDataSelectColumnMaximumSpeed VehicleAlarmDataSelectColumn = "maximum_speed"
-	// 限速阀值                                                (                                    )
+	// 限速阀值
 	VehicleAlarmDataSelectColumnSpeedLimitThreshold VehicleAlarmDataSelectColumn = "speed_limit_threshold"
-	// 空间数据类型point表示经度(longitude)和纬度(latitude)    (                                    )
+	// 空间数据类型point表示经度(longitude)和纬度(latitude)
 	VehicleAlarmDataSelectColumnCoordinate VehicleAlarmDataSelectColumn = "coordinate"
-	// 位置描述                                                (                                    )
+	// 位置描述
 	VehicleAlarmDataSelectColumnLocationDescription VehicleAlarmDataSelectColumn = "location_description"
-	// 持续时间                                                (                                    )
+	// 持续时间
 	VehicleAlarmDataSelectColumnDuration VehicleAlarmDataSelectColumn = "duration"
 	// 道路等级                                                ( 道路等级字典                   )
 	VehicleAlarmDataSelectColumnRoadGrade VehicleAlarmDataSelectColumn = "road_grade"
-	// 道路名称                                                (                                    )
+	// 道路名称
 	VehicleAlarmDataSelectColumnRoadName VehicleAlarmDataSelectColumn = "road_name"
-	// 进区域ID                                                (                                    )
+	// 进区域ID
 	VehicleAlarmDataSelectColumnAreaID VehicleAlarmDataSelectColumn = "area_id"
-	// 处警ID                                                  (                                    )
+	// 处警ID
 	VehicleAlarmDataSelectColumnAlarmDealID VehicleAlarmDataSelectColumn = "alarm_deal_id"
-	// 地区                                                    (                                    )
+	// 地区
 	VehicleAlarmDataSelectColumnPid VehicleAlarmDataSelectColumn = "pid"
-	// 记录时间                                                (                                    )
+	// 记录时间
 	VehicleAlarmDataSelectColumnRecordTime VehicleAlarmDataSelectColumn = "record_time"
 	// 监管人                                                  ( system_user表的user_id         )
 	VehicleAlarmDataSelectColumnSupervisor VehicleAlarmDataSelectColumn = "supervisor"
-	// 管理部门是否监管                                        (                                    )
+	// 管理部门是否监管
 	VehicleAlarmDataSelectColumnIsSupervise VehicleAlarmDataSelectColumn = "is_supervise"
-	// 管理部门监管时间                                        (                                    )
+	// 管理部门监管时间
 	VehicleAlarmDataSelectColumnSupervisionTime VehicleAlarmDataSelectColumn = "supervision_time"
-	// 监管备注                                                (                                    )
+	// 监管备注
 	VehicleAlarmDataSelectColumnSupervisionNote VehicleAlarmDataSelectColumn = "supervision_note"
-	// 是否解析                                                (                                    )
+	// 是否解析
 	VehicleAlarmDataSelectColumnIsResolve VehicleAlarmDataSelectColumn = "is_resolve"
-	// 工地是否处理                                            (                                    )
+	// 工地是否处理
 	VehicleAlarmDataSelectColumnIsConstructionSiteHandle VehicleAlarmDataSelectColumn = "is_construction_site_handle"
-	// 工地处理时间                                            (                                    )
+	// 工地处理时间
 	VehicleAlarmDataSelectColumnConstructionSiteHandleTime VehicleAlarmDataSelectColumn = "construction_site_handle_time"
-	// 创建时间                                                (                                    )
+	// 创建时间
 	VehicleAlarmDataSelectColumnCreatedAt VehicleAlarmDataSelectColumn = "created_at"
 	// 创建人                                                  ( system_user表的user_id         )
 	VehicleAlarmDataSelectColumnCreatedBy VehicleAlarmDataSelectColumn = "created_by"
-	// 修改时间                                                (                                    )
+	// 修改时间
 	VehicleAlarmDataSelectColumnUpdatedAt VehicleAlarmDataSelectColumn = "updated_at"
 	// 修改人                                                  ( system_user表的user_id         )
 	VehicleAlarmDataSelectColumnUpdatedBy VehicleAlarmDataSelectColumn = "updated_by"
-	// 删除时间                                                (                                    )
+	// 删除时间
 	VehicleAlarmDataSelectColumnDeletedAt VehicleAlarmDataSelectColumn = "deleted_at"
 	// 删除人                                                  ( system_user表的user_id         )
 	VehicleAlarmDataSelectColumnDeletedBy VehicleAlarmDataSelectColumn = "deleted_by"
@@ -2554,25 +2518,25 @@ const (
 	VideoPlatformAlarmTypeSelectColumnVideoPlatformAlarmTypeID VideoPlatformAlarmTypeSelectColumn = "video_platform_alarm_type_id"
 	// 报警数据表id                                    ( vehicle_alarm_data  报警数据表的vehicle_alarm_data_id )
 	VideoPlatformAlarmTypeSelectColumnVehicleAlarmDataID VideoPlatformAlarmTypeSelectColumn = "vehicle_alarm_data_id"
-	// 报警类型                                        (                                                           )
+	// 报警类型
 	VideoPlatformAlarmTypeSelectColumnAlarmType VideoPlatformAlarmTypeSelectColumn = "alarm_type"
-	// 报警来源                                        (                                                           )
+	// 报警来源
 	VideoPlatformAlarmTypeSelectColumnAlarmSource VideoPlatformAlarmTypeSelectColumn = "alarm_source"
 	// 报警分类                                        ( Adas报警字典                                          )
 	VideoPlatformAlarmTypeSelectColumnAlarmClassify VideoPlatformAlarmTypeSelectColumn = "alarm_classify"
-	// 报警代码                                        (                                                           )
+	// 报警代码
 	VideoPlatformAlarmTypeSelectColumnAlarmCode VideoPlatformAlarmTypeSelectColumn = "alarm_code"
-	// 是否删除                                        (                                                           )
+	// 是否删除
 	VideoPlatformAlarmTypeSelectColumnIsDeleted VideoPlatformAlarmTypeSelectColumn = "is_deleted"
-	// 创建时间                                        (                                                           )
+	// 创建时间
 	VideoPlatformAlarmTypeSelectColumnCreatedAt VideoPlatformAlarmTypeSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                                )
 	VideoPlatformAlarmTypeSelectColumnCreatedBy VideoPlatformAlarmTypeSelectColumn = "created_by"
-	// 修改时间                                        (                                                           )
+	// 修改时间
 	VideoPlatformAlarmTypeSelectColumnUpdatedAt VideoPlatformAlarmTypeSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                                )
 	VideoPlatformAlarmTypeSelectColumnUpdatedBy VideoPlatformAlarmTypeSelectColumn = "updated_by"
-	// 删除时间                                        (                                                           )
+	// 删除时间
 	VideoPlatformAlarmTypeSelectColumnDeletedAt VideoPlatformAlarmTypeSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                                )
 	VideoPlatformAlarmTypeSelectColumnDeletedBy VideoPlatformAlarmTypeSelectColumn = "deleted_by"
@@ -2632,31 +2596,31 @@ const (
 	VoiceAlarmRecordSelectColumnID VoiceAlarmRecordSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	VoiceAlarmRecordSelectColumnVioceAlarmRecordID VoiceAlarmRecordSelectColumn = "vioce_alarm_record_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VoiceAlarmRecordSelectColumnVehicleID VoiceAlarmRecordSelectColumn = "vehicle_id"
-	// 报警时间                                        (                            )
+	// 报警时间
 	VoiceAlarmRecordSelectColumnAlarmTime VoiceAlarmRecordSelectColumn = "alarm_time"
-	// 报警类型                                        (                            )
+	// 报警类型
 	VoiceAlarmRecordSelectColumnAlarmType VoiceAlarmRecordSelectColumn = "alarm_type"
-	// 提醒时间                                        (                            )
+	// 提醒时间
 	VoiceAlarmRecordSelectColumnRemindTime VoiceAlarmRecordSelectColumn = "remind_time"
-	// 提醒内容                                        (                            )
+	// 提醒内容
 	VoiceAlarmRecordSelectColumnRemindContent VoiceAlarmRecordSelectColumn = "remind_content"
 	// 录入人                                          ( system_user表的user_id )
 	VoiceAlarmRecordSelectColumnInputPerson VoiceAlarmRecordSelectColumn = "input_person"
-	// 录入时间                                        (                            )
+	// 录入时间
 	VoiceAlarmRecordSelectColumnInputTime VoiceAlarmRecordSelectColumn = "input_time"
-	// 是否成功                                        (                            )
+	// 是否成功
 	VoiceAlarmRecordSelectColumnIsSuccess VoiceAlarmRecordSelectColumn = "is_success"
-	// 创建时间                                        (                            )
+	// 创建时间
 	VoiceAlarmRecordSelectColumnCreatedAt VoiceAlarmRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	VoiceAlarmRecordSelectColumnCreatedBy VoiceAlarmRecordSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	VoiceAlarmRecordSelectColumnUpdatedAt VoiceAlarmRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	VoiceAlarmRecordSelectColumnUpdatedBy VoiceAlarmRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	VoiceAlarmRecordSelectColumnDeletedAt VoiceAlarmRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	VoiceAlarmRecordSelectColumnDeletedBy VoiceAlarmRecordSelectColumn = "deleted_by"

@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteRegionIssuedByPk(ctx context.Context, Id int64)
 }
 
 func (r *mutationResolver) InsertRegionIssued(ctx context.Context, objects []*model.RegionIssuedInsertInput) (*model.RegionIssuedMutationResponse, error) {
-	rs := []*model1.RegionIssued{}
+	rs := make([]*model1.RegionIssued, 0)
 	for _, object := range objects {
 		v := &model1.RegionIssued{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.RegionIssued{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateRegionIssuedByPk(ctx context.Context, inc *mode
 	qt := util.NewQueryTranslator(tx, &model1.RegionIssued{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.RegionIssued
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) RegionIssued(ctx context.Context, distinctOn []model.Reg
 		Finish()
 	var rs []*model1.RegionIssued
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) RegionIssuedAggregate(ctx context.Context, distinctOn []model.RegionIssuedSelectColumn, limit *int, offset *int, orderBy []*model.RegionIssuedOrderBy, where *model.RegionIssuedBoolExp) (*model.RegionIssuedAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) RegionIssuedAggregate(ctx context.Context, distinctOn []
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) RegionIssuedByPk(ctx context.Context, Id int64) (*model1.RegionIssued, error) {
 	var rs model1.RegionIssued
 	tx := db.DB.Model(&model1.RegionIssued{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

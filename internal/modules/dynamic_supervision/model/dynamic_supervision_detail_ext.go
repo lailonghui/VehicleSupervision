@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DynamicSupervisionDetailLoader string *VehicleSupervision/internal/modules/dynamic_supervision/model.DynamicSupervisionDetail
 
 func (t DynamicSupervisionDetail) TableName() string {
-	return "DynamicSupervisionDetail"
+	return "dynamic_supervision_detail"
 }
 
 func (t *DynamicSupervisionDetail) NewLoader() *DynamicSupervisionDetailLoader {

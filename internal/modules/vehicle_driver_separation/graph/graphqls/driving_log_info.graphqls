@@ -19,47 +19,47 @@ type DrivingLogInfo {
 	"""
 	driver_id: String
 	"""
-	 用车起始日期                                    (                                )
+	 用车起始日期                                    
 	"""
 	driving_start_time: Timestamptz
 	"""
-	 用车结束日期                                    (                                )
+	 用车结束日期                                    
 	"""
 	driving_end_time: Timestamptz
 	"""
-	 事由                                            (                                )
+	 事由                                            
 	"""
 	cause: String
 	"""
-	 路线                                            (                                )
+	 路线                                            
 	"""
 	route: String
 	"""
-	 备注                                            (                                )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 开始时间                                        (                                )
+	 开始时间                                        
 	"""
 	start_time: String
 	"""
-	 结束时间                                        (                                )
+	 结束时间                                        
 	"""
 	end_time: String
 	"""
-	 审核状态                                        (                                )
+	 审核状态                                        
 	"""
 	review_status: Int
 	"""
-	 审核机构级别                                    (                                )
+	 审核机构级别                                    
 	"""
 	review_agecy_level: Int
 	"""
-	 是否补录                                        (                                )
+	 是否补录                                        
 	"""
 	is_markup: Boolean
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -67,7 +67,7 @@ type DrivingLogInfo {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -75,7 +75,7 @@ type DrivingLogInfo {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -283,8 +283,6 @@ input DrivingLogInfoBoolExp {
 input type for inserting data into table "driving_log_info"
 """
 input DrivingLogInfoInsertInput {
-	id: Bigint
-	driving_log_info_id: String
 	vehicle_id: String
 	driver_id: String
 	driving_start_time: Timestamptz
@@ -297,8 +295,6 @@ input DrivingLogInfoInsertInput {
 	review_status: Int
 	review_agecy_level: Int
 	is_markup: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -358,47 +354,47 @@ enum DrivingLogInfoSelectColumn {
 	"""
 	driver_id
 	"""
-	 用车起始日期                                    (                                )
+	 用车起始日期                                    
 	"""
 	driving_start_time
 	"""
-	 用车结束日期                                    (                                )
+	 用车结束日期                                    
 	"""
 	driving_end_time
 	"""
-	 事由                                            (                                )
+	 事由                                            
 	"""
 	cause
 	"""
-	 路线                                            (                                )
+	 路线                                            
 	"""
 	route
 	"""
-	 备注                                            (                                )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 开始时间                                        (                                )
+	 开始时间                                        
 	"""
 	start_time
 	"""
-	 结束时间                                        (                                )
+	 结束时间                                        
 	"""
 	end_time
 	"""
-	 审核状态                                        (                                )
+	 审核状态                                        
 	"""
 	review_status
 	"""
-	 审核机构级别                                    (                                )
+	 审核机构级别                                    
 	"""
 	review_agecy_level
 	"""
-	 是否补录                                        (                                )
+	 是否补录                                        
 	"""
 	is_markup
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -406,7 +402,7 @@ enum DrivingLogInfoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -414,7 +410,7 @@ enum DrivingLogInfoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

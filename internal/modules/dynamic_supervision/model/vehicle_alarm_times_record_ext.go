@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleAlarmTimesRecordLoader string *VehicleSupervision/internal/modules/dynamic_supervision/model.VehicleAlarmTimesRecord
 
 func (t VehicleAlarmTimesRecord) TableName() string {
-	return "VehicleAlarmTimesRecord"
+	return "vehicle_alarm_times_record"
 }
 
 func (t *VehicleAlarmTimesRecord) NewLoader() *VehicleAlarmTimesRecordLoader {

@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DistrictAlarmContentPushLoader string *VehicleSupervision/internal/modules/vehicle_alarm/model.DistrictAlarmContentPush
 
 func (t DistrictAlarmContentPush) TableName() string {
-	return "DistrictAlarmContentPush"
+	return "district_alarm_content_push"
 }
 
 func (t *DistrictAlarmContentPush) NewLoader() *DistrictAlarmContentPushLoader {

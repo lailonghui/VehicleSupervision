@@ -11,15 +11,15 @@ type RegionIssued {
 	"""
 	region_issued_id: String!
 	"""
-	 区域名称                                        (                            )
+	 区域名称                                        
 	"""
 	region_name: String
 	"""
-	 终端IMEI                                        (                            )
+	 终端IMEI                                        
 	"""
 	imel: String
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -27,7 +27,7 @@ type RegionIssued {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -35,7 +35,7 @@ type RegionIssued {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -187,12 +187,8 @@ input RegionIssuedBoolExp {
 input type for inserting data into table "region_issued"
 """
 input RegionIssuedInsertInput {
-	id: Bigint
-	region_issued_id: String
 	region_name: String
 	imel: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -232,15 +228,15 @@ enum RegionIssuedSelectColumn {
 	"""
 	region_issued_id
 	"""
-	 区域名称                                        (                            )
+	 区域名称                                        
 	"""
 	region_name
 	"""
-	 终端IMEI                                        (                            )
+	 终端IMEI                                        
 	"""
 	imel
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -248,7 +244,7 @@ enum RegionIssuedSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -256,7 +252,7 @@ enum RegionIssuedSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

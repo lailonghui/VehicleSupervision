@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DynamicSpotCheckDisposalLoader string *VehicleSupervision/internal/modules/dynamic_supervision/model.DynamicSpotCheckDisposal
 
 func (t DynamicSpotCheckDisposal) TableName() string {
-	return "DynamicSpotCheckDisposal"
+	return "dynamic_spot_check_disposal"
 }
 
 func (t *DynamicSpotCheckDisposal) NewLoader() *DynamicSpotCheckDisposalLoader {

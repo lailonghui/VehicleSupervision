@@ -22,16 +22,16 @@ type VehicleSupervisionPhoto struct {
 	CameraID *int `json:"camera_id"`
 	// 拍照条件                                                    ( 拍照条件字典                     )
 	PhotoCondition *string `json:"photo_condition"`
-	// 终端上报时间                                                (                                      )
+	// 终端上报时间
 	UpdateTime *time.Time `json:"update_time"`
-	// 监控图片名称                                                (                                      )
+	// 监控图片名称
 	MonitoringPicName *string `json:"monitoring_pic_name"`
-	// 监控图片地址                                                (                                      )
+	// 监控图片地址
 	MonitoringPicAddress *string `json:"monitoring_pic_address"`
-	// 监控图片上传时间                                            (                                      )
+	// 监控图片上传时间
 	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
 	// 终端IMEI                                                    ( 国际移动设备标识别码                 )
 	Imel *string `json:"imel"`
-	// SIM卡号                                                     (                                      )
+	// SIM卡号
 	SimNumber *string `json:"sim_number"`
 }

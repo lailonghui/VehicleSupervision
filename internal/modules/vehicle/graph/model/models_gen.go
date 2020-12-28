@@ -62,18 +62,13 @@ type CatalogNewVehicleRecordIncInput struct {
 
 // input type for inserting data into table "catalog_new_vehicle_record"
 type CatalogNewVehicleRecordInsertInput struct {
-	ID                        *int64     `json:"id"`
-	CatalogNewVehicleRecordID *string    `json:"catalog_new_vehicle_record_id"`
-	VehicleID                 *string    `json:"vehicle_id"`
-	TerminalID                *string    `json:"terminal_id"`
-	Reviewer                  *string    `json:"reviewer"`
-	IsDeleted                 *bool      `json:"is_deleted"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
+	TerminalID *string    `json:"terminal_id"`
+	Reviewer   *string    `json:"reviewer"`
+	IsDeleted  *bool      `json:"is_deleted"`
+	UpdatedAt  *time.Time `json:"updated_at"`
+	UpdatedBy  *string    `json:"updated_by"`
+	DeletedAt  *time.Time `json:"deleted_at"`
+	DeletedBy  *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "catalog_new_vehicle_record"
@@ -249,8 +244,6 @@ type JjVehicleIncInput struct {
 
 // input type for inserting data into table "jj_vehicle"
 type JjVehicleInsertInput struct {
-	ID         *int64     `json:"id"`
-	VehicleID  *string    `json:"vehicle_id"`
 	Hphm       *string    `json:"hphm"`
 	Hpzl       *string    `json:"hpzl"`
 	Syr        *string    `json:"syr"`
@@ -557,8 +550,6 @@ type MuckTruckExtIncInput struct {
 
 // input type for inserting data into table "muck_truck_ext"
 type MuckTruckExtInsertInput struct {
-	ID                                   *int64     `json:"id"`
-	VehicleID                            *string    `json:"vehicle_id"`
 	VehiclePicture                       *string    `json:"vehicle_picture"`
 	EngineNumber                         *string    `json:"engine_number"`
 	ReviewTime                           *time.Time `json:"review_time"`
@@ -615,8 +606,6 @@ type MuckTruckExtInsertInput struct {
 	SelfNumber                           *string    `json:"self_number"`
 	MobileCardLocation                   *string    `json:"mobile_card_location"`
 	LoadCategory                         *string    `json:"load_category"`
-	CreatedAt                            *time.Time `json:"created_at"`
-	CreatedBy                            *string    `json:"created_by"`
 	UpdatedAt                            *time.Time `json:"updated_at"`
 	UpdatedBy                            *string    `json:"updated_by"`
 	DeletedAt                            *time.Time `json:"deleted_at"`
@@ -1050,38 +1039,33 @@ type MuckTruckPreviewNumberIncInput struct {
 
 // input type for inserting data into table "muck_truck_preview_number"
 type MuckTruckPreviewNumberInsertInput struct {
-	ID                       *int64     `json:"id"`
-	MuckTruckPreviewNumberID *string    `json:"muck_truck_preview_number_id"`
-	VehicleID                *string    `json:"vehicle_id"`
-	SvnNumber                *string    `json:"svn_number"`
-	RegistrationTime         *string    `json:"registration_time"`
-	Confirmor                *string    `json:"confirmor"`
-	ConfirmTime              *time.Time `json:"confirm_time"`
-	ConfirmStatus            *int       `json:"confirm_status"`
-	FrontLicensePlate        *string    `json:"front_license_plate"`
-	RearLicensePlate         *string    `json:"rear_license_plate"`
-	SideLicensePlate         *string    `json:"side_license_plate"`
-	OriginalNumber           *string    `json:"original_number"`
-	IsReviewAutomatically    *bool      `json:"is_review_automatically"`
-	ProductionStatus         *int       `json:"production_status"`
-	ProductionTime           *time.Time `json:"production_time"`
-	MarkingTime              *time.Time `json:"marking_time"`
-	ProductionTimes          *int       `json:"production_times"`
-	SubmitProductionTime     *time.Time `json:"submit_production_time"`
-	ContactPerson            *string    `json:"contact_person"`
-	ContactPhone             *string    `json:"contact_phone"`
-	WorkNumberPlateColor     *string    `json:"work_number_plate_color"`
-	InitialRegistrationDate  *time.Time `json:"initial_registration_date"`
-	UnlawfulViolationNumber  *int       `json:"unlawful_violation_number"`
-	IsRegisterSaleOrder      *bool      `json:"is_register_sale_order"`
-	Remarks                  *string    `json:"remarks"`
-	IsDeleted                *bool      `json:"is_deleted"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
-	UpdatedAt                *time.Time `json:"updated_at"`
-	UpdatedBy                *string    `json:"updated_by"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
+	SvnNumber               *string    `json:"svn_number"`
+	RegistrationTime        *string    `json:"registration_time"`
+	Confirmor               *string    `json:"confirmor"`
+	ConfirmTime             *time.Time `json:"confirm_time"`
+	ConfirmStatus           *int       `json:"confirm_status"`
+	FrontLicensePlate       *string    `json:"front_license_plate"`
+	RearLicensePlate        *string    `json:"rear_license_plate"`
+	SideLicensePlate        *string    `json:"side_license_plate"`
+	OriginalNumber          *string    `json:"original_number"`
+	IsReviewAutomatically   *bool      `json:"is_review_automatically"`
+	ProductionStatus        *int       `json:"production_status"`
+	ProductionTime          *time.Time `json:"production_time"`
+	MarkingTime             *time.Time `json:"marking_time"`
+	ProductionTimes         *int       `json:"production_times"`
+	SubmitProductionTime    *time.Time `json:"submit_production_time"`
+	ContactPerson           *string    `json:"contact_person"`
+	ContactPhone            *string    `json:"contact_phone"`
+	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
+	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
+	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
+	IsRegisterSaleOrder     *bool      `json:"is_register_sale_order"`
+	Remarks                 *string    `json:"remarks"`
+	IsDeleted               *bool      `json:"is_deleted"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "muck_truck_preview_number"
@@ -1394,9 +1378,6 @@ type MuckTruckTestSituationIncInput struct {
 
 // input type for inserting data into table "muck_truck_test_situation"
 type MuckTruckTestSituationInsertInput struct {
-	ID                       *int64     `json:"id"`
-	MuckTruckTestSituationID *string    `json:"muck_truck_test_situation_id"`
-	VehicleID                *string    `json:"vehicle_id"`
 	AirtightState            *int       `json:"airtight_state"`
 	LoadState                *int       `json:"load_state"`
 	LiftingStatus            *int       `json:"lifting_status"`
@@ -1416,8 +1397,6 @@ type MuckTruckTestSituationInsertInput struct {
 	IsDetectIllegalStart     *bool      `json:"is_detect_illegal_start"`
 	IsPassed                 *bool      `json:"is_passed"`
 	IsDeleted                *bool      `json:"is_deleted"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
 	DeletedAt                *time.Time `json:"deleted_at"`
@@ -1698,79 +1677,63 @@ type MuckTruckTestSituationVarianceFields struct {
 	Speed                    *int   `json:"speed"`
 }
 
-// 渣土车工号牌制作订单表
-type MuckTruckWorkerIDCardOrders struct {
-	// 按指定方法生成                                               ( 主键                       )
-	ID int64 `json:"id"`
-	// 渣土车工号牌制作订单外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
-	MuckTruckWorkerOrdersID string `json:"muck_truck_worker_orders_id"`
-	// vehicle_info 车辆信息表 的vehicle_id                     (                            )
-	VehicleID string `json:"vehicle_id"`
-	// muck_truck_preview_number  渣土车车辆预编号表的id        (                            )
-	PreviewNumberID string `json:"preview_number_id"`
-	// 创建时间                                                     (                            )
-	CreatedAt time.Time `json:"created_at"`
-	// 创建人                                                       ( system_user表的user_id )
-	CreatedBy string `json:"created_by"`
-	// 修改时间                                                     (                            )
+// aggregated selection of "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersAggregate struct {
+	Aggregate *MuckTruckWorkerIdentityCardOrdersAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersAggregateFields struct {
+	Avg        *MuckTruckWorkerIdentityCardOrdersAvgFields        `json:"avg"`
+	Count      *int                                               `json:"count"`
+	Max        *MuckTruckWorkerIdentityCardOrdersMaxFields        `json:"max"`
+	Min        *MuckTruckWorkerIdentityCardOrdersMinFields        `json:"min"`
+	Stddev     *MuckTruckWorkerIdentityCardOrdersStddevFields     `json:"stddev"`
+	StddevPop  *MuckTruckWorkerIdentityCardOrdersStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *MuckTruckWorkerIdentityCardOrdersStddevSampFields `json:"stddev_samp"`
+	Sum        *MuckTruckWorkerIdentityCardOrdersSumFields        `json:"sum"`
+	VarPop     *MuckTruckWorkerIdentityCardOrdersVarPopFields     `json:"var_pop"`
+	VarSamp    *MuckTruckWorkerIdentityCardOrdersVarSampFields    `json:"var_samp"`
+	Variance   *MuckTruckWorkerIdentityCardOrdersVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_worker_identity_card_orders'.
+type MuckTruckWorkerIdentityCardOrdersBoolExp struct {
+	And                     []*MuckTruckWorkerIdentityCardOrdersBoolExp `json:"_and"`
+	Not                     *MuckTruckWorkerIdentityCardOrdersBoolExp   `json:"_not"`
+	Or                      []*MuckTruckWorkerIdentityCardOrdersBoolExp `json:"_or"`
+	ID                      *model.BigintComparisonExp                  `json:"id"`
+	MuckTruckWorkerOrdersID *model.StringComparisonExp                  `json:"muck_truck_worker_orders_id"`
+	VehicleID               *model.StringComparisonExp                  `json:"vehicle_id"`
+	PreviewNumberID         *model.StringComparisonExp                  `json:"preview_number_id"`
+	CreatedAt               *model.TimestamptzComparisonExp             `json:"created_at"`
+	CreatedBy               *model.StringComparisonExp                  `json:"created_by"`
+	UpdatedAt               *model.TimestamptzComparisonExp             `json:"updated_at"`
+	UpdatedBy               *model.StringComparisonExp                  `json:"updated_by"`
+	DeletedAt               *model.TimestamptzComparisonExp             `json:"deleted_at"`
+	DeletedBy               *model.StringComparisonExp                  `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersInsertInput struct {
 	UpdatedAt *time.Time `json:"updated_at"`
-	// 修改人                                                       ( system_user表的user_id )
-	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                                     (                            )
+	UpdatedBy *string    `json:"updated_by"`
 	DeletedAt *time.Time `json:"deleted_at"`
-	// 删除人                                                       ( system_user表的user_id )
-	DeletedBy *string `json:"deleted_by"`
+	DeletedBy *string    `json:"deleted_by"`
 }
 
-// aggregated selection of "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersAggregate struct {
-	Aggregate *MuckTruckWorkerIDCardOrdersAggregateFields `json:"aggregate"`
-}
-
-// aggregate fields of "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersAggregateFields struct {
-	Avg        *MuckTruckWorkerIDCardOrdersAvgFields        `json:"avg"`
-	Count      *int                                         `json:"count"`
-	Max        *MuckTruckWorkerIDCardOrdersMaxFields        `json:"max"`
-	Min        *MuckTruckWorkerIDCardOrdersMinFields        `json:"min"`
-	Stddev     *MuckTruckWorkerIDCardOrdersStddevFields     `json:"stddev"`
-	StddevPop  *MuckTruckWorkerIDCardOrdersStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *MuckTruckWorkerIDCardOrdersStddevSampFields `json:"stddev_samp"`
-	Sum        *MuckTruckWorkerIDCardOrdersSumFields        `json:"sum"`
-	VarPop     *MuckTruckWorkerIDCardOrdersVarPopFields     `json:"var_pop"`
-	VarSamp    *MuckTruckWorkerIDCardOrdersVarSampFields    `json:"var_samp"`
-	Variance   *MuckTruckWorkerIDCardOrdersVarianceFields   `json:"variance"`
-}
-
-// aggregate avg on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersAvgFields struct {
-	ID *int64 `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_worker_id_card_orders'.
-type MuckTruckWorkerIDCardOrdersBoolExp struct {
-	And                     []*MuckTruckWorkerIDCardOrdersBoolExp `json:"_and"`
-	Not                     *MuckTruckWorkerIDCardOrdersBoolExp   `json:"_not"`
-	Or                      []*MuckTruckWorkerIDCardOrdersBoolExp `json:"_or"`
-	ID                      *model.BigintComparisonExp            `json:"id"`
-	MuckTruckWorkerOrdersID *model.StringComparisonExp            `json:"muck_truck_worker_orders_id"`
-	VehicleID               *model.StringComparisonExp            `json:"vehicle_id"`
-	PreviewNumberID         *model.StringComparisonExp            `json:"preview_number_id"`
-	CreatedAt               *model.TimestamptzComparisonExp       `json:"created_at"`
-	CreatedBy               *model.StringComparisonExp            `json:"created_by"`
-	UpdatedAt               *model.TimestamptzComparisonExp       `json:"updated_at"`
-	UpdatedBy               *model.StringComparisonExp            `json:"updated_by"`
-	DeletedAt               *model.TimestamptzComparisonExp       `json:"deleted_at"`
-	DeletedBy               *model.StringComparisonExp            `json:"deleted_by"`
-}
-
-// input type for incrementing integer column in table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersIncInput struct {
-	ID *int64 `json:"id"`
-}
-
-// input type for inserting data into table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersInsertInput struct {
+// aggregate max on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersMaxFields struct {
 	ID                      *int64     `json:"id"`
 	MuckTruckWorkerOrdersID *string    `json:"muck_truck_worker_orders_id"`
 	VehicleID               *string    `json:"vehicle_id"`
@@ -1783,8 +1746,8 @@ type MuckTruckWorkerIDCardOrdersInsertInput struct {
 	DeletedBy               *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersMaxFields struct {
+// aggregate min on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersMinFields struct {
 	ID                      *int64     `json:"id"`
 	MuckTruckWorkerOrdersID *string    `json:"muck_truck_worker_orders_id"`
 	VehicleID               *string    `json:"vehicle_id"`
@@ -1797,28 +1760,14 @@ type MuckTruckWorkerIDCardOrdersMaxFields struct {
 	DeletedBy               *string    `json:"deleted_by"`
 }
 
-// aggregate min on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersMinFields struct {
-	ID                      *int64     `json:"id"`
-	MuckTruckWorkerOrdersID *string    `json:"muck_truck_worker_orders_id"`
-	VehicleID               *string    `json:"vehicle_id"`
-	PreviewNumberID         *string    `json:"preview_number_id"`
-	CreatedAt               *time.Time `json:"created_at"`
-	CreatedBy               *string    `json:"created_by"`
-	UpdatedAt               *time.Time `json:"updated_at"`
-	UpdatedBy               *string    `json:"updated_by"`
-	DeletedAt               *time.Time `json:"deleted_at"`
-	DeletedBy               *string    `json:"deleted_by"`
+// response of any mutation on the table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersMutationResponse struct {
+	AffectedRows int                                         `json:"affected_rows"`
+	Returning    []*model1.MuckTruckWorkerIdentityCardOrders `json:"returning"`
 }
 
-// response of any mutation on the table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersMutationResponse struct {
-	AffectedRows int                            `json:"affected_rows"`
-	Returning    []*MuckTruckWorkerIDCardOrders `json:"returning"`
-}
-
-// ordering options when selecting data from "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersOrderBy struct {
+// ordering options when selecting data from "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersOrderBy struct {
 	ID                      *model.OrderBy `json:"id"`
 	MuckTruckWorkerOrdersID *model.OrderBy `json:"muck_truck_worker_orders_id"`
 	VehicleID               *model.OrderBy `json:"vehicle_id"`
@@ -1831,8 +1780,8 @@ type MuckTruckWorkerIDCardOrdersOrderBy struct {
 	DeletedBy               *model.OrderBy `json:"deleted_by"`
 }
 
-// input type for updating data in table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersSetInput struct {
+// input type for updating data in table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersSetInput struct {
 	ID                      *int64     `json:"id"`
 	MuckTruckWorkerOrdersID *string    `json:"muck_truck_worker_orders_id"`
 	VehicleID               *string    `json:"vehicle_id"`
@@ -1845,38 +1794,38 @@ type MuckTruckWorkerIDCardOrdersSetInput struct {
 	DeletedBy               *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersStddevFields struct {
+// aggregate stddev on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersStddevFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate stddev_pop on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersStddevPopFields struct {
+// aggregate stddev_pop on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersStddevPopFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate stddev_samp on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersStddevSampFields struct {
+// aggregate stddev_samp on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersStddevSampFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate sum on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersSumFields struct {
+// aggregate sum on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersSumFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate var_pop on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersVarPopFields struct {
+// aggregate var_pop on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersVarPopFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate var_samp on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersVarSampFields struct {
+// aggregate var_samp on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersVarSampFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate variance on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersVarianceFields struct {
+// aggregate variance on columns of table "muck_truck_worker_identity_card_orders"
+type MuckTruckWorkerIdentityCardOrdersVarianceFields struct {
 	ID *int64 `json:"id"`
 }
 
@@ -1957,8 +1906,6 @@ type OperatingVehicleExtIncInput struct {
 
 // input type for inserting data into table "operating_vehicle_ext"
 type OperatingVehicleExtInsertInput struct {
-	ID                           *int64     `json:"id"`
-	VehicleID                    *string    `json:"vehicle_id"`
 	Agent                        *string    `json:"agent"`
 	ContactNumber                *string    `json:"contact_number"`
 	Platform                     *int       `json:"platform"`
@@ -1985,8 +1932,6 @@ type OperatingVehicleExtInsertInput struct {
 	ServiceExpirationTime        *time.Time `json:"service_expiration_time"`
 	ContractTime                 *time.Time `json:"contract_time"`
 	InstallationTime             *time.Time `json:"installation_time"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
 	DeletedAt                    *time.Time `json:"deleted_at"`
@@ -2250,17 +2195,13 @@ type OutageFilingUploadFileIncInput struct {
 
 // input type for inserting data into table "outage_filing_upload_file"
 type OutageFilingUploadFileInsertInput struct {
-	ID                       *int64     `json:"id"`
-	OutageFilingUploadFileID *string    `json:"outage_filing_upload_file_id"`
-	FilePath                 *string    `json:"file_path"`
-	FileType                 *string    `json:"file_type"`
-	IsDeleted                *bool      `json:"is_deleted"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
-	UpdatedAt                *time.Time `json:"updated_at"`
-	UpdatedBy                *string    `json:"updated_by"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
+	FilePath  *string    `json:"file_path"`
+	FileType  *string    `json:"file_type"`
+	IsDeleted *bool      `json:"is_deleted"`
+	UpdatedAt *time.Time `json:"updated_at"`
+	UpdatedBy *string    `json:"updated_by"`
+	DeletedAt *time.Time `json:"deleted_at"`
+	DeletedBy *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "outage_filing_upload_file"
@@ -2427,9 +2368,6 @@ type OutageRegistrationIncInput struct {
 
 // input type for inserting data into table "outage_registration"
 type OutageRegistrationInsertInput struct {
-	ID                       *int64     `json:"id"`
-	OutageRegistrationID     *string    `json:"outage_registration_id"`
-	VehicleID                *string    `json:"vehicle_id"`
 	UserID                   *string    `json:"user_id"`
 	OutageStartTime          *time.Time `json:"outage_start_time"`
 	OutageEndTime            *time.Time `json:"outage_end_time"`
@@ -2445,8 +2383,6 @@ type OutageRegistrationInsertInput struct {
 	IsInvalid                *bool      `json:"is_invalid"`
 	IsLatest                 *bool      `json:"is_latest"`
 	IsDeleted                *bool      `json:"is_deleted"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
 	DeletedAt                *time.Time `json:"deleted_at"`
@@ -2668,8 +2604,6 @@ type OwnerInfoIncInput struct {
 
 // input type for inserting data into table "owner_info"
 type OwnerInfoInsertInput struct {
-	ID           *int64     `json:"id"`
-	OwnerID      *string    `json:"owner_id"`
 	DepartmentID *string    `json:"department_id"`
 	Name         *string    `json:"name"`
 	Address      *string    `json:"address"`
@@ -2683,8 +2617,6 @@ type OwnerInfoInsertInput struct {
 	Agent        *string    `json:"agent"`
 	Operator     *string    `json:"operator"`
 	IsDeleted    *bool      `json:"is_deleted"`
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
 	DeletedAt    *time.Time `json:"deleted_at"`
@@ -2914,8 +2846,6 @@ type ProvinceUploadVehicleIncInput struct {
 
 // input type for inserting data into table "province_upload_vehicle"
 type ProvinceUploadVehicleInsertInput struct {
-	ID                                 *int64     `json:"id"`
-	ProvinceUploadVehicleID            *string    `json:"province_upload_vehicle_id"`
 	LicensePlateNumber                 *string    `json:"license_plate_number"`
 	LicensePlateColor                  *int       `json:"license_plate_color"`
 	EnterpriseID                       *string    `json:"enterprise_id"`
@@ -2934,8 +2864,6 @@ type ProvinceUploadVehicleInsertInput struct {
 	TransportAgencySynchronizationTime *time.Time `json:"transport_agency_synchronization_time"`
 	DeviceModel                        *string    `json:"device_model"`
 	TerminalModel                      *string    `json:"terminal_model"`
-	CreatedAt                          *time.Time `json:"created_at"`
-	CreatedBy                          *string    `json:"created_by"`
 	UpdatedAt                          *time.Time `json:"updated_at"`
 	UpdatedBy                          *string    `json:"updated_by"`
 	DeletedAt                          *time.Time `json:"deleted_at"`
@@ -3138,209 +3066,174 @@ type ProvinceUploadVehicleVarianceFields struct {
 	OperatingState    *int     `json:"operating_state"`
 }
 
-// 临时工号牌下载记录表
-type TempIDCardDownloadLog struct {
-	// 按指定方法生成                                  ( 主键                       )
-	ID int64 `json:"id"`
-	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
-	TempIDCardDownloadID string `json:"temp_id_card_download_id"`
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
-	VehicleID string `json:"vehicle_id"`
-	// 有效期起始                                      (                            )
-	ValidFrom *time.Time `json:"valid_from"`
-	// 有效期截止                                      (                            )
+// aggregated selection of "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogAggregate struct {
+	Aggregate *TempIdentityCardDownloadLogAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogAggregateFields struct {
+	Avg        *TempIdentityCardDownloadLogAvgFields        `json:"avg"`
+	Count      *int                                         `json:"count"`
+	Max        *TempIdentityCardDownloadLogMaxFields        `json:"max"`
+	Min        *TempIdentityCardDownloadLogMinFields        `json:"min"`
+	Stddev     *TempIdentityCardDownloadLogStddevFields     `json:"stddev"`
+	StddevPop  *TempIdentityCardDownloadLogStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *TempIdentityCardDownloadLogStddevSampFields `json:"stddev_samp"`
+	Sum        *TempIdentityCardDownloadLogSumFields        `json:"sum"`
+	VarPop     *TempIdentityCardDownloadLogVarPopFields     `json:"var_pop"`
+	VarSamp    *TempIdentityCardDownloadLogVarSampFields    `json:"var_samp"`
+	Variance   *TempIdentityCardDownloadLogVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'temp_identity_card_download_log'.
+type TempIdentityCardDownloadLogBoolExp struct {
+	And                        []*TempIdentityCardDownloadLogBoolExp `json:"_and"`
+	Not                        *TempIdentityCardDownloadLogBoolExp   `json:"_not"`
+	Or                         []*TempIdentityCardDownloadLogBoolExp `json:"_or"`
+	ID                         *model.BigintComparisonExp            `json:"id"`
+	TempIdentityCardDownloadID *model.StringComparisonExp            `json:"temp_identity_card_download_id"`
+	VehicleID                  *model.StringComparisonExp            `json:"vehicle_id"`
+	ValidFrom                  *model.TimestamptzComparisonExp       `json:"valid_from"`
+	ValidUntil                 *model.TimestamptzComparisonExp       `json:"valid_until"`
+	Operator                   *model.StringComparisonExp            `json:"operator"`
+	IsDeleted                  *model.BooleanComparisonExp           `json:"is_deleted"`
+	CreatedAt                  *model.TimestamptzComparisonExp       `json:"created_at"`
+	CreatedBy                  *model.StringComparisonExp            `json:"created_by"`
+	UpdatedAt                  *model.TimestamptzComparisonExp       `json:"updated_at"`
+	UpdatedBy                  *model.StringComparisonExp            `json:"updated_by"`
+	DeletedAt                  *model.TimestamptzComparisonExp       `json:"deleted_at"`
+	DeletedBy                  *model.StringComparisonExp            `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogInsertInput struct {
+	ValidFrom  *time.Time `json:"valid_from"`
 	ValidUntil *time.Time `json:"valid_until"`
-	// 操作人                                          ( system_user表的user_id )
-	Operator *string `json:"operator"`
-	// 是否删除                                        (                            )
-	IsDeleted *bool `json:"is_deleted"`
-	// 创建时间                                        (                            )
-	CreatedAt time.Time `json:"created_at"`
-	// 创建人                                          ( system_user表的user_id )
-	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                            )
-	UpdatedAt *time.Time `json:"updated_at"`
-	// 修改人                                          ( system_user表的user_id )
-	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                            )
-	DeletedAt *time.Time `json:"deleted_at"`
-	// 删除人                                          ( system_user表的user_id )
-	DeletedBy *string `json:"deleted_by"`
+	Operator   *string    `json:"operator"`
+	IsDeleted  *bool      `json:"is_deleted"`
+	UpdatedAt  *time.Time `json:"updated_at"`
+	UpdatedBy  *string    `json:"updated_by"`
+	DeletedAt  *time.Time `json:"deleted_at"`
+	DeletedBy  *string    `json:"deleted_by"`
 }
 
-// aggregated selection of "temp_id_card_download_log"
-type TempIDCardDownloadLogAggregate struct {
-	Aggregate *TempIDCardDownloadLogAggregateFields `json:"aggregate"`
+// aggregate max on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogMaxFields struct {
+	ID                         *int64     `json:"id"`
+	TempIdentityCardDownloadID *string    `json:"temp_identity_card_download_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	ValidFrom                  *time.Time `json:"valid_from"`
+	ValidUntil                 *time.Time `json:"valid_until"`
+	Operator                   *string    `json:"operator"`
+	IsDeleted                  *bool      `json:"is_deleted"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
-// aggregate fields of "temp_id_card_download_log"
-type TempIDCardDownloadLogAggregateFields struct {
-	Avg        *TempIDCardDownloadLogAvgFields        `json:"avg"`
-	Count      *int                                   `json:"count"`
-	Max        *TempIDCardDownloadLogMaxFields        `json:"max"`
-	Min        *TempIDCardDownloadLogMinFields        `json:"min"`
-	Stddev     *TempIDCardDownloadLogStddevFields     `json:"stddev"`
-	StddevPop  *TempIDCardDownloadLogStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *TempIDCardDownloadLogStddevSampFields `json:"stddev_samp"`
-	Sum        *TempIDCardDownloadLogSumFields        `json:"sum"`
-	VarPop     *TempIDCardDownloadLogVarPopFields     `json:"var_pop"`
-	VarSamp    *TempIDCardDownloadLogVarSampFields    `json:"var_samp"`
-	Variance   *TempIDCardDownloadLogVarianceFields   `json:"variance"`
+// aggregate min on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogMinFields struct {
+	ID                         *int64     `json:"id"`
+	TempIdentityCardDownloadID *string    `json:"temp_identity_card_download_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	ValidFrom                  *time.Time `json:"valid_from"`
+	ValidUntil                 *time.Time `json:"valid_until"`
+	Operator                   *string    `json:"operator"`
+	IsDeleted                  *bool      `json:"is_deleted"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
-// aggregate avg on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogAvgFields struct {
+// response of any mutation on the table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogMutationResponse struct {
+	AffectedRows int                                   `json:"affected_rows"`
+	Returning    []*model1.TempIdentityCardDownloadLog `json:"returning"`
+}
+
+// ordering options when selecting data from "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogOrderBy struct {
+	ID                         *model.OrderBy `json:"id"`
+	TempIdentityCardDownloadID *model.OrderBy `json:"temp_identity_card_download_id"`
+	VehicleID                  *model.OrderBy `json:"vehicle_id"`
+	ValidFrom                  *model.OrderBy `json:"valid_from"`
+	ValidUntil                 *model.OrderBy `json:"valid_until"`
+	Operator                   *model.OrderBy `json:"operator"`
+	IsDeleted                  *model.OrderBy `json:"is_deleted"`
+	CreatedAt                  *model.OrderBy `json:"created_at"`
+	CreatedBy                  *model.OrderBy `json:"created_by"`
+	UpdatedAt                  *model.OrderBy `json:"updated_at"`
+	UpdatedBy                  *model.OrderBy `json:"updated_by"`
+	DeletedAt                  *model.OrderBy `json:"deleted_at"`
+	DeletedBy                  *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogSetInput struct {
+	ID                         *int64     `json:"id"`
+	TempIdentityCardDownloadID *string    `json:"temp_identity_card_download_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	ValidFrom                  *time.Time `json:"valid_from"`
+	ValidUntil                 *time.Time `json:"valid_until"`
+	Operator                   *string    `json:"operator"`
+	IsDeleted                  *bool      `json:"is_deleted"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogStddevFields struct {
 	ID *int64 `json:"id"`
 }
 
-// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'temp_id_card_download_log'.
-type TempIDCardDownloadLogBoolExp struct {
-	And                  []*TempIDCardDownloadLogBoolExp `json:"_and"`
-	Not                  *TempIDCardDownloadLogBoolExp   `json:"_not"`
-	Or                   []*TempIDCardDownloadLogBoolExp `json:"_or"`
-	ID                   *model.BigintComparisonExp      `json:"id"`
-	TempIDCardDownloadID *model.StringComparisonExp      `json:"temp_id_card_download_id"`
-	VehicleID            *model.StringComparisonExp      `json:"vehicle_id"`
-	ValidFrom            *model.TimestamptzComparisonExp `json:"valid_from"`
-	ValidUntil           *model.TimestamptzComparisonExp `json:"valid_until"`
-	Operator             *model.StringComparisonExp      `json:"operator"`
-	IsDeleted            *model.BooleanComparisonExp     `json:"is_deleted"`
-	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
-	UpdatedAt            *model.TimestamptzComparisonExp `json:"updated_at"`
-	UpdatedBy            *model.StringComparisonExp      `json:"updated_by"`
-	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
-}
-
-// input type for incrementing integer column in table "temp_id_card_download_log"
-type TempIDCardDownloadLogIncInput struct {
+// aggregate stddev_pop on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogStddevPopFields struct {
 	ID *int64 `json:"id"`
 }
 
-// input type for inserting data into table "temp_id_card_download_log"
-type TempIDCardDownloadLogInsertInput struct {
-	ID                   *int64     `json:"id"`
-	TempIDCardDownloadID *string    `json:"temp_id_card_download_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	ValidFrom            *time.Time `json:"valid_from"`
-	ValidUntil           *time.Time `json:"valid_until"`
-	Operator             *string    `json:"operator"`
-	IsDeleted            *bool      `json:"is_deleted"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-}
-
-// aggregate max on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogMaxFields struct {
-	ID                   *int64     `json:"id"`
-	TempIDCardDownloadID *string    `json:"temp_id_card_download_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	ValidFrom            *time.Time `json:"valid_from"`
-	ValidUntil           *time.Time `json:"valid_until"`
-	Operator             *string    `json:"operator"`
-	IsDeleted            *bool      `json:"is_deleted"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-}
-
-// aggregate min on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogMinFields struct {
-	ID                   *int64     `json:"id"`
-	TempIDCardDownloadID *string    `json:"temp_id_card_download_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	ValidFrom            *time.Time `json:"valid_from"`
-	ValidUntil           *time.Time `json:"valid_until"`
-	Operator             *string    `json:"operator"`
-	IsDeleted            *bool      `json:"is_deleted"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-}
-
-// response of any mutation on the table "temp_id_card_download_log"
-type TempIDCardDownloadLogMutationResponse struct {
-	AffectedRows int                      `json:"affected_rows"`
-	Returning    []*TempIDCardDownloadLog `json:"returning"`
-}
-
-// ordering options when selecting data from "temp_id_card_download_log"
-type TempIDCardDownloadLogOrderBy struct {
-	ID                   *model.OrderBy `json:"id"`
-	TempIDCardDownloadID *model.OrderBy `json:"temp_id_card_download_id"`
-	VehicleID            *model.OrderBy `json:"vehicle_id"`
-	ValidFrom            *model.OrderBy `json:"valid_from"`
-	ValidUntil           *model.OrderBy `json:"valid_until"`
-	Operator             *model.OrderBy `json:"operator"`
-	IsDeleted            *model.OrderBy `json:"is_deleted"`
-	CreatedAt            *model.OrderBy `json:"created_at"`
-	CreatedBy            *model.OrderBy `json:"created_by"`
-	UpdatedAt            *model.OrderBy `json:"updated_at"`
-	UpdatedBy            *model.OrderBy `json:"updated_by"`
-	DeletedAt            *model.OrderBy `json:"deleted_at"`
-	DeletedBy            *model.OrderBy `json:"deleted_by"`
-}
-
-// input type for updating data in table "temp_id_card_download_log"
-type TempIDCardDownloadLogSetInput struct {
-	ID                   *int64     `json:"id"`
-	TempIDCardDownloadID *string    `json:"temp_id_card_download_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	ValidFrom            *time.Time `json:"valid_from"`
-	ValidUntil           *time.Time `json:"valid_until"`
-	Operator             *string    `json:"operator"`
-	IsDeleted            *bool      `json:"is_deleted"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-}
-
-// aggregate stddev on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogStddevFields struct {
+// aggregate stddev_samp on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogStddevSampFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate stddev_pop on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogStddevPopFields struct {
+// aggregate sum on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogSumFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate stddev_samp on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogStddevSampFields struct {
+// aggregate var_pop on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogVarPopFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate sum on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogSumFields struct {
+// aggregate var_samp on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogVarSampFields struct {
 	ID *int64 `json:"id"`
 }
 
-// aggregate var_pop on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogVarPopFields struct {
-	ID *int64 `json:"id"`
-}
-
-// aggregate var_samp on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogVarSampFields struct {
-	ID *int64 `json:"id"`
-}
-
-// aggregate variance on columns of table "temp_id_card_download_log"
-type TempIDCardDownloadLogVarianceFields struct {
+// aggregate variance on columns of table "temp_identity_card_download_log"
+type TempIdentityCardDownloadLogVarianceFields struct {
 	ID *int64 `json:"id"`
 }
 
@@ -3402,19 +3295,15 @@ type VehicleEnterpriseChangeLogIncInput struct {
 
 // input type for inserting data into table "vehicle_enterprise_change_log"
 type VehicleEnterpriseChangeLogInsertInput struct {
-	ID                           *int64     `json:"id"`
-	VehicleEnterpriseChangeLogID *string    `json:"vehicle_enterprise_change_log_id"`
-	ChangedType                  *int       `json:"changed_type"`
-	ChangedStep                  *int       `json:"changed_step"`
-	Operator                     *string    `json:"operator"`
-	ChangeReviewID               *string    `json:"change_review_id"`
-	ReviewStatus                 *int       `json:"review_status"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
-	UpdatedAt                    *time.Time `json:"updated_at"`
-	UpdatedBy                    *string    `json:"updated_by"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
+	ChangedType    *int       `json:"changed_type"`
+	ChangedStep    *int       `json:"changed_step"`
+	Operator       *string    `json:"operator"`
+	ChangeReviewID *string    `json:"change_review_id"`
+	ReviewStatus   *int       `json:"review_status"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_enterprise_change_log"
@@ -3608,24 +3497,19 @@ type VehicleEnterpriseChangeReviewIncInput struct {
 
 // input type for inserting data into table "vehicle_enterprise_change_review"
 type VehicleEnterpriseChangeReviewInsertInput struct {
-	ID                              *int64     `json:"id"`
-	VehicleEnterpriseChangeReviewID *string    `json:"vehicle_enterprise_change_review_id"`
-	VehicleID                       *string    `json:"vehicle_id"`
-	TargetEnterpriseID              *string    `json:"target_enterprise_id"`
-	Remarks                         *string    `json:"remarks"`
-	UploadDocumentSrc               *string    `json:"upload_document_src"`
-	ReviewStatus                    *int       `json:"review_status"`
-	ChangeType                      *int       `json:"change_type"`
-	OriginalArea                    *string    `json:"original_area"`
-	ChangedArea                     *string    `json:"changed_area"`
-	ChangedSelfNumber               *string    `json:"changed_self_number"`
-	IsDeleted                       *bool      `json:"is_deleted"`
-	CreatedAt                       *time.Time `json:"created_at"`
-	CreatedBy                       *string    `json:"created_by"`
-	UpdatedAt                       *time.Time `json:"updated_at"`
-	UpdatedBy                       *string    `json:"updated_by"`
-	DeletedAt                       *time.Time `json:"deleted_at"`
-	DeletedBy                       *string    `json:"deleted_by"`
+	TargetEnterpriseID *string    `json:"target_enterprise_id"`
+	Remarks            *string    `json:"remarks"`
+	UploadDocumentSrc  *string    `json:"upload_document_src"`
+	ReviewStatus       *int       `json:"review_status"`
+	ChangeType         *int       `json:"change_type"`
+	OriginalArea       *string    `json:"original_area"`
+	ChangedArea        *string    `json:"changed_area"`
+	ChangedSelfNumber  *string    `json:"changed_self_number"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_enterprise_change_review"
@@ -3832,16 +3716,12 @@ type VehicleExitCatalogLogIncInput struct {
 
 // input type for inserting data into table "vehicle_exit_catalog_log"
 type VehicleExitCatalogLogInsertInput struct {
-	ID                         *int64     `json:"id"`
-	VehicleExitCatalogLogID    *string    `json:"vehicle_exit_catalog_log_id"`
 	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
 	ExitType                   *int       `json:"exit_type"`
 	ExitStep                   *int       `json:"exit_step"`
 	Operator                   *string    `json:"operator"`
 	ReviewStatus               *int       `json:"review_status"`
 	ReviewUserGroup            *int       `json:"review_user_group"`
-	CreatedAt                  *time.Time `json:"created_at"`
-	CreatedBy                  *string    `json:"created_by"`
 	UpdatedAt                  *time.Time `json:"updated_at"`
 	UpdatedBy                  *string    `json:"updated_by"`
 	DeletedAt                  *time.Time `json:"deleted_at"`
@@ -4053,25 +3933,20 @@ type VehicleExitCatalogReviewIncInput struct {
 
 // input type for inserting data into table "vehicle_exit_catalog_review"
 type VehicleExitCatalogReviewInsertInput struct {
-	ID                         *int64     `json:"id"`
-	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
-	VehicleID                  *string    `json:"vehicle_id"`
-	EnterpriseID               *string    `json:"enterprise_id"`
-	Remarks                    *string    `json:"remarks"`
-	ReviewStatus               *int       `json:"review_status"`
-	ExitType                   *int       `json:"exit_type"`
-	ExitStep                   *int       `json:"exit_step"`
-	AreaID                     *string    `json:"area_id"`
-	OriginalEnterpriseID       *string    `json:"original_enterprise_id"`
-	OriginalEnterpriseName     *string    `json:"original_enterprise_name"`
-	OriginalSelfNumber         *string    `json:"original_self_number"`
-	IsDeleted                  *bool      `json:"is_deleted"`
-	CreatedAt                  *time.Time `json:"created_at"`
-	CreatedBy                  *string    `json:"created_by"`
-	UpdatedAt                  *time.Time `json:"updated_at"`
-	UpdatedBy                  *string    `json:"updated_by"`
-	DeletedAt                  *time.Time `json:"deleted_at"`
-	DeletedBy                  *string    `json:"deleted_by"`
+	EnterpriseID           *string    `json:"enterprise_id"`
+	Remarks                *string    `json:"remarks"`
+	ReviewStatus           *int       `json:"review_status"`
+	ExitType               *int       `json:"exit_type"`
+	ExitStep               *int       `json:"exit_step"`
+	AreaID                 *string    `json:"area_id"`
+	OriginalEnterpriseID   *string    `json:"original_enterprise_id"`
+	OriginalEnterpriseName *string    `json:"original_enterprise_name"`
+	OriginalSelfNumber     *string    `json:"original_self_number"`
+	IsDeleted              *bool      `json:"is_deleted"`
+	UpdatedAt              *time.Time `json:"updated_at"`
+	UpdatedBy              *string    `json:"updated_by"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_exit_catalog_review"
@@ -4284,9 +4159,6 @@ type VehicleIncrementRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_increment_record"
 type VehicleIncrementRecordInsertInput struct {
-	ID                 *int64     `json:"id"`
-	IncrementRecordID  *string    `json:"increment_record_id"`
-	VehicleID          *string    `json:"vehicle_id"`
 	EnterpriseID       *string    `json:"enterprise_id"`
 	SelfNumber         *string    `json:"self_number"`
 	OperationType      *string    `json:"operation_type"`
@@ -4295,8 +4167,6 @@ type VehicleIncrementRecordInsertInput struct {
 	Area               *string    `json:"area"`
 	OriginalNumber     *string    `json:"original_number"`
 	Operator           *string    `json:"operator"`
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
 	UpdatedAt          *time.Time `json:"updated_at"`
 	UpdatedBy          *string    `json:"updated_by"`
 	DeletedAt          *time.Time `json:"deleted_at"`
@@ -4552,8 +4422,6 @@ type VehicleInfoIncInput struct {
 
 // input type for inserting data into table "vehicle_info"
 type VehicleInfoInsertInput struct {
-	ID                          *int64     `json:"id"`
-	VehicleID                   *string    `json:"vehicle_id"`
 	EnterpriseID                *string    `json:"enterprise_id"`
 	DepartmentID                *string    `json:"department_id"`
 	IndustryCategory            *int       `json:"industry_category"`
@@ -4601,8 +4469,6 @@ type VehicleInfoInsertInput struct {
 	IsDeleted                   *bool      `json:"is_deleted"`
 	RecordAt                    *time.Time `json:"record_at"`
 	RecordBy                    *string    `json:"record_by"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
 	DeletedAt                   *time.Time `json:"deleted_at"`
@@ -5049,19 +4915,14 @@ type VehicleOnlineTimeIncInput struct {
 
 // input type for inserting data into table "vehicle_online_time"
 type VehicleOnlineTimeInsertInput struct {
-	ID           *int64     `json:"id"`
-	OnlineTimeID *string    `json:"online_time_id"`
-	VehicleID    *string    `json:"vehicle_id"`
-	OnlineTime   *float64   `json:"online_time"`
-	OfflineTime  *float64   `json:"offline_time"`
-	TotalTime    *float64   `json:"total_time"`
-	IsOnline     *bool      `json:"is_online"`
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
-	UpdatedAt    *time.Time `json:"updated_at"`
-	UpdatedBy    *string    `json:"updated_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
+	OnlineTime  *float64   `json:"online_time"`
+	OfflineTime *float64   `json:"offline_time"`
+	TotalTime   *float64   `json:"total_time"`
+	IsOnline    *bool      `json:"is_online"`
+	UpdatedAt   *time.Time `json:"updated_at"`
+	UpdatedBy   *string    `json:"updated_by"`
+	DeletedAt   *time.Time `json:"deleted_at"`
+	DeletedBy   *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_online_time"
@@ -5252,21 +5113,16 @@ type VehicleOperationHistoryIncInput struct {
 
 // input type for inserting data into table "vehicle_operation_history"
 type VehicleOperationHistoryInsertInput struct {
-	ID                        *int64     `json:"id"`
-	VehicleOperationHistoryID *string    `json:"vehicle_operation_history_id"`
-	VehicleID                 *string    `json:"vehicle_id"`
-	Remarks                   *string    `json:"remarks"`
-	OperationType             *int       `json:"operation_type"`
-	Operator                  *string    `json:"operator"`
-	ReviewStatus              *int       `json:"review_status"`
-	Area                      *string    `json:"area"`
-	Reviewer                  *string    `json:"reviewer"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
+	Remarks       *string    `json:"remarks"`
+	OperationType *int       `json:"operation_type"`
+	Operator      *string    `json:"operator"`
+	ReviewStatus  *int       `json:"review_status"`
+	Area          *string    `json:"area"`
+	Reviewer      *string    `json:"reviewer"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_operation_history"
@@ -5456,19 +5312,14 @@ type VehicleReserveHistoryRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_reserve_history_record"
 type VehicleReserveHistoryRecordInsertInput struct {
-	ID                            *int64     `json:"id"`
-	VehicleReserveHistoryRecordID *string    `json:"vehicle_reserve_history_record_id"`
-	VehicleID                     *string    `json:"vehicle_id"`
-	Operation                     *int       `json:"operation"`
-	OperationUser                 *string    `json:"operation_user"`
-	OperationTime                 *time.Time `json:"operation_time"`
-	OperationSource               *int       `json:"operation_source"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	UpdatedAt                     *time.Time `json:"updated_at"`
-	UpdatedBy                     *string    `json:"updated_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
+	Operation       *int       `json:"operation"`
+	OperationUser   *string    `json:"operation_user"`
+	OperationTime   *time.Time `json:"operation_time"`
+	OperationSource *int       `json:"operation_source"`
+	UpdatedAt       *time.Time `json:"updated_at"`
+	UpdatedBy       *string    `json:"updated_by"`
+	DeletedAt       *time.Time `json:"deleted_at"`
+	DeletedBy       *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_reserve_history_record"
@@ -5674,27 +5525,22 @@ type VehicleSecurityCheckRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_security_check_record"
 type VehicleSecurityCheckRecordInsertInput struct {
-	ID                           *int64     `json:"id"`
-	VehicleSecurityCheckRecordID *string    `json:"vehicle_security_check_record_id"`
-	VehicleID                    *string    `json:"vehicle_id"`
-	EnterpriseID                 *string    `json:"enterprise_id"`
-	Brake                        *int       `json:"brake"`
-	Tire                         *int       `json:"tire"`
-	Screw                        *int       `json:"screw"`
-	HydraulicOil                 *int       `json:"hydraulic_oil"`
-	EngineOil                    *int       `json:"engine_oil"`
-	Water                        *int       `json:"water"`
-	Headlight                    *int       `json:"headlight"`
-	Taillight                    *int       `json:"taillight"`
-	TurnSignal                   *int       `json:"turn_signal"`
-	BrakeLight                   *int       `json:"brake_light"`
-	LastCheckTime                *time.Time `json:"last_check_time"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
-	UpdatedAt                    *time.Time `json:"updated_at"`
-	UpdatedBy                    *string    `json:"updated_by"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
+	EnterpriseID  *string    `json:"enterprise_id"`
+	Brake         *int       `json:"brake"`
+	Tire          *int       `json:"tire"`
+	Screw         *int       `json:"screw"`
+	HydraulicOil  *int       `json:"hydraulic_oil"`
+	EngineOil     *int       `json:"engine_oil"`
+	Water         *int       `json:"water"`
+	Headlight     *int       `json:"headlight"`
+	Taillight     *int       `json:"taillight"`
+	TurnSignal    *int       `json:"turn_signal"`
+	BrakeLight    *int       `json:"brake_light"`
+	LastCheckTime *time.Time `json:"last_check_time"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_security_check_record"
@@ -5961,20 +5807,15 @@ type VehicleStateLatestIncInput struct {
 
 // input type for inserting data into table "vehicle_state_latest"
 type VehicleStateLatestInsertInput struct {
-	ID                   *int64     `json:"id"`
-	VehicleStateLatestID *string    `json:"vehicle_state_latest_id"`
-	VehicleID            *string    `json:"vehicle_id"`
-	OperationType        *string    `json:"operation_type"`
-	Operator             *string    `json:"operator"`
-	OperatorInstitution  *string    `json:"operator_institution"`
-	Status               *string    `json:"status"`
-	SpeedLimit           *string    `json:"speed_limit"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
+	OperationType       *string    `json:"operation_type"`
+	Operator            *string    `json:"operator"`
+	OperatorInstitution *string    `json:"operator_institution"`
+	Status              *string    `json:"status"`
+	SpeedLimit          *string    `json:"speed_limit"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_state_latest"
@@ -6146,21 +5987,16 @@ type VehicleStatusChangeLogIncInput struct {
 
 // input type for inserting data into table "vehicle_status_change_log"
 type VehicleStatusChangeLogInsertInput struct {
-	ID                       *int64     `json:"id"`
-	VehicleStatusChangeLogID *string    `json:"vehicle_status_change_log_id"`
-	VehicleID                *string    `json:"vehicle_id"`
-	TerminalID               *string    `json:"terminal_id"`
-	StartTime                *time.Time `json:"start_time"`
-	EndTime                  *time.Time `json:"end_time"`
-	VehicleStatusType        *int       `json:"vehicle_status_type"`
-	Value                    *string    `json:"value"`
-	IsCompleted              *bool      `json:"is_completed"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
-	UpdatedAt                *time.Time `json:"updated_at"`
-	UpdatedBy                *string    `json:"updated_by"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
+	TerminalID        *string    `json:"terminal_id"`
+	StartTime         *time.Time `json:"start_time"`
+	EndTime           *time.Time `json:"end_time"`
+	VehicleStatusType *int       `json:"vehicle_status_type"`
+	Value             *string    `json:"value"`
+	IsCompleted       *bool      `json:"is_completed"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_status_change_log"
@@ -6341,9 +6177,6 @@ type VehicleSupervisionPhotoIncInput struct {
 
 // input type for inserting data into table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoInsertInput struct {
-	ID                      *int64     `json:"id"`
-	SupervisionPhotoID      *string    `json:"supervision_photo_id"`
-	VehicleID               *string    `json:"vehicle_id"`
 	DriverID                *string    `json:"driver_id"`
 	EnterpriseID            *string    `json:"enterprise_id"`
 	CameraID                *int       `json:"camera_id"`
@@ -6480,23 +6313,23 @@ const (
 	CatalogNewVehicleRecordSelectColumnID CatalogNewVehicleRecordSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	CatalogNewVehicleRecordSelectColumnCatalogNewVehicleRecordID CatalogNewVehicleRecordSelectColumn = "catalog_new_vehicle_record_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	CatalogNewVehicleRecordSelectColumnVehicleID CatalogNewVehicleRecordSelectColumn = "vehicle_id"
-	// 终端ID                                          (                            )
+	// 终端ID
 	CatalogNewVehicleRecordSelectColumnTerminalID CatalogNewVehicleRecordSelectColumn = "terminal_id"
 	// 审核人                                          ( system_user表的user_id )
 	CatalogNewVehicleRecordSelectColumnReviewer CatalogNewVehicleRecordSelectColumn = "reviewer"
-	// 是否删除                                        (                            )
+	// 是否删除
 	CatalogNewVehicleRecordSelectColumnIsDeleted CatalogNewVehicleRecordSelectColumn = "is_deleted"
-	// 创建时间                                        (                            )
+	// 创建时间
 	CatalogNewVehicleRecordSelectColumnCreatedAt CatalogNewVehicleRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	CatalogNewVehicleRecordSelectColumnCreatedBy CatalogNewVehicleRecordSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	CatalogNewVehicleRecordSelectColumnUpdatedAt CatalogNewVehicleRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	CatalogNewVehicleRecordSelectColumnUpdatedBy CatalogNewVehicleRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	CatalogNewVehicleRecordSelectColumnDeletedAt CatalogNewVehicleRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	CatalogNewVehicleRecordSelectColumnDeletedBy CatalogNewVehicleRecordSelectColumn = "deleted_by"
@@ -6552,49 +6385,49 @@ type JjVehicleSelectColumn string
 const (
 	// 按指定方法生成                           ( 主键    )
 	JjVehicleSelectColumnID JjVehicleSelectColumn = "id"
-	// vehicle_info 车辆信息表 的vehicle_id (         )
+	// vehicle_info 车辆信息表 的vehicle_id
 	JjVehicleSelectColumnVehicleID JjVehicleSelectColumn = "vehicle_id"
-	// 车牌号码                                 (         )
+	// 车牌号码
 	JjVehicleSelectColumnHphm JjVehicleSelectColumn = "hphm"
-	// 号牌种类                                 (         )
+	// 号牌种类
 	JjVehicleSelectColumnHpzl JjVehicleSelectColumn = "hpzl"
-	// 所有人                                   (         )
+	// 所有人
 	JjVehicleSelectColumnSyr JjVehicleSelectColumn = "syr"
-	// 使用性质                                 (         )
+	// 使用性质
 	JjVehicleSelectColumnSyxz JjVehicleSelectColumn = "syxz"
-	// 总质量                                   (         )
+	// 总质量
 	JjVehicleSelectColumnZzl JjVehicleSelectColumn = "zzl"
-	// 车辆类型                                 (         )
+	// 车辆类型
 	JjVehicleSelectColumnCllx JjVehicleSelectColumn = "cllx"
-	// 有效期至                                 (         )
+	// 有效期至
 	JjVehicleSelectColumnYxqz JjVehicleSelectColumn = "yxqz"
-	// 强制报废期止                             (         )
+	// 强制报废期止
 	JjVehicleSelectColumnQzbfqz JjVehicleSelectColumn = "qzbfqz"
-	// 车辆识别代号                             (         )
+	// 车辆识别代号
 	JjVehicleSelectColumnClsbdh JjVehicleSelectColumn = "clsbdh"
-	// 所在县                                   (         )
+	// 所在县
 	JjVehicleSelectColumnCounty JjVehicleSelectColumn = "county"
-	// 联系地址                                 (         )
+	// 联系地址
 	JjVehicleSelectColumnLxdz JjVehicleSelectColumn = "lxdz"
-	// 固话                                     (         )
+	// 固话
 	JjVehicleSelectColumnOther JjVehicleSelectColumn = "other"
-	// 联系电话                                 (         )
+	// 联系电话
 	JjVehicleSelectColumnLxdh JjVehicleSelectColumn = "lxdh"
-	// 机动车状态                               (         )
+	// 机动车状态
 	JjVehicleSelectColumnZt JjVehicleSelectColumn = "zt"
-	// 经营范围                                 (         )
+	// 经营范围
 	JjVehicleSelectColumnVehmontype JjVehicleSelectColumn = "vehmontype"
-	// 初次登记日期                             (         )
+	// 初次登记日期
 	JjVehicleSelectColumnCcdjrq JjVehicleSelectColumn = "ccdjrq"
-	// 登记日期                                 (         )
+	// 登记日期
 	JjVehicleSelectColumnDjrq JjVehicleSelectColumn = "djrq"
-	// 发牌日期                                 (         )
+	// 发牌日期
 	JjVehicleSelectColumnFprq JjVehicleSelectColumn = "fprq"
-	// 更新时间                                 (         )
+	// 更新时间
 	JjVehicleSelectColumnUpdatetime JjVehicleSelectColumn = "updatetime"
-	// 型号                                     (         )
+	// 型号
 	JjVehicleSelectColumnXh JjVehicleSelectColumn = "xh"
-	// 是否删除                                 (         )
+	// 是否删除
 	JjVehicleSelectColumnIsDeteled JjVehicleSelectColumn = "is_deteled"
 )
 
@@ -6659,129 +6492,129 @@ type MuckTruckExtSelectColumn string
 const (
 	// 按指定方法生成                                         ( 主键                       )
 	MuckTruckExtSelectColumnID MuckTruckExtSelectColumn = "id"
-	// vehicle_info 车辆信息表 的vehicle_id               (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	MuckTruckExtSelectColumnVehicleID MuckTruckExtSelectColumn = "vehicle_id"
-	// 车辆图片                                               (                            )
+	// 车辆图片
 	MuckTruckExtSelectColumnVehiclePicture MuckTruckExtSelectColumn = "vehicle_picture"
-	// 发动机号                                               (                            )
+	// 发动机号
 	MuckTruckExtSelectColumnEngineNumber MuckTruckExtSelectColumn = "engine_number"
-	// 审核时间                                               (                            )
+	// 审核时间
 	MuckTruckExtSelectColumnReviewTime MuckTruckExtSelectColumn = "review_time"
 	// 审核人                                                 ( system_user表的user_id )
 	MuckTruckExtSelectColumnReviewer MuckTruckExtSelectColumn = "reviewer"
-	// 审核备注                                               (                            )
+	// 审核备注
 	MuckTruckExtSelectColumnReviewNotes MuckTruckExtSelectColumn = "review_notes"
-	// 审核状态                                               (                            )
+	// 审核状态
 	MuckTruckExtSelectColumnReviewStatus MuckTruckExtSelectColumn = "review_status"
-	// 保险到期时间                                           (                            )
+	// 保险到期时间
 	MuckTruckExtSelectColumnInsuranceExpiryTime MuckTruckExtSelectColumn = "insurance_expiry_time"
-	// 年检到期时间                                           (                            )
+	// 年检到期时间
 	MuckTruckExtSelectColumnAnnualInspectionExpirationTime MuckTruckExtSelectColumn = "annual_inspection_expiration_time"
-	// 车辆描述                                               (                            )
+	// 车辆描述
 	MuckTruckExtSelectColumnVehicleDescription MuckTruckExtSelectColumn = "vehicle_description"
-	// 行驶证登记的车主身份证号                               (                            )
+	// 行驶证登记的车主身份证号
 	MuckTruckExtSelectColumnDrivingLicenseIDNumber MuckTruckExtSelectColumn = "driving_license_id_number"
-	// 行驶证登记的车主联系电话                               (                            )
+	// 行驶证登记的车主联系电话
 	MuckTruckExtSelectColumnDrivingLicenseContactPhone MuckTruckExtSelectColumn = "driving_license_contact_phone"
-	// 是否安检到期报警处理                                   (                            )
+	// 是否安检到期报警处理
 	MuckTruckExtSelectColumnIsDueSecurityAlarmProcessing MuckTruckExtSelectColumn = "is_due_security_alarm_processing"
 	// 处理人                                                 ( system_user表的user_id )
 	MuckTruckExtSelectColumnProcessor MuckTruckExtSelectColumn = "processor"
-	// 处理时间                                               (                            )
+	// 处理时间
 	MuckTruckExtSelectColumnProcessingTime MuckTruckExtSelectColumn = "processing_time"
-	// 处理备注                                               (                            )
+	// 处理备注
 	MuckTruckExtSelectColumnProcessingNotes MuckTruckExtSelectColumn = "processing_notes"
-	// 是否发送短信                                           (                            )
+	// 是否发送短信
 	MuckTruckExtSelectColumnIsSendSms MuckTruckExtSelectColumn = "is_send_sms"
-	// 是否黑名单                                             (                            )
+	// 是否黑名单
 	MuckTruckExtSelectColumnIsBlacklist MuckTruckExtSelectColumn = "is_blacklist"
-	// 黑名单截止日期                                         (                            )
+	// 黑名单截止日期
 	MuckTruckExtSelectColumnBlacklistDeadline MuckTruckExtSelectColumn = "blacklist_deadline"
-	// 交强险到期时间                                         (                            )
+	// 交强险到期时间
 	MuckTruckExtSelectColumnCompulsoryTrafficInsuranceExpiryDate MuckTruckExtSelectColumn = "compulsory_traffic_insurance_expiry_date"
-	// 车主身份证照片                                         (                            )
+	// 车主身份证照片
 	MuckTruckExtSelectColumnOwnerIDPhoto MuckTruckExtSelectColumn = "owner_id_photo"
-	// 车辆性质  1.本企业车辆  2.企业挂靠车辆  3.车队挂靠车辆 (                            )
+	// 车辆性质  1.本企业车辆  2.企业挂靠车辆  3.车队挂靠车辆
 	MuckTruckExtSelectColumnVehicleNature MuckTruckExtSelectColumn = "vehicle_nature"
-	// 实际车主姓名                                           (                            )
+	// 实际车主姓名
 	MuckTruckExtSelectColumnActualOwnerName MuckTruckExtSelectColumn = "actual_owner_name"
-	// 实际车主身份证号                                       (                            )
+	// 实际车主身份证号
 	MuckTruckExtSelectColumnActualOwnerIDNumber MuckTruckExtSelectColumn = "actual_owner_id_number"
-	// 实际车主身份证照片                                     (                            )
+	// 实际车主身份证照片
 	MuckTruckExtSelectColumnActualOwnerIDPhoto MuckTruckExtSelectColumn = "actual_owner_id_photo"
-	// 实际车主联系电话                                       (                            )
+	// 实际车主联系电话
 	MuckTruckExtSelectColumnActualOwnerContactPhone MuckTruckExtSelectColumn = "actual_owner_contact_phone"
-	// 违法编号签注                                           (                            )
+	// 违法编号签注
 	MuckTruckExtSelectColumnIllegalNumberEndorsement MuckTruckExtSelectColumn = "illegal_number_endorsement"
-	// 违法通知书编号签注                                     (                            )
+	// 违法通知书编号签注
 	MuckTruckExtSelectColumnIllegalNoticeNumberEndorsement MuckTruckExtSelectColumn = "illegal_notice_number_endorsement"
-	// 违法强制措施编号签注                                   (                            )
+	// 违法强制措施编号签注
 	MuckTruckExtSelectColumnIllegalCompulsoryMeasuresNumber MuckTruckExtSelectColumn = "illegal_compulsory_measures_number"
-	// 事故编号签注                                           (                            )
+	// 事故编号签注
 	MuckTruckExtSelectColumnIncidentNumberEndorsement MuckTruckExtSelectColumn = "incident_number_endorsement"
-	// 是否渣土办审核                                         (                            )
+	// 是否渣土办审核
 	MuckTruckExtSelectColumnIsMuckOfficeAudit MuckTruckExtSelectColumn = "is_muck_office_audit"
-	// 是否首次注册                                           (                            )
+	// 是否首次注册
 	MuckTruckExtSelectColumnIsFirstRegister MuckTruckExtSelectColumn = "is_first_register"
-	// 二级维护地点                                           (                            )
+	// 二级维护地点
 	MuckTruckExtSelectColumnSecondaryMaintenanceLocation MuckTruckExtSelectColumn = "secondary_maintenance_location"
-	// 二级维护检测到期时间                                   (                            )
+	// 二级维护检测到期时间
 	MuckTruckExtSelectColumnSecondaryMaintenanceExpiryDate MuckTruckExtSelectColumn = "secondary_maintenance_expiry_date"
-	// 总质量                                                 (                            )
+	// 总质量
 	MuckTruckExtSelectColumnTotalMass MuckTruckExtSelectColumn = "total_mass"
-	// 轴数                                                   (                            )
+	// 轴数
 	MuckTruckExtSelectColumnAxesNumber MuckTruckExtSelectColumn = "axes_number"
-	// 行驶证登记的车主身份证照片                             (                            )
+	// 行驶证登记的车主身份证照片
 	MuckTruckExtSelectColumnDrivingLiscenseOwnerIDPhoto MuckTruckExtSelectColumn = "driving_liscense_owner_id_photo"
-	// 初次登记日期                                           (                            )
+	// 初次登记日期
 	MuckTruckExtSelectColumnInitialRegistrationDate MuckTruckExtSelectColumn = "initial_registration_date"
-	// 车辆营运证号                                           (                            )
+	// 车辆营运证号
 	MuckTruckExtSelectColumnVehicleOperatingCertificateNumber MuckTruckExtSelectColumn = "vehicle_operating_certificate_number"
-	// 车辆营运证照片                                         (                            )
+	// 车辆营运证照片
 	MuckTruckExtSelectColumnVehicleOperatingCertificatePhoto MuckTruckExtSelectColumn = "vehicle_operating_certificate_photo"
-	// 泉工号发放日期                                         (                            )
+	// 泉工号发放日期
 	MuckTruckExtSelectColumnIssueDateOfQuangongNumber MuckTruckExtSelectColumn = "issue_date_of_quangong_number"
-	// 申请验车时间                                           (                            )
+	// 申请验车时间
 	MuckTruckExtSelectColumnApplyInspectionTime MuckTruckExtSelectColumn = "apply_inspection_time"
-	// 签收验车申请时间                                       (                            )
+	// 签收验车申请时间
 	MuckTruckExtSelectColumnSigningAcceptanceApplicationTime MuckTruckExtSelectColumn = "signing_acceptance_application_time"
-	// 第三者保险到期时间                                     (                            )
+	// 第三者保险到期时间
 	MuckTruckExtSelectColumnThirdPartyInsuranceExpiryTime MuckTruckExtSelectColumn = "third_party_insurance_expiry_time"
-	// 第三者保额                                             (                            )
+	// 第三者保额
 	MuckTruckExtSelectColumnThirdPartyInsuranceCoverage MuckTruckExtSelectColumn = "third_party_insurance_coverage"
-	// 第三者保单图片                                         (                            )
+	// 第三者保单图片
 	MuckTruckExtSelectColumnThirdPartyInsurancePolicyPicture MuckTruckExtSelectColumn = "third_party_insurance_policy_picture"
-	// 交强险保单图片                                         (                            )
+	// 交强险保单图片
 	MuckTruckExtSelectColumnCompulsoryInsurancePolicyPicture MuckTruckExtSelectColumn = "compulsory_insurance_policy_picture"
-	// 是否删除                                               (                            )
+	// 是否删除
 	MuckTruckExtSelectColumnIsDeleted MuckTruckExtSelectColumn = "is_deleted"
-	// SIM卡号                                                (                            )
+	// SIM卡号
 	MuckTruckExtSelectColumnSimCardNumber MuckTruckExtSelectColumn = "sim_card_number"
-	// 注册日期                                               (                            )
+	// 注册日期
 	MuckTruckExtSelectColumnRegistrationDate MuckTruckExtSelectColumn = "registration_date"
-	// 地区ID                                                 (                            )
+	// 地区ID
 	MuckTruckExtSelectColumnAreaID MuckTruckExtSelectColumn = "area_id"
-	// 费用到期时间                                           (                            )
+	// 费用到期时间
 	MuckTruckExtSelectColumnExpiryDate MuckTruckExtSelectColumn = "expiry_date"
 	// 渣土车类型（1.渣土车 2.混凝土车 3.砂石车）             ( 工程运输车车辆类型字典 )
 	MuckTruckExtSelectColumnMuckTruckType MuckTruckExtSelectColumn = "muck_truck_type"
-	// 是否预备库                                             (                            )
+	// 是否预备库
 	MuckTruckExtSelectColumnIsReserveLibrary MuckTruckExtSelectColumn = "is_reserve_library"
-	// 自编号                                                 (                            )
+	// 自编号
 	MuckTruckExtSelectColumnSelfNumber MuckTruckExtSelectColumn = "self_number"
-	// 移动办卡地                                             (                            )
+	// 移动办卡地
 	MuckTruckExtSelectColumnMobileCardLocation MuckTruckExtSelectColumn = "mobile_card_location"
-	// 装载类别                                               (                            )
+	// 装载类别
 	MuckTruckExtSelectColumnLoadCategory MuckTruckExtSelectColumn = "load_category"
-	// 创建时间                                               (                            )
+	// 创建时间
 	MuckTruckExtSelectColumnCreatedAt MuckTruckExtSelectColumn = "created_at"
 	// 创建人                                                 ( system_user表的user_id )
 	MuckTruckExtSelectColumnCreatedBy MuckTruckExtSelectColumn = "created_by"
-	// 修改时间                                               (                            )
+	// 修改时间
 	MuckTruckExtSelectColumnUpdatedAt MuckTruckExtSelectColumn = "updated_at"
 	// 修改人                                                 ( system_user表的user_id )
 	MuckTruckExtSelectColumnUpdatedBy MuckTruckExtSelectColumn = "updated_by"
-	// 删除时间                                               (                            )
+	// 删除时间
 	MuckTruckExtSelectColumnDeletedAt MuckTruckExtSelectColumn = "deleted_at"
 	// 删除人                                                 ( system_user表的user_id )
 	MuckTruckExtSelectColumnDeletedBy MuckTruckExtSelectColumn = "deleted_by"
@@ -6891,63 +6724,63 @@ const (
 	MuckTruckPreviewNumberSelectColumnID MuckTruckPreviewNumberSelectColumn = "id"
 	// 渣土车车辆预编号外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	MuckTruckPreviewNumberSelectColumnMuckTruckPreviewNumberID MuckTruckPreviewNumberSelectColumn = "muck_truck_preview_number_id"
-	// vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	MuckTruckPreviewNumberSelectColumnVehicleID MuckTruckPreviewNumberSelectColumn = "vehicle_id"
-	// 预编号                                                       (                            )
+	// 预编号
 	MuckTruckPreviewNumberSelectColumnSvnNumber MuckTruckPreviewNumberSelectColumn = "svn_number"
-	// 登记时间                                                     (                            )
+	// 登记时间
 	MuckTruckPreviewNumberSelectColumnRegistrationTime MuckTruckPreviewNumberSelectColumn = "registration_time"
 	// 确认人                                                       ( system_user表的user_id )
 	MuckTruckPreviewNumberSelectColumnConfirmor MuckTruckPreviewNumberSelectColumn = "confirmor"
-	// 确认时间                                                     (                            )
+	// 确认时间
 	MuckTruckPreviewNumberSelectColumnConfirmTime MuckTruckPreviewNumberSelectColumn = "confirm_time"
-	// 确认状态                                                     (                            )
+	// 确认状态
 	MuckTruckPreviewNumberSelectColumnConfirmStatus MuckTruckPreviewNumberSelectColumn = "confirm_status"
-	// 前车牌                                                       (                            )
+	// 前车牌
 	MuckTruckPreviewNumberSelectColumnFrontLicensePlate MuckTruckPreviewNumberSelectColumn = "front_license_plate"
-	// 后车牌                                                       (                            )
+	// 后车牌
 	MuckTruckPreviewNumberSelectColumnRearLicensePlate MuckTruckPreviewNumberSelectColumn = "rear_license_plate"
-	// 侧车牌                                                       (                            )
+	// 侧车牌
 	MuckTruckPreviewNumberSelectColumnSideLicensePlate MuckTruckPreviewNumberSelectColumn = "side_license_plate"
-	// 原编号                                                       (                            )
+	// 原编号
 	MuckTruckPreviewNumberSelectColumnOriginalNumber MuckTruckPreviewNumberSelectColumn = "original_number"
-	// 是否自动审核                                                 (                            )
+	// 是否自动审核
 	MuckTruckPreviewNumberSelectColumnIsReviewAutomatically MuckTruckPreviewNumberSelectColumn = "is_review_automatically"
-	// 制作状态                                                     (                            )
+	// 制作状态
 	MuckTruckPreviewNumberSelectColumnProductionStatus MuckTruckPreviewNumberSelectColumn = "production_status"
-	// 制作时间                                                     (                            )
+	// 制作时间
 	MuckTruckPreviewNumberSelectColumnProductionTime MuckTruckPreviewNumberSelectColumn = "production_time"
-	// 制作中时间                                                   (                            )
+	// 制作中时间
 	MuckTruckPreviewNumberSelectColumnMarkingTime MuckTruckPreviewNumberSelectColumn = "marking_time"
-	// 制作次数                                                     (                            )
+	// 制作次数
 	MuckTruckPreviewNumberSelectColumnProductionTimes MuckTruckPreviewNumberSelectColumn = "production_times"
-	// 提交制牌厂时间                                               (                            )
+	// 提交制牌厂时间
 	MuckTruckPreviewNumberSelectColumnSubmitProductionTime MuckTruckPreviewNumberSelectColumn = "submit_production_time"
-	// 联系人                                                       (                            )
+	// 联系人
 	MuckTruckPreviewNumberSelectColumnContactPerson MuckTruckPreviewNumberSelectColumn = "contact_person"
-	// 联系电话                                                     (                            )
+	// 联系电话
 	MuckTruckPreviewNumberSelectColumnContactPhone MuckTruckPreviewNumberSelectColumn = "contact_phone"
-	// 工号牌颜色（green.绿色 yellow.黄色）                         (                            )
+	// 工号牌颜色（green.绿色 yellow.黄色）
 	MuckTruckPreviewNumberSelectColumnWorkNumberPlateColor MuckTruckPreviewNumberSelectColumn = "work_number_plate_color"
-	// 初次登记日期                                                 (                            )
+	// 初次登记日期
 	MuckTruckPreviewNumberSelectColumnInitialRegistrationDate MuckTruckPreviewNumberSelectColumn = "initial_registration_date"
-	// 违法未处理数                                                 (                            )
+	// 违法未处理数
 	MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber MuckTruckPreviewNumberSelectColumn = "unlawful_violation_number"
-	// 是否登记销售订单                                             (                            )
+	// 是否登记销售订单
 	MuckTruckPreviewNumberSelectColumnIsRegisterSaleOrder MuckTruckPreviewNumberSelectColumn = "is_register_sale_order"
-	// 备注                                                         (                            )
+	// 备注
 	MuckTruckPreviewNumberSelectColumnRemarks MuckTruckPreviewNumberSelectColumn = "remarks"
-	// 是否删除                                                     (                            )
+	// 是否删除
 	MuckTruckPreviewNumberSelectColumnIsDeleted MuckTruckPreviewNumberSelectColumn = "is_deleted"
-	// 创建时间                                                     (                            )
+	// 创建时间
 	MuckTruckPreviewNumberSelectColumnCreatedAt MuckTruckPreviewNumberSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id )
 	MuckTruckPreviewNumberSelectColumnCreatedBy MuckTruckPreviewNumberSelectColumn = "created_by"
-	// 修改时间                                                     (                            )
+	// 修改时间
 	MuckTruckPreviewNumberSelectColumnUpdatedAt MuckTruckPreviewNumberSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id )
 	MuckTruckPreviewNumberSelectColumnUpdatedBy MuckTruckPreviewNumberSelectColumn = "updated_by"
-	// 删除时间                                                     (                            )
+	// 删除时间
 	MuckTruckPreviewNumberSelectColumnDeletedAt MuckTruckPreviewNumberSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id )
 	MuckTruckPreviewNumberSelectColumnDeletedBy MuckTruckPreviewNumberSelectColumn = "deleted_by"
@@ -7025,55 +6858,55 @@ const (
 	MuckTruckTestSituationSelectColumnID MuckTruckTestSituationSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	MuckTruckTestSituationSelectColumnMuckTruckTestSituationID MuckTruckTestSituationSelectColumn = "muck_truck_test_situation_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	MuckTruckTestSituationSelectColumnVehicleID MuckTruckTestSituationSelectColumn = "vehicle_id"
-	// 密闭状态                                        (                            )
+	// 密闭状态
 	MuckTruckTestSituationSelectColumnAirtightState MuckTruckTestSituationSelectColumn = "airtight_state"
-	// 载重状态                                        (                            )
+	// 载重状态
 	MuckTruckTestSituationSelectColumnLoadState MuckTruckTestSituationSelectColumn = "load_state"
-	// 举升状态                                        (                            )
+	// 举升状态
 	MuckTruckTestSituationSelectColumnLiftingStatus MuckTruckTestSituationSelectColumn = "lifting_status"
-	// 视频                                            (                            )
+	// 视频
 	MuckTruckTestSituationSelectColumnVideo MuckTruckTestSituationSelectColumn = "video"
-	// 指纹                                            (                            )
+	// 指纹
 	MuckTruckTestSituationSelectColumnFingerprint MuckTruckTestSituationSelectColumn = "fingerprint"
-	// 锁车功能                                        (                            )
+	// 锁车功能
 	MuckTruckTestSituationSelectColumnCarLockFunction MuckTruckTestSituationSelectColumn = "car_lock_function"
-	// 限速功能                                        (                            )
+	// 限速功能
 	MuckTruckTestSituationSelectColumnSpeedLimitFunction MuckTruckTestSituationSelectColumn = "speed_limit_function"
-	// 部标功能                                        (                            )
+	// 部标功能
 	MuckTruckTestSituationSelectColumnMinistryStandardFunction MuckTruckTestSituationSelectColumn = "ministry_standard_function"
-	// 限举功能                                        (                            )
+	// 限举功能
 	MuckTruckTestSituationSelectColumnWeightLimitFunction MuckTruckTestSituationSelectColumn = "weight_limit_function"
-	// 左转灯                                          (                            )
+	// 左转灯
 	MuckTruckTestSituationSelectColumnLeftTurnLight MuckTruckTestSituationSelectColumn = "left_turn_light"
-	// 右转灯                                          (                            )
+	// 右转灯
 	MuckTruckTestSituationSelectColumnRightTurnRight MuckTruckTestSituationSelectColumn = "right_turn_right"
-	// 远光灯                                          (                            )
+	// 远光灯
 	MuckTruckTestSituationSelectColumnHighBeam MuckTruckTestSituationSelectColumn = "high_beam"
-	// 近光灯                                          (                            )
+	// 近光灯
 	MuckTruckTestSituationSelectColumnLowBeam MuckTruckTestSituationSelectColumn = "low_beam"
-	// 刹车                                            (                            )
+	// 刹车
 	MuckTruckTestSituationSelectColumnBrake MuckTruckTestSituationSelectColumn = "brake"
-	// 车速                                            (                            )
+	// 车速
 	MuckTruckTestSituationSelectColumnSpeed MuckTruckTestSituationSelectColumn = "speed"
-	// 是否检测非法弃土                                (                            )
+	// 是否检测非法弃土
 	MuckTruckTestSituationSelectColumnIsDetectIllegalSpoil MuckTruckTestSituationSelectColumn = "is_detect_illegal_spoil"
-	// 是否检测违规启动                                (                            )
+	// 是否检测违规启动
 	MuckTruckTestSituationSelectColumnIsDetectIllegalStart MuckTruckTestSituationSelectColumn = "is_detect_illegal_start"
-	// 是否通过                                        (                            )
+	// 是否通过
 	MuckTruckTestSituationSelectColumnIsPassed MuckTruckTestSituationSelectColumn = "is_passed"
-	// 是否删除                                        (                            )
+	// 是否删除
 	MuckTruckTestSituationSelectColumnIsDeleted MuckTruckTestSituationSelectColumn = "is_deleted"
-	// 创建时间                                        (                            )
+	// 创建时间
 	MuckTruckTestSituationSelectColumnCreatedAt MuckTruckTestSituationSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	MuckTruckTestSituationSelectColumnCreatedBy MuckTruckTestSituationSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	MuckTruckTestSituationSelectColumnUpdatedAt MuckTruckTestSituationSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	MuckTruckTestSituationSelectColumnUpdatedBy MuckTruckTestSituationSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	MuckTruckTestSituationSelectColumnDeletedAt MuckTruckTestSituationSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	MuckTruckTestSituationSelectColumnDeletedBy MuckTruckTestSituationSelectColumn = "deleted_by"
@@ -7140,70 +6973,70 @@ func (e MuckTruckTestSituationSelectColumn) MarshalGQL(w io.Writer) {
 }
 
 // 可选select
-type MuckTruckWorkerIDCardOrdersSelectColumn string
+type MuckTruckWorkerIdentityCardOrdersSelectColumn string
 
 const (
 	// 按指定方法生成                                               ( 主键                       )
-	MuckTruckWorkerIDCardOrdersSelectColumnID MuckTruckWorkerIDCardOrdersSelectColumn = "id"
+	MuckTruckWorkerIdentityCardOrdersSelectColumnID MuckTruckWorkerIdentityCardOrdersSelectColumn = "id"
 	// 渣土车工号牌制作订单外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
-	MuckTruckWorkerIDCardOrdersSelectColumnMuckTruckWorkerOrdersID MuckTruckWorkerIDCardOrdersSelectColumn = "muck_truck_worker_orders_id"
-	// vehicle_info 车辆信息表 的vehicle_id                     (                            )
-	MuckTruckWorkerIDCardOrdersSelectColumnVehicleID MuckTruckWorkerIDCardOrdersSelectColumn = "vehicle_id"
-	// muck_truck_preview_number  渣土车车辆预编号表的id        (                            )
-	MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID MuckTruckWorkerIDCardOrdersSelectColumn = "preview_number_id"
-	// 创建时间                                                     (                            )
-	MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt MuckTruckWorkerIDCardOrdersSelectColumn = "created_at"
+	MuckTruckWorkerIdentityCardOrdersSelectColumnMuckTruckWorkerOrdersID MuckTruckWorkerIdentityCardOrdersSelectColumn = "muck_truck_worker_orders_id"
+	// vehicle_info 车辆信息表 的vehicle_id
+	MuckTruckWorkerIdentityCardOrdersSelectColumnVehicleID MuckTruckWorkerIdentityCardOrdersSelectColumn = "vehicle_id"
+	// muck_truck_preview_number  渣土车车辆预编号表的id
+	MuckTruckWorkerIdentityCardOrdersSelectColumnPreviewNumberID MuckTruckWorkerIdentityCardOrdersSelectColumn = "preview_number_id"
+	// 创建时间
+	MuckTruckWorkerIdentityCardOrdersSelectColumnCreatedAt MuckTruckWorkerIdentityCardOrdersSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id )
-	MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy MuckTruckWorkerIDCardOrdersSelectColumn = "created_by"
-	// 修改时间                                                     (                            )
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt MuckTruckWorkerIDCardOrdersSelectColumn = "updated_at"
+	MuckTruckWorkerIdentityCardOrdersSelectColumnCreatedBy MuckTruckWorkerIdentityCardOrdersSelectColumn = "created_by"
+	// 修改时间
+	MuckTruckWorkerIdentityCardOrdersSelectColumnUpdatedAt MuckTruckWorkerIdentityCardOrdersSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id )
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy MuckTruckWorkerIDCardOrdersSelectColumn = "updated_by"
-	// 删除时间                                                     (                            )
-	MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt MuckTruckWorkerIDCardOrdersSelectColumn = "deleted_at"
+	MuckTruckWorkerIdentityCardOrdersSelectColumnUpdatedBy MuckTruckWorkerIdentityCardOrdersSelectColumn = "updated_by"
+	// 删除时间
+	MuckTruckWorkerIdentityCardOrdersSelectColumnDeletedAt MuckTruckWorkerIdentityCardOrdersSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id )
-	MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy MuckTruckWorkerIDCardOrdersSelectColumn = "deleted_by"
+	MuckTruckWorkerIdentityCardOrdersSelectColumnDeletedBy MuckTruckWorkerIdentityCardOrdersSelectColumn = "deleted_by"
 )
 
-var AllMuckTruckWorkerIDCardOrdersSelectColumn = []MuckTruckWorkerIDCardOrdersSelectColumn{
-	MuckTruckWorkerIDCardOrdersSelectColumnID,
-	MuckTruckWorkerIDCardOrdersSelectColumnMuckTruckWorkerOrdersID,
-	MuckTruckWorkerIDCardOrdersSelectColumnVehicleID,
-	MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID,
-	MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt,
-	MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy,
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt,
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy,
-	MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt,
-	MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy,
+var AllMuckTruckWorkerIdentityCardOrdersSelectColumn = []MuckTruckWorkerIdentityCardOrdersSelectColumn{
+	MuckTruckWorkerIdentityCardOrdersSelectColumnID,
+	MuckTruckWorkerIdentityCardOrdersSelectColumnMuckTruckWorkerOrdersID,
+	MuckTruckWorkerIdentityCardOrdersSelectColumnVehicleID,
+	MuckTruckWorkerIdentityCardOrdersSelectColumnPreviewNumberID,
+	MuckTruckWorkerIdentityCardOrdersSelectColumnCreatedAt,
+	MuckTruckWorkerIdentityCardOrdersSelectColumnCreatedBy,
+	MuckTruckWorkerIdentityCardOrdersSelectColumnUpdatedAt,
+	MuckTruckWorkerIdentityCardOrdersSelectColumnUpdatedBy,
+	MuckTruckWorkerIdentityCardOrdersSelectColumnDeletedAt,
+	MuckTruckWorkerIdentityCardOrdersSelectColumnDeletedBy,
 }
 
-func (e MuckTruckWorkerIDCardOrdersSelectColumn) IsValid() bool {
+func (e MuckTruckWorkerIdentityCardOrdersSelectColumn) IsValid() bool {
 	switch e {
-	case MuckTruckWorkerIDCardOrdersSelectColumnID, MuckTruckWorkerIDCardOrdersSelectColumnMuckTruckWorkerOrdersID, MuckTruckWorkerIDCardOrdersSelectColumnVehicleID, MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID, MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt, MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy, MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt, MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy, MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt, MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy:
+	case MuckTruckWorkerIdentityCardOrdersSelectColumnID, MuckTruckWorkerIdentityCardOrdersSelectColumnMuckTruckWorkerOrdersID, MuckTruckWorkerIdentityCardOrdersSelectColumnVehicleID, MuckTruckWorkerIdentityCardOrdersSelectColumnPreviewNumberID, MuckTruckWorkerIdentityCardOrdersSelectColumnCreatedAt, MuckTruckWorkerIdentityCardOrdersSelectColumnCreatedBy, MuckTruckWorkerIdentityCardOrdersSelectColumnUpdatedAt, MuckTruckWorkerIdentityCardOrdersSelectColumnUpdatedBy, MuckTruckWorkerIdentityCardOrdersSelectColumnDeletedAt, MuckTruckWorkerIdentityCardOrdersSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e MuckTruckWorkerIDCardOrdersSelectColumn) String() string {
+func (e MuckTruckWorkerIdentityCardOrdersSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *MuckTruckWorkerIDCardOrdersSelectColumn) UnmarshalGQL(v interface{}) error {
+func (e *MuckTruckWorkerIdentityCardOrdersSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = MuckTruckWorkerIDCardOrdersSelectColumn(str)
+	*e = MuckTruckWorkerIdentityCardOrdersSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid MuckTruckWorkerIdCardOrdersSelectColumn", str)
+		return fmt.Errorf("%s is not a valid MuckTruckWorkerIdentityCardOrdersSelectColumn", str)
 	}
 	return nil
 }
 
-func (e MuckTruckWorkerIDCardOrdersSelectColumn) MarshalGQL(w io.Writer) {
+func (e MuckTruckWorkerIdentityCardOrdersSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
@@ -7213,69 +7046,69 @@ type OperatingVehicleExtSelectColumn string
 const (
 	// 按指定方法生成                           ( 主键                       )
 	OperatingVehicleExtSelectColumnID OperatingVehicleExtSelectColumn = "id"
-	// vehicle_info 车辆信息表 的vehicle_id (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	OperatingVehicleExtSelectColumnVehicleID OperatingVehicleExtSelectColumn = "vehicle_id"
-	// 代理商                                   (                            )
+	// 代理商
 	OperatingVehicleExtSelectColumnAgent OperatingVehicleExtSelectColumn = "agent"
-	// 合同编号                                 (                            )
+	// 合同编号
 	OperatingVehicleExtSelectColumnContactNumber OperatingVehicleExtSelectColumn = "contact_number"
 	// 平台                                     ( 平台标识字典           )
 	OperatingVehicleExtSelectColumnPlatform OperatingVehicleExtSelectColumn = "platform"
-	// 行驶证所有人                             (                            )
+	// 行驶证所有人
 	OperatingVehicleExtSelectColumnDrivingLicenseOwner OperatingVehicleExtSelectColumn = "driving_license_owner"
-	// 速度模式状态获得时间                     (                            )
+	// 速度模式状态获得时间
 	OperatingVehicleExtSelectColumnSpeedModeStatusTime OperatingVehicleExtSelectColumn = "speed_mode_status_time"
-	// 速度模式状态                             (                            )
+	// 速度模式状态
 	OperatingVehicleExtSelectColumnSpeedModeStatus OperatingVehicleExtSelectColumn = "speed_mode_status"
-	// 报废原因                                 (                            )
+	// 报废原因
 	OperatingVehicleExtSelectColumnScrapReason OperatingVehicleExtSelectColumn = "scrap_reason"
-	// 报废时间                                 (                            )
+	// 报废时间
 	OperatingVehicleExtSelectColumnScrapTime OperatingVehicleExtSelectColumn = "scrap_time"
-	// 报废时间审核                             (                            )
+	// 报废时间审核
 	OperatingVehicleExtSelectColumnScrapTimeCheck OperatingVehicleExtSelectColumn = "scrap_time_check"
-	// 行政区域                                 (                            )
+	// 行政区域
 	OperatingVehicleExtSelectColumnAdministrativeRegion OperatingVehicleExtSelectColumn = "administrative_region"
-	// 车牌照片,云储存系统返回的路径            (                            )
+	// 车牌照片,云储存系统返回的路径
 	OperatingVehicleExtSelectColumnLicensePlatePhoto OperatingVehicleExtSelectColumn = "license_plate_photo"
-	// 其他照片,云储存系统返回的路径            (                            )
+	// 其他照片,云储存系统返回的路径
 	OperatingVehicleExtSelectColumnOtherPhoto OperatingVehicleExtSelectColumn = "other_photo"
-	// 编号                                     (                            )
+	// 编号
 	OperatingVehicleExtSelectColumnSerialNumber OperatingVehicleExtSelectColumn = "serial_number"
-	// 是否北斗部标平台                         (                            )
+	// 是否北斗部标平台
 	OperatingVehicleExtSelectColumnIsBeidou OperatingVehicleExtSelectColumn = "is_beidou"
-	// 是否在运证系统                           (                            )
+	// 是否在运证系统
 	OperatingVehicleExtSelectColumnIsInOperatingSystem OperatingVehicleExtSelectColumn = "is_in_operating_system"
-	// 是否上传货运平台                         (                            )
+	// 是否上传货运平台
 	OperatingVehicleExtSelectColumnIsInUploadPlatform OperatingVehicleExtSelectColumn = "is_in_upload_platform"
-	// 是否监管                                 (                            )
+	// 是否监管
 	OperatingVehicleExtSelectColumnIsSupervise OperatingVehicleExtSelectColumn = "is_supervise"
-	// 是否需要监管                             (                            )
+	// 是否需要监管
 	OperatingVehicleExtSelectColumnIsNeedSupervise OperatingVehicleExtSelectColumn = "is_need_supervise"
-	// 是否功能测试通过                         (                            )
+	// 是否功能测试通过
 	OperatingVehicleExtSelectColumnIsFunctionOk OperatingVehicleExtSelectColumn = "is_function_ok"
-	// 是否屏蔽                                 (                            )
+	// 是否屏蔽
 	OperatingVehicleExtSelectColumnIsBlock OperatingVehicleExtSelectColumn = "is_block"
-	// 是否办理终端安装证明                     (                            )
+	// 是否办理终端安装证明
 	OperatingVehicleExtSelectColumnIsApplayTerminalInstallation OperatingVehicleExtSelectColumn = "is_applay_terminal_installation"
-	// 第一次上线时间                           (                            )
+	// 第一次上线时间
 	OperatingVehicleExtSelectColumnFirstOnlineTime OperatingVehicleExtSelectColumn = "first_online_time"
-	// 最后一次绑定终端时间                     (                            )
+	// 最后一次绑定终端时间
 	OperatingVehicleExtSelectColumnLastBindingTerminalTime OperatingVehicleExtSelectColumn = "last_binding_terminal_time"
-	// 服务到期时间                             (                            )
+	// 服务到期时间
 	OperatingVehicleExtSelectColumnServiceExpirationTime OperatingVehicleExtSelectColumn = "service_expiration_time"
-	// 合同时间                                 (                            )
+	// 合同时间
 	OperatingVehicleExtSelectColumnContractTime OperatingVehicleExtSelectColumn = "contract_time"
-	// 安装时间                                 (                            )
+	// 安装时间
 	OperatingVehicleExtSelectColumnInstallationTime OperatingVehicleExtSelectColumn = "installation_time"
-	// 创建时间                                 (                            )
+	// 创建时间
 	OperatingVehicleExtSelectColumnCreatedAt OperatingVehicleExtSelectColumn = "created_at"
 	// 创建人                                   ( system_user表的user_id )
 	OperatingVehicleExtSelectColumnCreatedBy OperatingVehicleExtSelectColumn = "created_by"
-	// 修改时间                                 (                            )
+	// 修改时间
 	OperatingVehicleExtSelectColumnUpdatedAt OperatingVehicleExtSelectColumn = "updated_at"
 	// 修改人                                   ( system_user表的user_id )
 	OperatingVehicleExtSelectColumnUpdatedBy OperatingVehicleExtSelectColumn = "updated_by"
-	// 删除时间                                 (                            )
+	// 删除时间
 	OperatingVehicleExtSelectColumnDeletedAt OperatingVehicleExtSelectColumn = "deleted_at"
 	// 删除人                                   ( system_user表的user_id )
 	OperatingVehicleExtSelectColumnDeletedBy OperatingVehicleExtSelectColumn = "deleted_by"
@@ -7355,21 +7188,21 @@ const (
 	OutageFilingUploadFileSelectColumnID OutageFilingUploadFileSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	OutageFilingUploadFileSelectColumnOutageFilingUploadFileID OutageFilingUploadFileSelectColumn = "outage_filing_upload_file_id"
-	// 文件路径                                        (                            )
+	// 文件路径
 	OutageFilingUploadFileSelectColumnFilePath OutageFilingUploadFileSelectColumn = "file_path"
-	// 文件类型(commitment.承诺书 other.其他)          (                            )
+	// 文件类型(commitment.承诺书 other.其他)
 	OutageFilingUploadFileSelectColumnFileType OutageFilingUploadFileSelectColumn = "file_type"
-	// 是否删除                                        (                            )
+	// 是否删除
 	OutageFilingUploadFileSelectColumnIsDeleted OutageFilingUploadFileSelectColumn = "is_deleted"
-	// 创建时间                                        (                            )
+	// 创建时间
 	OutageFilingUploadFileSelectColumnCreatedAt OutageFilingUploadFileSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	OutageFilingUploadFileSelectColumnCreatedBy OutageFilingUploadFileSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	OutageFilingUploadFileSelectColumnUpdatedAt OutageFilingUploadFileSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	OutageFilingUploadFileSelectColumnUpdatedBy OutageFilingUploadFileSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	OutageFilingUploadFileSelectColumnDeletedAt OutageFilingUploadFileSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	OutageFilingUploadFileSelectColumnDeletedBy OutageFilingUploadFileSelectColumn = "deleted_by"
@@ -7426,47 +7259,47 @@ const (
 	OutageRegistrationSelectColumnID OutageRegistrationSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
 	OutageRegistrationSelectColumnOutageRegistrationID OutageRegistrationSelectColumn = "outage_registration_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	// vehicle_info 车辆信息表 的vehicle_id
 	OutageRegistrationSelectColumnVehicleID OutageRegistrationSelectColumn = "vehicle_id"
 	// 用户                                            ( system_user表的user_id                                   )
 	OutageRegistrationSelectColumnUserID OutageRegistrationSelectColumn = "user_id"
-	// 停运起始时间                                    (                                                              )
+	// 停运起始时间
 	OutageRegistrationSelectColumnOutageStartTime OutageRegistrationSelectColumn = "outage_start_time"
-	// 停运截止时间                                    (                                                              )
+	// 停运截止时间
 	OutageRegistrationSelectColumnOutageEndTime OutageRegistrationSelectColumn = "outage_end_time"
-	// 审核状态                                        (                                                              )
+	// 审核状态
 	OutageRegistrationSelectColumnReviewStatus OutageRegistrationSelectColumn = "review_status"
 	// 审核人                                          ( system_user表的user_id                                   )
 	OutageRegistrationSelectColumnReviewer OutageRegistrationSelectColumn = "reviewer"
-	// 审核时间                                        (                                                              )
+	// 审核时间
 	OutageRegistrationSelectColumnReviewTime OutageRegistrationSelectColumn = "review_time"
 	// 停运报备上传文件表ID                            ( outage_filing_upload_file 的outage_filing_upload_file_id )
 	OutageRegistrationSelectColumnOutageFilingUploadFileID OutageRegistrationSelectColumn = "outage_filing_upload_file_id"
-	// 停运起始经纬度                                  (                                                              )
+	// 停运起始经纬度
 	OutageRegistrationSelectColumnOutageStartCoordinate OutageRegistrationSelectColumn = "outage_start_coordinate"
-	// 停运结束经纬度                                  (                                                              )
+	// 停运结束经纬度
 	OutageRegistrationSelectColumnOutageEndCoordinate OutageRegistrationSelectColumn = "outage_end_coordinate"
-	// 上线时间                                        (                                                              )
+	// 上线时间
 	OutageRegistrationSelectColumnOnlineTime OutageRegistrationSelectColumn = "online_time"
-	// 停运起始位置                                    (                                                              )
+	// 停运起始位置
 	OutageRegistrationSelectColumnOutageStartPosition OutageRegistrationSelectColumn = "outage_start_position"
-	// 是否管理部门审核                                (                                                              )
+	// 是否管理部门审核
 	OutageRegistrationSelectColumnIsManagementReview OutageRegistrationSelectColumn = "is_management_review"
-	// 是否失效                                        (                                                              )
+	// 是否失效
 	OutageRegistrationSelectColumnIsInvalid OutageRegistrationSelectColumn = "is_invalid"
-	// 是否最新                                        (                                                              )
+	// 是否最新
 	OutageRegistrationSelectColumnIsLatest OutageRegistrationSelectColumn = "is_latest"
-	// 是否删除                                        (                                                              )
+	// 是否删除
 	OutageRegistrationSelectColumnIsDeleted OutageRegistrationSelectColumn = "is_deleted"
-	// 创建时间                                        (                                                              )
+	// 创建时间
 	OutageRegistrationSelectColumnCreatedAt OutageRegistrationSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                                   )
 	OutageRegistrationSelectColumnCreatedBy OutageRegistrationSelectColumn = "created_by"
-	// 修改时间                                        (                                                              )
+	// 修改时间
 	OutageRegistrationSelectColumnUpdatedAt OutageRegistrationSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                                   )
 	OutageRegistrationSelectColumnUpdatedBy OutageRegistrationSelectColumn = "updated_by"
-	// 删除时间                                        (                                                              )
+	// 删除时间
 	OutageRegistrationSelectColumnDeletedAt OutageRegistrationSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                                   )
 	OutageRegistrationSelectColumnDeletedBy OutageRegistrationSelectColumn = "deleted_by"
@@ -7538,21 +7371,21 @@ const (
 	OwnerInfoSelectColumnOwnerID OwnerInfoSelectColumn = "owner_id"
 	// 所在部门id                                              ( department 部门信息表            )
 	OwnerInfoSelectColumnDepartmentID OwnerInfoSelectColumn = "department_id"
-	// 车主姓名                                                (                                      )
+	// 车主姓名
 	OwnerInfoSelectColumnName OwnerInfoSelectColumn = "name"
-	// 联系地址                                                (                                      )
+	// 联系地址
 	OwnerInfoSelectColumnAddress OwnerInfoSelectColumn = "address"
-	// 固定电话                                                (                                      )
+	// 固定电话
 	OwnerInfoSelectColumnCellphone OwnerInfoSelectColumn = "cellphone"
-	// 手机号码                                                (                                      )
+	// 手机号码
 	OwnerInfoSelectColumnTelephone OwnerInfoSelectColumn = "telephone"
-	// 邮箱地址                                                (                                      )
+	// 邮箱地址
 	OwnerInfoSelectColumnEmail OwnerInfoSelectColumn = "email"
-	// 证件过期日期                                            (                                      )
+	// 证件过期日期
 	OwnerInfoSelectColumnExpiryDate OwnerInfoSelectColumn = "expiry_date"
-	// 身份证号                                                (                                      )
+	// 身份证号
 	OwnerInfoSelectColumnIDNumber OwnerInfoSelectColumn = "id_number"
-	// 备注                                                    (                                      )
+	// 备注
 	OwnerInfoSelectColumnRemarks OwnerInfoSelectColumn = "remarks"
 	// 车主性别                                                ( 性别字典                         )
 	OwnerInfoSelectColumnSex OwnerInfoSelectColumn = "sex"
@@ -7560,17 +7393,17 @@ const (
 	OwnerInfoSelectColumnAgent OwnerInfoSelectColumn = "agent"
 	// 运营商                                                  ( enterprise_info表的enterprise_id )
 	OwnerInfoSelectColumnOperator OwnerInfoSelectColumn = "operator"
-	// 是否删除                                                (                                      )
+	// 是否删除
 	OwnerInfoSelectColumnIsDeleted OwnerInfoSelectColumn = "is_deleted"
-	// 创建时间                                                (                                      )
+	// 创建时间
 	OwnerInfoSelectColumnCreatedAt OwnerInfoSelectColumn = "created_at"
 	// 创建人                                                  ( system_user表的user_id           )
 	OwnerInfoSelectColumnCreatedBy OwnerInfoSelectColumn = "created_by"
-	// 修改时间                                                (                                      )
+	// 修改时间
 	OwnerInfoSelectColumnUpdatedAt OwnerInfoSelectColumn = "updated_at"
 	// 修改人                                                  ( system_user表的user_id           )
 	OwnerInfoSelectColumnUpdatedBy OwnerInfoSelectColumn = "updated_by"
-	// 删除时间                                                (                                      )
+	// 删除时间
 	OwnerInfoSelectColumnDeletedAt OwnerInfoSelectColumn = "deleted_at"
 	// 删除人                                                  ( system_user表的user_id           )
 	OwnerInfoSelectColumnDeletedBy OwnerInfoSelectColumn = "deleted_by"
@@ -7637,7 +7470,7 @@ const (
 	ProvinceUploadVehicleSelectColumnID ProvinceUploadVehicleSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
 	ProvinceUploadVehicleSelectColumnProvinceUploadVehicleID ProvinceUploadVehicleSelectColumn = "province_upload_vehicle_id"
-	// 车牌号码                                        (                                      )
+	// 车牌号码
 	ProvinceUploadVehicleSelectColumnLicensePlateNumber ProvinceUploadVehicleSelectColumn = "license_plate_number"
 	// 车牌颜色                                        ( 车牌颜色字典                     )
 	ProvinceUploadVehicleSelectColumnLicensePlateColor ProvinceUploadVehicleSelectColumn = "license_plate_color"
@@ -7645,43 +7478,43 @@ const (
 	ProvinceUploadVehicleSelectColumnEnterpriseID ProvinceUploadVehicleSelectColumn = "enterprise_id"
 	// 运营商                                          ( enterprise_info表的enterprise_id )
 	ProvinceUploadVehicleSelectColumnOperator ProvinceUploadVehicleSelectColumn = "operator"
-	// 车籍地(行驶证上的车辆注册地 )                   (                                      )
+	// 车籍地(行驶证上的车辆注册地 )
 	ProvinceUploadVehicleSelectColumnVehicleRegistrationPlace ProvinceUploadVehicleSelectColumn = "vehicle_registration_place"
 	// 车辆类型                                        ( 车辆类型字典                     )
 	ProvinceUploadVehicleSelectColumnVehicleType ProvinceUploadVehicleSelectColumn = "vehicle_type"
-	// 吨位                                            (                                      )
+	// 吨位
 	ProvinceUploadVehicleSelectColumnHeavy ProvinceUploadVehicleSelectColumn = "heavy"
-	// 座位                                            (                                      )
+	// 座位
 	ProvinceUploadVehicleSelectColumnSeats ProvinceUploadVehicleSelectColumn = "seats"
-	// 运营标识                                        (                                      )
+	// 运营标识
 	ProvinceUploadVehicleSelectColumnOperatingFlag ProvinceUploadVehicleSelectColumn = "operating_flag"
 	// 营运状态                                        ( 营运状态字典                     )
 	ProvinceUploadVehicleSelectColumnOperatingState ProvinceUploadVehicleSelectColumn = "operating_state"
-	// 备注                                            (                                      )
+	// 备注
 	ProvinceUploadVehicleSelectColumnRemarks ProvinceUploadVehicleSelectColumn = "remarks"
-	// 在线状态                                        (                                      )
+	// 在线状态
 	ProvinceUploadVehicleSelectColumnOnlineStatus ProvinceUploadVehicleSelectColumn = "online_status"
-	// 最后汇报时间                                    (                                      )
+	// 最后汇报时间
 	ProvinceUploadVehicleSelectColumnLastReportTime ProvinceUploadVehicleSelectColumn = "last_report_time"
-	// 运政同步标识                                    (                                      )
+	// 运政同步标识
 	ProvinceUploadVehicleSelectColumnTransportAgencySynchronizationFlag ProvinceUploadVehicleSelectColumn = "transport_agency_synchronization_flag"
-	// 是否运政同步                                    (                                      )
+	// 是否运政同步
 	ProvinceUploadVehicleSelectColumnIsTransportAgencySynchronization ProvinceUploadVehicleSelectColumn = "is_transport_agency_synchronization"
-	// 运政同步时间                                    (                                      )
+	// 运政同步时间
 	ProvinceUploadVehicleSelectColumnTransportAgencySynchronizationTime ProvinceUploadVehicleSelectColumn = "transport_agency_synchronization_time"
-	// 设备型号                                        (                                      )
+	// 设备型号
 	ProvinceUploadVehicleSelectColumnDeviceModel ProvinceUploadVehicleSelectColumn = "device_model"
-	// 终端型号                                        (                                      )
+	// 终端型号
 	ProvinceUploadVehicleSelectColumnTerminalModel ProvinceUploadVehicleSelectColumn = "terminal_model"
-	// 创建时间                                        (                                      )
+	// 创建时间
 	ProvinceUploadVehicleSelectColumnCreatedAt ProvinceUploadVehicleSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id           )
 	ProvinceUploadVehicleSelectColumnCreatedBy ProvinceUploadVehicleSelectColumn = "created_by"
-	// 修改时间                                        (                                      )
+	// 修改时间
 	ProvinceUploadVehicleSelectColumnUpdatedAt ProvinceUploadVehicleSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id           )
 	ProvinceUploadVehicleSelectColumnUpdatedBy ProvinceUploadVehicleSelectColumn = "updated_by"
-	// 删除时间                                        (                                      )
+	// 删除时间
 	ProvinceUploadVehicleSelectColumnDeletedAt ProvinceUploadVehicleSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id           )
 	ProvinceUploadVehicleSelectColumnDeletedBy ProvinceUploadVehicleSelectColumn = "deleted_by"
@@ -7746,79 +7579,79 @@ func (e ProvinceUploadVehicleSelectColumn) MarshalGQL(w io.Writer) {
 }
 
 // 可选select
-type TempIDCardDownloadLogSelectColumn string
+type TempIdentityCardDownloadLogSelectColumn string
 
 const (
 	// 按指定方法生成                                  ( 主键                       )
-	TempIDCardDownloadLogSelectColumnID TempIDCardDownloadLogSelectColumn = "id"
+	TempIdentityCardDownloadLogSelectColumnID TempIdentityCardDownloadLogSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
-	TempIDCardDownloadLogSelectColumnTempIDCardDownloadID TempIDCardDownloadLogSelectColumn = "temp_id_card_download_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
-	TempIDCardDownloadLogSelectColumnVehicleID TempIDCardDownloadLogSelectColumn = "vehicle_id"
-	// 有效期起始                                      (                            )
-	TempIDCardDownloadLogSelectColumnValidFrom TempIDCardDownloadLogSelectColumn = "valid_from"
-	// 有效期截止                                      (                            )
-	TempIDCardDownloadLogSelectColumnValidUntil TempIDCardDownloadLogSelectColumn = "valid_until"
+	TempIdentityCardDownloadLogSelectColumnTempIdentityCardDownloadID TempIdentityCardDownloadLogSelectColumn = "temp_identity_card_download_id"
+	// vehicle_info 车辆信息表 的vehicle_id
+	TempIdentityCardDownloadLogSelectColumnVehicleID TempIdentityCardDownloadLogSelectColumn = "vehicle_id"
+	// 有效期起始
+	TempIdentityCardDownloadLogSelectColumnValidFrom TempIdentityCardDownloadLogSelectColumn = "valid_from"
+	// 有效期截止
+	TempIdentityCardDownloadLogSelectColumnValidUntil TempIdentityCardDownloadLogSelectColumn = "valid_until"
 	// 操作人                                          ( system_user表的user_id )
-	TempIDCardDownloadLogSelectColumnOperator TempIDCardDownloadLogSelectColumn = "operator"
-	// 是否删除                                        (                            )
-	TempIDCardDownloadLogSelectColumnIsDeleted TempIDCardDownloadLogSelectColumn = "is_deleted"
-	// 创建时间                                        (                            )
-	TempIDCardDownloadLogSelectColumnCreatedAt TempIDCardDownloadLogSelectColumn = "created_at"
+	TempIdentityCardDownloadLogSelectColumnOperator TempIdentityCardDownloadLogSelectColumn = "operator"
+	// 是否删除
+	TempIdentityCardDownloadLogSelectColumnIsDeleted TempIdentityCardDownloadLogSelectColumn = "is_deleted"
+	// 创建时间
+	TempIdentityCardDownloadLogSelectColumnCreatedAt TempIdentityCardDownloadLogSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
-	TempIDCardDownloadLogSelectColumnCreatedBy TempIDCardDownloadLogSelectColumn = "created_by"
-	// 修改时间                                        (                            )
-	TempIDCardDownloadLogSelectColumnUpdatedAt TempIDCardDownloadLogSelectColumn = "updated_at"
+	TempIdentityCardDownloadLogSelectColumnCreatedBy TempIdentityCardDownloadLogSelectColumn = "created_by"
+	// 修改时间
+	TempIdentityCardDownloadLogSelectColumnUpdatedAt TempIdentityCardDownloadLogSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
-	TempIDCardDownloadLogSelectColumnUpdatedBy TempIDCardDownloadLogSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
-	TempIDCardDownloadLogSelectColumnDeletedAt TempIDCardDownloadLogSelectColumn = "deleted_at"
+	TempIdentityCardDownloadLogSelectColumnUpdatedBy TempIdentityCardDownloadLogSelectColumn = "updated_by"
+	// 删除时间
+	TempIdentityCardDownloadLogSelectColumnDeletedAt TempIdentityCardDownloadLogSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
-	TempIDCardDownloadLogSelectColumnDeletedBy TempIDCardDownloadLogSelectColumn = "deleted_by"
+	TempIdentityCardDownloadLogSelectColumnDeletedBy TempIdentityCardDownloadLogSelectColumn = "deleted_by"
 )
 
-var AllTempIDCardDownloadLogSelectColumn = []TempIDCardDownloadLogSelectColumn{
-	TempIDCardDownloadLogSelectColumnID,
-	TempIDCardDownloadLogSelectColumnTempIDCardDownloadID,
-	TempIDCardDownloadLogSelectColumnVehicleID,
-	TempIDCardDownloadLogSelectColumnValidFrom,
-	TempIDCardDownloadLogSelectColumnValidUntil,
-	TempIDCardDownloadLogSelectColumnOperator,
-	TempIDCardDownloadLogSelectColumnIsDeleted,
-	TempIDCardDownloadLogSelectColumnCreatedAt,
-	TempIDCardDownloadLogSelectColumnCreatedBy,
-	TempIDCardDownloadLogSelectColumnUpdatedAt,
-	TempIDCardDownloadLogSelectColumnUpdatedBy,
-	TempIDCardDownloadLogSelectColumnDeletedAt,
-	TempIDCardDownloadLogSelectColumnDeletedBy,
+var AllTempIdentityCardDownloadLogSelectColumn = []TempIdentityCardDownloadLogSelectColumn{
+	TempIdentityCardDownloadLogSelectColumnID,
+	TempIdentityCardDownloadLogSelectColumnTempIdentityCardDownloadID,
+	TempIdentityCardDownloadLogSelectColumnVehicleID,
+	TempIdentityCardDownloadLogSelectColumnValidFrom,
+	TempIdentityCardDownloadLogSelectColumnValidUntil,
+	TempIdentityCardDownloadLogSelectColumnOperator,
+	TempIdentityCardDownloadLogSelectColumnIsDeleted,
+	TempIdentityCardDownloadLogSelectColumnCreatedAt,
+	TempIdentityCardDownloadLogSelectColumnCreatedBy,
+	TempIdentityCardDownloadLogSelectColumnUpdatedAt,
+	TempIdentityCardDownloadLogSelectColumnUpdatedBy,
+	TempIdentityCardDownloadLogSelectColumnDeletedAt,
+	TempIdentityCardDownloadLogSelectColumnDeletedBy,
 }
 
-func (e TempIDCardDownloadLogSelectColumn) IsValid() bool {
+func (e TempIdentityCardDownloadLogSelectColumn) IsValid() bool {
 	switch e {
-	case TempIDCardDownloadLogSelectColumnID, TempIDCardDownloadLogSelectColumnTempIDCardDownloadID, TempIDCardDownloadLogSelectColumnVehicleID, TempIDCardDownloadLogSelectColumnValidFrom, TempIDCardDownloadLogSelectColumnValidUntil, TempIDCardDownloadLogSelectColumnOperator, TempIDCardDownloadLogSelectColumnIsDeleted, TempIDCardDownloadLogSelectColumnCreatedAt, TempIDCardDownloadLogSelectColumnCreatedBy, TempIDCardDownloadLogSelectColumnUpdatedAt, TempIDCardDownloadLogSelectColumnUpdatedBy, TempIDCardDownloadLogSelectColumnDeletedAt, TempIDCardDownloadLogSelectColumnDeletedBy:
+	case TempIdentityCardDownloadLogSelectColumnID, TempIdentityCardDownloadLogSelectColumnTempIdentityCardDownloadID, TempIdentityCardDownloadLogSelectColumnVehicleID, TempIdentityCardDownloadLogSelectColumnValidFrom, TempIdentityCardDownloadLogSelectColumnValidUntil, TempIdentityCardDownloadLogSelectColumnOperator, TempIdentityCardDownloadLogSelectColumnIsDeleted, TempIdentityCardDownloadLogSelectColumnCreatedAt, TempIdentityCardDownloadLogSelectColumnCreatedBy, TempIdentityCardDownloadLogSelectColumnUpdatedAt, TempIdentityCardDownloadLogSelectColumnUpdatedBy, TempIdentityCardDownloadLogSelectColumnDeletedAt, TempIdentityCardDownloadLogSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e TempIDCardDownloadLogSelectColumn) String() string {
+func (e TempIdentityCardDownloadLogSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *TempIDCardDownloadLogSelectColumn) UnmarshalGQL(v interface{}) error {
+func (e *TempIdentityCardDownloadLogSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = TempIDCardDownloadLogSelectColumn(str)
+	*e = TempIdentityCardDownloadLogSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid TempIdCardDownloadLogSelectColumn", str)
+		return fmt.Errorf("%s is not a valid TempIdentityCardDownloadLogSelectColumn", str)
 	}
 	return nil
 }
 
-func (e TempIDCardDownloadLogSelectColumn) MarshalGQL(w io.Writer) {
+func (e TempIdentityCardDownloadLogSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
@@ -7830,25 +7663,25 @@ const (
 	VehicleEnterpriseChangeLogSelectColumnID VehicleEnterpriseChangeLogSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                    )
 	VehicleEnterpriseChangeLogSelectColumnVehicleEnterpriseChangeLogID VehicleEnterpriseChangeLogSelectColumn = "vehicle_enterprise_change_log_id"
-	// 变更类型                                        (                                                             )
+	// 变更类型
 	VehicleEnterpriseChangeLogSelectColumnChangedType VehicleEnterpriseChangeLogSelectColumn = "changed_type"
-	// 变更步骤                                        (                                                             )
+	// 变更步骤
 	VehicleEnterpriseChangeLogSelectColumnChangedStep VehicleEnterpriseChangeLogSelectColumn = "changed_step"
 	// 操作人                                          ( system_user表的user_id                                  )
 	VehicleEnterpriseChangeLogSelectColumnOperator VehicleEnterpriseChangeLogSelectColumn = "operator"
 	// 变更审核表ID                                    ( vehicle_enterprise_change_review 车辆单位变更审核表的id )
 	VehicleEnterpriseChangeLogSelectColumnChangeReviewID VehicleEnterpriseChangeLogSelectColumn = "change_review_id"
-	// 审核状态  0.未审核  1.通过  2.退回  3.撤销      (                                                             )
+	// 审核状态  0.未审核  1.通过  2.退回  3.撤销
 	VehicleEnterpriseChangeLogSelectColumnReviewStatus VehicleEnterpriseChangeLogSelectColumn = "review_status"
-	// 创建时间                                        (                                                             )
+	// 创建时间
 	VehicleEnterpriseChangeLogSelectColumnCreatedAt VehicleEnterpriseChangeLogSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                                  )
 	VehicleEnterpriseChangeLogSelectColumnCreatedBy VehicleEnterpriseChangeLogSelectColumn = "created_by"
-	// 修改时间                                        (                                                             )
+	// 修改时间
 	VehicleEnterpriseChangeLogSelectColumnUpdatedAt VehicleEnterpriseChangeLogSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                                  )
 	VehicleEnterpriseChangeLogSelectColumnUpdatedBy VehicleEnterpriseChangeLogSelectColumn = "updated_by"
-	// 删除时间                                        (                                                             )
+	// 删除时间
 	VehicleEnterpriseChangeLogSelectColumnDeletedAt VehicleEnterpriseChangeLogSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                                  )
 	VehicleEnterpriseChangeLogSelectColumnDeletedBy VehicleEnterpriseChangeLogSelectColumn = "deleted_by"
@@ -7907,35 +7740,35 @@ const (
 	VehicleEnterpriseChangeReviewSelectColumnID VehicleEnterpriseChangeReviewSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	VehicleEnterpriseChangeReviewSelectColumnVehicleEnterpriseChangeReviewID VehicleEnterpriseChangeReviewSelectColumn = "vehicle_enterprise_change_review_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleEnterpriseChangeReviewSelectColumnVehicleID VehicleEnterpriseChangeReviewSelectColumn = "vehicle_id"
-	// 目标企业ID                                      (                            )
+	// 目标企业ID
 	VehicleEnterpriseChangeReviewSelectColumnTargetEnterpriseID VehicleEnterpriseChangeReviewSelectColumn = "target_enterprise_id"
-	// 备注                                            (                            )
+	// 备注
 	VehicleEnterpriseChangeReviewSelectColumnRemarks VehicleEnterpriseChangeReviewSelectColumn = "remarks"
-	// 上传证明文件                                    (                            )
+	// 上传证明文件
 	VehicleEnterpriseChangeReviewSelectColumnUploadDocumentSrc VehicleEnterpriseChangeReviewSelectColumn = "upload_document_src"
-	// 审核状态  0.未审核  1.审核通过  2.退回          (                            )
+	// 审核状态  0.未审核  1.审核通过  2.退回
 	VehicleEnterpriseChangeReviewSelectColumnReviewStatus VehicleEnterpriseChangeReviewSelectColumn = "review_status"
-	// 变更类型  1.本地区变更  2.跨区变更              (                            )
+	// 变更类型  1.本地区变更  2.跨区变更
 	VehicleEnterpriseChangeReviewSelectColumnChangeType VehicleEnterpriseChangeReviewSelectColumn = "change_type"
-	// 车辆原所属地区                                  (                            )
+	// 车辆原所属地区
 	VehicleEnterpriseChangeReviewSelectColumnOriginalArea VehicleEnterpriseChangeReviewSelectColumn = "original_area"
-	// 变更地区                                        (                            )
+	// 变更地区
 	VehicleEnterpriseChangeReviewSelectColumnChangedArea VehicleEnterpriseChangeReviewSelectColumn = "changed_area"
-	// 变更后自编号                                    (                            )
+	// 变更后自编号
 	VehicleEnterpriseChangeReviewSelectColumnChangedSelfNumber VehicleEnterpriseChangeReviewSelectColumn = "changed_self_number"
-	// 是否删除                                        (                            )
+	// 是否删除
 	VehicleEnterpriseChangeReviewSelectColumnIsDeleted VehicleEnterpriseChangeReviewSelectColumn = "is_deleted"
-	// 创建时间                                        (                            )
+	// 创建时间
 	VehicleEnterpriseChangeReviewSelectColumnCreatedAt VehicleEnterpriseChangeReviewSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	VehicleEnterpriseChangeReviewSelectColumnCreatedBy VehicleEnterpriseChangeReviewSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	VehicleEnterpriseChangeReviewSelectColumnUpdatedAt VehicleEnterpriseChangeReviewSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	VehicleEnterpriseChangeReviewSelectColumnUpdatedBy VehicleEnterpriseChangeReviewSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	VehicleEnterpriseChangeReviewSelectColumnDeletedAt VehicleEnterpriseChangeReviewSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	VehicleEnterpriseChangeReviewSelectColumnDeletedBy VehicleEnterpriseChangeReviewSelectColumn = "deleted_by"
@@ -8001,25 +7834,25 @@ const (
 	VehicleExitCatalogLogSelectColumnVehicleExitCatalogLogID VehicleExitCatalogLogSelectColumn = "vehicle_exit_catalog_log_id"
 	// 车辆退出目录库审核表id                                       ( vehicle_exit_catalog_review 车辆退出目录库审核表的vehicle_exit_catalog_review_id )
 	VehicleExitCatalogLogSelectColumnVehicleExitCatalogReviewID VehicleExitCatalogLogSelectColumn = "vehicle_exit_catalog_review_id"
-	// 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             (                                                              )
+	// 类别  3.企业车辆退出目录库  6.零散车辆退出目录库
 	VehicleExitCatalogLogSelectColumnExitType VehicleExitCatalogLogSelectColumn = "exit_type"
-	// 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} (                                                              )
+	// 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意}
 	VehicleExitCatalogLogSelectColumnExitStep VehicleExitCatalogLogSelectColumn = "exit_step"
-	// 操作人                                                       (                                                              )
+	// 操作人
 	VehicleExitCatalogLogSelectColumnOperator VehicleExitCatalogLogSelectColumn = "operator"
-	// 审核状态  0.申请  1.审批  2.退回  3.撤销                     (                                                              )
+	// 审核状态  0.申请  1.审批  2.退回  3.撤销
 	VehicleExitCatalogLogSelectColumnReviewStatus VehicleExitCatalogLogSelectColumn = "review_status"
-	// 审批用户组  1.运输企业  2.管理部门                           (                                                              )
+	// 审批用户组  1.运输企业  2.管理部门
 	VehicleExitCatalogLogSelectColumnReviewUserGroup VehicleExitCatalogLogSelectColumn = "review_user_group"
-	// 创建时间                                                     (                                                              )
+	// 创建时间
 	VehicleExitCatalogLogSelectColumnCreatedAt VehicleExitCatalogLogSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id                                   )
 	VehicleExitCatalogLogSelectColumnCreatedBy VehicleExitCatalogLogSelectColumn = "created_by"
-	// 修改时间                                                     (                                                              )
+	// 修改时间
 	VehicleExitCatalogLogSelectColumnUpdatedAt VehicleExitCatalogLogSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id                                   )
 	VehicleExitCatalogLogSelectColumnUpdatedBy VehicleExitCatalogLogSelectColumn = "updated_by"
-	// 删除时间                                                     (                                                              )
+	// 删除时间
 	VehicleExitCatalogLogSelectColumnDeletedAt VehicleExitCatalogLogSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id                                   )
 	VehicleExitCatalogLogSelectColumnDeletedBy VehicleExitCatalogLogSelectColumn = "deleted_by"
@@ -8079,37 +7912,37 @@ const (
 	VehicleExitCatalogReviewSelectColumnID VehicleExitCatalogReviewSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用              ( 联合主键                             )
 	VehicleExitCatalogReviewSelectColumnVehicleExitCatalogReviewID VehicleExitCatalogReviewSelectColumn = "vehicle_exit_catalog_review_id"
-	// vehicle_info 车辆信息表 的vehicle_id                     (                                      )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleExitCatalogReviewSelectColumnVehicleID VehicleExitCatalogReviewSelectColumn = "vehicle_id"
 	// 所在企业id                                                   ( enterprise_info表的enterprise_id )
 	VehicleExitCatalogReviewSelectColumnEnterpriseID VehicleExitCatalogReviewSelectColumn = "enterprise_id"
-	// 备注                                                         (                                      )
+	// 备注
 	VehicleExitCatalogReviewSelectColumnRemarks VehicleExitCatalogReviewSelectColumn = "remarks"
-	// 审核状态  0.未完成 1.完成                                    (                                      )
+	// 审核状态  0.未完成 1.完成
 	VehicleExitCatalogReviewSelectColumnReviewStatus VehicleExitCatalogReviewSelectColumn = "review_status"
-	// 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             (                                      )
+	// 类别  3.企业车辆退出目录库  6.零散车辆退出目录库
 	VehicleExitCatalogReviewSelectColumnExitType VehicleExitCatalogReviewSelectColumn = "exit_type"
-	// 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} (                                      )
+	// 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意}
 	VehicleExitCatalogReviewSelectColumnExitStep VehicleExitCatalogReviewSelectColumn = "exit_step"
-	// 地区ID                                                       (                                      )
+	// 地区ID
 	VehicleExitCatalogReviewSelectColumnAreaID VehicleExitCatalogReviewSelectColumn = "area_id"
 	// 原单位ID                                                     ( enterprise_info表的enterprise_id )
 	VehicleExitCatalogReviewSelectColumnOriginalEnterpriseID VehicleExitCatalogReviewSelectColumn = "original_enterprise_id"
-	// 原单位名称                                                   (                                      )
+	// 原单位名称
 	VehicleExitCatalogReviewSelectColumnOriginalEnterpriseName VehicleExitCatalogReviewSelectColumn = "original_enterprise_name"
-	// 原自编号                                                     (                                      )
+	// 原自编号
 	VehicleExitCatalogReviewSelectColumnOriginalSelfNumber VehicleExitCatalogReviewSelectColumn = "original_self_number"
-	// 是否删除                                                     (                                      )
+	// 是否删除
 	VehicleExitCatalogReviewSelectColumnIsDeleted VehicleExitCatalogReviewSelectColumn = "is_deleted"
-	// 创建时间                                                     (                                      )
+	// 创建时间
 	VehicleExitCatalogReviewSelectColumnCreatedAt VehicleExitCatalogReviewSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id           )
 	VehicleExitCatalogReviewSelectColumnCreatedBy VehicleExitCatalogReviewSelectColumn = "created_by"
-	// 修改时间                                                     (                                      )
+	// 修改时间
 	VehicleExitCatalogReviewSelectColumnUpdatedAt VehicleExitCatalogReviewSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id           )
 	VehicleExitCatalogReviewSelectColumnUpdatedBy VehicleExitCatalogReviewSelectColumn = "updated_by"
-	// 删除时间                                                     (                                      )
+	// 删除时间
 	VehicleExitCatalogReviewSelectColumnDeletedAt VehicleExitCatalogReviewSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id           )
 	VehicleExitCatalogReviewSelectColumnDeletedBy VehicleExitCatalogReviewSelectColumn = "deleted_by"
@@ -8174,33 +8007,33 @@ const (
 	VehicleIncrementRecordSelectColumnID VehicleIncrementRecordSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
 	VehicleIncrementRecordSelectColumnIncrementRecordID VehicleIncrementRecordSelectColumn = "increment_record_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleIncrementRecordSelectColumnVehicleID VehicleIncrementRecordSelectColumn = "vehicle_id"
 	// 所在企业id                                      ( enterprise_info表的enterprise_id )
 	VehicleIncrementRecordSelectColumnEnterpriseID VehicleIncrementRecordSelectColumn = "enterprise_id"
-	// 自编号                                          (                                      )
+	// 自编号
 	VehicleIncrementRecordSelectColumnSelfNumber VehicleIncrementRecordSelectColumn = "self_number"
-	// 操作类型                                        (                                      )
+	// 操作类型
 	VehicleIncrementRecordSelectColumnOperationType VehicleIncrementRecordSelectColumn = "operation_type"
-	// 车牌号                                          (                                      )
+	// 车牌号
 	VehicleIncrementRecordSelectColumnLicensePlateNumber VehicleIncrementRecordSelectColumn = "license_plate_number"
-	// 单位名称                                        (                                      )
+	// 单位名称
 	VehicleIncrementRecordSelectColumnEnterpriseName VehicleIncrementRecordSelectColumn = "enterprise_name"
-	// 地区                                            (                                      )
+	// 地区
 	VehicleIncrementRecordSelectColumnArea VehicleIncrementRecordSelectColumn = "area"
-	// 原编号                                          (                                      )
+	// 原编号
 	VehicleIncrementRecordSelectColumnOriginalNumber VehicleIncrementRecordSelectColumn = "original_number"
 	// 运营商                                          ( enterprise_info表的enterprise_id )
 	VehicleIncrementRecordSelectColumnOperator VehicleIncrementRecordSelectColumn = "operator"
-	// 创建时间                                        (                                      )
+	// 创建时间
 	VehicleIncrementRecordSelectColumnCreatedAt VehicleIncrementRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id           )
 	VehicleIncrementRecordSelectColumnCreatedBy VehicleIncrementRecordSelectColumn = "created_by"
-	// 修改时间                                        (                                      )
+	// 修改时间
 	VehicleIncrementRecordSelectColumnUpdatedAt VehicleIncrementRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id           )
 	VehicleIncrementRecordSelectColumnUpdatedBy VehicleIncrementRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                                      )
+	// 删除时间
 	VehicleIncrementRecordSelectColumnDeletedAt VehicleIncrementRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id           )
 	VehicleIncrementRecordSelectColumnDeletedBy VehicleIncrementRecordSelectColumn = "deleted_by"
@@ -8277,13 +8110,13 @@ const (
 	VehicleInfoSelectColumnOperatingType VehicleInfoSelectColumn = "operating_type"
 	// 营运状态                                                     ( 营运状态字典                                             )
 	VehicleInfoSelectColumnOperatingState VehicleInfoSelectColumn = "operating_state"
-	// 营运线路                                                     (                                                              )
+	// 营运线路
 	VehicleInfoSelectColumnOperatingRoute VehicleInfoSelectColumn = "operating_route"
-	// 终端ID                                                       (                                                              )
+	// 终端ID
 	VehicleInfoSelectColumnTerminalID VehicleInfoSelectColumn = "terminal_id"
-	// 是否申请安装智能终端                                         (                                                              )
+	// 是否申请安装智能终端
 	VehicleInfoSelectColumnIsApplyInstallTerminal VehicleInfoSelectColumn = "is_apply_install_terminal"
-	// 车牌号                                                       (                                                              )
+	// 车牌号
 	VehicleInfoSelectColumnLicensePlateNumber VehicleInfoSelectColumn = "license_plate_number"
 	// 车牌颜色                                                     ( 车牌颜色字典                                             )
 	VehicleInfoSelectColumnLicensePlateColor VehicleInfoSelectColumn = "license_plate_color"
@@ -8291,81 +8124,81 @@ const (
 	VehicleInfoSelectColumnLicensePlateType VehicleInfoSelectColumn = "license_plate_type"
 	// 车架号(后6位)                                                ( 车辆识别代号vin,如D02133                                     )
 	VehicleInfoSelectColumnVehicleIdentificationNumber VehicleInfoSelectColumn = "vehicle_identification_number"
-	// 道路运输证号                                                 (                                                              )
+	// 道路运输证号
 	VehicleInfoSelectColumnRoadTransportLicenseNumber VehicleInfoSelectColumn = "road_transport_license_number"
-	// 吨位                                                         (                                                              )
+	// 吨位
 	VehicleInfoSelectColumnHeavy VehicleInfoSelectColumn = "heavy"
-	// 座位                                                         (                                                              )
+	// 座位
 	VehicleInfoSelectColumnSeats VehicleInfoSelectColumn = "seats"
-	// 机动车管理人                                                 (                                                              )
+	// 机动车管理人
 	VehicleInfoSelectColumnVehicleManager VehicleInfoSelectColumn = "vehicle_manager"
-	// 机动车管理人联系电话                                         (                                                              )
+	// 机动车管理人联系电话
 	VehicleInfoSelectColumnVehicleManagerPhone VehicleInfoSelectColumn = "vehicle_manager_phone"
-	// 机动车管理人身份证                                           (                                                              )
+	// 机动车管理人身份证
 	VehicleInfoSelectColumnVehicleManagerIDCard VehicleInfoSelectColumn = "vehicle_manager_id_card"
-	// 机动车所有人（六合一）                                       (                                                              )
+	// 机动车所有人（六合一）
 	VehicleInfoSelectColumnOwner VehicleInfoSelectColumn = "owner"
-	// 检验日期（六合一）                                           (                                                              )
+	// 检验日期（六合一）
 	VehicleInfoSelectColumnInspectionDate VehicleInfoSelectColumn = "inspection_date"
-	// 报废日期（六合一）                                           (                                                              )
+	// 报废日期（六合一）
 	VehicleInfoSelectColumnRetirementDate VehicleInfoSelectColumn = "retirement_date"
-	// 使用性质（六合一）                                           (                                                              )
+	// 使用性质（六合一）
 	VehicleInfoSelectColumnUseNature VehicleInfoSelectColumn = "use_nature"
 	// 机动车状态                                                   ( 车辆状态字典                                             )
 	VehicleInfoSelectColumnVehicleState VehicleInfoSelectColumn = "vehicle_state"
-	// 内网更新时间                                                 (                                                              )
+	// 内网更新时间
 	VehicleInfoSelectColumnUpdateTimeIn VehicleInfoSelectColumn = "update_time_in"
 	// 车辆信息同步内网反馈信息                                     ( 车辆信息同步到公安内网后内网的反馈内容，如车牌号填写错误会反馈车辆号牌错误 )
 	VehicleInfoSelectColumnRemarkIn VehicleInfoSelectColumn = "remark_in"
 	// 是否完成                                                     ( 用于标志车辆资料是否处于确定状态。未确定状态的车辆信息在系统上除车辆管理外的功能中都查不到 )
 	VehicleInfoSelectColumnIsComplete VehicleInfoSelectColumn = "is_complete"
-	// 行驶证照片,云储存系统返回的路径                              (                                                              )
+	// 行驶证照片,云储存系统返回的路径
 	VehicleInfoSelectColumnDrivingLicenseePic VehicleInfoSelectColumn = "driving_licensee_pic"
-	// 是否激活                                                     (                                                              )
+	// 是否激活
 	VehicleInfoSelectColumnIsActive VehicleInfoSelectColumn = "is_active"
-	// 是否录入完成                                                 (                                                              )
+	// 是否录入完成
 	VehicleInfoSelectColumnIsInput VehicleInfoSelectColumn = "is_input"
-	// 租车标准价格                                                 (                                                              )
+	// 租车标准价格
 	VehicleInfoSelectColumnCarRentalPrice VehicleInfoSelectColumn = "car_rental_price"
 	// 投保公司                                                     ( 投保公司字典                                             )
 	VehicleInfoSelectColumnInsuranceCompany VehicleInfoSelectColumn = "insurance_company"
-	// 投保日期                                                     (                                                              )
+	// 投保日期
 	VehicleInfoSelectColumnInsuranceDate VehicleInfoSelectColumn = "insurance_date"
-	// 维保数据数组，字段包括: 1.maintenance_ date 维保时间<br />2.maintenance_ kilometers 维保公里数 (                                                              )
+	// 维保数据数组，字段包括: 1.maintenance_ date 维保时间<br />2.maintenance_ kilometers 维保公里数
 	VehicleInfoSelectColumnVehicleMaintenances VehicleInfoSelectColumn = "vehicle_maintenances"
-	// 汽车排量                                                     (                                                              )
+	// 汽车排量
 	VehicleInfoSelectColumnVehicleDisplacement VehicleInfoSelectColumn = "vehicle_displacement"
 	// 车辆品牌                                                     ( 车辆品牌字典                                             )
 	VehicleInfoSelectColumnVehicleBrand VehicleInfoSelectColumn = "vehicle_brand"
 	// 准驾车型                                                     ( 准驾车型字典                                             )
 	VehicleInfoSelectColumnQuasiDrivingModels VehicleInfoSelectColumn = "quasi_driving_models"
-	// 是否上传省厅                                                 (                                                              )
+	// 是否上传省厅
 	VehicleInfoSelectColumnIsUploadProvince VehicleInfoSelectColumn = "is_upload_province"
 	// 校验状态                                                     ( 车辆校验状态字典                                         )
 	VehicleInfoSelectColumnCheckState VehicleInfoSelectColumn = "check_state"
 	// 是否导入                                                     ( 是否通过外部导入的车辆信息                                   )
 	VehicleInfoSelectColumnIsImport VehicleInfoSelectColumn = "is_import"
-	// 是否工程运输车                                               (                                                              )
+	// 是否工程运输车
 	VehicleInfoSelectColumnIsEngineeringVehicle VehicleInfoSelectColumn = "is_engineering_vehicle"
-	// 是否目录库                                                   (                                                              )
+	// 是否目录库
 	VehicleInfoSelectColumnIsCatalogLibrary VehicleInfoSelectColumn = "is_catalog_library"
-	// 备注                                                         (                                                              )
+	// 备注
 	VehicleInfoSelectColumnRemarks VehicleInfoSelectColumn = "remarks"
-	// 是否删除                                                     (                                                              )
+	// 是否删除
 	VehicleInfoSelectColumnIsDeleted VehicleInfoSelectColumn = "is_deleted"
-	// 登记时间                                                     (                                                              )
+	// 登记时间
 	VehicleInfoSelectColumnRecordAt VehicleInfoSelectColumn = "record_at"
 	// 登记人                                                       ( system_user表的user_id                                   )
 	VehicleInfoSelectColumnRecordBy VehicleInfoSelectColumn = "record_by"
-	// 创建时间                                                     (                                                              )
+	// 创建时间
 	VehicleInfoSelectColumnCreatedAt VehicleInfoSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id                                   )
 	VehicleInfoSelectColumnCreatedBy VehicleInfoSelectColumn = "created_by"
-	// 修改时间                                                     (                                                              )
+	// 修改时间
 	VehicleInfoSelectColumnUpdatedAt VehicleInfoSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id                                   )
 	VehicleInfoSelectColumnUpdatedBy VehicleInfoSelectColumn = "updated_by"
-	// 删除时间                                                     (                                                              )
+	// 删除时间
 	VehicleInfoSelectColumnDeletedAt VehicleInfoSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id                                   )
 	VehicleInfoSelectColumnDeletedBy VehicleInfoSelectColumn = "deleted_by"
@@ -8466,25 +8299,25 @@ const (
 	VehicleOnlineTimeSelectColumnID VehicleOnlineTimeSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	VehicleOnlineTimeSelectColumnOnlineTimeID VehicleOnlineTimeSelectColumn = "online_time_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleOnlineTimeSelectColumnVehicleID VehicleOnlineTimeSelectColumn = "vehicle_id"
-	// 在线时长                                        (                            )
+	// 在线时长
 	VehicleOnlineTimeSelectColumnOnlineTime VehicleOnlineTimeSelectColumn = "online_time"
-	// 离线时长                                        (                            )
+	// 离线时长
 	VehicleOnlineTimeSelectColumnOfflineTime VehicleOnlineTimeSelectColumn = "offline_time"
-	// 总时长                                          (                            )
+	// 总时长
 	VehicleOnlineTimeSelectColumnTotalTime VehicleOnlineTimeSelectColumn = "total_time"
-	// 是否在线                                        (                            )
+	// 是否在线
 	VehicleOnlineTimeSelectColumnIsOnline VehicleOnlineTimeSelectColumn = "is_online"
-	// 创建时间                                        (                            )
+	// 创建时间
 	VehicleOnlineTimeSelectColumnCreatedAt VehicleOnlineTimeSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	VehicleOnlineTimeSelectColumnCreatedBy VehicleOnlineTimeSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	VehicleOnlineTimeSelectColumnUpdatedAt VehicleOnlineTimeSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	VehicleOnlineTimeSelectColumnUpdatedBy VehicleOnlineTimeSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	VehicleOnlineTimeSelectColumnDeletedAt VehicleOnlineTimeSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	VehicleOnlineTimeSelectColumnDeletedBy VehicleOnlineTimeSelectColumn = "deleted_by"
@@ -8543,29 +8376,29 @@ const (
 	VehicleOperationHistorySelectColumnID VehicleOperationHistorySelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	VehicleOperationHistorySelectColumnVehicleOperationHistoryID VehicleOperationHistorySelectColumn = "vehicle_operation_history_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleOperationHistorySelectColumnVehicleID VehicleOperationHistorySelectColumn = "vehicle_id"
-	// 备注                                            (                            )
+	// 备注
 	VehicleOperationHistorySelectColumnRemarks VehicleOperationHistorySelectColumn = "remarks"
-	// 操作类型  1.添加  2.删除                        (                            )
+	// 操作类型  1.添加  2.删除
 	VehicleOperationHistorySelectColumnOperationType VehicleOperationHistorySelectColumn = "operation_type"
 	// 操作人                                          ( system_user表的user_id )
 	VehicleOperationHistorySelectColumnOperator VehicleOperationHistorySelectColumn = "operator"
-	// 审核状态  0.未审批  1.已审批                    (                            )
+	// 审核状态  0.未审批  1.已审批
 	VehicleOperationHistorySelectColumnReviewStatus VehicleOperationHistorySelectColumn = "review_status"
-	// 地区                                            (                            )
+	// 地区
 	VehicleOperationHistorySelectColumnArea VehicleOperationHistorySelectColumn = "area"
 	// 审核人                                          ( system_user表的user_id )
 	VehicleOperationHistorySelectColumnReviewer VehicleOperationHistorySelectColumn = "reviewer"
-	// 创建时间                                        (                            )
+	// 创建时间
 	VehicleOperationHistorySelectColumnCreatedAt VehicleOperationHistorySelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	VehicleOperationHistorySelectColumnCreatedBy VehicleOperationHistorySelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	VehicleOperationHistorySelectColumnUpdatedAt VehicleOperationHistorySelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	VehicleOperationHistorySelectColumnUpdatedBy VehicleOperationHistorySelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	VehicleOperationHistorySelectColumnDeletedAt VehicleOperationHistorySelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	VehicleOperationHistorySelectColumnDeletedBy VehicleOperationHistorySelectColumn = "deleted_by"
@@ -8626,25 +8459,25 @@ const (
 	VehicleReserveHistoryRecordSelectColumnID VehicleReserveHistoryRecordSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	VehicleReserveHistoryRecordSelectColumnVehicleReserveHistoryRecordID VehicleReserveHistoryRecordSelectColumn = "vehicle_reserve_history_record_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleReserveHistoryRecordSelectColumnVehicleID VehicleReserveHistoryRecordSelectColumn = "vehicle_id"
-	// 操作 1.加入预备库  2.移出预备库                 (                            )
+	// 操作 1.加入预备库  2.移出预备库
 	VehicleReserveHistoryRecordSelectColumnOperation VehicleReserveHistoryRecordSelectColumn = "operation"
 	// 操作用户                                        ( system_user表的user_id )
 	VehicleReserveHistoryRecordSelectColumnOperationUser VehicleReserveHistoryRecordSelectColumn = "operation_user"
-	// 操作时间                                        (                            )
+	// 操作时间
 	VehicleReserveHistoryRecordSelectColumnOperationTime VehicleReserveHistoryRecordSelectColumn = "operation_time"
-	// 操作来源 1.车辆  2.驾驶员                       (                            )
+	// 操作来源 1.车辆  2.驾驶员
 	VehicleReserveHistoryRecordSelectColumnOperationSource VehicleReserveHistoryRecordSelectColumn = "operation_source"
-	// 创建时间                                        (                            )
+	// 创建时间
 	VehicleReserveHistoryRecordSelectColumnCreatedAt VehicleReserveHistoryRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	VehicleReserveHistoryRecordSelectColumnCreatedBy VehicleReserveHistoryRecordSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	VehicleReserveHistoryRecordSelectColumnUpdatedAt VehicleReserveHistoryRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	VehicleReserveHistoryRecordSelectColumnUpdatedBy VehicleReserveHistoryRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	VehicleReserveHistoryRecordSelectColumnDeletedAt VehicleReserveHistoryRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	VehicleReserveHistoryRecordSelectColumnDeletedBy VehicleReserveHistoryRecordSelectColumn = "deleted_by"
@@ -8703,41 +8536,41 @@ const (
 	VehicleSecurityCheckRecordSelectColumnID VehicleSecurityCheckRecordSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
 	VehicleSecurityCheckRecordSelectColumnVehicleSecurityCheckRecordID VehicleSecurityCheckRecordSelectColumn = "vehicle_security_check_record_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleSecurityCheckRecordSelectColumnVehicleID VehicleSecurityCheckRecordSelectColumn = "vehicle_id"
 	// 所在企业id                                      ( enterprise_info表的enterprise_id )
 	VehicleSecurityCheckRecordSelectColumnEnterpriseID VehicleSecurityCheckRecordSelectColumn = "enterprise_id"
-	// 刹车                                            (                                      )
+	// 刹车
 	VehicleSecurityCheckRecordSelectColumnBrake VehicleSecurityCheckRecordSelectColumn = "brake"
-	// 轮胎                                            (                                      )
+	// 轮胎
 	VehicleSecurityCheckRecordSelectColumnTire VehicleSecurityCheckRecordSelectColumn = "tire"
-	// 螺丝                                            (                                      )
+	// 螺丝
 	VehicleSecurityCheckRecordSelectColumnScrew VehicleSecurityCheckRecordSelectColumn = "screw"
-	// 液压油                                          (                                      )
+	// 液压油
 	VehicleSecurityCheckRecordSelectColumnHydraulicOil VehicleSecurityCheckRecordSelectColumn = "hydraulic_oil"
-	// 机油                                            (                                      )
+	// 机油
 	VehicleSecurityCheckRecordSelectColumnEngineOil VehicleSecurityCheckRecordSelectColumn = "engine_oil"
-	// 水                                              (                                      )
+	// 水
 	VehicleSecurityCheckRecordSelectColumnWater VehicleSecurityCheckRecordSelectColumn = "water"
-	// 大灯                                            (                                      )
+	// 大灯
 	VehicleSecurityCheckRecordSelectColumnHeadlight VehicleSecurityCheckRecordSelectColumn = "headlight"
-	// 尾灯                                            (                                      )
+	// 尾灯
 	VehicleSecurityCheckRecordSelectColumnTaillight VehicleSecurityCheckRecordSelectColumn = "taillight"
-	// 转向灯                                          (                                      )
+	// 转向灯
 	VehicleSecurityCheckRecordSelectColumnTurnSignal VehicleSecurityCheckRecordSelectColumn = "turn_signal"
-	// 刹车灯                                          (                                      )
+	// 刹车灯
 	VehicleSecurityCheckRecordSelectColumnBrakeLight VehicleSecurityCheckRecordSelectColumn = "brake_light"
-	// 最后检查时间                                    (                                      )
+	// 最后检查时间
 	VehicleSecurityCheckRecordSelectColumnLastCheckTime VehicleSecurityCheckRecordSelectColumn = "last_check_time"
-	// 创建时间                                        (                                      )
+	// 创建时间
 	VehicleSecurityCheckRecordSelectColumnCreatedAt VehicleSecurityCheckRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id           )
 	VehicleSecurityCheckRecordSelectColumnCreatedBy VehicleSecurityCheckRecordSelectColumn = "created_by"
-	// 修改时间                                        (                                      )
+	// 修改时间
 	VehicleSecurityCheckRecordSelectColumnUpdatedAt VehicleSecurityCheckRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id           )
 	VehicleSecurityCheckRecordSelectColumnUpdatedBy VehicleSecurityCheckRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                                      )
+	// 删除时间
 	VehicleSecurityCheckRecordSelectColumnDeletedAt VehicleSecurityCheckRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id           )
 	VehicleSecurityCheckRecordSelectColumnDeletedBy VehicleSecurityCheckRecordSelectColumn = "deleted_by"
@@ -8804,27 +8637,27 @@ const (
 	VehicleStateLatestSelectColumnID VehicleStateLatestSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
 	VehicleStateLatestSelectColumnVehicleStateLatestID VehicleStateLatestSelectColumn = "vehicle_state_latest_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleStateLatestSelectColumnVehicleID VehicleStateLatestSelectColumn = "vehicle_id"
-	// 操作类型（lock.锁车 speed.限速 lift.限举）      (                                      )
+	// 操作类型（lock.锁车 speed.限速 lift.限举）
 	VehicleStateLatestSelectColumnOperationType VehicleStateLatestSelectColumn = "operation_type"
 	// 操作人                                          ( system_user表的user_id           )
 	VehicleStateLatestSelectColumnOperator VehicleStateLatestSelectColumn = "operator"
 	// 操作人单位                                      ( enterprise_info表的enterprise_id )
 	VehicleStateLatestSelectColumnOperatorInstitution VehicleStateLatestSelectColumn = "operator_institution"
-	// 状态                                            (                                      )
+	// 状态
 	VehicleStateLatestSelectColumnStatus VehicleStateLatestSelectColumn = "status"
-	// 限速值                                          (                                      )
+	// 限速值
 	VehicleStateLatestSelectColumnSpeedLimit VehicleStateLatestSelectColumn = "speed_limit"
-	// 创建时间                                        (                                      )
+	// 创建时间
 	VehicleStateLatestSelectColumnCreatedAt VehicleStateLatestSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id           )
 	VehicleStateLatestSelectColumnCreatedBy VehicleStateLatestSelectColumn = "created_by"
-	// 修改时间                                        (                                      )
+	// 修改时间
 	VehicleStateLatestSelectColumnUpdatedAt VehicleStateLatestSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id           )
 	VehicleStateLatestSelectColumnUpdatedBy VehicleStateLatestSelectColumn = "updated_by"
-	// 删除时间                                        (                                      )
+	// 删除时间
 	VehicleStateLatestSelectColumnDeletedAt VehicleStateLatestSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id           )
 	VehicleStateLatestSelectColumnDeletedBy VehicleStateLatestSelectColumn = "deleted_by"
@@ -8884,29 +8717,29 @@ const (
 	VehicleStatusChangeLogSelectColumnID VehicleStatusChangeLogSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	VehicleStatusChangeLogSelectColumnVehicleStatusChangeLogID VehicleStatusChangeLogSelectColumn = "vehicle_status_change_log_id"
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleStatusChangeLogSelectColumnVehicleID VehicleStatusChangeLogSelectColumn = "vehicle_id"
-	// 终端ID                                          (                            )
+	// 终端ID
 	VehicleStatusChangeLogSelectColumnTerminalID VehicleStatusChangeLogSelectColumn = "terminal_id"
-	// 开始时间                                        (                            )
+	// 开始时间
 	VehicleStatusChangeLogSelectColumnStartTime VehicleStatusChangeLogSelectColumn = "start_time"
-	// 结束时间                                        (                            )
+	// 结束时间
 	VehicleStatusChangeLogSelectColumnEndTime VehicleStatusChangeLogSelectColumn = "end_time"
 	// 车辆状态类型(车厢状态,举升状态,载重状态)        ( 车辆状态类型字典       )
 	VehicleStatusChangeLogSelectColumnVehicleStatusType VehicleStatusChangeLogSelectColumn = "vehicle_status_type"
-	// 值                                              (                            )
+	// 值
 	VehicleStatusChangeLogSelectColumnValue VehicleStatusChangeLogSelectColumn = "value"
-	// 是否完成                                        (                            )
+	// 是否完成
 	VehicleStatusChangeLogSelectColumnIsCompleted VehicleStatusChangeLogSelectColumn = "is_completed"
-	// 创建时间                                        (                            )
+	// 创建时间
 	VehicleStatusChangeLogSelectColumnCreatedAt VehicleStatusChangeLogSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	VehicleStatusChangeLogSelectColumnCreatedBy VehicleStatusChangeLogSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	VehicleStatusChangeLogSelectColumnUpdatedAt VehicleStatusChangeLogSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	VehicleStatusChangeLogSelectColumnUpdatedBy VehicleStatusChangeLogSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	VehicleStatusChangeLogSelectColumnDeletedAt VehicleStatusChangeLogSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	VehicleStatusChangeLogSelectColumnDeletedBy VehicleStatusChangeLogSelectColumn = "deleted_by"
@@ -8977,17 +8810,17 @@ const (
 	VehicleSupervisionPhotoSelectColumnCameraID VehicleSupervisionPhotoSelectColumn = "camera_id"
 	// 拍照条件                                                    ( 拍照条件字典                     )
 	VehicleSupervisionPhotoSelectColumnPhotoCondition VehicleSupervisionPhotoSelectColumn = "photo_condition"
-	// 终端上报时间                                                (                                      )
+	// 终端上报时间
 	VehicleSupervisionPhotoSelectColumnUpdateTime VehicleSupervisionPhotoSelectColumn = "update_time"
-	// 监控图片名称                                                (                                      )
+	// 监控图片名称
 	VehicleSupervisionPhotoSelectColumnMonitoringPicName VehicleSupervisionPhotoSelectColumn = "monitoring_pic_name"
-	// 监控图片地址                                                (                                      )
+	// 监控图片地址
 	VehicleSupervisionPhotoSelectColumnMonitoringPicAddress VehicleSupervisionPhotoSelectColumn = "monitoring_pic_address"
-	// 监控图片上传时间                                            (                                      )
+	// 监控图片上传时间
 	VehicleSupervisionPhotoSelectColumnMonitoringPicUploadTime VehicleSupervisionPhotoSelectColumn = "monitoring_pic_upload_time"
 	// 终端IMEI                                                    ( 国际移动设备标识别码                 )
 	VehicleSupervisionPhotoSelectColumnImel VehicleSupervisionPhotoSelectColumn = "imel"
-	// SIM卡号                                                     (                                      )
+	// SIM卡号
 	VehicleSupervisionPhotoSelectColumnSimNumber VehicleSupervisionPhotoSelectColumn = "sim_number"
 )
 

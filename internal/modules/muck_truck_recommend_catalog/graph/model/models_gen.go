@@ -76,30 +76,26 @@ type MuckTruckPurchaseIntentionIncInput struct {
 
 // input type for inserting data into table "muck_truck_purchase_intention"
 type MuckTruckPurchaseIntentionInsertInput struct {
-	ID                           *int64     `json:"id"`
-	MuckTruckPurchaseIntentionID *string    `json:"muck_truck_purchase_intention_id"`
-	Supplier                     *string    `json:"supplier"`
-	CustomerName                 *string    `json:"customer_name"`
-	CustomerPhone                *string    `json:"customer_phone"`
-	OwnerEnterprise              *string    `json:"owner_enterprise"`
-	ProvinceID                   *string    `json:"province_id"`
-	CityID                       *string    `json:"city_id"`
-	DistrictID                   *string    `json:"district_id"`
-	CapacigyApplication          *string    `json:"capacigy_application"`
-	BrandModel                   *string    `json:"brand_model"`
-	VehiclePurchase              *int       `json:"vehicle_purchase"`
-	Code                         *string    `json:"code"`
-	RegistrationTime             *time.Time `json:"registration_time"`
-	RegistrationUser             *string    `json:"registration_user"`
-	Review                       *string    `json:"review"`
-	Remarks                      *string    `json:"remarks"`
-	IsDeleted                    *bool      `json:"is_deleted"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
-	UpdatedAt                    *time.Time `json:"updated_at"`
-	UpdatedBy                    *string    `json:"updated_by"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
+	Supplier            *string    `json:"supplier"`
+	CustomerName        *string    `json:"customer_name"`
+	CustomerPhone       *string    `json:"customer_phone"`
+	OwnerEnterprise     *string    `json:"owner_enterprise"`
+	ProvinceID          *string    `json:"province_id"`
+	CityID              *string    `json:"city_id"`
+	DistrictID          *string    `json:"district_id"`
+	CapacigyApplication *string    `json:"capacigy_application"`
+	BrandModel          *string    `json:"brand_model"`
+	VehiclePurchase     *int       `json:"vehicle_purchase"`
+	Code                *string    `json:"code"`
+	RegistrationTime    *time.Time `json:"registration_time"`
+	RegistrationUser    *string    `json:"registration_user"`
+	Review              *string    `json:"review"`
+	Remarks             *string    `json:"remarks"`
+	IsDeleted           *bool      `json:"is_deleted"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "muck_truck_purchase_intention"
@@ -408,8 +404,6 @@ type MuckTruckSaleOrderDetailIncInput struct {
 
 // input type for inserting data into table "muck_truck_sale_order_detail"
 type MuckTruckSaleOrderDetailInsertInput struct {
-	ID                          *int64     `json:"id"`
-	MuckTruckSaleOrderDetailID  *string    `json:"muck_truck_sale_order_detail_id"`
 	OrderID                     *string    `json:"order_id"`
 	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
 	Certificate                 *string    `json:"certificate"`
@@ -425,8 +419,6 @@ type MuckTruckSaleOrderDetailInsertInput struct {
 	VehiclePhoto                *string    `json:"vehicle_photo"`
 	SellerPreviewNumber         *string    `json:"seller_preview_number"`
 	IsDeleted                   *bool      `json:"is_deleted"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
 	DeletedAt                   *time.Time `json:"deleted_at"`
@@ -620,8 +612,6 @@ type MuckTruckSaleOrderIncInput struct {
 
 // input type for inserting data into table "muck_truck_sale_order"
 type MuckTruckSaleOrderInsertInput struct {
-	ID                     *int64     `json:"id"`
-	MuckTruckSaleOrderID   *string    `json:"muck_truck_sale_order_id"`
 	CustomerName           *string    `json:"customer_name"`
 	CustomerID             *string    `json:"customer_id"`
 	IDCardNum              *string    `json:"id_card_num"`
@@ -650,8 +640,6 @@ type MuckTruckSaleOrderInsertInput struct {
 	IsOtherVehicleModel    *bool      `json:"is_other_vehicle_model"`
 	IsCompleted            *bool      `json:"is_completed"`
 	IsDeleted              *bool      `json:"is_deleted"`
-	CreatedAt              *time.Time `json:"created_at"`
-	CreatedBy              *string    `json:"created_by"`
 	UpdatedAt              *time.Time `json:"updated_at"`
 	UpdatedBy              *string    `json:"updated_by"`
 	DeletedAt              *time.Time `json:"deleted_at"`
@@ -986,8 +974,6 @@ type NewMuckTruckInfoIncInput struct {
 
 // input type for inserting data into table "new_muck_truck_info"
 type NewMuckTruckInfoInsertInput struct {
-	ID                 *int64     `json:"id"`
-	NewMuckTruckInfoID *string    `json:"new_muck_truck_info_id"`
 	VehicleID          *string    `json:"vehicle_id"`
 	LicensePlateNumber *string    `json:"license_plate_number"`
 	RegistrationTime   *time.Time `json:"registration_time"`
@@ -998,8 +984,6 @@ type NewMuckTruckInfoInsertInput struct {
 	Height             *string    `json:"height"`
 	SealingDevice      *string    `json:"sealing_device"`
 	TopCoverHeight     *string    `json:"top_cover_height"`
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
 	UpdatedAt          *time.Time `json:"updated_at"`
 	UpdatedBy          *string    `json:"updated_by"`
 	DeletedAt          *time.Time `json:"deleted_at"`
@@ -1185,17 +1169,13 @@ type NewMuckTruckPhotoIncInput struct {
 
 // input type for inserting data into table "new_muck_truck_photo"
 type NewMuckTruckPhotoInsertInput struct {
-	ID                  *int64     `json:"id"`
-	NewMuckTruckPhotoID *string    `json:"new_muck_truck_photo_id"`
-	VehicleID           *string    `json:"vehicle_id"`
-	FilePath            *string    `json:"file_path"`
-	UploadUser          *string    `json:"upload_user"`
-	CreatedAt           *time.Time `json:"created_at"`
-	CreatedBy           *string    `json:"created_by"`
-	UpdatedAt           *time.Time `json:"updated_at"`
-	UpdatedBy           *string    `json:"updated_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
+	VehicleID  *string    `json:"vehicle_id"`
+	FilePath   *string    `json:"file_path"`
+	UploadUser *string    `json:"upload_user"`
+	UpdatedAt  *time.Time `json:"updated_at"`
+	UpdatedBy  *string    `json:"updated_by"`
+	DeletedAt  *time.Time `json:"deleted_at"`
+	DeletedBy  *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "new_muck_truck_photo"
@@ -1347,15 +1327,11 @@ type NewMuckTruckRecommendCatalogIncInput struct {
 
 // input type for inserting data into table "new_muck_truck_recommend_catalog"
 type NewMuckTruckRecommendCatalogInsertInput struct {
-	ID                             *int64     `json:"id"`
-	NewMuckTruckRecommendCatalogID *string    `json:"new_muck_truck_recommend_catalog_id"`
-	BrandName                      *string    `json:"brand_name"`
-	CreatedAt                      *time.Time `json:"created_at"`
-	CreatedBy                      *string    `json:"created_by"`
-	UpdatedAt                      *time.Time `json:"updated_at"`
-	UpdatedBy                      *string    `json:"updated_by"`
-	DeletedAt                      *time.Time `json:"deleted_at"`
-	DeletedBy                      *string    `json:"deleted_by"`
+	BrandName *string    `json:"brand_name"`
+	UpdatedAt *time.Time `json:"updated_at"`
+	UpdatedBy *string    `json:"updated_by"`
+	DeletedAt *time.Time `json:"deleted_at"`
+	DeletedBy *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "new_muck_truck_recommend_catalog"
@@ -1522,8 +1498,6 @@ type SellerFilingIncInput struct {
 
 // input type for inserting data into table "seller_filing"
 type SellerFilingInsertInput struct {
-	ID                                 *int64     `json:"id"`
-	SellerFilingID                     *string    `json:"seller_filing_id"`
 	Seller                             *string    `json:"seller"`
 	BusinessLicense                    *string    `json:"business_license"`
 	OrganizationCode                   *string    `json:"organization_code"`
@@ -1548,8 +1522,6 @@ type SellerFilingInsertInput struct {
 	CatalogID                          *string    `json:"catalog_id"`
 	PlatformDockingTechnologyAgreement *string    `json:"platform_docking_technology_agreement"`
 	IsDeleted                          *bool      `json:"is_deleted"`
-	CreatedAt                          *time.Time `json:"created_at"`
-	CreatedBy                          *string    `json:"created_by"`
 	UpdatedAt                          *time.Time `json:"updated_at"`
 	UpdatedBy                          *string    `json:"updated_by"`
 	DeletedAt                          *time.Time `json:"deleted_at"`
@@ -1796,20 +1768,16 @@ type SellerRatingRecordIncInput struct {
 
 // input type for inserting data into table "seller_rating_record"
 type SellerRatingRecordInsertInput struct {
-	ID                   *int64     `json:"id"`
-	SellerRatingRecordID *string    `json:"seller_rating_record_id"`
-	DemeritObj           *string    `json:"demerit_obj"`
-	DemeritPoints        *float64   `json:"demerit_points"`
-	DemeritReason        *string    `json:"demerit_reason"`
-	Operator             *string    `json:"operator"`
-	OperationTime        *time.Time `json:"operation_time"`
-	IsDeleted            *bool      `json:"is_deleted"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	UpdatedAt            *time.Time `json:"updated_at"`
-	UpdatedBy            *string    `json:"updated_by"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
+	DemeritObj    *string    `json:"demerit_obj"`
+	DemeritPoints *float64   `json:"demerit_points"`
+	DemeritReason *string    `json:"demerit_reason"`
+	Operator      *string    `json:"operator"`
+	OperationTime *time.Time `json:"operation_time"`
+	IsDeleted     *bool      `json:"is_deleted"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "seller_rating_record"
@@ -1996,29 +1964,25 @@ type VehicleSaleRecordIncInput struct {
 
 // input type for inserting data into table "vehicle_sale_record"
 type VehicleSaleRecordInsertInput struct {
-	ID                  *int64     `json:"id"`
-	VehicleSaleRecordID *string    `json:"vehicle_sale_record_id"`
-	Seller              *string    `json:"seller"`
-	VehicleModel        *string    `json:"vehicle_model"`
-	VehiclePicture      *string    `json:"vehicle_picture"`
-	VehicleParameter    *string    `json:"vehicle_parameter"`
-	ReferencePrice      *string    `json:"reference_price"`
-	OtherMaterial       *string    `json:"other_material"`
-	Remarks             *string    `json:"remarks"`
-	RegistrationTime    *time.Time `json:"registration_time"`
-	RegistrationUser    *string    `json:"registration_user"`
-	Cause               *string    `json:"cause"`
-	CatalogID           *string    `json:"catalog_id"`
-	AxisType            *int       `json:"axis_type"`
-	TransportVolume     *string    `json:"transport_volume"`
-	IsReview            *bool      `json:"is_review"`
-	IsDeleted           *bool      `json:"is_deleted"`
-	CreatedAt           *time.Time `json:"created_at"`
-	CreatedBy           *string    `json:"created_by"`
-	UpdatedAt           *time.Time `json:"updated_at"`
-	UpdatedBy           *string    `json:"updated_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
+	Seller           *string    `json:"seller"`
+	VehicleModel     *string    `json:"vehicle_model"`
+	VehiclePicture   *string    `json:"vehicle_picture"`
+	VehicleParameter *string    `json:"vehicle_parameter"`
+	ReferencePrice   *string    `json:"reference_price"`
+	OtherMaterial    *string    `json:"other_material"`
+	Remarks          *string    `json:"remarks"`
+	RegistrationTime *time.Time `json:"registration_time"`
+	RegistrationUser *string    `json:"registration_user"`
+	Cause            *string    `json:"cause"`
+	CatalogID        *string    `json:"catalog_id"`
+	AxisType         *int       `json:"axis_type"`
+	TransportVolume  *string    `json:"transport_volume"`
+	IsReview         *bool      `json:"is_review"`
+	IsDeleted        *bool      `json:"is_deleted"`
+	UpdatedAt        *time.Time `json:"updated_at"`
+	UpdatedBy        *string    `json:"updated_by"`
+	DeletedAt        *time.Time `json:"deleted_at"`
+	DeletedBy        *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "vehicle_sale_record"
@@ -2187,9 +2151,9 @@ const (
 	MuckTruckPurchaseIntentionSelectColumnMuckTruckPurchaseIntentionID MuckTruckPurchaseIntentionSelectColumn = "muck_truck_purchase_intention_id"
 	// 供应商                                          ( enterprise_info表的enterprise_id )
 	MuckTruckPurchaseIntentionSelectColumnSupplier MuckTruckPurchaseIntentionSelectColumn = "supplier"
-	// 购车用户姓名                                    (                                      )
+	// 购车用户姓名
 	MuckTruckPurchaseIntentionSelectColumnCustomerName MuckTruckPurchaseIntentionSelectColumn = "customer_name"
-	// 购车用户电话                                    (                                      )
+	// 购车用户电话
 	MuckTruckPurchaseIntentionSelectColumnCustomerPhone MuckTruckPurchaseIntentionSelectColumn = "customer_phone"
 	// 所有人企业                                      ( enterprise_info表的enterprise_id )
 	MuckTruckPurchaseIntentionSelectColumnOwnerEnterprise MuckTruckPurchaseIntentionSelectColumn = "owner_enterprise"
@@ -2199,33 +2163,33 @@ const (
 	MuckTruckPurchaseIntentionSelectColumnCityID MuckTruckPurchaseIntentionSelectColumn = "city_id"
 	// 所有人所在县                                    ( 区域表district_id                )
 	MuckTruckPurchaseIntentionSelectColumnDistrictID MuckTruckPurchaseIntentionSelectColumn = "district_id"
-	// 运力申请                                        (                                      )
+	// 运力申请
 	MuckTruckPurchaseIntentionSelectColumnCapacigyApplication MuckTruckPurchaseIntentionSelectColumn = "capacigy_application"
-	// 品牌型号                                        (                                      )
+	// 品牌型号
 	MuckTruckPurchaseIntentionSelectColumnBrandModel MuckTruckPurchaseIntentionSelectColumn = "brand_model"
-	// 购车数量                                        (                                      )
+	// 购车数量
 	MuckTruckPurchaseIntentionSelectColumnVehiclePurchase MuckTruckPurchaseIntentionSelectColumn = "vehicle_purchase"
-	// 编码                                            (                                      )
+	// 编码
 	MuckTruckPurchaseIntentionSelectColumnCode MuckTruckPurchaseIntentionSelectColumn = "code"
-	// 登记日期                                        (                                      )
+	// 登记日期
 	MuckTruckPurchaseIntentionSelectColumnRegistrationTime MuckTruckPurchaseIntentionSelectColumn = "registration_time"
 	// 登记用户                                        ( system_user表的user_id           )
 	MuckTruckPurchaseIntentionSelectColumnRegistrationUser MuckTruckPurchaseIntentionSelectColumn = "registration_user"
-	// 审核                                            (                                      )
+	// 审核
 	MuckTruckPurchaseIntentionSelectColumnReview MuckTruckPurchaseIntentionSelectColumn = "review"
-	// 备注                                            (                                      )
+	// 备注
 	MuckTruckPurchaseIntentionSelectColumnRemarks MuckTruckPurchaseIntentionSelectColumn = "remarks"
-	// 是否删除                                        (                                      )
+	// 是否删除
 	MuckTruckPurchaseIntentionSelectColumnIsDeleted MuckTruckPurchaseIntentionSelectColumn = "is_deleted"
-	// 创建时间                                        (                                      )
+	// 创建时间
 	MuckTruckPurchaseIntentionSelectColumnCreatedAt MuckTruckPurchaseIntentionSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id           )
 	MuckTruckPurchaseIntentionSelectColumnCreatedBy MuckTruckPurchaseIntentionSelectColumn = "created_by"
-	// 修改时间                                        (                                      )
+	// 修改时间
 	MuckTruckPurchaseIntentionSelectColumnUpdatedAt MuckTruckPurchaseIntentionSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id           )
 	MuckTruckPurchaseIntentionSelectColumnUpdatedBy MuckTruckPurchaseIntentionSelectColumn = "updated_by"
-	// 删除时间                                        (                                      )
+	// 删除时间
 	MuckTruckPurchaseIntentionSelectColumnDeletedAt MuckTruckPurchaseIntentionSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id           )
 	MuckTruckPurchaseIntentionSelectColumnDeletedBy MuckTruckPurchaseIntentionSelectColumn = "deleted_by"
@@ -2299,41 +2263,41 @@ const (
 	MuckTruckSaleOrderDetailSelectColumnOrderID MuckTruckSaleOrderDetailSelectColumn = "order_id"
 	// 车架号(后6位)                                   ( 车辆识别代号vin,如D02133                                     )
 	MuckTruckSaleOrderDetailSelectColumnVehicleIdentificationNumber MuckTruckSaleOrderDetailSelectColumn = "vehicle_identification_number"
-	// 合格证                                          (                                                              )
+	// 合格证
 	MuckTruckSaleOrderDetailSelectColumnCertificate MuckTruckSaleOrderDetailSelectColumn = "certificate"
-	// 终端证明                                        (                                                              )
+	// 终端证明
 	MuckTruckSaleOrderDetailSelectColumnTerminalProof MuckTruckSaleOrderDetailSelectColumn = "terminal_proof"
-	// 行驶证(照片)                                    (                                                              )
+	// 行驶证(照片)
 	MuckTruckSaleOrderDetailSelectColumnDriverLicensePic MuckTruckSaleOrderDetailSelectColumn = "driver_license_pic"
-	// 车牌号码                                        (                                                              )
+	// 车牌号码
 	MuckTruckSaleOrderDetailSelectColumnLicensePlateNumber MuckTruckSaleOrderDetailSelectColumn = "license_plate_number"
 	// 车牌颜色                                        ( 车牌颜色字典                                             )
 	MuckTruckSaleOrderDetailSelectColumnLicensePlateColor MuckTruckSaleOrderDetailSelectColumn = "license_plate_color"
 	// 号牌种类                                        ( 号牌种类字典                                             )
 	MuckTruckSaleOrderDetailSelectColumnLicensePlateType MuckTruckSaleOrderDetailSelectColumn = "license_plate_type"
-	// 抵达泉州日期                                    (                                                              )
+	// 抵达泉州日期
 	MuckTruckSaleOrderDetailSelectColumnArriveQzDate MuckTruckSaleOrderDetailSelectColumn = "arrive_qz_date"
-	// 初次登记日期                                    (                                                              )
+	// 初次登记日期
 	MuckTruckSaleOrderDetailSelectColumnFirstRegistrationDate MuckTruckSaleOrderDetailSelectColumn = "first_registration_date"
-	// 登记时间                                        (                                                              )
+	// 登记时间
 	MuckTruckSaleOrderDetailSelectColumnRegistrationDate MuckTruckSaleOrderDetailSelectColumn = "registration_date"
-	// 步骤(销售订单登记进度（2.到车登记 3.上牌登记）) (                                                              )
+	// 步骤(销售订单登记进度（2.到车登记 3.上牌登记）)
 	MuckTruckSaleOrderDetailSelectColumnStep MuckTruckSaleOrderDetailSelectColumn = "step"
-	// 车辆照片                                        (                                                              )
+	// 车辆照片
 	MuckTruckSaleOrderDetailSelectColumnVehiclePhoto MuckTruckSaleOrderDetailSelectColumn = "vehicle_photo"
-	// 供应商销售预编号                                (                                                              )
+	// 供应商销售预编号
 	MuckTruckSaleOrderDetailSelectColumnSellerPreviewNumber MuckTruckSaleOrderDetailSelectColumn = "seller_preview_number"
-	// 是否删除                                        (                                                              )
+	// 是否删除
 	MuckTruckSaleOrderDetailSelectColumnIsDeleted MuckTruckSaleOrderDetailSelectColumn = "is_deleted"
-	// 创建时间                                        (                                                              )
+	// 创建时间
 	MuckTruckSaleOrderDetailSelectColumnCreatedAt MuckTruckSaleOrderDetailSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                                   )
 	MuckTruckSaleOrderDetailSelectColumnCreatedBy MuckTruckSaleOrderDetailSelectColumn = "created_by"
-	// 修改时间                                        (                                                              )
+	// 修改时间
 	MuckTruckSaleOrderDetailSelectColumnUpdatedAt MuckTruckSaleOrderDetailSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                                   )
 	MuckTruckSaleOrderDetailSelectColumnUpdatedBy MuckTruckSaleOrderDetailSelectColumn = "updated_by"
-	// 删除时间                                        (                                                              )
+	// 删除时间
 	MuckTruckSaleOrderDetailSelectColumnDeletedAt MuckTruckSaleOrderDetailSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                                   )
 	MuckTruckSaleOrderDetailSelectColumnDeletedBy MuckTruckSaleOrderDetailSelectColumn = "deleted_by"
@@ -2402,71 +2366,71 @@ const (
 	MuckTruckSaleOrderSelectColumnID MuckTruckSaleOrderSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                 )
 	MuckTruckSaleOrderSelectColumnMuckTruckSaleOrderID MuckTruckSaleOrderSelectColumn = "muck_truck_sale_order_id"
-	// 顾客企业id                                      (                                          )
+	// 顾客企业id
 	MuckTruckSaleOrderSelectColumnCustomerName MuckTruckSaleOrderSelectColumn = "customer_name"
 	// 购车企业或个人姓名                              ( enterprise_info表的enterprise_id     )
 	MuckTruckSaleOrderSelectColumnCustomerID MuckTruckSaleOrderSelectColumn = "customer_id"
-	// 身份证号                                        (                                          )
+	// 身份证号
 	MuckTruckSaleOrderSelectColumnIDCardNum MuckTruckSaleOrderSelectColumn = "id_card_num"
-	// 联系电话                                        (                                          )
+	// 联系电话
 	MuckTruckSaleOrderSelectColumnContactPhone MuckTruckSaleOrderSelectColumn = "contact_phone"
-	// 告知书                                          (                                          )
+	// 告知书
 	MuckTruckSaleOrderSelectColumnNotification MuckTruckSaleOrderSelectColumn = "notification"
-	// 汽车销售合同(销售合同照片地址)                  (                                          )
+	// 汽车销售合同(销售合同照片地址)
 	MuckTruckSaleOrderSelectColumnVehicleSaleContract MuckTruckSaleOrderSelectColumn = "vehicle_sale_contract"
-	// 订金合同(订金合同照片地址)                      (                                          )
+	// 订金合同(订金合同照片地址)
 	MuckTruckSaleOrderSelectColumnVehicleDepositContract MuckTruckSaleOrderSelectColumn = "vehicle_deposit_contract"
-	// 承诺书                                          (                                          )
+	// 承诺书
 	MuckTruckSaleOrderSelectColumnCommitment MuckTruckSaleOrderSelectColumn = "commitment"
-	// 订车日期                                        (                                          )
+	// 订车日期
 	MuckTruckSaleOrderSelectColumnBookDate MuckTruckSaleOrderSelectColumn = "book_date"
-	// 登记时间                                        (                                          )
+	// 登记时间
 	MuckTruckSaleOrderSelectColumnRegistrationTime MuckTruckSaleOrderSelectColumn = "registration_time"
-	// 所属单位                                        (                                          )
+	// 所属单位
 	MuckTruckSaleOrderSelectColumnBelongingEnterprise MuckTruckSaleOrderSelectColumn = "belonging_enterprise"
-	// 身份证(身份证照片路径)                          (                                          )
+	// 身份证(身份证照片路径)
 	MuckTruckSaleOrderSelectColumnIDCardPicture MuckTruckSaleOrderSelectColumn = "id_card_picture"
-	// 进度                                            (                                          )
+	// 进度
 	MuckTruckSaleOrderSelectColumnProgress MuckTruckSaleOrderSelectColumn = "progress"
 	// 汽车型号                                        ( vehicle_sale_record 汽车销售备案的id )
 	MuckTruckSaleOrderSelectColumnVehicleSaleRecordID MuckTruckSaleOrderSelectColumn = "vehicle_sale_record_id"
-	// 订购车辆数                                      (                                          )
+	// 订购车辆数
 	MuckTruckSaleOrderSelectColumnBookVehicleNumber MuckTruckSaleOrderSelectColumn = "book_vehicle_number"
-	// 整车长度                                        (                                          )
+	// 整车长度
 	MuckTruckSaleOrderSelectColumnVehicleLength MuckTruckSaleOrderSelectColumn = "vehicle_length"
-	// 整车宽度                                        (                                          )
+	// 整车宽度
 	MuckTruckSaleOrderSelectColumnVehicleWidth MuckTruckSaleOrderSelectColumn = "vehicle_width"
-	// 整车高度                                        (                                          )
+	// 整车高度
 	MuckTruckSaleOrderSelectColumnVehicleHeight MuckTruckSaleOrderSelectColumn = "vehicle_height"
-	// 自卸车长度                                      (                                          )
+	// 自卸车长度
 	MuckTruckSaleOrderSelectColumnTipperLength MuckTruckSaleOrderSelectColumn = "tipper_length"
-	// 自卸车宽度                                      (                                          )
+	// 自卸车宽度
 	MuckTruckSaleOrderSelectColumnTipperWidth MuckTruckSaleOrderSelectColumn = "tipper_width"
-	// 自卸车高度                                      (                                          )
+	// 自卸车高度
 	MuckTruckSaleOrderSelectColumnTipperHeight MuckTruckSaleOrderSelectColumn = "tipper_height"
-	// 罐车标注容积                                    (                                          )
+	// 罐车标注容积
 	MuckTruckSaleOrderSelectColumnTankTruckMarkedVolume MuckTruckSaleOrderSelectColumn = "tank_truck_marked_volume"
-	// 罐车实际搅动容积                                (                                          )
+	// 罐车实际搅动容积
 	MuckTruckSaleOrderSelectColumnTankTruckActualVolume MuckTruckSaleOrderSelectColumn = "tank_truck_actual_volume"
-	// 车厢密闭装置                                    (                                          )
+	// 车厢密闭装置
 	MuckTruckSaleOrderSelectColumnCarriageSealingDevice MuckTruckSaleOrderSelectColumn = "carriage_sealing_device"
-	// U型货箱                                         (                                          )
+	// U型货箱
 	MuckTruckSaleOrderSelectColumnUShapedCargoBox MuckTruckSaleOrderSelectColumn = "u_shaped_cargo_box"
-	// 是否其他汽车型号                                (                                          )
+	// 是否其他汽车型号
 	MuckTruckSaleOrderSelectColumnIsOtherVehicleModel MuckTruckSaleOrderSelectColumn = "is_other_vehicle_model"
-	// 是否完成                                        (                                          )
+	// 是否完成
 	MuckTruckSaleOrderSelectColumnIsCompleted MuckTruckSaleOrderSelectColumn = "is_completed"
-	// 是否删除                                        (                                          )
+	// 是否删除
 	MuckTruckSaleOrderSelectColumnIsDeleted MuckTruckSaleOrderSelectColumn = "is_deleted"
-	// 创建时间                                        (                                          )
+	// 创建时间
 	MuckTruckSaleOrderSelectColumnCreatedAt MuckTruckSaleOrderSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id               )
 	MuckTruckSaleOrderSelectColumnCreatedBy MuckTruckSaleOrderSelectColumn = "created_by"
-	// 修改时间                                        (                                          )
+	// 修改时间
 	MuckTruckSaleOrderSelectColumnUpdatedAt MuckTruckSaleOrderSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id               )
 	MuckTruckSaleOrderSelectColumnUpdatedBy MuckTruckSaleOrderSelectColumn = "updated_by"
-	// 删除时间                                        (                                          )
+	// 删除时间
 	MuckTruckSaleOrderSelectColumnDeletedAt MuckTruckSaleOrderSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id               )
 	MuckTruckSaleOrderSelectColumnDeletedBy MuckTruckSaleOrderSelectColumn = "deleted_by"
@@ -2550,33 +2514,33 @@ const (
 	NewMuckTruckInfoSelectColumnNewMuckTruckInfoID NewMuckTruckInfoSelectColumn = "new_muck_truck_info_id"
 	// 扣分车辆id                                      ( vehicle_info表的vehicle_id )
 	NewMuckTruckInfoSelectColumnVehicleID NewMuckTruckInfoSelectColumn = "vehicle_id"
-	// 车牌号                                          (                                )
+	// 车牌号
 	NewMuckTruckInfoSelectColumnLicensePlateNumber NewMuckTruckInfoSelectColumn = "license_plate_number"
-	// 登记注册时间                                    (                                )
+	// 登记注册时间
 	NewMuckTruckInfoSelectColumnRegistrationTime NewMuckTruckInfoSelectColumn = "registration_time"
-	// 排放标准                                        (                                )
+	// 排放标准
 	NewMuckTruckInfoSelectColumnEmissionStandard NewMuckTruckInfoSelectColumn = "emission_standard"
-	// 是否U型货箱                                     (                                )
+	// 是否U型货箱
 	NewMuckTruckInfoSelectColumnIsUShapedCargoBox NewMuckTruckInfoSelectColumn = "is_u_shaped_cargo_box"
-	// 长                                              (                                )
+	// 长
 	NewMuckTruckInfoSelectColumnLength NewMuckTruckInfoSelectColumn = "length"
-	// 宽                                              (                                )
+	// 宽
 	NewMuckTruckInfoSelectColumnWidth NewMuckTruckInfoSelectColumn = "width"
-	// 高                                              (                                )
+	// 高
 	NewMuckTruckInfoSelectColumnHeight NewMuckTruckInfoSelectColumn = "height"
-	// 密封设备                                        (                                )
+	// 密封设备
 	NewMuckTruckInfoSelectColumnSealingDevice NewMuckTruckInfoSelectColumn = "sealing_device"
-	// 顶盖高度                                        (                                )
+	// 顶盖高度
 	NewMuckTruckInfoSelectColumnTopCoverHeight NewMuckTruckInfoSelectColumn = "top_cover_height"
-	// 创建时间                                        (                                )
+	// 创建时间
 	NewMuckTruckInfoSelectColumnCreatedAt NewMuckTruckInfoSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id     )
 	NewMuckTruckInfoSelectColumnCreatedBy NewMuckTruckInfoSelectColumn = "created_by"
-	// 修改时间                                        (                                )
+	// 修改时间
 	NewMuckTruckInfoSelectColumnUpdatedAt NewMuckTruckInfoSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id     )
 	NewMuckTruckInfoSelectColumnUpdatedBy NewMuckTruckInfoSelectColumn = "updated_by"
-	// 删除时间                                        (                                )
+	// 删除时间
 	NewMuckTruckInfoSelectColumnDeletedAt NewMuckTruckInfoSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id     )
 	NewMuckTruckInfoSelectColumnDeletedBy NewMuckTruckInfoSelectColumn = "deleted_by"
@@ -2642,19 +2606,19 @@ const (
 	NewMuckTruckPhotoSelectColumnNewMuckTruckPhotoID NewMuckTruckPhotoSelectColumn = "new_muck_truck_photo_id"
 	// 扣分车辆id                                      ( vehicle_info表的vehicle_id )
 	NewMuckTruckPhotoSelectColumnVehicleID NewMuckTruckPhotoSelectColumn = "vehicle_id"
-	// 路径                                            (                                )
+	// 路径
 	NewMuckTruckPhotoSelectColumnFilePath NewMuckTruckPhotoSelectColumn = "file_path"
 	// 上传用户                                        ( system_user表的user_id     )
 	NewMuckTruckPhotoSelectColumnUploadUser NewMuckTruckPhotoSelectColumn = "upload_user"
-	// 创建时间                                        (                                )
+	// 创建时间
 	NewMuckTruckPhotoSelectColumnCreatedAt NewMuckTruckPhotoSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id     )
 	NewMuckTruckPhotoSelectColumnCreatedBy NewMuckTruckPhotoSelectColumn = "created_by"
-	// 修改时间                                        (                                )
+	// 修改时间
 	NewMuckTruckPhotoSelectColumnUpdatedAt NewMuckTruckPhotoSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id     )
 	NewMuckTruckPhotoSelectColumnUpdatedBy NewMuckTruckPhotoSelectColumn = "updated_by"
-	// 删除时间                                        (                                )
+	// 删除时间
 	NewMuckTruckPhotoSelectColumnDeletedAt NewMuckTruckPhotoSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id     )
 	NewMuckTruckPhotoSelectColumnDeletedBy NewMuckTruckPhotoSelectColumn = "deleted_by"
@@ -2711,17 +2675,17 @@ const (
 	NewMuckTruckRecommendCatalogSelectColumnID NewMuckTruckRecommendCatalogSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	NewMuckTruckRecommendCatalogSelectColumnNewMuckTruckRecommendCatalogID NewMuckTruckRecommendCatalogSelectColumn = "new_muck_truck_recommend_catalog_id"
-	// 品牌简称                                        (                            )
+	// 品牌简称
 	NewMuckTruckRecommendCatalogSelectColumnBrandName NewMuckTruckRecommendCatalogSelectColumn = "brand_name"
-	// 创建时间                                        (                            )
+	// 创建时间
 	NewMuckTruckRecommendCatalogSelectColumnCreatedAt NewMuckTruckRecommendCatalogSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	NewMuckTruckRecommendCatalogSelectColumnCreatedBy NewMuckTruckRecommendCatalogSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	NewMuckTruckRecommendCatalogSelectColumnUpdatedAt NewMuckTruckRecommendCatalogSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	NewMuckTruckRecommendCatalogSelectColumnUpdatedBy NewMuckTruckRecommendCatalogSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	NewMuckTruckRecommendCatalogSelectColumnDeletedAt NewMuckTruckRecommendCatalogSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	NewMuckTruckRecommendCatalogSelectColumnDeletedBy NewMuckTruckRecommendCatalogSelectColumn = "deleted_by"
@@ -2778,61 +2742,61 @@ const (
 	SellerFilingSelectColumnSellerFilingID SellerFilingSelectColumn = "seller_filing_id"
 	// 销售商                                          ( enterprise_info表的enterprise_id                    )
 	SellerFilingSelectColumnSeller SellerFilingSelectColumn = "seller"
-	// 工商营业执照                                    (                                                         )
+	// 工商营业执照
 	SellerFilingSelectColumnBusinessLicense SellerFilingSelectColumn = "business_license"
-	// 组织机构代码证                                  (                                                         )
+	// 组织机构代码证
 	SellerFilingSelectColumnOrganizationCode SellerFilingSelectColumn = "organization_code"
-	// 法人代表身份证                                  (                                                         )
+	// 法人代表身份证
 	SellerFilingSelectColumnLegalRepresentativeIDCard SellerFilingSelectColumn = "legal_representative_id_card"
-	// 委托代理人身份证                                (                                                         )
+	// 委托代理人身份证
 	SellerFilingSelectColumnEntrustedAgentIDCard SellerFilingSelectColumn = "entrusted_agent_id_card"
-	// 工信部汽车生产销售许可证明                      (                                                         )
+	// 工信部汽车生产销售许可证明
 	SellerFilingSelectColumnMinistryProductionSalePermit SellerFilingSelectColumn = "ministry_production_sale_permit"
-	// 行业自律承诺书                                  (                                                         )
+	// 行业自律承诺书
 	SellerFilingSelectColumnIndustrySelfDisciplineCommitment SellerFilingSelectColumn = "industry_self_discipline_commitment"
-	// 汽车厂家汽车销售许可证明                        (                                                         )
+	// 汽车厂家汽车销售许可证明
 	SellerFilingSelectColumnManufacturerProductionSalePermit SellerFilingSelectColumn = "manufacturer_production_sale_permit"
-	// 维修服务服务站名称                              (                                                         )
+	// 维修服务服务站名称
 	SellerFilingSelectColumnRepairServiceStationName SellerFilingSelectColumn = "repair_service_station_name"
-	// 维修服务服务站地址                              (                                                         )
+	// 维修服务服务站地址
 	SellerFilingSelectColumnRepairServiceStationAddress SellerFilingSelectColumn = "repair_service_station_address"
-	// 维修服务服务站相关材料                          (                                                         )
+	// 维修服务服务站相关材料
 	SellerFilingSelectColumnRepairServiceStationMaterial SellerFilingSelectColumn = "repair_service_station_material"
-	// 服务人员名称                                    (                                                         )
+	// 服务人员名称
 	SellerFilingSelectColumnServiceStaffName SellerFilingSelectColumn = "service_staff_name"
-	// 服务人员电话                                    (                                                         )
+	// 服务人员电话
 	SellerFilingSelectColumnServiceStaffPhone SellerFilingSelectColumn = "service_staff_phone"
-	// 服务人员身份证                                  (                                                         )
+	// 服务人员身份证
 	SellerFilingSelectColumnServiceStaffID SellerFilingSelectColumn = "service_staff_id"
-	// 服务人员相关材料                                (                                                         )
+	// 服务人员相关材料
 	SellerFilingSelectColumnServiceStaffMaterial SellerFilingSelectColumn = "service_staff_material"
-	// 其他相关材料                                    (                                                         )
+	// 其他相关材料
 	SellerFilingSelectColumnOtherMaterial SellerFilingSelectColumn = "other_material"
-	// 备注                                            (                                                         )
+	// 备注
 	SellerFilingSelectColumnRemarks SellerFilingSelectColumn = "remarks"
-	// 登记日期                                        (                                                         )
+	// 登记日期
 	SellerFilingSelectColumnRegistrationTime SellerFilingSelectColumn = "registration_time"
 	// 登记用户                                        ( system_user表的user_id                              )
 	SellerFilingSelectColumnRegistrationUser SellerFilingSelectColumn = "registration_user"
-	// 是否核查                                        (                                                         )
+	// 是否核查
 	SellerFilingSelectColumnIsVerify SellerFilingSelectColumn = "is_verify"
-	// 原因                                            (                                                         )
+	// 原因
 	SellerFilingSelectColumnCause SellerFilingSelectColumn = "cause"
 	// 汽车品牌(简称)                                  ( new_muck_truck_recommend_catalog 新型渣土车推荐目录的id )
 	SellerFilingSelectColumnCatalogID SellerFilingSelectColumn = "catalog_id"
-	// 平台对接技术协议                                (                                                         )
+	// 平台对接技术协议
 	SellerFilingSelectColumnPlatformDockingTechnologyAgreement SellerFilingSelectColumn = "platform_docking_technology_agreement"
-	// 是否删除                                        (                                                         )
+	// 是否删除
 	SellerFilingSelectColumnIsDeleted SellerFilingSelectColumn = "is_deleted"
-	// 创建时间                                        (                                                         )
+	// 创建时间
 	SellerFilingSelectColumnCreatedAt SellerFilingSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                              )
 	SellerFilingSelectColumnCreatedBy SellerFilingSelectColumn = "created_by"
-	// 修改时间                                        (                                                         )
+	// 修改时间
 	SellerFilingSelectColumnUpdatedAt SellerFilingSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                              )
 	SellerFilingSelectColumnUpdatedBy SellerFilingSelectColumn = "updated_by"
-	// 删除时间                                        (                                                         )
+	// 删除时间
 	SellerFilingSelectColumnDeletedAt SellerFilingSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                              )
 	SellerFilingSelectColumnDeletedBy SellerFilingSelectColumn = "deleted_by"
@@ -2912,25 +2876,25 @@ const (
 	SellerRatingRecordSelectColumnSellerRatingRecordID SellerRatingRecordSelectColumn = "seller_rating_record_id"
 	// 扣分对象                                        ( enterprise_info表的enterprise_id )
 	SellerRatingRecordSelectColumnDemeritObj SellerRatingRecordSelectColumn = "demerit_obj"
-	// 扣分分值                                        (                                      )
+	// 扣分分值
 	SellerRatingRecordSelectColumnDemeritPoints SellerRatingRecordSelectColumn = "demerit_points"
-	// 扣分原因                                        (                                      )
+	// 扣分原因
 	SellerRatingRecordSelectColumnDemeritReason SellerRatingRecordSelectColumn = "demerit_reason"
 	// 操作人                                          ( system_user表的user_id           )
 	SellerRatingRecordSelectColumnOperator SellerRatingRecordSelectColumn = "operator"
-	// 操作时间                                        (                                      )
+	// 操作时间
 	SellerRatingRecordSelectColumnOperationTime SellerRatingRecordSelectColumn = "operation_time"
-	// 是否删除                                        (                                      )
+	// 是否删除
 	SellerRatingRecordSelectColumnIsDeleted SellerRatingRecordSelectColumn = "is_deleted"
-	// 创建时间                                        (                                      )
+	// 创建时间
 	SellerRatingRecordSelectColumnCreatedAt SellerRatingRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id           )
 	SellerRatingRecordSelectColumnCreatedBy SellerRatingRecordSelectColumn = "created_by"
-	// 修改时间                                        (                                      )
+	// 修改时间
 	SellerRatingRecordSelectColumnUpdatedAt SellerRatingRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id           )
 	SellerRatingRecordSelectColumnUpdatedBy SellerRatingRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                                      )
+	// 删除时间
 	SellerRatingRecordSelectColumnDeletedAt SellerRatingRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id           )
 	SellerRatingRecordSelectColumnDeletedBy SellerRatingRecordSelectColumn = "deleted_by"
@@ -2992,43 +2956,43 @@ const (
 	VehicleSaleRecordSelectColumnVehicleSaleRecordID VehicleSaleRecordSelectColumn = "vehicle_sale_record_id"
 	// 销售商                                          ( enterprise_info表的enterprise_id                    )
 	VehicleSaleRecordSelectColumnSeller VehicleSaleRecordSelectColumn = "seller"
-	// 汽车型号                                        (                                                         )
+	// 汽车型号
 	VehicleSaleRecordSelectColumnVehicleModel VehicleSaleRecordSelectColumn = "vehicle_model"
-	// 汽车相关图片的路径                              (                                                         )
+	// 汽车相关图片的路径
 	VehicleSaleRecordSelectColumnVehiclePicture VehicleSaleRecordSelectColumn = "vehicle_picture"
-	// 汽车参数                                        (                                                         )
+	// 汽车参数
 	VehicleSaleRecordSelectColumnVehicleParameter VehicleSaleRecordSelectColumn = "vehicle_parameter"
-	// 参考报价                                        (                                                         )
+	// 参考报价
 	VehicleSaleRecordSelectColumnReferencePrice VehicleSaleRecordSelectColumn = "reference_price"
-	// 其他相关材料                                    (                                                         )
+	// 其他相关材料
 	VehicleSaleRecordSelectColumnOtherMaterial VehicleSaleRecordSelectColumn = "other_material"
-	// 备注                                            (                                                         )
+	// 备注
 	VehicleSaleRecordSelectColumnRemarks VehicleSaleRecordSelectColumn = "remarks"
-	// 登记日期                                        (                                                         )
+	// 登记日期
 	VehicleSaleRecordSelectColumnRegistrationTime VehicleSaleRecordSelectColumn = "registration_time"
 	// 登记用户                                        ( system_user表的user_id                              )
 	VehicleSaleRecordSelectColumnRegistrationUser VehicleSaleRecordSelectColumn = "registration_user"
-	// 原因                                            (                                                         )
+	// 原因
 	VehicleSaleRecordSelectColumnCause VehicleSaleRecordSelectColumn = "cause"
 	// 汽车品牌(简称)                                  ( new_muck_truck_recommend_catalog 新型渣土车推荐目录的id )
 	VehicleSaleRecordSelectColumnCatalogID VehicleSaleRecordSelectColumn = "catalog_id"
 	// 轴数类型                                        ( 轴数类型字典                                        )
 	VehicleSaleRecordSelectColumnAxisType VehicleSaleRecordSelectColumn = "axis_type"
-	// 运输方量                                        (                                                         )
+	// 运输方量
 	VehicleSaleRecordSelectColumnTransportVolume VehicleSaleRecordSelectColumn = "transport_volume"
-	// 是否审核                                        (                                                         )
+	// 是否审核
 	VehicleSaleRecordSelectColumnIsReview VehicleSaleRecordSelectColumn = "is_review"
-	// 是否删除                                        (                                                         )
+	// 是否删除
 	VehicleSaleRecordSelectColumnIsDeleted VehicleSaleRecordSelectColumn = "is_deleted"
-	// 创建时间                                        (                                                         )
+	// 创建时间
 	VehicleSaleRecordSelectColumnCreatedAt VehicleSaleRecordSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id                              )
 	VehicleSaleRecordSelectColumnCreatedBy VehicleSaleRecordSelectColumn = "created_by"
-	// 修改时间                                        (                                                         )
+	// 修改时间
 	VehicleSaleRecordSelectColumnUpdatedAt VehicleSaleRecordSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id                              )
 	VehicleSaleRecordSelectColumnUpdatedBy VehicleSaleRecordSelectColumn = "updated_by"
-	// 删除时间                                        (                                                         )
+	// 删除时间
 	VehicleSaleRecordSelectColumnDeletedAt VehicleSaleRecordSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id                              )
 	VehicleSaleRecordSelectColumnDeletedBy VehicleSaleRecordSelectColumn = "deleted_by"

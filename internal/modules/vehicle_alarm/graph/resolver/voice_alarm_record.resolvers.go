@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVoiceAlarmRecordByPk(ctx context.Context, Id in
 }
 
 func (r *mutationResolver) InsertVoiceAlarmRecord(ctx context.Context, objects []*model.VoiceAlarmRecordInsertInput) (*model.VoiceAlarmRecordMutationResponse, error) {
-	rs := []*model1.VoiceAlarmRecord{}
+	rs := make([]*model1.VoiceAlarmRecord, 0)
 	for _, object := range objects {
 		v := &model1.VoiceAlarmRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VoiceAlarmRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVoiceAlarmRecordByPk(ctx context.Context, inc *
 	qt := util.NewQueryTranslator(tx, &model1.VoiceAlarmRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VoiceAlarmRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VoiceAlarmRecord(ctx context.Context, distinctOn []model
 		Finish()
 	var rs []*model1.VoiceAlarmRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VoiceAlarmRecordAggregate(ctx context.Context, distinctOn []model.VoiceAlarmRecordSelectColumn, limit *int, offset *int, orderBy []*model.VoiceAlarmRecordOrderBy, where *model.VoiceAlarmRecordBoolExp) (*model.VoiceAlarmRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VoiceAlarmRecordAggregate(ctx context.Context, distinctO
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VoiceAlarmRecordByPk(ctx context.Context, Id int64) (*model1.VoiceAlarmRecord, error) {
 	var rs model1.VoiceAlarmRecord
 	tx := db.DB.Model(&model1.VoiceAlarmRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

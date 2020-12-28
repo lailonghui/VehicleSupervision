@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteNewMuckTruckInfoByPk(ctx context.Context, Id in
 }
 
 func (r *mutationResolver) InsertNewMuckTruckInfo(ctx context.Context, objects []*model.NewMuckTruckInfoInsertInput) (*model.NewMuckTruckInfoMutationResponse, error) {
-	rs := []*model1.NewMuckTruckInfo{}
+	rs := make([]*model1.NewMuckTruckInfo, 0)
 	for _, object := range objects {
 		v := &model1.NewMuckTruckInfo{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.NewMuckTruckInfo{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateNewMuckTruckInfoByPk(ctx context.Context, inc *
 	qt := util.NewQueryTranslator(tx, &model1.NewMuckTruckInfo{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.NewMuckTruckInfo
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) NewMuckTruckInfo(ctx context.Context, distinctOn []model
 		Finish()
 	var rs []*model1.NewMuckTruckInfo
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) NewMuckTruckInfoAggregate(ctx context.Context, distinctOn []model.NewMuckTruckInfoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckInfoOrderBy, where *model.NewMuckTruckInfoBoolExp) (*model.NewMuckTruckInfoAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) NewMuckTruckInfoAggregate(ctx context.Context, distinctO
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) NewMuckTruckInfoByPk(ctx context.Context, Id int64) (*model1.NewMuckTruckInfo, error) {
 	var rs model1.NewMuckTruckInfo
 	tx := db.DB.Model(&model1.NewMuckTruckInfo{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

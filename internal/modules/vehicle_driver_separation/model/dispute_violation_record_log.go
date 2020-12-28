@@ -16,16 +16,16 @@ type DisputeViolationRecordLog struct {
 	DisputeViolationID *string `json:"dispute_violation_id"`
 	// 审核人                                                       ( system_user表的user_id                         )
 	Reviewer *string `json:"reviewer"`
-	// 审核时间                                                     (                                                    )
+	// 审核时间
 	ReviewTime *time.Time `json:"review_time"`
-	// 审核意见                                                     (                                                    )
+	// 审核意见
 	ReviewOpinion *string `json:"review_opinion"`
-	// 审核结果                                                     (                                                    )
+	// 审核结果
 	ReviewResult *string `json:"review_result"`
-	// 审核动作名称                                                 (                                                    )
+	// 审核动作名称
 	ReviewActionName *string `json:"review_action_name"`
 	// 审批人                                                       ( system_user表的user_id                         )
 	Approver *string `json:"approver"`
-	// 内网更新时间                                                 (                                                    )
+	// 内网更新时间
 	UpdateTimeIn *string `json:"update_time_in"`
 }

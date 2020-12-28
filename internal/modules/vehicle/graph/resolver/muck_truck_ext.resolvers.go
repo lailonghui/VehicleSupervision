@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteMuckTruckExtByPk(ctx context.Context, Id int64)
 }
 
 func (r *mutationResolver) InsertMuckTruckExt(ctx context.Context, objects []*model.MuckTruckExtInsertInput) (*model.MuckTruckExtMutationResponse, error) {
-	rs := []*model1.MuckTruckExt{}
+	rs := make([]*model1.MuckTruckExt, 0)
 	for _, object := range objects {
 		v := &model1.MuckTruckExt{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.MuckTruckExt{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateMuckTruckExtByPk(ctx context.Context, inc *mode
 	qt := util.NewQueryTranslator(tx, &model1.MuckTruckExt{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.MuckTruckExt
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) MuckTruckExt(ctx context.Context, distinctOn []model.Muc
 		Finish()
 	var rs []*model1.MuckTruckExt
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) MuckTruckExtAggregate(ctx context.Context, distinctOn []model.MuckTruckExtSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckExtOrderBy, where *model.MuckTruckExtBoolExp) (*model.MuckTruckExtAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) MuckTruckExtAggregate(ctx context.Context, distinctOn []
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) MuckTruckExtByPk(ctx context.Context, Id int64) (*model1.MuckTruckExt, error) {
 	var rs model1.MuckTruckExt
 	tx := db.DB.Model(&model1.MuckTruckExt{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

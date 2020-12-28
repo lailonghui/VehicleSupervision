@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleOnlineTimeByPk(ctx context.Context, Id i
 }
 
 func (r *mutationResolver) InsertVehicleOnlineTime(ctx context.Context, objects []*model.VehicleOnlineTimeInsertInput) (*model.VehicleOnlineTimeMutationResponse, error) {
-	rs := []*model1.VehicleOnlineTime{}
+	rs := make([]*model1.VehicleOnlineTime, 0)
 	for _, object := range objects {
 		v := &model1.VehicleOnlineTime{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleOnlineTime{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleOnlineTimeByPk(ctx context.Context, inc 
 	qt := util.NewQueryTranslator(tx, &model1.VehicleOnlineTime{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleOnlineTime
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleOnlineTime(ctx context.Context, distinctOn []mode
 		Finish()
 	var rs []*model1.VehicleOnlineTime
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleOnlineTimeAggregate(ctx context.Context, distinctOn []model.VehicleOnlineTimeSelectColumn, limit *int, offset *int, orderBy []*model.VehicleOnlineTimeOrderBy, where *model.VehicleOnlineTimeBoolExp) (*model.VehicleOnlineTimeAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleOnlineTimeAggregate(ctx context.Context, distinct
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleOnlineTimeByPk(ctx context.Context, Id int64) (*model1.VehicleOnlineTime, error) {
 	var rs model1.VehicleOnlineTime
 	tx := db.DB.Model(&model1.VehicleOnlineTime{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

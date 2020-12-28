@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteDrivingLogInfoByPk(ctx context.Context, Id int6
 }
 
 func (r *mutationResolver) InsertDrivingLogInfo(ctx context.Context, objects []*model.DrivingLogInfoInsertInput) (*model.DrivingLogInfoMutationResponse, error) {
-	rs := []*model1.DrivingLogInfo{}
+	rs := make([]*model1.DrivingLogInfo, 0)
 	for _, object := range objects {
 		v := &model1.DrivingLogInfo{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DrivingLogInfo{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateDrivingLogInfoByPk(ctx context.Context, inc *mo
 	qt := util.NewQueryTranslator(tx, &model1.DrivingLogInfo{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DrivingLogInfo
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) DrivingLogInfo(ctx context.Context, distinctOn []model.D
 		Finish()
 	var rs []*model1.DrivingLogInfo
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DrivingLogInfoAggregate(ctx context.Context, distinctOn []model.DrivingLogInfoSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLogInfoOrderBy, where *model.DrivingLogInfoBoolExp) (*model.DrivingLogInfoAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) DrivingLogInfoAggregate(ctx context.Context, distinctOn 
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DrivingLogInfoByPk(ctx context.Context, Id int64) (*model1.DrivingLogInfo, error) {
 	var rs model1.DrivingLogInfo
 	tx := db.DB.Model(&model1.DrivingLogInfo{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

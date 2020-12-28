@@ -7,15 +7,15 @@ type OperatingVehicleExt {
 	"""
 	id: Bigint!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id (                            )
+	 vehicle_info 车辆信息表 的vehicle_id 
 	"""
 	vehicle_id: String!
 	"""
-	 代理商                                   (                            )
+	 代理商                                   
 	"""
 	agent: String
 	"""
-	 合同编号                                 (                            )
+	 合同编号                                 
 	"""
 	contact_number: String
 	"""
@@ -23,99 +23,99 @@ type OperatingVehicleExt {
 	"""
 	platform: Int
 	"""
-	 行驶证所有人                             (                            )
+	 行驶证所有人                             
 	"""
 	driving_license_owner: String
 	"""
-	 速度模式状态获得时间                     (                            )
+	 速度模式状态获得时间                     
 	"""
 	speed_mode_status_time: Timestamptz
 	"""
-	 速度模式状态                             (                            )
+	 速度模式状态                             
 	"""
 	speed_mode_status: String
 	"""
-	 报废原因                                 (                            )
+	 报废原因                                 
 	"""
 	scrap_reason: String
 	"""
-	 报废时间                                 (                            )
+	 报废时间                                 
 	"""
 	scrap_time: Timestamptz
 	"""
-	 报废时间审核                             (                            )
+	 报废时间审核                             
 	"""
 	scrap_time_check: Int
 	"""
-	 行政区域                                 (                            )
+	 行政区域                                 
 	"""
 	administrative_region: String
 	"""
-	 车牌照片,云储存系统返回的路径            (                            )
+	 车牌照片,云储存系统返回的路径            
 	"""
 	license_plate_photo: String
 	"""
-	 其他照片,云储存系统返回的路径            (                            )
+	 其他照片,云储存系统返回的路径            
 	"""
 	other_photo: String
 	"""
-	 编号                                     (                            )
+	 编号                                     
 	"""
 	serial_number: String
 	"""
-	 是否北斗部标平台                         (                            )
+	 是否北斗部标平台                         
 	"""
 	is_beidou: Boolean
 	"""
-	 是否在运证系统                           (                            )
+	 是否在运证系统                           
 	"""
 	is_in_operating_system: Boolean
 	"""
-	 是否上传货运平台                         (                            )
+	 是否上传货运平台                         
 	"""
 	is_in_upload_platform: Boolean
 	"""
-	 是否监管                                 (                            )
+	 是否监管                                 
 	"""
 	is_supervise: Boolean
 	"""
-	 是否需要监管                             (                            )
+	 是否需要监管                             
 	"""
 	is_need_supervise: Boolean
 	"""
-	 是否功能测试通过                         (                            )
+	 是否功能测试通过                         
 	"""
 	is_function_ok: Boolean
 	"""
-	 是否屏蔽                                 (                            )
+	 是否屏蔽                                 
 	"""
 	is_block: Boolean
 	"""
-	 是否办理终端安装证明                     (                            )
+	 是否办理终端安装证明                     
 	"""
 	is_applay_terminal_installation: Boolean
 	"""
-	 第一次上线时间                           (                            )
+	 第一次上线时间                           
 	"""
 	first_online_time: Timestamptz
 	"""
-	 最后一次绑定终端时间                     (                            )
+	 最后一次绑定终端时间                     
 	"""
 	last_binding_terminal_time: Timestamptz
 	"""
-	 服务到期时间                             (                            )
+	 服务到期时间                             
 	"""
 	service_expiration_time: Timestamptz
 	"""
-	 合同时间                                 (                            )
+	 合同时间                                 
 	"""
 	contract_time: Timestamptz
 	"""
-	 安装时间                                 (                            )
+	 安装时间                                 
 	"""
 	installation_time: Timestamptz
 	"""
-	 创建时间                                 (                            )
+	 创建时间                                 
 	"""
 	created_at: Timestamptz!
 	"""
@@ -123,7 +123,7 @@ type OperatingVehicleExt {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                 (                            )
+	 修改时间                                 
 	"""
 	updated_at: Timestamptz
 	"""
@@ -131,7 +131,7 @@ type OperatingVehicleExt {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                 (                            )
+	 删除时间                                 
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -395,8 +395,6 @@ input OperatingVehicleExtBoolExp {
 input type for inserting data into table "operating_vehicle_ext"
 """
 input OperatingVehicleExtInsertInput {
-	id: Bigint
-	vehicle_id: String
 	agent: String
 	contact_number: String
 	platform: Int
@@ -423,8 +421,6 @@ input OperatingVehicleExtInsertInput {
 	service_expiration_time: Timestamptz
 	contract_time: Timestamptz
 	installation_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -486,15 +482,15 @@ enum OperatingVehicleExtSelectColumn {
 	"""
 	id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id (                            )
+	 vehicle_info 车辆信息表 的vehicle_id 
 	"""
 	vehicle_id
 	"""
-	 代理商                                   (                            )
+	 代理商                                   
 	"""
 	agent
 	"""
-	 合同编号                                 (                            )
+	 合同编号                                 
 	"""
 	contact_number
 	"""
@@ -502,99 +498,99 @@ enum OperatingVehicleExtSelectColumn {
 	"""
 	platform
 	"""
-	 行驶证所有人                             (                            )
+	 行驶证所有人                             
 	"""
 	driving_license_owner
 	"""
-	 速度模式状态获得时间                     (                            )
+	 速度模式状态获得时间                     
 	"""
 	speed_mode_status_time
 	"""
-	 速度模式状态                             (                            )
+	 速度模式状态                             
 	"""
 	speed_mode_status
 	"""
-	 报废原因                                 (                            )
+	 报废原因                                 
 	"""
 	scrap_reason
 	"""
-	 报废时间                                 (                            )
+	 报废时间                                 
 	"""
 	scrap_time
 	"""
-	 报废时间审核                             (                            )
+	 报废时间审核                             
 	"""
 	scrap_time_check
 	"""
-	 行政区域                                 (                            )
+	 行政区域                                 
 	"""
 	administrative_region
 	"""
-	 车牌照片,云储存系统返回的路径            (                            )
+	 车牌照片,云储存系统返回的路径            
 	"""
 	license_plate_photo
 	"""
-	 其他照片,云储存系统返回的路径            (                            )
+	 其他照片,云储存系统返回的路径            
 	"""
 	other_photo
 	"""
-	 编号                                     (                            )
+	 编号                                     
 	"""
 	serial_number
 	"""
-	 是否北斗部标平台                         (                            )
+	 是否北斗部标平台                         
 	"""
 	is_beidou
 	"""
-	 是否在运证系统                           (                            )
+	 是否在运证系统                           
 	"""
 	is_in_operating_system
 	"""
-	 是否上传货运平台                         (                            )
+	 是否上传货运平台                         
 	"""
 	is_in_upload_platform
 	"""
-	 是否监管                                 (                            )
+	 是否监管                                 
 	"""
 	is_supervise
 	"""
-	 是否需要监管                             (                            )
+	 是否需要监管                             
 	"""
 	is_need_supervise
 	"""
-	 是否功能测试通过                         (                            )
+	 是否功能测试通过                         
 	"""
 	is_function_ok
 	"""
-	 是否屏蔽                                 (                            )
+	 是否屏蔽                                 
 	"""
 	is_block
 	"""
-	 是否办理终端安装证明                     (                            )
+	 是否办理终端安装证明                     
 	"""
 	is_applay_terminal_installation
 	"""
-	 第一次上线时间                           (                            )
+	 第一次上线时间                           
 	"""
 	first_online_time
 	"""
-	 最后一次绑定终端时间                     (                            )
+	 最后一次绑定终端时间                     
 	"""
 	last_binding_terminal_time
 	"""
-	 服务到期时间                             (                            )
+	 服务到期时间                             
 	"""
 	service_expiration_time
 	"""
-	 合同时间                                 (                            )
+	 合同时间                                 
 	"""
 	contract_time
 	"""
-	 安装时间                                 (                            )
+	 安装时间                                 
 	"""
 	installation_time
 	"""
-	 创建时间                                 (                            )
+	 创建时间                                 
 	"""
 	created_at
 	"""
@@ -602,7 +598,7 @@ enum OperatingVehicleExtSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                 (                            )
+	 修改时间                                 
 	"""
 	updated_at
 	"""
@@ -610,7 +606,7 @@ enum OperatingVehicleExtSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                 (                            )
+	 删除时间                                 
 	"""
 	deleted_at
 	"""

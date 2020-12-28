@@ -11,47 +11,47 @@ type VehicleEnterpriseChangeReview {
 	"""
 	vehicle_enterprise_change_review_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 目标企业ID                                      (                            )
+	 目标企业ID                                      
 	"""
 	target_enterprise_id: String
 	"""
-	 备注                                            (                            )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 上传证明文件                                    (                            )
+	 上传证明文件                                    
 	"""
 	upload_document_src: String
 	"""
-	 审核状态  0.未审核  1.审核通过  2.退回          (                            )
+	 审核状态  0.未审核  1.审核通过  2.退回          
 	"""
 	review_status: Int
 	"""
-	 变更类型  1.本地区变更  2.跨区变更              (                            )
+	 变更类型  1.本地区变更  2.跨区变更              
 	"""
 	change_type: Int
 	"""
-	 车辆原所属地区                                  (                            )
+	 车辆原所属地区                                  
 	"""
 	original_area: String
 	"""
-	 变更地区                                        (                            )
+	 变更地区                                        
 	"""
 	changed_area: String
 	"""
-	 变更后自编号                                    (                            )
+	 变更后自编号                                    
 	"""
 	changed_self_number: String
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -59,7 +59,7 @@ type VehicleEnterpriseChangeReview {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -67,7 +67,7 @@ type VehicleEnterpriseChangeReview {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -267,9 +267,6 @@ input VehicleEnterpriseChangeReviewBoolExp {
 input type for inserting data into table "vehicle_enterprise_change_review"
 """
 input VehicleEnterpriseChangeReviewInsertInput {
-	id: Bigint
-	vehicle_enterprise_change_review_id: String
-	vehicle_id: String
 	target_enterprise_id: String
 	remarks: String
 	upload_document_src: String
@@ -279,8 +276,6 @@ input VehicleEnterpriseChangeReviewInsertInput {
 	changed_area: String
 	changed_self_number: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -330,47 +325,47 @@ enum VehicleEnterpriseChangeReviewSelectColumn {
 	"""
 	vehicle_enterprise_change_review_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 目标企业ID                                      (                            )
+	 目标企业ID                                      
 	"""
 	target_enterprise_id
 	"""
-	 备注                                            (                            )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 上传证明文件                                    (                            )
+	 上传证明文件                                    
 	"""
 	upload_document_src
 	"""
-	 审核状态  0.未审核  1.审核通过  2.退回          (                            )
+	 审核状态  0.未审核  1.审核通过  2.退回          
 	"""
 	review_status
 	"""
-	 变更类型  1.本地区变更  2.跨区变更              (                            )
+	 变更类型  1.本地区变更  2.跨区变更              
 	"""
 	change_type
 	"""
-	 车辆原所属地区                                  (                            )
+	 车辆原所属地区                                  
 	"""
 	original_area
 	"""
-	 变更地区                                        (                            )
+	 变更地区                                        
 	"""
 	changed_area
 	"""
-	 变更后自编号                                    (                            )
+	 变更后自编号                                    
 	"""
 	changed_self_number
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -378,7 +373,7 @@ enum VehicleEnterpriseChangeReviewSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -386,7 +381,7 @@ enum VehicleEnterpriseChangeReviewSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

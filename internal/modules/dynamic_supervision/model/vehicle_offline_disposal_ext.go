@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleOfflineDisposalLoader string *VehicleSupervision/internal/modules/dynamic_supervision/model.VehicleOfflineDisposal
 
 func (t VehicleOfflineDisposal) TableName() string {
-	return "VehicleOfflineDisposal"
+	return "vehicle_offline_disposal"
 }
 
 func (t *VehicleOfflineDisposal) NewLoader() *VehicleOfflineDisposalLoader {

@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleEnterpriseChangeReviewByPk(ctx context.C
 }
 
 func (r *mutationResolver) InsertVehicleEnterpriseChangeReview(ctx context.Context, objects []*model.VehicleEnterpriseChangeReviewInsertInput) (*model.VehicleEnterpriseChangeReviewMutationResponse, error) {
-	rs := []*model1.VehicleEnterpriseChangeReview{}
+	rs := make([]*model1.VehicleEnterpriseChangeReview, 0)
 	for _, object := range objects {
 		v := &model1.VehicleEnterpriseChangeReview{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleEnterpriseChangeReview{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleEnterpriseChangeReviewByPk(ctx context.C
 	qt := util.NewQueryTranslator(tx, &model1.VehicleEnterpriseChangeReview{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleEnterpriseChangeReview
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleEnterpriseChangeReview(ctx context.Context, disti
 		Finish()
 	var rs []*model1.VehicleEnterpriseChangeReview
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleEnterpriseChangeReviewAggregate(ctx context.Context, distinctOn []model.VehicleEnterpriseChangeReviewSelectColumn, limit *int, offset *int, orderBy []*model.VehicleEnterpriseChangeReviewOrderBy, where *model.VehicleEnterpriseChangeReviewBoolExp) (*model.VehicleEnterpriseChangeReviewAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleEnterpriseChangeReviewAggregate(ctx context.Conte
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleEnterpriseChangeReviewByPk(ctx context.Context, Id int64) (*model1.VehicleEnterpriseChangeReview, error) {
 	var rs model1.VehicleEnterpriseChangeReview
 	tx := db.DB.Model(&model1.VehicleEnterpriseChangeReview{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

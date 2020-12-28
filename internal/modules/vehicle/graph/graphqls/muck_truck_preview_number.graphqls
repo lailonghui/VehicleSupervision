@@ -11,15 +11,15 @@ type MuckTruckPreviewNumber {
 	"""
 	muck_truck_preview_number_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	 vehicle_info 车辆信息表 的vehicle_id                     
 	"""
 	vehicle_id: String!
 	"""
-	 预编号                                                       (                            )
+	 预编号                                                       
 	"""
 	svn_number: String
 	"""
-	 登记时间                                                     (                            )
+	 登记时间                                                     
 	"""
 	registration_time: String
 	"""
@@ -27,87 +27,87 @@ type MuckTruckPreviewNumber {
 	"""
 	confirmor: String
 	"""
-	 确认时间                                                     (                            )
+	 确认时间                                                     
 	"""
 	confirm_time: Timestamptz
 	"""
-	 确认状态                                                     (                            )
+	 确认状态                                                     
 	"""
 	confirm_status: Int
 	"""
-	 前车牌                                                       (                            )
+	 前车牌                                                       
 	"""
 	front_license_plate: String
 	"""
-	 后车牌                                                       (                            )
+	 后车牌                                                       
 	"""
 	rear_license_plate: String
 	"""
-	 侧车牌                                                       (                            )
+	 侧车牌                                                       
 	"""
 	side_license_plate: String
 	"""
-	 原编号                                                       (                            )
+	 原编号                                                       
 	"""
 	original_number: String
 	"""
-	 是否自动审核                                                 (                            )
+	 是否自动审核                                                 
 	"""
 	is_review_automatically: Boolean
 	"""
-	 制作状态                                                     (                            )
+	 制作状态                                                     
 	"""
 	production_status: Int
 	"""
-	 制作时间                                                     (                            )
+	 制作时间                                                     
 	"""
 	production_time: Timestamptz
 	"""
-	 制作中时间                                                   (                            )
+	 制作中时间                                                   
 	"""
 	marking_time: Timestamptz
 	"""
-	 制作次数                                                     (                            )
+	 制作次数                                                     
 	"""
 	production_times: Int
 	"""
-	 提交制牌厂时间                                               (                            )
+	 提交制牌厂时间                                               
 	"""
 	submit_production_time: Timestamptz
 	"""
-	 联系人                                                       (                            )
+	 联系人                                                       
 	"""
 	contact_person: String
 	"""
-	 联系电话                                                     (                            )
+	 联系电话                                                     
 	"""
 	contact_phone: String
 	"""
-	 工号牌颜色（green.绿色 yellow.黄色）                         (                            )
+	 工号牌颜色（green.绿色 yellow.黄色）                         
 	"""
 	work_number_plate_color: String
 	"""
-	 初次登记日期                                                 (                            )
+	 初次登记日期                                                 
 	"""
 	initial_registration_date: Timestamptz
 	"""
-	 违法未处理数                                                 (                            )
+	 违法未处理数                                                 
 	"""
 	unlawful_violation_number: Int
 	"""
-	 是否登记销售订单                                             (                            )
+	 是否登记销售订单                                             
 	"""
 	is_register_sale_order: Boolean
 	"""
-	 备注                                                         (                            )
+	 备注                                                         
 	"""
 	remarks: String
 	"""
-	 是否删除                                                     (                            )
+	 是否删除                                                     
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -115,7 +115,7 @@ type MuckTruckPreviewNumber {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -123,7 +123,7 @@ type MuckTruckPreviewNumber {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -395,9 +395,6 @@ input MuckTruckPreviewNumberBoolExp {
 input type for inserting data into table "muck_truck_preview_number"
 """
 input MuckTruckPreviewNumberInsertInput {
-	id: Bigint
-	muck_truck_preview_number_id: String
-	vehicle_id: String
 	svn_number: String
 	registration_time: String
 	confirmor: String
@@ -421,8 +418,6 @@ input MuckTruckPreviewNumberInsertInput {
 	is_register_sale_order: Boolean
 	remarks: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -488,15 +483,15 @@ enum MuckTruckPreviewNumberSelectColumn {
 	"""
 	muck_truck_preview_number_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	 vehicle_info 车辆信息表 的vehicle_id                     
 	"""
 	vehicle_id
 	"""
-	 预编号                                                       (                            )
+	 预编号                                                       
 	"""
 	svn_number
 	"""
-	 登记时间                                                     (                            )
+	 登记时间                                                     
 	"""
 	registration_time
 	"""
@@ -504,87 +499,87 @@ enum MuckTruckPreviewNumberSelectColumn {
 	"""
 	confirmor
 	"""
-	 确认时间                                                     (                            )
+	 确认时间                                                     
 	"""
 	confirm_time
 	"""
-	 确认状态                                                     (                            )
+	 确认状态                                                     
 	"""
 	confirm_status
 	"""
-	 前车牌                                                       (                            )
+	 前车牌                                                       
 	"""
 	front_license_plate
 	"""
-	 后车牌                                                       (                            )
+	 后车牌                                                       
 	"""
 	rear_license_plate
 	"""
-	 侧车牌                                                       (                            )
+	 侧车牌                                                       
 	"""
 	side_license_plate
 	"""
-	 原编号                                                       (                            )
+	 原编号                                                       
 	"""
 	original_number
 	"""
-	 是否自动审核                                                 (                            )
+	 是否自动审核                                                 
 	"""
 	is_review_automatically
 	"""
-	 制作状态                                                     (                            )
+	 制作状态                                                     
 	"""
 	production_status
 	"""
-	 制作时间                                                     (                            )
+	 制作时间                                                     
 	"""
 	production_time
 	"""
-	 制作中时间                                                   (                            )
+	 制作中时间                                                   
 	"""
 	marking_time
 	"""
-	 制作次数                                                     (                            )
+	 制作次数                                                     
 	"""
 	production_times
 	"""
-	 提交制牌厂时间                                               (                            )
+	 提交制牌厂时间                                               
 	"""
 	submit_production_time
 	"""
-	 联系人                                                       (                            )
+	 联系人                                                       
 	"""
 	contact_person
 	"""
-	 联系电话                                                     (                            )
+	 联系电话                                                     
 	"""
 	contact_phone
 	"""
-	 工号牌颜色（green.绿色 yellow.黄色）                         (                            )
+	 工号牌颜色（green.绿色 yellow.黄色）                         
 	"""
 	work_number_plate_color
 	"""
-	 初次登记日期                                                 (                            )
+	 初次登记日期                                                 
 	"""
 	initial_registration_date
 	"""
-	 违法未处理数                                                 (                            )
+	 违法未处理数                                                 
 	"""
 	unlawful_violation_number
 	"""
-	 是否登记销售订单                                             (                            )
+	 是否登记销售订单                                             
 	"""
 	is_register_sale_order
 	"""
-	 备注                                                         (                            )
+	 备注                                                         
 	"""
 	remarks
 	"""
-	 是否删除                                                     (                            )
+	 是否删除                                                     
 	"""
 	is_deleted
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -592,7 +587,7 @@ enum MuckTruckPreviewNumberSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -600,7 +595,7 @@ enum MuckTruckPreviewNumberSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""

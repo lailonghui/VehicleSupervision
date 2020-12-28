@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteMuckTruckTestSituationByPk(ctx context.Context,
 }
 
 func (r *mutationResolver) InsertMuckTruckTestSituation(ctx context.Context, objects []*model.MuckTruckTestSituationInsertInput) (*model.MuckTruckTestSituationMutationResponse, error) {
-	rs := []*model1.MuckTruckTestSituation{}
+	rs := make([]*model1.MuckTruckTestSituation, 0)
 	for _, object := range objects {
 		v := &model1.MuckTruckTestSituation{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.MuckTruckTestSituation{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateMuckTruckTestSituationByPk(ctx context.Context,
 	qt := util.NewQueryTranslator(tx, &model1.MuckTruckTestSituation{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.MuckTruckTestSituation
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) MuckTruckTestSituation(ctx context.Context, distinctOn [
 		Finish()
 	var rs []*model1.MuckTruckTestSituation
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) MuckTruckTestSituationAggregate(ctx context.Context, distinctOn []model.MuckTruckTestSituationSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckTestSituationOrderBy, where *model.MuckTruckTestSituationBoolExp) (*model.MuckTruckTestSituationAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) MuckTruckTestSituationAggregate(ctx context.Context, dis
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) MuckTruckTestSituationByPk(ctx context.Context, Id int64) (*model1.MuckTruckTestSituation, error) {
 	var rs model1.MuckTruckTestSituation
 	tx := db.DB.Model(&model1.MuckTruckTestSituation{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

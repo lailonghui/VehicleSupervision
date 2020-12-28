@@ -12,45 +12,45 @@ type OfflineAlarmRegistration struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	OfflineAlarmRegistrationID string `json:"offline_alarm_registration_id"`
-	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID string `json:"vehicle_id"`
-	// 离线开始时间                                    (                            )
+	// 离线开始时间
 	OfflineStartTime *time.Time `json:"offline_start_time"`
-	// 离线结束时间                                    (                            )
+	// 离线结束时间
 	OfflineEndTime *time.Time `json:"offline_end_time"`
 	// 登记用户                                        ( system_user表的user_id )
 	RegistrationUser *string `json:"registration_user"`
-	// 登记时间                                        (                            )
+	// 登记时间
 	RegistrationTime *time.Time `json:"registration_time"`
-	// 短信发送内容                                    (                            )
+	// 短信发送内容
 	SmsContent *string `json:"sms_content"`
-	// 电话提醒内容                                    (                            )
+	// 电话提醒内容
 	PhoneReminderContent *string `json:"phone_reminder_content"`
-	// 短信发送时间                                    (                            )
+	// 短信发送时间
 	SmsSendTime *time.Time `json:"sms_send_time"`
-	// 电话提醒时间                                    (                            )
+	// 电话提醒时间
 	PhoneReminderTime *time.Time `json:"phone_reminder_time"`
-	// 离线原因                                        (                            )
+	// 离线原因
 	OfflineReason *string `json:"offline_reason"`
 	// 报警类型                                        ( 报警类型字典           )
 	AlarmType *int `json:"alarm_type"`
-	// 是否登记                                        (                            )
+	// 是否登记
 	IsRegistration *bool `json:"is_registration"`
-	// 是否结束报警                                    (                            )
+	// 是否结束报警
 	IsEndAlarm *bool `json:"is_end_alarm"`
-	// 是否发送短信                                    (                            )
+	// 是否发送短信
 	IsSendSms *bool `json:"is_send_sms"`
-	// 是否需要维护                                    (                            )
+	// 是否需要维护
 	IsNeedMaintain *bool `json:"is_need_maintain"`
-	// 创建时间                                        (                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id )
 	DeletedBy *string `json:"deleted_by"`

@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleReserveHistoryRecordByPk(ctx context.Con
 }
 
 func (r *mutationResolver) InsertVehicleReserveHistoryRecord(ctx context.Context, objects []*model.VehicleReserveHistoryRecordInsertInput) (*model.VehicleReserveHistoryRecordMutationResponse, error) {
-	rs := []*model1.VehicleReserveHistoryRecord{}
+	rs := make([]*model1.VehicleReserveHistoryRecord, 0)
 	for _, object := range objects {
 		v := &model1.VehicleReserveHistoryRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleReserveHistoryRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleReserveHistoryRecordByPk(ctx context.Con
 	qt := util.NewQueryTranslator(tx, &model1.VehicleReserveHistoryRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleReserveHistoryRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleReserveHistoryRecord(ctx context.Context, distinc
 		Finish()
 	var rs []*model1.VehicleReserveHistoryRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleReserveHistoryRecordAggregate(ctx context.Context, distinctOn []model.VehicleReserveHistoryRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleReserveHistoryRecordOrderBy, where *model.VehicleReserveHistoryRecordBoolExp) (*model.VehicleReserveHistoryRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleReserveHistoryRecordAggregate(ctx context.Context
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleReserveHistoryRecordByPk(ctx context.Context, Id int64) (*model1.VehicleReserveHistoryRecord, error) {
 	var rs model1.VehicleReserveHistoryRecord
 	tx := db.DB.Model(&model1.VehicleReserveHistoryRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

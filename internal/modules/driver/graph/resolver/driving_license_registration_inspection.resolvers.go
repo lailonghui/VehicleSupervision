@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteDrivingLicenseRegistrationInspectionByPk(ctx co
 }
 
 func (r *mutationResolver) InsertDrivingLicenseRegistrationInspection(ctx context.Context, objects []*model.DrivingLicenseRegistrationInspectionInsertInput) (*model.DrivingLicenseRegistrationInspectionMutationResponse, error) {
-	rs := []*model1.DrivingLicenseRegistrationInspection{}
+	rs := make([]*model1.DrivingLicenseRegistrationInspection, 0)
 	for _, object := range objects {
 		v := &model1.DrivingLicenseRegistrationInspection{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DrivingLicenseRegistrationInspection{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateDrivingLicenseRegistrationInspectionByPk(ctx co
 	qt := util.NewQueryTranslator(tx, &model1.DrivingLicenseRegistrationInspection{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DrivingLicenseRegistrationInspection
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) DrivingLicenseRegistrationInspection(ctx context.Context
 		Finish()
 	var rs []*model1.DrivingLicenseRegistrationInspection
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DrivingLicenseRegistrationInspectionAggregate(ctx context.Context, distinctOn []model.DrivingLicenseRegistrationInspectionSelectColumn, limit *int, offset *int, orderBy []*model.DrivingLicenseRegistrationInspectionOrderBy, where *model.DrivingLicenseRegistrationInspectionBoolExp) (*model.DrivingLicenseRegistrationInspectionAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) DrivingLicenseRegistrationInspectionAggregate(ctx contex
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DrivingLicenseRegistrationInspectionByPk(ctx context.Context, Id int64) (*model1.DrivingLicenseRegistrationInspection, error) {
 	var rs model1.DrivingLicenseRegistrationInspection
 	tx := db.DB.Model(&model1.DrivingLicenseRegistrationInspection{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

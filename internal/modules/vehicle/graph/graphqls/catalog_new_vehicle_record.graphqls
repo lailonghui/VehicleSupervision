@@ -11,11 +11,11 @@ type CatalogNewVehicleRecord {
 	"""
 	catalog_new_vehicle_record_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 终端ID                                          (                            )
+	 终端ID                                          
 	"""
 	terminal_id: String
 	"""
@@ -23,11 +23,11 @@ type CatalogNewVehicleRecord {
 	"""
 	reviewer: String
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -35,7 +35,7 @@ type CatalogNewVehicleRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -43,7 +43,7 @@ type CatalogNewVehicleRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -203,14 +203,9 @@ input CatalogNewVehicleRecordBoolExp {
 input type for inserting data into table "catalog_new_vehicle_record"
 """
 input CatalogNewVehicleRecordInsertInput {
-	id: Bigint
-	catalog_new_vehicle_record_id: String
-	vehicle_id: String
 	terminal_id: String
 	reviewer: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -252,11 +247,11 @@ enum CatalogNewVehicleRecordSelectColumn {
 	"""
 	catalog_new_vehicle_record_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 终端ID                                          (                            )
+	 终端ID                                          
 	"""
 	terminal_id
 	"""
@@ -264,11 +259,11 @@ enum CatalogNewVehicleRecordSelectColumn {
 	"""
 	reviewer
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -276,7 +271,7 @@ enum CatalogNewVehicleRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -284,7 +279,7 @@ enum CatalogNewVehicleRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

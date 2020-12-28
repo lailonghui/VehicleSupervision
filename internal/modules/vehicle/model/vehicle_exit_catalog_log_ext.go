@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleExitCatalogLogLoader string *VehicleSupervision/internal/modules/vehicle/model.VehicleExitCatalogLog
 
 func (t VehicleExitCatalogLog) TableName() string {
-	return "VehicleExitCatalogLog"
+	return "vehicle_exit_catalog_log"
 }
 
 func (t *VehicleExitCatalogLog) NewLoader() *VehicleExitCatalogLogLoader {

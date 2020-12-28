@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden AlarmSupervisionPictureUploadLoader string *VehicleSupervision/internal/modules/vehicle_alarm/model.AlarmSupervisionPictureUpload
 
 func (t AlarmSupervisionPictureUpload) TableName() string {
-	return "AlarmSupervisionPictureUpload"
+	return "alarm_supervision_picture_upload"
 }
 
 func (t *AlarmSupervisionPictureUpload) NewLoader() *AlarmSupervisionPictureUploadLoader {

@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteProvinceUploadVehicleByPk(ctx context.Context, 
 }
 
 func (r *mutationResolver) InsertProvinceUploadVehicle(ctx context.Context, objects []*model.ProvinceUploadVehicleInsertInput) (*model.ProvinceUploadVehicleMutationResponse, error) {
-	rs := []*model1.ProvinceUploadVehicle{}
+	rs := make([]*model1.ProvinceUploadVehicle, 0)
 	for _, object := range objects {
 		v := &model1.ProvinceUploadVehicle{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.ProvinceUploadVehicle{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateProvinceUploadVehicleByPk(ctx context.Context, 
 	qt := util.NewQueryTranslator(tx, &model1.ProvinceUploadVehicle{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.ProvinceUploadVehicle
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) ProvinceUploadVehicle(ctx context.Context, distinctOn []
 		Finish()
 	var rs []*model1.ProvinceUploadVehicle
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) ProvinceUploadVehicleAggregate(ctx context.Context, distinctOn []model.ProvinceUploadVehicleSelectColumn, limit *int, offset *int, orderBy []*model.ProvinceUploadVehicleOrderBy, where *model.ProvinceUploadVehicleBoolExp) (*model.ProvinceUploadVehicleAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) ProvinceUploadVehicleAggregate(ctx context.Context, dist
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) ProvinceUploadVehicleByPk(ctx context.Context, Id int64) (*model1.ProvinceUploadVehicle, error) {
 	var rs model1.ProvinceUploadVehicle
 	tx := db.DB.Model(&model1.ProvinceUploadVehicle{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DeductionReportLoader string *VehicleSupervision/internal/modules/vehicle_violation/model.DeductionReport
 
 func (t DeductionReport) TableName() string {
-	return "DeductionReport"
+	return "deduction_report"
 }
 
 func (t *DeductionReport) NewLoader() *DeductionReportLoader {

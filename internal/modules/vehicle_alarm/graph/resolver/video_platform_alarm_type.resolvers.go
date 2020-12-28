@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVideoPlatformAlarmTypeByPk(ctx context.Context,
 }
 
 func (r *mutationResolver) InsertVideoPlatformAlarmType(ctx context.Context, objects []*model.VideoPlatformAlarmTypeInsertInput) (*model.VideoPlatformAlarmTypeMutationResponse, error) {
-	rs := []*model1.VideoPlatformAlarmType{}
+	rs := make([]*model1.VideoPlatformAlarmType, 0)
 	for _, object := range objects {
 		v := &model1.VideoPlatformAlarmType{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VideoPlatformAlarmType{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVideoPlatformAlarmTypeByPk(ctx context.Context,
 	qt := util.NewQueryTranslator(tx, &model1.VideoPlatformAlarmType{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VideoPlatformAlarmType
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VideoPlatformAlarmType(ctx context.Context, distinctOn [
 		Finish()
 	var rs []*model1.VideoPlatformAlarmType
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VideoPlatformAlarmTypeAggregate(ctx context.Context, distinctOn []model.VideoPlatformAlarmTypeSelectColumn, limit *int, offset *int, orderBy []*model.VideoPlatformAlarmTypeOrderBy, where *model.VideoPlatformAlarmTypeBoolExp) (*model.VideoPlatformAlarmTypeAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VideoPlatformAlarmTypeAggregate(ctx context.Context, dis
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VideoPlatformAlarmTypeByPk(ctx context.Context, Id int64) (*model1.VideoPlatformAlarmType, error) {
 	var rs model1.VideoPlatformAlarmType
 	tx := db.DB.Model(&model1.VideoPlatformAlarmType{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

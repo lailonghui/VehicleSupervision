@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteOutageRegistrationByPk(ctx context.Context, Id 
 }
 
 func (r *mutationResolver) InsertOutageRegistration(ctx context.Context, objects []*model.OutageRegistrationInsertInput) (*model.OutageRegistrationMutationResponse, error) {
-	rs := []*model1.OutageRegistration{}
+	rs := make([]*model1.OutageRegistration, 0)
 	for _, object := range objects {
 		v := &model1.OutageRegistration{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.OutageRegistration{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateOutageRegistrationByPk(ctx context.Context, inc
 	qt := util.NewQueryTranslator(tx, &model1.OutageRegistration{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.OutageRegistration
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) OutageRegistration(ctx context.Context, distinctOn []mod
 		Finish()
 	var rs []*model1.OutageRegistration
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) OutageRegistrationAggregate(ctx context.Context, distinctOn []model.OutageRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.OutageRegistrationOrderBy, where *model.OutageRegistrationBoolExp) (*model.OutageRegistrationAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) OutageRegistrationAggregate(ctx context.Context, distinc
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) OutageRegistrationByPk(ctx context.Context, Id int64) (*model1.OutageRegistration, error) {
 	var rs model1.OutageRegistration
 	tx := db.DB.Model(&model1.OutageRegistration{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

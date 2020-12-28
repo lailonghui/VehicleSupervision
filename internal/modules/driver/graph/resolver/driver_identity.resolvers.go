@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteDriverIdentityByPk(ctx context.Context, Id int6
 }
 
 func (r *mutationResolver) InsertDriverIdentity(ctx context.Context, objects []*model.DriverIdentityInsertInput) (*model.DriverIdentityMutationResponse, error) {
-	rs := []*model1.DriverIdentity{}
+	rs := make([]*model1.DriverIdentity, 0)
 	for _, object := range objects {
 		v := &model1.DriverIdentity{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DriverIdentity{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateDriverIdentityByPk(ctx context.Context, inc *mo
 	qt := util.NewQueryTranslator(tx, &model1.DriverIdentity{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DriverIdentity
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) DriverIdentity(ctx context.Context, distinctOn []model.D
 		Finish()
 	var rs []*model1.DriverIdentity
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DriverIdentityAggregate(ctx context.Context, distinctOn []model.DriverIdentitySelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityOrderBy, where *model.DriverIdentityBoolExp) (*model.DriverIdentityAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) DriverIdentityAggregate(ctx context.Context, distinctOn 
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DriverIdentityByPk(ctx context.Context, Id int64) (*model1.DriverIdentity, error) {
 	var rs model1.DriverIdentity
 	tx := db.DB.Model(&model1.DriverIdentity{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

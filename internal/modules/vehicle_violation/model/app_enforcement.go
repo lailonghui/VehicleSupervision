@@ -12,29 +12,29 @@ type AppEnforcement struct {
 	ID int64 `json:"id"`
 	// APP现场执法表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	IllegalPhotoID string `json:"illegal_photo_id"`
-	// vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	// vehicle_info 车辆信息表 的vehicle_id
 	VehicleID *string `json:"vehicle_id"`
 	// 操作用户                                                     ( system_user表的user_id )
 	OperationUser *string `json:"operation_user"`
-	// 编辑文本                                                     (                            )
+	// 编辑文本
 	EditText *string `json:"edit_text"`
-	// 空间数据类型point表示经度(longitude)和纬度(latitude)         (                            )
+	// 空间数据类型point表示经度(longitude)和纬度(latitude)
 	Coordinate *string `json:"coordinate"`
-	// 位置描述                                                     (                            )
+	// 位置描述
 	LocationDescription *string `json:"location_description"`
 	// 企业类型                                                     ( 企业类型字典           )
 	EnterpriseType *string `json:"enterprise_type"`
-	// 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车） (                            )
+	// 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车）
 	PicketStatus *int `json:"picket_status"`
-	// 创建时间                                                     (                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                                       ( system_user表的user_id )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                                     (                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                                       ( system_user表的user_id )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                                     (                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                                       ( system_user表的user_id )
 	DeletedBy *string `json:"deleted_by"`

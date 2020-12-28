@@ -14,54 +14,54 @@ type DisputeViolationRecord struct {
 	DisputeViolationID string `json:"dispute_violation_id"`
 	// 违章明细表id                                                 ( vehicle_violation _details 表的violation_detail_id )
 	ViolationDetailID *string `json:"violation_detail_id"`
-	// 书面申请材料                                                 (                                                        )
+	// 书面申请材料
 	WrittenApplicationMaterials *string `json:"written_application_materials"`
-	// 劳动合同或租赁合同                                           (                                                        )
+	// 劳动合同或租赁合同
 	LaborContract *string `json:"labor_contract"`
-	// 行车日志                                                     (                                                        )
+	// 行车日志
 	DrivingLog *string `json:"driving_log"`
-	// 证人证言                                                     (                                                        )
+	// 证人证言
 	Witness *string `json:"witness"`
-	// 当事人陈述                                                   (                                                        )
+	// 当事人陈述
 	Statement *string `json:"statement"`
-	// 图像证据材料                                                 (                                                        )
+	// 图像证据材料
 	PicEvidence *string `json:"pic_evidence"`
-	// 行为人驾驶证                                                 (                                                        )
+	// 行为人驾驶证
 	DriverLicense *string `json:"driver_license"`
-	// 机动车行驶证                                                 (                                                        )
+	// 机动车行驶证
 	DrivingLicense *string `json:"driving_license"`
-	// 行为人身份证                                                 (                                                        )
+	// 行为人身份证
 	IDCard *string `json:"id_card"`
-	// 机动车所有人营业执照                                         (                                                        )
+	// 机动车所有人营业执照
 	BusinessLicense *string `json:"business_license"`
-	// 机动车所有人组织机构代码证                                   (                                                        )
+	// 机动车所有人组织机构代码证
 	OrganizationCode *string `json:"organization_code"`
-	// 法定代表人身份证                                             (                                                        )
+	// 法定代表人身份证
 	LegalPersonIDNumber *string `json:"legal_person_id_number"`
-	// 委托代理人身份证                                             (                                                        )
+	// 委托代理人身份证
 	AgentIDNumber *string `json:"agent_id_number"`
-	// 机动车管理人身份证                                           (                                                        )
+	// 机动车管理人身份证
 	VehicleManagerIDCard *string `json:"vehicle_manager_id_card"`
-	// 其他证据材料                                                 (                                                        )
+	// 其他证据材料
 	OtherEvidence *string `json:"other_evidence"`
 	// 审批状态                                                     ( 车辆违法审批状态字典                               )
 	ApproveState *int `json:"approve_state"`
-	// 内网更新时间                                                 (                                                        )
+	// 内网更新时间
 	UpdateTimeIn *time.Time `json:"update_time_in"`
-	// 联系地址                                                     (                                                        )
+	// 联系地址
 	ContactAddress *string `json:"contact_address"`
-	// 创建时间                                                     (                                                        )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                                       ( system_user表的user_id                             )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                                     (                                                        )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                                       ( system_user表的user_id                             )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                                     (                                                        )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                                       ( system_user表的user_id                             )
 	DeletedBy *string `json:"deleted_by"`
-	// 是否删除                                                     (                                                        )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
 }

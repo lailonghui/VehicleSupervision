@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteCaseApprovalReviewOperationByPk(ctx context.Con
 }
 
 func (r *mutationResolver) InsertCaseApprovalReviewOperation(ctx context.Context, objects []*model.CaseApprovalReviewOperationInsertInput) (*model.CaseApprovalReviewOperationMutationResponse, error) {
-	rs := []*model1.CaseApprovalReviewOperation{}
+	rs := make([]*model1.CaseApprovalReviewOperation, 0)
 	for _, object := range objects {
 		v := &model1.CaseApprovalReviewOperation{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.CaseApprovalReviewOperation{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateCaseApprovalReviewOperationByPk(ctx context.Con
 	qt := util.NewQueryTranslator(tx, &model1.CaseApprovalReviewOperation{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.CaseApprovalReviewOperation
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) CaseApprovalReviewOperation(ctx context.Context, distinc
 		Finish()
 	var rs []*model1.CaseApprovalReviewOperation
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) CaseApprovalReviewOperationAggregate(ctx context.Context, distinctOn []model.CaseApprovalReviewOperationSelectColumn, limit *int, offset *int, orderBy []*model.CaseApprovalReviewOperationOrderBy, where *model.CaseApprovalReviewOperationBoolExp) (*model.CaseApprovalReviewOperationAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) CaseApprovalReviewOperationAggregate(ctx context.Context
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) CaseApprovalReviewOperationByPk(ctx context.Context, Id int64) (*model1.CaseApprovalReviewOperation, error) {
 	var rs model1.CaseApprovalReviewOperation
 	tx := db.DB.Model(&model1.CaseApprovalReviewOperation{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

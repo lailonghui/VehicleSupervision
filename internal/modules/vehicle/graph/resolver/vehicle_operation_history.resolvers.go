@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleOperationHistoryByPk(ctx context.Context
 }
 
 func (r *mutationResolver) InsertVehicleOperationHistory(ctx context.Context, objects []*model.VehicleOperationHistoryInsertInput) (*model.VehicleOperationHistoryMutationResponse, error) {
-	rs := []*model1.VehicleOperationHistory{}
+	rs := make([]*model1.VehicleOperationHistory, 0)
 	for _, object := range objects {
 		v := &model1.VehicleOperationHistory{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleOperationHistory{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleOperationHistoryByPk(ctx context.Context
 	qt := util.NewQueryTranslator(tx, &model1.VehicleOperationHistory{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleOperationHistory
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleOperationHistory(ctx context.Context, distinctOn 
 		Finish()
 	var rs []*model1.VehicleOperationHistory
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleOperationHistoryAggregate(ctx context.Context, distinctOn []model.VehicleOperationHistorySelectColumn, limit *int, offset *int, orderBy []*model.VehicleOperationHistoryOrderBy, where *model.VehicleOperationHistoryBoolExp) (*model.VehicleOperationHistoryAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleOperationHistoryAggregate(ctx context.Context, di
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleOperationHistoryByPk(ctx context.Context, Id int64) (*model1.VehicleOperationHistory, error) {
 	var rs model1.VehicleOperationHistory
 	tx := db.DB.Model(&model1.VehicleOperationHistory{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

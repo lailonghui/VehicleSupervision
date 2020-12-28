@@ -14,23 +14,23 @@ type OfflineRegistrationRecord struct {
 	OfflineRegistrationRecord string `json:"offline_registration_record"`
 	// 停运登记表的ID                                  ( outage_registration 停运登记表的outage_registration_id )
 	OutageRegistrationID *string `json:"outage_registration_id"`
-	// 登记内容                                        (                                                            )
+	// 登记内容
 	RegistrationContent *string `json:"registration_content"`
-	// 登记时间                                        (                                                            )
+	// 登记时间
 	RegistrationTime *time.Time `json:"registration_time"`
-	// 登记人                                          (                                                            )
+	// 登记人
 	Registrant *string `json:"registrant"`
-	// 是否删除                                        (                                                            )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
-	// 创建时间                                        (                                                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id                                 )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                                                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id                                 )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                                                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id                                 )
 	DeletedBy *string `json:"deleted_by"`

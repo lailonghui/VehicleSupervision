@@ -11,7 +11,7 @@ type VehicleIncrementRecord {
 	"""
 	increment_record_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
@@ -19,27 +19,27 @@ type VehicleIncrementRecord {
 	"""
 	enterprise_id: String
 	"""
-	 自编号                                          (                                      )
+	 自编号                                          
 	"""
 	self_number: String
 	"""
-	 操作类型                                        (                                      )
+	 操作类型                                        
 	"""
 	operation_type: String
 	"""
-	 车牌号                                          (                                      )
+	 车牌号                                          
 	"""
 	license_plate_number: String
 	"""
-	 单位名称                                        (                                      )
+	 单位名称                                        
 	"""
 	enterprise_name: String
 	"""
-	 地区                                            (                                      )
+	 地区                                            
 	"""
 	area: String
 	"""
-	 原编号                                          (                                      )
+	 原编号                                          
 	"""
 	original_number: String
 	"""
@@ -47,7 +47,7 @@ type VehicleIncrementRecord {
 	"""
 	operator: String
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -55,7 +55,7 @@ type VehicleIncrementRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -63,7 +63,7 @@ type VehicleIncrementRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -243,9 +243,6 @@ input VehicleIncrementRecordBoolExp {
 input type for inserting data into table "vehicle_increment_record"
 """
 input VehicleIncrementRecordInsertInput {
-	id: Bigint
-	increment_record_id: String
-	vehicle_id: String
 	enterprise_id: String
 	self_number: String
 	operation_type: String
@@ -254,8 +251,6 @@ input VehicleIncrementRecordInsertInput {
 	area: String
 	original_number: String
 	operator: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -302,7 +297,7 @@ enum VehicleIncrementRecordSelectColumn {
 	"""
 	increment_record_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
@@ -310,27 +305,27 @@ enum VehicleIncrementRecordSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 自编号                                          (                                      )
+	 自编号                                          
 	"""
 	self_number
 	"""
-	 操作类型                                        (                                      )
+	 操作类型                                        
 	"""
 	operation_type
 	"""
-	 车牌号                                          (                                      )
+	 车牌号                                          
 	"""
 	license_plate_number
 	"""
-	 单位名称                                        (                                      )
+	 单位名称                                        
 	"""
 	enterprise_name
 	"""
-	 地区                                            (                                      )
+	 地区                                            
 	"""
 	area
 	"""
-	 原编号                                          (                                      )
+	 原编号                                          
 	"""
 	original_number
 	"""
@@ -338,7 +333,7 @@ enum VehicleIncrementRecordSelectColumn {
 	"""
 	operator
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -346,7 +341,7 @@ enum VehicleIncrementRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -354,7 +349,7 @@ enum VehicleIncrementRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

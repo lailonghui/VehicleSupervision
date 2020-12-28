@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleStatusChangeLogByPk(ctx context.Context,
 }
 
 func (r *mutationResolver) InsertVehicleStatusChangeLog(ctx context.Context, objects []*model.VehicleStatusChangeLogInsertInput) (*model.VehicleStatusChangeLogMutationResponse, error) {
-	rs := []*model1.VehicleStatusChangeLog{}
+	rs := make([]*model1.VehicleStatusChangeLog, 0)
 	for _, object := range objects {
 		v := &model1.VehicleStatusChangeLog{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleStatusChangeLog{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleStatusChangeLogByPk(ctx context.Context,
 	qt := util.NewQueryTranslator(tx, &model1.VehicleStatusChangeLog{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleStatusChangeLog
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleStatusChangeLog(ctx context.Context, distinctOn [
 		Finish()
 	var rs []*model1.VehicleStatusChangeLog
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleStatusChangeLogAggregate(ctx context.Context, distinctOn []model.VehicleStatusChangeLogSelectColumn, limit *int, offset *int, orderBy []*model.VehicleStatusChangeLogOrderBy, where *model.VehicleStatusChangeLogBoolExp) (*model.VehicleStatusChangeLogAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleStatusChangeLogAggregate(ctx context.Context, dis
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleStatusChangeLogByPk(ctx context.Context, Id int64) (*model1.VehicleStatusChangeLog, error) {
 	var rs model1.VehicleStatusChangeLog
 	tx := db.DB.Model(&model1.VehicleStatusChangeLog{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

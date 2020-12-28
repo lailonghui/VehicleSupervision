@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleStatusChangeLogLoader string *VehicleSupervision/internal/modules/vehicle/model.VehicleStatusChangeLog
 
 func (t VehicleStatusChangeLog) TableName() string {
-	return "VehicleStatusChangeLog"
+	return "vehicle_status_change_log"
 }
 
 func (t *VehicleStatusChangeLog) NewLoader() *VehicleStatusChangeLogLoader {

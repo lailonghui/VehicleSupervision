@@ -7,91 +7,91 @@ type JjVehicle {
 	"""
 	id: Bigint!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id (         )
+	 vehicle_info 车辆信息表 的vehicle_id 
 	"""
 	vehicle_id: String!
 	"""
-	 车牌号码                                 (         )
+	 车牌号码                                 
 	"""
 	hphm: String
 	"""
-	 号牌种类                                 (         )
+	 号牌种类                                 
 	"""
 	hpzl: String
 	"""
-	 所有人                                   (         )
+	 所有人                                   
 	"""
 	syr: String
 	"""
-	 使用性质                                 (         )
+	 使用性质                                 
 	"""
 	syxz: String
 	"""
-	 总质量                                   (         )
+	 总质量                                   
 	"""
 	zzl: Numeric
 	"""
-	 车辆类型                                 (         )
+	 车辆类型                                 
 	"""
 	cllx: String
 	"""
-	 有效期至                                 (         )
+	 有效期至                                 
 	"""
 	yxqz: Timestamptz
 	"""
-	 强制报废期止                             (         )
+	 强制报废期止                             
 	"""
 	qzbfqz: Timestamptz
 	"""
-	 车辆识别代号                             (         )
+	 车辆识别代号                             
 	"""
 	clsbdh: String
 	"""
-	 所在县                                   (         )
+	 所在县                                   
 	"""
 	county: String
 	"""
-	 联系地址                                 (         )
+	 联系地址                                 
 	"""
 	lxdz: String
 	"""
-	 固话                                     (         )
+	 固话                                     
 	"""
 	other: String
 	"""
-	 联系电话                                 (         )
+	 联系电话                                 
 	"""
 	lxdh: String
 	"""
-	 机动车状态                               (         )
+	 机动车状态                               
 	"""
 	zt: Int
 	"""
-	 经营范围                                 (         )
+	 经营范围                                 
 	"""
 	vehmontype: String
 	"""
-	 初次登记日期                             (         )
+	 初次登记日期                             
 	"""
 	ccdjrq: Timestamptz
 	"""
-	 登记日期                                 (         )
+	 登记日期                                 
 	"""
 	djrq: Timestamptz
 	"""
-	 发牌日期                                 (         )
+	 发牌日期                                 
 	"""
 	fprq: Timestamptz
 	"""
-	 更新时间                                 (         )
+	 更新时间                                 
 	"""
 	updatetime: Timestamptz
 	"""
-	 型号                                     (         )
+	 型号                                     
 	"""
 	xh: String
 	"""
-	 是否删除                                 (         )
+	 是否删除                                 
 	"""
 	is_deteled: Numeric
 }
@@ -315,8 +315,6 @@ input JjVehicleBoolExp {
 input type for inserting data into table "jj_vehicle"
 """
 input JjVehicleInsertInput {
-	id: Bigint
-	vehicle_id: String
 	hphm: String
 	hpzl: String
 	syr: String
@@ -385,91 +383,91 @@ enum JjVehicleSelectColumn {
 	"""
 	id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id (         )
+	 vehicle_info 车辆信息表 的vehicle_id 
 	"""
 	vehicle_id
 	"""
-	 车牌号码                                 (         )
+	 车牌号码                                 
 	"""
 	hphm
 	"""
-	 号牌种类                                 (         )
+	 号牌种类                                 
 	"""
 	hpzl
 	"""
-	 所有人                                   (         )
+	 所有人                                   
 	"""
 	syr
 	"""
-	 使用性质                                 (         )
+	 使用性质                                 
 	"""
 	syxz
 	"""
-	 总质量                                   (         )
+	 总质量                                   
 	"""
 	zzl
 	"""
-	 车辆类型                                 (         )
+	 车辆类型                                 
 	"""
 	cllx
 	"""
-	 有效期至                                 (         )
+	 有效期至                                 
 	"""
 	yxqz
 	"""
-	 强制报废期止                             (         )
+	 强制报废期止                             
 	"""
 	qzbfqz
 	"""
-	 车辆识别代号                             (         )
+	 车辆识别代号                             
 	"""
 	clsbdh
 	"""
-	 所在县                                   (         )
+	 所在县                                   
 	"""
 	county
 	"""
-	 联系地址                                 (         )
+	 联系地址                                 
 	"""
 	lxdz
 	"""
-	 固话                                     (         )
+	 固话                                     
 	"""
 	other
 	"""
-	 联系电话                                 (         )
+	 联系电话                                 
 	"""
 	lxdh
 	"""
-	 机动车状态                               (         )
+	 机动车状态                               
 	"""
 	zt
 	"""
-	 经营范围                                 (         )
+	 经营范围                                 
 	"""
 	vehmontype
 	"""
-	 初次登记日期                             (         )
+	 初次登记日期                             
 	"""
 	ccdjrq
 	"""
-	 登记日期                                 (         )
+	 登记日期                                 
 	"""
 	djrq
 	"""
-	 发牌日期                                 (         )
+	 发牌日期                                 
 	"""
 	fprq
 	"""
-	 更新时间                                 (         )
+	 更新时间                                 
 	"""
 	updatetime
 	"""
-	 型号                                     (         )
+	 型号                                     
 	"""
 	xh
 	"""
-	 是否删除                                 (         )
+	 是否删除                                 
 	"""
 	is_deteled
 }

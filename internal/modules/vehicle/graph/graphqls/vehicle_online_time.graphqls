@@ -11,27 +11,27 @@ type VehicleOnlineTime {
 	"""
 	online_time_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
-	 在线时长                                        (                            )
+	 在线时长                                        
 	"""
 	online_time: Numeric
 	"""
-	 离线时长                                        (                            )
+	 离线时长                                        
 	"""
 	offline_time: Numeric
 	"""
-	 总时长                                          (                            )
+	 总时长                                          
 	"""
 	total_time: Numeric
 	"""
-	 是否在线                                        (                            )
+	 是否在线                                        
 	"""
 	is_online: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -39,7 +39,7 @@ type VehicleOnlineTime {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -47,7 +47,7 @@ type VehicleOnlineTime {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -235,15 +235,10 @@ input VehicleOnlineTimeBoolExp {
 input type for inserting data into table "vehicle_online_time"
 """
 input VehicleOnlineTimeInsertInput {
-	id: Bigint
-	online_time_id: String
-	vehicle_id: String
 	online_time: Numeric
 	offline_time: Numeric
 	total_time: Numeric
 	is_online: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -289,27 +284,27 @@ enum VehicleOnlineTimeSelectColumn {
 	"""
 	online_time_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
-	 在线时长                                        (                            )
+	 在线时长                                        
 	"""
 	online_time
 	"""
-	 离线时长                                        (                            )
+	 离线时长                                        
 	"""
 	offline_time
 	"""
-	 总时长                                          (                            )
+	 总时长                                          
 	"""
 	total_time
 	"""
-	 是否在线                                        (                            )
+	 是否在线                                        
 	"""
 	is_online
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -317,7 +312,7 @@ enum VehicleOnlineTimeSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -325,7 +320,7 @@ enum VehicleOnlineTimeSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

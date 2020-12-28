@@ -12,29 +12,29 @@ type CaseApprovalReviewCall struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用              ( 联合主键                   )
 	CaseApprovalReviewCallID string `json:"case_approval_review_call_id"`
-	// case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id (                            )
+	// case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id
 	CaseApprovalReviewOperationID *string `json:"case_approval_review_operation_id"`
-	// 电话号码                                                     (                            )
+	// 电话号码
 	TelephoneNumber *string `json:"telephone_number"`
-	// 拨打时间                                                     (                            )
+	// 拨打时间
 	DialTime *time.Time `json:"dial_time"`
-	// 是否接通                                                     (                            )
+	// 是否接通
 	IsConnected *bool `json:"is_connected"`
-	// 告知内容                                                     (                            )
+	// 告知内容
 	InformContent *string `json:"inform_content"`
-	// 审核人                                                       (                            )
+	// 审核人
 	Reviewer *string `json:"reviewer"`
-	// 审核时间                                                     (                            )
+	// 审核时间
 	ReviewTime *time.Time `json:"review_time"`
-	// 创建时间                                                     (                            )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                                       ( system_user表的user_id )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                                     (                            )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                                       ( system_user表的user_id )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                                     (                            )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                                       ( system_user表的user_id )
 	DeletedBy *string `json:"deleted_by"`

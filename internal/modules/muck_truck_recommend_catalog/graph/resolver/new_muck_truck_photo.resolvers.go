@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteNewMuckTruckPhotoByPk(ctx context.Context, Id i
 }
 
 func (r *mutationResolver) InsertNewMuckTruckPhoto(ctx context.Context, objects []*model.NewMuckTruckPhotoInsertInput) (*model.NewMuckTruckPhotoMutationResponse, error) {
-	rs := []*model1.NewMuckTruckPhoto{}
+	rs := make([]*model1.NewMuckTruckPhoto, 0)
 	for _, object := range objects {
 		v := &model1.NewMuckTruckPhoto{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.NewMuckTruckPhoto{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateNewMuckTruckPhotoByPk(ctx context.Context, inc 
 	qt := util.NewQueryTranslator(tx, &model1.NewMuckTruckPhoto{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.NewMuckTruckPhoto
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) NewMuckTruckPhoto(ctx context.Context, distinctOn []mode
 		Finish()
 	var rs []*model1.NewMuckTruckPhoto
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) NewMuckTruckPhotoAggregate(ctx context.Context, distinctOn []model.NewMuckTruckPhotoSelectColumn, limit *int, offset *int, orderBy []*model.NewMuckTruckPhotoOrderBy, where *model.NewMuckTruckPhotoBoolExp) (*model.NewMuckTruckPhotoAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) NewMuckTruckPhotoAggregate(ctx context.Context, distinct
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) NewMuckTruckPhotoByPk(ctx context.Context, Id int64) (*model1.NewMuckTruckPhoto, error) {
 	var rs model1.NewMuckTruckPhoto
 	tx := db.DB.Model(&model1.NewMuckTruckPhoto{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

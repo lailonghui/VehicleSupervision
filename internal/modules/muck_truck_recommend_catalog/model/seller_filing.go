@@ -14,61 +14,61 @@ type SellerFiling struct {
 	SellerFilingID string `json:"seller_filing_id"`
 	// 销售商                                          ( enterprise_info表的enterprise_id                    )
 	Seller *string `json:"seller"`
-	// 工商营业执照                                    (                                                         )
+	// 工商营业执照
 	BusinessLicense *string `json:"business_license"`
-	// 组织机构代码证                                  (                                                         )
+	// 组织机构代码证
 	OrganizationCode *string `json:"organization_code"`
-	// 法人代表身份证                                  (                                                         )
+	// 法人代表身份证
 	LegalRepresentativeIDCard *string `json:"legal_representative_id_card"`
-	// 委托代理人身份证                                (                                                         )
+	// 委托代理人身份证
 	EntrustedAgentIDCard *string `json:"entrusted_agent_id_card"`
-	// 工信部汽车生产销售许可证明                      (                                                         )
+	// 工信部汽车生产销售许可证明
 	MinistryProductionSalePermit *string `json:"ministry_production_sale_permit"`
-	// 行业自律承诺书                                  (                                                         )
+	// 行业自律承诺书
 	IndustrySelfDisciplineCommitment *string `json:"industry_self_discipline_commitment"`
-	// 汽车厂家汽车销售许可证明                        (                                                         )
+	// 汽车厂家汽车销售许可证明
 	ManufacturerProductionSalePermit *string `json:"manufacturer_production_sale_permit"`
-	// 维修服务服务站名称                              (                                                         )
+	// 维修服务服务站名称
 	RepairServiceStationName *string `json:"repair_service_station_name"`
-	// 维修服务服务站地址                              (                                                         )
+	// 维修服务服务站地址
 	RepairServiceStationAddress *string `json:"repair_service_station_address"`
-	// 维修服务服务站相关材料                          (                                                         )
+	// 维修服务服务站相关材料
 	RepairServiceStationMaterial *string `json:"repair_service_station_material"`
-	// 服务人员名称                                    (                                                         )
+	// 服务人员名称
 	ServiceStaffName *string `json:"service_staff_name"`
-	// 服务人员电话                                    (                                                         )
+	// 服务人员电话
 	ServiceStaffPhone *string `json:"service_staff_phone"`
-	// 服务人员身份证                                  (                                                         )
+	// 服务人员身份证
 	ServiceStaffID *string `json:"service_staff_id"`
-	// 服务人员相关材料                                (                                                         )
+	// 服务人员相关材料
 	ServiceStaffMaterial *string `json:"service_staff_material"`
-	// 其他相关材料                                    (                                                         )
+	// 其他相关材料
 	OtherMaterial *string `json:"other_material"`
-	// 备注                                            (                                                         )
+	// 备注
 	Remarks *string `json:"remarks"`
-	// 登记日期                                        (                                                         )
+	// 登记日期
 	RegistrationTime *time.Time `json:"registration_time"`
 	// 登记用户                                        ( system_user表的user_id                              )
 	RegistrationUser *string `json:"registration_user"`
-	// 是否核查                                        (                                                         )
+	// 是否核查
 	IsVerify *bool `json:"is_verify"`
-	// 原因                                            (                                                         )
+	// 原因
 	Cause *string `json:"cause"`
 	// 汽车品牌(简称)                                  ( new_muck_truck_recommend_catalog 新型渣土车推荐目录的id )
 	CatalogID *string `json:"catalog_id"`
-	// 平台对接技术协议                                (                                                         )
+	// 平台对接技术协议
 	PlatformDockingTechnologyAgreement *string `json:"platform_docking_technology_agreement"`
-	// 是否删除                                        (                                                         )
+	// 是否删除
 	IsDeleted *bool `json:"is_deleted"`
-	// 创建时间                                        (                                                         )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id                              )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                                                         )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id                              )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                                                         )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id                              )
 	DeletedBy *string `json:"deleted_by"`

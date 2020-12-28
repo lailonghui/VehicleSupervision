@@ -11,7 +11,7 @@ type VehicleAlarmSupervision {
 	"""
 	vehicle_alarm_supervision_id: String!
 	"""
-	 监管单位id                                      (                                                              )
+	 监管单位id                                      
 	"""
 	superivision_authority_id: String
 	"""
@@ -19,63 +19,63 @@ type VehicleAlarmSupervision {
 	"""
 	superivision_type: String
 	"""
-	 区域ID                                          (                                                              )
+	 区域ID                                          
 	"""
 	area_id: String
 	"""
-	 报警车辆数                                      (                                                              )
+	 报警车辆数                                      
 	"""
 	vehicle_alarm_number: Int
 	"""
-	 报警类型                                        (                                                              )
+	 报警类型                                        
 	"""
 	alarm_type: String
 	"""
-	 报警次数                                        (                                                              )
+	 报警次数                                        
 	"""
 	alarm_times: Int
 	"""
-	 处置次数                                        (                                                              )
+	 处置次数                                        
 	"""
 	disposal_times: Int
 	"""
-	 报警处置率                                      (                                                              )
+	 报警处置率                                      
 	"""
 	alarm_disposal_rate: Numeric
 	"""
-	 县级提出的整改                                  (                                                              )
+	 县级提出的整改                                  
 	"""
 	district_rectification: String
 	"""
-	 市级提出的整改                                  (                                                              )
+	 市级提出的整改                                  
 	"""
 	city_rectification: String
 	"""
-	 省级提出的整改                                  (                                                              )
+	 省级提出的整改                                  
 	"""
 	province_rectification: String
 	"""
-	 部级提出的整改                                  (                                                              )
+	 部级提出的整改                                  
 	"""
 	country_rectification: String
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 统计日期                                        (                                                              )
+	 统计日期                                        
 	"""
 	statistics_date: String
 	"""
-	 应监管企业数                                    (                                                              )
+	 应监管企业数                                    
 	"""
 	should_supervision_enterprise_number: Int
 	"""
-	 实监管企业数                                    (                                                              )
+	 实监管企业数                                    
 	"""
 	actual_supervision_enterprise_number: Int
 	"""
-	 监管率                                          (                                                              )
+	 监管率                                          
 	"""
 	supervision_rate: Numeric
 	"""
@@ -83,27 +83,27 @@ type VehicleAlarmSupervision {
 	"""
 	business_scope: Int
 	"""
-	 应检查车辆数                                    (                                                              )
+	 应检查车辆数                                    
 	"""
 	should_check_vehicle_number: Int
 	"""
-	 实检查车辆数                                    (                                                              )
+	 实检查车辆数                                    
 	"""
 	actual_check_vechicle_number: Int
 	"""
-	 检查异常车辆数                                  (                                                              )
+	 检查异常车辆数                                  
 	"""
 	check_abnormal_vehicle_number: Int
 	"""
-	 异常处置数                                      (                                                              )
+	 异常处置数                                      
 	"""
 	abnormal_disposal_number: Int
 	"""
-	 异常处置率                                      (                                                              )
+	 异常处置率                                      
 	"""
 	abnormal_disposal_rate: Numeric
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -111,7 +111,7 @@ type VehicleAlarmSupervision {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -119,7 +119,7 @@ type VehicleAlarmSupervision {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -459,8 +459,6 @@ input VehicleAlarmSupervisionBoolExp {
 input type for inserting data into table "vehicle_alarm_supervision"
 """
 input VehicleAlarmSupervisionInsertInput {
-	id: Bigint
-	vehicle_alarm_supervision_id: String
 	superivision_authority_id: String
 	superivision_type: String
 	area_id: String
@@ -484,8 +482,6 @@ input VehicleAlarmSupervisionInsertInput {
 	check_abnormal_vehicle_number: Int
 	abnormal_disposal_number: Int
 	abnormal_disposal_rate: Numeric
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -559,7 +555,7 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	vehicle_alarm_supervision_id
 	"""
-	 监管单位id                                      (                                                              )
+	 监管单位id                                      
 	"""
 	superivision_authority_id
 	"""
@@ -567,63 +563,63 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	superivision_type
 	"""
-	 区域ID                                          (                                                              )
+	 区域ID                                          
 	"""
 	area_id
 	"""
-	 报警车辆数                                      (                                                              )
+	 报警车辆数                                      
 	"""
 	vehicle_alarm_number
 	"""
-	 报警类型                                        (                                                              )
+	 报警类型                                        
 	"""
 	alarm_type
 	"""
-	 报警次数                                        (                                                              )
+	 报警次数                                        
 	"""
 	alarm_times
 	"""
-	 处置次数                                        (                                                              )
+	 处置次数                                        
 	"""
 	disposal_times
 	"""
-	 报警处置率                                      (                                                              )
+	 报警处置率                                      
 	"""
 	alarm_disposal_rate
 	"""
-	 县级提出的整改                                  (                                                              )
+	 县级提出的整改                                  
 	"""
 	district_rectification
 	"""
-	 市级提出的整改                                  (                                                              )
+	 市级提出的整改                                  
 	"""
 	city_rectification
 	"""
-	 省级提出的整改                                  (                                                              )
+	 省级提出的整改                                  
 	"""
 	province_rectification
 	"""
-	 部级提出的整改                                  (                                                              )
+	 部级提出的整改                                  
 	"""
 	country_rectification
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 统计日期                                        (                                                              )
+	 统计日期                                        
 	"""
 	statistics_date
 	"""
-	 应监管企业数                                    (                                                              )
+	 应监管企业数                                    
 	"""
 	should_supervision_enterprise_number
 	"""
-	 实监管企业数                                    (                                                              )
+	 实监管企业数                                    
 	"""
 	actual_supervision_enterprise_number
 	"""
-	 监管率                                          (                                                              )
+	 监管率                                          
 	"""
 	supervision_rate
 	"""
@@ -631,27 +627,27 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	business_scope
 	"""
-	 应检查车辆数                                    (                                                              )
+	 应检查车辆数                                    
 	"""
 	should_check_vehicle_number
 	"""
-	 实检查车辆数                                    (                                                              )
+	 实检查车辆数                                    
 	"""
 	actual_check_vechicle_number
 	"""
-	 检查异常车辆数                                  (                                                              )
+	 检查异常车辆数                                  
 	"""
 	check_abnormal_vehicle_number
 	"""
-	 异常处置数                                      (                                                              )
+	 异常处置数                                      
 	"""
 	abnormal_disposal_number
 	"""
-	 异常处置率                                      (                                                              )
+	 异常处置率                                      
 	"""
 	abnormal_disposal_rate
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -659,7 +655,7 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -667,7 +663,7 @@ enum VehicleAlarmSupervisionSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

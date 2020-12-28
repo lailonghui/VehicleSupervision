@@ -12,7 +12,7 @@ type ProvinceUploadVehicle struct {
 	ID int64 `json:"id"`
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
 	ProvinceUploadVehicleID string `json:"province_upload_vehicle_id"`
-	// 车牌号码                                        (                                      )
+	// 车牌号码
 	LicensePlateNumber *string `json:"license_plate_number"`
 	// 车牌颜色                                        ( 车牌颜色字典                     )
 	LicensePlateColor *int `json:"license_plate_color"`
@@ -20,43 +20,43 @@ type ProvinceUploadVehicle struct {
 	EnterpriseID *string `json:"enterprise_id"`
 	// 运营商                                          ( enterprise_info表的enterprise_id )
 	Operator *string `json:"operator"`
-	// 车籍地(行驶证上的车辆注册地 )                   (                                      )
+	// 车籍地(行驶证上的车辆注册地 )
 	VehicleRegistrationPlace *string `json:"vehicle_registration_place"`
 	// 车辆类型                                        ( 车辆类型字典                     )
 	VehicleType *int `json:"vehicle_type"`
-	// 吨位                                            (                                      )
+	// 吨位
 	Heavy *float64 `json:"heavy"`
-	// 座位                                            (                                      )
+	// 座位
 	Seats *int `json:"seats"`
-	// 运营标识                                        (                                      )
+	// 运营标识
 	OperatingFlag *string `json:"operating_flag"`
 	// 营运状态                                        ( 营运状态字典                     )
 	OperatingState *int `json:"operating_state"`
-	// 备注                                            (                                      )
+	// 备注
 	Remarks *string `json:"remarks"`
-	// 在线状态                                        (                                      )
+	// 在线状态
 	OnlineStatus *string `json:"online_status"`
-	// 最后汇报时间                                    (                                      )
+	// 最后汇报时间
 	LastReportTime *time.Time `json:"last_report_time"`
-	// 运政同步标识                                    (                                      )
+	// 运政同步标识
 	TransportAgencySynchronizationFlag *string `json:"transport_agency_synchronization_flag"`
-	// 是否运政同步                                    (                                      )
+	// 是否运政同步
 	IsTransportAgencySynchronization *bool `json:"is_transport_agency_synchronization"`
-	// 运政同步时间                                    (                                      )
+	// 运政同步时间
 	TransportAgencySynchronizationTime *time.Time `json:"transport_agency_synchronization_time"`
-	// 设备型号                                        (                                      )
+	// 设备型号
 	DeviceModel *string `json:"device_model"`
-	// 终端型号                                        (                                      )
+	// 终端型号
 	TerminalModel *string `json:"terminal_model"`
-	// 创建时间                                        (                                      )
+	// 创建时间
 	CreatedAt time.Time `json:"created_at"`
 	// 创建人                                          ( system_user表的user_id           )
 	CreatedBy string `json:"created_by"`
-	// 修改时间                                        (                                      )
+	// 修改时间
 	UpdatedAt *time.Time `json:"updated_at"`
 	// 修改人                                          ( system_user表的user_id           )
 	UpdatedBy *string `json:"updated_by"`
-	// 删除时间                                        (                                      )
+	// 删除时间
 	DeletedAt *time.Time `json:"deleted_at"`
 	// 删除人                                          ( system_user表的user_id           )
 	DeletedBy *string `json:"deleted_by"`

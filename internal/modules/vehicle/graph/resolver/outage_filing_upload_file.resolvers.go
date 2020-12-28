@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteOutageFilingUploadFileByPk(ctx context.Context,
 }
 
 func (r *mutationResolver) InsertOutageFilingUploadFile(ctx context.Context, objects []*model.OutageFilingUploadFileInsertInput) (*model.OutageFilingUploadFileMutationResponse, error) {
-	rs := []*model1.OutageFilingUploadFile{}
+	rs := make([]*model1.OutageFilingUploadFile, 0)
 	for _, object := range objects {
 		v := &model1.OutageFilingUploadFile{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.OutageFilingUploadFile{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateOutageFilingUploadFileByPk(ctx context.Context,
 	qt := util.NewQueryTranslator(tx, &model1.OutageFilingUploadFile{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.OutageFilingUploadFile
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) OutageFilingUploadFile(ctx context.Context, distinctOn [
 		Finish()
 	var rs []*model1.OutageFilingUploadFile
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) OutageFilingUploadFileAggregate(ctx context.Context, distinctOn []model.OutageFilingUploadFileSelectColumn, limit *int, offset *int, orderBy []*model.OutageFilingUploadFileOrderBy, where *model.OutageFilingUploadFileBoolExp) (*model.OutageFilingUploadFileAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) OutageFilingUploadFileAggregate(ctx context.Context, dis
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) OutageFilingUploadFileByPk(ctx context.Context, Id int64) (*model1.OutageFilingUploadFile, error) {
 	var rs model1.OutageFilingUploadFile
 	tx := db.DB.Model(&model1.OutageFilingUploadFile{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

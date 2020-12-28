@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden OutageFilingUploadFileLoader string *VehicleSupervision/internal/modules/vehicle/model.OutageFilingUploadFile
 
 func (t OutageFilingUploadFile) TableName() string {
-	return "OutageFilingUploadFile"
+	return "outage_filing_upload_file"
 }
 
 func (t *OutageFilingUploadFile) NewLoader() *OutageFilingUploadFileLoader {

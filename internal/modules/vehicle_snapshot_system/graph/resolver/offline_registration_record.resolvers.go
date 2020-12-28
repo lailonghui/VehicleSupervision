@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteOfflineRegistrationRecordByPk(ctx context.Conte
 }
 
 func (r *mutationResolver) InsertOfflineRegistrationRecord(ctx context.Context, objects []*model.OfflineRegistrationRecordInsertInput) (*model.OfflineRegistrationRecordMutationResponse, error) {
-	rs := []*model1.OfflineRegistrationRecord{}
+	rs := make([]*model1.OfflineRegistrationRecord, 0)
 	for _, object := range objects {
 		v := &model1.OfflineRegistrationRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.OfflineRegistrationRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateOfflineRegistrationRecordByPk(ctx context.Conte
 	qt := util.NewQueryTranslator(tx, &model1.OfflineRegistrationRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.OfflineRegistrationRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) OfflineRegistrationRecord(ctx context.Context, distinctO
 		Finish()
 	var rs []*model1.OfflineRegistrationRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) OfflineRegistrationRecordAggregate(ctx context.Context, distinctOn []model.OfflineRegistrationRecordSelectColumn, limit *int, offset *int, orderBy []*model.OfflineRegistrationRecordOrderBy, where *model.OfflineRegistrationRecordBoolExp) (*model.OfflineRegistrationRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) OfflineRegistrationRecordAggregate(ctx context.Context, 
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) OfflineRegistrationRecordByPk(ctx context.Context, Id int64) (*model1.OfflineRegistrationRecord, error) {
 	var rs model1.OfflineRegistrationRecord
 	tx := db.DB.Model(&model1.OfflineRegistrationRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

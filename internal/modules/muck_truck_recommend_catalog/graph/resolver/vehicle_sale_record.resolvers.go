@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleSaleRecordByPk(ctx context.Context, Id i
 }
 
 func (r *mutationResolver) InsertVehicleSaleRecord(ctx context.Context, objects []*model.VehicleSaleRecordInsertInput) (*model.VehicleSaleRecordMutationResponse, error) {
-	rs := []*model1.VehicleSaleRecord{}
+	rs := make([]*model1.VehicleSaleRecord, 0)
 	for _, object := range objects {
 		v := &model1.VehicleSaleRecord{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleSaleRecord{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleSaleRecordByPk(ctx context.Context, inc 
 	qt := util.NewQueryTranslator(tx, &model1.VehicleSaleRecord{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleSaleRecord
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleSaleRecord(ctx context.Context, distinctOn []mode
 		Finish()
 	var rs []*model1.VehicleSaleRecord
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleSaleRecordAggregate(ctx context.Context, distinctOn []model.VehicleSaleRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleSaleRecordOrderBy, where *model.VehicleSaleRecordBoolExp) (*model.VehicleSaleRecordAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleSaleRecordAggregate(ctx context.Context, distinct
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleSaleRecordByPk(ctx context.Context, Id int64) (*model1.VehicleSaleRecord, error) {
 	var rs model1.VehicleSaleRecord
 	tx := db.DB.Model(&model1.VehicleSaleRecord{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

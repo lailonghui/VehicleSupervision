@@ -15,11 +15,11 @@ type SellerRatingRecord {
 	"""
 	demerit_obj: String
 	"""
-	 扣分分值                                        (                                      )
+	 扣分分值                                        
 	"""
 	demerit_points: Numeric
 	"""
-	 扣分原因                                        (                                      )
+	 扣分原因                                        
 	"""
 	demerit_reason: String
 	"""
@@ -27,15 +27,15 @@ type SellerRatingRecord {
 	"""
 	operator: String
 	"""
-	 操作时间                                        (                                      )
+	 操作时间                                        
 	"""
 	operation_time: Timestamptz
 	"""
-	 是否删除                                        (                                      )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -43,7 +43,7 @@ type SellerRatingRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -51,7 +51,7 @@ type SellerRatingRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -227,16 +227,12 @@ input SellerRatingRecordBoolExp {
 input type for inserting data into table "seller_rating_record"
 """
 input SellerRatingRecordInsertInput {
-	id: Bigint
-	seller_rating_record_id: String
 	demerit_obj: String
 	demerit_points: Numeric
 	demerit_reason: String
 	operator: String
 	operation_time: Timestamptz
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -285,11 +281,11 @@ enum SellerRatingRecordSelectColumn {
 	"""
 	demerit_obj
 	"""
-	 扣分分值                                        (                                      )
+	 扣分分值                                        
 	"""
 	demerit_points
 	"""
-	 扣分原因                                        (                                      )
+	 扣分原因                                        
 	"""
 	demerit_reason
 	"""
@@ -297,15 +293,15 @@ enum SellerRatingRecordSelectColumn {
 	"""
 	operator
 	"""
-	 操作时间                                        (                                      )
+	 操作时间                                        
 	"""
 	operation_time
 	"""
-	 是否删除                                        (                                      )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -313,7 +309,7 @@ enum SellerRatingRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -321,7 +317,7 @@ enum SellerRatingRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

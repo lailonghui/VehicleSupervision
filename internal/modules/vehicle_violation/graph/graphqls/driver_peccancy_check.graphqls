@@ -19,7 +19,7 @@ type DriverPeccancyCheck {
 	"""
 	enterprise_id: String
 	"""
-	 创建时间       (                                      )
+	 创建时间       
 	"""
 	created_at: Timestamptz!
 	"""
@@ -27,7 +27,7 @@ type DriverPeccancyCheck {
 	"""
 	created_by: String!
 	"""
-	 修改时间       (                                      )
+	 修改时间       
 	"""
 	updated_at: Timestamptz
 	"""
@@ -35,7 +35,7 @@ type DriverPeccancyCheck {
 	"""
 	updated_by: String
 	"""
-	 删除时间       (                                      )
+	 删除时间       
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -187,12 +187,9 @@ input DriverPeccancyCheckBoolExp {
 input type for inserting data into table "driver_peccancy_check"
 """
 input DriverPeccancyCheckInsertInput {
-	id: Bigint
 	vehicle_id: String
 	driver_id: String
 	enterprise_id: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -240,7 +237,7 @@ enum DriverPeccancyCheckSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 创建时间       (                                      )
+	 创建时间       
 	"""
 	created_at
 	"""
@@ -248,7 +245,7 @@ enum DriverPeccancyCheckSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间       (                                      )
+	 修改时间       
 	"""
 	updated_at
 	"""
@@ -256,7 +253,7 @@ enum DriverPeccancyCheckSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间       (                                      )
+	 删除时间       
 	"""
 	deleted_at
 	"""

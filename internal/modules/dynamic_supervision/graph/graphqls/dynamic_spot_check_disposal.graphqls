@@ -7,7 +7,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	id: Bigint!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id 
 	"""
 	vehicle_id: String!
 	"""
@@ -15,11 +15,11 @@ type DynamicSpotCheckDisposal {
 	"""
 	enterprise_id: String
 	"""
-	 手机号码                                 (                                                              )
+	 手机号码                                 
 	"""
 	telephone: String
 	"""
-	 发送时间                                 (                                                              )
+	 发送时间                                 
 	"""
 	send_time: Timestamptz
 	"""
@@ -27,15 +27,15 @@ type DynamicSpotCheckDisposal {
 	"""
 	supervision_detail_id: String
 	"""
-	 图像异常处置措施                         (                                                              )
+	 图像异常处置措施                         
 	"""
 	image_abnormal_handing_measure: String
 	"""
-	 反馈时间                                 (                                                              )
+	 反馈时间                                 
 	"""
 	feedback_time: Timestamptz
 	"""
-	 行车记录仪数据处置措施                   (                                                              )
+	 行车记录仪数据处置措施                   
 	"""
 	tachograph_data_disposal_measure: String
 	"""
@@ -43,35 +43,35 @@ type DynamicSpotCheckDisposal {
 	"""
 	operation_user: String
 	"""
-	 是否短信推送                             (                                                              )
+	 是否短信推送                             
 	"""
 	is_sms_push: Boolean
 	"""
-	 是否通报                                 (                                                              )
+	 是否通报                                 
 	"""
 	is_notify: Boolean
 	"""
-	 是否语音通知                             (                                                              )
+	 是否语音通知                             
 	"""
 	is_announce: Boolean
 	"""
-	 是否APP推送                              (                                                              )
+	 是否APP推送                              
 	"""
 	is_app_push: Boolean
 	"""
-	 通报内容                                 (                                                              )
+	 通报内容                                 
 	"""
 	notify_content: String
 	"""
-	 语音内容                                 (                                                              )
+	 语音内容                                 
 	"""
 	announce_content: String
 	"""
-	 APP推送内容                              (                                                              )
+	 APP推送内容                              
 	"""
 	app_push_content: String
 	"""
-	 处置内容                                 (                                                              )
+	 处置内容                                 
 	"""
 	disposal_content: String
 	"""
@@ -79,7 +79,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	disposal_method: Int
 	"""
-	 处置结果                                 (                                                              )
+	 处置结果                                 
 	"""
 	disposal_result: String
 	"""
@@ -87,7 +87,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                 (                                                              )
+	 创建时间                                 
 	"""
 	created_at: Timestamptz!
 	"""
@@ -95,7 +95,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                 (                                                              )
+	 修改时间                                 
 	"""
 	updated_at: Timestamptz
 	"""
@@ -103,7 +103,7 @@ type DynamicSpotCheckDisposal {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                 (                                                              )
+	 删除时间                                 
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -331,8 +331,6 @@ input DynamicSpotCheckDisposalBoolExp {
 input type for inserting data into table "dynamic_spot_check_disposal"
 """
 input DynamicSpotCheckDisposalInsertInput {
-	id: Bigint
-	vehicle_id: String
 	enterprise_id: String
 	telephone: String
 	send_time: Timestamptz
@@ -352,8 +350,6 @@ input DynamicSpotCheckDisposalInsertInput {
 	disposal_method: Int
 	disposal_result: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -407,7 +403,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id (                                                              )
+	 vehicle_info 车辆信息表 的vehicle_id 
 	"""
 	vehicle_id
 	"""
@@ -415,11 +411,11 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 手机号码                                 (                                                              )
+	 手机号码                                 
 	"""
 	telephone
 	"""
-	 发送时间                                 (                                                              )
+	 发送时间                                 
 	"""
 	send_time
 	"""
@@ -427,15 +423,15 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	supervision_detail_id
 	"""
-	 图像异常处置措施                         (                                                              )
+	 图像异常处置措施                         
 	"""
 	image_abnormal_handing_measure
 	"""
-	 反馈时间                                 (                                                              )
+	 反馈时间                                 
 	"""
 	feedback_time
 	"""
-	 行车记录仪数据处置措施                   (                                                              )
+	 行车记录仪数据处置措施                   
 	"""
 	tachograph_data_disposal_measure
 	"""
@@ -443,35 +439,35 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	operation_user
 	"""
-	 是否短信推送                             (                                                              )
+	 是否短信推送                             
 	"""
 	is_sms_push
 	"""
-	 是否通报                                 (                                                              )
+	 是否通报                                 
 	"""
 	is_notify
 	"""
-	 是否语音通知                             (                                                              )
+	 是否语音通知                             
 	"""
 	is_announce
 	"""
-	 是否APP推送                              (                                                              )
+	 是否APP推送                              
 	"""
 	is_app_push
 	"""
-	 通报内容                                 (                                                              )
+	 通报内容                                 
 	"""
 	notify_content
 	"""
-	 语音内容                                 (                                                              )
+	 语音内容                                 
 	"""
 	announce_content
 	"""
-	 APP推送内容                              (                                                              )
+	 APP推送内容                              
 	"""
 	app_push_content
 	"""
-	 处置内容                                 (                                                              )
+	 处置内容                                 
 	"""
 	disposal_content
 	"""
@@ -479,7 +475,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	disposal_method
 	"""
-	 处置结果                                 (                                                              )
+	 处置结果                                 
 	"""
 	disposal_result
 	"""
@@ -487,7 +483,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	is_deleted
 	"""
-	 创建时间                                 (                                                              )
+	 创建时间                                 
 	"""
 	created_at
 	"""
@@ -495,7 +491,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                 (                                                              )
+	 修改时间                                 
 	"""
 	updated_at
 	"""
@@ -503,7 +499,7 @@ enum DynamicSpotCheckDisposalSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                 (                                                              )
+	 删除时间                                 
 	"""
 	deleted_at
 	"""

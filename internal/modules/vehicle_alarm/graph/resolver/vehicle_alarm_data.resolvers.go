@@ -66,10 +66,10 @@ func (r *mutationResolver) DeleteVehicleAlarmDataByPk(ctx context.Context, Id in
 }
 
 func (r *mutationResolver) InsertVehicleAlarmData(ctx context.Context, objects []*model.VehicleAlarmDataInsertInput) (*model.VehicleAlarmDataMutationResponse, error) {
-	rs := []*model1.VehicleAlarmData{}
+	rs := make([]*model1.VehicleAlarmData, 0)
 	for _, object := range objects {
 		v := &model1.VehicleAlarmData{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleAlarmData{}).Create(&rs)
@@ -119,13 +119,13 @@ func (r *mutationResolver) UpdateVehicleAlarmDataByPk(ctx context.Context, inc *
 	qt := util.NewQueryTranslator(tx, &model1.VehicleAlarmData{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleAlarmData
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -139,13 +139,8 @@ func (r *queryResolver) VehicleAlarmData(ctx context.Context, distinctOn []model
 		Finish()
 	var rs []*model1.VehicleAlarmData
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleAlarmDataAggregate(ctx context.Context, distinctOn []model.VehicleAlarmDataSelectColumn, limit *int, offset *int, orderBy []*model.VehicleAlarmDataOrderBy, where *model.VehicleAlarmDataBoolExp) (*model.VehicleAlarmDataAggregate, error) {
@@ -161,26 +156,15 @@ func (r *queryResolver) VehicleAlarmDataAggregate(ctx context.Context, distinctO
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleAlarmDataByPk(ctx context.Context, Id int64) (*model1.VehicleAlarmData, error) {
 	var rs model1.VehicleAlarmData
 	tx := db.DB.Model(&model1.VehicleAlarmData{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }
 
 // Mutation returns generated.MutationResolver implementation.

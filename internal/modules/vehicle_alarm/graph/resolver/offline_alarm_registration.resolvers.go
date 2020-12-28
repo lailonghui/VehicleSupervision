@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteOfflineAlarmRegistrationByPk(ctx context.Contex
 }
 
 func (r *mutationResolver) InsertOfflineAlarmRegistration(ctx context.Context, objects []*model.OfflineAlarmRegistrationInsertInput) (*model.OfflineAlarmRegistrationMutationResponse, error) {
-	rs := []*model1.OfflineAlarmRegistration{}
+	rs := make([]*model1.OfflineAlarmRegistration, 0)
 	for _, object := range objects {
 		v := &model1.OfflineAlarmRegistration{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.OfflineAlarmRegistration{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateOfflineAlarmRegistrationByPk(ctx context.Contex
 	qt := util.NewQueryTranslator(tx, &model1.OfflineAlarmRegistration{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.OfflineAlarmRegistration
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) OfflineAlarmRegistration(ctx context.Context, distinctOn
 		Finish()
 	var rs []*model1.OfflineAlarmRegistration
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) OfflineAlarmRegistrationAggregate(ctx context.Context, distinctOn []model.OfflineAlarmRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.OfflineAlarmRegistrationOrderBy, where *model.OfflineAlarmRegistrationBoolExp) (*model.OfflineAlarmRegistrationAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) OfflineAlarmRegistrationAggregate(ctx context.Context, d
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) OfflineAlarmRegistrationByPk(ctx context.Context, Id int64) (*model1.OfflineAlarmRegistration, error) {
 	var rs model1.OfflineAlarmRegistration
 	tx := db.DB.Model(&model1.OfflineAlarmRegistration{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

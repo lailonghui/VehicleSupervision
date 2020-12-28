@@ -65,8 +65,6 @@ type CaseApprovalReviewCallIncInput struct {
 
 // input type for inserting data into table "case_approval_review_call"
 type CaseApprovalReviewCallInsertInput struct {
-	ID                            *int64     `json:"id"`
-	CaseApprovalReviewCallID      *string    `json:"case_approval_review_call_id"`
 	CaseApprovalReviewOperationID *string    `json:"case_approval_review_operation_id"`
 	TelephoneNumber               *string    `json:"telephone_number"`
 	DialTime                      *time.Time `json:"dial_time"`
@@ -74,8 +72,6 @@ type CaseApprovalReviewCallInsertInput struct {
 	InformContent                 *string    `json:"inform_content"`
 	Reviewer                      *string    `json:"reviewer"`
 	ReviewTime                    *time.Time `json:"review_time"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
 	DeletedAt                     *time.Time `json:"deleted_at"`
@@ -250,18 +246,14 @@ type CaseApprovalReviewOperationIncInput struct {
 
 // input type for inserting data into table "case_approval_review_operation"
 type CaseApprovalReviewOperationInsertInput struct {
-	ID                            *int64     `json:"id"`
-	CaseApprovalReviewOperationID *string    `json:"case_approval_review_operation_id"`
-	ReviewOpinion                 *string    `json:"review_opinion"`
-	ReviewResult                  *string    `json:"review_result"`
-	Reviewer                      *string    `json:"reviewer"`
-	ReviewTime                    *time.Time `json:"review_time"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	UpdatedAt                     *time.Time `json:"updated_at"`
-	UpdatedBy                     *string    `json:"updated_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
+	ReviewOpinion *string    `json:"review_opinion"`
+	ReviewResult  *string    `json:"review_result"`
+	Reviewer      *string    `json:"reviewer"`
+	ReviewTime    *time.Time `json:"review_time"`
+	UpdatedAt     *time.Time `json:"updated_at"`
+	UpdatedBy     *string    `json:"updated_by"`
+	DeletedAt     *time.Time `json:"deleted_at"`
+	DeletedBy     *string    `json:"deleted_by"`
 }
 
 // aggregate max on columns of table "case_approval_review_operation"
@@ -438,8 +430,6 @@ type DisputeViolationRecordIncInput struct {
 
 // input type for inserting data into table "dispute_violation_record"
 type DisputeViolationRecordInsertInput struct {
-	ID                          *int64     `json:"id"`
-	DisputeViolationID          *string    `json:"dispute_violation_id"`
 	ViolationDetailID           *string    `json:"violation_detail_id"`
 	WrittenApplicationMaterials *string    `json:"written_application_materials"`
 	LaborContract               *string    `json:"labor_contract"`
@@ -459,8 +449,6 @@ type DisputeViolationRecordInsertInput struct {
 	ApproveState                *int       `json:"approve_state"`
 	UpdateTimeIn                *time.Time `json:"update_time_in"`
 	ContactAddress              *string    `json:"contact_address"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
 	DeletedAt                   *time.Time `json:"deleted_at"`
@@ -517,16 +505,14 @@ type DisputeViolationRecordLogIncInput struct {
 
 // input type for inserting data into table "dispute_violation_record_log"
 type DisputeViolationRecordLogInsertInput struct {
-	ID                    *int64     `json:"id"`
-	DisputeViolationLogID *string    `json:"dispute_violation_log_id"`
-	DisputeViolationID    *string    `json:"dispute_violation_id"`
-	Reviewer              *string    `json:"reviewer"`
-	ReviewTime            *time.Time `json:"review_time"`
-	ReviewOpinion         *string    `json:"review_opinion"`
-	ReviewResult          *string    `json:"review_result"`
-	ReviewActionName      *string    `json:"review_action_name"`
-	Approver              *string    `json:"approver"`
-	UpdateTimeIn          *string    `json:"update_time_in"`
+	DisputeViolationID *string    `json:"dispute_violation_id"`
+	Reviewer           *string    `json:"reviewer"`
+	ReviewTime         *time.Time `json:"review_time"`
+	ReviewOpinion      *string    `json:"review_opinion"`
+	ReviewResult       *string    `json:"review_result"`
+	ReviewActionName   *string    `json:"review_action_name"`
+	Approver           *string    `json:"approver"`
+	UpdateTimeIn       *string    `json:"update_time_in"`
 }
 
 // aggregate max on columns of table "dispute_violation_record_log"
@@ -865,8 +851,6 @@ type DrivingLogInfoIncInput struct {
 
 // input type for inserting data into table "driving_log_info"
 type DrivingLogInfoInsertInput struct {
-	ID               *int64     `json:"id"`
-	DrivingLogInfoID *string    `json:"driving_log_info_id"`
 	VehicleID        *string    `json:"vehicle_id"`
 	DriverID         *string    `json:"driver_id"`
 	DrivingStartTime *time.Time `json:"driving_start_time"`
@@ -879,8 +863,6 @@ type DrivingLogInfoInsertInput struct {
 	ReviewStatus     *int       `json:"review_status"`
 	ReviewAgecyLevel *int       `json:"review_agecy_level"`
 	IsMarkup         *bool      `json:"is_markup"`
-	CreatedAt        *time.Time `json:"created_at"`
-	CreatedBy        *string    `json:"created_by"`
 	UpdatedAt        *time.Time `json:"updated_at"`
 	UpdatedBy        *string    `json:"updated_by"`
 	DeletedAt        *time.Time `json:"deleted_at"`
@@ -1089,18 +1071,14 @@ type VehicleDriverBindingIncInput struct {
 
 // input type for inserting data into table "vehicle_driver_binding"
 type VehicleDriverBindingInsertInput struct {
-	ID                     *int64     `json:"id"`
-	VehicleDriverBindingID *string    `json:"vehicle_driver_binding_id"`
-	DriverID               *string    `json:"driver_id"`
-	VehicleID              *string    `json:"vehicle_id"`
-	Remarks                *string    `json:"remarks"`
-	CreatedAt              *time.Time `json:"created_at"`
-	CreatedBy              *string    `json:"created_by"`
-	UpdatedAt              *time.Time `json:"updated_at"`
-	UpdatedBy              *string    `json:"updated_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
-	IsDeleted              *bool      `json:"is_deleted"`
+	DriverID  *string    `json:"driver_id"`
+	VehicleID *string    `json:"vehicle_id"`
+	Remarks   *string    `json:"remarks"`
+	UpdatedAt *time.Time `json:"updated_at"`
+	UpdatedBy *string    `json:"updated_by"`
+	DeletedAt *time.Time `json:"deleted_at"`
+	DeletedBy *string    `json:"deleted_by"`
+	IsDeleted *bool      `json:"is_deleted"`
 }
 
 // aggregate max on columns of table "vehicle_driver_binding"
@@ -1216,29 +1194,29 @@ const (
 	CaseApprovalReviewCallSelectColumnID CaseApprovalReviewCallSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用              ( 联合主键                   )
 	CaseApprovalReviewCallSelectColumnCaseApprovalReviewCallID CaseApprovalReviewCallSelectColumn = "case_approval_review_call_id"
-	// case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id (                            )
+	// case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id
 	CaseApprovalReviewCallSelectColumnCaseApprovalReviewOperationID CaseApprovalReviewCallSelectColumn = "case_approval_review_operation_id"
-	// 电话号码                                                     (                            )
+	// 电话号码
 	CaseApprovalReviewCallSelectColumnTelephoneNumber CaseApprovalReviewCallSelectColumn = "telephone_number"
-	// 拨打时间                                                     (                            )
+	// 拨打时间
 	CaseApprovalReviewCallSelectColumnDialTime CaseApprovalReviewCallSelectColumn = "dial_time"
-	// 是否接通                                                     (                            )
+	// 是否接通
 	CaseApprovalReviewCallSelectColumnIsConnected CaseApprovalReviewCallSelectColumn = "is_connected"
-	// 告知内容                                                     (                            )
+	// 告知内容
 	CaseApprovalReviewCallSelectColumnInformContent CaseApprovalReviewCallSelectColumn = "inform_content"
-	// 审核人                                                       (                            )
+	// 审核人
 	CaseApprovalReviewCallSelectColumnReviewer CaseApprovalReviewCallSelectColumn = "reviewer"
-	// 审核时间                                                     (                            )
+	// 审核时间
 	CaseApprovalReviewCallSelectColumnReviewTime CaseApprovalReviewCallSelectColumn = "review_time"
-	// 创建时间                                                     (                            )
+	// 创建时间
 	CaseApprovalReviewCallSelectColumnCreatedAt CaseApprovalReviewCallSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id )
 	CaseApprovalReviewCallSelectColumnCreatedBy CaseApprovalReviewCallSelectColumn = "created_by"
-	// 修改时间                                                     (                            )
+	// 修改时间
 	CaseApprovalReviewCallSelectColumnUpdatedAt CaseApprovalReviewCallSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id )
 	CaseApprovalReviewCallSelectColumnUpdatedBy CaseApprovalReviewCallSelectColumn = "updated_by"
-	// 删除时间                                                     (                            )
+	// 删除时间
 	CaseApprovalReviewCallSelectColumnDeletedAt CaseApprovalReviewCallSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id )
 	CaseApprovalReviewCallSelectColumnDeletedBy CaseApprovalReviewCallSelectColumn = "deleted_by"
@@ -1299,23 +1277,23 @@ const (
 	CaseApprovalReviewOperationSelectColumnID CaseApprovalReviewOperationSelectColumn = "id"
 	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	CaseApprovalReviewOperationSelectColumnCaseApprovalReviewOperationID CaseApprovalReviewOperationSelectColumn = "case_approval_review_operation_id"
-	// 审核意见                                        (                            )
+	// 审核意见
 	CaseApprovalReviewOperationSelectColumnReviewOpinion CaseApprovalReviewOperationSelectColumn = "review_opinion"
-	// 审核结果                                        (                            )
+	// 审核结果
 	CaseApprovalReviewOperationSelectColumnReviewResult CaseApprovalReviewOperationSelectColumn = "review_result"
-	// 审核人                                          (                            )
+	// 审核人
 	CaseApprovalReviewOperationSelectColumnReviewer CaseApprovalReviewOperationSelectColumn = "reviewer"
-	// 审核时间                                        (                            )
+	// 审核时间
 	CaseApprovalReviewOperationSelectColumnReviewTime CaseApprovalReviewOperationSelectColumn = "review_time"
-	// 创建时间                                        (                            )
+	// 创建时间
 	CaseApprovalReviewOperationSelectColumnCreatedAt CaseApprovalReviewOperationSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id )
 	CaseApprovalReviewOperationSelectColumnCreatedBy CaseApprovalReviewOperationSelectColumn = "created_by"
-	// 修改时间                                        (                            )
+	// 修改时间
 	CaseApprovalReviewOperationSelectColumnUpdatedAt CaseApprovalReviewOperationSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id )
 	CaseApprovalReviewOperationSelectColumnUpdatedBy CaseApprovalReviewOperationSelectColumn = "updated_by"
-	// 删除时间                                        (                            )
+	// 删除时间
 	CaseApprovalReviewOperationSelectColumnDeletedAt CaseApprovalReviewOperationSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id )
 	CaseApprovalReviewOperationSelectColumnDeletedBy CaseApprovalReviewOperationSelectColumn = "deleted_by"
@@ -1377,17 +1355,17 @@ const (
 	DisputeViolationRecordLogSelectColumnDisputeViolationID DisputeViolationRecordLogSelectColumn = "dispute_violation_id"
 	// 审核人                                                       ( system_user表的user_id                         )
 	DisputeViolationRecordLogSelectColumnReviewer DisputeViolationRecordLogSelectColumn = "reviewer"
-	// 审核时间                                                     (                                                    )
+	// 审核时间
 	DisputeViolationRecordLogSelectColumnReviewTime DisputeViolationRecordLogSelectColumn = "review_time"
-	// 审核意见                                                     (                                                    )
+	// 审核意见
 	DisputeViolationRecordLogSelectColumnReviewOpinion DisputeViolationRecordLogSelectColumn = "review_opinion"
-	// 审核结果                                                     (                                                    )
+	// 审核结果
 	DisputeViolationRecordLogSelectColumnReviewResult DisputeViolationRecordLogSelectColumn = "review_result"
-	// 审核动作名称                                                 (                                                    )
+	// 审核动作名称
 	DisputeViolationRecordLogSelectColumnReviewActionName DisputeViolationRecordLogSelectColumn = "review_action_name"
 	// 审批人                                                       ( system_user表的user_id                         )
 	DisputeViolationRecordLogSelectColumnApprover DisputeViolationRecordLogSelectColumn = "approver"
-	// 内网更新时间                                                 (                                                    )
+	// 内网更新时间
 	DisputeViolationRecordLogSelectColumnUpdateTimeIn DisputeViolationRecordLogSelectColumn = "update_time_in"
 )
 
@@ -1443,55 +1421,55 @@ const (
 	DisputeViolationRecordSelectColumnDisputeViolationID DisputeViolationRecordSelectColumn = "dispute_violation_id"
 	// 违章明细表id                                                 ( vehicle_violation _details 表的violation_detail_id )
 	DisputeViolationRecordSelectColumnViolationDetailID DisputeViolationRecordSelectColumn = "violation_detail_id"
-	// 书面申请材料                                                 (                                                        )
+	// 书面申请材料
 	DisputeViolationRecordSelectColumnWrittenApplicationMaterials DisputeViolationRecordSelectColumn = "written_application_materials"
-	// 劳动合同或租赁合同                                           (                                                        )
+	// 劳动合同或租赁合同
 	DisputeViolationRecordSelectColumnLaborContract DisputeViolationRecordSelectColumn = "labor_contract"
-	// 行车日志                                                     (                                                        )
+	// 行车日志
 	DisputeViolationRecordSelectColumnDrivingLog DisputeViolationRecordSelectColumn = "driving_log"
-	// 证人证言                                                     (                                                        )
+	// 证人证言
 	DisputeViolationRecordSelectColumnWitness DisputeViolationRecordSelectColumn = "witness"
-	// 当事人陈述                                                   (                                                        )
+	// 当事人陈述
 	DisputeViolationRecordSelectColumnStatement DisputeViolationRecordSelectColumn = "statement"
-	// 图像证据材料                                                 (                                                        )
+	// 图像证据材料
 	DisputeViolationRecordSelectColumnPicEvidence DisputeViolationRecordSelectColumn = "pic_evidence"
-	// 行为人驾驶证                                                 (                                                        )
+	// 行为人驾驶证
 	DisputeViolationRecordSelectColumnDriverLicense DisputeViolationRecordSelectColumn = "driver_license"
-	// 机动车行驶证                                                 (                                                        )
+	// 机动车行驶证
 	DisputeViolationRecordSelectColumnDrivingLicense DisputeViolationRecordSelectColumn = "driving_license"
-	// 行为人身份证                                                 (                                                        )
+	// 行为人身份证
 	DisputeViolationRecordSelectColumnIDCard DisputeViolationRecordSelectColumn = "id_card"
-	// 机动车所有人营业执照                                         (                                                        )
+	// 机动车所有人营业执照
 	DisputeViolationRecordSelectColumnBusinessLicense DisputeViolationRecordSelectColumn = "business_license"
-	// 机动车所有人组织机构代码证                                   (                                                        )
+	// 机动车所有人组织机构代码证
 	DisputeViolationRecordSelectColumnOrganizationCode DisputeViolationRecordSelectColumn = "organization_code"
-	// 法定代表人身份证                                             (                                                        )
+	// 法定代表人身份证
 	DisputeViolationRecordSelectColumnLegalPersonIDNumber DisputeViolationRecordSelectColumn = "legal_person_id_number"
-	// 委托代理人身份证                                             (                                                        )
+	// 委托代理人身份证
 	DisputeViolationRecordSelectColumnAgentIDNumber DisputeViolationRecordSelectColumn = "agent_id_number"
-	// 机动车管理人身份证                                           (                                                        )
+	// 机动车管理人身份证
 	DisputeViolationRecordSelectColumnVehicleManagerIDCard DisputeViolationRecordSelectColumn = "vehicle_manager_id_card"
-	// 其他证据材料                                                 (                                                        )
+	// 其他证据材料
 	DisputeViolationRecordSelectColumnOtherEvidence DisputeViolationRecordSelectColumn = "other_evidence"
 	// 审批状态                                                     ( 车辆违法审批状态字典                               )
 	DisputeViolationRecordSelectColumnApproveState DisputeViolationRecordSelectColumn = "approve_state"
-	// 内网更新时间                                                 (                                                        )
+	// 内网更新时间
 	DisputeViolationRecordSelectColumnUpdateTimeIn DisputeViolationRecordSelectColumn = "update_time_in"
-	// 联系地址                                                     (                                                        )
+	// 联系地址
 	DisputeViolationRecordSelectColumnContactAddress DisputeViolationRecordSelectColumn = "contact_address"
-	// 创建时间                                                     (                                                        )
+	// 创建时间
 	DisputeViolationRecordSelectColumnCreatedAt DisputeViolationRecordSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id                             )
 	DisputeViolationRecordSelectColumnCreatedBy DisputeViolationRecordSelectColumn = "created_by"
-	// 修改时间                                                     (                                                        )
+	// 修改时间
 	DisputeViolationRecordSelectColumnUpdatedAt DisputeViolationRecordSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id                             )
 	DisputeViolationRecordSelectColumnUpdatedBy DisputeViolationRecordSelectColumn = "updated_by"
-	// 删除时间                                                     (                                                        )
+	// 删除时间
 	DisputeViolationRecordSelectColumnDeletedAt DisputeViolationRecordSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id                             )
 	DisputeViolationRecordSelectColumnDeletedBy DisputeViolationRecordSelectColumn = "deleted_by"
-	// 是否删除                                                     (                                                        )
+	// 是否删除
 	DisputeViolationRecordSelectColumnIsDeleted DisputeViolationRecordSelectColumn = "is_deleted"
 )
 
@@ -1567,35 +1545,35 @@ const (
 	DrivingLogInfoSelectColumnVehicleID DrivingLogInfoSelectColumn = "vehicle_id"
 	// 驾驶员id                                        ( driver_info表的driver_id   )
 	DrivingLogInfoSelectColumnDriverID DrivingLogInfoSelectColumn = "driver_id"
-	// 用车起始日期                                    (                                )
+	// 用车起始日期
 	DrivingLogInfoSelectColumnDrivingStartTime DrivingLogInfoSelectColumn = "driving_start_time"
-	// 用车结束日期                                    (                                )
+	// 用车结束日期
 	DrivingLogInfoSelectColumnDrivingEndTime DrivingLogInfoSelectColumn = "driving_end_time"
-	// 事由                                            (                                )
+	// 事由
 	DrivingLogInfoSelectColumnCause DrivingLogInfoSelectColumn = "cause"
-	// 路线                                            (                                )
+	// 路线
 	DrivingLogInfoSelectColumnRoute DrivingLogInfoSelectColumn = "route"
-	// 备注                                            (                                )
+	// 备注
 	DrivingLogInfoSelectColumnRemarks DrivingLogInfoSelectColumn = "remarks"
-	// 开始时间                                        (                                )
+	// 开始时间
 	DrivingLogInfoSelectColumnStartTime DrivingLogInfoSelectColumn = "start_time"
-	// 结束时间                                        (                                )
+	// 结束时间
 	DrivingLogInfoSelectColumnEndTime DrivingLogInfoSelectColumn = "end_time"
-	// 审核状态                                        (                                )
+	// 审核状态
 	DrivingLogInfoSelectColumnReviewStatus DrivingLogInfoSelectColumn = "review_status"
-	// 审核机构级别                                    (                                )
+	// 审核机构级别
 	DrivingLogInfoSelectColumnReviewAgecyLevel DrivingLogInfoSelectColumn = "review_agecy_level"
-	// 是否补录                                        (                                )
+	// 是否补录
 	DrivingLogInfoSelectColumnIsMarkup DrivingLogInfoSelectColumn = "is_markup"
-	// 创建时间                                        (                                )
+	// 创建时间
 	DrivingLogInfoSelectColumnCreatedAt DrivingLogInfoSelectColumn = "created_at"
 	// 创建人                                          ( system_user表的user_id     )
 	DrivingLogInfoSelectColumnCreatedBy DrivingLogInfoSelectColumn = "created_by"
-	// 修改时间                                        (                                )
+	// 修改时间
 	DrivingLogInfoSelectColumnUpdatedAt DrivingLogInfoSelectColumn = "updated_at"
 	// 修改人                                          ( system_user表的user_id     )
 	DrivingLogInfoSelectColumnUpdatedBy DrivingLogInfoSelectColumn = "updated_by"
-	// 删除时间                                        (                                )
+	// 删除时间
 	DrivingLogInfoSelectColumnDeletedAt DrivingLogInfoSelectColumn = "deleted_at"
 	// 删除人                                          ( system_user表的user_id     )
 	DrivingLogInfoSelectColumnDeletedBy DrivingLogInfoSelectColumn = "deleted_by"
@@ -1665,21 +1643,21 @@ const (
 	VehicleDriverBindingSelectColumnDriverID VehicleDriverBindingSelectColumn = "driver_id"
 	// 车辆id                                                       ( vehicle_info表的vehicle_id )
 	VehicleDriverBindingSelectColumnVehicleID VehicleDriverBindingSelectColumn = "vehicle_id"
-	// 备注                                                         (                                )
+	// 备注
 	VehicleDriverBindingSelectColumnRemarks VehicleDriverBindingSelectColumn = "remarks"
-	// 创建时间                                                     (                                )
+	// 创建时间
 	VehicleDriverBindingSelectColumnCreatedAt VehicleDriverBindingSelectColumn = "created_at"
 	// 创建人                                                       ( system_user表的user_id     )
 	VehicleDriverBindingSelectColumnCreatedBy VehicleDriverBindingSelectColumn = "created_by"
-	// 修改时间                                                     (                                )
+	// 修改时间
 	VehicleDriverBindingSelectColumnUpdatedAt VehicleDriverBindingSelectColumn = "updated_at"
 	// 修改人                                                       ( system_user表的user_id     )
 	VehicleDriverBindingSelectColumnUpdatedBy VehicleDriverBindingSelectColumn = "updated_by"
-	// 删除时间                                                     (                                )
+	// 删除时间
 	VehicleDriverBindingSelectColumnDeletedAt VehicleDriverBindingSelectColumn = "deleted_at"
 	// 删除人                                                       ( system_user表的user_id     )
 	VehicleDriverBindingSelectColumnDeletedBy VehicleDriverBindingSelectColumn = "deleted_by"
-	// 是否删除                                                     (                                )
+	// 是否删除
 	VehicleDriverBindingSelectColumnIsDeleted VehicleDriverBindingSelectColumn = "is_deleted"
 )
 

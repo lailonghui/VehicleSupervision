@@ -291,135 +291,6 @@ type ComplexityRoot struct {
 		OperationType func(childComplexity int) int
 	}
 
-	DriverIDInfoReport struct {
-		CreatedAt            func(childComplexity int) int
-		CreatedBy            func(childComplexity int) int
-		DeletedAt            func(childComplexity int) int
-		DeletedBy            func(childComplexity int) int
-		DriverIDInfoReportID func(childComplexity int) int
-		DriverLicenseName    func(childComplexity int) int
-		DriverName           func(childComplexity int) int
-		ID                   func(childComplexity int) int
-		IcCardReadingResult  func(childComplexity int) int
-		IcCardStatus         func(childComplexity int) int
-		Imel                 func(childComplexity int) int
-		LicenseExpireDate    func(childComplexity int) int
-		LicenseNumber        func(childComplexity int) int
-		OccupationalNumber   func(childComplexity int) int
-		OperationTime        func(childComplexity int) int
-		RegistrationTime     func(childComplexity int) int
-		UpdatedAt            func(childComplexity int) int
-		UpdatedBy            func(childComplexity int) int
-		VehicleID            func(childComplexity int) int
-	}
-
-	DriverIDInfoReportAggregate struct {
-		Aggregate func(childComplexity int) int
-	}
-
-	DriverIDInfoReportAggregateFields struct {
-		Avg        func(childComplexity int) int
-		Count      func(childComplexity int) int
-		Max        func(childComplexity int) int
-		Min        func(childComplexity int) int
-		Stddev     func(childComplexity int) int
-		StddevPop  func(childComplexity int) int
-		StddevSamp func(childComplexity int) int
-		Sum        func(childComplexity int) int
-		VarPop     func(childComplexity int) int
-		VarSamp    func(childComplexity int) int
-		Variance   func(childComplexity int) int
-	}
-
-	DriverIDInfoReportAvgFields struct {
-		ID           func(childComplexity int) int
-		IcCardStatus func(childComplexity int) int
-	}
-
-	DriverIDInfoReportMaxFields struct {
-		CreatedAt            func(childComplexity int) int
-		CreatedBy            func(childComplexity int) int
-		DeletedAt            func(childComplexity int) int
-		DeletedBy            func(childComplexity int) int
-		DriverIDInfoReportID func(childComplexity int) int
-		DriverLicenseName    func(childComplexity int) int
-		DriverName           func(childComplexity int) int
-		ID                   func(childComplexity int) int
-		IcCardReadingResult  func(childComplexity int) int
-		IcCardStatus         func(childComplexity int) int
-		Imel                 func(childComplexity int) int
-		LicenseExpireDate    func(childComplexity int) int
-		LicenseNumber        func(childComplexity int) int
-		OccupationalNumber   func(childComplexity int) int
-		OperationTime        func(childComplexity int) int
-		RegistrationTime     func(childComplexity int) int
-		UpdatedAt            func(childComplexity int) int
-		UpdatedBy            func(childComplexity int) int
-		VehicleID            func(childComplexity int) int
-	}
-
-	DriverIDInfoReportMinFields struct {
-		CreatedAt            func(childComplexity int) int
-		CreatedBy            func(childComplexity int) int
-		DeletedAt            func(childComplexity int) int
-		DeletedBy            func(childComplexity int) int
-		DriverIDInfoReportID func(childComplexity int) int
-		DriverLicenseName    func(childComplexity int) int
-		DriverName           func(childComplexity int) int
-		ID                   func(childComplexity int) int
-		IcCardReadingResult  func(childComplexity int) int
-		IcCardStatus         func(childComplexity int) int
-		Imel                 func(childComplexity int) int
-		LicenseExpireDate    func(childComplexity int) int
-		LicenseNumber        func(childComplexity int) int
-		OccupationalNumber   func(childComplexity int) int
-		OperationTime        func(childComplexity int) int
-		RegistrationTime     func(childComplexity int) int
-		UpdatedAt            func(childComplexity int) int
-		UpdatedBy            func(childComplexity int) int
-		VehicleID            func(childComplexity int) int
-	}
-
-	DriverIDInfoReportMutationResponse struct {
-		AffectedRows func(childComplexity int) int
-		Returning    func(childComplexity int) int
-	}
-
-	DriverIDInfoReportStddevFields struct {
-		ID           func(childComplexity int) int
-		IcCardStatus func(childComplexity int) int
-	}
-
-	DriverIDInfoReportStddevPopFields struct {
-		ID           func(childComplexity int) int
-		IcCardStatus func(childComplexity int) int
-	}
-
-	DriverIDInfoReportStddevSampFields struct {
-		ID           func(childComplexity int) int
-		IcCardStatus func(childComplexity int) int
-	}
-
-	DriverIDInfoReportSumFields struct {
-		ID           func(childComplexity int) int
-		IcCardStatus func(childComplexity int) int
-	}
-
-	DriverIDInfoReportVarPopFields struct {
-		ID           func(childComplexity int) int
-		IcCardStatus func(childComplexity int) int
-	}
-
-	DriverIDInfoReportVarSampFields struct {
-		ID           func(childComplexity int) int
-		IcCardStatus func(childComplexity int) int
-	}
-
-	DriverIDInfoReportVarianceFields struct {
-		ID           func(childComplexity int) int
-		IcCardStatus func(childComplexity int) int
-	}
-
 	DriverIdentity struct {
 		AccumulativedPoints           func(childComplexity int) int
 		AnnualReviewDate              func(childComplexity int) int
@@ -485,6 +356,135 @@ type ComplexityRoot struct {
 		DriverLicenseStatus func(childComplexity int) int
 		ID                  func(childComplexity int) int
 		QuasiDrivingModels  func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReport struct {
+		CreatedAt                  func(childComplexity int) int
+		CreatedBy                  func(childComplexity int) int
+		DeletedAt                  func(childComplexity int) int
+		DeletedBy                  func(childComplexity int) int
+		DriverIdentityInfoReportID func(childComplexity int) int
+		DriverLicenseName          func(childComplexity int) int
+		DriverName                 func(childComplexity int) int
+		ID                         func(childComplexity int) int
+		IcCardReadingResult        func(childComplexity int) int
+		IcCardStatus               func(childComplexity int) int
+		Imel                       func(childComplexity int) int
+		LicenseExpireDate          func(childComplexity int) int
+		LicenseNumber              func(childComplexity int) int
+		OccupationalNumber         func(childComplexity int) int
+		OperationTime              func(childComplexity int) int
+		RegistrationTime           func(childComplexity int) int
+		UpdatedAt                  func(childComplexity int) int
+		UpdatedBy                  func(childComplexity int) int
+		VehicleID                  func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportAggregate struct {
+		Aggregate func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportAggregateFields struct {
+		Avg        func(childComplexity int) int
+		Count      func(childComplexity int) int
+		Max        func(childComplexity int) int
+		Min        func(childComplexity int) int
+		Stddev     func(childComplexity int) int
+		StddevPop  func(childComplexity int) int
+		StddevSamp func(childComplexity int) int
+		Sum        func(childComplexity int) int
+		VarPop     func(childComplexity int) int
+		VarSamp    func(childComplexity int) int
+		Variance   func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportAvgFields struct {
+		ID           func(childComplexity int) int
+		IcCardStatus func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportMaxFields struct {
+		CreatedAt                  func(childComplexity int) int
+		CreatedBy                  func(childComplexity int) int
+		DeletedAt                  func(childComplexity int) int
+		DeletedBy                  func(childComplexity int) int
+		DriverIdentityInfoReportID func(childComplexity int) int
+		DriverLicenseName          func(childComplexity int) int
+		DriverName                 func(childComplexity int) int
+		ID                         func(childComplexity int) int
+		IcCardReadingResult        func(childComplexity int) int
+		IcCardStatus               func(childComplexity int) int
+		Imel                       func(childComplexity int) int
+		LicenseExpireDate          func(childComplexity int) int
+		LicenseNumber              func(childComplexity int) int
+		OccupationalNumber         func(childComplexity int) int
+		OperationTime              func(childComplexity int) int
+		RegistrationTime           func(childComplexity int) int
+		UpdatedAt                  func(childComplexity int) int
+		UpdatedBy                  func(childComplexity int) int
+		VehicleID                  func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportMinFields struct {
+		CreatedAt                  func(childComplexity int) int
+		CreatedBy                  func(childComplexity int) int
+		DeletedAt                  func(childComplexity int) int
+		DeletedBy                  func(childComplexity int) int
+		DriverIdentityInfoReportID func(childComplexity int) int
+		DriverLicenseName          func(childComplexity int) int
+		DriverName                 func(childComplexity int) int
+		ID                         func(childComplexity int) int
+		IcCardReadingResult        func(childComplexity int) int
+		IcCardStatus               func(childComplexity int) int
+		Imel                       func(childComplexity int) int
+		LicenseExpireDate          func(childComplexity int) int
+		LicenseNumber              func(childComplexity int) int
+		OccupationalNumber         func(childComplexity int) int
+		OperationTime              func(childComplexity int) int
+		RegistrationTime           func(childComplexity int) int
+		UpdatedAt                  func(childComplexity int) int
+		UpdatedBy                  func(childComplexity int) int
+		VehicleID                  func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportMutationResponse struct {
+		AffectedRows func(childComplexity int) int
+		Returning    func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportStddevFields struct {
+		ID           func(childComplexity int) int
+		IcCardStatus func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportStddevPopFields struct {
+		ID           func(childComplexity int) int
+		IcCardStatus func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportStddevSampFields struct {
+		ID           func(childComplexity int) int
+		IcCardStatus func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportSumFields struct {
+		ID           func(childComplexity int) int
+		IcCardStatus func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportVarPopFields struct {
+		ID           func(childComplexity int) int
+		IcCardStatus func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportVarSampFields struct {
+		ID           func(childComplexity int) int
+		IcCardStatus func(childComplexity int) int
+	}
+
+	DriverIdentityInfoReportVarianceFields struct {
+		ID           func(childComplexity int) int
+		IcCardStatus func(childComplexity int) int
 	}
 
 	DriverIdentityMaxFields struct {
@@ -942,10 +942,10 @@ type ComplexityRoot struct {
 		DeleteDriverFingerprintAssociation             func(childComplexity int, where model.DriverFingerprintAssociationBoolExp) int
 		DeleteDriverFingerprintAssociationByPk         func(childComplexity int, id int64) int
 		DeleteDriverFingerprintByPk                    func(childComplexity int, id int64) int
-		DeleteDriverIDInfoReport                       func(childComplexity int, where model.DriverIDInfoReportBoolExp) int
-		DeleteDriverIDInfoReportByPk                   func(childComplexity int, id int64) int
 		DeleteDriverIdentity                           func(childComplexity int, where model.DriverIdentityBoolExp) int
 		DeleteDriverIdentityByPk                       func(childComplexity int, id int64) int
+		DeleteDriverIdentityInfoReport                 func(childComplexity int, where model.DriverIdentityInfoReportBoolExp) int
+		DeleteDriverIdentityInfoReportByPk             func(childComplexity int, id int64) int
 		DeleteDriverInfo                               func(childComplexity int, where model.DriverInfoBoolExp) int
 		DeleteDriverInfoByPk                           func(childComplexity int, id int64) int
 		DeleteDrivingLicenseRegistrationInspection     func(childComplexity int, where model.DrivingLicenseRegistrationInspectionBoolExp) int
@@ -954,9 +954,9 @@ type ComplexityRoot struct {
 		InsertDriverFingerprintAssociation             func(childComplexity int, objects []*model.DriverFingerprintAssociationInsertInput) int
 		InsertDriverFingerprintAssociationOne          func(childComplexity int, objects model.DriverFingerprintAssociationInsertInput) int
 		InsertDriverFingerprintOne                     func(childComplexity int, objects model.DriverFingerprintInsertInput) int
-		InsertDriverIDInfoReport                       func(childComplexity int, objects []*model.DriverIDInfoReportInsertInput) int
-		InsertDriverIDInfoReportOne                    func(childComplexity int, objects model.DriverIDInfoReportInsertInput) int
 		InsertDriverIdentity                           func(childComplexity int, objects []*model.DriverIdentityInsertInput) int
+		InsertDriverIdentityInfoReport                 func(childComplexity int, objects []*model.DriverIdentityInfoReportInsertInput) int
+		InsertDriverIdentityInfoReportOne              func(childComplexity int, objects model.DriverIdentityInfoReportInsertInput) int
 		InsertDriverIdentityOne                        func(childComplexity int, objects model.DriverIdentityInsertInput) int
 		InsertDriverInfo                               func(childComplexity int, objects []*model.DriverInfoInsertInput) int
 		InsertDriverInfoOne                            func(childComplexity int, objects model.DriverInfoInsertInput) int
@@ -966,10 +966,10 @@ type ComplexityRoot struct {
 		UpdateDriverFingerprintAssociation             func(childComplexity int, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, where model.DriverFingerprintAssociationBoolExp) int
 		UpdateDriverFingerprintAssociationByPk         func(childComplexity int, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, id int64) int
 		UpdateDriverFingerprintByPk                    func(childComplexity int, inc *model.DriverFingerprintIncInput, set *model.DriverFingerprintSetInput, id int64) int
-		UpdateDriverIDInfoReport                       func(childComplexity int, inc *model.DriverIDInfoReportIncInput, set *model.DriverIDInfoReportSetInput, where model.DriverIDInfoReportBoolExp) int
-		UpdateDriverIDInfoReportByPk                   func(childComplexity int, inc *model.DriverIDInfoReportIncInput, set *model.DriverIDInfoReportSetInput, id int64) int
 		UpdateDriverIdentity                           func(childComplexity int, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, where model.DriverIdentityBoolExp) int
 		UpdateDriverIdentityByPk                       func(childComplexity int, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, id int64) int
+		UpdateDriverIdentityInfoReport                 func(childComplexity int, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, where model.DriverIdentityInfoReportBoolExp) int
+		UpdateDriverIdentityInfoReportByPk             func(childComplexity int, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, id int64) int
 		UpdateDriverInfo                               func(childComplexity int, inc *model.DriverInfoIncInput, set *model.DriverInfoSetInput, where model.DriverInfoBoolExp) int
 		UpdateDriverInfoByPk                           func(childComplexity int, inc *model.DriverInfoIncInput, set *model.DriverInfoSetInput, id int64) int
 		UpdateDrivingLicenseRegistrationInspection     func(childComplexity int, inc *model.DrivingLicenseRegistrationInspectionIncInput, set *model.DrivingLicenseRegistrationInspectionSetInput, where model.DrivingLicenseRegistrationInspectionBoolExp) int
@@ -983,12 +983,12 @@ type ComplexityRoot struct {
 		DriverFingerprintAssociationAggregate         func(childComplexity int, distinctOn []model.DriverFingerprintAssociationSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintAssociationOrderBy, where *model.DriverFingerprintAssociationBoolExp) int
 		DriverFingerprintAssociationByPk              func(childComplexity int, id int64) int
 		DriverFingerprintByPk                         func(childComplexity int, id int64) int
-		DriverIDInfoReport                            func(childComplexity int, distinctOn []model.DriverIDInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIDInfoReportOrderBy, where *model.DriverIDInfoReportBoolExp) int
-		DriverIDInfoReportAggregate                   func(childComplexity int, distinctOn []model.DriverIDInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIDInfoReportOrderBy, where *model.DriverIDInfoReportBoolExp) int
-		DriverIDInfoReportByPk                        func(childComplexity int, id int64) int
 		DriverIdentity                                func(childComplexity int, distinctOn []model.DriverIdentitySelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityOrderBy, where *model.DriverIdentityBoolExp) int
 		DriverIdentityAggregate                       func(childComplexity int, distinctOn []model.DriverIdentitySelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityOrderBy, where *model.DriverIdentityBoolExp) int
 		DriverIdentityByPk                            func(childComplexity int, id int64) int
+		DriverIdentityInfoReport                      func(childComplexity int, distinctOn []model.DriverIdentityInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityInfoReportOrderBy, where *model.DriverIdentityInfoReportBoolExp) int
+		DriverIdentityInfoReportAggregate             func(childComplexity int, distinctOn []model.DriverIdentityInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityInfoReportOrderBy, where *model.DriverIdentityInfoReportBoolExp) int
+		DriverIdentityInfoReportByPk                  func(childComplexity int, id int64) int
 		DriverInfo                                    func(childComplexity int, distinctOn []model.DriverInfoSelectColumn, limit *int, offset *int, orderBy []*model.DriverInfoOrderBy, where *model.DriverInfoBoolExp) int
 		DriverInfoAggregate                           func(childComplexity int, distinctOn []model.DriverInfoSelectColumn, limit *int, offset *int, orderBy []*model.DriverInfoOrderBy, where *model.DriverInfoBoolExp) int
 		DriverInfoByPk                                func(childComplexity int, id int64) int
@@ -1011,18 +1011,18 @@ type MutationResolver interface {
 	InsertDriverFingerprintAssociationOne(ctx context.Context, objects model.DriverFingerprintAssociationInsertInput) (*model1.DriverFingerprintAssociation, error)
 	UpdateDriverFingerprintAssociation(ctx context.Context, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, where model.DriverFingerprintAssociationBoolExp) (*model.DriverFingerprintAssociationMutationResponse, error)
 	UpdateDriverFingerprintAssociationByPk(ctx context.Context, inc *model.DriverFingerprintAssociationIncInput, set *model.DriverFingerprintAssociationSetInput, id int64) (*model1.DriverFingerprintAssociation, error)
-	DeleteDriverIDInfoReport(ctx context.Context, where model.DriverIDInfoReportBoolExp) (*model.DriverIDInfoReportMutationResponse, error)
-	DeleteDriverIDInfoReportByPk(ctx context.Context, id int64) (*model.DriverIDInfoReport, error)
-	InsertDriverIDInfoReport(ctx context.Context, objects []*model.DriverIDInfoReportInsertInput) (*model.DriverIDInfoReportMutationResponse, error)
-	InsertDriverIDInfoReportOne(ctx context.Context, objects model.DriverIDInfoReportInsertInput) (*model.DriverIDInfoReport, error)
-	UpdateDriverIDInfoReport(ctx context.Context, inc *model.DriverIDInfoReportIncInput, set *model.DriverIDInfoReportSetInput, where model.DriverIDInfoReportBoolExp) (*model.DriverIDInfoReportMutationResponse, error)
-	UpdateDriverIDInfoReportByPk(ctx context.Context, inc *model.DriverIDInfoReportIncInput, set *model.DriverIDInfoReportSetInput, id int64) (*model.DriverIDInfoReport, error)
 	DeleteDriverIdentity(ctx context.Context, where model.DriverIdentityBoolExp) (*model.DriverIdentityMutationResponse, error)
 	DeleteDriverIdentityByPk(ctx context.Context, id int64) (*model1.DriverIdentity, error)
 	InsertDriverIdentity(ctx context.Context, objects []*model.DriverIdentityInsertInput) (*model.DriverIdentityMutationResponse, error)
 	InsertDriverIdentityOne(ctx context.Context, objects model.DriverIdentityInsertInput) (*model1.DriverIdentity, error)
 	UpdateDriverIdentity(ctx context.Context, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, where model.DriverIdentityBoolExp) (*model.DriverIdentityMutationResponse, error)
 	UpdateDriverIdentityByPk(ctx context.Context, inc *model.DriverIdentityIncInput, set *model.DriverIdentitySetInput, id int64) (*model1.DriverIdentity, error)
+	DeleteDriverIdentityInfoReport(ctx context.Context, where model.DriverIdentityInfoReportBoolExp) (*model.DriverIdentityInfoReportMutationResponse, error)
+	DeleteDriverIdentityInfoReportByPk(ctx context.Context, id int64) (*model1.DriverIdentityInfoReport, error)
+	InsertDriverIdentityInfoReport(ctx context.Context, objects []*model.DriverIdentityInfoReportInsertInput) (*model.DriverIdentityInfoReportMutationResponse, error)
+	InsertDriverIdentityInfoReportOne(ctx context.Context, objects model.DriverIdentityInfoReportInsertInput) (*model1.DriverIdentityInfoReport, error)
+	UpdateDriverIdentityInfoReport(ctx context.Context, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, where model.DriverIdentityInfoReportBoolExp) (*model.DriverIdentityInfoReportMutationResponse, error)
+	UpdateDriverIdentityInfoReportByPk(ctx context.Context, inc *model.DriverIdentityInfoReportIncInput, set *model.DriverIdentityInfoReportSetInput, id int64) (*model1.DriverIdentityInfoReport, error)
 	DeleteDriverInfo(ctx context.Context, where model.DriverInfoBoolExp) (*model.DriverInfoMutationResponse, error)
 	DeleteDriverInfoByPk(ctx context.Context, id int64) (*model1.DriverInfo, error)
 	InsertDriverInfo(ctx context.Context, objects []*model.DriverInfoInsertInput) (*model.DriverInfoMutationResponse, error)
@@ -1043,12 +1043,12 @@ type QueryResolver interface {
 	DriverFingerprintAssociation(ctx context.Context, distinctOn []model.DriverFingerprintAssociationSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintAssociationOrderBy, where *model.DriverFingerprintAssociationBoolExp) ([]*model1.DriverFingerprintAssociation, error)
 	DriverFingerprintAssociationAggregate(ctx context.Context, distinctOn []model.DriverFingerprintAssociationSelectColumn, limit *int, offset *int, orderBy []*model.DriverFingerprintAssociationOrderBy, where *model.DriverFingerprintAssociationBoolExp) (*model.DriverFingerprintAssociationAggregate, error)
 	DriverFingerprintAssociationByPk(ctx context.Context, id int64) (*model1.DriverFingerprintAssociation, error)
-	DriverIDInfoReport(ctx context.Context, distinctOn []model.DriverIDInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIDInfoReportOrderBy, where *model.DriverIDInfoReportBoolExp) ([]*model.DriverIDInfoReport, error)
-	DriverIDInfoReportAggregate(ctx context.Context, distinctOn []model.DriverIDInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIDInfoReportOrderBy, where *model.DriverIDInfoReportBoolExp) (*model.DriverIDInfoReportAggregate, error)
-	DriverIDInfoReportByPk(ctx context.Context, id int64) (*model.DriverIDInfoReport, error)
 	DriverIdentity(ctx context.Context, distinctOn []model.DriverIdentitySelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityOrderBy, where *model.DriverIdentityBoolExp) ([]*model1.DriverIdentity, error)
 	DriverIdentityAggregate(ctx context.Context, distinctOn []model.DriverIdentitySelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityOrderBy, where *model.DriverIdentityBoolExp) (*model.DriverIdentityAggregate, error)
 	DriverIdentityByPk(ctx context.Context, id int64) (*model1.DriverIdentity, error)
+	DriverIdentityInfoReport(ctx context.Context, distinctOn []model.DriverIdentityInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityInfoReportOrderBy, where *model.DriverIdentityInfoReportBoolExp) ([]*model1.DriverIdentityInfoReport, error)
+	DriverIdentityInfoReportAggregate(ctx context.Context, distinctOn []model.DriverIdentityInfoReportSelectColumn, limit *int, offset *int, orderBy []*model.DriverIdentityInfoReportOrderBy, where *model.DriverIdentityInfoReportBoolExp) (*model.DriverIdentityInfoReportAggregate, error)
+	DriverIdentityInfoReportByPk(ctx context.Context, id int64) (*model1.DriverIdentityInfoReport, error)
 	DriverInfo(ctx context.Context, distinctOn []model.DriverInfoSelectColumn, limit *int, offset *int, orderBy []*model.DriverInfoOrderBy, where *model.DriverInfoBoolExp) ([]*model1.DriverInfo, error)
 	DriverInfoAggregate(ctx context.Context, distinctOn []model.DriverInfoSelectColumn, limit *int, offset *int, orderBy []*model.DriverInfoOrderBy, where *model.DriverInfoBoolExp) (*model.DriverInfoAggregate, error)
 	DriverInfoByPk(ctx context.Context, id int64) (*model1.DriverInfo, error)
@@ -2192,615 +2192,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.DriverFingerprintVarianceFields.OperationType(childComplexity), true
 
-	case "DriverIdInfoReport.created_at":
-		if e.complexity.DriverIDInfoReport.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.CreatedAt(childComplexity), true
-
-	case "DriverIdInfoReport.created_by":
-		if e.complexity.DriverIDInfoReport.CreatedBy == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.CreatedBy(childComplexity), true
-
-	case "DriverIdInfoReport.deleted_at":
-		if e.complexity.DriverIDInfoReport.DeletedAt == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.DeletedAt(childComplexity), true
-
-	case "DriverIdInfoReport.deleted_by":
-		if e.complexity.DriverIDInfoReport.DeletedBy == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.DeletedBy(childComplexity), true
-
-	case "DriverIdInfoReport.driver_id_info_report_id":
-		if e.complexity.DriverIDInfoReport.DriverIDInfoReportID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.DriverIDInfoReportID(childComplexity), true
-
-	case "DriverIdInfoReport.driver_license_name":
-		if e.complexity.DriverIDInfoReport.DriverLicenseName == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.DriverLicenseName(childComplexity), true
-
-	case "DriverIdInfoReport.driver_name":
-		if e.complexity.DriverIDInfoReport.DriverName == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.DriverName(childComplexity), true
-
-	case "DriverIdInfoReport.id":
-		if e.complexity.DriverIDInfoReport.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.ID(childComplexity), true
-
-	case "DriverIdInfoReport.ic_card_reading_result":
-		if e.complexity.DriverIDInfoReport.IcCardReadingResult == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.IcCardReadingResult(childComplexity), true
-
-	case "DriverIdInfoReport.ic_card_status":
-		if e.complexity.DriverIDInfoReport.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReport.imel":
-		if e.complexity.DriverIDInfoReport.Imel == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.Imel(childComplexity), true
-
-	case "DriverIdInfoReport.license_expire_date":
-		if e.complexity.DriverIDInfoReport.LicenseExpireDate == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.LicenseExpireDate(childComplexity), true
-
-	case "DriverIdInfoReport.license_number":
-		if e.complexity.DriverIDInfoReport.LicenseNumber == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.LicenseNumber(childComplexity), true
-
-	case "DriverIdInfoReport.occupational_number":
-		if e.complexity.DriverIDInfoReport.OccupationalNumber == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.OccupationalNumber(childComplexity), true
-
-	case "DriverIdInfoReport.operation_time":
-		if e.complexity.DriverIDInfoReport.OperationTime == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.OperationTime(childComplexity), true
-
-	case "DriverIdInfoReport.registration_time":
-		if e.complexity.DriverIDInfoReport.RegistrationTime == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.RegistrationTime(childComplexity), true
-
-	case "DriverIdInfoReport.updated_at":
-		if e.complexity.DriverIDInfoReport.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.UpdatedAt(childComplexity), true
-
-	case "DriverIdInfoReport.updated_by":
-		if e.complexity.DriverIDInfoReport.UpdatedBy == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.UpdatedBy(childComplexity), true
-
-	case "DriverIdInfoReport.vehicle_id":
-		if e.complexity.DriverIDInfoReport.VehicleID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReport.VehicleID(childComplexity), true
-
-	case "DriverIdInfoReportAggregate.aggregate":
-		if e.complexity.DriverIDInfoReportAggregate.Aggregate == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregate.Aggregate(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.avg":
-		if e.complexity.DriverIDInfoReportAggregateFields.Avg == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.Avg(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.count":
-		if e.complexity.DriverIDInfoReportAggregateFields.Count == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.Count(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.max":
-		if e.complexity.DriverIDInfoReportAggregateFields.Max == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.Max(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.min":
-		if e.complexity.DriverIDInfoReportAggregateFields.Min == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.Min(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.stddev":
-		if e.complexity.DriverIDInfoReportAggregateFields.Stddev == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.Stddev(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.stddev_pop":
-		if e.complexity.DriverIDInfoReportAggregateFields.StddevPop == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.StddevPop(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.stddev_samp":
-		if e.complexity.DriverIDInfoReportAggregateFields.StddevSamp == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.StddevSamp(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.sum":
-		if e.complexity.DriverIDInfoReportAggregateFields.Sum == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.Sum(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.var_pop":
-		if e.complexity.DriverIDInfoReportAggregateFields.VarPop == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.VarPop(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.var_samp":
-		if e.complexity.DriverIDInfoReportAggregateFields.VarSamp == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.VarSamp(childComplexity), true
-
-	case "DriverIdInfoReportAggregateFields.variance":
-		if e.complexity.DriverIDInfoReportAggregateFields.Variance == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAggregateFields.Variance(childComplexity), true
-
-	case "DriverIdInfoReportAvgFields.id":
-		if e.complexity.DriverIDInfoReportAvgFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAvgFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportAvgFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportAvgFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportAvgFields.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.created_at":
-		if e.complexity.DriverIDInfoReportMaxFields.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.CreatedAt(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.created_by":
-		if e.complexity.DriverIDInfoReportMaxFields.CreatedBy == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.CreatedBy(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.deleted_at":
-		if e.complexity.DriverIDInfoReportMaxFields.DeletedAt == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.DeletedAt(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.deleted_by":
-		if e.complexity.DriverIDInfoReportMaxFields.DeletedBy == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.DeletedBy(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.driver_id_info_report_id":
-		if e.complexity.DriverIDInfoReportMaxFields.DriverIDInfoReportID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.DriverIDInfoReportID(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.driver_license_name":
-		if e.complexity.DriverIDInfoReportMaxFields.DriverLicenseName == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.DriverLicenseName(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.driver_name":
-		if e.complexity.DriverIDInfoReportMaxFields.DriverName == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.DriverName(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.id":
-		if e.complexity.DriverIDInfoReportMaxFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.ic_card_reading_result":
-		if e.complexity.DriverIDInfoReportMaxFields.IcCardReadingResult == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.IcCardReadingResult(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportMaxFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.imel":
-		if e.complexity.DriverIDInfoReportMaxFields.Imel == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.Imel(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.license_expire_date":
-		if e.complexity.DriverIDInfoReportMaxFields.LicenseExpireDate == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.LicenseExpireDate(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.license_number":
-		if e.complexity.DriverIDInfoReportMaxFields.LicenseNumber == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.LicenseNumber(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.occupational_number":
-		if e.complexity.DriverIDInfoReportMaxFields.OccupationalNumber == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.OccupationalNumber(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.operation_time":
-		if e.complexity.DriverIDInfoReportMaxFields.OperationTime == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.OperationTime(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.registration_time":
-		if e.complexity.DriverIDInfoReportMaxFields.RegistrationTime == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.RegistrationTime(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.updated_at":
-		if e.complexity.DriverIDInfoReportMaxFields.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.UpdatedAt(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.updated_by":
-		if e.complexity.DriverIDInfoReportMaxFields.UpdatedBy == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.UpdatedBy(childComplexity), true
-
-	case "DriverIdInfoReportMaxFields.vehicle_id":
-		if e.complexity.DriverIDInfoReportMaxFields.VehicleID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMaxFields.VehicleID(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.created_at":
-		if e.complexity.DriverIDInfoReportMinFields.CreatedAt == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.CreatedAt(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.created_by":
-		if e.complexity.DriverIDInfoReportMinFields.CreatedBy == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.CreatedBy(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.deleted_at":
-		if e.complexity.DriverIDInfoReportMinFields.DeletedAt == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.DeletedAt(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.deleted_by":
-		if e.complexity.DriverIDInfoReportMinFields.DeletedBy == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.DeletedBy(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.driver_id_info_report_id":
-		if e.complexity.DriverIDInfoReportMinFields.DriverIDInfoReportID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.DriverIDInfoReportID(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.driver_license_name":
-		if e.complexity.DriverIDInfoReportMinFields.DriverLicenseName == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.DriverLicenseName(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.driver_name":
-		if e.complexity.DriverIDInfoReportMinFields.DriverName == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.DriverName(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.id":
-		if e.complexity.DriverIDInfoReportMinFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.ic_card_reading_result":
-		if e.complexity.DriverIDInfoReportMinFields.IcCardReadingResult == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.IcCardReadingResult(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportMinFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.imel":
-		if e.complexity.DriverIDInfoReportMinFields.Imel == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.Imel(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.license_expire_date":
-		if e.complexity.DriverIDInfoReportMinFields.LicenseExpireDate == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.LicenseExpireDate(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.license_number":
-		if e.complexity.DriverIDInfoReportMinFields.LicenseNumber == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.LicenseNumber(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.occupational_number":
-		if e.complexity.DriverIDInfoReportMinFields.OccupationalNumber == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.OccupationalNumber(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.operation_time":
-		if e.complexity.DriverIDInfoReportMinFields.OperationTime == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.OperationTime(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.registration_time":
-		if e.complexity.DriverIDInfoReportMinFields.RegistrationTime == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.RegistrationTime(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.updated_at":
-		if e.complexity.DriverIDInfoReportMinFields.UpdatedAt == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.UpdatedAt(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.updated_by":
-		if e.complexity.DriverIDInfoReportMinFields.UpdatedBy == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.UpdatedBy(childComplexity), true
-
-	case "DriverIdInfoReportMinFields.vehicle_id":
-		if e.complexity.DriverIDInfoReportMinFields.VehicleID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMinFields.VehicleID(childComplexity), true
-
-	case "DriverIdInfoReportMutationResponse.affected_rows":
-		if e.complexity.DriverIDInfoReportMutationResponse.AffectedRows == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMutationResponse.AffectedRows(childComplexity), true
-
-	case "DriverIdInfoReportMutationResponse.returning":
-		if e.complexity.DriverIDInfoReportMutationResponse.Returning == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportMutationResponse.Returning(childComplexity), true
-
-	case "DriverIdInfoReportStddevFields.id":
-		if e.complexity.DriverIDInfoReportStddevFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportStddevFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportStddevFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportStddevFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportStddevFields.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReportStddevPopFields.id":
-		if e.complexity.DriverIDInfoReportStddevPopFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportStddevPopFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportStddevPopFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportStddevPopFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportStddevPopFields.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReportStddevSampFields.id":
-		if e.complexity.DriverIDInfoReportStddevSampFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportStddevSampFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportStddevSampFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportStddevSampFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportStddevSampFields.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReportSumFields.id":
-		if e.complexity.DriverIDInfoReportSumFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportSumFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportSumFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportSumFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportSumFields.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReportVarPopFields.id":
-		if e.complexity.DriverIDInfoReportVarPopFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportVarPopFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportVarPopFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportVarPopFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportVarPopFields.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReportVarSampFields.id":
-		if e.complexity.DriverIDInfoReportVarSampFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportVarSampFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportVarSampFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportVarSampFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportVarSampFields.IcCardStatus(childComplexity), true
-
-	case "DriverIdInfoReportVarianceFields.id":
-		if e.complexity.DriverIDInfoReportVarianceFields.ID == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportVarianceFields.ID(childComplexity), true
-
-	case "DriverIdInfoReportVarianceFields.ic_card_status":
-		if e.complexity.DriverIDInfoReportVarianceFields.IcCardStatus == nil {
-			break
-		}
-
-		return e.complexity.DriverIDInfoReportVarianceFields.IcCardStatus(childComplexity), true
-
 	case "DriverIdentity.accumulatived_points":
 		if e.complexity.DriverIdentity.AccumulativedPoints == nil {
 			break
@@ -3185,6 +2576,615 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.DriverIdentityAvgFields.QuasiDrivingModels(childComplexity), true
+
+	case "DriverIdentityInfoReport.created_at":
+		if e.complexity.DriverIdentityInfoReport.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.CreatedAt(childComplexity), true
+
+	case "DriverIdentityInfoReport.created_by":
+		if e.complexity.DriverIdentityInfoReport.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.CreatedBy(childComplexity), true
+
+	case "DriverIdentityInfoReport.deleted_at":
+		if e.complexity.DriverIdentityInfoReport.DeletedAt == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.DeletedAt(childComplexity), true
+
+	case "DriverIdentityInfoReport.deleted_by":
+		if e.complexity.DriverIdentityInfoReport.DeletedBy == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.DeletedBy(childComplexity), true
+
+	case "DriverIdentityInfoReport.driver_identity_info_report_id":
+		if e.complexity.DriverIdentityInfoReport.DriverIdentityInfoReportID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.DriverIdentityInfoReportID(childComplexity), true
+
+	case "DriverIdentityInfoReport.driver_license_name":
+		if e.complexity.DriverIdentityInfoReport.DriverLicenseName == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.DriverLicenseName(childComplexity), true
+
+	case "DriverIdentityInfoReport.driver_name":
+		if e.complexity.DriverIdentityInfoReport.DriverName == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.DriverName(childComplexity), true
+
+	case "DriverIdentityInfoReport.id":
+		if e.complexity.DriverIdentityInfoReport.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.ID(childComplexity), true
+
+	case "DriverIdentityInfoReport.ic_card_reading_result":
+		if e.complexity.DriverIdentityInfoReport.IcCardReadingResult == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.IcCardReadingResult(childComplexity), true
+
+	case "DriverIdentityInfoReport.ic_card_status":
+		if e.complexity.DriverIdentityInfoReport.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReport.imel":
+		if e.complexity.DriverIdentityInfoReport.Imel == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.Imel(childComplexity), true
+
+	case "DriverIdentityInfoReport.license_expire_date":
+		if e.complexity.DriverIdentityInfoReport.LicenseExpireDate == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.LicenseExpireDate(childComplexity), true
+
+	case "DriverIdentityInfoReport.license_number":
+		if e.complexity.DriverIdentityInfoReport.LicenseNumber == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.LicenseNumber(childComplexity), true
+
+	case "DriverIdentityInfoReport.occupational_number":
+		if e.complexity.DriverIdentityInfoReport.OccupationalNumber == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.OccupationalNumber(childComplexity), true
+
+	case "DriverIdentityInfoReport.operation_time":
+		if e.complexity.DriverIdentityInfoReport.OperationTime == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.OperationTime(childComplexity), true
+
+	case "DriverIdentityInfoReport.registration_time":
+		if e.complexity.DriverIdentityInfoReport.RegistrationTime == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.RegistrationTime(childComplexity), true
+
+	case "DriverIdentityInfoReport.updated_at":
+		if e.complexity.DriverIdentityInfoReport.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.UpdatedAt(childComplexity), true
+
+	case "DriverIdentityInfoReport.updated_by":
+		if e.complexity.DriverIdentityInfoReport.UpdatedBy == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.UpdatedBy(childComplexity), true
+
+	case "DriverIdentityInfoReport.vehicle_id":
+		if e.complexity.DriverIdentityInfoReport.VehicleID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReport.VehicleID(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregate.aggregate":
+		if e.complexity.DriverIdentityInfoReportAggregate.Aggregate == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregate.Aggregate(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.avg":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.Avg == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.Avg(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.count":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.Count == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.Count(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.max":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.Max == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.Max(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.min":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.Min == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.Min(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.stddev":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.Stddev == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.Stddev(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.stddev_pop":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.StddevPop == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.StddevPop(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.stddev_samp":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.StddevSamp == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.StddevSamp(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.sum":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.Sum == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.Sum(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.var_pop":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.VarPop == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.VarPop(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.var_samp":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.VarSamp == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.VarSamp(childComplexity), true
+
+	case "DriverIdentityInfoReportAggregateFields.variance":
+		if e.complexity.DriverIdentityInfoReportAggregateFields.Variance == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAggregateFields.Variance(childComplexity), true
+
+	case "DriverIdentityInfoReportAvgFields.id":
+		if e.complexity.DriverIdentityInfoReportAvgFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAvgFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportAvgFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportAvgFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportAvgFields.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.created_at":
+		if e.complexity.DriverIdentityInfoReportMaxFields.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.CreatedAt(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.created_by":
+		if e.complexity.DriverIdentityInfoReportMaxFields.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.CreatedBy(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.deleted_at":
+		if e.complexity.DriverIdentityInfoReportMaxFields.DeletedAt == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.DeletedAt(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.deleted_by":
+		if e.complexity.DriverIdentityInfoReportMaxFields.DeletedBy == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.DeletedBy(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.driver_identity_info_report_id":
+		if e.complexity.DriverIdentityInfoReportMaxFields.DriverIdentityInfoReportID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.DriverIdentityInfoReportID(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.driver_license_name":
+		if e.complexity.DriverIdentityInfoReportMaxFields.DriverLicenseName == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.DriverLicenseName(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.driver_name":
+		if e.complexity.DriverIdentityInfoReportMaxFields.DriverName == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.DriverName(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.id":
+		if e.complexity.DriverIdentityInfoReportMaxFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.ic_card_reading_result":
+		if e.complexity.DriverIdentityInfoReportMaxFields.IcCardReadingResult == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.IcCardReadingResult(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportMaxFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.imel":
+		if e.complexity.DriverIdentityInfoReportMaxFields.Imel == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.Imel(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.license_expire_date":
+		if e.complexity.DriverIdentityInfoReportMaxFields.LicenseExpireDate == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.LicenseExpireDate(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.license_number":
+		if e.complexity.DriverIdentityInfoReportMaxFields.LicenseNumber == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.LicenseNumber(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.occupational_number":
+		if e.complexity.DriverIdentityInfoReportMaxFields.OccupationalNumber == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.OccupationalNumber(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.operation_time":
+		if e.complexity.DriverIdentityInfoReportMaxFields.OperationTime == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.OperationTime(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.registration_time":
+		if e.complexity.DriverIdentityInfoReportMaxFields.RegistrationTime == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.RegistrationTime(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.updated_at":
+		if e.complexity.DriverIdentityInfoReportMaxFields.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.UpdatedAt(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.updated_by":
+		if e.complexity.DriverIdentityInfoReportMaxFields.UpdatedBy == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.UpdatedBy(childComplexity), true
+
+	case "DriverIdentityInfoReportMaxFields.vehicle_id":
+		if e.complexity.DriverIdentityInfoReportMaxFields.VehicleID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMaxFields.VehicleID(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.created_at":
+		if e.complexity.DriverIdentityInfoReportMinFields.CreatedAt == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.CreatedAt(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.created_by":
+		if e.complexity.DriverIdentityInfoReportMinFields.CreatedBy == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.CreatedBy(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.deleted_at":
+		if e.complexity.DriverIdentityInfoReportMinFields.DeletedAt == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.DeletedAt(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.deleted_by":
+		if e.complexity.DriverIdentityInfoReportMinFields.DeletedBy == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.DeletedBy(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.driver_identity_info_report_id":
+		if e.complexity.DriverIdentityInfoReportMinFields.DriverIdentityInfoReportID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.DriverIdentityInfoReportID(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.driver_license_name":
+		if e.complexity.DriverIdentityInfoReportMinFields.DriverLicenseName == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.DriverLicenseName(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.driver_name":
+		if e.complexity.DriverIdentityInfoReportMinFields.DriverName == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.DriverName(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.id":
+		if e.complexity.DriverIdentityInfoReportMinFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.ic_card_reading_result":
+		if e.complexity.DriverIdentityInfoReportMinFields.IcCardReadingResult == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.IcCardReadingResult(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportMinFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.imel":
+		if e.complexity.DriverIdentityInfoReportMinFields.Imel == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.Imel(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.license_expire_date":
+		if e.complexity.DriverIdentityInfoReportMinFields.LicenseExpireDate == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.LicenseExpireDate(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.license_number":
+		if e.complexity.DriverIdentityInfoReportMinFields.LicenseNumber == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.LicenseNumber(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.occupational_number":
+		if e.complexity.DriverIdentityInfoReportMinFields.OccupationalNumber == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.OccupationalNumber(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.operation_time":
+		if e.complexity.DriverIdentityInfoReportMinFields.OperationTime == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.OperationTime(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.registration_time":
+		if e.complexity.DriverIdentityInfoReportMinFields.RegistrationTime == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.RegistrationTime(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.updated_at":
+		if e.complexity.DriverIdentityInfoReportMinFields.UpdatedAt == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.UpdatedAt(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.updated_by":
+		if e.complexity.DriverIdentityInfoReportMinFields.UpdatedBy == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.UpdatedBy(childComplexity), true
+
+	case "DriverIdentityInfoReportMinFields.vehicle_id":
+		if e.complexity.DriverIdentityInfoReportMinFields.VehicleID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMinFields.VehicleID(childComplexity), true
+
+	case "DriverIdentityInfoReportMutationResponse.affected_rows":
+		if e.complexity.DriverIdentityInfoReportMutationResponse.AffectedRows == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMutationResponse.AffectedRows(childComplexity), true
+
+	case "DriverIdentityInfoReportMutationResponse.returning":
+		if e.complexity.DriverIdentityInfoReportMutationResponse.Returning == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportMutationResponse.Returning(childComplexity), true
+
+	case "DriverIdentityInfoReportStddevFields.id":
+		if e.complexity.DriverIdentityInfoReportStddevFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportStddevFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportStddevFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportStddevFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportStddevFields.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReportStddevPopFields.id":
+		if e.complexity.DriverIdentityInfoReportStddevPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportStddevPopFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportStddevPopFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportStddevPopFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportStddevPopFields.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReportStddevSampFields.id":
+		if e.complexity.DriverIdentityInfoReportStddevSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportStddevSampFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportStddevSampFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportStddevSampFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportStddevSampFields.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReportSumFields.id":
+		if e.complexity.DriverIdentityInfoReportSumFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportSumFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportSumFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportSumFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportSumFields.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReportVarPopFields.id":
+		if e.complexity.DriverIdentityInfoReportVarPopFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportVarPopFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportVarPopFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportVarPopFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportVarPopFields.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReportVarSampFields.id":
+		if e.complexity.DriverIdentityInfoReportVarSampFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportVarSampFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportVarSampFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportVarSampFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportVarSampFields.IcCardStatus(childComplexity), true
+
+	case "DriverIdentityInfoReportVarianceFields.id":
+		if e.complexity.DriverIdentityInfoReportVarianceFields.ID == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportVarianceFields.ID(childComplexity), true
+
+	case "DriverIdentityInfoReportVarianceFields.ic_card_status":
+		if e.complexity.DriverIdentityInfoReportVarianceFields.IcCardStatus == nil {
+			break
+		}
+
+		return e.complexity.DriverIdentityInfoReportVarianceFields.IcCardStatus(childComplexity), true
 
 	case "DriverIdentityMaxFields.accumulatived_points":
 		if e.complexity.DriverIdentityMaxFields.AccumulativedPoints == nil {
@@ -5586,30 +5586,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteDriverFingerprintByPk(childComplexity, args["id"].(int64)), true
 
-	case "Mutation.delete_driver_id_info_report":
-		if e.complexity.Mutation.DeleteDriverIDInfoReport == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_delete_driver_id_info_report_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteDriverIDInfoReport(childComplexity, args["where"].(model.DriverIDInfoReportBoolExp)), true
-
-	case "Mutation.delete_driver_id_info_report_by_pk":
-		if e.complexity.Mutation.DeleteDriverIDInfoReportByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_delete_driver_id_info_report_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.DeleteDriverIDInfoReportByPk(childComplexity, args["id"].(int64)), true
-
 	case "Mutation.delete_driver_identity":
 		if e.complexity.Mutation.DeleteDriverIdentity == nil {
 			break
@@ -5633,6 +5609,30 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteDriverIdentityByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_driver_identity_info_report":
+		if e.complexity.Mutation.DeleteDriverIdentityInfoReport == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_driver_identity_info_report_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDriverIdentityInfoReport(childComplexity, args["where"].(model.DriverIdentityInfoReportBoolExp)), true
+
+	case "Mutation.delete_driver_identity_info_report_by_pk":
+		if e.complexity.Mutation.DeleteDriverIdentityInfoReportByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_driver_identity_info_report_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDriverIdentityInfoReportByPk(childComplexity, args["id"].(int64)), true
 
 	case "Mutation.delete_driver_info":
 		if e.complexity.Mutation.DeleteDriverInfo == nil {
@@ -5730,30 +5730,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.InsertDriverFingerprintOne(childComplexity, args["objects"].(model.DriverFingerprintInsertInput)), true
 
-	case "Mutation.insert_driver_id_info_report":
-		if e.complexity.Mutation.InsertDriverIDInfoReport == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_insert_driver_id_info_report_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.InsertDriverIDInfoReport(childComplexity, args["objects"].([]*model.DriverIDInfoReportInsertInput)), true
-
-	case "Mutation.insert_driver_id_info_report_one":
-		if e.complexity.Mutation.InsertDriverIDInfoReportOne == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_insert_driver_id_info_report_one_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.InsertDriverIDInfoReportOne(childComplexity, args["objects"].(model.DriverIDInfoReportInsertInput)), true
-
 	case "Mutation.insert_driver_identity":
 		if e.complexity.Mutation.InsertDriverIdentity == nil {
 			break
@@ -5765,6 +5741,30 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.InsertDriverIdentity(childComplexity, args["objects"].([]*model.DriverIdentityInsertInput)), true
+
+	case "Mutation.insert_driver_identity_info_report":
+		if e.complexity.Mutation.InsertDriverIdentityInfoReport == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_driver_identity_info_report_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertDriverIdentityInfoReport(childComplexity, args["objects"].([]*model.DriverIdentityInfoReportInsertInput)), true
+
+	case "Mutation.insert_driver_identity_info_report_one":
+		if e.complexity.Mutation.InsertDriverIdentityInfoReportOne == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_insert_driver_identity_info_report_one_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.InsertDriverIdentityInfoReportOne(childComplexity, args["objects"].(model.DriverIdentityInfoReportInsertInput)), true
 
 	case "Mutation.insert_driver_identity_one":
 		if e.complexity.Mutation.InsertDriverIdentityOne == nil {
@@ -5874,30 +5874,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDriverFingerprintByPk(childComplexity, args["_inc"].(*model.DriverFingerprintIncInput), args["_set"].(*model.DriverFingerprintSetInput), args["id"].(int64)), true
 
-	case "Mutation.update_driver_id_info_report":
-		if e.complexity.Mutation.UpdateDriverIDInfoReport == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_update_driver_id_info_report_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateDriverIDInfoReport(childComplexity, args["_inc"].(*model.DriverIDInfoReportIncInput), args["_set"].(*model.DriverIDInfoReportSetInput), args["where"].(model.DriverIDInfoReportBoolExp)), true
-
-	case "Mutation.update_driver_id_info_report_by_pk":
-		if e.complexity.Mutation.UpdateDriverIDInfoReportByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Mutation_update_driver_id_info_report_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Mutation.UpdateDriverIDInfoReportByPk(childComplexity, args["_inc"].(*model.DriverIDInfoReportIncInput), args["_set"].(*model.DriverIDInfoReportSetInput), args["id"].(int64)), true
-
 	case "Mutation.update_driver_identity":
 		if e.complexity.Mutation.UpdateDriverIdentity == nil {
 			break
@@ -5921,6 +5897,30 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateDriverIdentityByPk(childComplexity, args["_inc"].(*model.DriverIdentityIncInput), args["_set"].(*model.DriverIdentitySetInput), args["id"].(int64)), true
+
+	case "Mutation.update_driver_identity_info_report":
+		if e.complexity.Mutation.UpdateDriverIdentityInfoReport == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_driver_identity_info_report_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDriverIdentityInfoReport(childComplexity, args["_inc"].(*model.DriverIdentityInfoReportIncInput), args["_set"].(*model.DriverIdentityInfoReportSetInput), args["where"].(model.DriverIdentityInfoReportBoolExp)), true
+
+	case "Mutation.update_driver_identity_info_report_by_pk":
+		if e.complexity.Mutation.UpdateDriverIdentityInfoReportByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_driver_identity_info_report_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDriverIdentityInfoReportByPk(childComplexity, args["_inc"].(*model.DriverIdentityInfoReportIncInput), args["_set"].(*model.DriverIdentityInfoReportSetInput), args["id"].(int64)), true
 
 	case "Mutation.update_driver_info":
 		if e.complexity.Mutation.UpdateDriverInfo == nil {
@@ -6042,42 +6042,6 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.DriverFingerprintByPk(childComplexity, args["id"].(int64)), true
 
-	case "Query.driver_id_info_report":
-		if e.complexity.Query.DriverIDInfoReport == nil {
-			break
-		}
-
-		args, err := ec.field_Query_driver_id_info_report_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.DriverIDInfoReport(childComplexity, args["distinct_on"].([]model.DriverIDInfoReportSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DriverIDInfoReportOrderBy), args["where"].(*model.DriverIDInfoReportBoolExp)), true
-
-	case "Query.driver_id_info_report_aggregate":
-		if e.complexity.Query.DriverIDInfoReportAggregate == nil {
-			break
-		}
-
-		args, err := ec.field_Query_driver_id_info_report_aggregate_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.DriverIDInfoReportAggregate(childComplexity, args["distinct_on"].([]model.DriverIDInfoReportSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DriverIDInfoReportOrderBy), args["where"].(*model.DriverIDInfoReportBoolExp)), true
-
-	case "Query.driver_id_info_report_by_pk":
-		if e.complexity.Query.DriverIDInfoReportByPk == nil {
-			break
-		}
-
-		args, err := ec.field_Query_driver_id_info_report_by_pk_args(context.TODO(), rawArgs)
-		if err != nil {
-			return 0, false
-		}
-
-		return e.complexity.Query.DriverIDInfoReportByPk(childComplexity, args["id"].(int64)), true
-
 	case "Query.driver_identity":
 		if e.complexity.Query.DriverIdentity == nil {
 			break
@@ -6113,6 +6077,42 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.DriverIdentityByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.driver_identity_info_report":
+		if e.complexity.Query.DriverIdentityInfoReport == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driver_identity_info_report_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DriverIdentityInfoReport(childComplexity, args["distinct_on"].([]model.DriverIdentityInfoReportSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DriverIdentityInfoReportOrderBy), args["where"].(*model.DriverIdentityInfoReportBoolExp)), true
+
+	case "Query.driver_identity_info_report_aggregate":
+		if e.complexity.Query.DriverIdentityInfoReportAggregate == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driver_identity_info_report_aggregate_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DriverIdentityInfoReportAggregate(childComplexity, args["distinct_on"].([]model.DriverIdentityInfoReportSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DriverIdentityInfoReportOrderBy), args["where"].(*model.DriverIdentityInfoReportBoolExp)), true
+
+	case "Query.driver_identity_info_report_by_pk":
+		if e.complexity.Query.DriverIdentityInfoReportByPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driver_identity_info_report_by_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DriverIdentityInfoReportByPk(childComplexity, args["id"].(int64)), true
 
 	case "Query.driver_info":
 		if e.complexity.Query.DriverInfo == nil {
@@ -6308,6 +6308,20 @@ input IntComparisonExp {
 	_nin: [Int!]
 }
 """
+expression to compare columns of type Float. All fields are combined with logical 'AND'.
+"""
+input FloatComparisonExp{
+	_eq: Float
+	_gt: Float
+	_gte: Float
+	_in: [Float!]
+	_is_null: Boolean
+	_lt: Float
+	_lte: Float
+	_neq: Float
+	_nin: [Float!]
+}
+"""
 column ordering options
 """
 enum OrderBy {
@@ -6418,11 +6432,11 @@ type DriverFingerprint {
 	"""
 	driver_fingerprint_id: String!
 	"""
-	 driver_info驾驶员信息表的driver_id          (                            )
+	 driver_info驾驶员信息表的driver_id          
 	"""
 	driver_id: String!
 	"""
-	 驾驶员姓名                                      (                            )
+	 驾驶员姓名                                      
 	"""
 	driver_name: String
 	"""
@@ -6430,55 +6444,55 @@ type DriverFingerprint {
 	"""
 	user_id: String
 	"""
-	 特征码                                          (                            )
+	 特征码                                          
 	"""
 	signature: String
 	"""
-	 指纹名称                                        (                            )
+	 指纹名称                                        
 	"""
 	fingerprint_name: String
 	"""
-	 SIM卡号                                         (                            )
+	 SIM卡号                                         
 	"""
 	sim_number: String
 	"""
-	 指令ID                                          (                            )
+	 指令ID                                          
 	"""
 	instruction_id: String
 	"""
-	 操作类型                                        (                            )
+	 操作类型                                        
 	"""
 	operation_type: Int
 	"""
-	 内容                                            (                            )
+	 内容                                            
 	"""
 	content: String
 	"""
-	 操作时间                                        (                            )
+	 操作时间                                        
 	"""
 	operation_time: Timestamptz
 	"""
-	 上传时间                                        (                            )
+	 上传时间                                        
 	"""
 	upload_time: Timestamptz
 	"""
-	 时间戳                                          (                            )
+	 时间戳                                          
 	"""
 	timestamp: String
 	"""
-	 终端ID                                          (                            )
+	 终端ID                                          
 	"""
 	ternimal_id: String
 	"""
-	 是否成功                                        (                            )
+	 是否成功                                        
 	"""
 	is_success: Boolean
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -6486,7 +6500,7 @@ type DriverFingerprint {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -6494,7 +6508,7 @@ type DriverFingerprint {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -6706,9 +6720,6 @@ input DriverFingerprintBoolExp {
 input type for inserting data into table "driver_fingerprint"
 """
 input DriverFingerprintInsertInput {
-	id: Bigint
-	driver_fingerprint_id: String
-	driver_id: String
 	driver_name: String
 	user_id: String
 	signature: String
@@ -6723,8 +6734,6 @@ input DriverFingerprintInsertInput {
 	ternimal_id: String
 	is_success: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -6778,11 +6787,11 @@ enum DriverFingerprintSelectColumn {
 	"""
 	driver_fingerprint_id
 	"""
-	 driver_info驾驶员信息表的driver_id          (                            )
+	 driver_info驾驶员信息表的driver_id          
 	"""
 	driver_id
 	"""
-	 驾驶员姓名                                      (                            )
+	 驾驶员姓名                                      
 	"""
 	driver_name
 	"""
@@ -6790,55 +6799,55 @@ enum DriverFingerprintSelectColumn {
 	"""
 	user_id
 	"""
-	 特征码                                          (                            )
+	 特征码                                          
 	"""
 	signature
 	"""
-	 指纹名称                                        (                            )
+	 指纹名称                                        
 	"""
 	fingerprint_name
 	"""
-	 SIM卡号                                         (                            )
+	 SIM卡号                                         
 	"""
 	sim_number
 	"""
-	 指令ID                                          (                            )
+	 指令ID                                          
 	"""
 	instruction_id
 	"""
-	 操作类型                                        (                            )
+	 操作类型                                        
 	"""
 	operation_type
 	"""
-	 内容                                            (                            )
+	 内容                                            
 	"""
 	content
 	"""
-	 操作时间                                        (                            )
+	 操作时间                                        
 	"""
 	operation_time
 	"""
-	 上传时间                                        (                            )
+	 上传时间                                        
 	"""
 	upload_time
 	"""
-	 时间戳                                          (                            )
+	 时间戳                                          
 	"""
 	timestamp
 	"""
-	 终端ID                                          (                            )
+	 终端ID                                          
 	"""
 	ternimal_id
 	"""
-	 是否成功                                        (                            )
+	 是否成功                                        
 	"""
 	is_success
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -6846,7 +6855,7 @@ enum DriverFingerprintSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -6854,7 +6863,7 @@ enum DriverFingerprintSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -6916,27 +6925,27 @@ type DriverFingerprintAssociation {
 	"""
 	driver_fingerprint_association_id: String!
 	"""
-	 driver_info驾驶员信息表的driver_id                     (                            )
+	 driver_info驾驶员信息表的driver_id                     
 	"""
 	driver_id: String!
 	"""
-	 指纹名称                                                   (                            )
+	 指纹名称                                                   
 	"""
 	fingerprint_name: String
 	"""
-	 driver_fingerprint 驾驶员指纹表的driver_fingerprint_id (                            )
+	 driver_fingerprint 驾驶员指纹表的driver_fingerprint_id 
 	"""
 	driver_fingerprint_id: String
 	"""
-	 图片地址                                                   (                            )
+	 图片地址                                                   
 	"""
 	picture_address: String
 	"""
-	 是否删除                                                   (                            )
+	 是否删除                                                   
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                   (                            )
+	 创建时间                                                   
 	"""
 	created_at: Timestamptz!
 	"""
@@ -6944,7 +6953,7 @@ type DriverFingerprintAssociation {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                   (                            )
+	 修改时间                                                   
 	"""
 	updated_at: Timestamptz
 	"""
@@ -6952,7 +6961,7 @@ type DriverFingerprintAssociation {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                   (                            )
+	 删除时间                                                   
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -7116,15 +7125,10 @@ input DriverFingerprintAssociationBoolExp {
 input type for inserting data into table "driver_fingerprint_association"
 """
 input DriverFingerprintAssociationInsertInput {
-	id: Bigint
-	driver_fingerprint_association_id: String
-	driver_id: String
 	fingerprint_name: String
 	driver_fingerprint_id: String
 	picture_address: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -7167,27 +7171,27 @@ enum DriverFingerprintAssociationSelectColumn {
 	"""
 	driver_fingerprint_association_id
 	"""
-	 driver_info驾驶员信息表的driver_id                     (                            )
+	 driver_info驾驶员信息表的driver_id                     
 	"""
 	driver_id
 	"""
-	 指纹名称                                                   (                            )
+	 指纹名称                                                   
 	"""
 	fingerprint_name
 	"""
-	 driver_fingerprint 驾驶员指纹表的driver_fingerprint_id (                            )
+	 driver_fingerprint 驾驶员指纹表的driver_fingerprint_id 
 	"""
 	driver_fingerprint_id
 	"""
-	 图片地址                                                   (                            )
+	 图片地址                                                   
 	"""
 	picture_address
 	"""
-	 是否删除                                                   (                            )
+	 是否删除                                                   
 	"""
 	is_deleted
 	"""
-	 创建时间                                                   (                            )
+	 创建时间                                                   
 	"""
 	created_at
 	"""
@@ -7195,7 +7199,7 @@ enum DriverFingerprintAssociationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                   (                            )
+	 修改时间                                                   
 	"""
 	updated_at
 	"""
@@ -7203,7 +7207,7 @@ enum DriverFingerprintAssociationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                   (                            )
+	 删除时间                                                   
 	"""
 	deleted_at
 	"""
@@ -7252,448 +7256,6 @@ extend type Mutation {
 	update_driver_fingerprint_association_by_pk(_inc: DriverFingerprintAssociationIncInput, _set: DriverFingerprintAssociationSetInput, id: Bigint!): DriverFingerprintAssociation
 }
 `, BuiltIn: false},
-	{Name: "graph/graphqls/driver_id_info_report.graphqls", Input: `"""
-驾驶员身份信息采集上报
-"""
-type DriverIdInfoReport {
-	"""
-	 按指定方法生成                                  ( 主键                       )
-	"""
-	id: Bigint!
-	"""
-	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
-	"""
-	driver_id_info_report_id: String!
-	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
-	"""
-	vehicle_id: String!
-	"""
-	 IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
-	"""
-	ic_card_status: Int
-	"""
-	 操作时间                                        (                            )
-	"""
-	operation_time: Timestamptz
-	"""
-	 驾驶员姓名                                      (                            )
-	"""
-	driver_name: String
-	"""
-	 证件号码                                        (                            )
-	"""
-	license_number: String
-	"""
-	 终端IMEI                                        ( 国际移动设备标识别码       )
-	"""
-	imel: String
-	"""
-	 IC卡读取结果                                    ( IC卡读卡字典           )
-	"""
-	ic_card_reading_result: String
-	"""
-	 从业资格证编码                                  (                            )
-	"""
-	occupational_number: String
-	"""
-	 发证机构名称                                    (                            )
-	"""
-	driver_license_name: String
-	"""
-	 证件有效期                                      (                            )
-	"""
-	license_expire_date: Timestamptz
-	"""
-	 登记时间                                        (                            )
-	"""
-	registration_time: Timestamptz
-	"""
-	 创建时间                                        (                            )
-	"""
-	created_at: Timestamptz!
-	"""
-	 创建人                                          ( system_user表的user_id )
-	"""
-	created_by: String!
-	"""
-	 修改时间                                        (                            )
-	"""
-	updated_at: Timestamptz
-	"""
-	 修改人                                          ( system_user表的user_id )
-	"""
-	updated_by: String
-	"""
-	 删除时间                                        (                            )
-	"""
-	deleted_at: Timestamptz
-	"""
-	 删除人                                          ( system_user表的user_id )
-	"""
-	deleted_by: String
-}
-"""
-aggregated selection of "driver_id_info_report"
-"""
-type DriverIdInfoReportAggregate {
-	aggregate: DriverIdInfoReportAggregateFields
-}
-"""
-aggregate fields of "driver_id_info_report"
-"""
-type DriverIdInfoReportAggregateFields {
-	avg: DriverIdInfoReportAvgFields
-	count: Int
-	max: DriverIdInfoReportMaxFields
-	min: DriverIdInfoReportMinFields
-	stddev: DriverIdInfoReportStddevFields
-	stddev_pop: DriverIdInfoReportStddevPopFields
-	stddev_samp: DriverIdInfoReportStddevSampFields
-	sum: DriverIdInfoReportSumFields
-	var_pop: DriverIdInfoReportVarPopFields
-	var_samp: DriverIdInfoReportVarSampFields
-	variance: DriverIdInfoReportVarianceFields
-}
-"""
-aggregate avg on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportAvgFields {
-	id: Bigint
-	ic_card_status: Int
-}
-"""
-aggregate max on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportMaxFields {
-	id: Bigint
-	driver_id_info_report_id: String
-	vehicle_id: String
-	ic_card_status: Int
-	operation_time: Timestamptz
-	driver_name: String
-	license_number: String
-	imel: String
-	ic_card_reading_result: String
-	occupational_number: String
-	driver_license_name: String
-	license_expire_date: Timestamptz
-	registration_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
-	updated_at: Timestamptz
-	updated_by: String
-	deleted_at: Timestamptz
-	deleted_by: String
-}
-"""
-aggregate min on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportMinFields {
-	id: Bigint
-	driver_id_info_report_id: String
-	vehicle_id: String
-	ic_card_status: Int
-	operation_time: Timestamptz
-	driver_name: String
-	license_number: String
-	imel: String
-	ic_card_reading_result: String
-	occupational_number: String
-	driver_license_name: String
-	license_expire_date: Timestamptz
-	registration_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
-	updated_at: Timestamptz
-	updated_by: String
-	deleted_at: Timestamptz
-	deleted_by: String
-}
-"""
-aggregate stddev on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportStddevFields {
-	id: Bigint
-	ic_card_status: Int
-}
-"""
-aggregate stddev_pop on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportStddevPopFields {
-	id: Bigint
-	ic_card_status: Int
-}
-"""
-aggregate stddev_samp on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportStddevSampFields {
-	id: Bigint
-	ic_card_status: Int
-}
-"""
-aggregate sum on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportSumFields {
-	id: Bigint
-	ic_card_status: Int
-}
-"""
-aggregate var_pop on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportVarPopFields {
-	id: Bigint
-	ic_card_status: Int
-}
-"""
-aggregate var_samp on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportVarSampFields {
-	id: Bigint
-	ic_card_status: Int
-}
-"""
-aggregate variance on columns of table "driver_id_info_report"
-"""
-type DriverIdInfoReportVarianceFields {
-	id: Bigint
-	ic_card_status: Int
-}
-"""
-response of any mutation on the table "driver_id_info_report"
-"""
-type DriverIdInfoReportMutationResponse {
-	affected_rows: Int!
-	returning: [DriverIdInfoReport!]!
-}
-"""
-ordering options when selecting data from "driver_id_info_report"
-"""
-input DriverIdInfoReportOrderBy {
-	id: OrderBy
-	driver_id_info_report_id: OrderBy
-	vehicle_id: OrderBy
-	ic_card_status: OrderBy
-	operation_time: OrderBy
-	driver_name: OrderBy
-	license_number: OrderBy
-	imel: OrderBy
-	ic_card_reading_result: OrderBy
-	occupational_number: OrderBy
-	driver_license_name: OrderBy
-	license_expire_date: OrderBy
-	registration_time: OrderBy
-	created_at: OrderBy
-	created_by: OrderBy
-	updated_at: OrderBy
-	updated_by: OrderBy
-	deleted_at: OrderBy
-	deleted_by: OrderBy
-}
-"""
-Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_id_info_report'.
-"""
-input DriverIdInfoReportBoolExp {
-	_and: [DriverIdInfoReportBoolExp]
-	_not: DriverIdInfoReportBoolExp
-	_or: [DriverIdInfoReportBoolExp]
-	id: BigintComparisonExp
-	driver_id_info_report_id: StringComparisonExp
-	vehicle_id: StringComparisonExp
-	ic_card_status: IntComparisonExp
-	operation_time: TimestamptzComparisonExp
-	driver_name: StringComparisonExp
-	license_number: StringComparisonExp
-	imel: StringComparisonExp
-	ic_card_reading_result: StringComparisonExp
-	occupational_number: StringComparisonExp
-	driver_license_name: StringComparisonExp
-	license_expire_date: TimestamptzComparisonExp
-	registration_time: TimestamptzComparisonExp
-	created_at: TimestamptzComparisonExp
-	created_by: StringComparisonExp
-	updated_at: TimestamptzComparisonExp
-	updated_by: StringComparisonExp
-	deleted_at: TimestamptzComparisonExp
-	deleted_by: StringComparisonExp
-}
-"""
-input type for inserting data into table "driver_id_info_report"
-"""
-input DriverIdInfoReportInsertInput {
-	id: Bigint
-	driver_id_info_report_id: String
-	vehicle_id: String
-	ic_card_status: Int
-	operation_time: Timestamptz
-	driver_name: String
-	license_number: String
-	imel: String
-	ic_card_reading_result: String
-	occupational_number: String
-	driver_license_name: String
-	license_expire_date: Timestamptz
-	registration_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
-	updated_at: Timestamptz
-	updated_by: String
-	deleted_at: Timestamptz
-	deleted_by: String
-}
-"""
-input type for incrementing integer column in table "driver_id_info_report"
-"""
-input DriverIdInfoReportIncInput {
-	id: Bigint
-	ic_card_status: Int
-}
-"""
-input type for updating data in table "driver_id_info_report"
-"""
-input DriverIdInfoReportSetInput {
-	id: Bigint
-	driver_id_info_report_id: String
-	vehicle_id: String
-	ic_card_status: Int
-	operation_time: Timestamptz
-	driver_name: String
-	license_number: String
-	imel: String
-	ic_card_reading_result: String
-	occupational_number: String
-	driver_license_name: String
-	license_expire_date: Timestamptz
-	registration_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
-	updated_at: Timestamptz
-	updated_by: String
-	deleted_at: Timestamptz
-	deleted_by: String
-}
-"""
-可选select
-"""
-enum DriverIdInfoReportSelectColumn {
-	"""
-	 按指定方法生成                                  ( 主键                       )
-	"""
-	id
-	"""
-	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
-	"""
-	driver_id_info_report_id
-	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
-	"""
-	vehicle_id
-	"""
-	 IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
-	"""
-	ic_card_status
-	"""
-	 操作时间                                        (                            )
-	"""
-	operation_time
-	"""
-	 驾驶员姓名                                      (                            )
-	"""
-	driver_name
-	"""
-	 证件号码                                        (                            )
-	"""
-	license_number
-	"""
-	 终端IMEI                                        ( 国际移动设备标识别码       )
-	"""
-	imel
-	"""
-	 IC卡读取结果                                    ( IC卡读卡字典           )
-	"""
-	ic_card_reading_result
-	"""
-	 从业资格证编码                                  (                            )
-	"""
-	occupational_number
-	"""
-	 发证机构名称                                    (                            )
-	"""
-	driver_license_name
-	"""
-	 证件有效期                                      (                            )
-	"""
-	license_expire_date
-	"""
-	 登记时间                                        (                            )
-	"""
-	registration_time
-	"""
-	 创建时间                                        (                            )
-	"""
-	created_at
-	"""
-	 创建人                                          ( system_user表的user_id )
-	"""
-	created_by
-	"""
-	 修改时间                                        (                            )
-	"""
-	updated_at
-	"""
-	 修改人                                          ( system_user表的user_id )
-	"""
-	updated_by
-	"""
-	 删除时间                                        (                            )
-	"""
-	deleted_at
-	"""
-	 删除人                                          ( system_user表的user_id )
-	"""
-	deleted_by
-}
-extend type Query {
-	"""
-	列表查询
-	"""
-	driver_id_info_report(distinct_on: [DriverIdInfoReportSelectColumn!], limit: Int, offset: Int, order_by: [DriverIdInfoReportOrderBy!], where: DriverIdInfoReportBoolExp): [DriverIdInfoReport!]!
-	"""
-	聚合查询
-	"""
-	driver_id_info_report_aggregate(distinct_on: [DriverIdInfoReportSelectColumn!], limit: Int, offset: Int, order_by: [DriverIdInfoReportOrderBy!], where: DriverIdInfoReportBoolExp): DriverIdInfoReportAggregate!
-	"""
-	主键查询
-	"""
-	driver_id_info_report_by_pk(id: Bigint!): DriverIdInfoReport!
-}
-extend type Mutation {
-	"""
-	删除记录
-	"""
-	delete_driver_id_info_report(where: DriverIdInfoReportBoolExp!): DriverIdInfoReportMutationResponse
-	"""
-	根据主键删除记录
-	"""
-	delete_driver_id_info_report_by_pk(id: Bigint!): DriverIdInfoReport
-	"""
-	插入
-	"""
-	insert_driver_id_info_report(objects: [DriverIdInfoReportInsertInput!]!): DriverIdInfoReportMutationResponse
-	"""
-	插入一条记录
-	"""
-	insert_driver_id_info_report_one(objects: DriverIdInfoReportInsertInput!): DriverIdInfoReport
-	"""
-	更新
-	"""
-	update_driver_id_info_report(_inc: DriverIdInfoReportIncInput, _set: DriverIdInfoReportSetInput, where: DriverIdInfoReportBoolExp!): DriverIdInfoReportMutationResponse
-	"""
-	更新
-	"""
-	update_driver_id_info_report_by_pk(_inc: DriverIdInfoReportIncInput, _set: DriverIdInfoReportSetInput, id: Bigint!): DriverIdInfoReport
-}
-`, BuiltIn: false},
 	{Name: "graph/graphqls/driver_identity.graphqls", Input: `"""
 驾驶员身份验证信息(各种证件信息，验证状态)
 """
@@ -7707,91 +7269,91 @@ type DriverIdentity {
 	"""
 	identity_id: String!
 	"""
-	 身份证号码                                      (                            )
+	 身份证号码                                      
 	"""
 	id_card_num: String
 	"""
-	 身份证出生日期                                  (                            )
+	 身份证出生日期                                  
 	"""
 	id_card_birthday: Timestamptz
 	"""
-	 身份证签发机关                                  (                            )
+	 身份证签发机关                                  
 	"""
 	id_card_sign_government: String
 	"""
-	 身份证民族                                      (                            )
+	 身份证民族                                      
 	"""
 	id_card_nation: String
 	"""
-	 身份证有效起始日期                              (                            )
+	 身份证有效起始日期                              
 	"""
 	id_card_start_date: Timestamptz
 	"""
-	 身份证有效截止日期                              (                            )
+	 身份证有效截止日期                              
 	"""
 	id_card_end_date: Timestamptz
 	"""
-	 身份证正面照，云存储地址                        (                            )
+	 身份证正面照，云存储地址                        
 	"""
 	id_card_front_pic: String
 	"""
-	 身份证背面照，云存储地址                        (                            )
+	 身份证背面照，云存储地址                        
 	"""
 	id_card_back_pic: String
 	"""
-	 身份证住址                                      (                            )
+	 身份证住址                                      
 	"""
 	id_card_address: String
 	"""
-	 驾驶员手持身份证照片,云储存系统返回的路径       (                            )
+	 驾驶员手持身份证照片,云储存系统返回的路径       
 	"""
 	driver_holding_id_photo: String
 	"""
-	 驾驶员的正面照,云储存系统返回的路径             (                            )
+	 驾驶员的正面照,云储存系统返回的路径             
 	"""
 	driver_photo: String
 	"""
-	 驾驶员签名,云储存系统返回的路径                 (                            )
+	 驾驶员签名,云储存系统返回的路径                 
 	"""
 	driver_signature: String
 	"""
-	 从业资格证号码                                  (                            )
+	 从业资格证号码                                  
 	"""
 	occupational_number: String
 	"""
-	 从业资格证有效期至                              (                            )
+	 从业资格证有效期至                              
 	"""
 	occupational_expire_date: Timestamptz
 	"""
-	 从业资格证发证机构                              (                            )
+	 从业资格证发证机构                              
 	"""
 	occupational_issuing_authority: String
 	"""
-	 劳动合同,云储存系统返回的完整劳动合同的图片路径 (                            )
+	 劳动合同,云储存系统返回的完整劳动合同的图片路径 
 	"""
 	labor_contract: String
 	"""
-	 驾驶员驾驶证,云储存系统返回的路径               (                            )
+	 驾驶员驾驶证,云储存系统返回的路径               
 	"""
 	driver_license_pic: String
 	"""
-	 驾驶证发证机关                                  (                            )
+	 驾驶证发证机关                                  
 	"""
 	driver_license_issuing_authority: String
 	"""
-	 年审日期（六合一）                              (                            )
+	 年审日期（六合一）                              
 	"""
 	annual_review_date: Timestamptz
 	"""
-	 换证日期（六合一）                              (                            )
+	 换证日期（六合一）                              
 	"""
 	renewal_date: Timestamptz
 	"""
-	 累计积分（六合一）                              (                            )
+	 累计积分（六合一）                              
 	"""
 	accumulatived_points: Numeric
 	"""
-	 清分日期（六合一）                              (                            )
+	 清分日期（六合一）                              
 	"""
 	sorting_date: Timestamptz
 	"""
@@ -7815,19 +7377,19 @@ type DriverIdentity {
 	"""
 	driver_license_status: Int
 	"""
-	 驾驶证初次领证日期                              (                            )
+	 驾驶证初次领证日期                              
 	"""
 	driver_license_issue_date: Timestamptz
 	"""
-	 从业时间                                        (                            )
+	 从业时间                                        
 	"""
 	working_time: Timestamptz
 	"""
-	 是否审核                                        (                            )
+	 是否审核                                        
 	"""
 	is_review: Boolean
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -7835,7 +7397,7 @@ type DriverIdentity {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -7843,7 +7405,7 @@ type DriverIdentity {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -7851,7 +7413,7 @@ type DriverIdentity {
 	"""
 	deleted_by: String
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 }
@@ -8139,8 +7701,6 @@ input DriverIdentityBoolExp {
 input type for inserting data into table "driver_identity"
 """
 input DriverIdentityInsertInput {
-	id: Bigint
-	identity_id: String
 	id_card_num: String
 	id_card_birthday: Timestamptz
 	id_card_sign_government: String
@@ -8171,8 +7731,6 @@ input DriverIdentityInsertInput {
 	driver_license_issue_date: Timestamptz
 	working_time: Timestamptz
 	is_review: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -8245,91 +7803,91 @@ enum DriverIdentitySelectColumn {
 	"""
 	identity_id
 	"""
-	 身份证号码                                      (                            )
+	 身份证号码                                      
 	"""
 	id_card_num
 	"""
-	 身份证出生日期                                  (                            )
+	 身份证出生日期                                  
 	"""
 	id_card_birthday
 	"""
-	 身份证签发机关                                  (                            )
+	 身份证签发机关                                  
 	"""
 	id_card_sign_government
 	"""
-	 身份证民族                                      (                            )
+	 身份证民族                                      
 	"""
 	id_card_nation
 	"""
-	 身份证有效起始日期                              (                            )
+	 身份证有效起始日期                              
 	"""
 	id_card_start_date
 	"""
-	 身份证有效截止日期                              (                            )
+	 身份证有效截止日期                              
 	"""
 	id_card_end_date
 	"""
-	 身份证正面照，云存储地址                        (                            )
+	 身份证正面照，云存储地址                        
 	"""
 	id_card_front_pic
 	"""
-	 身份证背面照，云存储地址                        (                            )
+	 身份证背面照，云存储地址                        
 	"""
 	id_card_back_pic
 	"""
-	 身份证住址                                      (                            )
+	 身份证住址                                      
 	"""
 	id_card_address
 	"""
-	 驾驶员手持身份证照片,云储存系统返回的路径       (                            )
+	 驾驶员手持身份证照片,云储存系统返回的路径       
 	"""
 	driver_holding_id_photo
 	"""
-	 驾驶员的正面照,云储存系统返回的路径             (                            )
+	 驾驶员的正面照,云储存系统返回的路径             
 	"""
 	driver_photo
 	"""
-	 驾驶员签名,云储存系统返回的路径                 (                            )
+	 驾驶员签名,云储存系统返回的路径                 
 	"""
 	driver_signature
 	"""
-	 从业资格证号码                                  (                            )
+	 从业资格证号码                                  
 	"""
 	occupational_number
 	"""
-	 从业资格证有效期至                              (                            )
+	 从业资格证有效期至                              
 	"""
 	occupational_expire_date
 	"""
-	 从业资格证发证机构                              (                            )
+	 从业资格证发证机构                              
 	"""
 	occupational_issuing_authority
 	"""
-	 劳动合同,云储存系统返回的完整劳动合同的图片路径 (                            )
+	 劳动合同,云储存系统返回的完整劳动合同的图片路径 
 	"""
 	labor_contract
 	"""
-	 驾驶员驾驶证,云储存系统返回的路径               (                            )
+	 驾驶员驾驶证,云储存系统返回的路径               
 	"""
 	driver_license_pic
 	"""
-	 驾驶证发证机关                                  (                            )
+	 驾驶证发证机关                                  
 	"""
 	driver_license_issuing_authority
 	"""
-	 年审日期（六合一）                              (                            )
+	 年审日期（六合一）                              
 	"""
 	annual_review_date
 	"""
-	 换证日期（六合一）                              (                            )
+	 换证日期（六合一）                              
 	"""
 	renewal_date
 	"""
-	 累计积分（六合一）                              (                            )
+	 累计积分（六合一）                              
 	"""
 	accumulatived_points
 	"""
-	 清分日期（六合一）                              (                            )
+	 清分日期（六合一）                              
 	"""
 	sorting_date
 	"""
@@ -8353,19 +7911,19 @@ enum DriverIdentitySelectColumn {
 	"""
 	driver_license_status
 	"""
-	 驾驶证初次领证日期                              (                            )
+	 驾驶证初次领证日期                              
 	"""
 	driver_license_issue_date
 	"""
-	 从业时间                                        (                            )
+	 从业时间                                        
 	"""
 	working_time
 	"""
-	 是否审核                                        (                            )
+	 是否审核                                        
 	"""
 	is_review
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -8373,7 +7931,7 @@ enum DriverIdentitySelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -8381,7 +7939,7 @@ enum DriverIdentitySelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -8389,7 +7947,7 @@ enum DriverIdentitySelectColumn {
 	"""
 	deleted_by
 	"""
-	 是否删除                                        (                            )
+	 是否删除                                        
 	"""
 	is_deleted
 }
@@ -8434,6 +7992,443 @@ extend type Mutation {
 	update_driver_identity_by_pk(_inc: DriverIdentityIncInput, _set: DriverIdentitySetInput, id: Bigint!): DriverIdentity
 }
 `, BuiltIn: false},
+	{Name: "graph/graphqls/driver_identity_info_report.graphqls", Input: `"""
+驾驶员身份信息采集上报
+"""
+type DriverIdentityInfoReport {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	driver_identity_info_report_id: String!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        
+	"""
+	vehicle_id: String!
+	"""
+	 IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
+	"""
+	ic_card_status: Int
+	"""
+	 操作时间                                        
+	"""
+	operation_time: Timestamptz
+	"""
+	 驾驶员姓名                                      
+	"""
+	driver_name: String
+	"""
+	 证件号码                                        
+	"""
+	license_number: String
+	"""
+	 终端IMEI                                        ( 国际移动设备标识别码       )
+	"""
+	imel: String
+	"""
+	 IC卡读取结果                                    ( IC卡读卡字典           )
+	"""
+	ic_card_reading_result: String
+	"""
+	 从业资格证编码                                  
+	"""
+	occupational_number: String
+	"""
+	 发证机构名称                                    
+	"""
+	driver_license_name: String
+	"""
+	 证件有效期                                      
+	"""
+	license_expire_date: Timestamptz
+	"""
+	 登记时间                                        
+	"""
+	registration_time: Timestamptz
+	"""
+	 创建时间                                        
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportAggregate {
+	aggregate: DriverIdentityInfoReportAggregateFields
+}
+"""
+aggregate fields of "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportAggregateFields {
+	avg: DriverIdentityInfoReportAvgFields
+	count: Int
+	max: DriverIdentityInfoReportMaxFields
+	min: DriverIdentityInfoReportMinFields
+	stddev: DriverIdentityInfoReportStddevFields
+	stddev_pop: DriverIdentityInfoReportStddevPopFields
+	stddev_samp: DriverIdentityInfoReportStddevSampFields
+	sum: DriverIdentityInfoReportSumFields
+	var_pop: DriverIdentityInfoReportVarPopFields
+	var_samp: DriverIdentityInfoReportVarSampFields
+	variance: DriverIdentityInfoReportVarianceFields
+}
+"""
+aggregate avg on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportAvgFields {
+	id: Bigint
+	ic_card_status: Int
+}
+"""
+aggregate max on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportMaxFields {
+	id: Bigint
+	driver_identity_info_report_id: String
+	vehicle_id: String
+	ic_card_status: Int
+	operation_time: Timestamptz
+	driver_name: String
+	license_number: String
+	imel: String
+	ic_card_reading_result: String
+	occupational_number: String
+	driver_license_name: String
+	license_expire_date: Timestamptz
+	registration_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportMinFields {
+	id: Bigint
+	driver_identity_info_report_id: String
+	vehicle_id: String
+	ic_card_status: Int
+	operation_time: Timestamptz
+	driver_name: String
+	license_number: String
+	imel: String
+	ic_card_reading_result: String
+	occupational_number: String
+	driver_license_name: String
+	license_expire_date: Timestamptz
+	registration_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportStddevFields {
+	id: Bigint
+	ic_card_status: Int
+}
+"""
+aggregate stddev_pop on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportStddevPopFields {
+	id: Bigint
+	ic_card_status: Int
+}
+"""
+aggregate stddev_samp on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportStddevSampFields {
+	id: Bigint
+	ic_card_status: Int
+}
+"""
+aggregate sum on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportSumFields {
+	id: Bigint
+	ic_card_status: Int
+}
+"""
+aggregate var_pop on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportVarPopFields {
+	id: Bigint
+	ic_card_status: Int
+}
+"""
+aggregate var_samp on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportVarSampFields {
+	id: Bigint
+	ic_card_status: Int
+}
+"""
+aggregate variance on columns of table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportVarianceFields {
+	id: Bigint
+	ic_card_status: Int
+}
+"""
+response of any mutation on the table "driver_identity_info_report"
+"""
+type DriverIdentityInfoReportMutationResponse {
+	affected_rows: Int!
+	returning: [DriverIdentityInfoReport!]!
+}
+"""
+ordering options when selecting data from "driver_identity_info_report"
+"""
+input DriverIdentityInfoReportOrderBy {
+	id: OrderBy
+	driver_identity_info_report_id: OrderBy
+	vehicle_id: OrderBy
+	ic_card_status: OrderBy
+	operation_time: OrderBy
+	driver_name: OrderBy
+	license_number: OrderBy
+	imel: OrderBy
+	ic_card_reading_result: OrderBy
+	occupational_number: OrderBy
+	driver_license_name: OrderBy
+	license_expire_date: OrderBy
+	registration_time: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_identity_info_report'.
+"""
+input DriverIdentityInfoReportBoolExp {
+	_and: [DriverIdentityInfoReportBoolExp]
+	_not: DriverIdentityInfoReportBoolExp
+	_or: [DriverIdentityInfoReportBoolExp]
+	id: BigintComparisonExp
+	driver_identity_info_report_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	ic_card_status: IntComparisonExp
+	operation_time: TimestamptzComparisonExp
+	driver_name: StringComparisonExp
+	license_number: StringComparisonExp
+	imel: StringComparisonExp
+	ic_card_reading_result: StringComparisonExp
+	occupational_number: StringComparisonExp
+	driver_license_name: StringComparisonExp
+	license_expire_date: TimestamptzComparisonExp
+	registration_time: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "driver_identity_info_report"
+"""
+input DriverIdentityInfoReportInsertInput {
+	ic_card_status: Int
+	operation_time: Timestamptz
+	driver_name: String
+	license_number: String
+	imel: String
+	ic_card_reading_result: String
+	occupational_number: String
+	driver_license_name: String
+	license_expire_date: Timestamptz
+	registration_time: Timestamptz
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "driver_identity_info_report"
+"""
+input DriverIdentityInfoReportIncInput {
+	id: Bigint
+	ic_card_status: Int
+}
+"""
+input type for updating data in table "driver_identity_info_report"
+"""
+input DriverIdentityInfoReportSetInput {
+	id: Bigint
+	driver_identity_info_report_id: String
+	vehicle_id: String
+	ic_card_status: Int
+	operation_time: Timestamptz
+	driver_name: String
+	license_number: String
+	imel: String
+	ic_card_reading_result: String
+	occupational_number: String
+	driver_license_name: String
+	license_expire_date: Timestamptz
+	registration_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum DriverIdentityInfoReportSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	driver_identity_info_report_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        
+	"""
+	vehicle_id
+	"""
+	 IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
+	"""
+	ic_card_status
+	"""
+	 操作时间                                        
+	"""
+	operation_time
+	"""
+	 驾驶员姓名                                      
+	"""
+	driver_name
+	"""
+	 证件号码                                        
+	"""
+	license_number
+	"""
+	 终端IMEI                                        ( 国际移动设备标识别码       )
+	"""
+	imel
+	"""
+	 IC卡读取结果                                    ( IC卡读卡字典           )
+	"""
+	ic_card_reading_result
+	"""
+	 从业资格证编码                                  
+	"""
+	occupational_number
+	"""
+	 发证机构名称                                    
+	"""
+	driver_license_name
+	"""
+	 证件有效期                                      
+	"""
+	license_expire_date
+	"""
+	 登记时间                                        
+	"""
+	registration_time
+	"""
+	 创建时间                                        
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	driver_identity_info_report(distinct_on: [DriverIdentityInfoReportSelectColumn!], limit: Int, offset: Int, order_by: [DriverIdentityInfoReportOrderBy!], where: DriverIdentityInfoReportBoolExp): [DriverIdentityInfoReport!]!
+	"""
+	聚合查询
+	"""
+	driver_identity_info_report_aggregate(distinct_on: [DriverIdentityInfoReportSelectColumn!], limit: Int, offset: Int, order_by: [DriverIdentityInfoReportOrderBy!], where: DriverIdentityInfoReportBoolExp): DriverIdentityInfoReportAggregate!
+	"""
+	主键查询
+	"""
+	driver_identity_info_report_by_pk(id: Bigint!): DriverIdentityInfoReport!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_driver_identity_info_report(where: DriverIdentityInfoReportBoolExp!): DriverIdentityInfoReportMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_driver_identity_info_report_by_pk(id: Bigint!): DriverIdentityInfoReport
+	"""
+	插入
+	"""
+	insert_driver_identity_info_report(objects: [DriverIdentityInfoReportInsertInput!]!): DriverIdentityInfoReportMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_driver_identity_info_report_one(objects: DriverIdentityInfoReportInsertInput!): DriverIdentityInfoReport
+	"""
+	更新
+	"""
+	update_driver_identity_info_report(_inc: DriverIdentityInfoReportIncInput, _set: DriverIdentityInfoReportSetInput, where: DriverIdentityInfoReportBoolExp!): DriverIdentityInfoReportMutationResponse
+	"""
+	更新
+	"""
+	update_driver_identity_info_report_by_pk(_inc: DriverIdentityInfoReportIncInput, _set: DriverIdentityInfoReportSetInput, id: Bigint!): DriverIdentityInfoReport
+}
+`, BuiltIn: false},
 	{Name: "graph/graphqls/driver_info.graphqls", Input: `"""
 驾驶员信息表
 """
@@ -8459,11 +8454,11 @@ type DriverInfo {
 	"""
 	driver_identity_id: String
 	"""
-	 驾驶员姓名                                      (                                                              )
+	 驾驶员姓名                                      
 	"""
 	driver_name: String
 	"""
-	 手机号码                                        (                                                              )
+	 手机号码                                        
 	"""
 	telephone: String
 	"""
@@ -8471,15 +8466,15 @@ type DriverInfo {
 	"""
 	sex: Int
 	"""
-	 档案编号(后6位)                                 (                                                              )
+	 档案编号(后6位)                                 
 	"""
 	files_number: String
 	"""
-	 联系地址                                        (                                                              )
+	 联系地址                                        
 	"""
 	contact_address: String
 	"""
-	 邮寄地址                                        (                                                              )
+	 邮寄地址                                        
 	"""
 	mailing_address: String
 	"""
@@ -8487,11 +8482,11 @@ type DriverInfo {
 	"""
 	is_submit: Boolean
 	"""
-	 提交内容                                        (                                                              )
+	 提交内容                                        
 	"""
 	submit_content: String
 	"""
-	 提交时间                                        (                                                              )
+	 提交时间                                        
 	"""
 	submit_at: Timestamptz
 	"""
@@ -8503,11 +8498,11 @@ type DriverInfo {
 	"""
 	is_manual_input: Boolean
 	"""
-	 是否录入                                        (                                                              )
+	 是否录入                                        
 	"""
 	is_input: Boolean
 	"""
-	 录入时间                                        (                                                              )
+	 录入时间                                        
 	"""
 	input_at: Timestamptz
 	"""
@@ -8519,7 +8514,7 @@ type DriverInfo {
 	"""
 	is_check_data: Boolean
 	"""
-	 检验时间                                        (                                                              )
+	 检验时间                                        
 	"""
 	check_at: Timestamptz
 	"""
@@ -8531,19 +8526,19 @@ type DriverInfo {
 	"""
 	remark_in: String
 	"""
-	 内网更新时间                                    (                                                              )
+	 内网更新时间                                    
 	"""
 	update_time_in: Timestamptz
 	"""
-	 是否通过短信验证                                (                                                              )
+	 是否通过短信验证                                
 	"""
 	is_check_sms: Boolean
 	"""
-	 备注                                            (                                                              )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
@@ -8559,11 +8554,11 @@ type DriverInfo {
 	"""
 	is_blacklist: Boolean
 	"""
-	 黑名单截止日期                                  (                                                              )
+	 黑名单截止日期                                  
 	"""
 	blacklist_deadline: Timestamptz
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -8571,7 +8566,7 @@ type DriverInfo {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -8579,7 +8574,7 @@ type DriverInfo {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -8847,8 +8842,6 @@ input DriverInfoBoolExp {
 input type for inserting data into table "driver_info"
 """
 input DriverInfoInsertInput {
-	id: Bigint
-	driver_id: String
 	enterprise_id: String
 	department_id: String
 	driver_identity_id: String
@@ -8878,8 +8871,6 @@ input DriverInfoInsertInput {
 	operator: String
 	is_blacklist: Boolean
 	blacklist_deadline: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -8959,11 +8950,11 @@ enum DriverInfoSelectColumn {
 	"""
 	driver_identity_id
 	"""
-	 驾驶员姓名                                      (                                                              )
+	 驾驶员姓名                                      
 	"""
 	driver_name
 	"""
-	 手机号码                                        (                                                              )
+	 手机号码                                        
 	"""
 	telephone
 	"""
@@ -8971,15 +8962,15 @@ enum DriverInfoSelectColumn {
 	"""
 	sex
 	"""
-	 档案编号(后6位)                                 (                                                              )
+	 档案编号(后6位)                                 
 	"""
 	files_number
 	"""
-	 联系地址                                        (                                                              )
+	 联系地址                                        
 	"""
 	contact_address
 	"""
-	 邮寄地址                                        (                                                              )
+	 邮寄地址                                        
 	"""
 	mailing_address
 	"""
@@ -8987,11 +8978,11 @@ enum DriverInfoSelectColumn {
 	"""
 	is_submit
 	"""
-	 提交内容                                        (                                                              )
+	 提交内容                                        
 	"""
 	submit_content
 	"""
-	 提交时间                                        (                                                              )
+	 提交时间                                        
 	"""
 	submit_at
 	"""
@@ -9003,11 +8994,11 @@ enum DriverInfoSelectColumn {
 	"""
 	is_manual_input
 	"""
-	 是否录入                                        (                                                              )
+	 是否录入                                        
 	"""
 	is_input
 	"""
-	 录入时间                                        (                                                              )
+	 录入时间                                        
 	"""
 	input_at
 	"""
@@ -9019,7 +9010,7 @@ enum DriverInfoSelectColumn {
 	"""
 	is_check_data
 	"""
-	 检验时间                                        (                                                              )
+	 检验时间                                        
 	"""
 	check_at
 	"""
@@ -9031,19 +9022,19 @@ enum DriverInfoSelectColumn {
 	"""
 	remark_in
 	"""
-	 内网更新时间                                    (                                                              )
+	 内网更新时间                                    
 	"""
 	update_time_in
 	"""
-	 是否通过短信验证                                (                                                              )
+	 是否通过短信验证                                
 	"""
 	is_check_sms
 	"""
-	 备注                                            (                                                              )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
@@ -9059,11 +9050,11 @@ enum DriverInfoSelectColumn {
 	"""
 	is_blacklist
 	"""
-	 黑名单截止日期                                  (                                                              )
+	 黑名单截止日期                                  
 	"""
 	blacklist_deadline
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -9071,7 +9062,7 @@ enum DriverInfoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -9079,7 +9070,7 @@ enum DriverInfoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -9141,7 +9132,7 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	driver_id_info_report_id: String!
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id: String!
 	"""
@@ -9149,15 +9140,15 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	ic_card_status: Int
 	"""
-	 操作时间                                        (                            )
+	 操作时间                                        
 	"""
 	operation_time: Timestamptz
 	"""
-	 驾驶员姓名                                      (                            )
+	 驾驶员姓名                                      
 	"""
 	driver_name: String
 	"""
-	 证件号码                                        (                            )
+	 证件号码                                        
 	"""
 	license_number: String
 	"""
@@ -9169,23 +9160,23 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	ic_card_reading_result: String
 	"""
-	 从业资格证编码                                  (                            )
+	 从业资格证编码                                  
 	"""
 	occupational_number: String
 	"""
-	 发证机构名称                                    (                            )
+	 发证机构名称                                    
 	"""
 	driver_license_name: String
 	"""
-	 证件有效期                                      (                            )
+	 证件有效期                                      
 	"""
 	license_expire_date: Timestamptz
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -9193,7 +9184,7 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -9201,7 +9192,7 @@ type DrivingLicenseRegistrationInspection {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -9397,9 +9388,6 @@ input DrivingLicenseRegistrationInspectionBoolExp {
 input type for inserting data into table "driving_license_registration_inspection"
 """
 input DrivingLicenseRegistrationInspectionInsertInput {
-	id: Bigint
-	driver_id_info_report_id: String
-	vehicle_id: String
 	ic_card_status: Int
 	operation_time: Timestamptz
 	driver_name: String
@@ -9410,8 +9398,6 @@ input DrivingLicenseRegistrationInspectionInsertInput {
 	driver_license_name: String
 	license_expire_date: Timestamptz
 	registration_time: Timestamptz
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9461,7 +9447,7 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	driver_id_info_report_id
 	"""
-	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	 vehicle_info 车辆信息表 的vehicle_id        
 	"""
 	vehicle_id
 	"""
@@ -9469,15 +9455,15 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	ic_card_status
 	"""
-	 操作时间                                        (                            )
+	 操作时间                                        
 	"""
 	operation_time
 	"""
-	 驾驶员姓名                                      (                            )
+	 驾驶员姓名                                      
 	"""
 	driver_name
 	"""
-	 证件号码                                        (                            )
+	 证件号码                                        
 	"""
 	license_number
 	"""
@@ -9489,23 +9475,23 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	ic_card_reading_result
 	"""
-	 从业资格证编码                                  (                            )
+	 从业资格证编码                                  
 	"""
 	occupational_number
 	"""
-	 发证机构名称                                    (                            )
+	 发证机构名称                                    
 	"""
 	driver_license_name
 	"""
-	 证件有效期                                      (                            )
+	 证件有效期                                      
 	"""
 	license_expire_date
 	"""
-	 登记时间                                        (                            )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -9513,7 +9499,7 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -9521,7 +9507,7 @@ enum DrivingLicenseRegistrationInspectionSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -9637,36 +9623,6 @@ func (ec *executionContext) field_Mutation_delete_driver_fingerprint_by_pk_args(
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_delete_driver_id_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.DriverIDInfoReportBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg0, err = ec.unmarshalNDriverIdInfoReportBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_delete_driver_id_info_report_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 int64
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_delete_driver_identity_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9683,6 +9639,36 @@ func (ec *executionContext) field_Mutation_delete_driver_identity_args(ctx conte
 }
 
 func (ec *executionContext) field_Mutation_delete_driver_identity_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_driver_identity_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.DriverIdentityInfoReportBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg0, err = ec.unmarshalNDriverIdentityInfoReportBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_driver_identity_info_report_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 int64
@@ -9817,36 +9803,6 @@ func (ec *executionContext) field_Mutation_insert_driver_fingerprint_one_args(ct
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_insert_driver_id_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []*model.DriverIDInfoReportInsertInput
-	if tmp, ok := rawArgs["objects"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNDriverIdInfoReportInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportInsertInputᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["objects"] = arg0
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_insert_driver_id_info_report_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 model.DriverIDInfoReportInsertInput
-	if tmp, ok := rawArgs["objects"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
-		arg0, err = ec.unmarshalNDriverIdInfoReportInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportInsertInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["objects"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_insert_driver_identity_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9854,6 +9810,36 @@ func (ec *executionContext) field_Mutation_insert_driver_identity_args(ctx conte
 	if tmp, ok := rawArgs["objects"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
 		arg0, err = ec.unmarshalNDriverIdentityInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_driver_identity_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []*model.DriverIdentityInfoReportInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNDriverIdentityInfoReportInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportInsertInputᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["objects"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_insert_driver_identity_info_report_one_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 model.DriverIdentityInfoReportInsertInput
+	if tmp, ok := rawArgs["objects"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("objects"))
+		arg0, err = ec.unmarshalNDriverIdentityInfoReportInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportInsertInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10069,72 +10055,6 @@ func (ec *executionContext) field_Mutation_update_driver_fingerprint_by_pk_args(
 	return args, nil
 }
 
-func (ec *executionContext) field_Mutation_update_driver_id_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.DriverIDInfoReportIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalODriverIdInfoReportIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.DriverIDInfoReportSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalODriverIdInfoReportSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 model.DriverIDInfoReportBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg2, err = ec.unmarshalNDriverIdInfoReportBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg2
-	return args, nil
-}
-
-func (ec *executionContext) field_Mutation_update_driver_id_info_report_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 *model.DriverIDInfoReportIncInput
-	if tmp, ok := rawArgs["_inc"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
-		arg0, err = ec.unmarshalODriverIdInfoReportIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportIncInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_inc"] = arg0
-	var arg1 *model.DriverIDInfoReportSetInput
-	if tmp, ok := rawArgs["_set"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
-		arg1, err = ec.unmarshalODriverIdInfoReportSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSetInput(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["_set"] = arg1
-	var arg2 int64
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg2, err = ec.unmarshalNBigint2int64(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg2
-	return args, nil
-}
-
 func (ec *executionContext) field_Mutation_update_driver_identity_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10184,6 +10104,72 @@ func (ec *executionContext) field_Mutation_update_driver_identity_by_pk_args(ctx
 	if tmp, ok := rawArgs["_set"]; ok {
 		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
 		arg1, err = ec.unmarshalODriverIdentitySetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentitySetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg2, err = ec.unmarshalNBigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_driver_identity_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DriverIdentityInfoReportIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODriverIdentityInfoReportIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DriverIdentityInfoReportSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODriverIdentityInfoReportSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 model.DriverIdentityInfoReportBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg2, err = ec.unmarshalNDriverIdentityInfoReportBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_driver_identity_info_report_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DriverIdentityInfoReportIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODriverIdentityInfoReportIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DriverIdentityInfoReportSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODriverIdentityInfoReportSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSetInput(ctx, tmp)
 		if err != nil {
 			return nil, err
 		}
@@ -10582,123 +10568,6 @@ func (ec *executionContext) field_Query_driver_fingerprint_by_pk_args(ctx contex
 	return args, nil
 }
 
-func (ec *executionContext) field_Query_driver_id_info_report_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []model.DriverIDInfoReportSelectColumn
-	if tmp, ok := rawArgs["distinct_on"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalODriverIdInfoReportSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSelectColumnᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["distinct_on"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg2
-	var arg3 []*model.DriverIDInfoReportOrderBy
-	if tmp, ok := rawArgs["order_by"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalODriverIdInfoReportOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportOrderByᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["order_by"] = arg3
-	var arg4 *model.DriverIDInfoReportBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalODriverIdInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg4
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_driver_id_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 []model.DriverIDInfoReportSelectColumn
-	if tmp, ok := rawArgs["distinct_on"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
-		arg0, err = ec.unmarshalODriverIdInfoReportSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSelectColumnᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["distinct_on"] = arg0
-	var arg1 *int
-	if tmp, ok := rawArgs["limit"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
-		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["limit"] = arg1
-	var arg2 *int
-	if tmp, ok := rawArgs["offset"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
-		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["offset"] = arg2
-	var arg3 []*model.DriverIDInfoReportOrderBy
-	if tmp, ok := rawArgs["order_by"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
-		arg3, err = ec.unmarshalODriverIdInfoReportOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportOrderByᚄ(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["order_by"] = arg3
-	var arg4 *model.DriverIDInfoReportBoolExp
-	if tmp, ok := rawArgs["where"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
-		arg4, err = ec.unmarshalODriverIdInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["where"] = arg4
-	return args, nil
-}
-
-func (ec *executionContext) field_Query_driver_id_info_report_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
-	var err error
-	args := map[string]interface{}{}
-	var arg0 int64
-	if tmp, ok := rawArgs["id"]; ok {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
-		if err != nil {
-			return nil, err
-		}
-	}
-	args["id"] = arg0
-	return args, nil
-}
-
 func (ec *executionContext) field_Query_driver_identity_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -10802,6 +10671,123 @@ func (ec *executionContext) field_Query_driver_identity_args(ctx context.Context
 }
 
 func (ec *executionContext) field_Query_driver_identity_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 int64
+	if tmp, ok := rawArgs["id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+		arg0, err = ec.unmarshalNBigint2int64(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_driver_identity_info_report_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.DriverIdentityInfoReportSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalODriverIdentityInfoReportSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.DriverIdentityInfoReportOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalODriverIdentityInfoReportOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.DriverIdentityInfoReportBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalODriverIdentityInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_driver_identity_info_report_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 []model.DriverIdentityInfoReportSelectColumn
+	if tmp, ok := rawArgs["distinct_on"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("distinct_on"))
+		arg0, err = ec.unmarshalODriverIdentityInfoReportSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSelectColumnᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["distinct_on"] = arg0
+	var arg1 *int
+	if tmp, ok := rawArgs["limit"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit"))
+		arg1, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit"] = arg1
+	var arg2 *int
+	if tmp, ok := rawArgs["offset"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("offset"))
+		arg2, err = ec.unmarshalOInt2ᚖint(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["offset"] = arg2
+	var arg3 []*model.DriverIdentityInfoReportOrderBy
+	if tmp, ok := rawArgs["order_by"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("order_by"))
+		arg3, err = ec.unmarshalODriverIdentityInfoReportOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportOrderByᚄ(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["order_by"] = arg3
+	var arg4 *model.DriverIdentityInfoReportBoolExp
+	if tmp, ok := rawArgs["where"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("where"))
+		arg4, err = ec.unmarshalODriverIdentityInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["where"] = arg4
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_driver_identity_info_report_by_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
 	var arg0 int64
@@ -16250,2811 +16236,6 @@ func (ec *executionContext) _DriverFingerprintVarianceFields_operation_type(ctx 
 	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _DriverIdInfoReport_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int64)
-	fc.Result = res
-	return ec.marshalNBigint2int64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_driver_id_info_report_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DriverIDInfoReportID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_vehicle_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VehicleID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_operation_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.OperationTime, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_driver_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DriverName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_license_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.LicenseNumber, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_imel(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Imel, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_ic_card_reading_result(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardReadingResult, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_occupational_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.OccupationalNumber, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_driver_license_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DriverLicenseName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_license_expire_date(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.LicenseExpireDate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_registration_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.RegistrationTime, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(time.Time)
-	fc.Result = res
-	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(string)
-	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeletedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReport_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReport) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReport",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeletedBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregate) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregate",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Aggregate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportAggregateFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportAggregateFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_avg(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Avg, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportAvgFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportAvgFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_count(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Count, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_max(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Max, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportMaxFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportMaxFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_min(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Min, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportMinFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportMinFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Stddev, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportStddevFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportStddevFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StddevPop, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportStddevPopFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportStddevPopFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.StddevSamp, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportStddevSampFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportStddevSampFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_sum(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Sum, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportSumFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSumFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VarPop, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportVarPopFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportVarPopFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VarSamp, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportVarSampFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportVarSampFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields_variance(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAggregateFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAggregateFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Variance, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportVarianceFields)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportVarianceFields(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAvgFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAvgFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAvgFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportAvgFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportAvgFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportAvgFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_driver_id_info_report_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DriverIDInfoReportID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_vehicle_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VehicleID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_operation_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.OperationTime, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_driver_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DriverName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_license_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.LicenseNumber, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_imel(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Imel, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_ic_card_reading_result(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardReadingResult, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_occupational_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.OccupationalNumber, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_driver_license_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DriverLicenseName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_license_expire_date(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.LicenseExpireDate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_registration_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.RegistrationTime, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeletedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMaxFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMaxFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeletedBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_driver_id_info_report_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DriverIDInfoReportID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_vehicle_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.VehicleID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_operation_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.OperationTime, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_driver_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DriverName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_license_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.LicenseNumber, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_imel(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Imel, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_ic_card_reading_result(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardReadingResult, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_occupational_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.OccupationalNumber, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_driver_license_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DriverLicenseName, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_license_expire_date(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.LicenseExpireDate, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_registration_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.RegistrationTime, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.CreatedBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.UpdatedBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeletedAt, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*time.Time)
-	fc.Result = res
-	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMinFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMinFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.DeletedBy, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*string)
-	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMutationResponse_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMutationResponse",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.AffectedRows, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(int)
-	fc.Result = res
-	return ec.marshalNInt2int(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportMutationResponse_returning(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportMutationResponse) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportMutationResponse",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.Returning, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model.DriverIDInfoReport)
-	fc.Result = res
-	return ec.marshalNDriverIdInfoReport2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportStddevFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportStddevFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportStddevFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportStddevFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportStddevFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportStddevFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportStddevPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportStddevPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportStddevPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportStddevPopFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportStddevPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportStddevPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportStddevSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportStddevSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportStddevSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportStddevSampFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportStddevSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportStddevSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportSumFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportSumFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportSumFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportSumFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportSumFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportSumFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportVarPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportVarPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportVarPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportVarPopFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportVarPopFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportVarPopFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportVarSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportVarSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportVarSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportVarSampFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportVarSampFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportVarSampFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportVarianceFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportVarianceFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportVarianceFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.ID, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int64)
-	fc.Result = res
-	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _DriverIdInfoReportVarianceFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIDInfoReportVarianceFields) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "DriverIdInfoReportVarianceFields",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return obj.IcCardStatus, nil
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*int)
-	fc.Result = res
-	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _DriverIdentity_id(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentity) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -20814,6 +17995,2811 @@ func (ec *executionContext) _DriverIdentityAvgFields_driver_license_status(ctx c
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return obj.DriverLicenseStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_id(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int64)
+	fc.Result = res
+	return ec.marshalNBigint2int64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_driver_identity_info_report_id(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DriverIdentityInfoReportID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_vehicle_id(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VehicleID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_operation_time(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.OperationTime, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_driver_name(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DriverName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_license_number(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.LicenseNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_imel(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Imel, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_ic_card_reading_result(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardReadingResult, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_occupational_number(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.OccupationalNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_driver_license_name(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DriverLicenseName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_license_expire_date(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.LicenseExpireDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_registration_time(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RegistrationTime, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_created_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(time.Time)
+	fc.Result = res
+	return ec.marshalNTimestamptz2timeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_created_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(string)
+	fc.Result = res
+	return ec.marshalNString2string(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_updated_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_updated_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReport_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model1.DriverIdentityInfoReport) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReport",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregate_aggregate(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregate) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregate",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Aggregate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportAggregateFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportAggregateFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_avg(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Avg, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportAvgFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportAvgFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_count(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Count, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_max(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Max, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportMaxFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportMaxFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_min(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Min, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportMinFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportMinFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_stddev(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Stddev, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportStddevFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportStddevFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_stddev_pop(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportStddevPopFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportStddevPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_stddev_samp(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.StddevSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportStddevSampFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportStddevSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_sum(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Sum, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportSumFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSumFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_var_pop(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarPop, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportVarPopFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportVarPopFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_var_samp(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VarSamp, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportVarSampFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportVarSampFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields_variance(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAggregateFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAggregateFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Variance, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportVarianceFields)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportVarianceFields(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAvgFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAvgFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportAvgFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportAvgFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportAvgFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_driver_identity_info_report_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DriverIdentityInfoReportID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_vehicle_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VehicleID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_operation_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.OperationTime, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_driver_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DriverName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_license_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.LicenseNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_imel(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Imel, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_ic_card_reading_result(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardReadingResult, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_occupational_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.OccupationalNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_driver_license_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DriverLicenseName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_license_expire_date(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.LicenseExpireDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_registration_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RegistrationTime, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMaxFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMaxFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_driver_identity_info_report_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DriverIdentityInfoReportID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_vehicle_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.VehicleID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_operation_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.OperationTime, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_driver_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DriverName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_license_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.LicenseNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_imel(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Imel, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_ic_card_reading_result(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardReadingResult, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_occupational_number(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.OccupationalNumber, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_driver_license_name(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DriverLicenseName, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_license_expire_date(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.LicenseExpireDate, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_registration_time(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.RegistrationTime, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_created_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_created_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.CreatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_updated_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_updated_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.UpdatedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_deleted_at(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedAt, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*time.Time)
+	fc.Result = res
+	return ec.marshalOTimestamptz2ᚖtimeᚐTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields_deleted_by(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMinFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMinFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.DeletedBy, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*string)
+	fc.Result = res
+	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMutationResponse_affected_rows(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMutationResponse",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.AffectedRows, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(int)
+	fc.Result = res
+	return ec.marshalNInt2int(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportMutationResponse_returning(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportMutationResponse) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportMutationResponse",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Returning, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.DriverIdentityInfoReport)
+	fc.Result = res
+	return ec.marshalNDriverIdentityInfoReport2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReportᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportStddevFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportStddevFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportStddevFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportStddevFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportStddevFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportStddevPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportStddevPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportStddevPopFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportStddevPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportStddevPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportStddevSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportStddevSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportStddevSampFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportStddevSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportStddevSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportSumFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportSumFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportSumFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportSumFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportSumFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportVarPopFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportVarPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportVarPopFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportVarPopFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportVarPopFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportVarSampFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportVarSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportVarSampFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportVarSampFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportVarSampFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int)
+	fc.Result = res
+	return ec.marshalOInt2ᚖint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportVarianceFields_id(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportVarianceFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.ID, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*int64)
+	fc.Result = res
+	return ec.marshalOBigint2ᚖint64(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _DriverIdentityInfoReportVarianceFields_ic_card_status(ctx context.Context, field graphql.CollectedField, obj *model.DriverIdentityInfoReportVarianceFields) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "DriverIdentityInfoReportVarianceFields",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.IcCardStatus, nil
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -32092,240 +32078,6 @@ func (ec *executionContext) _Mutation_update_driver_fingerprint_association_by_p
 	return ec.marshalODriverFingerprintAssociation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Mutation_delete_driver_id_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_driver_id_info_report_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteDriverIDInfoReport(rctx, args["where"].(model.DriverIDInfoReportBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportMutationResponse)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_delete_driver_id_info_report_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_delete_driver_id_info_report_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().DeleteDriverIDInfoReportByPk(rctx, args["id"].(int64))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReport)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReport(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_driver_id_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_driver_id_info_report_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertDriverIDInfoReport(rctx, args["objects"].([]*model.DriverIDInfoReportInsertInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportMutationResponse)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_insert_driver_id_info_report_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_insert_driver_id_info_report_one_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().InsertDriverIDInfoReportOne(rctx, args["objects"].(model.DriverIDInfoReportInsertInput))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReport)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReport(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_driver_id_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_driver_id_info_report_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateDriverIDInfoReport(rctx, args["_inc"].(*model.DriverIDInfoReportIncInput), args["_set"].(*model.DriverIDInfoReportSetInput), args["where"].(model.DriverIDInfoReportBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportMutationResponse)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReportMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportMutationResponse(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Mutation_update_driver_id_info_report_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Mutation",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Mutation_update_driver_id_info_report_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Mutation().UpdateDriverIDInfoReportByPk(rctx, args["_inc"].(*model.DriverIDInfoReportIncInput), args["_set"].(*model.DriverIDInfoReportSetInput), args["id"].(int64))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReport)
-	fc.Result = res
-	return ec.marshalODriverIdInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReport(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Mutation_delete_driver_identity(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -32558,6 +32310,240 @@ func (ec *executionContext) _Mutation_update_driver_identity_by_pk(ctx context.C
 	res := resTmp.(*model1.DriverIdentity)
 	fc.Result = res
 	return ec.marshalODriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_driver_identity_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_driver_identity_info_report_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDriverIdentityInfoReport(rctx, args["where"].(model.DriverIdentityInfoReportBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportMutationResponse)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_driver_identity_info_report_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_driver_identity_info_report_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDriverIdentityInfoReportByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentityInfoReport)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_driver_identity_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_driver_identity_info_report_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertDriverIdentityInfoReport(rctx, args["objects"].([]*model.DriverIdentityInfoReportInsertInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportMutationResponse)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_insert_driver_identity_info_report_one(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_insert_driver_identity_info_report_one_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().InsertDriverIdentityInfoReportOne(rctx, args["objects"].(model.DriverIdentityInfoReportInsertInput))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentityInfoReport)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_driver_identity_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_driver_identity_info_report_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDriverIdentityInfoReport(rctx, args["_inc"].(*model.DriverIdentityInfoReportIncInput), args["_set"].(*model.DriverIdentityInfoReportSetInput), args["where"].(model.DriverIdentityInfoReportBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportMutationResponse)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReportMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportMutationResponse(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_driver_identity_info_report_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_driver_identity_info_report_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDriverIdentityInfoReportByPk(rctx, args["_inc"].(*model.DriverIdentityInfoReportIncInput), args["_set"].(*model.DriverIdentityInfoReportSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentityInfoReport)
+	fc.Result = res
+	return ec.marshalODriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Mutation_delete_driver_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -33280,132 +33266,6 @@ func (ec *executionContext) _Query_driver_fingerprint_association_by_pk(ctx cont
 	return ec.marshalNDriverFingerprintAssociation2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverFingerprintAssociation(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Query_driver_id_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_driver_id_info_report_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().DriverIDInfoReport(rctx, args["distinct_on"].([]model.DriverIDInfoReportSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DriverIDInfoReportOrderBy), args["where"].(*model.DriverIDInfoReportBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.([]*model.DriverIDInfoReport)
-	fc.Result = res
-	return ec.marshalNDriverIdInfoReport2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportᚄ(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_driver_id_info_report_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_driver_id_info_report_aggregate_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().DriverIDInfoReportAggregate(rctx, args["distinct_on"].([]model.DriverIDInfoReportSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DriverIDInfoReportOrderBy), args["where"].(*model.DriverIDInfoReportBoolExp))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReportAggregate)
-	fc.Result = res
-	return ec.marshalNDriverIdInfoReportAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportAggregate(ctx, field.Selections, res)
-}
-
-func (ec *executionContext) _Query_driver_id_info_report_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
-	defer func() {
-		if r := recover(); r != nil {
-			ec.Error(ctx, ec.Recover(ctx, r))
-			ret = graphql.Null
-		}
-	}()
-	fc := &graphql.FieldContext{
-		Object:     "Query",
-		Field:      field,
-		Args:       nil,
-		IsMethod:   true,
-		IsResolver: true,
-	}
-
-	ctx = graphql.WithFieldContext(ctx, fc)
-	rawArgs := field.ArgumentMap(ec.Variables)
-	args, err := ec.field_Query_driver_id_info_report_by_pk_args(ctx, rawArgs)
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	fc.Args = args
-	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
-		ctx = rctx // use context from middleware stack in children
-		return ec.resolvers.Query().DriverIDInfoReportByPk(rctx, args["id"].(int64))
-	})
-	if err != nil {
-		ec.Error(ctx, err)
-		return graphql.Null
-	}
-	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	res := resTmp.(*model.DriverIDInfoReport)
-	fc.Result = res
-	return ec.marshalNDriverIdInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReport(ctx, field.Selections, res)
-}
-
 func (ec *executionContext) _Query_driver_identity(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -33530,6 +33390,132 @@ func (ec *executionContext) _Query_driver_identity_by_pk(ctx context.Context, fi
 	res := resTmp.(*model1.DriverIdentity)
 	fc.Result = res
 	return ec.marshalNDriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_driver_identity_info_report(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driver_identity_info_report_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DriverIdentityInfoReport(rctx, args["distinct_on"].([]model.DriverIdentityInfoReportSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DriverIdentityInfoReportOrderBy), args["where"].(*model.DriverIdentityInfoReportBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.([]*model1.DriverIdentityInfoReport)
+	fc.Result = res
+	return ec.marshalNDriverIdentityInfoReport2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReportᚄ(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_driver_identity_info_report_aggregate(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driver_identity_info_report_aggregate_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DriverIdentityInfoReportAggregate(rctx, args["distinct_on"].([]model.DriverIdentityInfoReportSelectColumn), args["limit"].(*int), args["offset"].(*int), args["order_by"].([]*model.DriverIdentityInfoReportOrderBy), args["where"].(*model.DriverIdentityInfoReportBoolExp))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.DriverIdentityInfoReportAggregate)
+	fc.Result = res
+	return ec.marshalNDriverIdentityInfoReportAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportAggregate(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_driver_identity_info_report_by_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driver_identity_info_report_by_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DriverIdentityInfoReportByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverIdentityInfoReport)
+	fc.Result = res
+	return ec.marshalNDriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Query_driver_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
@@ -35276,30 +35262,6 @@ func (ec *executionContext) unmarshalInputDriverFingerprintAssociationInsertInpu
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_fingerprint_association_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_association_id"))
-			it.DriverFingerprintAssociationID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id"))
-			it.DriverID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "fingerprint_name":
 			var err error
 
@@ -35329,22 +35291,6 @@ func (ec *executionContext) unmarshalInputDriverFingerprintAssociationInsertInpu
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -35872,30 +35818,6 @@ func (ec *executionContext) unmarshalInputDriverFingerprintInsertInput(ctx conte
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_fingerprint_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_fingerprint_id"))
-			it.DriverFingerprintID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id"))
-			it.DriverID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "driver_name":
 			var err error
 
@@ -36005,22 +35927,6 @@ func (ec *executionContext) unmarshalInputDriverFingerprintInsertInput(ctx conte
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -36397,714 +36303,6 @@ func (ec *executionContext) unmarshalInputDriverFingerprintSetInput(ctx context.
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "updated_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
-			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "updated_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
-			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "deleted_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
-			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "deleted_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
-			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputDriverIdInfoReportBoolExp(ctx context.Context, obj interface{}) (model.DriverIDInfoReportBoolExp, error) {
-	var it model.DriverIDInfoReportBoolExp
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "_and":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
-			it.And, err = ec.unmarshalODriverIdInfoReportBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_not":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
-			it.Not, err = ec.unmarshalODriverIdInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "_or":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
-			it.Or, err = ec.unmarshalODriverIdInfoReportBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigintComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_id_info_report_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id_info_report_id"))
-			it.DriverIDInfoReportID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ic_card_status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
-			it.IcCardStatus, err = ec.unmarshalOIntComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operation_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operation_time"))
-			it.OperationTime, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_name"))
-			it.DriverName, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "license_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_number"))
-			it.LicenseNumber, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "imel":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
-			it.Imel, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ic_card_reading_result":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_reading_result"))
-			it.IcCardReadingResult, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "occupational_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("occupational_number"))
-			it.OccupationalNumber, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_license_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_license_name"))
-			it.DriverLicenseName, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "license_expire_date":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_expire_date"))
-			it.LicenseExpireDate, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "registration_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
-			it.RegistrationTime, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "updated_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
-			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "updated_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
-			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "deleted_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
-			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "deleted_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
-			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputDriverIdInfoReportIncInput(ctx context.Context, obj interface{}) (model.DriverIDInfoReportIncInput, error) {
-	var it model.DriverIDInfoReportIncInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ic_card_status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
-			it.IcCardStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputDriverIdInfoReportInsertInput(ctx context.Context, obj interface{}) (model.DriverIDInfoReportInsertInput, error) {
-	var it model.DriverIDInfoReportInsertInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_id_info_report_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id_info_report_id"))
-			it.DriverIDInfoReportID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ic_card_status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
-			it.IcCardStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operation_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operation_time"))
-			it.OperationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_name"))
-			it.DriverName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "license_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_number"))
-			it.LicenseNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "imel":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
-			it.Imel, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ic_card_reading_result":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_reading_result"))
-			it.IcCardReadingResult, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "occupational_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("occupational_number"))
-			it.OccupationalNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_license_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_license_name"))
-			it.DriverLicenseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "license_expire_date":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_expire_date"))
-			it.LicenseExpireDate, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "registration_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
-			it.RegistrationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "updated_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
-			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "updated_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
-			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "deleted_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
-			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "deleted_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
-			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputDriverIdInfoReportOrderBy(ctx context.Context, obj interface{}) (model.DriverIDInfoReportOrderBy, error) {
-	var it model.DriverIDInfoReportOrderBy
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_id_info_report_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id_info_report_id"))
-			it.DriverIDInfoReportID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ic_card_status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
-			it.IcCardStatus, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operation_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operation_time"))
-			it.OperationTime, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_name"))
-			it.DriverName, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "license_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_number"))
-			it.LicenseNumber, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "imel":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
-			it.Imel, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ic_card_reading_result":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_reading_result"))
-			it.IcCardReadingResult, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "occupational_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("occupational_number"))
-			it.OccupationalNumber, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_license_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_license_name"))
-			it.DriverLicenseName, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "license_expire_date":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_expire_date"))
-			it.LicenseExpireDate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "registration_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
-			it.RegistrationTime, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "updated_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
-			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "updated_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
-			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "deleted_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
-			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "deleted_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
-			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		}
-	}
-
-	return it, nil
-}
-
-func (ec *executionContext) unmarshalInputDriverIdInfoReportSetInput(ctx context.Context, obj interface{}) (model.DriverIDInfoReportSetInput, error) {
-	var it model.DriverIDInfoReportSetInput
-	var asMap = obj.(map[string]interface{})
-
-	for k, v := range asMap {
-		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_id_info_report_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id_info_report_id"))
-			it.DriverIDInfoReportID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ic_card_status":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
-			it.IcCardStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "operation_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operation_time"))
-			it.OperationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_name"))
-			it.DriverName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "license_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_number"))
-			it.LicenseNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "imel":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
-			it.Imel, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "ic_card_reading_result":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_reading_result"))
-			it.IcCardReadingResult, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "occupational_number":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("occupational_number"))
-			it.OccupationalNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_license_name":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_license_name"))
-			it.DriverLicenseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "license_expire_date":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_expire_date"))
-			it.LicenseExpireDate, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "registration_time":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
-			it.RegistrationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -37554,8 +36752,196 @@ func (ec *executionContext) unmarshalInputDriverIdentityIncInput(ctx context.Con
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputDriverIdentityInsertInput(ctx context.Context, obj interface{}) (model.DriverIdentityInsertInput, error) {
-	var it model.DriverIdentityInsertInput
+func (ec *executionContext) unmarshalInputDriverIdentityInfoReportBoolExp(ctx context.Context, obj interface{}) (model.DriverIdentityInfoReportBoolExp, error) {
+	var it model.DriverIdentityInfoReportBoolExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_and":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_and"))
+			it.And, err = ec.unmarshalODriverIdentityInfoReportBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_not":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_not"))
+			it.Not, err = ec.unmarshalODriverIdentityInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_or":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_or"))
+			it.Or, err = ec.unmarshalODriverIdentityInfoReportBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOBigintComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐBigintComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_identity_info_report_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_identity_info_report_id"))
+			it.DriverIdentityInfoReportID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "ic_card_status":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
+			it.IcCardStatus, err = ec.unmarshalOIntComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐIntComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operation_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operation_time"))
+			it.OperationTime, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_name"))
+			it.DriverName, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "license_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_number"))
+			it.LicenseNumber, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imel":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
+			it.Imel, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "ic_card_reading_result":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_reading_result"))
+			it.IcCardReadingResult, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "occupational_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("occupational_number"))
+			it.OccupationalNumber, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_license_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_license_name"))
+			it.DriverLicenseName, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "license_expire_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_expire_date"))
+			it.LicenseExpireDate, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "registration_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
+			it.RegistrationTime, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptzComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐTimestamptzComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOStringComparisonExp2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐStringComparisonExp(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputDriverIdentityInfoReportIncInput(ctx context.Context, obj interface{}) (model.DriverIdentityInfoReportIncInput, error) {
+	var it model.DriverIdentityInfoReportIncInput
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -37568,14 +36954,478 @@ func (ec *executionContext) unmarshalInputDriverIdentityInsertInput(ctx context.
 			if err != nil {
 				return it, err
 			}
-		case "identity_id":
+		case "ic_card_status":
 			var err error
 
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("identity_id"))
-			it.IdentityID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
+			it.IcCardStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
 			if err != nil {
 				return it, err
 			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputDriverIdentityInfoReportInsertInput(ctx context.Context, obj interface{}) (model.DriverIdentityInfoReportInsertInput, error) {
+	var it model.DriverIdentityInfoReportInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "ic_card_status":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
+			it.IcCardStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operation_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operation_time"))
+			it.OperationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_name"))
+			it.DriverName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "license_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_number"))
+			it.LicenseNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imel":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
+			it.Imel, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "ic_card_reading_result":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_reading_result"))
+			it.IcCardReadingResult, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "occupational_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("occupational_number"))
+			it.OccupationalNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_license_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_license_name"))
+			it.DriverLicenseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "license_expire_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_expire_date"))
+			it.LicenseExpireDate, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "registration_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
+			it.RegistrationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputDriverIdentityInfoReportOrderBy(ctx context.Context, obj interface{}) (model.DriverIdentityInfoReportOrderBy, error) {
+	var it model.DriverIdentityInfoReportOrderBy
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_identity_info_report_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_identity_info_report_id"))
+			it.DriverIdentityInfoReportID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "ic_card_status":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
+			it.IcCardStatus, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operation_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operation_time"))
+			it.OperationTime, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_name"))
+			it.DriverName, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "license_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_number"))
+			it.LicenseNumber, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imel":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
+			it.Imel, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "ic_card_reading_result":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_reading_result"))
+			it.IcCardReadingResult, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "occupational_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("occupational_number"))
+			it.OccupationalNumber, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_license_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_license_name"))
+			it.DriverLicenseName, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "license_expire_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_expire_date"))
+			it.LicenseExpireDate, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "registration_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
+			it.RegistrationTime, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOOrderBy2ᚖVehicleSupervisionᚋpkgᚋgraphqlᚋmodelᚐOrderBy(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputDriverIdentityInfoReportSetInput(ctx context.Context, obj interface{}) (model.DriverIdentityInfoReportSetInput, error) {
+	var it model.DriverIdentityInfoReportSetInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
+			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_identity_info_report_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_identity_info_report_id"))
+			it.DriverIdentityInfoReportID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "vehicle_id":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
+			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "ic_card_status":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_status"))
+			it.IcCardStatus, err = ec.unmarshalOInt2ᚖint(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "operation_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("operation_time"))
+			it.OperationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_name"))
+			it.DriverName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "license_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_number"))
+			it.LicenseNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "imel":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("imel"))
+			it.Imel, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "ic_card_reading_result":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ic_card_reading_result"))
+			it.IcCardReadingResult, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "occupational_number":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("occupational_number"))
+			it.OccupationalNumber, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "driver_license_name":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_license_name"))
+			it.DriverLicenseName, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "license_expire_date":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("license_expire_date"))
+			it.LicenseExpireDate, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "registration_time":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
+			it.RegistrationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
+			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "created_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
+			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_at"))
+			it.UpdatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "updated_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("updated_by"))
+			it.UpdatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_at":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_at"))
+			it.DeletedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "deleted_by":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
+			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputDriverIdentityInsertInput(ctx context.Context, obj interface{}) (model.DriverIdentityInsertInput, error) {
+	var it model.DriverIdentityInsertInput
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
 		case "id_card_num":
 			var err error
 
@@ -37813,22 +37663,6 @@ func (ec *executionContext) unmarshalInputDriverIdentityInsertInput(ctx context.
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_review"))
 			it.IsReview, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -38892,22 +38726,6 @@ func (ec *executionContext) unmarshalInputDriverInfoInsertInput(ctx context.Cont
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id"))
-			it.DriverID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "enterprise_id":
 			var err error
 
@@ -39137,22 +38955,6 @@ func (ec *executionContext) unmarshalInputDriverInfoInsertInput(ctx context.Cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("blacklist_deadline"))
 			it.BlacklistDeadline, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -40032,30 +39834,6 @@ func (ec *executionContext) unmarshalInputDrivingLicenseRegistrationInspectionIn
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "driver_id_info_report_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("driver_id_info_report_id"))
-			it.DriverIDInfoReportID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_id"))
-			it.VehicleID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "ic_card_status":
 			var err error
 
@@ -40133,22 +39911,6 @@ func (ec *executionContext) unmarshalInputDrivingLicenseRegistrationInspectionIn
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("registration_time"))
 			it.RegistrationTime, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -40509,6 +40271,90 @@ func (ec *executionContext) unmarshalInputDrivingLicenseRegistrationInspectionSe
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("deleted_by"))
 			it.DeletedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
+	var it model1.FloatComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -42056,509 +41902,6 @@ func (ec *executionContext) _DriverFingerprintVarianceFields(ctx context.Context
 	return out
 }
 
-var driverIdInfoReportImplementors = []string{"DriverIdInfoReport"}
-
-func (ec *executionContext) _DriverIdInfoReport(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReport) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReport")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReport_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "driver_id_info_report_id":
-			out.Values[i] = ec._DriverIdInfoReport_driver_id_info_report_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "vehicle_id":
-			out.Values[i] = ec._DriverIdInfoReport_vehicle_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReport_ic_card_status(ctx, field, obj)
-		case "operation_time":
-			out.Values[i] = ec._DriverIdInfoReport_operation_time(ctx, field, obj)
-		case "driver_name":
-			out.Values[i] = ec._DriverIdInfoReport_driver_name(ctx, field, obj)
-		case "license_number":
-			out.Values[i] = ec._DriverIdInfoReport_license_number(ctx, field, obj)
-		case "imel":
-			out.Values[i] = ec._DriverIdInfoReport_imel(ctx, field, obj)
-		case "ic_card_reading_result":
-			out.Values[i] = ec._DriverIdInfoReport_ic_card_reading_result(ctx, field, obj)
-		case "occupational_number":
-			out.Values[i] = ec._DriverIdInfoReport_occupational_number(ctx, field, obj)
-		case "driver_license_name":
-			out.Values[i] = ec._DriverIdInfoReport_driver_license_name(ctx, field, obj)
-		case "license_expire_date":
-			out.Values[i] = ec._DriverIdInfoReport_license_expire_date(ctx, field, obj)
-		case "registration_time":
-			out.Values[i] = ec._DriverIdInfoReport_registration_time(ctx, field, obj)
-		case "created_at":
-			out.Values[i] = ec._DriverIdInfoReport_created_at(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "created_by":
-			out.Values[i] = ec._DriverIdInfoReport_created_by(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "updated_at":
-			out.Values[i] = ec._DriverIdInfoReport_updated_at(ctx, field, obj)
-		case "updated_by":
-			out.Values[i] = ec._DriverIdInfoReport_updated_by(ctx, field, obj)
-		case "deleted_at":
-			out.Values[i] = ec._DriverIdInfoReport_deleted_at(ctx, field, obj)
-		case "deleted_by":
-			out.Values[i] = ec._DriverIdInfoReport_deleted_by(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportAggregateImplementors = []string{"DriverIdInfoReportAggregate"}
-
-func (ec *executionContext) _DriverIdInfoReportAggregate(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportAggregate) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportAggregateImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportAggregate")
-		case "aggregate":
-			out.Values[i] = ec._DriverIdInfoReportAggregate_aggregate(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportAggregateFieldsImplementors = []string{"DriverIdInfoReportAggregateFields"}
-
-func (ec *executionContext) _DriverIdInfoReportAggregateFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportAggregateFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportAggregateFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportAggregateFields")
-		case "avg":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_avg(ctx, field, obj)
-		case "count":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_count(ctx, field, obj)
-		case "max":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_max(ctx, field, obj)
-		case "min":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_min(ctx, field, obj)
-		case "stddev":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_stddev(ctx, field, obj)
-		case "stddev_pop":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_stddev_pop(ctx, field, obj)
-		case "stddev_samp":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_stddev_samp(ctx, field, obj)
-		case "sum":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_sum(ctx, field, obj)
-		case "var_pop":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_var_pop(ctx, field, obj)
-		case "var_samp":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_var_samp(ctx, field, obj)
-		case "variance":
-			out.Values[i] = ec._DriverIdInfoReportAggregateFields_variance(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportAvgFieldsImplementors = []string{"DriverIdInfoReportAvgFields"}
-
-func (ec *executionContext) _DriverIdInfoReportAvgFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportAvgFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportAvgFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportAvgFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportAvgFields_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportAvgFields_ic_card_status(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportMaxFieldsImplementors = []string{"DriverIdInfoReportMaxFields"}
-
-func (ec *executionContext) _DriverIdInfoReportMaxFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportMaxFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportMaxFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportMaxFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_id(ctx, field, obj)
-		case "driver_id_info_report_id":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_driver_id_info_report_id(ctx, field, obj)
-		case "vehicle_id":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_vehicle_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_ic_card_status(ctx, field, obj)
-		case "operation_time":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_operation_time(ctx, field, obj)
-		case "driver_name":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_driver_name(ctx, field, obj)
-		case "license_number":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_license_number(ctx, field, obj)
-		case "imel":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_imel(ctx, field, obj)
-		case "ic_card_reading_result":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_ic_card_reading_result(ctx, field, obj)
-		case "occupational_number":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_occupational_number(ctx, field, obj)
-		case "driver_license_name":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_driver_license_name(ctx, field, obj)
-		case "license_expire_date":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_license_expire_date(ctx, field, obj)
-		case "registration_time":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_registration_time(ctx, field, obj)
-		case "created_at":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_created_at(ctx, field, obj)
-		case "created_by":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_created_by(ctx, field, obj)
-		case "updated_at":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_updated_at(ctx, field, obj)
-		case "updated_by":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_updated_by(ctx, field, obj)
-		case "deleted_at":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_deleted_at(ctx, field, obj)
-		case "deleted_by":
-			out.Values[i] = ec._DriverIdInfoReportMaxFields_deleted_by(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportMinFieldsImplementors = []string{"DriverIdInfoReportMinFields"}
-
-func (ec *executionContext) _DriverIdInfoReportMinFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportMinFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportMinFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportMinFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_id(ctx, field, obj)
-		case "driver_id_info_report_id":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_driver_id_info_report_id(ctx, field, obj)
-		case "vehicle_id":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_vehicle_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_ic_card_status(ctx, field, obj)
-		case "operation_time":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_operation_time(ctx, field, obj)
-		case "driver_name":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_driver_name(ctx, field, obj)
-		case "license_number":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_license_number(ctx, field, obj)
-		case "imel":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_imel(ctx, field, obj)
-		case "ic_card_reading_result":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_ic_card_reading_result(ctx, field, obj)
-		case "occupational_number":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_occupational_number(ctx, field, obj)
-		case "driver_license_name":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_driver_license_name(ctx, field, obj)
-		case "license_expire_date":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_license_expire_date(ctx, field, obj)
-		case "registration_time":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_registration_time(ctx, field, obj)
-		case "created_at":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_created_at(ctx, field, obj)
-		case "created_by":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_created_by(ctx, field, obj)
-		case "updated_at":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_updated_at(ctx, field, obj)
-		case "updated_by":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_updated_by(ctx, field, obj)
-		case "deleted_at":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_deleted_at(ctx, field, obj)
-		case "deleted_by":
-			out.Values[i] = ec._DriverIdInfoReportMinFields_deleted_by(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportMutationResponseImplementors = []string{"DriverIdInfoReportMutationResponse"}
-
-func (ec *executionContext) _DriverIdInfoReportMutationResponse(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportMutationResponse) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportMutationResponseImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportMutationResponse")
-		case "affected_rows":
-			out.Values[i] = ec._DriverIdInfoReportMutationResponse_affected_rows(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "returning":
-			out.Values[i] = ec._DriverIdInfoReportMutationResponse_returning(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportStddevFieldsImplementors = []string{"DriverIdInfoReportStddevFields"}
-
-func (ec *executionContext) _DriverIdInfoReportStddevFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportStddevFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportStddevFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportStddevFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportStddevFields_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportStddevFields_ic_card_status(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportStddevPopFieldsImplementors = []string{"DriverIdInfoReportStddevPopFields"}
-
-func (ec *executionContext) _DriverIdInfoReportStddevPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportStddevPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportStddevPopFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportStddevPopFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportStddevPopFields_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportStddevPopFields_ic_card_status(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportStddevSampFieldsImplementors = []string{"DriverIdInfoReportStddevSampFields"}
-
-func (ec *executionContext) _DriverIdInfoReportStddevSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportStddevSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportStddevSampFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportStddevSampFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportStddevSampFields_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportStddevSampFields_ic_card_status(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportSumFieldsImplementors = []string{"DriverIdInfoReportSumFields"}
-
-func (ec *executionContext) _DriverIdInfoReportSumFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportSumFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportSumFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportSumFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportSumFields_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportSumFields_ic_card_status(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportVarPopFieldsImplementors = []string{"DriverIdInfoReportVarPopFields"}
-
-func (ec *executionContext) _DriverIdInfoReportVarPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportVarPopFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportVarPopFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportVarPopFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportVarPopFields_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportVarPopFields_ic_card_status(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportVarSampFieldsImplementors = []string{"DriverIdInfoReportVarSampFields"}
-
-func (ec *executionContext) _DriverIdInfoReportVarSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportVarSampFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportVarSampFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportVarSampFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportVarSampFields_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportVarSampFields_ic_card_status(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
-var driverIdInfoReportVarianceFieldsImplementors = []string{"DriverIdInfoReportVarianceFields"}
-
-func (ec *executionContext) _DriverIdInfoReportVarianceFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIDInfoReportVarianceFields) graphql.Marshaler {
-	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdInfoReportVarianceFieldsImplementors)
-
-	out := graphql.NewFieldSet(fields)
-	var invalids uint32
-	for i, field := range fields {
-		switch field.Name {
-		case "__typename":
-			out.Values[i] = graphql.MarshalString("DriverIdInfoReportVarianceFields")
-		case "id":
-			out.Values[i] = ec._DriverIdInfoReportVarianceFields_id(ctx, field, obj)
-		case "ic_card_status":
-			out.Values[i] = ec._DriverIdInfoReportVarianceFields_ic_card_status(ctx, field, obj)
-		default:
-			panic("unknown field " + strconv.Quote(field.Name))
-		}
-	}
-	out.Dispatch()
-	if invalids > 0 {
-		return graphql.Null
-	}
-	return out
-}
-
 var driverIdentityImplementors = []string{"DriverIdentity"}
 
 func (ec *executionContext) _DriverIdentity(ctx context.Context, sel ast.SelectionSet, obj *model1.DriverIdentity) graphql.Marshaler {
@@ -42758,6 +42101,509 @@ func (ec *executionContext) _DriverIdentityAvgFields(ctx context.Context, sel as
 			out.Values[i] = ec._DriverIdentityAvgFields_quasi_driving_models(ctx, field, obj)
 		case "driver_license_status":
 			out.Values[i] = ec._DriverIdentityAvgFields_driver_license_status(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportImplementors = []string{"DriverIdentityInfoReport"}
+
+func (ec *executionContext) _DriverIdentityInfoReport(ctx context.Context, sel ast.SelectionSet, obj *model1.DriverIdentityInfoReport) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReport")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReport_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "driver_identity_info_report_id":
+			out.Values[i] = ec._DriverIdentityInfoReport_driver_identity_info_report_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "vehicle_id":
+			out.Values[i] = ec._DriverIdentityInfoReport_vehicle_id(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReport_ic_card_status(ctx, field, obj)
+		case "operation_time":
+			out.Values[i] = ec._DriverIdentityInfoReport_operation_time(ctx, field, obj)
+		case "driver_name":
+			out.Values[i] = ec._DriverIdentityInfoReport_driver_name(ctx, field, obj)
+		case "license_number":
+			out.Values[i] = ec._DriverIdentityInfoReport_license_number(ctx, field, obj)
+		case "imel":
+			out.Values[i] = ec._DriverIdentityInfoReport_imel(ctx, field, obj)
+		case "ic_card_reading_result":
+			out.Values[i] = ec._DriverIdentityInfoReport_ic_card_reading_result(ctx, field, obj)
+		case "occupational_number":
+			out.Values[i] = ec._DriverIdentityInfoReport_occupational_number(ctx, field, obj)
+		case "driver_license_name":
+			out.Values[i] = ec._DriverIdentityInfoReport_driver_license_name(ctx, field, obj)
+		case "license_expire_date":
+			out.Values[i] = ec._DriverIdentityInfoReport_license_expire_date(ctx, field, obj)
+		case "registration_time":
+			out.Values[i] = ec._DriverIdentityInfoReport_registration_time(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DriverIdentityInfoReport_created_at(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "created_by":
+			out.Values[i] = ec._DriverIdentityInfoReport_created_by(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "updated_at":
+			out.Values[i] = ec._DriverIdentityInfoReport_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DriverIdentityInfoReport_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DriverIdentityInfoReport_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DriverIdentityInfoReport_deleted_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportAggregateImplementors = []string{"DriverIdentityInfoReportAggregate"}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregate(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportAggregate) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportAggregateImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportAggregate")
+		case "aggregate":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregate_aggregate(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportAggregateFieldsImplementors = []string{"DriverIdentityInfoReportAggregateFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportAggregateFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportAggregateFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportAggregateFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportAggregateFields")
+		case "avg":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_avg(ctx, field, obj)
+		case "count":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_count(ctx, field, obj)
+		case "max":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_max(ctx, field, obj)
+		case "min":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_min(ctx, field, obj)
+		case "stddev":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_stddev(ctx, field, obj)
+		case "stddev_pop":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_stddev_pop(ctx, field, obj)
+		case "stddev_samp":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_stddev_samp(ctx, field, obj)
+		case "sum":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_sum(ctx, field, obj)
+		case "var_pop":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_var_pop(ctx, field, obj)
+		case "var_samp":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_var_samp(ctx, field, obj)
+		case "variance":
+			out.Values[i] = ec._DriverIdentityInfoReportAggregateFields_variance(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportAvgFieldsImplementors = []string{"DriverIdentityInfoReportAvgFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportAvgFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportAvgFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportAvgFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportAvgFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportAvgFields_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportAvgFields_ic_card_status(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportMaxFieldsImplementors = []string{"DriverIdentityInfoReportMaxFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportMaxFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportMaxFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportMaxFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportMaxFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_id(ctx, field, obj)
+		case "driver_identity_info_report_id":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_driver_identity_info_report_id(ctx, field, obj)
+		case "vehicle_id":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_vehicle_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_ic_card_status(ctx, field, obj)
+		case "operation_time":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_operation_time(ctx, field, obj)
+		case "driver_name":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_driver_name(ctx, field, obj)
+		case "license_number":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_license_number(ctx, field, obj)
+		case "imel":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_imel(ctx, field, obj)
+		case "ic_card_reading_result":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_ic_card_reading_result(ctx, field, obj)
+		case "occupational_number":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_occupational_number(ctx, field, obj)
+		case "driver_license_name":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_driver_license_name(ctx, field, obj)
+		case "license_expire_date":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_license_expire_date(ctx, field, obj)
+		case "registration_time":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_registration_time(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DriverIdentityInfoReportMaxFields_deleted_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportMinFieldsImplementors = []string{"DriverIdentityInfoReportMinFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportMinFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportMinFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportMinFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportMinFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_id(ctx, field, obj)
+		case "driver_identity_info_report_id":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_driver_identity_info_report_id(ctx, field, obj)
+		case "vehicle_id":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_vehicle_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_ic_card_status(ctx, field, obj)
+		case "operation_time":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_operation_time(ctx, field, obj)
+		case "driver_name":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_driver_name(ctx, field, obj)
+		case "license_number":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_license_number(ctx, field, obj)
+		case "imel":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_imel(ctx, field, obj)
+		case "ic_card_reading_result":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_ic_card_reading_result(ctx, field, obj)
+		case "occupational_number":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_occupational_number(ctx, field, obj)
+		case "driver_license_name":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_driver_license_name(ctx, field, obj)
+		case "license_expire_date":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_license_expire_date(ctx, field, obj)
+		case "registration_time":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_registration_time(ctx, field, obj)
+		case "created_at":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_created_at(ctx, field, obj)
+		case "created_by":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_created_by(ctx, field, obj)
+		case "updated_at":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_updated_at(ctx, field, obj)
+		case "updated_by":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_updated_by(ctx, field, obj)
+		case "deleted_at":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_deleted_at(ctx, field, obj)
+		case "deleted_by":
+			out.Values[i] = ec._DriverIdentityInfoReportMinFields_deleted_by(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportMutationResponseImplementors = []string{"DriverIdentityInfoReportMutationResponse"}
+
+func (ec *executionContext) _DriverIdentityInfoReportMutationResponse(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportMutationResponse) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportMutationResponseImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportMutationResponse")
+		case "affected_rows":
+			out.Values[i] = ec._DriverIdentityInfoReportMutationResponse_affected_rows(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		case "returning":
+			out.Values[i] = ec._DriverIdentityInfoReportMutationResponse_returning(ctx, field, obj)
+			if out.Values[i] == graphql.Null {
+				invalids++
+			}
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportStddevFieldsImplementors = []string{"DriverIdentityInfoReportStddevFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportStddevFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportStddevFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportStddevFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportStddevFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportStddevFields_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportStddevFields_ic_card_status(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportStddevPopFieldsImplementors = []string{"DriverIdentityInfoReportStddevPopFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportStddevPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportStddevPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportStddevPopFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportStddevPopFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportStddevPopFields_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportStddevPopFields_ic_card_status(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportStddevSampFieldsImplementors = []string{"DriverIdentityInfoReportStddevSampFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportStddevSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportStddevSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportStddevSampFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportStddevSampFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportStddevSampFields_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportStddevSampFields_ic_card_status(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportSumFieldsImplementors = []string{"DriverIdentityInfoReportSumFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportSumFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportSumFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportSumFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportSumFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportSumFields_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportSumFields_ic_card_status(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportVarPopFieldsImplementors = []string{"DriverIdentityInfoReportVarPopFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportVarPopFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportVarPopFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportVarPopFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportVarPopFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportVarPopFields_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportVarPopFields_ic_card_status(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportVarSampFieldsImplementors = []string{"DriverIdentityInfoReportVarSampFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportVarSampFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportVarSampFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportVarSampFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportVarSampFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportVarSampFields_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportVarSampFields_ic_card_status(ctx, field, obj)
+		default:
+			panic("unknown field " + strconv.Quote(field.Name))
+		}
+	}
+	out.Dispatch()
+	if invalids > 0 {
+		return graphql.Null
+	}
+	return out
+}
+
+var driverIdentityInfoReportVarianceFieldsImplementors = []string{"DriverIdentityInfoReportVarianceFields"}
+
+func (ec *executionContext) _DriverIdentityInfoReportVarianceFields(ctx context.Context, sel ast.SelectionSet, obj *model.DriverIdentityInfoReportVarianceFields) graphql.Marshaler {
+	fields := graphql.CollectFields(ec.OperationContext, sel, driverIdentityInfoReportVarianceFieldsImplementors)
+
+	out := graphql.NewFieldSet(fields)
+	var invalids uint32
+	for i, field := range fields {
+		switch field.Name {
+		case "__typename":
+			out.Values[i] = graphql.MarshalString("DriverIdentityInfoReportVarianceFields")
+		case "id":
+			out.Values[i] = ec._DriverIdentityInfoReportVarianceFields_id(ctx, field, obj)
+		case "ic_card_status":
+			out.Values[i] = ec._DriverIdentityInfoReportVarianceFields_ic_card_status(ctx, field, obj)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -44361,18 +44207,6 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_driver_fingerprint_association(ctx, field)
 		case "update_driver_fingerprint_association_by_pk":
 			out.Values[i] = ec._Mutation_update_driver_fingerprint_association_by_pk(ctx, field)
-		case "delete_driver_id_info_report":
-			out.Values[i] = ec._Mutation_delete_driver_id_info_report(ctx, field)
-		case "delete_driver_id_info_report_by_pk":
-			out.Values[i] = ec._Mutation_delete_driver_id_info_report_by_pk(ctx, field)
-		case "insert_driver_id_info_report":
-			out.Values[i] = ec._Mutation_insert_driver_id_info_report(ctx, field)
-		case "insert_driver_id_info_report_one":
-			out.Values[i] = ec._Mutation_insert_driver_id_info_report_one(ctx, field)
-		case "update_driver_id_info_report":
-			out.Values[i] = ec._Mutation_update_driver_id_info_report(ctx, field)
-		case "update_driver_id_info_report_by_pk":
-			out.Values[i] = ec._Mutation_update_driver_id_info_report_by_pk(ctx, field)
 		case "delete_driver_identity":
 			out.Values[i] = ec._Mutation_delete_driver_identity(ctx, field)
 		case "delete_driver_identity_by_pk":
@@ -44385,6 +44219,18 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_driver_identity(ctx, field)
 		case "update_driver_identity_by_pk":
 			out.Values[i] = ec._Mutation_update_driver_identity_by_pk(ctx, field)
+		case "delete_driver_identity_info_report":
+			out.Values[i] = ec._Mutation_delete_driver_identity_info_report(ctx, field)
+		case "delete_driver_identity_info_report_by_pk":
+			out.Values[i] = ec._Mutation_delete_driver_identity_info_report_by_pk(ctx, field)
+		case "insert_driver_identity_info_report":
+			out.Values[i] = ec._Mutation_insert_driver_identity_info_report(ctx, field)
+		case "insert_driver_identity_info_report_one":
+			out.Values[i] = ec._Mutation_insert_driver_identity_info_report_one(ctx, field)
+		case "update_driver_identity_info_report":
+			out.Values[i] = ec._Mutation_update_driver_identity_info_report(ctx, field)
+		case "update_driver_identity_info_report_by_pk":
+			out.Values[i] = ec._Mutation_update_driver_identity_info_report_by_pk(ctx, field)
 		case "delete_driver_info":
 			out.Values[i] = ec._Mutation_delete_driver_info(ctx, field)
 		case "delete_driver_info_by_pk":
@@ -44519,48 +44365,6 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
-		case "driver_id_info_report":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_driver_id_info_report(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "driver_id_info_report_aggregate":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_driver_id_info_report_aggregate(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
-		case "driver_id_info_report_by_pk":
-			field := field
-			out.Concurrently(i, func() (res graphql.Marshaler) {
-				defer func() {
-					if r := recover(); r != nil {
-						ec.Error(ctx, ec.Recover(ctx, r))
-					}
-				}()
-				res = ec._Query_driver_id_info_report_by_pk(ctx, field)
-				if res == graphql.Null {
-					atomic.AddUint32(&invalids, 1)
-				}
-				return res
-			})
 		case "driver_identity":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -44598,6 +44402,48 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_identity_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "driver_identity_info_report":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driver_identity_info_report(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "driver_identity_info_report_aggregate":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driver_identity_info_report_aggregate(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "driver_identity_info_report_by_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driver_identity_info_report_by_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -45209,122 +45055,6 @@ func (ec *executionContext) marshalNDriverFingerprintSelectColumn2VehicleSupervi
 	return v
 }
 
-func (ec *executionContext) marshalNDriverIdInfoReport2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReport(ctx context.Context, sel ast.SelectionSet, v model.DriverIDInfoReport) graphql.Marshaler {
-	return ec._DriverIdInfoReport(ctx, sel, &v)
-}
-
-func (ec *executionContext) marshalNDriverIdInfoReport2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportᚄ(ctx context.Context, sel ast.SelectionSet, v []*model.DriverIDInfoReport) graphql.Marshaler {
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNDriverIdInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReport(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
-func (ec *executionContext) marshalNDriverIdInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReport(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReport) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReport(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalNDriverIdInfoReportAggregate2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportAggregate(ctx context.Context, sel ast.SelectionSet, v model.DriverIDInfoReportAggregate) graphql.Marshaler {
-	return ec._DriverIdInfoReportAggregate(ctx, sel, &v)
-}
-
-func (ec *executionContext) marshalNDriverIdInfoReportAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportAggregate(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportAggregate) graphql.Marshaler {
-	if v == nil {
-		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
-			ec.Errorf(ctx, "must not be null")
-		}
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportAggregate(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalNDriverIdInfoReportBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx context.Context, v interface{}) (model.DriverIDInfoReportBoolExp, error) {
-	res, err := ec.unmarshalInputDriverIdInfoReportBoolExp(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNDriverIdInfoReportInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportInsertInput(ctx context.Context, v interface{}) (model.DriverIDInfoReportInsertInput, error) {
-	res, err := ec.unmarshalInputDriverIdInfoReportInsertInput(ctx, v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNDriverIdInfoReportInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.DriverIDInfoReportInsertInput, error) {
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.DriverIDInfoReportInsertInput, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNDriverIdInfoReportInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportInsertInput(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalNDriverIdInfoReportInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportInsertInput(ctx context.Context, v interface{}) (*model.DriverIDInfoReportInsertInput, error) {
-	res, err := ec.unmarshalInputDriverIdInfoReportInsertInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNDriverIdInfoReportOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportOrderBy(ctx context.Context, v interface{}) (*model.DriverIDInfoReportOrderBy, error) {
-	res, err := ec.unmarshalInputDriverIdInfoReportOrderBy(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalNDriverIdInfoReportSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSelectColumn(ctx context.Context, v interface{}) (model.DriverIDInfoReportSelectColumn, error) {
-	var res model.DriverIDInfoReportSelectColumn
-	err := res.UnmarshalGQL(v)
-	return res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalNDriverIdInfoReportSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DriverIDInfoReportSelectColumn) graphql.Marshaler {
-	return v
-}
-
 func (ec *executionContext) marshalNDriverIdentity2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx context.Context, sel ast.SelectionSet, v model1.DriverIdentity) graphql.Marshaler {
 	return ec._DriverIdentity(ctx, sel, &v)
 }
@@ -45393,6 +45123,122 @@ func (ec *executionContext) marshalNDriverIdentityAggregate2ᚖVehicleSupervisio
 func (ec *executionContext) unmarshalNDriverIdentityBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityBoolExp(ctx context.Context, v interface{}) (model.DriverIdentityBoolExp, error) {
 	res, err := ec.unmarshalInputDriverIdentityBoolExp(ctx, v)
 	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNDriverIdentityInfoReport2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx context.Context, sel ast.SelectionSet, v model1.DriverIdentityInfoReport) graphql.Marshaler {
+	return ec._DriverIdentityInfoReport(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNDriverIdentityInfoReport2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReportᚄ(ctx context.Context, sel ast.SelectionSet, v []*model1.DriverIdentityInfoReport) graphql.Marshaler {
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNDriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) marshalNDriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx context.Context, sel ast.SelectionSet, v *model1.DriverIdentityInfoReport) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReport(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalNDriverIdentityInfoReportAggregate2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportAggregate(ctx context.Context, sel ast.SelectionSet, v model.DriverIdentityInfoReportAggregate) graphql.Marshaler {
+	return ec._DriverIdentityInfoReportAggregate(ctx, sel, &v)
+}
+
+func (ec *executionContext) marshalNDriverIdentityInfoReportAggregate2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportAggregate(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportAggregate) graphql.Marshaler {
+	if v == nil {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportAggregate(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalNDriverIdentityInfoReportBoolExp2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx context.Context, v interface{}) (model.DriverIdentityInfoReportBoolExp, error) {
+	res, err := ec.unmarshalInputDriverIdentityInfoReportBoolExp(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNDriverIdentityInfoReportInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportInsertInput(ctx context.Context, v interface{}) (model.DriverIdentityInfoReportInsertInput, error) {
+	res, err := ec.unmarshalInputDriverIdentityInfoReportInsertInput(ctx, v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNDriverIdentityInfoReportInsertInput2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportInsertInputᚄ(ctx context.Context, v interface{}) ([]*model.DriverIdentityInfoReportInsertInput, error) {
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.DriverIdentityInfoReportInsertInput, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNDriverIdentityInfoReportInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportInsertInput(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalNDriverIdentityInfoReportInsertInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportInsertInput(ctx context.Context, v interface{}) (*model.DriverIdentityInfoReportInsertInput, error) {
+	res, err := ec.unmarshalInputDriverIdentityInfoReportInsertInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNDriverIdentityInfoReportOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportOrderBy(ctx context.Context, v interface{}) (*model.DriverIdentityInfoReportOrderBy, error) {
+	res, err := ec.unmarshalInputDriverIdentityInfoReportOrderBy(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalNDriverIdentityInfoReportSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSelectColumn(ctx context.Context, v interface{}) (model.DriverIdentityInfoReportSelectColumn, error) {
+	var res model.DriverIdentityInfoReportSelectColumn
+	err := res.UnmarshalGQL(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNDriverIdentityInfoReportSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DriverIdentityInfoReportSelectColumn) graphql.Marshaler {
+	return v
 }
 
 func (ec *executionContext) unmarshalNDriverIdentityInsertInput2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInsertInput(ctx context.Context, v interface{}) (model.DriverIdentityInsertInput, error) {
@@ -45671,6 +45517,21 @@ func (ec *executionContext) unmarshalNDrivingLicenseRegistrationInspectionSelect
 
 func (ec *executionContext) marshalNDrivingLicenseRegistrationInspectionSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDrivingLicenseRegistrationInspectionSelectColumn(ctx context.Context, sel ast.SelectionSet, v model.DrivingLicenseRegistrationInspectionSelectColumn) graphql.Marshaler {
 	return v
+}
+
+func (ec *executionContext) unmarshalNFloat2float64(ctx context.Context, v interface{}) (float64, error) {
+	res, err := graphql.UnmarshalFloat(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNFloat2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
+	res := graphql.MarshalFloat(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
 }
 
 func (ec *executionContext) unmarshalNInt2int(ctx context.Context, v interface{}) (int, error) {
@@ -46594,233 +46455,6 @@ func (ec *executionContext) marshalODriverFingerprintVarianceFields2ᚖVehicleSu
 	return ec._DriverFingerprintVarianceFields(ctx, sel, v)
 }
 
-func (ec *executionContext) marshalODriverIdInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReport(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReport) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReport(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportAggregateFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportAggregateFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportAvgFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportAvgFields(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalODriverIdInfoReportBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx context.Context, v interface{}) ([]*model.DriverIDInfoReportBoolExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.DriverIDInfoReportBoolExp, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalODriverIdInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalODriverIdInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportBoolExp(ctx context.Context, v interface{}) (*model.DriverIDInfoReportBoolExp, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputDriverIdInfoReportBoolExp(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) unmarshalODriverIdInfoReportIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportIncInput(ctx context.Context, v interface{}) (*model.DriverIDInfoReportIncInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputDriverIdInfoReportIncInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportMaxFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportMaxFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportMinFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportMinFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportMinFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportMutationResponse) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportMutationResponse(ctx, sel, v)
-}
-
-func (ec *executionContext) unmarshalODriverIdInfoReportOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportOrderByᚄ(ctx context.Context, v interface{}) ([]*model.DriverIDInfoReportOrderBy, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]*model.DriverIDInfoReportOrderBy, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNDriverIdInfoReportOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportOrderBy(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) unmarshalODriverIdInfoReportSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.DriverIDInfoReportSelectColumn, error) {
-	if v == nil {
-		return nil, nil
-	}
-	var vSlice []interface{}
-	if v != nil {
-		if tmp1, ok := v.([]interface{}); ok {
-			vSlice = tmp1
-		} else {
-			vSlice = []interface{}{v}
-		}
-	}
-	var err error
-	res := make([]model.DriverIDInfoReportSelectColumn, len(vSlice))
-	for i := range vSlice {
-		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
-		res[i], err = ec.unmarshalNDriverIdInfoReportSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSelectColumn(ctx, vSlice[i])
-		if err != nil {
-			return nil, err
-		}
-	}
-	return res, nil
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DriverIDInfoReportSelectColumn) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	ret := make(graphql.Array, len(v))
-	var wg sync.WaitGroup
-	isLen1 := len(v) == 1
-	if !isLen1 {
-		wg.Add(len(v))
-	}
-	for i := range v {
-		i := i
-		fc := &graphql.FieldContext{
-			Index:  &i,
-			Result: &v[i],
-		}
-		ctx := graphql.WithFieldContext(ctx, fc)
-		f := func(i int) {
-			defer func() {
-				if r := recover(); r != nil {
-					ec.Error(ctx, ec.Recover(ctx, r))
-					ret = nil
-				}
-			}()
-			if !isLen1 {
-				defer wg.Done()
-			}
-			ret[i] = ec.marshalNDriverIdInfoReportSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSelectColumn(ctx, sel, v[i])
-		}
-		if isLen1 {
-			f(i)
-		} else {
-			go f(i)
-		}
-
-	}
-	wg.Wait()
-	return ret
-}
-
-func (ec *executionContext) unmarshalODriverIdInfoReportSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSetInput(ctx context.Context, v interface{}) (*model.DriverIDInfoReportSetInput, error) {
-	if v == nil {
-		return nil, nil
-	}
-	res, err := ec.unmarshalInputDriverIdInfoReportSetInput(ctx, v)
-	return &res, graphql.ErrorOnPath(ctx, err)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportStddevFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportStddevFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportStddevPopFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportStddevPopFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportStddevSampFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportStddevSampFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportSumFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportSumFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportSumFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportVarPopFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportVarPopFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportVarSampFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportVarSampFields(ctx, sel, v)
-}
-
-func (ec *executionContext) marshalODriverIdInfoReportVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIDInfoReportVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIDInfoReportVarianceFields) graphql.Marshaler {
-	if v == nil {
-		return graphql.Null
-	}
-	return ec._DriverIdInfoReportVarianceFields(ctx, sel, v)
-}
-
 func (ec *executionContext) marshalODriverIdentity2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentity(ctx context.Context, sel ast.SelectionSet, v *model1.DriverIdentity) graphql.Marshaler {
 	if v == nil {
 		return graphql.Null
@@ -46880,6 +46514,233 @@ func (ec *executionContext) unmarshalODriverIdentityIncInput2ᚖVehicleSupervisi
 	}
 	res, err := ec.unmarshalInputDriverIdentityIncInput(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReport2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋmodelᚐDriverIdentityInfoReport(ctx context.Context, sel ast.SelectionSet, v *model1.DriverIdentityInfoReport) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReport(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportAggregateFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportAggregateFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportAggregateFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportAggregateFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportAvgFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportAvgFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportAvgFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportAvgFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalODriverIdentityInfoReportBoolExp2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx context.Context, v interface{}) ([]*model.DriverIdentityInfoReportBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.DriverIdentityInfoReportBoolExp, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalODriverIdentityInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalODriverIdentityInfoReportBoolExp2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportBoolExp(ctx context.Context, v interface{}) (*model.DriverIdentityInfoReportBoolExp, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputDriverIdentityInfoReportBoolExp(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalODriverIdentityInfoReportIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportIncInput(ctx context.Context, v interface{}) (*model.DriverIdentityInfoReportIncInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputDriverIdentityInfoReportIncInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportMaxFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportMaxFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportMinFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportMinFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportMinFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportMinFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportMutationResponse2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportMutationResponse(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportMutationResponse) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportMutationResponse(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalODriverIdentityInfoReportOrderBy2ᚕᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportOrderByᚄ(ctx context.Context, v interface{}) ([]*model.DriverIdentityInfoReportOrderBy, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]*model.DriverIdentityInfoReportOrderBy, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNDriverIdentityInfoReportOrderBy2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportOrderBy(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) unmarshalODriverIdentityInfoReportSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSelectColumnᚄ(ctx context.Context, v interface{}) ([]model.DriverIdentityInfoReportSelectColumn, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]model.DriverIdentityInfoReportSelectColumn, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNDriverIdentityInfoReportSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSelectColumn(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportSelectColumn2ᚕVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSelectColumnᚄ(ctx context.Context, sel ast.SelectionSet, v []model.DriverIdentityInfoReportSelectColumn) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	var wg sync.WaitGroup
+	isLen1 := len(v) == 1
+	if !isLen1 {
+		wg.Add(len(v))
+	}
+	for i := range v {
+		i := i
+		fc := &graphql.FieldContext{
+			Index:  &i,
+			Result: &v[i],
+		}
+		ctx := graphql.WithFieldContext(ctx, fc)
+		f := func(i int) {
+			defer func() {
+				if r := recover(); r != nil {
+					ec.Error(ctx, ec.Recover(ctx, r))
+					ret = nil
+				}
+			}()
+			if !isLen1 {
+				defer wg.Done()
+			}
+			ret[i] = ec.marshalNDriverIdentityInfoReportSelectColumn2VehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSelectColumn(ctx, sel, v[i])
+		}
+		if isLen1 {
+			f(i)
+		} else {
+			go f(i)
+		}
+
+	}
+	wg.Wait()
+	return ret
+}
+
+func (ec *executionContext) unmarshalODriverIdentityInfoReportSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSetInput(ctx context.Context, v interface{}) (*model.DriverIdentityInfoReportSetInput, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := ec.unmarshalInputDriverIdentityInfoReportSetInput(ctx, v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportStddevFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportStddevFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportStddevFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportStddevFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportStddevPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportStddevPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportStddevPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportStddevPopFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportStddevSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportStddevSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportStddevSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportStddevSampFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportSumFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportSumFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportSumFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportSumFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportVarPopFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportVarPopFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportVarPopFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportVarPopFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportVarSampFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportVarSampFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportVarSampFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportVarSampFields(ctx, sel, v)
+}
+
+func (ec *executionContext) marshalODriverIdentityInfoReportVarianceFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityInfoReportVarianceFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityInfoReportVarianceFields) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return ec._DriverIdentityInfoReportVarianceFields(ctx, sel, v)
 }
 
 func (ec *executionContext) marshalODriverIdentityMaxFields2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdriverᚋgraphᚋmodelᚐDriverIdentityMaxFields(ctx context.Context, sel ast.SelectionSet, v *model.DriverIdentityMaxFields) graphql.Marshaler {
@@ -47500,6 +47361,57 @@ func (ec *executionContext) marshalODrivingLicenseRegistrationInspectionVariance
 		return graphql.Null
 	}
 	return ec._DrivingLicenseRegistrationInspectionVarianceFields(ctx, sel, v)
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]float64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNFloat2float64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOFloat2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNFloat2float64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloat(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOFloat2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalFloat(*v)
 }
 
 func (ec *executionContext) unmarshalOInt2ᚕintᚄ(ctx context.Context, v interface{}) ([]int, error) {

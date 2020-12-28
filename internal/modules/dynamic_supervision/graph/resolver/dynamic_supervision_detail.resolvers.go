@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteDynamicSupervisionDetailByPk(ctx context.Contex
 }
 
 func (r *mutationResolver) InsertDynamicSupervisionDetail(ctx context.Context, objects []*model.DynamicSupervisionDetailInsertInput) (*model.DynamicSupervisionDetailMutationResponse, error) {
-	rs := []*model1.DynamicSupervisionDetail{}
+	rs := make([]*model1.DynamicSupervisionDetail, 0)
 	for _, object := range objects {
 		v := &model1.DynamicSupervisionDetail{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DynamicSupervisionDetail{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateDynamicSupervisionDetailByPk(ctx context.Contex
 	qt := util.NewQueryTranslator(tx, &model1.DynamicSupervisionDetail{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DynamicSupervisionDetail
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) DynamicSupervisionDetail(ctx context.Context, distinctOn
 		Finish()
 	var rs []*model1.DynamicSupervisionDetail
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DynamicSupervisionDetailAggregate(ctx context.Context, distinctOn []model.DynamicSupervisionDetailSelectColumn, limit *int, offset *int, orderBy []*model.DynamicSupervisionDetailOrderBy, where *model.DynamicSupervisionDetailBoolExp) (*model.DynamicSupervisionDetailAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) DynamicSupervisionDetailAggregate(ctx context.Context, d
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DynamicSupervisionDetailByPk(ctx context.Context, Id int64) (*model1.DynamicSupervisionDetail, error) {
 	var rs model1.DynamicSupervisionDetail
 	tx := db.DB.Model(&model1.DynamicSupervisionDetail{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

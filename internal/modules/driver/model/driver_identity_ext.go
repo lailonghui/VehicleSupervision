@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DriverIdentityLoader string *VehicleSupervision/internal/modules/driver/model.DriverIdentity
 
 func (t DriverIdentity) TableName() string {
-	return "DriverIdentity"
+	return "driver_identity"
 }
 
 func (t *DriverIdentity) NewLoader() *DriverIdentityLoader {

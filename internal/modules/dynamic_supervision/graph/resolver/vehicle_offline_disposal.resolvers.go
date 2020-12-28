@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteVehicleOfflineDisposalByPk(ctx context.Context,
 }
 
 func (r *mutationResolver) InsertVehicleOfflineDisposal(ctx context.Context, objects []*model.VehicleOfflineDisposalInsertInput) (*model.VehicleOfflineDisposalMutationResponse, error) {
-	rs := []*model1.VehicleOfflineDisposal{}
+	rs := make([]*model1.VehicleOfflineDisposal, 0)
 	for _, object := range objects {
 		v := &model1.VehicleOfflineDisposal{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.VehicleOfflineDisposal{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateVehicleOfflineDisposalByPk(ctx context.Context,
 	qt := util.NewQueryTranslator(tx, &model1.VehicleOfflineDisposal{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.VehicleOfflineDisposal
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) VehicleOfflineDisposal(ctx context.Context, distinctOn [
 		Finish()
 	var rs []*model1.VehicleOfflineDisposal
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) VehicleOfflineDisposalAggregate(ctx context.Context, distinctOn []model.VehicleOfflineDisposalSelectColumn, limit *int, offset *int, orderBy []*model.VehicleOfflineDisposalOrderBy, where *model.VehicleOfflineDisposalBoolExp) (*model.VehicleOfflineDisposalAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) VehicleOfflineDisposalAggregate(ctx context.Context, dis
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) VehicleOfflineDisposalByPk(ctx context.Context, Id int64) (*model1.VehicleOfflineDisposal, error) {
 	var rs model1.VehicleOfflineDisposal
 	tx := db.DB.Model(&model1.VehicleOfflineDisposal{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden DriverPeccancyCheckLoader string *VehicleSupervision/internal/modules/vehicle_violation/model.DriverPeccancyCheck
 
 func (t DriverPeccancyCheck) TableName() string {
-	return "DriverPeccancyCheck"
+	return "driver_peccancy_check"
 }
 
 func (t *DriverPeccancyCheck) NewLoader() *DriverPeccancyCheckLoader {

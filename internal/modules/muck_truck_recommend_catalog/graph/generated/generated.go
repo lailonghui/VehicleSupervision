@@ -8876,6 +8876,20 @@ input IntComparisonExp {
 	_nin: [Int!]
 }
 """
+expression to compare columns of type Float. All fields are combined with logical 'AND'.
+"""
+input FloatComparisonExp{
+	_eq: Float
+	_gt: Float
+	_gte: Float
+	_in: [Float!]
+	_is_null: Boolean
+	_lt: Float
+	_lte: Float
+	_neq: Float
+	_nin: [Float!]
+}
+"""
 column ordering options
 """
 enum OrderBy {
@@ -8990,11 +9004,11 @@ type MuckTruckPurchaseIntention {
 	"""
 	supplier: String
 	"""
-	 购车用户姓名                                    (                                      )
+	 购车用户姓名                                    
 	"""
 	customer_name: String
 	"""
-	 购车用户电话                                    (                                      )
+	 购车用户电话                                    
 	"""
 	customer_phone: String
 	"""
@@ -9014,23 +9028,23 @@ type MuckTruckPurchaseIntention {
 	"""
 	district_id: String
 	"""
-	 运力申请                                        (                                      )
+	 运力申请                                        
 	"""
 	capacigy_application: String
 	"""
-	 品牌型号                                        (                                      )
+	 品牌型号                                        
 	"""
 	brand_model: String
 	"""
-	 购车数量                                        (                                      )
+	 购车数量                                        
 	"""
 	vehicle_purchase: Int
 	"""
-	 编码                                            (                                      )
+	 编码                                            
 	"""
 	code: String
 	"""
-	 登记日期                                        (                                      )
+	 登记日期                                        
 	"""
 	registration_time: Timestamptz
 	"""
@@ -9038,19 +9052,19 @@ type MuckTruckPurchaseIntention {
 	"""
 	registration_user: String
 	"""
-	 审核                                            (                                      )
+	 审核                                            
 	"""
 	review: String
 	"""
-	 备注                                            (                                      )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 是否删除                                        (                                      )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -9058,7 +9072,7 @@ type MuckTruckPurchaseIntention {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -9066,7 +9080,7 @@ type MuckTruckPurchaseIntention {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -9282,8 +9296,6 @@ input MuckTruckPurchaseIntentionBoolExp {
 input type for inserting data into table "muck_truck_purchase_intention"
 """
 input MuckTruckPurchaseIntentionInsertInput {
-	id: Bigint
-	muck_truck_purchase_intention_id: String
 	supplier: String
 	customer_name: String
 	customer_phone: String
@@ -9300,8 +9312,6 @@ input MuckTruckPurchaseIntentionInsertInput {
 	review: String
 	remarks: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -9360,11 +9370,11 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	supplier
 	"""
-	 购车用户姓名                                    (                                      )
+	 购车用户姓名                                    
 	"""
 	customer_name
 	"""
-	 购车用户电话                                    (                                      )
+	 购车用户电话                                    
 	"""
 	customer_phone
 	"""
@@ -9384,23 +9394,23 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	district_id
 	"""
-	 运力申请                                        (                                      )
+	 运力申请                                        
 	"""
 	capacigy_application
 	"""
-	 品牌型号                                        (                                      )
+	 品牌型号                                        
 	"""
 	brand_model
 	"""
-	 购车数量                                        (                                      )
+	 购车数量                                        
 	"""
 	vehicle_purchase
 	"""
-	 编码                                            (                                      )
+	 编码                                            
 	"""
 	code
 	"""
-	 登记日期                                        (                                      )
+	 登记日期                                        
 	"""
 	registration_time
 	"""
@@ -9408,19 +9418,19 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	registration_user
 	"""
-	 审核                                            (                                      )
+	 审核                                            
 	"""
 	review
 	"""
-	 备注                                            (                                      )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 是否删除                                        (                                      )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -9428,7 +9438,7 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -9436,7 +9446,7 @@ enum MuckTruckPurchaseIntentionSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -9498,7 +9508,7 @@ type MuckTruckSaleOrder {
 	"""
 	muck_truck_sale_order_id: String!
 	"""
-	 顾客企业id                                      (                                          )
+	 顾客企业id                                      
 	"""
 	customer_name: String
 	"""
@@ -9506,47 +9516,47 @@ type MuckTruckSaleOrder {
 	"""
 	customer_id: String
 	"""
-	 身份证号                                        (                                          )
+	 身份证号                                        
 	"""
 	id_card_num: String
 	"""
-	 联系电话                                        (                                          )
+	 联系电话                                        
 	"""
 	contact_phone: String
 	"""
-	 告知书                                          (                                          )
+	 告知书                                          
 	"""
 	notification: String
 	"""
-	 汽车销售合同(销售合同照片地址)                  (                                          )
+	 汽车销售合同(销售合同照片地址)                  
 	"""
 	vehicle_sale_contract: String
 	"""
-	 订金合同(订金合同照片地址)                      (                                          )
+	 订金合同(订金合同照片地址)                      
 	"""
 	vehicle_deposit_contract: String
 	"""
-	 承诺书                                          (                                          )
+	 承诺书                                          
 	"""
 	commitment: String
 	"""
-	 订车日期                                        (                                          )
+	 订车日期                                        
 	"""
 	book_date: Timestamptz
 	"""
-	 登记时间                                        (                                          )
+	 登记时间                                        
 	"""
 	registration_time: Timestamptz
 	"""
-	 所属单位                                        (                                          )
+	 所属单位                                        
 	"""
 	belonging_enterprise: String
 	"""
-	 身份证(身份证照片路径)                          (                                          )
+	 身份证(身份证照片路径)                          
 	"""
 	id_card_picture: String
 	"""
-	 进度                                            (                                          )
+	 进度                                            
 	"""
 	progress: Numeric
 	"""
@@ -9554,63 +9564,63 @@ type MuckTruckSaleOrder {
 	"""
 	vehicle_sale_record_id: String
 	"""
-	 订购车辆数                                      (                                          )
+	 订购车辆数                                      
 	"""
 	book_vehicle_number: Int
 	"""
-	 整车长度                                        (                                          )
+	 整车长度                                        
 	"""
 	vehicle_length: Numeric
 	"""
-	 整车宽度                                        (                                          )
+	 整车宽度                                        
 	"""
 	vehicle_width: Numeric
 	"""
-	 整车高度                                        (                                          )
+	 整车高度                                        
 	"""
 	vehicle_height: Numeric
 	"""
-	 自卸车长度                                      (                                          )
+	 自卸车长度                                      
 	"""
 	tipper_length: Numeric
 	"""
-	 自卸车宽度                                      (                                          )
+	 自卸车宽度                                      
 	"""
 	tipper_width: Numeric
 	"""
-	 自卸车高度                                      (                                          )
+	 自卸车高度                                      
 	"""
 	tipper_height: Numeric
 	"""
-	 罐车标注容积                                    (                                          )
+	 罐车标注容积                                    
 	"""
 	tank_truck_marked_volume: Numeric
 	"""
-	 罐车实际搅动容积                                (                                          )
+	 罐车实际搅动容积                                
 	"""
 	tank_truck_actual_volume: Numeric
 	"""
-	 车厢密闭装置                                    (                                          )
+	 车厢密闭装置                                    
 	"""
 	carriage_sealing_device: String
 	"""
-	 U型货箱                                         (                                          )
+	 U型货箱                                         
 	"""
 	u_shaped_cargo_box: String
 	"""
-	 是否其他汽车型号                                (                                          )
+	 是否其他汽车型号                                
 	"""
 	is_other_vehicle_model: Boolean
 	"""
-	 是否完成                                        (                                          )
+	 是否完成                                        
 	"""
 	is_completed: Boolean
 	"""
-	 是否删除                                        (                                          )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                          )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -9618,7 +9628,7 @@ type MuckTruckSaleOrder {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                          )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -9626,7 +9636,7 @@ type MuckTruckSaleOrder {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                          )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -9962,8 +9972,6 @@ input MuckTruckSaleOrderBoolExp {
 input type for inserting data into table "muck_truck_sale_order"
 """
 input MuckTruckSaleOrderInsertInput {
-	id: Bigint
-	muck_truck_sale_order_id: String
 	customer_name: String
 	customer_id: String
 	id_card_num: String
@@ -9992,8 +10000,6 @@ input MuckTruckSaleOrderInsertInput {
 	is_other_vehicle_model: Boolean
 	is_completed: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10069,7 +10075,7 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	muck_truck_sale_order_id
 	"""
-	 顾客企业id                                      (                                          )
+	 顾客企业id                                      
 	"""
 	customer_name
 	"""
@@ -10077,47 +10083,47 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	customer_id
 	"""
-	 身份证号                                        (                                          )
+	 身份证号                                        
 	"""
 	id_card_num
 	"""
-	 联系电话                                        (                                          )
+	 联系电话                                        
 	"""
 	contact_phone
 	"""
-	 告知书                                          (                                          )
+	 告知书                                          
 	"""
 	notification
 	"""
-	 汽车销售合同(销售合同照片地址)                  (                                          )
+	 汽车销售合同(销售合同照片地址)                  
 	"""
 	vehicle_sale_contract
 	"""
-	 订金合同(订金合同照片地址)                      (                                          )
+	 订金合同(订金合同照片地址)                      
 	"""
 	vehicle_deposit_contract
 	"""
-	 承诺书                                          (                                          )
+	 承诺书                                          
 	"""
 	commitment
 	"""
-	 订车日期                                        (                                          )
+	 订车日期                                        
 	"""
 	book_date
 	"""
-	 登记时间                                        (                                          )
+	 登记时间                                        
 	"""
 	registration_time
 	"""
-	 所属单位                                        (                                          )
+	 所属单位                                        
 	"""
 	belonging_enterprise
 	"""
-	 身份证(身份证照片路径)                          (                                          )
+	 身份证(身份证照片路径)                          
 	"""
 	id_card_picture
 	"""
-	 进度                                            (                                          )
+	 进度                                            
 	"""
 	progress
 	"""
@@ -10125,63 +10131,63 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	vehicle_sale_record_id
 	"""
-	 订购车辆数                                      (                                          )
+	 订购车辆数                                      
 	"""
 	book_vehicle_number
 	"""
-	 整车长度                                        (                                          )
+	 整车长度                                        
 	"""
 	vehicle_length
 	"""
-	 整车宽度                                        (                                          )
+	 整车宽度                                        
 	"""
 	vehicle_width
 	"""
-	 整车高度                                        (                                          )
+	 整车高度                                        
 	"""
 	vehicle_height
 	"""
-	 自卸车长度                                      (                                          )
+	 自卸车长度                                      
 	"""
 	tipper_length
 	"""
-	 自卸车宽度                                      (                                          )
+	 自卸车宽度                                      
 	"""
 	tipper_width
 	"""
-	 自卸车高度                                      (                                          )
+	 自卸车高度                                      
 	"""
 	tipper_height
 	"""
-	 罐车标注容积                                    (                                          )
+	 罐车标注容积                                    
 	"""
 	tank_truck_marked_volume
 	"""
-	 罐车实际搅动容积                                (                                          )
+	 罐车实际搅动容积                                
 	"""
 	tank_truck_actual_volume
 	"""
-	 车厢密闭装置                                    (                                          )
+	 车厢密闭装置                                    
 	"""
 	carriage_sealing_device
 	"""
-	 U型货箱                                         (                                          )
+	 U型货箱                                         
 	"""
 	u_shaped_cargo_box
 	"""
-	 是否其他汽车型号                                (                                          )
+	 是否其他汽车型号                                
 	"""
 	is_other_vehicle_model
 	"""
-	 是否完成                                        (                                          )
+	 是否完成                                        
 	"""
 	is_completed
 	"""
-	 是否删除                                        (                                          )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                          )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -10189,7 +10195,7 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                          )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -10197,7 +10203,7 @@ enum MuckTruckSaleOrderSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                          )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -10267,19 +10273,19 @@ type MuckTruckSaleOrderDetail {
 	"""
 	vehicle_identification_number: String
 	"""
-	 合格证                                          (                                                              )
+	 合格证                                          
 	"""
 	certificate: String
 	"""
-	 终端证明                                        (                                                              )
+	 终端证明                                        
 	"""
 	terminal_proof: String
 	"""
-	 行驶证(照片)                                    (                                                              )
+	 行驶证(照片)                                    
 	"""
 	driver_license_pic: String
 	"""
-	 车牌号码                                        (                                                              )
+	 车牌号码                                        
 	"""
 	license_plate_number: String
 	"""
@@ -10291,35 +10297,35 @@ type MuckTruckSaleOrderDetail {
 	"""
 	license_plate_type: Int
 	"""
-	 抵达泉州日期                                    (                                                              )
+	 抵达泉州日期                                    
 	"""
 	arrive_qz_date: Timestamptz
 	"""
-	 初次登记日期                                    (                                                              )
+	 初次登记日期                                    
 	"""
 	first_registration_date: Timestamptz
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_date: Timestamptz
 	"""
-	 步骤(销售订单登记进度（2.到车登记 3.上牌登记）) (                                                              )
+	 步骤(销售订单登记进度（2.到车登记 3.上牌登记）) 
 	"""
 	step: Int
 	"""
-	 车辆照片                                        (                                                              )
+	 车辆照片                                        
 	"""
 	vehicle_photo: String
 	"""
-	 供应商销售预编号                                (                                                              )
+	 供应商销售预编号                                
 	"""
 	seller_preview_number: String
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -10327,7 +10333,7 @@ type MuckTruckSaleOrderDetail {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -10335,7 +10341,7 @@ type MuckTruckSaleOrderDetail {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -10563,8 +10569,6 @@ input MuckTruckSaleOrderDetailBoolExp {
 input type for inserting data into table "muck_truck_sale_order_detail"
 """
 input MuckTruckSaleOrderDetailInsertInput {
-	id: Bigint
-	muck_truck_sale_order_detail_id: String
 	order_id: String
 	vehicle_identification_number: String
 	certificate: String
@@ -10580,8 +10584,6 @@ input MuckTruckSaleOrderDetailInsertInput {
 	vehicle_photo: String
 	seller_preview_number: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -10645,19 +10647,19 @@ enum MuckTruckSaleOrderDetailSelectColumn {
 	"""
 	vehicle_identification_number
 	"""
-	 合格证                                          (                                                              )
+	 合格证                                          
 	"""
 	certificate
 	"""
-	 终端证明                                        (                                                              )
+	 终端证明                                        
 	"""
 	terminal_proof
 	"""
-	 行驶证(照片)                                    (                                                              )
+	 行驶证(照片)                                    
 	"""
 	driver_license_pic
 	"""
-	 车牌号码                                        (                                                              )
+	 车牌号码                                        
 	"""
 	license_plate_number
 	"""
@@ -10669,35 +10671,35 @@ enum MuckTruckSaleOrderDetailSelectColumn {
 	"""
 	license_plate_type
 	"""
-	 抵达泉州日期                                    (                                                              )
+	 抵达泉州日期                                    
 	"""
 	arrive_qz_date
 	"""
-	 初次登记日期                                    (                                                              )
+	 初次登记日期                                    
 	"""
 	first_registration_date
 	"""
-	 登记时间                                        (                                                              )
+	 登记时间                                        
 	"""
 	registration_date
 	"""
-	 步骤(销售订单登记进度（2.到车登记 3.上牌登记）) (                                                              )
+	 步骤(销售订单登记进度（2.到车登记 3.上牌登记）) 
 	"""
 	step
 	"""
-	 车辆照片                                        (                                                              )
+	 车辆照片                                        
 	"""
 	vehicle_photo
 	"""
-	 供应商销售预编号                                (                                                              )
+	 供应商销售预编号                                
 	"""
 	seller_preview_number
 	"""
-	 是否删除                                        (                                                              )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                              )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -10705,7 +10707,7 @@ enum MuckTruckSaleOrderDetailSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                              )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -10713,7 +10715,7 @@ enum MuckTruckSaleOrderDetailSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                              )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -10779,43 +10781,43 @@ type NewMuckTruckInfo {
 	"""
 	vehicle_id: String
 	"""
-	 车牌号                                          (                                )
+	 车牌号                                          
 	"""
 	license_plate_number: String
 	"""
-	 登记注册时间                                    (                                )
+	 登记注册时间                                    
 	"""
 	registration_time: Timestamptz
 	"""
-	 排放标准                                        (                                )
+	 排放标准                                        
 	"""
 	emission_standard: String
 	"""
-	 是否U型货箱                                     (                                )
+	 是否U型货箱                                     
 	"""
 	is_u_shaped_cargo_box: Boolean
 	"""
-	 长                                              (                                )
+	 长                                              
 	"""
 	length: String
 	"""
-	 宽                                              (                                )
+	 宽                                              
 	"""
 	width: String
 	"""
-	 高                                              (                                )
+	 高                                              
 	"""
 	height: String
 	"""
-	 密封设备                                        (                                )
+	 密封设备                                        
 	"""
 	sealing_device: String
 	"""
-	 顶盖高度                                        (                                )
+	 顶盖高度                                        
 	"""
 	top_cover_height: String
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -10823,7 +10825,7 @@ type NewMuckTruckInfo {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -10831,7 +10833,7 @@ type NewMuckTruckInfo {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -11015,8 +11017,6 @@ input NewMuckTruckInfoBoolExp {
 input type for inserting data into table "new_muck_truck_info"
 """
 input NewMuckTruckInfoInsertInput {
-	id: Bigint
-	new_muck_truck_info_id: String
 	vehicle_id: String
 	license_plate_number: String
 	registration_time: Timestamptz
@@ -11027,8 +11027,6 @@ input NewMuckTruckInfoInsertInput {
 	height: String
 	sealing_device: String
 	top_cover_height: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11080,43 +11078,43 @@ enum NewMuckTruckInfoSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 车牌号                                          (                                )
+	 车牌号                                          
 	"""
 	license_plate_number
 	"""
-	 登记注册时间                                    (                                )
+	 登记注册时间                                    
 	"""
 	registration_time
 	"""
-	 排放标准                                        (                                )
+	 排放标准                                        
 	"""
 	emission_standard
 	"""
-	 是否U型货箱                                     (                                )
+	 是否U型货箱                                     
 	"""
 	is_u_shaped_cargo_box
 	"""
-	 长                                              (                                )
+	 长                                              
 	"""
 	length
 	"""
-	 宽                                              (                                )
+	 宽                                              
 	"""
 	width
 	"""
-	 高                                              (                                )
+	 高                                              
 	"""
 	height
 	"""
-	 密封设备                                        (                                )
+	 密封设备                                        
 	"""
 	sealing_device
 	"""
-	 顶盖高度                                        (                                )
+	 顶盖高度                                        
 	"""
 	top_cover_height
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -11124,7 +11122,7 @@ enum NewMuckTruckInfoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -11132,7 +11130,7 @@ enum NewMuckTruckInfoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -11198,7 +11196,7 @@ type NewMuckTruckPhoto {
 	"""
 	vehicle_id: String
 	"""
-	 路径                                            (                                )
+	 路径                                            
 	"""
 	file_path: String
 	"""
@@ -11206,7 +11204,7 @@ type NewMuckTruckPhoto {
 	"""
 	upload_user: String
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -11214,7 +11212,7 @@ type NewMuckTruckPhoto {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -11222,7 +11220,7 @@ type NewMuckTruckPhoto {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -11378,13 +11376,9 @@ input NewMuckTruckPhotoBoolExp {
 input type for inserting data into table "new_muck_truck_photo"
 """
 input NewMuckTruckPhotoInsertInput {
-	id: Bigint
-	new_muck_truck_photo_id: String
 	vehicle_id: String
 	file_path: String
 	upload_user: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11429,7 +11423,7 @@ enum NewMuckTruckPhotoSelectColumn {
 	"""
 	vehicle_id
 	"""
-	 路径                                            (                                )
+	 路径                                            
 	"""
 	file_path
 	"""
@@ -11437,7 +11431,7 @@ enum NewMuckTruckPhotoSelectColumn {
 	"""
 	upload_user
 	"""
-	 创建时间                                        (                                )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -11445,7 +11439,7 @@ enum NewMuckTruckPhotoSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -11453,7 +11447,7 @@ enum NewMuckTruckPhotoSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -11515,11 +11509,11 @@ type NewMuckTruckRecommendCatalog {
 	"""
 	new_muck_truck_recommend_catalog_id: String!
 	"""
-	 品牌简称                                        (                            )
+	 品牌简称                                        
 	"""
 	brand_name: String
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -11527,7 +11521,7 @@ type NewMuckTruckRecommendCatalog {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -11535,7 +11529,7 @@ type NewMuckTruckRecommendCatalog {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -11683,11 +11677,7 @@ input NewMuckTruckRecommendCatalogBoolExp {
 input type for inserting data into table "new_muck_truck_recommend_catalog"
 """
 input NewMuckTruckRecommendCatalogInsertInput {
-	id: Bigint
-	new_muck_truck_recommend_catalog_id: String
 	brand_name: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -11726,11 +11716,11 @@ enum NewMuckTruckRecommendCatalogSelectColumn {
 	"""
 	new_muck_truck_recommend_catalog_id
 	"""
-	 品牌简称                                        (                            )
+	 品牌简称                                        
 	"""
 	brand_name
 	"""
-	 创建时间                                        (                            )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -11738,7 +11728,7 @@ enum NewMuckTruckRecommendCatalogSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                            )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -11746,7 +11736,7 @@ enum NewMuckTruckRecommendCatalogSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                            )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -11812,71 +11802,71 @@ type SellerFiling {
 	"""
 	seller: String
 	"""
-	 工商营业执照                                    (                                                         )
+	 工商营业执照                                    
 	"""
 	business_license: String
 	"""
-	 组织机构代码证                                  (                                                         )
+	 组织机构代码证                                  
 	"""
 	organization_code: String
 	"""
-	 法人代表身份证                                  (                                                         )
+	 法人代表身份证                                  
 	"""
 	legal_representative_id_card: String
 	"""
-	 委托代理人身份证                                (                                                         )
+	 委托代理人身份证                                
 	"""
 	entrusted_agent_id_card: String
 	"""
-	 工信部汽车生产销售许可证明                      (                                                         )
+	 工信部汽车生产销售许可证明                      
 	"""
 	ministry_production_sale_permit: String
 	"""
-	 行业自律承诺书                                  (                                                         )
+	 行业自律承诺书                                  
 	"""
 	industry_self_discipline_commitment: String
 	"""
-	 汽车厂家汽车销售许可证明                        (                                                         )
+	 汽车厂家汽车销售许可证明                        
 	"""
 	manufacturer_production_sale_permit: String
 	"""
-	 维修服务服务站名称                              (                                                         )
+	 维修服务服务站名称                              
 	"""
 	repair_service_station_name: String
 	"""
-	 维修服务服务站地址                              (                                                         )
+	 维修服务服务站地址                              
 	"""
 	repair_service_station_address: String
 	"""
-	 维修服务服务站相关材料                          (                                                         )
+	 维修服务服务站相关材料                          
 	"""
 	repair_service_station_material: String
 	"""
-	 服务人员名称                                    (                                                         )
+	 服务人员名称                                    
 	"""
 	service_staff_name: String
 	"""
-	 服务人员电话                                    (                                                         )
+	 服务人员电话                                    
 	"""
 	service_staff_phone: String
 	"""
-	 服务人员身份证                                  (                                                         )
+	 服务人员身份证                                  
 	"""
 	service_staff_id: String
 	"""
-	 服务人员相关材料                                (                                                         )
+	 服务人员相关材料                                
 	"""
 	service_staff_material: String
 	"""
-	 其他相关材料                                    (                                                         )
+	 其他相关材料                                    
 	"""
 	other_material: String
 	"""
-	 备注                                            (                                                         )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 登记日期                                        (                                                         )
+	 登记日期                                        
 	"""
 	registration_time: Timestamptz
 	"""
@@ -11884,11 +11874,11 @@ type SellerFiling {
 	"""
 	registration_user: String
 	"""
-	 是否核查                                        (                                                         )
+	 是否核查                                        
 	"""
 	is_verify: Boolean
 	"""
-	 原因                                            (                                                         )
+	 原因                                            
 	"""
 	cause: String
 	"""
@@ -11896,15 +11886,15 @@ type SellerFiling {
 	"""
 	catalog_id: String
 	"""
-	 平台对接技术协议                                (                                                         )
+	 平台对接技术协议                                
 	"""
 	platform_docking_technology_agreement: String
 	"""
-	 是否删除                                        (                                                         )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                         )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -11912,7 +11902,7 @@ type SellerFiling {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                         )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -11920,7 +11910,7 @@ type SellerFiling {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                         )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -12160,8 +12150,6 @@ input SellerFilingBoolExp {
 input type for inserting data into table "seller_filing"
 """
 input SellerFilingInsertInput {
-	id: Bigint
-	seller_filing_id: String
 	seller: String
 	business_license: String
 	organization_code: String
@@ -12186,8 +12174,6 @@ input SellerFilingInsertInput {
 	catalog_id: String
 	platform_docking_technology_agreement: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -12253,71 +12239,71 @@ enum SellerFilingSelectColumn {
 	"""
 	seller
 	"""
-	 工商营业执照                                    (                                                         )
+	 工商营业执照                                    
 	"""
 	business_license
 	"""
-	 组织机构代码证                                  (                                                         )
+	 组织机构代码证                                  
 	"""
 	organization_code
 	"""
-	 法人代表身份证                                  (                                                         )
+	 法人代表身份证                                  
 	"""
 	legal_representative_id_card
 	"""
-	 委托代理人身份证                                (                                                         )
+	 委托代理人身份证                                
 	"""
 	entrusted_agent_id_card
 	"""
-	 工信部汽车生产销售许可证明                      (                                                         )
+	 工信部汽车生产销售许可证明                      
 	"""
 	ministry_production_sale_permit
 	"""
-	 行业自律承诺书                                  (                                                         )
+	 行业自律承诺书                                  
 	"""
 	industry_self_discipline_commitment
 	"""
-	 汽车厂家汽车销售许可证明                        (                                                         )
+	 汽车厂家汽车销售许可证明                        
 	"""
 	manufacturer_production_sale_permit
 	"""
-	 维修服务服务站名称                              (                                                         )
+	 维修服务服务站名称                              
 	"""
 	repair_service_station_name
 	"""
-	 维修服务服务站地址                              (                                                         )
+	 维修服务服务站地址                              
 	"""
 	repair_service_station_address
 	"""
-	 维修服务服务站相关材料                          (                                                         )
+	 维修服务服务站相关材料                          
 	"""
 	repair_service_station_material
 	"""
-	 服务人员名称                                    (                                                         )
+	 服务人员名称                                    
 	"""
 	service_staff_name
 	"""
-	 服务人员电话                                    (                                                         )
+	 服务人员电话                                    
 	"""
 	service_staff_phone
 	"""
-	 服务人员身份证                                  (                                                         )
+	 服务人员身份证                                  
 	"""
 	service_staff_id
 	"""
-	 服务人员相关材料                                (                                                         )
+	 服务人员相关材料                                
 	"""
 	service_staff_material
 	"""
-	 其他相关材料                                    (                                                         )
+	 其他相关材料                                    
 	"""
 	other_material
 	"""
-	 备注                                            (                                                         )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 登记日期                                        (                                                         )
+	 登记日期                                        
 	"""
 	registration_time
 	"""
@@ -12325,11 +12311,11 @@ enum SellerFilingSelectColumn {
 	"""
 	registration_user
 	"""
-	 是否核查                                        (                                                         )
+	 是否核查                                        
 	"""
 	is_verify
 	"""
-	 原因                                            (                                                         )
+	 原因                                            
 	"""
 	cause
 	"""
@@ -12337,15 +12323,15 @@ enum SellerFilingSelectColumn {
 	"""
 	catalog_id
 	"""
-	 平台对接技术协议                                (                                                         )
+	 平台对接技术协议                                
 	"""
 	platform_docking_technology_agreement
 	"""
-	 是否删除                                        (                                                         )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                         )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -12353,7 +12339,7 @@ enum SellerFilingSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                         )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -12361,7 +12347,7 @@ enum SellerFilingSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                         )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -12427,11 +12413,11 @@ type SellerRatingRecord {
 	"""
 	demerit_obj: String
 	"""
-	 扣分分值                                        (                                      )
+	 扣分分值                                        
 	"""
 	demerit_points: Numeric
 	"""
-	 扣分原因                                        (                                      )
+	 扣分原因                                        
 	"""
 	demerit_reason: String
 	"""
@@ -12439,15 +12425,15 @@ type SellerRatingRecord {
 	"""
 	operator: String
 	"""
-	 操作时间                                        (                                      )
+	 操作时间                                        
 	"""
 	operation_time: Timestamptz
 	"""
-	 是否删除                                        (                                      )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -12455,7 +12441,7 @@ type SellerRatingRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -12463,7 +12449,7 @@ type SellerRatingRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -12639,16 +12625,12 @@ input SellerRatingRecordBoolExp {
 input type for inserting data into table "seller_rating_record"
 """
 input SellerRatingRecordInsertInput {
-	id: Bigint
-	seller_rating_record_id: String
 	demerit_obj: String
 	demerit_points: Numeric
 	demerit_reason: String
 	operator: String
 	operation_time: Timestamptz
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -12697,11 +12679,11 @@ enum SellerRatingRecordSelectColumn {
 	"""
 	demerit_obj
 	"""
-	 扣分分值                                        (                                      )
+	 扣分分值                                        
 	"""
 	demerit_points
 	"""
-	 扣分原因                                        (                                      )
+	 扣分原因                                        
 	"""
 	demerit_reason
 	"""
@@ -12709,15 +12691,15 @@ enum SellerRatingRecordSelectColumn {
 	"""
 	operator
 	"""
-	 操作时间                                        (                                      )
+	 操作时间                                        
 	"""
 	operation_time
 	"""
-	 是否删除                                        (                                      )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -12725,7 +12707,7 @@ enum SellerRatingRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -12733,7 +12715,7 @@ enum SellerRatingRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -12799,31 +12781,31 @@ type VehicleSaleRecord {
 	"""
 	seller: String
 	"""
-	 汽车型号                                        (                                                         )
+	 汽车型号                                        
 	"""
 	vehicle_model: String
 	"""
-	 汽车相关图片的路径                              (                                                         )
+	 汽车相关图片的路径                              
 	"""
 	vehicle_picture: String
 	"""
-	 汽车参数                                        (                                                         )
+	 汽车参数                                        
 	"""
 	vehicle_parameter: String
 	"""
-	 参考报价                                        (                                                         )
+	 参考报价                                        
 	"""
 	reference_price: String
 	"""
-	 其他相关材料                                    (                                                         )
+	 其他相关材料                                    
 	"""
 	other_material: String
 	"""
-	 备注                                            (                                                         )
+	 备注                                            
 	"""
 	remarks: String
 	"""
-	 登记日期                                        (                                                         )
+	 登记日期                                        
 	"""
 	registration_time: Timestamptz
 	"""
@@ -12831,7 +12813,7 @@ type VehicleSaleRecord {
 	"""
 	registration_user: String
 	"""
-	 原因                                            (                                                         )
+	 原因                                            
 	"""
 	cause: String
 	"""
@@ -12843,19 +12825,19 @@ type VehicleSaleRecord {
 	"""
 	axis_type: Int
 	"""
-	 运输方量                                        (                                                         )
+	 运输方量                                        
 	"""
 	transport_volume: String
 	"""
-	 是否审核                                        (                                                         )
+	 是否审核                                        
 	"""
 	is_review: Boolean
 	"""
-	 是否删除                                        (                                                         )
+	 是否删除                                        
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                        (                                                         )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -12863,7 +12845,7 @@ type VehicleSaleRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                                         )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -12871,7 +12853,7 @@ type VehicleSaleRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                                         )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -13083,8 +13065,6 @@ input VehicleSaleRecordBoolExp {
 input type for inserting data into table "vehicle_sale_record"
 """
 input VehicleSaleRecordInsertInput {
-	id: Bigint
-	vehicle_sale_record_id: String
 	seller: String
 	vehicle_model: String
 	vehicle_picture: String
@@ -13100,8 +13080,6 @@ input VehicleSaleRecordInsertInput {
 	transport_volume: String
 	is_review: Boolean
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -13159,31 +13137,31 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	seller
 	"""
-	 汽车型号                                        (                                                         )
+	 汽车型号                                        
 	"""
 	vehicle_model
 	"""
-	 汽车相关图片的路径                              (                                                         )
+	 汽车相关图片的路径                              
 	"""
 	vehicle_picture
 	"""
-	 汽车参数                                        (                                                         )
+	 汽车参数                                        
 	"""
 	vehicle_parameter
 	"""
-	 参考报价                                        (                                                         )
+	 参考报价                                        
 	"""
 	reference_price
 	"""
-	 其他相关材料                                    (                                                         )
+	 其他相关材料                                    
 	"""
 	other_material
 	"""
-	 备注                                            (                                                         )
+	 备注                                            
 	"""
 	remarks
 	"""
-	 登记日期                                        (                                                         )
+	 登记日期                                        
 	"""
 	registration_time
 	"""
@@ -13191,7 +13169,7 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	registration_user
 	"""
-	 原因                                            (                                                         )
+	 原因                                            
 	"""
 	cause
 	"""
@@ -13203,19 +13181,19 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	axis_type
 	"""
-	 运输方量                                        (                                                         )
+	 运输方量                                        
 	"""
 	transport_volume
 	"""
-	 是否审核                                        (                                                         )
+	 是否审核                                        
 	"""
 	is_review
 	"""
-	 是否删除                                        (                                                         )
+	 是否删除                                        
 	"""
 	is_deleted
 	"""
-	 创建时间                                        (                                                         )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -13223,7 +13201,7 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                                         )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -13231,7 +13209,7 @@ enum VehicleSaleRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                                         )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""
@@ -48927,6 +48905,90 @@ func (ec *executionContext) unmarshalInputBooleanComparisonExp(ctx context.Conte
 	return it, nil
 }
 
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
+	var it model1.FloatComparisonExp
+	var asMap = obj.(map[string]interface{})
+
+	for k, v := range asMap {
+		switch k {
+		case "_eq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_eq"))
+			it.Eq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gt"))
+			it.Gt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_gte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_gte"))
+			it.Gte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_in":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_in"))
+			it.In, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_is_null":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_is_null"))
+			it.IsNull, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lt":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lt"))
+			it.Lt, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_lte":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_lte"))
+			it.Lte, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_neq":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_neq"))
+			it.Neq, err = ec.unmarshalOFloat2ᚖfloat64(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		case "_nin":
+			var err error
+
+			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_nin"))
+			it.Nin, err = ec.unmarshalOFloat2ᚕfloat64ᚄ(ctx, v)
+			if err != nil {
+				return it, err
+			}
+		}
+	}
+
+	return it, nil
+}
+
 func (ec *executionContext) unmarshalInputIntComparisonExp(ctx context.Context, obj interface{}) (model2.IntComparisonExp, error) {
 	var it model2.IntComparisonExp
 	var asMap = obj.(map[string]interface{})
@@ -49357,22 +49419,6 @@ func (ec *executionContext) unmarshalInputMuckTruckPurchaseIntentionInsertInput(
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "muck_truck_purchase_intention_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_purchase_intention_id"))
-			it.MuckTruckPurchaseIntentionID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "supplier":
 			var err error
 
@@ -49498,22 +49544,6 @@ func (ec *executionContext) unmarshalInputMuckTruckPurchaseIntentionInsertInput(
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -50557,22 +50587,6 @@ func (ec *executionContext) unmarshalInputMuckTruckSaleOrderDetailInsertInput(ct
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "muck_truck_sale_order_detail_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_detail_id"))
-			it.MuckTruckSaleOrderDetailID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "order_id":
 			var err error
 
@@ -50690,22 +50704,6 @@ func (ec *executionContext) unmarshalInputMuckTruckSaleOrderDetailInsertInput(ct
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -51245,22 +51243,6 @@ func (ec *executionContext) unmarshalInputMuckTruckSaleOrderInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "muck_truck_sale_order_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("muck_truck_sale_order_id"))
-			it.MuckTruckSaleOrderID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "customer_name":
 			var err error
 
@@ -51482,22 +51464,6 @@ func (ec *executionContext) unmarshalInputMuckTruckSaleOrderInsertInput(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -52345,22 +52311,6 @@ func (ec *executionContext) unmarshalInputNewMuckTruckInfoInsertInput(ctx contex
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "new_muck_truck_info_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_info_id"))
-			it.NewMuckTruckInfoID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -52438,22 +52388,6 @@ func (ec *executionContext) unmarshalInputNewMuckTruckInfoInsertInput(ctx contex
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("top_cover_height"))
 			it.TopCoverHeight, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -52957,22 +52891,6 @@ func (ec *executionContext) unmarshalInputNewMuckTruckPhotoInsertInput(ctx conte
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "new_muck_truck_photo_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_photo_id"))
-			it.NewMuckTruckPhotoID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "vehicle_id":
 			var err error
 
@@ -52994,22 +52912,6 @@ func (ec *executionContext) unmarshalInputNewMuckTruckPhotoInsertInput(ctx conte
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("upload_user"))
 			it.UploadUser, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -53385,43 +53287,11 @@ func (ec *executionContext) unmarshalInputNewMuckTruckRecommendCatalogInsertInpu
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "new_muck_truck_recommend_catalog_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("new_muck_truck_recommend_catalog_id"))
-			it.NewMuckTruckRecommendCatalogID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "brand_name":
 			var err error
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("brand_name"))
 			it.BrandName, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -54117,22 +53987,6 @@ func (ec *executionContext) unmarshalInputSellerFilingInsertInput(ctx context.Co
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "seller_filing_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_filing_id"))
-			it.SellerFilingID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "seller":
 			var err error
 
@@ -54322,22 +54176,6 @@ func (ec *executionContext) unmarshalInputSellerFilingInsertInput(ctx context.Co
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -55097,22 +54935,6 @@ func (ec *executionContext) unmarshalInputSellerRatingRecordInsertInput(ctx cont
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "seller_rating_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("seller_rating_record_id"))
-			it.SellerRatingRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "demerit_obj":
 			var err error
 
@@ -55158,22 +54980,6 @@ func (ec *executionContext) unmarshalInputSellerRatingRecordInsertInput(ctx cont
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -55933,22 +55739,6 @@ func (ec *executionContext) unmarshalInputVehicleSaleRecordInsertInput(ctx conte
 
 	for k, v := range asMap {
 		switch k {
-		case "id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("id"))
-			it.ID, err = ec.unmarshalOBigint2ᚖint64(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "vehicle_sale_record_id":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_sale_record_id"))
-			it.VehicleSaleRecordID, err = ec.unmarshalOString2ᚖstring(ctx, v)
-			if err != nil {
-				return it, err
-			}
 		case "seller":
 			var err error
 
@@ -56066,22 +55856,6 @@ func (ec *executionContext) unmarshalInputVehicleSaleRecordInsertInput(ctx conte
 
 			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("is_deleted"))
 			it.IsDeleted, err = ec.unmarshalOBoolean2ᚖbool(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_at":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_at"))
-			it.CreatedAt, err = ec.unmarshalOTimestamptz2ᚖtimeᚐTime(ctx, v)
-			if err != nil {
-				return it, err
-			}
-		case "created_by":
-			var err error
-
-			ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("created_by"))
-			it.CreatedBy, err = ec.unmarshalOString2ᚖstring(ctx, v)
 			if err != nil {
 				return it, err
 			}
@@ -62066,6 +61840,21 @@ func (ec *executionContext) marshalNBoolean2bool(ctx context.Context, sel ast.Se
 	return res
 }
 
+func (ec *executionContext) unmarshalNFloat2float64(ctx context.Context, v interface{}) (float64, error) {
+	res, err := graphql.UnmarshalFloat(v)
+	return res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalNFloat2float64(ctx context.Context, sel ast.SelectionSet, v float64) graphql.Marshaler {
+	res := graphql.MarshalFloat(v)
+	if res == graphql.Null {
+		if !graphql.HasFieldError(ctx, graphql.GetFieldContext(ctx)) {
+			ec.Errorf(ctx, "must not be null")
+		}
+	}
+	return res
+}
+
 func (ec *executionContext) unmarshalNInt2int(ctx context.Context, v interface{}) (int, error) {
 	res, err := graphql.UnmarshalInt(v)
 	return res, graphql.ErrorOnPath(ctx, err)
@@ -63575,6 +63364,57 @@ func (ec *executionContext) unmarshalOBooleanComparisonExp2ᚖVehicleSupervision
 	}
 	res, err := ec.unmarshalInputBooleanComparisonExp(ctx, v)
 	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚕfloat64ᚄ(ctx context.Context, v interface{}) ([]float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	var vSlice []interface{}
+	if v != nil {
+		if tmp1, ok := v.([]interface{}); ok {
+			vSlice = tmp1
+		} else {
+			vSlice = []interface{}{v}
+		}
+	}
+	var err error
+	res := make([]float64, len(vSlice))
+	for i := range vSlice {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithIndex(i))
+		res[i], err = ec.unmarshalNFloat2float64(ctx, vSlice[i])
+		if err != nil {
+			return nil, err
+		}
+	}
+	return res, nil
+}
+
+func (ec *executionContext) marshalOFloat2ᚕfloat64ᚄ(ctx context.Context, sel ast.SelectionSet, v []float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	ret := make(graphql.Array, len(v))
+	for i := range v {
+		ret[i] = ec.marshalNFloat2float64(ctx, sel, v[i])
+	}
+
+	return ret
+}
+
+func (ec *executionContext) unmarshalOFloat2ᚖfloat64(ctx context.Context, v interface{}) (*float64, error) {
+	if v == nil {
+		return nil, nil
+	}
+	res, err := graphql.UnmarshalFloat(v)
+	return &res, graphql.ErrorOnPath(ctx, err)
+}
+
+func (ec *executionContext) marshalOFloat2ᚖfloat64(ctx context.Context, sel ast.SelectionSet, v *float64) graphql.Marshaler {
+	if v == nil {
+		return graphql.Null
+	}
+	return graphql.MarshalFloat(*v)
 }
 
 func (ec *executionContext) unmarshalOInt2ᚕintᚄ(ctx context.Context, v interface{}) ([]int, error) {

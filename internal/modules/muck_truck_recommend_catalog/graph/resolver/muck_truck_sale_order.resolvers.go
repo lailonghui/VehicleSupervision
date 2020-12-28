@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteMuckTruckSaleOrderByPk(ctx context.Context, Id 
 }
 
 func (r *mutationResolver) InsertMuckTruckSaleOrder(ctx context.Context, objects []*model.MuckTruckSaleOrderInsertInput) (*model.MuckTruckSaleOrderMutationResponse, error) {
-	rs := []*model1.MuckTruckSaleOrder{}
+	rs := make([]*model1.MuckTruckSaleOrder, 0)
 	for _, object := range objects {
 		v := &model1.MuckTruckSaleOrder{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.MuckTruckSaleOrder{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateMuckTruckSaleOrderByPk(ctx context.Context, inc
 	qt := util.NewQueryTranslator(tx, &model1.MuckTruckSaleOrder{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.MuckTruckSaleOrder
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) MuckTruckSaleOrder(ctx context.Context, distinctOn []mod
 		Finish()
 	var rs []*model1.MuckTruckSaleOrder
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) MuckTruckSaleOrderAggregate(ctx context.Context, distinctOn []model.MuckTruckSaleOrderSelectColumn, limit *int, offset *int, orderBy []*model.MuckTruckSaleOrderOrderBy, where *model.MuckTruckSaleOrderBoolExp) (*model.MuckTruckSaleOrderAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) MuckTruckSaleOrderAggregate(ctx context.Context, distinc
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) MuckTruckSaleOrderByPk(ctx context.Context, Id int64) (*model1.MuckTruckSaleOrder, error) {
 	var rs model1.MuckTruckSaleOrder
 	tx := db.DB.Model(&model1.MuckTruckSaleOrder{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

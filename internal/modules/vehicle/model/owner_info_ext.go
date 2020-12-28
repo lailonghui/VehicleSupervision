@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden OwnerInfoLoader string *VehicleSupervision/internal/modules/vehicle/model.OwnerInfo
 
 func (t OwnerInfo) TableName() string {
-	return "OwnerInfo"
+	return "owner_info"
 }
 
 func (t *OwnerInfo) NewLoader() *OwnerInfoLoader {

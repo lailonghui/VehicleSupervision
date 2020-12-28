@@ -66,10 +66,10 @@ func (r *mutationResolver) DeleteDriverInfoByPk(ctx context.Context, Id int64) (
 }
 
 func (r *mutationResolver) InsertDriverInfo(ctx context.Context, objects []*model.DriverInfoInsertInput) (*model.DriverInfoMutationResponse, error) {
-	rs := []*model1.DriverInfo{}
+	rs := make([]*model1.DriverInfo, 0)
 	for _, object := range objects {
 		v := &model1.DriverInfo{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.DriverInfo{}).Create(&rs)
@@ -119,13 +119,13 @@ func (r *mutationResolver) UpdateDriverInfoByPk(ctx context.Context, inc *model.
 	qt := util.NewQueryTranslator(tx, &model1.DriverInfo{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.DriverInfo
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -139,13 +139,8 @@ func (r *queryResolver) DriverInfo(ctx context.Context, distinctOn []model.Drive
 		Finish()
 	var rs []*model1.DriverInfo
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) DriverInfoAggregate(ctx context.Context, distinctOn []model.DriverInfoSelectColumn, limit *int, offset *int, orderBy []*model.DriverInfoOrderBy, where *model.DriverInfoBoolExp) (*model.DriverInfoAggregate, error) {
@@ -161,26 +156,15 @@ func (r *queryResolver) DriverInfoAggregate(ctx context.Context, distinctOn []mo
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) DriverInfoByPk(ctx context.Context, Id int64) (*model1.DriverInfo, error) {
 	var rs model1.DriverInfo
 	tx := db.DB.Model(&model1.DriverInfo{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }
 
 // Mutation returns generated.MutationResolver implementation.

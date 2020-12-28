@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehicleViolationScoringRecordLoader string *VehicleSupervision/internal/modules/vehicle_violation/model.VehicleViolationScoringRecord
 
 func (t VehicleViolationScoringRecord) TableName() string {
-	return "VehicleViolationScoringRecord"
+	return "vehicle_violation_scoring_record"
 }
 
 func (t *VehicleViolationScoringRecord) NewLoader() *VehicleViolationScoringRecordLoader {

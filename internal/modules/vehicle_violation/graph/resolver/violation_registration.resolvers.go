@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteViolationRegistrationByPk(ctx context.Context, 
 }
 
 func (r *mutationResolver) InsertViolationRegistration(ctx context.Context, objects []*model.ViolationRegistrationInsertInput) (*model.ViolationRegistrationMutationResponse, error) {
-	rs := []*model1.ViolationRegistration{}
+	rs := make([]*model1.ViolationRegistration, 0)
 	for _, object := range objects {
 		v := &model1.ViolationRegistration{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.ViolationRegistration{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateViolationRegistrationByPk(ctx context.Context, 
 	qt := util.NewQueryTranslator(tx, &model1.ViolationRegistration{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.ViolationRegistration
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) ViolationRegistration(ctx context.Context, distinctOn []
 		Finish()
 	var rs []*model1.ViolationRegistration
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) ViolationRegistrationAggregate(ctx context.Context, distinctOn []model.ViolationRegistrationSelectColumn, limit *int, offset *int, orderBy []*model.ViolationRegistrationOrderBy, where *model.ViolationRegistrationBoolExp) (*model.ViolationRegistrationAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) ViolationRegistrationAggregate(ctx context.Context, dist
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) ViolationRegistrationByPk(ctx context.Context, Id int64) (*model1.ViolationRegistration, error) {
 	var rs model1.ViolationRegistration
 	tx := db.DB.Model(&model1.ViolationRegistration{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteAlarmSupervisionPictureUploadByPk(ctx context.C
 }
 
 func (r *mutationResolver) InsertAlarmSupervisionPictureUpload(ctx context.Context, objects []*model.AlarmSupervisionPictureUploadInsertInput) (*model.AlarmSupervisionPictureUploadMutationResponse, error) {
-	rs := []*model1.AlarmSupervisionPictureUpload{}
+	rs := make([]*model1.AlarmSupervisionPictureUpload, 0)
 	for _, object := range objects {
 		v := &model1.AlarmSupervisionPictureUpload{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.AlarmSupervisionPictureUpload{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateAlarmSupervisionPictureUploadByPk(ctx context.C
 	qt := util.NewQueryTranslator(tx, &model1.AlarmSupervisionPictureUpload{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.AlarmSupervisionPictureUpload
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) AlarmSupervisionPictureUpload(ctx context.Context, disti
 		Finish()
 	var rs []*model1.AlarmSupervisionPictureUpload
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) AlarmSupervisionPictureUploadAggregate(ctx context.Context, distinctOn []model.AlarmSupervisionPictureUploadSelectColumn, limit *int, offset *int, orderBy []*model.AlarmSupervisionPictureUploadOrderBy, where *model.AlarmSupervisionPictureUploadBoolExp) (*model.AlarmSupervisionPictureUploadAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) AlarmSupervisionPictureUploadAggregate(ctx context.Conte
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) AlarmSupervisionPictureUploadByPk(ctx context.Context, Id int64) (*model1.AlarmSupervisionPictureUpload, error) {
 	var rs model1.AlarmSupervisionPictureUpload
 	tx := db.DB.Model(&model1.AlarmSupervisionPictureUpload{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

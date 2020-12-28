@@ -11,27 +11,27 @@ type DriverFingerprintAssociation {
 	"""
 	driver_fingerprint_association_id: String!
 	"""
-	 driver_info驾驶员信息表的driver_id                     (                            )
+	 driver_info驾驶员信息表的driver_id                     
 	"""
 	driver_id: String!
 	"""
-	 指纹名称                                                   (                            )
+	 指纹名称                                                   
 	"""
 	fingerprint_name: String
 	"""
-	 driver_fingerprint 驾驶员指纹表的driver_fingerprint_id (                            )
+	 driver_fingerprint 驾驶员指纹表的driver_fingerprint_id 
 	"""
 	driver_fingerprint_id: String
 	"""
-	 图片地址                                                   (                            )
+	 图片地址                                                   
 	"""
 	picture_address: String
 	"""
-	 是否删除                                                   (                            )
+	 是否删除                                                   
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                   (                            )
+	 创建时间                                                   
 	"""
 	created_at: Timestamptz!
 	"""
@@ -39,7 +39,7 @@ type DriverFingerprintAssociation {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                   (                            )
+	 修改时间                                                   
 	"""
 	updated_at: Timestamptz
 	"""
@@ -47,7 +47,7 @@ type DriverFingerprintAssociation {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                   (                            )
+	 删除时间                                                   
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -211,15 +211,10 @@ input DriverFingerprintAssociationBoolExp {
 input type for inserting data into table "driver_fingerprint_association"
 """
 input DriverFingerprintAssociationInsertInput {
-	id: Bigint
-	driver_fingerprint_association_id: String
-	driver_id: String
 	fingerprint_name: String
 	driver_fingerprint_id: String
 	picture_address: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -262,27 +257,27 @@ enum DriverFingerprintAssociationSelectColumn {
 	"""
 	driver_fingerprint_association_id
 	"""
-	 driver_info驾驶员信息表的driver_id                     (                            )
+	 driver_info驾驶员信息表的driver_id                     
 	"""
 	driver_id
 	"""
-	 指纹名称                                                   (                            )
+	 指纹名称                                                   
 	"""
 	fingerprint_name
 	"""
-	 driver_fingerprint 驾驶员指纹表的driver_fingerprint_id (                            )
+	 driver_fingerprint 驾驶员指纹表的driver_fingerprint_id 
 	"""
 	driver_fingerprint_id
 	"""
-	 图片地址                                                   (                            )
+	 图片地址                                                   
 	"""
 	picture_address
 	"""
-	 是否删除                                                   (                            )
+	 是否删除                                                   
 	"""
 	is_deleted
 	"""
-	 创建时间                                                   (                            )
+	 创建时间                                                   
 	"""
 	created_at
 	"""
@@ -290,7 +285,7 @@ enum DriverFingerprintAssociationSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                   (                            )
+	 修改时间                                                   
 	"""
 	updated_at
 	"""
@@ -298,7 +293,7 @@ enum DriverFingerprintAssociationSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                   (                            )
+	 删除时间                                                   
 	"""
 	deleted_at
 	"""

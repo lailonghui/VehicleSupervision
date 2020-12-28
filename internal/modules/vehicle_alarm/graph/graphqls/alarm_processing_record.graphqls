@@ -7,23 +7,23 @@ type AlarmProcessingRecord {
 	"""
 	id: Bigint!
 	"""
-	 vehicle_alarm_data报警数据表的alarm_data_id              (                            )
+	 vehicle_alarm_data报警数据表的alarm_data_id              
 	"""
 	alarm_data_id: String!
 	"""
-	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id (                            )
+	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id 
 	"""
 	alarm_supervision_picture_id: Bigint!
 	"""
-	 处理内容                                                     (                            )
+	 处理内容                                                     
 	"""
 	processing_content: String
 	"""
-	 处理时间                                                     (                            )
+	 处理时间                                                     
 	"""
 	processing_time: Timestamptz
 	"""
-	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 (                            )
+	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 
 	"""
 	processing_type: Int
 	"""
@@ -31,31 +31,31 @@ type AlarmProcessingRecord {
 	"""
 	operation_user: String
 	"""
-	 是否短信推送                                                 (                            )
+	 是否短信推送                                                 
 	"""
 	is_sms_push: Boolean
 	"""
-	 是否通报                                                     (                            )
+	 是否通报                                                     
 	"""
 	is_notify: Boolean
 	"""
-	 是否语音通知                                                 (                            )
+	 是否语音通知                                                 
 	"""
 	is_announce: Boolean
 	"""
-	 是否APP推送                                                  (                            )
+	 是否APP推送                                                  
 	"""
 	is_app_push: Boolean
 	"""
-	 通报内容                                                     (                            )
+	 通报内容                                                     
 	"""
 	notify_content: String
 	"""
-	 语音内容                                                     (                            )
+	 语音内容                                                     
 	"""
 	announce_content: String
 	"""
-	 APP推送内容                                                  (                            )
+	 APP推送内容                                                  
 	"""
 	app_push_content: String
 	"""
@@ -63,7 +63,7 @@ type AlarmProcessingRecord {
 	"""
 	disposal_method: Int
 	"""
-	 处置结果                                                     (                            )
+	 处置结果                                                     
 	"""
 	disposal_result: String
 	"""
@@ -71,7 +71,7 @@ type AlarmProcessingRecord {
 	"""
 	is_deleted: Boolean
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at: Timestamptz!
 	"""
@@ -79,7 +79,7 @@ type AlarmProcessingRecord {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at: Timestamptz
 	"""
@@ -87,7 +87,7 @@ type AlarmProcessingRecord {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -315,9 +315,6 @@ input AlarmProcessingRecordBoolExp {
 input type for inserting data into table "alarm_processing_record"
 """
 input AlarmProcessingRecordInsertInput {
-	id: Bigint
-	alarm_data_id: String
-	alarm_supervision_picture_id: Bigint
 	processing_content: String
 	processing_time: Timestamptz
 	processing_type: Int
@@ -332,8 +329,6 @@ input AlarmProcessingRecordInsertInput {
 	disposal_method: Int
 	disposal_result: String
 	is_deleted: Boolean
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -385,23 +380,23 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	id
 	"""
-	 vehicle_alarm_data报警数据表的alarm_data_id              (                            )
+	 vehicle_alarm_data报警数据表的alarm_data_id              
 	"""
 	alarm_data_id
 	"""
-	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id (                            )
+	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id 
 	"""
 	alarm_supervision_picture_id
 	"""
-	 处理内容                                                     (                            )
+	 处理内容                                                     
 	"""
 	processing_content
 	"""
-	 处理时间                                                     (                            )
+	 处理时间                                                     
 	"""
 	processing_time
 	"""
-	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 (                            )
+	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 
 	"""
 	processing_type
 	"""
@@ -409,31 +404,31 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	operation_user
 	"""
-	 是否短信推送                                                 (                            )
+	 是否短信推送                                                 
 	"""
 	is_sms_push
 	"""
-	 是否通报                                                     (                            )
+	 是否通报                                                     
 	"""
 	is_notify
 	"""
-	 是否语音通知                                                 (                            )
+	 是否语音通知                                                 
 	"""
 	is_announce
 	"""
-	 是否APP推送                                                  (                            )
+	 是否APP推送                                                  
 	"""
 	is_app_push
 	"""
-	 通报内容                                                     (                            )
+	 通报内容                                                     
 	"""
 	notify_content
 	"""
-	 语音内容                                                     (                            )
+	 语音内容                                                     
 	"""
 	announce_content
 	"""
-	 APP推送内容                                                  (                            )
+	 APP推送内容                                                  
 	"""
 	app_push_content
 	"""
@@ -441,7 +436,7 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	disposal_method
 	"""
-	 处置结果                                                     (                            )
+	 处置结果                                                     
 	"""
 	disposal_result
 	"""
@@ -449,7 +444,7 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	is_deleted
 	"""
-	 创建时间                                                     (                            )
+	 创建时间                                                     
 	"""
 	created_at
 	"""
@@ -457,7 +452,7 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                                     (                            )
+	 修改时间                                                     
 	"""
 	updated_at
 	"""
@@ -465,7 +460,7 @@ enum AlarmProcessingRecordSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                                     (                            )
+	 删除时间                                                     
 	"""
 	deleted_at
 	"""

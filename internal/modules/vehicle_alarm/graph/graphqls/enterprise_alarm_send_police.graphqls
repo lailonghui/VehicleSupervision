@@ -15,31 +15,31 @@ type EnterpriseAlarmSendPolice {
 	"""
 	enterprise_id: String
 	"""
-	 企业名称                                        (                                      )
+	 企业名称                                        
 	"""
 	enterprise_name: String
 	"""
-	 企业联系人                                      (                                      )
+	 企业联系人                                      
 	"""
 	enterprise_contact: String
 	"""
-	 企业联系电话                                    (                                      )
+	 企业联系电话                                    
 	"""
 	enterprise_phone: String
 	"""
-	 交警                                            (                                      )
+	 交警                                            
 	"""
 	police: String
 	"""
-	 交警联系电话                                    (                                      )
+	 交警联系电话                                    
 	"""
 	police_phone: String
 	"""
-	 交警所属部门                                    (                                      )
+	 交警所属部门                                    
 	"""
 	phlice_department: String
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at: Timestamptz!
 	"""
@@ -47,7 +47,7 @@ type EnterpriseAlarmSendPolice {
 	"""
 	created_by: String!
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at: Timestamptz
 	"""
@@ -55,7 +55,7 @@ type EnterpriseAlarmSendPolice {
 	"""
 	updated_by: String
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at: Timestamptz
 	"""
@@ -227,8 +227,6 @@ input EnterpriseAlarmSendPoliceBoolExp {
 input type for inserting data into table "enterprise_alarm_send_police"
 """
 input EnterpriseAlarmSendPoliceInsertInput {
-	id: Bigint
-	enterprise_alarm_send_police_id: String
 	enterprise_id: String
 	enterprise_name: String
 	enterprise_contact: String
@@ -236,8 +234,6 @@ input EnterpriseAlarmSendPoliceInsertInput {
 	police: String
 	police_phone: String
 	phlice_department: String
-	created_at: Timestamptz
-	created_by: String
 	updated_at: Timestamptz
 	updated_by: String
 	deleted_at: Timestamptz
@@ -286,31 +282,31 @@ enum EnterpriseAlarmSendPoliceSelectColumn {
 	"""
 	enterprise_id
 	"""
-	 企业名称                                        (                                      )
+	 企业名称                                        
 	"""
 	enterprise_name
 	"""
-	 企业联系人                                      (                                      )
+	 企业联系人                                      
 	"""
 	enterprise_contact
 	"""
-	 企业联系电话                                    (                                      )
+	 企业联系电话                                    
 	"""
 	enterprise_phone
 	"""
-	 交警                                            (                                      )
+	 交警                                            
 	"""
 	police
 	"""
-	 交警联系电话                                    (                                      )
+	 交警联系电话                                    
 	"""
 	police_phone
 	"""
-	 交警所属部门                                    (                                      )
+	 交警所属部门                                    
 	"""
 	phlice_department
 	"""
-	 创建时间                                        (                                      )
+	 创建时间                                        
 	"""
 	created_at
 	"""
@@ -318,7 +314,7 @@ enum EnterpriseAlarmSendPoliceSelectColumn {
 	"""
 	created_by
 	"""
-	 修改时间                                        (                                      )
+	 修改时间                                        
 	"""
 	updated_at
 	"""
@@ -326,7 +322,7 @@ enum EnterpriseAlarmSendPoliceSelectColumn {
 	"""
 	updated_by
 	"""
-	 删除时间                                        (                                      )
+	 删除时间                                        
 	"""
 	deleted_at
 	"""

@@ -65,10 +65,10 @@ func (r *mutationResolver) DeleteAppEnforcementByPk(ctx context.Context, Id int6
 }
 
 func (r *mutationResolver) InsertAppEnforcement(ctx context.Context, objects []*model.AppEnforcementInsertInput) (*model.AppEnforcementMutationResponse, error) {
-	rs := []*model1.AppEnforcement{}
+	rs := make([]*model1.AppEnforcement, 0)
 	for _, object := range objects {
 		v := &model1.AppEnforcement{}
-		util2.StructAssign(v, &object)
+		util2.StructAssign(v, object)
 		rs = append(rs, v)
 	}
 	tx := db.DB.Model(&model1.AppEnforcement{}).Create(&rs)
@@ -118,13 +118,13 @@ func (r *mutationResolver) UpdateAppEnforcementByPk(ctx context.Context, inc *mo
 	qt := util.NewQueryTranslator(tx, &model1.AppEnforcement{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
 		return nil, err
 	}
 	var rs model1.AppEnforcement
 	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
 	return &rs, nil
 }
 
@@ -138,13 +138,8 @@ func (r *queryResolver) AppEnforcement(ctx context.Context, distinctOn []model.A
 		Finish()
 	var rs []*model1.AppEnforcement
 	tx = tx.Find(&rs)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return rs, nil
+	err := tx.Error
+	return rs, err
 }
 
 func (r *queryResolver) AppEnforcementAggregate(ctx context.Context, distinctOn []model.AppEnforcementSelectColumn, limit *int, offset *int, orderBy []*model.AppEnforcementOrderBy, where *model.AppEnforcementBoolExp) (*model.AppEnforcementAggregate, error) {
@@ -160,24 +155,13 @@ func (r *queryResolver) AppEnforcementAggregate(ctx context.Context, distinctOn 
 	if err != nil {
 		return nil, err
 	}
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-
-	return &rs, nil
+	err = tx.Error
+	return &rs, err
 }
 
 func (r *queryResolver) AppEnforcementByPk(ctx context.Context, Id int64) (*model1.AppEnforcement, error) {
 	var rs model1.AppEnforcement
 	tx := db.DB.Model(&model1.AppEnforcement{}).First(&rs, Id)
-	if err := tx.Error; err != nil {
-		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return nil, nil
-		}
-		return nil, err
-	}
-	return &rs, nil
+	err := tx.Error
+	return &rs, err
 }

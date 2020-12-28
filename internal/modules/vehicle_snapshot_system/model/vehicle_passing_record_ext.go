@@ -8,7 +8,7 @@ import (
 // go:generate go run github.com/vektah/dataloaden VehiclePassingRecordLoader string *VehicleSupervision/internal/modules/vehicle_snapshot_system/model.VehiclePassingRecord
 
 func (t VehiclePassingRecord) TableName() string {
-	return "VehiclePassingRecord"
+	return "vehicle_passing_record"
 }
 
 func (t *VehiclePassingRecord) NewLoader() *VehiclePassingRecordLoader {
