@@ -1,0 +1,497 @@
+"""
+不在线报警登记
+"""
+type OfflineAlarmRegistration {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	offline_alarm_registration_id: String!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id: String!
+	"""
+	 离线开始时间                                    (                            )
+	"""
+	offline_start_time: Timestamptz
+	"""
+	 离线结束时间                                    (                            )
+	"""
+	offline_end_time: Timestamptz
+	"""
+	 登记用户                                        ( system_user表的user_id )
+	"""
+	registration_user: String
+	"""
+	 登记时间                                        (                            )
+	"""
+	registration_time: Timestamptz
+	"""
+	 短信发送内容                                    (                            )
+	"""
+	sms_content: String
+	"""
+	 电话提醒内容                                    (                            )
+	"""
+	phone_reminder_content: String
+	"""
+	 短信发送时间                                    (                            )
+	"""
+	sms_send_time: Timestamptz
+	"""
+	 电话提醒时间                                    (                            )
+	"""
+	phone_reminder_time: Timestamptz
+	"""
+	 离线原因                                        (                            )
+	"""
+	offline_reason: String
+	"""
+	 报警类型                                        ( 报警类型字典           )
+	"""
+	alarm_type: Int
+	"""
+	 是否登记                                        (                            )
+	"""
+	is_registration: Boolean
+	"""
+	 是否结束报警                                    (                            )
+	"""
+	is_end_alarm: Boolean
+	"""
+	 是否发送短信                                    (                            )
+	"""
+	is_send_sms: Boolean
+	"""
+	 是否需要维护                                    (                            )
+	"""
+	is_need_maintain: Boolean
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationAggregate {
+	aggregate: OfflineAlarmRegistrationAggregateFields
+}
+"""
+aggregate fields of "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationAggregateFields {
+	avg: OfflineAlarmRegistrationAvgFields
+	count: Int
+	max: OfflineAlarmRegistrationMaxFields
+	min: OfflineAlarmRegistrationMinFields
+	stddev: OfflineAlarmRegistrationStddevFields
+	stddev_pop: OfflineAlarmRegistrationStddevPopFields
+	stddev_samp: OfflineAlarmRegistrationStddevSampFields
+	sum: OfflineAlarmRegistrationSumFields
+	var_pop: OfflineAlarmRegistrationVarPopFields
+	var_samp: OfflineAlarmRegistrationVarSampFields
+	variance: OfflineAlarmRegistrationVarianceFields
+}
+"""
+aggregate avg on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationAvgFields {
+	id: Bigint
+	alarm_type: Int
+}
+"""
+aggregate max on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationMaxFields {
+	id: Bigint
+	offline_alarm_registration_id: String
+	vehicle_id: String
+	offline_start_time: Timestamptz
+	offline_end_time: Timestamptz
+	registration_user: String
+	registration_time: Timestamptz
+	sms_content: String
+	phone_reminder_content: String
+	sms_send_time: Timestamptz
+	phone_reminder_time: Timestamptz
+	offline_reason: String
+	alarm_type: Int
+	is_registration: Boolean
+	is_end_alarm: Boolean
+	is_send_sms: Boolean
+	is_need_maintain: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationMinFields {
+	id: Bigint
+	offline_alarm_registration_id: String
+	vehicle_id: String
+	offline_start_time: Timestamptz
+	offline_end_time: Timestamptz
+	registration_user: String
+	registration_time: Timestamptz
+	sms_content: String
+	phone_reminder_content: String
+	sms_send_time: Timestamptz
+	phone_reminder_time: Timestamptz
+	offline_reason: String
+	alarm_type: Int
+	is_registration: Boolean
+	is_end_alarm: Boolean
+	is_send_sms: Boolean
+	is_need_maintain: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationStddevFields {
+	id: Bigint
+	alarm_type: Int
+}
+"""
+aggregate stddev_pop on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationStddevPopFields {
+	id: Bigint
+	alarm_type: Int
+}
+"""
+aggregate stddev_samp on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationStddevSampFields {
+	id: Bigint
+	alarm_type: Int
+}
+"""
+aggregate sum on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationSumFields {
+	id: Bigint
+	alarm_type: Int
+}
+"""
+aggregate var_pop on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationVarPopFields {
+	id: Bigint
+	alarm_type: Int
+}
+"""
+aggregate var_samp on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationVarSampFields {
+	id: Bigint
+	alarm_type: Int
+}
+"""
+aggregate variance on columns of table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationVarianceFields {
+	id: Bigint
+	alarm_type: Int
+}
+"""
+response of any mutation on the table "offline_alarm_registration"
+"""
+type OfflineAlarmRegistrationMutationResponse {
+	affected_rows: Int!
+	returning: [OfflineAlarmRegistration!]!
+}
+"""
+ordering options when selecting data from "offline_alarm_registration"
+"""
+input OfflineAlarmRegistrationOrderBy {
+	id: OrderBy
+	offline_alarm_registration_id: OrderBy
+	vehicle_id: OrderBy
+	offline_start_time: OrderBy
+	offline_end_time: OrderBy
+	registration_user: OrderBy
+	registration_time: OrderBy
+	sms_content: OrderBy
+	phone_reminder_content: OrderBy
+	sms_send_time: OrderBy
+	phone_reminder_time: OrderBy
+	offline_reason: OrderBy
+	alarm_type: OrderBy
+	is_registration: OrderBy
+	is_end_alarm: OrderBy
+	is_send_sms: OrderBy
+	is_need_maintain: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'offline_alarm_registration'.
+"""
+input OfflineAlarmRegistrationBoolExp {
+	_and: [OfflineAlarmRegistrationBoolExp]
+	_not: OfflineAlarmRegistrationBoolExp
+	_or: [OfflineAlarmRegistrationBoolExp]
+	id: BigintComparisonExp
+	offline_alarm_registration_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	offline_start_time: TimestamptzComparisonExp
+	offline_end_time: TimestamptzComparisonExp
+	registration_user: StringComparisonExp
+	registration_time: TimestamptzComparisonExp
+	sms_content: StringComparisonExp
+	phone_reminder_content: StringComparisonExp
+	sms_send_time: TimestamptzComparisonExp
+	phone_reminder_time: TimestamptzComparisonExp
+	offline_reason: StringComparisonExp
+	alarm_type: IntComparisonExp
+	is_registration: BooleanComparisonExp
+	is_end_alarm: BooleanComparisonExp
+	is_send_sms: BooleanComparisonExp
+	is_need_maintain: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "offline_alarm_registration"
+"""
+input OfflineAlarmRegistrationInsertInput {
+	id: Bigint
+	offline_alarm_registration_id: String
+	vehicle_id: String
+	offline_start_time: Timestamptz
+	offline_end_time: Timestamptz
+	registration_user: String
+	registration_time: Timestamptz
+	sms_content: String
+	phone_reminder_content: String
+	sms_send_time: Timestamptz
+	phone_reminder_time: Timestamptz
+	offline_reason: String
+	alarm_type: Int
+	is_registration: Boolean
+	is_end_alarm: Boolean
+	is_send_sms: Boolean
+	is_need_maintain: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "offline_alarm_registration"
+"""
+input OfflineAlarmRegistrationIncInput {
+	id: Bigint
+	alarm_type: Int
+}
+"""
+input type for updating data in table "offline_alarm_registration"
+"""
+input OfflineAlarmRegistrationSetInput {
+	id: Bigint
+	offline_alarm_registration_id: String
+	vehicle_id: String
+	offline_start_time: Timestamptz
+	offline_end_time: Timestamptz
+	registration_user: String
+	registration_time: Timestamptz
+	sms_content: String
+	phone_reminder_content: String
+	sms_send_time: Timestamptz
+	phone_reminder_time: Timestamptz
+	offline_reason: String
+	alarm_type: Int
+	is_registration: Boolean
+	is_end_alarm: Boolean
+	is_send_sms: Boolean
+	is_need_maintain: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum OfflineAlarmRegistrationSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	offline_alarm_registration_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id
+	"""
+	 离线开始时间                                    (                            )
+	"""
+	offline_start_time
+	"""
+	 离线结束时间                                    (                            )
+	"""
+	offline_end_time
+	"""
+	 登记用户                                        ( system_user表的user_id )
+	"""
+	registration_user
+	"""
+	 登记时间                                        (                            )
+	"""
+	registration_time
+	"""
+	 短信发送内容                                    (                            )
+	"""
+	sms_content
+	"""
+	 电话提醒内容                                    (                            )
+	"""
+	phone_reminder_content
+	"""
+	 短信发送时间                                    (                            )
+	"""
+	sms_send_time
+	"""
+	 电话提醒时间                                    (                            )
+	"""
+	phone_reminder_time
+	"""
+	 离线原因                                        (                            )
+	"""
+	offline_reason
+	"""
+	 报警类型                                        ( 报警类型字典           )
+	"""
+	alarm_type
+	"""
+	 是否登记                                        (                            )
+	"""
+	is_registration
+	"""
+	 是否结束报警                                    (                            )
+	"""
+	is_end_alarm
+	"""
+	 是否发送短信                                    (                            )
+	"""
+	is_send_sms
+	"""
+	 是否需要维护                                    (                            )
+	"""
+	is_need_maintain
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	offline_alarm_registration(distinct_on: [OfflineAlarmRegistrationSelectColumn!], limit: Int, offset: Int, order_by: [OfflineAlarmRegistrationOrderBy!], where: OfflineAlarmRegistrationBoolExp): [OfflineAlarmRegistration!]!
+	"""
+	聚合查询
+	"""
+	offline_alarm_registration_aggregate(distinct_on: [OfflineAlarmRegistrationSelectColumn!], limit: Int, offset: Int, order_by: [OfflineAlarmRegistrationOrderBy!], where: OfflineAlarmRegistrationBoolExp): OfflineAlarmRegistrationAggregate!
+	"""
+	主键查询
+	"""
+	offline_alarm_registration_by_pk(id: Bigint!): OfflineAlarmRegistration!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_offline_alarm_registration(where: OfflineAlarmRegistrationBoolExp!): OfflineAlarmRegistrationMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_offline_alarm_registration_by_pk(id: Bigint!): OfflineAlarmRegistration
+	"""
+	插入
+	"""
+	insert_offline_alarm_registration(objects: [OfflineAlarmRegistrationInsertInput!]!): OfflineAlarmRegistrationMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_offline_alarm_registration_one(objects: OfflineAlarmRegistrationInsertInput!): OfflineAlarmRegistration
+	"""
+	更新
+	"""
+	update_offline_alarm_registration(_inc: OfflineAlarmRegistrationIncInput, _set: OfflineAlarmRegistrationSetInput, where: OfflineAlarmRegistrationBoolExp!): OfflineAlarmRegistrationMutationResponse
+	"""
+	更新
+	"""
+	update_offline_alarm_registration_by_pk(_inc: OfflineAlarmRegistrationIncInput, _set: OfflineAlarmRegistrationSetInput, id: Bigint!): OfflineAlarmRegistration
+}

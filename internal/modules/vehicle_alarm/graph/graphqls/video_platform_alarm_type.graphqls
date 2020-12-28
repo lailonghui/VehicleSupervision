@@ -1,0 +1,371 @@
+"""
+视频平台报警类型字典
+"""
+type VideoPlatformAlarmType {
+	"""
+	 按指定方法生成                                  ( 主键                                                      )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                  )
+	"""
+	video_platform_alarm_type_id: String!
+	"""
+	 报警数据表id                                    ( vehicle_alarm_data  报警数据表的vehicle_alarm_data_id )
+	"""
+	vehicle_alarm_data_id: Int
+	"""
+	 报警类型                                        (                                                           )
+	"""
+	alarm_type: String
+	"""
+	 报警来源                                        (                                                           )
+	"""
+	alarm_source: String
+	"""
+	 报警分类                                        ( Adas报警字典                                          )
+	"""
+	alarm_classify: String
+	"""
+	 报警代码                                        (                                                           )
+	"""
+	alarm_code: String
+	"""
+	 是否删除                                        (                                                           )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                                                           )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id                                )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                                           )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id                                )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                                           )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id                                )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeAggregate {
+	aggregate: VideoPlatformAlarmTypeAggregateFields
+}
+"""
+aggregate fields of "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeAggregateFields {
+	avg: VideoPlatformAlarmTypeAvgFields
+	count: Int
+	max: VideoPlatformAlarmTypeMaxFields
+	min: VideoPlatformAlarmTypeMinFields
+	stddev: VideoPlatformAlarmTypeStddevFields
+	stddev_pop: VideoPlatformAlarmTypeStddevPopFields
+	stddev_samp: VideoPlatformAlarmTypeStddevSampFields
+	sum: VideoPlatformAlarmTypeSumFields
+	var_pop: VideoPlatformAlarmTypeVarPopFields
+	var_samp: VideoPlatformAlarmTypeVarSampFields
+	variance: VideoPlatformAlarmTypeVarianceFields
+}
+"""
+aggregate avg on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeAvgFields {
+	id: Bigint
+	vehicle_alarm_data_id: Int
+}
+"""
+aggregate max on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeMaxFields {
+	id: Bigint
+	video_platform_alarm_type_id: String
+	vehicle_alarm_data_id: Int
+	alarm_type: String
+	alarm_source: String
+	alarm_classify: String
+	alarm_code: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeMinFields {
+	id: Bigint
+	video_platform_alarm_type_id: String
+	vehicle_alarm_data_id: Int
+	alarm_type: String
+	alarm_source: String
+	alarm_classify: String
+	alarm_code: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeStddevFields {
+	id: Bigint
+	vehicle_alarm_data_id: Int
+}
+"""
+aggregate stddev_pop on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeStddevPopFields {
+	id: Bigint
+	vehicle_alarm_data_id: Int
+}
+"""
+aggregate stddev_samp on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeStddevSampFields {
+	id: Bigint
+	vehicle_alarm_data_id: Int
+}
+"""
+aggregate sum on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeSumFields {
+	id: Bigint
+	vehicle_alarm_data_id: Int
+}
+"""
+aggregate var_pop on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeVarPopFields {
+	id: Bigint
+	vehicle_alarm_data_id: Int
+}
+"""
+aggregate var_samp on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeVarSampFields {
+	id: Bigint
+	vehicle_alarm_data_id: Int
+}
+"""
+aggregate variance on columns of table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeVarianceFields {
+	id: Bigint
+	vehicle_alarm_data_id: Int
+}
+"""
+response of any mutation on the table "video_platform_alarm_type"
+"""
+type VideoPlatformAlarmTypeMutationResponse {
+	affected_rows: Int!
+	returning: [VideoPlatformAlarmType!]!
+}
+"""
+ordering options when selecting data from "video_platform_alarm_type"
+"""
+input VideoPlatformAlarmTypeOrderBy {
+	id: OrderBy
+	video_platform_alarm_type_id: OrderBy
+	vehicle_alarm_data_id: OrderBy
+	alarm_type: OrderBy
+	alarm_source: OrderBy
+	alarm_classify: OrderBy
+	alarm_code: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'video_platform_alarm_type'.
+"""
+input VideoPlatformAlarmTypeBoolExp {
+	_and: [VideoPlatformAlarmTypeBoolExp]
+	_not: VideoPlatformAlarmTypeBoolExp
+	_or: [VideoPlatformAlarmTypeBoolExp]
+	id: BigintComparisonExp
+	video_platform_alarm_type_id: StringComparisonExp
+	vehicle_alarm_data_id: IntComparisonExp
+	alarm_type: StringComparisonExp
+	alarm_source: StringComparisonExp
+	alarm_classify: StringComparisonExp
+	alarm_code: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "video_platform_alarm_type"
+"""
+input VideoPlatformAlarmTypeInsertInput {
+	id: Bigint
+	video_platform_alarm_type_id: String
+	vehicle_alarm_data_id: Int
+	alarm_type: String
+	alarm_source: String
+	alarm_classify: String
+	alarm_code: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "video_platform_alarm_type"
+"""
+input VideoPlatformAlarmTypeIncInput {
+	id: Bigint
+	vehicle_alarm_data_id: Int
+}
+"""
+input type for updating data in table "video_platform_alarm_type"
+"""
+input VideoPlatformAlarmTypeSetInput {
+	id: Bigint
+	video_platform_alarm_type_id: String
+	vehicle_alarm_data_id: Int
+	alarm_type: String
+	alarm_source: String
+	alarm_classify: String
+	alarm_code: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum VideoPlatformAlarmTypeSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                                      )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                  )
+	"""
+	video_platform_alarm_type_id
+	"""
+	 报警数据表id                                    ( vehicle_alarm_data  报警数据表的vehicle_alarm_data_id )
+	"""
+	vehicle_alarm_data_id
+	"""
+	 报警类型                                        (                                                           )
+	"""
+	alarm_type
+	"""
+	 报警来源                                        (                                                           )
+	"""
+	alarm_source
+	"""
+	 报警分类                                        ( Adas报警字典                                          )
+	"""
+	alarm_classify
+	"""
+	 报警代码                                        (                                                           )
+	"""
+	alarm_code
+	"""
+	 是否删除                                        (                                                           )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                                                           )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id                                )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                                           )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id                                )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                                           )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id                                )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	video_platform_alarm_type(distinct_on: [VideoPlatformAlarmTypeSelectColumn!], limit: Int, offset: Int, order_by: [VideoPlatformAlarmTypeOrderBy!], where: VideoPlatformAlarmTypeBoolExp): [VideoPlatformAlarmType!]!
+	"""
+	聚合查询
+	"""
+	video_platform_alarm_type_aggregate(distinct_on: [VideoPlatformAlarmTypeSelectColumn!], limit: Int, offset: Int, order_by: [VideoPlatformAlarmTypeOrderBy!], where: VideoPlatformAlarmTypeBoolExp): VideoPlatformAlarmTypeAggregate!
+	"""
+	主键查询
+	"""
+	video_platform_alarm_type_by_pk(id: Bigint!): VideoPlatformAlarmType!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_video_platform_alarm_type(where: VideoPlatformAlarmTypeBoolExp!): VideoPlatformAlarmTypeMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_video_platform_alarm_type_by_pk(id: Bigint!): VideoPlatformAlarmType
+	"""
+	插入
+	"""
+	insert_video_platform_alarm_type(objects: [VideoPlatformAlarmTypeInsertInput!]!): VideoPlatformAlarmTypeMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_video_platform_alarm_type_one(objects: VideoPlatformAlarmTypeInsertInput!): VideoPlatformAlarmType
+	"""
+	更新
+	"""
+	update_video_platform_alarm_type(_inc: VideoPlatformAlarmTypeIncInput, _set: VideoPlatformAlarmTypeSetInput, where: VideoPlatformAlarmTypeBoolExp!): VideoPlatformAlarmTypeMutationResponse
+	"""
+	更新
+	"""
+	update_video_platform_alarm_type_by_pk(_inc: VideoPlatformAlarmTypeIncInput, _set: VideoPlatformAlarmTypeSetInput, id: Bigint!): VideoPlatformAlarmType
+}

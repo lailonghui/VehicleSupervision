@@ -1,0 +1,320 @@
+"""
+严重交通违法行为表
+"""
+type SeriousTrafficViolation {
+	"""
+	 按指定方法生成                                  ( 主键                            )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                        )
+	"""
+	serious_traffic_violation_id: String!
+	"""
+	 违章车辆id                                      ( vehicle_info表的vehicle_id  )
+	"""
+	vehicle_id: String
+	"""
+	 违法代码                                        ( VIO_CODEWFDM 违法描述字典表 )
+	"""
+	illegal_code: String
+	"""
+	 违法日期                                        (                                 )
+	"""
+	illegal_time: Timestamptz
+	"""
+	 创建时间                                        (                                 )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id      )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                 )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id      )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                 )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id      )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "serious_traffic_violation"
+"""
+type SeriousTrafficViolationAggregate {
+	aggregate: SeriousTrafficViolationAggregateFields
+}
+"""
+aggregate fields of "serious_traffic_violation"
+"""
+type SeriousTrafficViolationAggregateFields {
+	avg: SeriousTrafficViolationAvgFields
+	count: Int
+	max: SeriousTrafficViolationMaxFields
+	min: SeriousTrafficViolationMinFields
+	stddev: SeriousTrafficViolationStddevFields
+	stddev_pop: SeriousTrafficViolationStddevPopFields
+	stddev_samp: SeriousTrafficViolationStddevSampFields
+	sum: SeriousTrafficViolationSumFields
+	var_pop: SeriousTrafficViolationVarPopFields
+	var_samp: SeriousTrafficViolationVarSampFields
+	variance: SeriousTrafficViolationVarianceFields
+}
+"""
+aggregate avg on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationMaxFields {
+	id: Bigint
+	serious_traffic_violation_id: String
+	vehicle_id: String
+	illegal_code: String
+	illegal_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationMinFields {
+	id: Bigint
+	serious_traffic_violation_id: String
+	vehicle_id: String
+	illegal_code: String
+	illegal_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "serious_traffic_violation"
+"""
+type SeriousTrafficViolationMutationResponse {
+	affected_rows: Int!
+	returning: [SeriousTrafficViolation!]!
+}
+"""
+ordering options when selecting data from "serious_traffic_violation"
+"""
+input SeriousTrafficViolationOrderBy {
+	id: OrderBy
+	serious_traffic_violation_id: OrderBy
+	vehicle_id: OrderBy
+	illegal_code: OrderBy
+	illegal_time: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'serious_traffic_violation'.
+"""
+input SeriousTrafficViolationBoolExp {
+	_and: [SeriousTrafficViolationBoolExp]
+	_not: SeriousTrafficViolationBoolExp
+	_or: [SeriousTrafficViolationBoolExp]
+	id: BigintComparisonExp
+	serious_traffic_violation_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	illegal_code: StringComparisonExp
+	illegal_time: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "serious_traffic_violation"
+"""
+input SeriousTrafficViolationInsertInput {
+	id: Bigint
+	serious_traffic_violation_id: String
+	vehicle_id: String
+	illegal_code: String
+	illegal_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "serious_traffic_violation"
+"""
+input SeriousTrafficViolationIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "serious_traffic_violation"
+"""
+input SeriousTrafficViolationSetInput {
+	id: Bigint
+	serious_traffic_violation_id: String
+	vehicle_id: String
+	illegal_code: String
+	illegal_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum SeriousTrafficViolationSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                            )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                        )
+	"""
+	serious_traffic_violation_id
+	"""
+	 违章车辆id                                      ( vehicle_info表的vehicle_id  )
+	"""
+	vehicle_id
+	"""
+	 违法代码                                        ( VIO_CODEWFDM 违法描述字典表 )
+	"""
+	illegal_code
+	"""
+	 违法日期                                        (                                 )
+	"""
+	illegal_time
+	"""
+	 创建时间                                        (                                 )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id      )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                 )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id      )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                 )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id      )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	serious_traffic_violation(distinct_on: [SeriousTrafficViolationSelectColumn!], limit: Int, offset: Int, order_by: [SeriousTrafficViolationOrderBy!], where: SeriousTrafficViolationBoolExp): [SeriousTrafficViolation!]!
+	"""
+	聚合查询
+	"""
+	serious_traffic_violation_aggregate(distinct_on: [SeriousTrafficViolationSelectColumn!], limit: Int, offset: Int, order_by: [SeriousTrafficViolationOrderBy!], where: SeriousTrafficViolationBoolExp): SeriousTrafficViolationAggregate!
+	"""
+	主键查询
+	"""
+	serious_traffic_violation_by_pk(id: Bigint!): SeriousTrafficViolation!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_serious_traffic_violation(where: SeriousTrafficViolationBoolExp!): SeriousTrafficViolationMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_serious_traffic_violation_by_pk(id: Bigint!): SeriousTrafficViolation
+	"""
+	插入
+	"""
+	insert_serious_traffic_violation(objects: [SeriousTrafficViolationInsertInput!]!): SeriousTrafficViolationMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_serious_traffic_violation_one(objects: SeriousTrafficViolationInsertInput!): SeriousTrafficViolation
+	"""
+	更新
+	"""
+	update_serious_traffic_violation(_inc: SeriousTrafficViolationIncInput, _set: SeriousTrafficViolationSetInput, where: SeriousTrafficViolationBoolExp!): SeriousTrafficViolationMutationResponse
+	"""
+	更新
+	"""
+	update_serious_traffic_violation_by_pk(_inc: SeriousTrafficViolationIncInput, _set: SeriousTrafficViolationSetInput, id: Bigint!): SeriousTrafficViolation
+}

@@ -1,0 +1,390 @@
+"""
+语音报警记录
+"""
+type VoiceAlarmRecord {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	vioce_alarm_record_id: String!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id: String!
+	"""
+	 报警时间                                        (                            )
+	"""
+	alarm_time: Timestamptz
+	"""
+	 报警类型                                        (                            )
+	"""
+	alarm_type: String
+	"""
+	 提醒时间                                        (                            )
+	"""
+	remind_time: Timestamptz
+	"""
+	 提醒内容                                        (                            )
+	"""
+	remind_content: String
+	"""
+	 录入人                                          ( system_user表的user_id )
+	"""
+	input_person: String
+	"""
+	 录入时间                                        (                            )
+	"""
+	input_time: Timestamptz
+	"""
+	 是否成功                                        (                            )
+	"""
+	is_success: Boolean
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "voice_alarm_record"
+"""
+type VoiceAlarmRecordAggregate {
+	aggregate: VoiceAlarmRecordAggregateFields
+}
+"""
+aggregate fields of "voice_alarm_record"
+"""
+type VoiceAlarmRecordAggregateFields {
+	avg: VoiceAlarmRecordAvgFields
+	count: Int
+	max: VoiceAlarmRecordMaxFields
+	min: VoiceAlarmRecordMinFields
+	stddev: VoiceAlarmRecordStddevFields
+	stddev_pop: VoiceAlarmRecordStddevPopFields
+	stddev_samp: VoiceAlarmRecordStddevSampFields
+	sum: VoiceAlarmRecordSumFields
+	var_pop: VoiceAlarmRecordVarPopFields
+	var_samp: VoiceAlarmRecordVarSampFields
+	variance: VoiceAlarmRecordVarianceFields
+}
+"""
+aggregate avg on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordMaxFields {
+	id: Bigint
+	vioce_alarm_record_id: String
+	vehicle_id: String
+	alarm_time: Timestamptz
+	alarm_type: String
+	remind_time: Timestamptz
+	remind_content: String
+	input_person: String
+	input_time: Timestamptz
+	is_success: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordMinFields {
+	id: Bigint
+	vioce_alarm_record_id: String
+	vehicle_id: String
+	alarm_time: Timestamptz
+	alarm_type: String
+	remind_time: Timestamptz
+	remind_content: String
+	input_person: String
+	input_time: Timestamptz
+	is_success: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "voice_alarm_record"
+"""
+type VoiceAlarmRecordVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "voice_alarm_record"
+"""
+type VoiceAlarmRecordMutationResponse {
+	affected_rows: Int!
+	returning: [VoiceAlarmRecord!]!
+}
+"""
+ordering options when selecting data from "voice_alarm_record"
+"""
+input VoiceAlarmRecordOrderBy {
+	id: OrderBy
+	vioce_alarm_record_id: OrderBy
+	vehicle_id: OrderBy
+	alarm_time: OrderBy
+	alarm_type: OrderBy
+	remind_time: OrderBy
+	remind_content: OrderBy
+	input_person: OrderBy
+	input_time: OrderBy
+	is_success: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'voice_alarm_record'.
+"""
+input VoiceAlarmRecordBoolExp {
+	_and: [VoiceAlarmRecordBoolExp]
+	_not: VoiceAlarmRecordBoolExp
+	_or: [VoiceAlarmRecordBoolExp]
+	id: BigintComparisonExp
+	vioce_alarm_record_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	alarm_time: TimestamptzComparisonExp
+	alarm_type: StringComparisonExp
+	remind_time: TimestamptzComparisonExp
+	remind_content: StringComparisonExp
+	input_person: StringComparisonExp
+	input_time: TimestamptzComparisonExp
+	is_success: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "voice_alarm_record"
+"""
+input VoiceAlarmRecordInsertInput {
+	id: Bigint
+	vioce_alarm_record_id: String
+	vehicle_id: String
+	alarm_time: Timestamptz
+	alarm_type: String
+	remind_time: Timestamptz
+	remind_content: String
+	input_person: String
+	input_time: Timestamptz
+	is_success: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "voice_alarm_record"
+"""
+input VoiceAlarmRecordIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "voice_alarm_record"
+"""
+input VoiceAlarmRecordSetInput {
+	id: Bigint
+	vioce_alarm_record_id: String
+	vehicle_id: String
+	alarm_time: Timestamptz
+	alarm_type: String
+	remind_time: Timestamptz
+	remind_content: String
+	input_person: String
+	input_time: Timestamptz
+	is_success: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum VoiceAlarmRecordSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	vioce_alarm_record_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id
+	"""
+	 报警时间                                        (                            )
+	"""
+	alarm_time
+	"""
+	 报警类型                                        (                            )
+	"""
+	alarm_type
+	"""
+	 提醒时间                                        (                            )
+	"""
+	remind_time
+	"""
+	 提醒内容                                        (                            )
+	"""
+	remind_content
+	"""
+	 录入人                                          ( system_user表的user_id )
+	"""
+	input_person
+	"""
+	 录入时间                                        (                            )
+	"""
+	input_time
+	"""
+	 是否成功                                        (                            )
+	"""
+	is_success
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	voice_alarm_record(distinct_on: [VoiceAlarmRecordSelectColumn!], limit: Int, offset: Int, order_by: [VoiceAlarmRecordOrderBy!], where: VoiceAlarmRecordBoolExp): [VoiceAlarmRecord!]!
+	"""
+	聚合查询
+	"""
+	voice_alarm_record_aggregate(distinct_on: [VoiceAlarmRecordSelectColumn!], limit: Int, offset: Int, order_by: [VoiceAlarmRecordOrderBy!], where: VoiceAlarmRecordBoolExp): VoiceAlarmRecordAggregate!
+	"""
+	主键查询
+	"""
+	voice_alarm_record_by_pk(id: Bigint!): VoiceAlarmRecord!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_voice_alarm_record(where: VoiceAlarmRecordBoolExp!): VoiceAlarmRecordMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_voice_alarm_record_by_pk(id: Bigint!): VoiceAlarmRecord
+	"""
+	插入
+	"""
+	insert_voice_alarm_record(objects: [VoiceAlarmRecordInsertInput!]!): VoiceAlarmRecordMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_voice_alarm_record_one(objects: VoiceAlarmRecordInsertInput!): VoiceAlarmRecord
+	"""
+	更新
+	"""
+	update_voice_alarm_record(_inc: VoiceAlarmRecordIncInput, _set: VoiceAlarmRecordSetInput, where: VoiceAlarmRecordBoolExp!): VoiceAlarmRecordMutationResponse
+	"""
+	更新
+	"""
+	update_voice_alarm_record_by_pk(_inc: VoiceAlarmRecordIncInput, _set: VoiceAlarmRecordSetInput, id: Bigint!): VoiceAlarmRecord
+}

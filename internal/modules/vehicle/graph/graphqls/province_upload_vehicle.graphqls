@@ -1,0 +1,575 @@
+"""
+省厅新平台上传车辆表
+"""
+type ProvinceUploadVehicle {
+	"""
+	 按指定方法生成                                  ( 主键                                 )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	province_upload_vehicle_id: String!
+	"""
+	 车牌号码                                        (                                      )
+	"""
+	license_plate_number: String
+	"""
+	 车牌颜色                                        ( 车牌颜色字典                     )
+	"""
+	license_plate_color: Int
+	"""
+	 所在企业id                                      ( enterprise_info表的enterprise_id )
+	"""
+	enterprise_id: String
+	"""
+	 运营商                                          ( enterprise_info表的enterprise_id )
+	"""
+	operator: String
+	"""
+	 车籍地(行驶证上的车辆注册地 )                   (                                      )
+	"""
+	vehicle_registration_place: String
+	"""
+	 车辆类型                                        ( 车辆类型字典                     )
+	"""
+	vehicle_type: Int
+	"""
+	 吨位                                            (                                      )
+	"""
+	heavy: Numeric
+	"""
+	 座位                                            (                                      )
+	"""
+	seats: Int
+	"""
+	 运营标识                                        (                                      )
+	"""
+	operating_flag: String
+	"""
+	 营运状态                                        ( 营运状态字典                     )
+	"""
+	operating_state: Int
+	"""
+	 备注                                            (                                      )
+	"""
+	remarks: String
+	"""
+	 在线状态                                        (                                      )
+	"""
+	online_status: String
+	"""
+	 最后汇报时间                                    (                                      )
+	"""
+	last_report_time: Timestamptz
+	"""
+	 运政同步标识                                    (                                      )
+	"""
+	transport_agency_synchronization_flag: String
+	"""
+	 是否运政同步                                    (                                      )
+	"""
+	is_transport_agency_synchronization: Boolean
+	"""
+	 运政同步时间                                    (                                      )
+	"""
+	transport_agency_synchronization_time: Timestamptz
+	"""
+	 设备型号                                        (                                      )
+	"""
+	device_model: String
+	"""
+	 终端型号                                        (                                      )
+	"""
+	terminal_model: String
+	"""
+	 创建时间                                        (                                      )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id           )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                      )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id           )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                      )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id           )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleAggregate {
+	aggregate: ProvinceUploadVehicleAggregateFields
+}
+"""
+aggregate fields of "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleAggregateFields {
+	avg: ProvinceUploadVehicleAvgFields
+	count: Int
+	max: ProvinceUploadVehicleMaxFields
+	min: ProvinceUploadVehicleMinFields
+	stddev: ProvinceUploadVehicleStddevFields
+	stddev_pop: ProvinceUploadVehicleStddevPopFields
+	stddev_samp: ProvinceUploadVehicleStddevSampFields
+	sum: ProvinceUploadVehicleSumFields
+	var_pop: ProvinceUploadVehicleVarPopFields
+	var_samp: ProvinceUploadVehicleVarSampFields
+	variance: ProvinceUploadVehicleVarianceFields
+}
+"""
+aggregate avg on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleAvgFields {
+	id: Bigint
+	license_plate_color: Int
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_state: Int
+}
+"""
+aggregate max on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleMaxFields {
+	id: Bigint
+	province_upload_vehicle_id: String
+	license_plate_number: String
+	license_plate_color: Int
+	enterprise_id: String
+	operator: String
+	vehicle_registration_place: String
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_flag: String
+	operating_state: Int
+	remarks: String
+	online_status: String
+	last_report_time: Timestamptz
+	transport_agency_synchronization_flag: String
+	is_transport_agency_synchronization: Boolean
+	transport_agency_synchronization_time: Timestamptz
+	device_model: String
+	terminal_model: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleMinFields {
+	id: Bigint
+	province_upload_vehicle_id: String
+	license_plate_number: String
+	license_plate_color: Int
+	enterprise_id: String
+	operator: String
+	vehicle_registration_place: String
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_flag: String
+	operating_state: Int
+	remarks: String
+	online_status: String
+	last_report_time: Timestamptz
+	transport_agency_synchronization_flag: String
+	is_transport_agency_synchronization: Boolean
+	transport_agency_synchronization_time: Timestamptz
+	device_model: String
+	terminal_model: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleStddevFields {
+	id: Bigint
+	license_plate_color: Int
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_state: Int
+}
+"""
+aggregate stddev_pop on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleStddevPopFields {
+	id: Bigint
+	license_plate_color: Int
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_state: Int
+}
+"""
+aggregate stddev_samp on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleStddevSampFields {
+	id: Bigint
+	license_plate_color: Int
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_state: Int
+}
+"""
+aggregate sum on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleSumFields {
+	id: Bigint
+	license_plate_color: Int
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_state: Int
+}
+"""
+aggregate var_pop on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleVarPopFields {
+	id: Bigint
+	license_plate_color: Int
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_state: Int
+}
+"""
+aggregate var_samp on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleVarSampFields {
+	id: Bigint
+	license_plate_color: Int
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_state: Int
+}
+"""
+aggregate variance on columns of table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleVarianceFields {
+	id: Bigint
+	license_plate_color: Int
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_state: Int
+}
+"""
+response of any mutation on the table "province_upload_vehicle"
+"""
+type ProvinceUploadVehicleMutationResponse {
+	affected_rows: Int!
+	returning: [ProvinceUploadVehicle!]!
+}
+"""
+ordering options when selecting data from "province_upload_vehicle"
+"""
+input ProvinceUploadVehicleOrderBy {
+	id: OrderBy
+	province_upload_vehicle_id: OrderBy
+	license_plate_number: OrderBy
+	license_plate_color: OrderBy
+	enterprise_id: OrderBy
+	operator: OrderBy
+	vehicle_registration_place: OrderBy
+	vehicle_type: OrderBy
+	heavy: OrderBy
+	seats: OrderBy
+	operating_flag: OrderBy
+	operating_state: OrderBy
+	remarks: OrderBy
+	online_status: OrderBy
+	last_report_time: OrderBy
+	transport_agency_synchronization_flag: OrderBy
+	is_transport_agency_synchronization: OrderBy
+	transport_agency_synchronization_time: OrderBy
+	device_model: OrderBy
+	terminal_model: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'province_upload_vehicle'.
+"""
+input ProvinceUploadVehicleBoolExp {
+	_and: [ProvinceUploadVehicleBoolExp]
+	_not: ProvinceUploadVehicleBoolExp
+	_or: [ProvinceUploadVehicleBoolExp]
+	id: BigintComparisonExp
+	province_upload_vehicle_id: StringComparisonExp
+	license_plate_number: StringComparisonExp
+	license_plate_color: IntComparisonExp
+	enterprise_id: StringComparisonExp
+	operator: StringComparisonExp
+	vehicle_registration_place: StringComparisonExp
+	vehicle_type: IntComparisonExp
+	heavy: NumericComparisonExp
+	seats: IntComparisonExp
+	operating_flag: StringComparisonExp
+	operating_state: IntComparisonExp
+	remarks: StringComparisonExp
+	online_status: StringComparisonExp
+	last_report_time: TimestamptzComparisonExp
+	transport_agency_synchronization_flag: StringComparisonExp
+	is_transport_agency_synchronization: BooleanComparisonExp
+	transport_agency_synchronization_time: TimestamptzComparisonExp
+	device_model: StringComparisonExp
+	terminal_model: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "province_upload_vehicle"
+"""
+input ProvinceUploadVehicleInsertInput {
+	id: Bigint
+	province_upload_vehicle_id: String
+	license_plate_number: String
+	license_plate_color: Int
+	enterprise_id: String
+	operator: String
+	vehicle_registration_place: String
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_flag: String
+	operating_state: Int
+	remarks: String
+	online_status: String
+	last_report_time: Timestamptz
+	transport_agency_synchronization_flag: String
+	is_transport_agency_synchronization: Boolean
+	transport_agency_synchronization_time: Timestamptz
+	device_model: String
+	terminal_model: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "province_upload_vehicle"
+"""
+input ProvinceUploadVehicleIncInput {
+	id: Bigint
+	license_plate_color: Int
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_state: Int
+}
+"""
+input type for updating data in table "province_upload_vehicle"
+"""
+input ProvinceUploadVehicleSetInput {
+	id: Bigint
+	province_upload_vehicle_id: String
+	license_plate_number: String
+	license_plate_color: Int
+	enterprise_id: String
+	operator: String
+	vehicle_registration_place: String
+	vehicle_type: Int
+	heavy: Numeric
+	seats: Int
+	operating_flag: String
+	operating_state: Int
+	remarks: String
+	online_status: String
+	last_report_time: Timestamptz
+	transport_agency_synchronization_flag: String
+	is_transport_agency_synchronization: Boolean
+	transport_agency_synchronization_time: Timestamptz
+	device_model: String
+	terminal_model: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum ProvinceUploadVehicleSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                 )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	province_upload_vehicle_id
+	"""
+	 车牌号码                                        (                                      )
+	"""
+	license_plate_number
+	"""
+	 车牌颜色                                        ( 车牌颜色字典                     )
+	"""
+	license_plate_color
+	"""
+	 所在企业id                                      ( enterprise_info表的enterprise_id )
+	"""
+	enterprise_id
+	"""
+	 运营商                                          ( enterprise_info表的enterprise_id )
+	"""
+	operator
+	"""
+	 车籍地(行驶证上的车辆注册地 )                   (                                      )
+	"""
+	vehicle_registration_place
+	"""
+	 车辆类型                                        ( 车辆类型字典                     )
+	"""
+	vehicle_type
+	"""
+	 吨位                                            (                                      )
+	"""
+	heavy
+	"""
+	 座位                                            (                                      )
+	"""
+	seats
+	"""
+	 运营标识                                        (                                      )
+	"""
+	operating_flag
+	"""
+	 营运状态                                        ( 营运状态字典                     )
+	"""
+	operating_state
+	"""
+	 备注                                            (                                      )
+	"""
+	remarks
+	"""
+	 在线状态                                        (                                      )
+	"""
+	online_status
+	"""
+	 最后汇报时间                                    (                                      )
+	"""
+	last_report_time
+	"""
+	 运政同步标识                                    (                                      )
+	"""
+	transport_agency_synchronization_flag
+	"""
+	 是否运政同步                                    (                                      )
+	"""
+	is_transport_agency_synchronization
+	"""
+	 运政同步时间                                    (                                      )
+	"""
+	transport_agency_synchronization_time
+	"""
+	 设备型号                                        (                                      )
+	"""
+	device_model
+	"""
+	 终端型号                                        (                                      )
+	"""
+	terminal_model
+	"""
+	 创建时间                                        (                                      )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id           )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                      )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id           )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                      )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id           )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	province_upload_vehicle(distinct_on: [ProvinceUploadVehicleSelectColumn!], limit: Int, offset: Int, order_by: [ProvinceUploadVehicleOrderBy!], where: ProvinceUploadVehicleBoolExp): [ProvinceUploadVehicle!]!
+	"""
+	聚合查询
+	"""
+	province_upload_vehicle_aggregate(distinct_on: [ProvinceUploadVehicleSelectColumn!], limit: Int, offset: Int, order_by: [ProvinceUploadVehicleOrderBy!], where: ProvinceUploadVehicleBoolExp): ProvinceUploadVehicleAggregate!
+	"""
+	主键查询
+	"""
+	province_upload_vehicle_by_pk(id: Bigint!): ProvinceUploadVehicle!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_province_upload_vehicle(where: ProvinceUploadVehicleBoolExp!): ProvinceUploadVehicleMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_province_upload_vehicle_by_pk(id: Bigint!): ProvinceUploadVehicle
+	"""
+	插入
+	"""
+	insert_province_upload_vehicle(objects: [ProvinceUploadVehicleInsertInput!]!): ProvinceUploadVehicleMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_province_upload_vehicle_one(objects: ProvinceUploadVehicleInsertInput!): ProvinceUploadVehicle
+	"""
+	更新
+	"""
+	update_province_upload_vehicle(_inc: ProvinceUploadVehicleIncInput, _set: ProvinceUploadVehicleSetInput, where: ProvinceUploadVehicleBoolExp!): ProvinceUploadVehicleMutationResponse
+	"""
+	更新
+	"""
+	update_province_upload_vehicle_by_pk(_inc: ProvinceUploadVehicleIncInput, _set: ProvinceUploadVehicleSetInput, id: Bigint!): ProvinceUploadVehicle
+}

@@ -1,0 +1,371 @@
+"""
+扣分报表
+"""
+type DeductionReport {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	deduction_report_id: String!
+	"""
+	 地区                                            (                            )
+	"""
+	area_id: String
+	"""
+	 年份.月份  如2015.3                             (                            )
+	"""
+	date: String
+	"""
+	 扣分事由                                        (                            )
+	"""
+	cause: String
+	"""
+	 录入人                                          ( system_user表的user_id )
+	"""
+	input_person: String
+	"""
+	 录入时间                                        (                            )
+	"""
+	input_time: Timestamptz
+	"""
+	 扣分分值                                        (                            )
+	"""
+	demerit_points: Numeric
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "deduction_report"
+"""
+type DeductionReportAggregate {
+	aggregate: DeductionReportAggregateFields
+}
+"""
+aggregate fields of "deduction_report"
+"""
+type DeductionReportAggregateFields {
+	avg: DeductionReportAvgFields
+	count: Int
+	max: DeductionReportMaxFields
+	min: DeductionReportMinFields
+	stddev: DeductionReportStddevFields
+	stddev_pop: DeductionReportStddevPopFields
+	stddev_samp: DeductionReportStddevSampFields
+	sum: DeductionReportSumFields
+	var_pop: DeductionReportVarPopFields
+	var_samp: DeductionReportVarSampFields
+	variance: DeductionReportVarianceFields
+}
+"""
+aggregate avg on columns of table "deduction_report"
+"""
+type DeductionReportAvgFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate max on columns of table "deduction_report"
+"""
+type DeductionReportMaxFields {
+	id: Bigint
+	deduction_report_id: String
+	area_id: String
+	date: String
+	cause: String
+	input_person: String
+	input_time: Timestamptz
+	demerit_points: Numeric
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "deduction_report"
+"""
+type DeductionReportMinFields {
+	id: Bigint
+	deduction_report_id: String
+	area_id: String
+	date: String
+	cause: String
+	input_person: String
+	input_time: Timestamptz
+	demerit_points: Numeric
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "deduction_report"
+"""
+type DeductionReportStddevFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate stddev_pop on columns of table "deduction_report"
+"""
+type DeductionReportStddevPopFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate stddev_samp on columns of table "deduction_report"
+"""
+type DeductionReportStddevSampFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate sum on columns of table "deduction_report"
+"""
+type DeductionReportSumFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate var_pop on columns of table "deduction_report"
+"""
+type DeductionReportVarPopFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate var_samp on columns of table "deduction_report"
+"""
+type DeductionReportVarSampFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate variance on columns of table "deduction_report"
+"""
+type DeductionReportVarianceFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+response of any mutation on the table "deduction_report"
+"""
+type DeductionReportMutationResponse {
+	affected_rows: Int!
+	returning: [DeductionReport!]!
+}
+"""
+ordering options when selecting data from "deduction_report"
+"""
+input DeductionReportOrderBy {
+	id: OrderBy
+	deduction_report_id: OrderBy
+	area_id: OrderBy
+	date: OrderBy
+	cause: OrderBy
+	input_person: OrderBy
+	input_time: OrderBy
+	demerit_points: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'deduction_report'.
+"""
+input DeductionReportBoolExp {
+	_and: [DeductionReportBoolExp]
+	_not: DeductionReportBoolExp
+	_or: [DeductionReportBoolExp]
+	id: BigintComparisonExp
+	deduction_report_id: StringComparisonExp
+	area_id: StringComparisonExp
+	date: StringComparisonExp
+	cause: StringComparisonExp
+	input_person: StringComparisonExp
+	input_time: TimestamptzComparisonExp
+	demerit_points: NumericComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "deduction_report"
+"""
+input DeductionReportInsertInput {
+	id: Bigint
+	deduction_report_id: String
+	area_id: String
+	date: String
+	cause: String
+	input_person: String
+	input_time: Timestamptz
+	demerit_points: Numeric
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "deduction_report"
+"""
+input DeductionReportIncInput {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+input type for updating data in table "deduction_report"
+"""
+input DeductionReportSetInput {
+	id: Bigint
+	deduction_report_id: String
+	area_id: String
+	date: String
+	cause: String
+	input_person: String
+	input_time: Timestamptz
+	demerit_points: Numeric
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum DeductionReportSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	deduction_report_id
+	"""
+	 地区                                            (                            )
+	"""
+	area_id
+	"""
+	 年份.月份  如2015.3                             (                            )
+	"""
+	date
+	"""
+	 扣分事由                                        (                            )
+	"""
+	cause
+	"""
+	 录入人                                          ( system_user表的user_id )
+	"""
+	input_person
+	"""
+	 录入时间                                        (                            )
+	"""
+	input_time
+	"""
+	 扣分分值                                        (                            )
+	"""
+	demerit_points
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	deduction_report(distinct_on: [DeductionReportSelectColumn!], limit: Int, offset: Int, order_by: [DeductionReportOrderBy!], where: DeductionReportBoolExp): [DeductionReport!]!
+	"""
+	聚合查询
+	"""
+	deduction_report_aggregate(distinct_on: [DeductionReportSelectColumn!], limit: Int, offset: Int, order_by: [DeductionReportOrderBy!], where: DeductionReportBoolExp): DeductionReportAggregate!
+	"""
+	主键查询
+	"""
+	deduction_report_by_pk(id: Bigint!): DeductionReport!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_deduction_report(where: DeductionReportBoolExp!): DeductionReportMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_deduction_report_by_pk(id: Bigint!): DeductionReport
+	"""
+	插入
+	"""
+	insert_deduction_report(objects: [DeductionReportInsertInput!]!): DeductionReportMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_deduction_report_one(objects: DeductionReportInsertInput!): DeductionReport
+	"""
+	更新
+	"""
+	update_deduction_report(_inc: DeductionReportIncInput, _set: DeductionReportSetInput, where: DeductionReportBoolExp!): DeductionReportMutationResponse
+	"""
+	更新
+	"""
+	update_deduction_report_by_pk(_inc: DeductionReportIncInput, _set: DeductionReportSetInput, id: Bigint!): DeductionReport
+}

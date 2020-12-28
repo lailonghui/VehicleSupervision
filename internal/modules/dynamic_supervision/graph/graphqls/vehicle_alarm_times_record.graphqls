@@ -1,0 +1,441 @@
+"""
+同一车辆报警次数记录表
+"""
+type VehicleAlarmTimesRecord {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	vehicle_alarm_times_record_id: String!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id: String!
+	"""
+	 报警类型                                        ( 报警类型字典           )
+	"""
+	alarm_type: String
+	"""
+	 处置措施                                        (                            )
+	"""
+	disposal_measure: String
+	"""
+	 处置时间                                        (                            )
+	"""
+	disposal_time: Timestamptz
+	"""
+	 处置结果                                        (                            )
+	"""
+	disposal_result: String
+	"""
+	 是否处置                                        (                            )
+	"""
+	is_disposal: Boolean
+	"""
+	 处置方式                                        ( 处置方式字典           )
+	"""
+	disposal_method: Int
+	"""
+	 值班人                                          (                            )
+	"""
+	duty_person: String
+	"""
+	 报警次数                                        (                            )
+	"""
+	alarm_times: String
+	"""
+	 备注                                            (                            )
+	"""
+	remarks: String
+	"""
+	 记录时间                                        (                            )
+	"""
+	record_time: Timestamptz
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordAggregate {
+	aggregate: VehicleAlarmTimesRecordAggregateFields
+}
+"""
+aggregate fields of "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordAggregateFields {
+	avg: VehicleAlarmTimesRecordAvgFields
+	count: Int
+	max: VehicleAlarmTimesRecordMaxFields
+	min: VehicleAlarmTimesRecordMinFields
+	stddev: VehicleAlarmTimesRecordStddevFields
+	stddev_pop: VehicleAlarmTimesRecordStddevPopFields
+	stddev_samp: VehicleAlarmTimesRecordStddevSampFields
+	sum: VehicleAlarmTimesRecordSumFields
+	var_pop: VehicleAlarmTimesRecordVarPopFields
+	var_samp: VehicleAlarmTimesRecordVarSampFields
+	variance: VehicleAlarmTimesRecordVarianceFields
+}
+"""
+aggregate avg on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordAvgFields {
+	id: Bigint
+	disposal_method: Int
+}
+"""
+aggregate max on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordMaxFields {
+	id: Bigint
+	vehicle_alarm_times_record_id: String
+	vehicle_id: String
+	alarm_type: String
+	disposal_measure: String
+	disposal_time: Timestamptz
+	disposal_result: String
+	is_disposal: Boolean
+	disposal_method: Int
+	duty_person: String
+	alarm_times: String
+	remarks: String
+	record_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordMinFields {
+	id: Bigint
+	vehicle_alarm_times_record_id: String
+	vehicle_id: String
+	alarm_type: String
+	disposal_measure: String
+	disposal_time: Timestamptz
+	disposal_result: String
+	is_disposal: Boolean
+	disposal_method: Int
+	duty_person: String
+	alarm_times: String
+	remarks: String
+	record_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordStddevFields {
+	id: Bigint
+	disposal_method: Int
+}
+"""
+aggregate stddev_pop on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordStddevPopFields {
+	id: Bigint
+	disposal_method: Int
+}
+"""
+aggregate stddev_samp on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordStddevSampFields {
+	id: Bigint
+	disposal_method: Int
+}
+"""
+aggregate sum on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordSumFields {
+	id: Bigint
+	disposal_method: Int
+}
+"""
+aggregate var_pop on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordVarPopFields {
+	id: Bigint
+	disposal_method: Int
+}
+"""
+aggregate var_samp on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordVarSampFields {
+	id: Bigint
+	disposal_method: Int
+}
+"""
+aggregate variance on columns of table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordVarianceFields {
+	id: Bigint
+	disposal_method: Int
+}
+"""
+response of any mutation on the table "vehicle_alarm_times_record"
+"""
+type VehicleAlarmTimesRecordMutationResponse {
+	affected_rows: Int!
+	returning: [VehicleAlarmTimesRecord!]!
+}
+"""
+ordering options when selecting data from "vehicle_alarm_times_record"
+"""
+input VehicleAlarmTimesRecordOrderBy {
+	id: OrderBy
+	vehicle_alarm_times_record_id: OrderBy
+	vehicle_id: OrderBy
+	alarm_type: OrderBy
+	disposal_measure: OrderBy
+	disposal_time: OrderBy
+	disposal_result: OrderBy
+	is_disposal: OrderBy
+	disposal_method: OrderBy
+	duty_person: OrderBy
+	alarm_times: OrderBy
+	remarks: OrderBy
+	record_time: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_alarm_times_record'.
+"""
+input VehicleAlarmTimesRecordBoolExp {
+	_and: [VehicleAlarmTimesRecordBoolExp]
+	_not: VehicleAlarmTimesRecordBoolExp
+	_or: [VehicleAlarmTimesRecordBoolExp]
+	id: BigintComparisonExp
+	vehicle_alarm_times_record_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	alarm_type: StringComparisonExp
+	disposal_measure: StringComparisonExp
+	disposal_time: TimestamptzComparisonExp
+	disposal_result: StringComparisonExp
+	is_disposal: BooleanComparisonExp
+	disposal_method: IntComparisonExp
+	duty_person: StringComparisonExp
+	alarm_times: StringComparisonExp
+	remarks: StringComparisonExp
+	record_time: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "vehicle_alarm_times_record"
+"""
+input VehicleAlarmTimesRecordInsertInput {
+	id: Bigint
+	vehicle_alarm_times_record_id: String
+	vehicle_id: String
+	alarm_type: String
+	disposal_measure: String
+	disposal_time: Timestamptz
+	disposal_result: String
+	is_disposal: Boolean
+	disposal_method: Int
+	duty_person: String
+	alarm_times: String
+	remarks: String
+	record_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "vehicle_alarm_times_record"
+"""
+input VehicleAlarmTimesRecordIncInput {
+	id: Bigint
+	disposal_method: Int
+}
+"""
+input type for updating data in table "vehicle_alarm_times_record"
+"""
+input VehicleAlarmTimesRecordSetInput {
+	id: Bigint
+	vehicle_alarm_times_record_id: String
+	vehicle_id: String
+	alarm_type: String
+	disposal_measure: String
+	disposal_time: Timestamptz
+	disposal_result: String
+	is_disposal: Boolean
+	disposal_method: Int
+	duty_person: String
+	alarm_times: String
+	remarks: String
+	record_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum VehicleAlarmTimesRecordSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	vehicle_alarm_times_record_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id
+	"""
+	 报警类型                                        ( 报警类型字典           )
+	"""
+	alarm_type
+	"""
+	 处置措施                                        (                            )
+	"""
+	disposal_measure
+	"""
+	 处置时间                                        (                            )
+	"""
+	disposal_time
+	"""
+	 处置结果                                        (                            )
+	"""
+	disposal_result
+	"""
+	 是否处置                                        (                            )
+	"""
+	is_disposal
+	"""
+	 处置方式                                        ( 处置方式字典           )
+	"""
+	disposal_method
+	"""
+	 值班人                                          (                            )
+	"""
+	duty_person
+	"""
+	 报警次数                                        (                            )
+	"""
+	alarm_times
+	"""
+	 备注                                            (                            )
+	"""
+	remarks
+	"""
+	 记录时间                                        (                            )
+	"""
+	record_time
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	vehicle_alarm_times_record(distinct_on: [VehicleAlarmTimesRecordSelectColumn!], limit: Int, offset: Int, order_by: [VehicleAlarmTimesRecordOrderBy!], where: VehicleAlarmTimesRecordBoolExp): [VehicleAlarmTimesRecord!]!
+	"""
+	聚合查询
+	"""
+	vehicle_alarm_times_record_aggregate(distinct_on: [VehicleAlarmTimesRecordSelectColumn!], limit: Int, offset: Int, order_by: [VehicleAlarmTimesRecordOrderBy!], where: VehicleAlarmTimesRecordBoolExp): VehicleAlarmTimesRecordAggregate!
+	"""
+	主键查询
+	"""
+	vehicle_alarm_times_record_by_pk(id: Bigint!): VehicleAlarmTimesRecord!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_vehicle_alarm_times_record(where: VehicleAlarmTimesRecordBoolExp!): VehicleAlarmTimesRecordMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_vehicle_alarm_times_record_by_pk(id: Bigint!): VehicleAlarmTimesRecord
+	"""
+	插入
+	"""
+	insert_vehicle_alarm_times_record(objects: [VehicleAlarmTimesRecordInsertInput!]!): VehicleAlarmTimesRecordMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_vehicle_alarm_times_record_one(objects: VehicleAlarmTimesRecordInsertInput!): VehicleAlarmTimesRecord
+	"""
+	更新
+	"""
+	update_vehicle_alarm_times_record(_inc: VehicleAlarmTimesRecordIncInput, _set: VehicleAlarmTimesRecordSetInput, where: VehicleAlarmTimesRecordBoolExp!): VehicleAlarmTimesRecordMutationResponse
+	"""
+	更新
+	"""
+	update_vehicle_alarm_times_record_by_pk(_inc: VehicleAlarmTimesRecordIncInput, _set: VehicleAlarmTimesRecordSetInput, id: Bigint!): VehicleAlarmTimesRecord
+}

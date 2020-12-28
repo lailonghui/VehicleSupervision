@@ -1,0 +1,515 @@
+"""
+新型渣土车销售订单明细
+"""
+type MuckTruckSaleOrderDetail {
+	"""
+	 按指定方法生成                                  ( 主键                                                         )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	muck_truck_sale_order_detail_id: String!
+	"""
+	 订单号                                          ( muck_truck_sale_order 新型渣土车销售订单的muck_truck_sale_order_id )
+	"""
+	order_id: String
+	"""
+	 车架号(后6位)                                   ( 车辆识别代号vin,如D02133                                     )
+	"""
+	vehicle_identification_number: String
+	"""
+	 合格证                                          (                                                              )
+	"""
+	certificate: String
+	"""
+	 终端证明                                        (                                                              )
+	"""
+	terminal_proof: String
+	"""
+	 行驶证(照片)                                    (                                                              )
+	"""
+	driver_license_pic: String
+	"""
+	 车牌号码                                        (                                                              )
+	"""
+	license_plate_number: String
+	"""
+	 车牌颜色                                        ( 车牌颜色字典                                             )
+	"""
+	license_plate_color: Int
+	"""
+	 号牌种类                                        ( 号牌种类字典                                             )
+	"""
+	license_plate_type: Int
+	"""
+	 抵达泉州日期                                    (                                                              )
+	"""
+	arrive_qz_date: Timestamptz
+	"""
+	 初次登记日期                                    (                                                              )
+	"""
+	first_registration_date: Timestamptz
+	"""
+	 登记时间                                        (                                                              )
+	"""
+	registration_date: Timestamptz
+	"""
+	 步骤(销售订单登记进度（2.到车登记 3.上牌登记）) (                                                              )
+	"""
+	step: Int
+	"""
+	 车辆照片                                        (                                                              )
+	"""
+	vehicle_photo: String
+	"""
+	 供应商销售预编号                                (                                                              )
+	"""
+	seller_preview_number: String
+	"""
+	 是否删除                                        (                                                              )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                                                              )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id                                   )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                                              )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id                                   )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                                              )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id                                   )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailAggregate {
+	aggregate: MuckTruckSaleOrderDetailAggregateFields
+}
+"""
+aggregate fields of "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailAggregateFields {
+	avg: MuckTruckSaleOrderDetailAvgFields
+	count: Int
+	max: MuckTruckSaleOrderDetailMaxFields
+	min: MuckTruckSaleOrderDetailMinFields
+	stddev: MuckTruckSaleOrderDetailStddevFields
+	stddev_pop: MuckTruckSaleOrderDetailStddevPopFields
+	stddev_samp: MuckTruckSaleOrderDetailStddevSampFields
+	sum: MuckTruckSaleOrderDetailSumFields
+	var_pop: MuckTruckSaleOrderDetailVarPopFields
+	var_samp: MuckTruckSaleOrderDetailVarSampFields
+	variance: MuckTruckSaleOrderDetailVarianceFields
+}
+"""
+aggregate avg on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailAvgFields {
+	id: Bigint
+	license_plate_color: Int
+	license_plate_type: Int
+	step: Int
+}
+"""
+aggregate max on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailMaxFields {
+	id: Bigint
+	muck_truck_sale_order_detail_id: String
+	order_id: String
+	vehicle_identification_number: String
+	certificate: String
+	terminal_proof: String
+	driver_license_pic: String
+	license_plate_number: String
+	license_plate_color: Int
+	license_plate_type: Int
+	arrive_qz_date: Timestamptz
+	first_registration_date: Timestamptz
+	registration_date: Timestamptz
+	step: Int
+	vehicle_photo: String
+	seller_preview_number: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailMinFields {
+	id: Bigint
+	muck_truck_sale_order_detail_id: String
+	order_id: String
+	vehicle_identification_number: String
+	certificate: String
+	terminal_proof: String
+	driver_license_pic: String
+	license_plate_number: String
+	license_plate_color: Int
+	license_plate_type: Int
+	arrive_qz_date: Timestamptz
+	first_registration_date: Timestamptz
+	registration_date: Timestamptz
+	step: Int
+	vehicle_photo: String
+	seller_preview_number: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailStddevFields {
+	id: Bigint
+	license_plate_color: Int
+	license_plate_type: Int
+	step: Int
+}
+"""
+aggregate stddev_pop on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailStddevPopFields {
+	id: Bigint
+	license_plate_color: Int
+	license_plate_type: Int
+	step: Int
+}
+"""
+aggregate stddev_samp on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailStddevSampFields {
+	id: Bigint
+	license_plate_color: Int
+	license_plate_type: Int
+	step: Int
+}
+"""
+aggregate sum on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailSumFields {
+	id: Bigint
+	license_plate_color: Int
+	license_plate_type: Int
+	step: Int
+}
+"""
+aggregate var_pop on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailVarPopFields {
+	id: Bigint
+	license_plate_color: Int
+	license_plate_type: Int
+	step: Int
+}
+"""
+aggregate var_samp on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailVarSampFields {
+	id: Bigint
+	license_plate_color: Int
+	license_plate_type: Int
+	step: Int
+}
+"""
+aggregate variance on columns of table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailVarianceFields {
+	id: Bigint
+	license_plate_color: Int
+	license_plate_type: Int
+	step: Int
+}
+"""
+response of any mutation on the table "muck_truck_sale_order_detail"
+"""
+type MuckTruckSaleOrderDetailMutationResponse {
+	affected_rows: Int!
+	returning: [MuckTruckSaleOrderDetail!]!
+}
+"""
+ordering options when selecting data from "muck_truck_sale_order_detail"
+"""
+input MuckTruckSaleOrderDetailOrderBy {
+	id: OrderBy
+	muck_truck_sale_order_detail_id: OrderBy
+	order_id: OrderBy
+	vehicle_identification_number: OrderBy
+	certificate: OrderBy
+	terminal_proof: OrderBy
+	driver_license_pic: OrderBy
+	license_plate_number: OrderBy
+	license_plate_color: OrderBy
+	license_plate_type: OrderBy
+	arrive_qz_date: OrderBy
+	first_registration_date: OrderBy
+	registration_date: OrderBy
+	step: OrderBy
+	vehicle_photo: OrderBy
+	seller_preview_number: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_sale_order_detail'.
+"""
+input MuckTruckSaleOrderDetailBoolExp {
+	_and: [MuckTruckSaleOrderDetailBoolExp]
+	_not: MuckTruckSaleOrderDetailBoolExp
+	_or: [MuckTruckSaleOrderDetailBoolExp]
+	id: BigintComparisonExp
+	muck_truck_sale_order_detail_id: StringComparisonExp
+	order_id: StringComparisonExp
+	vehicle_identification_number: StringComparisonExp
+	certificate: StringComparisonExp
+	terminal_proof: StringComparisonExp
+	driver_license_pic: StringComparisonExp
+	license_plate_number: StringComparisonExp
+	license_plate_color: IntComparisonExp
+	license_plate_type: IntComparisonExp
+	arrive_qz_date: TimestamptzComparisonExp
+	first_registration_date: TimestamptzComparisonExp
+	registration_date: TimestamptzComparisonExp
+	step: IntComparisonExp
+	vehicle_photo: StringComparisonExp
+	seller_preview_number: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "muck_truck_sale_order_detail"
+"""
+input MuckTruckSaleOrderDetailInsertInput {
+	id: Bigint
+	muck_truck_sale_order_detail_id: String
+	order_id: String
+	vehicle_identification_number: String
+	certificate: String
+	terminal_proof: String
+	driver_license_pic: String
+	license_plate_number: String
+	license_plate_color: Int
+	license_plate_type: Int
+	arrive_qz_date: Timestamptz
+	first_registration_date: Timestamptz
+	registration_date: Timestamptz
+	step: Int
+	vehicle_photo: String
+	seller_preview_number: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "muck_truck_sale_order_detail"
+"""
+input MuckTruckSaleOrderDetailIncInput {
+	id: Bigint
+	license_plate_color: Int
+	license_plate_type: Int
+	step: Int
+}
+"""
+input type for updating data in table "muck_truck_sale_order_detail"
+"""
+input MuckTruckSaleOrderDetailSetInput {
+	id: Bigint
+	muck_truck_sale_order_detail_id: String
+	order_id: String
+	vehicle_identification_number: String
+	certificate: String
+	terminal_proof: String
+	driver_license_pic: String
+	license_plate_number: String
+	license_plate_color: Int
+	license_plate_type: Int
+	arrive_qz_date: Timestamptz
+	first_registration_date: Timestamptz
+	registration_date: Timestamptz
+	step: Int
+	vehicle_photo: String
+	seller_preview_number: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum MuckTruckSaleOrderDetailSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                                         )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	muck_truck_sale_order_detail_id
+	"""
+	 订单号                                          ( muck_truck_sale_order 新型渣土车销售订单的muck_truck_sale_order_id )
+	"""
+	order_id
+	"""
+	 车架号(后6位)                                   ( 车辆识别代号vin,如D02133                                     )
+	"""
+	vehicle_identification_number
+	"""
+	 合格证                                          (                                                              )
+	"""
+	certificate
+	"""
+	 终端证明                                        (                                                              )
+	"""
+	terminal_proof
+	"""
+	 行驶证(照片)                                    (                                                              )
+	"""
+	driver_license_pic
+	"""
+	 车牌号码                                        (                                                              )
+	"""
+	license_plate_number
+	"""
+	 车牌颜色                                        ( 车牌颜色字典                                             )
+	"""
+	license_plate_color
+	"""
+	 号牌种类                                        ( 号牌种类字典                                             )
+	"""
+	license_plate_type
+	"""
+	 抵达泉州日期                                    (                                                              )
+	"""
+	arrive_qz_date
+	"""
+	 初次登记日期                                    (                                                              )
+	"""
+	first_registration_date
+	"""
+	 登记时间                                        (                                                              )
+	"""
+	registration_date
+	"""
+	 步骤(销售订单登记进度（2.到车登记 3.上牌登记）) (                                                              )
+	"""
+	step
+	"""
+	 车辆照片                                        (                                                              )
+	"""
+	vehicle_photo
+	"""
+	 供应商销售预编号                                (                                                              )
+	"""
+	seller_preview_number
+	"""
+	 是否删除                                        (                                                              )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                                                              )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id                                   )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                                              )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id                                   )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                                              )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id                                   )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	muck_truck_sale_order_detail(distinct_on: [MuckTruckSaleOrderDetailSelectColumn!], limit: Int, offset: Int, order_by: [MuckTruckSaleOrderDetailOrderBy!], where: MuckTruckSaleOrderDetailBoolExp): [MuckTruckSaleOrderDetail!]!
+	"""
+	聚合查询
+	"""
+	muck_truck_sale_order_detail_aggregate(distinct_on: [MuckTruckSaleOrderDetailSelectColumn!], limit: Int, offset: Int, order_by: [MuckTruckSaleOrderDetailOrderBy!], where: MuckTruckSaleOrderDetailBoolExp): MuckTruckSaleOrderDetailAggregate!
+	"""
+	主键查询
+	"""
+	muck_truck_sale_order_detail_by_pk(id: Bigint!): MuckTruckSaleOrderDetail!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_muck_truck_sale_order_detail(where: MuckTruckSaleOrderDetailBoolExp!): MuckTruckSaleOrderDetailMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_muck_truck_sale_order_detail_by_pk(id: Bigint!): MuckTruckSaleOrderDetail
+	"""
+	插入
+	"""
+	insert_muck_truck_sale_order_detail(objects: [MuckTruckSaleOrderDetailInsertInput!]!): MuckTruckSaleOrderDetailMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_muck_truck_sale_order_detail_one(objects: MuckTruckSaleOrderDetailInsertInput!): MuckTruckSaleOrderDetail
+	"""
+	更新
+	"""
+	update_muck_truck_sale_order_detail(_inc: MuckTruckSaleOrderDetailIncInput, _set: MuckTruckSaleOrderDetailSetInput, where: MuckTruckSaleOrderDetailBoolExp!): MuckTruckSaleOrderDetailMutationResponse
+	"""
+	更新
+	"""
+	update_muck_truck_sale_order_detail_by_pk(_inc: MuckTruckSaleOrderDetailIncInput, _set: MuckTruckSaleOrderDetailSetInput, id: Bigint!): MuckTruckSaleOrderDetail
+}

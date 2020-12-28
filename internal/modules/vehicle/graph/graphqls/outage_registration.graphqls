@@ -1,0 +1,502 @@
+"""
+停运登记表
+"""
+type OutageRegistration {
+	"""
+	 按指定方法生成                                  ( 主键                                                         )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	outage_registration_id: String!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	"""
+	vehicle_id: String!
+	"""
+	 用户                                            ( system_user表的user_id                                   )
+	"""
+	user_id: String
+	"""
+	 停运起始时间                                    (                                                              )
+	"""
+	outage_start_time: Timestamptz
+	"""
+	 停运截止时间                                    (                                                              )
+	"""
+	outage_end_time: Timestamptz
+	"""
+	 审核状态                                        (                                                              )
+	"""
+	review_status: String
+	"""
+	 审核人                                          ( system_user表的user_id                                   )
+	"""
+	reviewer: String
+	"""
+	 审核时间                                        (                                                              )
+	"""
+	review_time: Timestamptz
+	"""
+	 停运报备上传文件表ID                            ( outage_filing_upload_file 的outage_filing_upload_file_id )
+	"""
+	outage_filing_upload_file_id: String
+	"""
+	 停运起始经纬度                                  (                                                              )
+	"""
+	outage_start_coordinate: Point
+	"""
+	 停运结束经纬度                                  (                                                              )
+	"""
+	outage_end_coordinate: Point
+	"""
+	 上线时间                                        (                                                              )
+	"""
+	online_time: Timestamptz
+	"""
+	 停运起始位置                                    (                                                              )
+	"""
+	outage_start_position: String
+	"""
+	 是否管理部门审核                                (                                                              )
+	"""
+	is_management_review: Boolean
+	"""
+	 是否失效                                        (                                                              )
+	"""
+	is_invalid: Boolean
+	"""
+	 是否最新                                        (                                                              )
+	"""
+	is_latest: Boolean
+	"""
+	 是否删除                                        (                                                              )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                                                              )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id                                   )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                                              )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id                                   )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                                              )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id                                   )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "outage_registration"
+"""
+type OutageRegistrationAggregate {
+	aggregate: OutageRegistrationAggregateFields
+}
+"""
+aggregate fields of "outage_registration"
+"""
+type OutageRegistrationAggregateFields {
+	avg: OutageRegistrationAvgFields
+	count: Int
+	max: OutageRegistrationMaxFields
+	min: OutageRegistrationMinFields
+	stddev: OutageRegistrationStddevFields
+	stddev_pop: OutageRegistrationStddevPopFields
+	stddev_samp: OutageRegistrationStddevSampFields
+	sum: OutageRegistrationSumFields
+	var_pop: OutageRegistrationVarPopFields
+	var_samp: OutageRegistrationVarSampFields
+	variance: OutageRegistrationVarianceFields
+}
+"""
+aggregate avg on columns of table "outage_registration"
+"""
+type OutageRegistrationAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "outage_registration"
+"""
+type OutageRegistrationMaxFields {
+	id: Bigint
+	outage_registration_id: String
+	vehicle_id: String
+	user_id: String
+	outage_start_time: Timestamptz
+	outage_end_time: Timestamptz
+	review_status: String
+	reviewer: String
+	review_time: Timestamptz
+	outage_filing_upload_file_id: String
+	outage_start_coordinate: Point
+	outage_end_coordinate: Point
+	online_time: Timestamptz
+	outage_start_position: String
+	is_management_review: Boolean
+	is_invalid: Boolean
+	is_latest: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "outage_registration"
+"""
+type OutageRegistrationMinFields {
+	id: Bigint
+	outage_registration_id: String
+	vehicle_id: String
+	user_id: String
+	outage_start_time: Timestamptz
+	outage_end_time: Timestamptz
+	review_status: String
+	reviewer: String
+	review_time: Timestamptz
+	outage_filing_upload_file_id: String
+	outage_start_coordinate: Point
+	outage_end_coordinate: Point
+	online_time: Timestamptz
+	outage_start_position: String
+	is_management_review: Boolean
+	is_invalid: Boolean
+	is_latest: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "outage_registration"
+"""
+type OutageRegistrationStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "outage_registration"
+"""
+type OutageRegistrationStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "outage_registration"
+"""
+type OutageRegistrationStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "outage_registration"
+"""
+type OutageRegistrationSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "outage_registration"
+"""
+type OutageRegistrationVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "outage_registration"
+"""
+type OutageRegistrationVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "outage_registration"
+"""
+type OutageRegistrationVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "outage_registration"
+"""
+type OutageRegistrationMutationResponse {
+	affected_rows: Int!
+	returning: [OutageRegistration!]!
+}
+"""
+ordering options when selecting data from "outage_registration"
+"""
+input OutageRegistrationOrderBy {
+	id: OrderBy
+	outage_registration_id: OrderBy
+	vehicle_id: OrderBy
+	user_id: OrderBy
+	outage_start_time: OrderBy
+	outage_end_time: OrderBy
+	review_status: OrderBy
+	reviewer: OrderBy
+	review_time: OrderBy
+	outage_filing_upload_file_id: OrderBy
+	outage_start_coordinate: OrderBy
+	outage_end_coordinate: OrderBy
+	online_time: OrderBy
+	outage_start_position: OrderBy
+	is_management_review: OrderBy
+	is_invalid: OrderBy
+	is_latest: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'outage_registration'.
+"""
+input OutageRegistrationBoolExp {
+	_and: [OutageRegistrationBoolExp]
+	_not: OutageRegistrationBoolExp
+	_or: [OutageRegistrationBoolExp]
+	id: BigintComparisonExp
+	outage_registration_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	user_id: StringComparisonExp
+	outage_start_time: TimestamptzComparisonExp
+	outage_end_time: TimestamptzComparisonExp
+	review_status: StringComparisonExp
+	reviewer: StringComparisonExp
+	review_time: TimestamptzComparisonExp
+	outage_filing_upload_file_id: StringComparisonExp
+	outage_start_coordinate: PointComparisonExp
+	outage_end_coordinate: PointComparisonExp
+	online_time: TimestamptzComparisonExp
+	outage_start_position: StringComparisonExp
+	is_management_review: BooleanComparisonExp
+	is_invalid: BooleanComparisonExp
+	is_latest: BooleanComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "outage_registration"
+"""
+input OutageRegistrationInsertInput {
+	id: Bigint
+	outage_registration_id: String
+	vehicle_id: String
+	user_id: String
+	outage_start_time: Timestamptz
+	outage_end_time: Timestamptz
+	review_status: String
+	reviewer: String
+	review_time: Timestamptz
+	outage_filing_upload_file_id: String
+	outage_start_coordinate: Point
+	outage_end_coordinate: Point
+	online_time: Timestamptz
+	outage_start_position: String
+	is_management_review: Boolean
+	is_invalid: Boolean
+	is_latest: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "outage_registration"
+"""
+input OutageRegistrationIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "outage_registration"
+"""
+input OutageRegistrationSetInput {
+	id: Bigint
+	outage_registration_id: String
+	vehicle_id: String
+	user_id: String
+	outage_start_time: Timestamptz
+	outage_end_time: Timestamptz
+	review_status: String
+	reviewer: String
+	review_time: Timestamptz
+	outage_filing_upload_file_id: String
+	outage_start_coordinate: Point
+	outage_end_coordinate: Point
+	online_time: Timestamptz
+	outage_start_position: String
+	is_management_review: Boolean
+	is_invalid: Boolean
+	is_latest: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum OutageRegistrationSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                                         )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	outage_registration_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	"""
+	vehicle_id
+	"""
+	 用户                                            ( system_user表的user_id                                   )
+	"""
+	user_id
+	"""
+	 停运起始时间                                    (                                                              )
+	"""
+	outage_start_time
+	"""
+	 停运截止时间                                    (                                                              )
+	"""
+	outage_end_time
+	"""
+	 审核状态                                        (                                                              )
+	"""
+	review_status
+	"""
+	 审核人                                          ( system_user表的user_id                                   )
+	"""
+	reviewer
+	"""
+	 审核时间                                        (                                                              )
+	"""
+	review_time
+	"""
+	 停运报备上传文件表ID                            ( outage_filing_upload_file 的outage_filing_upload_file_id )
+	"""
+	outage_filing_upload_file_id
+	"""
+	 停运起始经纬度                                  (                                                              )
+	"""
+	outage_start_coordinate
+	"""
+	 停运结束经纬度                                  (                                                              )
+	"""
+	outage_end_coordinate
+	"""
+	 上线时间                                        (                                                              )
+	"""
+	online_time
+	"""
+	 停运起始位置                                    (                                                              )
+	"""
+	outage_start_position
+	"""
+	 是否管理部门审核                                (                                                              )
+	"""
+	is_management_review
+	"""
+	 是否失效                                        (                                                              )
+	"""
+	is_invalid
+	"""
+	 是否最新                                        (                                                              )
+	"""
+	is_latest
+	"""
+	 是否删除                                        (                                                              )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                                                              )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id                                   )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                                              )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id                                   )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                                              )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id                                   )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	outage_registration(distinct_on: [OutageRegistrationSelectColumn!], limit: Int, offset: Int, order_by: [OutageRegistrationOrderBy!], where: OutageRegistrationBoolExp): [OutageRegistration!]!
+	"""
+	聚合查询
+	"""
+	outage_registration_aggregate(distinct_on: [OutageRegistrationSelectColumn!], limit: Int, offset: Int, order_by: [OutageRegistrationOrderBy!], where: OutageRegistrationBoolExp): OutageRegistrationAggregate!
+	"""
+	主键查询
+	"""
+	outage_registration_by_pk(id: Bigint!): OutageRegistration!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_outage_registration(where: OutageRegistrationBoolExp!): OutageRegistrationMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_outage_registration_by_pk(id: Bigint!): OutageRegistration
+	"""
+	插入
+	"""
+	insert_outage_registration(objects: [OutageRegistrationInsertInput!]!): OutageRegistrationMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_outage_registration_one(objects: OutageRegistrationInsertInput!): OutageRegistration
+	"""
+	更新
+	"""
+	update_outage_registration(_inc: OutageRegistrationIncInput, _set: OutageRegistrationSetInput, where: OutageRegistrationBoolExp!): OutageRegistrationMutationResponse
+	"""
+	更新
+	"""
+	update_outage_registration_by_pk(_inc: OutageRegistrationIncInput, _set: OutageRegistrationSetInput, id: Bigint!): OutageRegistration
+}

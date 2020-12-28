@@ -1,0 +1,760 @@
+"""
+新型渣土车销售订单
+"""
+type MuckTruckSaleOrder {
+	"""
+	 按指定方法生成                                  ( 主键                                     )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                 )
+	"""
+	muck_truck_sale_order_id: String!
+	"""
+	 顾客企业id                                      (                                          )
+	"""
+	customer_name: String
+	"""
+	 购车企业或个人姓名                              ( enterprise_info表的enterprise_id     )
+	"""
+	customer_id: String
+	"""
+	 身份证号                                        (                                          )
+	"""
+	id_card_num: String
+	"""
+	 联系电话                                        (                                          )
+	"""
+	contact_phone: String
+	"""
+	 告知书                                          (                                          )
+	"""
+	notification: String
+	"""
+	 汽车销售合同(销售合同照片地址)                  (                                          )
+	"""
+	vehicle_sale_contract: String
+	"""
+	 订金合同(订金合同照片地址)                      (                                          )
+	"""
+	vehicle_deposit_contract: String
+	"""
+	 承诺书                                          (                                          )
+	"""
+	commitment: String
+	"""
+	 订车日期                                        (                                          )
+	"""
+	book_date: Timestamptz
+	"""
+	 登记时间                                        (                                          )
+	"""
+	registration_time: Timestamptz
+	"""
+	 所属单位                                        (                                          )
+	"""
+	belonging_enterprise: String
+	"""
+	 身份证(身份证照片路径)                          (                                          )
+	"""
+	id_card_picture: String
+	"""
+	 进度                                            (                                          )
+	"""
+	progress: Numeric
+	"""
+	 汽车型号                                        ( vehicle_sale_record 汽车销售备案的id )
+	"""
+	vehicle_sale_record_id: String
+	"""
+	 订购车辆数                                      (                                          )
+	"""
+	book_vehicle_number: Int
+	"""
+	 整车长度                                        (                                          )
+	"""
+	vehicle_length: Numeric
+	"""
+	 整车宽度                                        (                                          )
+	"""
+	vehicle_width: Numeric
+	"""
+	 整车高度                                        (                                          )
+	"""
+	vehicle_height: Numeric
+	"""
+	 自卸车长度                                      (                                          )
+	"""
+	tipper_length: Numeric
+	"""
+	 自卸车宽度                                      (                                          )
+	"""
+	tipper_width: Numeric
+	"""
+	 自卸车高度                                      (                                          )
+	"""
+	tipper_height: Numeric
+	"""
+	 罐车标注容积                                    (                                          )
+	"""
+	tank_truck_marked_volume: Numeric
+	"""
+	 罐车实际搅动容积                                (                                          )
+	"""
+	tank_truck_actual_volume: Numeric
+	"""
+	 车厢密闭装置                                    (                                          )
+	"""
+	carriage_sealing_device: String
+	"""
+	 U型货箱                                         (                                          )
+	"""
+	u_shaped_cargo_box: String
+	"""
+	 是否其他汽车型号                                (                                          )
+	"""
+	is_other_vehicle_model: Boolean
+	"""
+	 是否完成                                        (                                          )
+	"""
+	is_completed: Boolean
+	"""
+	 是否删除                                        (                                          )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                                          )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id               )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                          )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id               )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                          )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id               )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderAggregate {
+	aggregate: MuckTruckSaleOrderAggregateFields
+}
+"""
+aggregate fields of "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderAggregateFields {
+	avg: MuckTruckSaleOrderAvgFields
+	count: Int
+	max: MuckTruckSaleOrderMaxFields
+	min: MuckTruckSaleOrderMinFields
+	stddev: MuckTruckSaleOrderStddevFields
+	stddev_pop: MuckTruckSaleOrderStddevPopFields
+	stddev_samp: MuckTruckSaleOrderStddevSampFields
+	sum: MuckTruckSaleOrderSumFields
+	var_pop: MuckTruckSaleOrderVarPopFields
+	var_samp: MuckTruckSaleOrderVarSampFields
+	variance: MuckTruckSaleOrderVarianceFields
+}
+"""
+aggregate avg on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderAvgFields {
+	id: Bigint
+	progress: Numeric
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+}
+"""
+aggregate max on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderMaxFields {
+	id: Bigint
+	muck_truck_sale_order_id: String
+	customer_name: String
+	customer_id: String
+	id_card_num: String
+	contact_phone: String
+	notification: String
+	vehicle_sale_contract: String
+	vehicle_deposit_contract: String
+	commitment: String
+	book_date: Timestamptz
+	registration_time: Timestamptz
+	belonging_enterprise: String
+	id_card_picture: String
+	progress: Numeric
+	vehicle_sale_record_id: String
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+	carriage_sealing_device: String
+	u_shaped_cargo_box: String
+	is_other_vehicle_model: Boolean
+	is_completed: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderMinFields {
+	id: Bigint
+	muck_truck_sale_order_id: String
+	customer_name: String
+	customer_id: String
+	id_card_num: String
+	contact_phone: String
+	notification: String
+	vehicle_sale_contract: String
+	vehicle_deposit_contract: String
+	commitment: String
+	book_date: Timestamptz
+	registration_time: Timestamptz
+	belonging_enterprise: String
+	id_card_picture: String
+	progress: Numeric
+	vehicle_sale_record_id: String
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+	carriage_sealing_device: String
+	u_shaped_cargo_box: String
+	is_other_vehicle_model: Boolean
+	is_completed: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderStddevFields {
+	id: Bigint
+	progress: Numeric
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+}
+"""
+aggregate stddev_pop on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderStddevPopFields {
+	id: Bigint
+	progress: Numeric
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+}
+"""
+aggregate stddev_samp on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderStddevSampFields {
+	id: Bigint
+	progress: Numeric
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+}
+"""
+aggregate sum on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderSumFields {
+	id: Bigint
+	progress: Numeric
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+}
+"""
+aggregate var_pop on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderVarPopFields {
+	id: Bigint
+	progress: Numeric
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+}
+"""
+aggregate var_samp on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderVarSampFields {
+	id: Bigint
+	progress: Numeric
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+}
+"""
+aggregate variance on columns of table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderVarianceFields {
+	id: Bigint
+	progress: Numeric
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+}
+"""
+response of any mutation on the table "muck_truck_sale_order"
+"""
+type MuckTruckSaleOrderMutationResponse {
+	affected_rows: Int!
+	returning: [MuckTruckSaleOrder!]!
+}
+"""
+ordering options when selecting data from "muck_truck_sale_order"
+"""
+input MuckTruckSaleOrderOrderBy {
+	id: OrderBy
+	muck_truck_sale_order_id: OrderBy
+	customer_name: OrderBy
+	customer_id: OrderBy
+	id_card_num: OrderBy
+	contact_phone: OrderBy
+	notification: OrderBy
+	vehicle_sale_contract: OrderBy
+	vehicle_deposit_contract: OrderBy
+	commitment: OrderBy
+	book_date: OrderBy
+	registration_time: OrderBy
+	belonging_enterprise: OrderBy
+	id_card_picture: OrderBy
+	progress: OrderBy
+	vehicle_sale_record_id: OrderBy
+	book_vehicle_number: OrderBy
+	vehicle_length: OrderBy
+	vehicle_width: OrderBy
+	vehicle_height: OrderBy
+	tipper_length: OrderBy
+	tipper_width: OrderBy
+	tipper_height: OrderBy
+	tank_truck_marked_volume: OrderBy
+	tank_truck_actual_volume: OrderBy
+	carriage_sealing_device: OrderBy
+	u_shaped_cargo_box: OrderBy
+	is_other_vehicle_model: OrderBy
+	is_completed: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_sale_order'.
+"""
+input MuckTruckSaleOrderBoolExp {
+	_and: [MuckTruckSaleOrderBoolExp]
+	_not: MuckTruckSaleOrderBoolExp
+	_or: [MuckTruckSaleOrderBoolExp]
+	id: BigintComparisonExp
+	muck_truck_sale_order_id: StringComparisonExp
+	customer_name: StringComparisonExp
+	customer_id: StringComparisonExp
+	id_card_num: StringComparisonExp
+	contact_phone: StringComparisonExp
+	notification: StringComparisonExp
+	vehicle_sale_contract: StringComparisonExp
+	vehicle_deposit_contract: StringComparisonExp
+	commitment: StringComparisonExp
+	book_date: TimestamptzComparisonExp
+	registration_time: TimestamptzComparisonExp
+	belonging_enterprise: StringComparisonExp
+	id_card_picture: StringComparisonExp
+	progress: NumericComparisonExp
+	vehicle_sale_record_id: StringComparisonExp
+	book_vehicle_number: IntComparisonExp
+	vehicle_length: NumericComparisonExp
+	vehicle_width: NumericComparisonExp
+	vehicle_height: NumericComparisonExp
+	tipper_length: NumericComparisonExp
+	tipper_width: NumericComparisonExp
+	tipper_height: NumericComparisonExp
+	tank_truck_marked_volume: NumericComparisonExp
+	tank_truck_actual_volume: NumericComparisonExp
+	carriage_sealing_device: StringComparisonExp
+	u_shaped_cargo_box: StringComparisonExp
+	is_other_vehicle_model: BooleanComparisonExp
+	is_completed: BooleanComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "muck_truck_sale_order"
+"""
+input MuckTruckSaleOrderInsertInput {
+	id: Bigint
+	muck_truck_sale_order_id: String
+	customer_name: String
+	customer_id: String
+	id_card_num: String
+	contact_phone: String
+	notification: String
+	vehicle_sale_contract: String
+	vehicle_deposit_contract: String
+	commitment: String
+	book_date: Timestamptz
+	registration_time: Timestamptz
+	belonging_enterprise: String
+	id_card_picture: String
+	progress: Numeric
+	vehicle_sale_record_id: String
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+	carriage_sealing_device: String
+	u_shaped_cargo_box: String
+	is_other_vehicle_model: Boolean
+	is_completed: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "muck_truck_sale_order"
+"""
+input MuckTruckSaleOrderIncInput {
+	id: Bigint
+	progress: Numeric
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+}
+"""
+input type for updating data in table "muck_truck_sale_order"
+"""
+input MuckTruckSaleOrderSetInput {
+	id: Bigint
+	muck_truck_sale_order_id: String
+	customer_name: String
+	customer_id: String
+	id_card_num: String
+	contact_phone: String
+	notification: String
+	vehicle_sale_contract: String
+	vehicle_deposit_contract: String
+	commitment: String
+	book_date: Timestamptz
+	registration_time: Timestamptz
+	belonging_enterprise: String
+	id_card_picture: String
+	progress: Numeric
+	vehicle_sale_record_id: String
+	book_vehicle_number: Int
+	vehicle_length: Numeric
+	vehicle_width: Numeric
+	vehicle_height: Numeric
+	tipper_length: Numeric
+	tipper_width: Numeric
+	tipper_height: Numeric
+	tank_truck_marked_volume: Numeric
+	tank_truck_actual_volume: Numeric
+	carriage_sealing_device: String
+	u_shaped_cargo_box: String
+	is_other_vehicle_model: Boolean
+	is_completed: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum MuckTruckSaleOrderSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                     )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                 )
+	"""
+	muck_truck_sale_order_id
+	"""
+	 顾客企业id                                      (                                          )
+	"""
+	customer_name
+	"""
+	 购车企业或个人姓名                              ( enterprise_info表的enterprise_id     )
+	"""
+	customer_id
+	"""
+	 身份证号                                        (                                          )
+	"""
+	id_card_num
+	"""
+	 联系电话                                        (                                          )
+	"""
+	contact_phone
+	"""
+	 告知书                                          (                                          )
+	"""
+	notification
+	"""
+	 汽车销售合同(销售合同照片地址)                  (                                          )
+	"""
+	vehicle_sale_contract
+	"""
+	 订金合同(订金合同照片地址)                      (                                          )
+	"""
+	vehicle_deposit_contract
+	"""
+	 承诺书                                          (                                          )
+	"""
+	commitment
+	"""
+	 订车日期                                        (                                          )
+	"""
+	book_date
+	"""
+	 登记时间                                        (                                          )
+	"""
+	registration_time
+	"""
+	 所属单位                                        (                                          )
+	"""
+	belonging_enterprise
+	"""
+	 身份证(身份证照片路径)                          (                                          )
+	"""
+	id_card_picture
+	"""
+	 进度                                            (                                          )
+	"""
+	progress
+	"""
+	 汽车型号                                        ( vehicle_sale_record 汽车销售备案的id )
+	"""
+	vehicle_sale_record_id
+	"""
+	 订购车辆数                                      (                                          )
+	"""
+	book_vehicle_number
+	"""
+	 整车长度                                        (                                          )
+	"""
+	vehicle_length
+	"""
+	 整车宽度                                        (                                          )
+	"""
+	vehicle_width
+	"""
+	 整车高度                                        (                                          )
+	"""
+	vehicle_height
+	"""
+	 自卸车长度                                      (                                          )
+	"""
+	tipper_length
+	"""
+	 自卸车宽度                                      (                                          )
+	"""
+	tipper_width
+	"""
+	 自卸车高度                                      (                                          )
+	"""
+	tipper_height
+	"""
+	 罐车标注容积                                    (                                          )
+	"""
+	tank_truck_marked_volume
+	"""
+	 罐车实际搅动容积                                (                                          )
+	"""
+	tank_truck_actual_volume
+	"""
+	 车厢密闭装置                                    (                                          )
+	"""
+	carriage_sealing_device
+	"""
+	 U型货箱                                         (                                          )
+	"""
+	u_shaped_cargo_box
+	"""
+	 是否其他汽车型号                                (                                          )
+	"""
+	is_other_vehicle_model
+	"""
+	 是否完成                                        (                                          )
+	"""
+	is_completed
+	"""
+	 是否删除                                        (                                          )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                                          )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id               )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                          )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id               )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                          )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id               )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	muck_truck_sale_order(distinct_on: [MuckTruckSaleOrderSelectColumn!], limit: Int, offset: Int, order_by: [MuckTruckSaleOrderOrderBy!], where: MuckTruckSaleOrderBoolExp): [MuckTruckSaleOrder!]!
+	"""
+	聚合查询
+	"""
+	muck_truck_sale_order_aggregate(distinct_on: [MuckTruckSaleOrderSelectColumn!], limit: Int, offset: Int, order_by: [MuckTruckSaleOrderOrderBy!], where: MuckTruckSaleOrderBoolExp): MuckTruckSaleOrderAggregate!
+	"""
+	主键查询
+	"""
+	muck_truck_sale_order_by_pk(id: Bigint!): MuckTruckSaleOrder!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_muck_truck_sale_order(where: MuckTruckSaleOrderBoolExp!): MuckTruckSaleOrderMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_muck_truck_sale_order_by_pk(id: Bigint!): MuckTruckSaleOrder
+	"""
+	插入
+	"""
+	insert_muck_truck_sale_order(objects: [MuckTruckSaleOrderInsertInput!]!): MuckTruckSaleOrderMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_muck_truck_sale_order_one(objects: MuckTruckSaleOrderInsertInput!): MuckTruckSaleOrder
+	"""
+	更新
+	"""
+	update_muck_truck_sale_order(_inc: MuckTruckSaleOrderIncInput, _set: MuckTruckSaleOrderSetInput, where: MuckTruckSaleOrderBoolExp!): MuckTruckSaleOrderMutationResponse
+	"""
+	更新
+	"""
+	update_muck_truck_sale_order_by_pk(_inc: MuckTruckSaleOrderIncInput, _set: MuckTruckSaleOrderSetInput, id: Bigint!): MuckTruckSaleOrder
+}

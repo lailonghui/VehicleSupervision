@@ -1,0 +1,497 @@
+"""
+驾驶员指纹表
+"""
+type DriverFingerprint {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	driver_fingerprint_id: String!
+	"""
+	 driver_info驾驶员信息表的driver_id          (                            )
+	"""
+	driver_id: String!
+	"""
+	 驾驶员姓名                                      (                            )
+	"""
+	driver_name: String
+	"""
+	 用户ID                                          ( system_user表的user_id )
+	"""
+	user_id: String
+	"""
+	 特征码                                          (                            )
+	"""
+	signature: String
+	"""
+	 指纹名称                                        (                            )
+	"""
+	fingerprint_name: String
+	"""
+	 SIM卡号                                         (                            )
+	"""
+	sim_number: String
+	"""
+	 指令ID                                          (                            )
+	"""
+	instruction_id: String
+	"""
+	 操作类型                                        (                            )
+	"""
+	operation_type: Int
+	"""
+	 内容                                            (                            )
+	"""
+	content: String
+	"""
+	 操作时间                                        (                            )
+	"""
+	operation_time: Timestamptz
+	"""
+	 上传时间                                        (                            )
+	"""
+	upload_time: Timestamptz
+	"""
+	 时间戳                                          (                            )
+	"""
+	timestamp: String
+	"""
+	 终端ID                                          (                            )
+	"""
+	ternimal_id: String
+	"""
+	 是否成功                                        (                            )
+	"""
+	is_success: Boolean
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "driver_fingerprint"
+"""
+type DriverFingerprintAggregate {
+	aggregate: DriverFingerprintAggregateFields
+}
+"""
+aggregate fields of "driver_fingerprint"
+"""
+type DriverFingerprintAggregateFields {
+	avg: DriverFingerprintAvgFields
+	count: Int
+	max: DriverFingerprintMaxFields
+	min: DriverFingerprintMinFields
+	stddev: DriverFingerprintStddevFields
+	stddev_pop: DriverFingerprintStddevPopFields
+	stddev_samp: DriverFingerprintStddevSampFields
+	sum: DriverFingerprintSumFields
+	var_pop: DriverFingerprintVarPopFields
+	var_samp: DriverFingerprintVarSampFields
+	variance: DriverFingerprintVarianceFields
+}
+"""
+aggregate avg on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintAvgFields {
+	id: Bigint
+	operation_type: Int
+}
+"""
+aggregate max on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintMaxFields {
+	id: Bigint
+	driver_fingerprint_id: String
+	driver_id: String
+	driver_name: String
+	user_id: String
+	signature: String
+	fingerprint_name: String
+	sim_number: String
+	instruction_id: String
+	operation_type: Int
+	content: String
+	operation_time: Timestamptz
+	upload_time: Timestamptz
+	timestamp: String
+	ternimal_id: String
+	is_success: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintMinFields {
+	id: Bigint
+	driver_fingerprint_id: String
+	driver_id: String
+	driver_name: String
+	user_id: String
+	signature: String
+	fingerprint_name: String
+	sim_number: String
+	instruction_id: String
+	operation_type: Int
+	content: String
+	operation_time: Timestamptz
+	upload_time: Timestamptz
+	timestamp: String
+	ternimal_id: String
+	is_success: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintStddevFields {
+	id: Bigint
+	operation_type: Int
+}
+"""
+aggregate stddev_pop on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintStddevPopFields {
+	id: Bigint
+	operation_type: Int
+}
+"""
+aggregate stddev_samp on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintStddevSampFields {
+	id: Bigint
+	operation_type: Int
+}
+"""
+aggregate sum on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintSumFields {
+	id: Bigint
+	operation_type: Int
+}
+"""
+aggregate var_pop on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintVarPopFields {
+	id: Bigint
+	operation_type: Int
+}
+"""
+aggregate var_samp on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintVarSampFields {
+	id: Bigint
+	operation_type: Int
+}
+"""
+aggregate variance on columns of table "driver_fingerprint"
+"""
+type DriverFingerprintVarianceFields {
+	id: Bigint
+	operation_type: Int
+}
+"""
+response of any mutation on the table "driver_fingerprint"
+"""
+type DriverFingerprintMutationResponse {
+	affected_rows: Int!
+	returning: [DriverFingerprint!]!
+}
+"""
+ordering options when selecting data from "driver_fingerprint"
+"""
+input DriverFingerprintOrderBy {
+	id: OrderBy
+	driver_fingerprint_id: OrderBy
+	driver_id: OrderBy
+	driver_name: OrderBy
+	user_id: OrderBy
+	signature: OrderBy
+	fingerprint_name: OrderBy
+	sim_number: OrderBy
+	instruction_id: OrderBy
+	operation_type: OrderBy
+	content: OrderBy
+	operation_time: OrderBy
+	upload_time: OrderBy
+	timestamp: OrderBy
+	ternimal_id: OrderBy
+	is_success: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_fingerprint'.
+"""
+input DriverFingerprintBoolExp {
+	_and: [DriverFingerprintBoolExp]
+	_not: DriverFingerprintBoolExp
+	_or: [DriverFingerprintBoolExp]
+	id: BigintComparisonExp
+	driver_fingerprint_id: StringComparisonExp
+	driver_id: StringComparisonExp
+	driver_name: StringComparisonExp
+	user_id: StringComparisonExp
+	signature: StringComparisonExp
+	fingerprint_name: StringComparisonExp
+	sim_number: StringComparisonExp
+	instruction_id: StringComparisonExp
+	operation_type: IntComparisonExp
+	content: StringComparisonExp
+	operation_time: TimestamptzComparisonExp
+	upload_time: TimestamptzComparisonExp
+	timestamp: StringComparisonExp
+	ternimal_id: StringComparisonExp
+	is_success: BooleanComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "driver_fingerprint"
+"""
+input DriverFingerprintInsertInput {
+	id: Bigint
+	driver_fingerprint_id: String
+	driver_id: String
+	driver_name: String
+	user_id: String
+	signature: String
+	fingerprint_name: String
+	sim_number: String
+	instruction_id: String
+	operation_type: Int
+	content: String
+	operation_time: Timestamptz
+	upload_time: Timestamptz
+	timestamp: String
+	ternimal_id: String
+	is_success: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "driver_fingerprint"
+"""
+input DriverFingerprintIncInput {
+	id: Bigint
+	operation_type: Int
+}
+"""
+input type for updating data in table "driver_fingerprint"
+"""
+input DriverFingerprintSetInput {
+	id: Bigint
+	driver_fingerprint_id: String
+	driver_id: String
+	driver_name: String
+	user_id: String
+	signature: String
+	fingerprint_name: String
+	sim_number: String
+	instruction_id: String
+	operation_type: Int
+	content: String
+	operation_time: Timestamptz
+	upload_time: Timestamptz
+	timestamp: String
+	ternimal_id: String
+	is_success: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum DriverFingerprintSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	driver_fingerprint_id
+	"""
+	 driver_info驾驶员信息表的driver_id          (                            )
+	"""
+	driver_id
+	"""
+	 驾驶员姓名                                      (                            )
+	"""
+	driver_name
+	"""
+	 用户ID                                          ( system_user表的user_id )
+	"""
+	user_id
+	"""
+	 特征码                                          (                            )
+	"""
+	signature
+	"""
+	 指纹名称                                        (                            )
+	"""
+	fingerprint_name
+	"""
+	 SIM卡号                                         (                            )
+	"""
+	sim_number
+	"""
+	 指令ID                                          (                            )
+	"""
+	instruction_id
+	"""
+	 操作类型                                        (                            )
+	"""
+	operation_type
+	"""
+	 内容                                            (                            )
+	"""
+	content
+	"""
+	 操作时间                                        (                            )
+	"""
+	operation_time
+	"""
+	 上传时间                                        (                            )
+	"""
+	upload_time
+	"""
+	 时间戳                                          (                            )
+	"""
+	timestamp
+	"""
+	 终端ID                                          (                            )
+	"""
+	ternimal_id
+	"""
+	 是否成功                                        (                            )
+	"""
+	is_success
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	driver_fingerprint(distinct_on: [DriverFingerprintSelectColumn!], limit: Int, offset: Int, order_by: [DriverFingerprintOrderBy!], where: DriverFingerprintBoolExp): [DriverFingerprint!]!
+	"""
+	聚合查询
+	"""
+	driver_fingerprint_aggregate(distinct_on: [DriverFingerprintSelectColumn!], limit: Int, offset: Int, order_by: [DriverFingerprintOrderBy!], where: DriverFingerprintBoolExp): DriverFingerprintAggregate!
+	"""
+	主键查询
+	"""
+	driver_fingerprint_by_pk(id: Bigint!): DriverFingerprint!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_driver_fingerprint(where: DriverFingerprintBoolExp!): DriverFingerprintMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_driver_fingerprint_by_pk(id: Bigint!): DriverFingerprint
+	"""
+	插入
+	"""
+	insert_driver_fingerprint(objects: [DriverFingerprintInsertInput!]!): DriverFingerprintMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_driver_fingerprint_one(objects: DriverFingerprintInsertInput!): DriverFingerprint
+	"""
+	更新
+	"""
+	update_driver_fingerprint(_inc: DriverFingerprintIncInput, _set: DriverFingerprintSetInput, where: DriverFingerprintBoolExp!): DriverFingerprintMutationResponse
+	"""
+	更新
+	"""
+	update_driver_fingerprint_by_pk(_inc: DriverFingerprintIncInput, _set: DriverFingerprintSetInput, id: Bigint!): DriverFingerprint
+}

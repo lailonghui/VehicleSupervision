@@ -1,0 +1,371 @@
+"""
+销售商评分记录
+"""
+type SellerRatingRecord {
+	"""
+	 按指定方法生成                                  ( 主键                                 )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	seller_rating_record_id: String!
+	"""
+	 扣分对象                                        ( enterprise_info表的enterprise_id )
+	"""
+	demerit_obj: String
+	"""
+	 扣分分值                                        (                                      )
+	"""
+	demerit_points: Numeric
+	"""
+	 扣分原因                                        (                                      )
+	"""
+	demerit_reason: String
+	"""
+	 操作人                                          ( system_user表的user_id           )
+	"""
+	operator: String
+	"""
+	 操作时间                                        (                                      )
+	"""
+	operation_time: Timestamptz
+	"""
+	 是否删除                                        (                                      )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                                      )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id           )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                      )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id           )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                      )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id           )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "seller_rating_record"
+"""
+type SellerRatingRecordAggregate {
+	aggregate: SellerRatingRecordAggregateFields
+}
+"""
+aggregate fields of "seller_rating_record"
+"""
+type SellerRatingRecordAggregateFields {
+	avg: SellerRatingRecordAvgFields
+	count: Int
+	max: SellerRatingRecordMaxFields
+	min: SellerRatingRecordMinFields
+	stddev: SellerRatingRecordStddevFields
+	stddev_pop: SellerRatingRecordStddevPopFields
+	stddev_samp: SellerRatingRecordStddevSampFields
+	sum: SellerRatingRecordSumFields
+	var_pop: SellerRatingRecordVarPopFields
+	var_samp: SellerRatingRecordVarSampFields
+	variance: SellerRatingRecordVarianceFields
+}
+"""
+aggregate avg on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordAvgFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate max on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordMaxFields {
+	id: Bigint
+	seller_rating_record_id: String
+	demerit_obj: String
+	demerit_points: Numeric
+	demerit_reason: String
+	operator: String
+	operation_time: Timestamptz
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordMinFields {
+	id: Bigint
+	seller_rating_record_id: String
+	demerit_obj: String
+	demerit_points: Numeric
+	demerit_reason: String
+	operator: String
+	operation_time: Timestamptz
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordStddevFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate stddev_pop on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordStddevPopFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate stddev_samp on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordStddevSampFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate sum on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordSumFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate var_pop on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordVarPopFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate var_samp on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordVarSampFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+aggregate variance on columns of table "seller_rating_record"
+"""
+type SellerRatingRecordVarianceFields {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+response of any mutation on the table "seller_rating_record"
+"""
+type SellerRatingRecordMutationResponse {
+	affected_rows: Int!
+	returning: [SellerRatingRecord!]!
+}
+"""
+ordering options when selecting data from "seller_rating_record"
+"""
+input SellerRatingRecordOrderBy {
+	id: OrderBy
+	seller_rating_record_id: OrderBy
+	demerit_obj: OrderBy
+	demerit_points: OrderBy
+	demerit_reason: OrderBy
+	operator: OrderBy
+	operation_time: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'seller_rating_record'.
+"""
+input SellerRatingRecordBoolExp {
+	_and: [SellerRatingRecordBoolExp]
+	_not: SellerRatingRecordBoolExp
+	_or: [SellerRatingRecordBoolExp]
+	id: BigintComparisonExp
+	seller_rating_record_id: StringComparisonExp
+	demerit_obj: StringComparisonExp
+	demerit_points: NumericComparisonExp
+	demerit_reason: StringComparisonExp
+	operator: StringComparisonExp
+	operation_time: TimestamptzComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "seller_rating_record"
+"""
+input SellerRatingRecordInsertInput {
+	id: Bigint
+	seller_rating_record_id: String
+	demerit_obj: String
+	demerit_points: Numeric
+	demerit_reason: String
+	operator: String
+	operation_time: Timestamptz
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "seller_rating_record"
+"""
+input SellerRatingRecordIncInput {
+	id: Bigint
+	demerit_points: Numeric
+}
+"""
+input type for updating data in table "seller_rating_record"
+"""
+input SellerRatingRecordSetInput {
+	id: Bigint
+	seller_rating_record_id: String
+	demerit_obj: String
+	demerit_points: Numeric
+	demerit_reason: String
+	operator: String
+	operation_time: Timestamptz
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum SellerRatingRecordSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                 )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	seller_rating_record_id
+	"""
+	 扣分对象                                        ( enterprise_info表的enterprise_id )
+	"""
+	demerit_obj
+	"""
+	 扣分分值                                        (                                      )
+	"""
+	demerit_points
+	"""
+	 扣分原因                                        (                                      )
+	"""
+	demerit_reason
+	"""
+	 操作人                                          ( system_user表的user_id           )
+	"""
+	operator
+	"""
+	 操作时间                                        (                                      )
+	"""
+	operation_time
+	"""
+	 是否删除                                        (                                      )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                                      )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id           )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                      )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id           )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                      )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id           )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	seller_rating_record(distinct_on: [SellerRatingRecordSelectColumn!], limit: Int, offset: Int, order_by: [SellerRatingRecordOrderBy!], where: SellerRatingRecordBoolExp): [SellerRatingRecord!]!
+	"""
+	聚合查询
+	"""
+	seller_rating_record_aggregate(distinct_on: [SellerRatingRecordSelectColumn!], limit: Int, offset: Int, order_by: [SellerRatingRecordOrderBy!], where: SellerRatingRecordBoolExp): SellerRatingRecordAggregate!
+	"""
+	主键查询
+	"""
+	seller_rating_record_by_pk(id: Bigint!): SellerRatingRecord!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_seller_rating_record(where: SellerRatingRecordBoolExp!): SellerRatingRecordMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_seller_rating_record_by_pk(id: Bigint!): SellerRatingRecord
+	"""
+	插入
+	"""
+	insert_seller_rating_record(objects: [SellerRatingRecordInsertInput!]!): SellerRatingRecordMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_seller_rating_record_one(objects: SellerRatingRecordInsertInput!): SellerRatingRecord
+	"""
+	更新
+	"""
+	update_seller_rating_record(_inc: SellerRatingRecordIncInput, _set: SellerRatingRecordSetInput, where: SellerRatingRecordBoolExp!): SellerRatingRecordMutationResponse
+	"""
+	更新
+	"""
+	update_seller_rating_record_by_pk(_inc: SellerRatingRecordIncInput, _set: SellerRatingRecordSetInput, id: Bigint!): SellerRatingRecord
+}

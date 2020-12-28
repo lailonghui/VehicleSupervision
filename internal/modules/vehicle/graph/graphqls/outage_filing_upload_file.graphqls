@@ -1,0 +1,320 @@
+"""
+停运报备上传文件表
+"""
+type OutageFilingUploadFile {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	outage_filing_upload_file_id: String!
+	"""
+	 文件路径                                        (                            )
+	"""
+	file_path: String
+	"""
+	 文件类型(commitment.承诺书 other.其他)          (                            )
+	"""
+	file_type: String
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileAggregate {
+	aggregate: OutageFilingUploadFileAggregateFields
+}
+"""
+aggregate fields of "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileAggregateFields {
+	avg: OutageFilingUploadFileAvgFields
+	count: Int
+	max: OutageFilingUploadFileMaxFields
+	min: OutageFilingUploadFileMinFields
+	stddev: OutageFilingUploadFileStddevFields
+	stddev_pop: OutageFilingUploadFileStddevPopFields
+	stddev_samp: OutageFilingUploadFileStddevSampFields
+	sum: OutageFilingUploadFileSumFields
+	var_pop: OutageFilingUploadFileVarPopFields
+	var_samp: OutageFilingUploadFileVarSampFields
+	variance: OutageFilingUploadFileVarianceFields
+}
+"""
+aggregate avg on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileMaxFields {
+	id: Bigint
+	outage_filing_upload_file_id: String
+	file_path: String
+	file_type: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileMinFields {
+	id: Bigint
+	outage_filing_upload_file_id: String
+	file_path: String
+	file_type: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "outage_filing_upload_file"
+"""
+type OutageFilingUploadFileMutationResponse {
+	affected_rows: Int!
+	returning: [OutageFilingUploadFile!]!
+}
+"""
+ordering options when selecting data from "outage_filing_upload_file"
+"""
+input OutageFilingUploadFileOrderBy {
+	id: OrderBy
+	outage_filing_upload_file_id: OrderBy
+	file_path: OrderBy
+	file_type: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'outage_filing_upload_file'.
+"""
+input OutageFilingUploadFileBoolExp {
+	_and: [OutageFilingUploadFileBoolExp]
+	_not: OutageFilingUploadFileBoolExp
+	_or: [OutageFilingUploadFileBoolExp]
+	id: BigintComparisonExp
+	outage_filing_upload_file_id: StringComparisonExp
+	file_path: StringComparisonExp
+	file_type: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "outage_filing_upload_file"
+"""
+input OutageFilingUploadFileInsertInput {
+	id: Bigint
+	outage_filing_upload_file_id: String
+	file_path: String
+	file_type: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "outage_filing_upload_file"
+"""
+input OutageFilingUploadFileIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "outage_filing_upload_file"
+"""
+input OutageFilingUploadFileSetInput {
+	id: Bigint
+	outage_filing_upload_file_id: String
+	file_path: String
+	file_type: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum OutageFilingUploadFileSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	outage_filing_upload_file_id
+	"""
+	 文件路径                                        (                            )
+	"""
+	file_path
+	"""
+	 文件类型(commitment.承诺书 other.其他)          (                            )
+	"""
+	file_type
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	outage_filing_upload_file(distinct_on: [OutageFilingUploadFileSelectColumn!], limit: Int, offset: Int, order_by: [OutageFilingUploadFileOrderBy!], where: OutageFilingUploadFileBoolExp): [OutageFilingUploadFile!]!
+	"""
+	聚合查询
+	"""
+	outage_filing_upload_file_aggregate(distinct_on: [OutageFilingUploadFileSelectColumn!], limit: Int, offset: Int, order_by: [OutageFilingUploadFileOrderBy!], where: OutageFilingUploadFileBoolExp): OutageFilingUploadFileAggregate!
+	"""
+	主键查询
+	"""
+	outage_filing_upload_file_by_pk(id: Bigint!): OutageFilingUploadFile!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_outage_filing_upload_file(where: OutageFilingUploadFileBoolExp!): OutageFilingUploadFileMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_outage_filing_upload_file_by_pk(id: Bigint!): OutageFilingUploadFile
+	"""
+	插入
+	"""
+	insert_outage_filing_upload_file(objects: [OutageFilingUploadFileInsertInput!]!): OutageFilingUploadFileMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_outage_filing_upload_file_one(objects: OutageFilingUploadFileInsertInput!): OutageFilingUploadFile
+	"""
+	更新
+	"""
+	update_outage_filing_upload_file(_inc: OutageFilingUploadFileIncInput, _set: OutageFilingUploadFileSetInput, where: OutageFilingUploadFileBoolExp!): OutageFilingUploadFileMutationResponse
+	"""
+	更新
+	"""
+	update_outage_filing_upload_file_by_pk(_inc: OutageFilingUploadFileIncInput, _set: OutageFilingUploadFileSetInput, id: Bigint!): OutageFilingUploadFile
+}

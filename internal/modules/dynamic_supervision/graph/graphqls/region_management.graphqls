@@ -1,0 +1,487 @@
+"""
+进出区域报警--区域管理
+"""
+type RegionManagement {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	region_management_id: String!
+	"""
+	 区域ID                                          (                            )
+	"""
+	region_id: String
+	"""
+	 区域名称                                        (                            )
+	"""
+	region_name: String
+	"""
+	 区域类型                                        (                            )
+	"""
+	region_type: String
+	"""
+	 区域性质                                        (                            )
+	"""
+	region_nature: String
+	"""
+	 报警开始时间                                    (                            )
+	"""
+	alarm_begin_time: Timestamptz
+	"""
+	 报警截止时间                                    (                            )
+	"""
+	alarm_end_time: Timestamptz
+	"""
+	 企业名称                                        (                            )
+	"""
+	enterprise_name: String
+	"""
+	 持续时间                                        (                            )
+	"""
+	duration_: Int
+	"""
+	 最高速度                                        (                            )
+	"""
+	max_speed: Int
+	"""
+	 圆形半径                                        (                            )
+	"""
+	circle_radius: Int
+	"""
+	 区域经纬度                                      (                            )
+	"""
+	region_coordinate: Point
+	"""
+	 是否超级区域                                    (                            )
+	"""
+	is_super_region: Boolean
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "region_management"
+"""
+type RegionManagementAggregate {
+	aggregate: RegionManagementAggregateFields
+}
+"""
+aggregate fields of "region_management"
+"""
+type RegionManagementAggregateFields {
+	avg: RegionManagementAvgFields
+	count: Int
+	max: RegionManagementMaxFields
+	min: RegionManagementMinFields
+	stddev: RegionManagementStddevFields
+	stddev_pop: RegionManagementStddevPopFields
+	stddev_samp: RegionManagementStddevSampFields
+	sum: RegionManagementSumFields
+	var_pop: RegionManagementVarPopFields
+	var_samp: RegionManagementVarSampFields
+	variance: RegionManagementVarianceFields
+}
+"""
+aggregate avg on columns of table "region_management"
+"""
+type RegionManagementAvgFields {
+	id: Bigint
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+}
+"""
+aggregate max on columns of table "region_management"
+"""
+type RegionManagementMaxFields {
+	id: Bigint
+	region_management_id: String
+	region_id: String
+	region_name: String
+	region_type: String
+	region_nature: String
+	alarm_begin_time: Timestamptz
+	alarm_end_time: Timestamptz
+	enterprise_name: String
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+	region_coordinate: Point
+	is_super_region: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "region_management"
+"""
+type RegionManagementMinFields {
+	id: Bigint
+	region_management_id: String
+	region_id: String
+	region_name: String
+	region_type: String
+	region_nature: String
+	alarm_begin_time: Timestamptz
+	alarm_end_time: Timestamptz
+	enterprise_name: String
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+	region_coordinate: Point
+	is_super_region: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "region_management"
+"""
+type RegionManagementStddevFields {
+	id: Bigint
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+}
+"""
+aggregate stddev_pop on columns of table "region_management"
+"""
+type RegionManagementStddevPopFields {
+	id: Bigint
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+}
+"""
+aggregate stddev_samp on columns of table "region_management"
+"""
+type RegionManagementStddevSampFields {
+	id: Bigint
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+}
+"""
+aggregate sum on columns of table "region_management"
+"""
+type RegionManagementSumFields {
+	id: Bigint
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+}
+"""
+aggregate var_pop on columns of table "region_management"
+"""
+type RegionManagementVarPopFields {
+	id: Bigint
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+}
+"""
+aggregate var_samp on columns of table "region_management"
+"""
+type RegionManagementVarSampFields {
+	id: Bigint
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+}
+"""
+aggregate variance on columns of table "region_management"
+"""
+type RegionManagementVarianceFields {
+	id: Bigint
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+}
+"""
+response of any mutation on the table "region_management"
+"""
+type RegionManagementMutationResponse {
+	affected_rows: Int!
+	returning: [RegionManagement!]!
+}
+"""
+ordering options when selecting data from "region_management"
+"""
+input RegionManagementOrderBy {
+	id: OrderBy
+	region_management_id: OrderBy
+	region_id: OrderBy
+	region_name: OrderBy
+	region_type: OrderBy
+	region_nature: OrderBy
+	alarm_begin_time: OrderBy
+	alarm_end_time: OrderBy
+	enterprise_name: OrderBy
+	duration_: OrderBy
+	max_speed: OrderBy
+	circle_radius: OrderBy
+	region_coordinate: OrderBy
+	is_super_region: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'region_management'.
+"""
+input RegionManagementBoolExp {
+	_and: [RegionManagementBoolExp]
+	_not: RegionManagementBoolExp
+	_or: [RegionManagementBoolExp]
+	id: BigintComparisonExp
+	region_management_id: StringComparisonExp
+	region_id: StringComparisonExp
+	region_name: StringComparisonExp
+	region_type: StringComparisonExp
+	region_nature: StringComparisonExp
+	alarm_begin_time: TimestamptzComparisonExp
+	alarm_end_time: TimestamptzComparisonExp
+	enterprise_name: StringComparisonExp
+	duration_: IntComparisonExp
+	max_speed: IntComparisonExp
+	circle_radius: IntComparisonExp
+	region_coordinate: PointComparisonExp
+	is_super_region: BooleanComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "region_management"
+"""
+input RegionManagementInsertInput {
+	id: Bigint
+	region_management_id: String
+	region_id: String
+	region_name: String
+	region_type: String
+	region_nature: String
+	alarm_begin_time: Timestamptz
+	alarm_end_time: Timestamptz
+	enterprise_name: String
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+	region_coordinate: Point
+	is_super_region: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "region_management"
+"""
+input RegionManagementIncInput {
+	id: Bigint
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+}
+"""
+input type for updating data in table "region_management"
+"""
+input RegionManagementSetInput {
+	id: Bigint
+	region_management_id: String
+	region_id: String
+	region_name: String
+	region_type: String
+	region_nature: String
+	alarm_begin_time: Timestamptz
+	alarm_end_time: Timestamptz
+	enterprise_name: String
+	duration_: Int
+	max_speed: Int
+	circle_radius: Int
+	region_coordinate: Point
+	is_super_region: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum RegionManagementSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	region_management_id
+	"""
+	 区域ID                                          (                            )
+	"""
+	region_id
+	"""
+	 区域名称                                        (                            )
+	"""
+	region_name
+	"""
+	 区域类型                                        (                            )
+	"""
+	region_type
+	"""
+	 区域性质                                        (                            )
+	"""
+	region_nature
+	"""
+	 报警开始时间                                    (                            )
+	"""
+	alarm_begin_time
+	"""
+	 报警截止时间                                    (                            )
+	"""
+	alarm_end_time
+	"""
+	 企业名称                                        (                            )
+	"""
+	enterprise_name
+	"""
+	 持续时间                                        (                            )
+	"""
+	duration_
+	"""
+	 最高速度                                        (                            )
+	"""
+	max_speed
+	"""
+	 圆形半径                                        (                            )
+	"""
+	circle_radius
+	"""
+	 区域经纬度                                      (                            )
+	"""
+	region_coordinate
+	"""
+	 是否超级区域                                    (                            )
+	"""
+	is_super_region
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	region_management(distinct_on: [RegionManagementSelectColumn!], limit: Int, offset: Int, order_by: [RegionManagementOrderBy!], where: RegionManagementBoolExp): [RegionManagement!]!
+	"""
+	聚合查询
+	"""
+	region_management_aggregate(distinct_on: [RegionManagementSelectColumn!], limit: Int, offset: Int, order_by: [RegionManagementOrderBy!], where: RegionManagementBoolExp): RegionManagementAggregate!
+	"""
+	主键查询
+	"""
+	region_management_by_pk(id: Bigint!): RegionManagement!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_region_management(where: RegionManagementBoolExp!): RegionManagementMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_region_management_by_pk(id: Bigint!): RegionManagement
+	"""
+	插入
+	"""
+	insert_region_management(objects: [RegionManagementInsertInput!]!): RegionManagementMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_region_management_one(objects: RegionManagementInsertInput!): RegionManagement
+	"""
+	更新
+	"""
+	update_region_management(_inc: RegionManagementIncInput, _set: RegionManagementSetInput, where: RegionManagementBoolExp!): RegionManagementMutationResponse
+	"""
+	更新
+	"""
+	update_region_management_by_pk(_inc: RegionManagementIncInput, _set: RegionManagementSetInput, id: Bigint!): RegionManagement
+}

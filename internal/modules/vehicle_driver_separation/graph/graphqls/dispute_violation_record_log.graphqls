@@ -1,0 +1,306 @@
+"""
+违章争议审批日志表
+"""
+type DisputeViolationRecordLog {
+	"""
+	 按指定方法生成                                               ( 主键                                               )
+	"""
+	id: Bigint!
+	"""
+	 违章争议审批日志外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                           )
+	"""
+	dispute_violation_log_id: String!
+	"""
+	 违章争议记录表id                                             ( dispute_violation_record的dispute_violation_id )
+	"""
+	dispute_violation_id: String
+	"""
+	 审核人                                                       ( system_user表的user_id                         )
+	"""
+	reviewer: String
+	"""
+	 审核时间                                                     (                                                    )
+	"""
+	review_time: Timestamptz
+	"""
+	 审核意见                                                     (                                                    )
+	"""
+	review_opinion: String
+	"""
+	 审核结果                                                     (                                                    )
+	"""
+	review_result: String
+	"""
+	 审核动作名称                                                 (                                                    )
+	"""
+	review_action_name: String
+	"""
+	 审批人                                                       ( system_user表的user_id                         )
+	"""
+	approver: String
+	"""
+	 内网更新时间                                                 (                                                    )
+	"""
+	update_time_in: String
+}
+"""
+aggregated selection of "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogAggregate {
+	aggregate: DisputeViolationRecordLogAggregateFields
+}
+"""
+aggregate fields of "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogAggregateFields {
+	avg: DisputeViolationRecordLogAvgFields
+	count: Int
+	max: DisputeViolationRecordLogMaxFields
+	min: DisputeViolationRecordLogMinFields
+	stddev: DisputeViolationRecordLogStddevFields
+	stddev_pop: DisputeViolationRecordLogStddevPopFields
+	stddev_samp: DisputeViolationRecordLogStddevSampFields
+	sum: DisputeViolationRecordLogSumFields
+	var_pop: DisputeViolationRecordLogVarPopFields
+	var_samp: DisputeViolationRecordLogVarSampFields
+	variance: DisputeViolationRecordLogVarianceFields
+}
+"""
+aggregate avg on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogMaxFields {
+	id: Bigint
+	dispute_violation_log_id: String
+	dispute_violation_id: String
+	reviewer: String
+	review_time: Timestamptz
+	review_opinion: String
+	review_result: String
+	review_action_name: String
+	approver: String
+	update_time_in: String
+}
+"""
+aggregate min on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogMinFields {
+	id: Bigint
+	dispute_violation_log_id: String
+	dispute_violation_id: String
+	reviewer: String
+	review_time: Timestamptz
+	review_opinion: String
+	review_result: String
+	review_action_name: String
+	approver: String
+	update_time_in: String
+}
+"""
+aggregate stddev on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "dispute_violation_record_log"
+"""
+type DisputeViolationRecordLogMutationResponse {
+	affected_rows: Int!
+	returning: [DisputeViolationRecordLog!]!
+}
+"""
+ordering options when selecting data from "dispute_violation_record_log"
+"""
+input DisputeViolationRecordLogOrderBy {
+	id: OrderBy
+	dispute_violation_log_id: OrderBy
+	dispute_violation_id: OrderBy
+	reviewer: OrderBy
+	review_time: OrderBy
+	review_opinion: OrderBy
+	review_result: OrderBy
+	review_action_name: OrderBy
+	approver: OrderBy
+	update_time_in: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'dispute_violation_record_log'.
+"""
+input DisputeViolationRecordLogBoolExp {
+	_and: [DisputeViolationRecordLogBoolExp]
+	_not: DisputeViolationRecordLogBoolExp
+	_or: [DisputeViolationRecordLogBoolExp]
+	id: BigintComparisonExp
+	dispute_violation_log_id: StringComparisonExp
+	dispute_violation_id: StringComparisonExp
+	reviewer: StringComparisonExp
+	review_time: TimestamptzComparisonExp
+	review_opinion: StringComparisonExp
+	review_result: StringComparisonExp
+	review_action_name: StringComparisonExp
+	approver: StringComparisonExp
+	update_time_in: StringComparisonExp
+}
+"""
+input type for inserting data into table "dispute_violation_record_log"
+"""
+input DisputeViolationRecordLogInsertInput {
+	id: Bigint
+	dispute_violation_log_id: String
+	dispute_violation_id: String
+	reviewer: String
+	review_time: Timestamptz
+	review_opinion: String
+	review_result: String
+	review_action_name: String
+	approver: String
+	update_time_in: String
+}
+"""
+input type for incrementing integer column in table "dispute_violation_record_log"
+"""
+input DisputeViolationRecordLogIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "dispute_violation_record_log"
+"""
+input DisputeViolationRecordLogSetInput {
+	id: Bigint
+	dispute_violation_log_id: String
+	dispute_violation_id: String
+	reviewer: String
+	review_time: Timestamptz
+	review_opinion: String
+	review_result: String
+	review_action_name: String
+	approver: String
+	update_time_in: String
+}
+"""
+可选select
+"""
+enum DisputeViolationRecordLogSelectColumn {
+	"""
+	 按指定方法生成                                               ( 主键                                               )
+	"""
+	id
+	"""
+	 违章争议审批日志外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                           )
+	"""
+	dispute_violation_log_id
+	"""
+	 违章争议记录表id                                             ( dispute_violation_record的dispute_violation_id )
+	"""
+	dispute_violation_id
+	"""
+	 审核人                                                       ( system_user表的user_id                         )
+	"""
+	reviewer
+	"""
+	 审核时间                                                     (                                                    )
+	"""
+	review_time
+	"""
+	 审核意见                                                     (                                                    )
+	"""
+	review_opinion
+	"""
+	 审核结果                                                     (                                                    )
+	"""
+	review_result
+	"""
+	 审核动作名称                                                 (                                                    )
+	"""
+	review_action_name
+	"""
+	 审批人                                                       ( system_user表的user_id                         )
+	"""
+	approver
+	"""
+	 内网更新时间                                                 (                                                    )
+	"""
+	update_time_in
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	dispute_violation_record_log(distinct_on: [DisputeViolationRecordLogSelectColumn!], limit: Int, offset: Int, order_by: [DisputeViolationRecordLogOrderBy!], where: DisputeViolationRecordLogBoolExp): [DisputeViolationRecordLog!]!
+	"""
+	聚合查询
+	"""
+	dispute_violation_record_log_aggregate(distinct_on: [DisputeViolationRecordLogSelectColumn!], limit: Int, offset: Int, order_by: [DisputeViolationRecordLogOrderBy!], where: DisputeViolationRecordLogBoolExp): DisputeViolationRecordLogAggregate!
+	"""
+	主键查询
+	"""
+	dispute_violation_record_log_by_pk(id: Bigint!): DisputeViolationRecordLog!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_dispute_violation_record_log(where: DisputeViolationRecordLogBoolExp!): DisputeViolationRecordLogMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_dispute_violation_record_log_by_pk(id: Bigint!): DisputeViolationRecordLog
+	"""
+	插入
+	"""
+	insert_dispute_violation_record_log(objects: [DisputeViolationRecordLogInsertInput!]!): DisputeViolationRecordLogMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_dispute_violation_record_log_one(objects: DisputeViolationRecordLogInsertInput!): DisputeViolationRecordLog
+	"""
+	更新
+	"""
+	update_dispute_violation_record_log(_inc: DisputeViolationRecordLogIncInput, _set: DisputeViolationRecordLogSetInput, where: DisputeViolationRecordLogBoolExp!): DisputeViolationRecordLogMutationResponse
+	"""
+	更新
+	"""
+	update_dispute_violation_record_log_by_pk(_inc: DisputeViolationRecordLogIncInput, _set: DisputeViolationRecordLogSetInput, id: Bigint!): DisputeViolationRecordLog
+}

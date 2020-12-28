@@ -1,0 +1,464 @@
+"""
+抓拍系统过车报警表
+"""
+type SnapshotSystemPassingAlarm {
+	"""
+	 按指定方法生成                                             ( 主键                                                         )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用            ( 联合主键                                                     )
+	"""
+	snapshot_system_passing_alarm_id: String!
+	"""
+	 过车记录ID                                                 ( vehicle_passing_record 过车记录表的vehicle_passing_record_id )
+	"""
+	passing_id: String
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id                   (                                                              )
+	"""
+	vehicle_id: String!
+	"""
+	 车牌号                                                     (                                                              )
+	"""
+	license_plate_number: String
+	"""
+	 登记时间                                                   (                                                              )
+	"""
+	registration_time: Timestamptz
+	"""
+	 监管时间                                                   (                                                              )
+	"""
+	supervision_time: Timestamptz
+	"""
+	 备注                                                       (                                                              )
+	"""
+	remarks: String
+	"""
+	 摄像头ID                                                   ( construction_camera 工地摄像头表的construction_camera_id )
+	"""
+	camera_id: String
+	"""
+	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） (                                                              )
+	"""
+	alarm_type: Int
+	"""
+	 审核状态                                                   (                                                              )
+	"""
+	review_status: String
+	"""
+	 车辆类型                                                   ( 车辆类型字典                                             )
+	"""
+	vehicle_type: Int
+	"""
+	 是否在线                                                   (                                                              )
+	"""
+	is_online: Boolean
+	"""
+	 是否监管                                                   (                                                              )
+	"""
+	is_supervision: Boolean
+	"""
+	 创建时间                                                   (                                                              )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                     ( system_user表的user_id                                   )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                   (                                                              )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                     ( system_user表的user_id                                   )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                   (                                                              )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                     ( system_user表的user_id                                   )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmAggregate {
+	aggregate: SnapshotSystemPassingAlarmAggregateFields
+}
+"""
+aggregate fields of "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmAggregateFields {
+	avg: SnapshotSystemPassingAlarmAvgFields
+	count: Int
+	max: SnapshotSystemPassingAlarmMaxFields
+	min: SnapshotSystemPassingAlarmMinFields
+	stddev: SnapshotSystemPassingAlarmStddevFields
+	stddev_pop: SnapshotSystemPassingAlarmStddevPopFields
+	stddev_samp: SnapshotSystemPassingAlarmStddevSampFields
+	sum: SnapshotSystemPassingAlarmSumFields
+	var_pop: SnapshotSystemPassingAlarmVarPopFields
+	var_samp: SnapshotSystemPassingAlarmVarSampFields
+	variance: SnapshotSystemPassingAlarmVarianceFields
+}
+"""
+aggregate avg on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmAvgFields {
+	id: Bigint
+	alarm_type: Int
+	vehicle_type: Int
+}
+"""
+aggregate max on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmMaxFields {
+	id: Bigint
+	snapshot_system_passing_alarm_id: String
+	passing_id: String
+	vehicle_id: String
+	license_plate_number: String
+	registration_time: Timestamptz
+	supervision_time: Timestamptz
+	remarks: String
+	camera_id: String
+	alarm_type: Int
+	review_status: String
+	vehicle_type: Int
+	is_online: Boolean
+	is_supervision: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmMinFields {
+	id: Bigint
+	snapshot_system_passing_alarm_id: String
+	passing_id: String
+	vehicle_id: String
+	license_plate_number: String
+	registration_time: Timestamptz
+	supervision_time: Timestamptz
+	remarks: String
+	camera_id: String
+	alarm_type: Int
+	review_status: String
+	vehicle_type: Int
+	is_online: Boolean
+	is_supervision: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmStddevFields {
+	id: Bigint
+	alarm_type: Int
+	vehicle_type: Int
+}
+"""
+aggregate stddev_pop on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmStddevPopFields {
+	id: Bigint
+	alarm_type: Int
+	vehicle_type: Int
+}
+"""
+aggregate stddev_samp on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmStddevSampFields {
+	id: Bigint
+	alarm_type: Int
+	vehicle_type: Int
+}
+"""
+aggregate sum on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmSumFields {
+	id: Bigint
+	alarm_type: Int
+	vehicle_type: Int
+}
+"""
+aggregate var_pop on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmVarPopFields {
+	id: Bigint
+	alarm_type: Int
+	vehicle_type: Int
+}
+"""
+aggregate var_samp on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmVarSampFields {
+	id: Bigint
+	alarm_type: Int
+	vehicle_type: Int
+}
+"""
+aggregate variance on columns of table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmVarianceFields {
+	id: Bigint
+	alarm_type: Int
+	vehicle_type: Int
+}
+"""
+response of any mutation on the table "snapshot_system_passing_alarm"
+"""
+type SnapshotSystemPassingAlarmMutationResponse {
+	affected_rows: Int!
+	returning: [SnapshotSystemPassingAlarm!]!
+}
+"""
+ordering options when selecting data from "snapshot_system_passing_alarm"
+"""
+input SnapshotSystemPassingAlarmOrderBy {
+	id: OrderBy
+	snapshot_system_passing_alarm_id: OrderBy
+	passing_id: OrderBy
+	vehicle_id: OrderBy
+	license_plate_number: OrderBy
+	registration_time: OrderBy
+	supervision_time: OrderBy
+	remarks: OrderBy
+	camera_id: OrderBy
+	alarm_type: OrderBy
+	review_status: OrderBy
+	vehicle_type: OrderBy
+	is_online: OrderBy
+	is_supervision: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'snapshot_system_passing_alarm'.
+"""
+input SnapshotSystemPassingAlarmBoolExp {
+	_and: [SnapshotSystemPassingAlarmBoolExp]
+	_not: SnapshotSystemPassingAlarmBoolExp
+	_or: [SnapshotSystemPassingAlarmBoolExp]
+	id: BigintComparisonExp
+	snapshot_system_passing_alarm_id: StringComparisonExp
+	passing_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	license_plate_number: StringComparisonExp
+	registration_time: TimestamptzComparisonExp
+	supervision_time: TimestamptzComparisonExp
+	remarks: StringComparisonExp
+	camera_id: StringComparisonExp
+	alarm_type: IntComparisonExp
+	review_status: StringComparisonExp
+	vehicle_type: IntComparisonExp
+	is_online: BooleanComparisonExp
+	is_supervision: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "snapshot_system_passing_alarm"
+"""
+input SnapshotSystemPassingAlarmInsertInput {
+	id: Bigint
+	snapshot_system_passing_alarm_id: String
+	passing_id: String
+	vehicle_id: String
+	license_plate_number: String
+	registration_time: Timestamptz
+	supervision_time: Timestamptz
+	remarks: String
+	camera_id: String
+	alarm_type: Int
+	review_status: String
+	vehicle_type: Int
+	is_online: Boolean
+	is_supervision: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "snapshot_system_passing_alarm"
+"""
+input SnapshotSystemPassingAlarmIncInput {
+	id: Bigint
+	alarm_type: Int
+	vehicle_type: Int
+}
+"""
+input type for updating data in table "snapshot_system_passing_alarm"
+"""
+input SnapshotSystemPassingAlarmSetInput {
+	id: Bigint
+	snapshot_system_passing_alarm_id: String
+	passing_id: String
+	vehicle_id: String
+	license_plate_number: String
+	registration_time: Timestamptz
+	supervision_time: Timestamptz
+	remarks: String
+	camera_id: String
+	alarm_type: Int
+	review_status: String
+	vehicle_type: Int
+	is_online: Boolean
+	is_supervision: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum SnapshotSystemPassingAlarmSelectColumn {
+	"""
+	 按指定方法生成                                             ( 主键                                                         )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用            ( 联合主键                                                     )
+	"""
+	snapshot_system_passing_alarm_id
+	"""
+	 过车记录ID                                                 ( vehicle_passing_record 过车记录表的vehicle_passing_record_id )
+	"""
+	passing_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id                   (                                                              )
+	"""
+	vehicle_id
+	"""
+	 车牌号                                                     (                                                              )
+	"""
+	license_plate_number
+	"""
+	 登记时间                                                   (                                                              )
+	"""
+	registration_time
+	"""
+	 监管时间                                                   (                                                              )
+	"""
+	supervision_time
+	"""
+	 备注                                                       (                                                              )
+	"""
+	remarks
+	"""
+	 摄像头ID                                                   ( construction_camera 工地摄像头表的construction_camera_id )
+	"""
+	camera_id
+	"""
+	 报警类型（1.未纳入管控平台 2.未报备工程 3.未纳入管控平台） (                                                              )
+	"""
+	alarm_type
+	"""
+	 审核状态                                                   (                                                              )
+	"""
+	review_status
+	"""
+	 车辆类型                                                   ( 车辆类型字典                                             )
+	"""
+	vehicle_type
+	"""
+	 是否在线                                                   (                                                              )
+	"""
+	is_online
+	"""
+	 是否监管                                                   (                                                              )
+	"""
+	is_supervision
+	"""
+	 创建时间                                                   (                                                              )
+	"""
+	created_at
+	"""
+	 创建人                                                     ( system_user表的user_id                                   )
+	"""
+	created_by
+	"""
+	 修改时间                                                   (                                                              )
+	"""
+	updated_at
+	"""
+	 修改人                                                     ( system_user表的user_id                                   )
+	"""
+	updated_by
+	"""
+	 删除时间                                                   (                                                              )
+	"""
+	deleted_at
+	"""
+	 删除人                                                     ( system_user表的user_id                                   )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	snapshot_system_passing_alarm(distinct_on: [SnapshotSystemPassingAlarmSelectColumn!], limit: Int, offset: Int, order_by: [SnapshotSystemPassingAlarmOrderBy!], where: SnapshotSystemPassingAlarmBoolExp): [SnapshotSystemPassingAlarm!]!
+	"""
+	聚合查询
+	"""
+	snapshot_system_passing_alarm_aggregate(distinct_on: [SnapshotSystemPassingAlarmSelectColumn!], limit: Int, offset: Int, order_by: [SnapshotSystemPassingAlarmOrderBy!], where: SnapshotSystemPassingAlarmBoolExp): SnapshotSystemPassingAlarmAggregate!
+	"""
+	主键查询
+	"""
+	snapshot_system_passing_alarm_by_pk(id: Bigint!): SnapshotSystemPassingAlarm!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_snapshot_system_passing_alarm(where: SnapshotSystemPassingAlarmBoolExp!): SnapshotSystemPassingAlarmMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_snapshot_system_passing_alarm_by_pk(id: Bigint!): SnapshotSystemPassingAlarm
+	"""
+	插入
+	"""
+	insert_snapshot_system_passing_alarm(objects: [SnapshotSystemPassingAlarmInsertInput!]!): SnapshotSystemPassingAlarmMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_snapshot_system_passing_alarm_one(objects: SnapshotSystemPassingAlarmInsertInput!): SnapshotSystemPassingAlarm
+	"""
+	更新
+	"""
+	update_snapshot_system_passing_alarm(_inc: SnapshotSystemPassingAlarmIncInput, _set: SnapshotSystemPassingAlarmSetInput, where: SnapshotSystemPassingAlarmBoolExp!): SnapshotSystemPassingAlarmMutationResponse
+	"""
+	更新
+	"""
+	update_snapshot_system_passing_alarm_by_pk(_inc: SnapshotSystemPassingAlarmIncInput, _set: SnapshotSystemPassingAlarmSetInput, id: Bigint!): SnapshotSystemPassingAlarm
+}

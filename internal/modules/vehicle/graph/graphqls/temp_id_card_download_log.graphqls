@@ -1,0 +1,348 @@
+"""
+临时工号牌下载记录表
+"""
+type TempIdCardDownloadLog {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	temp_id_card_download_id: String!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id: String!
+	"""
+	 有效期起始                                      (                            )
+	"""
+	valid_from: Timestamptz
+	"""
+	 有效期截止                                      (                            )
+	"""
+	valid_until: Timestamptz
+	"""
+	 操作人                                          ( system_user表的user_id )
+	"""
+	operator: String
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogAggregate {
+	aggregate: TempIdCardDownloadLogAggregateFields
+}
+"""
+aggregate fields of "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogAggregateFields {
+	avg: TempIdCardDownloadLogAvgFields
+	count: Int
+	max: TempIdCardDownloadLogMaxFields
+	min: TempIdCardDownloadLogMinFields
+	stddev: TempIdCardDownloadLogStddevFields
+	stddev_pop: TempIdCardDownloadLogStddevPopFields
+	stddev_samp: TempIdCardDownloadLogStddevSampFields
+	sum: TempIdCardDownloadLogSumFields
+	var_pop: TempIdCardDownloadLogVarPopFields
+	var_samp: TempIdCardDownloadLogVarSampFields
+	variance: TempIdCardDownloadLogVarianceFields
+}
+"""
+aggregate avg on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogMaxFields {
+	id: Bigint
+	temp_id_card_download_id: String
+	vehicle_id: String
+	valid_from: Timestamptz
+	valid_until: Timestamptz
+	operator: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogMinFields {
+	id: Bigint
+	temp_id_card_download_id: String
+	vehicle_id: String
+	valid_from: Timestamptz
+	valid_until: Timestamptz
+	operator: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "temp_id_card_download_log"
+"""
+type TempIdCardDownloadLogMutationResponse {
+	affected_rows: Int!
+	returning: [TempIdCardDownloadLog!]!
+}
+"""
+ordering options when selecting data from "temp_id_card_download_log"
+"""
+input TempIdCardDownloadLogOrderBy {
+	id: OrderBy
+	temp_id_card_download_id: OrderBy
+	vehicle_id: OrderBy
+	valid_from: OrderBy
+	valid_until: OrderBy
+	operator: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'temp_id_card_download_log'.
+"""
+input TempIdCardDownloadLogBoolExp {
+	_and: [TempIdCardDownloadLogBoolExp]
+	_not: TempIdCardDownloadLogBoolExp
+	_or: [TempIdCardDownloadLogBoolExp]
+	id: BigintComparisonExp
+	temp_id_card_download_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	valid_from: TimestamptzComparisonExp
+	valid_until: TimestamptzComparisonExp
+	operator: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "temp_id_card_download_log"
+"""
+input TempIdCardDownloadLogInsertInput {
+	id: Bigint
+	temp_id_card_download_id: String
+	vehicle_id: String
+	valid_from: Timestamptz
+	valid_until: Timestamptz
+	operator: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "temp_id_card_download_log"
+"""
+input TempIdCardDownloadLogIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "temp_id_card_download_log"
+"""
+input TempIdCardDownloadLogSetInput {
+	id: Bigint
+	temp_id_card_download_id: String
+	vehicle_id: String
+	valid_from: Timestamptz
+	valid_until: Timestamptz
+	operator: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum TempIdCardDownloadLogSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	temp_id_card_download_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id
+	"""
+	 有效期起始                                      (                            )
+	"""
+	valid_from
+	"""
+	 有效期截止                                      (                            )
+	"""
+	valid_until
+	"""
+	 操作人                                          ( system_user表的user_id )
+	"""
+	operator
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	temp_id_card_download_log(distinct_on: [TempIdCardDownloadLogSelectColumn!], limit: Int, offset: Int, order_by: [TempIdCardDownloadLogOrderBy!], where: TempIdCardDownloadLogBoolExp): [TempIdCardDownloadLog!]!
+	"""
+	聚合查询
+	"""
+	temp_id_card_download_log_aggregate(distinct_on: [TempIdCardDownloadLogSelectColumn!], limit: Int, offset: Int, order_by: [TempIdCardDownloadLogOrderBy!], where: TempIdCardDownloadLogBoolExp): TempIdCardDownloadLogAggregate!
+	"""
+	主键查询
+	"""
+	temp_id_card_download_log_by_pk(id: Bigint!): TempIdCardDownloadLog!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_temp_id_card_download_log(where: TempIdCardDownloadLogBoolExp!): TempIdCardDownloadLogMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_temp_id_card_download_log_by_pk(id: Bigint!): TempIdCardDownloadLog
+	"""
+	插入
+	"""
+	insert_temp_id_card_download_log(objects: [TempIdCardDownloadLogInsertInput!]!): TempIdCardDownloadLogMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_temp_id_card_download_log_one(objects: TempIdCardDownloadLogInsertInput!): TempIdCardDownloadLog
+	"""
+	更新
+	"""
+	update_temp_id_card_download_log(_inc: TempIdCardDownloadLogIncInput, _set: TempIdCardDownloadLogSetInput, where: TempIdCardDownloadLogBoolExp!): TempIdCardDownloadLogMutationResponse
+	"""
+	更新
+	"""
+	update_temp_id_card_download_log_by_pk(_inc: TempIdCardDownloadLogIncInput, _set: TempIdCardDownloadLogSetInput, id: Bigint!): TempIdCardDownloadLog
+}

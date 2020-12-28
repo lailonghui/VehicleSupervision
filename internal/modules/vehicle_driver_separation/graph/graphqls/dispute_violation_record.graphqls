@@ -1,0 +1,567 @@
+"""
+违章争议记录表
+"""
+type DisputeViolationRecord {
+	"""
+	 按指定方法生成                                               ( 主键                                                   )
+	"""
+	id: Bigint!
+	"""
+	 违章争议记录表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                               )
+	"""
+	dispute_violation_id: String!
+	"""
+	 违章明细表id                                                 ( vehicle_violation _details 表的violation_detail_id )
+	"""
+	violation_detail_id: String
+	"""
+	 书面申请材料                                                 (                                                        )
+	"""
+	written_application_materials: String
+	"""
+	 劳动合同或租赁合同                                           (                                                        )
+	"""
+	labor_contract: String
+	"""
+	 行车日志                                                     (                                                        )
+	"""
+	driving_log: String
+	"""
+	 证人证言                                                     (                                                        )
+	"""
+	witness: String
+	"""
+	 当事人陈述                                                   (                                                        )
+	"""
+	statement: String
+	"""
+	 图像证据材料                                                 (                                                        )
+	"""
+	pic_evidence: String
+	"""
+	 行为人驾驶证                                                 (                                                        )
+	"""
+	driver_license: String
+	"""
+	 机动车行驶证                                                 (                                                        )
+	"""
+	driving_license: String
+	"""
+	 行为人身份证                                                 (                                                        )
+	"""
+	id_card: String
+	"""
+	 机动车所有人营业执照                                         (                                                        )
+	"""
+	business_license: String
+	"""
+	 机动车所有人组织机构代码证                                   (                                                        )
+	"""
+	organization_code: String
+	"""
+	 法定代表人身份证                                             (                                                        )
+	"""
+	legal_person_id_number: String
+	"""
+	 委托代理人身份证                                             (                                                        )
+	"""
+	agent_id_number: String
+	"""
+	 机动车管理人身份证                                           (                                                        )
+	"""
+	vehicle_manager_id_card: String
+	"""
+	 其他证据材料                                                 (                                                        )
+	"""
+	other_evidence: String
+	"""
+	 审批状态                                                     ( 车辆违法审批状态字典                               )
+	"""
+	approve_state: Int
+	"""
+	 内网更新时间                                                 (                                                        )
+	"""
+	update_time_in: Timestamptz
+	"""
+	 联系地址                                                     (                                                        )
+	"""
+	contact_address: String
+	"""
+	 创建时间                                                     (                                                        )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                       ( system_user表的user_id                             )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                     (                                                        )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                       ( system_user表的user_id                             )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                     (                                                        )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                       ( system_user表的user_id                             )
+	"""
+	deleted_by: String
+	"""
+	 是否删除                                                     (                                                        )
+	"""
+	is_deleted: Boolean
+}
+"""
+aggregated selection of "dispute_violation_record"
+"""
+type DisputeViolationRecordAggregate {
+	aggregate: DisputeViolationRecordAggregateFields
+}
+"""
+aggregate fields of "dispute_violation_record"
+"""
+type DisputeViolationRecordAggregateFields {
+	avg: DisputeViolationRecordAvgFields
+	count: Int
+	max: DisputeViolationRecordMaxFields
+	min: DisputeViolationRecordMinFields
+	stddev: DisputeViolationRecordStddevFields
+	stddev_pop: DisputeViolationRecordStddevPopFields
+	stddev_samp: DisputeViolationRecordStddevSampFields
+	sum: DisputeViolationRecordSumFields
+	var_pop: DisputeViolationRecordVarPopFields
+	var_samp: DisputeViolationRecordVarSampFields
+	variance: DisputeViolationRecordVarianceFields
+}
+"""
+aggregate avg on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordAvgFields {
+	id: Bigint
+	approve_state: Int
+}
+"""
+aggregate max on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordMaxFields {
+	id: Bigint
+	dispute_violation_id: String
+	violation_detail_id: String
+	written_application_materials: String
+	labor_contract: String
+	driving_log: String
+	witness: String
+	statement: String
+	pic_evidence: String
+	driver_license: String
+	driving_license: String
+	id_card: String
+	business_license: String
+	organization_code: String
+	legal_person_id_number: String
+	agent_id_number: String
+	vehicle_manager_id_card: String
+	other_evidence: String
+	approve_state: Int
+	update_time_in: Timestamptz
+	contact_address: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
+}
+"""
+aggregate min on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordMinFields {
+	id: Bigint
+	dispute_violation_id: String
+	violation_detail_id: String
+	written_application_materials: String
+	labor_contract: String
+	driving_log: String
+	witness: String
+	statement: String
+	pic_evidence: String
+	driver_license: String
+	driving_license: String
+	id_card: String
+	business_license: String
+	organization_code: String
+	legal_person_id_number: String
+	agent_id_number: String
+	vehicle_manager_id_card: String
+	other_evidence: String
+	approve_state: Int
+	update_time_in: Timestamptz
+	contact_address: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
+}
+"""
+aggregate stddev on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordStddevFields {
+	id: Bigint
+	approve_state: Int
+}
+"""
+aggregate stddev_pop on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordStddevPopFields {
+	id: Bigint
+	approve_state: Int
+}
+"""
+aggregate stddev_samp on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordStddevSampFields {
+	id: Bigint
+	approve_state: Int
+}
+"""
+aggregate sum on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordSumFields {
+	id: Bigint
+	approve_state: Int
+}
+"""
+aggregate var_pop on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordVarPopFields {
+	id: Bigint
+	approve_state: Int
+}
+"""
+aggregate var_samp on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordVarSampFields {
+	id: Bigint
+	approve_state: Int
+}
+"""
+aggregate variance on columns of table "dispute_violation_record"
+"""
+type DisputeViolationRecordVarianceFields {
+	id: Bigint
+	approve_state: Int
+}
+"""
+response of any mutation on the table "dispute_violation_record"
+"""
+type DisputeViolationRecordMutationResponse {
+	affected_rows: Int!
+	returning: [DisputeViolationRecord!]!
+}
+"""
+ordering options when selecting data from "dispute_violation_record"
+"""
+input DisputeViolationRecordOrderBy {
+	id: OrderBy
+	dispute_violation_id: OrderBy
+	violation_detail_id: OrderBy
+	written_application_materials: OrderBy
+	labor_contract: OrderBy
+	driving_log: OrderBy
+	witness: OrderBy
+	statement: OrderBy
+	pic_evidence: OrderBy
+	driver_license: OrderBy
+	driving_license: OrderBy
+	id_card: OrderBy
+	business_license: OrderBy
+	organization_code: OrderBy
+	legal_person_id_number: OrderBy
+	agent_id_number: OrderBy
+	vehicle_manager_id_card: OrderBy
+	other_evidence: OrderBy
+	approve_state: OrderBy
+	update_time_in: OrderBy
+	contact_address: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'dispute_violation_record'.
+"""
+input DisputeViolationRecordBoolExp {
+	_and: [DisputeViolationRecordBoolExp]
+	_not: DisputeViolationRecordBoolExp
+	_or: [DisputeViolationRecordBoolExp]
+	id: BigintComparisonExp
+	dispute_violation_id: StringComparisonExp
+	violation_detail_id: StringComparisonExp
+	written_application_materials: StringComparisonExp
+	labor_contract: StringComparisonExp
+	driving_log: StringComparisonExp
+	witness: StringComparisonExp
+	statement: StringComparisonExp
+	pic_evidence: StringComparisonExp
+	driver_license: StringComparisonExp
+	driving_license: StringComparisonExp
+	id_card: StringComparisonExp
+	business_license: StringComparisonExp
+	organization_code: StringComparisonExp
+	legal_person_id_number: StringComparisonExp
+	agent_id_number: StringComparisonExp
+	vehicle_manager_id_card: StringComparisonExp
+	other_evidence: StringComparisonExp
+	approve_state: IntComparisonExp
+	update_time_in: TimestamptzComparisonExp
+	contact_address: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "dispute_violation_record"
+"""
+input DisputeViolationRecordInsertInput {
+	id: Bigint
+	dispute_violation_id: String
+	violation_detail_id: String
+	written_application_materials: String
+	labor_contract: String
+	driving_log: String
+	witness: String
+	statement: String
+	pic_evidence: String
+	driver_license: String
+	driving_license: String
+	id_card: String
+	business_license: String
+	organization_code: String
+	legal_person_id_number: String
+	agent_id_number: String
+	vehicle_manager_id_card: String
+	other_evidence: String
+	approve_state: Int
+	update_time_in: Timestamptz
+	contact_address: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
+}
+"""
+input type for incrementing integer column in table "dispute_violation_record"
+"""
+input DisputeViolationRecordIncInput {
+	id: Bigint
+	approve_state: Int
+}
+"""
+input type for updating data in table "dispute_violation_record"
+"""
+input DisputeViolationRecordSetInput {
+	id: Bigint
+	dispute_violation_id: String
+	violation_detail_id: String
+	written_application_materials: String
+	labor_contract: String
+	driving_log: String
+	witness: String
+	statement: String
+	pic_evidence: String
+	driver_license: String
+	driving_license: String
+	id_card: String
+	business_license: String
+	organization_code: String
+	legal_person_id_number: String
+	agent_id_number: String
+	vehicle_manager_id_card: String
+	other_evidence: String
+	approve_state: Int
+	update_time_in: Timestamptz
+	contact_address: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
+}
+"""
+可选select
+"""
+enum DisputeViolationRecordSelectColumn {
+	"""
+	 按指定方法生成                                               ( 主键                                                   )
+	"""
+	id
+	"""
+	 违章争议记录表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                               )
+	"""
+	dispute_violation_id
+	"""
+	 违章明细表id                                                 ( vehicle_violation _details 表的violation_detail_id )
+	"""
+	violation_detail_id
+	"""
+	 书面申请材料                                                 (                                                        )
+	"""
+	written_application_materials
+	"""
+	 劳动合同或租赁合同                                           (                                                        )
+	"""
+	labor_contract
+	"""
+	 行车日志                                                     (                                                        )
+	"""
+	driving_log
+	"""
+	 证人证言                                                     (                                                        )
+	"""
+	witness
+	"""
+	 当事人陈述                                                   (                                                        )
+	"""
+	statement
+	"""
+	 图像证据材料                                                 (                                                        )
+	"""
+	pic_evidence
+	"""
+	 行为人驾驶证                                                 (                                                        )
+	"""
+	driver_license
+	"""
+	 机动车行驶证                                                 (                                                        )
+	"""
+	driving_license
+	"""
+	 行为人身份证                                                 (                                                        )
+	"""
+	id_card
+	"""
+	 机动车所有人营业执照                                         (                                                        )
+	"""
+	business_license
+	"""
+	 机动车所有人组织机构代码证                                   (                                                        )
+	"""
+	organization_code
+	"""
+	 法定代表人身份证                                             (                                                        )
+	"""
+	legal_person_id_number
+	"""
+	 委托代理人身份证                                             (                                                        )
+	"""
+	agent_id_number
+	"""
+	 机动车管理人身份证                                           (                                                        )
+	"""
+	vehicle_manager_id_card
+	"""
+	 其他证据材料                                                 (                                                        )
+	"""
+	other_evidence
+	"""
+	 审批状态                                                     ( 车辆违法审批状态字典                               )
+	"""
+	approve_state
+	"""
+	 内网更新时间                                                 (                                                        )
+	"""
+	update_time_in
+	"""
+	 联系地址                                                     (                                                        )
+	"""
+	contact_address
+	"""
+	 创建时间                                                     (                                                        )
+	"""
+	created_at
+	"""
+	 创建人                                                       ( system_user表的user_id                             )
+	"""
+	created_by
+	"""
+	 修改时间                                                     (                                                        )
+	"""
+	updated_at
+	"""
+	 修改人                                                       ( system_user表的user_id                             )
+	"""
+	updated_by
+	"""
+	 删除时间                                                     (                                                        )
+	"""
+	deleted_at
+	"""
+	 删除人                                                       ( system_user表的user_id                             )
+	"""
+	deleted_by
+	"""
+	 是否删除                                                     (                                                        )
+	"""
+	is_deleted
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	dispute_violation_record(distinct_on: [DisputeViolationRecordSelectColumn!], limit: Int, offset: Int, order_by: [DisputeViolationRecordOrderBy!], where: DisputeViolationRecordBoolExp): [DisputeViolationRecord!]!
+	"""
+	聚合查询
+	"""
+	dispute_violation_record_aggregate(distinct_on: [DisputeViolationRecordSelectColumn!], limit: Int, offset: Int, order_by: [DisputeViolationRecordOrderBy!], where: DisputeViolationRecordBoolExp): DisputeViolationRecordAggregate!
+	"""
+	主键查询
+	"""
+	dispute_violation_record_by_pk(id: Bigint!): DisputeViolationRecord!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_dispute_violation_record(where: DisputeViolationRecordBoolExp!): DisputeViolationRecordMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_dispute_violation_record_by_pk(id: Bigint!): DisputeViolationRecord
+	"""
+	插入
+	"""
+	insert_dispute_violation_record(objects: [DisputeViolationRecordInsertInput!]!): DisputeViolationRecordMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_dispute_violation_record_one(objects: DisputeViolationRecordInsertInput!): DisputeViolationRecord
+	"""
+	更新
+	"""
+	update_dispute_violation_record(_inc: DisputeViolationRecordIncInput, _set: DisputeViolationRecordSetInput, where: DisputeViolationRecordBoolExp!): DisputeViolationRecordMutationResponse
+	"""
+	更新
+	"""
+	update_dispute_violation_record_by_pk(_inc: DisputeViolationRecordIncInput, _set: DisputeViolationRecordSetInput, id: Bigint!): DisputeViolationRecord
+}

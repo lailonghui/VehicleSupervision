@@ -1,0 +1,334 @@
+"""
+案件审批审核操作
+"""
+type CaseApprovalReviewOperation {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	case_approval_review_operation_id: String!
+	"""
+	 审核意见                                        (                            )
+	"""
+	review_opinion: String
+	"""
+	 审核结果                                        (                            )
+	"""
+	review_result: String
+	"""
+	 审核人                                          (                            )
+	"""
+	reviewer: String
+	"""
+	 审核时间                                        (                            )
+	"""
+	review_time: Timestamptz
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationAggregate {
+	aggregate: CaseApprovalReviewOperationAggregateFields
+}
+"""
+aggregate fields of "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationAggregateFields {
+	avg: CaseApprovalReviewOperationAvgFields
+	count: Int
+	max: CaseApprovalReviewOperationMaxFields
+	min: CaseApprovalReviewOperationMinFields
+	stddev: CaseApprovalReviewOperationStddevFields
+	stddev_pop: CaseApprovalReviewOperationStddevPopFields
+	stddev_samp: CaseApprovalReviewOperationStddevSampFields
+	sum: CaseApprovalReviewOperationSumFields
+	var_pop: CaseApprovalReviewOperationVarPopFields
+	var_samp: CaseApprovalReviewOperationVarSampFields
+	variance: CaseApprovalReviewOperationVarianceFields
+}
+"""
+aggregate avg on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationMaxFields {
+	id: Bigint
+	case_approval_review_operation_id: String
+	review_opinion: String
+	review_result: String
+	reviewer: String
+	review_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationMinFields {
+	id: Bigint
+	case_approval_review_operation_id: String
+	review_opinion: String
+	review_result: String
+	reviewer: String
+	review_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "case_approval_review_operation"
+"""
+type CaseApprovalReviewOperationMutationResponse {
+	affected_rows: Int!
+	returning: [CaseApprovalReviewOperation!]!
+}
+"""
+ordering options when selecting data from "case_approval_review_operation"
+"""
+input CaseApprovalReviewOperationOrderBy {
+	id: OrderBy
+	case_approval_review_operation_id: OrderBy
+	review_opinion: OrderBy
+	review_result: OrderBy
+	reviewer: OrderBy
+	review_time: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'case_approval_review_operation'.
+"""
+input CaseApprovalReviewOperationBoolExp {
+	_and: [CaseApprovalReviewOperationBoolExp]
+	_not: CaseApprovalReviewOperationBoolExp
+	_or: [CaseApprovalReviewOperationBoolExp]
+	id: BigintComparisonExp
+	case_approval_review_operation_id: StringComparisonExp
+	review_opinion: StringComparisonExp
+	review_result: StringComparisonExp
+	reviewer: StringComparisonExp
+	review_time: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "case_approval_review_operation"
+"""
+input CaseApprovalReviewOperationInsertInput {
+	id: Bigint
+	case_approval_review_operation_id: String
+	review_opinion: String
+	review_result: String
+	reviewer: String
+	review_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "case_approval_review_operation"
+"""
+input CaseApprovalReviewOperationIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "case_approval_review_operation"
+"""
+input CaseApprovalReviewOperationSetInput {
+	id: Bigint
+	case_approval_review_operation_id: String
+	review_opinion: String
+	review_result: String
+	reviewer: String
+	review_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum CaseApprovalReviewOperationSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	case_approval_review_operation_id
+	"""
+	 审核意见                                        (                            )
+	"""
+	review_opinion
+	"""
+	 审核结果                                        (                            )
+	"""
+	review_result
+	"""
+	 审核人                                          (                            )
+	"""
+	reviewer
+	"""
+	 审核时间                                        (                            )
+	"""
+	review_time
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	case_approval_review_operation(distinct_on: [CaseApprovalReviewOperationSelectColumn!], limit: Int, offset: Int, order_by: [CaseApprovalReviewOperationOrderBy!], where: CaseApprovalReviewOperationBoolExp): [CaseApprovalReviewOperation!]!
+	"""
+	聚合查询
+	"""
+	case_approval_review_operation_aggregate(distinct_on: [CaseApprovalReviewOperationSelectColumn!], limit: Int, offset: Int, order_by: [CaseApprovalReviewOperationOrderBy!], where: CaseApprovalReviewOperationBoolExp): CaseApprovalReviewOperationAggregate!
+	"""
+	主键查询
+	"""
+	case_approval_review_operation_by_pk(id: Bigint!): CaseApprovalReviewOperation!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_case_approval_review_operation(where: CaseApprovalReviewOperationBoolExp!): CaseApprovalReviewOperationMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_case_approval_review_operation_by_pk(id: Bigint!): CaseApprovalReviewOperation
+	"""
+	插入
+	"""
+	insert_case_approval_review_operation(objects: [CaseApprovalReviewOperationInsertInput!]!): CaseApprovalReviewOperationMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_case_approval_review_operation_one(objects: CaseApprovalReviewOperationInsertInput!): CaseApprovalReviewOperation
+	"""
+	更新
+	"""
+	update_case_approval_review_operation(_inc: CaseApprovalReviewOperationIncInput, _set: CaseApprovalReviewOperationSetInput, where: CaseApprovalReviewOperationBoolExp!): CaseApprovalReviewOperationMutationResponse
+	"""
+	更新
+	"""
+	update_case_approval_review_operation_by_pk(_inc: CaseApprovalReviewOperationIncInput, _set: CaseApprovalReviewOperationSetInput, id: Bigint!): CaseApprovalReviewOperation
+}

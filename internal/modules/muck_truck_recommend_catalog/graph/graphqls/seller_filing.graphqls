@@ -1,0 +1,614 @@
+"""
+销售商备案
+"""
+type SellerFiling {
+	"""
+	 按指定方法生成                                  ( 主键                                                    )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                )
+	"""
+	seller_filing_id: String!
+	"""
+	 销售商                                          ( enterprise_info表的enterprise_id                    )
+	"""
+	seller: String
+	"""
+	 工商营业执照                                    (                                                         )
+	"""
+	business_license: String
+	"""
+	 组织机构代码证                                  (                                                         )
+	"""
+	organization_code: String
+	"""
+	 法人代表身份证                                  (                                                         )
+	"""
+	legal_representative_id_card: String
+	"""
+	 委托代理人身份证                                (                                                         )
+	"""
+	entrusted_agent_id_card: String
+	"""
+	 工信部汽车生产销售许可证明                      (                                                         )
+	"""
+	ministry_production_sale_permit: String
+	"""
+	 行业自律承诺书                                  (                                                         )
+	"""
+	industry_self_discipline_commitment: String
+	"""
+	 汽车厂家汽车销售许可证明                        (                                                         )
+	"""
+	manufacturer_production_sale_permit: String
+	"""
+	 维修服务服务站名称                              (                                                         )
+	"""
+	repair_service_station_name: String
+	"""
+	 维修服务服务站地址                              (                                                         )
+	"""
+	repair_service_station_address: String
+	"""
+	 维修服务服务站相关材料                          (                                                         )
+	"""
+	repair_service_station_material: String
+	"""
+	 服务人员名称                                    (                                                         )
+	"""
+	service_staff_name: String
+	"""
+	 服务人员电话                                    (                                                         )
+	"""
+	service_staff_phone: String
+	"""
+	 服务人员身份证                                  (                                                         )
+	"""
+	service_staff_id: String
+	"""
+	 服务人员相关材料                                (                                                         )
+	"""
+	service_staff_material: String
+	"""
+	 其他相关材料                                    (                                                         )
+	"""
+	other_material: String
+	"""
+	 备注                                            (                                                         )
+	"""
+	remarks: String
+	"""
+	 登记日期                                        (                                                         )
+	"""
+	registration_time: Timestamptz
+	"""
+	 登记用户                                        ( system_user表的user_id                              )
+	"""
+	registration_user: String
+	"""
+	 是否核查                                        (                                                         )
+	"""
+	is_verify: Boolean
+	"""
+	 原因                                            (                                                         )
+	"""
+	cause: String
+	"""
+	 汽车品牌(简称)                                  ( new_muck_truck_recommend_catalog 新型渣土车推荐目录的id )
+	"""
+	catalog_id: String
+	"""
+	 平台对接技术协议                                (                                                         )
+	"""
+	platform_docking_technology_agreement: String
+	"""
+	 是否删除                                        (                                                         )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                                                         )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id                              )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                                         )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id                              )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                                         )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id                              )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "seller_filing"
+"""
+type SellerFilingAggregate {
+	aggregate: SellerFilingAggregateFields
+}
+"""
+aggregate fields of "seller_filing"
+"""
+type SellerFilingAggregateFields {
+	avg: SellerFilingAvgFields
+	count: Int
+	max: SellerFilingMaxFields
+	min: SellerFilingMinFields
+	stddev: SellerFilingStddevFields
+	stddev_pop: SellerFilingStddevPopFields
+	stddev_samp: SellerFilingStddevSampFields
+	sum: SellerFilingSumFields
+	var_pop: SellerFilingVarPopFields
+	var_samp: SellerFilingVarSampFields
+	variance: SellerFilingVarianceFields
+}
+"""
+aggregate avg on columns of table "seller_filing"
+"""
+type SellerFilingAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "seller_filing"
+"""
+type SellerFilingMaxFields {
+	id: Bigint
+	seller_filing_id: String
+	seller: String
+	business_license: String
+	organization_code: String
+	legal_representative_id_card: String
+	entrusted_agent_id_card: String
+	ministry_production_sale_permit: String
+	industry_self_discipline_commitment: String
+	manufacturer_production_sale_permit: String
+	repair_service_station_name: String
+	repair_service_station_address: String
+	repair_service_station_material: String
+	service_staff_name: String
+	service_staff_phone: String
+	service_staff_id: String
+	service_staff_material: String
+	other_material: String
+	remarks: String
+	registration_time: Timestamptz
+	registration_user: String
+	is_verify: Boolean
+	cause: String
+	catalog_id: String
+	platform_docking_technology_agreement: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "seller_filing"
+"""
+type SellerFilingMinFields {
+	id: Bigint
+	seller_filing_id: String
+	seller: String
+	business_license: String
+	organization_code: String
+	legal_representative_id_card: String
+	entrusted_agent_id_card: String
+	ministry_production_sale_permit: String
+	industry_self_discipline_commitment: String
+	manufacturer_production_sale_permit: String
+	repair_service_station_name: String
+	repair_service_station_address: String
+	repair_service_station_material: String
+	service_staff_name: String
+	service_staff_phone: String
+	service_staff_id: String
+	service_staff_material: String
+	other_material: String
+	remarks: String
+	registration_time: Timestamptz
+	registration_user: String
+	is_verify: Boolean
+	cause: String
+	catalog_id: String
+	platform_docking_technology_agreement: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "seller_filing"
+"""
+type SellerFilingStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "seller_filing"
+"""
+type SellerFilingStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "seller_filing"
+"""
+type SellerFilingStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "seller_filing"
+"""
+type SellerFilingSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "seller_filing"
+"""
+type SellerFilingVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "seller_filing"
+"""
+type SellerFilingVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "seller_filing"
+"""
+type SellerFilingVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "seller_filing"
+"""
+type SellerFilingMutationResponse {
+	affected_rows: Int!
+	returning: [SellerFiling!]!
+}
+"""
+ordering options when selecting data from "seller_filing"
+"""
+input SellerFilingOrderBy {
+	id: OrderBy
+	seller_filing_id: OrderBy
+	seller: OrderBy
+	business_license: OrderBy
+	organization_code: OrderBy
+	legal_representative_id_card: OrderBy
+	entrusted_agent_id_card: OrderBy
+	ministry_production_sale_permit: OrderBy
+	industry_self_discipline_commitment: OrderBy
+	manufacturer_production_sale_permit: OrderBy
+	repair_service_station_name: OrderBy
+	repair_service_station_address: OrderBy
+	repair_service_station_material: OrderBy
+	service_staff_name: OrderBy
+	service_staff_phone: OrderBy
+	service_staff_id: OrderBy
+	service_staff_material: OrderBy
+	other_material: OrderBy
+	remarks: OrderBy
+	registration_time: OrderBy
+	registration_user: OrderBy
+	is_verify: OrderBy
+	cause: OrderBy
+	catalog_id: OrderBy
+	platform_docking_technology_agreement: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'seller_filing'.
+"""
+input SellerFilingBoolExp {
+	_and: [SellerFilingBoolExp]
+	_not: SellerFilingBoolExp
+	_or: [SellerFilingBoolExp]
+	id: BigintComparisonExp
+	seller_filing_id: StringComparisonExp
+	seller: StringComparisonExp
+	business_license: StringComparisonExp
+	organization_code: StringComparisonExp
+	legal_representative_id_card: StringComparisonExp
+	entrusted_agent_id_card: StringComparisonExp
+	ministry_production_sale_permit: StringComparisonExp
+	industry_self_discipline_commitment: StringComparisonExp
+	manufacturer_production_sale_permit: StringComparisonExp
+	repair_service_station_name: StringComparisonExp
+	repair_service_station_address: StringComparisonExp
+	repair_service_station_material: StringComparisonExp
+	service_staff_name: StringComparisonExp
+	service_staff_phone: StringComparisonExp
+	service_staff_id: StringComparisonExp
+	service_staff_material: StringComparisonExp
+	other_material: StringComparisonExp
+	remarks: StringComparisonExp
+	registration_time: TimestamptzComparisonExp
+	registration_user: StringComparisonExp
+	is_verify: BooleanComparisonExp
+	cause: StringComparisonExp
+	catalog_id: StringComparisonExp
+	platform_docking_technology_agreement: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "seller_filing"
+"""
+input SellerFilingInsertInput {
+	id: Bigint
+	seller_filing_id: String
+	seller: String
+	business_license: String
+	organization_code: String
+	legal_representative_id_card: String
+	entrusted_agent_id_card: String
+	ministry_production_sale_permit: String
+	industry_self_discipline_commitment: String
+	manufacturer_production_sale_permit: String
+	repair_service_station_name: String
+	repair_service_station_address: String
+	repair_service_station_material: String
+	service_staff_name: String
+	service_staff_phone: String
+	service_staff_id: String
+	service_staff_material: String
+	other_material: String
+	remarks: String
+	registration_time: Timestamptz
+	registration_user: String
+	is_verify: Boolean
+	cause: String
+	catalog_id: String
+	platform_docking_technology_agreement: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "seller_filing"
+"""
+input SellerFilingIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "seller_filing"
+"""
+input SellerFilingSetInput {
+	id: Bigint
+	seller_filing_id: String
+	seller: String
+	business_license: String
+	organization_code: String
+	legal_representative_id_card: String
+	entrusted_agent_id_card: String
+	ministry_production_sale_permit: String
+	industry_self_discipline_commitment: String
+	manufacturer_production_sale_permit: String
+	repair_service_station_name: String
+	repair_service_station_address: String
+	repair_service_station_material: String
+	service_staff_name: String
+	service_staff_phone: String
+	service_staff_id: String
+	service_staff_material: String
+	other_material: String
+	remarks: String
+	registration_time: Timestamptz
+	registration_user: String
+	is_verify: Boolean
+	cause: String
+	catalog_id: String
+	platform_docking_technology_agreement: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum SellerFilingSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                                    )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                )
+	"""
+	seller_filing_id
+	"""
+	 销售商                                          ( enterprise_info表的enterprise_id                    )
+	"""
+	seller
+	"""
+	 工商营业执照                                    (                                                         )
+	"""
+	business_license
+	"""
+	 组织机构代码证                                  (                                                         )
+	"""
+	organization_code
+	"""
+	 法人代表身份证                                  (                                                         )
+	"""
+	legal_representative_id_card
+	"""
+	 委托代理人身份证                                (                                                         )
+	"""
+	entrusted_agent_id_card
+	"""
+	 工信部汽车生产销售许可证明                      (                                                         )
+	"""
+	ministry_production_sale_permit
+	"""
+	 行业自律承诺书                                  (                                                         )
+	"""
+	industry_self_discipline_commitment
+	"""
+	 汽车厂家汽车销售许可证明                        (                                                         )
+	"""
+	manufacturer_production_sale_permit
+	"""
+	 维修服务服务站名称                              (                                                         )
+	"""
+	repair_service_station_name
+	"""
+	 维修服务服务站地址                              (                                                         )
+	"""
+	repair_service_station_address
+	"""
+	 维修服务服务站相关材料                          (                                                         )
+	"""
+	repair_service_station_material
+	"""
+	 服务人员名称                                    (                                                         )
+	"""
+	service_staff_name
+	"""
+	 服务人员电话                                    (                                                         )
+	"""
+	service_staff_phone
+	"""
+	 服务人员身份证                                  (                                                         )
+	"""
+	service_staff_id
+	"""
+	 服务人员相关材料                                (                                                         )
+	"""
+	service_staff_material
+	"""
+	 其他相关材料                                    (                                                         )
+	"""
+	other_material
+	"""
+	 备注                                            (                                                         )
+	"""
+	remarks
+	"""
+	 登记日期                                        (                                                         )
+	"""
+	registration_time
+	"""
+	 登记用户                                        ( system_user表的user_id                              )
+	"""
+	registration_user
+	"""
+	 是否核查                                        (                                                         )
+	"""
+	is_verify
+	"""
+	 原因                                            (                                                         )
+	"""
+	cause
+	"""
+	 汽车品牌(简称)                                  ( new_muck_truck_recommend_catalog 新型渣土车推荐目录的id )
+	"""
+	catalog_id
+	"""
+	 平台对接技术协议                                (                                                         )
+	"""
+	platform_docking_technology_agreement
+	"""
+	 是否删除                                        (                                                         )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                                                         )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id                              )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                                         )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id                              )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                                         )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id                              )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	seller_filing(distinct_on: [SellerFilingSelectColumn!], limit: Int, offset: Int, order_by: [SellerFilingOrderBy!], where: SellerFilingBoolExp): [SellerFiling!]!
+	"""
+	聚合查询
+	"""
+	seller_filing_aggregate(distinct_on: [SellerFilingSelectColumn!], limit: Int, offset: Int, order_by: [SellerFilingOrderBy!], where: SellerFilingBoolExp): SellerFilingAggregate!
+	"""
+	主键查询
+	"""
+	seller_filing_by_pk(id: Bigint!): SellerFiling!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_seller_filing(where: SellerFilingBoolExp!): SellerFilingMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_seller_filing_by_pk(id: Bigint!): SellerFiling
+	"""
+	插入
+	"""
+	insert_seller_filing(objects: [SellerFilingInsertInput!]!): SellerFilingMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_seller_filing_one(objects: SellerFilingInsertInput!): SellerFiling
+	"""
+	更新
+	"""
+	update_seller_filing(_inc: SellerFilingIncInput, _set: SellerFilingSetInput, where: SellerFilingBoolExp!): SellerFilingMutationResponse
+	"""
+	更新
+	"""
+	update_seller_filing_by_pk(_inc: SellerFilingIncInput, _set: SellerFilingSetInput, id: Bigint!): SellerFiling
+}

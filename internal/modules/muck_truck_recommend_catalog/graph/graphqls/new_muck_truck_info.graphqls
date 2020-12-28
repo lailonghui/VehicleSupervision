@@ -1,0 +1,418 @@
+"""
+新型渣土车信息表
+"""
+type NewMuckTruckInfo {
+	"""
+	 按指定方法生成                                  ( 主键                           )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
+	"""
+	new_muck_truck_info_id: String!
+	"""
+	 扣分车辆id                                      ( vehicle_info表的vehicle_id )
+	"""
+	vehicle_id: String
+	"""
+	 车牌号                                          (                                )
+	"""
+	license_plate_number: String
+	"""
+	 登记注册时间                                    (                                )
+	"""
+	registration_time: Timestamptz
+	"""
+	 排放标准                                        (                                )
+	"""
+	emission_standard: String
+	"""
+	 是否U型货箱                                     (                                )
+	"""
+	is_u_shaped_cargo_box: Boolean
+	"""
+	 长                                              (                                )
+	"""
+	length: String
+	"""
+	 宽                                              (                                )
+	"""
+	width: String
+	"""
+	 高                                              (                                )
+	"""
+	height: String
+	"""
+	 密封设备                                        (                                )
+	"""
+	sealing_device: String
+	"""
+	 顶盖高度                                        (                                )
+	"""
+	top_cover_height: String
+	"""
+	 创建时间                                        (                                )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id     )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id     )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id     )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "new_muck_truck_info"
+"""
+type NewMuckTruckInfoAggregate {
+	aggregate: NewMuckTruckInfoAggregateFields
+}
+"""
+aggregate fields of "new_muck_truck_info"
+"""
+type NewMuckTruckInfoAggregateFields {
+	avg: NewMuckTruckInfoAvgFields
+	count: Int
+	max: NewMuckTruckInfoMaxFields
+	min: NewMuckTruckInfoMinFields
+	stddev: NewMuckTruckInfoStddevFields
+	stddev_pop: NewMuckTruckInfoStddevPopFields
+	stddev_samp: NewMuckTruckInfoStddevSampFields
+	sum: NewMuckTruckInfoSumFields
+	var_pop: NewMuckTruckInfoVarPopFields
+	var_samp: NewMuckTruckInfoVarSampFields
+	variance: NewMuckTruckInfoVarianceFields
+}
+"""
+aggregate avg on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoMaxFields {
+	id: Bigint
+	new_muck_truck_info_id: String
+	vehicle_id: String
+	license_plate_number: String
+	registration_time: Timestamptz
+	emission_standard: String
+	is_u_shaped_cargo_box: Boolean
+	length: String
+	width: String
+	height: String
+	sealing_device: String
+	top_cover_height: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoMinFields {
+	id: Bigint
+	new_muck_truck_info_id: String
+	vehicle_id: String
+	license_plate_number: String
+	registration_time: Timestamptz
+	emission_standard: String
+	is_u_shaped_cargo_box: Boolean
+	length: String
+	width: String
+	height: String
+	sealing_device: String
+	top_cover_height: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "new_muck_truck_info"
+"""
+type NewMuckTruckInfoMutationResponse {
+	affected_rows: Int!
+	returning: [NewMuckTruckInfo!]!
+}
+"""
+ordering options when selecting data from "new_muck_truck_info"
+"""
+input NewMuckTruckInfoOrderBy {
+	id: OrderBy
+	new_muck_truck_info_id: OrderBy
+	vehicle_id: OrderBy
+	license_plate_number: OrderBy
+	registration_time: OrderBy
+	emission_standard: OrderBy
+	is_u_shaped_cargo_box: OrderBy
+	length: OrderBy
+	width: OrderBy
+	height: OrderBy
+	sealing_device: OrderBy
+	top_cover_height: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'new_muck_truck_info'.
+"""
+input NewMuckTruckInfoBoolExp {
+	_and: [NewMuckTruckInfoBoolExp]
+	_not: NewMuckTruckInfoBoolExp
+	_or: [NewMuckTruckInfoBoolExp]
+	id: BigintComparisonExp
+	new_muck_truck_info_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	license_plate_number: StringComparisonExp
+	registration_time: TimestamptzComparisonExp
+	emission_standard: StringComparisonExp
+	is_u_shaped_cargo_box: BooleanComparisonExp
+	length: StringComparisonExp
+	width: StringComparisonExp
+	height: StringComparisonExp
+	sealing_device: StringComparisonExp
+	top_cover_height: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "new_muck_truck_info"
+"""
+input NewMuckTruckInfoInsertInput {
+	id: Bigint
+	new_muck_truck_info_id: String
+	vehicle_id: String
+	license_plate_number: String
+	registration_time: Timestamptz
+	emission_standard: String
+	is_u_shaped_cargo_box: Boolean
+	length: String
+	width: String
+	height: String
+	sealing_device: String
+	top_cover_height: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "new_muck_truck_info"
+"""
+input NewMuckTruckInfoIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "new_muck_truck_info"
+"""
+input NewMuckTruckInfoSetInput {
+	id: Bigint
+	new_muck_truck_info_id: String
+	vehicle_id: String
+	license_plate_number: String
+	registration_time: Timestamptz
+	emission_standard: String
+	is_u_shaped_cargo_box: Boolean
+	length: String
+	width: String
+	height: String
+	sealing_device: String
+	top_cover_height: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum NewMuckTruckInfoSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                           )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
+	"""
+	new_muck_truck_info_id
+	"""
+	 扣分车辆id                                      ( vehicle_info表的vehicle_id )
+	"""
+	vehicle_id
+	"""
+	 车牌号                                          (                                )
+	"""
+	license_plate_number
+	"""
+	 登记注册时间                                    (                                )
+	"""
+	registration_time
+	"""
+	 排放标准                                        (                                )
+	"""
+	emission_standard
+	"""
+	 是否U型货箱                                     (                                )
+	"""
+	is_u_shaped_cargo_box
+	"""
+	 长                                              (                                )
+	"""
+	length
+	"""
+	 宽                                              (                                )
+	"""
+	width
+	"""
+	 高                                              (                                )
+	"""
+	height
+	"""
+	 密封设备                                        (                                )
+	"""
+	sealing_device
+	"""
+	 顶盖高度                                        (                                )
+	"""
+	top_cover_height
+	"""
+	 创建时间                                        (                                )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id     )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id     )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id     )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	new_muck_truck_info(distinct_on: [NewMuckTruckInfoSelectColumn!], limit: Int, offset: Int, order_by: [NewMuckTruckInfoOrderBy!], where: NewMuckTruckInfoBoolExp): [NewMuckTruckInfo!]!
+	"""
+	聚合查询
+	"""
+	new_muck_truck_info_aggregate(distinct_on: [NewMuckTruckInfoSelectColumn!], limit: Int, offset: Int, order_by: [NewMuckTruckInfoOrderBy!], where: NewMuckTruckInfoBoolExp): NewMuckTruckInfoAggregate!
+	"""
+	主键查询
+	"""
+	new_muck_truck_info_by_pk(id: Bigint!): NewMuckTruckInfo!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_new_muck_truck_info(where: NewMuckTruckInfoBoolExp!): NewMuckTruckInfoMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_new_muck_truck_info_by_pk(id: Bigint!): NewMuckTruckInfo
+	"""
+	插入
+	"""
+	insert_new_muck_truck_info(objects: [NewMuckTruckInfoInsertInput!]!): NewMuckTruckInfoMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_new_muck_truck_info_one(objects: NewMuckTruckInfoInsertInput!): NewMuckTruckInfo
+	"""
+	更新
+	"""
+	update_new_muck_truck_info(_inc: NewMuckTruckInfoIncInput, _set: NewMuckTruckInfoSetInput, where: NewMuckTruckInfoBoolExp!): NewMuckTruckInfoMutationResponse
+	"""
+	更新
+	"""
+	update_new_muck_truck_info_by_pk(_inc: NewMuckTruckInfoIncInput, _set: NewMuckTruckInfoSetInput, id: Bigint!): NewMuckTruckInfo
+}

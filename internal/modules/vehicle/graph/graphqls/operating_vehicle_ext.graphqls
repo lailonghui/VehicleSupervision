@@ -1,0 +1,660 @@
+"""
+营运车信息扩展表
+"""
+type OperatingVehicleExt {
+	"""
+	 按指定方法生成                           ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id (                            )
+	"""
+	vehicle_id: String!
+	"""
+	 代理商                                   (                            )
+	"""
+	agent: String
+	"""
+	 合同编号                                 (                            )
+	"""
+	contact_number: String
+	"""
+	 平台                                     ( 平台标识字典           )
+	"""
+	platform: Int
+	"""
+	 行驶证所有人                             (                            )
+	"""
+	driving_license_owner: String
+	"""
+	 速度模式状态获得时间                     (                            )
+	"""
+	speed_mode_status_time: Timestamptz
+	"""
+	 速度模式状态                             (                            )
+	"""
+	speed_mode_status: String
+	"""
+	 报废原因                                 (                            )
+	"""
+	scrap_reason: String
+	"""
+	 报废时间                                 (                            )
+	"""
+	scrap_time: Timestamptz
+	"""
+	 报废时间审核                             (                            )
+	"""
+	scrap_time_check: Int
+	"""
+	 行政区域                                 (                            )
+	"""
+	administrative_region: String
+	"""
+	 车牌照片,云储存系统返回的路径            (                            )
+	"""
+	license_plate_photo: String
+	"""
+	 其他照片,云储存系统返回的路径            (                            )
+	"""
+	other_photo: String
+	"""
+	 编号                                     (                            )
+	"""
+	serial_number: String
+	"""
+	 是否北斗部标平台                         (                            )
+	"""
+	is_beidou: Boolean
+	"""
+	 是否在运证系统                           (                            )
+	"""
+	is_in_operating_system: Boolean
+	"""
+	 是否上传货运平台                         (                            )
+	"""
+	is_in_upload_platform: Boolean
+	"""
+	 是否监管                                 (                            )
+	"""
+	is_supervise: Boolean
+	"""
+	 是否需要监管                             (                            )
+	"""
+	is_need_supervise: Boolean
+	"""
+	 是否功能测试通过                         (                            )
+	"""
+	is_function_ok: Boolean
+	"""
+	 是否屏蔽                                 (                            )
+	"""
+	is_block: Boolean
+	"""
+	 是否办理终端安装证明                     (                            )
+	"""
+	is_applay_terminal_installation: Boolean
+	"""
+	 第一次上线时间                           (                            )
+	"""
+	first_online_time: Timestamptz
+	"""
+	 最后一次绑定终端时间                     (                            )
+	"""
+	last_binding_terminal_time: Timestamptz
+	"""
+	 服务到期时间                             (                            )
+	"""
+	service_expiration_time: Timestamptz
+	"""
+	 合同时间                                 (                            )
+	"""
+	contract_time: Timestamptz
+	"""
+	 安装时间                                 (                            )
+	"""
+	installation_time: Timestamptz
+	"""
+	 创建时间                                 (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                   ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                 (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                   ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                 (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                   ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "operating_vehicle_ext"
+"""
+type OperatingVehicleExtAggregate {
+	aggregate: OperatingVehicleExtAggregateFields
+}
+"""
+aggregate fields of "operating_vehicle_ext"
+"""
+type OperatingVehicleExtAggregateFields {
+	avg: OperatingVehicleExtAvgFields
+	count: Int
+	max: OperatingVehicleExtMaxFields
+	min: OperatingVehicleExtMinFields
+	stddev: OperatingVehicleExtStddevFields
+	stddev_pop: OperatingVehicleExtStddevPopFields
+	stddev_samp: OperatingVehicleExtStddevSampFields
+	sum: OperatingVehicleExtSumFields
+	var_pop: OperatingVehicleExtVarPopFields
+	var_samp: OperatingVehicleExtVarSampFields
+	variance: OperatingVehicleExtVarianceFields
+}
+"""
+aggregate avg on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtAvgFields {
+	id: Bigint
+	platform: Int
+	scrap_time_check: Int
+}
+"""
+aggregate max on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtMaxFields {
+	id: Bigint
+	vehicle_id: String
+	agent: String
+	contact_number: String
+	platform: Int
+	driving_license_owner: String
+	speed_mode_status_time: Timestamptz
+	speed_mode_status: String
+	scrap_reason: String
+	scrap_time: Timestamptz
+	scrap_time_check: Int
+	administrative_region: String
+	license_plate_photo: String
+	other_photo: String
+	serial_number: String
+	is_beidou: Boolean
+	is_in_operating_system: Boolean
+	is_in_upload_platform: Boolean
+	is_supervise: Boolean
+	is_need_supervise: Boolean
+	is_function_ok: Boolean
+	is_block: Boolean
+	is_applay_terminal_installation: Boolean
+	first_online_time: Timestamptz
+	last_binding_terminal_time: Timestamptz
+	service_expiration_time: Timestamptz
+	contract_time: Timestamptz
+	installation_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtMinFields {
+	id: Bigint
+	vehicle_id: String
+	agent: String
+	contact_number: String
+	platform: Int
+	driving_license_owner: String
+	speed_mode_status_time: Timestamptz
+	speed_mode_status: String
+	scrap_reason: String
+	scrap_time: Timestamptz
+	scrap_time_check: Int
+	administrative_region: String
+	license_plate_photo: String
+	other_photo: String
+	serial_number: String
+	is_beidou: Boolean
+	is_in_operating_system: Boolean
+	is_in_upload_platform: Boolean
+	is_supervise: Boolean
+	is_need_supervise: Boolean
+	is_function_ok: Boolean
+	is_block: Boolean
+	is_applay_terminal_installation: Boolean
+	first_online_time: Timestamptz
+	last_binding_terminal_time: Timestamptz
+	service_expiration_time: Timestamptz
+	contract_time: Timestamptz
+	installation_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtStddevFields {
+	id: Bigint
+	platform: Int
+	scrap_time_check: Int
+}
+"""
+aggregate stddev_pop on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtStddevPopFields {
+	id: Bigint
+	platform: Int
+	scrap_time_check: Int
+}
+"""
+aggregate stddev_samp on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtStddevSampFields {
+	id: Bigint
+	platform: Int
+	scrap_time_check: Int
+}
+"""
+aggregate sum on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtSumFields {
+	id: Bigint
+	platform: Int
+	scrap_time_check: Int
+}
+"""
+aggregate var_pop on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtVarPopFields {
+	id: Bigint
+	platform: Int
+	scrap_time_check: Int
+}
+"""
+aggregate var_samp on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtVarSampFields {
+	id: Bigint
+	platform: Int
+	scrap_time_check: Int
+}
+"""
+aggregate variance on columns of table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtVarianceFields {
+	id: Bigint
+	platform: Int
+	scrap_time_check: Int
+}
+"""
+response of any mutation on the table "operating_vehicle_ext"
+"""
+type OperatingVehicleExtMutationResponse {
+	affected_rows: Int!
+	returning: [OperatingVehicleExt!]!
+}
+"""
+ordering options when selecting data from "operating_vehicle_ext"
+"""
+input OperatingVehicleExtOrderBy {
+	id: OrderBy
+	vehicle_id: OrderBy
+	agent: OrderBy
+	contact_number: OrderBy
+	platform: OrderBy
+	driving_license_owner: OrderBy
+	speed_mode_status_time: OrderBy
+	speed_mode_status: OrderBy
+	scrap_reason: OrderBy
+	scrap_time: OrderBy
+	scrap_time_check: OrderBy
+	administrative_region: OrderBy
+	license_plate_photo: OrderBy
+	other_photo: OrderBy
+	serial_number: OrderBy
+	is_beidou: OrderBy
+	is_in_operating_system: OrderBy
+	is_in_upload_platform: OrderBy
+	is_supervise: OrderBy
+	is_need_supervise: OrderBy
+	is_function_ok: OrderBy
+	is_block: OrderBy
+	is_applay_terminal_installation: OrderBy
+	first_online_time: OrderBy
+	last_binding_terminal_time: OrderBy
+	service_expiration_time: OrderBy
+	contract_time: OrderBy
+	installation_time: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'operating_vehicle_ext'.
+"""
+input OperatingVehicleExtBoolExp {
+	_and: [OperatingVehicleExtBoolExp]
+	_not: OperatingVehicleExtBoolExp
+	_or: [OperatingVehicleExtBoolExp]
+	id: BigintComparisonExp
+	vehicle_id: StringComparisonExp
+	agent: StringComparisonExp
+	contact_number: StringComparisonExp
+	platform: IntComparisonExp
+	driving_license_owner: StringComparisonExp
+	speed_mode_status_time: TimestamptzComparisonExp
+	speed_mode_status: StringComparisonExp
+	scrap_reason: StringComparisonExp
+	scrap_time: TimestamptzComparisonExp
+	scrap_time_check: IntComparisonExp
+	administrative_region: StringComparisonExp
+	license_plate_photo: StringComparisonExp
+	other_photo: StringComparisonExp
+	serial_number: StringComparisonExp
+	is_beidou: BooleanComparisonExp
+	is_in_operating_system: BooleanComparisonExp
+	is_in_upload_platform: BooleanComparisonExp
+	is_supervise: BooleanComparisonExp
+	is_need_supervise: BooleanComparisonExp
+	is_function_ok: BooleanComparisonExp
+	is_block: BooleanComparisonExp
+	is_applay_terminal_installation: BooleanComparisonExp
+	first_online_time: TimestamptzComparisonExp
+	last_binding_terminal_time: TimestamptzComparisonExp
+	service_expiration_time: TimestamptzComparisonExp
+	contract_time: TimestamptzComparisonExp
+	installation_time: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "operating_vehicle_ext"
+"""
+input OperatingVehicleExtInsertInput {
+	id: Bigint
+	vehicle_id: String
+	agent: String
+	contact_number: String
+	platform: Int
+	driving_license_owner: String
+	speed_mode_status_time: Timestamptz
+	speed_mode_status: String
+	scrap_reason: String
+	scrap_time: Timestamptz
+	scrap_time_check: Int
+	administrative_region: String
+	license_plate_photo: String
+	other_photo: String
+	serial_number: String
+	is_beidou: Boolean
+	is_in_operating_system: Boolean
+	is_in_upload_platform: Boolean
+	is_supervise: Boolean
+	is_need_supervise: Boolean
+	is_function_ok: Boolean
+	is_block: Boolean
+	is_applay_terminal_installation: Boolean
+	first_online_time: Timestamptz
+	last_binding_terminal_time: Timestamptz
+	service_expiration_time: Timestamptz
+	contract_time: Timestamptz
+	installation_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "operating_vehicle_ext"
+"""
+input OperatingVehicleExtIncInput {
+	id: Bigint
+	platform: Int
+	scrap_time_check: Int
+}
+"""
+input type for updating data in table "operating_vehicle_ext"
+"""
+input OperatingVehicleExtSetInput {
+	id: Bigint
+	vehicle_id: String
+	agent: String
+	contact_number: String
+	platform: Int
+	driving_license_owner: String
+	speed_mode_status_time: Timestamptz
+	speed_mode_status: String
+	scrap_reason: String
+	scrap_time: Timestamptz
+	scrap_time_check: Int
+	administrative_region: String
+	license_plate_photo: String
+	other_photo: String
+	serial_number: String
+	is_beidou: Boolean
+	is_in_operating_system: Boolean
+	is_in_upload_platform: Boolean
+	is_supervise: Boolean
+	is_need_supervise: Boolean
+	is_function_ok: Boolean
+	is_block: Boolean
+	is_applay_terminal_installation: Boolean
+	first_online_time: Timestamptz
+	last_binding_terminal_time: Timestamptz
+	service_expiration_time: Timestamptz
+	contract_time: Timestamptz
+	installation_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum OperatingVehicleExtSelectColumn {
+	"""
+	 按指定方法生成                           ( 主键                       )
+	"""
+	id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id (                            )
+	"""
+	vehicle_id
+	"""
+	 代理商                                   (                            )
+	"""
+	agent
+	"""
+	 合同编号                                 (                            )
+	"""
+	contact_number
+	"""
+	 平台                                     ( 平台标识字典           )
+	"""
+	platform
+	"""
+	 行驶证所有人                             (                            )
+	"""
+	driving_license_owner
+	"""
+	 速度模式状态获得时间                     (                            )
+	"""
+	speed_mode_status_time
+	"""
+	 速度模式状态                             (                            )
+	"""
+	speed_mode_status
+	"""
+	 报废原因                                 (                            )
+	"""
+	scrap_reason
+	"""
+	 报废时间                                 (                            )
+	"""
+	scrap_time
+	"""
+	 报废时间审核                             (                            )
+	"""
+	scrap_time_check
+	"""
+	 行政区域                                 (                            )
+	"""
+	administrative_region
+	"""
+	 车牌照片,云储存系统返回的路径            (                            )
+	"""
+	license_plate_photo
+	"""
+	 其他照片,云储存系统返回的路径            (                            )
+	"""
+	other_photo
+	"""
+	 编号                                     (                            )
+	"""
+	serial_number
+	"""
+	 是否北斗部标平台                         (                            )
+	"""
+	is_beidou
+	"""
+	 是否在运证系统                           (                            )
+	"""
+	is_in_operating_system
+	"""
+	 是否上传货运平台                         (                            )
+	"""
+	is_in_upload_platform
+	"""
+	 是否监管                                 (                            )
+	"""
+	is_supervise
+	"""
+	 是否需要监管                             (                            )
+	"""
+	is_need_supervise
+	"""
+	 是否功能测试通过                         (                            )
+	"""
+	is_function_ok
+	"""
+	 是否屏蔽                                 (                            )
+	"""
+	is_block
+	"""
+	 是否办理终端安装证明                     (                            )
+	"""
+	is_applay_terminal_installation
+	"""
+	 第一次上线时间                           (                            )
+	"""
+	first_online_time
+	"""
+	 最后一次绑定终端时间                     (                            )
+	"""
+	last_binding_terminal_time
+	"""
+	 服务到期时间                             (                            )
+	"""
+	service_expiration_time
+	"""
+	 合同时间                                 (                            )
+	"""
+	contract_time
+	"""
+	 安装时间                                 (                            )
+	"""
+	installation_time
+	"""
+	 创建时间                                 (                            )
+	"""
+	created_at
+	"""
+	 创建人                                   ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                 (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                   ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                 (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                   ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	operating_vehicle_ext(distinct_on: [OperatingVehicleExtSelectColumn!], limit: Int, offset: Int, order_by: [OperatingVehicleExtOrderBy!], where: OperatingVehicleExtBoolExp): [OperatingVehicleExt!]!
+	"""
+	聚合查询
+	"""
+	operating_vehicle_ext_aggregate(distinct_on: [OperatingVehicleExtSelectColumn!], limit: Int, offset: Int, order_by: [OperatingVehicleExtOrderBy!], where: OperatingVehicleExtBoolExp): OperatingVehicleExtAggregate!
+	"""
+	主键查询
+	"""
+	operating_vehicle_ext_by_pk(id: Bigint!): OperatingVehicleExt!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_operating_vehicle_ext(where: OperatingVehicleExtBoolExp!): OperatingVehicleExtMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_operating_vehicle_ext_by_pk(id: Bigint!): OperatingVehicleExt
+	"""
+	插入
+	"""
+	insert_operating_vehicle_ext(objects: [OperatingVehicleExtInsertInput!]!): OperatingVehicleExtMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_operating_vehicle_ext_one(objects: OperatingVehicleExtInsertInput!): OperatingVehicleExt
+	"""
+	更新
+	"""
+	update_operating_vehicle_ext(_inc: OperatingVehicleExtIncInput, _set: OperatingVehicleExtSetInput, where: OperatingVehicleExtBoolExp!): OperatingVehicleExtMutationResponse
+	"""
+	更新
+	"""
+	update_operating_vehicle_ext_by_pk(_inc: OperatingVehicleExtIncInput, _set: OperatingVehicleExtSetInput, id: Bigint!): OperatingVehicleExt
+}

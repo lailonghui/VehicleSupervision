@@ -2,11 +2,14 @@ package server
 
 import (
 	"VehicleSupervision/config"
-	middle "VehicleSupervision/internal/dataloader/middle"
+	"VehicleSupervision/internal/dataloader/middle"
 	adasMutation "VehicleSupervision/internal/modules/adas/mutation"
 	adasQuery "VehicleSupervision/internal/modules/adas/query"
 	"VehicleSupervision/internal/modules/dynamic_supervision"
+	"VehicleSupervision/internal/modules/muck_truck_recommend_catalog"
 	"VehicleSupervision/internal/modules/vehicle_alarm"
+	"VehicleSupervision/internal/modules/vehicle_driver_separation"
+	"VehicleSupervision/internal/modules/vehicle_snapshot_system"
 	"VehicleSupervision/internal/modules/vehicle_violation"
 
 	admin "VehicleSupervision/internal/modules/admin"
@@ -14,7 +17,6 @@ import (
 	areaQuery "VehicleSupervision/internal/modules/area/query"
 	blacklistRecord "VehicleSupervision/internal/modules/blacklist"
 	device "VehicleSupervision/internal/modules/device"
-	dictionary "VehicleSupervision/internal/modules/dictionary"
 	ridehailing "VehicleSupervision/internal/modules/ridehailing"
 
 	"VehicleSupervision/internal/modules/driver"
@@ -69,6 +71,12 @@ func Setup() {
 	router.Any("/vehicleViolation", vehicle_violation.GinEndpoint())
 	//动态监管抽查模块端点
 	router.Any("/dynamicSupervision", dynamic_supervision.GinEndpoint())
+	//人车分离模块端点
+	router.Any("/vehicle_driver_separation", vehicle_driver_separation.GinEndpoint())
+	//新型渣土车推荐目录管理模块端点
+	router.Any("/muck_truck_recommend_catalog", muck_truck_recommend_catalog.GinEndpoint())
+	//车辆抓拍识别系统模块端点
+	router.Any("/vehicle_snapshot_system", vehicle_snapshot_system.GinEndpoint())
 
 	// 系统管理端点
 	router.Any("/admin", admin.GinEndpoint())

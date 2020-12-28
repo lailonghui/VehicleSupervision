@@ -1,0 +1,693 @@
+"""
+新型渣土车测试情况表
+"""
+type MuckTruckTestSituation {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	muck_truck_test_situation_id: String!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id: String!
+	"""
+	 密闭状态                                        (                            )
+	"""
+	airtight_state: Int
+	"""
+	 载重状态                                        (                            )
+	"""
+	load_state: Int
+	"""
+	 举升状态                                        (                            )
+	"""
+	lifting_status: Int
+	"""
+	 视频                                            (                            )
+	"""
+	video: Int
+	"""
+	 指纹                                            (                            )
+	"""
+	fingerprint: Int
+	"""
+	 锁车功能                                        (                            )
+	"""
+	car_lock_function: Int
+	"""
+	 限速功能                                        (                            )
+	"""
+	speed_limit_function: Int
+	"""
+	 部标功能                                        (                            )
+	"""
+	ministry_standard_function: Int
+	"""
+	 限举功能                                        (                            )
+	"""
+	weight_limit_function: Int
+	"""
+	 左转灯                                          (                            )
+	"""
+	left_turn_light: Int
+	"""
+	 右转灯                                          (                            )
+	"""
+	right_turn_right: Int
+	"""
+	 远光灯                                          (                            )
+	"""
+	high_beam: Int
+	"""
+	 近光灯                                          (                            )
+	"""
+	low_beam: Int
+	"""
+	 刹车                                            (                            )
+	"""
+	brake: Int
+	"""
+	 车速                                            (                            )
+	"""
+	speed: Int
+	"""
+	 是否检测非法弃土                                (                            )
+	"""
+	is_detect_illegal_spoil: Boolean
+	"""
+	 是否检测违规启动                                (                            )
+	"""
+	is_detect_illegal_start: Boolean
+	"""
+	 是否通过                                        (                            )
+	"""
+	is_passed: Boolean
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationAggregate {
+	aggregate: MuckTruckTestSituationAggregateFields
+}
+"""
+aggregate fields of "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationAggregateFields {
+	avg: MuckTruckTestSituationAvgFields
+	count: Int
+	max: MuckTruckTestSituationMaxFields
+	min: MuckTruckTestSituationMinFields
+	stddev: MuckTruckTestSituationStddevFields
+	stddev_pop: MuckTruckTestSituationStddevPopFields
+	stddev_samp: MuckTruckTestSituationStddevSampFields
+	sum: MuckTruckTestSituationSumFields
+	var_pop: MuckTruckTestSituationVarPopFields
+	var_samp: MuckTruckTestSituationVarSampFields
+	variance: MuckTruckTestSituationVarianceFields
+}
+"""
+aggregate avg on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationAvgFields {
+	id: Bigint
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+}
+"""
+aggregate max on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationMaxFields {
+	id: Bigint
+	muck_truck_test_situation_id: String
+	vehicle_id: String
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+	is_detect_illegal_spoil: Boolean
+	is_detect_illegal_start: Boolean
+	is_passed: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationMinFields {
+	id: Bigint
+	muck_truck_test_situation_id: String
+	vehicle_id: String
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+	is_detect_illegal_spoil: Boolean
+	is_detect_illegal_start: Boolean
+	is_passed: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationStddevFields {
+	id: Bigint
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+}
+"""
+aggregate stddev_pop on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationStddevPopFields {
+	id: Bigint
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+}
+"""
+aggregate stddev_samp on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationStddevSampFields {
+	id: Bigint
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+}
+"""
+aggregate sum on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationSumFields {
+	id: Bigint
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+}
+"""
+aggregate var_pop on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationVarPopFields {
+	id: Bigint
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+}
+"""
+aggregate var_samp on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationVarSampFields {
+	id: Bigint
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+}
+"""
+aggregate variance on columns of table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationVarianceFields {
+	id: Bigint
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+}
+"""
+response of any mutation on the table "muck_truck_test_situation"
+"""
+type MuckTruckTestSituationMutationResponse {
+	affected_rows: Int!
+	returning: [MuckTruckTestSituation!]!
+}
+"""
+ordering options when selecting data from "muck_truck_test_situation"
+"""
+input MuckTruckTestSituationOrderBy {
+	id: OrderBy
+	muck_truck_test_situation_id: OrderBy
+	vehicle_id: OrderBy
+	airtight_state: OrderBy
+	load_state: OrderBy
+	lifting_status: OrderBy
+	video: OrderBy
+	fingerprint: OrderBy
+	car_lock_function: OrderBy
+	speed_limit_function: OrderBy
+	ministry_standard_function: OrderBy
+	weight_limit_function: OrderBy
+	left_turn_light: OrderBy
+	right_turn_right: OrderBy
+	high_beam: OrderBy
+	low_beam: OrderBy
+	brake: OrderBy
+	speed: OrderBy
+	is_detect_illegal_spoil: OrderBy
+	is_detect_illegal_start: OrderBy
+	is_passed: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_test_situation'.
+"""
+input MuckTruckTestSituationBoolExp {
+	_and: [MuckTruckTestSituationBoolExp]
+	_not: MuckTruckTestSituationBoolExp
+	_or: [MuckTruckTestSituationBoolExp]
+	id: BigintComparisonExp
+	muck_truck_test_situation_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	airtight_state: IntComparisonExp
+	load_state: IntComparisonExp
+	lifting_status: IntComparisonExp
+	video: IntComparisonExp
+	fingerprint: IntComparisonExp
+	car_lock_function: IntComparisonExp
+	speed_limit_function: IntComparisonExp
+	ministry_standard_function: IntComparisonExp
+	weight_limit_function: IntComparisonExp
+	left_turn_light: IntComparisonExp
+	right_turn_right: IntComparisonExp
+	high_beam: IntComparisonExp
+	low_beam: IntComparisonExp
+	brake: IntComparisonExp
+	speed: IntComparisonExp
+	is_detect_illegal_spoil: BooleanComparisonExp
+	is_detect_illegal_start: BooleanComparisonExp
+	is_passed: BooleanComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "muck_truck_test_situation"
+"""
+input MuckTruckTestSituationInsertInput {
+	id: Bigint
+	muck_truck_test_situation_id: String
+	vehicle_id: String
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+	is_detect_illegal_spoil: Boolean
+	is_detect_illegal_start: Boolean
+	is_passed: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "muck_truck_test_situation"
+"""
+input MuckTruckTestSituationIncInput {
+	id: Bigint
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+}
+"""
+input type for updating data in table "muck_truck_test_situation"
+"""
+input MuckTruckTestSituationSetInput {
+	id: Bigint
+	muck_truck_test_situation_id: String
+	vehicle_id: String
+	airtight_state: Int
+	load_state: Int
+	lifting_status: Int
+	video: Int
+	fingerprint: Int
+	car_lock_function: Int
+	speed_limit_function: Int
+	ministry_standard_function: Int
+	weight_limit_function: Int
+	left_turn_light: Int
+	right_turn_right: Int
+	high_beam: Int
+	low_beam: Int
+	brake: Int
+	speed: Int
+	is_detect_illegal_spoil: Boolean
+	is_detect_illegal_start: Boolean
+	is_passed: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum MuckTruckTestSituationSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	muck_truck_test_situation_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id        (                            )
+	"""
+	vehicle_id
+	"""
+	 密闭状态                                        (                            )
+	"""
+	airtight_state
+	"""
+	 载重状态                                        (                            )
+	"""
+	load_state
+	"""
+	 举升状态                                        (                            )
+	"""
+	lifting_status
+	"""
+	 视频                                            (                            )
+	"""
+	video
+	"""
+	 指纹                                            (                            )
+	"""
+	fingerprint
+	"""
+	 锁车功能                                        (                            )
+	"""
+	car_lock_function
+	"""
+	 限速功能                                        (                            )
+	"""
+	speed_limit_function
+	"""
+	 部标功能                                        (                            )
+	"""
+	ministry_standard_function
+	"""
+	 限举功能                                        (                            )
+	"""
+	weight_limit_function
+	"""
+	 左转灯                                          (                            )
+	"""
+	left_turn_light
+	"""
+	 右转灯                                          (                            )
+	"""
+	right_turn_right
+	"""
+	 远光灯                                          (                            )
+	"""
+	high_beam
+	"""
+	 近光灯                                          (                            )
+	"""
+	low_beam
+	"""
+	 刹车                                            (                            )
+	"""
+	brake
+	"""
+	 车速                                            (                            )
+	"""
+	speed
+	"""
+	 是否检测非法弃土                                (                            )
+	"""
+	is_detect_illegal_spoil
+	"""
+	 是否检测违规启动                                (                            )
+	"""
+	is_detect_illegal_start
+	"""
+	 是否通过                                        (                            )
+	"""
+	is_passed
+	"""
+	 是否删除                                        (                            )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	muck_truck_test_situation(distinct_on: [MuckTruckTestSituationSelectColumn!], limit: Int, offset: Int, order_by: [MuckTruckTestSituationOrderBy!], where: MuckTruckTestSituationBoolExp): [MuckTruckTestSituation!]!
+	"""
+	聚合查询
+	"""
+	muck_truck_test_situation_aggregate(distinct_on: [MuckTruckTestSituationSelectColumn!], limit: Int, offset: Int, order_by: [MuckTruckTestSituationOrderBy!], where: MuckTruckTestSituationBoolExp): MuckTruckTestSituationAggregate!
+	"""
+	主键查询
+	"""
+	muck_truck_test_situation_by_pk(id: Bigint!): MuckTruckTestSituation!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_muck_truck_test_situation(where: MuckTruckTestSituationBoolExp!): MuckTruckTestSituationMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_muck_truck_test_situation_by_pk(id: Bigint!): MuckTruckTestSituation
+	"""
+	插入
+	"""
+	insert_muck_truck_test_situation(objects: [MuckTruckTestSituationInsertInput!]!): MuckTruckTestSituationMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_muck_truck_test_situation_one(objects: MuckTruckTestSituationInsertInput!): MuckTruckTestSituation
+	"""
+	更新
+	"""
+	update_muck_truck_test_situation(_inc: MuckTruckTestSituationIncInput, _set: MuckTruckTestSituationSetInput, where: MuckTruckTestSituationBoolExp!): MuckTruckTestSituationMutationResponse
+	"""
+	更新
+	"""
+	update_muck_truck_test_situation_by_pk(_inc: MuckTruckTestSituationIncInput, _set: MuckTruckTestSituationSetInput, id: Bigint!): MuckTruckTestSituation
+}

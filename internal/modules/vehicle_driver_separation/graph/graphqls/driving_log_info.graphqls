@@ -1,0 +1,464 @@
+"""
+行车日志信息
+"""
+type DrivingLogInfo {
+	"""
+	 按指定方法生成                                  ( 主键                           )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
+	"""
+	driving_log_info_id: String!
+	"""
+	 车辆id                                          ( vehicle_info表的vehicle_id )
+	"""
+	vehicle_id: String
+	"""
+	 驾驶员id                                        ( driver_info表的driver_id   )
+	"""
+	driver_id: String
+	"""
+	 用车起始日期                                    (                                )
+	"""
+	driving_start_time: Timestamptz
+	"""
+	 用车结束日期                                    (                                )
+	"""
+	driving_end_time: Timestamptz
+	"""
+	 事由                                            (                                )
+	"""
+	cause: String
+	"""
+	 路线                                            (                                )
+	"""
+	route: String
+	"""
+	 备注                                            (                                )
+	"""
+	remarks: String
+	"""
+	 开始时间                                        (                                )
+	"""
+	start_time: String
+	"""
+	 结束时间                                        (                                )
+	"""
+	end_time: String
+	"""
+	 审核状态                                        (                                )
+	"""
+	review_status: Int
+	"""
+	 审核机构级别                                    (                                )
+	"""
+	review_agecy_level: Int
+	"""
+	 是否补录                                        (                                )
+	"""
+	is_markup: Boolean
+	"""
+	 创建时间                                        (                                )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id     )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id     )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id     )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "driving_log_info"
+"""
+type DrivingLogInfoAggregate {
+	aggregate: DrivingLogInfoAggregateFields
+}
+"""
+aggregate fields of "driving_log_info"
+"""
+type DrivingLogInfoAggregateFields {
+	avg: DrivingLogInfoAvgFields
+	count: Int
+	max: DrivingLogInfoMaxFields
+	min: DrivingLogInfoMinFields
+	stddev: DrivingLogInfoStddevFields
+	stddev_pop: DrivingLogInfoStddevPopFields
+	stddev_samp: DrivingLogInfoStddevSampFields
+	sum: DrivingLogInfoSumFields
+	var_pop: DrivingLogInfoVarPopFields
+	var_samp: DrivingLogInfoVarSampFields
+	variance: DrivingLogInfoVarianceFields
+}
+"""
+aggregate avg on columns of table "driving_log_info"
+"""
+type DrivingLogInfoAvgFields {
+	id: Bigint
+	review_status: Int
+	review_agecy_level: Int
+}
+"""
+aggregate max on columns of table "driving_log_info"
+"""
+type DrivingLogInfoMaxFields {
+	id: Bigint
+	driving_log_info_id: String
+	vehicle_id: String
+	driver_id: String
+	driving_start_time: Timestamptz
+	driving_end_time: Timestamptz
+	cause: String
+	route: String
+	remarks: String
+	start_time: String
+	end_time: String
+	review_status: Int
+	review_agecy_level: Int
+	is_markup: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "driving_log_info"
+"""
+type DrivingLogInfoMinFields {
+	id: Bigint
+	driving_log_info_id: String
+	vehicle_id: String
+	driver_id: String
+	driving_start_time: Timestamptz
+	driving_end_time: Timestamptz
+	cause: String
+	route: String
+	remarks: String
+	start_time: String
+	end_time: String
+	review_status: Int
+	review_agecy_level: Int
+	is_markup: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "driving_log_info"
+"""
+type DrivingLogInfoStddevFields {
+	id: Bigint
+	review_status: Int
+	review_agecy_level: Int
+}
+"""
+aggregate stddev_pop on columns of table "driving_log_info"
+"""
+type DrivingLogInfoStddevPopFields {
+	id: Bigint
+	review_status: Int
+	review_agecy_level: Int
+}
+"""
+aggregate stddev_samp on columns of table "driving_log_info"
+"""
+type DrivingLogInfoStddevSampFields {
+	id: Bigint
+	review_status: Int
+	review_agecy_level: Int
+}
+"""
+aggregate sum on columns of table "driving_log_info"
+"""
+type DrivingLogInfoSumFields {
+	id: Bigint
+	review_status: Int
+	review_agecy_level: Int
+}
+"""
+aggregate var_pop on columns of table "driving_log_info"
+"""
+type DrivingLogInfoVarPopFields {
+	id: Bigint
+	review_status: Int
+	review_agecy_level: Int
+}
+"""
+aggregate var_samp on columns of table "driving_log_info"
+"""
+type DrivingLogInfoVarSampFields {
+	id: Bigint
+	review_status: Int
+	review_agecy_level: Int
+}
+"""
+aggregate variance on columns of table "driving_log_info"
+"""
+type DrivingLogInfoVarianceFields {
+	id: Bigint
+	review_status: Int
+	review_agecy_level: Int
+}
+"""
+response of any mutation on the table "driving_log_info"
+"""
+type DrivingLogInfoMutationResponse {
+	affected_rows: Int!
+	returning: [DrivingLogInfo!]!
+}
+"""
+ordering options when selecting data from "driving_log_info"
+"""
+input DrivingLogInfoOrderBy {
+	id: OrderBy
+	driving_log_info_id: OrderBy
+	vehicle_id: OrderBy
+	driver_id: OrderBy
+	driving_start_time: OrderBy
+	driving_end_time: OrderBy
+	cause: OrderBy
+	route: OrderBy
+	remarks: OrderBy
+	start_time: OrderBy
+	end_time: OrderBy
+	review_status: OrderBy
+	review_agecy_level: OrderBy
+	is_markup: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driving_log_info'.
+"""
+input DrivingLogInfoBoolExp {
+	_and: [DrivingLogInfoBoolExp]
+	_not: DrivingLogInfoBoolExp
+	_or: [DrivingLogInfoBoolExp]
+	id: BigintComparisonExp
+	driving_log_info_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	driver_id: StringComparisonExp
+	driving_start_time: TimestamptzComparisonExp
+	driving_end_time: TimestamptzComparisonExp
+	cause: StringComparisonExp
+	route: StringComparisonExp
+	remarks: StringComparisonExp
+	start_time: StringComparisonExp
+	end_time: StringComparisonExp
+	review_status: IntComparisonExp
+	review_agecy_level: IntComparisonExp
+	is_markup: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "driving_log_info"
+"""
+input DrivingLogInfoInsertInput {
+	id: Bigint
+	driving_log_info_id: String
+	vehicle_id: String
+	driver_id: String
+	driving_start_time: Timestamptz
+	driving_end_time: Timestamptz
+	cause: String
+	route: String
+	remarks: String
+	start_time: String
+	end_time: String
+	review_status: Int
+	review_agecy_level: Int
+	is_markup: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "driving_log_info"
+"""
+input DrivingLogInfoIncInput {
+	id: Bigint
+	review_status: Int
+	review_agecy_level: Int
+}
+"""
+input type for updating data in table "driving_log_info"
+"""
+input DrivingLogInfoSetInput {
+	id: Bigint
+	driving_log_info_id: String
+	vehicle_id: String
+	driver_id: String
+	driving_start_time: Timestamptz
+	driving_end_time: Timestamptz
+	cause: String
+	route: String
+	remarks: String
+	start_time: String
+	end_time: String
+	review_status: Int
+	review_agecy_level: Int
+	is_markup: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum DrivingLogInfoSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                           )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
+	"""
+	driving_log_info_id
+	"""
+	 车辆id                                          ( vehicle_info表的vehicle_id )
+	"""
+	vehicle_id
+	"""
+	 驾驶员id                                        ( driver_info表的driver_id   )
+	"""
+	driver_id
+	"""
+	 用车起始日期                                    (                                )
+	"""
+	driving_start_time
+	"""
+	 用车结束日期                                    (                                )
+	"""
+	driving_end_time
+	"""
+	 事由                                            (                                )
+	"""
+	cause
+	"""
+	 路线                                            (                                )
+	"""
+	route
+	"""
+	 备注                                            (                                )
+	"""
+	remarks
+	"""
+	 开始时间                                        (                                )
+	"""
+	start_time
+	"""
+	 结束时间                                        (                                )
+	"""
+	end_time
+	"""
+	 审核状态                                        (                                )
+	"""
+	review_status
+	"""
+	 审核机构级别                                    (                                )
+	"""
+	review_agecy_level
+	"""
+	 是否补录                                        (                                )
+	"""
+	is_markup
+	"""
+	 创建时间                                        (                                )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id     )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id     )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id     )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	driving_log_info(distinct_on: [DrivingLogInfoSelectColumn!], limit: Int, offset: Int, order_by: [DrivingLogInfoOrderBy!], where: DrivingLogInfoBoolExp): [DrivingLogInfo!]!
+	"""
+	聚合查询
+	"""
+	driving_log_info_aggregate(distinct_on: [DrivingLogInfoSelectColumn!], limit: Int, offset: Int, order_by: [DrivingLogInfoOrderBy!], where: DrivingLogInfoBoolExp): DrivingLogInfoAggregate!
+	"""
+	主键查询
+	"""
+	driving_log_info_by_pk(id: Bigint!): DrivingLogInfo!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_driving_log_info(where: DrivingLogInfoBoolExp!): DrivingLogInfoMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_driving_log_info_by_pk(id: Bigint!): DrivingLogInfo
+	"""
+	插入
+	"""
+	insert_driving_log_info(objects: [DrivingLogInfoInsertInput!]!): DrivingLogInfoMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_driving_log_info_one(objects: DrivingLogInfoInsertInput!): DrivingLogInfo
+	"""
+	更新
+	"""
+	update_driving_log_info(_inc: DrivingLogInfoIncInput, _set: DrivingLogInfoSetInput, where: DrivingLogInfoBoolExp!): DrivingLogInfoMutationResponse
+	"""
+	更新
+	"""
+	update_driving_log_info_by_pk(_inc: DrivingLogInfoIncInput, _set: DrivingLogInfoSetInput, id: Bigint!): DrivingLogInfo
+}

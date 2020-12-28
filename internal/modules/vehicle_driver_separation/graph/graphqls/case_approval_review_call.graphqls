@@ -1,0 +1,376 @@
+"""
+案件审核审批电话告知
+"""
+type CaseApprovalReviewCall {
+	"""
+	 按指定方法生成                                               ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用              ( 联合主键                   )
+	"""
+	case_approval_review_call_id: String!
+	"""
+	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id (                            )
+	"""
+	case_approval_review_operation_id: String
+	"""
+	 电话号码                                                     (                            )
+	"""
+	telephone_number: String
+	"""
+	 拨打时间                                                     (                            )
+	"""
+	dial_time: Timestamptz
+	"""
+	 是否接通                                                     (                            )
+	"""
+	is_connected: Boolean
+	"""
+	 告知内容                                                     (                            )
+	"""
+	inform_content: String
+	"""
+	 审核人                                                       (                            )
+	"""
+	reviewer: String
+	"""
+	 审核时间                                                     (                            )
+	"""
+	review_time: Timestamptz
+	"""
+	 创建时间                                                     (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                       ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                     (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                       ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                     (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                       ( system_user表的user_id )
+	"""
+	deleted_by: String
+}
+"""
+aggregated selection of "case_approval_review_call"
+"""
+type CaseApprovalReviewCallAggregate {
+	aggregate: CaseApprovalReviewCallAggregateFields
+}
+"""
+aggregate fields of "case_approval_review_call"
+"""
+type CaseApprovalReviewCallAggregateFields {
+	avg: CaseApprovalReviewCallAvgFields
+	count: Int
+	max: CaseApprovalReviewCallMaxFields
+	min: CaseApprovalReviewCallMinFields
+	stddev: CaseApprovalReviewCallStddevFields
+	stddev_pop: CaseApprovalReviewCallStddevPopFields
+	stddev_samp: CaseApprovalReviewCallStddevSampFields
+	sum: CaseApprovalReviewCallSumFields
+	var_pop: CaseApprovalReviewCallVarPopFields
+	var_samp: CaseApprovalReviewCallVarSampFields
+	variance: CaseApprovalReviewCallVarianceFields
+}
+"""
+aggregate avg on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallMaxFields {
+	id: Bigint
+	case_approval_review_call_id: String
+	case_approval_review_operation_id: String
+	telephone_number: String
+	dial_time: Timestamptz
+	is_connected: Boolean
+	inform_content: String
+	reviewer: String
+	review_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate min on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallMinFields {
+	id: Bigint
+	case_approval_review_call_id: String
+	case_approval_review_operation_id: String
+	telephone_number: String
+	dial_time: Timestamptz
+	is_connected: Boolean
+	inform_content: String
+	reviewer: String
+	review_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+aggregate stddev on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "case_approval_review_call"
+"""
+type CaseApprovalReviewCallMutationResponse {
+	affected_rows: Int!
+	returning: [CaseApprovalReviewCall!]!
+}
+"""
+ordering options when selecting data from "case_approval_review_call"
+"""
+input CaseApprovalReviewCallOrderBy {
+	id: OrderBy
+	case_approval_review_call_id: OrderBy
+	case_approval_review_operation_id: OrderBy
+	telephone_number: OrderBy
+	dial_time: OrderBy
+	is_connected: OrderBy
+	inform_content: OrderBy
+	reviewer: OrderBy
+	review_time: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'case_approval_review_call'.
+"""
+input CaseApprovalReviewCallBoolExp {
+	_and: [CaseApprovalReviewCallBoolExp]
+	_not: CaseApprovalReviewCallBoolExp
+	_or: [CaseApprovalReviewCallBoolExp]
+	id: BigintComparisonExp
+	case_approval_review_call_id: StringComparisonExp
+	case_approval_review_operation_id: StringComparisonExp
+	telephone_number: StringComparisonExp
+	dial_time: TimestamptzComparisonExp
+	is_connected: BooleanComparisonExp
+	inform_content: StringComparisonExp
+	reviewer: StringComparisonExp
+	review_time: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "case_approval_review_call"
+"""
+input CaseApprovalReviewCallInsertInput {
+	id: Bigint
+	case_approval_review_call_id: String
+	case_approval_review_operation_id: String
+	telephone_number: String
+	dial_time: Timestamptz
+	is_connected: Boolean
+	inform_content: String
+	reviewer: String
+	review_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "case_approval_review_call"
+"""
+input CaseApprovalReviewCallIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "case_approval_review_call"
+"""
+input CaseApprovalReviewCallSetInput {
+	id: Bigint
+	case_approval_review_call_id: String
+	case_approval_review_operation_id: String
+	telephone_number: String
+	dial_time: Timestamptz
+	is_connected: Boolean
+	inform_content: String
+	reviewer: String
+	review_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+可选select
+"""
+enum CaseApprovalReviewCallSelectColumn {
+	"""
+	 按指定方法生成                                               ( 主键                       )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用              ( 联合主键                   )
+	"""
+	case_approval_review_call_id
+	"""
+	 case_approval_review_operation 案件审批审核操作的case_approval_review_operation_id (                            )
+	"""
+	case_approval_review_operation_id
+	"""
+	 电话号码                                                     (                            )
+	"""
+	telephone_number
+	"""
+	 拨打时间                                                     (                            )
+	"""
+	dial_time
+	"""
+	 是否接通                                                     (                            )
+	"""
+	is_connected
+	"""
+	 告知内容                                                     (                            )
+	"""
+	inform_content
+	"""
+	 审核人                                                       (                            )
+	"""
+	reviewer
+	"""
+	 审核时间                                                     (                            )
+	"""
+	review_time
+	"""
+	 创建时间                                                     (                            )
+	"""
+	created_at
+	"""
+	 创建人                                                       ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                                     (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                                       ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                                     (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                                       ( system_user表的user_id )
+	"""
+	deleted_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	case_approval_review_call(distinct_on: [CaseApprovalReviewCallSelectColumn!], limit: Int, offset: Int, order_by: [CaseApprovalReviewCallOrderBy!], where: CaseApprovalReviewCallBoolExp): [CaseApprovalReviewCall!]!
+	"""
+	聚合查询
+	"""
+	case_approval_review_call_aggregate(distinct_on: [CaseApprovalReviewCallSelectColumn!], limit: Int, offset: Int, order_by: [CaseApprovalReviewCallOrderBy!], where: CaseApprovalReviewCallBoolExp): CaseApprovalReviewCallAggregate!
+	"""
+	主键查询
+	"""
+	case_approval_review_call_by_pk(id: Bigint!): CaseApprovalReviewCall!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_case_approval_review_call(where: CaseApprovalReviewCallBoolExp!): CaseApprovalReviewCallMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_case_approval_review_call_by_pk(id: Bigint!): CaseApprovalReviewCall
+	"""
+	插入
+	"""
+	insert_case_approval_review_call(objects: [CaseApprovalReviewCallInsertInput!]!): CaseApprovalReviewCallMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_case_approval_review_call_one(objects: CaseApprovalReviewCallInsertInput!): CaseApprovalReviewCall
+	"""
+	更新
+	"""
+	update_case_approval_review_call(_inc: CaseApprovalReviewCallIncInput, _set: CaseApprovalReviewCallSetInput, where: CaseApprovalReviewCallBoolExp!): CaseApprovalReviewCallMutationResponse
+	"""
+	更新
+	"""
+	update_case_approval_review_call_by_pk(_inc: CaseApprovalReviewCallIncInput, _set: CaseApprovalReviewCallSetInput, id: Bigint!): CaseApprovalReviewCall
+}
