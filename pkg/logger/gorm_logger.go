@@ -13,6 +13,12 @@ import (
 // gorm源码目录
 var gormSourceDir string
 
+// 忽略的文件后缀
+var ignoreSuffixs []string
+
+// 忽略的文件前缀
+var ignorePrefixs []string
+
 // gorm包地址
 var gormPackageName string = "gorm.io"
 
@@ -29,6 +35,8 @@ func init() {
 	_, file, _, _ := runtime.Caller(0)
 	appSourceDir = file[0:strings.Index(file, currentFileTopPackage)]
 	appSourceDirLength = len(appSourceDir)
+	ignoreSuffixs = []string{"pkg/graphql/util/query_translate.go", "_test.go"}
+	ignorePrefixs = make([]string, 0)
 }
 
 type GormLogger struct {
@@ -97,13 +105,36 @@ func FileWithLineNum() string {
 		if gormSourceDir == "" {
 			if strings.Contains(file, gormPackageName) {
 				gormSourceDir = file[0 : strings.Index(file, gormPackageName)+len(gormPackageName)]
+				ignorePrefixs = append(ignorePrefixs, gormSourceDir)
 			} else {
 				continue
 			}
 		}
-		if ok && (!strings.HasPrefix(file, gormSourceDir) || strings.HasSuffix(file, "_test.go")) {
-			return file[appSourceDirLength:len(file)] + ":" + strconv.FormatInt(int64(line), 10)
+		if !ok {
+			continue
 		}
+		haveIgnorePrefix := false
+		for _, ignorePrefix := range ignorePrefixs {
+			if strings.HasPrefix(file, ignorePrefix) {
+				haveIgnorePrefix = true
+				break
+			}
+		}
+		if haveIgnorePrefix {
+			continue
+		}
+		haveIgnoreSuffix := false
+		for _, ignoreSuffix := range ignoreSuffixs {
+			if strings.HasSuffix(file, ignoreSuffix) {
+				haveIgnoreSuffix = true
+				break
+			}
+		}
+		if haveIgnoreSuffix {
+			continue
+		}
+		return file[appSourceDirLength:len(file)] + ":" + strconv.FormatInt(int64(line), 10)
+
 	}
 	return ""
 }
