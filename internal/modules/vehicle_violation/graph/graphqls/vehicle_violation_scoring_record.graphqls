@@ -1,680 +1,357 @@
-
-extend type Mutation {
-    """
-    delete data from the table: "vehicle_violation_scoring_record"
-  """
-    delete_vehicle_violation_scoring_record(
-        """filter the rows which have to be deleted"""
-        where: vehicle_violation_scoring_record_bool_exp!
-    ): vehicle_violation_scoring_record_mutation_response
-
-    """
-    delete single row from the table: "vehicle_violation_scoring_record"
-  """
-    delete_vehicle_violation_scoring_record_by_pk(
-        """主键"""
-        id: bigint!
-
-        """联合主键"""
-        violation_scoring_id: String!
-    ): vehicle_violation_scoring_record
-
-    """
-    insert data into the table: "vehicle_violation_scoring_record"
-  """
-    insert_vehicle_violation_scoring_record(
-        """the rows to be inserted"""
-        objects: [vehicle_violation_scoring_record_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: vehicle_violation_scoring_record_on_conflict
-    ): vehicle_violation_scoring_record_mutation_response
-
-    """
-    insert a single row into the table: "vehicle_violation_scoring_record"
-  """
-    insert_vehicle_violation_scoring_record_one(
-        """the row to be inserted"""
-        object: vehicle_violation_scoring_record_insert_input!
-
-        """on conflict condition"""
-        on_conflict: vehicle_violation_scoring_record_on_conflict
-    ): vehicle_violation_scoring_record
-
-    """
-    update data of the table: "vehicle_violation_scoring_record"
-  """
-    update_vehicle_violation_scoring_record(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_violation_scoring_record_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_violation_scoring_record_set_input
-
-        """filter the rows which have to be updated"""
-        where: vehicle_violation_scoring_record_bool_exp!
-    ): vehicle_violation_scoring_record_mutation_response
-
-    """
-    update single row of the table: "vehicle_violation_scoring_record"
-  """
-    update_vehicle_violation_scoring_record_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_violation_scoring_record_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_violation_scoring_record_set_input
-        pk_columns: vehicle_violation_scoring_record_pk_columns_input!
-    ): vehicle_violation_scoring_record
-}
-
-
-extend type Query {
-    """
-    fetch data from the table: "vehicle_violation_scoring_record"
-  """
-    vehicle_violation_scoring_record(
-        """distinct select on columns"""
-        distinct_on: [vehicle_violation_scoring_record_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_violation_scoring_record_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_violation_scoring_record_bool_exp
-    ): [vehicle_violation_scoring_record!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_violation_scoring_record"
-  """
-    vehicle_violation_scoring_record_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_violation_scoring_record_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_violation_scoring_record_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_violation_scoring_record_bool_exp
-    ): vehicle_violation_scoring_record_aggregate!
-
-    """
-    fetch data from the table: "vehicle_violation_scoring_record" using primary key columns
-    """
-    vehicle_violation_scoring_record_by_pk(
-        """主键"""
-        id: bigint!
-
-        """联合主键"""
-        violation_scoring_id: String!
-    ): vehicle_violation_scoring_record
-}
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "vehicle_violation_scoring_record"
-  """
-    vehicle_violation_scoring_record(
-        """distinct select on columns"""
-        distinct_on: [vehicle_violation_scoring_record_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_violation_scoring_record_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_violation_scoring_record_bool_exp
-    ): [vehicle_violation_scoring_record!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_violation_scoring_record"
-  """
-    vehicle_violation_scoring_record_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_violation_scoring_record_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_violation_scoring_record_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_violation_scoring_record_bool_exp
-    ): vehicle_violation_scoring_record_aggregate!
-
-    """
-    fetch data from the table: "vehicle_violation_scoring_record" using primary key columns
-    """
-    vehicle_violation_scoring_record_by_pk(
-        """主键"""
-        id: bigint!
-
-        """联合主键"""
-        violation_scoring_id: String!
-    ): vehicle_violation_scoring_record
-}
-
-
 """
 车辆违规计分记录
-
-
-columns and relationships of "vehicle_violation_scoring_record"
-
 """
-type vehicle_violation_scoring_record {
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人"""
-    created_by: String!
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """扣分分值(vehicle_violation_scoring_ items表的violation_scoring_item_id)"""
-    demerit_points: numeric
-
-    """主键"""
-    id: bigint!
-
-    """是否删除"""
-    is_delete: Boolean
-
-    """备注"""
-    remarks: String
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
-
-    """扣分车辆id"""
-    vehicle_id: String
-
-    """联合主键"""
-    violation_scoring_id: String!
-
-    """扣分明细id"""
-    violation_scoring_item_id: String
+type VehicleViolationScoringRecord {
+	"""
+	 按指定方法生成                                               ( 主键                                                         )
+	"""
+	id: Bigint!
+	"""
+	 车辆违规计分记录外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	violation_scoring_id: String!
+	"""
+	 扣分车辆id                                                   ( vehicle_info表的vehicle_id                               )
+	"""
+	vehicle_id: String
+	"""
+	 扣分明细id                                                   ( vehicle_violation_scoring_ items表的violation_scoring_item_id )
+	"""
+	violation_scoring_item_id: String
+	"""
+	 扣分分值                                                     (                                                              )
+	"""
+	demerit_points: Numeric
+	"""
+	 备注                                                         (                                                              )
+	"""
+	remarks: String
+	"""
+	 是否删除                                                     (                                                              )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                                     (                                                              )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                       ( system_user表的user_id                                   )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                     (                                                              )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                       ( system_user表的user_id                                   )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                     (                                                              )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                       ( system_user表的user_id                                   )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "vehicle_violation_scoring_record"
 """
-type vehicle_violation_scoring_record_aggregate {
-    aggregate: vehicle_violation_scoring_record_aggregate_fields
-    nodes: [vehicle_violation_scoring_record!]!
+type VehicleViolationScoringRecordAggregate {
+	aggregate: VehicleViolationScoringRecordAggregateFields
 }
-
 """
 aggregate fields of "vehicle_violation_scoring_record"
 """
-type vehicle_violation_scoring_record_aggregate_fields {
-    avg: vehicle_violation_scoring_record_avg_fields
-    count(columns: [vehicle_violation_scoring_record_select_column!], distinct: Boolean): Int
-    max: vehicle_violation_scoring_record_max_fields
-    min: vehicle_violation_scoring_record_min_fields
-    stddev: vehicle_violation_scoring_record_stddev_fields
-    stddev_pop: vehicle_violation_scoring_record_stddev_pop_fields
-    stddev_samp: vehicle_violation_scoring_record_stddev_samp_fields
-    sum: vehicle_violation_scoring_record_sum_fields
-    var_pop: vehicle_violation_scoring_record_var_pop_fields
-    var_samp: vehicle_violation_scoring_record_var_samp_fields
-    variance: vehicle_violation_scoring_record_variance_fields
+type VehicleViolationScoringRecordAggregateFields {
+	avg: VehicleViolationScoringRecordAvgFields
+	count: Int
+	max: VehicleViolationScoringRecordMaxFields
+	min: VehicleViolationScoringRecordMinFields
+	stddev: VehicleViolationScoringRecordStddevFields
+	stddev_pop: VehicleViolationScoringRecordStddevPopFields
+	stddev_samp: VehicleViolationScoringRecordStddevSampFields
+	sum: VehicleViolationScoringRecordSumFields
+	var_pop: VehicleViolationScoringRecordVarPopFields
+	var_samp: VehicleViolationScoringRecordVarSampFields
+	variance: VehicleViolationScoringRecordVarianceFields
 }
-
 """
-order by aggregate values of table "vehicle_violation_scoring_record"
+aggregate avg on columns of table "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_aggregate_order_by {
-    avg: vehicle_violation_scoring_record_avg_order_by
-    count: order_by
-    max: vehicle_violation_scoring_record_max_order_by
-    min: vehicle_violation_scoring_record_min_order_by
-    stddev: vehicle_violation_scoring_record_stddev_order_by
-    stddev_pop: vehicle_violation_scoring_record_stddev_pop_order_by
-    stddev_samp: vehicle_violation_scoring_record_stddev_samp_order_by
-    sum: vehicle_violation_scoring_record_sum_order_by
-    var_pop: vehicle_violation_scoring_record_var_pop_order_by
-    var_samp: vehicle_violation_scoring_record_var_samp_order_by
-    variance: vehicle_violation_scoring_record_variance_order_by
+type VehicleViolationScoringRecordAvgFields {
+	id: Bigint
+	demerit_points: Numeric
 }
-
 """
-input type for inserting array relation for remote table "vehicle_violation_scoring_record"
+aggregate max on columns of table "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_arr_rel_insert_input {
-    data: [vehicle_violation_scoring_record_insert_input!]!
-    on_conflict: vehicle_violation_scoring_record_on_conflict
+type VehicleViolationScoringRecordMaxFields {
+	id: Bigint
+	violation_scoring_id: String
+	vehicle_id: String
+	violation_scoring_item_id: String
+	demerit_points: Numeric
+	remarks: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type vehicle_violation_scoring_record_avg_fields {
-    demerit_points: Float
-    id: Float
+"""
+aggregate min on columns of table "vehicle_violation_scoring_record"
+"""
+type VehicleViolationScoringRecordMinFields {
+	id: Bigint
+	violation_scoring_id: String
+	vehicle_id: String
+	violation_scoring_item_id: String
+	demerit_points: Numeric
+	remarks: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "vehicle_violation_scoring_record"
+aggregate stddev on columns of table "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_avg_order_by {
-    demerit_points: order_by
-    id: order_by
+type VehicleViolationScoringRecordStddevFields {
+	id: Bigint
+	demerit_points: Numeric
 }
-
 """
-Boolean expression to filter rows from the table
-"vehicle_violation_scoring_record". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_bool_exp {
-    _and: [vehicle_violation_scoring_record_bool_exp]
-    _not: vehicle_violation_scoring_record_bool_exp
-    _or: [vehicle_violation_scoring_record_bool_exp]
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    demerit_points: numeric_comparison_exp
-    id: bigint_comparison_exp
-    is_delete: Boolean_comparison_exp
-    remarks: String_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
-    vehicle_id: String_comparison_exp
-    violation_scoring_id: String_comparison_exp
-    violation_scoring_item_id: String_comparison_exp
+type VehicleViolationScoringRecordStddevPopFields {
+	id: Bigint
+	demerit_points: Numeric
 }
-
 """
-unique or primary key constraints on table "vehicle_violation_scoring_record"
+aggregate stddev_samp on columns of table "vehicle_violation_scoring_record"
 """
-enum vehicle_violation_scoring_record_constraint {
-    """unique or primary key constraint"""
-    vehicle_violation_scoring_record_pkey
+type VehicleViolationScoringRecordStddevSampFields {
+	id: Bigint
+	demerit_points: Numeric
 }
-
 """
-input type for incrementing integer column in table "vehicle_violation_scoring_record"
+aggregate sum on columns of table "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_inc_input {
-    demerit_points: numeric
-    id: bigint
+type VehicleViolationScoringRecordSumFields {
+	id: Bigint
+	demerit_points: Numeric
 }
-
 """
-input type for inserting data into table "vehicle_violation_scoring_record"
+aggregate var_pop on columns of table "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_insert_input {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    demerit_points: numeric
-    id: bigint
-    is_delete: Boolean
-    remarks: String
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_scoring_id: String
-    violation_scoring_item_id: String
+type VehicleViolationScoringRecordVarPopFields {
+	id: Bigint
+	demerit_points: Numeric
 }
-
-"""aggregate max on columns"""
-type vehicle_violation_scoring_record_max_fields {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    demerit_points: numeric
-    id: bigint
-    remarks: String
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_scoring_id: String
-    violation_scoring_item_id: String
-}
-
 """
-order by max() on columns of table "vehicle_violation_scoring_record"
+aggregate var_samp on columns of table "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_max_order_by {
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    demerit_points: order_by
-    id: order_by
-    remarks: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    violation_scoring_id: order_by
-    violation_scoring_item_id: order_by
+type VehicleViolationScoringRecordVarSampFields {
+	id: Bigint
+	demerit_points: Numeric
 }
-
-"""aggregate min on columns"""
-type vehicle_violation_scoring_record_min_fields {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    demerit_points: numeric
-    id: bigint
-    remarks: String
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_scoring_id: String
-    violation_scoring_item_id: String
-}
-
 """
-order by min() on columns of table "vehicle_violation_scoring_record"
+aggregate variance on columns of table "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_min_order_by {
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    demerit_points: order_by
-    id: order_by
-    remarks: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    violation_scoring_id: order_by
-    violation_scoring_item_id: order_by
+type VehicleViolationScoringRecordVarianceFields {
+	id: Bigint
+	demerit_points: Numeric
 }
-
 """
 response of any mutation on the table "vehicle_violation_scoring_record"
 """
-type vehicle_violation_scoring_record_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [vehicle_violation_scoring_record!]!
+type VehicleViolationScoringRecordMutationResponse {
+	affected_rows: Int!
+	returning: [VehicleViolationScoringRecord!]!
 }
-
-"""
-input type for inserting object relation for remote table "vehicle_violation_scoring_record"
-"""
-input vehicle_violation_scoring_record_obj_rel_insert_input {
-    data: vehicle_violation_scoring_record_insert_input!
-    on_conflict: vehicle_violation_scoring_record_on_conflict
-}
-
-"""
-on conflict condition type for table "vehicle_violation_scoring_record"
-"""
-input vehicle_violation_scoring_record_on_conflict {
-    constraint: vehicle_violation_scoring_record_constraint!
-    update_columns: [vehicle_violation_scoring_record_update_column!]!
-    where: vehicle_violation_scoring_record_bool_exp
-}
-
 """
 ordering options when selecting data from "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_order_by {
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    demerit_points: order_by
-    id: order_by
-    is_delete: order_by
-    remarks: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    violation_scoring_id: order_by
-    violation_scoring_item_id: order_by
+input VehicleViolationScoringRecordOrderBy {
+	id: OrderBy
+	violation_scoring_id: OrderBy
+	vehicle_id: OrderBy
+	violation_scoring_item_id: OrderBy
+	demerit_points: OrderBy
+	remarks: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-primary key columns input for table: "vehicle_violation_scoring_record"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_violation_scoring_record'.
 """
-input vehicle_violation_scoring_record_pk_columns_input {
-    """主键"""
-    id: bigint!
-
-    """联合主键"""
-    violation_scoring_id: String!
+input VehicleViolationScoringRecordBoolExp {
+	_and: [VehicleViolationScoringRecordBoolExp]
+	_not: VehicleViolationScoringRecordBoolExp
+	_or: [VehicleViolationScoringRecordBoolExp]
+	id: BigintComparisonExp
+	violation_scoring_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	violation_scoring_item_id: StringComparisonExp
+	demerit_points: NumericComparisonExp
+	remarks: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
 """
-select columns of table "vehicle_violation_scoring_record"
+input type for inserting data into table "vehicle_violation_scoring_record"
 """
-enum vehicle_violation_scoring_record_select_column {
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    demerit_points
-
-    """column name"""
-    id
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    remarks
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    violation_scoring_id
-
-    """column name"""
-    violation_scoring_item_id
+input VehicleViolationScoringRecordInsertInput {
+	id: Bigint
+	violation_scoring_id: String
+	vehicle_id: String
+	violation_scoring_item_id: String
+	demerit_points: Numeric
+	remarks: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
+"""
+input type for incrementing integer column in table "vehicle_violation_scoring_record"
+"""
+input VehicleViolationScoringRecordIncInput {
+	id: Bigint
+	demerit_points: Numeric
+}
 """
 input type for updating data in table "vehicle_violation_scoring_record"
 """
-input vehicle_violation_scoring_record_set_input {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    demerit_points: numeric
-    id: bigint
-    is_delete: Boolean
-    remarks: String
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_scoring_id: String
-    violation_scoring_item_id: String
+input VehicleViolationScoringRecordSetInput {
+	id: Bigint
+	violation_scoring_id: String
+	vehicle_id: String
+	violation_scoring_item_id: String
+	demerit_points: Numeric
+	remarks: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type vehicle_violation_scoring_record_stddev_fields {
-    demerit_points: Float
-    id: Float
+"""
+可选select
+"""
+enum VehicleViolationScoringRecordSelectColumn {
+	"""
+	 按指定方法生成                                               ( 主键                                                         )
+	"""
+	id
+	"""
+	 车辆违规计分记录外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	violation_scoring_id
+	"""
+	 扣分车辆id                                                   ( vehicle_info表的vehicle_id                               )
+	"""
+	vehicle_id
+	"""
+	 扣分明细id                                                   ( vehicle_violation_scoring_ items表的violation_scoring_item_id )
+	"""
+	violation_scoring_item_id
+	"""
+	 扣分分值                                                     (                                                              )
+	"""
+	demerit_points
+	"""
+	 备注                                                         (                                                              )
+	"""
+	remarks
+	"""
+	 是否删除                                                     (                                                              )
+	"""
+	is_deleted
+	"""
+	 创建时间                                                     (                                                              )
+	"""
+	created_at
+	"""
+	 创建人                                                       ( system_user表的user_id                                   )
+	"""
+	created_by
+	"""
+	 修改时间                                                     (                                                              )
+	"""
+	updated_at
+	"""
+	 修改人                                                       ( system_user表的user_id                                   )
+	"""
+	updated_by
+	"""
+	 删除时间                                                     (                                                              )
+	"""
+	deleted_at
+	"""
+	 删除人                                                       ( system_user表的user_id                                   )
+	"""
+	deleted_by
 }
-
-"""
-order by stddev() on columns of table "vehicle_violation_scoring_record"
-"""
-input vehicle_violation_scoring_record_stddev_order_by {
-    demerit_points: order_by
-    id: order_by
+extend type Query {
+	"""
+	列表查询
+	"""
+	vehicle_violation_scoring_record(distinct_on: [VehicleViolationScoringRecordSelectColumn!], limit: Int, offset: Int, order_by: [VehicleViolationScoringRecordOrderBy!], where: VehicleViolationScoringRecordBoolExp): [VehicleViolationScoringRecord!]!
+	"""
+	聚合查询
+	"""
+	vehicle_violation_scoring_record_aggregate(distinct_on: [VehicleViolationScoringRecordSelectColumn!], limit: Int, offset: Int, order_by: [VehicleViolationScoringRecordOrderBy!], where: VehicleViolationScoringRecordBoolExp): VehicleViolationScoringRecordAggregate!
+	"""
+	主键查询
+	"""
+	vehicle_violation_scoring_record_by_pk(id: Bigint!): VehicleViolationScoringRecord!
 }
-
-"""aggregate stddev_pop on columns"""
-type vehicle_violation_scoring_record_stddev_pop_fields {
-    demerit_points: Float
-    id: Float
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_vehicle_violation_scoring_record(where: VehicleViolationScoringRecordBoolExp!): VehicleViolationScoringRecordMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_vehicle_violation_scoring_record_by_pk(id: Bigint!): VehicleViolationScoringRecord
+	"""
+	插入
+	"""
+	insert_vehicle_violation_scoring_record(objects: [VehicleViolationScoringRecordInsertInput!]!): VehicleViolationScoringRecordMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_vehicle_violation_scoring_record_one(objects: VehicleViolationScoringRecordInsertInput!): VehicleViolationScoringRecord
+	"""
+	更新
+	"""
+	update_vehicle_violation_scoring_record(_inc: VehicleViolationScoringRecordIncInput, _set: VehicleViolationScoringRecordSetInput, where: VehicleViolationScoringRecordBoolExp!): VehicleViolationScoringRecordMutationResponse
+	"""
+	更新
+	"""
+	update_vehicle_violation_scoring_record_by_pk(_inc: VehicleViolationScoringRecordIncInput, _set: VehicleViolationScoringRecordSetInput, id: Bigint!): VehicleViolationScoringRecord
 }
-
-"""
-order by stddev_pop() on columns of table "vehicle_violation_scoring_record"
-"""
-input vehicle_violation_scoring_record_stddev_pop_order_by {
-    demerit_points: order_by
-    id: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type vehicle_violation_scoring_record_stddev_samp_fields {
-    demerit_points: Float
-    id: Float
-}
-
-"""
-order by stddev_samp() on columns of table "vehicle_violation_scoring_record"
-"""
-input vehicle_violation_scoring_record_stddev_samp_order_by {
-    demerit_points: order_by
-    id: order_by
-}
-
-"""aggregate sum on columns"""
-type vehicle_violation_scoring_record_sum_fields {
-    demerit_points: numeric
-    id: bigint
-}
-
-"""
-order by sum() on columns of table "vehicle_violation_scoring_record"
-"""
-input vehicle_violation_scoring_record_sum_order_by {
-    demerit_points: order_by
-    id: order_by
-}
-
-"""
-update columns of table "vehicle_violation_scoring_record"
-"""
-enum vehicle_violation_scoring_record_update_column {
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    demerit_points
-
-    """column name"""
-    id
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    remarks
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    violation_scoring_id
-
-    """column name"""
-    violation_scoring_item_id
-}
-
-"""aggregate var_pop on columns"""
-type vehicle_violation_scoring_record_var_pop_fields {
-    demerit_points: Float
-    id: Float
-}
-
-"""
-order by var_pop() on columns of table "vehicle_violation_scoring_record"
-"""
-input vehicle_violation_scoring_record_var_pop_order_by {
-    demerit_points: order_by
-    id: order_by
-}
-
-"""aggregate var_samp on columns"""
-type vehicle_violation_scoring_record_var_samp_fields {
-    demerit_points: Float
-    id: Float
-}
-
-"""
-order by var_samp() on columns of table "vehicle_violation_scoring_record"
-"""
-input vehicle_violation_scoring_record_var_samp_order_by {
-    demerit_points: order_by
-    id: order_by
-}
-
-"""aggregate variance on columns"""
-type vehicle_violation_scoring_record_variance_fields {
-    demerit_points: Float
-    id: Float
-}
-
-"""
-order by variance() on columns of table "vehicle_violation_scoring_record"
-"""
-input vehicle_violation_scoring_record_variance_order_by {
-    demerit_points: order_by
-    id: order_by
-}
-

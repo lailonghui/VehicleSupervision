@@ -1,3 +1,4 @@
+
 # Where are all the schema files located? globs are supported eg  src/**/*.graphqls
 schema:
   - graph/graphqls/*.graphqls
@@ -20,10 +21,9 @@ model:
 # Where should the resolver implementations go?
 resolver:
   layout: follow-schema
-  dir: graph/resolvers
-  package: resolvers
+  dir: graph/resolver
+  package: resolver
 
-# Optional: turn on use `gqlgen:"fieldName"` tags in your models
 # struct_tag: json
 
 # Optional: turn on to use []Thing instead of []*Thing
@@ -35,7 +35,8 @@ resolver:
 # gqlgen will search for any type names in the schema in these go packages
 # if they match it will use them, otherwise it will generate them.
 autobind:
-  - "VehicleSupervision/internal/modules/vehicle_violation/graph/model"
+  - "VehicleSupervision/internal/modules/vehicle_violation/model"
+  - "VehicleSupervision/pkg/graphql/model"
 
 # This section declares type mapping between the GraphQL and go type systems
 #
@@ -43,72 +44,23 @@ autobind:
 # modelgen, the others will be allowed when binding to fields. Configure them to
 # your liking
 models:
-  app_enforcement:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.AppEnforcement
-  dispute_violation_record:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.DisputeViolationRecord
-  dispute_violation_record_log:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.DisputeViolationRecordLog
-  driver_peccancy_check:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.DriverPeccancyCheck
-  enterprise_deduction_items:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.EnterpriseDeductionItems
-  enterprise_deduction_operation_record:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.EnterpriseDeductionOperationRecord
-  illegal_photo:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.IllegalPhoto
-  regional_violation_register:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.RegionalViolationRegister
-  user_operation_log:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.UserOperationLog
-  vehicle_detain_details:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VehicleDetainDetails
-  vehicle_violation_details:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VehicleViolationDetails
-  vehicle_violation_scoring_items:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VehicleViolationScoringItems
-  vehicle_violation_scoring_record:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VehicleViolationScoringRecord
-  VIO_CODEWFDM:
-    model: VehicleSupervision/internal/modules/vehicle_violation/graph/model.VioCodewfdm
   ID:
     model:
       - github.com/99designs/gqlgen/graphql.ID
       - github.com/99designs/gqlgen/graphql.Int
       - github.com/99designs/gqlgen/graphql.Int64
       - github.com/99designs/gqlgen/graphql.Int32
-
   Int:
     model:
       - github.com/99designs/gqlgen/graphql.Int
       - github.com/99designs/gqlgen/graphql.Int64
       - github.com/99designs/gqlgen/graphql.Int32
-  bigint:
+  Bigint:
     model:
       - github.com/99designs/gqlgen/graphql.Int64
-  numeric:
+  Numeric:
     model: github.com/99designs/gqlgen/graphql.Float
-  timestamptz:
+  Timestamptz:
     model: VehicleSupervision/pkg/graphql/scalar.Timestamptz
-  String_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.StringComparisonExp
-  timestamptz_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.TimestamptzComparisonExp
-  Int_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.IntComparisonExp
-  Boolean_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.BooleanComparisonExp
-  bigint_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.BigintComparisonExp
-  _jsonb_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.JsonbComparisonExp
-  order_by:
-    model: VehicleSupervision/pkg/graphql/model.OrderBy
-  numeric_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.NumericComparisonExp
-  point_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.PointComparisonExp
-  date_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.DateComparisonExp
 
 

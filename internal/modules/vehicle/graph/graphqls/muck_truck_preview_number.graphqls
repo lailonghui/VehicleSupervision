@@ -1,981 +1,650 @@
-
 """
 渣土车车辆预编号表
-
-
-columns and relationships of "muck_truck_preview_number"
-
 """
-type muck_truck_preview_number {
-    """确认状态"""
-    confirm_status: Int
-
-    """确认时间"""
-    confirm_time: timestamptz
-
-    """确认人"""
-    confirmor: String
-
-    """联系人"""
-    contact_person: String
-
-    """联系电话"""
-    contact_phone: String
-
-    """创建人"""
-    created_by: String!
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """前车牌"""
-    front_license_plate: String
-
-    """主键"""
-    id: bigint!
-
-    """初次登记日期"""
-    initial_registration_date: timestamptz
-
-    """是否删除"""
-    is_delete: Boolean
-
-    """是否登记销售订单"""
-    is_register_sale_order: Boolean
-
-    """是否自动审核"""
-    is_review_automatically: Boolean
-
-    """制作中时间"""
-    marking_time: timestamptz
-
-    """原编号"""
-    original_number: String
-
-    """制作状态"""
-    production_status: Int
-
-    """制作时间"""
-    production_time: timestamptz
-
-    """制作次数"""
-    production_times: Int
-
-    """后车牌"""
-    rear_license_plate: String
-
-    """登记时间"""
-    registration_time: timestamptz
-
-    """备注"""
-    remarks: String
-
-    """侧车牌"""
-    side_license_plate: String
-
-    """预编号"""
-    svn_number: String
-
-    """违法未处理数"""
-    unlawful_violation_number: Int
-
-    """修改时间"""
-    updated_at: timestamptz!
-
-    """修改人"""
-    updated_by: String
-
-    """vehicle_info 车辆信息表 的vehicle_id"""
-    vehicle_id: String!
-
-    """工号牌颜色（green.绿色 yellow.黄色）"""
-    work_number_plate_color: String
+type MuckTruckPreviewNumber {
+	"""
+	 按指定方法生成                                               ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 渣土车车辆预编号外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	muck_truck_preview_number_id: String!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	"""
+	vehicle_id: String!
+	"""
+	 预编号                                                       (                            )
+	"""
+	svn_number: String
+	"""
+	 登记时间                                                     (                            )
+	"""
+	registration_time: String
+	"""
+	 确认人                                                       ( system_user表的user_id )
+	"""
+	confirmor: String
+	"""
+	 确认时间                                                     (                            )
+	"""
+	confirm_time: Timestamptz
+	"""
+	 确认状态                                                     (                            )
+	"""
+	confirm_status: Int
+	"""
+	 前车牌                                                       (                            )
+	"""
+	front_license_plate: String
+	"""
+	 后车牌                                                       (                            )
+	"""
+	rear_license_plate: String
+	"""
+	 侧车牌                                                       (                            )
+	"""
+	side_license_plate: String
+	"""
+	 原编号                                                       (                            )
+	"""
+	original_number: String
+	"""
+	 是否自动审核                                                 (                            )
+	"""
+	is_review_automatically: Boolean
+	"""
+	 制作状态                                                     (                            )
+	"""
+	production_status: Int
+	"""
+	 制作时间                                                     (                            )
+	"""
+	production_time: Timestamptz
+	"""
+	 制作中时间                                                   (                            )
+	"""
+	marking_time: Timestamptz
+	"""
+	 制作次数                                                     (                            )
+	"""
+	production_times: Int
+	"""
+	 提交制牌厂时间                                               (                            )
+	"""
+	submit_production_time: Timestamptz
+	"""
+	 联系人                                                       (                            )
+	"""
+	contact_person: String
+	"""
+	 联系电话                                                     (                            )
+	"""
+	contact_phone: String
+	"""
+	 工号牌颜色（green.绿色 yellow.黄色）                         (                            )
+	"""
+	work_number_plate_color: String
+	"""
+	 初次登记日期                                                 (                            )
+	"""
+	initial_registration_date: Timestamptz
+	"""
+	 违法未处理数                                                 (                            )
+	"""
+	unlawful_violation_number: Int
+	"""
+	 是否登记销售订单                                             (                            )
+	"""
+	is_register_sale_order: Boolean
+	"""
+	 备注                                                         (                            )
+	"""
+	remarks: String
+	"""
+	 是否删除                                                     (                            )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                                     (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                       ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                     (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                       ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                     (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                       ( system_user表的user_id )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "muck_truck_preview_number"
 """
-type muck_truck_preview_number_aggregate {
-    aggregate: muck_truck_preview_number_aggregate_fields
-    nodes: [muck_truck_preview_number!]!
+type MuckTruckPreviewNumberAggregate {
+	aggregate: MuckTruckPreviewNumberAggregateFields
 }
-
 """
 aggregate fields of "muck_truck_preview_number"
 """
-type muck_truck_preview_number_aggregate_fields {
-    avg: muck_truck_preview_number_avg_fields
-    count(columns: [muck_truck_preview_number_select_column!], distinct: Boolean): Int
-    max: muck_truck_preview_number_max_fields
-    min: muck_truck_preview_number_min_fields
-    stddev: muck_truck_preview_number_stddev_fields
-    stddev_pop: muck_truck_preview_number_stddev_pop_fields
-    stddev_samp: muck_truck_preview_number_stddev_samp_fields
-    sum: muck_truck_preview_number_sum_fields
-    var_pop: muck_truck_preview_number_var_pop_fields
-    var_samp: muck_truck_preview_number_var_samp_fields
-    variance: muck_truck_preview_number_variance_fields
+type MuckTruckPreviewNumberAggregateFields {
+	avg: MuckTruckPreviewNumberAvgFields
+	count: Int
+	max: MuckTruckPreviewNumberMaxFields
+	min: MuckTruckPreviewNumberMinFields
+	stddev: MuckTruckPreviewNumberStddevFields
+	stddev_pop: MuckTruckPreviewNumberStddevPopFields
+	stddev_samp: MuckTruckPreviewNumberStddevSampFields
+	sum: MuckTruckPreviewNumberSumFields
+	var_pop: MuckTruckPreviewNumberVarPopFields
+	var_samp: MuckTruckPreviewNumberVarSampFields
+	variance: MuckTruckPreviewNumberVarianceFields
 }
-
 """
-order by aggregate values of table "muck_truck_preview_number"
+aggregate avg on columns of table "muck_truck_preview_number"
 """
-input muck_truck_preview_number_aggregate_order_by {
-    avg: muck_truck_preview_number_avg_order_by
-    count: order_by
-    max: muck_truck_preview_number_max_order_by
-    min: muck_truck_preview_number_min_order_by
-    stddev: muck_truck_preview_number_stddev_order_by
-    stddev_pop: muck_truck_preview_number_stddev_pop_order_by
-    stddev_samp: muck_truck_preview_number_stddev_samp_order_by
-    sum: muck_truck_preview_number_sum_order_by
-    var_pop: muck_truck_preview_number_var_pop_order_by
-    var_samp: muck_truck_preview_number_var_samp_order_by
-    variance: muck_truck_preview_number_variance_order_by
+type MuckTruckPreviewNumberAvgFields {
+	id: Bigint
+	confirm_status: Int
+	production_status: Int
+	production_times: Int
+	unlawful_violation_number: Int
 }
-
 """
-input type for inserting array relation for remote table "muck_truck_preview_number"
+aggregate max on columns of table "muck_truck_preview_number"
 """
-input muck_truck_preview_number_arr_rel_insert_input {
-    data: [muck_truck_preview_number_insert_input!]!
-    on_conflict: muck_truck_preview_number_on_conflict
+type MuckTruckPreviewNumberMaxFields {
+	id: Bigint
+	muck_truck_preview_number_id: String
+	vehicle_id: String
+	svn_number: String
+	registration_time: String
+	confirmor: String
+	confirm_time: Timestamptz
+	confirm_status: Int
+	front_license_plate: String
+	rear_license_plate: String
+	side_license_plate: String
+	original_number: String
+	is_review_automatically: Boolean
+	production_status: Int
+	production_time: Timestamptz
+	marking_time: Timestamptz
+	production_times: Int
+	submit_production_time: Timestamptz
+	contact_person: String
+	contact_phone: String
+	work_number_plate_color: String
+	initial_registration_date: Timestamptz
+	unlawful_violation_number: Int
+	is_register_sale_order: Boolean
+	remarks: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type muck_truck_preview_number_avg_fields {
-    confirm_status: Float
-    id: Float
-    production_status: Float
-    production_times: Float
-    unlawful_violation_number: Float
+"""
+aggregate min on columns of table "muck_truck_preview_number"
+"""
+type MuckTruckPreviewNumberMinFields {
+	id: Bigint
+	muck_truck_preview_number_id: String
+	vehicle_id: String
+	svn_number: String
+	registration_time: String
+	confirmor: String
+	confirm_time: Timestamptz
+	confirm_status: Int
+	front_license_plate: String
+	rear_license_plate: String
+	side_license_plate: String
+	original_number: String
+	is_review_automatically: Boolean
+	production_status: Int
+	production_time: Timestamptz
+	marking_time: Timestamptz
+	production_times: Int
+	submit_production_time: Timestamptz
+	contact_person: String
+	contact_phone: String
+	work_number_plate_color: String
+	initial_registration_date: Timestamptz
+	unlawful_violation_number: Int
+	is_register_sale_order: Boolean
+	remarks: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "muck_truck_preview_number"
+aggregate stddev on columns of table "muck_truck_preview_number"
 """
-input muck_truck_preview_number_avg_order_by {
-    confirm_status: order_by
-    id: order_by
-    production_status: order_by
-    production_times: order_by
-    unlawful_violation_number: order_by
+type MuckTruckPreviewNumberStddevFields {
+	id: Bigint
+	confirm_status: Int
+	production_status: Int
+	production_times: Int
+	unlawful_violation_number: Int
 }
-
 """
-Boolean expression to filter rows from the table "muck_truck_preview_number". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "muck_truck_preview_number"
 """
-input muck_truck_preview_number_bool_exp {
-    _and: [muck_truck_preview_number_bool_exp]
-    _not: muck_truck_preview_number_bool_exp
-    _or: [muck_truck_preview_number_bool_exp]
-    confirm_status: Int_comparison_exp
-    confirm_time: timestamptz_comparison_exp
-    confirmor: String_comparison_exp
-    contact_person: String_comparison_exp
-    contact_phone: String_comparison_exp
-    created_by: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    front_license_plate: String_comparison_exp
-    id: bigint_comparison_exp
-    initial_registration_date: timestamptz_comparison_exp
-    is_delete: Boolean_comparison_exp
-    is_register_sale_order: Boolean_comparison_exp
-    is_review_automatically: Boolean_comparison_exp
-    marking_time: timestamptz_comparison_exp
-    original_number: String_comparison_exp
-    production_status: Int_comparison_exp
-    production_time: timestamptz_comparison_exp
-    production_times: Int_comparison_exp
-    rear_license_plate: String_comparison_exp
-    registration_time: timestamptz_comparison_exp
-    remarks: String_comparison_exp
-    side_license_plate: String_comparison_exp
-    svn_number: String_comparison_exp
-    unlawful_violation_number: Int_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
-    vehicle_id: String_comparison_exp
-    work_number_plate_color: String_comparison_exp
+type MuckTruckPreviewNumberStddevPopFields {
+	id: Bigint
+	confirm_status: Int
+	production_status: Int
+	production_times: Int
+	unlawful_violation_number: Int
 }
-
 """
-unique or primary key constraints on table "muck_truck_preview_number"
+aggregate stddev_samp on columns of table "muck_truck_preview_number"
 """
-enum muck_truck_preview_number_constraint {
-    """unique or primary key constraint"""
-    muck_truck_preview_number_pkey
+type MuckTruckPreviewNumberStddevSampFields {
+	id: Bigint
+	confirm_status: Int
+	production_status: Int
+	production_times: Int
+	unlawful_violation_number: Int
 }
-
 """
-input type for incrementing integer column in table "muck_truck_preview_number"
+aggregate sum on columns of table "muck_truck_preview_number"
 """
-input muck_truck_preview_number_inc_input {
-    confirm_status: Int
-    id: bigint
-    production_status: Int
-    production_times: Int
-    unlawful_violation_number: Int
+type MuckTruckPreviewNumberSumFields {
+	id: Bigint
+	confirm_status: Int
+	production_status: Int
+	production_times: Int
+	unlawful_violation_number: Int
 }
-
 """
-input type for inserting data into table "muck_truck_preview_number"
+aggregate var_pop on columns of table "muck_truck_preview_number"
 """
-input muck_truck_preview_number_insert_input {
-    confirm_status: Int
-    confirm_time: timestamptz
-    confirmor: String
-    contact_person: String
-    contact_phone: String
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    front_license_plate: String
-    id: bigint
-    initial_registration_date: timestamptz
-    is_delete: Boolean
-    is_register_sale_order: Boolean
-    is_review_automatically: Boolean
-    marking_time: timestamptz
-    original_number: String
-    production_status: Int
-    production_time: timestamptz
-    production_times: Int
-    rear_license_plate: String
-    registration_time: timestamptz
-    remarks: String
-    side_license_plate: String
-    svn_number: String
-    unlawful_violation_number: Int
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    work_number_plate_color: String
+type MuckTruckPreviewNumberVarPopFields {
+	id: Bigint
+	confirm_status: Int
+	production_status: Int
+	production_times: Int
+	unlawful_violation_number: Int
 }
-
-"""aggregate max on columns"""
-type muck_truck_preview_number_max_fields {
-    confirm_status: Int
-    confirm_time: timestamptz
-    confirmor: String
-    contact_person: String
-    contact_phone: String
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    front_license_plate: String
-    id: bigint
-    initial_registration_date: timestamptz
-    marking_time: timestamptz
-    original_number: String
-    production_status: Int
-    production_time: timestamptz
-    production_times: Int
-    rear_license_plate: String
-    registration_time: timestamptz
-    remarks: String
-    side_license_plate: String
-    svn_number: String
-    unlawful_violation_number: Int
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    work_number_plate_color: String
-}
-
 """
-order by max() on columns of table "muck_truck_preview_number"
+aggregate var_samp on columns of table "muck_truck_preview_number"
 """
-input muck_truck_preview_number_max_order_by {
-    confirm_status: order_by
-    confirm_time: order_by
-    confirmor: order_by
-    contact_person: order_by
-    contact_phone: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    front_license_plate: order_by
-    id: order_by
-    initial_registration_date: order_by
-    marking_time: order_by
-    original_number: order_by
-    production_status: order_by
-    production_time: order_by
-    production_times: order_by
-    rear_license_plate: order_by
-    registration_time: order_by
-    remarks: order_by
-    side_license_plate: order_by
-    svn_number: order_by
-    unlawful_violation_number: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    work_number_plate_color: order_by
+type MuckTruckPreviewNumberVarSampFields {
+	id: Bigint
+	confirm_status: Int
+	production_status: Int
+	production_times: Int
+	unlawful_violation_number: Int
 }
-
-"""aggregate min on columns"""
-type muck_truck_preview_number_min_fields {
-    confirm_status: Int
-    confirm_time: timestamptz
-    confirmor: String
-    contact_person: String
-    contact_phone: String
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    front_license_plate: String
-    id: bigint
-    initial_registration_date: timestamptz
-    marking_time: timestamptz
-    original_number: String
-    production_status: Int
-    production_time: timestamptz
-    production_times: Int
-    rear_license_plate: String
-    registration_time: timestamptz
-    remarks: String
-    side_license_plate: String
-    svn_number: String
-    unlawful_violation_number: Int
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    work_number_plate_color: String
-}
-
 """
-order by min() on columns of table "muck_truck_preview_number"
+aggregate variance on columns of table "muck_truck_preview_number"
 """
-input muck_truck_preview_number_min_order_by {
-    confirm_status: order_by
-    confirm_time: order_by
-    confirmor: order_by
-    contact_person: order_by
-    contact_phone: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    front_license_plate: order_by
-    id: order_by
-    initial_registration_date: order_by
-    marking_time: order_by
-    original_number: order_by
-    production_status: order_by
-    production_time: order_by
-    production_times: order_by
-    rear_license_plate: order_by
-    registration_time: order_by
-    remarks: order_by
-    side_license_plate: order_by
-    svn_number: order_by
-    unlawful_violation_number: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    work_number_plate_color: order_by
+type MuckTruckPreviewNumberVarianceFields {
+	id: Bigint
+	confirm_status: Int
+	production_status: Int
+	production_times: Int
+	unlawful_violation_number: Int
 }
-
 """
 response of any mutation on the table "muck_truck_preview_number"
 """
-type muck_truck_preview_number_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [muck_truck_preview_number!]!
+type MuckTruckPreviewNumberMutationResponse {
+	affected_rows: Int!
+	returning: [MuckTruckPreviewNumber!]!
 }
-
-"""
-input type for inserting object relation for remote table "muck_truck_preview_number"
-"""
-input muck_truck_preview_number_obj_rel_insert_input {
-    data: muck_truck_preview_number_insert_input!
-    on_conflict: muck_truck_preview_number_on_conflict
-}
-
-"""
-on conflict condition type for table "muck_truck_preview_number"
-"""
-input muck_truck_preview_number_on_conflict {
-    constraint: muck_truck_preview_number_constraint!
-    update_columns: [muck_truck_preview_number_update_column!]!
-    where: muck_truck_preview_number_bool_exp
-}
-
 """
 ordering options when selecting data from "muck_truck_preview_number"
 """
-input muck_truck_preview_number_order_by {
-    confirm_status: order_by
-    confirm_time: order_by
-    confirmor: order_by
-    contact_person: order_by
-    contact_phone: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    front_license_plate: order_by
-    id: order_by
-    initial_registration_date: order_by
-    is_delete: order_by
-    is_register_sale_order: order_by
-    is_review_automatically: order_by
-    marking_time: order_by
-    original_number: order_by
-    production_status: order_by
-    production_time: order_by
-    production_times: order_by
-    rear_license_plate: order_by
-    registration_time: order_by
-    remarks: order_by
-    side_license_plate: order_by
-    svn_number: order_by
-    unlawful_violation_number: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    work_number_plate_color: order_by
+input MuckTruckPreviewNumberOrderBy {
+	id: OrderBy
+	muck_truck_preview_number_id: OrderBy
+	vehicle_id: OrderBy
+	svn_number: OrderBy
+	registration_time: OrderBy
+	confirmor: OrderBy
+	confirm_time: OrderBy
+	confirm_status: OrderBy
+	front_license_plate: OrderBy
+	rear_license_plate: OrderBy
+	side_license_plate: OrderBy
+	original_number: OrderBy
+	is_review_automatically: OrderBy
+	production_status: OrderBy
+	production_time: OrderBy
+	marking_time: OrderBy
+	production_times: OrderBy
+	submit_production_time: OrderBy
+	contact_person: OrderBy
+	contact_phone: OrderBy
+	work_number_plate_color: OrderBy
+	initial_registration_date: OrderBy
+	unlawful_violation_number: OrderBy
+	is_register_sale_order: OrderBy
+	remarks: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-primary key columns input for table: "muck_truck_preview_number"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_preview_number'.
 """
-input muck_truck_preview_number_pk_columns_input {
-    """主键"""
-    id: bigint!
+input MuckTruckPreviewNumberBoolExp {
+	_and: [MuckTruckPreviewNumberBoolExp]
+	_not: MuckTruckPreviewNumberBoolExp
+	_or: [MuckTruckPreviewNumberBoolExp]
+	id: BigintComparisonExp
+	muck_truck_preview_number_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	svn_number: StringComparisonExp
+	registration_time: StringComparisonExp
+	confirmor: StringComparisonExp
+	confirm_time: TimestamptzComparisonExp
+	confirm_status: IntComparisonExp
+	front_license_plate: StringComparisonExp
+	rear_license_plate: StringComparisonExp
+	side_license_plate: StringComparisonExp
+	original_number: StringComparisonExp
+	is_review_automatically: BooleanComparisonExp
+	production_status: IntComparisonExp
+	production_time: TimestamptzComparisonExp
+	marking_time: TimestamptzComparisonExp
+	production_times: IntComparisonExp
+	submit_production_time: TimestamptzComparisonExp
+	contact_person: StringComparisonExp
+	contact_phone: StringComparisonExp
+	work_number_plate_color: StringComparisonExp
+	initial_registration_date: TimestamptzComparisonExp
+	unlawful_violation_number: IntComparisonExp
+	is_register_sale_order: BooleanComparisonExp
+	remarks: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
 """
-select columns of table "muck_truck_preview_number"
+input type for inserting data into table "muck_truck_preview_number"
 """
-enum muck_truck_preview_number_select_column {
-    """column name"""
-    confirm_status
-
-    """column name"""
-    confirm_time
-
-    """column name"""
-    confirmor
-
-    """column name"""
-    contact_person
-
-    """column name"""
-    contact_phone
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    front_license_plate
-
-    """column name"""
-    id
-
-    """column name"""
-    initial_registration_date
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_register_sale_order
-
-    """column name"""
-    is_review_automatically
-
-    """column name"""
-    marking_time
-
-    """column name"""
-    original_number
-
-    """column name"""
-    production_status
-
-    """column name"""
-    production_time
-
-    """column name"""
-    production_times
-
-    """column name"""
-    rear_license_plate
-
-    """column name"""
-    registration_time
-
-    """column name"""
-    remarks
-
-    """column name"""
-    side_license_plate
-
-    """column name"""
-    svn_number
-
-    """column name"""
-    unlawful_violation_number
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    work_number_plate_color
+input MuckTruckPreviewNumberInsertInput {
+	id: Bigint
+	muck_truck_preview_number_id: String
+	vehicle_id: String
+	svn_number: String
+	registration_time: String
+	confirmor: String
+	confirm_time: Timestamptz
+	confirm_status: Int
+	front_license_plate: String
+	rear_license_plate: String
+	side_license_plate: String
+	original_number: String
+	is_review_automatically: Boolean
+	production_status: Int
+	production_time: Timestamptz
+	marking_time: Timestamptz
+	production_times: Int
+	submit_production_time: Timestamptz
+	contact_person: String
+	contact_phone: String
+	work_number_plate_color: String
+	initial_registration_date: Timestamptz
+	unlawful_violation_number: Int
+	is_register_sale_order: Boolean
+	remarks: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
+"""
+input type for incrementing integer column in table "muck_truck_preview_number"
+"""
+input MuckTruckPreviewNumberIncInput {
+	id: Bigint
+	confirm_status: Int
+	production_status: Int
+	production_times: Int
+	unlawful_violation_number: Int
+}
 """
 input type for updating data in table "muck_truck_preview_number"
 """
-input muck_truck_preview_number_set_input {
-    confirm_status: Int
-    confirm_time: timestamptz
-    confirmor: String
-    contact_person: String
-    contact_phone: String
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    front_license_plate: String
-    id: bigint
-    initial_registration_date: timestamptz
-    is_delete: Boolean
-    is_register_sale_order: Boolean
-    is_review_automatically: Boolean
-    marking_time: timestamptz
-    original_number: String
-    production_status: Int
-    production_time: timestamptz
-    production_times: Int
-    rear_license_plate: String
-    registration_time: timestamptz
-    remarks: String
-    side_license_plate: String
-    svn_number: String
-    unlawful_violation_number: Int
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    work_number_plate_color: String
+input MuckTruckPreviewNumberSetInput {
+	id: Bigint
+	muck_truck_preview_number_id: String
+	vehicle_id: String
+	svn_number: String
+	registration_time: String
+	confirmor: String
+	confirm_time: Timestamptz
+	confirm_status: Int
+	front_license_plate: String
+	rear_license_plate: String
+	side_license_plate: String
+	original_number: String
+	is_review_automatically: Boolean
+	production_status: Int
+	production_time: Timestamptz
+	marking_time: Timestamptz
+	production_times: Int
+	submit_production_time: Timestamptz
+	contact_person: String
+	contact_phone: String
+	work_number_plate_color: String
+	initial_registration_date: Timestamptz
+	unlawful_violation_number: Int
+	is_register_sale_order: Boolean
+	remarks: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type muck_truck_preview_number_stddev_fields {
-    confirm_status: Float
-    id: Float
-    production_status: Float
-    production_times: Float
-    unlawful_violation_number: Float
-}
-
 """
-order by stddev() on columns of table "muck_truck_preview_number"
+可选select
 """
-input muck_truck_preview_number_stddev_order_by {
-    confirm_status: order_by
-    id: order_by
-    production_status: order_by
-    production_times: order_by
-    unlawful_violation_number: order_by
+enum MuckTruckPreviewNumberSelectColumn {
+	"""
+	 按指定方法生成                                               ( 主键                       )
+	"""
+	id
+	"""
+	 渣土车车辆预编号外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	muck_truck_preview_number_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	"""
+	vehicle_id
+	"""
+	 预编号                                                       (                            )
+	"""
+	svn_number
+	"""
+	 登记时间                                                     (                            )
+	"""
+	registration_time
+	"""
+	 确认人                                                       ( system_user表的user_id )
+	"""
+	confirmor
+	"""
+	 确认时间                                                     (                            )
+	"""
+	confirm_time
+	"""
+	 确认状态                                                     (                            )
+	"""
+	confirm_status
+	"""
+	 前车牌                                                       (                            )
+	"""
+	front_license_plate
+	"""
+	 后车牌                                                       (                            )
+	"""
+	rear_license_plate
+	"""
+	 侧车牌                                                       (                            )
+	"""
+	side_license_plate
+	"""
+	 原编号                                                       (                            )
+	"""
+	original_number
+	"""
+	 是否自动审核                                                 (                            )
+	"""
+	is_review_automatically
+	"""
+	 制作状态                                                     (                            )
+	"""
+	production_status
+	"""
+	 制作时间                                                     (                            )
+	"""
+	production_time
+	"""
+	 制作中时间                                                   (                            )
+	"""
+	marking_time
+	"""
+	 制作次数                                                     (                            )
+	"""
+	production_times
+	"""
+	 提交制牌厂时间                                               (                            )
+	"""
+	submit_production_time
+	"""
+	 联系人                                                       (                            )
+	"""
+	contact_person
+	"""
+	 联系电话                                                     (                            )
+	"""
+	contact_phone
+	"""
+	 工号牌颜色（green.绿色 yellow.黄色）                         (                            )
+	"""
+	work_number_plate_color
+	"""
+	 初次登记日期                                                 (                            )
+	"""
+	initial_registration_date
+	"""
+	 违法未处理数                                                 (                            )
+	"""
+	unlawful_violation_number
+	"""
+	 是否登记销售订单                                             (                            )
+	"""
+	is_register_sale_order
+	"""
+	 备注                                                         (                            )
+	"""
+	remarks
+	"""
+	 是否删除                                                     (                            )
+	"""
+	is_deleted
+	"""
+	 创建时间                                                     (                            )
+	"""
+	created_at
+	"""
+	 创建人                                                       ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                                     (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                                       ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                                     (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                                       ( system_user表的user_id )
+	"""
+	deleted_by
 }
-
-"""aggregate stddev_pop on columns"""
-type muck_truck_preview_number_stddev_pop_fields {
-    confirm_status: Float
-    id: Float
-    production_status: Float
-    production_times: Float
-    unlawful_violation_number: Float
-}
-
-"""
-order by stddev_pop() on columns of table "muck_truck_preview_number"
-"""
-input muck_truck_preview_number_stddev_pop_order_by {
-    confirm_status: order_by
-    id: order_by
-    production_status: order_by
-    production_times: order_by
-    unlawful_violation_number: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type muck_truck_preview_number_stddev_samp_fields {
-    confirm_status: Float
-    id: Float
-    production_status: Float
-    production_times: Float
-    unlawful_violation_number: Float
-}
-
-"""
-order by stddev_samp() on columns of table "muck_truck_preview_number"
-"""
-input muck_truck_preview_number_stddev_samp_order_by {
-    confirm_status: order_by
-    id: order_by
-    production_status: order_by
-    production_times: order_by
-    unlawful_violation_number: order_by
-}
-
-"""aggregate sum on columns"""
-type muck_truck_preview_number_sum_fields {
-    confirm_status: Int
-    id: bigint
-    production_status: Int
-    production_times: Int
-    unlawful_violation_number: Int
-}
-
-"""
-order by sum() on columns of table "muck_truck_preview_number"
-"""
-input muck_truck_preview_number_sum_order_by {
-    confirm_status: order_by
-    id: order_by
-    production_status: order_by
-    production_times: order_by
-    unlawful_violation_number: order_by
-}
-
-"""
-update columns of table "muck_truck_preview_number"
-"""
-enum muck_truck_preview_number_update_column {
-    """column name"""
-    confirm_status
-
-    """column name"""
-    confirm_time
-
-    """column name"""
-    confirmor
-
-    """column name"""
-    contact_person
-
-    """column name"""
-    contact_phone
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    front_license_plate
-
-    """column name"""
-    id
-
-    """column name"""
-    initial_registration_date
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_register_sale_order
-
-    """column name"""
-    is_review_automatically
-
-    """column name"""
-    marking_time
-
-    """column name"""
-    original_number
-
-    """column name"""
-    production_status
-
-    """column name"""
-    production_time
-
-    """column name"""
-    production_times
-
-    """column name"""
-    rear_license_plate
-
-    """column name"""
-    registration_time
-
-    """column name"""
-    remarks
-
-    """column name"""
-    side_license_plate
-
-    """column name"""
-    svn_number
-
-    """column name"""
-    unlawful_violation_number
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    work_number_plate_color
-}
-
-"""aggregate var_pop on columns"""
-type muck_truck_preview_number_var_pop_fields {
-    confirm_status: Float
-    id: Float
-    production_status: Float
-    production_times: Float
-    unlawful_violation_number: Float
-}
-
-"""
-order by var_pop() on columns of table "muck_truck_preview_number"
-"""
-input muck_truck_preview_number_var_pop_order_by {
-    confirm_status: order_by
-    id: order_by
-    production_status: order_by
-    production_times: order_by
-    unlawful_violation_number: order_by
-}
-
-"""aggregate var_samp on columns"""
-type muck_truck_preview_number_var_samp_fields {
-    confirm_status: Float
-    id: Float
-    production_status: Float
-    production_times: Float
-    unlawful_violation_number: Float
-}
-
-"""
-order by var_samp() on columns of table "muck_truck_preview_number"
-"""
-input muck_truck_preview_number_var_samp_order_by {
-    confirm_status: order_by
-    id: order_by
-    production_status: order_by
-    production_times: order_by
-    unlawful_violation_number: order_by
-}
-
-"""aggregate variance on columns"""
-type muck_truck_preview_number_variance_fields {
-    confirm_status: Float
-    id: Float
-    production_status: Float
-    production_times: Float
-    unlawful_violation_number: Float
-}
-
-"""
-order by variance() on columns of table "muck_truck_preview_number"
-"""
-input muck_truck_preview_number_variance_order_by {
-    confirm_status: order_by
-    id: order_by
-    production_status: order_by
-    production_times: order_by
-    unlawful_violation_number: order_by
-}
-
-extend type Mutation {
-    """
-    delete data from the table: "muck_truck_preview_number"
-  """
-    delete_muck_truck_preview_number(
-        """filter the rows which have to be deleted"""
-        where: muck_truck_preview_number_bool_exp!
-    ): muck_truck_preview_number_mutation_response
-
-    """
-    delete single row from the table: "muck_truck_preview_number"
-  """
-    delete_muck_truck_preview_number_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_preview_number
-
-    """
-    insert data into the table: "muck_truck_preview_number"
-  """
-    insert_muck_truck_preview_number(
-        """the rows to be inserted"""
-        objects: [muck_truck_preview_number_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: muck_truck_preview_number_on_conflict
-    ): muck_truck_preview_number_mutation_response
-
-    """
-    insert a single row into the table: "muck_truck_preview_number"
-  """
-    insert_muck_truck_preview_number_one(
-        """the row to be inserted"""
-        object: muck_truck_preview_number_insert_input!
-
-        """on conflict condition"""
-        on_conflict: muck_truck_preview_number_on_conflict
-    ): muck_truck_preview_number
-
-    """
-    update data of the table: "muck_truck_preview_number"
-  """
-    update_muck_truck_preview_number(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: muck_truck_preview_number_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: muck_truck_preview_number_set_input
-
-        """filter the rows which have to be updated"""
-        where: muck_truck_preview_number_bool_exp!
-    ): muck_truck_preview_number_mutation_response
-
-    """
-    update single row of the table: "muck_truck_preview_number"
-  """
-    update_muck_truck_preview_number_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: muck_truck_preview_number_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: muck_truck_preview_number_set_input
-        pk_columns: muck_truck_preview_number_pk_columns_input!
-    ): muck_truck_preview_number
-}
-
-
 extend type Query {
-    """
-    fetch data from the table: "muck_truck_preview_number"
-  """
-    muck_truck_preview_number(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_preview_number_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_preview_number_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_preview_number_bool_exp
-    ): [muck_truck_preview_number!]!
-
-    """
-    fetch aggregated fields from the table: "muck_truck_preview_number"
-  """
-    muck_truck_preview_number_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_preview_number_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_preview_number_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_preview_number_bool_exp
-    ): muck_truck_preview_number_aggregate!
-
-    """
-    fetch data from the table: "muck_truck_preview_number" using primary key columns
-    """
-    muck_truck_preview_number_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_preview_number
+	"""
+	列表查询
+	"""
+	muck_truck_preview_number(distinct_on: [MuckTruckPreviewNumberSelectColumn!], limit: Int, offset: Int, order_by: [MuckTruckPreviewNumberOrderBy!], where: MuckTruckPreviewNumberBoolExp): [MuckTruckPreviewNumber!]!
+	"""
+	聚合查询
+	"""
+	muck_truck_preview_number_aggregate(distinct_on: [MuckTruckPreviewNumberSelectColumn!], limit: Int, offset: Int, order_by: [MuckTruckPreviewNumberOrderBy!], where: MuckTruckPreviewNumberBoolExp): MuckTruckPreviewNumberAggregate!
+	"""
+	主键查询
+	"""
+	muck_truck_preview_number_by_pk(id: Bigint!): MuckTruckPreviewNumber!
 }
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "muck_truck_preview_number"
-  """
-    muck_truck_preview_number(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_preview_number_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_preview_number_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_preview_number_bool_exp
-    ): [muck_truck_preview_number!]!
-
-    """
-    fetch aggregated fields from the table: "muck_truck_preview_number"
-  """
-    muck_truck_preview_number_aggregate(
-        """distinct select on columns"""
-        distinct_on: [muck_truck_preview_number_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [muck_truck_preview_number_order_by!]
-
-        """filter the rows returned"""
-        where: muck_truck_preview_number_bool_exp
-    ): muck_truck_preview_number_aggregate!
-
-    """
-    fetch data from the table: "muck_truck_preview_number" using primary key columns
-    """
-    muck_truck_preview_number_by_pk(
-        """主键"""
-        id: bigint!
-    ): muck_truck_preview_number
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_muck_truck_preview_number(where: MuckTruckPreviewNumberBoolExp!): MuckTruckPreviewNumberMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_muck_truck_preview_number_by_pk(id: Bigint!): MuckTruckPreviewNumber
+	"""
+	插入
+	"""
+	insert_muck_truck_preview_number(objects: [MuckTruckPreviewNumberInsertInput!]!): MuckTruckPreviewNumberMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_muck_truck_preview_number_one(objects: MuckTruckPreviewNumberInsertInput!): MuckTruckPreviewNumber
+	"""
+	更新
+	"""
+	update_muck_truck_preview_number(_inc: MuckTruckPreviewNumberIncInput, _set: MuckTruckPreviewNumberSetInput, where: MuckTruckPreviewNumberBoolExp!): MuckTruckPreviewNumberMutationResponse
+	"""
+	更新
+	"""
+	update_muck_truck_preview_number_by_pk(_inc: MuckTruckPreviewNumberIncInput, _set: MuckTruckPreviewNumberSetInput, id: Bigint!): MuckTruckPreviewNumber
 }
-

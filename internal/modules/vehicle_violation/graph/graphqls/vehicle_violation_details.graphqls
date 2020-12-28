@@ -1,1012 +1,641 @@
-extend type Mutation {
-    """
-    delete data from the table: "vehicle_violation_details"
-  """
-    delete_vehicle_violation_details(
-        """filter the rows which have to be deleted"""
-        where: vehicle_violation_details_bool_exp!
-    ): vehicle_violation_details_mutation_response
-
-    """
-    delete single row from the table: "vehicle_violation_details"
-  """
-    delete_vehicle_violation_details_by_pk(
-        """主键"""
-        id: bigint!
-    ): vehicle_violation_details
-
-    """
-    insert data into the table: "vehicle_violation_details"
-  """
-    insert_vehicle_violation_details(
-        """the rows to be inserted"""
-        objects: [vehicle_violation_details_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: vehicle_violation_details_on_conflict
-    ): vehicle_violation_details_mutation_response
-
-    """
-    insert a single row into the table: "vehicle_violation_details"
-  """
-    insert_vehicle_violation_details_one(
-        """the row to be inserted"""
-        object: vehicle_violation_details_insert_input!
-
-        """on conflict condition"""
-        on_conflict: vehicle_violation_details_on_conflict
-    ): vehicle_violation_details
-
-    """
-    update data of the table: "vehicle_violation_details"
-  """
-    update_vehicle_violation_details(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_violation_details_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_violation_details_set_input
-
-        """filter the rows which have to be updated"""
-        where: vehicle_violation_details_bool_exp!
-    ): vehicle_violation_details_mutation_response
-
-    """
-    update single row of the table: "vehicle_violation_details"
-  """
-    update_vehicle_violation_details_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_violation_details_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_violation_details_set_input
-        pk_columns: vehicle_violation_details_pk_columns_input!
-    ): vehicle_violation_details
-}
-
-
-
-extend type Query {
-    """
-    fetch data from the table: "vehicle_violation_details"
-  """
-    vehicle_violation_details(
-        """distinct select on columns"""
-        distinct_on: [vehicle_violation_details_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_violation_details_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_violation_details_bool_exp
-    ): [vehicle_violation_details!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_violation_details"
-  """
-    vehicle_violation_details_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_violation_details_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_violation_details_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_violation_details_bool_exp
-    ): vehicle_violation_details_aggregate!
-
-    """
-    fetch data from the table: "vehicle_violation_details" using primary key columns
-    """
-    vehicle_violation_details_by_pk(
-        """主键"""
-        id: bigint!
-    ): vehicle_violation_details
-}
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "vehicle_violation_details"
-  """
-    vehicle_violation_details(
-        """distinct select on columns"""
-        distinct_on: [vehicle_violation_details_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_violation_details_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_violation_details_bool_exp
-    ): [vehicle_violation_details!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_violation_details"
-  """
-    vehicle_violation_details_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_violation_details_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_violation_details_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_violation_details_bool_exp
-    ): vehicle_violation_details_aggregate!
-
-    """
-    fetch data from the table: "vehicle_violation_details" using primary key columns
-    """
-    vehicle_violation_details_by_pk(
-        """主键"""
-        id: bigint!
-    ): vehicle_violation_details
-}
-
-
 """
 车辆违章明细表
-
-
-columns and relationships of "vehicle_violation_details"
-
 """
-type vehicle_violation_details {
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人"""
-    created_by: String!
-
-    """决定书号"""
-    decision_number: String
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """发现机构"""
-    discovery_agency: String
-
-    """违章驾驶员id"""
-    driver_id: String
-
-    """所在企业id"""
-    enterprise_id: String
-
-    """处理时间"""
-    handle_at: timestamptz
-
-    """处理人"""
-    handle_by: String
-
-    """主键"""
-    id: bigint!
-
-    """违法代码,VIO_CODEWFDM 违法描述字典表"""
-    illegal_code: String
-
-    """车辆违法处理状态字典"""
-    illegal_handling_status: Int
-
-    """违法地点"""
-    illegal_location: String
-
-    """违法照片"""
-    illegal_photo: String
-
-    """违法时间"""
-    illegal_time: timestamptz
-
-    """信息来源：1，强制，2，非现场，0，简易（信息来源字典表）"""
-    information_source: Int
-
-    """是否删除"""
-    is_delete: Boolean
-
-    """是否处理"""
-    is_handle: Boolean
-
-    """是否通知驾驶员"""
-    is_notice_driver: Boolean
-
-    """是否发送短信"""
-    is_send: Boolean
-
-    """实测值,车辆实际行驶的车速或实际载的人数，根据违法的种类不同而不同。"""
-    measured_value: String
-
-    """通知时间"""
-    notice_time: timestamptz
-
-    """当事人姓名"""
-    party_name: String
-
-    """缴款标记,是否缴款字典"""
-    payment_mark: Int
-
-    """标准值,路段的限速阈值或核载的人数，根据违法的种类不同而不同。"""
-    standard_value: String
-
-    """内网更新时间"""
-    update_time_in: timestamptz
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
-
-    """违章车辆id"""
-    vehicle_id: String
-
-    """驾驶人处理的交通违法记录对应的机动车信息"""
-    vehicle_information: String
-
-    """联合主键"""
-    violation_detail_id: String!
+type VehicleViolationDetails {
+	"""
+	 按指定方法生成                                              ( 主键                                                         )
+	"""
+	id: Bigint!
+	"""
+	 车辆违章明细外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	violation_detail_id: String!
+	"""
+	 违章车辆id                                                  ( vehicle_info表的vehicle_id                               )
+	"""
+	vehicle_id: String
+	"""
+	 违章驾驶员id                                                ( driver_info表的driver_id                                 )
+	"""
+	driver_id: String
+	"""
+	 所在企业id                                                  ( enterprise_info表的enterprise_id                         )
+	"""
+	enterprise_id: String
+	"""
+	 违法代码                                                    ( VIO_CODEWFDM 违法描述字典表                              )
+	"""
+	illegal_code: String
+	"""
+	 违法时间                                                    (                                                              )
+	"""
+	illegal_time: Timestamptz
+	"""
+	 违法处理状态                                                ( 车辆违法处理状态字典                                     )
+	"""
+	illegal_handling_status: Int
+	"""
+	 违法地点                                                    (                                                              )
+	"""
+	illegal_location: String
+	"""
+	 标准值                                                      ( 路段的限速阈值或核载的人数，根据违法的种类不同而不同。       )
+	"""
+	standard_value: String
+	"""
+	 实测值                                                      ( 车辆实际行驶的车速或实际载的人数，根据违法的种类不同而不同。 )
+	"""
+	measured_value: String
+	"""
+	 发现机构                                                    (                                                              )
+	"""
+	discovery_agency: String
+	"""
+	 违法照片                                                    (                                                              )
+	"""
+	illegal_photo: String
+	"""
+	 是否通知驾驶员                                              (                                                              )
+	"""
+	is_notice_driver: Boolean
+	"""
+	 通知时间                                                    (                                                              )
+	"""
+	notice_time: Timestamptz
+	"""
+	 决定书号                                                    (                                                              )
+	"""
+	decision_number: String
+	"""
+	 缴款标记                                                    ( 是否缴款字典                                             )
+	"""
+	payment_mark: Int
+	"""
+	 当事人姓名                                                  (                                                              )
+	"""
+	party_name: String
+	"""
+	 信息来源：1，强制，2，非现场，0，简易                       ( 信息来源字典表                                           )
+	"""
+	information_source: Int
+	"""
+	 驾驶人处理的交通违法记录对应的机动车信息                    (                                                              )
+	"""
+	vehicle_information: String
+	"""
+	 内网更新时间                                                (                                                              )
+	"""
+	update_time_in: Timestamptz
+	"""
+	 是否处理                                                    (                                                              )
+	"""
+	is_handle: Boolean
+	"""
+	 处理人                                                      ( system_user表的user_id                                   )
+	"""
+	handle_by: String
+	"""
+	 处理时间                                                    (                                                              )
+	"""
+	handle_at: Timestamptz
+	"""
+	 是否发送短信                                                (                                                              )
+	"""
+	is_send: Boolean
+	"""
+	 是否删除                                                    (                                                              )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                                    (                                                              )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                      ( system_user表的user_id                                   )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                    (                                                              )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                      ( system_user表的user_id                                   )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                    (                                                              )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                      ( system_user表的user_id                                   )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "vehicle_violation_details"
 """
-type vehicle_violation_details_aggregate {
-    aggregate: vehicle_violation_details_aggregate_fields
-    nodes: [vehicle_violation_details!]!
+type VehicleViolationDetailsAggregate {
+	aggregate: VehicleViolationDetailsAggregateFields
 }
-
 """
 aggregate fields of "vehicle_violation_details"
 """
-type vehicle_violation_details_aggregate_fields {
-    avg: vehicle_violation_details_avg_fields
-    count(columns: [vehicle_violation_details_select_column!], distinct: Boolean): Int
-    max: vehicle_violation_details_max_fields
-    min: vehicle_violation_details_min_fields
-    stddev: vehicle_violation_details_stddev_fields
-    stddev_pop: vehicle_violation_details_stddev_pop_fields
-    stddev_samp: vehicle_violation_details_stddev_samp_fields
-    sum: vehicle_violation_details_sum_fields
-    var_pop: vehicle_violation_details_var_pop_fields
-    var_samp: vehicle_violation_details_var_samp_fields
-    variance: vehicle_violation_details_variance_fields
+type VehicleViolationDetailsAggregateFields {
+	avg: VehicleViolationDetailsAvgFields
+	count: Int
+	max: VehicleViolationDetailsMaxFields
+	min: VehicleViolationDetailsMinFields
+	stddev: VehicleViolationDetailsStddevFields
+	stddev_pop: VehicleViolationDetailsStddevPopFields
+	stddev_samp: VehicleViolationDetailsStddevSampFields
+	sum: VehicleViolationDetailsSumFields
+	var_pop: VehicleViolationDetailsVarPopFields
+	var_samp: VehicleViolationDetailsVarSampFields
+	variance: VehicleViolationDetailsVarianceFields
 }
-
 """
-order by aggregate values of table "vehicle_violation_details"
+aggregate avg on columns of table "vehicle_violation_details"
 """
-input vehicle_violation_details_aggregate_order_by {
-    avg: vehicle_violation_details_avg_order_by
-    count: order_by
-    max: vehicle_violation_details_max_order_by
-    min: vehicle_violation_details_min_order_by
-    stddev: vehicle_violation_details_stddev_order_by
-    stddev_pop: vehicle_violation_details_stddev_pop_order_by
-    stddev_samp: vehicle_violation_details_stddev_samp_order_by
-    sum: vehicle_violation_details_sum_order_by
-    var_pop: vehicle_violation_details_var_pop_order_by
-    var_samp: vehicle_violation_details_var_samp_order_by
-    variance: vehicle_violation_details_variance_order_by
+type VehicleViolationDetailsAvgFields {
+	id: Bigint
+	illegal_handling_status: Int
+	payment_mark: Int
+	information_source: Int
 }
-
 """
-input type for inserting array relation for remote table "vehicle_violation_details"
+aggregate max on columns of table "vehicle_violation_details"
 """
-input vehicle_violation_details_arr_rel_insert_input {
-    data: [vehicle_violation_details_insert_input!]!
-    on_conflict: vehicle_violation_details_on_conflict
+type VehicleViolationDetailsMaxFields {
+	id: Bigint
+	violation_detail_id: String
+	vehicle_id: String
+	driver_id: String
+	enterprise_id: String
+	illegal_code: String
+	illegal_time: Timestamptz
+	illegal_handling_status: Int
+	illegal_location: String
+	standard_value: String
+	measured_value: String
+	discovery_agency: String
+	illegal_photo: String
+	is_notice_driver: Boolean
+	notice_time: Timestamptz
+	decision_number: String
+	payment_mark: Int
+	party_name: String
+	information_source: Int
+	vehicle_information: String
+	update_time_in: Timestamptz
+	is_handle: Boolean
+	handle_by: String
+	handle_at: Timestamptz
+	is_send: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type vehicle_violation_details_avg_fields {
-    id: Float
-    illegal_handling_status: Float
-    information_source: Float
-    payment_mark: Float
+"""
+aggregate min on columns of table "vehicle_violation_details"
+"""
+type VehicleViolationDetailsMinFields {
+	id: Bigint
+	violation_detail_id: String
+	vehicle_id: String
+	driver_id: String
+	enterprise_id: String
+	illegal_code: String
+	illegal_time: Timestamptz
+	illegal_handling_status: Int
+	illegal_location: String
+	standard_value: String
+	measured_value: String
+	discovery_agency: String
+	illegal_photo: String
+	is_notice_driver: Boolean
+	notice_time: Timestamptz
+	decision_number: String
+	payment_mark: Int
+	party_name: String
+	information_source: Int
+	vehicle_information: String
+	update_time_in: Timestamptz
+	is_handle: Boolean
+	handle_by: String
+	handle_at: Timestamptz
+	is_send: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "vehicle_violation_details"
+aggregate stddev on columns of table "vehicle_violation_details"
 """
-input vehicle_violation_details_avg_order_by {
-    id: order_by
-    illegal_handling_status: order_by
-    information_source: order_by
-    payment_mark: order_by
+type VehicleViolationDetailsStddevFields {
+	id: Bigint
+	illegal_handling_status: Int
+	payment_mark: Int
+	information_source: Int
 }
-
 """
-Boolean expression to filter rows from the table "vehicle_violation_details". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "vehicle_violation_details"
 """
-input vehicle_violation_details_bool_exp {
-    _and: [vehicle_violation_details_bool_exp]
-    _not: vehicle_violation_details_bool_exp
-    _or: [vehicle_violation_details_bool_exp]
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    decision_number: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    discovery_agency: String_comparison_exp
-    driver_id: String_comparison_exp
-    enterprise_id: String_comparison_exp
-    handle_at: timestamptz_comparison_exp
-    handle_by: String_comparison_exp
-    id: bigint_comparison_exp
-    illegal_code: String_comparison_exp
-    illegal_handling_status: Int_comparison_exp
-    illegal_location: String_comparison_exp
-    illegal_photo: String_comparison_exp
-    illegal_time: timestamptz_comparison_exp
-    information_source: Int_comparison_exp
-    is_delete: Boolean_comparison_exp
-    is_handle: Boolean_comparison_exp
-    is_notice_driver: Boolean_comparison_exp
-    is_send: Boolean_comparison_exp
-    measured_value: String_comparison_exp
-    notice_time: timestamptz_comparison_exp
-    party_name: String_comparison_exp
-    payment_mark: Int_comparison_exp
-    standard_value: String_comparison_exp
-    update_time_in: timestamptz_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
-    vehicle_id: String_comparison_exp
-    vehicle_information: String_comparison_exp
-    violation_detail_id: String_comparison_exp
+type VehicleViolationDetailsStddevPopFields {
+	id: Bigint
+	illegal_handling_status: Int
+	payment_mark: Int
+	information_source: Int
 }
-
 """
-unique or primary key constraints on table "vehicle_violation_details"
+aggregate stddev_samp on columns of table "vehicle_violation_details"
 """
-enum vehicle_violation_details_constraint {
-    """unique or primary key constraint"""
-    vehicle_violation_details_pkey
+type VehicleViolationDetailsStddevSampFields {
+	id: Bigint
+	illegal_handling_status: Int
+	payment_mark: Int
+	information_source: Int
 }
-
 """
-input type for incrementing integer column in table "vehicle_violation_details"
+aggregate sum on columns of table "vehicle_violation_details"
 """
-input vehicle_violation_details_inc_input {
-    id: bigint
-    illegal_handling_status: Int
-    information_source: Int
-    payment_mark: Int
+type VehicleViolationDetailsSumFields {
+	id: Bigint
+	illegal_handling_status: Int
+	payment_mark: Int
+	information_source: Int
 }
-
 """
-input type for inserting data into table "vehicle_violation_details"
+aggregate var_pop on columns of table "vehicle_violation_details"
 """
-input vehicle_violation_details_insert_input {
-    created_at: timestamptz
-    created_by: String
-    decision_number: String
-    deleted_at: timestamptz
-    deleted_by: String
-    discovery_agency: String
-    driver_id: String
-    enterprise_id: String
-    handle_at: timestamptz
-    handle_by: String
-    id: bigint
-    illegal_code: String
-    illegal_handling_status: Int
-    illegal_location: String
-    illegal_photo: String
-    illegal_time: timestamptz
-    information_source: Int
-    is_delete: Boolean
-    is_handle: Boolean
-    is_notice_driver: Boolean
-    is_send: Boolean
-    measured_value: String
-    notice_time: timestamptz
-    party_name: String
-    payment_mark: Int
-    standard_value: String
-    update_time_in: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    vehicle_information: String
-    violation_detail_id: String
+type VehicleViolationDetailsVarPopFields {
+	id: Bigint
+	illegal_handling_status: Int
+	payment_mark: Int
+	information_source: Int
 }
-
-"""aggregate max on columns"""
-type vehicle_violation_details_max_fields {
-    created_at: timestamptz
-    created_by: String
-    decision_number: String
-    deleted_at: timestamptz
-    deleted_by: String
-    discovery_agency: String
-    driver_id: String
-    enterprise_id: String
-    handle_at: timestamptz
-    handle_by: String
-    id: bigint
-    illegal_code: String
-    illegal_handling_status: Int
-    illegal_location: String
-    illegal_photo: String
-    illegal_time: timestamptz
-    information_source: Int
-    measured_value: String
-    notice_time: timestamptz
-    party_name: String
-    payment_mark: Int
-    standard_value: String
-    update_time_in: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    vehicle_information: String
-    violation_detail_id: String
-}
-
 """
-order by max() on columns of table "vehicle_violation_details"
+aggregate var_samp on columns of table "vehicle_violation_details"
 """
-input vehicle_violation_details_max_order_by {
-    created_at: order_by
-    created_by: order_by
-    decision_number: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    discovery_agency: order_by
-    driver_id: order_by
-    enterprise_id: order_by
-    handle_at: order_by
-    handle_by: order_by
-    id: order_by
-    illegal_code: order_by
-    illegal_handling_status: order_by
-    illegal_location: order_by
-    illegal_photo: order_by
-    illegal_time: order_by
-    information_source: order_by
-    measured_value: order_by
-    notice_time: order_by
-    party_name: order_by
-    payment_mark: order_by
-    standard_value: order_by
-    update_time_in: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    vehicle_information: order_by
-    violation_detail_id: order_by
+type VehicleViolationDetailsVarSampFields {
+	id: Bigint
+	illegal_handling_status: Int
+	payment_mark: Int
+	information_source: Int
 }
-
-"""aggregate min on columns"""
-type vehicle_violation_details_min_fields {
-    created_at: timestamptz
-    created_by: String
-    decision_number: String
-    deleted_at: timestamptz
-    deleted_by: String
-    discovery_agency: String
-    driver_id: String
-    enterprise_id: String
-    handle_at: timestamptz
-    handle_by: String
-    id: bigint
-    illegal_code: String
-    illegal_handling_status: Int
-    illegal_location: String
-    illegal_photo: String
-    illegal_time: timestamptz
-    information_source: Int
-    measured_value: String
-    notice_time: timestamptz
-    party_name: String
-    payment_mark: Int
-    standard_value: String
-    update_time_in: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    vehicle_information: String
-    violation_detail_id: String
-}
-
 """
-order by min() on columns of table "vehicle_violation_details"
+aggregate variance on columns of table "vehicle_violation_details"
 """
-input vehicle_violation_details_min_order_by {
-    created_at: order_by
-    created_by: order_by
-    decision_number: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    discovery_agency: order_by
-    driver_id: order_by
-    enterprise_id: order_by
-    handle_at: order_by
-    handle_by: order_by
-    id: order_by
-    illegal_code: order_by
-    illegal_handling_status: order_by
-    illegal_location: order_by
-    illegal_photo: order_by
-    illegal_time: order_by
-    information_source: order_by
-    measured_value: order_by
-    notice_time: order_by
-    party_name: order_by
-    payment_mark: order_by
-    standard_value: order_by
-    update_time_in: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    vehicle_information: order_by
-    violation_detail_id: order_by
+type VehicleViolationDetailsVarianceFields {
+	id: Bigint
+	illegal_handling_status: Int
+	payment_mark: Int
+	information_source: Int
 }
-
 """
 response of any mutation on the table "vehicle_violation_details"
 """
-type vehicle_violation_details_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [vehicle_violation_details!]!
+type VehicleViolationDetailsMutationResponse {
+	affected_rows: Int!
+	returning: [VehicleViolationDetails!]!
 }
-
-"""
-input type for inserting object relation for remote table "vehicle_violation_details"
-"""
-input vehicle_violation_details_obj_rel_insert_input {
-    data: vehicle_violation_details_insert_input!
-    on_conflict: vehicle_violation_details_on_conflict
-}
-
-"""
-on conflict condition type for table "vehicle_violation_details"
-"""
-input vehicle_violation_details_on_conflict {
-    constraint: vehicle_violation_details_constraint!
-    update_columns: [vehicle_violation_details_update_column!]!
-    where: vehicle_violation_details_bool_exp
-}
-
 """
 ordering options when selecting data from "vehicle_violation_details"
 """
-input vehicle_violation_details_order_by {
-    created_at: order_by
-    created_by: order_by
-    decision_number: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    discovery_agency: order_by
-    driver_id: order_by
-    enterprise_id: order_by
-    handle_at: order_by
-    handle_by: order_by
-    id: order_by
-    illegal_code: order_by
-    illegal_handling_status: order_by
-    illegal_location: order_by
-    illegal_photo: order_by
-    illegal_time: order_by
-    information_source: order_by
-    is_delete: order_by
-    is_handle: order_by
-    is_notice_driver: order_by
-    is_send: order_by
-    measured_value: order_by
-    notice_time: order_by
-    party_name: order_by
-    payment_mark: order_by
-    standard_value: order_by
-    update_time_in: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    vehicle_information: order_by
-    violation_detail_id: order_by
+input VehicleViolationDetailsOrderBy {
+	id: OrderBy
+	violation_detail_id: OrderBy
+	vehicle_id: OrderBy
+	driver_id: OrderBy
+	enterprise_id: OrderBy
+	illegal_code: OrderBy
+	illegal_time: OrderBy
+	illegal_handling_status: OrderBy
+	illegal_location: OrderBy
+	standard_value: OrderBy
+	measured_value: OrderBy
+	discovery_agency: OrderBy
+	illegal_photo: OrderBy
+	is_notice_driver: OrderBy
+	notice_time: OrderBy
+	decision_number: OrderBy
+	payment_mark: OrderBy
+	party_name: OrderBy
+	information_source: OrderBy
+	vehicle_information: OrderBy
+	update_time_in: OrderBy
+	is_handle: OrderBy
+	handle_by: OrderBy
+	handle_at: OrderBy
+	is_send: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-primary key columns input for table: "vehicle_violation_details"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_violation_details'.
 """
-input vehicle_violation_details_pk_columns_input {
-    """主键"""
-    id: bigint!
+input VehicleViolationDetailsBoolExp {
+	_and: [VehicleViolationDetailsBoolExp]
+	_not: VehicleViolationDetailsBoolExp
+	_or: [VehicleViolationDetailsBoolExp]
+	id: BigintComparisonExp
+	violation_detail_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	driver_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	illegal_code: StringComparisonExp
+	illegal_time: TimestamptzComparisonExp
+	illegal_handling_status: IntComparisonExp
+	illegal_location: StringComparisonExp
+	standard_value: StringComparisonExp
+	measured_value: StringComparisonExp
+	discovery_agency: StringComparisonExp
+	illegal_photo: StringComparisonExp
+	is_notice_driver: BooleanComparisonExp
+	notice_time: TimestamptzComparisonExp
+	decision_number: StringComparisonExp
+	payment_mark: IntComparisonExp
+	party_name: StringComparisonExp
+	information_source: IntComparisonExp
+	vehicle_information: StringComparisonExp
+	update_time_in: TimestamptzComparisonExp
+	is_handle: BooleanComparisonExp
+	handle_by: StringComparisonExp
+	handle_at: TimestamptzComparisonExp
+	is_send: BooleanComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
 """
-select columns of table "vehicle_violation_details"
+input type for inserting data into table "vehicle_violation_details"
 """
-enum vehicle_violation_details_select_column {
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    decision_number
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    discovery_agency
-
-    """column name"""
-    driver_id
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    handle_at
-
-    """column name"""
-    handle_by
-
-    """column name"""
-    id
-
-    """column name"""
-    illegal_code
-
-    """column name"""
-    illegal_handling_status
-
-    """column name"""
-    illegal_location
-
-    """column name"""
-    illegal_photo
-
-    """column name"""
-    illegal_time
-
-    """column name"""
-    information_source
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_handle
-
-    """column name"""
-    is_notice_driver
-
-    """column name"""
-    is_send
-
-    """column name"""
-    measured_value
-
-    """column name"""
-    notice_time
-
-    """column name"""
-    party_name
-
-    """column name"""
-    payment_mark
-
-    """column name"""
-    standard_value
-
-    """column name"""
-    update_time_in
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    vehicle_information
-
-    """column name"""
-    violation_detail_id
+input VehicleViolationDetailsInsertInput {
+	id: Bigint
+	violation_detail_id: String
+	vehicle_id: String
+	driver_id: String
+	enterprise_id: String
+	illegal_code: String
+	illegal_time: Timestamptz
+	illegal_handling_status: Int
+	illegal_location: String
+	standard_value: String
+	measured_value: String
+	discovery_agency: String
+	illegal_photo: String
+	is_notice_driver: Boolean
+	notice_time: Timestamptz
+	decision_number: String
+	payment_mark: Int
+	party_name: String
+	information_source: Int
+	vehicle_information: String
+	update_time_in: Timestamptz
+	is_handle: Boolean
+	handle_by: String
+	handle_at: Timestamptz
+	is_send: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
+"""
+input type for incrementing integer column in table "vehicle_violation_details"
+"""
+input VehicleViolationDetailsIncInput {
+	id: Bigint
+	illegal_handling_status: Int
+	payment_mark: Int
+	information_source: Int
+}
 """
 input type for updating data in table "vehicle_violation_details"
 """
-input vehicle_violation_details_set_input {
-    created_at: timestamptz
-    created_by: String
-    decision_number: String
-    deleted_at: timestamptz
-    deleted_by: String
-    discovery_agency: String
-    driver_id: String
-    enterprise_id: String
-    handle_at: timestamptz
-    handle_by: String
-    id: bigint
-    illegal_code: String
-    illegal_handling_status: Int
-    illegal_location: String
-    illegal_photo: String
-    illegal_time: timestamptz
-    information_source: Int
-    is_delete: Boolean
-    is_handle: Boolean
-    is_notice_driver: Boolean
-    is_send: Boolean
-    measured_value: String
-    notice_time: timestamptz
-    party_name: String
-    payment_mark: Int
-    standard_value: String
-    update_time_in: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    vehicle_information: String
-    violation_detail_id: String
+input VehicleViolationDetailsSetInput {
+	id: Bigint
+	violation_detail_id: String
+	vehicle_id: String
+	driver_id: String
+	enterprise_id: String
+	illegal_code: String
+	illegal_time: Timestamptz
+	illegal_handling_status: Int
+	illegal_location: String
+	standard_value: String
+	measured_value: String
+	discovery_agency: String
+	illegal_photo: String
+	is_notice_driver: Boolean
+	notice_time: Timestamptz
+	decision_number: String
+	payment_mark: Int
+	party_name: String
+	information_source: Int
+	vehicle_information: String
+	update_time_in: Timestamptz
+	is_handle: Boolean
+	handle_by: String
+	handle_at: Timestamptz
+	is_send: Boolean
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type vehicle_violation_details_stddev_fields {
-    id: Float
-    illegal_handling_status: Float
-    information_source: Float
-    payment_mark: Float
+"""
+可选select
+"""
+enum VehicleViolationDetailsSelectColumn {
+	"""
+	 按指定方法生成                                              ( 主键                                                         )
+	"""
+	id
+	"""
+	 车辆违章明细外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	violation_detail_id
+	"""
+	 违章车辆id                                                  ( vehicle_info表的vehicle_id                               )
+	"""
+	vehicle_id
+	"""
+	 违章驾驶员id                                                ( driver_info表的driver_id                                 )
+	"""
+	driver_id
+	"""
+	 所在企业id                                                  ( enterprise_info表的enterprise_id                         )
+	"""
+	enterprise_id
+	"""
+	 违法代码                                                    ( VIO_CODEWFDM 违法描述字典表                              )
+	"""
+	illegal_code
+	"""
+	 违法时间                                                    (                                                              )
+	"""
+	illegal_time
+	"""
+	 违法处理状态                                                ( 车辆违法处理状态字典                                     )
+	"""
+	illegal_handling_status
+	"""
+	 违法地点                                                    (                                                              )
+	"""
+	illegal_location
+	"""
+	 标准值                                                      ( 路段的限速阈值或核载的人数，根据违法的种类不同而不同。       )
+	"""
+	standard_value
+	"""
+	 实测值                                                      ( 车辆实际行驶的车速或实际载的人数，根据违法的种类不同而不同。 )
+	"""
+	measured_value
+	"""
+	 发现机构                                                    (                                                              )
+	"""
+	discovery_agency
+	"""
+	 违法照片                                                    (                                                              )
+	"""
+	illegal_photo
+	"""
+	 是否通知驾驶员                                              (                                                              )
+	"""
+	is_notice_driver
+	"""
+	 通知时间                                                    (                                                              )
+	"""
+	notice_time
+	"""
+	 决定书号                                                    (                                                              )
+	"""
+	decision_number
+	"""
+	 缴款标记                                                    ( 是否缴款字典                                             )
+	"""
+	payment_mark
+	"""
+	 当事人姓名                                                  (                                                              )
+	"""
+	party_name
+	"""
+	 信息来源：1，强制，2，非现场，0，简易                       ( 信息来源字典表                                           )
+	"""
+	information_source
+	"""
+	 驾驶人处理的交通违法记录对应的机动车信息                    (                                                              )
+	"""
+	vehicle_information
+	"""
+	 内网更新时间                                                (                                                              )
+	"""
+	update_time_in
+	"""
+	 是否处理                                                    (                                                              )
+	"""
+	is_handle
+	"""
+	 处理人                                                      ( system_user表的user_id                                   )
+	"""
+	handle_by
+	"""
+	 处理时间                                                    (                                                              )
+	"""
+	handle_at
+	"""
+	 是否发送短信                                                (                                                              )
+	"""
+	is_send
+	"""
+	 是否删除                                                    (                                                              )
+	"""
+	is_deleted
+	"""
+	 创建时间                                                    (                                                              )
+	"""
+	created_at
+	"""
+	 创建人                                                      ( system_user表的user_id                                   )
+	"""
+	created_by
+	"""
+	 修改时间                                                    (                                                              )
+	"""
+	updated_at
+	"""
+	 修改人                                                      ( system_user表的user_id                                   )
+	"""
+	updated_by
+	"""
+	 删除时间                                                    (                                                              )
+	"""
+	deleted_at
+	"""
+	 删除人                                                      ( system_user表的user_id                                   )
+	"""
+	deleted_by
 }
-
-"""
-order by stddev() on columns of table "vehicle_violation_details"
-"""
-input vehicle_violation_details_stddev_order_by {
-    id: order_by
-    illegal_handling_status: order_by
-    information_source: order_by
-    payment_mark: order_by
+extend type Query {
+	"""
+	列表查询
+	"""
+	vehicle_violation_details(distinct_on: [VehicleViolationDetailsSelectColumn!], limit: Int, offset: Int, order_by: [VehicleViolationDetailsOrderBy!], where: VehicleViolationDetailsBoolExp): [VehicleViolationDetails!]!
+	"""
+	聚合查询
+	"""
+	vehicle_violation_details_aggregate(distinct_on: [VehicleViolationDetailsSelectColumn!], limit: Int, offset: Int, order_by: [VehicleViolationDetailsOrderBy!], where: VehicleViolationDetailsBoolExp): VehicleViolationDetailsAggregate!
+	"""
+	主键查询
+	"""
+	vehicle_violation_details_by_pk(id: Bigint!): VehicleViolationDetails!
 }
-
-"""aggregate stddev_pop on columns"""
-type vehicle_violation_details_stddev_pop_fields {
-    id: Float
-    illegal_handling_status: Float
-    information_source: Float
-    payment_mark: Float
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_vehicle_violation_details(where: VehicleViolationDetailsBoolExp!): VehicleViolationDetailsMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_vehicle_violation_details_by_pk(id: Bigint!): VehicleViolationDetails
+	"""
+	插入
+	"""
+	insert_vehicle_violation_details(objects: [VehicleViolationDetailsInsertInput!]!): VehicleViolationDetailsMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_vehicle_violation_details_one(objects: VehicleViolationDetailsInsertInput!): VehicleViolationDetails
+	"""
+	更新
+	"""
+	update_vehicle_violation_details(_inc: VehicleViolationDetailsIncInput, _set: VehicleViolationDetailsSetInput, where: VehicleViolationDetailsBoolExp!): VehicleViolationDetailsMutationResponse
+	"""
+	更新
+	"""
+	update_vehicle_violation_details_by_pk(_inc: VehicleViolationDetailsIncInput, _set: VehicleViolationDetailsSetInput, id: Bigint!): VehicleViolationDetails
 }
-
-"""
-order by stddev_pop() on columns of table "vehicle_violation_details"
-"""
-input vehicle_violation_details_stddev_pop_order_by {
-    id: order_by
-    illegal_handling_status: order_by
-    information_source: order_by
-    payment_mark: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type vehicle_violation_details_stddev_samp_fields {
-    id: Float
-    illegal_handling_status: Float
-    information_source: Float
-    payment_mark: Float
-}
-
-"""
-order by stddev_samp() on columns of table "vehicle_violation_details"
-"""
-input vehicle_violation_details_stddev_samp_order_by {
-    id: order_by
-    illegal_handling_status: order_by
-    information_source: order_by
-    payment_mark: order_by
-}
-
-"""aggregate sum on columns"""
-type vehicle_violation_details_sum_fields {
-    id: bigint
-    illegal_handling_status: Int
-    information_source: Int
-    payment_mark: Int
-}
-
-"""
-order by sum() on columns of table "vehicle_violation_details"
-"""
-input vehicle_violation_details_sum_order_by {
-    id: order_by
-    illegal_handling_status: order_by
-    information_source: order_by
-    payment_mark: order_by
-}
-
-"""
-update columns of table "vehicle_violation_details"
-"""
-enum vehicle_violation_details_update_column {
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    decision_number
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    discovery_agency
-
-    """column name"""
-    driver_id
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    handle_at
-
-    """column name"""
-    handle_by
-
-    """column name"""
-    id
-
-    """column name"""
-    illegal_code
-
-    """column name"""
-    illegal_handling_status
-
-    """column name"""
-    illegal_location
-
-    """column name"""
-    illegal_photo
-
-    """column name"""
-    illegal_time
-
-    """column name"""
-    information_source
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_handle
-
-    """column name"""
-    is_notice_driver
-
-    """column name"""
-    is_send
-
-    """column name"""
-    measured_value
-
-    """column name"""
-    notice_time
-
-    """column name"""
-    party_name
-
-    """column name"""
-    payment_mark
-
-    """column name"""
-    standard_value
-
-    """column name"""
-    update_time_in
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    vehicle_information
-
-    """column name"""
-    violation_detail_id
-}
-
-"""aggregate var_pop on columns"""
-type vehicle_violation_details_var_pop_fields {
-    id: Float
-    illegal_handling_status: Float
-    information_source: Float
-    payment_mark: Float
-}
-
-"""
-order by var_pop() on columns of table "vehicle_violation_details"
-"""
-input vehicle_violation_details_var_pop_order_by {
-    id: order_by
-    illegal_handling_status: order_by
-    information_source: order_by
-    payment_mark: order_by
-}
-
-"""aggregate var_samp on columns"""
-type vehicle_violation_details_var_samp_fields {
-    id: Float
-    illegal_handling_status: Float
-    information_source: Float
-    payment_mark: Float
-}
-
-"""
-order by var_samp() on columns of table "vehicle_violation_details"
-"""
-input vehicle_violation_details_var_samp_order_by {
-    id: order_by
-    illegal_handling_status: order_by
-    information_source: order_by
-    payment_mark: order_by
-}
-
-"""aggregate variance on columns"""
-type vehicle_violation_details_variance_fields {
-    id: Float
-    illegal_handling_status: Float
-    information_source: Float
-    payment_mark: Float
-}
-
-"""
-order by variance() on columns of table "vehicle_violation_details"
-"""
-input vehicle_violation_details_variance_order_by {
-    id: order_by
-    illegal_handling_status: order_by
-    information_source: order_by
-    payment_mark: order_by
-}
-

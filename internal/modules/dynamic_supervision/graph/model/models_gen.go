@@ -3,6 +3,7 @@
 package model
 
 import (
+	model1 "VehicleSupervision/internal/modules/dynamic_supervision/model"
 	"VehicleSupervision/pkg/graphql/model"
 	"fmt"
 	"io"
@@ -10,23 +11,9 @@ import (
 	"time"
 )
 
-// expression to compare columns of type _text. All fields are combined with logical 'AND'.
-type TextComparisonExp struct {
-	Eq     *string  `json:"_eq"`
-	Gt     *string  `json:"_gt"`
-	Gte    *string  `json:"_gte"`
-	In     []string `json:"_in"`
-	IsNull *bool    `json:"_is_null"`
-	Lt     *string  `json:"_lt"`
-	Lte    *string  `json:"_lte"`
-	Neq    *string  `json:"_neq"`
-	Nin    []string `json:"_nin"`
-}
-
 // aggregated selection of "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalAggregate struct {
 	Aggregate *DynamicSpotCheckDisposalAggregateFields `json:"aggregate"`
-	Nodes     []*DynamicSpotCheckDisposal              `json:"nodes"`
 }
 
 // aggregate fields of "dynamic_spot_check_disposal"
@@ -44,392 +31,258 @@ type DynamicSpotCheckDisposalAggregateFields struct {
 	Variance   *DynamicSpotCheckDisposalVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalAggregateOrderBy struct {
-	Avg        *DynamicSpotCheckDisposalAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                             `json:"count"`
-	Max        *DynamicSpotCheckDisposalMaxOrderBy        `json:"max"`
-	Min        *DynamicSpotCheckDisposalMinOrderBy        `json:"min"`
-	Stddev     *DynamicSpotCheckDisposalStddevOrderBy     `json:"stddev"`
-	StddevPop  *DynamicSpotCheckDisposalStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DynamicSpotCheckDisposalStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DynamicSpotCheckDisposalSumOrderBy        `json:"sum"`
-	VarPop     *DynamicSpotCheckDisposalVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DynamicSpotCheckDisposalVarSampOrderBy    `json:"var_samp"`
-	Variance   *DynamicSpotCheckDisposalVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalArrRelInsertInput struct {
-	Data       []*DynamicSpotCheckDisposalInsertInput `json:"data"`
-	OnConflict *DynamicSpotCheckDisposalOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalAvgFields struct {
-	DisposalMethod *float64 `json:"disposal_method"`
-	ID             *float64 `json:"id"`
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
 }
 
-// order by avg() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalAvgOrderBy struct {
-	DisposalMethod *model.OrderBy `json:"disposal_method"`
-	ID             *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "dynamic_spot_check_disposal".
-// All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'dynamic_spot_check_disposal'.
 type DynamicSpotCheckDisposalBoolExp struct {
 	And                           []*DynamicSpotCheckDisposalBoolExp `json:"_and"`
 	Not                           *DynamicSpotCheckDisposalBoolExp   `json:"_not"`
 	Or                            []*DynamicSpotCheckDisposalBoolExp `json:"_or"`
+	ID                            *model.BigintComparisonExp         `json:"id"`
+	VehicleID                     *model.StringComparisonExp         `json:"vehicle_id"`
+	EnterpriseID                  *model.StringComparisonExp         `json:"enterprise_id"`
+	Telephone                     *model.StringComparisonExp         `json:"telephone"`
+	SendTime                      *model.TimestamptzComparisonExp    `json:"send_time"`
+	SupervisionDetailID           *model.StringComparisonExp         `json:"supervision_detail_id"`
+	ImageAbnormalHandingMeasure   *model.StringComparisonExp         `json:"image_abnormal_handing_measure"`
+	FeedbackTime                  *model.TimestamptzComparisonExp    `json:"feedback_time"`
+	TachographDataDisposalMeasure *model.StringComparisonExp         `json:"tachograph_data_disposal_measure"`
+	OperationUser                 *model.StringComparisonExp         `json:"operation_user"`
+	IsSmsPush                     *model.BooleanComparisonExp        `json:"is_sms_push"`
+	IsNotify                      *model.BooleanComparisonExp        `json:"is_notify"`
+	IsAnnounce                    *model.BooleanComparisonExp        `json:"is_announce"`
+	IsAppPush                     *model.BooleanComparisonExp        `json:"is_app_push"`
+	NotifyContent                 *model.StringComparisonExp         `json:"notify_content"`
 	AnnounceContent               *model.StringComparisonExp         `json:"announce_content"`
 	AppPushContent                *model.StringComparisonExp         `json:"app_push_content"`
-	CreatedAt                     *model.TimestamptzComparisonExp    `json:"created_at"`
-	CreatedBy                     *model.StringComparisonExp         `json:"created_by"`
-	DeletedAt                     *model.TimestamptzComparisonExp    `json:"deleted_at"`
-	DeletedBy                     *model.StringComparisonExp         `json:"deleted_by"`
 	DisposalContent               *model.StringComparisonExp         `json:"disposal_content"`
 	DisposalMethod                *model.IntComparisonExp            `json:"disposal_method"`
 	DisposalResult                *model.StringComparisonExp         `json:"disposal_result"`
-	EnterpriseID                  *model.StringComparisonExp         `json:"enterprise_id"`
-	FeedbackTime                  *model.TimestamptzComparisonExp    `json:"feedback_time"`
-	ID                            *model.BigintComparisonExp         `json:"id"`
-	ImageAbnormalHandingMeasure   *model.StringComparisonExp         `json:"image_abnormal_handing_measure"`
-	IsAnnounce                    *model.BooleanComparisonExp        `json:"is_announce"`
-	IsAppPush                     *model.BooleanComparisonExp        `json:"is_app_push"`
-	IsDelete                      *model.BooleanComparisonExp        `json:"is_delete"`
-	IsNotify                      *model.BooleanComparisonExp        `json:"is_notify"`
-	IsSmsPush                     *model.BooleanComparisonExp        `json:"is_sms_push"`
-	NotifyContent                 *model.StringComparisonExp         `json:"notify_content"`
-	OperationUser                 *model.StringComparisonExp         `json:"operation_user"`
-	SendTime                      *model.TimestamptzComparisonExp    `json:"send_time"`
-	SupervisionDetailID           *model.StringComparisonExp         `json:"supervision_detail_id"`
-	TachographDataDisposalMeasure *model.StringComparisonExp         `json:"tachograph_data_disposal_measure"`
-	Telephone                     *model.StringComparisonExp         `json:"telephone"`
+	IsDeleted                     *model.BooleanComparisonExp        `json:"is_deleted"`
+	CreatedAt                     *model.TimestamptzComparisonExp    `json:"created_at"`
+	CreatedBy                     *model.StringComparisonExp         `json:"created_by"`
 	UpdatedAt                     *model.TimestamptzComparisonExp    `json:"updated_at"`
 	UpdatedBy                     *model.StringComparisonExp         `json:"updated_by"`
-	VehicleID                     *model.StringComparisonExp         `json:"vehicle_id"`
+	DeletedAt                     *model.TimestamptzComparisonExp    `json:"deleted_at"`
+	DeletedBy                     *model.StringComparisonExp         `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalIncInput struct {
-	DisposalMethod *int   `json:"disposal_method"`
 	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
 }
 
 // input type for inserting data into table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalInsertInput struct {
-	AnnounceContent               *string    `json:"announce_content"`
-	AppPushContent                *string    `json:"app_push_content"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
-	DisposalContent               *string    `json:"disposal_content"`
-	DisposalMethod                *int       `json:"disposal_method"`
-	DisposalResult                *string    `json:"disposal_result"`
-	EnterpriseID                  *string    `json:"enterprise_id"`
-	FeedbackTime                  *time.Time `json:"feedback_time"`
 	ID                            *int64     `json:"id"`
+	VehicleID                     *string    `json:"vehicle_id"`
+	EnterpriseID                  *string    `json:"enterprise_id"`
+	Telephone                     *string    `json:"telephone"`
+	SendTime                      *time.Time `json:"send_time"`
+	SupervisionDetailID           *string    `json:"supervision_detail_id"`
 	ImageAbnormalHandingMeasure   *string    `json:"image_abnormal_handing_measure"`
+	FeedbackTime                  *time.Time `json:"feedback_time"`
+	TachographDataDisposalMeasure *string    `json:"tachograph_data_disposal_measure"`
+	OperationUser                 *string    `json:"operation_user"`
+	IsSmsPush                     *bool      `json:"is_sms_push"`
+	IsNotify                      *bool      `json:"is_notify"`
 	IsAnnounce                    *bool      `json:"is_announce"`
 	IsAppPush                     *bool      `json:"is_app_push"`
-	IsDelete                      *bool      `json:"is_delete"`
-	IsNotify                      *bool      `json:"is_notify"`
-	IsSmsPush                     *bool      `json:"is_sms_push"`
 	NotifyContent                 *string    `json:"notify_content"`
-	OperationUser                 *string    `json:"operation_user"`
-	SendTime                      *time.Time `json:"send_time"`
-	SupervisionDetailID           *string    `json:"supervision_detail_id"`
-	TachographDataDisposalMeasure *string    `json:"tachograph_data_disposal_measure"`
-	Telephone                     *string    `json:"telephone"`
+	AnnounceContent               *string    `json:"announce_content"`
+	AppPushContent                *string    `json:"app_push_content"`
+	DisposalContent               *string    `json:"disposal_content"`
+	DisposalMethod                *int       `json:"disposal_method"`
+	DisposalResult                *string    `json:"disposal_result"`
+	IsDeleted                     *bool      `json:"is_deleted"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
-	VehicleID                     *string    `json:"vehicle_id"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalMaxFields struct {
+	ID                            *int64     `json:"id"`
+	VehicleID                     *string    `json:"vehicle_id"`
+	EnterpriseID                  *string    `json:"enterprise_id"`
+	Telephone                     *string    `json:"telephone"`
+	SendTime                      *time.Time `json:"send_time"`
+	SupervisionDetailID           *string    `json:"supervision_detail_id"`
+	ImageAbnormalHandingMeasure   *string    `json:"image_abnormal_handing_measure"`
+	FeedbackTime                  *time.Time `json:"feedback_time"`
+	TachographDataDisposalMeasure *string    `json:"tachograph_data_disposal_measure"`
+	OperationUser                 *string    `json:"operation_user"`
+	IsSmsPush                     *bool      `json:"is_sms_push"`
+	IsNotify                      *bool      `json:"is_notify"`
+	IsAnnounce                    *bool      `json:"is_announce"`
+	IsAppPush                     *bool      `json:"is_app_push"`
+	NotifyContent                 *string    `json:"notify_content"`
 	AnnounceContent               *string    `json:"announce_content"`
 	AppPushContent                *string    `json:"app_push_content"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
 	DisposalContent               *string    `json:"disposal_content"`
 	DisposalMethod                *int       `json:"disposal_method"`
 	DisposalResult                *string    `json:"disposal_result"`
-	EnterpriseID                  *string    `json:"enterprise_id"`
-	FeedbackTime                  *time.Time `json:"feedback_time"`
-	ID                            *int64     `json:"id"`
-	ImageAbnormalHandingMeasure   *string    `json:"image_abnormal_handing_measure"`
-	NotifyContent                 *string    `json:"notify_content"`
-	OperationUser                 *string    `json:"operation_user"`
-	SendTime                      *time.Time `json:"send_time"`
-	SupervisionDetailID           *string    `json:"supervision_detail_id"`
-	TachographDataDisposalMeasure *string    `json:"tachograph_data_disposal_measure"`
-	Telephone                     *string    `json:"telephone"`
+	IsDeleted                     *bool      `json:"is_deleted"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
-	VehicleID                     *string    `json:"vehicle_id"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalMaxOrderBy struct {
-	AnnounceContent               *model.OrderBy `json:"announce_content"`
-	AppPushContent                *model.OrderBy `json:"app_push_content"`
-	CreatedAt                     *model.OrderBy `json:"created_at"`
-	CreatedBy                     *model.OrderBy `json:"created_by"`
-	DeletedAt                     *model.OrderBy `json:"deleted_at"`
-	DeletedBy                     *model.OrderBy `json:"deleted_by"`
-	DisposalContent               *model.OrderBy `json:"disposal_content"`
-	DisposalMethod                *model.OrderBy `json:"disposal_method"`
-	DisposalResult                *model.OrderBy `json:"disposal_result"`
-	EnterpriseID                  *model.OrderBy `json:"enterprise_id"`
-	FeedbackTime                  *model.OrderBy `json:"feedback_time"`
-	ID                            *model.OrderBy `json:"id"`
-	ImageAbnormalHandingMeasure   *model.OrderBy `json:"image_abnormal_handing_measure"`
-	NotifyContent                 *model.OrderBy `json:"notify_content"`
-	OperationUser                 *model.OrderBy `json:"operation_user"`
-	SendTime                      *model.OrderBy `json:"send_time"`
-	SupervisionDetailID           *model.OrderBy `json:"supervision_detail_id"`
-	TachographDataDisposalMeasure *model.OrderBy `json:"tachograph_data_disposal_measure"`
-	Telephone                     *model.OrderBy `json:"telephone"`
-	UpdatedAt                     *model.OrderBy `json:"updated_at"`
-	UpdatedBy                     *model.OrderBy `json:"updated_by"`
-	VehicleID                     *model.OrderBy `json:"vehicle_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalMinFields struct {
+	ID                            *int64     `json:"id"`
+	VehicleID                     *string    `json:"vehicle_id"`
+	EnterpriseID                  *string    `json:"enterprise_id"`
+	Telephone                     *string    `json:"telephone"`
+	SendTime                      *time.Time `json:"send_time"`
+	SupervisionDetailID           *string    `json:"supervision_detail_id"`
+	ImageAbnormalHandingMeasure   *string    `json:"image_abnormal_handing_measure"`
+	FeedbackTime                  *time.Time `json:"feedback_time"`
+	TachographDataDisposalMeasure *string    `json:"tachograph_data_disposal_measure"`
+	OperationUser                 *string    `json:"operation_user"`
+	IsSmsPush                     *bool      `json:"is_sms_push"`
+	IsNotify                      *bool      `json:"is_notify"`
+	IsAnnounce                    *bool      `json:"is_announce"`
+	IsAppPush                     *bool      `json:"is_app_push"`
+	NotifyContent                 *string    `json:"notify_content"`
 	AnnounceContent               *string    `json:"announce_content"`
 	AppPushContent                *string    `json:"app_push_content"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
 	DisposalContent               *string    `json:"disposal_content"`
 	DisposalMethod                *int       `json:"disposal_method"`
 	DisposalResult                *string    `json:"disposal_result"`
-	EnterpriseID                  *string    `json:"enterprise_id"`
-	FeedbackTime                  *time.Time `json:"feedback_time"`
-	ID                            *int64     `json:"id"`
-	ImageAbnormalHandingMeasure   *string    `json:"image_abnormal_handing_measure"`
-	NotifyContent                 *string    `json:"notify_content"`
-	OperationUser                 *string    `json:"operation_user"`
-	SendTime                      *time.Time `json:"send_time"`
-	SupervisionDetailID           *string    `json:"supervision_detail_id"`
-	TachographDataDisposalMeasure *string    `json:"tachograph_data_disposal_measure"`
-	Telephone                     *string    `json:"telephone"`
+	IsDeleted                     *bool      `json:"is_deleted"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
-	VehicleID                     *string    `json:"vehicle_id"`
-}
-
-// order by min() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalMinOrderBy struct {
-	AnnounceContent               *model.OrderBy `json:"announce_content"`
-	AppPushContent                *model.OrderBy `json:"app_push_content"`
-	CreatedAt                     *model.OrderBy `json:"created_at"`
-	CreatedBy                     *model.OrderBy `json:"created_by"`
-	DeletedAt                     *model.OrderBy `json:"deleted_at"`
-	DeletedBy                     *model.OrderBy `json:"deleted_by"`
-	DisposalContent               *model.OrderBy `json:"disposal_content"`
-	DisposalMethod                *model.OrderBy `json:"disposal_method"`
-	DisposalResult                *model.OrderBy `json:"disposal_result"`
-	EnterpriseID                  *model.OrderBy `json:"enterprise_id"`
-	FeedbackTime                  *model.OrderBy `json:"feedback_time"`
-	ID                            *model.OrderBy `json:"id"`
-	ImageAbnormalHandingMeasure   *model.OrderBy `json:"image_abnormal_handing_measure"`
-	NotifyContent                 *model.OrderBy `json:"notify_content"`
-	OperationUser                 *model.OrderBy `json:"operation_user"`
-	SendTime                      *model.OrderBy `json:"send_time"`
-	SupervisionDetailID           *model.OrderBy `json:"supervision_detail_id"`
-	TachographDataDisposalMeasure *model.OrderBy `json:"tachograph_data_disposal_measure"`
-	Telephone                     *model.OrderBy `json:"telephone"`
-	UpdatedAt                     *model.OrderBy `json:"updated_at"`
-	UpdatedBy                     *model.OrderBy `json:"updated_by"`
-	VehicleID                     *model.OrderBy `json:"vehicle_id"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DynamicSpotCheckDisposal `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalObjRelInsertInput struct {
-	Data       *DynamicSpotCheckDisposalInsertInput `json:"data"`
-	OnConflict *DynamicSpotCheckDisposalOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalOnConflict struct {
-	Constraint    DynamicSpotCheckDisposalConstraint     `json:"constraint"`
-	UpdateColumns []DynamicSpotCheckDisposalUpdateColumn `json:"update_columns"`
-	Where         *DynamicSpotCheckDisposalBoolExp       `json:"where"`
+	AffectedRows int                                `json:"affected_rows"`
+	Returning    []*model1.DynamicSpotCheckDisposal `json:"returning"`
 }
 
 // ordering options when selecting data from "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalOrderBy struct {
+	ID                            *model.OrderBy `json:"id"`
+	VehicleID                     *model.OrderBy `json:"vehicle_id"`
+	EnterpriseID                  *model.OrderBy `json:"enterprise_id"`
+	Telephone                     *model.OrderBy `json:"telephone"`
+	SendTime                      *model.OrderBy `json:"send_time"`
+	SupervisionDetailID           *model.OrderBy `json:"supervision_detail_id"`
+	ImageAbnormalHandingMeasure   *model.OrderBy `json:"image_abnormal_handing_measure"`
+	FeedbackTime                  *model.OrderBy `json:"feedback_time"`
+	TachographDataDisposalMeasure *model.OrderBy `json:"tachograph_data_disposal_measure"`
+	OperationUser                 *model.OrderBy `json:"operation_user"`
+	IsSmsPush                     *model.OrderBy `json:"is_sms_push"`
+	IsNotify                      *model.OrderBy `json:"is_notify"`
+	IsAnnounce                    *model.OrderBy `json:"is_announce"`
+	IsAppPush                     *model.OrderBy `json:"is_app_push"`
+	NotifyContent                 *model.OrderBy `json:"notify_content"`
 	AnnounceContent               *model.OrderBy `json:"announce_content"`
 	AppPushContent                *model.OrderBy `json:"app_push_content"`
-	CreatedAt                     *model.OrderBy `json:"created_at"`
-	CreatedBy                     *model.OrderBy `json:"created_by"`
-	DeletedAt                     *model.OrderBy `json:"deleted_at"`
-	DeletedBy                     *model.OrderBy `json:"deleted_by"`
 	DisposalContent               *model.OrderBy `json:"disposal_content"`
 	DisposalMethod                *model.OrderBy `json:"disposal_method"`
 	DisposalResult                *model.OrderBy `json:"disposal_result"`
-	EnterpriseID                  *model.OrderBy `json:"enterprise_id"`
-	FeedbackTime                  *model.OrderBy `json:"feedback_time"`
-	ID                            *model.OrderBy `json:"id"`
-	ImageAbnormalHandingMeasure   *model.OrderBy `json:"image_abnormal_handing_measure"`
-	IsAnnounce                    *model.OrderBy `json:"is_announce"`
-	IsAppPush                     *model.OrderBy `json:"is_app_push"`
-	IsDelete                      *model.OrderBy `json:"is_delete"`
-	IsNotify                      *model.OrderBy `json:"is_notify"`
-	IsSmsPush                     *model.OrderBy `json:"is_sms_push"`
-	NotifyContent                 *model.OrderBy `json:"notify_content"`
-	OperationUser                 *model.OrderBy `json:"operation_user"`
-	SendTime                      *model.OrderBy `json:"send_time"`
-	SupervisionDetailID           *model.OrderBy `json:"supervision_detail_id"`
-	TachographDataDisposalMeasure *model.OrderBy `json:"tachograph_data_disposal_measure"`
-	Telephone                     *model.OrderBy `json:"telephone"`
+	IsDeleted                     *model.OrderBy `json:"is_deleted"`
+	CreatedAt                     *model.OrderBy `json:"created_at"`
+	CreatedBy                     *model.OrderBy `json:"created_by"`
 	UpdatedAt                     *model.OrderBy `json:"updated_at"`
 	UpdatedBy                     *model.OrderBy `json:"updated_by"`
-	VehicleID                     *model.OrderBy `json:"vehicle_id"`
-}
-
-// primary key columns input for table: "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
+	DeletedAt                     *model.OrderBy `json:"deleted_at"`
+	DeletedBy                     *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalSetInput struct {
+	ID                            *int64     `json:"id"`
+	VehicleID                     *string    `json:"vehicle_id"`
+	EnterpriseID                  *string    `json:"enterprise_id"`
+	Telephone                     *string    `json:"telephone"`
+	SendTime                      *time.Time `json:"send_time"`
+	SupervisionDetailID           *string    `json:"supervision_detail_id"`
+	ImageAbnormalHandingMeasure   *string    `json:"image_abnormal_handing_measure"`
+	FeedbackTime                  *time.Time `json:"feedback_time"`
+	TachographDataDisposalMeasure *string    `json:"tachograph_data_disposal_measure"`
+	OperationUser                 *string    `json:"operation_user"`
+	IsSmsPush                     *bool      `json:"is_sms_push"`
+	IsNotify                      *bool      `json:"is_notify"`
+	IsAnnounce                    *bool      `json:"is_announce"`
+	IsAppPush                     *bool      `json:"is_app_push"`
+	NotifyContent                 *string    `json:"notify_content"`
 	AnnounceContent               *string    `json:"announce_content"`
 	AppPushContent                *string    `json:"app_push_content"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
 	DisposalContent               *string    `json:"disposal_content"`
 	DisposalMethod                *int       `json:"disposal_method"`
 	DisposalResult                *string    `json:"disposal_result"`
-	EnterpriseID                  *string    `json:"enterprise_id"`
-	FeedbackTime                  *time.Time `json:"feedback_time"`
-	ID                            *int64     `json:"id"`
-	ImageAbnormalHandingMeasure   *string    `json:"image_abnormal_handing_measure"`
-	IsAnnounce                    *bool      `json:"is_announce"`
-	IsAppPush                     *bool      `json:"is_app_push"`
-	IsDelete                      *bool      `json:"is_delete"`
-	IsNotify                      *bool      `json:"is_notify"`
-	IsSmsPush                     *bool      `json:"is_sms_push"`
-	NotifyContent                 *string    `json:"notify_content"`
-	OperationUser                 *string    `json:"operation_user"`
-	SendTime                      *time.Time `json:"send_time"`
-	SupervisionDetailID           *string    `json:"supervision_detail_id"`
-	TachographDataDisposalMeasure *string    `json:"tachograph_data_disposal_measure"`
-	Telephone                     *string    `json:"telephone"`
+	IsDeleted                     *bool      `json:"is_deleted"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
-	VehicleID                     *string    `json:"vehicle_id"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalStddevFields struct {
-	DisposalMethod *float64 `json:"disposal_method"`
-	ID             *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalStddevOrderBy struct {
-	DisposalMethod *model.OrderBy `json:"disposal_method"`
-	ID             *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type DynamicSpotCheckDisposalStddevPopFields struct {
-	DisposalMethod *float64 `json:"disposal_method"`
-	ID             *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalStddevPopOrderBy struct {
-	DisposalMethod *model.OrderBy `json:"disposal_method"`
-	ID             *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type DynamicSpotCheckDisposalStddevSampFields struct {
-	DisposalMethod *float64 `json:"disposal_method"`
-	ID             *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalStddevSampOrderBy struct {
-	DisposalMethod *model.OrderBy `json:"disposal_method"`
-	ID             *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type DynamicSpotCheckDisposalSumFields struct {
-	DisposalMethod *int   `json:"disposal_method"`
 	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
 }
 
-// order by sum() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalSumOrderBy struct {
-	DisposalMethod *model.OrderBy `json:"disposal_method"`
-	ID             *model.OrderBy `json:"id"`
+// aggregate stddev_pop on columns of table "dynamic_spot_check_disposal"
+type DynamicSpotCheckDisposalStddevPopFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
 }
 
-// aggregate var_pop on columns
+// aggregate stddev_samp on columns of table "dynamic_spot_check_disposal"
+type DynamicSpotCheckDisposalStddevSampFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// aggregate sum on columns of table "dynamic_spot_check_disposal"
+type DynamicSpotCheckDisposalSumFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// aggregate var_pop on columns of table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalVarPopFields struct {
-	DisposalMethod *float64 `json:"disposal_method"`
-	ID             *float64 `json:"id"`
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
 }
 
-// order by var_pop() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalVarPopOrderBy struct {
-	DisposalMethod *model.OrderBy `json:"disposal_method"`
-	ID             *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalVarSampFields struct {
-	DisposalMethod *float64 `json:"disposal_method"`
-	ID             *float64 `json:"id"`
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
 }
 
-// order by var_samp() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalVarSampOrderBy struct {
-	DisposalMethod *model.OrderBy `json:"disposal_method"`
-	ID             *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "dynamic_spot_check_disposal"
 type DynamicSpotCheckDisposalVarianceFields struct {
-	DisposalMethod *float64 `json:"disposal_method"`
-	ID             *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalVarianceOrderBy struct {
-	DisposalMethod *model.OrderBy `json:"disposal_method"`
-	ID             *model.OrderBy `json:"id"`
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
 }
 
 // aggregated selection of "dynamic_supervision"
 type DynamicSupervisionAggregate struct {
 	Aggregate *DynamicSupervisionAggregateFields `json:"aggregate"`
-	Nodes     []*DynamicSupervision              `json:"nodes"`
 }
 
 // aggregate fields of "dynamic_supervision"
@@ -447,83 +300,49 @@ type DynamicSupervisionAggregateFields struct {
 	Variance   *DynamicSupervisionVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "dynamic_supervision"
-type DynamicSupervisionAggregateOrderBy struct {
-	Avg        *DynamicSupervisionAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                       `json:"count"`
-	Max        *DynamicSupervisionMaxOrderBy        `json:"max"`
-	Min        *DynamicSupervisionMinOrderBy        `json:"min"`
-	Stddev     *DynamicSupervisionStddevOrderBy     `json:"stddev"`
-	StddevPop  *DynamicSupervisionStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DynamicSupervisionStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DynamicSupervisionSumOrderBy        `json:"sum"`
-	VarPop     *DynamicSupervisionVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DynamicSupervisionVarSampOrderBy    `json:"var_samp"`
-	Variance   *DynamicSupervisionVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "dynamic_supervision"
-type DynamicSupervisionArrRelInsertInput struct {
-	Data       []*DynamicSupervisionInsertInput `json:"data"`
-	OnConflict *DynamicSupervisionOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "dynamic_supervision"
 type DynamicSupervisionAvgFields struct {
-	Day                  *float64 `json:"day"`
-	ID                   *float64 `json:"id"`
-	Month                *float64 `json:"month"`
-	SpotCheckNumber      *float64 `json:"spot_check_number"`
+	ID                   *int64   `json:"id"`
+	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
+	SpotCheckNumber      *int     `json:"spot_check_number"`
 	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *float64 `json:"spot_check_total_number"`
-	TotalNumberVehicle   *float64 `json:"total_number_vehicle"`
-	Year                 *float64 `json:"year"`
+	TotalNumberVehicle   *int     `json:"total_number_vehicle"`
+	Year                 *int     `json:"year"`
+	Month                *int     `json:"month"`
+	Day                  *int     `json:"day"`
 }
 
-// order by avg() on columns of table "dynamic_supervision"
-type DynamicSupervisionAvgOrderBy struct {
-	Day                  *model.OrderBy `json:"day"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	Year                 *model.OrderBy `json:"year"`
-}
-
-// Boolean expression to filter rows from the table "dynamic_supervision". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'dynamic_supervision'.
 type DynamicSupervisionBoolExp struct {
 	And                  []*DynamicSupervisionBoolExp    `json:"_and"`
 	Not                  *DynamicSupervisionBoolExp      `json:"_not"`
 	Or                   []*DynamicSupervisionBoolExp    `json:"_or"`
-	CheckUserID          *model.StringComparisonExp      `json:"check_user_id"`
-	CityID               *model.StringComparisonExp      `json:"city_id"`
-	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
-	Day                  *model.IntComparisonExp         `json:"day"`
-	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
-	DistrictID           *model.StringComparisonExp      `json:"district_id"`
 	ID                   *model.BigintComparisonExp      `json:"id"`
-	IsDelete             *model.BooleanComparisonExp     `json:"is_delete"`
-	Month                *model.IntComparisonExp         `json:"month"`
-	ProvinceID           *model.StringComparisonExp      `json:"province_id"`
+	SupervisionID        *model.StringComparisonExp      `json:"supervision_id"`
 	SpotCheckDate        *model.TimestamptzComparisonExp `json:"spot_check_date"`
+	SpotCheckTotalNumber *model.IntComparisonExp         `json:"spot_check_total_number"`
 	SpotCheckNumber      *model.IntComparisonExp         `json:"spot_check_number"`
 	SpotCheckRatio       *model.NumericComparisonExp     `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.IntComparisonExp         `json:"spot_check_total_number"`
-	SupervisionID        *model.StringComparisonExp      `json:"supervision_id"`
+	CheckUserID          *model.StringComparisonExp      `json:"check_user_id"`
 	TotalNumberVehicle   *model.IntComparisonExp         `json:"total_number_vehicle"`
+	ProvinceID           *model.StringComparisonExp      `json:"province_id"`
+	CityID               *model.StringComparisonExp      `json:"city_id"`
+	DistrictID           *model.StringComparisonExp      `json:"district_id"`
+	Year                 *model.IntComparisonExp         `json:"year"`
+	Month                *model.IntComparisonExp         `json:"month"`
+	Day                  *model.IntComparisonExp         `json:"day"`
+	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
 	UpdatedAt            *model.TimestamptzComparisonExp `json:"updated_at"`
 	UpdatedBy            *model.StringComparisonExp      `json:"updated_by"`
-	Year                 *model.IntComparisonExp         `json:"year"`
+	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted            *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // aggregated selection of "dynamic_supervision_detail"
 type DynamicSupervisionDetailAggregate struct {
 	Aggregate *DynamicSupervisionDetailAggregateFields `json:"aggregate"`
-	Nodes     []*DynamicSupervisionDetail              `json:"nodes"`
 }
 
 // aggregate fields of "dynamic_supervision_detail"
@@ -541,64 +360,62 @@ type DynamicSupervisionDetailAggregateFields struct {
 	Variance   *DynamicSupervisionDetailVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailAggregateOrderBy struct {
-	Avg        *DynamicSupervisionDetailAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                             `json:"count"`
-	Max        *DynamicSupervisionDetailMaxOrderBy        `json:"max"`
-	Min        *DynamicSupervisionDetailMinOrderBy        `json:"min"`
-	Stddev     *DynamicSupervisionDetailStddevOrderBy     `json:"stddev"`
-	StddevPop  *DynamicSupervisionDetailStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DynamicSupervisionDetailStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DynamicSupervisionDetailSumOrderBy        `json:"sum"`
-	VarPop     *DynamicSupervisionDetailVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DynamicSupervisionDetailVarSampOrderBy    `json:"var_samp"`
-	Variance   *DynamicSupervisionDetailVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "dynamic_supervision_detail"
-type DynamicSupervisionDetailArrRelInsertInput struct {
-	Data       []*DynamicSupervisionDetailInsertInput `json:"data"`
-	OnConflict *DynamicSupervisionDetailOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "dynamic_supervision_detail"
 type DynamicSupervisionDetailAvgFields struct {
-	BusinessScope *float64 `json:"business_scope"`
-	Curve         *float64 `json:"curve"`
-	Equipment     *float64 `json:"equipment"`
-	ID            *float64 `json:"id"`
-	LensPosition  *float64 `json:"lens_position"`
-	TaxiState     *float64 `json:"taxi_state"`
-	Trail         *float64 `json:"trail"`
+	ID            *int64 `json:"id"`
+	TaxiState     *int   `json:"taxi_state"`
+	Curve         *int   `json:"curve"`
+	Trail         *int   `json:"trail"`
+	LensPosition  *int   `json:"lens_position"`
+	Equipment     *int   `json:"equipment"`
+	BusinessScope *int   `json:"business_scope"`
 }
 
-// order by avg() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailAvgOrderBy struct {
-	BusinessScope *model.OrderBy `json:"business_scope"`
-	Curve         *model.OrderBy `json:"curve"`
-	Equipment     *model.OrderBy `json:"equipment"`
-	ID            *model.OrderBy `json:"id"`
-	LensPosition  *model.OrderBy `json:"lens_position"`
-	TaxiState     *model.OrderBy `json:"taxi_state"`
-	Trail         *model.OrderBy `json:"trail"`
-}
-
-// Boolean expression to filter rows from the table "dynamic_supervision_detail". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'dynamic_supervision_detail'.
 type DynamicSupervisionDetailBoolExp struct {
-	GpsSpeed                     *model.StringComparisonExp         `json:"GPS_speed"`
 	And                          []*DynamicSupervisionDetailBoolExp `json:"_and"`
 	Not                          *DynamicSupervisionDetailBoolExp   `json:"_not"`
 	Or                           []*DynamicSupervisionDetailBoolExp `json:"_or"`
-	Assignee                     *model.StringComparisonExp         `json:"assignee"`
-	BusinessScope                *model.IntComparisonExp            `json:"business_scope"`
-	Coordinate                   *model.PointComparisonExp          `json:"coordinate"`
-	CreatedAt                    *model.TimestamptzComparisonExp    `json:"created_at"`
-	CreatedBy                    *model.StringComparisonExp         `json:"created_by"`
+	ID                           *model.BigintComparisonExp         `json:"id"`
+	SupervisionDetailID          *model.StringComparisonExp         `json:"supervision_detail_id"`
+	SupervisionID                *model.StringComparisonExp         `json:"supervision_id"`
+	DriverID                     *model.StringComparisonExp         `json:"driver_id"`
+	EnterpriseID                 *model.StringComparisonExp         `json:"enterprise_id"`
+	VehicleID                    *model.StringComparisonExp         `json:"vehicle_id"`
+	MonitoringTime               *model.TimestamptzComparisonExp    `json:"monitoring_time"`
+	MonitoringLocation           *model.StringComparisonExp         `json:"monitoring_location"`
+	IsOnline                     *model.BooleanComparisonExp        `json:"is_online"`
+	IsTachographRecordNormal     *model.BooleanComparisonExp        `json:"is_tachograph_record_normal"`
+	TachographDataException      *model.StringComparisonExp         `json:"tachograph_data_exception"`
+	TachographSpeed              *model.StringComparisonExp         `json:"tachograph_speed"`
+	GpsSpeed                     *model.StringComparisonExp         `json:"gps_speed"`
+	IsSpeeding                   *model.BooleanComparisonExp        `json:"is_speeding"`
+	TaxiState                    *model.IntComparisonExp            `json:"taxi_state"`
+	IsFatigueDriving             *model.BooleanComparisonExp        `json:"is_fatigue_driving"`
+	IsMorningOutage              *model.BooleanComparisonExp        `json:"is_morning_outage"`
 	Curve                        *model.IntComparisonExp            `json:"curve"`
-	DeletedAt                    *model.TimestamptzComparisonExp    `json:"deleted_at"`
-	DeletedBy                    *model.StringComparisonExp         `json:"deleted_by"`
+	Trail                        *model.IntComparisonExp            `json:"trail"`
+	LensPosition                 *model.IntComparisonExp            `json:"lens_position"`
+	Equipment                    *model.IntComparisonExp            `json:"equipment"`
+	OtherInfraction              *model.StringComparisonExp         `json:"other_infraction"`
 	DisposalMeasures             *model.StringComparisonExp         `json:"disposal_measures"`
+	DisposalResults              *model.StringComparisonExp         `json:"disposal_results"`
+	TreatmentTime                *model.TimestamptzComparisonExp    `json:"treatment_time"`
+	Assignee                     *model.StringComparisonExp         `json:"assignee"`
+	FeedbackTime                 *model.TimestamptzComparisonExp    `json:"feedback_time"`
+	Remarks                      *model.StringComparisonExp         `json:"remarks"`
+	Others                       *model.StringComparisonExp         `json:"others"`
+	LensOn                       *model.StringComparisonExp         `json:"lens_on"`
+	MonitorEndTime               *model.TimestamptzComparisonExp    `json:"monitor_end_time"`
+	IsLocate                     *model.BooleanComparisonExp        `json:"is_locate"`
+	Coordinate                   *model.PointComparisonExp          `json:"coordinate"`
+	LatitudeLongitudeDescription *model.StringComparisonExp         `json:"latitude_longitude_description"`
+	IsSend                       *model.BooleanComparisonExp        `json:"is_send"`
+	BusinessScope                *model.IntComparisonExp            `json:"business_scope"`
+	OutageAlarmTime              *model.TimestamptzComparisonExp    `json:"outage_alarm_time"`
+	SpeedAlarmTime               *model.TimestamptzComparisonExp    `json:"speed_alarm_time"`
+	SpeedingSpeed                *model.StringComparisonExp         `json:"speeding_speed"`
+	FatigueAlarmTime             *model.TimestamptzComparisonExp    `json:"fatigue_alarm_time"`
 	DisposalMeasures1            *model.StringComparisonExp         `json:"disposal_measures1"`
 	DisposalMeasures2            *model.StringComparisonExp         `json:"disposal_measures2"`
 	DisposalMeasures3            *model.StringComparisonExp         `json:"disposal_measures3"`
@@ -606,7 +423,6 @@ type DynamicSupervisionDetailBoolExp struct {
 	DisposalMeasures5            *model.StringComparisonExp         `json:"disposal_measures5"`
 	DisposalMeasures6            *model.StringComparisonExp         `json:"disposal_measures6"`
 	DisposalMeasures7            *model.StringComparisonExp         `json:"disposal_measures7"`
-	DisposalResults              *model.StringComparisonExp         `json:"disposal_results"`
 	DisposalResults1             *model.StringComparisonExp         `json:"disposal_results1"`
 	DisposalResults2             *model.StringComparisonExp         `json:"disposal_results2"`
 	DisposalResults3             *model.StringComparisonExp         `json:"disposal_results3"`
@@ -614,131 +430,133 @@ type DynamicSupervisionDetailBoolExp struct {
 	DisposalResults5             *model.StringComparisonExp         `json:"disposal_results5"`
 	DisposalResults6             *model.StringComparisonExp         `json:"disposal_results6"`
 	DisposalResults7             *model.StringComparisonExp         `json:"disposal_results7"`
-	DriverID                     *model.StringComparisonExp         `json:"driver_id"`
-	EnterpriseID                 *model.StringComparisonExp         `json:"enterprise_id"`
-	Equipment                    *model.IntComparisonExp            `json:"equipment"`
-	FatigueAlarmTime             *model.TimestamptzComparisonExp    `json:"fatigue_alarm_time"`
-	FeedbackTime                 *model.TimestamptzComparisonExp    `json:"feedback_time"`
-	ID                           *model.BigintComparisonExp         `json:"id"`
-	IsDelete                     *model.BooleanComparisonExp        `json:"is_delete"`
-	IsFatigueDriving             *model.BooleanComparisonExp        `json:"is_fatigue_driving"`
-	IsLocate                     *model.BooleanComparisonExp        `json:"is_locate"`
-	IsMorningOutage              *model.BooleanComparisonExp        `json:"is_morning_outage"`
-	IsOnline                     *model.BooleanComparisonExp        `json:"is_online"`
-	IsSend                       *model.BooleanComparisonExp        `json:"is_send"`
-	IsSpeeding                   *model.BooleanComparisonExp        `json:"is_speeding"`
-	IsTachographRecordNormal     *model.BooleanComparisonExp        `json:"is_tachograph_record_normal"`
-	LatitudeLongitudeDescription *model.StringComparisonExp         `json:"latitude_longitude_description"`
-	LensOn                       *model.StringComparisonExp         `json:"lens_on"`
-	LensPosition                 *model.IntComparisonExp            `json:"lens_position"`
-	MonitorEndTime               *model.TimestamptzComparisonExp    `json:"monitor_end_time"`
-	MonitoringLocation           *model.StringComparisonExp         `json:"monitoring_location"`
-	MonitoringTime               *model.TimestamptzComparisonExp    `json:"monitoring_time"`
-	OtherInfraction              *model.StringComparisonExp         `json:"other_infraction"`
-	Others                       *model.StringComparisonExp         `json:"others"`
-	OutageAlarmTime              *model.TimestamptzComparisonExp    `json:"outage_alarm_time"`
-	Remarks                      *model.StringComparisonExp         `json:"remarks"`
-	SpeedAlarmTime               *model.TimestamptzComparisonExp    `json:"speed_alarm_time"`
-	SpeedingSpeed                *model.StringComparisonExp         `json:"speeding_speed"`
-	SupervisionDetailID          *model.StringComparisonExp         `json:"supervision_detail_id"`
-	SupervisionID                *model.StringComparisonExp         `json:"supervision_id"`
-	TachographDataException      *model.StringComparisonExp         `json:"tachograph_data_exception"`
-	TachographSpeed              *model.StringComparisonExp         `json:"tachograph_speed"`
-	TaxiState                    *model.IntComparisonExp            `json:"taxi_state"`
-	Trail                        *model.IntComparisonExp            `json:"trail"`
-	TreatmentTime                *model.TimestamptzComparisonExp    `json:"treatment_time"`
+	IsDeleted                    *model.BooleanComparisonExp        `json:"is_deleted"`
+	CreatedAt                    *model.TimestamptzComparisonExp    `json:"created_at"`
+	CreatedBy                    *model.StringComparisonExp         `json:"created_by"`
 	UpdatedAt                    *model.TimestamptzComparisonExp    `json:"updated_at"`
 	UpdatedBy                    *model.StringComparisonExp         `json:"updated_by"`
-	VehicleID                    *model.StringComparisonExp         `json:"vehicle_id"`
+	DeletedAt                    *model.TimestamptzComparisonExp    `json:"deleted_at"`
+	DeletedBy                    *model.StringComparisonExp         `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "dynamic_supervision_detail"
 type DynamicSupervisionDetailIncInput struct {
-	BusinessScope *int   `json:"business_scope"`
-	Curve         *int   `json:"curve"`
-	Equipment     *int   `json:"equipment"`
 	ID            *int64 `json:"id"`
-	LensPosition  *int   `json:"lens_position"`
 	TaxiState     *int   `json:"taxi_state"`
+	Curve         *int   `json:"curve"`
 	Trail         *int   `json:"trail"`
+	LensPosition  *int   `json:"lens_position"`
+	Equipment     *int   `json:"equipment"`
+	BusinessScope *int   `json:"business_scope"`
 }
 
 // input type for inserting data into table "dynamic_supervision_detail"
 type DynamicSupervisionDetailInsertInput struct {
-	GpsSpeed                     *string    `json:"GPS_speed"`
-	Assignee                     *string    `json:"assignee"`
-	BusinessScope                *int       `json:"business_scope"`
-	Coordinate                   *string    `json:"coordinate"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
-	Curve                        *int       `json:"curve"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
-	DisposalMeasures             *string    `json:"disposal_measures"`
-	DisposalMeasures1            *string    `json:"disposal_measures1"`
-	DisposalMeasures2            *string    `json:"disposal_measures2"`
-	DisposalMeasures3            *string    `json:"disposal_measures3"`
-	DisposalMeasures4            *string    `json:"disposal_measures4"`
-	DisposalMeasures5            *string    `json:"disposal_measures5"`
-	DisposalMeasures6            *string    `json:"disposal_measures6"`
-	DisposalMeasures7            *string    `json:"disposal_measures7"`
-	DisposalResults              *string    `json:"disposal_results"`
-	DisposalResults1             *string    `json:"disposal_results1"`
-	DisposalResults2             *string    `json:"disposal_results2"`
-	DisposalResults3             *string    `json:"disposal_results3"`
-	DisposalResults4             *string    `json:"disposal_results4"`
-	DisposalResults5             *string    `json:"disposal_results5"`
-	DisposalResults6             *string    `json:"disposal_results6"`
-	DisposalResults7             *string    `json:"disposal_results7"`
+	ID                           *int64     `json:"id"`
+	SupervisionDetailID          *string    `json:"supervision_detail_id"`
+	SupervisionID                *string    `json:"supervision_id"`
 	DriverID                     *string    `json:"driver_id"`
 	EnterpriseID                 *string    `json:"enterprise_id"`
-	Equipment                    *int       `json:"equipment"`
-	FatigueAlarmTime             *time.Time `json:"fatigue_alarm_time"`
-	FeedbackTime                 *time.Time `json:"feedback_time"`
-	ID                           *int64     `json:"id"`
-	IsDelete                     *bool      `json:"is_delete"`
-	IsFatigueDriving             *bool      `json:"is_fatigue_driving"`
-	IsLocate                     *bool      `json:"is_locate"`
-	IsMorningOutage              *bool      `json:"is_morning_outage"`
+	VehicleID                    *string    `json:"vehicle_id"`
+	MonitoringTime               *time.Time `json:"monitoring_time"`
+	MonitoringLocation           *string    `json:"monitoring_location"`
 	IsOnline                     *bool      `json:"is_online"`
-	IsSend                       *bool      `json:"is_send"`
-	IsSpeeding                   *bool      `json:"is_speeding"`
 	IsTachographRecordNormal     *bool      `json:"is_tachograph_record_normal"`
-	LatitudeLongitudeDescription *string    `json:"latitude_longitude_description"`
-	LensOn                       *string    `json:"lens_on"`
-	LensPosition                 *int       `json:"lens_position"`
-	MonitorEndTime               *time.Time `json:"monitor_end_time"`
-	MonitoringLocation           *string    `json:"monitoring_location"`
-	MonitoringTime               *time.Time `json:"monitoring_time"`
-	OtherInfraction              *string    `json:"other_infraction"`
-	Others                       *string    `json:"others"`
-	OutageAlarmTime              *time.Time `json:"outage_alarm_time"`
-	Remarks                      *string    `json:"remarks"`
-	SpeedAlarmTime               *time.Time `json:"speed_alarm_time"`
-	SpeedingSpeed                *string    `json:"speeding_speed"`
-	SupervisionDetailID          *string    `json:"supervision_detail_id"`
-	SupervisionID                *string    `json:"supervision_id"`
 	TachographDataException      *string    `json:"tachograph_data_exception"`
 	TachographSpeed              *string    `json:"tachograph_speed"`
+	GpsSpeed                     *string    `json:"gps_speed"`
+	IsSpeeding                   *bool      `json:"is_speeding"`
 	TaxiState                    *int       `json:"taxi_state"`
+	IsFatigueDriving             *bool      `json:"is_fatigue_driving"`
+	IsMorningOutage              *bool      `json:"is_morning_outage"`
+	Curve                        *int       `json:"curve"`
 	Trail                        *int       `json:"trail"`
+	LensPosition                 *int       `json:"lens_position"`
+	Equipment                    *int       `json:"equipment"`
+	OtherInfraction              *string    `json:"other_infraction"`
+	DisposalMeasures             *string    `json:"disposal_measures"`
+	DisposalResults              *string    `json:"disposal_results"`
 	TreatmentTime                *time.Time `json:"treatment_time"`
+	Assignee                     *string    `json:"assignee"`
+	FeedbackTime                 *time.Time `json:"feedback_time"`
+	Remarks                      *string    `json:"remarks"`
+	Others                       *string    `json:"others"`
+	LensOn                       *string    `json:"lens_on"`
+	MonitorEndTime               *time.Time `json:"monitor_end_time"`
+	IsLocate                     *bool      `json:"is_locate"`
+	Coordinate                   *string    `json:"coordinate"`
+	LatitudeLongitudeDescription *string    `json:"latitude_longitude_description"`
+	IsSend                       *bool      `json:"is_send"`
+	BusinessScope                *int       `json:"business_scope"`
+	OutageAlarmTime              *time.Time `json:"outage_alarm_time"`
+	SpeedAlarmTime               *time.Time `json:"speed_alarm_time"`
+	SpeedingSpeed                *string    `json:"speeding_speed"`
+	FatigueAlarmTime             *time.Time `json:"fatigue_alarm_time"`
+	DisposalMeasures1            *string    `json:"disposal_measures1"`
+	DisposalMeasures2            *string    `json:"disposal_measures2"`
+	DisposalMeasures3            *string    `json:"disposal_measures3"`
+	DisposalMeasures4            *string    `json:"disposal_measures4"`
+	DisposalMeasures5            *string    `json:"disposal_measures5"`
+	DisposalMeasures6            *string    `json:"disposal_measures6"`
+	DisposalMeasures7            *string    `json:"disposal_measures7"`
+	DisposalResults1             *string    `json:"disposal_results1"`
+	DisposalResults2             *string    `json:"disposal_results2"`
+	DisposalResults3             *string    `json:"disposal_results3"`
+	DisposalResults4             *string    `json:"disposal_results4"`
+	DisposalResults5             *string    `json:"disposal_results5"`
+	DisposalResults6             *string    `json:"disposal_results6"`
+	DisposalResults7             *string    `json:"disposal_results7"`
+	IsDeleted                    *bool      `json:"is_deleted"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
-	VehicleID                    *string    `json:"vehicle_id"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "dynamic_supervision_detail"
 type DynamicSupervisionDetailMaxFields struct {
-	GpsSpeed                     *string    `json:"GPS_speed"`
-	Assignee                     *string    `json:"assignee"`
-	BusinessScope                *int       `json:"business_scope"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
+	ID                           *int64     `json:"id"`
+	SupervisionDetailID          *string    `json:"supervision_detail_id"`
+	SupervisionID                *string    `json:"supervision_id"`
+	DriverID                     *string    `json:"driver_id"`
+	EnterpriseID                 *string    `json:"enterprise_id"`
+	VehicleID                    *string    `json:"vehicle_id"`
+	MonitoringTime               *time.Time `json:"monitoring_time"`
+	MonitoringLocation           *string    `json:"monitoring_location"`
+	IsOnline                     *bool      `json:"is_online"`
+	IsTachographRecordNormal     *bool      `json:"is_tachograph_record_normal"`
+	TachographDataException      *string    `json:"tachograph_data_exception"`
+	TachographSpeed              *string    `json:"tachograph_speed"`
+	GpsSpeed                     *string    `json:"gps_speed"`
+	IsSpeeding                   *bool      `json:"is_speeding"`
+	TaxiState                    *int       `json:"taxi_state"`
+	IsFatigueDriving             *bool      `json:"is_fatigue_driving"`
+	IsMorningOutage              *bool      `json:"is_morning_outage"`
 	Curve                        *int       `json:"curve"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
+	Trail                        *int       `json:"trail"`
+	LensPosition                 *int       `json:"lens_position"`
+	Equipment                    *int       `json:"equipment"`
+	OtherInfraction              *string    `json:"other_infraction"`
 	DisposalMeasures             *string    `json:"disposal_measures"`
+	DisposalResults              *string    `json:"disposal_results"`
+	TreatmentTime                *time.Time `json:"treatment_time"`
+	Assignee                     *string    `json:"assignee"`
+	FeedbackTime                 *time.Time `json:"feedback_time"`
+	Remarks                      *string    `json:"remarks"`
+	Others                       *string    `json:"others"`
+	LensOn                       *string    `json:"lens_on"`
+	MonitorEndTime               *time.Time `json:"monitor_end_time"`
+	IsLocate                     *bool      `json:"is_locate"`
+	Coordinate                   *string    `json:"coordinate"`
+	LatitudeLongitudeDescription *string    `json:"latitude_longitude_description"`
+	IsSend                       *bool      `json:"is_send"`
+	BusinessScope                *int       `json:"business_scope"`
+	OutageAlarmTime              *time.Time `json:"outage_alarm_time"`
+	SpeedAlarmTime               *time.Time `json:"speed_alarm_time"`
+	SpeedingSpeed                *string    `json:"speeding_speed"`
+	FatigueAlarmTime             *time.Time `json:"fatigue_alarm_time"`
 	DisposalMeasures1            *string    `json:"disposal_measures1"`
 	DisposalMeasures2            *string    `json:"disposal_measures2"`
 	DisposalMeasures3            *string    `json:"disposal_measures3"`
@@ -746,7 +564,6 @@ type DynamicSupervisionDetailMaxFields struct {
 	DisposalMeasures5            *string    `json:"disposal_measures5"`
 	DisposalMeasures6            *string    `json:"disposal_measures6"`
 	DisposalMeasures7            *string    `json:"disposal_measures7"`
-	DisposalResults              *string    `json:"disposal_results"`
 	DisposalResults1             *string    `json:"disposal_results1"`
 	DisposalResults2             *string    `json:"disposal_results2"`
 	DisposalResults3             *string    `json:"disposal_results3"`
@@ -754,103 +571,57 @@ type DynamicSupervisionDetailMaxFields struct {
 	DisposalResults5             *string    `json:"disposal_results5"`
 	DisposalResults6             *string    `json:"disposal_results6"`
 	DisposalResults7             *string    `json:"disposal_results7"`
-	DriverID                     *string    `json:"driver_id"`
-	EnterpriseID                 *string    `json:"enterprise_id"`
-	Equipment                    *int       `json:"equipment"`
-	FatigueAlarmTime             *time.Time `json:"fatigue_alarm_time"`
-	FeedbackTime                 *time.Time `json:"feedback_time"`
-	ID                           *int64     `json:"id"`
-	LatitudeLongitudeDescription *string    `json:"latitude_longitude_description"`
-	LensOn                       *string    `json:"lens_on"`
-	LensPosition                 *int       `json:"lens_position"`
-	MonitorEndTime               *time.Time `json:"monitor_end_time"`
-	MonitoringLocation           *string    `json:"monitoring_location"`
-	MonitoringTime               *time.Time `json:"monitoring_time"`
-	OtherInfraction              *string    `json:"other_infraction"`
-	Others                       *string    `json:"others"`
-	OutageAlarmTime              *time.Time `json:"outage_alarm_time"`
-	Remarks                      *string    `json:"remarks"`
-	SpeedAlarmTime               *time.Time `json:"speed_alarm_time"`
-	SpeedingSpeed                *string    `json:"speeding_speed"`
-	SupervisionDetailID          *string    `json:"supervision_detail_id"`
-	SupervisionID                *string    `json:"supervision_id"`
-	TachographDataException      *string    `json:"tachograph_data_exception"`
-	TachographSpeed              *string    `json:"tachograph_speed"`
-	TaxiState                    *int       `json:"taxi_state"`
-	Trail                        *int       `json:"trail"`
-	TreatmentTime                *time.Time `json:"treatment_time"`
+	IsDeleted                    *bool      `json:"is_deleted"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
-	VehicleID                    *string    `json:"vehicle_id"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailMaxOrderBy struct {
-	GpsSpeed                     *model.OrderBy `json:"GPS_speed"`
-	Assignee                     *model.OrderBy `json:"assignee"`
-	BusinessScope                *model.OrderBy `json:"business_scope"`
-	CreatedAt                    *model.OrderBy `json:"created_at"`
-	CreatedBy                    *model.OrderBy `json:"created_by"`
-	Curve                        *model.OrderBy `json:"curve"`
-	DeletedAt                    *model.OrderBy `json:"deleted_at"`
-	DeletedBy                    *model.OrderBy `json:"deleted_by"`
-	DisposalMeasures             *model.OrderBy `json:"disposal_measures"`
-	DisposalMeasures1            *model.OrderBy `json:"disposal_measures1"`
-	DisposalMeasures2            *model.OrderBy `json:"disposal_measures2"`
-	DisposalMeasures3            *model.OrderBy `json:"disposal_measures3"`
-	DisposalMeasures4            *model.OrderBy `json:"disposal_measures4"`
-	DisposalMeasures5            *model.OrderBy `json:"disposal_measures5"`
-	DisposalMeasures6            *model.OrderBy `json:"disposal_measures6"`
-	DisposalMeasures7            *model.OrderBy `json:"disposal_measures7"`
-	DisposalResults              *model.OrderBy `json:"disposal_results"`
-	DisposalResults1             *model.OrderBy `json:"disposal_results1"`
-	DisposalResults2             *model.OrderBy `json:"disposal_results2"`
-	DisposalResults3             *model.OrderBy `json:"disposal_results3"`
-	DisposalResults4             *model.OrderBy `json:"disposal_results4"`
-	DisposalResults5             *model.OrderBy `json:"disposal_results5"`
-	DisposalResults6             *model.OrderBy `json:"disposal_results6"`
-	DisposalResults7             *model.OrderBy `json:"disposal_results7"`
-	DriverID                     *model.OrderBy `json:"driver_id"`
-	EnterpriseID                 *model.OrderBy `json:"enterprise_id"`
-	Equipment                    *model.OrderBy `json:"equipment"`
-	FatigueAlarmTime             *model.OrderBy `json:"fatigue_alarm_time"`
-	FeedbackTime                 *model.OrderBy `json:"feedback_time"`
-	ID                           *model.OrderBy `json:"id"`
-	LatitudeLongitudeDescription *model.OrderBy `json:"latitude_longitude_description"`
-	LensOn                       *model.OrderBy `json:"lens_on"`
-	LensPosition                 *model.OrderBy `json:"lens_position"`
-	MonitorEndTime               *model.OrderBy `json:"monitor_end_time"`
-	MonitoringLocation           *model.OrderBy `json:"monitoring_location"`
-	MonitoringTime               *model.OrderBy `json:"monitoring_time"`
-	OtherInfraction              *model.OrderBy `json:"other_infraction"`
-	Others                       *model.OrderBy `json:"others"`
-	OutageAlarmTime              *model.OrderBy `json:"outage_alarm_time"`
-	Remarks                      *model.OrderBy `json:"remarks"`
-	SpeedAlarmTime               *model.OrderBy `json:"speed_alarm_time"`
-	SpeedingSpeed                *model.OrderBy `json:"speeding_speed"`
-	SupervisionDetailID          *model.OrderBy `json:"supervision_detail_id"`
-	SupervisionID                *model.OrderBy `json:"supervision_id"`
-	TachographDataException      *model.OrderBy `json:"tachograph_data_exception"`
-	TachographSpeed              *model.OrderBy `json:"tachograph_speed"`
-	TaxiState                    *model.OrderBy `json:"taxi_state"`
-	Trail                        *model.OrderBy `json:"trail"`
-	TreatmentTime                *model.OrderBy `json:"treatment_time"`
-	UpdatedAt                    *model.OrderBy `json:"updated_at"`
-	UpdatedBy                    *model.OrderBy `json:"updated_by"`
-	VehicleID                    *model.OrderBy `json:"vehicle_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "dynamic_supervision_detail"
 type DynamicSupervisionDetailMinFields struct {
-	GpsSpeed                     *string    `json:"GPS_speed"`
-	Assignee                     *string    `json:"assignee"`
-	BusinessScope                *int       `json:"business_scope"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
+	ID                           *int64     `json:"id"`
+	SupervisionDetailID          *string    `json:"supervision_detail_id"`
+	SupervisionID                *string    `json:"supervision_id"`
+	DriverID                     *string    `json:"driver_id"`
+	EnterpriseID                 *string    `json:"enterprise_id"`
+	VehicleID                    *string    `json:"vehicle_id"`
+	MonitoringTime               *time.Time `json:"monitoring_time"`
+	MonitoringLocation           *string    `json:"monitoring_location"`
+	IsOnline                     *bool      `json:"is_online"`
+	IsTachographRecordNormal     *bool      `json:"is_tachograph_record_normal"`
+	TachographDataException      *string    `json:"tachograph_data_exception"`
+	TachographSpeed              *string    `json:"tachograph_speed"`
+	GpsSpeed                     *string    `json:"gps_speed"`
+	IsSpeeding                   *bool      `json:"is_speeding"`
+	TaxiState                    *int       `json:"taxi_state"`
+	IsFatigueDriving             *bool      `json:"is_fatigue_driving"`
+	IsMorningOutage              *bool      `json:"is_morning_outage"`
 	Curve                        *int       `json:"curve"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
+	Trail                        *int       `json:"trail"`
+	LensPosition                 *int       `json:"lens_position"`
+	Equipment                    *int       `json:"equipment"`
+	OtherInfraction              *string    `json:"other_infraction"`
 	DisposalMeasures             *string    `json:"disposal_measures"`
+	DisposalResults              *string    `json:"disposal_results"`
+	TreatmentTime                *time.Time `json:"treatment_time"`
+	Assignee                     *string    `json:"assignee"`
+	FeedbackTime                 *time.Time `json:"feedback_time"`
+	Remarks                      *string    `json:"remarks"`
+	Others                       *string    `json:"others"`
+	LensOn                       *string    `json:"lens_on"`
+	MonitorEndTime               *time.Time `json:"monitor_end_time"`
+	IsLocate                     *bool      `json:"is_locate"`
+	Coordinate                   *string    `json:"coordinate"`
+	LatitudeLongitudeDescription *string    `json:"latitude_longitude_description"`
+	IsSend                       *bool      `json:"is_send"`
+	BusinessScope                *int       `json:"business_scope"`
+	OutageAlarmTime              *time.Time `json:"outage_alarm_time"`
+	SpeedAlarmTime               *time.Time `json:"speed_alarm_time"`
+	SpeedingSpeed                *string    `json:"speeding_speed"`
+	FatigueAlarmTime             *time.Time `json:"fatigue_alarm_time"`
 	DisposalMeasures1            *string    `json:"disposal_measures1"`
 	DisposalMeasures2            *string    `json:"disposal_measures2"`
 	DisposalMeasures3            *string    `json:"disposal_measures3"`
@@ -858,7 +629,6 @@ type DynamicSupervisionDetailMinFields struct {
 	DisposalMeasures5            *string    `json:"disposal_measures5"`
 	DisposalMeasures6            *string    `json:"disposal_measures6"`
 	DisposalMeasures7            *string    `json:"disposal_measures7"`
-	DisposalResults              *string    `json:"disposal_results"`
 	DisposalResults1             *string    `json:"disposal_results1"`
 	DisposalResults2             *string    `json:"disposal_results2"`
 	DisposalResults3             *string    `json:"disposal_results3"`
@@ -866,125 +636,63 @@ type DynamicSupervisionDetailMinFields struct {
 	DisposalResults5             *string    `json:"disposal_results5"`
 	DisposalResults6             *string    `json:"disposal_results6"`
 	DisposalResults7             *string    `json:"disposal_results7"`
-	DriverID                     *string    `json:"driver_id"`
-	EnterpriseID                 *string    `json:"enterprise_id"`
-	Equipment                    *int       `json:"equipment"`
-	FatigueAlarmTime             *time.Time `json:"fatigue_alarm_time"`
-	FeedbackTime                 *time.Time `json:"feedback_time"`
-	ID                           *int64     `json:"id"`
-	LatitudeLongitudeDescription *string    `json:"latitude_longitude_description"`
-	LensOn                       *string    `json:"lens_on"`
-	LensPosition                 *int       `json:"lens_position"`
-	MonitorEndTime               *time.Time `json:"monitor_end_time"`
-	MonitoringLocation           *string    `json:"monitoring_location"`
-	MonitoringTime               *time.Time `json:"monitoring_time"`
-	OtherInfraction              *string    `json:"other_infraction"`
-	Others                       *string    `json:"others"`
-	OutageAlarmTime              *time.Time `json:"outage_alarm_time"`
-	Remarks                      *string    `json:"remarks"`
-	SpeedAlarmTime               *time.Time `json:"speed_alarm_time"`
-	SpeedingSpeed                *string    `json:"speeding_speed"`
-	SupervisionDetailID          *string    `json:"supervision_detail_id"`
-	SupervisionID                *string    `json:"supervision_id"`
-	TachographDataException      *string    `json:"tachograph_data_exception"`
-	TachographSpeed              *string    `json:"tachograph_speed"`
-	TaxiState                    *int       `json:"taxi_state"`
-	Trail                        *int       `json:"trail"`
-	TreatmentTime                *time.Time `json:"treatment_time"`
+	IsDeleted                    *bool      `json:"is_deleted"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
-	VehicleID                    *string    `json:"vehicle_id"`
-}
-
-// order by min() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailMinOrderBy struct {
-	GpsSpeed                     *model.OrderBy `json:"GPS_speed"`
-	Assignee                     *model.OrderBy `json:"assignee"`
-	BusinessScope                *model.OrderBy `json:"business_scope"`
-	CreatedAt                    *model.OrderBy `json:"created_at"`
-	CreatedBy                    *model.OrderBy `json:"created_by"`
-	Curve                        *model.OrderBy `json:"curve"`
-	DeletedAt                    *model.OrderBy `json:"deleted_at"`
-	DeletedBy                    *model.OrderBy `json:"deleted_by"`
-	DisposalMeasures             *model.OrderBy `json:"disposal_measures"`
-	DisposalMeasures1            *model.OrderBy `json:"disposal_measures1"`
-	DisposalMeasures2            *model.OrderBy `json:"disposal_measures2"`
-	DisposalMeasures3            *model.OrderBy `json:"disposal_measures3"`
-	DisposalMeasures4            *model.OrderBy `json:"disposal_measures4"`
-	DisposalMeasures5            *model.OrderBy `json:"disposal_measures5"`
-	DisposalMeasures6            *model.OrderBy `json:"disposal_measures6"`
-	DisposalMeasures7            *model.OrderBy `json:"disposal_measures7"`
-	DisposalResults              *model.OrderBy `json:"disposal_results"`
-	DisposalResults1             *model.OrderBy `json:"disposal_results1"`
-	DisposalResults2             *model.OrderBy `json:"disposal_results2"`
-	DisposalResults3             *model.OrderBy `json:"disposal_results3"`
-	DisposalResults4             *model.OrderBy `json:"disposal_results4"`
-	DisposalResults5             *model.OrderBy `json:"disposal_results5"`
-	DisposalResults6             *model.OrderBy `json:"disposal_results6"`
-	DisposalResults7             *model.OrderBy `json:"disposal_results7"`
-	DriverID                     *model.OrderBy `json:"driver_id"`
-	EnterpriseID                 *model.OrderBy `json:"enterprise_id"`
-	Equipment                    *model.OrderBy `json:"equipment"`
-	FatigueAlarmTime             *model.OrderBy `json:"fatigue_alarm_time"`
-	FeedbackTime                 *model.OrderBy `json:"feedback_time"`
-	ID                           *model.OrderBy `json:"id"`
-	LatitudeLongitudeDescription *model.OrderBy `json:"latitude_longitude_description"`
-	LensOn                       *model.OrderBy `json:"lens_on"`
-	LensPosition                 *model.OrderBy `json:"lens_position"`
-	MonitorEndTime               *model.OrderBy `json:"monitor_end_time"`
-	MonitoringLocation           *model.OrderBy `json:"monitoring_location"`
-	MonitoringTime               *model.OrderBy `json:"monitoring_time"`
-	OtherInfraction              *model.OrderBy `json:"other_infraction"`
-	Others                       *model.OrderBy `json:"others"`
-	OutageAlarmTime              *model.OrderBy `json:"outage_alarm_time"`
-	Remarks                      *model.OrderBy `json:"remarks"`
-	SpeedAlarmTime               *model.OrderBy `json:"speed_alarm_time"`
-	SpeedingSpeed                *model.OrderBy `json:"speeding_speed"`
-	SupervisionDetailID          *model.OrderBy `json:"supervision_detail_id"`
-	SupervisionID                *model.OrderBy `json:"supervision_id"`
-	TachographDataException      *model.OrderBy `json:"tachograph_data_exception"`
-	TachographSpeed              *model.OrderBy `json:"tachograph_speed"`
-	TaxiState                    *model.OrderBy `json:"taxi_state"`
-	Trail                        *model.OrderBy `json:"trail"`
-	TreatmentTime                *model.OrderBy `json:"treatment_time"`
-	UpdatedAt                    *model.OrderBy `json:"updated_at"`
-	UpdatedBy                    *model.OrderBy `json:"updated_by"`
-	VehicleID                    *model.OrderBy `json:"vehicle_id"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "dynamic_supervision_detail"
 type DynamicSupervisionDetailMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DynamicSupervisionDetail `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "dynamic_supervision_detail"
-type DynamicSupervisionDetailObjRelInsertInput struct {
-	Data       *DynamicSupervisionDetailInsertInput `json:"data"`
-	OnConflict *DynamicSupervisionDetailOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "dynamic_supervision_detail"
-type DynamicSupervisionDetailOnConflict struct {
-	Constraint    DynamicSupervisionDetailConstraint     `json:"constraint"`
-	UpdateColumns []DynamicSupervisionDetailUpdateColumn `json:"update_columns"`
-	Where         *DynamicSupervisionDetailBoolExp       `json:"where"`
+	AffectedRows int                                `json:"affected_rows"`
+	Returning    []*model1.DynamicSupervisionDetail `json:"returning"`
 }
 
 // ordering options when selecting data from "dynamic_supervision_detail"
 type DynamicSupervisionDetailOrderBy struct {
-	GpsSpeed                     *model.OrderBy `json:"GPS_speed"`
-	Assignee                     *model.OrderBy `json:"assignee"`
-	BusinessScope                *model.OrderBy `json:"business_scope"`
-	Coordinate                   *model.OrderBy `json:"coordinate"`
-	CreatedAt                    *model.OrderBy `json:"created_at"`
-	CreatedBy                    *model.OrderBy `json:"created_by"`
+	ID                           *model.OrderBy `json:"id"`
+	SupervisionDetailID          *model.OrderBy `json:"supervision_detail_id"`
+	SupervisionID                *model.OrderBy `json:"supervision_id"`
+	DriverID                     *model.OrderBy `json:"driver_id"`
+	EnterpriseID                 *model.OrderBy `json:"enterprise_id"`
+	VehicleID                    *model.OrderBy `json:"vehicle_id"`
+	MonitoringTime               *model.OrderBy `json:"monitoring_time"`
+	MonitoringLocation           *model.OrderBy `json:"monitoring_location"`
+	IsOnline                     *model.OrderBy `json:"is_online"`
+	IsTachographRecordNormal     *model.OrderBy `json:"is_tachograph_record_normal"`
+	TachographDataException      *model.OrderBy `json:"tachograph_data_exception"`
+	TachographSpeed              *model.OrderBy `json:"tachograph_speed"`
+	GpsSpeed                     *model.OrderBy `json:"gps_speed"`
+	IsSpeeding                   *model.OrderBy `json:"is_speeding"`
+	TaxiState                    *model.OrderBy `json:"taxi_state"`
+	IsFatigueDriving             *model.OrderBy `json:"is_fatigue_driving"`
+	IsMorningOutage              *model.OrderBy `json:"is_morning_outage"`
 	Curve                        *model.OrderBy `json:"curve"`
-	DeletedAt                    *model.OrderBy `json:"deleted_at"`
-	DeletedBy                    *model.OrderBy `json:"deleted_by"`
+	Trail                        *model.OrderBy `json:"trail"`
+	LensPosition                 *model.OrderBy `json:"lens_position"`
+	Equipment                    *model.OrderBy `json:"equipment"`
+	OtherInfraction              *model.OrderBy `json:"other_infraction"`
 	DisposalMeasures             *model.OrderBy `json:"disposal_measures"`
+	DisposalResults              *model.OrderBy `json:"disposal_results"`
+	TreatmentTime                *model.OrderBy `json:"treatment_time"`
+	Assignee                     *model.OrderBy `json:"assignee"`
+	FeedbackTime                 *model.OrderBy `json:"feedback_time"`
+	Remarks                      *model.OrderBy `json:"remarks"`
+	Others                       *model.OrderBy `json:"others"`
+	LensOn                       *model.OrderBy `json:"lens_on"`
+	MonitorEndTime               *model.OrderBy `json:"monitor_end_time"`
+	IsLocate                     *model.OrderBy `json:"is_locate"`
+	Coordinate                   *model.OrderBy `json:"coordinate"`
+	LatitudeLongitudeDescription *model.OrderBy `json:"latitude_longitude_description"`
+	IsSend                       *model.OrderBy `json:"is_send"`
+	BusinessScope                *model.OrderBy `json:"business_scope"`
+	OutageAlarmTime              *model.OrderBy `json:"outage_alarm_time"`
+	SpeedAlarmTime               *model.OrderBy `json:"speed_alarm_time"`
+	SpeedingSpeed                *model.OrderBy `json:"speeding_speed"`
+	FatigueAlarmTime             *model.OrderBy `json:"fatigue_alarm_time"`
 	DisposalMeasures1            *model.OrderBy `json:"disposal_measures1"`
 	DisposalMeasures2            *model.OrderBy `json:"disposal_measures2"`
 	DisposalMeasures3            *model.OrderBy `json:"disposal_measures3"`
@@ -992,7 +700,6 @@ type DynamicSupervisionDetailOrderBy struct {
 	DisposalMeasures5            *model.OrderBy `json:"disposal_measures5"`
 	DisposalMeasures6            *model.OrderBy `json:"disposal_measures6"`
 	DisposalMeasures7            *model.OrderBy `json:"disposal_measures7"`
-	DisposalResults              *model.OrderBy `json:"disposal_results"`
 	DisposalResults1             *model.OrderBy `json:"disposal_results1"`
 	DisposalResults2             *model.OrderBy `json:"disposal_results2"`
 	DisposalResults3             *model.OrderBy `json:"disposal_results3"`
@@ -1000,64 +707,57 @@ type DynamicSupervisionDetailOrderBy struct {
 	DisposalResults5             *model.OrderBy `json:"disposal_results5"`
 	DisposalResults6             *model.OrderBy `json:"disposal_results6"`
 	DisposalResults7             *model.OrderBy `json:"disposal_results7"`
-	DriverID                     *model.OrderBy `json:"driver_id"`
-	EnterpriseID                 *model.OrderBy `json:"enterprise_id"`
-	Equipment                    *model.OrderBy `json:"equipment"`
-	FatigueAlarmTime             *model.OrderBy `json:"fatigue_alarm_time"`
-	FeedbackTime                 *model.OrderBy `json:"feedback_time"`
-	ID                           *model.OrderBy `json:"id"`
-	IsDelete                     *model.OrderBy `json:"is_delete"`
-	IsFatigueDriving             *model.OrderBy `json:"is_fatigue_driving"`
-	IsLocate                     *model.OrderBy `json:"is_locate"`
-	IsMorningOutage              *model.OrderBy `json:"is_morning_outage"`
-	IsOnline                     *model.OrderBy `json:"is_online"`
-	IsSend                       *model.OrderBy `json:"is_send"`
-	IsSpeeding                   *model.OrderBy `json:"is_speeding"`
-	IsTachographRecordNormal     *model.OrderBy `json:"is_tachograph_record_normal"`
-	LatitudeLongitudeDescription *model.OrderBy `json:"latitude_longitude_description"`
-	LensOn                       *model.OrderBy `json:"lens_on"`
-	LensPosition                 *model.OrderBy `json:"lens_position"`
-	MonitorEndTime               *model.OrderBy `json:"monitor_end_time"`
-	MonitoringLocation           *model.OrderBy `json:"monitoring_location"`
-	MonitoringTime               *model.OrderBy `json:"monitoring_time"`
-	OtherInfraction              *model.OrderBy `json:"other_infraction"`
-	Others                       *model.OrderBy `json:"others"`
-	OutageAlarmTime              *model.OrderBy `json:"outage_alarm_time"`
-	Remarks                      *model.OrderBy `json:"remarks"`
-	SpeedAlarmTime               *model.OrderBy `json:"speed_alarm_time"`
-	SpeedingSpeed                *model.OrderBy `json:"speeding_speed"`
-	SupervisionDetailID          *model.OrderBy `json:"supervision_detail_id"`
-	SupervisionID                *model.OrderBy `json:"supervision_id"`
-	TachographDataException      *model.OrderBy `json:"tachograph_data_exception"`
-	TachographSpeed              *model.OrderBy `json:"tachograph_speed"`
-	TaxiState                    *model.OrderBy `json:"taxi_state"`
-	Trail                        *model.OrderBy `json:"trail"`
-	TreatmentTime                *model.OrderBy `json:"treatment_time"`
+	IsDeleted                    *model.OrderBy `json:"is_deleted"`
+	CreatedAt                    *model.OrderBy `json:"created_at"`
+	CreatedBy                    *model.OrderBy `json:"created_by"`
 	UpdatedAt                    *model.OrderBy `json:"updated_at"`
 	UpdatedBy                    *model.OrderBy `json:"updated_by"`
-	VehicleID                    *model.OrderBy `json:"vehicle_id"`
-}
-
-// primary key columns input for table: "dynamic_supervision_detail"
-type DynamicSupervisionDetailPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 联合主键
-	SupervisionDetailID string `json:"supervision_detail_id"`
+	DeletedAt                    *model.OrderBy `json:"deleted_at"`
+	DeletedBy                    *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "dynamic_supervision_detail"
 type DynamicSupervisionDetailSetInput struct {
-	GpsSpeed                     *string    `json:"GPS_speed"`
-	Assignee                     *string    `json:"assignee"`
-	BusinessScope                *int       `json:"business_scope"`
-	Coordinate                   *string    `json:"coordinate"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
+	ID                           *int64     `json:"id"`
+	SupervisionDetailID          *string    `json:"supervision_detail_id"`
+	SupervisionID                *string    `json:"supervision_id"`
+	DriverID                     *string    `json:"driver_id"`
+	EnterpriseID                 *string    `json:"enterprise_id"`
+	VehicleID                    *string    `json:"vehicle_id"`
+	MonitoringTime               *time.Time `json:"monitoring_time"`
+	MonitoringLocation           *string    `json:"monitoring_location"`
+	IsOnline                     *bool      `json:"is_online"`
+	IsTachographRecordNormal     *bool      `json:"is_tachograph_record_normal"`
+	TachographDataException      *string    `json:"tachograph_data_exception"`
+	TachographSpeed              *string    `json:"tachograph_speed"`
+	GpsSpeed                     *string    `json:"gps_speed"`
+	IsSpeeding                   *bool      `json:"is_speeding"`
+	TaxiState                    *int       `json:"taxi_state"`
+	IsFatigueDriving             *bool      `json:"is_fatigue_driving"`
+	IsMorningOutage              *bool      `json:"is_morning_outage"`
 	Curve                        *int       `json:"curve"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
+	Trail                        *int       `json:"trail"`
+	LensPosition                 *int       `json:"lens_position"`
+	Equipment                    *int       `json:"equipment"`
+	OtherInfraction              *string    `json:"other_infraction"`
 	DisposalMeasures             *string    `json:"disposal_measures"`
+	DisposalResults              *string    `json:"disposal_results"`
+	TreatmentTime                *time.Time `json:"treatment_time"`
+	Assignee                     *string    `json:"assignee"`
+	FeedbackTime                 *time.Time `json:"feedback_time"`
+	Remarks                      *string    `json:"remarks"`
+	Others                       *string    `json:"others"`
+	LensOn                       *string    `json:"lens_on"`
+	MonitorEndTime               *time.Time `json:"monitor_end_time"`
+	IsLocate                     *bool      `json:"is_locate"`
+	Coordinate                   *string    `json:"coordinate"`
+	LatitudeLongitudeDescription *string    `json:"latitude_longitude_description"`
+	IsSend                       *bool      `json:"is_send"`
+	BusinessScope                *int       `json:"business_scope"`
+	OutageAlarmTime              *time.Time `json:"outage_alarm_time"`
+	SpeedAlarmTime               *time.Time `json:"speed_alarm_time"`
+	SpeedingSpeed                *string    `json:"speeding_speed"`
+	FatigueAlarmTime             *time.Time `json:"fatigue_alarm_time"`
 	DisposalMeasures1            *string    `json:"disposal_measures1"`
 	DisposalMeasures2            *string    `json:"disposal_measures2"`
 	DisposalMeasures3            *string    `json:"disposal_measures3"`
@@ -1065,7 +765,6 @@ type DynamicSupervisionDetailSetInput struct {
 	DisposalMeasures5            *string    `json:"disposal_measures5"`
 	DisposalMeasures6            *string    `json:"disposal_measures6"`
 	DisposalMeasures7            *string    `json:"disposal_measures7"`
-	DisposalResults              *string    `json:"disposal_results"`
 	DisposalResults1             *string    `json:"disposal_results1"`
 	DisposalResults2             *string    `json:"disposal_results2"`
 	DisposalResults3             *string    `json:"disposal_results3"`
@@ -1073,712 +772,1891 @@ type DynamicSupervisionDetailSetInput struct {
 	DisposalResults5             *string    `json:"disposal_results5"`
 	DisposalResults6             *string    `json:"disposal_results6"`
 	DisposalResults7             *string    `json:"disposal_results7"`
-	DriverID                     *string    `json:"driver_id"`
-	EnterpriseID                 *string    `json:"enterprise_id"`
-	Equipment                    *int       `json:"equipment"`
-	FatigueAlarmTime             *time.Time `json:"fatigue_alarm_time"`
-	FeedbackTime                 *time.Time `json:"feedback_time"`
-	ID                           *int64     `json:"id"`
-	IsDelete                     *bool      `json:"is_delete"`
-	IsFatigueDriving             *bool      `json:"is_fatigue_driving"`
-	IsLocate                     *bool      `json:"is_locate"`
-	IsMorningOutage              *bool      `json:"is_morning_outage"`
-	IsOnline                     *bool      `json:"is_online"`
-	IsSend                       *bool      `json:"is_send"`
-	IsSpeeding                   *bool      `json:"is_speeding"`
-	IsTachographRecordNormal     *bool      `json:"is_tachograph_record_normal"`
-	LatitudeLongitudeDescription *string    `json:"latitude_longitude_description"`
-	LensOn                       *string    `json:"lens_on"`
-	LensPosition                 *int       `json:"lens_position"`
-	MonitorEndTime               *time.Time `json:"monitor_end_time"`
-	MonitoringLocation           *string    `json:"monitoring_location"`
-	MonitoringTime               *time.Time `json:"monitoring_time"`
-	OtherInfraction              *string    `json:"other_infraction"`
-	Others                       *string    `json:"others"`
-	OutageAlarmTime              *time.Time `json:"outage_alarm_time"`
-	Remarks                      *string    `json:"remarks"`
-	SpeedAlarmTime               *time.Time `json:"speed_alarm_time"`
-	SpeedingSpeed                *string    `json:"speeding_speed"`
-	SupervisionDetailID          *string    `json:"supervision_detail_id"`
-	SupervisionID                *string    `json:"supervision_id"`
-	TachographDataException      *string    `json:"tachograph_data_exception"`
-	TachographSpeed              *string    `json:"tachograph_speed"`
-	TaxiState                    *int       `json:"taxi_state"`
-	Trail                        *int       `json:"trail"`
-	TreatmentTime                *time.Time `json:"treatment_time"`
+	IsDeleted                    *bool      `json:"is_deleted"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
-	VehicleID                    *string    `json:"vehicle_id"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "dynamic_supervision_detail"
 type DynamicSupervisionDetailStddevFields struct {
-	BusinessScope *float64 `json:"business_scope"`
-	Curve         *float64 `json:"curve"`
-	Equipment     *float64 `json:"equipment"`
-	ID            *float64 `json:"id"`
-	LensPosition  *float64 `json:"lens_position"`
-	TaxiState     *float64 `json:"taxi_state"`
-	Trail         *float64 `json:"trail"`
-}
-
-// order by stddev() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailStddevOrderBy struct {
-	BusinessScope *model.OrderBy `json:"business_scope"`
-	Curve         *model.OrderBy `json:"curve"`
-	Equipment     *model.OrderBy `json:"equipment"`
-	ID            *model.OrderBy `json:"id"`
-	LensPosition  *model.OrderBy `json:"lens_position"`
-	TaxiState     *model.OrderBy `json:"taxi_state"`
-	Trail         *model.OrderBy `json:"trail"`
-}
-
-// aggregate stddev_pop on columns
-type DynamicSupervisionDetailStddevPopFields struct {
-	BusinessScope *float64 `json:"business_scope"`
-	Curve         *float64 `json:"curve"`
-	Equipment     *float64 `json:"equipment"`
-	ID            *float64 `json:"id"`
-	LensPosition  *float64 `json:"lens_position"`
-	TaxiState     *float64 `json:"taxi_state"`
-	Trail         *float64 `json:"trail"`
-}
-
-// order by stddev_pop() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailStddevPopOrderBy struct {
-	BusinessScope *model.OrderBy `json:"business_scope"`
-	Curve         *model.OrderBy `json:"curve"`
-	Equipment     *model.OrderBy `json:"equipment"`
-	ID            *model.OrderBy `json:"id"`
-	LensPosition  *model.OrderBy `json:"lens_position"`
-	TaxiState     *model.OrderBy `json:"taxi_state"`
-	Trail         *model.OrderBy `json:"trail"`
-}
-
-// aggregate stddev_samp on columns
-type DynamicSupervisionDetailStddevSampFields struct {
-	BusinessScope *float64 `json:"business_scope"`
-	Curve         *float64 `json:"curve"`
-	Equipment     *float64 `json:"equipment"`
-	ID            *float64 `json:"id"`
-	LensPosition  *float64 `json:"lens_position"`
-	TaxiState     *float64 `json:"taxi_state"`
-	Trail         *float64 `json:"trail"`
-}
-
-// order by stddev_samp() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailStddevSampOrderBy struct {
-	BusinessScope *model.OrderBy `json:"business_scope"`
-	Curve         *model.OrderBy `json:"curve"`
-	Equipment     *model.OrderBy `json:"equipment"`
-	ID            *model.OrderBy `json:"id"`
-	LensPosition  *model.OrderBy `json:"lens_position"`
-	TaxiState     *model.OrderBy `json:"taxi_state"`
-	Trail         *model.OrderBy `json:"trail"`
-}
-
-// aggregate sum on columns
-type DynamicSupervisionDetailSumFields struct {
-	BusinessScope *int   `json:"business_scope"`
-	Curve         *int   `json:"curve"`
-	Equipment     *int   `json:"equipment"`
 	ID            *int64 `json:"id"`
-	LensPosition  *int   `json:"lens_position"`
 	TaxiState     *int   `json:"taxi_state"`
+	Curve         *int   `json:"curve"`
 	Trail         *int   `json:"trail"`
+	LensPosition  *int   `json:"lens_position"`
+	Equipment     *int   `json:"equipment"`
+	BusinessScope *int   `json:"business_scope"`
 }
 
-// order by sum() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailSumOrderBy struct {
-	BusinessScope *model.OrderBy `json:"business_scope"`
-	Curve         *model.OrderBy `json:"curve"`
-	Equipment     *model.OrderBy `json:"equipment"`
-	ID            *model.OrderBy `json:"id"`
-	LensPosition  *model.OrderBy `json:"lens_position"`
-	TaxiState     *model.OrderBy `json:"taxi_state"`
-	Trail         *model.OrderBy `json:"trail"`
+// aggregate stddev_pop on columns of table "dynamic_supervision_detail"
+type DynamicSupervisionDetailStddevPopFields struct {
+	ID            *int64 `json:"id"`
+	TaxiState     *int   `json:"taxi_state"`
+	Curve         *int   `json:"curve"`
+	Trail         *int   `json:"trail"`
+	LensPosition  *int   `json:"lens_position"`
+	Equipment     *int   `json:"equipment"`
+	BusinessScope *int   `json:"business_scope"`
 }
 
-// aggregate var_pop on columns
+// aggregate stddev_samp on columns of table "dynamic_supervision_detail"
+type DynamicSupervisionDetailStddevSampFields struct {
+	ID            *int64 `json:"id"`
+	TaxiState     *int   `json:"taxi_state"`
+	Curve         *int   `json:"curve"`
+	Trail         *int   `json:"trail"`
+	LensPosition  *int   `json:"lens_position"`
+	Equipment     *int   `json:"equipment"`
+	BusinessScope *int   `json:"business_scope"`
+}
+
+// aggregate sum on columns of table "dynamic_supervision_detail"
+type DynamicSupervisionDetailSumFields struct {
+	ID            *int64 `json:"id"`
+	TaxiState     *int   `json:"taxi_state"`
+	Curve         *int   `json:"curve"`
+	Trail         *int   `json:"trail"`
+	LensPosition  *int   `json:"lens_position"`
+	Equipment     *int   `json:"equipment"`
+	BusinessScope *int   `json:"business_scope"`
+}
+
+// aggregate var_pop on columns of table "dynamic_supervision_detail"
 type DynamicSupervisionDetailVarPopFields struct {
-	BusinessScope *float64 `json:"business_scope"`
-	Curve         *float64 `json:"curve"`
-	Equipment     *float64 `json:"equipment"`
-	ID            *float64 `json:"id"`
-	LensPosition  *float64 `json:"lens_position"`
-	TaxiState     *float64 `json:"taxi_state"`
-	Trail         *float64 `json:"trail"`
+	ID            *int64 `json:"id"`
+	TaxiState     *int   `json:"taxi_state"`
+	Curve         *int   `json:"curve"`
+	Trail         *int   `json:"trail"`
+	LensPosition  *int   `json:"lens_position"`
+	Equipment     *int   `json:"equipment"`
+	BusinessScope *int   `json:"business_scope"`
 }
 
-// order by var_pop() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailVarPopOrderBy struct {
-	BusinessScope *model.OrderBy `json:"business_scope"`
-	Curve         *model.OrderBy `json:"curve"`
-	Equipment     *model.OrderBy `json:"equipment"`
-	ID            *model.OrderBy `json:"id"`
-	LensPosition  *model.OrderBy `json:"lens_position"`
-	TaxiState     *model.OrderBy `json:"taxi_state"`
-	Trail         *model.OrderBy `json:"trail"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "dynamic_supervision_detail"
 type DynamicSupervisionDetailVarSampFields struct {
-	BusinessScope *float64 `json:"business_scope"`
-	Curve         *float64 `json:"curve"`
-	Equipment     *float64 `json:"equipment"`
-	ID            *float64 `json:"id"`
-	LensPosition  *float64 `json:"lens_position"`
-	TaxiState     *float64 `json:"taxi_state"`
-	Trail         *float64 `json:"trail"`
+	ID            *int64 `json:"id"`
+	TaxiState     *int   `json:"taxi_state"`
+	Curve         *int   `json:"curve"`
+	Trail         *int   `json:"trail"`
+	LensPosition  *int   `json:"lens_position"`
+	Equipment     *int   `json:"equipment"`
+	BusinessScope *int   `json:"business_scope"`
 }
 
-// order by var_samp() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailVarSampOrderBy struct {
-	BusinessScope *model.OrderBy `json:"business_scope"`
-	Curve         *model.OrderBy `json:"curve"`
-	Equipment     *model.OrderBy `json:"equipment"`
-	ID            *model.OrderBy `json:"id"`
-	LensPosition  *model.OrderBy `json:"lens_position"`
-	TaxiState     *model.OrderBy `json:"taxi_state"`
-	Trail         *model.OrderBy `json:"trail"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "dynamic_supervision_detail"
 type DynamicSupervisionDetailVarianceFields struct {
-	BusinessScope *float64 `json:"business_scope"`
-	Curve         *float64 `json:"curve"`
-	Equipment     *float64 `json:"equipment"`
-	ID            *float64 `json:"id"`
-	LensPosition  *float64 `json:"lens_position"`
-	TaxiState     *float64 `json:"taxi_state"`
-	Trail         *float64 `json:"trail"`
-}
-
-// order by variance() on columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailVarianceOrderBy struct {
-	BusinessScope *model.OrderBy `json:"business_scope"`
-	Curve         *model.OrderBy `json:"curve"`
-	Equipment     *model.OrderBy `json:"equipment"`
-	ID            *model.OrderBy `json:"id"`
-	LensPosition  *model.OrderBy `json:"lens_position"`
-	TaxiState     *model.OrderBy `json:"taxi_state"`
-	Trail         *model.OrderBy `json:"trail"`
+	ID            *int64 `json:"id"`
+	TaxiState     *int   `json:"taxi_state"`
+	Curve         *int   `json:"curve"`
+	Trail         *int   `json:"trail"`
+	LensPosition  *int   `json:"lens_position"`
+	Equipment     *int   `json:"equipment"`
+	BusinessScope *int   `json:"business_scope"`
 }
 
 // input type for incrementing integer column in table "dynamic_supervision"
 type DynamicSupervisionIncInput struct {
-	Day                  *int     `json:"day"`
 	ID                   *int64   `json:"id"`
-	Month                *int     `json:"month"`
+	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
 	SpotCheckNumber      *int     `json:"spot_check_number"`
 	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
 	TotalNumberVehicle   *int     `json:"total_number_vehicle"`
 	Year                 *int     `json:"year"`
+	Month                *int     `json:"month"`
+	Day                  *int     `json:"day"`
 }
 
 // input type for inserting data into table "dynamic_supervision"
 type DynamicSupervisionInsertInput struct {
-	CheckUserID          *string    `json:"check_user_id"`
-	CityID               *string    `json:"city_id"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	Day                  *int       `json:"day"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-	DistrictID           *string    `json:"district_id"`
 	ID                   *int64     `json:"id"`
-	IsDelete             *bool      `json:"is_delete"`
-	Month                *int       `json:"month"`
-	ProvinceID           *string    `json:"province_id"`
+	SupervisionID        *string    `json:"supervision_id"`
 	SpotCheckDate        *time.Time `json:"spot_check_date"`
+	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
 	SpotCheckNumber      *int       `json:"spot_check_number"`
 	SpotCheckRatio       *float64   `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
-	SupervisionID        *string    `json:"supervision_id"`
+	CheckUserID          *string    `json:"check_user_id"`
 	TotalNumberVehicle   *int       `json:"total_number_vehicle"`
+	ProvinceID           *string    `json:"province_id"`
+	CityID               *string    `json:"city_id"`
+	DistrictID           *string    `json:"district_id"`
+	Year                 *int       `json:"year"`
+	Month                *int       `json:"month"`
+	Day                  *int       `json:"day"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
 	UpdatedAt            *time.Time `json:"updated_at"`
 	UpdatedBy            *string    `json:"updated_by"`
-	Year                 *int       `json:"year"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "dynamic_supervision"
 type DynamicSupervisionMaxFields struct {
-	CheckUserID          *string    `json:"check_user_id"`
-	CityID               *string    `json:"city_id"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	Day                  *int       `json:"day"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-	DistrictID           *string    `json:"district_id"`
 	ID                   *int64     `json:"id"`
-	Month                *int       `json:"month"`
-	ProvinceID           *string    `json:"province_id"`
+	SupervisionID        *string    `json:"supervision_id"`
 	SpotCheckDate        *time.Time `json:"spot_check_date"`
+	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
 	SpotCheckNumber      *int       `json:"spot_check_number"`
 	SpotCheckRatio       *float64   `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
-	SupervisionID        *string    `json:"supervision_id"`
+	CheckUserID          *string    `json:"check_user_id"`
 	TotalNumberVehicle   *int       `json:"total_number_vehicle"`
+	ProvinceID           *string    `json:"province_id"`
+	CityID               *string    `json:"city_id"`
+	DistrictID           *string    `json:"district_id"`
+	Year                 *int       `json:"year"`
+	Month                *int       `json:"month"`
+	Day                  *int       `json:"day"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
 	UpdatedAt            *time.Time `json:"updated_at"`
 	UpdatedBy            *string    `json:"updated_by"`
-	Year                 *int       `json:"year"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
-// order by max() on columns of table "dynamic_supervision"
-type DynamicSupervisionMaxOrderBy struct {
-	CheckUserID          *model.OrderBy `json:"check_user_id"`
-	CityID               *model.OrderBy `json:"city_id"`
-	CreatedAt            *model.OrderBy `json:"created_at"`
-	CreatedBy            *model.OrderBy `json:"created_by"`
-	Day                  *model.OrderBy `json:"day"`
-	DeletedAt            *model.OrderBy `json:"deleted_at"`
-	DeletedBy            *model.OrderBy `json:"deleted_by"`
-	DistrictID           *model.OrderBy `json:"district_id"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	ProvinceID           *model.OrderBy `json:"province_id"`
-	SpotCheckDate        *model.OrderBy `json:"spot_check_date"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	SupervisionID        *model.OrderBy `json:"supervision_id"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	UpdatedAt            *model.OrderBy `json:"updated_at"`
-	UpdatedBy            *model.OrderBy `json:"updated_by"`
-	Year                 *model.OrderBy `json:"year"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "dynamic_supervision"
 type DynamicSupervisionMinFields struct {
-	CheckUserID          *string    `json:"check_user_id"`
-	CityID               *string    `json:"city_id"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	Day                  *int       `json:"day"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-	DistrictID           *string    `json:"district_id"`
 	ID                   *int64     `json:"id"`
-	Month                *int       `json:"month"`
-	ProvinceID           *string    `json:"province_id"`
+	SupervisionID        *string    `json:"supervision_id"`
 	SpotCheckDate        *time.Time `json:"spot_check_date"`
+	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
 	SpotCheckNumber      *int       `json:"spot_check_number"`
 	SpotCheckRatio       *float64   `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
-	SupervisionID        *string    `json:"supervision_id"`
+	CheckUserID          *string    `json:"check_user_id"`
 	TotalNumberVehicle   *int       `json:"total_number_vehicle"`
+	ProvinceID           *string    `json:"province_id"`
+	CityID               *string    `json:"city_id"`
+	DistrictID           *string    `json:"district_id"`
+	Year                 *int       `json:"year"`
+	Month                *int       `json:"month"`
+	Day                  *int       `json:"day"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
 	UpdatedAt            *time.Time `json:"updated_at"`
 	UpdatedBy            *string    `json:"updated_by"`
-	Year                 *int       `json:"year"`
-}
-
-// order by min() on columns of table "dynamic_supervision"
-type DynamicSupervisionMinOrderBy struct {
-	CheckUserID          *model.OrderBy `json:"check_user_id"`
-	CityID               *model.OrderBy `json:"city_id"`
-	CreatedAt            *model.OrderBy `json:"created_at"`
-	CreatedBy            *model.OrderBy `json:"created_by"`
-	Day                  *model.OrderBy `json:"day"`
-	DeletedAt            *model.OrderBy `json:"deleted_at"`
-	DeletedBy            *model.OrderBy `json:"deleted_by"`
-	DistrictID           *model.OrderBy `json:"district_id"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	ProvinceID           *model.OrderBy `json:"province_id"`
-	SpotCheckDate        *model.OrderBy `json:"spot_check_date"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	SupervisionID        *model.OrderBy `json:"supervision_id"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	UpdatedAt            *model.OrderBy `json:"updated_at"`
-	UpdatedBy            *model.OrderBy `json:"updated_by"`
-	Year                 *model.OrderBy `json:"year"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "dynamic_supervision"
 type DynamicSupervisionMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DynamicSupervision `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "dynamic_supervision"
-type DynamicSupervisionObjRelInsertInput struct {
-	Data       *DynamicSupervisionInsertInput `json:"data"`
-	OnConflict *DynamicSupervisionOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "dynamic_supervision"
-type DynamicSupervisionOnConflict struct {
-	Constraint    DynamicSupervisionConstraint     `json:"constraint"`
-	UpdateColumns []DynamicSupervisionUpdateColumn `json:"update_columns"`
-	Where         *DynamicSupervisionBoolExp       `json:"where"`
+	AffectedRows int                          `json:"affected_rows"`
+	Returning    []*model1.DynamicSupervision `json:"returning"`
 }
 
 // ordering options when selecting data from "dynamic_supervision"
 type DynamicSupervisionOrderBy struct {
-	CheckUserID          *model.OrderBy `json:"check_user_id"`
-	CityID               *model.OrderBy `json:"city_id"`
-	CreatedAt            *model.OrderBy `json:"created_at"`
-	CreatedBy            *model.OrderBy `json:"created_by"`
-	Day                  *model.OrderBy `json:"day"`
-	DeletedAt            *model.OrderBy `json:"deleted_at"`
-	DeletedBy            *model.OrderBy `json:"deleted_by"`
-	DistrictID           *model.OrderBy `json:"district_id"`
 	ID                   *model.OrderBy `json:"id"`
-	IsDelete             *model.OrderBy `json:"is_delete"`
-	Month                *model.OrderBy `json:"month"`
-	ProvinceID           *model.OrderBy `json:"province_id"`
+	SupervisionID        *model.OrderBy `json:"supervision_id"`
 	SpotCheckDate        *model.OrderBy `json:"spot_check_date"`
+	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
 	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
 	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	SupervisionID        *model.OrderBy `json:"supervision_id"`
+	CheckUserID          *model.OrderBy `json:"check_user_id"`
 	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
+	ProvinceID           *model.OrderBy `json:"province_id"`
+	CityID               *model.OrderBy `json:"city_id"`
+	DistrictID           *model.OrderBy `json:"district_id"`
+	Year                 *model.OrderBy `json:"year"`
+	Month                *model.OrderBy `json:"month"`
+	Day                  *model.OrderBy `json:"day"`
+	CreatedAt            *model.OrderBy `json:"created_at"`
+	CreatedBy            *model.OrderBy `json:"created_by"`
 	UpdatedAt            *model.OrderBy `json:"updated_at"`
 	UpdatedBy            *model.OrderBy `json:"updated_by"`
-	Year                 *model.OrderBy `json:"year"`
-}
-
-// primary key columns input for table: "dynamic_supervision"
-type DynamicSupervisionPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 联合主键
-	SupervisionID string `json:"supervision_id"`
+	DeletedAt            *model.OrderBy `json:"deleted_at"`
+	DeletedBy            *model.OrderBy `json:"deleted_by"`
+	IsDeleted            *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "dynamic_supervision"
 type DynamicSupervisionSetInput struct {
-	CheckUserID          *string    `json:"check_user_id"`
-	CityID               *string    `json:"city_id"`
-	CreatedAt            *time.Time `json:"created_at"`
-	CreatedBy            *string    `json:"created_by"`
-	Day                  *int       `json:"day"`
-	DeletedAt            *time.Time `json:"deleted_at"`
-	DeletedBy            *string    `json:"deleted_by"`
-	DistrictID           *string    `json:"district_id"`
 	ID                   *int64     `json:"id"`
-	IsDelete             *bool      `json:"is_delete"`
-	Month                *int       `json:"month"`
-	ProvinceID           *string    `json:"province_id"`
+	SupervisionID        *string    `json:"supervision_id"`
 	SpotCheckDate        *time.Time `json:"spot_check_date"`
+	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
 	SpotCheckNumber      *int       `json:"spot_check_number"`
 	SpotCheckRatio       *float64   `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *int       `json:"spot_check_total_number"`
-	SupervisionID        *string    `json:"supervision_id"`
+	CheckUserID          *string    `json:"check_user_id"`
 	TotalNumberVehicle   *int       `json:"total_number_vehicle"`
+	ProvinceID           *string    `json:"province_id"`
+	CityID               *string    `json:"city_id"`
+	DistrictID           *string    `json:"district_id"`
+	Year                 *int       `json:"year"`
+	Month                *int       `json:"month"`
+	Day                  *int       `json:"day"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
 	UpdatedAt            *time.Time `json:"updated_at"`
 	UpdatedBy            *string    `json:"updated_by"`
-	Year                 *int       `json:"year"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+	IsDeleted            *bool      `json:"is_deleted"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "dynamic_supervision"
 type DynamicSupervisionStddevFields struct {
-	Day                  *float64 `json:"day"`
-	ID                   *float64 `json:"id"`
-	Month                *float64 `json:"month"`
-	SpotCheckNumber      *float64 `json:"spot_check_number"`
-	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *float64 `json:"spot_check_total_number"`
-	TotalNumberVehicle   *float64 `json:"total_number_vehicle"`
-	Year                 *float64 `json:"year"`
-}
-
-// order by stddev() on columns of table "dynamic_supervision"
-type DynamicSupervisionStddevOrderBy struct {
-	Day                  *model.OrderBy `json:"day"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	Year                 *model.OrderBy `json:"year"`
-}
-
-// aggregate stddev_pop on columns
-type DynamicSupervisionStddevPopFields struct {
-	Day                  *float64 `json:"day"`
-	ID                   *float64 `json:"id"`
-	Month                *float64 `json:"month"`
-	SpotCheckNumber      *float64 `json:"spot_check_number"`
-	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *float64 `json:"spot_check_total_number"`
-	TotalNumberVehicle   *float64 `json:"total_number_vehicle"`
-	Year                 *float64 `json:"year"`
-}
-
-// order by stddev_pop() on columns of table "dynamic_supervision"
-type DynamicSupervisionStddevPopOrderBy struct {
-	Day                  *model.OrderBy `json:"day"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	Year                 *model.OrderBy `json:"year"`
-}
-
-// aggregate stddev_samp on columns
-type DynamicSupervisionStddevSampFields struct {
-	Day                  *float64 `json:"day"`
-	ID                   *float64 `json:"id"`
-	Month                *float64 `json:"month"`
-	SpotCheckNumber      *float64 `json:"spot_check_number"`
-	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *float64 `json:"spot_check_total_number"`
-	TotalNumberVehicle   *float64 `json:"total_number_vehicle"`
-	Year                 *float64 `json:"year"`
-}
-
-// order by stddev_samp() on columns of table "dynamic_supervision"
-type DynamicSupervisionStddevSampOrderBy struct {
-	Day                  *model.OrderBy `json:"day"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	Year                 *model.OrderBy `json:"year"`
-}
-
-// aggregate sum on columns
-type DynamicSupervisionSumFields struct {
-	Day                  *int     `json:"day"`
 	ID                   *int64   `json:"id"`
-	Month                *int     `json:"month"`
+	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
 	SpotCheckNumber      *int     `json:"spot_check_number"`
 	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
 	TotalNumberVehicle   *int     `json:"total_number_vehicle"`
 	Year                 *int     `json:"year"`
+	Month                *int     `json:"month"`
+	Day                  *int     `json:"day"`
 }
 
-// order by sum() on columns of table "dynamic_supervision"
-type DynamicSupervisionSumOrderBy struct {
-	Day                  *model.OrderBy `json:"day"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	Year                 *model.OrderBy `json:"year"`
+// aggregate stddev_pop on columns of table "dynamic_supervision"
+type DynamicSupervisionStddevPopFields struct {
+	ID                   *int64   `json:"id"`
+	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
+	SpotCheckNumber      *int     `json:"spot_check_number"`
+	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
+	TotalNumberVehicle   *int     `json:"total_number_vehicle"`
+	Year                 *int     `json:"year"`
+	Month                *int     `json:"month"`
+	Day                  *int     `json:"day"`
 }
 
-// aggregate var_pop on columns
+// aggregate stddev_samp on columns of table "dynamic_supervision"
+type DynamicSupervisionStddevSampFields struct {
+	ID                   *int64   `json:"id"`
+	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
+	SpotCheckNumber      *int     `json:"spot_check_number"`
+	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
+	TotalNumberVehicle   *int     `json:"total_number_vehicle"`
+	Year                 *int     `json:"year"`
+	Month                *int     `json:"month"`
+	Day                  *int     `json:"day"`
+}
+
+// aggregate sum on columns of table "dynamic_supervision"
+type DynamicSupervisionSumFields struct {
+	ID                   *int64   `json:"id"`
+	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
+	SpotCheckNumber      *int     `json:"spot_check_number"`
+	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
+	TotalNumberVehicle   *int     `json:"total_number_vehicle"`
+	Year                 *int     `json:"year"`
+	Month                *int     `json:"month"`
+	Day                  *int     `json:"day"`
+}
+
+// aggregate var_pop on columns of table "dynamic_supervision"
 type DynamicSupervisionVarPopFields struct {
-	Day                  *float64 `json:"day"`
-	ID                   *float64 `json:"id"`
-	Month                *float64 `json:"month"`
-	SpotCheckNumber      *float64 `json:"spot_check_number"`
+	ID                   *int64   `json:"id"`
+	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
+	SpotCheckNumber      *int     `json:"spot_check_number"`
 	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *float64 `json:"spot_check_total_number"`
-	TotalNumberVehicle   *float64 `json:"total_number_vehicle"`
-	Year                 *float64 `json:"year"`
+	TotalNumberVehicle   *int     `json:"total_number_vehicle"`
+	Year                 *int     `json:"year"`
+	Month                *int     `json:"month"`
+	Day                  *int     `json:"day"`
 }
 
-// order by var_pop() on columns of table "dynamic_supervision"
-type DynamicSupervisionVarPopOrderBy struct {
-	Day                  *model.OrderBy `json:"day"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	Year                 *model.OrderBy `json:"year"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "dynamic_supervision"
 type DynamicSupervisionVarSampFields struct {
-	Day                  *float64 `json:"day"`
-	ID                   *float64 `json:"id"`
-	Month                *float64 `json:"month"`
-	SpotCheckNumber      *float64 `json:"spot_check_number"`
+	ID                   *int64   `json:"id"`
+	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
+	SpotCheckNumber      *int     `json:"spot_check_number"`
 	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *float64 `json:"spot_check_total_number"`
-	TotalNumberVehicle   *float64 `json:"total_number_vehicle"`
-	Year                 *float64 `json:"year"`
+	TotalNumberVehicle   *int     `json:"total_number_vehicle"`
+	Year                 *int     `json:"year"`
+	Month                *int     `json:"month"`
+	Day                  *int     `json:"day"`
 }
 
-// order by var_samp() on columns of table "dynamic_supervision"
-type DynamicSupervisionVarSampOrderBy struct {
-	Day                  *model.OrderBy `json:"day"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	Year                 *model.OrderBy `json:"year"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "dynamic_supervision"
 type DynamicSupervisionVarianceFields struct {
-	Day                  *float64 `json:"day"`
-	ID                   *float64 `json:"id"`
-	Month                *float64 `json:"month"`
-	SpotCheckNumber      *float64 `json:"spot_check_number"`
+	ID                   *int64   `json:"id"`
+	SpotCheckTotalNumber *int     `json:"spot_check_total_number"`
+	SpotCheckNumber      *int     `json:"spot_check_number"`
 	SpotCheckRatio       *float64 `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *float64 `json:"spot_check_total_number"`
-	TotalNumberVehicle   *float64 `json:"total_number_vehicle"`
-	Year                 *float64 `json:"year"`
+	TotalNumberVehicle   *int     `json:"total_number_vehicle"`
+	Year                 *int     `json:"year"`
+	Month                *int     `json:"month"`
+	Day                  *int     `json:"day"`
 }
 
-// order by variance() on columns of table "dynamic_supervision"
-type DynamicSupervisionVarianceOrderBy struct {
-	Day                  *model.OrderBy `json:"day"`
-	ID                   *model.OrderBy `json:"id"`
-	Month                *model.OrderBy `json:"month"`
-	SpotCheckNumber      *model.OrderBy `json:"spot_check_number"`
-	SpotCheckRatio       *model.OrderBy `json:"spot_check_ratio"`
-	SpotCheckTotalNumber *model.OrderBy `json:"spot_check_total_number"`
-	TotalNumberVehicle   *model.OrderBy `json:"total_number_vehicle"`
-	Year                 *model.OrderBy `json:"year"`
+// aggregated selection of "muck_truck_online"
+type MuckTruckOnlineAggregate struct {
+	Aggregate *MuckTruckOnlineAggregateFields `json:"aggregate"`
 }
 
-// unique or primary key constraints on table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalConstraint string
-
-const (
-	// unique or primary key constraint
-	DynamicSpotCheckDisposalConstraintDynamicSpotCheckDisposalPkey DynamicSpotCheckDisposalConstraint = "dynamic_spot_check_disposal_pkey"
-)
-
-var AllDynamicSpotCheckDisposalConstraint = []DynamicSpotCheckDisposalConstraint{
-	DynamicSpotCheckDisposalConstraintDynamicSpotCheckDisposalPkey,
+// aggregate fields of "muck_truck_online"
+type MuckTruckOnlineAggregateFields struct {
+	Avg        *MuckTruckOnlineAvgFields        `json:"avg"`
+	Count      *int                             `json:"count"`
+	Max        *MuckTruckOnlineMaxFields        `json:"max"`
+	Min        *MuckTruckOnlineMinFields        `json:"min"`
+	Stddev     *MuckTruckOnlineStddevFields     `json:"stddev"`
+	StddevPop  *MuckTruckOnlineStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *MuckTruckOnlineStddevSampFields `json:"stddev_samp"`
+	Sum        *MuckTruckOnlineSumFields        `json:"sum"`
+	VarPop     *MuckTruckOnlineVarPopFields     `json:"var_pop"`
+	VarSamp    *MuckTruckOnlineVarSampFields    `json:"var_samp"`
+	Variance   *MuckTruckOnlineVarianceFields   `json:"variance"`
 }
 
-func (e DynamicSpotCheckDisposalConstraint) IsValid() bool {
-	switch e {
-	case DynamicSpotCheckDisposalConstraintDynamicSpotCheckDisposalPkey:
-		return true
-	}
-	return false
+// aggregate avg on columns of table "muck_truck_online"
+type MuckTruckOnlineAvgFields struct {
+	ID *int64 `json:"id"`
 }
 
-func (e DynamicSpotCheckDisposalConstraint) String() string {
-	return string(e)
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_online'.
+type MuckTruckOnlineBoolExp struct {
+	And                     []*MuckTruckOnlineBoolExp       `json:"_and"`
+	Not                     *MuckTruckOnlineBoolExp         `json:"_not"`
+	Or                      []*MuckTruckOnlineBoolExp       `json:"_or"`
+	ID                      *model.BigintComparisonExp      `json:"id"`
+	MuckTruckOnlineID       *model.StringComparisonExp      `json:"muck_truck_online_id"`
+	VehicleID               *model.StringComparisonExp      `json:"vehicle_id"`
+	IsOnline                *model.BooleanComparisonExp     `json:"is_online"`
+	IsPay                   *model.BooleanComparisonExp     `json:"is_pay"`
+	IsGpsOnline             *model.BooleanComparisonExp     `json:"is_gps_online"`
+	IsCatalogLibrary        *model.BooleanComparisonExp     `json:"is_catalog_library"`
+	IsInstall               *model.BooleanComparisonExp     `json:"is_install"`
+	IsVehiclePassInspection *model.BooleanComparisonExp     `json:"is_vehicle_pass_inspection"`
+	IsNewVehicle            *model.BooleanComparisonExp     `json:"is_new_vehicle"`
+	LocationTime            *model.TimestamptzComparisonExp `json:"location_time"`
+	SelfNumber              *model.StringComparisonExp      `json:"self_number"`
+	Area                    *model.StringComparisonExp      `json:"area"`
+	CreatedAt               *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy               *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt               *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy               *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt               *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy               *model.StringComparisonExp      `json:"deleted_by"`
 }
 
-func (e *DynamicSpotCheckDisposalConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DynamicSpotCheckDisposalConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dynamic_spot_check_disposal_constraint", str)
-	}
-	return nil
+// input type for incrementing integer column in table "muck_truck_online"
+type MuckTruckOnlineIncInput struct {
+	ID *int64 `json:"id"`
 }
 
-func (e DynamicSpotCheckDisposalConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+// input type for inserting data into table "muck_truck_online"
+type MuckTruckOnlineInsertInput struct {
+	ID                      *int64     `json:"id"`
+	MuckTruckOnlineID       *string    `json:"muck_truck_online_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	IsOnline                *bool      `json:"is_online"`
+	IsPay                   *bool      `json:"is_pay"`
+	IsGpsOnline             *bool      `json:"is_gps_online"`
+	IsCatalogLibrary        *bool      `json:"is_catalog_library"`
+	IsInstall               *bool      `json:"is_install"`
+	IsVehiclePassInspection *bool      `json:"is_vehicle_pass_inspection"`
+	IsNewVehicle            *bool      `json:"is_new_vehicle"`
+	LocationTime            *time.Time `json:"location_time"`
+	SelfNumber              *string    `json:"self_number"`
+	Area                    *string    `json:"area"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 }
 
-// select columns of table "dynamic_spot_check_disposal"
+// aggregate max on columns of table "muck_truck_online"
+type MuckTruckOnlineMaxFields struct {
+	ID                      *int64     `json:"id"`
+	MuckTruckOnlineID       *string    `json:"muck_truck_online_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	IsOnline                *bool      `json:"is_online"`
+	IsPay                   *bool      `json:"is_pay"`
+	IsGpsOnline             *bool      `json:"is_gps_online"`
+	IsCatalogLibrary        *bool      `json:"is_catalog_library"`
+	IsInstall               *bool      `json:"is_install"`
+	IsVehiclePassInspection *bool      `json:"is_vehicle_pass_inspection"`
+	IsNewVehicle            *bool      `json:"is_new_vehicle"`
+	LocationTime            *time.Time `json:"location_time"`
+	SelfNumber              *string    `json:"self_number"`
+	Area                    *string    `json:"area"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "muck_truck_online"
+type MuckTruckOnlineMinFields struct {
+	ID                      *int64     `json:"id"`
+	MuckTruckOnlineID       *string    `json:"muck_truck_online_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	IsOnline                *bool      `json:"is_online"`
+	IsPay                   *bool      `json:"is_pay"`
+	IsGpsOnline             *bool      `json:"is_gps_online"`
+	IsCatalogLibrary        *bool      `json:"is_catalog_library"`
+	IsInstall               *bool      `json:"is_install"`
+	IsVehiclePassInspection *bool      `json:"is_vehicle_pass_inspection"`
+	IsNewVehicle            *bool      `json:"is_new_vehicle"`
+	LocationTime            *time.Time `json:"location_time"`
+	SelfNumber              *string    `json:"self_number"`
+	Area                    *string    `json:"area"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "muck_truck_online"
+type MuckTruckOnlineMutationResponse struct {
+	AffectedRows int                       `json:"affected_rows"`
+	Returning    []*model1.MuckTruckOnline `json:"returning"`
+}
+
+// ordering options when selecting data from "muck_truck_online"
+type MuckTruckOnlineOrderBy struct {
+	ID                      *model.OrderBy `json:"id"`
+	MuckTruckOnlineID       *model.OrderBy `json:"muck_truck_online_id"`
+	VehicleID               *model.OrderBy `json:"vehicle_id"`
+	IsOnline                *model.OrderBy `json:"is_online"`
+	IsPay                   *model.OrderBy `json:"is_pay"`
+	IsGpsOnline             *model.OrderBy `json:"is_gps_online"`
+	IsCatalogLibrary        *model.OrderBy `json:"is_catalog_library"`
+	IsInstall               *model.OrderBy `json:"is_install"`
+	IsVehiclePassInspection *model.OrderBy `json:"is_vehicle_pass_inspection"`
+	IsNewVehicle            *model.OrderBy `json:"is_new_vehicle"`
+	LocationTime            *model.OrderBy `json:"location_time"`
+	SelfNumber              *model.OrderBy `json:"self_number"`
+	Area                    *model.OrderBy `json:"area"`
+	CreatedAt               *model.OrderBy `json:"created_at"`
+	CreatedBy               *model.OrderBy `json:"created_by"`
+	UpdatedAt               *model.OrderBy `json:"updated_at"`
+	UpdatedBy               *model.OrderBy `json:"updated_by"`
+	DeletedAt               *model.OrderBy `json:"deleted_at"`
+	DeletedBy               *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "muck_truck_online"
+type MuckTruckOnlineSetInput struct {
+	ID                      *int64     `json:"id"`
+	MuckTruckOnlineID       *string    `json:"muck_truck_online_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	IsOnline                *bool      `json:"is_online"`
+	IsPay                   *bool      `json:"is_pay"`
+	IsGpsOnline             *bool      `json:"is_gps_online"`
+	IsCatalogLibrary        *bool      `json:"is_catalog_library"`
+	IsInstall               *bool      `json:"is_install"`
+	IsVehiclePassInspection *bool      `json:"is_vehicle_pass_inspection"`
+	IsNewVehicle            *bool      `json:"is_new_vehicle"`
+	LocationTime            *time.Time `json:"location_time"`
+	SelfNumber              *string    `json:"self_number"`
+	Area                    *string    `json:"area"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "muck_truck_online"
+type MuckTruckOnlineStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "muck_truck_online"
+type MuckTruckOnlineStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "muck_truck_online"
+type MuckTruckOnlineStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "muck_truck_online"
+type MuckTruckOnlineSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "muck_truck_online"
+type MuckTruckOnlineVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "muck_truck_online"
+type MuckTruckOnlineVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "muck_truck_online"
+type MuckTruckOnlineVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregated selection of "region_issued"
+type RegionIssuedAggregate struct {
+	Aggregate *RegionIssuedAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "region_issued"
+type RegionIssuedAggregateFields struct {
+	Avg        *RegionIssuedAvgFields        `json:"avg"`
+	Count      *int                          `json:"count"`
+	Max        *RegionIssuedMaxFields        `json:"max"`
+	Min        *RegionIssuedMinFields        `json:"min"`
+	Stddev     *RegionIssuedStddevFields     `json:"stddev"`
+	StddevPop  *RegionIssuedStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *RegionIssuedStddevSampFields `json:"stddev_samp"`
+	Sum        *RegionIssuedSumFields        `json:"sum"`
+	VarPop     *RegionIssuedVarPopFields     `json:"var_pop"`
+	VarSamp    *RegionIssuedVarSampFields    `json:"var_samp"`
+	Variance   *RegionIssuedVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "region_issued"
+type RegionIssuedAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'region_issued'.
+type RegionIssuedBoolExp struct {
+	And            []*RegionIssuedBoolExp          `json:"_and"`
+	Not            *RegionIssuedBoolExp            `json:"_not"`
+	Or             []*RegionIssuedBoolExp          `json:"_or"`
+	ID             *model.BigintComparisonExp      `json:"id"`
+	RegionIssuedID *model.StringComparisonExp      `json:"region_issued_id"`
+	RegionName     *model.StringComparisonExp      `json:"region_name"`
+	Imel           *model.StringComparisonExp      `json:"imel"`
+	CreatedAt      *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy      *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt      *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy      *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt      *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy      *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "region_issued"
+type RegionIssuedIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "region_issued"
+type RegionIssuedInsertInput struct {
+	ID             *int64     `json:"id"`
+	RegionIssuedID *string    `json:"region_issued_id"`
+	RegionName     *string    `json:"region_name"`
+	Imel           *string    `json:"imel"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "region_issued"
+type RegionIssuedMaxFields struct {
+	ID             *int64     `json:"id"`
+	RegionIssuedID *string    `json:"region_issued_id"`
+	RegionName     *string    `json:"region_name"`
+	Imel           *string    `json:"imel"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "region_issued"
+type RegionIssuedMinFields struct {
+	ID             *int64     `json:"id"`
+	RegionIssuedID *string    `json:"region_issued_id"`
+	RegionName     *string    `json:"region_name"`
+	Imel           *string    `json:"imel"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "region_issued"
+type RegionIssuedMutationResponse struct {
+	AffectedRows int                    `json:"affected_rows"`
+	Returning    []*model1.RegionIssued `json:"returning"`
+}
+
+// ordering options when selecting data from "region_issued"
+type RegionIssuedOrderBy struct {
+	ID             *model.OrderBy `json:"id"`
+	RegionIssuedID *model.OrderBy `json:"region_issued_id"`
+	RegionName     *model.OrderBy `json:"region_name"`
+	Imel           *model.OrderBy `json:"imel"`
+	CreatedAt      *model.OrderBy `json:"created_at"`
+	CreatedBy      *model.OrderBy `json:"created_by"`
+	UpdatedAt      *model.OrderBy `json:"updated_at"`
+	UpdatedBy      *model.OrderBy `json:"updated_by"`
+	DeletedAt      *model.OrderBy `json:"deleted_at"`
+	DeletedBy      *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "region_issued"
+type RegionIssuedSetInput struct {
+	ID             *int64     `json:"id"`
+	RegionIssuedID *string    `json:"region_issued_id"`
+	RegionName     *string    `json:"region_name"`
+	Imel           *string    `json:"imel"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
+	UpdatedAt      *time.Time `json:"updated_at"`
+	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "region_issued"
+type RegionIssuedStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "region_issued"
+type RegionIssuedStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "region_issued"
+type RegionIssuedStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "region_issued"
+type RegionIssuedSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "region_issued"
+type RegionIssuedVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "region_issued"
+type RegionIssuedVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "region_issued"
+type RegionIssuedVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregated selection of "region_management"
+type RegionManagementAggregate struct {
+	Aggregate *RegionManagementAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "region_management"
+type RegionManagementAggregateFields struct {
+	Avg        *RegionManagementAvgFields        `json:"avg"`
+	Count      *int                              `json:"count"`
+	Max        *RegionManagementMaxFields        `json:"max"`
+	Min        *RegionManagementMinFields        `json:"min"`
+	Stddev     *RegionManagementStddevFields     `json:"stddev"`
+	StddevPop  *RegionManagementStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *RegionManagementStddevSampFields `json:"stddev_samp"`
+	Sum        *RegionManagementSumFields        `json:"sum"`
+	VarPop     *RegionManagementVarPopFields     `json:"var_pop"`
+	VarSamp    *RegionManagementVarSampFields    `json:"var_samp"`
+	Variance   *RegionManagementVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "region_management"
+type RegionManagementAvgFields struct {
+	ID           *int64 `json:"id"`
+	Duration     *int   `json:"duration_"`
+	MaxSpeed     *int   `json:"max_speed"`
+	CircleRadius *int   `json:"circle_radius"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'region_management'.
+type RegionManagementBoolExp struct {
+	And                []*RegionManagementBoolExp      `json:"_and"`
+	Not                *RegionManagementBoolExp        `json:"_not"`
+	Or                 []*RegionManagementBoolExp      `json:"_or"`
+	ID                 *model.BigintComparisonExp      `json:"id"`
+	RegionManagementID *model.StringComparisonExp      `json:"region_management_id"`
+	RegionID           *model.StringComparisonExp      `json:"region_id"`
+	RegionName         *model.StringComparisonExp      `json:"region_name"`
+	RegionType         *model.StringComparisonExp      `json:"region_type"`
+	RegionNature       *model.StringComparisonExp      `json:"region_nature"`
+	AlarmBeginTime     *model.TimestamptzComparisonExp `json:"alarm_begin_time"`
+	AlarmEndTime       *model.TimestamptzComparisonExp `json:"alarm_end_time"`
+	EnterpriseName     *model.StringComparisonExp      `json:"enterprise_name"`
+	Duration           *model.IntComparisonExp         `json:"duration_"`
+	MaxSpeed           *model.IntComparisonExp         `json:"max_speed"`
+	CircleRadius       *model.IntComparisonExp         `json:"circle_radius"`
+	RegionCoordinate   *model.PointComparisonExp       `json:"region_coordinate"`
+	IsSuperRegion      *model.BooleanComparisonExp     `json:"is_super_region"`
+	IsDeleted          *model.BooleanComparisonExp     `json:"is_deleted"`
+	CreatedAt          *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy          *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt          *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy          *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt          *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy          *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "region_management"
+type RegionManagementIncInput struct {
+	ID           *int64 `json:"id"`
+	Duration     *int   `json:"duration_"`
+	MaxSpeed     *int   `json:"max_speed"`
+	CircleRadius *int   `json:"circle_radius"`
+}
+
+// input type for inserting data into table "region_management"
+type RegionManagementInsertInput struct {
+	ID                 *int64     `json:"id"`
+	RegionManagementID *string    `json:"region_management_id"`
+	RegionID           *string    `json:"region_id"`
+	RegionName         *string    `json:"region_name"`
+	RegionType         *string    `json:"region_type"`
+	RegionNature       *string    `json:"region_nature"`
+	AlarmBeginTime     *time.Time `json:"alarm_begin_time"`
+	AlarmEndTime       *time.Time `json:"alarm_end_time"`
+	EnterpriseName     *string    `json:"enterprise_name"`
+	Duration           *int       `json:"duration_"`
+	MaxSpeed           *int       `json:"max_speed"`
+	CircleRadius       *int       `json:"circle_radius"`
+	RegionCoordinate   *string    `json:"region_coordinate"`
+	IsSuperRegion      *bool      `json:"is_super_region"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "region_management"
+type RegionManagementMaxFields struct {
+	ID                 *int64     `json:"id"`
+	RegionManagementID *string    `json:"region_management_id"`
+	RegionID           *string    `json:"region_id"`
+	RegionName         *string    `json:"region_name"`
+	RegionType         *string    `json:"region_type"`
+	RegionNature       *string    `json:"region_nature"`
+	AlarmBeginTime     *time.Time `json:"alarm_begin_time"`
+	AlarmEndTime       *time.Time `json:"alarm_end_time"`
+	EnterpriseName     *string    `json:"enterprise_name"`
+	Duration           *int       `json:"duration_"`
+	MaxSpeed           *int       `json:"max_speed"`
+	CircleRadius       *int       `json:"circle_radius"`
+	RegionCoordinate   *string    `json:"region_coordinate"`
+	IsSuperRegion      *bool      `json:"is_super_region"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "region_management"
+type RegionManagementMinFields struct {
+	ID                 *int64     `json:"id"`
+	RegionManagementID *string    `json:"region_management_id"`
+	RegionID           *string    `json:"region_id"`
+	RegionName         *string    `json:"region_name"`
+	RegionType         *string    `json:"region_type"`
+	RegionNature       *string    `json:"region_nature"`
+	AlarmBeginTime     *time.Time `json:"alarm_begin_time"`
+	AlarmEndTime       *time.Time `json:"alarm_end_time"`
+	EnterpriseName     *string    `json:"enterprise_name"`
+	Duration           *int       `json:"duration_"`
+	MaxSpeed           *int       `json:"max_speed"`
+	CircleRadius       *int       `json:"circle_radius"`
+	RegionCoordinate   *string    `json:"region_coordinate"`
+	IsSuperRegion      *bool      `json:"is_super_region"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "region_management"
+type RegionManagementMutationResponse struct {
+	AffectedRows int                        `json:"affected_rows"`
+	Returning    []*model1.RegionManagement `json:"returning"`
+}
+
+// ordering options when selecting data from "region_management"
+type RegionManagementOrderBy struct {
+	ID                 *model.OrderBy `json:"id"`
+	RegionManagementID *model.OrderBy `json:"region_management_id"`
+	RegionID           *model.OrderBy `json:"region_id"`
+	RegionName         *model.OrderBy `json:"region_name"`
+	RegionType         *model.OrderBy `json:"region_type"`
+	RegionNature       *model.OrderBy `json:"region_nature"`
+	AlarmBeginTime     *model.OrderBy `json:"alarm_begin_time"`
+	AlarmEndTime       *model.OrderBy `json:"alarm_end_time"`
+	EnterpriseName     *model.OrderBy `json:"enterprise_name"`
+	Duration           *model.OrderBy `json:"duration_"`
+	MaxSpeed           *model.OrderBy `json:"max_speed"`
+	CircleRadius       *model.OrderBy `json:"circle_radius"`
+	RegionCoordinate   *model.OrderBy `json:"region_coordinate"`
+	IsSuperRegion      *model.OrderBy `json:"is_super_region"`
+	IsDeleted          *model.OrderBy `json:"is_deleted"`
+	CreatedAt          *model.OrderBy `json:"created_at"`
+	CreatedBy          *model.OrderBy `json:"created_by"`
+	UpdatedAt          *model.OrderBy `json:"updated_at"`
+	UpdatedBy          *model.OrderBy `json:"updated_by"`
+	DeletedAt          *model.OrderBy `json:"deleted_at"`
+	DeletedBy          *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "region_management"
+type RegionManagementSetInput struct {
+	ID                 *int64     `json:"id"`
+	RegionManagementID *string    `json:"region_management_id"`
+	RegionID           *string    `json:"region_id"`
+	RegionName         *string    `json:"region_name"`
+	RegionType         *string    `json:"region_type"`
+	RegionNature       *string    `json:"region_nature"`
+	AlarmBeginTime     *time.Time `json:"alarm_begin_time"`
+	AlarmEndTime       *time.Time `json:"alarm_end_time"`
+	EnterpriseName     *string    `json:"enterprise_name"`
+	Duration           *int       `json:"duration_"`
+	MaxSpeed           *int       `json:"max_speed"`
+	CircleRadius       *int       `json:"circle_radius"`
+	RegionCoordinate   *string    `json:"region_coordinate"`
+	IsSuperRegion      *bool      `json:"is_super_region"`
+	IsDeleted          *bool      `json:"is_deleted"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "region_management"
+type RegionManagementStddevFields struct {
+	ID           *int64 `json:"id"`
+	Duration     *int   `json:"duration_"`
+	MaxSpeed     *int   `json:"max_speed"`
+	CircleRadius *int   `json:"circle_radius"`
+}
+
+// aggregate stddev_pop on columns of table "region_management"
+type RegionManagementStddevPopFields struct {
+	ID           *int64 `json:"id"`
+	Duration     *int   `json:"duration_"`
+	MaxSpeed     *int   `json:"max_speed"`
+	CircleRadius *int   `json:"circle_radius"`
+}
+
+// aggregate stddev_samp on columns of table "region_management"
+type RegionManagementStddevSampFields struct {
+	ID           *int64 `json:"id"`
+	Duration     *int   `json:"duration_"`
+	MaxSpeed     *int   `json:"max_speed"`
+	CircleRadius *int   `json:"circle_radius"`
+}
+
+// aggregate sum on columns of table "region_management"
+type RegionManagementSumFields struct {
+	ID           *int64 `json:"id"`
+	Duration     *int   `json:"duration_"`
+	MaxSpeed     *int   `json:"max_speed"`
+	CircleRadius *int   `json:"circle_radius"`
+}
+
+// aggregate var_pop on columns of table "region_management"
+type RegionManagementVarPopFields struct {
+	ID           *int64 `json:"id"`
+	Duration     *int   `json:"duration_"`
+	MaxSpeed     *int   `json:"max_speed"`
+	CircleRadius *int   `json:"circle_radius"`
+}
+
+// aggregate var_samp on columns of table "region_management"
+type RegionManagementVarSampFields struct {
+	ID           *int64 `json:"id"`
+	Duration     *int   `json:"duration_"`
+	MaxSpeed     *int   `json:"max_speed"`
+	CircleRadius *int   `json:"circle_radius"`
+}
+
+// aggregate variance on columns of table "region_management"
+type RegionManagementVarianceFields struct {
+	ID           *int64 `json:"id"`
+	Duration     *int   `json:"duration_"`
+	MaxSpeed     *int   `json:"max_speed"`
+	CircleRadius *int   `json:"circle_radius"`
+}
+
+// aggregated selection of "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionAggregate struct {
+	Aggregate *VehicleAlarmSupervisionAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionAggregateFields struct {
+	Avg        *VehicleAlarmSupervisionAvgFields        `json:"avg"`
+	Count      *int                                     `json:"count"`
+	Max        *VehicleAlarmSupervisionMaxFields        `json:"max"`
+	Min        *VehicleAlarmSupervisionMinFields        `json:"min"`
+	Stddev     *VehicleAlarmSupervisionStddevFields     `json:"stddev"`
+	StddevPop  *VehicleAlarmSupervisionStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleAlarmSupervisionStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleAlarmSupervisionSumFields        `json:"sum"`
+	VarPop     *VehicleAlarmSupervisionVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleAlarmSupervisionVarSampFields    `json:"var_samp"`
+	Variance   *VehicleAlarmSupervisionVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionAvgFields struct {
+	ID                                *int64   `json:"id"`
+	VehicleAlarmNumber                *int     `json:"vehicle_alarm_number"`
+	AlarmTimes                        *int     `json:"alarm_times"`
+	DisposalTimes                     *int     `json:"disposal_times"`
+	AlarmDisposalRate                 *float64 `json:"alarm_disposal_rate"`
+	ShouldSupervisionEnterpriseNumber *int     `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int     `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64 `json:"supervision_rate"`
+	BusinessScope                     *int     `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int     `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int     `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int     `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int     `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64 `json:"abnormal_disposal_rate"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_alarm_supervision'.
+type VehicleAlarmSupervisionBoolExp struct {
+	And                               []*VehicleAlarmSupervisionBoolExp `json:"_and"`
+	Not                               *VehicleAlarmSupervisionBoolExp   `json:"_not"`
+	Or                                []*VehicleAlarmSupervisionBoolExp `json:"_or"`
+	ID                                *model.BigintComparisonExp        `json:"id"`
+	VehicleAlarmSupervisionID         *model.StringComparisonExp        `json:"vehicle_alarm_supervision_id"`
+	SuperivisionAuthorityID           *model.StringComparisonExp        `json:"superivision_authority_id"`
+	SuperivisionType                  *model.StringComparisonExp        `json:"superivision_type"`
+	AreaID                            *model.StringComparisonExp        `json:"area_id"`
+	VehicleAlarmNumber                *model.IntComparisonExp           `json:"vehicle_alarm_number"`
+	AlarmType                         *model.StringComparisonExp        `json:"alarm_type"`
+	AlarmTimes                        *model.IntComparisonExp           `json:"alarm_times"`
+	DisposalTimes                     *model.IntComparisonExp           `json:"disposal_times"`
+	AlarmDisposalRate                 *model.NumericComparisonExp       `json:"alarm_disposal_rate"`
+	DistrictRectification             *model.StringComparisonExp        `json:"district_rectification"`
+	CityRectification                 *model.StringComparisonExp        `json:"city_rectification"`
+	ProvinceRectification             *model.StringComparisonExp        `json:"province_rectification"`
+	CountryRectification              *model.StringComparisonExp        `json:"country_rectification"`
+	RegistrationTime                  *model.TimestamptzComparisonExp   `json:"registration_time"`
+	StatisticsDate                    *model.StringComparisonExp        `json:"statistics_date"`
+	ShouldSupervisionEnterpriseNumber *model.IntComparisonExp           `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *model.IntComparisonExp           `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *model.NumericComparisonExp       `json:"supervision_rate"`
+	BusinessScope                     *model.IntComparisonExp           `json:"business_scope"`
+	ShouldCheckVehicleNumber          *model.IntComparisonExp           `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *model.IntComparisonExp           `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *model.IntComparisonExp           `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *model.IntComparisonExp           `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *model.NumericComparisonExp       `json:"abnormal_disposal_rate"`
+	CreatedAt                         *model.TimestamptzComparisonExp   `json:"created_at"`
+	CreatedBy                         *model.StringComparisonExp        `json:"created_by"`
+	UpdatedAt                         *model.TimestamptzComparisonExp   `json:"updated_at"`
+	UpdatedBy                         *model.StringComparisonExp        `json:"updated_by"`
+	DeletedAt                         *model.TimestamptzComparisonExp   `json:"deleted_at"`
+	DeletedBy                         *model.StringComparisonExp        `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionIncInput struct {
+	ID                                *int64   `json:"id"`
+	VehicleAlarmNumber                *int     `json:"vehicle_alarm_number"`
+	AlarmTimes                        *int     `json:"alarm_times"`
+	DisposalTimes                     *int     `json:"disposal_times"`
+	AlarmDisposalRate                 *float64 `json:"alarm_disposal_rate"`
+	ShouldSupervisionEnterpriseNumber *int     `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int     `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64 `json:"supervision_rate"`
+	BusinessScope                     *int     `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int     `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int     `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int     `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int     `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64 `json:"abnormal_disposal_rate"`
+}
+
+// input type for inserting data into table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionInsertInput struct {
+	ID                                *int64     `json:"id"`
+	VehicleAlarmSupervisionID         *string    `json:"vehicle_alarm_supervision_id"`
+	SuperivisionAuthorityID           *string    `json:"superivision_authority_id"`
+	SuperivisionType                  *string    `json:"superivision_type"`
+	AreaID                            *string    `json:"area_id"`
+	VehicleAlarmNumber                *int       `json:"vehicle_alarm_number"`
+	AlarmType                         *string    `json:"alarm_type"`
+	AlarmTimes                        *int       `json:"alarm_times"`
+	DisposalTimes                     *int       `json:"disposal_times"`
+	AlarmDisposalRate                 *float64   `json:"alarm_disposal_rate"`
+	DistrictRectification             *string    `json:"district_rectification"`
+	CityRectification                 *string    `json:"city_rectification"`
+	ProvinceRectification             *string    `json:"province_rectification"`
+	CountryRectification              *string    `json:"country_rectification"`
+	RegistrationTime                  *time.Time `json:"registration_time"`
+	StatisticsDate                    *string    `json:"statistics_date"`
+	ShouldSupervisionEnterpriseNumber *int       `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int       `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64   `json:"supervision_rate"`
+	BusinessScope                     *int       `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int       `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int       `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int       `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int       `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64   `json:"abnormal_disposal_rate"`
+	CreatedAt                         *time.Time `json:"created_at"`
+	CreatedBy                         *string    `json:"created_by"`
+	UpdatedAt                         *time.Time `json:"updated_at"`
+	UpdatedBy                         *string    `json:"updated_by"`
+	DeletedAt                         *time.Time `json:"deleted_at"`
+	DeletedBy                         *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionMaxFields struct {
+	ID                                *int64     `json:"id"`
+	VehicleAlarmSupervisionID         *string    `json:"vehicle_alarm_supervision_id"`
+	SuperivisionAuthorityID           *string    `json:"superivision_authority_id"`
+	SuperivisionType                  *string    `json:"superivision_type"`
+	AreaID                            *string    `json:"area_id"`
+	VehicleAlarmNumber                *int       `json:"vehicle_alarm_number"`
+	AlarmType                         *string    `json:"alarm_type"`
+	AlarmTimes                        *int       `json:"alarm_times"`
+	DisposalTimes                     *int       `json:"disposal_times"`
+	AlarmDisposalRate                 *float64   `json:"alarm_disposal_rate"`
+	DistrictRectification             *string    `json:"district_rectification"`
+	CityRectification                 *string    `json:"city_rectification"`
+	ProvinceRectification             *string    `json:"province_rectification"`
+	CountryRectification              *string    `json:"country_rectification"`
+	RegistrationTime                  *time.Time `json:"registration_time"`
+	StatisticsDate                    *string    `json:"statistics_date"`
+	ShouldSupervisionEnterpriseNumber *int       `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int       `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64   `json:"supervision_rate"`
+	BusinessScope                     *int       `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int       `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int       `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int       `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int       `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64   `json:"abnormal_disposal_rate"`
+	CreatedAt                         *time.Time `json:"created_at"`
+	CreatedBy                         *string    `json:"created_by"`
+	UpdatedAt                         *time.Time `json:"updated_at"`
+	UpdatedBy                         *string    `json:"updated_by"`
+	DeletedAt                         *time.Time `json:"deleted_at"`
+	DeletedBy                         *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionMinFields struct {
+	ID                                *int64     `json:"id"`
+	VehicleAlarmSupervisionID         *string    `json:"vehicle_alarm_supervision_id"`
+	SuperivisionAuthorityID           *string    `json:"superivision_authority_id"`
+	SuperivisionType                  *string    `json:"superivision_type"`
+	AreaID                            *string    `json:"area_id"`
+	VehicleAlarmNumber                *int       `json:"vehicle_alarm_number"`
+	AlarmType                         *string    `json:"alarm_type"`
+	AlarmTimes                        *int       `json:"alarm_times"`
+	DisposalTimes                     *int       `json:"disposal_times"`
+	AlarmDisposalRate                 *float64   `json:"alarm_disposal_rate"`
+	DistrictRectification             *string    `json:"district_rectification"`
+	CityRectification                 *string    `json:"city_rectification"`
+	ProvinceRectification             *string    `json:"province_rectification"`
+	CountryRectification              *string    `json:"country_rectification"`
+	RegistrationTime                  *time.Time `json:"registration_time"`
+	StatisticsDate                    *string    `json:"statistics_date"`
+	ShouldSupervisionEnterpriseNumber *int       `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int       `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64   `json:"supervision_rate"`
+	BusinessScope                     *int       `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int       `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int       `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int       `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int       `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64   `json:"abnormal_disposal_rate"`
+	CreatedAt                         *time.Time `json:"created_at"`
+	CreatedBy                         *string    `json:"created_by"`
+	UpdatedAt                         *time.Time `json:"updated_at"`
+	UpdatedBy                         *string    `json:"updated_by"`
+	DeletedAt                         *time.Time `json:"deleted_at"`
+	DeletedBy                         *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionMutationResponse struct {
+	AffectedRows int                               `json:"affected_rows"`
+	Returning    []*model1.VehicleAlarmSupervision `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionOrderBy struct {
+	ID                                *model.OrderBy `json:"id"`
+	VehicleAlarmSupervisionID         *model.OrderBy `json:"vehicle_alarm_supervision_id"`
+	SuperivisionAuthorityID           *model.OrderBy `json:"superivision_authority_id"`
+	SuperivisionType                  *model.OrderBy `json:"superivision_type"`
+	AreaID                            *model.OrderBy `json:"area_id"`
+	VehicleAlarmNumber                *model.OrderBy `json:"vehicle_alarm_number"`
+	AlarmType                         *model.OrderBy `json:"alarm_type"`
+	AlarmTimes                        *model.OrderBy `json:"alarm_times"`
+	DisposalTimes                     *model.OrderBy `json:"disposal_times"`
+	AlarmDisposalRate                 *model.OrderBy `json:"alarm_disposal_rate"`
+	DistrictRectification             *model.OrderBy `json:"district_rectification"`
+	CityRectification                 *model.OrderBy `json:"city_rectification"`
+	ProvinceRectification             *model.OrderBy `json:"province_rectification"`
+	CountryRectification              *model.OrderBy `json:"country_rectification"`
+	RegistrationTime                  *model.OrderBy `json:"registration_time"`
+	StatisticsDate                    *model.OrderBy `json:"statistics_date"`
+	ShouldSupervisionEnterpriseNumber *model.OrderBy `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *model.OrderBy `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *model.OrderBy `json:"supervision_rate"`
+	BusinessScope                     *model.OrderBy `json:"business_scope"`
+	ShouldCheckVehicleNumber          *model.OrderBy `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *model.OrderBy `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *model.OrderBy `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *model.OrderBy `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *model.OrderBy `json:"abnormal_disposal_rate"`
+	CreatedAt                         *model.OrderBy `json:"created_at"`
+	CreatedBy                         *model.OrderBy `json:"created_by"`
+	UpdatedAt                         *model.OrderBy `json:"updated_at"`
+	UpdatedBy                         *model.OrderBy `json:"updated_by"`
+	DeletedAt                         *model.OrderBy `json:"deleted_at"`
+	DeletedBy                         *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionSetInput struct {
+	ID                                *int64     `json:"id"`
+	VehicleAlarmSupervisionID         *string    `json:"vehicle_alarm_supervision_id"`
+	SuperivisionAuthorityID           *string    `json:"superivision_authority_id"`
+	SuperivisionType                  *string    `json:"superivision_type"`
+	AreaID                            *string    `json:"area_id"`
+	VehicleAlarmNumber                *int       `json:"vehicle_alarm_number"`
+	AlarmType                         *string    `json:"alarm_type"`
+	AlarmTimes                        *int       `json:"alarm_times"`
+	DisposalTimes                     *int       `json:"disposal_times"`
+	AlarmDisposalRate                 *float64   `json:"alarm_disposal_rate"`
+	DistrictRectification             *string    `json:"district_rectification"`
+	CityRectification                 *string    `json:"city_rectification"`
+	ProvinceRectification             *string    `json:"province_rectification"`
+	CountryRectification              *string    `json:"country_rectification"`
+	RegistrationTime                  *time.Time `json:"registration_time"`
+	StatisticsDate                    *string    `json:"statistics_date"`
+	ShouldSupervisionEnterpriseNumber *int       `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int       `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64   `json:"supervision_rate"`
+	BusinessScope                     *int       `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int       `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int       `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int       `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int       `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64   `json:"abnormal_disposal_rate"`
+	CreatedAt                         *time.Time `json:"created_at"`
+	CreatedBy                         *string    `json:"created_by"`
+	UpdatedAt                         *time.Time `json:"updated_at"`
+	UpdatedBy                         *string    `json:"updated_by"`
+	DeletedAt                         *time.Time `json:"deleted_at"`
+	DeletedBy                         *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionStddevFields struct {
+	ID                                *int64   `json:"id"`
+	VehicleAlarmNumber                *int     `json:"vehicle_alarm_number"`
+	AlarmTimes                        *int     `json:"alarm_times"`
+	DisposalTimes                     *int     `json:"disposal_times"`
+	AlarmDisposalRate                 *float64 `json:"alarm_disposal_rate"`
+	ShouldSupervisionEnterpriseNumber *int     `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int     `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64 `json:"supervision_rate"`
+	BusinessScope                     *int     `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int     `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int     `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int     `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int     `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64 `json:"abnormal_disposal_rate"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionStddevPopFields struct {
+	ID                                *int64   `json:"id"`
+	VehicleAlarmNumber                *int     `json:"vehicle_alarm_number"`
+	AlarmTimes                        *int     `json:"alarm_times"`
+	DisposalTimes                     *int     `json:"disposal_times"`
+	AlarmDisposalRate                 *float64 `json:"alarm_disposal_rate"`
+	ShouldSupervisionEnterpriseNumber *int     `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int     `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64 `json:"supervision_rate"`
+	BusinessScope                     *int     `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int     `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int     `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int     `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int     `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64 `json:"abnormal_disposal_rate"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionStddevSampFields struct {
+	ID                                *int64   `json:"id"`
+	VehicleAlarmNumber                *int     `json:"vehicle_alarm_number"`
+	AlarmTimes                        *int     `json:"alarm_times"`
+	DisposalTimes                     *int     `json:"disposal_times"`
+	AlarmDisposalRate                 *float64 `json:"alarm_disposal_rate"`
+	ShouldSupervisionEnterpriseNumber *int     `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int     `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64 `json:"supervision_rate"`
+	BusinessScope                     *int     `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int     `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int     `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int     `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int     `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64 `json:"abnormal_disposal_rate"`
+}
+
+// aggregate sum on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionSumFields struct {
+	ID                                *int64   `json:"id"`
+	VehicleAlarmNumber                *int     `json:"vehicle_alarm_number"`
+	AlarmTimes                        *int     `json:"alarm_times"`
+	DisposalTimes                     *int     `json:"disposal_times"`
+	AlarmDisposalRate                 *float64 `json:"alarm_disposal_rate"`
+	ShouldSupervisionEnterpriseNumber *int     `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int     `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64 `json:"supervision_rate"`
+	BusinessScope                     *int     `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int     `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int     `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int     `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int     `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64 `json:"abnormal_disposal_rate"`
+}
+
+// aggregate var_pop on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionVarPopFields struct {
+	ID                                *int64   `json:"id"`
+	VehicleAlarmNumber                *int     `json:"vehicle_alarm_number"`
+	AlarmTimes                        *int     `json:"alarm_times"`
+	DisposalTimes                     *int     `json:"disposal_times"`
+	AlarmDisposalRate                 *float64 `json:"alarm_disposal_rate"`
+	ShouldSupervisionEnterpriseNumber *int     `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int     `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64 `json:"supervision_rate"`
+	BusinessScope                     *int     `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int     `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int     `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int     `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int     `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64 `json:"abnormal_disposal_rate"`
+}
+
+// aggregate var_samp on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionVarSampFields struct {
+	ID                                *int64   `json:"id"`
+	VehicleAlarmNumber                *int     `json:"vehicle_alarm_number"`
+	AlarmTimes                        *int     `json:"alarm_times"`
+	DisposalTimes                     *int     `json:"disposal_times"`
+	AlarmDisposalRate                 *float64 `json:"alarm_disposal_rate"`
+	ShouldSupervisionEnterpriseNumber *int     `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int     `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64 `json:"supervision_rate"`
+	BusinessScope                     *int     `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int     `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int     `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int     `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int     `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64 `json:"abnormal_disposal_rate"`
+}
+
+// aggregate variance on columns of table "vehicle_alarm_supervision"
+type VehicleAlarmSupervisionVarianceFields struct {
+	ID                                *int64   `json:"id"`
+	VehicleAlarmNumber                *int     `json:"vehicle_alarm_number"`
+	AlarmTimes                        *int     `json:"alarm_times"`
+	DisposalTimes                     *int     `json:"disposal_times"`
+	AlarmDisposalRate                 *float64 `json:"alarm_disposal_rate"`
+	ShouldSupervisionEnterpriseNumber *int     `json:"should_supervision_enterprise_number"`
+	ActualSupervisionEnterpriseNumber *int     `json:"actual_supervision_enterprise_number"`
+	SupervisionRate                   *float64 `json:"supervision_rate"`
+	BusinessScope                     *int     `json:"business_scope"`
+	ShouldCheckVehicleNumber          *int     `json:"should_check_vehicle_number"`
+	ActualCheckVechicleNumber         *int     `json:"actual_check_vechicle_number"`
+	CheckAbnormalVehicleNumber        *int     `json:"check_abnormal_vehicle_number"`
+	AbnormalDisposalNumber            *int     `json:"abnormal_disposal_number"`
+	AbnormalDisposalRate              *float64 `json:"abnormal_disposal_rate"`
+}
+
+// aggregated selection of "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordAggregate struct {
+	Aggregate *VehicleAlarmTimesRecordAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordAggregateFields struct {
+	Avg        *VehicleAlarmTimesRecordAvgFields        `json:"avg"`
+	Count      *int                                     `json:"count"`
+	Max        *VehicleAlarmTimesRecordMaxFields        `json:"max"`
+	Min        *VehicleAlarmTimesRecordMinFields        `json:"min"`
+	Stddev     *VehicleAlarmTimesRecordStddevFields     `json:"stddev"`
+	StddevPop  *VehicleAlarmTimesRecordStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleAlarmTimesRecordStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleAlarmTimesRecordSumFields        `json:"sum"`
+	VarPop     *VehicleAlarmTimesRecordVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleAlarmTimesRecordVarSampFields    `json:"var_samp"`
+	Variance   *VehicleAlarmTimesRecordVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordAvgFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_alarm_times_record'.
+type VehicleAlarmTimesRecordBoolExp struct {
+	And                       []*VehicleAlarmTimesRecordBoolExp `json:"_and"`
+	Not                       *VehicleAlarmTimesRecordBoolExp   `json:"_not"`
+	Or                        []*VehicleAlarmTimesRecordBoolExp `json:"_or"`
+	ID                        *model.BigintComparisonExp        `json:"id"`
+	VehicleAlarmTimesRecordID *model.StringComparisonExp        `json:"vehicle_alarm_times_record_id"`
+	VehicleID                 *model.StringComparisonExp        `json:"vehicle_id"`
+	AlarmType                 *model.StringComparisonExp        `json:"alarm_type"`
+	DisposalMeasure           *model.StringComparisonExp        `json:"disposal_measure"`
+	DisposalTime              *model.TimestamptzComparisonExp   `json:"disposal_time"`
+	DisposalResult            *model.StringComparisonExp        `json:"disposal_result"`
+	IsDisposal                *model.BooleanComparisonExp       `json:"is_disposal"`
+	DisposalMethod            *model.IntComparisonExp           `json:"disposal_method"`
+	DutyPerson                *model.StringComparisonExp        `json:"duty_person"`
+	AlarmTimes                *model.StringComparisonExp        `json:"alarm_times"`
+	Remarks                   *model.StringComparisonExp        `json:"remarks"`
+	RecordTime                *model.TimestamptzComparisonExp   `json:"record_time"`
+	CreatedAt                 *model.TimestamptzComparisonExp   `json:"created_at"`
+	CreatedBy                 *model.StringComparisonExp        `json:"created_by"`
+	UpdatedAt                 *model.TimestamptzComparisonExp   `json:"updated_at"`
+	UpdatedBy                 *model.StringComparisonExp        `json:"updated_by"`
+	DeletedAt                 *model.TimestamptzComparisonExp   `json:"deleted_at"`
+	DeletedBy                 *model.StringComparisonExp        `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordIncInput struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// input type for inserting data into table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordInsertInput struct {
+	ID                        *int64     `json:"id"`
+	VehicleAlarmTimesRecordID *string    `json:"vehicle_alarm_times_record_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	AlarmType                 *string    `json:"alarm_type"`
+	DisposalMeasure           *string    `json:"disposal_measure"`
+	DisposalTime              *time.Time `json:"disposal_time"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDisposal                *bool      `json:"is_disposal"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DutyPerson                *string    `json:"duty_person"`
+	AlarmTimes                *string    `json:"alarm_times"`
+	Remarks                   *string    `json:"remarks"`
+	RecordTime                *time.Time `json:"record_time"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordMaxFields struct {
+	ID                        *int64     `json:"id"`
+	VehicleAlarmTimesRecordID *string    `json:"vehicle_alarm_times_record_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	AlarmType                 *string    `json:"alarm_type"`
+	DisposalMeasure           *string    `json:"disposal_measure"`
+	DisposalTime              *time.Time `json:"disposal_time"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDisposal                *bool      `json:"is_disposal"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DutyPerson                *string    `json:"duty_person"`
+	AlarmTimes                *string    `json:"alarm_times"`
+	Remarks                   *string    `json:"remarks"`
+	RecordTime                *time.Time `json:"record_time"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordMinFields struct {
+	ID                        *int64     `json:"id"`
+	VehicleAlarmTimesRecordID *string    `json:"vehicle_alarm_times_record_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	AlarmType                 *string    `json:"alarm_type"`
+	DisposalMeasure           *string    `json:"disposal_measure"`
+	DisposalTime              *time.Time `json:"disposal_time"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDisposal                *bool      `json:"is_disposal"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DutyPerson                *string    `json:"duty_person"`
+	AlarmTimes                *string    `json:"alarm_times"`
+	Remarks                   *string    `json:"remarks"`
+	RecordTime                *time.Time `json:"record_time"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordMutationResponse struct {
+	AffectedRows int                               `json:"affected_rows"`
+	Returning    []*model1.VehicleAlarmTimesRecord `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordOrderBy struct {
+	ID                        *model.OrderBy `json:"id"`
+	VehicleAlarmTimesRecordID *model.OrderBy `json:"vehicle_alarm_times_record_id"`
+	VehicleID                 *model.OrderBy `json:"vehicle_id"`
+	AlarmType                 *model.OrderBy `json:"alarm_type"`
+	DisposalMeasure           *model.OrderBy `json:"disposal_measure"`
+	DisposalTime              *model.OrderBy `json:"disposal_time"`
+	DisposalResult            *model.OrderBy `json:"disposal_result"`
+	IsDisposal                *model.OrderBy `json:"is_disposal"`
+	DisposalMethod            *model.OrderBy `json:"disposal_method"`
+	DutyPerson                *model.OrderBy `json:"duty_person"`
+	AlarmTimes                *model.OrderBy `json:"alarm_times"`
+	Remarks                   *model.OrderBy `json:"remarks"`
+	RecordTime                *model.OrderBy `json:"record_time"`
+	CreatedAt                 *model.OrderBy `json:"created_at"`
+	CreatedBy                 *model.OrderBy `json:"created_by"`
+	UpdatedAt                 *model.OrderBy `json:"updated_at"`
+	UpdatedBy                 *model.OrderBy `json:"updated_by"`
+	DeletedAt                 *model.OrderBy `json:"deleted_at"`
+	DeletedBy                 *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordSetInput struct {
+	ID                        *int64     `json:"id"`
+	VehicleAlarmTimesRecordID *string    `json:"vehicle_alarm_times_record_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	AlarmType                 *string    `json:"alarm_type"`
+	DisposalMeasure           *string    `json:"disposal_measure"`
+	DisposalTime              *time.Time `json:"disposal_time"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDisposal                *bool      `json:"is_disposal"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DutyPerson                *string    `json:"duty_person"`
+	AlarmTimes                *string    `json:"alarm_times"`
+	Remarks                   *string    `json:"remarks"`
+	RecordTime                *time.Time `json:"record_time"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordStddevFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordStddevPopFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordStddevSampFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// aggregate sum on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordSumFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// aggregate var_pop on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordVarPopFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// aggregate var_samp on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordVarSampFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// aggregate variance on columns of table "vehicle_alarm_times_record"
+type VehicleAlarmTimesRecordVarianceFields struct {
+	ID             *int64 `json:"id"`
+	DisposalMethod *int   `json:"disposal_method"`
+}
+
+// aggregated selection of "vehicle_offline_disposal"
+type VehicleOfflineDisposalAggregate struct {
+	Aggregate *VehicleOfflineDisposalAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_offline_disposal"
+type VehicleOfflineDisposalAggregateFields struct {
+	Avg        *VehicleOfflineDisposalAvgFields        `json:"avg"`
+	Count      *int                                    `json:"count"`
+	Max        *VehicleOfflineDisposalMaxFields        `json:"max"`
+	Min        *VehicleOfflineDisposalMinFields        `json:"min"`
+	Stddev     *VehicleOfflineDisposalStddevFields     `json:"stddev"`
+	StddevPop  *VehicleOfflineDisposalStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleOfflineDisposalStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleOfflineDisposalSumFields        `json:"sum"`
+	VarPop     *VehicleOfflineDisposalVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleOfflineDisposalVarSampFields    `json:"var_samp"`
+	Variance   *VehicleOfflineDisposalVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_offline_disposal'.
+type VehicleOfflineDisposalBoolExp struct {
+	And                      []*VehicleOfflineDisposalBoolExp `json:"_and"`
+	Not                      *VehicleOfflineDisposalBoolExp   `json:"_not"`
+	Or                       []*VehicleOfflineDisposalBoolExp `json:"_or"`
+	ID                       *model.BigintComparisonExp       `json:"id"`
+	VehicleOfflineDisposalID *model.StringComparisonExp       `json:"vehicle_offline_disposal_id"`
+	EnterpriseID             *model.StringComparisonExp       `json:"enterprise_id"`
+	Telephone                *model.StringComparisonExp       `json:"telephone"`
+	Content                  *model.StringComparisonExp       `json:"content"`
+	SendTime                 *model.TimestamptzComparisonExp  `json:"send_time"`
+	UserID                   *model.StringComparisonExp       `json:"user_id"`
+	IsSmsPush                *model.BooleanComparisonExp      `json:"is_sms_push"`
+	IsReport                 *model.BooleanComparisonExp      `json:"is_report"`
+	IsVoiceNotification      *model.BooleanComparisonExp      `json:"is_voice_notification"`
+	IsAppPush                *model.BooleanComparisonExp      `json:"is_app_push"`
+	NotificationContent      *model.StringComparisonExp       `json:"notification_content"`
+	VoiceContent             *model.StringComparisonExp       `json:"voice_content"`
+	AppPushContent           *model.StringComparisonExp       `json:"app_push_content"`
+	SupervisionDetailID      *model.StringComparisonExp       `json:"supervision_detail_id"`
+	DisposalMethod           *model.StringComparisonExp       `json:"disposal_method"`
+	IsDeleted                *model.BooleanComparisonExp      `json:"is_deleted"`
+	CreatedAt                *model.TimestamptzComparisonExp  `json:"created_at"`
+	CreatedBy                *model.StringComparisonExp       `json:"created_by"`
+	UpdatedAt                *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy                *model.StringComparisonExp       `json:"updated_by"`
+	DeletedAt                *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy                *model.StringComparisonExp       `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_offline_disposal"
+type VehicleOfflineDisposalIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "vehicle_offline_disposal"
+type VehicleOfflineDisposalInsertInput struct {
+	ID                       *int64     `json:"id"`
+	VehicleOfflineDisposalID *string    `json:"vehicle_offline_disposal_id"`
+	EnterpriseID             *string    `json:"enterprise_id"`
+	Telephone                *string    `json:"telephone"`
+	Content                  *string    `json:"content"`
+	SendTime                 *time.Time `json:"send_time"`
+	UserID                   *string    `json:"user_id"`
+	IsSmsPush                *bool      `json:"is_sms_push"`
+	IsReport                 *bool      `json:"is_report"`
+	IsVoiceNotification      *bool      `json:"is_voice_notification"`
+	IsAppPush                *bool      `json:"is_app_push"`
+	NotificationContent      *string    `json:"notification_content"`
+	VoiceContent             *string    `json:"voice_content"`
+	AppPushContent           *string    `json:"app_push_content"`
+	SupervisionDetailID      *string    `json:"supervision_detail_id"`
+	DisposalMethod           *string    `json:"disposal_method"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalMaxFields struct {
+	ID                       *int64     `json:"id"`
+	VehicleOfflineDisposalID *string    `json:"vehicle_offline_disposal_id"`
+	EnterpriseID             *string    `json:"enterprise_id"`
+	Telephone                *string    `json:"telephone"`
+	Content                  *string    `json:"content"`
+	SendTime                 *time.Time `json:"send_time"`
+	UserID                   *string    `json:"user_id"`
+	IsSmsPush                *bool      `json:"is_sms_push"`
+	IsReport                 *bool      `json:"is_report"`
+	IsVoiceNotification      *bool      `json:"is_voice_notification"`
+	IsAppPush                *bool      `json:"is_app_push"`
+	NotificationContent      *string    `json:"notification_content"`
+	VoiceContent             *string    `json:"voice_content"`
+	AppPushContent           *string    `json:"app_push_content"`
+	SupervisionDetailID      *string    `json:"supervision_detail_id"`
+	DisposalMethod           *string    `json:"disposal_method"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalMinFields struct {
+	ID                       *int64     `json:"id"`
+	VehicleOfflineDisposalID *string    `json:"vehicle_offline_disposal_id"`
+	EnterpriseID             *string    `json:"enterprise_id"`
+	Telephone                *string    `json:"telephone"`
+	Content                  *string    `json:"content"`
+	SendTime                 *time.Time `json:"send_time"`
+	UserID                   *string    `json:"user_id"`
+	IsSmsPush                *bool      `json:"is_sms_push"`
+	IsReport                 *bool      `json:"is_report"`
+	IsVoiceNotification      *bool      `json:"is_voice_notification"`
+	IsAppPush                *bool      `json:"is_app_push"`
+	NotificationContent      *string    `json:"notification_content"`
+	VoiceContent             *string    `json:"voice_content"`
+	AppPushContent           *string    `json:"app_push_content"`
+	SupervisionDetailID      *string    `json:"supervision_detail_id"`
+	DisposalMethod           *string    `json:"disposal_method"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_offline_disposal"
+type VehicleOfflineDisposalMutationResponse struct {
+	AffectedRows int                              `json:"affected_rows"`
+	Returning    []*model1.VehicleOfflineDisposal `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_offline_disposal"
+type VehicleOfflineDisposalOrderBy struct {
+	ID                       *model.OrderBy `json:"id"`
+	VehicleOfflineDisposalID *model.OrderBy `json:"vehicle_offline_disposal_id"`
+	EnterpriseID             *model.OrderBy `json:"enterprise_id"`
+	Telephone                *model.OrderBy `json:"telephone"`
+	Content                  *model.OrderBy `json:"content"`
+	SendTime                 *model.OrderBy `json:"send_time"`
+	UserID                   *model.OrderBy `json:"user_id"`
+	IsSmsPush                *model.OrderBy `json:"is_sms_push"`
+	IsReport                 *model.OrderBy `json:"is_report"`
+	IsVoiceNotification      *model.OrderBy `json:"is_voice_notification"`
+	IsAppPush                *model.OrderBy `json:"is_app_push"`
+	NotificationContent      *model.OrderBy `json:"notification_content"`
+	VoiceContent             *model.OrderBy `json:"voice_content"`
+	AppPushContent           *model.OrderBy `json:"app_push_content"`
+	SupervisionDetailID      *model.OrderBy `json:"supervision_detail_id"`
+	DisposalMethod           *model.OrderBy `json:"disposal_method"`
+	IsDeleted                *model.OrderBy `json:"is_deleted"`
+	CreatedAt                *model.OrderBy `json:"created_at"`
+	CreatedBy                *model.OrderBy `json:"created_by"`
+	UpdatedAt                *model.OrderBy `json:"updated_at"`
+	UpdatedBy                *model.OrderBy `json:"updated_by"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_offline_disposal"
+type VehicleOfflineDisposalSetInput struct {
+	ID                       *int64     `json:"id"`
+	VehicleOfflineDisposalID *string    `json:"vehicle_offline_disposal_id"`
+	EnterpriseID             *string    `json:"enterprise_id"`
+	Telephone                *string    `json:"telephone"`
+	Content                  *string    `json:"content"`
+	SendTime                 *time.Time `json:"send_time"`
+	UserID                   *string    `json:"user_id"`
+	IsSmsPush                *bool      `json:"is_sms_push"`
+	IsReport                 *bool      `json:"is_report"`
+	IsVoiceNotification      *bool      `json:"is_voice_notification"`
+	IsAppPush                *bool      `json:"is_app_push"`
+	NotificationContent      *string    `json:"notification_content"`
+	VoiceContent             *string    `json:"voice_content"`
+	AppPushContent           *string    `json:"app_push_content"`
+	SupervisionDetailID      *string    `json:"supervision_detail_id"`
+	DisposalMethod           *string    `json:"disposal_method"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "vehicle_offline_disposal"
+type VehicleOfflineDisposalVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// 可选select
 type DynamicSpotCheckDisposalSelectColumn string
 
 const (
-	// column name
-	DynamicSpotCheckDisposalSelectColumnAnnounceContent DynamicSpotCheckDisposalSelectColumn = "announce_content"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnAppPushContent DynamicSpotCheckDisposalSelectColumn = "app_push_content"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnCreatedAt DynamicSpotCheckDisposalSelectColumn = "created_at"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnCreatedBy DynamicSpotCheckDisposalSelectColumn = "created_by"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnDeletedAt DynamicSpotCheckDisposalSelectColumn = "deleted_at"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnDeletedBy DynamicSpotCheckDisposalSelectColumn = "deleted_by"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnDisposalContent DynamicSpotCheckDisposalSelectColumn = "disposal_content"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnDisposalMethod DynamicSpotCheckDisposalSelectColumn = "disposal_method"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnDisposalResult DynamicSpotCheckDisposalSelectColumn = "disposal_result"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnEnterpriseID DynamicSpotCheckDisposalSelectColumn = "enterprise_id"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnFeedbackTime DynamicSpotCheckDisposalSelectColumn = "feedback_time"
-	// column name
+	// 按指定方法生成                           ( 主键                                                         )
 	DynamicSpotCheckDisposalSelectColumnID DynamicSpotCheckDisposalSelectColumn = "id"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnImageAbnormalHandingMeasure DynamicSpotCheckDisposalSelectColumn = "image_abnormal_handing_measure"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnIsAnnounce DynamicSpotCheckDisposalSelectColumn = "is_announce"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnIsAppPush DynamicSpotCheckDisposalSelectColumn = "is_app_push"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnIsDelete DynamicSpotCheckDisposalSelectColumn = "is_delete"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnIsNotify DynamicSpotCheckDisposalSelectColumn = "is_notify"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnIsSmsPush DynamicSpotCheckDisposalSelectColumn = "is_sms_push"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnNotifyContent DynamicSpotCheckDisposalSelectColumn = "notify_content"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnOperationUser DynamicSpotCheckDisposalSelectColumn = "operation_user"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnSendTime DynamicSpotCheckDisposalSelectColumn = "send_time"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnSupervisionDetailID DynamicSpotCheckDisposalSelectColumn = "supervision_detail_id"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnTachographDataDisposalMeasure DynamicSpotCheckDisposalSelectColumn = "tachograph_data_disposal_measure"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnTelephone DynamicSpotCheckDisposalSelectColumn = "telephone"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnUpdatedAt DynamicSpotCheckDisposalSelectColumn = "updated_at"
-	// column name
-	DynamicSpotCheckDisposalSelectColumnUpdatedBy DynamicSpotCheckDisposalSelectColumn = "updated_by"
-	// column name
+	// vehicle_info 车辆信息表 的vehicle_id (                                                              )
 	DynamicSpotCheckDisposalSelectColumnVehicleID DynamicSpotCheckDisposalSelectColumn = "vehicle_id"
+	// 所在企业id                               ( enterprise_info表的enterprise_id                         )
+	DynamicSpotCheckDisposalSelectColumnEnterpriseID DynamicSpotCheckDisposalSelectColumn = "enterprise_id"
+	// 手机号码                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnTelephone DynamicSpotCheckDisposalSelectColumn = "telephone"
+	// 发送时间                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnSendTime DynamicSpotCheckDisposalSelectColumn = "send_time"
+	// 动态监管抽查明细表id                     ( dynamic_supervision_ detail 动态监管抽查明细表的supervision_detail_id )
+	DynamicSpotCheckDisposalSelectColumnSupervisionDetailID DynamicSpotCheckDisposalSelectColumn = "supervision_detail_id"
+	// 图像异常处置措施                         (                                                              )
+	DynamicSpotCheckDisposalSelectColumnImageAbnormalHandingMeasure DynamicSpotCheckDisposalSelectColumn = "image_abnormal_handing_measure"
+	// 反馈时间                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnFeedbackTime DynamicSpotCheckDisposalSelectColumn = "feedback_time"
+	// 行车记录仪数据处置措施                   (                                                              )
+	DynamicSpotCheckDisposalSelectColumnTachographDataDisposalMeasure DynamicSpotCheckDisposalSelectColumn = "tachograph_data_disposal_measure"
+	// 操作用户                                 ( system_user表的user_id                                   )
+	DynamicSpotCheckDisposalSelectColumnOperationUser DynamicSpotCheckDisposalSelectColumn = "operation_user"
+	// 是否短信推送                             (                                                              )
+	DynamicSpotCheckDisposalSelectColumnIsSmsPush DynamicSpotCheckDisposalSelectColumn = "is_sms_push"
+	// 是否通报                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnIsNotify DynamicSpotCheckDisposalSelectColumn = "is_notify"
+	// 是否语音通知                             (                                                              )
+	DynamicSpotCheckDisposalSelectColumnIsAnnounce DynamicSpotCheckDisposalSelectColumn = "is_announce"
+	// 是否APP推送                              (                                                              )
+	DynamicSpotCheckDisposalSelectColumnIsAppPush DynamicSpotCheckDisposalSelectColumn = "is_app_push"
+	// 通报内容                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnNotifyContent DynamicSpotCheckDisposalSelectColumn = "notify_content"
+	// 语音内容                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnAnnounceContent DynamicSpotCheckDisposalSelectColumn = "announce_content"
+	// APP推送内容                              (                                                              )
+	DynamicSpotCheckDisposalSelectColumnAppPushContent DynamicSpotCheckDisposalSelectColumn = "app_push_content"
+	// 处置内容                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnDisposalContent DynamicSpotCheckDisposalSelectColumn = "disposal_content"
+	// 处置方式                                 ( 处置方式字典                                             )
+	DynamicSpotCheckDisposalSelectColumnDisposalMethod DynamicSpotCheckDisposalSelectColumn = "disposal_method"
+	// 处置结果                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnDisposalResult DynamicSpotCheckDisposalSelectColumn = "disposal_result"
+	// 是否删除                                 ( false                                                        )
+	DynamicSpotCheckDisposalSelectColumnIsDeleted DynamicSpotCheckDisposalSelectColumn = "is_deleted"
+	// 创建时间                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnCreatedAt DynamicSpotCheckDisposalSelectColumn = "created_at"
+	// 创建人                                   ( system_user表的user_id                                   )
+	DynamicSpotCheckDisposalSelectColumnCreatedBy DynamicSpotCheckDisposalSelectColumn = "created_by"
+	// 修改时间                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnUpdatedAt DynamicSpotCheckDisposalSelectColumn = "updated_at"
+	// 修改人                                   ( system_user表的user_id                                   )
+	DynamicSpotCheckDisposalSelectColumnUpdatedBy DynamicSpotCheckDisposalSelectColumn = "updated_by"
+	// 删除时间                                 (                                                              )
+	DynamicSpotCheckDisposalSelectColumnDeletedAt DynamicSpotCheckDisposalSelectColumn = "deleted_at"
+	// 删除人                                   ( system_user表的user_id                                   )
+	DynamicSpotCheckDisposalSelectColumnDeletedBy DynamicSpotCheckDisposalSelectColumn = "deleted_by"
 )
 
 var AllDynamicSpotCheckDisposalSelectColumn = []DynamicSpotCheckDisposalSelectColumn{
+	DynamicSpotCheckDisposalSelectColumnID,
+	DynamicSpotCheckDisposalSelectColumnVehicleID,
+	DynamicSpotCheckDisposalSelectColumnEnterpriseID,
+	DynamicSpotCheckDisposalSelectColumnTelephone,
+	DynamicSpotCheckDisposalSelectColumnSendTime,
+	DynamicSpotCheckDisposalSelectColumnSupervisionDetailID,
+	DynamicSpotCheckDisposalSelectColumnImageAbnormalHandingMeasure,
+	DynamicSpotCheckDisposalSelectColumnFeedbackTime,
+	DynamicSpotCheckDisposalSelectColumnTachographDataDisposalMeasure,
+	DynamicSpotCheckDisposalSelectColumnOperationUser,
+	DynamicSpotCheckDisposalSelectColumnIsSmsPush,
+	DynamicSpotCheckDisposalSelectColumnIsNotify,
+	DynamicSpotCheckDisposalSelectColumnIsAnnounce,
+	DynamicSpotCheckDisposalSelectColumnIsAppPush,
+	DynamicSpotCheckDisposalSelectColumnNotifyContent,
 	DynamicSpotCheckDisposalSelectColumnAnnounceContent,
 	DynamicSpotCheckDisposalSelectColumnAppPushContent,
-	DynamicSpotCheckDisposalSelectColumnCreatedAt,
-	DynamicSpotCheckDisposalSelectColumnCreatedBy,
-	DynamicSpotCheckDisposalSelectColumnDeletedAt,
-	DynamicSpotCheckDisposalSelectColumnDeletedBy,
 	DynamicSpotCheckDisposalSelectColumnDisposalContent,
 	DynamicSpotCheckDisposalSelectColumnDisposalMethod,
 	DynamicSpotCheckDisposalSelectColumnDisposalResult,
-	DynamicSpotCheckDisposalSelectColumnEnterpriseID,
-	DynamicSpotCheckDisposalSelectColumnFeedbackTime,
-	DynamicSpotCheckDisposalSelectColumnID,
-	DynamicSpotCheckDisposalSelectColumnImageAbnormalHandingMeasure,
-	DynamicSpotCheckDisposalSelectColumnIsAnnounce,
-	DynamicSpotCheckDisposalSelectColumnIsAppPush,
-	DynamicSpotCheckDisposalSelectColumnIsDelete,
-	DynamicSpotCheckDisposalSelectColumnIsNotify,
-	DynamicSpotCheckDisposalSelectColumnIsSmsPush,
-	DynamicSpotCheckDisposalSelectColumnNotifyContent,
-	DynamicSpotCheckDisposalSelectColumnOperationUser,
-	DynamicSpotCheckDisposalSelectColumnSendTime,
-	DynamicSpotCheckDisposalSelectColumnSupervisionDetailID,
-	DynamicSpotCheckDisposalSelectColumnTachographDataDisposalMeasure,
-	DynamicSpotCheckDisposalSelectColumnTelephone,
+	DynamicSpotCheckDisposalSelectColumnIsDeleted,
+	DynamicSpotCheckDisposalSelectColumnCreatedAt,
+	DynamicSpotCheckDisposalSelectColumnCreatedBy,
 	DynamicSpotCheckDisposalSelectColumnUpdatedAt,
 	DynamicSpotCheckDisposalSelectColumnUpdatedBy,
-	DynamicSpotCheckDisposalSelectColumnVehicleID,
+	DynamicSpotCheckDisposalSelectColumnDeletedAt,
+	DynamicSpotCheckDisposalSelectColumnDeletedBy,
 }
 
 func (e DynamicSpotCheckDisposalSelectColumn) IsValid() bool {
 	switch e {
-	case DynamicSpotCheckDisposalSelectColumnAnnounceContent, DynamicSpotCheckDisposalSelectColumnAppPushContent, DynamicSpotCheckDisposalSelectColumnCreatedAt, DynamicSpotCheckDisposalSelectColumnCreatedBy, DynamicSpotCheckDisposalSelectColumnDeletedAt, DynamicSpotCheckDisposalSelectColumnDeletedBy, DynamicSpotCheckDisposalSelectColumnDisposalContent, DynamicSpotCheckDisposalSelectColumnDisposalMethod, DynamicSpotCheckDisposalSelectColumnDisposalResult, DynamicSpotCheckDisposalSelectColumnEnterpriseID, DynamicSpotCheckDisposalSelectColumnFeedbackTime, DynamicSpotCheckDisposalSelectColumnID, DynamicSpotCheckDisposalSelectColumnImageAbnormalHandingMeasure, DynamicSpotCheckDisposalSelectColumnIsAnnounce, DynamicSpotCheckDisposalSelectColumnIsAppPush, DynamicSpotCheckDisposalSelectColumnIsDelete, DynamicSpotCheckDisposalSelectColumnIsNotify, DynamicSpotCheckDisposalSelectColumnIsSmsPush, DynamicSpotCheckDisposalSelectColumnNotifyContent, DynamicSpotCheckDisposalSelectColumnOperationUser, DynamicSpotCheckDisposalSelectColumnSendTime, DynamicSpotCheckDisposalSelectColumnSupervisionDetailID, DynamicSpotCheckDisposalSelectColumnTachographDataDisposalMeasure, DynamicSpotCheckDisposalSelectColumnTelephone, DynamicSpotCheckDisposalSelectColumnUpdatedAt, DynamicSpotCheckDisposalSelectColumnUpdatedBy, DynamicSpotCheckDisposalSelectColumnVehicleID:
+	case DynamicSpotCheckDisposalSelectColumnID, DynamicSpotCheckDisposalSelectColumnVehicleID, DynamicSpotCheckDisposalSelectColumnEnterpriseID, DynamicSpotCheckDisposalSelectColumnTelephone, DynamicSpotCheckDisposalSelectColumnSendTime, DynamicSpotCheckDisposalSelectColumnSupervisionDetailID, DynamicSpotCheckDisposalSelectColumnImageAbnormalHandingMeasure, DynamicSpotCheckDisposalSelectColumnFeedbackTime, DynamicSpotCheckDisposalSelectColumnTachographDataDisposalMeasure, DynamicSpotCheckDisposalSelectColumnOperationUser, DynamicSpotCheckDisposalSelectColumnIsSmsPush, DynamicSpotCheckDisposalSelectColumnIsNotify, DynamicSpotCheckDisposalSelectColumnIsAnnounce, DynamicSpotCheckDisposalSelectColumnIsAppPush, DynamicSpotCheckDisposalSelectColumnNotifyContent, DynamicSpotCheckDisposalSelectColumnAnnounceContent, DynamicSpotCheckDisposalSelectColumnAppPushContent, DynamicSpotCheckDisposalSelectColumnDisposalContent, DynamicSpotCheckDisposalSelectColumnDisposalMethod, DynamicSpotCheckDisposalSelectColumnDisposalResult, DynamicSpotCheckDisposalSelectColumnIsDeleted, DynamicSpotCheckDisposalSelectColumnCreatedAt, DynamicSpotCheckDisposalSelectColumnCreatedBy, DynamicSpotCheckDisposalSelectColumnUpdatedAt, DynamicSpotCheckDisposalSelectColumnUpdatedBy, DynamicSpotCheckDisposalSelectColumnDeletedAt, DynamicSpotCheckDisposalSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -1796,7 +2674,7 @@ func (e *DynamicSpotCheckDisposalSelectColumn) UnmarshalGQL(v interface{}) error
 
 	*e = DynamicSpotCheckDisposalSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dynamic_spot_check_disposal_select_column", str)
+		return fmt.Errorf("%s is not a valid DynamicSpotCheckDisposalSelectColumn", str)
 	}
 	return nil
 }
@@ -1805,346 +2683,175 @@ func (e DynamicSpotCheckDisposalSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "dynamic_spot_check_disposal"
-type DynamicSpotCheckDisposalUpdateColumn string
-
-const (
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnAnnounceContent DynamicSpotCheckDisposalUpdateColumn = "announce_content"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnAppPushContent DynamicSpotCheckDisposalUpdateColumn = "app_push_content"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnCreatedAt DynamicSpotCheckDisposalUpdateColumn = "created_at"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnCreatedBy DynamicSpotCheckDisposalUpdateColumn = "created_by"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnDeletedAt DynamicSpotCheckDisposalUpdateColumn = "deleted_at"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnDeletedBy DynamicSpotCheckDisposalUpdateColumn = "deleted_by"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnDisposalContent DynamicSpotCheckDisposalUpdateColumn = "disposal_content"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnDisposalMethod DynamicSpotCheckDisposalUpdateColumn = "disposal_method"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnDisposalResult DynamicSpotCheckDisposalUpdateColumn = "disposal_result"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnEnterpriseID DynamicSpotCheckDisposalUpdateColumn = "enterprise_id"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnFeedbackTime DynamicSpotCheckDisposalUpdateColumn = "feedback_time"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnID DynamicSpotCheckDisposalUpdateColumn = "id"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnImageAbnormalHandingMeasure DynamicSpotCheckDisposalUpdateColumn = "image_abnormal_handing_measure"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnIsAnnounce DynamicSpotCheckDisposalUpdateColumn = "is_announce"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnIsAppPush DynamicSpotCheckDisposalUpdateColumn = "is_app_push"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnIsDelete DynamicSpotCheckDisposalUpdateColumn = "is_delete"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnIsNotify DynamicSpotCheckDisposalUpdateColumn = "is_notify"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnIsSmsPush DynamicSpotCheckDisposalUpdateColumn = "is_sms_push"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnNotifyContent DynamicSpotCheckDisposalUpdateColumn = "notify_content"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnOperationUser DynamicSpotCheckDisposalUpdateColumn = "operation_user"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnSendTime DynamicSpotCheckDisposalUpdateColumn = "send_time"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnSupervisionDetailID DynamicSpotCheckDisposalUpdateColumn = "supervision_detail_id"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnTachographDataDisposalMeasure DynamicSpotCheckDisposalUpdateColumn = "tachograph_data_disposal_measure"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnTelephone DynamicSpotCheckDisposalUpdateColumn = "telephone"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnUpdatedAt DynamicSpotCheckDisposalUpdateColumn = "updated_at"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnUpdatedBy DynamicSpotCheckDisposalUpdateColumn = "updated_by"
-	// column name
-	DynamicSpotCheckDisposalUpdateColumnVehicleID DynamicSpotCheckDisposalUpdateColumn = "vehicle_id"
-)
-
-var AllDynamicSpotCheckDisposalUpdateColumn = []DynamicSpotCheckDisposalUpdateColumn{
-	DynamicSpotCheckDisposalUpdateColumnAnnounceContent,
-	DynamicSpotCheckDisposalUpdateColumnAppPushContent,
-	DynamicSpotCheckDisposalUpdateColumnCreatedAt,
-	DynamicSpotCheckDisposalUpdateColumnCreatedBy,
-	DynamicSpotCheckDisposalUpdateColumnDeletedAt,
-	DynamicSpotCheckDisposalUpdateColumnDeletedBy,
-	DynamicSpotCheckDisposalUpdateColumnDisposalContent,
-	DynamicSpotCheckDisposalUpdateColumnDisposalMethod,
-	DynamicSpotCheckDisposalUpdateColumnDisposalResult,
-	DynamicSpotCheckDisposalUpdateColumnEnterpriseID,
-	DynamicSpotCheckDisposalUpdateColumnFeedbackTime,
-	DynamicSpotCheckDisposalUpdateColumnID,
-	DynamicSpotCheckDisposalUpdateColumnImageAbnormalHandingMeasure,
-	DynamicSpotCheckDisposalUpdateColumnIsAnnounce,
-	DynamicSpotCheckDisposalUpdateColumnIsAppPush,
-	DynamicSpotCheckDisposalUpdateColumnIsDelete,
-	DynamicSpotCheckDisposalUpdateColumnIsNotify,
-	DynamicSpotCheckDisposalUpdateColumnIsSmsPush,
-	DynamicSpotCheckDisposalUpdateColumnNotifyContent,
-	DynamicSpotCheckDisposalUpdateColumnOperationUser,
-	DynamicSpotCheckDisposalUpdateColumnSendTime,
-	DynamicSpotCheckDisposalUpdateColumnSupervisionDetailID,
-	DynamicSpotCheckDisposalUpdateColumnTachographDataDisposalMeasure,
-	DynamicSpotCheckDisposalUpdateColumnTelephone,
-	DynamicSpotCheckDisposalUpdateColumnUpdatedAt,
-	DynamicSpotCheckDisposalUpdateColumnUpdatedBy,
-	DynamicSpotCheckDisposalUpdateColumnVehicleID,
-}
-
-func (e DynamicSpotCheckDisposalUpdateColumn) IsValid() bool {
-	switch e {
-	case DynamicSpotCheckDisposalUpdateColumnAnnounceContent, DynamicSpotCheckDisposalUpdateColumnAppPushContent, DynamicSpotCheckDisposalUpdateColumnCreatedAt, DynamicSpotCheckDisposalUpdateColumnCreatedBy, DynamicSpotCheckDisposalUpdateColumnDeletedAt, DynamicSpotCheckDisposalUpdateColumnDeletedBy, DynamicSpotCheckDisposalUpdateColumnDisposalContent, DynamicSpotCheckDisposalUpdateColumnDisposalMethod, DynamicSpotCheckDisposalUpdateColumnDisposalResult, DynamicSpotCheckDisposalUpdateColumnEnterpriseID, DynamicSpotCheckDisposalUpdateColumnFeedbackTime, DynamicSpotCheckDisposalUpdateColumnID, DynamicSpotCheckDisposalUpdateColumnImageAbnormalHandingMeasure, DynamicSpotCheckDisposalUpdateColumnIsAnnounce, DynamicSpotCheckDisposalUpdateColumnIsAppPush, DynamicSpotCheckDisposalUpdateColumnIsDelete, DynamicSpotCheckDisposalUpdateColumnIsNotify, DynamicSpotCheckDisposalUpdateColumnIsSmsPush, DynamicSpotCheckDisposalUpdateColumnNotifyContent, DynamicSpotCheckDisposalUpdateColumnOperationUser, DynamicSpotCheckDisposalUpdateColumnSendTime, DynamicSpotCheckDisposalUpdateColumnSupervisionDetailID, DynamicSpotCheckDisposalUpdateColumnTachographDataDisposalMeasure, DynamicSpotCheckDisposalUpdateColumnTelephone, DynamicSpotCheckDisposalUpdateColumnUpdatedAt, DynamicSpotCheckDisposalUpdateColumnUpdatedBy, DynamicSpotCheckDisposalUpdateColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e DynamicSpotCheckDisposalUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *DynamicSpotCheckDisposalUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DynamicSpotCheckDisposalUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dynamic_spot_check_disposal_update_column", str)
-	}
-	return nil
-}
-
-func (e DynamicSpotCheckDisposalUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "dynamic_supervision"
-type DynamicSupervisionConstraint string
-
-const (
-	// unique or primary key constraint
-	DynamicSupervisionConstraintDynamicSupervisionPkey DynamicSupervisionConstraint = "dynamic_supervision_pkey"
-)
-
-var AllDynamicSupervisionConstraint = []DynamicSupervisionConstraint{
-	DynamicSupervisionConstraintDynamicSupervisionPkey,
-}
-
-func (e DynamicSupervisionConstraint) IsValid() bool {
-	switch e {
-	case DynamicSupervisionConstraintDynamicSupervisionPkey:
-		return true
-	}
-	return false
-}
-
-func (e DynamicSupervisionConstraint) String() string {
-	return string(e)
-}
-
-func (e *DynamicSupervisionConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DynamicSupervisionConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dynamic_supervision_constraint", str)
-	}
-	return nil
-}
-
-func (e DynamicSupervisionConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "dynamic_supervision_detail"
-type DynamicSupervisionDetailConstraint string
-
-const (
-	// unique or primary key constraint
-	DynamicSupervisionDetailConstraintDynamicSupervisionDetailPkey DynamicSupervisionDetailConstraint = "dynamic_supervision_detail_pkey"
-)
-
-var AllDynamicSupervisionDetailConstraint = []DynamicSupervisionDetailConstraint{
-	DynamicSupervisionDetailConstraintDynamicSupervisionDetailPkey,
-}
-
-func (e DynamicSupervisionDetailConstraint) IsValid() bool {
-	switch e {
-	case DynamicSupervisionDetailConstraintDynamicSupervisionDetailPkey:
-		return true
-	}
-	return false
-}
-
-func (e DynamicSupervisionDetailConstraint) String() string {
-	return string(e)
-}
-
-func (e *DynamicSupervisionDetailConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DynamicSupervisionDetailConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dynamic_supervision_detail_constraint", str)
-	}
-	return nil
-}
-
-func (e DynamicSupervisionDetailConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "dynamic_supervision_detail"
+// 可选select
 type DynamicSupervisionDetailSelectColumn string
 
 const (
-	// column name
-	DynamicSupervisionDetailSelectColumnGpsSpeed DynamicSupervisionDetailSelectColumn = "GPS_speed"
-	// column name
-	DynamicSupervisionDetailSelectColumnAssignee DynamicSupervisionDetailSelectColumn = "assignee"
-	// column name
-	DynamicSupervisionDetailSelectColumnBusinessScope DynamicSupervisionDetailSelectColumn = "business_scope"
-	// column name
-	DynamicSupervisionDetailSelectColumnCoordinate DynamicSupervisionDetailSelectColumn = "coordinate"
-	// column name
-	DynamicSupervisionDetailSelectColumnCreatedAt DynamicSupervisionDetailSelectColumn = "created_at"
-	// column name
-	DynamicSupervisionDetailSelectColumnCreatedBy DynamicSupervisionDetailSelectColumn = "created_by"
-	// column name
-	DynamicSupervisionDetailSelectColumnCurve DynamicSupervisionDetailSelectColumn = "curve"
-	// column name
-	DynamicSupervisionDetailSelectColumnDeletedAt DynamicSupervisionDetailSelectColumn = "deleted_at"
-	// column name
-	DynamicSupervisionDetailSelectColumnDeletedBy DynamicSupervisionDetailSelectColumn = "deleted_by"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalMeasures DynamicSupervisionDetailSelectColumn = "disposal_measures"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalMeasures1 DynamicSupervisionDetailSelectColumn = "disposal_measures1"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalMeasures2 DynamicSupervisionDetailSelectColumn = "disposal_measures2"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalMeasures3 DynamicSupervisionDetailSelectColumn = "disposal_measures3"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalMeasures4 DynamicSupervisionDetailSelectColumn = "disposal_measures4"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalMeasures5 DynamicSupervisionDetailSelectColumn = "disposal_measures5"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalMeasures6 DynamicSupervisionDetailSelectColumn = "disposal_measures6"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalMeasures7 DynamicSupervisionDetailSelectColumn = "disposal_measures7"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalResults DynamicSupervisionDetailSelectColumn = "disposal_results"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalResults1 DynamicSupervisionDetailSelectColumn = "disposal_results1"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalResults2 DynamicSupervisionDetailSelectColumn = "disposal_results2"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalResults3 DynamicSupervisionDetailSelectColumn = "disposal_results3"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalResults4 DynamicSupervisionDetailSelectColumn = "disposal_results4"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalResults5 DynamicSupervisionDetailSelectColumn = "disposal_results5"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalResults6 DynamicSupervisionDetailSelectColumn = "disposal_results6"
-	// column name
-	DynamicSupervisionDetailSelectColumnDisposalResults7 DynamicSupervisionDetailSelectColumn = "disposal_results7"
-	// column name
-	DynamicSupervisionDetailSelectColumnDriverID DynamicSupervisionDetailSelectColumn = "driver_id"
-	// column name
-	DynamicSupervisionDetailSelectColumnEnterpriseID DynamicSupervisionDetailSelectColumn = "enterprise_id"
-	// column name
-	DynamicSupervisionDetailSelectColumnEquipment DynamicSupervisionDetailSelectColumn = "equipment"
-	// column name
-	DynamicSupervisionDetailSelectColumnFatigueAlarmTime DynamicSupervisionDetailSelectColumn = "fatigue_alarm_time"
-	// column name
-	DynamicSupervisionDetailSelectColumnFeedbackTime DynamicSupervisionDetailSelectColumn = "feedback_time"
-	// column name
+	// 按指定方法生成                                               ( 主键                                                    )
 	DynamicSupervisionDetailSelectColumnID DynamicSupervisionDetailSelectColumn = "id"
-	// column name
-	DynamicSupervisionDetailSelectColumnIsDelete DynamicSupervisionDetailSelectColumn = "is_delete"
-	// column name
-	DynamicSupervisionDetailSelectColumnIsFatigueDriving DynamicSupervisionDetailSelectColumn = "is_fatigue_driving"
-	// column name
-	DynamicSupervisionDetailSelectColumnIsLocate DynamicSupervisionDetailSelectColumn = "is_locate"
-	// column name
-	DynamicSupervisionDetailSelectColumnIsMorningOutage DynamicSupervisionDetailSelectColumn = "is_morning_outage"
-	// column name
-	DynamicSupervisionDetailSelectColumnIsOnline DynamicSupervisionDetailSelectColumn = "is_online"
-	// column name
-	DynamicSupervisionDetailSelectColumnIsSend DynamicSupervisionDetailSelectColumn = "is_send"
-	// column name
-	DynamicSupervisionDetailSelectColumnIsSpeeding DynamicSupervisionDetailSelectColumn = "is_speeding"
-	// column name
-	DynamicSupervisionDetailSelectColumnIsTachographRecordNormal DynamicSupervisionDetailSelectColumn = "is_tachograph_record_normal"
-	// column name
-	DynamicSupervisionDetailSelectColumnLatitudeLongitudeDescription DynamicSupervisionDetailSelectColumn = "latitude_longitude_description"
-	// column name
-	DynamicSupervisionDetailSelectColumnLensOn DynamicSupervisionDetailSelectColumn = "lens_on"
-	// column name
-	DynamicSupervisionDetailSelectColumnLensPosition DynamicSupervisionDetailSelectColumn = "lens_position"
-	// column name
-	DynamicSupervisionDetailSelectColumnMonitorEndTime DynamicSupervisionDetailSelectColumn = "monitor_end_time"
-	// column name
-	DynamicSupervisionDetailSelectColumnMonitoringLocation DynamicSupervisionDetailSelectColumn = "monitoring_location"
-	// column name
-	DynamicSupervisionDetailSelectColumnMonitoringTime DynamicSupervisionDetailSelectColumn = "monitoring_time"
-	// column name
-	DynamicSupervisionDetailSelectColumnOtherInfraction DynamicSupervisionDetailSelectColumn = "other_infraction"
-	// column name
-	DynamicSupervisionDetailSelectColumnOthers DynamicSupervisionDetailSelectColumn = "others"
-	// column name
-	DynamicSupervisionDetailSelectColumnOutageAlarmTime DynamicSupervisionDetailSelectColumn = "outage_alarm_time"
-	// column name
-	DynamicSupervisionDetailSelectColumnRemarks DynamicSupervisionDetailSelectColumn = "remarks"
-	// column name
-	DynamicSupervisionDetailSelectColumnSpeedAlarmTime DynamicSupervisionDetailSelectColumn = "speed_alarm_time"
-	// column name
-	DynamicSupervisionDetailSelectColumnSpeedingSpeed DynamicSupervisionDetailSelectColumn = "speeding_speed"
-	// column name
+	// 动态监管抽查明细表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                )
 	DynamicSupervisionDetailSelectColumnSupervisionDetailID DynamicSupervisionDetailSelectColumn = "supervision_detail_id"
-	// column name
+	// 动态监管抽查主表的ID                                         ( 动态监管抽查主表dynamic_supervision的supervision_id )
 	DynamicSupervisionDetailSelectColumnSupervisionID DynamicSupervisionDetailSelectColumn = "supervision_id"
-	// column name
-	DynamicSupervisionDetailSelectColumnTachographDataException DynamicSupervisionDetailSelectColumn = "tachograph_data_exception"
-	// column name
-	DynamicSupervisionDetailSelectColumnTachographSpeed DynamicSupervisionDetailSelectColumn = "tachograph_speed"
-	// column name
-	DynamicSupervisionDetailSelectColumnTaxiState DynamicSupervisionDetailSelectColumn = "taxi_state"
-	// column name
-	DynamicSupervisionDetailSelectColumnTrail DynamicSupervisionDetailSelectColumn = "trail"
-	// column name
-	DynamicSupervisionDetailSelectColumnTreatmentTime DynamicSupervisionDetailSelectColumn = "treatment_time"
-	// column name
-	DynamicSupervisionDetailSelectColumnUpdatedAt DynamicSupervisionDetailSelectColumn = "updated_at"
-	// column name
-	DynamicSupervisionDetailSelectColumnUpdatedBy DynamicSupervisionDetailSelectColumn = "updated_by"
-	// column name
+	// 驾驶员id                                                     ( driver_info 表的driver_id                           )
+	DynamicSupervisionDetailSelectColumnDriverID DynamicSupervisionDetailSelectColumn = "driver_id"
+	// 车辆所在企业id                                               ( enterprise_info表的enterprise_id                    )
+	DynamicSupervisionDetailSelectColumnEnterpriseID DynamicSupervisionDetailSelectColumn = "enterprise_id"
+	// 车辆id                                                       ( vehicle_info 表的vehicle_id                         )
 	DynamicSupervisionDetailSelectColumnVehicleID DynamicSupervisionDetailSelectColumn = "vehicle_id"
+	// 监控平台时间                                                 (                                                         )
+	DynamicSupervisionDetailSelectColumnMonitoringTime DynamicSupervisionDetailSelectColumn = "monitoring_time"
+	// 监控平台显示位置                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnMonitoringLocation DynamicSupervisionDetailSelectColumn = "monitoring_location"
+	// 是否在线（是/否）                                            (                                                         )
+	DynamicSupervisionDetailSelectColumnIsOnline DynamicSupervisionDetailSelectColumn = "is_online"
+	// 行车记录仪数据（是否异常）                                   (                                                         )
+	DynamicSupervisionDetailSelectColumnIsTachographRecordNormal DynamicSupervisionDetailSelectColumn = "is_tachograph_record_normal"
+	// 行车记录仪异常数据项                                         (                                                         )
+	DynamicSupervisionDetailSelectColumnTachographDataException DynamicSupervisionDetailSelectColumn = "tachograph_data_exception"
+	// 行车记录仪速度                                               (                                                         )
+	DynamicSupervisionDetailSelectColumnTachographSpeed DynamicSupervisionDetailSelectColumn = "tachograph_speed"
+	// 卫星定位速度                                                 (                                                         )
+	DynamicSupervisionDetailSelectColumnGpsSpeed DynamicSupervisionDetailSelectColumn = "gps_speed"
+	// 是否超速（是/否）                                            (                                                         )
+	DynamicSupervisionDetailSelectColumnIsSpeeding DynamicSupervisionDetailSelectColumn = "is_speeding"
+	// 出租空/重车状态（空/重）                                     ( 出租车空/重车状态字典                               )
+	DynamicSupervisionDetailSelectColumnTaxiState DynamicSupervisionDetailSelectColumn = "taxi_state"
+	// 客运疲劳驾驶（是/否）                                        (                                                         )
+	DynamicSupervisionDetailSelectColumnIsFatigueDriving DynamicSupervisionDetailSelectColumn = "is_fatigue_driving"
+	// 客运凌晨2-5时停运（是/否）                                   (                                                         )
+	DynamicSupervisionDetailSelectColumnIsMorningOutage DynamicSupervisionDetailSelectColumn = "is_morning_outage"
+	// 曲线情况（曲线完整/回传异常/零速度）                         ( 曲线情况字典                                        )
+	DynamicSupervisionDetailSelectColumnCurve DynamicSupervisionDetailSelectColumn = "curve"
+	// 轨迹情况（正常/漂移/其他）                                   ( GPS轨迹情况字典                                     )
+	DynamicSupervisionDetailSelectColumnTrail DynamicSupervisionDetailSelectColumn = "trail"
+	// 镜头位置（正/偏）                                            ( 镜头位置字典                                        )
+	DynamicSupervisionDetailSelectColumnLensPosition DynamicSupervisionDetailSelectColumn = "lens_position"
+	// 设备情况（图像正常/无图像/摄像头 号损坏）                    ( 设备情况字典                                        )
+	DynamicSupervisionDetailSelectColumnEquipment DynamicSupervisionDetailSelectColumn = "equipment"
+	// 其他违规                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnOtherInfraction DynamicSupervisionDetailSelectColumn = "other_infraction"
+	// 处置措施                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalMeasures DynamicSupervisionDetailSelectColumn = "disposal_measures"
+	// 处置结果                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalResults DynamicSupervisionDetailSelectColumn = "disposal_results"
+	// 处置时间                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnTreatmentTime DynamicSupervisionDetailSelectColumn = "treatment_time"
+	// 受理人                                                       (                                                         )
+	DynamicSupervisionDetailSelectColumnAssignee DynamicSupervisionDetailSelectColumn = "assignee"
+	// 反馈时间                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnFeedbackTime DynamicSupervisionDetailSelectColumn = "feedback_time"
+	// 备注                                                         (                                                         )
+	DynamicSupervisionDetailSelectColumnRemarks DynamicSupervisionDetailSelectColumn = "remarks"
+	// 轨迹其他情况                                                 (                                                         )
+	DynamicSupervisionDetailSelectColumnOthers DynamicSupervisionDetailSelectColumn = "others"
+	// 摄像头损坏号                                                 (                                                         )
+	DynamicSupervisionDetailSelectColumnLensOn DynamicSupervisionDetailSelectColumn = "lens_on"
+	// 监管费到期时间                                               (                                                         )
+	DynamicSupervisionDetailSelectColumnMonitorEndTime DynamicSupervisionDetailSelectColumn = "monitor_end_time"
+	// 是否定位                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnIsLocate DynamicSupervisionDetailSelectColumn = "is_locate"
+	// 空间数据类型point表示经纬度                                  (                                                         )
+	DynamicSupervisionDetailSelectColumnCoordinate DynamicSupervisionDetailSelectColumn = "coordinate"
+	// 经纬度描述                                                   (                                                         )
+	DynamicSupervisionDetailSelectColumnLatitudeLongitudeDescription DynamicSupervisionDetailSelectColumn = "latitude_longitude_description"
+	// 是否发送                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnIsSend DynamicSupervisionDetailSelectColumn = "is_send"
+	// 经营范围                                                     ( 经营范围字典                                        )
+	DynamicSupervisionDetailSelectColumnBusinessScope DynamicSupervisionDetailSelectColumn = "business_scope"
+	// 凌晨2点到5点停运报警时间                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnOutageAlarmTime DynamicSupervisionDetailSelectColumn = "outage_alarm_time"
+	// 超速报警时间                                                 (                                                         )
+	DynamicSupervisionDetailSelectColumnSpeedAlarmTime DynamicSupervisionDetailSelectColumn = "speed_alarm_time"
+	// 超速速度                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnSpeedingSpeed DynamicSupervisionDetailSelectColumn = "speeding_speed"
+	// 疲劳驾驶报警时间                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnFatigueAlarmTime DynamicSupervisionDetailSelectColumn = "fatigue_alarm_time"
+	// 是否在线处置措施                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalMeasures1 DynamicSupervisionDetailSelectColumn = "disposal_measures1"
+	// 是否超速处置措施                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalMeasures2 DynamicSupervisionDetailSelectColumn = "disposal_measures2"
+	// 曲线情况处置措施                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalMeasures3 DynamicSupervisionDetailSelectColumn = "disposal_measures3"
+	// 客运疲劳驾驶处置措施                                         (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalMeasures4 DynamicSupervisionDetailSelectColumn = "disposal_measures4"
+	// 客运凌晨停运处置措施                                         (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalMeasures5 DynamicSupervisionDetailSelectColumn = "disposal_measures5"
+	// 行车记录仪数据处置措施                                       (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalMeasures6 DynamicSupervisionDetailSelectColumn = "disposal_measures6"
+	// 轨迹情况处置措施                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalMeasures7 DynamicSupervisionDetailSelectColumn = "disposal_measures7"
+	// 是否在线处置结果                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalResults1 DynamicSupervisionDetailSelectColumn = "disposal_results1"
+	// 是否超速处置结果                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalResults2 DynamicSupervisionDetailSelectColumn = "disposal_results2"
+	// 曲线情况处置结果                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalResults3 DynamicSupervisionDetailSelectColumn = "disposal_results3"
+	// 客运疲劳驾驶处置结果                                         (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalResults4 DynamicSupervisionDetailSelectColumn = "disposal_results4"
+	// 客运疲劳驾驶处置结果                                         (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalResults5 DynamicSupervisionDetailSelectColumn = "disposal_results5"
+	// 行车记录仪数据处置结果                                       (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalResults6 DynamicSupervisionDetailSelectColumn = "disposal_results6"
+	// 轨迹情况处置结果                                             (                                                         )
+	DynamicSupervisionDetailSelectColumnDisposalResults7 DynamicSupervisionDetailSelectColumn = "disposal_results7"
+	// 是否被删除                                                   (                                                         )
+	DynamicSupervisionDetailSelectColumnIsDeleted DynamicSupervisionDetailSelectColumn = "is_deleted"
+	// 创建时间                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnCreatedAt DynamicSupervisionDetailSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id                              )
+	DynamicSupervisionDetailSelectColumnCreatedBy DynamicSupervisionDetailSelectColumn = "created_by"
+	// 修改时间                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnUpdatedAt DynamicSupervisionDetailSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id                              )
+	DynamicSupervisionDetailSelectColumnUpdatedBy DynamicSupervisionDetailSelectColumn = "updated_by"
+	// 删除时间                                                     (                                                         )
+	DynamicSupervisionDetailSelectColumnDeletedAt DynamicSupervisionDetailSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id                              )
+	DynamicSupervisionDetailSelectColumnDeletedBy DynamicSupervisionDetailSelectColumn = "deleted_by"
 )
 
 var AllDynamicSupervisionDetailSelectColumn = []DynamicSupervisionDetailSelectColumn{
+	DynamicSupervisionDetailSelectColumnID,
+	DynamicSupervisionDetailSelectColumnSupervisionDetailID,
+	DynamicSupervisionDetailSelectColumnSupervisionID,
+	DynamicSupervisionDetailSelectColumnDriverID,
+	DynamicSupervisionDetailSelectColumnEnterpriseID,
+	DynamicSupervisionDetailSelectColumnVehicleID,
+	DynamicSupervisionDetailSelectColumnMonitoringTime,
+	DynamicSupervisionDetailSelectColumnMonitoringLocation,
+	DynamicSupervisionDetailSelectColumnIsOnline,
+	DynamicSupervisionDetailSelectColumnIsTachographRecordNormal,
+	DynamicSupervisionDetailSelectColumnTachographDataException,
+	DynamicSupervisionDetailSelectColumnTachographSpeed,
 	DynamicSupervisionDetailSelectColumnGpsSpeed,
-	DynamicSupervisionDetailSelectColumnAssignee,
-	DynamicSupervisionDetailSelectColumnBusinessScope,
-	DynamicSupervisionDetailSelectColumnCoordinate,
-	DynamicSupervisionDetailSelectColumnCreatedAt,
-	DynamicSupervisionDetailSelectColumnCreatedBy,
+	DynamicSupervisionDetailSelectColumnIsSpeeding,
+	DynamicSupervisionDetailSelectColumnTaxiState,
+	DynamicSupervisionDetailSelectColumnIsFatigueDriving,
+	DynamicSupervisionDetailSelectColumnIsMorningOutage,
 	DynamicSupervisionDetailSelectColumnCurve,
-	DynamicSupervisionDetailSelectColumnDeletedAt,
-	DynamicSupervisionDetailSelectColumnDeletedBy,
+	DynamicSupervisionDetailSelectColumnTrail,
+	DynamicSupervisionDetailSelectColumnLensPosition,
+	DynamicSupervisionDetailSelectColumnEquipment,
+	DynamicSupervisionDetailSelectColumnOtherInfraction,
 	DynamicSupervisionDetailSelectColumnDisposalMeasures,
+	DynamicSupervisionDetailSelectColumnDisposalResults,
+	DynamicSupervisionDetailSelectColumnTreatmentTime,
+	DynamicSupervisionDetailSelectColumnAssignee,
+	DynamicSupervisionDetailSelectColumnFeedbackTime,
+	DynamicSupervisionDetailSelectColumnRemarks,
+	DynamicSupervisionDetailSelectColumnOthers,
+	DynamicSupervisionDetailSelectColumnLensOn,
+	DynamicSupervisionDetailSelectColumnMonitorEndTime,
+	DynamicSupervisionDetailSelectColumnIsLocate,
+	DynamicSupervisionDetailSelectColumnCoordinate,
+	DynamicSupervisionDetailSelectColumnLatitudeLongitudeDescription,
+	DynamicSupervisionDetailSelectColumnIsSend,
+	DynamicSupervisionDetailSelectColumnBusinessScope,
+	DynamicSupervisionDetailSelectColumnOutageAlarmTime,
+	DynamicSupervisionDetailSelectColumnSpeedAlarmTime,
+	DynamicSupervisionDetailSelectColumnSpeedingSpeed,
+	DynamicSupervisionDetailSelectColumnFatigueAlarmTime,
 	DynamicSupervisionDetailSelectColumnDisposalMeasures1,
 	DynamicSupervisionDetailSelectColumnDisposalMeasures2,
 	DynamicSupervisionDetailSelectColumnDisposalMeasures3,
@@ -2152,7 +2859,6 @@ var AllDynamicSupervisionDetailSelectColumn = []DynamicSupervisionDetailSelectCo
 	DynamicSupervisionDetailSelectColumnDisposalMeasures5,
 	DynamicSupervisionDetailSelectColumnDisposalMeasures6,
 	DynamicSupervisionDetailSelectColumnDisposalMeasures7,
-	DynamicSupervisionDetailSelectColumnDisposalResults,
 	DynamicSupervisionDetailSelectColumnDisposalResults1,
 	DynamicSupervisionDetailSelectColumnDisposalResults2,
 	DynamicSupervisionDetailSelectColumnDisposalResults3,
@@ -2160,47 +2866,18 @@ var AllDynamicSupervisionDetailSelectColumn = []DynamicSupervisionDetailSelectCo
 	DynamicSupervisionDetailSelectColumnDisposalResults5,
 	DynamicSupervisionDetailSelectColumnDisposalResults6,
 	DynamicSupervisionDetailSelectColumnDisposalResults7,
-	DynamicSupervisionDetailSelectColumnDriverID,
-	DynamicSupervisionDetailSelectColumnEnterpriseID,
-	DynamicSupervisionDetailSelectColumnEquipment,
-	DynamicSupervisionDetailSelectColumnFatigueAlarmTime,
-	DynamicSupervisionDetailSelectColumnFeedbackTime,
-	DynamicSupervisionDetailSelectColumnID,
-	DynamicSupervisionDetailSelectColumnIsDelete,
-	DynamicSupervisionDetailSelectColumnIsFatigueDriving,
-	DynamicSupervisionDetailSelectColumnIsLocate,
-	DynamicSupervisionDetailSelectColumnIsMorningOutage,
-	DynamicSupervisionDetailSelectColumnIsOnline,
-	DynamicSupervisionDetailSelectColumnIsSend,
-	DynamicSupervisionDetailSelectColumnIsSpeeding,
-	DynamicSupervisionDetailSelectColumnIsTachographRecordNormal,
-	DynamicSupervisionDetailSelectColumnLatitudeLongitudeDescription,
-	DynamicSupervisionDetailSelectColumnLensOn,
-	DynamicSupervisionDetailSelectColumnLensPosition,
-	DynamicSupervisionDetailSelectColumnMonitorEndTime,
-	DynamicSupervisionDetailSelectColumnMonitoringLocation,
-	DynamicSupervisionDetailSelectColumnMonitoringTime,
-	DynamicSupervisionDetailSelectColumnOtherInfraction,
-	DynamicSupervisionDetailSelectColumnOthers,
-	DynamicSupervisionDetailSelectColumnOutageAlarmTime,
-	DynamicSupervisionDetailSelectColumnRemarks,
-	DynamicSupervisionDetailSelectColumnSpeedAlarmTime,
-	DynamicSupervisionDetailSelectColumnSpeedingSpeed,
-	DynamicSupervisionDetailSelectColumnSupervisionDetailID,
-	DynamicSupervisionDetailSelectColumnSupervisionID,
-	DynamicSupervisionDetailSelectColumnTachographDataException,
-	DynamicSupervisionDetailSelectColumnTachographSpeed,
-	DynamicSupervisionDetailSelectColumnTaxiState,
-	DynamicSupervisionDetailSelectColumnTrail,
-	DynamicSupervisionDetailSelectColumnTreatmentTime,
+	DynamicSupervisionDetailSelectColumnIsDeleted,
+	DynamicSupervisionDetailSelectColumnCreatedAt,
+	DynamicSupervisionDetailSelectColumnCreatedBy,
 	DynamicSupervisionDetailSelectColumnUpdatedAt,
 	DynamicSupervisionDetailSelectColumnUpdatedBy,
-	DynamicSupervisionDetailSelectColumnVehicleID,
+	DynamicSupervisionDetailSelectColumnDeletedAt,
+	DynamicSupervisionDetailSelectColumnDeletedBy,
 }
 
 func (e DynamicSupervisionDetailSelectColumn) IsValid() bool {
 	switch e {
-	case DynamicSupervisionDetailSelectColumnGpsSpeed, DynamicSupervisionDetailSelectColumnAssignee, DynamicSupervisionDetailSelectColumnBusinessScope, DynamicSupervisionDetailSelectColumnCoordinate, DynamicSupervisionDetailSelectColumnCreatedAt, DynamicSupervisionDetailSelectColumnCreatedBy, DynamicSupervisionDetailSelectColumnCurve, DynamicSupervisionDetailSelectColumnDeletedAt, DynamicSupervisionDetailSelectColumnDeletedBy, DynamicSupervisionDetailSelectColumnDisposalMeasures, DynamicSupervisionDetailSelectColumnDisposalMeasures1, DynamicSupervisionDetailSelectColumnDisposalMeasures2, DynamicSupervisionDetailSelectColumnDisposalMeasures3, DynamicSupervisionDetailSelectColumnDisposalMeasures4, DynamicSupervisionDetailSelectColumnDisposalMeasures5, DynamicSupervisionDetailSelectColumnDisposalMeasures6, DynamicSupervisionDetailSelectColumnDisposalMeasures7, DynamicSupervisionDetailSelectColumnDisposalResults, DynamicSupervisionDetailSelectColumnDisposalResults1, DynamicSupervisionDetailSelectColumnDisposalResults2, DynamicSupervisionDetailSelectColumnDisposalResults3, DynamicSupervisionDetailSelectColumnDisposalResults4, DynamicSupervisionDetailSelectColumnDisposalResults5, DynamicSupervisionDetailSelectColumnDisposalResults6, DynamicSupervisionDetailSelectColumnDisposalResults7, DynamicSupervisionDetailSelectColumnDriverID, DynamicSupervisionDetailSelectColumnEnterpriseID, DynamicSupervisionDetailSelectColumnEquipment, DynamicSupervisionDetailSelectColumnFatigueAlarmTime, DynamicSupervisionDetailSelectColumnFeedbackTime, DynamicSupervisionDetailSelectColumnID, DynamicSupervisionDetailSelectColumnIsDelete, DynamicSupervisionDetailSelectColumnIsFatigueDriving, DynamicSupervisionDetailSelectColumnIsLocate, DynamicSupervisionDetailSelectColumnIsMorningOutage, DynamicSupervisionDetailSelectColumnIsOnline, DynamicSupervisionDetailSelectColumnIsSend, DynamicSupervisionDetailSelectColumnIsSpeeding, DynamicSupervisionDetailSelectColumnIsTachographRecordNormal, DynamicSupervisionDetailSelectColumnLatitudeLongitudeDescription, DynamicSupervisionDetailSelectColumnLensOn, DynamicSupervisionDetailSelectColumnLensPosition, DynamicSupervisionDetailSelectColumnMonitorEndTime, DynamicSupervisionDetailSelectColumnMonitoringLocation, DynamicSupervisionDetailSelectColumnMonitoringTime, DynamicSupervisionDetailSelectColumnOtherInfraction, DynamicSupervisionDetailSelectColumnOthers, DynamicSupervisionDetailSelectColumnOutageAlarmTime, DynamicSupervisionDetailSelectColumnRemarks, DynamicSupervisionDetailSelectColumnSpeedAlarmTime, DynamicSupervisionDetailSelectColumnSpeedingSpeed, DynamicSupervisionDetailSelectColumnSupervisionDetailID, DynamicSupervisionDetailSelectColumnSupervisionID, DynamicSupervisionDetailSelectColumnTachographDataException, DynamicSupervisionDetailSelectColumnTachographSpeed, DynamicSupervisionDetailSelectColumnTaxiState, DynamicSupervisionDetailSelectColumnTrail, DynamicSupervisionDetailSelectColumnTreatmentTime, DynamicSupervisionDetailSelectColumnUpdatedAt, DynamicSupervisionDetailSelectColumnUpdatedBy, DynamicSupervisionDetailSelectColumnVehicleID:
+	case DynamicSupervisionDetailSelectColumnID, DynamicSupervisionDetailSelectColumnSupervisionDetailID, DynamicSupervisionDetailSelectColumnSupervisionID, DynamicSupervisionDetailSelectColumnDriverID, DynamicSupervisionDetailSelectColumnEnterpriseID, DynamicSupervisionDetailSelectColumnVehicleID, DynamicSupervisionDetailSelectColumnMonitoringTime, DynamicSupervisionDetailSelectColumnMonitoringLocation, DynamicSupervisionDetailSelectColumnIsOnline, DynamicSupervisionDetailSelectColumnIsTachographRecordNormal, DynamicSupervisionDetailSelectColumnTachographDataException, DynamicSupervisionDetailSelectColumnTachographSpeed, DynamicSupervisionDetailSelectColumnGpsSpeed, DynamicSupervisionDetailSelectColumnIsSpeeding, DynamicSupervisionDetailSelectColumnTaxiState, DynamicSupervisionDetailSelectColumnIsFatigueDriving, DynamicSupervisionDetailSelectColumnIsMorningOutage, DynamicSupervisionDetailSelectColumnCurve, DynamicSupervisionDetailSelectColumnTrail, DynamicSupervisionDetailSelectColumnLensPosition, DynamicSupervisionDetailSelectColumnEquipment, DynamicSupervisionDetailSelectColumnOtherInfraction, DynamicSupervisionDetailSelectColumnDisposalMeasures, DynamicSupervisionDetailSelectColumnDisposalResults, DynamicSupervisionDetailSelectColumnTreatmentTime, DynamicSupervisionDetailSelectColumnAssignee, DynamicSupervisionDetailSelectColumnFeedbackTime, DynamicSupervisionDetailSelectColumnRemarks, DynamicSupervisionDetailSelectColumnOthers, DynamicSupervisionDetailSelectColumnLensOn, DynamicSupervisionDetailSelectColumnMonitorEndTime, DynamicSupervisionDetailSelectColumnIsLocate, DynamicSupervisionDetailSelectColumnCoordinate, DynamicSupervisionDetailSelectColumnLatitudeLongitudeDescription, DynamicSupervisionDetailSelectColumnIsSend, DynamicSupervisionDetailSelectColumnBusinessScope, DynamicSupervisionDetailSelectColumnOutageAlarmTime, DynamicSupervisionDetailSelectColumnSpeedAlarmTime, DynamicSupervisionDetailSelectColumnSpeedingSpeed, DynamicSupervisionDetailSelectColumnFatigueAlarmTime, DynamicSupervisionDetailSelectColumnDisposalMeasures1, DynamicSupervisionDetailSelectColumnDisposalMeasures2, DynamicSupervisionDetailSelectColumnDisposalMeasures3, DynamicSupervisionDetailSelectColumnDisposalMeasures4, DynamicSupervisionDetailSelectColumnDisposalMeasures5, DynamicSupervisionDetailSelectColumnDisposalMeasures6, DynamicSupervisionDetailSelectColumnDisposalMeasures7, DynamicSupervisionDetailSelectColumnDisposalResults1, DynamicSupervisionDetailSelectColumnDisposalResults2, DynamicSupervisionDetailSelectColumnDisposalResults3, DynamicSupervisionDetailSelectColumnDisposalResults4, DynamicSupervisionDetailSelectColumnDisposalResults5, DynamicSupervisionDetailSelectColumnDisposalResults6, DynamicSupervisionDetailSelectColumnDisposalResults7, DynamicSupervisionDetailSelectColumnIsDeleted, DynamicSupervisionDetailSelectColumnCreatedAt, DynamicSupervisionDetailSelectColumnCreatedBy, DynamicSupervisionDetailSelectColumnUpdatedAt, DynamicSupervisionDetailSelectColumnUpdatedBy, DynamicSupervisionDetailSelectColumnDeletedAt, DynamicSupervisionDetailSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -2218,7 +2895,7 @@ func (e *DynamicSupervisionDetailSelectColumn) UnmarshalGQL(v interface{}) error
 
 	*e = DynamicSupervisionDetailSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dynamic_supervision_detail_select_column", str)
+		return fmt.Errorf("%s is not a valid DynamicSupervisionDetailSelectColumn", str)
 	}
 	return nil
 }
@@ -2227,302 +2904,81 @@ func (e DynamicSupervisionDetailSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "dynamic_supervision_detail"
-type DynamicSupervisionDetailUpdateColumn string
-
-const (
-	// column name
-	DynamicSupervisionDetailUpdateColumnGpsSpeed DynamicSupervisionDetailUpdateColumn = "GPS_speed"
-	// column name
-	DynamicSupervisionDetailUpdateColumnAssignee DynamicSupervisionDetailUpdateColumn = "assignee"
-	// column name
-	DynamicSupervisionDetailUpdateColumnBusinessScope DynamicSupervisionDetailUpdateColumn = "business_scope"
-	// column name
-	DynamicSupervisionDetailUpdateColumnCoordinate DynamicSupervisionDetailUpdateColumn = "coordinate"
-	// column name
-	DynamicSupervisionDetailUpdateColumnCreatedAt DynamicSupervisionDetailUpdateColumn = "created_at"
-	// column name
-	DynamicSupervisionDetailUpdateColumnCreatedBy DynamicSupervisionDetailUpdateColumn = "created_by"
-	// column name
-	DynamicSupervisionDetailUpdateColumnCurve DynamicSupervisionDetailUpdateColumn = "curve"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDeletedAt DynamicSupervisionDetailUpdateColumn = "deleted_at"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDeletedBy DynamicSupervisionDetailUpdateColumn = "deleted_by"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures DynamicSupervisionDetailUpdateColumn = "disposal_measures"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures1 DynamicSupervisionDetailUpdateColumn = "disposal_measures1"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures2 DynamicSupervisionDetailUpdateColumn = "disposal_measures2"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures3 DynamicSupervisionDetailUpdateColumn = "disposal_measures3"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures4 DynamicSupervisionDetailUpdateColumn = "disposal_measures4"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures5 DynamicSupervisionDetailUpdateColumn = "disposal_measures5"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures6 DynamicSupervisionDetailUpdateColumn = "disposal_measures6"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures7 DynamicSupervisionDetailUpdateColumn = "disposal_measures7"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalResults DynamicSupervisionDetailUpdateColumn = "disposal_results"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalResults1 DynamicSupervisionDetailUpdateColumn = "disposal_results1"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalResults2 DynamicSupervisionDetailUpdateColumn = "disposal_results2"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalResults3 DynamicSupervisionDetailUpdateColumn = "disposal_results3"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalResults4 DynamicSupervisionDetailUpdateColumn = "disposal_results4"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalResults5 DynamicSupervisionDetailUpdateColumn = "disposal_results5"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalResults6 DynamicSupervisionDetailUpdateColumn = "disposal_results6"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDisposalResults7 DynamicSupervisionDetailUpdateColumn = "disposal_results7"
-	// column name
-	DynamicSupervisionDetailUpdateColumnDriverID DynamicSupervisionDetailUpdateColumn = "driver_id"
-	// column name
-	DynamicSupervisionDetailUpdateColumnEnterpriseID DynamicSupervisionDetailUpdateColumn = "enterprise_id"
-	// column name
-	DynamicSupervisionDetailUpdateColumnEquipment DynamicSupervisionDetailUpdateColumn = "equipment"
-	// column name
-	DynamicSupervisionDetailUpdateColumnFatigueAlarmTime DynamicSupervisionDetailUpdateColumn = "fatigue_alarm_time"
-	// column name
-	DynamicSupervisionDetailUpdateColumnFeedbackTime DynamicSupervisionDetailUpdateColumn = "feedback_time"
-	// column name
-	DynamicSupervisionDetailUpdateColumnID DynamicSupervisionDetailUpdateColumn = "id"
-	// column name
-	DynamicSupervisionDetailUpdateColumnIsDelete DynamicSupervisionDetailUpdateColumn = "is_delete"
-	// column name
-	DynamicSupervisionDetailUpdateColumnIsFatigueDriving DynamicSupervisionDetailUpdateColumn = "is_fatigue_driving"
-	// column name
-	DynamicSupervisionDetailUpdateColumnIsLocate DynamicSupervisionDetailUpdateColumn = "is_locate"
-	// column name
-	DynamicSupervisionDetailUpdateColumnIsMorningOutage DynamicSupervisionDetailUpdateColumn = "is_morning_outage"
-	// column name
-	DynamicSupervisionDetailUpdateColumnIsOnline DynamicSupervisionDetailUpdateColumn = "is_online"
-	// column name
-	DynamicSupervisionDetailUpdateColumnIsSend DynamicSupervisionDetailUpdateColumn = "is_send"
-	// column name
-	DynamicSupervisionDetailUpdateColumnIsSpeeding DynamicSupervisionDetailUpdateColumn = "is_speeding"
-	// column name
-	DynamicSupervisionDetailUpdateColumnIsTachographRecordNormal DynamicSupervisionDetailUpdateColumn = "is_tachograph_record_normal"
-	// column name
-	DynamicSupervisionDetailUpdateColumnLatitudeLongitudeDescription DynamicSupervisionDetailUpdateColumn = "latitude_longitude_description"
-	// column name
-	DynamicSupervisionDetailUpdateColumnLensOn DynamicSupervisionDetailUpdateColumn = "lens_on"
-	// column name
-	DynamicSupervisionDetailUpdateColumnLensPosition DynamicSupervisionDetailUpdateColumn = "lens_position"
-	// column name
-	DynamicSupervisionDetailUpdateColumnMonitorEndTime DynamicSupervisionDetailUpdateColumn = "monitor_end_time"
-	// column name
-	DynamicSupervisionDetailUpdateColumnMonitoringLocation DynamicSupervisionDetailUpdateColumn = "monitoring_location"
-	// column name
-	DynamicSupervisionDetailUpdateColumnMonitoringTime DynamicSupervisionDetailUpdateColumn = "monitoring_time"
-	// column name
-	DynamicSupervisionDetailUpdateColumnOtherInfraction DynamicSupervisionDetailUpdateColumn = "other_infraction"
-	// column name
-	DynamicSupervisionDetailUpdateColumnOthers DynamicSupervisionDetailUpdateColumn = "others"
-	// column name
-	DynamicSupervisionDetailUpdateColumnOutageAlarmTime DynamicSupervisionDetailUpdateColumn = "outage_alarm_time"
-	// column name
-	DynamicSupervisionDetailUpdateColumnRemarks DynamicSupervisionDetailUpdateColumn = "remarks"
-	// column name
-	DynamicSupervisionDetailUpdateColumnSpeedAlarmTime DynamicSupervisionDetailUpdateColumn = "speed_alarm_time"
-	// column name
-	DynamicSupervisionDetailUpdateColumnSpeedingSpeed DynamicSupervisionDetailUpdateColumn = "speeding_speed"
-	// column name
-	DynamicSupervisionDetailUpdateColumnSupervisionDetailID DynamicSupervisionDetailUpdateColumn = "supervision_detail_id"
-	// column name
-	DynamicSupervisionDetailUpdateColumnSupervisionID DynamicSupervisionDetailUpdateColumn = "supervision_id"
-	// column name
-	DynamicSupervisionDetailUpdateColumnTachographDataException DynamicSupervisionDetailUpdateColumn = "tachograph_data_exception"
-	// column name
-	DynamicSupervisionDetailUpdateColumnTachographSpeed DynamicSupervisionDetailUpdateColumn = "tachograph_speed"
-	// column name
-	DynamicSupervisionDetailUpdateColumnTaxiState DynamicSupervisionDetailUpdateColumn = "taxi_state"
-	// column name
-	DynamicSupervisionDetailUpdateColumnTrail DynamicSupervisionDetailUpdateColumn = "trail"
-	// column name
-	DynamicSupervisionDetailUpdateColumnTreatmentTime DynamicSupervisionDetailUpdateColumn = "treatment_time"
-	// column name
-	DynamicSupervisionDetailUpdateColumnUpdatedAt DynamicSupervisionDetailUpdateColumn = "updated_at"
-	// column name
-	DynamicSupervisionDetailUpdateColumnUpdatedBy DynamicSupervisionDetailUpdateColumn = "updated_by"
-	// column name
-	DynamicSupervisionDetailUpdateColumnVehicleID DynamicSupervisionDetailUpdateColumn = "vehicle_id"
-)
-
-var AllDynamicSupervisionDetailUpdateColumn = []DynamicSupervisionDetailUpdateColumn{
-	DynamicSupervisionDetailUpdateColumnGpsSpeed,
-	DynamicSupervisionDetailUpdateColumnAssignee,
-	DynamicSupervisionDetailUpdateColumnBusinessScope,
-	DynamicSupervisionDetailUpdateColumnCoordinate,
-	DynamicSupervisionDetailUpdateColumnCreatedAt,
-	DynamicSupervisionDetailUpdateColumnCreatedBy,
-	DynamicSupervisionDetailUpdateColumnCurve,
-	DynamicSupervisionDetailUpdateColumnDeletedAt,
-	DynamicSupervisionDetailUpdateColumnDeletedBy,
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures,
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures1,
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures2,
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures3,
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures4,
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures5,
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures6,
-	DynamicSupervisionDetailUpdateColumnDisposalMeasures7,
-	DynamicSupervisionDetailUpdateColumnDisposalResults,
-	DynamicSupervisionDetailUpdateColumnDisposalResults1,
-	DynamicSupervisionDetailUpdateColumnDisposalResults2,
-	DynamicSupervisionDetailUpdateColumnDisposalResults3,
-	DynamicSupervisionDetailUpdateColumnDisposalResults4,
-	DynamicSupervisionDetailUpdateColumnDisposalResults5,
-	DynamicSupervisionDetailUpdateColumnDisposalResults6,
-	DynamicSupervisionDetailUpdateColumnDisposalResults7,
-	DynamicSupervisionDetailUpdateColumnDriverID,
-	DynamicSupervisionDetailUpdateColumnEnterpriseID,
-	DynamicSupervisionDetailUpdateColumnEquipment,
-	DynamicSupervisionDetailUpdateColumnFatigueAlarmTime,
-	DynamicSupervisionDetailUpdateColumnFeedbackTime,
-	DynamicSupervisionDetailUpdateColumnID,
-	DynamicSupervisionDetailUpdateColumnIsDelete,
-	DynamicSupervisionDetailUpdateColumnIsFatigueDriving,
-	DynamicSupervisionDetailUpdateColumnIsLocate,
-	DynamicSupervisionDetailUpdateColumnIsMorningOutage,
-	DynamicSupervisionDetailUpdateColumnIsOnline,
-	DynamicSupervisionDetailUpdateColumnIsSend,
-	DynamicSupervisionDetailUpdateColumnIsSpeeding,
-	DynamicSupervisionDetailUpdateColumnIsTachographRecordNormal,
-	DynamicSupervisionDetailUpdateColumnLatitudeLongitudeDescription,
-	DynamicSupervisionDetailUpdateColumnLensOn,
-	DynamicSupervisionDetailUpdateColumnLensPosition,
-	DynamicSupervisionDetailUpdateColumnMonitorEndTime,
-	DynamicSupervisionDetailUpdateColumnMonitoringLocation,
-	DynamicSupervisionDetailUpdateColumnMonitoringTime,
-	DynamicSupervisionDetailUpdateColumnOtherInfraction,
-	DynamicSupervisionDetailUpdateColumnOthers,
-	DynamicSupervisionDetailUpdateColumnOutageAlarmTime,
-	DynamicSupervisionDetailUpdateColumnRemarks,
-	DynamicSupervisionDetailUpdateColumnSpeedAlarmTime,
-	DynamicSupervisionDetailUpdateColumnSpeedingSpeed,
-	DynamicSupervisionDetailUpdateColumnSupervisionDetailID,
-	DynamicSupervisionDetailUpdateColumnSupervisionID,
-	DynamicSupervisionDetailUpdateColumnTachographDataException,
-	DynamicSupervisionDetailUpdateColumnTachographSpeed,
-	DynamicSupervisionDetailUpdateColumnTaxiState,
-	DynamicSupervisionDetailUpdateColumnTrail,
-	DynamicSupervisionDetailUpdateColumnTreatmentTime,
-	DynamicSupervisionDetailUpdateColumnUpdatedAt,
-	DynamicSupervisionDetailUpdateColumnUpdatedBy,
-	DynamicSupervisionDetailUpdateColumnVehicleID,
-}
-
-func (e DynamicSupervisionDetailUpdateColumn) IsValid() bool {
-	switch e {
-	case DynamicSupervisionDetailUpdateColumnGpsSpeed, DynamicSupervisionDetailUpdateColumnAssignee, DynamicSupervisionDetailUpdateColumnBusinessScope, DynamicSupervisionDetailUpdateColumnCoordinate, DynamicSupervisionDetailUpdateColumnCreatedAt, DynamicSupervisionDetailUpdateColumnCreatedBy, DynamicSupervisionDetailUpdateColumnCurve, DynamicSupervisionDetailUpdateColumnDeletedAt, DynamicSupervisionDetailUpdateColumnDeletedBy, DynamicSupervisionDetailUpdateColumnDisposalMeasures, DynamicSupervisionDetailUpdateColumnDisposalMeasures1, DynamicSupervisionDetailUpdateColumnDisposalMeasures2, DynamicSupervisionDetailUpdateColumnDisposalMeasures3, DynamicSupervisionDetailUpdateColumnDisposalMeasures4, DynamicSupervisionDetailUpdateColumnDisposalMeasures5, DynamicSupervisionDetailUpdateColumnDisposalMeasures6, DynamicSupervisionDetailUpdateColumnDisposalMeasures7, DynamicSupervisionDetailUpdateColumnDisposalResults, DynamicSupervisionDetailUpdateColumnDisposalResults1, DynamicSupervisionDetailUpdateColumnDisposalResults2, DynamicSupervisionDetailUpdateColumnDisposalResults3, DynamicSupervisionDetailUpdateColumnDisposalResults4, DynamicSupervisionDetailUpdateColumnDisposalResults5, DynamicSupervisionDetailUpdateColumnDisposalResults6, DynamicSupervisionDetailUpdateColumnDisposalResults7, DynamicSupervisionDetailUpdateColumnDriverID, DynamicSupervisionDetailUpdateColumnEnterpriseID, DynamicSupervisionDetailUpdateColumnEquipment, DynamicSupervisionDetailUpdateColumnFatigueAlarmTime, DynamicSupervisionDetailUpdateColumnFeedbackTime, DynamicSupervisionDetailUpdateColumnID, DynamicSupervisionDetailUpdateColumnIsDelete, DynamicSupervisionDetailUpdateColumnIsFatigueDriving, DynamicSupervisionDetailUpdateColumnIsLocate, DynamicSupervisionDetailUpdateColumnIsMorningOutage, DynamicSupervisionDetailUpdateColumnIsOnline, DynamicSupervisionDetailUpdateColumnIsSend, DynamicSupervisionDetailUpdateColumnIsSpeeding, DynamicSupervisionDetailUpdateColumnIsTachographRecordNormal, DynamicSupervisionDetailUpdateColumnLatitudeLongitudeDescription, DynamicSupervisionDetailUpdateColumnLensOn, DynamicSupervisionDetailUpdateColumnLensPosition, DynamicSupervisionDetailUpdateColumnMonitorEndTime, DynamicSupervisionDetailUpdateColumnMonitoringLocation, DynamicSupervisionDetailUpdateColumnMonitoringTime, DynamicSupervisionDetailUpdateColumnOtherInfraction, DynamicSupervisionDetailUpdateColumnOthers, DynamicSupervisionDetailUpdateColumnOutageAlarmTime, DynamicSupervisionDetailUpdateColumnRemarks, DynamicSupervisionDetailUpdateColumnSpeedAlarmTime, DynamicSupervisionDetailUpdateColumnSpeedingSpeed, DynamicSupervisionDetailUpdateColumnSupervisionDetailID, DynamicSupervisionDetailUpdateColumnSupervisionID, DynamicSupervisionDetailUpdateColumnTachographDataException, DynamicSupervisionDetailUpdateColumnTachographSpeed, DynamicSupervisionDetailUpdateColumnTaxiState, DynamicSupervisionDetailUpdateColumnTrail, DynamicSupervisionDetailUpdateColumnTreatmentTime, DynamicSupervisionDetailUpdateColumnUpdatedAt, DynamicSupervisionDetailUpdateColumnUpdatedBy, DynamicSupervisionDetailUpdateColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e DynamicSupervisionDetailUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *DynamicSupervisionDetailUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DynamicSupervisionDetailUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dynamic_supervision_detail_update_column", str)
-	}
-	return nil
-}
-
-func (e DynamicSupervisionDetailUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "dynamic_supervision"
+// 可选select
 type DynamicSupervisionSelectColumn string
 
 const (
-	// column name
-	DynamicSupervisionSelectColumnCheckUserID DynamicSupervisionSelectColumn = "check_user_id"
-	// column name
-	DynamicSupervisionSelectColumnCityID DynamicSupervisionSelectColumn = "city_id"
-	// column name
-	DynamicSupervisionSelectColumnCreatedAt DynamicSupervisionSelectColumn = "created_at"
-	// column name
-	DynamicSupervisionSelectColumnCreatedBy DynamicSupervisionSelectColumn = "created_by"
-	// column name
-	DynamicSupervisionSelectColumnDay DynamicSupervisionSelectColumn = "day"
-	// column name
-	DynamicSupervisionSelectColumnDeletedAt DynamicSupervisionSelectColumn = "deleted_at"
-	// column name
-	DynamicSupervisionSelectColumnDeletedBy DynamicSupervisionSelectColumn = "deleted_by"
-	// column name
-	DynamicSupervisionSelectColumnDistrictID DynamicSupervisionSelectColumn = "district_id"
-	// column name
+	// 按指定方法生成                                               ( 主键                           )
 	DynamicSupervisionSelectColumnID DynamicSupervisionSelectColumn = "id"
-	// column name
-	DynamicSupervisionSelectColumnIsDelete DynamicSupervisionSelectColumn = "is_delete"
-	// column name
-	DynamicSupervisionSelectColumnMonth DynamicSupervisionSelectColumn = "month"
-	// column name
-	DynamicSupervisionSelectColumnProvinceID DynamicSupervisionSelectColumn = "province_id"
-	// column name
-	DynamicSupervisionSelectColumnSpotCheckDate DynamicSupervisionSelectColumn = "spot_check_date"
-	// column name
-	DynamicSupervisionSelectColumnSpotCheckNumber DynamicSupervisionSelectColumn = "spot_check_number"
-	// column name
-	DynamicSupervisionSelectColumnSpotCheckRatio DynamicSupervisionSelectColumn = "spot_check_ratio"
-	// column name
-	DynamicSupervisionSelectColumnSpotCheckTotalNumber DynamicSupervisionSelectColumn = "spot_check_total_number"
-	// column name
+	// 动态监管抽查主表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
 	DynamicSupervisionSelectColumnSupervisionID DynamicSupervisionSelectColumn = "supervision_id"
-	// column name
+	// 抽查日期                                                     (                                )
+	DynamicSupervisionSelectColumnSpotCheckDate DynamicSupervisionSelectColumn = "spot_check_date"
+	// 抽查总数                                                     (                                )
+	DynamicSupervisionSelectColumnSpotCheckTotalNumber DynamicSupervisionSelectColumn = "spot_check_total_number"
+	// 抽查数量                                                     (                                )
+	DynamicSupervisionSelectColumnSpotCheckNumber DynamicSupervisionSelectColumn = "spot_check_number"
+	// 抽查比例                                                     (                                )
+	DynamicSupervisionSelectColumnSpotCheckRatio DynamicSupervisionSelectColumn = "spot_check_ratio"
+	// 抽查人员                                                     ( 引用system_user表的user_id )
+	DynamicSupervisionSelectColumnCheckUserID DynamicSupervisionSelectColumn = "check_user_id"
+	// 总车辆数                                                     (                                )
 	DynamicSupervisionSelectColumnTotalNumberVehicle DynamicSupervisionSelectColumn = "total_number_vehicle"
-	// column name
-	DynamicSupervisionSelectColumnUpdatedAt DynamicSupervisionSelectColumn = "updated_at"
-	// column name
-	DynamicSupervisionSelectColumnUpdatedBy DynamicSupervisionSelectColumn = "updated_by"
-	// column name
+	// 抽查人员位置的省份ID                                         ( 省份表province_id              )
+	DynamicSupervisionSelectColumnProvinceID DynamicSupervisionSelectColumn = "province_id"
+	// 抽查人员位置的城市ID                                         ( 城市表city_id                  )
+	DynamicSupervisionSelectColumnCityID DynamicSupervisionSelectColumn = "city_id"
+	// 抽查人员位置的区域ID                                         ( 区域表district_id              )
+	DynamicSupervisionSelectColumnDistrictID DynamicSupervisionSelectColumn = "district_id"
+	// 年                                                           (                                )
 	DynamicSupervisionSelectColumnYear DynamicSupervisionSelectColumn = "year"
+	// 月                                                           (                                )
+	DynamicSupervisionSelectColumnMonth DynamicSupervisionSelectColumn = "month"
+	// 日                                                           (                                )
+	DynamicSupervisionSelectColumnDay DynamicSupervisionSelectColumn = "day"
+	// 创建时间                                                     (                                )
+	DynamicSupervisionSelectColumnCreatedAt DynamicSupervisionSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id     )
+	DynamicSupervisionSelectColumnCreatedBy DynamicSupervisionSelectColumn = "created_by"
+	// 修改时间                                                     (                                )
+	DynamicSupervisionSelectColumnUpdatedAt DynamicSupervisionSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id     )
+	DynamicSupervisionSelectColumnUpdatedBy DynamicSupervisionSelectColumn = "updated_by"
+	// 删除时间                                                     (                                )
+	DynamicSupervisionSelectColumnDeletedAt DynamicSupervisionSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id     )
+	DynamicSupervisionSelectColumnDeletedBy DynamicSupervisionSelectColumn = "deleted_by"
+	// 是否被删除                                                   (                                )
+	DynamicSupervisionSelectColumnIsDeleted DynamicSupervisionSelectColumn = "is_deleted"
 )
 
 var AllDynamicSupervisionSelectColumn = []DynamicSupervisionSelectColumn{
-	DynamicSupervisionSelectColumnCheckUserID,
-	DynamicSupervisionSelectColumnCityID,
-	DynamicSupervisionSelectColumnCreatedAt,
-	DynamicSupervisionSelectColumnCreatedBy,
-	DynamicSupervisionSelectColumnDay,
-	DynamicSupervisionSelectColumnDeletedAt,
-	DynamicSupervisionSelectColumnDeletedBy,
-	DynamicSupervisionSelectColumnDistrictID,
 	DynamicSupervisionSelectColumnID,
-	DynamicSupervisionSelectColumnIsDelete,
-	DynamicSupervisionSelectColumnMonth,
-	DynamicSupervisionSelectColumnProvinceID,
+	DynamicSupervisionSelectColumnSupervisionID,
 	DynamicSupervisionSelectColumnSpotCheckDate,
+	DynamicSupervisionSelectColumnSpotCheckTotalNumber,
 	DynamicSupervisionSelectColumnSpotCheckNumber,
 	DynamicSupervisionSelectColumnSpotCheckRatio,
-	DynamicSupervisionSelectColumnSpotCheckTotalNumber,
-	DynamicSupervisionSelectColumnSupervisionID,
+	DynamicSupervisionSelectColumnCheckUserID,
 	DynamicSupervisionSelectColumnTotalNumberVehicle,
+	DynamicSupervisionSelectColumnProvinceID,
+	DynamicSupervisionSelectColumnCityID,
+	DynamicSupervisionSelectColumnDistrictID,
+	DynamicSupervisionSelectColumnYear,
+	DynamicSupervisionSelectColumnMonth,
+	DynamicSupervisionSelectColumnDay,
+	DynamicSupervisionSelectColumnCreatedAt,
+	DynamicSupervisionSelectColumnCreatedBy,
 	DynamicSupervisionSelectColumnUpdatedAt,
 	DynamicSupervisionSelectColumnUpdatedBy,
-	DynamicSupervisionSelectColumnYear,
+	DynamicSupervisionSelectColumnDeletedAt,
+	DynamicSupervisionSelectColumnDeletedBy,
+	DynamicSupervisionSelectColumnIsDeleted,
 }
 
 func (e DynamicSupervisionSelectColumn) IsValid() bool {
 	switch e {
-	case DynamicSupervisionSelectColumnCheckUserID, DynamicSupervisionSelectColumnCityID, DynamicSupervisionSelectColumnCreatedAt, DynamicSupervisionSelectColumnCreatedBy, DynamicSupervisionSelectColumnDay, DynamicSupervisionSelectColumnDeletedAt, DynamicSupervisionSelectColumnDeletedBy, DynamicSupervisionSelectColumnDistrictID, DynamicSupervisionSelectColumnID, DynamicSupervisionSelectColumnIsDelete, DynamicSupervisionSelectColumnMonth, DynamicSupervisionSelectColumnProvinceID, DynamicSupervisionSelectColumnSpotCheckDate, DynamicSupervisionSelectColumnSpotCheckNumber, DynamicSupervisionSelectColumnSpotCheckRatio, DynamicSupervisionSelectColumnSpotCheckTotalNumber, DynamicSupervisionSelectColumnSupervisionID, DynamicSupervisionSelectColumnTotalNumberVehicle, DynamicSupervisionSelectColumnUpdatedAt, DynamicSupervisionSelectColumnUpdatedBy, DynamicSupervisionSelectColumnYear:
+	case DynamicSupervisionSelectColumnID, DynamicSupervisionSelectColumnSupervisionID, DynamicSupervisionSelectColumnSpotCheckDate, DynamicSupervisionSelectColumnSpotCheckTotalNumber, DynamicSupervisionSelectColumnSpotCheckNumber, DynamicSupervisionSelectColumnSpotCheckRatio, DynamicSupervisionSelectColumnCheckUserID, DynamicSupervisionSelectColumnTotalNumberVehicle, DynamicSupervisionSelectColumnProvinceID, DynamicSupervisionSelectColumnCityID, DynamicSupervisionSelectColumnDistrictID, DynamicSupervisionSelectColumnYear, DynamicSupervisionSelectColumnMonth, DynamicSupervisionSelectColumnDay, DynamicSupervisionSelectColumnCreatedAt, DynamicSupervisionSelectColumnCreatedBy, DynamicSupervisionSelectColumnUpdatedAt, DynamicSupervisionSelectColumnUpdatedBy, DynamicSupervisionSelectColumnDeletedAt, DynamicSupervisionSelectColumnDeletedBy, DynamicSupervisionSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -2540,7 +2996,7 @@ func (e *DynamicSupervisionSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = DynamicSupervisionSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dynamic_supervision_select_column", str)
+		return fmt.Errorf("%s is not a valid DynamicSupervisionSelectColumn", str)
 	}
 	return nil
 }
@@ -2549,103 +3005,599 @@ func (e DynamicSupervisionSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "dynamic_supervision"
-type DynamicSupervisionUpdateColumn string
+// 可选select
+type MuckTruckOnlineSelectColumn string
 
 const (
-	// column name
-	DynamicSupervisionUpdateColumnCheckUserID DynamicSupervisionUpdateColumn = "check_user_id"
-	// column name
-	DynamicSupervisionUpdateColumnCityID DynamicSupervisionUpdateColumn = "city_id"
-	// column name
-	DynamicSupervisionUpdateColumnCreatedAt DynamicSupervisionUpdateColumn = "created_at"
-	// column name
-	DynamicSupervisionUpdateColumnCreatedBy DynamicSupervisionUpdateColumn = "created_by"
-	// column name
-	DynamicSupervisionUpdateColumnDay DynamicSupervisionUpdateColumn = "day"
-	// column name
-	DynamicSupervisionUpdateColumnDeletedAt DynamicSupervisionUpdateColumn = "deleted_at"
-	// column name
-	DynamicSupervisionUpdateColumnDeletedBy DynamicSupervisionUpdateColumn = "deleted_by"
-	// column name
-	DynamicSupervisionUpdateColumnDistrictID DynamicSupervisionUpdateColumn = "district_id"
-	// column name
-	DynamicSupervisionUpdateColumnID DynamicSupervisionUpdateColumn = "id"
-	// column name
-	DynamicSupervisionUpdateColumnIsDelete DynamicSupervisionUpdateColumn = "is_delete"
-	// column name
-	DynamicSupervisionUpdateColumnMonth DynamicSupervisionUpdateColumn = "month"
-	// column name
-	DynamicSupervisionUpdateColumnProvinceID DynamicSupervisionUpdateColumn = "province_id"
-	// column name
-	DynamicSupervisionUpdateColumnSpotCheckDate DynamicSupervisionUpdateColumn = "spot_check_date"
-	// column name
-	DynamicSupervisionUpdateColumnSpotCheckNumber DynamicSupervisionUpdateColumn = "spot_check_number"
-	// column name
-	DynamicSupervisionUpdateColumnSpotCheckRatio DynamicSupervisionUpdateColumn = "spot_check_ratio"
-	// column name
-	DynamicSupervisionUpdateColumnSpotCheckTotalNumber DynamicSupervisionUpdateColumn = "spot_check_total_number"
-	// column name
-	DynamicSupervisionUpdateColumnSupervisionID DynamicSupervisionUpdateColumn = "supervision_id"
-	// column name
-	DynamicSupervisionUpdateColumnTotalNumberVehicle DynamicSupervisionUpdateColumn = "total_number_vehicle"
-	// column name
-	DynamicSupervisionUpdateColumnUpdatedAt DynamicSupervisionUpdateColumn = "updated_at"
-	// column name
-	DynamicSupervisionUpdateColumnUpdatedBy DynamicSupervisionUpdateColumn = "updated_by"
-	// column name
-	DynamicSupervisionUpdateColumnYear DynamicSupervisionUpdateColumn = "year"
+	// 按指定方法生成                                  ( 主键                       )
+	MuckTruckOnlineSelectColumnID MuckTruckOnlineSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	MuckTruckOnlineSelectColumnMuckTruckOnlineID MuckTruckOnlineSelectColumn = "muck_truck_online_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	MuckTruckOnlineSelectColumnVehicleID MuckTruckOnlineSelectColumn = "vehicle_id"
+	// 是否在线                                        (                            )
+	MuckTruckOnlineSelectColumnIsOnline MuckTruckOnlineSelectColumn = "is_online"
+	// 是否缴费                                        (                            )
+	MuckTruckOnlineSelectColumnIsPay MuckTruckOnlineSelectColumn = "is_pay"
+	// 是否GPS在线                                     (                            )
+	MuckTruckOnlineSelectColumnIsGpsOnline MuckTruckOnlineSelectColumn = "is_gps_online"
+	// 是否目录库                                      (                            )
+	MuckTruckOnlineSelectColumnIsCatalogLibrary MuckTruckOnlineSelectColumn = "is_catalog_library"
+	// 是否安装                                        (                            )
+	MuckTruckOnlineSelectColumnIsInstall MuckTruckOnlineSelectColumn = "is_install"
+	// 是否验车通过                                    (                            )
+	MuckTruckOnlineSelectColumnIsVehiclePassInspection MuckTruckOnlineSelectColumn = "is_vehicle_pass_inspection"
+	// 是否新型渣土车                                  (                            )
+	MuckTruckOnlineSelectColumnIsNewVehicle MuckTruckOnlineSelectColumn = "is_new_vehicle"
+	// 定位时间                                        (                            )
+	MuckTruckOnlineSelectColumnLocationTime MuckTruckOnlineSelectColumn = "location_time"
+	// 自编号                                          (                            )
+	MuckTruckOnlineSelectColumnSelfNumber MuckTruckOnlineSelectColumn = "self_number"
+	// 地区                                            (                            )
+	MuckTruckOnlineSelectColumnArea MuckTruckOnlineSelectColumn = "area"
+	// 创建时间                                        (                            )
+	MuckTruckOnlineSelectColumnCreatedAt MuckTruckOnlineSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	MuckTruckOnlineSelectColumnCreatedBy MuckTruckOnlineSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	MuckTruckOnlineSelectColumnUpdatedAt MuckTruckOnlineSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	MuckTruckOnlineSelectColumnUpdatedBy MuckTruckOnlineSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	MuckTruckOnlineSelectColumnDeletedAt MuckTruckOnlineSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	MuckTruckOnlineSelectColumnDeletedBy MuckTruckOnlineSelectColumn = "deleted_by"
 )
 
-var AllDynamicSupervisionUpdateColumn = []DynamicSupervisionUpdateColumn{
-	DynamicSupervisionUpdateColumnCheckUserID,
-	DynamicSupervisionUpdateColumnCityID,
-	DynamicSupervisionUpdateColumnCreatedAt,
-	DynamicSupervisionUpdateColumnCreatedBy,
-	DynamicSupervisionUpdateColumnDay,
-	DynamicSupervisionUpdateColumnDeletedAt,
-	DynamicSupervisionUpdateColumnDeletedBy,
-	DynamicSupervisionUpdateColumnDistrictID,
-	DynamicSupervisionUpdateColumnID,
-	DynamicSupervisionUpdateColumnIsDelete,
-	DynamicSupervisionUpdateColumnMonth,
-	DynamicSupervisionUpdateColumnProvinceID,
-	DynamicSupervisionUpdateColumnSpotCheckDate,
-	DynamicSupervisionUpdateColumnSpotCheckNumber,
-	DynamicSupervisionUpdateColumnSpotCheckRatio,
-	DynamicSupervisionUpdateColumnSpotCheckTotalNumber,
-	DynamicSupervisionUpdateColumnSupervisionID,
-	DynamicSupervisionUpdateColumnTotalNumberVehicle,
-	DynamicSupervisionUpdateColumnUpdatedAt,
-	DynamicSupervisionUpdateColumnUpdatedBy,
-	DynamicSupervisionUpdateColumnYear,
+var AllMuckTruckOnlineSelectColumn = []MuckTruckOnlineSelectColumn{
+	MuckTruckOnlineSelectColumnID,
+	MuckTruckOnlineSelectColumnMuckTruckOnlineID,
+	MuckTruckOnlineSelectColumnVehicleID,
+	MuckTruckOnlineSelectColumnIsOnline,
+	MuckTruckOnlineSelectColumnIsPay,
+	MuckTruckOnlineSelectColumnIsGpsOnline,
+	MuckTruckOnlineSelectColumnIsCatalogLibrary,
+	MuckTruckOnlineSelectColumnIsInstall,
+	MuckTruckOnlineSelectColumnIsVehiclePassInspection,
+	MuckTruckOnlineSelectColumnIsNewVehicle,
+	MuckTruckOnlineSelectColumnLocationTime,
+	MuckTruckOnlineSelectColumnSelfNumber,
+	MuckTruckOnlineSelectColumnArea,
+	MuckTruckOnlineSelectColumnCreatedAt,
+	MuckTruckOnlineSelectColumnCreatedBy,
+	MuckTruckOnlineSelectColumnUpdatedAt,
+	MuckTruckOnlineSelectColumnUpdatedBy,
+	MuckTruckOnlineSelectColumnDeletedAt,
+	MuckTruckOnlineSelectColumnDeletedBy,
 }
 
-func (e DynamicSupervisionUpdateColumn) IsValid() bool {
+func (e MuckTruckOnlineSelectColumn) IsValid() bool {
 	switch e {
-	case DynamicSupervisionUpdateColumnCheckUserID, DynamicSupervisionUpdateColumnCityID, DynamicSupervisionUpdateColumnCreatedAt, DynamicSupervisionUpdateColumnCreatedBy, DynamicSupervisionUpdateColumnDay, DynamicSupervisionUpdateColumnDeletedAt, DynamicSupervisionUpdateColumnDeletedBy, DynamicSupervisionUpdateColumnDistrictID, DynamicSupervisionUpdateColumnID, DynamicSupervisionUpdateColumnIsDelete, DynamicSupervisionUpdateColumnMonth, DynamicSupervisionUpdateColumnProvinceID, DynamicSupervisionUpdateColumnSpotCheckDate, DynamicSupervisionUpdateColumnSpotCheckNumber, DynamicSupervisionUpdateColumnSpotCheckRatio, DynamicSupervisionUpdateColumnSpotCheckTotalNumber, DynamicSupervisionUpdateColumnSupervisionID, DynamicSupervisionUpdateColumnTotalNumberVehicle, DynamicSupervisionUpdateColumnUpdatedAt, DynamicSupervisionUpdateColumnUpdatedBy, DynamicSupervisionUpdateColumnYear:
+	case MuckTruckOnlineSelectColumnID, MuckTruckOnlineSelectColumnMuckTruckOnlineID, MuckTruckOnlineSelectColumnVehicleID, MuckTruckOnlineSelectColumnIsOnline, MuckTruckOnlineSelectColumnIsPay, MuckTruckOnlineSelectColumnIsGpsOnline, MuckTruckOnlineSelectColumnIsCatalogLibrary, MuckTruckOnlineSelectColumnIsInstall, MuckTruckOnlineSelectColumnIsVehiclePassInspection, MuckTruckOnlineSelectColumnIsNewVehicle, MuckTruckOnlineSelectColumnLocationTime, MuckTruckOnlineSelectColumnSelfNumber, MuckTruckOnlineSelectColumnArea, MuckTruckOnlineSelectColumnCreatedAt, MuckTruckOnlineSelectColumnCreatedBy, MuckTruckOnlineSelectColumnUpdatedAt, MuckTruckOnlineSelectColumnUpdatedBy, MuckTruckOnlineSelectColumnDeletedAt, MuckTruckOnlineSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e DynamicSupervisionUpdateColumn) String() string {
+func (e MuckTruckOnlineSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *DynamicSupervisionUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *MuckTruckOnlineSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = DynamicSupervisionUpdateColumn(str)
+	*e = MuckTruckOnlineSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dynamic_supervision_update_column", str)
+		return fmt.Errorf("%s is not a valid MuckTruckOnlineSelectColumn", str)
 	}
 	return nil
 }
 
-func (e DynamicSupervisionUpdateColumn) MarshalGQL(w io.Writer) {
+func (e MuckTruckOnlineSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type RegionIssuedSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                       )
+	RegionIssuedSelectColumnID RegionIssuedSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	RegionIssuedSelectColumnRegionIssuedID RegionIssuedSelectColumn = "region_issued_id"
+	// 区域名称                                        (                            )
+	RegionIssuedSelectColumnRegionName RegionIssuedSelectColumn = "region_name"
+	// 终端IMEI                                        (                            )
+	RegionIssuedSelectColumnImel RegionIssuedSelectColumn = "imel"
+	// 创建时间                                        (                            )
+	RegionIssuedSelectColumnCreatedAt RegionIssuedSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	RegionIssuedSelectColumnCreatedBy RegionIssuedSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	RegionIssuedSelectColumnUpdatedAt RegionIssuedSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	RegionIssuedSelectColumnUpdatedBy RegionIssuedSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	RegionIssuedSelectColumnDeletedAt RegionIssuedSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	RegionIssuedSelectColumnDeletedBy RegionIssuedSelectColumn = "deleted_by"
+)
+
+var AllRegionIssuedSelectColumn = []RegionIssuedSelectColumn{
+	RegionIssuedSelectColumnID,
+	RegionIssuedSelectColumnRegionIssuedID,
+	RegionIssuedSelectColumnRegionName,
+	RegionIssuedSelectColumnImel,
+	RegionIssuedSelectColumnCreatedAt,
+	RegionIssuedSelectColumnCreatedBy,
+	RegionIssuedSelectColumnUpdatedAt,
+	RegionIssuedSelectColumnUpdatedBy,
+	RegionIssuedSelectColumnDeletedAt,
+	RegionIssuedSelectColumnDeletedBy,
+}
+
+func (e RegionIssuedSelectColumn) IsValid() bool {
+	switch e {
+	case RegionIssuedSelectColumnID, RegionIssuedSelectColumnRegionIssuedID, RegionIssuedSelectColumnRegionName, RegionIssuedSelectColumnImel, RegionIssuedSelectColumnCreatedAt, RegionIssuedSelectColumnCreatedBy, RegionIssuedSelectColumnUpdatedAt, RegionIssuedSelectColumnUpdatedBy, RegionIssuedSelectColumnDeletedAt, RegionIssuedSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e RegionIssuedSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *RegionIssuedSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = RegionIssuedSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid RegionIssuedSelectColumn", str)
+	}
+	return nil
+}
+
+func (e RegionIssuedSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type RegionManagementSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                       )
+	RegionManagementSelectColumnID RegionManagementSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	RegionManagementSelectColumnRegionManagementID RegionManagementSelectColumn = "region_management_id"
+	// 区域ID                                          (                            )
+	RegionManagementSelectColumnRegionID RegionManagementSelectColumn = "region_id"
+	// 区域名称                                        (                            )
+	RegionManagementSelectColumnRegionName RegionManagementSelectColumn = "region_name"
+	// 区域类型                                        (                            )
+	RegionManagementSelectColumnRegionType RegionManagementSelectColumn = "region_type"
+	// 区域性质                                        (                            )
+	RegionManagementSelectColumnRegionNature RegionManagementSelectColumn = "region_nature"
+	// 报警开始时间                                    (                            )
+	RegionManagementSelectColumnAlarmBeginTime RegionManagementSelectColumn = "alarm_begin_time"
+	// 报警截止时间                                    (                            )
+	RegionManagementSelectColumnAlarmEndTime RegionManagementSelectColumn = "alarm_end_time"
+	// 企业名称                                        (                            )
+	RegionManagementSelectColumnEnterpriseName RegionManagementSelectColumn = "enterprise_name"
+	// 持续时间                                        (                            )
+	RegionManagementSelectColumnDuration RegionManagementSelectColumn = "duration_"
+	// 最高速度                                        (                            )
+	RegionManagementSelectColumnMaxSpeed RegionManagementSelectColumn = "max_speed"
+	// 圆形半径                                        (                            )
+	RegionManagementSelectColumnCircleRadius RegionManagementSelectColumn = "circle_radius"
+	// 区域经纬度                                      (                            )
+	RegionManagementSelectColumnRegionCoordinate RegionManagementSelectColumn = "region_coordinate"
+	// 是否超级区域                                    (                            )
+	RegionManagementSelectColumnIsSuperRegion RegionManagementSelectColumn = "is_super_region"
+	// 是否删除                                        (                            )
+	RegionManagementSelectColumnIsDeleted RegionManagementSelectColumn = "is_deleted"
+	// 创建时间                                        (                            )
+	RegionManagementSelectColumnCreatedAt RegionManagementSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	RegionManagementSelectColumnCreatedBy RegionManagementSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	RegionManagementSelectColumnUpdatedAt RegionManagementSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	RegionManagementSelectColumnUpdatedBy RegionManagementSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	RegionManagementSelectColumnDeletedAt RegionManagementSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	RegionManagementSelectColumnDeletedBy RegionManagementSelectColumn = "deleted_by"
+)
+
+var AllRegionManagementSelectColumn = []RegionManagementSelectColumn{
+	RegionManagementSelectColumnID,
+	RegionManagementSelectColumnRegionManagementID,
+	RegionManagementSelectColumnRegionID,
+	RegionManagementSelectColumnRegionName,
+	RegionManagementSelectColumnRegionType,
+	RegionManagementSelectColumnRegionNature,
+	RegionManagementSelectColumnAlarmBeginTime,
+	RegionManagementSelectColumnAlarmEndTime,
+	RegionManagementSelectColumnEnterpriseName,
+	RegionManagementSelectColumnDuration,
+	RegionManagementSelectColumnMaxSpeed,
+	RegionManagementSelectColumnCircleRadius,
+	RegionManagementSelectColumnRegionCoordinate,
+	RegionManagementSelectColumnIsSuperRegion,
+	RegionManagementSelectColumnIsDeleted,
+	RegionManagementSelectColumnCreatedAt,
+	RegionManagementSelectColumnCreatedBy,
+	RegionManagementSelectColumnUpdatedAt,
+	RegionManagementSelectColumnUpdatedBy,
+	RegionManagementSelectColumnDeletedAt,
+	RegionManagementSelectColumnDeletedBy,
+}
+
+func (e RegionManagementSelectColumn) IsValid() bool {
+	switch e {
+	case RegionManagementSelectColumnID, RegionManagementSelectColumnRegionManagementID, RegionManagementSelectColumnRegionID, RegionManagementSelectColumnRegionName, RegionManagementSelectColumnRegionType, RegionManagementSelectColumnRegionNature, RegionManagementSelectColumnAlarmBeginTime, RegionManagementSelectColumnAlarmEndTime, RegionManagementSelectColumnEnterpriseName, RegionManagementSelectColumnDuration, RegionManagementSelectColumnMaxSpeed, RegionManagementSelectColumnCircleRadius, RegionManagementSelectColumnRegionCoordinate, RegionManagementSelectColumnIsSuperRegion, RegionManagementSelectColumnIsDeleted, RegionManagementSelectColumnCreatedAt, RegionManagementSelectColumnCreatedBy, RegionManagementSelectColumnUpdatedAt, RegionManagementSelectColumnUpdatedBy, RegionManagementSelectColumnDeletedAt, RegionManagementSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e RegionManagementSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *RegionManagementSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = RegionManagementSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid RegionManagementSelectColumn", str)
+	}
+	return nil
+}
+
+func (e RegionManagementSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type VehicleAlarmSupervisionSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                                                         )
+	VehicleAlarmSupervisionSelectColumnID VehicleAlarmSupervisionSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	VehicleAlarmSupervisionSelectColumnVehicleAlarmSupervisionID VehicleAlarmSupervisionSelectColumn = "vehicle_alarm_supervision_id"
+	// 监管单位id                                      (                                                              )
+	VehicleAlarmSupervisionSelectColumnSuperivisionAuthorityID VehicleAlarmSupervisionSelectColumn = "superivision_authority_id"
+	// 监管类型                                        ( 地区机构监管，企业监管，执法机构监管，执法人员监管，地区抽查机构监管 )
+	VehicleAlarmSupervisionSelectColumnSuperivisionType VehicleAlarmSupervisionSelectColumn = "superivision_type"
+	// 区域ID                                          (                                                              )
+	VehicleAlarmSupervisionSelectColumnAreaID VehicleAlarmSupervisionSelectColumn = "area_id"
+	// 报警车辆数                                      (                                                              )
+	VehicleAlarmSupervisionSelectColumnVehicleAlarmNumber VehicleAlarmSupervisionSelectColumn = "vehicle_alarm_number"
+	// 报警类型                                        (                                                              )
+	VehicleAlarmSupervisionSelectColumnAlarmType VehicleAlarmSupervisionSelectColumn = "alarm_type"
+	// 报警次数                                        (                                                              )
+	VehicleAlarmSupervisionSelectColumnAlarmTimes VehicleAlarmSupervisionSelectColumn = "alarm_times"
+	// 处置次数                                        (                                                              )
+	VehicleAlarmSupervisionSelectColumnDisposalTimes VehicleAlarmSupervisionSelectColumn = "disposal_times"
+	// 报警处置率                                      (                                                              )
+	VehicleAlarmSupervisionSelectColumnAlarmDisposalRate VehicleAlarmSupervisionSelectColumn = "alarm_disposal_rate"
+	// 县级提出的整改                                  (                                                              )
+	VehicleAlarmSupervisionSelectColumnDistrictRectification VehicleAlarmSupervisionSelectColumn = "district_rectification"
+	// 市级提出的整改                                  (                                                              )
+	VehicleAlarmSupervisionSelectColumnCityRectification VehicleAlarmSupervisionSelectColumn = "city_rectification"
+	// 省级提出的整改                                  (                                                              )
+	VehicleAlarmSupervisionSelectColumnProvinceRectification VehicleAlarmSupervisionSelectColumn = "province_rectification"
+	// 部级提出的整改                                  (                                                              )
+	VehicleAlarmSupervisionSelectColumnCountryRectification VehicleAlarmSupervisionSelectColumn = "country_rectification"
+	// 登记时间                                        (                                                              )
+	VehicleAlarmSupervisionSelectColumnRegistrationTime VehicleAlarmSupervisionSelectColumn = "registration_time"
+	// 统计日期                                        (                                                              )
+	VehicleAlarmSupervisionSelectColumnStatisticsDate VehicleAlarmSupervisionSelectColumn = "statistics_date"
+	// 应监管企业数                                    (                                                              )
+	VehicleAlarmSupervisionSelectColumnShouldSupervisionEnterpriseNumber VehicleAlarmSupervisionSelectColumn = "should_supervision_enterprise_number"
+	// 实监管企业数                                    (                                                              )
+	VehicleAlarmSupervisionSelectColumnActualSupervisionEnterpriseNumber VehicleAlarmSupervisionSelectColumn = "actual_supervision_enterprise_number"
+	// 监管率                                          (                                                              )
+	VehicleAlarmSupervisionSelectColumnSupervisionRate VehicleAlarmSupervisionSelectColumn = "supervision_rate"
+	// 经营范围                                        ( 经营范围字典                                             )
+	VehicleAlarmSupervisionSelectColumnBusinessScope VehicleAlarmSupervisionSelectColumn = "business_scope"
+	// 应检查车辆数                                    (                                                              )
+	VehicleAlarmSupervisionSelectColumnShouldCheckVehicleNumber VehicleAlarmSupervisionSelectColumn = "should_check_vehicle_number"
+	// 实检查车辆数                                    (                                                              )
+	VehicleAlarmSupervisionSelectColumnActualCheckVechicleNumber VehicleAlarmSupervisionSelectColumn = "actual_check_vechicle_number"
+	// 检查异常车辆数                                  (                                                              )
+	VehicleAlarmSupervisionSelectColumnCheckAbnormalVehicleNumber VehicleAlarmSupervisionSelectColumn = "check_abnormal_vehicle_number"
+	// 异常处置数                                      (                                                              )
+	VehicleAlarmSupervisionSelectColumnAbnormalDisposalNumber VehicleAlarmSupervisionSelectColumn = "abnormal_disposal_number"
+	// 异常处置率                                      (                                                              )
+	VehicleAlarmSupervisionSelectColumnAbnormalDisposalRate VehicleAlarmSupervisionSelectColumn = "abnormal_disposal_rate"
+	// 创建时间                                        (                                                              )
+	VehicleAlarmSupervisionSelectColumnCreatedAt VehicleAlarmSupervisionSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id                                   )
+	VehicleAlarmSupervisionSelectColumnCreatedBy VehicleAlarmSupervisionSelectColumn = "created_by"
+	// 修改时间                                        (                                                              )
+	VehicleAlarmSupervisionSelectColumnUpdatedAt VehicleAlarmSupervisionSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id                                   )
+	VehicleAlarmSupervisionSelectColumnUpdatedBy VehicleAlarmSupervisionSelectColumn = "updated_by"
+	// 删除时间                                        (                                                              )
+	VehicleAlarmSupervisionSelectColumnDeletedAt VehicleAlarmSupervisionSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id                                   )
+	VehicleAlarmSupervisionSelectColumnDeletedBy VehicleAlarmSupervisionSelectColumn = "deleted_by"
+)
+
+var AllVehicleAlarmSupervisionSelectColumn = []VehicleAlarmSupervisionSelectColumn{
+	VehicleAlarmSupervisionSelectColumnID,
+	VehicleAlarmSupervisionSelectColumnVehicleAlarmSupervisionID,
+	VehicleAlarmSupervisionSelectColumnSuperivisionAuthorityID,
+	VehicleAlarmSupervisionSelectColumnSuperivisionType,
+	VehicleAlarmSupervisionSelectColumnAreaID,
+	VehicleAlarmSupervisionSelectColumnVehicleAlarmNumber,
+	VehicleAlarmSupervisionSelectColumnAlarmType,
+	VehicleAlarmSupervisionSelectColumnAlarmTimes,
+	VehicleAlarmSupervisionSelectColumnDisposalTimes,
+	VehicleAlarmSupervisionSelectColumnAlarmDisposalRate,
+	VehicleAlarmSupervisionSelectColumnDistrictRectification,
+	VehicleAlarmSupervisionSelectColumnCityRectification,
+	VehicleAlarmSupervisionSelectColumnProvinceRectification,
+	VehicleAlarmSupervisionSelectColumnCountryRectification,
+	VehicleAlarmSupervisionSelectColumnRegistrationTime,
+	VehicleAlarmSupervisionSelectColumnStatisticsDate,
+	VehicleAlarmSupervisionSelectColumnShouldSupervisionEnterpriseNumber,
+	VehicleAlarmSupervisionSelectColumnActualSupervisionEnterpriseNumber,
+	VehicleAlarmSupervisionSelectColumnSupervisionRate,
+	VehicleAlarmSupervisionSelectColumnBusinessScope,
+	VehicleAlarmSupervisionSelectColumnShouldCheckVehicleNumber,
+	VehicleAlarmSupervisionSelectColumnActualCheckVechicleNumber,
+	VehicleAlarmSupervisionSelectColumnCheckAbnormalVehicleNumber,
+	VehicleAlarmSupervisionSelectColumnAbnormalDisposalNumber,
+	VehicleAlarmSupervisionSelectColumnAbnormalDisposalRate,
+	VehicleAlarmSupervisionSelectColumnCreatedAt,
+	VehicleAlarmSupervisionSelectColumnCreatedBy,
+	VehicleAlarmSupervisionSelectColumnUpdatedAt,
+	VehicleAlarmSupervisionSelectColumnUpdatedBy,
+	VehicleAlarmSupervisionSelectColumnDeletedAt,
+	VehicleAlarmSupervisionSelectColumnDeletedBy,
+}
+
+func (e VehicleAlarmSupervisionSelectColumn) IsValid() bool {
+	switch e {
+	case VehicleAlarmSupervisionSelectColumnID, VehicleAlarmSupervisionSelectColumnVehicleAlarmSupervisionID, VehicleAlarmSupervisionSelectColumnSuperivisionAuthorityID, VehicleAlarmSupervisionSelectColumnSuperivisionType, VehicleAlarmSupervisionSelectColumnAreaID, VehicleAlarmSupervisionSelectColumnVehicleAlarmNumber, VehicleAlarmSupervisionSelectColumnAlarmType, VehicleAlarmSupervisionSelectColumnAlarmTimes, VehicleAlarmSupervisionSelectColumnDisposalTimes, VehicleAlarmSupervisionSelectColumnAlarmDisposalRate, VehicleAlarmSupervisionSelectColumnDistrictRectification, VehicleAlarmSupervisionSelectColumnCityRectification, VehicleAlarmSupervisionSelectColumnProvinceRectification, VehicleAlarmSupervisionSelectColumnCountryRectification, VehicleAlarmSupervisionSelectColumnRegistrationTime, VehicleAlarmSupervisionSelectColumnStatisticsDate, VehicleAlarmSupervisionSelectColumnShouldSupervisionEnterpriseNumber, VehicleAlarmSupervisionSelectColumnActualSupervisionEnterpriseNumber, VehicleAlarmSupervisionSelectColumnSupervisionRate, VehicleAlarmSupervisionSelectColumnBusinessScope, VehicleAlarmSupervisionSelectColumnShouldCheckVehicleNumber, VehicleAlarmSupervisionSelectColumnActualCheckVechicleNumber, VehicleAlarmSupervisionSelectColumnCheckAbnormalVehicleNumber, VehicleAlarmSupervisionSelectColumnAbnormalDisposalNumber, VehicleAlarmSupervisionSelectColumnAbnormalDisposalRate, VehicleAlarmSupervisionSelectColumnCreatedAt, VehicleAlarmSupervisionSelectColumnCreatedBy, VehicleAlarmSupervisionSelectColumnUpdatedAt, VehicleAlarmSupervisionSelectColumnUpdatedBy, VehicleAlarmSupervisionSelectColumnDeletedAt, VehicleAlarmSupervisionSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VehicleAlarmSupervisionSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VehicleAlarmSupervisionSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VehicleAlarmSupervisionSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VehicleAlarmSupervisionSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VehicleAlarmSupervisionSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type VehicleAlarmTimesRecordSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                       )
+	VehicleAlarmTimesRecordSelectColumnID VehicleAlarmTimesRecordSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	VehicleAlarmTimesRecordSelectColumnVehicleAlarmTimesRecordID VehicleAlarmTimesRecordSelectColumn = "vehicle_alarm_times_record_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	VehicleAlarmTimesRecordSelectColumnVehicleID VehicleAlarmTimesRecordSelectColumn = "vehicle_id"
+	// 报警类型                                        ( 报警类型字典           )
+	VehicleAlarmTimesRecordSelectColumnAlarmType VehicleAlarmTimesRecordSelectColumn = "alarm_type"
+	// 处置措施                                        (                            )
+	VehicleAlarmTimesRecordSelectColumnDisposalMeasure VehicleAlarmTimesRecordSelectColumn = "disposal_measure"
+	// 处置时间                                        (                            )
+	VehicleAlarmTimesRecordSelectColumnDisposalTime VehicleAlarmTimesRecordSelectColumn = "disposal_time"
+	// 处置结果                                        (                            )
+	VehicleAlarmTimesRecordSelectColumnDisposalResult VehicleAlarmTimesRecordSelectColumn = "disposal_result"
+	// 是否处置                                        (                            )
+	VehicleAlarmTimesRecordSelectColumnIsDisposal VehicleAlarmTimesRecordSelectColumn = "is_disposal"
+	// 处置方式                                        ( 处置方式字典           )
+	VehicleAlarmTimesRecordSelectColumnDisposalMethod VehicleAlarmTimesRecordSelectColumn = "disposal_method"
+	// 值班人                                          (                            )
+	VehicleAlarmTimesRecordSelectColumnDutyPerson VehicleAlarmTimesRecordSelectColumn = "duty_person"
+	// 报警次数                                        (                            )
+	VehicleAlarmTimesRecordSelectColumnAlarmTimes VehicleAlarmTimesRecordSelectColumn = "alarm_times"
+	// 备注                                            (                            )
+	VehicleAlarmTimesRecordSelectColumnRemarks VehicleAlarmTimesRecordSelectColumn = "remarks"
+	// 记录时间                                        (                            )
+	VehicleAlarmTimesRecordSelectColumnRecordTime VehicleAlarmTimesRecordSelectColumn = "record_time"
+	// 创建时间                                        (                            )
+	VehicleAlarmTimesRecordSelectColumnCreatedAt VehicleAlarmTimesRecordSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	VehicleAlarmTimesRecordSelectColumnCreatedBy VehicleAlarmTimesRecordSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	VehicleAlarmTimesRecordSelectColumnUpdatedAt VehicleAlarmTimesRecordSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	VehicleAlarmTimesRecordSelectColumnUpdatedBy VehicleAlarmTimesRecordSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	VehicleAlarmTimesRecordSelectColumnDeletedAt VehicleAlarmTimesRecordSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	VehicleAlarmTimesRecordSelectColumnDeletedBy VehicleAlarmTimesRecordSelectColumn = "deleted_by"
+)
+
+var AllVehicleAlarmTimesRecordSelectColumn = []VehicleAlarmTimesRecordSelectColumn{
+	VehicleAlarmTimesRecordSelectColumnID,
+	VehicleAlarmTimesRecordSelectColumnVehicleAlarmTimesRecordID,
+	VehicleAlarmTimesRecordSelectColumnVehicleID,
+	VehicleAlarmTimesRecordSelectColumnAlarmType,
+	VehicleAlarmTimesRecordSelectColumnDisposalMeasure,
+	VehicleAlarmTimesRecordSelectColumnDisposalTime,
+	VehicleAlarmTimesRecordSelectColumnDisposalResult,
+	VehicleAlarmTimesRecordSelectColumnIsDisposal,
+	VehicleAlarmTimesRecordSelectColumnDisposalMethod,
+	VehicleAlarmTimesRecordSelectColumnDutyPerson,
+	VehicleAlarmTimesRecordSelectColumnAlarmTimes,
+	VehicleAlarmTimesRecordSelectColumnRemarks,
+	VehicleAlarmTimesRecordSelectColumnRecordTime,
+	VehicleAlarmTimesRecordSelectColumnCreatedAt,
+	VehicleAlarmTimesRecordSelectColumnCreatedBy,
+	VehicleAlarmTimesRecordSelectColumnUpdatedAt,
+	VehicleAlarmTimesRecordSelectColumnUpdatedBy,
+	VehicleAlarmTimesRecordSelectColumnDeletedAt,
+	VehicleAlarmTimesRecordSelectColumnDeletedBy,
+}
+
+func (e VehicleAlarmTimesRecordSelectColumn) IsValid() bool {
+	switch e {
+	case VehicleAlarmTimesRecordSelectColumnID, VehicleAlarmTimesRecordSelectColumnVehicleAlarmTimesRecordID, VehicleAlarmTimesRecordSelectColumnVehicleID, VehicleAlarmTimesRecordSelectColumnAlarmType, VehicleAlarmTimesRecordSelectColumnDisposalMeasure, VehicleAlarmTimesRecordSelectColumnDisposalTime, VehicleAlarmTimesRecordSelectColumnDisposalResult, VehicleAlarmTimesRecordSelectColumnIsDisposal, VehicleAlarmTimesRecordSelectColumnDisposalMethod, VehicleAlarmTimesRecordSelectColumnDutyPerson, VehicleAlarmTimesRecordSelectColumnAlarmTimes, VehicleAlarmTimesRecordSelectColumnRemarks, VehicleAlarmTimesRecordSelectColumnRecordTime, VehicleAlarmTimesRecordSelectColumnCreatedAt, VehicleAlarmTimesRecordSelectColumnCreatedBy, VehicleAlarmTimesRecordSelectColumnUpdatedAt, VehicleAlarmTimesRecordSelectColumnUpdatedBy, VehicleAlarmTimesRecordSelectColumnDeletedAt, VehicleAlarmTimesRecordSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VehicleAlarmTimesRecordSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VehicleAlarmTimesRecordSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VehicleAlarmTimesRecordSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VehicleAlarmTimesRecordSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VehicleAlarmTimesRecordSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type VehicleOfflineDisposalSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                                                         )
+	VehicleOfflineDisposalSelectColumnID VehicleOfflineDisposalSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	VehicleOfflineDisposalSelectColumnVehicleOfflineDisposalID VehicleOfflineDisposalSelectColumn = "vehicle_offline_disposal_id"
+	// 所在企业id                                      ( enterprise_info表的enterprise_id                         )
+	VehicleOfflineDisposalSelectColumnEnterpriseID VehicleOfflineDisposalSelectColumn = "enterprise_id"
+	// 手机号码                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnTelephone VehicleOfflineDisposalSelectColumn = "telephone"
+	// 内容                                            (                                                              )
+	VehicleOfflineDisposalSelectColumnContent VehicleOfflineDisposalSelectColumn = "content"
+	// 发送时间                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnSendTime VehicleOfflineDisposalSelectColumn = "send_time"
+	// 用户ID                                          ( system_user表的user_id                                   )
+	VehicleOfflineDisposalSelectColumnUserID VehicleOfflineDisposalSelectColumn = "user_id"
+	// 是否短信推送                                    (                                                              )
+	VehicleOfflineDisposalSelectColumnIsSmsPush VehicleOfflineDisposalSelectColumn = "is_sms_push"
+	// 是否通报                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnIsReport VehicleOfflineDisposalSelectColumn = "is_report"
+	// 是否语音通知                                    (                                                              )
+	VehicleOfflineDisposalSelectColumnIsVoiceNotification VehicleOfflineDisposalSelectColumn = "is_voice_notification"
+	// 是否APP推送                                     (                                                              )
+	VehicleOfflineDisposalSelectColumnIsAppPush VehicleOfflineDisposalSelectColumn = "is_app_push"
+	// 通报内容                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnNotificationContent VehicleOfflineDisposalSelectColumn = "notification_content"
+	// 语音内容                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnVoiceContent VehicleOfflineDisposalSelectColumn = "voice_content"
+	// APP推送内容                                     (                                                              )
+	VehicleOfflineDisposalSelectColumnAppPushContent VehicleOfflineDisposalSelectColumn = "app_push_content"
+	// 抽查表ID                                        ( dynamic_supervision_detail 动态监管抽查明细表的supervision_detail_id )
+	VehicleOfflineDisposalSelectColumnSupervisionDetailID VehicleOfflineDisposalSelectColumn = "supervision_detail_id"
+	// 处置方式                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnDisposalMethod VehicleOfflineDisposalSelectColumn = "disposal_method"
+	// 是否删除                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnIsDeleted VehicleOfflineDisposalSelectColumn = "is_deleted"
+	// 创建时间                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnCreatedAt VehicleOfflineDisposalSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id                                   )
+	VehicleOfflineDisposalSelectColumnCreatedBy VehicleOfflineDisposalSelectColumn = "created_by"
+	// 修改时间                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnUpdatedAt VehicleOfflineDisposalSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id                                   )
+	VehicleOfflineDisposalSelectColumnUpdatedBy VehicleOfflineDisposalSelectColumn = "updated_by"
+	// 删除时间                                        (                                                              )
+	VehicleOfflineDisposalSelectColumnDeletedAt VehicleOfflineDisposalSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id                                   )
+	VehicleOfflineDisposalSelectColumnDeletedBy VehicleOfflineDisposalSelectColumn = "deleted_by"
+)
+
+var AllVehicleOfflineDisposalSelectColumn = []VehicleOfflineDisposalSelectColumn{
+	VehicleOfflineDisposalSelectColumnID,
+	VehicleOfflineDisposalSelectColumnVehicleOfflineDisposalID,
+	VehicleOfflineDisposalSelectColumnEnterpriseID,
+	VehicleOfflineDisposalSelectColumnTelephone,
+	VehicleOfflineDisposalSelectColumnContent,
+	VehicleOfflineDisposalSelectColumnSendTime,
+	VehicleOfflineDisposalSelectColumnUserID,
+	VehicleOfflineDisposalSelectColumnIsSmsPush,
+	VehicleOfflineDisposalSelectColumnIsReport,
+	VehicleOfflineDisposalSelectColumnIsVoiceNotification,
+	VehicleOfflineDisposalSelectColumnIsAppPush,
+	VehicleOfflineDisposalSelectColumnNotificationContent,
+	VehicleOfflineDisposalSelectColumnVoiceContent,
+	VehicleOfflineDisposalSelectColumnAppPushContent,
+	VehicleOfflineDisposalSelectColumnSupervisionDetailID,
+	VehicleOfflineDisposalSelectColumnDisposalMethod,
+	VehicleOfflineDisposalSelectColumnIsDeleted,
+	VehicleOfflineDisposalSelectColumnCreatedAt,
+	VehicleOfflineDisposalSelectColumnCreatedBy,
+	VehicleOfflineDisposalSelectColumnUpdatedAt,
+	VehicleOfflineDisposalSelectColumnUpdatedBy,
+	VehicleOfflineDisposalSelectColumnDeletedAt,
+	VehicleOfflineDisposalSelectColumnDeletedBy,
+}
+
+func (e VehicleOfflineDisposalSelectColumn) IsValid() bool {
+	switch e {
+	case VehicleOfflineDisposalSelectColumnID, VehicleOfflineDisposalSelectColumnVehicleOfflineDisposalID, VehicleOfflineDisposalSelectColumnEnterpriseID, VehicleOfflineDisposalSelectColumnTelephone, VehicleOfflineDisposalSelectColumnContent, VehicleOfflineDisposalSelectColumnSendTime, VehicleOfflineDisposalSelectColumnUserID, VehicleOfflineDisposalSelectColumnIsSmsPush, VehicleOfflineDisposalSelectColumnIsReport, VehicleOfflineDisposalSelectColumnIsVoiceNotification, VehicleOfflineDisposalSelectColumnIsAppPush, VehicleOfflineDisposalSelectColumnNotificationContent, VehicleOfflineDisposalSelectColumnVoiceContent, VehicleOfflineDisposalSelectColumnAppPushContent, VehicleOfflineDisposalSelectColumnSupervisionDetailID, VehicleOfflineDisposalSelectColumnDisposalMethod, VehicleOfflineDisposalSelectColumnIsDeleted, VehicleOfflineDisposalSelectColumnCreatedAt, VehicleOfflineDisposalSelectColumnCreatedBy, VehicleOfflineDisposalSelectColumnUpdatedAt, VehicleOfflineDisposalSelectColumnUpdatedBy, VehicleOfflineDisposalSelectColumnDeletedAt, VehicleOfflineDisposalSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VehicleOfflineDisposalSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VehicleOfflineDisposalSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VehicleOfflineDisposalSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VehicleOfflineDisposalSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VehicleOfflineDisposalSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }

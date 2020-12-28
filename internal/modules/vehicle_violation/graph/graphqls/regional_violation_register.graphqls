@@ -1,795 +1,450 @@
-
-extend type Mutation {
-    """
-    delete data from the table: "regional_violation_register"
-  """
-    delete_regional_violation_register(
-        """filter the rows which have to be deleted"""
-        where: regional_violation_register_bool_exp!
-    ): regional_violation_register_mutation_response
-
-    """
-    delete single row from the table: "regional_violation_register"
-  """
-    delete_regional_violation_register_by_pk(
-        """主键"""
-        id: bigint!
-
-        """联合主键"""
-        regional_violation_register_id: String!
-    ): regional_violation_register
-
-    """
-    insert data into the table: "regional_violation_register"
-  """
-    insert_regional_violation_register(
-        """the rows to be inserted"""
-        objects: [regional_violation_register_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: regional_violation_register_on_conflict
-    ): regional_violation_register_mutation_response
-
-    """
-    insert a single row into the table: "regional_violation_register"
-  """
-    insert_regional_violation_register_one(
-        """the row to be inserted"""
-        object: regional_violation_register_insert_input!
-
-        """on conflict condition"""
-        on_conflict: regional_violation_register_on_conflict
-    ): regional_violation_register
-
-    """
-    update data of the table: "regional_violation_register"
-  """
-    update_regional_violation_register(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: regional_violation_register_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: regional_violation_register_set_input
-
-        """filter the rows which have to be updated"""
-        where: regional_violation_register_bool_exp!
-    ): regional_violation_register_mutation_response
-
-    """
-    update single row of the table: "regional_violation_register"
-  """
-    update_regional_violation_register_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: regional_violation_register_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: regional_violation_register_set_input
-        pk_columns: regional_violation_register_pk_columns_input!
-    ): regional_violation_register
-}
-
-
-extend type Query {
-    """
-    fetch data from the table: "regional_violation_register"
-  """
-    regional_violation_register(
-        """distinct select on columns"""
-        distinct_on: [regional_violation_register_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [regional_violation_register_order_by!]
-
-        """filter the rows returned"""
-        where: regional_violation_register_bool_exp
-    ): [regional_violation_register!]!
-
-    """
-    fetch aggregated fields from the table: "regional_violation_register"
-  """
-    regional_violation_register_aggregate(
-        """distinct select on columns"""
-        distinct_on: [regional_violation_register_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [regional_violation_register_order_by!]
-
-        """filter the rows returned"""
-        where: regional_violation_register_bool_exp
-    ): regional_violation_register_aggregate!
-
-    """
-    fetch data from the table: "regional_violation_register" using primary key columns
-    """
-    regional_violation_register_by_pk(
-        """主键"""
-        id: bigint!
-
-        """联合主键"""
-        regional_violation_register_id: String!
-    ): regional_violation_register
-}
-
 """
 区域处理机关交通违法违规登记表
-
-
-columns and relationships of "regional_violation_register"
-
 """
-type regional_violation_register {
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人"""
-    created_by: String!
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """驾驶员id"""
-    driver_id: String
-
-    """主键"""
-    id: bigint!
-
-    """违法代码(VIO_CODEWFDM 违法描述字典表)"""
-    illegal_code: Int
-
-    """违法时间"""
-    illegal_time: timestamptz
-
-    """类型(1车辆2驾驶员),违法类型字典表"""
-    illegal_type: Int
-
-    """是否删除"""
-    is_delete: Boolean
-
-    """类型(false未登记true已登记)"""
-    is_register: Boolean
-
-    """操作员"""
-    operator: String
-
-    """处理机关"""
-    processing_agency: String
-
-    """联合主键"""
-    regional_violation_register_id: String!
-
-    """登记时间"""
-    register_time: timestamptz
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
-
-    """违章车辆id"""
-    vehicle_id: String
-
-    """违法记录表ID(vehicle_violation_details的violation_detail_id)"""
-    violation_detail_id: String
+type RegionalViolationRegister {
+	"""
+	 按指定方法生成                                               ( 主键                                               )
+	"""
+	id: Bigint!
+	"""
+	 区域处理机关交通违法违规登记表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                           )
+	"""
+	regional_violation_register_id: String!
+	"""
+	 违法记录表ID                                                 ( vehicle_violation_details的violation_detail_id )
+	"""
+	violation_detail_id: String
+	"""
+	 违章车辆id                                                   ( vehicle_info表的vehicle_id                     )
+	"""
+	vehicle_id: String
+	"""
+	 驾驶员id                                                     ( driver_info 表的driver_id                      )
+	"""
+	driver_id: String
+	"""
+	 违法代码                                                     ( VIO_CODEWFDM 违法描述字典表                    )
+	"""
+	illegal_code: Int
+	"""
+	 违法时间                                                     (                                                    )
+	"""
+	illegal_time: Timestamptz
+	"""
+	 类型(1车辆2驾驶员)                                           ( 违法类型字典表                                 )
+	"""
+	illegal_type: Int
+	"""
+	 登记时间                                                     (                                                    )
+	"""
+	register_time: Timestamptz
+	"""
+	 处理机关                                                     (                                                    )
+	"""
+	processing_agency: String
+	"""
+	 操作员                                                       ( system_user表的user_id                         )
+	"""
+	operator: String
+	"""
+	 类型(false未登记true已登记)                                  ( fase                                               )
+	"""
+	is_register: Boolean
+	"""
+	 创建时间                                                     (                                                    )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                       ( system_user表的user_id                         )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                     (                                                    )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                       ( system_user表的user_id                         )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                     (                                                    )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                       ( system_user表的user_id                         )
+	"""
+	deleted_by: String
+	"""
+	 是否删除                                                     (                                                    )
+	"""
+	is_deleted: Boolean
 }
-
 """
 aggregated selection of "regional_violation_register"
 """
-type regional_violation_register_aggregate {
-    aggregate: regional_violation_register_aggregate_fields
-    nodes: [regional_violation_register!]!
+type RegionalViolationRegisterAggregate {
+	aggregate: RegionalViolationRegisterAggregateFields
 }
-
 """
 aggregate fields of "regional_violation_register"
 """
-type regional_violation_register_aggregate_fields {
-    avg: regional_violation_register_avg_fields
-    count(columns: [regional_violation_register_select_column!], distinct: Boolean): Int
-    max: regional_violation_register_max_fields
-    min: regional_violation_register_min_fields
-    stddev: regional_violation_register_stddev_fields
-    stddev_pop: regional_violation_register_stddev_pop_fields
-    stddev_samp: regional_violation_register_stddev_samp_fields
-    sum: regional_violation_register_sum_fields
-    var_pop: regional_violation_register_var_pop_fields
-    var_samp: regional_violation_register_var_samp_fields
-    variance: regional_violation_register_variance_fields
+type RegionalViolationRegisterAggregateFields {
+	avg: RegionalViolationRegisterAvgFields
+	count: Int
+	max: RegionalViolationRegisterMaxFields
+	min: RegionalViolationRegisterMinFields
+	stddev: RegionalViolationRegisterStddevFields
+	stddev_pop: RegionalViolationRegisterStddevPopFields
+	stddev_samp: RegionalViolationRegisterStddevSampFields
+	sum: RegionalViolationRegisterSumFields
+	var_pop: RegionalViolationRegisterVarPopFields
+	var_samp: RegionalViolationRegisterVarSampFields
+	variance: RegionalViolationRegisterVarianceFields
 }
-
 """
-order by aggregate values of table "regional_violation_register"
+aggregate avg on columns of table "regional_violation_register"
 """
-input regional_violation_register_aggregate_order_by {
-    avg: regional_violation_register_avg_order_by
-    count: order_by
-    max: regional_violation_register_max_order_by
-    min: regional_violation_register_min_order_by
-    stddev: regional_violation_register_stddev_order_by
-    stddev_pop: regional_violation_register_stddev_pop_order_by
-    stddev_samp: regional_violation_register_stddev_samp_order_by
-    sum: regional_violation_register_sum_order_by
-    var_pop: regional_violation_register_var_pop_order_by
-    var_samp: regional_violation_register_var_samp_order_by
-    variance: regional_violation_register_variance_order_by
+type RegionalViolationRegisterAvgFields {
+	id: Bigint
+	illegal_code: Int
+	illegal_type: Int
 }
-
 """
-input type for inserting array relation for remote table "regional_violation_register"
+aggregate max on columns of table "regional_violation_register"
 """
-input regional_violation_register_arr_rel_insert_input {
-    data: [regional_violation_register_insert_input!]!
-    on_conflict: regional_violation_register_on_conflict
+type RegionalViolationRegisterMaxFields {
+	id: Bigint
+	regional_violation_register_id: String
+	violation_detail_id: String
+	vehicle_id: String
+	driver_id: String
+	illegal_code: Int
+	illegal_time: Timestamptz
+	illegal_type: Int
+	register_time: Timestamptz
+	processing_agency: String
+	operator: String
+	is_register: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
-
-"""aggregate avg on columns"""
-type regional_violation_register_avg_fields {
-    id: Float
-    illegal_code: Float
-    illegal_type: Float
+"""
+aggregate min on columns of table "regional_violation_register"
+"""
+type RegionalViolationRegisterMinFields {
+	id: Bigint
+	regional_violation_register_id: String
+	violation_detail_id: String
+	vehicle_id: String
+	driver_id: String
+	illegal_code: Int
+	illegal_time: Timestamptz
+	illegal_type: Int
+	register_time: Timestamptz
+	processing_agency: String
+	operator: String
+	is_register: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
-
 """
-order by avg() on columns of table "regional_violation_register"
+aggregate stddev on columns of table "regional_violation_register"
 """
-input regional_violation_register_avg_order_by {
-    id: order_by
-    illegal_code: order_by
-    illegal_type: order_by
+type RegionalViolationRegisterStddevFields {
+	id: Bigint
+	illegal_code: Int
+	illegal_type: Int
 }
-
 """
-Boolean expression to filter rows from the table "regional_violation_register".
-All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "regional_violation_register"
 """
-input regional_violation_register_bool_exp {
-    _and: [regional_violation_register_bool_exp]
-    _not: regional_violation_register_bool_exp
-    _or: [regional_violation_register_bool_exp]
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    driver_id: String_comparison_exp
-    id: bigint_comparison_exp
-    illegal_code: Int_comparison_exp
-    illegal_time: timestamptz_comparison_exp
-    illegal_type: Int_comparison_exp
-    is_delete: Boolean_comparison_exp
-    is_register: Boolean_comparison_exp
-    operator: String_comparison_exp
-    processing_agency: String_comparison_exp
-    regional_violation_register_id: String_comparison_exp
-    register_time: timestamptz_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
-    vehicle_id: String_comparison_exp
-    violation_detail_id: String_comparison_exp
+type RegionalViolationRegisterStddevPopFields {
+	id: Bigint
+	illegal_code: Int
+	illegal_type: Int
 }
-
 """
-unique or primary key constraints on table "regional_violation_register"
+aggregate stddev_samp on columns of table "regional_violation_register"
 """
-enum regional_violation_register_constraint {
-    """unique or primary key constraint"""
-    regional_violation_register_pkey
+type RegionalViolationRegisterStddevSampFields {
+	id: Bigint
+	illegal_code: Int
+	illegal_type: Int
 }
-
 """
-input type for incrementing integer column in table "regional_violation_register"
+aggregate sum on columns of table "regional_violation_register"
 """
-input regional_violation_register_inc_input {
-    id: bigint
-    illegal_code: Int
-    illegal_type: Int
+type RegionalViolationRegisterSumFields {
+	id: Bigint
+	illegal_code: Int
+	illegal_type: Int
 }
-
 """
-input type for inserting data into table "regional_violation_register"
+aggregate var_pop on columns of table "regional_violation_register"
 """
-input regional_violation_register_insert_input {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    driver_id: String
-    id: bigint
-    illegal_code: Int
-    illegal_time: timestamptz
-    illegal_type: Int
-    is_delete: Boolean
-    is_register: Boolean
-    operator: String
-    processing_agency: String
-    regional_violation_register_id: String
-    register_time: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_detail_id: String
+type RegionalViolationRegisterVarPopFields {
+	id: Bigint
+	illegal_code: Int
+	illegal_type: Int
 }
-
-"""aggregate max on columns"""
-type regional_violation_register_max_fields {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    driver_id: String
-    id: bigint
-    illegal_code: Int
-    illegal_time: timestamptz
-    illegal_type: Int
-    operator: String
-    processing_agency: String
-    regional_violation_register_id: String
-    register_time: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_detail_id: String
-}
-
 """
-order by max() on columns of table "regional_violation_register"
+aggregate var_samp on columns of table "regional_violation_register"
 """
-input regional_violation_register_max_order_by {
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    driver_id: order_by
-    id: order_by
-    illegal_code: order_by
-    illegal_time: order_by
-    illegal_type: order_by
-    operator: order_by
-    processing_agency: order_by
-    regional_violation_register_id: order_by
-    register_time: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    violation_detail_id: order_by
+type RegionalViolationRegisterVarSampFields {
+	id: Bigint
+	illegal_code: Int
+	illegal_type: Int
 }
-
-"""aggregate min on columns"""
-type regional_violation_register_min_fields {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    driver_id: String
-    id: bigint
-    illegal_code: Int
-    illegal_time: timestamptz
-    illegal_type: Int
-    operator: String
-    processing_agency: String
-    regional_violation_register_id: String
-    register_time: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_detail_id: String
-}
-
 """
-order by min() on columns of table "regional_violation_register"
+aggregate variance on columns of table "regional_violation_register"
 """
-input regional_violation_register_min_order_by {
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    driver_id: order_by
-    id: order_by
-    illegal_code: order_by
-    illegal_time: order_by
-    illegal_type: order_by
-    operator: order_by
-    processing_agency: order_by
-    regional_violation_register_id: order_by
-    register_time: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    violation_detail_id: order_by
+type RegionalViolationRegisterVarianceFields {
+	id: Bigint
+	illegal_code: Int
+	illegal_type: Int
 }
-
 """
 response of any mutation on the table "regional_violation_register"
 """
-type regional_violation_register_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [regional_violation_register!]!
+type RegionalViolationRegisterMutationResponse {
+	affected_rows: Int!
+	returning: [RegionalViolationRegister!]!
 }
-
-"""
-input type for inserting object relation for remote table "regional_violation_register"
-"""
-input regional_violation_register_obj_rel_insert_input {
-    data: regional_violation_register_insert_input!
-    on_conflict: regional_violation_register_on_conflict
-}
-
-"""
-on conflict condition type for table "regional_violation_register"
-"""
-input regional_violation_register_on_conflict {
-    constraint: regional_violation_register_constraint!
-    update_columns: [regional_violation_register_update_column!]!
-    where: regional_violation_register_bool_exp
-}
-
 """
 ordering options when selecting data from "regional_violation_register"
 """
-input regional_violation_register_order_by {
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    driver_id: order_by
-    id: order_by
-    illegal_code: order_by
-    illegal_time: order_by
-    illegal_type: order_by
-    is_delete: order_by
-    is_register: order_by
-    operator: order_by
-    processing_agency: order_by
-    regional_violation_register_id: order_by
-    register_time: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    violation_detail_id: order_by
+input RegionalViolationRegisterOrderBy {
+	id: OrderBy
+	regional_violation_register_id: OrderBy
+	violation_detail_id: OrderBy
+	vehicle_id: OrderBy
+	driver_id: OrderBy
+	illegal_code: OrderBy
+	illegal_time: OrderBy
+	illegal_type: OrderBy
+	register_time: OrderBy
+	processing_agency: OrderBy
+	operator: OrderBy
+	is_register: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
-
 """
-primary key columns input for table: "regional_violation_register"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'regional_violation_register'.
 """
-input regional_violation_register_pk_columns_input {
-    """主键"""
-    id: bigint!
-
-    """联合主键"""
-    regional_violation_register_id: String!
+input RegionalViolationRegisterBoolExp {
+	_and: [RegionalViolationRegisterBoolExp]
+	_not: RegionalViolationRegisterBoolExp
+	_or: [RegionalViolationRegisterBoolExp]
+	id: BigintComparisonExp
+	regional_violation_register_id: StringComparisonExp
+	violation_detail_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	driver_id: StringComparisonExp
+	illegal_code: IntComparisonExp
+	illegal_time: TimestamptzComparisonExp
+	illegal_type: IntComparisonExp
+	register_time: TimestamptzComparisonExp
+	processing_agency: StringComparisonExp
+	operator: StringComparisonExp
+	is_register: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 }
-
 """
-select columns of table "regional_violation_register"
+input type for inserting data into table "regional_violation_register"
 """
-enum regional_violation_register_select_column {
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    driver_id
-
-    """column name"""
-    id
-
-    """column name"""
-    illegal_code
-
-    """column name"""
-    illegal_time
-
-    """column name"""
-    illegal_type
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_register
-
-    """column name"""
-    operator
-
-    """column name"""
-    processing_agency
-
-    """column name"""
-    regional_violation_register_id
-
-    """column name"""
-    register_time
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    violation_detail_id
+input RegionalViolationRegisterInsertInput {
+	id: Bigint
+	regional_violation_register_id: String
+	violation_detail_id: String
+	vehicle_id: String
+	driver_id: String
+	illegal_code: Int
+	illegal_time: Timestamptz
+	illegal_type: Int
+	register_time: Timestamptz
+	processing_agency: String
+	operator: String
+	is_register: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
-
+"""
+input type for incrementing integer column in table "regional_violation_register"
+"""
+input RegionalViolationRegisterIncInput {
+	id: Bigint
+	illegal_code: Int
+	illegal_type: Int
+}
 """
 input type for updating data in table "regional_violation_register"
 """
-input regional_violation_register_set_input {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    driver_id: String
-    id: bigint
-    illegal_code: Int
-    illegal_time: timestamptz
-    illegal_type: Int
-    is_delete: Boolean
-    is_register: Boolean
-    operator: String
-    processing_agency: String
-    regional_violation_register_id: String
-    register_time: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_detail_id: String
+input RegionalViolationRegisterSetInput {
+	id: Bigint
+	regional_violation_register_id: String
+	violation_detail_id: String
+	vehicle_id: String
+	driver_id: String
+	illegal_code: Int
+	illegal_time: Timestamptz
+	illegal_type: Int
+	register_time: Timestamptz
+	processing_agency: String
+	operator: String
+	is_register: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
-
-"""aggregate stddev on columns"""
-type regional_violation_register_stddev_fields {
-    id: Float
-    illegal_code: Float
-    illegal_type: Float
-}
-
 """
-order by stddev() on columns of table "regional_violation_register"
+可选select
 """
-input regional_violation_register_stddev_order_by {
-    id: order_by
-    illegal_code: order_by
-    illegal_type: order_by
+enum RegionalViolationRegisterSelectColumn {
+	"""
+	 按指定方法生成                                               ( 主键                                               )
+	"""
+	id
+	"""
+	 区域处理机关交通违法违规登记表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                           )
+	"""
+	regional_violation_register_id
+	"""
+	 违法记录表ID                                                 ( vehicle_violation_details的violation_detail_id )
+	"""
+	violation_detail_id
+	"""
+	 违章车辆id                                                   ( vehicle_info表的vehicle_id                     )
+	"""
+	vehicle_id
+	"""
+	 驾驶员id                                                     ( driver_info 表的driver_id                      )
+	"""
+	driver_id
+	"""
+	 违法代码                                                     ( VIO_CODEWFDM 违法描述字典表                    )
+	"""
+	illegal_code
+	"""
+	 违法时间                                                     (                                                    )
+	"""
+	illegal_time
+	"""
+	 类型(1车辆2驾驶员)                                           ( 违法类型字典表                                 )
+	"""
+	illegal_type
+	"""
+	 登记时间                                                     (                                                    )
+	"""
+	register_time
+	"""
+	 处理机关                                                     (                                                    )
+	"""
+	processing_agency
+	"""
+	 操作员                                                       ( system_user表的user_id                         )
+	"""
+	operator
+	"""
+	 类型(false未登记true已登记)                                  ( fase                                               )
+	"""
+	is_register
+	"""
+	 创建时间                                                     (                                                    )
+	"""
+	created_at
+	"""
+	 创建人                                                       ( system_user表的user_id                         )
+	"""
+	created_by
+	"""
+	 修改时间                                                     (                                                    )
+	"""
+	updated_at
+	"""
+	 修改人                                                       ( system_user表的user_id                         )
+	"""
+	updated_by
+	"""
+	 删除时间                                                     (                                                    )
+	"""
+	deleted_at
+	"""
+	 删除人                                                       ( system_user表的user_id                         )
+	"""
+	deleted_by
+	"""
+	 是否删除                                                     (                                                    )
+	"""
+	is_deleted
 }
-
-"""aggregate stddev_pop on columns"""
-type regional_violation_register_stddev_pop_fields {
-    id: Float
-    illegal_code: Float
-    illegal_type: Float
+extend type Query {
+	"""
+	列表查询
+	"""
+	regional_violation_register(distinct_on: [RegionalViolationRegisterSelectColumn!], limit: Int, offset: Int, order_by: [RegionalViolationRegisterOrderBy!], where: RegionalViolationRegisterBoolExp): [RegionalViolationRegister!]!
+	"""
+	聚合查询
+	"""
+	regional_violation_register_aggregate(distinct_on: [RegionalViolationRegisterSelectColumn!], limit: Int, offset: Int, order_by: [RegionalViolationRegisterOrderBy!], where: RegionalViolationRegisterBoolExp): RegionalViolationRegisterAggregate!
+	"""
+	主键查询
+	"""
+	regional_violation_register_by_pk(id: Bigint!): RegionalViolationRegister!
 }
-
-"""
-order by stddev_pop() on columns of table "regional_violation_register"
-"""
-input regional_violation_register_stddev_pop_order_by {
-    id: order_by
-    illegal_code: order_by
-    illegal_type: order_by
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_regional_violation_register(where: RegionalViolationRegisterBoolExp!): RegionalViolationRegisterMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_regional_violation_register_by_pk(id: Bigint!): RegionalViolationRegister
+	"""
+	插入
+	"""
+	insert_regional_violation_register(objects: [RegionalViolationRegisterInsertInput!]!): RegionalViolationRegisterMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_regional_violation_register_one(objects: RegionalViolationRegisterInsertInput!): RegionalViolationRegister
+	"""
+	更新
+	"""
+	update_regional_violation_register(_inc: RegionalViolationRegisterIncInput, _set: RegionalViolationRegisterSetInput, where: RegionalViolationRegisterBoolExp!): RegionalViolationRegisterMutationResponse
+	"""
+	更新
+	"""
+	update_regional_violation_register_by_pk(_inc: RegionalViolationRegisterIncInput, _set: RegionalViolationRegisterSetInput, id: Bigint!): RegionalViolationRegister
 }
-
-"""aggregate stddev_samp on columns"""
-type regional_violation_register_stddev_samp_fields {
-    id: Float
-    illegal_code: Float
-    illegal_type: Float
-}
-
-"""
-order by stddev_samp() on columns of table "regional_violation_register"
-"""
-input regional_violation_register_stddev_samp_order_by {
-    id: order_by
-    illegal_code: order_by
-    illegal_type: order_by
-}
-
-"""aggregate sum on columns"""
-type regional_violation_register_sum_fields {
-    id: bigint
-    illegal_code: Int
-    illegal_type: Int
-}
-
-"""
-order by sum() on columns of table "regional_violation_register"
-"""
-input regional_violation_register_sum_order_by {
-    id: order_by
-    illegal_code: order_by
-    illegal_type: order_by
-}
-
-"""
-update columns of table "regional_violation_register"
-"""
-enum regional_violation_register_update_column {
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    driver_id
-
-    """column name"""
-    id
-
-    """column name"""
-    illegal_code
-
-    """column name"""
-    illegal_time
-
-    """column name"""
-    illegal_type
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_register
-
-    """column name"""
-    operator
-
-    """column name"""
-    processing_agency
-
-    """column name"""
-    regional_violation_register_id
-
-    """column name"""
-    register_time
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    violation_detail_id
-}
-
-"""aggregate var_pop on columns"""
-type regional_violation_register_var_pop_fields {
-    id: Float
-    illegal_code: Float
-    illegal_type: Float
-}
-
-"""
-order by var_pop() on columns of table "regional_violation_register"
-"""
-input regional_violation_register_var_pop_order_by {
-    id: order_by
-    illegal_code: order_by
-    illegal_type: order_by
-}
-
-"""aggregate var_samp on columns"""
-type regional_violation_register_var_samp_fields {
-    id: Float
-    illegal_code: Float
-    illegal_type: Float
-}
-
-"""
-order by var_samp() on columns of table "regional_violation_register"
-"""
-input regional_violation_register_var_samp_order_by {
-    id: order_by
-    illegal_code: order_by
-    illegal_type: order_by
-}
-
-"""aggregate variance on columns"""
-type regional_violation_register_variance_fields {
-    id: Float
-    illegal_code: Float
-    illegal_type: Float
-}
-
-"""
-order by variance() on columns of table "regional_violation_register"
-"""
-input regional_violation_register_variance_order_by {
-    id: order_by
-    illegal_code: order_by
-    illegal_type: order_by
-}
-
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "regional_violation_register"
-  """
-    regional_violation_register(
-        """distinct select on columns"""
-        distinct_on: [regional_violation_register_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [regional_violation_register_order_by!]
-
-        """filter the rows returned"""
-        where: regional_violation_register_bool_exp
-    ): [regional_violation_register!]!
-
-    """
-    fetch aggregated fields from the table: "regional_violation_register"
-  """
-    regional_violation_register_aggregate(
-        """distinct select on columns"""
-        distinct_on: [regional_violation_register_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [regional_violation_register_order_by!]
-
-        """filter the rows returned"""
-        where: regional_violation_register_bool_exp
-    ): regional_violation_register_aggregate!
-
-    """
-    fetch data from the table: "regional_violation_register" using primary key columns
-    """
-    regional_violation_register_by_pk(
-        """主键"""
-        id: bigint!
-
-        """联合主键"""
-        regional_violation_register_id: String!
-    ): regional_violation_register
-}
-

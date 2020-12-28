@@ -1,1045 +1,693 @@
-
-
 """
 驾驶员信息表
-
-
-columns and relationships of "driver_info"
-
 """
-type driver_info {
-    """代理商"""
-    agent: String
-
-    """检验时间"""
-    check_at: timestamptz
-
-    """校验人"""
-    check_by: String
-
-    """联系地址"""
-    contact_address: String
-
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人"""
-    created_by: String!
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """所在部门id"""
-    department_id: String
-
-    """联合主键"""
-    driver_id: String!
-
-    """驾驶员身份验证信息ID"""
-    driver_identity_id: String
-
-    """驾驶员姓名"""
-    driver_name: String
-
-    """所在企业id"""
-    enterprise_id: String
-
-    """档案编号(后6位)"""
-    files_number: String
-
-    """主键"""
-    id: bigint!
-
-    """录入时间"""
-    input_at: timestamptz
-
-    """录入人"""
-    input_by: String
-
-    """是否黑名单"""
-    is_black: Boolean
-
-    """是否校验数据,该字段代表是否用于校验驾驶员信息，未正式录入系统，但会同步到公安内容，用于查询驾驶员的违章数据。"""
-    is_check_data: Boolean
-
-    """是否通过短信验证"""
-    is_check_sms: Boolean
-
-    """是否删除"""
-    is_delete: Boolean
-
-    """是否录入"""
-    is_input: Boolean
-
-    """是否手动录入,驾驶员资料分为使用身份证读卡器读取身份证自动录入资料和手动填写资料"""
-    is_manual_input: Boolean
-
-    """是否提交,用于标志驾驶员资料是否处于确定状态。未确定状态的驾驶员信息在系统上除驾驶员管理外的功能中都查不到。"""
-    is_submit: Boolean
-
-    """邮寄地址"""
-    mailing_address: String
-
-    """运营商"""
-    operator: String
-
-    """驾驶员信息同步内网反馈信息。驾驶员信息同步到公安内网后内网的反馈内容，如档案编号填写错误会反馈档案编号后六位不正确"""
-    remark_in: String
-
-    """备注"""
-    remarks: String
-
-    """性别字典"""
-    sex: Int
-
-    """提交时间"""
-    submit_at: timestamptz
-
-    """提交人"""
-    submit_by: String
-
-    """提交内容"""
-    submit_content: String
-
-    """手机号码"""
-    telephone: String
-
-    """内网更新时间"""
-    update_time_in: timestamptz
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
+type DriverInfo {
+	"""
+	 按指定方法生成                                  ( 主键                                                         )
+	"""
+	id: Bigint!
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	driver_id: String!
+	"""
+	 所在企业id                                      ( enterprise_info表的enterprise_id                         )
+	"""
+	enterprise_id: String
+	"""
+	 所在部门id                                      ( department 部门信息表                                    )
+	"""
+	department_id: String
+	"""
+	 驾驶员身份验证信息ID                            ( driver_identity表的driver_identity_id                    )
+	"""
+	driver_identity_id: String
+	"""
+	 驾驶员姓名                                      (                                                              )
+	"""
+	driver_name: String
+	"""
+	 手机号码                                        (                                                              )
+	"""
+	telephone: String
+	"""
+	 性别                                            ( 性别字典                                                 )
+	"""
+	sex: Int
+	"""
+	 档案编号(后6位)                                 (                                                              )
+	"""
+	files_number: String
+	"""
+	 联系地址                                        (                                                              )
+	"""
+	contact_address: String
+	"""
+	 邮寄地址                                        (                                                              )
+	"""
+	mailing_address: String
+	"""
+	 是否提交                                        ( 用于标志驾驶员资料是否处于确定状态。未确定状态的驾驶员信息在系统上除驾驶员管理外的功能中都查不到。 )
+	"""
+	is_submit: Boolean
+	"""
+	 提交内容                                        (                                                              )
+	"""
+	submit_content: String
+	"""
+	 提交时间                                        (                                                              )
+	"""
+	submit_at: Timestamptz
+	"""
+	 提交人                                          ( system_user表的user_id                                       )
+	"""
+	submit_by: String
+	"""
+	 是否手动录入                                    ( 驾驶员资料分为使用身份证读卡器读取身份证自动录入资料和手动填写资料 )
+	"""
+	is_manual_input: Boolean
+	"""
+	 是否录入                                        (                                                              )
+	"""
+	is_input: Boolean
+	"""
+	 录入时间                                        (                                                              )
+	"""
+	input_at: Timestamptz
+	"""
+	 录入人                                          ( system_user表的user_id                                   )
+	"""
+	input_by: String
+	"""
+	 是否校验数据                                    ( 该字段代表是否用于校验驾驶员信息，未正式录入系统，但会同步到公安内容，用于查询驾驶员的违章数据。 )
+	"""
+	is_check_data: Boolean
+	"""
+	 检验时间                                        (                                                              )
+	"""
+	check_at: Timestamptz
+	"""
+	 校验人                                          ( system_user表的user_id                                   )
+	"""
+	check_by: String
+	"""
+	 驾驶员信息同步内网反馈信息                      ( 驾驶员信息同步内网反馈信息。驾驶员信息同步到公安内网后内网的反馈内容，如档案编号填写错误会反馈档案编号后六位不正确 )
+	"""
+	remark_in: String
+	"""
+	 内网更新时间                                    (                                                              )
+	"""
+	update_time_in: Timestamptz
+	"""
+	 是否通过短信验证                                (                                                              )
+	"""
+	is_check_sms: Boolean
+	"""
+	 备注                                            (                                                              )
+	"""
+	remarks: String
+	"""
+	 是否删除                                        (                                                              )
+	"""
+	is_deleted: Boolean
+	"""
+	 代理商                                          ( enterprise_info表的enterprise_id                         )
+	"""
+	agent: String
+	"""
+	 运营商                                          ( enterprise_info表的enterprise_id                         )
+	"""
+	operator: String
+	"""
+	 是否黑名单                                      ( false                                                        )
+	"""
+	is_blacklist: Boolean
+	"""
+	 黑名单截止日期                                  (                                                              )
+	"""
+	blacklist_deadline: Timestamptz
+	"""
+	 创建时间                                        (                                                              )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id                                   )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                                                              )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id                                   )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                                                              )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id                                   )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "driver_info"
 """
-type driver_info_aggregate {
-    aggregate: driver_info_aggregate_fields
-    nodes: [driver_info!]!
+type DriverInfoAggregate {
+	aggregate: DriverInfoAggregateFields
 }
-
 """
 aggregate fields of "driver_info"
 """
-type driver_info_aggregate_fields {
-    avg: driver_info_avg_fields
-    count(columns: [driver_info_select_column!], distinct: Boolean): Int
-    max: driver_info_max_fields
-    min: driver_info_min_fields
-    stddev: driver_info_stddev_fields
-    stddev_pop: driver_info_stddev_pop_fields
-    stddev_samp: driver_info_stddev_samp_fields
-    sum: driver_info_sum_fields
-    var_pop: driver_info_var_pop_fields
-    var_samp: driver_info_var_samp_fields
-    variance: driver_info_variance_fields
+type DriverInfoAggregateFields {
+	avg: DriverInfoAvgFields
+	count: Int
+	max: DriverInfoMaxFields
+	min: DriverInfoMinFields
+	stddev: DriverInfoStddevFields
+	stddev_pop: DriverInfoStddevPopFields
+	stddev_samp: DriverInfoStddevSampFields
+	sum: DriverInfoSumFields
+	var_pop: DriverInfoVarPopFields
+	var_samp: DriverInfoVarSampFields
+	variance: DriverInfoVarianceFields
 }
-
 """
-order by aggregate values of table "driver_info"
+aggregate avg on columns of table "driver_info"
 """
-input driver_info_aggregate_order_by {
-    avg: driver_info_avg_order_by
-    count: order_by
-    max: driver_info_max_order_by
-    min: driver_info_min_order_by
-    stddev: driver_info_stddev_order_by
-    stddev_pop: driver_info_stddev_pop_order_by
-    stddev_samp: driver_info_stddev_samp_order_by
-    sum: driver_info_sum_order_by
-    var_pop: driver_info_var_pop_order_by
-    var_samp: driver_info_var_samp_order_by
-    variance: driver_info_variance_order_by
+type DriverInfoAvgFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-input type for inserting array relation for remote table "driver_info"
+aggregate max on columns of table "driver_info"
 """
-input driver_info_arr_rel_insert_input {
-    data: [driver_info_insert_input!]!
-    on_conflict: driver_info_on_conflict
+type DriverInfoMaxFields {
+	id: Bigint
+	driver_id: String
+	enterprise_id: String
+	department_id: String
+	driver_identity_id: String
+	driver_name: String
+	telephone: String
+	sex: Int
+	files_number: String
+	contact_address: String
+	mailing_address: String
+	is_submit: Boolean
+	submit_content: String
+	submit_at: Timestamptz
+	submit_by: String
+	is_manual_input: Boolean
+	is_input: Boolean
+	input_at: Timestamptz
+	input_by: String
+	is_check_data: Boolean
+	check_at: Timestamptz
+	check_by: String
+	remark_in: String
+	update_time_in: Timestamptz
+	is_check_sms: Boolean
+	remarks: String
+	is_deleted: Boolean
+	agent: String
+	operator: String
+	is_blacklist: Boolean
+	blacklist_deadline: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type driver_info_avg_fields {
-    id: Float
-    sex: Float
+"""
+aggregate min on columns of table "driver_info"
+"""
+type DriverInfoMinFields {
+	id: Bigint
+	driver_id: String
+	enterprise_id: String
+	department_id: String
+	driver_identity_id: String
+	driver_name: String
+	telephone: String
+	sex: Int
+	files_number: String
+	contact_address: String
+	mailing_address: String
+	is_submit: Boolean
+	submit_content: String
+	submit_at: Timestamptz
+	submit_by: String
+	is_manual_input: Boolean
+	is_input: Boolean
+	input_at: Timestamptz
+	input_by: String
+	is_check_data: Boolean
+	check_at: Timestamptz
+	check_by: String
+	remark_in: String
+	update_time_in: Timestamptz
+	is_check_sms: Boolean
+	remarks: String
+	is_deleted: Boolean
+	agent: String
+	operator: String
+	is_blacklist: Boolean
+	blacklist_deadline: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "driver_info"
+aggregate stddev on columns of table "driver_info"
 """
-input driver_info_avg_order_by {
-    id: order_by
-    sex: order_by
+type DriverInfoStddevFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-Boolean expression to filter rows from the table "driver_info". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "driver_info"
 """
-input driver_info_bool_exp {
-    _and: [driver_info_bool_exp]
-    _not: driver_info_bool_exp
-    _or: [driver_info_bool_exp]
-    agent: String_comparison_exp
-    check_at: timestamptz_comparison_exp
-    check_by: String_comparison_exp
-    contact_address: String_comparison_exp
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    department_id: String_comparison_exp
-    driver_id: String_comparison_exp
-    driver_identity_id: String_comparison_exp
-    driver_name: String_comparison_exp
-    enterprise_id: String_comparison_exp
-    files_number: String_comparison_exp
-    id: bigint_comparison_exp
-    input_at: timestamptz_comparison_exp
-    input_by: String_comparison_exp
-    is_black: Boolean_comparison_exp
-    is_check_data: Boolean_comparison_exp
-    is_check_sms: Boolean_comparison_exp
-    is_delete: Boolean_comparison_exp
-    is_input: Boolean_comparison_exp
-    is_manual_input: Boolean_comparison_exp
-    is_submit: Boolean_comparison_exp
-    mailing_address: String_comparison_exp
-    operator: String_comparison_exp
-    remark_in: String_comparison_exp
-    remarks: String_comparison_exp
-    sex: Int_comparison_exp
-    submit_at: timestamptz_comparison_exp
-    submit_by: String_comparison_exp
-    submit_content: String_comparison_exp
-    telephone: String_comparison_exp
-    update_time_in: timestamptz_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
+type DriverInfoStddevPopFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-unique or primary key constraints on table "driver_info"
+aggregate stddev_samp on columns of table "driver_info"
 """
-enum driver_info_constraint {
-    """unique or primary key constraint"""
-    driver_info_pkey
+type DriverInfoStddevSampFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-input type for incrementing integer column in table "driver_info"
+aggregate sum on columns of table "driver_info"
 """
-input driver_info_inc_input {
-    id: bigint
-    sex: Int
+type DriverInfoSumFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-input type for inserting data into table "driver_info"
+aggregate var_pop on columns of table "driver_info"
 """
-input driver_info_insert_input {
-    agent: String
-    check_at: timestamptz
-    check_by: String
-    contact_address: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    department_id: String
-    driver_id: String
-    driver_identity_id: String
-    driver_name: String
-    enterprise_id: String
-    files_number: String
-    id: bigint
-    input_at: timestamptz
-    input_by: String
-    is_black: Boolean
-    is_check_data: Boolean
-    is_check_sms: Boolean
-    is_delete: Boolean
-    is_input: Boolean
-    is_manual_input: Boolean
-    is_submit: Boolean
-    mailing_address: String
-    operator: String
-    remark_in: String
-    remarks: String
-    sex: Int
-    submit_at: timestamptz
-    submit_by: String
-    submit_content: String
-    telephone: String
-    update_time_in: timestamptz
-    updated_at: timestamptz
-    updated_by: String
+type DriverInfoVarPopFields {
+	id: Bigint
+	sex: Int
 }
-
-"""aggregate max on columns"""
-type driver_info_max_fields {
-    agent: String
-    check_at: timestamptz
-    check_by: String
-    contact_address: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    department_id: String
-    driver_id: String
-    driver_identity_id: String
-    driver_name: String
-    enterprise_id: String
-    files_number: String
-    id: bigint
-    input_at: timestamptz
-    input_by: String
-    mailing_address: String
-    operator: String
-    remark_in: String
-    remarks: String
-    sex: Int
-    submit_at: timestamptz
-    submit_by: String
-    submit_content: String
-    telephone: String
-    update_time_in: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-}
-
 """
-order by max() on columns of table "driver_info"
+aggregate var_samp on columns of table "driver_info"
 """
-input driver_info_max_order_by {
-    agent: order_by
-    check_at: order_by
-    check_by: order_by
-    contact_address: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    department_id: order_by
-    driver_id: order_by
-    driver_identity_id: order_by
-    driver_name: order_by
-    enterprise_id: order_by
-    files_number: order_by
-    id: order_by
-    input_at: order_by
-    input_by: order_by
-    mailing_address: order_by
-    operator: order_by
-    remark_in: order_by
-    remarks: order_by
-    sex: order_by
-    submit_at: order_by
-    submit_by: order_by
-    submit_content: order_by
-    telephone: order_by
-    update_time_in: order_by
-    updated_at: order_by
-    updated_by: order_by
+type DriverInfoVarSampFields {
+	id: Bigint
+	sex: Int
 }
-
-"""aggregate min on columns"""
-type driver_info_min_fields {
-    agent: String
-    check_at: timestamptz
-    check_by: String
-    contact_address: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    department_id: String
-    driver_id: String
-    driver_identity_id: String
-    driver_name: String
-    enterprise_id: String
-    files_number: String
-    id: bigint
-    input_at: timestamptz
-    input_by: String
-    mailing_address: String
-    operator: String
-    remark_in: String
-    remarks: String
-    sex: Int
-    submit_at: timestamptz
-    submit_by: String
-    submit_content: String
-    telephone: String
-    update_time_in: timestamptz
-    updated_at: timestamptz
-    updated_by: String
-}
-
 """
-order by min() on columns of table "driver_info"
+aggregate variance on columns of table "driver_info"
 """
-input driver_info_min_order_by {
-    agent: order_by
-    check_at: order_by
-    check_by: order_by
-    contact_address: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    department_id: order_by
-    driver_id: order_by
-    driver_identity_id: order_by
-    driver_name: order_by
-    enterprise_id: order_by
-    files_number: order_by
-    id: order_by
-    input_at: order_by
-    input_by: order_by
-    mailing_address: order_by
-    operator: order_by
-    remark_in: order_by
-    remarks: order_by
-    sex: order_by
-    submit_at: order_by
-    submit_by: order_by
-    submit_content: order_by
-    telephone: order_by
-    update_time_in: order_by
-    updated_at: order_by
-    updated_by: order_by
+type DriverInfoVarianceFields {
+	id: Bigint
+	sex: Int
 }
-
 """
 response of any mutation on the table "driver_info"
 """
-type driver_info_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [driver_info!]!
+type DriverInfoMutationResponse {
+	affected_rows: Int!
+	returning: [DriverInfo!]!
 }
-
-"""
-input type for inserting object relation for remote table "driver_info"
-"""
-input driver_info_obj_rel_insert_input {
-    data: driver_info_insert_input!
-    on_conflict: driver_info_on_conflict
-}
-
-"""
-on conflict condition type for table "driver_info"
-"""
-input driver_info_on_conflict {
-    constraint: driver_info_constraint!
-    update_columns: [driver_info_update_column!]!
-    where: driver_info_bool_exp
-}
-
 """
 ordering options when selecting data from "driver_info"
 """
-input driver_info_order_by {
-    agent: order_by
-    check_at: order_by
-    check_by: order_by
-    contact_address: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    department_id: order_by
-    driver_id: order_by
-    driver_identity_id: order_by
-    driver_name: order_by
-    enterprise_id: order_by
-    files_number: order_by
-    id: order_by
-    input_at: order_by
-    input_by: order_by
-    is_black: order_by
-    is_check_data: order_by
-    is_check_sms: order_by
-    is_delete: order_by
-    is_input: order_by
-    is_manual_input: order_by
-    is_submit: order_by
-    mailing_address: order_by
-    operator: order_by
-    remark_in: order_by
-    remarks: order_by
-    sex: order_by
-    submit_at: order_by
-    submit_by: order_by
-    submit_content: order_by
-    telephone: order_by
-    update_time_in: order_by
-    updated_at: order_by
-    updated_by: order_by
+input DriverInfoOrderBy {
+	id: OrderBy
+	driver_id: OrderBy
+	enterprise_id: OrderBy
+	department_id: OrderBy
+	driver_identity_id: OrderBy
+	driver_name: OrderBy
+	telephone: OrderBy
+	sex: OrderBy
+	files_number: OrderBy
+	contact_address: OrderBy
+	mailing_address: OrderBy
+	is_submit: OrderBy
+	submit_content: OrderBy
+	submit_at: OrderBy
+	submit_by: OrderBy
+	is_manual_input: OrderBy
+	is_input: OrderBy
+	input_at: OrderBy
+	input_by: OrderBy
+	is_check_data: OrderBy
+	check_at: OrderBy
+	check_by: OrderBy
+	remark_in: OrderBy
+	update_time_in: OrderBy
+	is_check_sms: OrderBy
+	remarks: OrderBy
+	is_deleted: OrderBy
+	agent: OrderBy
+	operator: OrderBy
+	is_blacklist: OrderBy
+	blacklist_deadline: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-primary key columns input for table: "driver_info"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_info'.
 """
-input driver_info_pk_columns_input {
-    """联合主键"""
-    driver_id: String!
-
-    """主键"""
-    id: bigint!
+input DriverInfoBoolExp {
+	_and: [DriverInfoBoolExp]
+	_not: DriverInfoBoolExp
+	_or: [DriverInfoBoolExp]
+	id: BigintComparisonExp
+	driver_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	department_id: StringComparisonExp
+	driver_identity_id: StringComparisonExp
+	driver_name: StringComparisonExp
+	telephone: StringComparisonExp
+	sex: IntComparisonExp
+	files_number: StringComparisonExp
+	contact_address: StringComparisonExp
+	mailing_address: StringComparisonExp
+	is_submit: BooleanComparisonExp
+	submit_content: StringComparisonExp
+	submit_at: TimestamptzComparisonExp
+	submit_by: StringComparisonExp
+	is_manual_input: BooleanComparisonExp
+	is_input: BooleanComparisonExp
+	input_at: TimestamptzComparisonExp
+	input_by: StringComparisonExp
+	is_check_data: BooleanComparisonExp
+	check_at: TimestamptzComparisonExp
+	check_by: StringComparisonExp
+	remark_in: StringComparisonExp
+	update_time_in: TimestamptzComparisonExp
+	is_check_sms: BooleanComparisonExp
+	remarks: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	agent: StringComparisonExp
+	operator: StringComparisonExp
+	is_blacklist: BooleanComparisonExp
+	blacklist_deadline: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
 """
-select columns of table "driver_info"
+input type for inserting data into table "driver_info"
 """
-enum driver_info_select_column {
-    """column name"""
-    agent
-
-    """column name"""
-    check_at
-
-    """column name"""
-    check_by
-
-    """column name"""
-    contact_address
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    department_id
-
-    """column name"""
-    driver_id
-
-    """column name"""
-    driver_identity_id
-
-    """column name"""
-    driver_name
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    files_number
-
-    """column name"""
-    id
-
-    """column name"""
-    input_at
-
-    """column name"""
-    input_by
-
-    """column name"""
-    is_black
-
-    """column name"""
-    is_check_data
-
-    """column name"""
-    is_check_sms
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_input
-
-    """column name"""
-    is_manual_input
-
-    """column name"""
-    is_submit
-
-    """column name"""
-    mailing_address
-
-    """column name"""
-    operator
-
-    """column name"""
-    remark_in
-
-    """column name"""
-    remarks
-
-    """column name"""
-    sex
-
-    """column name"""
-    submit_at
-
-    """column name"""
-    submit_by
-
-    """column name"""
-    submit_content
-
-    """column name"""
-    telephone
-
-    """column name"""
-    update_time_in
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
+input DriverInfoInsertInput {
+	id: Bigint
+	driver_id: String
+	enterprise_id: String
+	department_id: String
+	driver_identity_id: String
+	driver_name: String
+	telephone: String
+	sex: Int
+	files_number: String
+	contact_address: String
+	mailing_address: String
+	is_submit: Boolean
+	submit_content: String
+	submit_at: Timestamptz
+	submit_by: String
+	is_manual_input: Boolean
+	is_input: Boolean
+	input_at: Timestamptz
+	input_by: String
+	is_check_data: Boolean
+	check_at: Timestamptz
+	check_by: String
+	remark_in: String
+	update_time_in: Timestamptz
+	is_check_sms: Boolean
+	remarks: String
+	is_deleted: Boolean
+	agent: String
+	operator: String
+	is_blacklist: Boolean
+	blacklist_deadline: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
+"""
+input type for incrementing integer column in table "driver_info"
+"""
+input DriverInfoIncInput {
+	id: Bigint
+	sex: Int
+}
 """
 input type for updating data in table "driver_info"
 """
-input driver_info_set_input {
-    agent: String
-    check_at: timestamptz
-    check_by: String
-    contact_address: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    department_id: String
-    driver_id: String
-    driver_identity_id: String
-    driver_name: String
-    enterprise_id: String
-    files_number: String
-    id: bigint
-    input_at: timestamptz
-    input_by: String
-    is_black: Boolean
-    is_check_data: Boolean
-    is_check_sms: Boolean
-    is_delete: Boolean
-    is_input: Boolean
-    is_manual_input: Boolean
-    is_submit: Boolean
-    mailing_address: String
-    operator: String
-    remark_in: String
-    remarks: String
-    sex: Int
-    submit_at: timestamptz
-    submit_by: String
-    submit_content: String
-    telephone: String
-    update_time_in: timestamptz
-    updated_at: timestamptz
-    updated_by: String
+input DriverInfoSetInput {
+	id: Bigint
+	driver_id: String
+	enterprise_id: String
+	department_id: String
+	driver_identity_id: String
+	driver_name: String
+	telephone: String
+	sex: Int
+	files_number: String
+	contact_address: String
+	mailing_address: String
+	is_submit: Boolean
+	submit_content: String
+	submit_at: Timestamptz
+	submit_by: String
+	is_manual_input: Boolean
+	is_input: Boolean
+	input_at: Timestamptz
+	input_by: String
+	is_check_data: Boolean
+	check_at: Timestamptz
+	check_by: String
+	remark_in: String
+	update_time_in: Timestamptz
+	is_check_sms: Boolean
+	remarks: String
+	is_deleted: Boolean
+	agent: String
+	operator: String
+	is_blacklist: Boolean
+	blacklist_deadline: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type driver_info_stddev_fields {
-    id: Float
-    sex: Float
-}
-
 """
-order by stddev() on columns of table "driver_info"
+可选select
 """
-input driver_info_stddev_order_by {
-    id: order_by
-    sex: order_by
+enum DriverInfoSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                                                         )
+	"""
+	id
+	"""
+	 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	"""
+	driver_id
+	"""
+	 所在企业id                                      ( enterprise_info表的enterprise_id                         )
+	"""
+	enterprise_id
+	"""
+	 所在部门id                                      ( department 部门信息表                                    )
+	"""
+	department_id
+	"""
+	 驾驶员身份验证信息ID                            ( driver_identity表的driver_identity_id                    )
+	"""
+	driver_identity_id
+	"""
+	 驾驶员姓名                                      (                                                              )
+	"""
+	driver_name
+	"""
+	 手机号码                                        (                                                              )
+	"""
+	telephone
+	"""
+	 性别                                            ( 性别字典                                                 )
+	"""
+	sex
+	"""
+	 档案编号(后6位)                                 (                                                              )
+	"""
+	files_number
+	"""
+	 联系地址                                        (                                                              )
+	"""
+	contact_address
+	"""
+	 邮寄地址                                        (                                                              )
+	"""
+	mailing_address
+	"""
+	 是否提交                                        ( 用于标志驾驶员资料是否处于确定状态。未确定状态的驾驶员信息在系统上除驾驶员管理外的功能中都查不到。 )
+	"""
+	is_submit
+	"""
+	 提交内容                                        (                                                              )
+	"""
+	submit_content
+	"""
+	 提交时间                                        (                                                              )
+	"""
+	submit_at
+	"""
+	 提交人                                          ( system_user表的user_id                                       )
+	"""
+	submit_by
+	"""
+	 是否手动录入                                    ( 驾驶员资料分为使用身份证读卡器读取身份证自动录入资料和手动填写资料 )
+	"""
+	is_manual_input
+	"""
+	 是否录入                                        (                                                              )
+	"""
+	is_input
+	"""
+	 录入时间                                        (                                                              )
+	"""
+	input_at
+	"""
+	 录入人                                          ( system_user表的user_id                                   )
+	"""
+	input_by
+	"""
+	 是否校验数据                                    ( 该字段代表是否用于校验驾驶员信息，未正式录入系统，但会同步到公安内容，用于查询驾驶员的违章数据。 )
+	"""
+	is_check_data
+	"""
+	 检验时间                                        (                                                              )
+	"""
+	check_at
+	"""
+	 校验人                                          ( system_user表的user_id                                   )
+	"""
+	check_by
+	"""
+	 驾驶员信息同步内网反馈信息                      ( 驾驶员信息同步内网反馈信息。驾驶员信息同步到公安内网后内网的反馈内容，如档案编号填写错误会反馈档案编号后六位不正确 )
+	"""
+	remark_in
+	"""
+	 内网更新时间                                    (                                                              )
+	"""
+	update_time_in
+	"""
+	 是否通过短信验证                                (                                                              )
+	"""
+	is_check_sms
+	"""
+	 备注                                            (                                                              )
+	"""
+	remarks
+	"""
+	 是否删除                                        (                                                              )
+	"""
+	is_deleted
+	"""
+	 代理商                                          ( enterprise_info表的enterprise_id                         )
+	"""
+	agent
+	"""
+	 运营商                                          ( enterprise_info表的enterprise_id                         )
+	"""
+	operator
+	"""
+	 是否黑名单                                      ( false                                                        )
+	"""
+	is_blacklist
+	"""
+	 黑名单截止日期                                  (                                                              )
+	"""
+	blacklist_deadline
+	"""
+	 创建时间                                        (                                                              )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id                                   )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                                                              )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id                                   )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                                                              )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id                                   )
+	"""
+	deleted_by
 }
-
-"""aggregate stddev_pop on columns"""
-type driver_info_stddev_pop_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by stddev_pop() on columns of table "driver_info"
-"""
-input driver_info_stddev_pop_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type driver_info_stddev_samp_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by stddev_samp() on columns of table "driver_info"
-"""
-input driver_info_stddev_samp_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""aggregate sum on columns"""
-type driver_info_sum_fields {
-    id: bigint
-    sex: Int
-}
-
-"""
-order by sum() on columns of table "driver_info"
-"""
-input driver_info_sum_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""
-update columns of table "driver_info"
-"""
-enum driver_info_update_column {
-    """column name"""
-    agent
-
-    """column name"""
-    check_at
-
-    """column name"""
-    check_by
-
-    """column name"""
-    contact_address
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    department_id
-
-    """column name"""
-    driver_id
-
-    """column name"""
-    driver_identity_id
-
-    """column name"""
-    driver_name
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    files_number
-
-    """column name"""
-    id
-
-    """column name"""
-    input_at
-
-    """column name"""
-    input_by
-
-    """column name"""
-    is_black
-
-    """column name"""
-    is_check_data
-
-    """column name"""
-    is_check_sms
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_input
-
-    """column name"""
-    is_manual_input
-
-    """column name"""
-    is_submit
-
-    """column name"""
-    mailing_address
-
-    """column name"""
-    operator
-
-    """column name"""
-    remark_in
-
-    """column name"""
-    remarks
-
-    """column name"""
-    sex
-
-    """column name"""
-    submit_at
-
-    """column name"""
-    submit_by
-
-    """column name"""
-    submit_content
-
-    """column name"""
-    telephone
-
-    """column name"""
-    update_time_in
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-}
-
-"""aggregate var_pop on columns"""
-type driver_info_var_pop_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by var_pop() on columns of table "driver_info"
-"""
-input driver_info_var_pop_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""aggregate var_samp on columns"""
-type driver_info_var_samp_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by var_samp() on columns of table "driver_info"
-"""
-input driver_info_var_samp_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""aggregate variance on columns"""
-type driver_info_variance_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by variance() on columns of table "driver_info"
-"""
-input driver_info_variance_order_by {
-    id: order_by
-    sex: order_by
-}
-
-
-extend type Mutation {
-    """
-    delete data from the table: "driver_info"
-  """
-    delete_driver_info(
-        """filter the rows which have to be deleted"""
-        where: driver_info_bool_exp!
-    ): driver_info_mutation_response
-
-    """
-    delete single row from the table: "driver_info"
-  """
-    delete_driver_info_by_pk(
-        """联合主键"""
-        driver_id: String!
-
-        """主键"""
-        id: bigint!
-    ): driver_info
-
-    """
-    insert data into the table: "driver_info"
-  """
-    insert_driver_info(
-        """the rows to be inserted"""
-        objects: [driver_info_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: driver_info_on_conflict
-    ): driver_info_mutation_response
-
-    """
-    insert a single row into the table: "driver_info"
-  """
-    insert_driver_info_one(
-        """the row to be inserted"""
-        object: driver_info_insert_input!
-
-        """on conflict condition"""
-        on_conflict: driver_info_on_conflict
-    ): driver_info
-
-    """
-    update data of the table: "driver_info"
-  """
-    update_driver_info(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: driver_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: driver_info_set_input
-
-        """filter the rows which have to be updated"""
-        where: driver_info_bool_exp!
-    ): driver_info_mutation_response
-
-    """
-    update single row of the table: "driver_info"
-  """
-    update_driver_info_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: driver_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: driver_info_set_input
-        pk_columns: driver_info_pk_columns_input!
-    ): driver_info
-}
-
-
-
 extend type Query {
-    """
-    fetch data from the table: "driver_info"
-  """
-    driver_info(
-        """distinct select on columns"""
-        distinct_on: [driver_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [driver_info_order_by!]
-
-        """filter the rows returned"""
-        where: driver_info_bool_exp
-    ): [driver_info!]!
-
-    """
-    fetch aggregated fields from the table: "driver_info"
-  """
-    driver_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [driver_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [driver_info_order_by!]
-
-        """filter the rows returned"""
-        where: driver_info_bool_exp
-    ): driver_info_aggregate!
-
-    """fetch data from the table: "driver_info" using primary key columns"""
-    driver_info_by_pk(
-        """联合主键"""
-        driver_id: String!
-
-        """主键"""
-        id: bigint!
-    ): driver_info
+	"""
+	列表查询
+	"""
+	driver_info(distinct_on: [DriverInfoSelectColumn!], limit: Int, offset: Int, order_by: [DriverInfoOrderBy!], where: DriverInfoBoolExp): [DriverInfo!]!
+	"""
+	聚合查询
+	"""
+	driver_info_aggregate(distinct_on: [DriverInfoSelectColumn!], limit: Int, offset: Int, order_by: [DriverInfoOrderBy!], where: DriverInfoBoolExp): DriverInfoAggregate!
+	"""
+	主键查询
+	"""
+	driver_info_by_pk(id: Bigint!): DriverInfo!
 }
-
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "driver_info"
-  """
-    driver_info(
-        """distinct select on columns"""
-        distinct_on: [driver_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [driver_info_order_by!]
-
-        """filter the rows returned"""
-        where: driver_info_bool_exp
-    ): [driver_info!]!
-
-    """
-    fetch aggregated fields from the table: "driver_info"
-  """
-    driver_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [driver_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [driver_info_order_by!]
-
-        """filter the rows returned"""
-        where: driver_info_bool_exp
-    ): driver_info_aggregate!
-
-    """fetch data from the table: "driver_info" using primary key columns"""
-    driver_info_by_pk(
-        """联合主键"""
-        driver_id: String!
-
-        """主键"""
-        id: bigint!
-    ): driver_info
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_driver_info(where: DriverInfoBoolExp!): DriverInfoMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_driver_info_by_pk(id: Bigint!): DriverInfo
+	"""
+	插入
+	"""
+	insert_driver_info(objects: [DriverInfoInsertInput!]!): DriverInfoMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_driver_info_one(objects: DriverInfoInsertInput!): DriverInfo
+	"""
+	更新
+	"""
+	update_driver_info(_inc: DriverInfoIncInput, _set: DriverInfoSetInput, where: DriverInfoBoolExp!): DriverInfoMutationResponse
+	"""
+	更新
+	"""
+	update_driver_info_by_pk(_inc: DriverInfoIncInput, _set: DriverInfoSetInput, id: Bigint!): DriverInfo
 }
-

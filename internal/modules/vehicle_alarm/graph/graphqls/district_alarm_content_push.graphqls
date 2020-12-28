@@ -1,666 +1,362 @@
-
 """
 各县市区报警内容推送表
-
-
-columns and relationships of "district_alarm_content_push"
-
 """
-type district_alarm_content_push {
-    """内容"""
-    alarm_content: String
-
-    """vehicle_alarm_data报警数据表的alarm_data_id"""
-    alarm_data_id: String!
-
-    """报警类型字典"""
-    alarm_type: String
-
-    """城市ID"""
-    city_id: String
-
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人"""
-    created_by: String!
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """区ID"""
-    district_id: String
-
-    """主键"""
-    id: bigint!
-
-    """是否删除"""
-    is_delete: Boolean
-
-    """省份ID"""
-    province_id: String
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
+type DistrictAlarmContentPush {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 vehicle_alarm_data报警数据表的alarm_data_id (                            )
+	"""
+	alarm_data_id: String!
+	"""
+	 报警类型                                        ( 报警类型字典           )
+	"""
+	alarm_type: String
+	"""
+	 内容                                            (                            )
+	"""
+	alarm_content: String
+	"""
+	 省份ID                                          ( 省份表province_id      )
+	"""
+	province_id: String
+	"""
+	 城市ID                                          ( 城市表city_id          )
+	"""
+	city_id: String
+	"""
+	 区ID                                            ( 区域表district_id      )
+	"""
+	district_id: String
+	"""
+	 是否删除                                        ( false                      )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "district_alarm_content_push"
 """
-type district_alarm_content_push_aggregate {
-    aggregate: district_alarm_content_push_aggregate_fields
-    nodes: [district_alarm_content_push!]!
+type DistrictAlarmContentPushAggregate {
+	aggregate: DistrictAlarmContentPushAggregateFields
 }
-
 """
 aggregate fields of "district_alarm_content_push"
 """
-type district_alarm_content_push_aggregate_fields {
-    avg: district_alarm_content_push_avg_fields
-    count(columns: [district_alarm_content_push_select_column!], distinct: Boolean): Int
-    max: district_alarm_content_push_max_fields
-    min: district_alarm_content_push_min_fields
-    stddev: district_alarm_content_push_stddev_fields
-    stddev_pop: district_alarm_content_push_stddev_pop_fields
-    stddev_samp: district_alarm_content_push_stddev_samp_fields
-    sum: district_alarm_content_push_sum_fields
-    var_pop: district_alarm_content_push_var_pop_fields
-    var_samp: district_alarm_content_push_var_samp_fields
-    variance: district_alarm_content_push_variance_fields
+type DistrictAlarmContentPushAggregateFields {
+	avg: DistrictAlarmContentPushAvgFields
+	count: Int
+	max: DistrictAlarmContentPushMaxFields
+	min: DistrictAlarmContentPushMinFields
+	stddev: DistrictAlarmContentPushStddevFields
+	stddev_pop: DistrictAlarmContentPushStddevPopFields
+	stddev_samp: DistrictAlarmContentPushStddevSampFields
+	sum: DistrictAlarmContentPushSumFields
+	var_pop: DistrictAlarmContentPushVarPopFields
+	var_samp: DistrictAlarmContentPushVarSampFields
+	variance: DistrictAlarmContentPushVarianceFields
 }
-
 """
-order by aggregate values of table "district_alarm_content_push"
+aggregate avg on columns of table "district_alarm_content_push"
 """
-input district_alarm_content_push_aggregate_order_by {
-    avg: district_alarm_content_push_avg_order_by
-    count: order_by
-    max: district_alarm_content_push_max_order_by
-    min: district_alarm_content_push_min_order_by
-    stddev: district_alarm_content_push_stddev_order_by
-    stddev_pop: district_alarm_content_push_stddev_pop_order_by
-    stddev_samp: district_alarm_content_push_stddev_samp_order_by
-    sum: district_alarm_content_push_sum_order_by
-    var_pop: district_alarm_content_push_var_pop_order_by
-    var_samp: district_alarm_content_push_var_samp_order_by
-    variance: district_alarm_content_push_variance_order_by
+type DistrictAlarmContentPushAvgFields {
+	id: Bigint
 }
-
 """
-input type for inserting array relation for remote table "district_alarm_content_push"
+aggregate max on columns of table "district_alarm_content_push"
 """
-input district_alarm_content_push_arr_rel_insert_input {
-    data: [district_alarm_content_push_insert_input!]!
-    on_conflict: district_alarm_content_push_on_conflict
+type DistrictAlarmContentPushMaxFields {
+	id: Bigint
+	alarm_data_id: String
+	alarm_type: String
+	alarm_content: String
+	province_id: String
+	city_id: String
+	district_id: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type district_alarm_content_push_avg_fields {
-    id: Float
+"""
+aggregate min on columns of table "district_alarm_content_push"
+"""
+type DistrictAlarmContentPushMinFields {
+	id: Bigint
+	alarm_data_id: String
+	alarm_type: String
+	alarm_content: String
+	province_id: String
+	city_id: String
+	district_id: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "district_alarm_content_push"
+aggregate stddev on columns of table "district_alarm_content_push"
 """
-input district_alarm_content_push_avg_order_by {
-    id: order_by
+type DistrictAlarmContentPushStddevFields {
+	id: Bigint
 }
-
 """
-Boolean expression to filter rows from the table "district_alarm_content_push".
-All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "district_alarm_content_push"
 """
-input district_alarm_content_push_bool_exp {
-    _and: [district_alarm_content_push_bool_exp]
-    _not: district_alarm_content_push_bool_exp
-    _or: [district_alarm_content_push_bool_exp]
-    alarm_content: String_comparison_exp
-    alarm_data_id: String_comparison_exp
-    alarm_type: String_comparison_exp
-    city_id: String_comparison_exp
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    district_id: String_comparison_exp
-    id: bigint_comparison_exp
-    is_delete: Boolean_comparison_exp
-    province_id: String_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
+type DistrictAlarmContentPushStddevPopFields {
+	id: Bigint
 }
-
 """
-unique or primary key constraints on table "district_alarm_content_push"
+aggregate stddev_samp on columns of table "district_alarm_content_push"
 """
-enum district_alarm_content_push_constraint {
-    """unique or primary key constraint"""
-    district_alarm_content_push_pkey
+type DistrictAlarmContentPushStddevSampFields {
+	id: Bigint
 }
-
 """
-input type for incrementing integer column in table "district_alarm_content_push"
+aggregate sum on columns of table "district_alarm_content_push"
 """
-input district_alarm_content_push_inc_input {
-    id: bigint
+type DistrictAlarmContentPushSumFields {
+	id: Bigint
 }
-
 """
-input type for inserting data into table "district_alarm_content_push"
+aggregate var_pop on columns of table "district_alarm_content_push"
 """
-input district_alarm_content_push_insert_input {
-    alarm_content: String
-    alarm_data_id: String
-    alarm_type: String
-    city_id: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    district_id: String
-    id: bigint
-    is_delete: Boolean
-    province_id: String
-    updated_at: timestamptz
-    updated_by: String
+type DistrictAlarmContentPushVarPopFields {
+	id: Bigint
 }
-
-"""aggregate max on columns"""
-type district_alarm_content_push_max_fields {
-    alarm_content: String
-    alarm_data_id: String
-    alarm_type: String
-    city_id: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    district_id: String
-    id: bigint
-    province_id: String
-    updated_at: timestamptz
-    updated_by: String
-}
-
 """
-order by max() on columns of table "district_alarm_content_push"
+aggregate var_samp on columns of table "district_alarm_content_push"
 """
-input district_alarm_content_push_max_order_by {
-    alarm_content: order_by
-    alarm_data_id: order_by
-    alarm_type: order_by
-    city_id: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    district_id: order_by
-    id: order_by
-    province_id: order_by
-    updated_at: order_by
-    updated_by: order_by
+type DistrictAlarmContentPushVarSampFields {
+	id: Bigint
 }
-
-"""aggregate min on columns"""
-type district_alarm_content_push_min_fields {
-    alarm_content: String
-    alarm_data_id: String
-    alarm_type: String
-    city_id: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    district_id: String
-    id: bigint
-    province_id: String
-    updated_at: timestamptz
-    updated_by: String
-}
-
 """
-order by min() on columns of table "district_alarm_content_push"
+aggregate variance on columns of table "district_alarm_content_push"
 """
-input district_alarm_content_push_min_order_by {
-    alarm_content: order_by
-    alarm_data_id: order_by
-    alarm_type: order_by
-    city_id: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    district_id: order_by
-    id: order_by
-    province_id: order_by
-    updated_at: order_by
-    updated_by: order_by
+type DistrictAlarmContentPushVarianceFields {
+	id: Bigint
 }
-
 """
 response of any mutation on the table "district_alarm_content_push"
 """
-type district_alarm_content_push_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [district_alarm_content_push!]!
+type DistrictAlarmContentPushMutationResponse {
+	affected_rows: Int!
+	returning: [DistrictAlarmContentPush!]!
 }
-
-"""
-input type for inserting object relation for remote table "district_alarm_content_push"
-"""
-input district_alarm_content_push_obj_rel_insert_input {
-    data: district_alarm_content_push_insert_input!
-    on_conflict: district_alarm_content_push_on_conflict
-}
-
-"""
-on conflict condition type for table "district_alarm_content_push"
-"""
-input district_alarm_content_push_on_conflict {
-    constraint: district_alarm_content_push_constraint!
-    update_columns: [district_alarm_content_push_update_column!]!
-    where: district_alarm_content_push_bool_exp
-}
-
 """
 ordering options when selecting data from "district_alarm_content_push"
 """
-input district_alarm_content_push_order_by {
-    alarm_content: order_by
-    alarm_data_id: order_by
-    alarm_type: order_by
-    city_id: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    district_id: order_by
-    id: order_by
-    is_delete: order_by
-    province_id: order_by
-    updated_at: order_by
-    updated_by: order_by
+input DistrictAlarmContentPushOrderBy {
+	id: OrderBy
+	alarm_data_id: OrderBy
+	alarm_type: OrderBy
+	alarm_content: OrderBy
+	province_id: OrderBy
+	city_id: OrderBy
+	district_id: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-primary key columns input for table: "district_alarm_content_push"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'district_alarm_content_push'.
 """
-input district_alarm_content_push_pk_columns_input {
-    """主键"""
-    id: bigint!
+input DistrictAlarmContentPushBoolExp {
+	_and: [DistrictAlarmContentPushBoolExp]
+	_not: DistrictAlarmContentPushBoolExp
+	_or: [DistrictAlarmContentPushBoolExp]
+	id: BigintComparisonExp
+	alarm_data_id: StringComparisonExp
+	alarm_type: StringComparisonExp
+	alarm_content: StringComparisonExp
+	province_id: StringComparisonExp
+	city_id: StringComparisonExp
+	district_id: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
 """
-select columns of table "district_alarm_content_push"
+input type for inserting data into table "district_alarm_content_push"
 """
-enum district_alarm_content_push_select_column {
-    """column name"""
-    alarm_content
-
-    """column name"""
-    alarm_data_id
-
-    """column name"""
-    alarm_type
-
-    """column name"""
-    city_id
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    district_id
-
-    """column name"""
-    id
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    province_id
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
+input DistrictAlarmContentPushInsertInput {
+	id: Bigint
+	alarm_data_id: String
+	alarm_type: String
+	alarm_content: String
+	province_id: String
+	city_id: String
+	district_id: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
+"""
+input type for incrementing integer column in table "district_alarm_content_push"
+"""
+input DistrictAlarmContentPushIncInput {
+	id: Bigint
+}
 """
 input type for updating data in table "district_alarm_content_push"
 """
-input district_alarm_content_push_set_input {
-    alarm_content: String
-    alarm_data_id: String
-    alarm_type: String
-    city_id: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    district_id: String
-    id: bigint
-    is_delete: Boolean
-    province_id: String
-    updated_at: timestamptz
-    updated_by: String
+input DistrictAlarmContentPushSetInput {
+	id: Bigint
+	alarm_data_id: String
+	alarm_type: String
+	alarm_content: String
+	province_id: String
+	city_id: String
+	district_id: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type district_alarm_content_push_stddev_fields {
-    id: Float
-}
-
 """
-order by stddev() on columns of table "district_alarm_content_push"
+可选select
 """
-input district_alarm_content_push_stddev_order_by {
-    id: order_by
+enum DistrictAlarmContentPushSelectColumn {
+	"""
+	 按指定方法生成                                  ( 主键                       )
+	"""
+	id
+	"""
+	 vehicle_alarm_data报警数据表的alarm_data_id (                            )
+	"""
+	alarm_data_id
+	"""
+	 报警类型                                        ( 报警类型字典           )
+	"""
+	alarm_type
+	"""
+	 内容                                            (                            )
+	"""
+	alarm_content
+	"""
+	 省份ID                                          ( 省份表province_id      )
+	"""
+	province_id
+	"""
+	 城市ID                                          ( 城市表city_id          )
+	"""
+	city_id
+	"""
+	 区ID                                            ( 区域表district_id      )
+	"""
+	district_id
+	"""
+	 是否删除                                        ( false                      )
+	"""
+	is_deleted
+	"""
+	 创建时间                                        (                            )
+	"""
+	created_at
+	"""
+	 创建人                                          ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                        (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                          ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                        (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                          ( system_user表的user_id )
+	"""
+	deleted_by
 }
-
-"""aggregate stddev_pop on columns"""
-type district_alarm_content_push_stddev_pop_fields {
-    id: Float
-}
-
-"""
-order by stddev_pop() on columns of table "district_alarm_content_push"
-"""
-input district_alarm_content_push_stddev_pop_order_by {
-    id: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type district_alarm_content_push_stddev_samp_fields {
-    id: Float
-}
-
-"""
-order by stddev_samp() on columns of table "district_alarm_content_push"
-"""
-input district_alarm_content_push_stddev_samp_order_by {
-    id: order_by
-}
-
-"""aggregate sum on columns"""
-type district_alarm_content_push_sum_fields {
-    id: bigint
-}
-
-"""
-order by sum() on columns of table "district_alarm_content_push"
-"""
-input district_alarm_content_push_sum_order_by {
-    id: order_by
-}
-
-"""
-update columns of table "district_alarm_content_push"
-"""
-enum district_alarm_content_push_update_column {
-    """column name"""
-    alarm_content
-
-    """column name"""
-    alarm_data_id
-
-    """column name"""
-    alarm_type
-
-    """column name"""
-    city_id
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    district_id
-
-    """column name"""
-    id
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    province_id
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-}
-
-"""aggregate var_pop on columns"""
-type district_alarm_content_push_var_pop_fields {
-    id: Float
-}
-
-"""
-order by var_pop() on columns of table "district_alarm_content_push"
-"""
-input district_alarm_content_push_var_pop_order_by {
-    id: order_by
-}
-
-"""aggregate var_samp on columns"""
-type district_alarm_content_push_var_samp_fields {
-    id: Float
-}
-
-"""
-order by var_samp() on columns of table "district_alarm_content_push"
-"""
-input district_alarm_content_push_var_samp_order_by {
-    id: order_by
-}
-
-"""aggregate variance on columns"""
-type district_alarm_content_push_variance_fields {
-    id: Float
-}
-
-"""
-order by variance() on columns of table "district_alarm_content_push"
-"""
-input district_alarm_content_push_variance_order_by {
-    id: order_by
-}
-
-extend type Mutation {
-    """
-    delete data from the table: "district_alarm_content_push"
-  """
-    delete_district_alarm_content_push(
-        """filter the rows which have to be deleted"""
-        where: district_alarm_content_push_bool_exp!
-    ): district_alarm_content_push_mutation_response
-
-    """
-    delete single row from the table: "district_alarm_content_push"
-  """
-    delete_district_alarm_content_push_by_pk(
-        """主键"""
-        id: bigint!
-    ): district_alarm_content_push
-
-    """
-    insert data into the table: "district_alarm_content_push"
-  """
-    insert_district_alarm_content_push(
-        """the rows to be inserted"""
-        objects: [district_alarm_content_push_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: district_alarm_content_push_on_conflict
-    ): district_alarm_content_push_mutation_response
-
-    """
-    insert a single row into the table: "district_alarm_content_push"
-  """
-    insert_district_alarm_content_push_one(
-        """the row to be inserted"""
-        object: district_alarm_content_push_insert_input!
-
-        """on conflict condition"""
-        on_conflict: district_alarm_content_push_on_conflict
-    ): district_alarm_content_push
-
-    """
-    update data of the table: "district_alarm_content_push"
-  """
-    update_district_alarm_content_push(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: district_alarm_content_push_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: district_alarm_content_push_set_input
-
-        """filter the rows which have to be updated"""
-        where: district_alarm_content_push_bool_exp!
-    ): district_alarm_content_push_mutation_response
-
-    """
-    update single row of the table: "district_alarm_content_push"
-  """
-    update_district_alarm_content_push_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: district_alarm_content_push_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: district_alarm_content_push_set_input
-        pk_columns: district_alarm_content_push_pk_columns_input!
-    ): district_alarm_content_push
-}
-
-
 extend type Query {
-    """
-    fetch data from the table: "district_alarm_content_push"
-  """
-    district_alarm_content_push(
-        """distinct select on columns"""
-        distinct_on: [district_alarm_content_push_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [district_alarm_content_push_order_by!]
-
-        """filter the rows returned"""
-        where: district_alarm_content_push_bool_exp
-    ): [district_alarm_content_push!]!
-
-    """
-    fetch aggregated fields from the table: "district_alarm_content_push"
-  """
-    district_alarm_content_push_aggregate(
-        """distinct select on columns"""
-        distinct_on: [district_alarm_content_push_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [district_alarm_content_push_order_by!]
-
-        """filter the rows returned"""
-        where: district_alarm_content_push_bool_exp
-    ): district_alarm_content_push_aggregate!
-
-    """
-    fetch data from the table: "district_alarm_content_push" using primary key columns
-    """
-    district_alarm_content_push_by_pk(
-        """主键"""
-        id: bigint!
-    ): district_alarm_content_push
+	"""
+	列表查询
+	"""
+	district_alarm_content_push(distinct_on: [DistrictAlarmContentPushSelectColumn!], limit: Int, offset: Int, order_by: [DistrictAlarmContentPushOrderBy!], where: DistrictAlarmContentPushBoolExp): [DistrictAlarmContentPush!]!
+	"""
+	聚合查询
+	"""
+	district_alarm_content_push_aggregate(distinct_on: [DistrictAlarmContentPushSelectColumn!], limit: Int, offset: Int, order_by: [DistrictAlarmContentPushOrderBy!], where: DistrictAlarmContentPushBoolExp): DistrictAlarmContentPushAggregate!
+	"""
+	主键查询
+	"""
+	district_alarm_content_push_by_pk(id: Bigint!): DistrictAlarmContentPush!
 }
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "district_alarm_content_push"
-  """
-    district_alarm_content_push(
-        """distinct select on columns"""
-        distinct_on: [district_alarm_content_push_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [district_alarm_content_push_order_by!]
-
-        """filter the rows returned"""
-        where: district_alarm_content_push_bool_exp
-    ): [district_alarm_content_push!]!
-
-    """
-    fetch aggregated fields from the table: "district_alarm_content_push"
-  """
-    district_alarm_content_push_aggregate(
-        """distinct select on columns"""
-        distinct_on: [district_alarm_content_push_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [district_alarm_content_push_order_by!]
-
-        """filter the rows returned"""
-        where: district_alarm_content_push_bool_exp
-    ): district_alarm_content_push_aggregate!
-
-    """
-    fetch data from the table: "district_alarm_content_push" using primary key columns
-    """
-    district_alarm_content_push_by_pk(
-        """主键"""
-        id: bigint!
-    ): district_alarm_content_push
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_district_alarm_content_push(where: DistrictAlarmContentPushBoolExp!): DistrictAlarmContentPushMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_district_alarm_content_push_by_pk(id: Bigint!): DistrictAlarmContentPush
+	"""
+	插入
+	"""
+	insert_district_alarm_content_push(objects: [DistrictAlarmContentPushInsertInput!]!): DistrictAlarmContentPushMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_district_alarm_content_push_one(objects: DistrictAlarmContentPushInsertInput!): DistrictAlarmContentPush
+	"""
+	更新
+	"""
+	update_district_alarm_content_push(_inc: DistrictAlarmContentPushIncInput, _set: DistrictAlarmContentPushSetInput, where: DistrictAlarmContentPushBoolExp!): DistrictAlarmContentPushMutationResponse
+	"""
+	更新
+	"""
+	update_district_alarm_content_push_by_pk(_inc: DistrictAlarmContentPushIncInput, _set: DistrictAlarmContentPushSetInput, id: Bigint!): DistrictAlarmContentPush
 }

@@ -2,15 +2,15 @@ package vehicle
 
 import (
 	"VehicleSupervision/internal/modules/vehicle/graph/generated"
-	"VehicleSupervision/internal/modules/vehicle/graph/resolvers"
+	"VehicleSupervision/internal/modules/vehicle/graph/resolver"
+
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/gin-gonic/gin"
 )
 
 func endpoint() *handler.Server {
-	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &resolvers.Resolver{}}))
+	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &resolver.Resolver{}}))
 	return srv
-
 }
 
 func GinEndpoint() gin.HandlerFunc {
@@ -19,7 +19,6 @@ func GinEndpoint() gin.HandlerFunc {
 	srv := endpoint()
 
 	return func(c *gin.Context) {
-
 		srv.ServeHTTP(c.Writer, c.Request)
 	}
 }

@@ -1,806 +1,469 @@
-
-
 """
 车主信息表
-
-
-columns and relationships of "owner_info"
-
 """
-type owner_info {
-    """联系地址"""
-    address: String
-
-    """代理商"""
-    agent: String
-
-    """固定电话"""
-    cellphone: String
-
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人"""
-    created_by: String!
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """
-    department 部门信息表
-
-    """
-    department_id: String
-
-    """邮箱地址"""
-    email: String
-
-    """证件过期日期"""
-    expiry_date: timestamptz
-
-    """主键"""
-    id: bigint!
-
-    """身份证号"""
-    id_number: String
-
-    """是否删除"""
-    is_delete: Boolean
-
-    """车主姓名"""
-    name: String
-
-    """运营商"""
-    operator: String
-
-    """
-    车主信息外部编码，由golang程序生成的xid，暴露到外部使用
-    联合主键
-    """
-    owner_id: String!
-
-    """备注"""
-    remarks: String
-
-    """
-    车主性别(性别字典)
-
-    """
-    sex: Int
-
-    """手机号码"""
-    telephone: String
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
+type OwnerInfo {
+	"""
+	 按指定方法生成                                          ( 主键                                 )
+	"""
+	id: Bigint!
+	"""
+	 车主信息外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	owner_id: String!
+	"""
+	 所在部门id                                              ( department 部门信息表            )
+	"""
+	department_id: String
+	"""
+	 车主姓名                                                (                                      )
+	"""
+	name: String
+	"""
+	 联系地址                                                (                                      )
+	"""
+	address: String
+	"""
+	 固定电话                                                (                                      )
+	"""
+	cellphone: String
+	"""
+	 手机号码                                                (                                      )
+	"""
+	telephone: String
+	"""
+	 邮箱地址                                                (                                      )
+	"""
+	email: String
+	"""
+	 证件过期日期                                            (                                      )
+	"""
+	expiry_date: Timestamptz
+	"""
+	 身份证号                                                (                                      )
+	"""
+	id_number: String
+	"""
+	 备注                                                    (                                      )
+	"""
+	remarks: String
+	"""
+	 车主性别                                                ( 性别字典                         )
+	"""
+	sex: Int
+	"""
+	 代理商                                                  ( enterprise_info表的enterprise_id )
+	"""
+	agent: String
+	"""
+	 运营商                                                  ( enterprise_info表的enterprise_id )
+	"""
+	operator: String
+	"""
+	 是否删除                                                (                                      )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                                (                                      )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                  ( system_user表的user_id           )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                (                                      )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                  ( system_user表的user_id           )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                (                                      )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                  ( system_user表的user_id           )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "owner_info"
 """
-type owner_info_aggregate {
-    aggregate: owner_info_aggregate_fields
-    nodes: [owner_info!]!
+type OwnerInfoAggregate {
+	aggregate: OwnerInfoAggregateFields
 }
-
 """
 aggregate fields of "owner_info"
 """
-type owner_info_aggregate_fields {
-    avg: owner_info_avg_fields
-    count(columns: [owner_info_select_column!], distinct: Boolean): Int
-    max: owner_info_max_fields
-    min: owner_info_min_fields
-    stddev: owner_info_stddev_fields
-    stddev_pop: owner_info_stddev_pop_fields
-    stddev_samp: owner_info_stddev_samp_fields
-    sum: owner_info_sum_fields
-    var_pop: owner_info_var_pop_fields
-    var_samp: owner_info_var_samp_fields
-    variance: owner_info_variance_fields
+type OwnerInfoAggregateFields {
+	avg: OwnerInfoAvgFields
+	count: Int
+	max: OwnerInfoMaxFields
+	min: OwnerInfoMinFields
+	stddev: OwnerInfoStddevFields
+	stddev_pop: OwnerInfoStddevPopFields
+	stddev_samp: OwnerInfoStddevSampFields
+	sum: OwnerInfoSumFields
+	var_pop: OwnerInfoVarPopFields
+	var_samp: OwnerInfoVarSampFields
+	variance: OwnerInfoVarianceFields
 }
-
 """
-order by aggregate values of table "owner_info"
+aggregate avg on columns of table "owner_info"
 """
-input owner_info_aggregate_order_by {
-    avg: owner_info_avg_order_by
-    count: order_by
-    max: owner_info_max_order_by
-    min: owner_info_min_order_by
-    stddev: owner_info_stddev_order_by
-    stddev_pop: owner_info_stddev_pop_order_by
-    stddev_samp: owner_info_stddev_samp_order_by
-    sum: owner_info_sum_order_by
-    var_pop: owner_info_var_pop_order_by
-    var_samp: owner_info_var_samp_order_by
-    variance: owner_info_variance_order_by
+type OwnerInfoAvgFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-input type for inserting array relation for remote table "owner_info"
+aggregate max on columns of table "owner_info"
 """
-input owner_info_arr_rel_insert_input {
-    data: [owner_info_insert_input!]!
-    on_conflict: owner_info_on_conflict
+type OwnerInfoMaxFields {
+	id: Bigint
+	owner_id: String
+	department_id: String
+	name: String
+	address: String
+	cellphone: String
+	telephone: String
+	email: String
+	expiry_date: Timestamptz
+	id_number: String
+	remarks: String
+	sex: Int
+	agent: String
+	operator: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type owner_info_avg_fields {
-    id: Float
-    sex: Float
+"""
+aggregate min on columns of table "owner_info"
+"""
+type OwnerInfoMinFields {
+	id: Bigint
+	owner_id: String
+	department_id: String
+	name: String
+	address: String
+	cellphone: String
+	telephone: String
+	email: String
+	expiry_date: Timestamptz
+	id_number: String
+	remarks: String
+	sex: Int
+	agent: String
+	operator: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "owner_info"
+aggregate stddev on columns of table "owner_info"
 """
-input owner_info_avg_order_by {
-    id: order_by
-    sex: order_by
+type OwnerInfoStddevFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-Boolean expression to filter rows from the table "owner_info". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "owner_info"
 """
-input owner_info_bool_exp {
-    _and: [owner_info_bool_exp]
-    _not: owner_info_bool_exp
-    _or: [owner_info_bool_exp]
-    address: String_comparison_exp
-    agent: String_comparison_exp
-    cellphone: String_comparison_exp
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    department_id: String_comparison_exp
-    email: String_comparison_exp
-    expiry_date: timestamptz_comparison_exp
-    id: bigint_comparison_exp
-    id_number: String_comparison_exp
-    is_delete: Boolean_comparison_exp
-    name: String_comparison_exp
-    operator: String_comparison_exp
-    owner_id: String_comparison_exp
-    remarks: String_comparison_exp
-    sex: Int_comparison_exp
-    telephone: String_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
+type OwnerInfoStddevPopFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-unique or primary key constraints on table "owner_info"
+aggregate stddev_samp on columns of table "owner_info"
 """
-enum owner_info_constraint {
-    """unique or primary key constraint"""
-    owner_info_pkey
+type OwnerInfoStddevSampFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-input type for incrementing integer column in table "owner_info"
+aggregate sum on columns of table "owner_info"
 """
-input owner_info_inc_input {
-    id: bigint
-    sex: Int
+type OwnerInfoSumFields {
+	id: Bigint
+	sex: Int
 }
-
 """
-input type for inserting data into table "owner_info"
+aggregate var_pop on columns of table "owner_info"
 """
-input owner_info_insert_input {
-    address: String
-    agent: String
-    cellphone: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    department_id: String
-    email: String
-    expiry_date: timestamptz
-    id: bigint
-    id_number: String
-    is_delete: Boolean
-    name: String
-    operator: String
-    owner_id: String
-    remarks: String
-    sex: Int
-    telephone: String
-    updated_at: timestamptz
-    updated_by: String
+type OwnerInfoVarPopFields {
+	id: Bigint
+	sex: Int
 }
-
-"""aggregate max on columns"""
-type owner_info_max_fields {
-    address: String
-    agent: String
-    cellphone: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    department_id: String
-    email: String
-    expiry_date: timestamptz
-    id: bigint
-    id_number: String
-    name: String
-    operator: String
-    owner_id: String
-    remarks: String
-    sex: Int
-    telephone: String
-    updated_at: timestamptz
-    updated_by: String
-}
-
 """
-order by max() on columns of table "owner_info"
+aggregate var_samp on columns of table "owner_info"
 """
-input owner_info_max_order_by {
-    address: order_by
-    agent: order_by
-    cellphone: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    department_id: order_by
-    email: order_by
-    expiry_date: order_by
-    id: order_by
-    id_number: order_by
-    name: order_by
-    operator: order_by
-    owner_id: order_by
-    remarks: order_by
-    sex: order_by
-    telephone: order_by
-    updated_at: order_by
-    updated_by: order_by
+type OwnerInfoVarSampFields {
+	id: Bigint
+	sex: Int
 }
-
-"""aggregate min on columns"""
-type owner_info_min_fields {
-    address: String
-    agent: String
-    cellphone: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    department_id: String
-    email: String
-    expiry_date: timestamptz
-    id: bigint
-    id_number: String
-    name: String
-    operator: String
-    owner_id: String
-    remarks: String
-    sex: Int
-    telephone: String
-    updated_at: timestamptz
-    updated_by: String
-}
-
 """
-order by min() on columns of table "owner_info"
+aggregate variance on columns of table "owner_info"
 """
-input owner_info_min_order_by {
-    address: order_by
-    agent: order_by
-    cellphone: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    department_id: order_by
-    email: order_by
-    expiry_date: order_by
-    id: order_by
-    id_number: order_by
-    name: order_by
-    operator: order_by
-    owner_id: order_by
-    remarks: order_by
-    sex: order_by
-    telephone: order_by
-    updated_at: order_by
-    updated_by: order_by
+type OwnerInfoVarianceFields {
+	id: Bigint
+	sex: Int
 }
-
 """
 response of any mutation on the table "owner_info"
 """
-type owner_info_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [owner_info!]!
+type OwnerInfoMutationResponse {
+	affected_rows: Int!
+	returning: [OwnerInfo!]!
 }
-
-"""
-input type for inserting object relation for remote table "owner_info"
-"""
-input owner_info_obj_rel_insert_input {
-    data: owner_info_insert_input!
-    on_conflict: owner_info_on_conflict
-}
-
-"""
-on conflict condition type for table "owner_info"
-"""
-input owner_info_on_conflict {
-    constraint: owner_info_constraint!
-    update_columns: [owner_info_update_column!]!
-    where: owner_info_bool_exp
-}
-
 """
 ordering options when selecting data from "owner_info"
 """
-input owner_info_order_by {
-    address: order_by
-    agent: order_by
-    cellphone: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    department_id: order_by
-    email: order_by
-    expiry_date: order_by
-    id: order_by
-    id_number: order_by
-    is_delete: order_by
-    name: order_by
-    operator: order_by
-    owner_id: order_by
-    remarks: order_by
-    sex: order_by
-    telephone: order_by
-    updated_at: order_by
-    updated_by: order_by
+input OwnerInfoOrderBy {
+	id: OrderBy
+	owner_id: OrderBy
+	department_id: OrderBy
+	name: OrderBy
+	address: OrderBy
+	cellphone: OrderBy
+	telephone: OrderBy
+	email: OrderBy
+	expiry_date: OrderBy
+	id_number: OrderBy
+	remarks: OrderBy
+	sex: OrderBy
+	agent: OrderBy
+	operator: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-primary key columns input for table: "owner_info"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'owner_info'.
 """
-input owner_info_pk_columns_input {
-    """主键"""
-    id: bigint!
+input OwnerInfoBoolExp {
+	_and: [OwnerInfoBoolExp]
+	_not: OwnerInfoBoolExp
+	_or: [OwnerInfoBoolExp]
+	id: BigintComparisonExp
+	owner_id: StringComparisonExp
+	department_id: StringComparisonExp
+	name: StringComparisonExp
+	address: StringComparisonExp
+	cellphone: StringComparisonExp
+	telephone: StringComparisonExp
+	email: StringComparisonExp
+	expiry_date: TimestamptzComparisonExp
+	id_number: StringComparisonExp
+	remarks: StringComparisonExp
+	sex: IntComparisonExp
+	agent: StringComparisonExp
+	operator: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
 """
-select columns of table "owner_info"
+input type for inserting data into table "owner_info"
 """
-enum owner_info_select_column {
-    """column name"""
-    address
-
-    """column name"""
-    agent
-
-    """column name"""
-    cellphone
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    department_id
-
-    """column name"""
-    email
-
-    """column name"""
-    expiry_date
-
-    """column name"""
-    id
-
-    """column name"""
-    id_number
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    name
-
-    """column name"""
-    operator
-
-    """column name"""
-    owner_id
-
-    """column name"""
-    remarks
-
-    """column name"""
-    sex
-
-    """column name"""
-    telephone
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
+input OwnerInfoInsertInput {
+	id: Bigint
+	owner_id: String
+	department_id: String
+	name: String
+	address: String
+	cellphone: String
+	telephone: String
+	email: String
+	expiry_date: Timestamptz
+	id_number: String
+	remarks: String
+	sex: Int
+	agent: String
+	operator: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
+"""
+input type for incrementing integer column in table "owner_info"
+"""
+input OwnerInfoIncInput {
+	id: Bigint
+	sex: Int
+}
 """
 input type for updating data in table "owner_info"
 """
-input owner_info_set_input {
-    address: String
-    agent: String
-    cellphone: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    department_id: String
-    email: String
-    expiry_date: timestamptz
-    id: bigint
-    id_number: String
-    is_delete: Boolean
-    name: String
-    operator: String
-    owner_id: String
-    remarks: String
-    sex: Int
-    telephone: String
-    updated_at: timestamptz
-    updated_by: String
+input OwnerInfoSetInput {
+	id: Bigint
+	owner_id: String
+	department_id: String
+	name: String
+	address: String
+	cellphone: String
+	telephone: String
+	email: String
+	expiry_date: Timestamptz
+	id_number: String
+	remarks: String
+	sex: Int
+	agent: String
+	operator: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type owner_info_stddev_fields {
-    id: Float
-    sex: Float
+"""
+可选select
+"""
+enum OwnerInfoSelectColumn {
+	"""
+	 按指定方法生成                                          ( 主键                                 )
+	"""
+	id
+	"""
+	 车主信息外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	owner_id
+	"""
+	 所在部门id                                              ( department 部门信息表            )
+	"""
+	department_id
+	"""
+	 车主姓名                                                (                                      )
+	"""
+	name
+	"""
+	 联系地址                                                (                                      )
+	"""
+	address
+	"""
+	 固定电话                                                (                                      )
+	"""
+	cellphone
+	"""
+	 手机号码                                                (                                      )
+	"""
+	telephone
+	"""
+	 邮箱地址                                                (                                      )
+	"""
+	email
+	"""
+	 证件过期日期                                            (                                      )
+	"""
+	expiry_date
+	"""
+	 身份证号                                                (                                      )
+	"""
+	id_number
+	"""
+	 备注                                                    (                                      )
+	"""
+	remarks
+	"""
+	 车主性别                                                ( 性别字典                         )
+	"""
+	sex
+	"""
+	 代理商                                                  ( enterprise_info表的enterprise_id )
+	"""
+	agent
+	"""
+	 运营商                                                  ( enterprise_info表的enterprise_id )
+	"""
+	operator
+	"""
+	 是否删除                                                (                                      )
+	"""
+	is_deleted
+	"""
+	 创建时间                                                (                                      )
+	"""
+	created_at
+	"""
+	 创建人                                                  ( system_user表的user_id           )
+	"""
+	created_by
+	"""
+	 修改时间                                                (                                      )
+	"""
+	updated_at
+	"""
+	 修改人                                                  ( system_user表的user_id           )
+	"""
+	updated_by
+	"""
+	 删除时间                                                (                                      )
+	"""
+	deleted_at
+	"""
+	 删除人                                                  ( system_user表的user_id           )
+	"""
+	deleted_by
 }
-
-"""
-order by stddev() on columns of table "owner_info"
-"""
-input owner_info_stddev_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""aggregate stddev_pop on columns"""
-type owner_info_stddev_pop_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by stddev_pop() on columns of table "owner_info"
-"""
-input owner_info_stddev_pop_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type owner_info_stddev_samp_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by stddev_samp() on columns of table "owner_info"
-"""
-input owner_info_stddev_samp_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""aggregate sum on columns"""
-type owner_info_sum_fields {
-    id: bigint
-    sex: Int
-}
-
-"""
-order by sum() on columns of table "owner_info"
-"""
-input owner_info_sum_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""
-update columns of table "owner_info"
-"""
-enum owner_info_update_column {
-    """column name"""
-    address
-
-    """column name"""
-    agent
-
-    """column name"""
-    cellphone
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    department_id
-
-    """column name"""
-    email
-
-    """column name"""
-    expiry_date
-
-    """column name"""
-    id
-
-    """column name"""
-    id_number
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    name
-
-    """column name"""
-    operator
-
-    """column name"""
-    owner_id
-
-    """column name"""
-    remarks
-
-    """column name"""
-    sex
-
-    """column name"""
-    telephone
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-}
-
-"""aggregate var_pop on columns"""
-type owner_info_var_pop_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by var_pop() on columns of table "owner_info"
-"""
-input owner_info_var_pop_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""aggregate var_samp on columns"""
-type owner_info_var_samp_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by var_samp() on columns of table "owner_info"
-"""
-input owner_info_var_samp_order_by {
-    id: order_by
-    sex: order_by
-}
-
-"""aggregate variance on columns"""
-type owner_info_variance_fields {
-    id: Float
-    sex: Float
-}
-
-"""
-order by variance() on columns of table "owner_info"
-"""
-input owner_info_variance_order_by {
-    id: order_by
-    sex: order_by
-}
-
 extend type Query {
-    """
-    fetch data from the table: "owner_info"
-  """
-    owner_info(
-        """distinct select on columns"""
-        distinct_on: [owner_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [owner_info_order_by!]
-
-        """filter the rows returned"""
-        where: owner_info_bool_exp
-    ): [owner_info!]!
-
-    """
-    fetch aggregated fields from the table: "owner_info"
-  """
-    owner_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [owner_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [owner_info_order_by!]
-
-        """filter the rows returned"""
-        where: owner_info_bool_exp
-    ): owner_info_aggregate!
-
-    """fetch data from the table: "owner_info" using primary key columns"""
-    owner_info_by_pk(
-        """主键"""
-        id: bigint!
-    ): owner_info
+	"""
+	列表查询
+	"""
+	owner_info(distinct_on: [OwnerInfoSelectColumn!], limit: Int, offset: Int, order_by: [OwnerInfoOrderBy!], where: OwnerInfoBoolExp): [OwnerInfo!]!
+	"""
+	聚合查询
+	"""
+	owner_info_aggregate(distinct_on: [OwnerInfoSelectColumn!], limit: Int, offset: Int, order_by: [OwnerInfoOrderBy!], where: OwnerInfoBoolExp): OwnerInfoAggregate!
+	"""
+	主键查询
+	"""
+	owner_info_by_pk(id: Bigint!): OwnerInfo!
 }
-
 extend type Mutation {
-    """
-    delete data from the table: "owner_info"
-  """
-    delete_owner_info(
-        """filter the rows which have to be deleted"""
-        where: owner_info_bool_exp!
-    ): owner_info_mutation_response
-
-    """
-    delete single row from the table: "owner_info"
-  """
-    delete_owner_info_by_pk(
-        """主键"""
-        id: bigint!
-    ): owner_info
-
-    """
-    insert data into the table: "owner_info"
-  """
-    insert_owner_info(
-        """the rows to be inserted"""
-        objects: [owner_info_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: owner_info_on_conflict
-    ): owner_info_mutation_response
-
-    """
-    insert a single row into the table: "owner_info"
-  """
-    insert_owner_info_one(
-        """the row to be inserted"""
-        object: owner_info_insert_input!
-
-        """on conflict condition"""
-        on_conflict: owner_info_on_conflict
-    ): owner_info
-
-    """
-    update data of the table: "owner_info"
-  """
-    update_owner_info(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: owner_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: owner_info_set_input
-
-        """filter the rows which have to be updated"""
-        where: owner_info_bool_exp!
-    ): owner_info_mutation_response
-
-    """
-    update single row of the table: "owner_info"
-  """
-    update_owner_info_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: owner_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: owner_info_set_input
-        pk_columns: owner_info_pk_columns_input!
-    ): owner_info
-}
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "owner_info"
-  """
-    owner_info(
-        """distinct select on columns"""
-        distinct_on: [owner_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [owner_info_order_by!]
-
-        """filter the rows returned"""
-        where: owner_info_bool_exp
-    ): [owner_info!]!
-
-    """
-    fetch aggregated fields from the table: "owner_info"
-  """
-    owner_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [owner_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [owner_info_order_by!]
-
-        """filter the rows returned"""
-        where: owner_info_bool_exp
-    ): owner_info_aggregate!
-
-    """fetch data from the table: "owner_info" using primary key columns"""
-    owner_info_by_pk(
-        """主键"""
-        id: bigint!
-    ): owner_info
+	"""
+	删除记录
+	"""
+	delete_owner_info(where: OwnerInfoBoolExp!): OwnerInfoMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_owner_info_by_pk(id: Bigint!): OwnerInfo
+	"""
+	插入
+	"""
+	insert_owner_info(objects: [OwnerInfoInsertInput!]!): OwnerInfoMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_owner_info_one(objects: OwnerInfoInsertInput!): OwnerInfo
+	"""
+	更新
+	"""
+	update_owner_info(_inc: OwnerInfoIncInput, _set: OwnerInfoSetInput, where: OwnerInfoBoolExp!): OwnerInfoMutationResponse
+	"""
+	更新
+	"""
+	update_owner_info_by_pk(_inc: OwnerInfoIncInput, _set: OwnerInfoSetInput, id: Bigint!): OwnerInfo
 }

@@ -3,6 +3,7 @@
 package model
 
 import (
+	model1 "VehicleSupervision/internal/modules/vehicle/model"
 	"VehicleSupervision/pkg/graphql/model"
 	"fmt"
 	"io"
@@ -10,13 +11,182 @@ import (
 	"time"
 )
 
-// aggregated selection of "JJ_VEHICLE"
-type JjVehicleAggregate struct {
-	Aggregate *JjVehicleAggregateFields `json:"aggregate"`
-	Nodes     []*JjVehicle              `json:"nodes"`
+// aggregated selection of "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordAggregate struct {
+	Aggregate *CatalogNewVehicleRecordAggregateFields `json:"aggregate"`
 }
 
-// aggregate fields of "JJ_VEHICLE"
+// aggregate fields of "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordAggregateFields struct {
+	Avg        *CatalogNewVehicleRecordAvgFields        `json:"avg"`
+	Count      *int                                     `json:"count"`
+	Max        *CatalogNewVehicleRecordMaxFields        `json:"max"`
+	Min        *CatalogNewVehicleRecordMinFields        `json:"min"`
+	Stddev     *CatalogNewVehicleRecordStddevFields     `json:"stddev"`
+	StddevPop  *CatalogNewVehicleRecordStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *CatalogNewVehicleRecordStddevSampFields `json:"stddev_samp"`
+	Sum        *CatalogNewVehicleRecordSumFields        `json:"sum"`
+	VarPop     *CatalogNewVehicleRecordVarPopFields     `json:"var_pop"`
+	VarSamp    *CatalogNewVehicleRecordVarSampFields    `json:"var_samp"`
+	Variance   *CatalogNewVehicleRecordVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'catalog_new_vehicle_record'.
+type CatalogNewVehicleRecordBoolExp struct {
+	And                       []*CatalogNewVehicleRecordBoolExp `json:"_and"`
+	Not                       *CatalogNewVehicleRecordBoolExp   `json:"_not"`
+	Or                        []*CatalogNewVehicleRecordBoolExp `json:"_or"`
+	ID                        *model.BigintComparisonExp        `json:"id"`
+	CatalogNewVehicleRecordID *model.StringComparisonExp        `json:"catalog_new_vehicle_record_id"`
+	VehicleID                 *model.StringComparisonExp        `json:"vehicle_id"`
+	TerminalID                *model.StringComparisonExp        `json:"terminal_id"`
+	Reviewer                  *model.StringComparisonExp        `json:"reviewer"`
+	IsDeleted                 *model.BooleanComparisonExp       `json:"is_deleted"`
+	CreatedAt                 *model.TimestamptzComparisonExp   `json:"created_at"`
+	CreatedBy                 *model.StringComparisonExp        `json:"created_by"`
+	UpdatedAt                 *model.TimestamptzComparisonExp   `json:"updated_at"`
+	UpdatedBy                 *model.StringComparisonExp        `json:"updated_by"`
+	DeletedAt                 *model.TimestamptzComparisonExp   `json:"deleted_at"`
+	DeletedBy                 *model.StringComparisonExp        `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordInsertInput struct {
+	ID                        *int64     `json:"id"`
+	CatalogNewVehicleRecordID *string    `json:"catalog_new_vehicle_record_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	TerminalID                *string    `json:"terminal_id"`
+	Reviewer                  *string    `json:"reviewer"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordMaxFields struct {
+	ID                        *int64     `json:"id"`
+	CatalogNewVehicleRecordID *string    `json:"catalog_new_vehicle_record_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	TerminalID                *string    `json:"terminal_id"`
+	Reviewer                  *string    `json:"reviewer"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordMinFields struct {
+	ID                        *int64     `json:"id"`
+	CatalogNewVehicleRecordID *string    `json:"catalog_new_vehicle_record_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	TerminalID                *string    `json:"terminal_id"`
+	Reviewer                  *string    `json:"reviewer"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordMutationResponse struct {
+	AffectedRows int                               `json:"affected_rows"`
+	Returning    []*model1.CatalogNewVehicleRecord `json:"returning"`
+}
+
+// ordering options when selecting data from "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordOrderBy struct {
+	ID                        *model.OrderBy `json:"id"`
+	CatalogNewVehicleRecordID *model.OrderBy `json:"catalog_new_vehicle_record_id"`
+	VehicleID                 *model.OrderBy `json:"vehicle_id"`
+	TerminalID                *model.OrderBy `json:"terminal_id"`
+	Reviewer                  *model.OrderBy `json:"reviewer"`
+	IsDeleted                 *model.OrderBy `json:"is_deleted"`
+	CreatedAt                 *model.OrderBy `json:"created_at"`
+	CreatedBy                 *model.OrderBy `json:"created_by"`
+	UpdatedAt                 *model.OrderBy `json:"updated_at"`
+	UpdatedBy                 *model.OrderBy `json:"updated_by"`
+	DeletedAt                 *model.OrderBy `json:"deleted_at"`
+	DeletedBy                 *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordSetInput struct {
+	ID                        *int64     `json:"id"`
+	CatalogNewVehicleRecordID *string    `json:"catalog_new_vehicle_record_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	TerminalID                *string    `json:"terminal_id"`
+	Reviewer                  *string    `json:"reviewer"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "catalog_new_vehicle_record"
+type CatalogNewVehicleRecordVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregated selection of "jj_vehicle"
+type JjVehicleAggregate struct {
+	Aggregate *JjVehicleAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "jj_vehicle"
 type JjVehicleAggregateFields struct {
 	Avg        *JjVehicleAvgFields        `json:"avg"`
 	Count      *int                       `json:"count"`
@@ -31,1457 +201,779 @@ type JjVehicleAggregateFields struct {
 	Variance   *JjVehicleVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "JJ_VEHICLE"
-type JjVehicleAggregateOrderBy struct {
-	Avg        *JjVehicleAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy              `json:"count"`
-	Max        *JjVehicleMaxOrderBy        `json:"max"`
-	Min        *JjVehicleMinOrderBy        `json:"min"`
-	Stddev     *JjVehicleStddevOrderBy     `json:"stddev"`
-	StddevPop  *JjVehicleStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *JjVehicleStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *JjVehicleSumOrderBy        `json:"sum"`
-	VarPop     *JjVehicleVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *JjVehicleVarSampOrderBy    `json:"var_samp"`
-	Variance   *JjVehicleVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "JJ_VEHICLE"
-type JjVehicleArrRelInsertInput struct {
-	Data       []*JjVehicleInsertInput `json:"data"`
-	OnConflict *JjVehicleOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "jj_vehicle"
 type JjVehicleAvgFields struct {
-	IsDeteled *float64 `json:"IS_DETELED"`
-	Zt        *float64 `json:"ZT"`
-	Zzl       *float64 `json:"ZZL"`
-	ID        *float64 `json:"id"`
+	ID        *int64   `json:"id"`
+	Zzl       *float64 `json:"zzl"`
+	Zt        *int     `json:"zt"`
+	IsDeteled *float64 `json:"is_deteled"`
 }
 
-// order by avg() on columns of table "JJ_VEHICLE"
-type JjVehicleAvgOrderBy struct {
-	IsDeteled *model.OrderBy `json:"IS_DETELED"`
-	Zt        *model.OrderBy `json:"ZT"`
-	Zzl       *model.OrderBy `json:"ZZL"`
-	ID        *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "JJ_VEHICLE". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'jj_vehicle'.
 type JjVehicleBoolExp struct {
-	Ccdjrq     *model.TimestamptzComparisonExp `json:"CCDJRQ"`
-	Cllx       *model.StringComparisonExp      `json:"CLLX"`
-	Clsbdh     *model.StringComparisonExp      `json:"CLSBDH"`
-	County     *model.StringComparisonExp      `json:"COUNTY"`
-	Djrq       *model.TimestamptzComparisonExp `json:"DJRQ"`
-	Fprq       *model.TimestamptzComparisonExp `json:"FPRQ"`
-	Gxrq       *model.TimestamptzComparisonExp `json:"GXRQ"`
-	Hphm       *model.StringComparisonExp      `json:"HPHM"`
-	Hpzl       *model.StringComparisonExp      `json:"HPZL"`
-	IsDeteled  *model.NumericComparisonExp     `json:"IS_DETELED"`
-	Lxdh       *model.StringComparisonExp      `json:"LXDH"`
-	Lxdz       *model.StringComparisonExp      `json:"LXDZ"`
-	Other      *model.StringComparisonExp      `json:"OTHER"`
-	Qzbfqz     *model.TimestamptzComparisonExp `json:"QZBFQZ"`
-	Sjhm       *model.StringComparisonExp      `json:"SJHM"`
-	Syr        *model.StringComparisonExp      `json:"SYR"`
-	Syxz       *model.StringComparisonExp      `json:"SYXZ"`
-	Updatetime *model.TimestamptzComparisonExp `json:"UPDATETIME"`
-	Vehmontype *model.StringComparisonExp      `json:"VEHMONTYPE"`
-	Xh         *model.StringComparisonExp      `json:"XH"`
-	Yxqz       *model.TimestamptzComparisonExp `json:"YXQZ"`
-	Zt         *model.IntComparisonExp         `json:"ZT"`
-	Zzl        *model.NumericComparisonExp     `json:"ZZL"`
 	And        []*JjVehicleBoolExp             `json:"_and"`
 	Not        *JjVehicleBoolExp               `json:"_not"`
 	Or         []*JjVehicleBoolExp             `json:"_or"`
 	ID         *model.BigintComparisonExp      `json:"id"`
 	VehicleID  *model.StringComparisonExp      `json:"vehicle_id"`
+	Hphm       *model.StringComparisonExp      `json:"hphm"`
+	Hpzl       *model.StringComparisonExp      `json:"hpzl"`
+	Syr        *model.StringComparisonExp      `json:"syr"`
+	Syxz       *model.StringComparisonExp      `json:"syxz"`
+	Zzl        *model.NumericComparisonExp     `json:"zzl"`
+	Cllx       *model.StringComparisonExp      `json:"cllx"`
+	Yxqz       *model.TimestamptzComparisonExp `json:"yxqz"`
+	Qzbfqz     *model.TimestamptzComparisonExp `json:"qzbfqz"`
+	Clsbdh     *model.StringComparisonExp      `json:"clsbdh"`
+	County     *model.StringComparisonExp      `json:"county"`
+	Lxdz       *model.StringComparisonExp      `json:"lxdz"`
+	Other      *model.StringComparisonExp      `json:"other"`
+	Lxdh       *model.StringComparisonExp      `json:"lxdh"`
+	Zt         *model.IntComparisonExp         `json:"zt"`
+	Vehmontype *model.StringComparisonExp      `json:"vehmontype"`
+	Ccdjrq     *model.TimestamptzComparisonExp `json:"ccdjrq"`
+	Djrq       *model.TimestamptzComparisonExp `json:"djrq"`
+	Fprq       *model.TimestamptzComparisonExp `json:"fprq"`
+	Updatetime *model.TimestamptzComparisonExp `json:"updatetime"`
+	Xh         *model.StringComparisonExp      `json:"xh"`
+	IsDeteled  *model.NumericComparisonExp     `json:"is_deteled"`
 }
 
-// input type for incrementing integer column in table "JJ_VEHICLE"
+// input type for incrementing integer column in table "jj_vehicle"
 type JjVehicleIncInput struct {
-	IsDeteled *float64 `json:"IS_DETELED"`
-	Zt        *int     `json:"ZT"`
-	Zzl       *float64 `json:"ZZL"`
 	ID        *int64   `json:"id"`
+	Zzl       *float64 `json:"zzl"`
+	Zt        *int     `json:"zt"`
+	IsDeteled *float64 `json:"is_deteled"`
 }
 
-// input type for inserting data into table "JJ_VEHICLE"
+// input type for inserting data into table "jj_vehicle"
 type JjVehicleInsertInput struct {
-	Ccdjrq     *time.Time `json:"CCDJRQ"`
-	Cllx       *string    `json:"CLLX"`
-	Clsbdh     *string    `json:"CLSBDH"`
-	County     *string    `json:"COUNTY"`
-	Djrq       *time.Time `json:"DJRQ"`
-	Fprq       *time.Time `json:"FPRQ"`
-	Gxrq       *time.Time `json:"GXRQ"`
-	Hphm       *string    `json:"HPHM"`
-	Hpzl       *string    `json:"HPZL"`
-	IsDeteled  *float64   `json:"IS_DETELED"`
-	Lxdh       *string    `json:"LXDH"`
-	Lxdz       *string    `json:"LXDZ"`
-	Other      *string    `json:"OTHER"`
-	Qzbfqz     *time.Time `json:"QZBFQZ"`
-	Sjhm       *string    `json:"SJHM"`
-	Syr        *string    `json:"SYR"`
-	Syxz       *string    `json:"SYXZ"`
-	Updatetime *time.Time `json:"UPDATETIME"`
-	Vehmontype *string    `json:"VEHMONTYPE"`
-	Xh         *string    `json:"XH"`
-	Yxqz       *time.Time `json:"YXQZ"`
-	Zt         *int       `json:"ZT"`
-	Zzl        *float64   `json:"ZZL"`
 	ID         *int64     `json:"id"`
 	VehicleID  *string    `json:"vehicle_id"`
+	Hphm       *string    `json:"hphm"`
+	Hpzl       *string    `json:"hpzl"`
+	Syr        *string    `json:"syr"`
+	Syxz       *string    `json:"syxz"`
+	Zzl        *float64   `json:"zzl"`
+	Cllx       *string    `json:"cllx"`
+	Yxqz       *time.Time `json:"yxqz"`
+	Qzbfqz     *time.Time `json:"qzbfqz"`
+	Clsbdh     *string    `json:"clsbdh"`
+	County     *string    `json:"county"`
+	Lxdz       *string    `json:"lxdz"`
+	Other      *string    `json:"other"`
+	Lxdh       *string    `json:"lxdh"`
+	Zt         *int       `json:"zt"`
+	Vehmontype *string    `json:"vehmontype"`
+	Ccdjrq     *time.Time `json:"ccdjrq"`
+	Djrq       *time.Time `json:"djrq"`
+	Fprq       *time.Time `json:"fprq"`
+	Updatetime *time.Time `json:"updatetime"`
+	Xh         *string    `json:"xh"`
+	IsDeteled  *float64   `json:"is_deteled"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "jj_vehicle"
 type JjVehicleMaxFields struct {
-	Ccdjrq     *time.Time `json:"CCDJRQ"`
-	Cllx       *string    `json:"CLLX"`
-	Clsbdh     *string    `json:"CLSBDH"`
-	County     *string    `json:"COUNTY"`
-	Djrq       *time.Time `json:"DJRQ"`
-	Fprq       *time.Time `json:"FPRQ"`
-	Gxrq       *time.Time `json:"GXRQ"`
-	Hphm       *string    `json:"HPHM"`
-	Hpzl       *string    `json:"HPZL"`
-	IsDeteled  *float64   `json:"IS_DETELED"`
-	Lxdh       *string    `json:"LXDH"`
-	Lxdz       *string    `json:"LXDZ"`
-	Other      *string    `json:"OTHER"`
-	Qzbfqz     *time.Time `json:"QZBFQZ"`
-	Sjhm       *string    `json:"SJHM"`
-	Syr        *string    `json:"SYR"`
-	Syxz       *string    `json:"SYXZ"`
-	Updatetime *time.Time `json:"UPDATETIME"`
-	Vehmontype *string    `json:"VEHMONTYPE"`
-	Xh         *string    `json:"XH"`
-	Yxqz       *time.Time `json:"YXQZ"`
-	Zt         *int       `json:"ZT"`
-	Zzl        *float64   `json:"ZZL"`
 	ID         *int64     `json:"id"`
 	VehicleID  *string    `json:"vehicle_id"`
+	Hphm       *string    `json:"hphm"`
+	Hpzl       *string    `json:"hpzl"`
+	Syr        *string    `json:"syr"`
+	Syxz       *string    `json:"syxz"`
+	Zzl        *float64   `json:"zzl"`
+	Cllx       *string    `json:"cllx"`
+	Yxqz       *time.Time `json:"yxqz"`
+	Qzbfqz     *time.Time `json:"qzbfqz"`
+	Clsbdh     *string    `json:"clsbdh"`
+	County     *string    `json:"county"`
+	Lxdz       *string    `json:"lxdz"`
+	Other      *string    `json:"other"`
+	Lxdh       *string    `json:"lxdh"`
+	Zt         *int       `json:"zt"`
+	Vehmontype *string    `json:"vehmontype"`
+	Ccdjrq     *time.Time `json:"ccdjrq"`
+	Djrq       *time.Time `json:"djrq"`
+	Fprq       *time.Time `json:"fprq"`
+	Updatetime *time.Time `json:"updatetime"`
+	Xh         *string    `json:"xh"`
+	IsDeteled  *float64   `json:"is_deteled"`
 }
 
-// order by max() on columns of table "JJ_VEHICLE"
-type JjVehicleMaxOrderBy struct {
-	Ccdjrq     *model.OrderBy `json:"CCDJRQ"`
-	Cllx       *model.OrderBy `json:"CLLX"`
-	Clsbdh     *model.OrderBy `json:"CLSBDH"`
-	County     *model.OrderBy `json:"COUNTY"`
-	Djrq       *model.OrderBy `json:"DJRQ"`
-	Fprq       *model.OrderBy `json:"FPRQ"`
-	Gxrq       *model.OrderBy `json:"GXRQ"`
-	Hphm       *model.OrderBy `json:"HPHM"`
-	Hpzl       *model.OrderBy `json:"HPZL"`
-	IsDeteled  *model.OrderBy `json:"IS_DETELED"`
-	Lxdh       *model.OrderBy `json:"LXDH"`
-	Lxdz       *model.OrderBy `json:"LXDZ"`
-	Other      *model.OrderBy `json:"OTHER"`
-	Qzbfqz     *model.OrderBy `json:"QZBFQZ"`
-	Sjhm       *model.OrderBy `json:"SJHM"`
-	Syr        *model.OrderBy `json:"SYR"`
-	Syxz       *model.OrderBy `json:"SYXZ"`
-	Updatetime *model.OrderBy `json:"UPDATETIME"`
-	Vehmontype *model.OrderBy `json:"VEHMONTYPE"`
-	Xh         *model.OrderBy `json:"XH"`
-	Yxqz       *model.OrderBy `json:"YXQZ"`
-	Zt         *model.OrderBy `json:"ZT"`
-	Zzl        *model.OrderBy `json:"ZZL"`
-	ID         *model.OrderBy `json:"id"`
-	VehicleID  *model.OrderBy `json:"vehicle_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "jj_vehicle"
 type JjVehicleMinFields struct {
-	Ccdjrq     *time.Time `json:"CCDJRQ"`
-	Cllx       *string    `json:"CLLX"`
-	Clsbdh     *string    `json:"CLSBDH"`
-	County     *string    `json:"COUNTY"`
-	Djrq       *time.Time `json:"DJRQ"`
-	Fprq       *time.Time `json:"FPRQ"`
-	Gxrq       *time.Time `json:"GXRQ"`
-	Hphm       *string    `json:"HPHM"`
-	Hpzl       *string    `json:"HPZL"`
-	IsDeteled  *float64   `json:"IS_DETELED"`
-	Lxdh       *string    `json:"LXDH"`
-	Lxdz       *string    `json:"LXDZ"`
-	Other      *string    `json:"OTHER"`
-	Qzbfqz     *time.Time `json:"QZBFQZ"`
-	Sjhm       *string    `json:"SJHM"`
-	Syr        *string    `json:"SYR"`
-	Syxz       *string    `json:"SYXZ"`
-	Updatetime *time.Time `json:"UPDATETIME"`
-	Vehmontype *string    `json:"VEHMONTYPE"`
-	Xh         *string    `json:"XH"`
-	Yxqz       *time.Time `json:"YXQZ"`
-	Zt         *int       `json:"ZT"`
-	Zzl        *float64   `json:"ZZL"`
 	ID         *int64     `json:"id"`
 	VehicleID  *string    `json:"vehicle_id"`
+	Hphm       *string    `json:"hphm"`
+	Hpzl       *string    `json:"hpzl"`
+	Syr        *string    `json:"syr"`
+	Syxz       *string    `json:"syxz"`
+	Zzl        *float64   `json:"zzl"`
+	Cllx       *string    `json:"cllx"`
+	Yxqz       *time.Time `json:"yxqz"`
+	Qzbfqz     *time.Time `json:"qzbfqz"`
+	Clsbdh     *string    `json:"clsbdh"`
+	County     *string    `json:"county"`
+	Lxdz       *string    `json:"lxdz"`
+	Other      *string    `json:"other"`
+	Lxdh       *string    `json:"lxdh"`
+	Zt         *int       `json:"zt"`
+	Vehmontype *string    `json:"vehmontype"`
+	Ccdjrq     *time.Time `json:"ccdjrq"`
+	Djrq       *time.Time `json:"djrq"`
+	Fprq       *time.Time `json:"fprq"`
+	Updatetime *time.Time `json:"updatetime"`
+	Xh         *string    `json:"xh"`
+	IsDeteled  *float64   `json:"is_deteled"`
 }
 
-// order by min() on columns of table "JJ_VEHICLE"
-type JjVehicleMinOrderBy struct {
-	Ccdjrq     *model.OrderBy `json:"CCDJRQ"`
-	Cllx       *model.OrderBy `json:"CLLX"`
-	Clsbdh     *model.OrderBy `json:"CLSBDH"`
-	County     *model.OrderBy `json:"COUNTY"`
-	Djrq       *model.OrderBy `json:"DJRQ"`
-	Fprq       *model.OrderBy `json:"FPRQ"`
-	Gxrq       *model.OrderBy `json:"GXRQ"`
-	Hphm       *model.OrderBy `json:"HPHM"`
-	Hpzl       *model.OrderBy `json:"HPZL"`
-	IsDeteled  *model.OrderBy `json:"IS_DETELED"`
-	Lxdh       *model.OrderBy `json:"LXDH"`
-	Lxdz       *model.OrderBy `json:"LXDZ"`
-	Other      *model.OrderBy `json:"OTHER"`
-	Qzbfqz     *model.OrderBy `json:"QZBFQZ"`
-	Sjhm       *model.OrderBy `json:"SJHM"`
-	Syr        *model.OrderBy `json:"SYR"`
-	Syxz       *model.OrderBy `json:"SYXZ"`
-	Updatetime *model.OrderBy `json:"UPDATETIME"`
-	Vehmontype *model.OrderBy `json:"VEHMONTYPE"`
-	Xh         *model.OrderBy `json:"XH"`
-	Yxqz       *model.OrderBy `json:"YXQZ"`
-	Zt         *model.OrderBy `json:"ZT"`
-	Zzl        *model.OrderBy `json:"ZZL"`
-	ID         *model.OrderBy `json:"id"`
-	VehicleID  *model.OrderBy `json:"vehicle_id"`
-}
-
-// response of any mutation on the table "JJ_VEHICLE"
+// response of any mutation on the table "jj_vehicle"
 type JjVehicleMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*JjVehicle `json:"returning"`
+	AffectedRows int                 `json:"affected_rows"`
+	Returning    []*model1.JjVehicle `json:"returning"`
 }
 
-// input type for inserting object relation for remote table "JJ_VEHICLE"
-type JjVehicleObjRelInsertInput struct {
-	Data       *JjVehicleInsertInput `json:"data"`
-	OnConflict *JjVehicleOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "JJ_VEHICLE"
-type JjVehicleOnConflict struct {
-	Constraint    JjVehicleConstraint     `json:"constraint"`
-	UpdateColumns []JjVehicleUpdateColumn `json:"update_columns"`
-	Where         *JjVehicleBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "JJ_VEHICLE"
+// ordering options when selecting data from "jj_vehicle"
 type JjVehicleOrderBy struct {
-	Ccdjrq     *model.OrderBy `json:"CCDJRQ"`
-	Cllx       *model.OrderBy `json:"CLLX"`
-	Clsbdh     *model.OrderBy `json:"CLSBDH"`
-	County     *model.OrderBy `json:"COUNTY"`
-	Djrq       *model.OrderBy `json:"DJRQ"`
-	Fprq       *model.OrderBy `json:"FPRQ"`
-	Gxrq       *model.OrderBy `json:"GXRQ"`
-	Hphm       *model.OrderBy `json:"HPHM"`
-	Hpzl       *model.OrderBy `json:"HPZL"`
-	IsDeteled  *model.OrderBy `json:"IS_DETELED"`
-	Lxdh       *model.OrderBy `json:"LXDH"`
-	Lxdz       *model.OrderBy `json:"LXDZ"`
-	Other      *model.OrderBy `json:"OTHER"`
-	Qzbfqz     *model.OrderBy `json:"QZBFQZ"`
-	Sjhm       *model.OrderBy `json:"SJHM"`
-	Syr        *model.OrderBy `json:"SYR"`
-	Syxz       *model.OrderBy `json:"SYXZ"`
-	Updatetime *model.OrderBy `json:"UPDATETIME"`
-	Vehmontype *model.OrderBy `json:"VEHMONTYPE"`
-	Xh         *model.OrderBy `json:"XH"`
-	Yxqz       *model.OrderBy `json:"YXQZ"`
-	Zt         *model.OrderBy `json:"ZT"`
-	Zzl        *model.OrderBy `json:"ZZL"`
 	ID         *model.OrderBy `json:"id"`
 	VehicleID  *model.OrderBy `json:"vehicle_id"`
+	Hphm       *model.OrderBy `json:"hphm"`
+	Hpzl       *model.OrderBy `json:"hpzl"`
+	Syr        *model.OrderBy `json:"syr"`
+	Syxz       *model.OrderBy `json:"syxz"`
+	Zzl        *model.OrderBy `json:"zzl"`
+	Cllx       *model.OrderBy `json:"cllx"`
+	Yxqz       *model.OrderBy `json:"yxqz"`
+	Qzbfqz     *model.OrderBy `json:"qzbfqz"`
+	Clsbdh     *model.OrderBy `json:"clsbdh"`
+	County     *model.OrderBy `json:"county"`
+	Lxdz       *model.OrderBy `json:"lxdz"`
+	Other      *model.OrderBy `json:"other"`
+	Lxdh       *model.OrderBy `json:"lxdh"`
+	Zt         *model.OrderBy `json:"zt"`
+	Vehmontype *model.OrderBy `json:"vehmontype"`
+	Ccdjrq     *model.OrderBy `json:"ccdjrq"`
+	Djrq       *model.OrderBy `json:"djrq"`
+	Fprq       *model.OrderBy `json:"fprq"`
+	Updatetime *model.OrderBy `json:"updatetime"`
+	Xh         *model.OrderBy `json:"xh"`
+	IsDeteled  *model.OrderBy `json:"is_deteled"`
 }
 
-// primary key columns input for table: "JJ_VEHICLE"
-type JjVehiclePkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "JJ_VEHICLE"
+// input type for updating data in table "jj_vehicle"
 type JjVehicleSetInput struct {
-	Ccdjrq     *time.Time `json:"CCDJRQ"`
-	Cllx       *string    `json:"CLLX"`
-	Clsbdh     *string    `json:"CLSBDH"`
-	County     *string    `json:"COUNTY"`
-	Djrq       *time.Time `json:"DJRQ"`
-	Fprq       *time.Time `json:"FPRQ"`
-	Gxrq       *time.Time `json:"GXRQ"`
-	Hphm       *string    `json:"HPHM"`
-	Hpzl       *string    `json:"HPZL"`
-	IsDeteled  *float64   `json:"IS_DETELED"`
-	Lxdh       *string    `json:"LXDH"`
-	Lxdz       *string    `json:"LXDZ"`
-	Other      *string    `json:"OTHER"`
-	Qzbfqz     *time.Time `json:"QZBFQZ"`
-	Sjhm       *string    `json:"SJHM"`
-	Syr        *string    `json:"SYR"`
-	Syxz       *string    `json:"SYXZ"`
-	Updatetime *time.Time `json:"UPDATETIME"`
-	Vehmontype *string    `json:"VEHMONTYPE"`
-	Xh         *string    `json:"XH"`
-	Yxqz       *time.Time `json:"YXQZ"`
-	Zt         *int       `json:"ZT"`
-	Zzl        *float64   `json:"ZZL"`
 	ID         *int64     `json:"id"`
 	VehicleID  *string    `json:"vehicle_id"`
+	Hphm       *string    `json:"hphm"`
+	Hpzl       *string    `json:"hpzl"`
+	Syr        *string    `json:"syr"`
+	Syxz       *string    `json:"syxz"`
+	Zzl        *float64   `json:"zzl"`
+	Cllx       *string    `json:"cllx"`
+	Yxqz       *time.Time `json:"yxqz"`
+	Qzbfqz     *time.Time `json:"qzbfqz"`
+	Clsbdh     *string    `json:"clsbdh"`
+	County     *string    `json:"county"`
+	Lxdz       *string    `json:"lxdz"`
+	Other      *string    `json:"other"`
+	Lxdh       *string    `json:"lxdh"`
+	Zt         *int       `json:"zt"`
+	Vehmontype *string    `json:"vehmontype"`
+	Ccdjrq     *time.Time `json:"ccdjrq"`
+	Djrq       *time.Time `json:"djrq"`
+	Fprq       *time.Time `json:"fprq"`
+	Updatetime *time.Time `json:"updatetime"`
+	Xh         *string    `json:"xh"`
+	IsDeteled  *float64   `json:"is_deteled"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "jj_vehicle"
 type JjVehicleStddevFields struct {
-	IsDeteled *float64 `json:"IS_DETELED"`
-	Zt        *float64 `json:"ZT"`
-	Zzl       *float64 `json:"ZZL"`
-	ID        *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "JJ_VEHICLE"
-type JjVehicleStddevOrderBy struct {
-	IsDeteled *model.OrderBy `json:"IS_DETELED"`
-	Zt        *model.OrderBy `json:"ZT"`
-	Zzl       *model.OrderBy `json:"ZZL"`
-	ID        *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type JjVehicleStddevPopFields struct {
-	IsDeteled *float64 `json:"IS_DETELED"`
-	Zt        *float64 `json:"ZT"`
-	Zzl       *float64 `json:"ZZL"`
-	ID        *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "JJ_VEHICLE"
-type JjVehicleStddevPopOrderBy struct {
-	IsDeteled *model.OrderBy `json:"IS_DETELED"`
-	Zt        *model.OrderBy `json:"ZT"`
-	Zzl       *model.OrderBy `json:"ZZL"`
-	ID        *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type JjVehicleStddevSampFields struct {
-	IsDeteled *float64 `json:"IS_DETELED"`
-	Zt        *float64 `json:"ZT"`
-	Zzl       *float64 `json:"ZZL"`
-	ID        *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "JJ_VEHICLE"
-type JjVehicleStddevSampOrderBy struct {
-	IsDeteled *model.OrderBy `json:"IS_DETELED"`
-	Zt        *model.OrderBy `json:"ZT"`
-	Zzl       *model.OrderBy `json:"ZZL"`
-	ID        *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type JjVehicleSumFields struct {
-	IsDeteled *float64 `json:"IS_DETELED"`
-	Zt        *int     `json:"ZT"`
-	Zzl       *float64 `json:"ZZL"`
 	ID        *int64   `json:"id"`
+	Zzl       *float64 `json:"zzl"`
+	Zt        *int     `json:"zt"`
+	IsDeteled *float64 `json:"is_deteled"`
 }
 
-// order by sum() on columns of table "JJ_VEHICLE"
-type JjVehicleSumOrderBy struct {
-	IsDeteled *model.OrderBy `json:"IS_DETELED"`
-	Zt        *model.OrderBy `json:"ZT"`
-	Zzl       *model.OrderBy `json:"ZZL"`
-	ID        *model.OrderBy `json:"id"`
+// aggregate stddev_pop on columns of table "jj_vehicle"
+type JjVehicleStddevPopFields struct {
+	ID        *int64   `json:"id"`
+	Zzl       *float64 `json:"zzl"`
+	Zt        *int     `json:"zt"`
+	IsDeteled *float64 `json:"is_deteled"`
 }
 
-// aggregate var_pop on columns
+// aggregate stddev_samp on columns of table "jj_vehicle"
+type JjVehicleStddevSampFields struct {
+	ID        *int64   `json:"id"`
+	Zzl       *float64 `json:"zzl"`
+	Zt        *int     `json:"zt"`
+	IsDeteled *float64 `json:"is_deteled"`
+}
+
+// aggregate sum on columns of table "jj_vehicle"
+type JjVehicleSumFields struct {
+	ID        *int64   `json:"id"`
+	Zzl       *float64 `json:"zzl"`
+	Zt        *int     `json:"zt"`
+	IsDeteled *float64 `json:"is_deteled"`
+}
+
+// aggregate var_pop on columns of table "jj_vehicle"
 type JjVehicleVarPopFields struct {
-	IsDeteled *float64 `json:"IS_DETELED"`
-	Zt        *float64 `json:"ZT"`
-	Zzl       *float64 `json:"ZZL"`
-	ID        *float64 `json:"id"`
+	ID        *int64   `json:"id"`
+	Zzl       *float64 `json:"zzl"`
+	Zt        *int     `json:"zt"`
+	IsDeteled *float64 `json:"is_deteled"`
 }
 
-// order by var_pop() on columns of table "JJ_VEHICLE"
-type JjVehicleVarPopOrderBy struct {
-	IsDeteled *model.OrderBy `json:"IS_DETELED"`
-	Zt        *model.OrderBy `json:"ZT"`
-	Zzl       *model.OrderBy `json:"ZZL"`
-	ID        *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "jj_vehicle"
 type JjVehicleVarSampFields struct {
-	IsDeteled *float64 `json:"IS_DETELED"`
-	Zt        *float64 `json:"ZT"`
-	Zzl       *float64 `json:"ZZL"`
-	ID        *float64 `json:"id"`
+	ID        *int64   `json:"id"`
+	Zzl       *float64 `json:"zzl"`
+	Zt        *int     `json:"zt"`
+	IsDeteled *float64 `json:"is_deteled"`
 }
 
-// order by var_samp() on columns of table "JJ_VEHICLE"
-type JjVehicleVarSampOrderBy struct {
-	IsDeteled *model.OrderBy `json:"IS_DETELED"`
-	Zt        *model.OrderBy `json:"ZT"`
-	Zzl       *model.OrderBy `json:"ZZL"`
-	ID        *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "jj_vehicle"
 type JjVehicleVarianceFields struct {
-	IsDeteled *float64 `json:"IS_DETELED"`
-	Zt        *float64 `json:"ZT"`
-	Zzl       *float64 `json:"ZZL"`
-	ID        *float64 `json:"id"`
+	ID        *int64   `json:"id"`
+	Zzl       *float64 `json:"zzl"`
+	Zt        *int     `json:"zt"`
+	IsDeteled *float64 `json:"is_deteled"`
 }
 
-// order by variance() on columns of table "JJ_VEHICLE"
-type JjVehicleVarianceOrderBy struct {
-	IsDeteled *model.OrderBy `json:"IS_DETELED"`
-	Zt        *model.OrderBy `json:"ZT"`
-	Zzl       *model.OrderBy `json:"ZZL"`
-	ID        *model.OrderBy `json:"id"`
+// aggregated selection of "muck_truck_ext"
+type MuckTruckExtAggregate struct {
+	Aggregate *MuckTruckExtAggregateFields `json:"aggregate"`
 }
 
-// aggregated selection of "muck_truck_category_info"
-type MuckTruckCategoryInfoAggregate struct {
-	Aggregate *MuckTruckCategoryInfoAggregateFields `json:"aggregate"`
-	Nodes     []*MuckTruckCategoryInfo              `json:"nodes"`
+// aggregate fields of "muck_truck_ext"
+type MuckTruckExtAggregateFields struct {
+	Avg        *MuckTruckExtAvgFields        `json:"avg"`
+	Count      *int                          `json:"count"`
+	Max        *MuckTruckExtMaxFields        `json:"max"`
+	Min        *MuckTruckExtMinFields        `json:"min"`
+	Stddev     *MuckTruckExtStddevFields     `json:"stddev"`
+	StddevPop  *MuckTruckExtStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *MuckTruckExtStddevSampFields `json:"stddev_samp"`
+	Sum        *MuckTruckExtSumFields        `json:"sum"`
+	VarPop     *MuckTruckExtVarPopFields     `json:"var_pop"`
+	VarSamp    *MuckTruckExtVarSampFields    `json:"var_samp"`
+	Variance   *MuckTruckExtVarianceFields   `json:"variance"`
 }
 
-// aggregate fields of "muck_truck_category_info"
-type MuckTruckCategoryInfoAggregateFields struct {
-	Avg        *MuckTruckCategoryInfoAvgFields        `json:"avg"`
-	Count      *int                                   `json:"count"`
-	Max        *MuckTruckCategoryInfoMaxFields        `json:"max"`
-	Min        *MuckTruckCategoryInfoMinFields        `json:"min"`
-	Stddev     *MuckTruckCategoryInfoStddevFields     `json:"stddev"`
-	StddevPop  *MuckTruckCategoryInfoStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *MuckTruckCategoryInfoStddevSampFields `json:"stddev_samp"`
-	Sum        *MuckTruckCategoryInfoSumFields        `json:"sum"`
-	VarPop     *MuckTruckCategoryInfoVarPopFields     `json:"var_pop"`
-	VarSamp    *MuckTruckCategoryInfoVarSampFields    `json:"var_samp"`
-	Variance   *MuckTruckCategoryInfoVarianceFields   `json:"variance"`
-}
-
-// order by aggregate values of table "muck_truck_category_info"
-type MuckTruckCategoryInfoAggregateOrderBy struct {
-	Avg        *MuckTruckCategoryInfoAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                          `json:"count"`
-	Max        *MuckTruckCategoryInfoMaxOrderBy        `json:"max"`
-	Min        *MuckTruckCategoryInfoMinOrderBy        `json:"min"`
-	Stddev     *MuckTruckCategoryInfoStddevOrderBy     `json:"stddev"`
-	StddevPop  *MuckTruckCategoryInfoStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *MuckTruckCategoryInfoStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *MuckTruckCategoryInfoSumOrderBy        `json:"sum"`
-	VarPop     *MuckTruckCategoryInfoVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *MuckTruckCategoryInfoVarSampOrderBy    `json:"var_samp"`
-	Variance   *MuckTruckCategoryInfoVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "muck_truck_category_info"
-type MuckTruckCategoryInfoArrRelInsertInput struct {
-	Data       []*MuckTruckCategoryInfoInsertInput `json:"data"`
-	OnConflict *MuckTruckCategoryInfoOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
-type MuckTruckCategoryInfoAvgFields struct {
-	AxesNumber    *float64 `json:"axes_number"`
-	ID            *float64 `json:"id"`
-	TotalMass     *float64 `json:"total_mass"`
-	VehicleNature *float64 `json:"vehicle_nature"`
-}
-
-// order by avg() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoAvgOrderBy struct {
-	AxesNumber    *model.OrderBy `json:"axes_number"`
-	ID            *model.OrderBy `json:"id"`
-	TotalMass     *model.OrderBy `json:"total_mass"`
-	VehicleNature *model.OrderBy `json:"vehicle_nature"`
-}
-
-// Boolean expression to filter rows from the table "muck_truck_category_info". All fields are combined with a logical 'AND'.
-type MuckTruckCategoryInfoBoolExp struct {
-	And                               []*MuckTruckCategoryInfoBoolExp `json:"_and"`
-	Not                               *MuckTruckCategoryInfoBoolExp   `json:"_not"`
-	Or                                []*MuckTruckCategoryInfoBoolExp `json:"_or"`
-	ActualOwnerContactPhone           *model.StringComparisonExp      `json:"actual_owner_contact_phone"`
-	ActualOwnerIDNumber               *model.StringComparisonExp      `json:"actual_owner_id_number"`
-	ActualOwnerIDPhoto                *model.StringComparisonExp      `json:"actual_owner_id_photo"`
-	ActualOwnerName                   *model.StringComparisonExp      `json:"actual_owner_name"`
-	AnnualInspectionExpirationTime    *model.TimestamptzComparisonExp `json:"annual_inspection_expiration_time"`
-	ApplyInspectionTime               *model.TimestamptzComparisonExp `json:"apply_inspection_time"`
-	AxesNumber                        *model.IntComparisonExp         `json:"axes_number"`
-	BlacklistDeadline                 *model.TimestamptzComparisonExp `json:"blacklist_deadline"`
-	CompulsoryInsurancePolicyPicture  *model.StringComparisonExp      `json:"compulsory_insurance_policy_picture"`
-	CreatedAt                         *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy                         *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt                         *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy                         *model.StringComparisonExp      `json:"deleted_by"`
-	DrivingLicenseContactPhone        *model.StringComparisonExp      `json:"driving_license_contact_phone"`
-	DrivingLicenseIDNumber            *model.StringComparisonExp      `json:"driving_license_id_number"`
-	DrivingLiscenseOwnerIDPhoto       *model.StringComparisonExp      `json:"driving_liscense_owner_id_photo"`
-	EngineNumber                      *model.StringComparisonExp      `json:"engine_number"`
-	ID                                *model.BigintComparisonExp      `json:"id"`
-	IllegalNoticeNumberEndorsement    *model.StringComparisonExp      `json:"illegal_notice_number_endorsement"`
-	IllegalNumberEndorsement          *model.StringComparisonExp      `json:"illegal_number_endorsement"`
-	IncidentNumberEndorsement         *model.StringComparisonExp      `json:"incident_number_endorsement"`
-	InitialRegistrationDate           *model.TimestamptzComparisonExp `json:"initial_registration_date"`
-	InsuranceExpiryTime               *model.TimestamptzComparisonExp `json:"insurance_expiry_time"`
-	IsBlacklist                       *model.BooleanComparisonExp     `json:"is_blacklist"`
-	IsDelete                          *model.BooleanComparisonExp     `json:"is_delete"`
-	IsDueSecurityAlarmProcessing      *model.BooleanComparisonExp     `json:"is_due_security_alarm_processing"`
-	IsFirstRegister                   *model.BooleanComparisonExp     `json:"is_first_register"`
-	IsMuckOfficeAudit                 *model.BooleanComparisonExp     `json:"is_muck_office_audit"`
-	IsSendSms                         *model.BooleanComparisonExp     `json:"is_send_sms"`
-	IssueDateOfQuangongNumber         *model.TimestamptzComparisonExp `json:"issue_date_of_quangong_number"`
-	OwnerIDPhoto                      *model.StringComparisonExp      `json:"owner_id_photo"`
-	ProcessingNotes                   *model.StringComparisonExp      `json:"processing_notes"`
-	ProcessingTime                    *model.TimestamptzComparisonExp `json:"processing_time"`
-	Processor                         *model.StringComparisonExp      `json:"processor"`
-	ReviewNotes                       *model.StringComparisonExp      `json:"review_notes"`
-	ReviewStatus                      *model.StringComparisonExp      `json:"review_status"`
-	ReviewTime                        *model.TimestamptzComparisonExp `json:"review_time"`
-	Reviewer                          *model.StringComparisonExp      `json:"reviewer"`
-	SecondaryMaintenanceExpiryDate    *model.TimestamptzComparisonExp `json:"secondary_maintenance_expiry_date"`
-	SecondaryMaintenanceLocation      *model.StringComparisonExp      `json:"secondary_maintenance_location"`
-	SigningAcceptanceApplicationTime  *model.TimestamptzComparisonExp `json:"signing_acceptance_application_time"`
-	ThirdPartyInsuranceCoverage       *model.StringComparisonExp      `json:"third_party_insurance_coverage"`
-	ThirdPartyInsuranceExpiryTime     *model.TimestamptzComparisonExp `json:"third_party_insurance_expiry_time"`
-	ThirdPartyInsurancePolicyPicture  *model.StringComparisonExp      `json:"third_party_insurance_policy_picture"`
-	TotalMass                         *model.NumericComparisonExp     `json:"total_mass"`
-	UpdatedAt                         *model.TimestamptzComparisonExp `json:"updated_at"`
-	UpdatedBy                         *model.StringComparisonExp      `json:"updated_by"`
-	VehicleDescription                *model.StringComparisonExp      `json:"vehicle_description"`
-	VehicleID                         *model.StringComparisonExp      `json:"vehicle_id"`
-	VehicleNature                     *model.IntComparisonExp         `json:"vehicle_nature"`
-	VehicleOperatingCertificateNumber *model.StringComparisonExp      `json:"vehicle_operating_certificate_number"`
-	VehicleOperatingCertificatePhoto  *model.StringComparisonExp      `json:"vehicle_operating_certificate_photo"`
-	VehiclePicture                    *model.StringComparisonExp      `json:"vehicle_picture"`
-}
-
-// input type for incrementing integer column in table "muck_truck_category_info"
-type MuckTruckCategoryInfoIncInput struct {
-	AxesNumber    *int     `json:"axes_number"`
+// aggregate avg on columns of table "muck_truck_ext"
+type MuckTruckExtAvgFields struct {
 	ID            *int64   `json:"id"`
-	TotalMass     *float64 `json:"total_mass"`
 	VehicleNature *int     `json:"vehicle_nature"`
-}
-
-// input type for inserting data into table "muck_truck_category_info"
-type MuckTruckCategoryInfoInsertInput struct {
-	ActualOwnerContactPhone           *string    `json:"actual_owner_contact_phone"`
-	ActualOwnerIDNumber               *string    `json:"actual_owner_id_number"`
-	ActualOwnerIDPhoto                *string    `json:"actual_owner_id_photo"`
-	ActualOwnerName                   *string    `json:"actual_owner_name"`
-	AnnualInspectionExpirationTime    *time.Time `json:"annual_inspection_expiration_time"`
-	ApplyInspectionTime               *time.Time `json:"apply_inspection_time"`
-	AxesNumber                        *int       `json:"axes_number"`
-	BlacklistDeadline                 *time.Time `json:"blacklist_deadline"`
-	CompulsoryInsurancePolicyPicture  *string    `json:"compulsory_insurance_policy_picture"`
-	CreatedAt                         *time.Time `json:"created_at"`
-	CreatedBy                         *string    `json:"created_by"`
-	DeletedAt                         *time.Time `json:"deleted_at"`
-	DeletedBy                         *string    `json:"deleted_by"`
-	DrivingLicenseContactPhone        *string    `json:"driving_license_contact_phone"`
-	DrivingLicenseIDNumber            *string    `json:"driving_license_id_number"`
-	DrivingLiscenseOwnerIDPhoto       *string    `json:"driving_liscense_owner_id_photo"`
-	EngineNumber                      *string    `json:"engine_number"`
-	ID                                *int64     `json:"id"`
-	IllegalNoticeNumberEndorsement    *string    `json:"illegal_notice_number_endorsement"`
-	IllegalNumberEndorsement          *string    `json:"illegal_number_endorsement"`
-	IncidentNumberEndorsement         *string    `json:"incident_number_endorsement"`
-	InitialRegistrationDate           *time.Time `json:"initial_registration_date"`
-	InsuranceExpiryTime               *time.Time `json:"insurance_expiry_time"`
-	IsBlacklist                       *bool      `json:"is_blacklist"`
-	IsDelete                          *bool      `json:"is_delete"`
-	IsDueSecurityAlarmProcessing      *bool      `json:"is_due_security_alarm_processing"`
-	IsFirstRegister                   *bool      `json:"is_first_register"`
-	IsMuckOfficeAudit                 *bool      `json:"is_muck_office_audit"`
-	IsSendSms                         *bool      `json:"is_send_sms"`
-	IssueDateOfQuangongNumber         *time.Time `json:"issue_date_of_quangong_number"`
-	OwnerIDPhoto                      *string    `json:"owner_id_photo"`
-	ProcessingNotes                   *string    `json:"processing_notes"`
-	ProcessingTime                    *time.Time `json:"processing_time"`
-	Processor                         *string    `json:"processor"`
-	ReviewNotes                       *string    `json:"review_notes"`
-	ReviewStatus                      *string    `json:"review_status"`
-	ReviewTime                        *time.Time `json:"review_time"`
-	Reviewer                          *string    `json:"reviewer"`
-	SecondaryMaintenanceExpiryDate    *time.Time `json:"secondary_maintenance_expiry_date"`
-	SecondaryMaintenanceLocation      *string    `json:"secondary_maintenance_location"`
-	SigningAcceptanceApplicationTime  *time.Time `json:"signing_acceptance_application_time"`
-	ThirdPartyInsuranceCoverage       *string    `json:"third_party_insurance_coverage"`
-	ThirdPartyInsuranceExpiryTime     *time.Time `json:"third_party_insurance_expiry_time"`
-	ThirdPartyInsurancePolicyPicture  *string    `json:"third_party_insurance_policy_picture"`
-	TotalMass                         *float64   `json:"total_mass"`
-	UpdatedAt                         *time.Time `json:"updated_at"`
-	UpdatedBy                         *string    `json:"updated_by"`
-	VehicleDescription                *string    `json:"vehicle_description"`
-	VehicleID                         *string    `json:"vehicle_id"`
-	VehicleNature                     *int       `json:"vehicle_nature"`
-	VehicleOperatingCertificateNumber *string    `json:"vehicle_operating_certificate_number"`
-	VehicleOperatingCertificatePhoto  *string    `json:"vehicle_operating_certificate_photo"`
-	VehiclePicture                    *string    `json:"vehicle_picture"`
-}
-
-// aggregate max on columns
-type MuckTruckCategoryInfoMaxFields struct {
-	ActualOwnerContactPhone           *string    `json:"actual_owner_contact_phone"`
-	ActualOwnerIDNumber               *string    `json:"actual_owner_id_number"`
-	ActualOwnerIDPhoto                *string    `json:"actual_owner_id_photo"`
-	ActualOwnerName                   *string    `json:"actual_owner_name"`
-	AnnualInspectionExpirationTime    *time.Time `json:"annual_inspection_expiration_time"`
-	ApplyInspectionTime               *time.Time `json:"apply_inspection_time"`
-	AxesNumber                        *int       `json:"axes_number"`
-	BlacklistDeadline                 *time.Time `json:"blacklist_deadline"`
-	CompulsoryInsurancePolicyPicture  *string    `json:"compulsory_insurance_policy_picture"`
-	CreatedAt                         *time.Time `json:"created_at"`
-	CreatedBy                         *string    `json:"created_by"`
-	DeletedAt                         *time.Time `json:"deleted_at"`
-	DeletedBy                         *string    `json:"deleted_by"`
-	DrivingLicenseContactPhone        *string    `json:"driving_license_contact_phone"`
-	DrivingLicenseIDNumber            *string    `json:"driving_license_id_number"`
-	DrivingLiscenseOwnerIDPhoto       *string    `json:"driving_liscense_owner_id_photo"`
-	EngineNumber                      *string    `json:"engine_number"`
-	ID                                *int64     `json:"id"`
-	IllegalNoticeNumberEndorsement    *string    `json:"illegal_notice_number_endorsement"`
-	IllegalNumberEndorsement          *string    `json:"illegal_number_endorsement"`
-	IncidentNumberEndorsement         *string    `json:"incident_number_endorsement"`
-	InitialRegistrationDate           *time.Time `json:"initial_registration_date"`
-	InsuranceExpiryTime               *time.Time `json:"insurance_expiry_time"`
-	IssueDateOfQuangongNumber         *time.Time `json:"issue_date_of_quangong_number"`
-	OwnerIDPhoto                      *string    `json:"owner_id_photo"`
-	ProcessingNotes                   *string    `json:"processing_notes"`
-	ProcessingTime                    *time.Time `json:"processing_time"`
-	Processor                         *string    `json:"processor"`
-	ReviewNotes                       *string    `json:"review_notes"`
-	ReviewStatus                      *string    `json:"review_status"`
-	ReviewTime                        *time.Time `json:"review_time"`
-	Reviewer                          *string    `json:"reviewer"`
-	SecondaryMaintenanceExpiryDate    *time.Time `json:"secondary_maintenance_expiry_date"`
-	SecondaryMaintenanceLocation      *string    `json:"secondary_maintenance_location"`
-	SigningAcceptanceApplicationTime  *time.Time `json:"signing_acceptance_application_time"`
-	ThirdPartyInsuranceCoverage       *string    `json:"third_party_insurance_coverage"`
-	ThirdPartyInsuranceExpiryTime     *time.Time `json:"third_party_insurance_expiry_time"`
-	ThirdPartyInsurancePolicyPicture  *string    `json:"third_party_insurance_policy_picture"`
-	TotalMass                         *float64   `json:"total_mass"`
-	UpdatedAt                         *time.Time `json:"updated_at"`
-	UpdatedBy                         *string    `json:"updated_by"`
-	VehicleDescription                *string    `json:"vehicle_description"`
-	VehicleID                         *string    `json:"vehicle_id"`
-	VehicleNature                     *int       `json:"vehicle_nature"`
-	VehicleOperatingCertificateNumber *string    `json:"vehicle_operating_certificate_number"`
-	VehicleOperatingCertificatePhoto  *string    `json:"vehicle_operating_certificate_photo"`
-	VehiclePicture                    *string    `json:"vehicle_picture"`
-}
-
-// order by max() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoMaxOrderBy struct {
-	ActualOwnerContactPhone           *model.OrderBy `json:"actual_owner_contact_phone"`
-	ActualOwnerIDNumber               *model.OrderBy `json:"actual_owner_id_number"`
-	ActualOwnerIDPhoto                *model.OrderBy `json:"actual_owner_id_photo"`
-	ActualOwnerName                   *model.OrderBy `json:"actual_owner_name"`
-	AnnualInspectionExpirationTime    *model.OrderBy `json:"annual_inspection_expiration_time"`
-	ApplyInspectionTime               *model.OrderBy `json:"apply_inspection_time"`
-	AxesNumber                        *model.OrderBy `json:"axes_number"`
-	BlacklistDeadline                 *model.OrderBy `json:"blacklist_deadline"`
-	CompulsoryInsurancePolicyPicture  *model.OrderBy `json:"compulsory_insurance_policy_picture"`
-	CreatedAt                         *model.OrderBy `json:"created_at"`
-	CreatedBy                         *model.OrderBy `json:"created_by"`
-	DeletedAt                         *model.OrderBy `json:"deleted_at"`
-	DeletedBy                         *model.OrderBy `json:"deleted_by"`
-	DrivingLicenseContactPhone        *model.OrderBy `json:"driving_license_contact_phone"`
-	DrivingLicenseIDNumber            *model.OrderBy `json:"driving_license_id_number"`
-	DrivingLiscenseOwnerIDPhoto       *model.OrderBy `json:"driving_liscense_owner_id_photo"`
-	EngineNumber                      *model.OrderBy `json:"engine_number"`
-	ID                                *model.OrderBy `json:"id"`
-	IllegalNoticeNumberEndorsement    *model.OrderBy `json:"illegal_notice_number_endorsement"`
-	IllegalNumberEndorsement          *model.OrderBy `json:"illegal_number_endorsement"`
-	IncidentNumberEndorsement         *model.OrderBy `json:"incident_number_endorsement"`
-	InitialRegistrationDate           *model.OrderBy `json:"initial_registration_date"`
-	InsuranceExpiryTime               *model.OrderBy `json:"insurance_expiry_time"`
-	IssueDateOfQuangongNumber         *model.OrderBy `json:"issue_date_of_quangong_number"`
-	OwnerIDPhoto                      *model.OrderBy `json:"owner_id_photo"`
-	ProcessingNotes                   *model.OrderBy `json:"processing_notes"`
-	ProcessingTime                    *model.OrderBy `json:"processing_time"`
-	Processor                         *model.OrderBy `json:"processor"`
-	ReviewNotes                       *model.OrderBy `json:"review_notes"`
-	ReviewStatus                      *model.OrderBy `json:"review_status"`
-	ReviewTime                        *model.OrderBy `json:"review_time"`
-	Reviewer                          *model.OrderBy `json:"reviewer"`
-	SecondaryMaintenanceExpiryDate    *model.OrderBy `json:"secondary_maintenance_expiry_date"`
-	SecondaryMaintenanceLocation      *model.OrderBy `json:"secondary_maintenance_location"`
-	SigningAcceptanceApplicationTime  *model.OrderBy `json:"signing_acceptance_application_time"`
-	ThirdPartyInsuranceCoverage       *model.OrderBy `json:"third_party_insurance_coverage"`
-	ThirdPartyInsuranceExpiryTime     *model.OrderBy `json:"third_party_insurance_expiry_time"`
-	ThirdPartyInsurancePolicyPicture  *model.OrderBy `json:"third_party_insurance_policy_picture"`
-	TotalMass                         *model.OrderBy `json:"total_mass"`
-	UpdatedAt                         *model.OrderBy `json:"updated_at"`
-	UpdatedBy                         *model.OrderBy `json:"updated_by"`
-	VehicleDescription                *model.OrderBy `json:"vehicle_description"`
-	VehicleID                         *model.OrderBy `json:"vehicle_id"`
-	VehicleNature                     *model.OrderBy `json:"vehicle_nature"`
-	VehicleOperatingCertificateNumber *model.OrderBy `json:"vehicle_operating_certificate_number"`
-	VehicleOperatingCertificatePhoto  *model.OrderBy `json:"vehicle_operating_certificate_photo"`
-	VehiclePicture                    *model.OrderBy `json:"vehicle_picture"`
-}
-
-// aggregate min on columns
-type MuckTruckCategoryInfoMinFields struct {
-	ActualOwnerContactPhone           *string    `json:"actual_owner_contact_phone"`
-	ActualOwnerIDNumber               *string    `json:"actual_owner_id_number"`
-	ActualOwnerIDPhoto                *string    `json:"actual_owner_id_photo"`
-	ActualOwnerName                   *string    `json:"actual_owner_name"`
-	AnnualInspectionExpirationTime    *time.Time `json:"annual_inspection_expiration_time"`
-	ApplyInspectionTime               *time.Time `json:"apply_inspection_time"`
-	AxesNumber                        *int       `json:"axes_number"`
-	BlacklistDeadline                 *time.Time `json:"blacklist_deadline"`
-	CompulsoryInsurancePolicyPicture  *string    `json:"compulsory_insurance_policy_picture"`
-	CreatedAt                         *time.Time `json:"created_at"`
-	CreatedBy                         *string    `json:"created_by"`
-	DeletedAt                         *time.Time `json:"deleted_at"`
-	DeletedBy                         *string    `json:"deleted_by"`
-	DrivingLicenseContactPhone        *string    `json:"driving_license_contact_phone"`
-	DrivingLicenseIDNumber            *string    `json:"driving_license_id_number"`
-	DrivingLiscenseOwnerIDPhoto       *string    `json:"driving_liscense_owner_id_photo"`
-	EngineNumber                      *string    `json:"engine_number"`
-	ID                                *int64     `json:"id"`
-	IllegalNoticeNumberEndorsement    *string    `json:"illegal_notice_number_endorsement"`
-	IllegalNumberEndorsement          *string    `json:"illegal_number_endorsement"`
-	IncidentNumberEndorsement         *string    `json:"incident_number_endorsement"`
-	InitialRegistrationDate           *time.Time `json:"initial_registration_date"`
-	InsuranceExpiryTime               *time.Time `json:"insurance_expiry_time"`
-	IssueDateOfQuangongNumber         *time.Time `json:"issue_date_of_quangong_number"`
-	OwnerIDPhoto                      *string    `json:"owner_id_photo"`
-	ProcessingNotes                   *string    `json:"processing_notes"`
-	ProcessingTime                    *time.Time `json:"processing_time"`
-	Processor                         *string    `json:"processor"`
-	ReviewNotes                       *string    `json:"review_notes"`
-	ReviewStatus                      *string    `json:"review_status"`
-	ReviewTime                        *time.Time `json:"review_time"`
-	Reviewer                          *string    `json:"reviewer"`
-	SecondaryMaintenanceExpiryDate    *time.Time `json:"secondary_maintenance_expiry_date"`
-	SecondaryMaintenanceLocation      *string    `json:"secondary_maintenance_location"`
-	SigningAcceptanceApplicationTime  *time.Time `json:"signing_acceptance_application_time"`
-	ThirdPartyInsuranceCoverage       *string    `json:"third_party_insurance_coverage"`
-	ThirdPartyInsuranceExpiryTime     *time.Time `json:"third_party_insurance_expiry_time"`
-	ThirdPartyInsurancePolicyPicture  *string    `json:"third_party_insurance_policy_picture"`
-	TotalMass                         *float64   `json:"total_mass"`
-	UpdatedAt                         *time.Time `json:"updated_at"`
-	UpdatedBy                         *string    `json:"updated_by"`
-	VehicleDescription                *string    `json:"vehicle_description"`
-	VehicleID                         *string    `json:"vehicle_id"`
-	VehicleNature                     *int       `json:"vehicle_nature"`
-	VehicleOperatingCertificateNumber *string    `json:"vehicle_operating_certificate_number"`
-	VehicleOperatingCertificatePhoto  *string    `json:"vehicle_operating_certificate_photo"`
-	VehiclePicture                    *string    `json:"vehicle_picture"`
-}
-
-// order by min() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoMinOrderBy struct {
-	ActualOwnerContactPhone           *model.OrderBy `json:"actual_owner_contact_phone"`
-	ActualOwnerIDNumber               *model.OrderBy `json:"actual_owner_id_number"`
-	ActualOwnerIDPhoto                *model.OrderBy `json:"actual_owner_id_photo"`
-	ActualOwnerName                   *model.OrderBy `json:"actual_owner_name"`
-	AnnualInspectionExpirationTime    *model.OrderBy `json:"annual_inspection_expiration_time"`
-	ApplyInspectionTime               *model.OrderBy `json:"apply_inspection_time"`
-	AxesNumber                        *model.OrderBy `json:"axes_number"`
-	BlacklistDeadline                 *model.OrderBy `json:"blacklist_deadline"`
-	CompulsoryInsurancePolicyPicture  *model.OrderBy `json:"compulsory_insurance_policy_picture"`
-	CreatedAt                         *model.OrderBy `json:"created_at"`
-	CreatedBy                         *model.OrderBy `json:"created_by"`
-	DeletedAt                         *model.OrderBy `json:"deleted_at"`
-	DeletedBy                         *model.OrderBy `json:"deleted_by"`
-	DrivingLicenseContactPhone        *model.OrderBy `json:"driving_license_contact_phone"`
-	DrivingLicenseIDNumber            *model.OrderBy `json:"driving_license_id_number"`
-	DrivingLiscenseOwnerIDPhoto       *model.OrderBy `json:"driving_liscense_owner_id_photo"`
-	EngineNumber                      *model.OrderBy `json:"engine_number"`
-	ID                                *model.OrderBy `json:"id"`
-	IllegalNoticeNumberEndorsement    *model.OrderBy `json:"illegal_notice_number_endorsement"`
-	IllegalNumberEndorsement          *model.OrderBy `json:"illegal_number_endorsement"`
-	IncidentNumberEndorsement         *model.OrderBy `json:"incident_number_endorsement"`
-	InitialRegistrationDate           *model.OrderBy `json:"initial_registration_date"`
-	InsuranceExpiryTime               *model.OrderBy `json:"insurance_expiry_time"`
-	IssueDateOfQuangongNumber         *model.OrderBy `json:"issue_date_of_quangong_number"`
-	OwnerIDPhoto                      *model.OrderBy `json:"owner_id_photo"`
-	ProcessingNotes                   *model.OrderBy `json:"processing_notes"`
-	ProcessingTime                    *model.OrderBy `json:"processing_time"`
-	Processor                         *model.OrderBy `json:"processor"`
-	ReviewNotes                       *model.OrderBy `json:"review_notes"`
-	ReviewStatus                      *model.OrderBy `json:"review_status"`
-	ReviewTime                        *model.OrderBy `json:"review_time"`
-	Reviewer                          *model.OrderBy `json:"reviewer"`
-	SecondaryMaintenanceExpiryDate    *model.OrderBy `json:"secondary_maintenance_expiry_date"`
-	SecondaryMaintenanceLocation      *model.OrderBy `json:"secondary_maintenance_location"`
-	SigningAcceptanceApplicationTime  *model.OrderBy `json:"signing_acceptance_application_time"`
-	ThirdPartyInsuranceCoverage       *model.OrderBy `json:"third_party_insurance_coverage"`
-	ThirdPartyInsuranceExpiryTime     *model.OrderBy `json:"third_party_insurance_expiry_time"`
-	ThirdPartyInsurancePolicyPicture  *model.OrderBy `json:"third_party_insurance_policy_picture"`
-	TotalMass                         *model.OrderBy `json:"total_mass"`
-	UpdatedAt                         *model.OrderBy `json:"updated_at"`
-	UpdatedBy                         *model.OrderBy `json:"updated_by"`
-	VehicleDescription                *model.OrderBy `json:"vehicle_description"`
-	VehicleID                         *model.OrderBy `json:"vehicle_id"`
-	VehicleNature                     *model.OrderBy `json:"vehicle_nature"`
-	VehicleOperatingCertificateNumber *model.OrderBy `json:"vehicle_operating_certificate_number"`
-	VehicleOperatingCertificatePhoto  *model.OrderBy `json:"vehicle_operating_certificate_photo"`
-	VehiclePicture                    *model.OrderBy `json:"vehicle_picture"`
-}
-
-// response of any mutation on the table "muck_truck_category_info"
-type MuckTruckCategoryInfoMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*MuckTruckCategoryInfo `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "muck_truck_category_info"
-type MuckTruckCategoryInfoObjRelInsertInput struct {
-	Data       *MuckTruckCategoryInfoInsertInput `json:"data"`
-	OnConflict *MuckTruckCategoryInfoOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "muck_truck_category_info"
-type MuckTruckCategoryInfoOnConflict struct {
-	Constraint    MuckTruckCategoryInfoConstraint     `json:"constraint"`
-	UpdateColumns []MuckTruckCategoryInfoUpdateColumn `json:"update_columns"`
-	Where         *MuckTruckCategoryInfoBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "muck_truck_category_info"
-type MuckTruckCategoryInfoOrderBy struct {
-	ActualOwnerContactPhone           *model.OrderBy `json:"actual_owner_contact_phone"`
-	ActualOwnerIDNumber               *model.OrderBy `json:"actual_owner_id_number"`
-	ActualOwnerIDPhoto                *model.OrderBy `json:"actual_owner_id_photo"`
-	ActualOwnerName                   *model.OrderBy `json:"actual_owner_name"`
-	AnnualInspectionExpirationTime    *model.OrderBy `json:"annual_inspection_expiration_time"`
-	ApplyInspectionTime               *model.OrderBy `json:"apply_inspection_time"`
-	AxesNumber                        *model.OrderBy `json:"axes_number"`
-	BlacklistDeadline                 *model.OrderBy `json:"blacklist_deadline"`
-	CompulsoryInsurancePolicyPicture  *model.OrderBy `json:"compulsory_insurance_policy_picture"`
-	CreatedAt                         *model.OrderBy `json:"created_at"`
-	CreatedBy                         *model.OrderBy `json:"created_by"`
-	DeletedAt                         *model.OrderBy `json:"deleted_at"`
-	DeletedBy                         *model.OrderBy `json:"deleted_by"`
-	DrivingLicenseContactPhone        *model.OrderBy `json:"driving_license_contact_phone"`
-	DrivingLicenseIDNumber            *model.OrderBy `json:"driving_license_id_number"`
-	DrivingLiscenseOwnerIDPhoto       *model.OrderBy `json:"driving_liscense_owner_id_photo"`
-	EngineNumber                      *model.OrderBy `json:"engine_number"`
-	ID                                *model.OrderBy `json:"id"`
-	IllegalNoticeNumberEndorsement    *model.OrderBy `json:"illegal_notice_number_endorsement"`
-	IllegalNumberEndorsement          *model.OrderBy `json:"illegal_number_endorsement"`
-	IncidentNumberEndorsement         *model.OrderBy `json:"incident_number_endorsement"`
-	InitialRegistrationDate           *model.OrderBy `json:"initial_registration_date"`
-	InsuranceExpiryTime               *model.OrderBy `json:"insurance_expiry_time"`
-	IsBlacklist                       *model.OrderBy `json:"is_blacklist"`
-	IsDelete                          *model.OrderBy `json:"is_delete"`
-	IsDueSecurityAlarmProcessing      *model.OrderBy `json:"is_due_security_alarm_processing"`
-	IsFirstRegister                   *model.OrderBy `json:"is_first_register"`
-	IsMuckOfficeAudit                 *model.OrderBy `json:"is_muck_office_audit"`
-	IsSendSms                         *model.OrderBy `json:"is_send_sms"`
-	IssueDateOfQuangongNumber         *model.OrderBy `json:"issue_date_of_quangong_number"`
-	OwnerIDPhoto                      *model.OrderBy `json:"owner_id_photo"`
-	ProcessingNotes                   *model.OrderBy `json:"processing_notes"`
-	ProcessingTime                    *model.OrderBy `json:"processing_time"`
-	Processor                         *model.OrderBy `json:"processor"`
-	ReviewNotes                       *model.OrderBy `json:"review_notes"`
-	ReviewStatus                      *model.OrderBy `json:"review_status"`
-	ReviewTime                        *model.OrderBy `json:"review_time"`
-	Reviewer                          *model.OrderBy `json:"reviewer"`
-	SecondaryMaintenanceExpiryDate    *model.OrderBy `json:"secondary_maintenance_expiry_date"`
-	SecondaryMaintenanceLocation      *model.OrderBy `json:"secondary_maintenance_location"`
-	SigningAcceptanceApplicationTime  *model.OrderBy `json:"signing_acceptance_application_time"`
-	ThirdPartyInsuranceCoverage       *model.OrderBy `json:"third_party_insurance_coverage"`
-	ThirdPartyInsuranceExpiryTime     *model.OrderBy `json:"third_party_insurance_expiry_time"`
-	ThirdPartyInsurancePolicyPicture  *model.OrderBy `json:"third_party_insurance_policy_picture"`
-	TotalMass                         *model.OrderBy `json:"total_mass"`
-	UpdatedAt                         *model.OrderBy `json:"updated_at"`
-	UpdatedBy                         *model.OrderBy `json:"updated_by"`
-	VehicleDescription                *model.OrderBy `json:"vehicle_description"`
-	VehicleID                         *model.OrderBy `json:"vehicle_id"`
-	VehicleNature                     *model.OrderBy `json:"vehicle_nature"`
-	VehicleOperatingCertificateNumber *model.OrderBy `json:"vehicle_operating_certificate_number"`
-	VehicleOperatingCertificatePhoto  *model.OrderBy `json:"vehicle_operating_certificate_photo"`
-	VehiclePicture                    *model.OrderBy `json:"vehicle_picture"`
-}
-
-// primary key columns input for table: "muck_truck_category_info"
-type MuckTruckCategoryInfoPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "muck_truck_category_info"
-type MuckTruckCategoryInfoSetInput struct {
-	ActualOwnerContactPhone           *string    `json:"actual_owner_contact_phone"`
-	ActualOwnerIDNumber               *string    `json:"actual_owner_id_number"`
-	ActualOwnerIDPhoto                *string    `json:"actual_owner_id_photo"`
-	ActualOwnerName                   *string    `json:"actual_owner_name"`
-	AnnualInspectionExpirationTime    *time.Time `json:"annual_inspection_expiration_time"`
-	ApplyInspectionTime               *time.Time `json:"apply_inspection_time"`
-	AxesNumber                        *int       `json:"axes_number"`
-	BlacklistDeadline                 *time.Time `json:"blacklist_deadline"`
-	CompulsoryInsurancePolicyPicture  *string    `json:"compulsory_insurance_policy_picture"`
-	CreatedAt                         *time.Time `json:"created_at"`
-	CreatedBy                         *string    `json:"created_by"`
-	DeletedAt                         *time.Time `json:"deleted_at"`
-	DeletedBy                         *string    `json:"deleted_by"`
-	DrivingLicenseContactPhone        *string    `json:"driving_license_contact_phone"`
-	DrivingLicenseIDNumber            *string    `json:"driving_license_id_number"`
-	DrivingLiscenseOwnerIDPhoto       *string    `json:"driving_liscense_owner_id_photo"`
-	EngineNumber                      *string    `json:"engine_number"`
-	ID                                *int64     `json:"id"`
-	IllegalNoticeNumberEndorsement    *string    `json:"illegal_notice_number_endorsement"`
-	IllegalNumberEndorsement          *string    `json:"illegal_number_endorsement"`
-	IncidentNumberEndorsement         *string    `json:"incident_number_endorsement"`
-	InitialRegistrationDate           *time.Time `json:"initial_registration_date"`
-	InsuranceExpiryTime               *time.Time `json:"insurance_expiry_time"`
-	IsBlacklist                       *bool      `json:"is_blacklist"`
-	IsDelete                          *bool      `json:"is_delete"`
-	IsDueSecurityAlarmProcessing      *bool      `json:"is_due_security_alarm_processing"`
-	IsFirstRegister                   *bool      `json:"is_first_register"`
-	IsMuckOfficeAudit                 *bool      `json:"is_muck_office_audit"`
-	IsSendSms                         *bool      `json:"is_send_sms"`
-	IssueDateOfQuangongNumber         *time.Time `json:"issue_date_of_quangong_number"`
-	OwnerIDPhoto                      *string    `json:"owner_id_photo"`
-	ProcessingNotes                   *string    `json:"processing_notes"`
-	ProcessingTime                    *time.Time `json:"processing_time"`
-	Processor                         *string    `json:"processor"`
-	ReviewNotes                       *string    `json:"review_notes"`
-	ReviewStatus                      *string    `json:"review_status"`
-	ReviewTime                        *time.Time `json:"review_time"`
-	Reviewer                          *string    `json:"reviewer"`
-	SecondaryMaintenanceExpiryDate    *time.Time `json:"secondary_maintenance_expiry_date"`
-	SecondaryMaintenanceLocation      *string    `json:"secondary_maintenance_location"`
-	SigningAcceptanceApplicationTime  *time.Time `json:"signing_acceptance_application_time"`
-	ThirdPartyInsuranceCoverage       *string    `json:"third_party_insurance_coverage"`
-	ThirdPartyInsuranceExpiryTime     *time.Time `json:"third_party_insurance_expiry_time"`
-	ThirdPartyInsurancePolicyPicture  *string    `json:"third_party_insurance_policy_picture"`
-	TotalMass                         *float64   `json:"total_mass"`
-	UpdatedAt                         *time.Time `json:"updated_at"`
-	UpdatedBy                         *string    `json:"updated_by"`
-	VehicleDescription                *string    `json:"vehicle_description"`
-	VehicleID                         *string    `json:"vehicle_id"`
-	VehicleNature                     *int       `json:"vehicle_nature"`
-	VehicleOperatingCertificateNumber *string    `json:"vehicle_operating_certificate_number"`
-	VehicleOperatingCertificatePhoto  *string    `json:"vehicle_operating_certificate_photo"`
-	VehiclePicture                    *string    `json:"vehicle_picture"`
-}
-
-// aggregate stddev on columns
-type MuckTruckCategoryInfoStddevFields struct {
-	AxesNumber    *float64 `json:"axes_number"`
-	ID            *float64 `json:"id"`
 	TotalMass     *float64 `json:"total_mass"`
-	VehicleNature *float64 `json:"vehicle_nature"`
-}
-
-// order by stddev() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoStddevOrderBy struct {
-	AxesNumber    *model.OrderBy `json:"axes_number"`
-	ID            *model.OrderBy `json:"id"`
-	TotalMass     *model.OrderBy `json:"total_mass"`
-	VehicleNature *model.OrderBy `json:"vehicle_nature"`
-}
-
-// aggregate stddev_pop on columns
-type MuckTruckCategoryInfoStddevPopFields struct {
-	AxesNumber    *float64 `json:"axes_number"`
-	ID            *float64 `json:"id"`
-	TotalMass     *float64 `json:"total_mass"`
-	VehicleNature *float64 `json:"vehicle_nature"`
-}
-
-// order by stddev_pop() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoStddevPopOrderBy struct {
-	AxesNumber    *model.OrderBy `json:"axes_number"`
-	ID            *model.OrderBy `json:"id"`
-	TotalMass     *model.OrderBy `json:"total_mass"`
-	VehicleNature *model.OrderBy `json:"vehicle_nature"`
-}
-
-// aggregate stddev_samp on columns
-type MuckTruckCategoryInfoStddevSampFields struct {
-	AxesNumber    *float64 `json:"axes_number"`
-	ID            *float64 `json:"id"`
-	TotalMass     *float64 `json:"total_mass"`
-	VehicleNature *float64 `json:"vehicle_nature"`
-}
-
-// order by stddev_samp() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoStddevSampOrderBy struct {
-	AxesNumber    *model.OrderBy `json:"axes_number"`
-	ID            *model.OrderBy `json:"id"`
-	TotalMass     *model.OrderBy `json:"total_mass"`
-	VehicleNature *model.OrderBy `json:"vehicle_nature"`
-}
-
-// aggregate sum on columns
-type MuckTruckCategoryInfoSumFields struct {
 	AxesNumber    *int     `json:"axes_number"`
+	AreaID        *int64   `json:"area_id"`
+	MuckTruckType *int     `json:"muck_truck_type"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_ext'.
+type MuckTruckExtBoolExp struct {
+	And                                  []*MuckTruckExtBoolExp          `json:"_and"`
+	Not                                  *MuckTruckExtBoolExp            `json:"_not"`
+	Or                                   []*MuckTruckExtBoolExp          `json:"_or"`
+	ID                                   *model.BigintComparisonExp      `json:"id"`
+	VehicleID                            *model.StringComparisonExp      `json:"vehicle_id"`
+	VehiclePicture                       *model.StringComparisonExp      `json:"vehicle_picture"`
+	EngineNumber                         *model.StringComparisonExp      `json:"engine_number"`
+	ReviewTime                           *model.TimestamptzComparisonExp `json:"review_time"`
+	Reviewer                             *model.StringComparisonExp      `json:"reviewer"`
+	ReviewNotes                          *model.StringComparisonExp      `json:"review_notes"`
+	ReviewStatus                         *model.StringComparisonExp      `json:"review_status"`
+	InsuranceExpiryTime                  *model.TimestamptzComparisonExp `json:"insurance_expiry_time"`
+	AnnualInspectionExpirationTime       *model.TimestamptzComparisonExp `json:"annual_inspection_expiration_time"`
+	VehicleDescription                   *model.StringComparisonExp      `json:"vehicle_description"`
+	DrivingLicenseIDNumber               *model.StringComparisonExp      `json:"driving_license_id_number"`
+	DrivingLicenseContactPhone           *model.StringComparisonExp      `json:"driving_license_contact_phone"`
+	IsDueSecurityAlarmProcessing         *model.BooleanComparisonExp     `json:"is_due_security_alarm_processing"`
+	Processor                            *model.StringComparisonExp      `json:"processor"`
+	ProcessingTime                       *model.TimestamptzComparisonExp `json:"processing_time"`
+	ProcessingNotes                      *model.StringComparisonExp      `json:"processing_notes"`
+	IsSendSms                            *model.BooleanComparisonExp     `json:"is_send_sms"`
+	IsBlacklist                          *model.BooleanComparisonExp     `json:"is_blacklist"`
+	BlacklistDeadline                    *model.TimestamptzComparisonExp `json:"blacklist_deadline"`
+	CompulsoryTrafficInsuranceExpiryDate *model.TimestamptzComparisonExp `json:"compulsory_traffic_insurance_expiry_date"`
+	OwnerIDPhoto                         *model.StringComparisonExp      `json:"owner_id_photo"`
+	VehicleNature                        *model.IntComparisonExp         `json:"vehicle_nature"`
+	ActualOwnerName                      *model.StringComparisonExp      `json:"actual_owner_name"`
+	ActualOwnerIDNumber                  *model.StringComparisonExp      `json:"actual_owner_id_number"`
+	ActualOwnerIDPhoto                   *model.StringComparisonExp      `json:"actual_owner_id_photo"`
+	ActualOwnerContactPhone              *model.StringComparisonExp      `json:"actual_owner_contact_phone"`
+	IllegalNumberEndorsement             *model.StringComparisonExp      `json:"illegal_number_endorsement"`
+	IllegalNoticeNumberEndorsement       *model.StringComparisonExp      `json:"illegal_notice_number_endorsement"`
+	IllegalCompulsoryMeasuresNumber      *model.StringComparisonExp      `json:"illegal_compulsory_measures_number"`
+	IncidentNumberEndorsement            *model.StringComparisonExp      `json:"incident_number_endorsement"`
+	IsMuckOfficeAudit                    *model.BooleanComparisonExp     `json:"is_muck_office_audit"`
+	IsFirstRegister                      *model.BooleanComparisonExp     `json:"is_first_register"`
+	SecondaryMaintenanceLocation         *model.StringComparisonExp      `json:"secondary_maintenance_location"`
+	SecondaryMaintenanceExpiryDate       *model.TimestamptzComparisonExp `json:"secondary_maintenance_expiry_date"`
+	TotalMass                            *model.NumericComparisonExp     `json:"total_mass"`
+	AxesNumber                           *model.IntComparisonExp         `json:"axes_number"`
+	DrivingLiscenseOwnerIDPhoto          *model.StringComparisonExp      `json:"driving_liscense_owner_id_photo"`
+	InitialRegistrationDate              *model.TimestamptzComparisonExp `json:"initial_registration_date"`
+	VehicleOperatingCertificateNumber    *model.StringComparisonExp      `json:"vehicle_operating_certificate_number"`
+	VehicleOperatingCertificatePhoto     *model.StringComparisonExp      `json:"vehicle_operating_certificate_photo"`
+	IssueDateOfQuangongNumber            *model.TimestamptzComparisonExp `json:"issue_date_of_quangong_number"`
+	ApplyInspectionTime                  *model.TimestamptzComparisonExp `json:"apply_inspection_time"`
+	SigningAcceptanceApplicationTime     *model.TimestamptzComparisonExp `json:"signing_acceptance_application_time"`
+	ThirdPartyInsuranceExpiryTime        *model.TimestamptzComparisonExp `json:"third_party_insurance_expiry_time"`
+	ThirdPartyInsuranceCoverage          *model.StringComparisonExp      `json:"third_party_insurance_coverage"`
+	ThirdPartyInsurancePolicyPicture     *model.StringComparisonExp      `json:"third_party_insurance_policy_picture"`
+	CompulsoryInsurancePolicyPicture     *model.StringComparisonExp      `json:"compulsory_insurance_policy_picture"`
+	IsDeleted                            *model.BooleanComparisonExp     `json:"is_deleted"`
+	SimCardNumber                        *model.StringComparisonExp      `json:"sim_card_number"`
+	RegistrationDate                     *model.TimestamptzComparisonExp `json:"registration_date"`
+	AreaID                               *model.BigintComparisonExp      `json:"area_id"`
+	ExpiryDate                           *model.TimestamptzComparisonExp `json:"expiry_date"`
+	MuckTruckType                        *model.IntComparisonExp         `json:"muck_truck_type"`
+	IsReserveLibrary                     *model.BooleanComparisonExp     `json:"is_reserve_library"`
+	SelfNumber                           *model.StringComparisonExp      `json:"self_number"`
+	MobileCardLocation                   *model.StringComparisonExp      `json:"mobile_card_location"`
+	LoadCategory                         *model.StringComparisonExp      `json:"load_category"`
+	CreatedAt                            *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                            *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt                            *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                            *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt                            *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                            *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "muck_truck_ext"
+type MuckTruckExtIncInput struct {
 	ID            *int64   `json:"id"`
-	TotalMass     *float64 `json:"total_mass"`
 	VehicleNature *int     `json:"vehicle_nature"`
-}
-
-// order by sum() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoSumOrderBy struct {
-	AxesNumber    *model.OrderBy `json:"axes_number"`
-	ID            *model.OrderBy `json:"id"`
-	TotalMass     *model.OrderBy `json:"total_mass"`
-	VehicleNature *model.OrderBy `json:"vehicle_nature"`
-}
-
-// aggregate var_pop on columns
-type MuckTruckCategoryInfoVarPopFields struct {
-	AxesNumber    *float64 `json:"axes_number"`
-	ID            *float64 `json:"id"`
 	TotalMass     *float64 `json:"total_mass"`
-	VehicleNature *float64 `json:"vehicle_nature"`
+	AxesNumber    *int     `json:"axes_number"`
+	AreaID        *int64   `json:"area_id"`
+	MuckTruckType *int     `json:"muck_truck_type"`
 }
 
-// order by var_pop() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoVarPopOrderBy struct {
-	AxesNumber    *model.OrderBy `json:"axes_number"`
-	ID            *model.OrderBy `json:"id"`
-	TotalMass     *model.OrderBy `json:"total_mass"`
-	VehicleNature *model.OrderBy `json:"vehicle_nature"`
+// input type for inserting data into table "muck_truck_ext"
+type MuckTruckExtInsertInput struct {
+	ID                                   *int64     `json:"id"`
+	VehicleID                            *string    `json:"vehicle_id"`
+	VehiclePicture                       *string    `json:"vehicle_picture"`
+	EngineNumber                         *string    `json:"engine_number"`
+	ReviewTime                           *time.Time `json:"review_time"`
+	Reviewer                             *string    `json:"reviewer"`
+	ReviewNotes                          *string    `json:"review_notes"`
+	ReviewStatus                         *string    `json:"review_status"`
+	InsuranceExpiryTime                  *time.Time `json:"insurance_expiry_time"`
+	AnnualInspectionExpirationTime       *time.Time `json:"annual_inspection_expiration_time"`
+	VehicleDescription                   *string    `json:"vehicle_description"`
+	DrivingLicenseIDNumber               *string    `json:"driving_license_id_number"`
+	DrivingLicenseContactPhone           *string    `json:"driving_license_contact_phone"`
+	IsDueSecurityAlarmProcessing         *bool      `json:"is_due_security_alarm_processing"`
+	Processor                            *string    `json:"processor"`
+	ProcessingTime                       *time.Time `json:"processing_time"`
+	ProcessingNotes                      *string    `json:"processing_notes"`
+	IsSendSms                            *bool      `json:"is_send_sms"`
+	IsBlacklist                          *bool      `json:"is_blacklist"`
+	BlacklistDeadline                    *time.Time `json:"blacklist_deadline"`
+	CompulsoryTrafficInsuranceExpiryDate *time.Time `json:"compulsory_traffic_insurance_expiry_date"`
+	OwnerIDPhoto                         *string    `json:"owner_id_photo"`
+	VehicleNature                        *int       `json:"vehicle_nature"`
+	ActualOwnerName                      *string    `json:"actual_owner_name"`
+	ActualOwnerIDNumber                  *string    `json:"actual_owner_id_number"`
+	ActualOwnerIDPhoto                   *string    `json:"actual_owner_id_photo"`
+	ActualOwnerContactPhone              *string    `json:"actual_owner_contact_phone"`
+	IllegalNumberEndorsement             *string    `json:"illegal_number_endorsement"`
+	IllegalNoticeNumberEndorsement       *string    `json:"illegal_notice_number_endorsement"`
+	IllegalCompulsoryMeasuresNumber      *string    `json:"illegal_compulsory_measures_number"`
+	IncidentNumberEndorsement            *string    `json:"incident_number_endorsement"`
+	IsMuckOfficeAudit                    *bool      `json:"is_muck_office_audit"`
+	IsFirstRegister                      *bool      `json:"is_first_register"`
+	SecondaryMaintenanceLocation         *string    `json:"secondary_maintenance_location"`
+	SecondaryMaintenanceExpiryDate       *time.Time `json:"secondary_maintenance_expiry_date"`
+	TotalMass                            *float64   `json:"total_mass"`
+	AxesNumber                           *int       `json:"axes_number"`
+	DrivingLiscenseOwnerIDPhoto          *string    `json:"driving_liscense_owner_id_photo"`
+	InitialRegistrationDate              *time.Time `json:"initial_registration_date"`
+	VehicleOperatingCertificateNumber    *string    `json:"vehicle_operating_certificate_number"`
+	VehicleOperatingCertificatePhoto     *string    `json:"vehicle_operating_certificate_photo"`
+	IssueDateOfQuangongNumber            *time.Time `json:"issue_date_of_quangong_number"`
+	ApplyInspectionTime                  *time.Time `json:"apply_inspection_time"`
+	SigningAcceptanceApplicationTime     *time.Time `json:"signing_acceptance_application_time"`
+	ThirdPartyInsuranceExpiryTime        *time.Time `json:"third_party_insurance_expiry_time"`
+	ThirdPartyInsuranceCoverage          *string    `json:"third_party_insurance_coverage"`
+	ThirdPartyInsurancePolicyPicture     *string    `json:"third_party_insurance_policy_picture"`
+	CompulsoryInsurancePolicyPicture     *string    `json:"compulsory_insurance_policy_picture"`
+	IsDeleted                            *bool      `json:"is_deleted"`
+	SimCardNumber                        *string    `json:"sim_card_number"`
+	RegistrationDate                     *time.Time `json:"registration_date"`
+	AreaID                               *int64     `json:"area_id"`
+	ExpiryDate                           *time.Time `json:"expiry_date"`
+	MuckTruckType                        *int       `json:"muck_truck_type"`
+	IsReserveLibrary                     *bool      `json:"is_reserve_library"`
+	SelfNumber                           *string    `json:"self_number"`
+	MobileCardLocation                   *string    `json:"mobile_card_location"`
+	LoadCategory                         *string    `json:"load_category"`
+	CreatedAt                            *time.Time `json:"created_at"`
+	CreatedBy                            *string    `json:"created_by"`
+	UpdatedAt                            *time.Time `json:"updated_at"`
+	UpdatedBy                            *string    `json:"updated_by"`
+	DeletedAt                            *time.Time `json:"deleted_at"`
+	DeletedBy                            *string    `json:"deleted_by"`
 }
 
-// aggregate var_samp on columns
-type MuckTruckCategoryInfoVarSampFields struct {
-	AxesNumber    *float64 `json:"axes_number"`
-	ID            *float64 `json:"id"`
+// aggregate max on columns of table "muck_truck_ext"
+type MuckTruckExtMaxFields struct {
+	ID                                   *int64     `json:"id"`
+	VehicleID                            *string    `json:"vehicle_id"`
+	VehiclePicture                       *string    `json:"vehicle_picture"`
+	EngineNumber                         *string    `json:"engine_number"`
+	ReviewTime                           *time.Time `json:"review_time"`
+	Reviewer                             *string    `json:"reviewer"`
+	ReviewNotes                          *string    `json:"review_notes"`
+	ReviewStatus                         *string    `json:"review_status"`
+	InsuranceExpiryTime                  *time.Time `json:"insurance_expiry_time"`
+	AnnualInspectionExpirationTime       *time.Time `json:"annual_inspection_expiration_time"`
+	VehicleDescription                   *string    `json:"vehicle_description"`
+	DrivingLicenseIDNumber               *string    `json:"driving_license_id_number"`
+	DrivingLicenseContactPhone           *string    `json:"driving_license_contact_phone"`
+	IsDueSecurityAlarmProcessing         *bool      `json:"is_due_security_alarm_processing"`
+	Processor                            *string    `json:"processor"`
+	ProcessingTime                       *time.Time `json:"processing_time"`
+	ProcessingNotes                      *string    `json:"processing_notes"`
+	IsSendSms                            *bool      `json:"is_send_sms"`
+	IsBlacklist                          *bool      `json:"is_blacklist"`
+	BlacklistDeadline                    *time.Time `json:"blacklist_deadline"`
+	CompulsoryTrafficInsuranceExpiryDate *time.Time `json:"compulsory_traffic_insurance_expiry_date"`
+	OwnerIDPhoto                         *string    `json:"owner_id_photo"`
+	VehicleNature                        *int       `json:"vehicle_nature"`
+	ActualOwnerName                      *string    `json:"actual_owner_name"`
+	ActualOwnerIDNumber                  *string    `json:"actual_owner_id_number"`
+	ActualOwnerIDPhoto                   *string    `json:"actual_owner_id_photo"`
+	ActualOwnerContactPhone              *string    `json:"actual_owner_contact_phone"`
+	IllegalNumberEndorsement             *string    `json:"illegal_number_endorsement"`
+	IllegalNoticeNumberEndorsement       *string    `json:"illegal_notice_number_endorsement"`
+	IllegalCompulsoryMeasuresNumber      *string    `json:"illegal_compulsory_measures_number"`
+	IncidentNumberEndorsement            *string    `json:"incident_number_endorsement"`
+	IsMuckOfficeAudit                    *bool      `json:"is_muck_office_audit"`
+	IsFirstRegister                      *bool      `json:"is_first_register"`
+	SecondaryMaintenanceLocation         *string    `json:"secondary_maintenance_location"`
+	SecondaryMaintenanceExpiryDate       *time.Time `json:"secondary_maintenance_expiry_date"`
+	TotalMass                            *float64   `json:"total_mass"`
+	AxesNumber                           *int       `json:"axes_number"`
+	DrivingLiscenseOwnerIDPhoto          *string    `json:"driving_liscense_owner_id_photo"`
+	InitialRegistrationDate              *time.Time `json:"initial_registration_date"`
+	VehicleOperatingCertificateNumber    *string    `json:"vehicle_operating_certificate_number"`
+	VehicleOperatingCertificatePhoto     *string    `json:"vehicle_operating_certificate_photo"`
+	IssueDateOfQuangongNumber            *time.Time `json:"issue_date_of_quangong_number"`
+	ApplyInspectionTime                  *time.Time `json:"apply_inspection_time"`
+	SigningAcceptanceApplicationTime     *time.Time `json:"signing_acceptance_application_time"`
+	ThirdPartyInsuranceExpiryTime        *time.Time `json:"third_party_insurance_expiry_time"`
+	ThirdPartyInsuranceCoverage          *string    `json:"third_party_insurance_coverage"`
+	ThirdPartyInsurancePolicyPicture     *string    `json:"third_party_insurance_policy_picture"`
+	CompulsoryInsurancePolicyPicture     *string    `json:"compulsory_insurance_policy_picture"`
+	IsDeleted                            *bool      `json:"is_deleted"`
+	SimCardNumber                        *string    `json:"sim_card_number"`
+	RegistrationDate                     *time.Time `json:"registration_date"`
+	AreaID                               *int64     `json:"area_id"`
+	ExpiryDate                           *time.Time `json:"expiry_date"`
+	MuckTruckType                        *int       `json:"muck_truck_type"`
+	IsReserveLibrary                     *bool      `json:"is_reserve_library"`
+	SelfNumber                           *string    `json:"self_number"`
+	MobileCardLocation                   *string    `json:"mobile_card_location"`
+	LoadCategory                         *string    `json:"load_category"`
+	CreatedAt                            *time.Time `json:"created_at"`
+	CreatedBy                            *string    `json:"created_by"`
+	UpdatedAt                            *time.Time `json:"updated_at"`
+	UpdatedBy                            *string    `json:"updated_by"`
+	DeletedAt                            *time.Time `json:"deleted_at"`
+	DeletedBy                            *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "muck_truck_ext"
+type MuckTruckExtMinFields struct {
+	ID                                   *int64     `json:"id"`
+	VehicleID                            *string    `json:"vehicle_id"`
+	VehiclePicture                       *string    `json:"vehicle_picture"`
+	EngineNumber                         *string    `json:"engine_number"`
+	ReviewTime                           *time.Time `json:"review_time"`
+	Reviewer                             *string    `json:"reviewer"`
+	ReviewNotes                          *string    `json:"review_notes"`
+	ReviewStatus                         *string    `json:"review_status"`
+	InsuranceExpiryTime                  *time.Time `json:"insurance_expiry_time"`
+	AnnualInspectionExpirationTime       *time.Time `json:"annual_inspection_expiration_time"`
+	VehicleDescription                   *string    `json:"vehicle_description"`
+	DrivingLicenseIDNumber               *string    `json:"driving_license_id_number"`
+	DrivingLicenseContactPhone           *string    `json:"driving_license_contact_phone"`
+	IsDueSecurityAlarmProcessing         *bool      `json:"is_due_security_alarm_processing"`
+	Processor                            *string    `json:"processor"`
+	ProcessingTime                       *time.Time `json:"processing_time"`
+	ProcessingNotes                      *string    `json:"processing_notes"`
+	IsSendSms                            *bool      `json:"is_send_sms"`
+	IsBlacklist                          *bool      `json:"is_blacklist"`
+	BlacklistDeadline                    *time.Time `json:"blacklist_deadline"`
+	CompulsoryTrafficInsuranceExpiryDate *time.Time `json:"compulsory_traffic_insurance_expiry_date"`
+	OwnerIDPhoto                         *string    `json:"owner_id_photo"`
+	VehicleNature                        *int       `json:"vehicle_nature"`
+	ActualOwnerName                      *string    `json:"actual_owner_name"`
+	ActualOwnerIDNumber                  *string    `json:"actual_owner_id_number"`
+	ActualOwnerIDPhoto                   *string    `json:"actual_owner_id_photo"`
+	ActualOwnerContactPhone              *string    `json:"actual_owner_contact_phone"`
+	IllegalNumberEndorsement             *string    `json:"illegal_number_endorsement"`
+	IllegalNoticeNumberEndorsement       *string    `json:"illegal_notice_number_endorsement"`
+	IllegalCompulsoryMeasuresNumber      *string    `json:"illegal_compulsory_measures_number"`
+	IncidentNumberEndorsement            *string    `json:"incident_number_endorsement"`
+	IsMuckOfficeAudit                    *bool      `json:"is_muck_office_audit"`
+	IsFirstRegister                      *bool      `json:"is_first_register"`
+	SecondaryMaintenanceLocation         *string    `json:"secondary_maintenance_location"`
+	SecondaryMaintenanceExpiryDate       *time.Time `json:"secondary_maintenance_expiry_date"`
+	TotalMass                            *float64   `json:"total_mass"`
+	AxesNumber                           *int       `json:"axes_number"`
+	DrivingLiscenseOwnerIDPhoto          *string    `json:"driving_liscense_owner_id_photo"`
+	InitialRegistrationDate              *time.Time `json:"initial_registration_date"`
+	VehicleOperatingCertificateNumber    *string    `json:"vehicle_operating_certificate_number"`
+	VehicleOperatingCertificatePhoto     *string    `json:"vehicle_operating_certificate_photo"`
+	IssueDateOfQuangongNumber            *time.Time `json:"issue_date_of_quangong_number"`
+	ApplyInspectionTime                  *time.Time `json:"apply_inspection_time"`
+	SigningAcceptanceApplicationTime     *time.Time `json:"signing_acceptance_application_time"`
+	ThirdPartyInsuranceExpiryTime        *time.Time `json:"third_party_insurance_expiry_time"`
+	ThirdPartyInsuranceCoverage          *string    `json:"third_party_insurance_coverage"`
+	ThirdPartyInsurancePolicyPicture     *string    `json:"third_party_insurance_policy_picture"`
+	CompulsoryInsurancePolicyPicture     *string    `json:"compulsory_insurance_policy_picture"`
+	IsDeleted                            *bool      `json:"is_deleted"`
+	SimCardNumber                        *string    `json:"sim_card_number"`
+	RegistrationDate                     *time.Time `json:"registration_date"`
+	AreaID                               *int64     `json:"area_id"`
+	ExpiryDate                           *time.Time `json:"expiry_date"`
+	MuckTruckType                        *int       `json:"muck_truck_type"`
+	IsReserveLibrary                     *bool      `json:"is_reserve_library"`
+	SelfNumber                           *string    `json:"self_number"`
+	MobileCardLocation                   *string    `json:"mobile_card_location"`
+	LoadCategory                         *string    `json:"load_category"`
+	CreatedAt                            *time.Time `json:"created_at"`
+	CreatedBy                            *string    `json:"created_by"`
+	UpdatedAt                            *time.Time `json:"updated_at"`
+	UpdatedBy                            *string    `json:"updated_by"`
+	DeletedAt                            *time.Time `json:"deleted_at"`
+	DeletedBy                            *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "muck_truck_ext"
+type MuckTruckExtMutationResponse struct {
+	AffectedRows int                    `json:"affected_rows"`
+	Returning    []*model1.MuckTruckExt `json:"returning"`
+}
+
+// ordering options when selecting data from "muck_truck_ext"
+type MuckTruckExtOrderBy struct {
+	ID                                   *model.OrderBy `json:"id"`
+	VehicleID                            *model.OrderBy `json:"vehicle_id"`
+	VehiclePicture                       *model.OrderBy `json:"vehicle_picture"`
+	EngineNumber                         *model.OrderBy `json:"engine_number"`
+	ReviewTime                           *model.OrderBy `json:"review_time"`
+	Reviewer                             *model.OrderBy `json:"reviewer"`
+	ReviewNotes                          *model.OrderBy `json:"review_notes"`
+	ReviewStatus                         *model.OrderBy `json:"review_status"`
+	InsuranceExpiryTime                  *model.OrderBy `json:"insurance_expiry_time"`
+	AnnualInspectionExpirationTime       *model.OrderBy `json:"annual_inspection_expiration_time"`
+	VehicleDescription                   *model.OrderBy `json:"vehicle_description"`
+	DrivingLicenseIDNumber               *model.OrderBy `json:"driving_license_id_number"`
+	DrivingLicenseContactPhone           *model.OrderBy `json:"driving_license_contact_phone"`
+	IsDueSecurityAlarmProcessing         *model.OrderBy `json:"is_due_security_alarm_processing"`
+	Processor                            *model.OrderBy `json:"processor"`
+	ProcessingTime                       *model.OrderBy `json:"processing_time"`
+	ProcessingNotes                      *model.OrderBy `json:"processing_notes"`
+	IsSendSms                            *model.OrderBy `json:"is_send_sms"`
+	IsBlacklist                          *model.OrderBy `json:"is_blacklist"`
+	BlacklistDeadline                    *model.OrderBy `json:"blacklist_deadline"`
+	CompulsoryTrafficInsuranceExpiryDate *model.OrderBy `json:"compulsory_traffic_insurance_expiry_date"`
+	OwnerIDPhoto                         *model.OrderBy `json:"owner_id_photo"`
+	VehicleNature                        *model.OrderBy `json:"vehicle_nature"`
+	ActualOwnerName                      *model.OrderBy `json:"actual_owner_name"`
+	ActualOwnerIDNumber                  *model.OrderBy `json:"actual_owner_id_number"`
+	ActualOwnerIDPhoto                   *model.OrderBy `json:"actual_owner_id_photo"`
+	ActualOwnerContactPhone              *model.OrderBy `json:"actual_owner_contact_phone"`
+	IllegalNumberEndorsement             *model.OrderBy `json:"illegal_number_endorsement"`
+	IllegalNoticeNumberEndorsement       *model.OrderBy `json:"illegal_notice_number_endorsement"`
+	IllegalCompulsoryMeasuresNumber      *model.OrderBy `json:"illegal_compulsory_measures_number"`
+	IncidentNumberEndorsement            *model.OrderBy `json:"incident_number_endorsement"`
+	IsMuckOfficeAudit                    *model.OrderBy `json:"is_muck_office_audit"`
+	IsFirstRegister                      *model.OrderBy `json:"is_first_register"`
+	SecondaryMaintenanceLocation         *model.OrderBy `json:"secondary_maintenance_location"`
+	SecondaryMaintenanceExpiryDate       *model.OrderBy `json:"secondary_maintenance_expiry_date"`
+	TotalMass                            *model.OrderBy `json:"total_mass"`
+	AxesNumber                           *model.OrderBy `json:"axes_number"`
+	DrivingLiscenseOwnerIDPhoto          *model.OrderBy `json:"driving_liscense_owner_id_photo"`
+	InitialRegistrationDate              *model.OrderBy `json:"initial_registration_date"`
+	VehicleOperatingCertificateNumber    *model.OrderBy `json:"vehicle_operating_certificate_number"`
+	VehicleOperatingCertificatePhoto     *model.OrderBy `json:"vehicle_operating_certificate_photo"`
+	IssueDateOfQuangongNumber            *model.OrderBy `json:"issue_date_of_quangong_number"`
+	ApplyInspectionTime                  *model.OrderBy `json:"apply_inspection_time"`
+	SigningAcceptanceApplicationTime     *model.OrderBy `json:"signing_acceptance_application_time"`
+	ThirdPartyInsuranceExpiryTime        *model.OrderBy `json:"third_party_insurance_expiry_time"`
+	ThirdPartyInsuranceCoverage          *model.OrderBy `json:"third_party_insurance_coverage"`
+	ThirdPartyInsurancePolicyPicture     *model.OrderBy `json:"third_party_insurance_policy_picture"`
+	CompulsoryInsurancePolicyPicture     *model.OrderBy `json:"compulsory_insurance_policy_picture"`
+	IsDeleted                            *model.OrderBy `json:"is_deleted"`
+	SimCardNumber                        *model.OrderBy `json:"sim_card_number"`
+	RegistrationDate                     *model.OrderBy `json:"registration_date"`
+	AreaID                               *model.OrderBy `json:"area_id"`
+	ExpiryDate                           *model.OrderBy `json:"expiry_date"`
+	MuckTruckType                        *model.OrderBy `json:"muck_truck_type"`
+	IsReserveLibrary                     *model.OrderBy `json:"is_reserve_library"`
+	SelfNumber                           *model.OrderBy `json:"self_number"`
+	MobileCardLocation                   *model.OrderBy `json:"mobile_card_location"`
+	LoadCategory                         *model.OrderBy `json:"load_category"`
+	CreatedAt                            *model.OrderBy `json:"created_at"`
+	CreatedBy                            *model.OrderBy `json:"created_by"`
+	UpdatedAt                            *model.OrderBy `json:"updated_at"`
+	UpdatedBy                            *model.OrderBy `json:"updated_by"`
+	DeletedAt                            *model.OrderBy `json:"deleted_at"`
+	DeletedBy                            *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "muck_truck_ext"
+type MuckTruckExtSetInput struct {
+	ID                                   *int64     `json:"id"`
+	VehicleID                            *string    `json:"vehicle_id"`
+	VehiclePicture                       *string    `json:"vehicle_picture"`
+	EngineNumber                         *string    `json:"engine_number"`
+	ReviewTime                           *time.Time `json:"review_time"`
+	Reviewer                             *string    `json:"reviewer"`
+	ReviewNotes                          *string    `json:"review_notes"`
+	ReviewStatus                         *string    `json:"review_status"`
+	InsuranceExpiryTime                  *time.Time `json:"insurance_expiry_time"`
+	AnnualInspectionExpirationTime       *time.Time `json:"annual_inspection_expiration_time"`
+	VehicleDescription                   *string    `json:"vehicle_description"`
+	DrivingLicenseIDNumber               *string    `json:"driving_license_id_number"`
+	DrivingLicenseContactPhone           *string    `json:"driving_license_contact_phone"`
+	IsDueSecurityAlarmProcessing         *bool      `json:"is_due_security_alarm_processing"`
+	Processor                            *string    `json:"processor"`
+	ProcessingTime                       *time.Time `json:"processing_time"`
+	ProcessingNotes                      *string    `json:"processing_notes"`
+	IsSendSms                            *bool      `json:"is_send_sms"`
+	IsBlacklist                          *bool      `json:"is_blacklist"`
+	BlacklistDeadline                    *time.Time `json:"blacklist_deadline"`
+	CompulsoryTrafficInsuranceExpiryDate *time.Time `json:"compulsory_traffic_insurance_expiry_date"`
+	OwnerIDPhoto                         *string    `json:"owner_id_photo"`
+	VehicleNature                        *int       `json:"vehicle_nature"`
+	ActualOwnerName                      *string    `json:"actual_owner_name"`
+	ActualOwnerIDNumber                  *string    `json:"actual_owner_id_number"`
+	ActualOwnerIDPhoto                   *string    `json:"actual_owner_id_photo"`
+	ActualOwnerContactPhone              *string    `json:"actual_owner_contact_phone"`
+	IllegalNumberEndorsement             *string    `json:"illegal_number_endorsement"`
+	IllegalNoticeNumberEndorsement       *string    `json:"illegal_notice_number_endorsement"`
+	IllegalCompulsoryMeasuresNumber      *string    `json:"illegal_compulsory_measures_number"`
+	IncidentNumberEndorsement            *string    `json:"incident_number_endorsement"`
+	IsMuckOfficeAudit                    *bool      `json:"is_muck_office_audit"`
+	IsFirstRegister                      *bool      `json:"is_first_register"`
+	SecondaryMaintenanceLocation         *string    `json:"secondary_maintenance_location"`
+	SecondaryMaintenanceExpiryDate       *time.Time `json:"secondary_maintenance_expiry_date"`
+	TotalMass                            *float64   `json:"total_mass"`
+	AxesNumber                           *int       `json:"axes_number"`
+	DrivingLiscenseOwnerIDPhoto          *string    `json:"driving_liscense_owner_id_photo"`
+	InitialRegistrationDate              *time.Time `json:"initial_registration_date"`
+	VehicleOperatingCertificateNumber    *string    `json:"vehicle_operating_certificate_number"`
+	VehicleOperatingCertificatePhoto     *string    `json:"vehicle_operating_certificate_photo"`
+	IssueDateOfQuangongNumber            *time.Time `json:"issue_date_of_quangong_number"`
+	ApplyInspectionTime                  *time.Time `json:"apply_inspection_time"`
+	SigningAcceptanceApplicationTime     *time.Time `json:"signing_acceptance_application_time"`
+	ThirdPartyInsuranceExpiryTime        *time.Time `json:"third_party_insurance_expiry_time"`
+	ThirdPartyInsuranceCoverage          *string    `json:"third_party_insurance_coverage"`
+	ThirdPartyInsurancePolicyPicture     *string    `json:"third_party_insurance_policy_picture"`
+	CompulsoryInsurancePolicyPicture     *string    `json:"compulsory_insurance_policy_picture"`
+	IsDeleted                            *bool      `json:"is_deleted"`
+	SimCardNumber                        *string    `json:"sim_card_number"`
+	RegistrationDate                     *time.Time `json:"registration_date"`
+	AreaID                               *int64     `json:"area_id"`
+	ExpiryDate                           *time.Time `json:"expiry_date"`
+	MuckTruckType                        *int       `json:"muck_truck_type"`
+	IsReserveLibrary                     *bool      `json:"is_reserve_library"`
+	SelfNumber                           *string    `json:"self_number"`
+	MobileCardLocation                   *string    `json:"mobile_card_location"`
+	LoadCategory                         *string    `json:"load_category"`
+	CreatedAt                            *time.Time `json:"created_at"`
+	CreatedBy                            *string    `json:"created_by"`
+	UpdatedAt                            *time.Time `json:"updated_at"`
+	UpdatedBy                            *string    `json:"updated_by"`
+	DeletedAt                            *time.Time `json:"deleted_at"`
+	DeletedBy                            *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "muck_truck_ext"
+type MuckTruckExtStddevFields struct {
+	ID            *int64   `json:"id"`
+	VehicleNature *int     `json:"vehicle_nature"`
 	TotalMass     *float64 `json:"total_mass"`
-	VehicleNature *float64 `json:"vehicle_nature"`
+	AxesNumber    *int     `json:"axes_number"`
+	AreaID        *int64   `json:"area_id"`
+	MuckTruckType *int     `json:"muck_truck_type"`
 }
 
-// order by var_samp() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoVarSampOrderBy struct {
-	AxesNumber    *model.OrderBy `json:"axes_number"`
-	ID            *model.OrderBy `json:"id"`
-	TotalMass     *model.OrderBy `json:"total_mass"`
-	VehicleNature *model.OrderBy `json:"vehicle_nature"`
-}
-
-// aggregate variance on columns
-type MuckTruckCategoryInfoVarianceFields struct {
-	AxesNumber    *float64 `json:"axes_number"`
-	ID            *float64 `json:"id"`
+// aggregate stddev_pop on columns of table "muck_truck_ext"
+type MuckTruckExtStddevPopFields struct {
+	ID            *int64   `json:"id"`
+	VehicleNature *int     `json:"vehicle_nature"`
 	TotalMass     *float64 `json:"total_mass"`
-	VehicleNature *float64 `json:"vehicle_nature"`
+	AxesNumber    *int     `json:"axes_number"`
+	AreaID        *int64   `json:"area_id"`
+	MuckTruckType *int     `json:"muck_truck_type"`
 }
 
-// order by variance() on columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoVarianceOrderBy struct {
-	AxesNumber    *model.OrderBy `json:"axes_number"`
-	ID            *model.OrderBy `json:"id"`
-	TotalMass     *model.OrderBy `json:"total_mass"`
-	VehicleNature *model.OrderBy `json:"vehicle_nature"`
+// aggregate stddev_samp on columns of table "muck_truck_ext"
+type MuckTruckExtStddevSampFields struct {
+	ID            *int64   `json:"id"`
+	VehicleNature *int     `json:"vehicle_nature"`
+	TotalMass     *float64 `json:"total_mass"`
+	AxesNumber    *int     `json:"axes_number"`
+	AreaID        *int64   `json:"area_id"`
+	MuckTruckType *int     `json:"muck_truck_type"`
 }
 
-// aggregated selection of "muck_truck_info"
-type MuckTruckInfoAggregate struct {
-	Aggregate *MuckTruckInfoAggregateFields `json:"aggregate"`
-	Nodes     []*MuckTruckInfo              `json:"nodes"`
+// aggregate sum on columns of table "muck_truck_ext"
+type MuckTruckExtSumFields struct {
+	ID            *int64   `json:"id"`
+	VehicleNature *int     `json:"vehicle_nature"`
+	TotalMass     *float64 `json:"total_mass"`
+	AxesNumber    *int     `json:"axes_number"`
+	AreaID        *int64   `json:"area_id"`
+	MuckTruckType *int     `json:"muck_truck_type"`
 }
 
-// aggregate fields of "muck_truck_info"
-type MuckTruckInfoAggregateFields struct {
-	Avg        *MuckTruckInfoAvgFields        `json:"avg"`
-	Count      *int                           `json:"count"`
-	Max        *MuckTruckInfoMaxFields        `json:"max"`
-	Min        *MuckTruckInfoMinFields        `json:"min"`
-	Stddev     *MuckTruckInfoStddevFields     `json:"stddev"`
-	StddevPop  *MuckTruckInfoStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *MuckTruckInfoStddevSampFields `json:"stddev_samp"`
-	Sum        *MuckTruckInfoSumFields        `json:"sum"`
-	VarPop     *MuckTruckInfoVarPopFields     `json:"var_pop"`
-	VarSamp    *MuckTruckInfoVarSampFields    `json:"var_samp"`
-	Variance   *MuckTruckInfoVarianceFields   `json:"variance"`
+// aggregate var_pop on columns of table "muck_truck_ext"
+type MuckTruckExtVarPopFields struct {
+	ID            *int64   `json:"id"`
+	VehicleNature *int     `json:"vehicle_nature"`
+	TotalMass     *float64 `json:"total_mass"`
+	AxesNumber    *int     `json:"axes_number"`
+	AreaID        *int64   `json:"area_id"`
+	MuckTruckType *int     `json:"muck_truck_type"`
 }
 
-// order by aggregate values of table "muck_truck_info"
-type MuckTruckInfoAggregateOrderBy struct {
-	Avg        *MuckTruckInfoAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                  `json:"count"`
-	Max        *MuckTruckInfoMaxOrderBy        `json:"max"`
-	Min        *MuckTruckInfoMinOrderBy        `json:"min"`
-	Stddev     *MuckTruckInfoStddevOrderBy     `json:"stddev"`
-	StddevPop  *MuckTruckInfoStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *MuckTruckInfoStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *MuckTruckInfoSumOrderBy        `json:"sum"`
-	VarPop     *MuckTruckInfoVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *MuckTruckInfoVarSampOrderBy    `json:"var_samp"`
-	Variance   *MuckTruckInfoVarianceOrderBy   `json:"variance"`
+// aggregate var_samp on columns of table "muck_truck_ext"
+type MuckTruckExtVarSampFields struct {
+	ID            *int64   `json:"id"`
+	VehicleNature *int     `json:"vehicle_nature"`
+	TotalMass     *float64 `json:"total_mass"`
+	AxesNumber    *int     `json:"axes_number"`
+	AreaID        *int64   `json:"area_id"`
+	MuckTruckType *int     `json:"muck_truck_type"`
 }
 
-// input type for inserting array relation for remote table "muck_truck_info"
-type MuckTruckInfoArrRelInsertInput struct {
-	Data       []*MuckTruckInfoInsertInput `json:"data"`
-	OnConflict *MuckTruckInfoOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
-type MuckTruckInfoAvgFields struct {
-	AreaID        *float64 `json:"area_id"`
-	MuckTruckID   *float64 `json:"muck_truck_id"`
-	MuckTruckType *float64 `json:"muck_truck_type"`
-	ServerID      *float64 `json:"server_id"`
-}
-
-// order by avg() on columns of table "muck_truck_info"
-type MuckTruckInfoAvgOrderBy struct {
-	AreaID        *model.OrderBy `json:"area_id"`
-	MuckTruckID   *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType *model.OrderBy `json:"muck_truck_type"`
-	ServerID      *model.OrderBy `json:"server_id"`
-}
-
-// Boolean expression to filter rows from the table "muck_truck_info". All fields are combined with a logical 'AND'.
-type MuckTruckInfoBoolExp struct {
-	And                []*MuckTruckInfoBoolExp         `json:"_and"`
-	Not                *MuckTruckInfoBoolExp           `json:"_not"`
-	Or                 []*MuckTruckInfoBoolExp         `json:"_or"`
-	AreaID             *model.BigintComparisonExp      `json:"area_id"`
-	CreatedAt          *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy          *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt          *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy          *model.StringComparisonExp      `json:"deleted_by"`
-	ExpiryDate         *model.TimestamptzComparisonExp `json:"expiry_date"`
-	FakeIP             *model.StringComparisonExp      `json:"fake_ip"`
-	IsReserveLibrary   *model.BooleanComparisonExp     `json:"is_reserve_library"`
-	LoadCategory       *model.StringComparisonExp      `json:"load_category"`
-	MobileCardLocation *model.StringComparisonExp      `json:"mobile_card_location"`
-	MuckTruckID        *model.BigintComparisonExp      `json:"muck_truck_id"`
-	MuckTruckType      *model.IntComparisonExp         `json:"muck_truck_type"`
-	RegistrationDate   *model.TimestamptzComparisonExp `json:"registration_date"`
-	SelfNumber         *model.StringComparisonExp      `json:"self_number"`
-	ServerID           *model.BigintComparisonExp      `json:"server_id"`
-	SimCardNumber      *model.StringComparisonExp      `json:"sim_card_number"`
-	UpdatedAt          *model.TimestamptzComparisonExp `json:"updated_at"`
-	UpdatedBy          *model.StringComparisonExp      `json:"updated_by"`
-	VehicleID          *model.StringComparisonExp      `json:"vehicle_id"`
-}
-
-// input type for incrementing integer column in table "muck_truck_info"
-type MuckTruckInfoIncInput struct {
-	AreaID        *int64 `json:"area_id"`
-	MuckTruckID   *int64 `json:"muck_truck_id"`
-	MuckTruckType *int   `json:"muck_truck_type"`
-	ServerID      *int64 `json:"server_id"`
-}
-
-// input type for inserting data into table "muck_truck_info"
-type MuckTruckInfoInsertInput struct {
-	AreaID             *int64     `json:"area_id"`
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
-	ExpiryDate         *time.Time `json:"expiry_date"`
-	FakeIP             *string    `json:"fake_ip"`
-	IsReserveLibrary   *bool      `json:"is_reserve_library"`
-	LoadCategory       *string    `json:"load_category"`
-	MobileCardLocation *string    `json:"mobile_card_location"`
-	MuckTruckID        *int64     `json:"muck_truck_id"`
-	MuckTruckType      *int       `json:"muck_truck_type"`
-	RegistrationDate   *time.Time `json:"registration_date"`
-	SelfNumber         *string    `json:"self_number"`
-	ServerID           *int64     `json:"server_id"`
-	SimCardNumber      *string    `json:"sim_card_number"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	VehicleID          *string    `json:"vehicle_id"`
-}
-
-// aggregate max on columns
-type MuckTruckInfoMaxFields struct {
-	AreaID             *int64     `json:"area_id"`
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
-	ExpiryDate         *time.Time `json:"expiry_date"`
-	FakeIP             *string    `json:"fake_ip"`
-	LoadCategory       *string    `json:"load_category"`
-	MobileCardLocation *string    `json:"mobile_card_location"`
-	MuckTruckID        *int64     `json:"muck_truck_id"`
-	MuckTruckType      *int       `json:"muck_truck_type"`
-	RegistrationDate   *time.Time `json:"registration_date"`
-	SelfNumber         *string    `json:"self_number"`
-	ServerID           *int64     `json:"server_id"`
-	SimCardNumber      *string    `json:"sim_card_number"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	VehicleID          *string    `json:"vehicle_id"`
-}
-
-// order by max() on columns of table "muck_truck_info"
-type MuckTruckInfoMaxOrderBy struct {
-	AreaID             *model.OrderBy `json:"area_id"`
-	CreatedAt          *model.OrderBy `json:"created_at"`
-	CreatedBy          *model.OrderBy `json:"created_by"`
-	DeletedAt          *model.OrderBy `json:"deleted_at"`
-	DeletedBy          *model.OrderBy `json:"deleted_by"`
-	ExpiryDate         *model.OrderBy `json:"expiry_date"`
-	FakeIP             *model.OrderBy `json:"fake_ip"`
-	LoadCategory       *model.OrderBy `json:"load_category"`
-	MobileCardLocation *model.OrderBy `json:"mobile_card_location"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType      *model.OrderBy `json:"muck_truck_type"`
-	RegistrationDate   *model.OrderBy `json:"registration_date"`
-	SelfNumber         *model.OrderBy `json:"self_number"`
-	ServerID           *model.OrderBy `json:"server_id"`
-	SimCardNumber      *model.OrderBy `json:"sim_card_number"`
-	UpdatedAt          *model.OrderBy `json:"updated_at"`
-	UpdatedBy          *model.OrderBy `json:"updated_by"`
-	VehicleID          *model.OrderBy `json:"vehicle_id"`
-}
-
-// aggregate min on columns
-type MuckTruckInfoMinFields struct {
-	AreaID             *int64     `json:"area_id"`
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
-	ExpiryDate         *time.Time `json:"expiry_date"`
-	FakeIP             *string    `json:"fake_ip"`
-	LoadCategory       *string    `json:"load_category"`
-	MobileCardLocation *string    `json:"mobile_card_location"`
-	MuckTruckID        *int64     `json:"muck_truck_id"`
-	MuckTruckType      *int       `json:"muck_truck_type"`
-	RegistrationDate   *time.Time `json:"registration_date"`
-	SelfNumber         *string    `json:"self_number"`
-	ServerID           *int64     `json:"server_id"`
-	SimCardNumber      *string    `json:"sim_card_number"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	VehicleID          *string    `json:"vehicle_id"`
-}
-
-// order by min() on columns of table "muck_truck_info"
-type MuckTruckInfoMinOrderBy struct {
-	AreaID             *model.OrderBy `json:"area_id"`
-	CreatedAt          *model.OrderBy `json:"created_at"`
-	CreatedBy          *model.OrderBy `json:"created_by"`
-	DeletedAt          *model.OrderBy `json:"deleted_at"`
-	DeletedBy          *model.OrderBy `json:"deleted_by"`
-	ExpiryDate         *model.OrderBy `json:"expiry_date"`
-	FakeIP             *model.OrderBy `json:"fake_ip"`
-	LoadCategory       *model.OrderBy `json:"load_category"`
-	MobileCardLocation *model.OrderBy `json:"mobile_card_location"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType      *model.OrderBy `json:"muck_truck_type"`
-	RegistrationDate   *model.OrderBy `json:"registration_date"`
-	SelfNumber         *model.OrderBy `json:"self_number"`
-	ServerID           *model.OrderBy `json:"server_id"`
-	SimCardNumber      *model.OrderBy `json:"sim_card_number"`
-	UpdatedAt          *model.OrderBy `json:"updated_at"`
-	UpdatedBy          *model.OrderBy `json:"updated_by"`
-	VehicleID          *model.OrderBy `json:"vehicle_id"`
-}
-
-// response of any mutation on the table "muck_truck_info"
-type MuckTruckInfoMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*MuckTruckInfo `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "muck_truck_info"
-type MuckTruckInfoObjRelInsertInput struct {
-	Data       *MuckTruckInfoInsertInput `json:"data"`
-	OnConflict *MuckTruckInfoOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "muck_truck_info"
-type MuckTruckInfoOnConflict struct {
-	Constraint    MuckTruckInfoConstraint     `json:"constraint"`
-	UpdateColumns []MuckTruckInfoUpdateColumn `json:"update_columns"`
-	Where         *MuckTruckInfoBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "muck_truck_info"
-type MuckTruckInfoOrderBy struct {
-	AreaID             *model.OrderBy `json:"area_id"`
-	CreatedAt          *model.OrderBy `json:"created_at"`
-	CreatedBy          *model.OrderBy `json:"created_by"`
-	DeletedAt          *model.OrderBy `json:"deleted_at"`
-	DeletedBy          *model.OrderBy `json:"deleted_by"`
-	ExpiryDate         *model.OrderBy `json:"expiry_date"`
-	FakeIP             *model.OrderBy `json:"fake_ip"`
-	IsReserveLibrary   *model.OrderBy `json:"is_reserve_library"`
-	LoadCategory       *model.OrderBy `json:"load_category"`
-	MobileCardLocation *model.OrderBy `json:"mobile_card_location"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType      *model.OrderBy `json:"muck_truck_type"`
-	RegistrationDate   *model.OrderBy `json:"registration_date"`
-	SelfNumber         *model.OrderBy `json:"self_number"`
-	ServerID           *model.OrderBy `json:"server_id"`
-	SimCardNumber      *model.OrderBy `json:"sim_card_number"`
-	UpdatedAt          *model.OrderBy `json:"updated_at"`
-	UpdatedBy          *model.OrderBy `json:"updated_by"`
-	VehicleID          *model.OrderBy `json:"vehicle_id"`
-}
-
-// primary key columns input for table: "muck_truck_info"
-type MuckTruckInfoPkColumnsInput struct {
-	// 主键
-	MuckTruckID int64 `json:"muck_truck_id"`
-}
-
-// input type for updating data in table "muck_truck_info"
-type MuckTruckInfoSetInput struct {
-	AreaID             *int64     `json:"area_id"`
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
-	ExpiryDate         *time.Time `json:"expiry_date"`
-	FakeIP             *string    `json:"fake_ip"`
-	IsReserveLibrary   *bool      `json:"is_reserve_library"`
-	LoadCategory       *string    `json:"load_category"`
-	MobileCardLocation *string    `json:"mobile_card_location"`
-	MuckTruckID        *int64     `json:"muck_truck_id"`
-	MuckTruckType      *int       `json:"muck_truck_type"`
-	RegistrationDate   *time.Time `json:"registration_date"`
-	SelfNumber         *string    `json:"self_number"`
-	ServerID           *int64     `json:"server_id"`
-	SimCardNumber      *string    `json:"sim_card_number"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	VehicleID          *string    `json:"vehicle_id"`
-}
-
-// aggregate stddev on columns
-type MuckTruckInfoStddevFields struct {
-	AreaID        *float64 `json:"area_id"`
-	MuckTruckID   *float64 `json:"muck_truck_id"`
-	MuckTruckType *float64 `json:"muck_truck_type"`
-	ServerID      *float64 `json:"server_id"`
-}
-
-// order by stddev() on columns of table "muck_truck_info"
-type MuckTruckInfoStddevOrderBy struct {
-	AreaID        *model.OrderBy `json:"area_id"`
-	MuckTruckID   *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType *model.OrderBy `json:"muck_truck_type"`
-	ServerID      *model.OrderBy `json:"server_id"`
-}
-
-// aggregate stddev_pop on columns
-type MuckTruckInfoStddevPopFields struct {
-	AreaID        *float64 `json:"area_id"`
-	MuckTruckID   *float64 `json:"muck_truck_id"`
-	MuckTruckType *float64 `json:"muck_truck_type"`
-	ServerID      *float64 `json:"server_id"`
-}
-
-// order by stddev_pop() on columns of table "muck_truck_info"
-type MuckTruckInfoStddevPopOrderBy struct {
-	AreaID        *model.OrderBy `json:"area_id"`
-	MuckTruckID   *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType *model.OrderBy `json:"muck_truck_type"`
-	ServerID      *model.OrderBy `json:"server_id"`
-}
-
-// aggregate stddev_samp on columns
-type MuckTruckInfoStddevSampFields struct {
-	AreaID        *float64 `json:"area_id"`
-	MuckTruckID   *float64 `json:"muck_truck_id"`
-	MuckTruckType *float64 `json:"muck_truck_type"`
-	ServerID      *float64 `json:"server_id"`
-}
-
-// order by stddev_samp() on columns of table "muck_truck_info"
-type MuckTruckInfoStddevSampOrderBy struct {
-	AreaID        *model.OrderBy `json:"area_id"`
-	MuckTruckID   *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType *model.OrderBy `json:"muck_truck_type"`
-	ServerID      *model.OrderBy `json:"server_id"`
-}
-
-// aggregate sum on columns
-type MuckTruckInfoSumFields struct {
-	AreaID        *int64 `json:"area_id"`
-	MuckTruckID   *int64 `json:"muck_truck_id"`
-	MuckTruckType *int   `json:"muck_truck_type"`
-	ServerID      *int64 `json:"server_id"`
-}
-
-// order by sum() on columns of table "muck_truck_info"
-type MuckTruckInfoSumOrderBy struct {
-	AreaID        *model.OrderBy `json:"area_id"`
-	MuckTruckID   *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType *model.OrderBy `json:"muck_truck_type"`
-	ServerID      *model.OrderBy `json:"server_id"`
-}
-
-// aggregate var_pop on columns
-type MuckTruckInfoVarPopFields struct {
-	AreaID        *float64 `json:"area_id"`
-	MuckTruckID   *float64 `json:"muck_truck_id"`
-	MuckTruckType *float64 `json:"muck_truck_type"`
-	ServerID      *float64 `json:"server_id"`
-}
-
-// order by var_pop() on columns of table "muck_truck_info"
-type MuckTruckInfoVarPopOrderBy struct {
-	AreaID        *model.OrderBy `json:"area_id"`
-	MuckTruckID   *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType *model.OrderBy `json:"muck_truck_type"`
-	ServerID      *model.OrderBy `json:"server_id"`
-}
-
-// aggregate var_samp on columns
-type MuckTruckInfoVarSampFields struct {
-	AreaID        *float64 `json:"area_id"`
-	MuckTruckID   *float64 `json:"muck_truck_id"`
-	MuckTruckType *float64 `json:"muck_truck_type"`
-	ServerID      *float64 `json:"server_id"`
-}
-
-// order by var_samp() on columns of table "muck_truck_info"
-type MuckTruckInfoVarSampOrderBy struct {
-	AreaID        *model.OrderBy `json:"area_id"`
-	MuckTruckID   *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType *model.OrderBy `json:"muck_truck_type"`
-	ServerID      *model.OrderBy `json:"server_id"`
-}
-
-// aggregate variance on columns
-type MuckTruckInfoVarianceFields struct {
-	AreaID        *float64 `json:"area_id"`
-	MuckTruckID   *float64 `json:"muck_truck_id"`
-	MuckTruckType *float64 `json:"muck_truck_type"`
-	ServerID      *float64 `json:"server_id"`
-}
-
-// order by variance() on columns of table "muck_truck_info"
-type MuckTruckInfoVarianceOrderBy struct {
-	AreaID        *model.OrderBy `json:"area_id"`
-	MuckTruckID   *model.OrderBy `json:"muck_truck_id"`
-	MuckTruckType *model.OrderBy `json:"muck_truck_type"`
-	ServerID      *model.OrderBy `json:"server_id"`
+// aggregate variance on columns of table "muck_truck_ext"
+type MuckTruckExtVarianceFields struct {
+	ID            *int64   `json:"id"`
+	VehicleNature *int     `json:"vehicle_nature"`
+	TotalMass     *float64 `json:"total_mass"`
+	AxesNumber    *int     `json:"axes_number"`
+	AreaID        *int64   `json:"area_id"`
+	MuckTruckType *int     `json:"muck_truck_type"`
 }
 
 // aggregated selection of "muck_truck_preview_number"
 type MuckTruckPreviewNumberAggregate struct {
 	Aggregate *MuckTruckPreviewNumberAggregateFields `json:"aggregate"`
-	Nodes     []*MuckTruckPreviewNumber              `json:"nodes"`
 }
 
 // aggregate fields of "muck_truck_preview_number"
@@ -1499,85 +991,58 @@ type MuckTruckPreviewNumberAggregateFields struct {
 	Variance   *MuckTruckPreviewNumberVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberAggregateOrderBy struct {
-	Avg        *MuckTruckPreviewNumberAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                           `json:"count"`
-	Max        *MuckTruckPreviewNumberMaxOrderBy        `json:"max"`
-	Min        *MuckTruckPreviewNumberMinOrderBy        `json:"min"`
-	Stddev     *MuckTruckPreviewNumberStddevOrderBy     `json:"stddev"`
-	StddevPop  *MuckTruckPreviewNumberStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *MuckTruckPreviewNumberStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *MuckTruckPreviewNumberSumOrderBy        `json:"sum"`
-	VarPop     *MuckTruckPreviewNumberVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *MuckTruckPreviewNumberVarSampOrderBy    `json:"var_samp"`
-	Variance   *MuckTruckPreviewNumberVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "muck_truck_preview_number"
-type MuckTruckPreviewNumberArrRelInsertInput struct {
-	Data       []*MuckTruckPreviewNumberInsertInput `json:"data"`
-	OnConflict *MuckTruckPreviewNumberOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "muck_truck_preview_number"
 type MuckTruckPreviewNumberAvgFields struct {
-	ConfirmStatus           *float64 `json:"confirm_status"`
-	ID                      *float64 `json:"id"`
-	ProductionStatus        *float64 `json:"production_status"`
-	ProductionTimes         *float64 `json:"production_times"`
-	UnlawfulViolationNumber *float64 `json:"unlawful_violation_number"`
+	ID                      *int64 `json:"id"`
+	ConfirmStatus           *int   `json:"confirm_status"`
+	ProductionStatus        *int   `json:"production_status"`
+	ProductionTimes         *int   `json:"production_times"`
+	UnlawfulViolationNumber *int   `json:"unlawful_violation_number"`
 }
 
-// order by avg() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberAvgOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ID                      *model.OrderBy `json:"id"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-}
-
-// Boolean expression to filter rows from the table "muck_truck_preview_number". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_preview_number'.
 type MuckTruckPreviewNumberBoolExp struct {
-	And                     []*MuckTruckPreviewNumberBoolExp `json:"_and"`
-	Not                     *MuckTruckPreviewNumberBoolExp   `json:"_not"`
-	Or                      []*MuckTruckPreviewNumberBoolExp `json:"_or"`
-	ConfirmStatus           *model.IntComparisonExp          `json:"confirm_status"`
-	ConfirmTime             *model.TimestamptzComparisonExp  `json:"confirm_time"`
-	Confirmor               *model.StringComparisonExp       `json:"confirmor"`
-	ContactPerson           *model.StringComparisonExp       `json:"contact_person"`
-	ContactPhone            *model.StringComparisonExp       `json:"contact_phone"`
-	CreatedBy               *model.StringComparisonExp       `json:"created_by"`
-	DeletedAt               *model.TimestamptzComparisonExp  `json:"deleted_at"`
-	DeletedBy               *model.StringComparisonExp       `json:"deleted_by"`
-	FrontLicensePlate       *model.StringComparisonExp       `json:"front_license_plate"`
-	ID                      *model.BigintComparisonExp       `json:"id"`
-	InitialRegistrationDate *model.TimestamptzComparisonExp  `json:"initial_registration_date"`
-	IsDelete                *model.BooleanComparisonExp      `json:"is_delete"`
-	IsRegisterSaleOrder     *model.BooleanComparisonExp      `json:"is_register_sale_order"`
-	IsReviewAutomatically   *model.BooleanComparisonExp      `json:"is_review_automatically"`
-	MarkingTime             *model.TimestamptzComparisonExp  `json:"marking_time"`
-	OriginalNumber          *model.StringComparisonExp       `json:"original_number"`
-	ProductionStatus        *model.IntComparisonExp          `json:"production_status"`
-	ProductionTime          *model.TimestamptzComparisonExp  `json:"production_time"`
-	ProductionTimes         *model.IntComparisonExp          `json:"production_times"`
-	RearLicensePlate        *model.StringComparisonExp       `json:"rear_license_plate"`
-	RegistrationTime        *model.TimestamptzComparisonExp  `json:"registration_time"`
-	Remarks                 *model.StringComparisonExp       `json:"remarks"`
-	SideLicensePlate        *model.StringComparisonExp       `json:"side_license_plate"`
-	SvnNumber               *model.StringComparisonExp       `json:"svn_number"`
-	UnlawfulViolationNumber *model.IntComparisonExp          `json:"unlawful_violation_number"`
-	UpdatedAt               *model.TimestamptzComparisonExp  `json:"updated_at"`
-	UpdatedBy               *model.StringComparisonExp       `json:"updated_by"`
-	VehicleID               *model.StringComparisonExp       `json:"vehicle_id"`
-	WorkNumberPlateColor    *model.StringComparisonExp       `json:"work_number_plate_color"`
+	And                      []*MuckTruckPreviewNumberBoolExp `json:"_and"`
+	Not                      *MuckTruckPreviewNumberBoolExp   `json:"_not"`
+	Or                       []*MuckTruckPreviewNumberBoolExp `json:"_or"`
+	ID                       *model.BigintComparisonExp       `json:"id"`
+	MuckTruckPreviewNumberID *model.StringComparisonExp       `json:"muck_truck_preview_number_id"`
+	VehicleID                *model.StringComparisonExp       `json:"vehicle_id"`
+	SvnNumber                *model.StringComparisonExp       `json:"svn_number"`
+	RegistrationTime         *model.StringComparisonExp       `json:"registration_time"`
+	Confirmor                *model.StringComparisonExp       `json:"confirmor"`
+	ConfirmTime              *model.TimestamptzComparisonExp  `json:"confirm_time"`
+	ConfirmStatus            *model.IntComparisonExp          `json:"confirm_status"`
+	FrontLicensePlate        *model.StringComparisonExp       `json:"front_license_plate"`
+	RearLicensePlate         *model.StringComparisonExp       `json:"rear_license_plate"`
+	SideLicensePlate         *model.StringComparisonExp       `json:"side_license_plate"`
+	OriginalNumber           *model.StringComparisonExp       `json:"original_number"`
+	IsReviewAutomatically    *model.BooleanComparisonExp      `json:"is_review_automatically"`
+	ProductionStatus         *model.IntComparisonExp          `json:"production_status"`
+	ProductionTime           *model.TimestamptzComparisonExp  `json:"production_time"`
+	MarkingTime              *model.TimestamptzComparisonExp  `json:"marking_time"`
+	ProductionTimes          *model.IntComparisonExp          `json:"production_times"`
+	SubmitProductionTime     *model.TimestamptzComparisonExp  `json:"submit_production_time"`
+	ContactPerson            *model.StringComparisonExp       `json:"contact_person"`
+	ContactPhone             *model.StringComparisonExp       `json:"contact_phone"`
+	WorkNumberPlateColor     *model.StringComparisonExp       `json:"work_number_plate_color"`
+	InitialRegistrationDate  *model.TimestamptzComparisonExp  `json:"initial_registration_date"`
+	UnlawfulViolationNumber  *model.IntComparisonExp          `json:"unlawful_violation_number"`
+	IsRegisterSaleOrder      *model.BooleanComparisonExp      `json:"is_register_sale_order"`
+	Remarks                  *model.StringComparisonExp       `json:"remarks"`
+	IsDeleted                *model.BooleanComparisonExp      `json:"is_deleted"`
+	CreatedAt                *model.TimestamptzComparisonExp  `json:"created_at"`
+	CreatedBy                *model.StringComparisonExp       `json:"created_by"`
+	UpdatedAt                *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy                *model.StringComparisonExp       `json:"updated_by"`
+	DeletedAt                *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy                *model.StringComparisonExp       `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "muck_truck_preview_number"
 type MuckTruckPreviewNumberIncInput struct {
-	ConfirmStatus           *int   `json:"confirm_status"`
 	ID                      *int64 `json:"id"`
+	ConfirmStatus           *int   `json:"confirm_status"`
 	ProductionStatus        *int   `json:"production_status"`
 	ProductionTimes         *int   `json:"production_times"`
 	UnlawfulViolationNumber *int   `json:"unlawful_violation_number"`
@@ -1585,380 +1050,681 @@ type MuckTruckPreviewNumberIncInput struct {
 
 // input type for inserting data into table "muck_truck_preview_number"
 type MuckTruckPreviewNumberInsertInput struct {
-	ConfirmStatus           *int       `json:"confirm_status"`
-	ConfirmTime             *time.Time `json:"confirm_time"`
-	Confirmor               *string    `json:"confirmor"`
-	ContactPerson           *string    `json:"contact_person"`
-	ContactPhone            *string    `json:"contact_phone"`
-	CreatedBy               *string    `json:"created_by"`
-	DeletedAt               *time.Time `json:"deleted_at"`
-	DeletedBy               *string    `json:"deleted_by"`
-	FrontLicensePlate       *string    `json:"front_license_plate"`
-	ID                      *int64     `json:"id"`
-	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
-	IsDelete                *bool      `json:"is_delete"`
-	IsRegisterSaleOrder     *bool      `json:"is_register_sale_order"`
-	IsReviewAutomatically   *bool      `json:"is_review_automatically"`
-	MarkingTime             *time.Time `json:"marking_time"`
-	OriginalNumber          *string    `json:"original_number"`
-	ProductionStatus        *int       `json:"production_status"`
-	ProductionTime          *time.Time `json:"production_time"`
-	ProductionTimes         *int       `json:"production_times"`
-	RearLicensePlate        *string    `json:"rear_license_plate"`
-	RegistrationTime        *time.Time `json:"registration_time"`
-	Remarks                 *string    `json:"remarks"`
-	SideLicensePlate        *string    `json:"side_license_plate"`
-	SvnNumber               *string    `json:"svn_number"`
-	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
-	UpdatedAt               *time.Time `json:"updated_at"`
-	UpdatedBy               *string    `json:"updated_by"`
-	VehicleID               *string    `json:"vehicle_id"`
-	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
+	ID                       *int64     `json:"id"`
+	MuckTruckPreviewNumberID *string    `json:"muck_truck_preview_number_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	SvnNumber                *string    `json:"svn_number"`
+	RegistrationTime         *string    `json:"registration_time"`
+	Confirmor                *string    `json:"confirmor"`
+	ConfirmTime              *time.Time `json:"confirm_time"`
+	ConfirmStatus            *int       `json:"confirm_status"`
+	FrontLicensePlate        *string    `json:"front_license_plate"`
+	RearLicensePlate         *string    `json:"rear_license_plate"`
+	SideLicensePlate         *string    `json:"side_license_plate"`
+	OriginalNumber           *string    `json:"original_number"`
+	IsReviewAutomatically    *bool      `json:"is_review_automatically"`
+	ProductionStatus         *int       `json:"production_status"`
+	ProductionTime           *time.Time `json:"production_time"`
+	MarkingTime              *time.Time `json:"marking_time"`
+	ProductionTimes          *int       `json:"production_times"`
+	SubmitProductionTime     *time.Time `json:"submit_production_time"`
+	ContactPerson            *string    `json:"contact_person"`
+	ContactPhone             *string    `json:"contact_phone"`
+	WorkNumberPlateColor     *string    `json:"work_number_plate_color"`
+	InitialRegistrationDate  *time.Time `json:"initial_registration_date"`
+	UnlawfulViolationNumber  *int       `json:"unlawful_violation_number"`
+	IsRegisterSaleOrder      *bool      `json:"is_register_sale_order"`
+	Remarks                  *string    `json:"remarks"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "muck_truck_preview_number"
 type MuckTruckPreviewNumberMaxFields struct {
-	ConfirmStatus           *int       `json:"confirm_status"`
-	ConfirmTime             *time.Time `json:"confirm_time"`
-	Confirmor               *string    `json:"confirmor"`
-	ContactPerson           *string    `json:"contact_person"`
-	ContactPhone            *string    `json:"contact_phone"`
-	CreatedBy               *string    `json:"created_by"`
-	DeletedAt               *time.Time `json:"deleted_at"`
-	DeletedBy               *string    `json:"deleted_by"`
-	FrontLicensePlate       *string    `json:"front_license_plate"`
-	ID                      *int64     `json:"id"`
-	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
-	MarkingTime             *time.Time `json:"marking_time"`
-	OriginalNumber          *string    `json:"original_number"`
-	ProductionStatus        *int       `json:"production_status"`
-	ProductionTime          *time.Time `json:"production_time"`
-	ProductionTimes         *int       `json:"production_times"`
-	RearLicensePlate        *string    `json:"rear_license_plate"`
-	RegistrationTime        *time.Time `json:"registration_time"`
-	Remarks                 *string    `json:"remarks"`
-	SideLicensePlate        *string    `json:"side_license_plate"`
-	SvnNumber               *string    `json:"svn_number"`
-	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
-	UpdatedAt               *time.Time `json:"updated_at"`
-	UpdatedBy               *string    `json:"updated_by"`
-	VehicleID               *string    `json:"vehicle_id"`
-	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
+	ID                       *int64     `json:"id"`
+	MuckTruckPreviewNumberID *string    `json:"muck_truck_preview_number_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	SvnNumber                *string    `json:"svn_number"`
+	RegistrationTime         *string    `json:"registration_time"`
+	Confirmor                *string    `json:"confirmor"`
+	ConfirmTime              *time.Time `json:"confirm_time"`
+	ConfirmStatus            *int       `json:"confirm_status"`
+	FrontLicensePlate        *string    `json:"front_license_plate"`
+	RearLicensePlate         *string    `json:"rear_license_plate"`
+	SideLicensePlate         *string    `json:"side_license_plate"`
+	OriginalNumber           *string    `json:"original_number"`
+	IsReviewAutomatically    *bool      `json:"is_review_automatically"`
+	ProductionStatus         *int       `json:"production_status"`
+	ProductionTime           *time.Time `json:"production_time"`
+	MarkingTime              *time.Time `json:"marking_time"`
+	ProductionTimes          *int       `json:"production_times"`
+	SubmitProductionTime     *time.Time `json:"submit_production_time"`
+	ContactPerson            *string    `json:"contact_person"`
+	ContactPhone             *string    `json:"contact_phone"`
+	WorkNumberPlateColor     *string    `json:"work_number_plate_color"`
+	InitialRegistrationDate  *time.Time `json:"initial_registration_date"`
+	UnlawfulViolationNumber  *int       `json:"unlawful_violation_number"`
+	IsRegisterSaleOrder      *bool      `json:"is_register_sale_order"`
+	Remarks                  *string    `json:"remarks"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberMaxOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ConfirmTime             *model.OrderBy `json:"confirm_time"`
-	Confirmor               *model.OrderBy `json:"confirmor"`
-	ContactPerson           *model.OrderBy `json:"contact_person"`
-	ContactPhone            *model.OrderBy `json:"contact_phone"`
-	CreatedBy               *model.OrderBy `json:"created_by"`
-	DeletedAt               *model.OrderBy `json:"deleted_at"`
-	DeletedBy               *model.OrderBy `json:"deleted_by"`
-	FrontLicensePlate       *model.OrderBy `json:"front_license_plate"`
-	ID                      *model.OrderBy `json:"id"`
-	InitialRegistrationDate *model.OrderBy `json:"initial_registration_date"`
-	MarkingTime             *model.OrderBy `json:"marking_time"`
-	OriginalNumber          *model.OrderBy `json:"original_number"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTime          *model.OrderBy `json:"production_time"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	RearLicensePlate        *model.OrderBy `json:"rear_license_plate"`
-	RegistrationTime        *model.OrderBy `json:"registration_time"`
-	Remarks                 *model.OrderBy `json:"remarks"`
-	SideLicensePlate        *model.OrderBy `json:"side_license_plate"`
-	SvnNumber               *model.OrderBy `json:"svn_number"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-	UpdatedAt               *model.OrderBy `json:"updated_at"`
-	UpdatedBy               *model.OrderBy `json:"updated_by"`
-	VehicleID               *model.OrderBy `json:"vehicle_id"`
-	WorkNumberPlateColor    *model.OrderBy `json:"work_number_plate_color"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "muck_truck_preview_number"
 type MuckTruckPreviewNumberMinFields struct {
-	ConfirmStatus           *int       `json:"confirm_status"`
-	ConfirmTime             *time.Time `json:"confirm_time"`
-	Confirmor               *string    `json:"confirmor"`
-	ContactPerson           *string    `json:"contact_person"`
-	ContactPhone            *string    `json:"contact_phone"`
-	CreatedBy               *string    `json:"created_by"`
-	DeletedAt               *time.Time `json:"deleted_at"`
-	DeletedBy               *string    `json:"deleted_by"`
-	FrontLicensePlate       *string    `json:"front_license_plate"`
-	ID                      *int64     `json:"id"`
-	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
-	MarkingTime             *time.Time `json:"marking_time"`
-	OriginalNumber          *string    `json:"original_number"`
-	ProductionStatus        *int       `json:"production_status"`
-	ProductionTime          *time.Time `json:"production_time"`
-	ProductionTimes         *int       `json:"production_times"`
-	RearLicensePlate        *string    `json:"rear_license_plate"`
-	RegistrationTime        *time.Time `json:"registration_time"`
-	Remarks                 *string    `json:"remarks"`
-	SideLicensePlate        *string    `json:"side_license_plate"`
-	SvnNumber               *string    `json:"svn_number"`
-	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
-	UpdatedAt               *time.Time `json:"updated_at"`
-	UpdatedBy               *string    `json:"updated_by"`
-	VehicleID               *string    `json:"vehicle_id"`
-	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
-}
-
-// order by min() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberMinOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ConfirmTime             *model.OrderBy `json:"confirm_time"`
-	Confirmor               *model.OrderBy `json:"confirmor"`
-	ContactPerson           *model.OrderBy `json:"contact_person"`
-	ContactPhone            *model.OrderBy `json:"contact_phone"`
-	CreatedBy               *model.OrderBy `json:"created_by"`
-	DeletedAt               *model.OrderBy `json:"deleted_at"`
-	DeletedBy               *model.OrderBy `json:"deleted_by"`
-	FrontLicensePlate       *model.OrderBy `json:"front_license_plate"`
-	ID                      *model.OrderBy `json:"id"`
-	InitialRegistrationDate *model.OrderBy `json:"initial_registration_date"`
-	MarkingTime             *model.OrderBy `json:"marking_time"`
-	OriginalNumber          *model.OrderBy `json:"original_number"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTime          *model.OrderBy `json:"production_time"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	RearLicensePlate        *model.OrderBy `json:"rear_license_plate"`
-	RegistrationTime        *model.OrderBy `json:"registration_time"`
-	Remarks                 *model.OrderBy `json:"remarks"`
-	SideLicensePlate        *model.OrderBy `json:"side_license_plate"`
-	SvnNumber               *model.OrderBy `json:"svn_number"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-	UpdatedAt               *model.OrderBy `json:"updated_at"`
-	UpdatedBy               *model.OrderBy `json:"updated_by"`
-	VehicleID               *model.OrderBy `json:"vehicle_id"`
-	WorkNumberPlateColor    *model.OrderBy `json:"work_number_plate_color"`
+	ID                       *int64     `json:"id"`
+	MuckTruckPreviewNumberID *string    `json:"muck_truck_preview_number_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	SvnNumber                *string    `json:"svn_number"`
+	RegistrationTime         *string    `json:"registration_time"`
+	Confirmor                *string    `json:"confirmor"`
+	ConfirmTime              *time.Time `json:"confirm_time"`
+	ConfirmStatus            *int       `json:"confirm_status"`
+	FrontLicensePlate        *string    `json:"front_license_plate"`
+	RearLicensePlate         *string    `json:"rear_license_plate"`
+	SideLicensePlate         *string    `json:"side_license_plate"`
+	OriginalNumber           *string    `json:"original_number"`
+	IsReviewAutomatically    *bool      `json:"is_review_automatically"`
+	ProductionStatus         *int       `json:"production_status"`
+	ProductionTime           *time.Time `json:"production_time"`
+	MarkingTime              *time.Time `json:"marking_time"`
+	ProductionTimes          *int       `json:"production_times"`
+	SubmitProductionTime     *time.Time `json:"submit_production_time"`
+	ContactPerson            *string    `json:"contact_person"`
+	ContactPhone             *string    `json:"contact_phone"`
+	WorkNumberPlateColor     *string    `json:"work_number_plate_color"`
+	InitialRegistrationDate  *time.Time `json:"initial_registration_date"`
+	UnlawfulViolationNumber  *int       `json:"unlawful_violation_number"`
+	IsRegisterSaleOrder      *bool      `json:"is_register_sale_order"`
+	Remarks                  *string    `json:"remarks"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "muck_truck_preview_number"
 type MuckTruckPreviewNumberMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*MuckTruckPreviewNumber `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "muck_truck_preview_number"
-type MuckTruckPreviewNumberObjRelInsertInput struct {
-	Data       *MuckTruckPreviewNumberInsertInput `json:"data"`
-	OnConflict *MuckTruckPreviewNumberOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "muck_truck_preview_number"
-type MuckTruckPreviewNumberOnConflict struct {
-	Constraint    MuckTruckPreviewNumberConstraint     `json:"constraint"`
-	UpdateColumns []MuckTruckPreviewNumberUpdateColumn `json:"update_columns"`
-	Where         *MuckTruckPreviewNumberBoolExp       `json:"where"`
+	AffectedRows int                              `json:"affected_rows"`
+	Returning    []*model1.MuckTruckPreviewNumber `json:"returning"`
 }
 
 // ordering options when selecting data from "muck_truck_preview_number"
 type MuckTruckPreviewNumberOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ConfirmTime             *model.OrderBy `json:"confirm_time"`
-	Confirmor               *model.OrderBy `json:"confirmor"`
-	ContactPerson           *model.OrderBy `json:"contact_person"`
-	ContactPhone            *model.OrderBy `json:"contact_phone"`
-	CreatedBy               *model.OrderBy `json:"created_by"`
-	DeletedAt               *model.OrderBy `json:"deleted_at"`
-	DeletedBy               *model.OrderBy `json:"deleted_by"`
-	FrontLicensePlate       *model.OrderBy `json:"front_license_plate"`
-	ID                      *model.OrderBy `json:"id"`
-	InitialRegistrationDate *model.OrderBy `json:"initial_registration_date"`
-	IsDelete                *model.OrderBy `json:"is_delete"`
-	IsRegisterSaleOrder     *model.OrderBy `json:"is_register_sale_order"`
-	IsReviewAutomatically   *model.OrderBy `json:"is_review_automatically"`
-	MarkingTime             *model.OrderBy `json:"marking_time"`
-	OriginalNumber          *model.OrderBy `json:"original_number"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTime          *model.OrderBy `json:"production_time"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	RearLicensePlate        *model.OrderBy `json:"rear_license_plate"`
-	RegistrationTime        *model.OrderBy `json:"registration_time"`
-	Remarks                 *model.OrderBy `json:"remarks"`
-	SideLicensePlate        *model.OrderBy `json:"side_license_plate"`
-	SvnNumber               *model.OrderBy `json:"svn_number"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-	UpdatedAt               *model.OrderBy `json:"updated_at"`
-	UpdatedBy               *model.OrderBy `json:"updated_by"`
-	VehicleID               *model.OrderBy `json:"vehicle_id"`
-	WorkNumberPlateColor    *model.OrderBy `json:"work_number_plate_color"`
-}
-
-// primary key columns input for table: "muck_truck_preview_number"
-type MuckTruckPreviewNumberPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
+	ID                       *model.OrderBy `json:"id"`
+	MuckTruckPreviewNumberID *model.OrderBy `json:"muck_truck_preview_number_id"`
+	VehicleID                *model.OrderBy `json:"vehicle_id"`
+	SvnNumber                *model.OrderBy `json:"svn_number"`
+	RegistrationTime         *model.OrderBy `json:"registration_time"`
+	Confirmor                *model.OrderBy `json:"confirmor"`
+	ConfirmTime              *model.OrderBy `json:"confirm_time"`
+	ConfirmStatus            *model.OrderBy `json:"confirm_status"`
+	FrontLicensePlate        *model.OrderBy `json:"front_license_plate"`
+	RearLicensePlate         *model.OrderBy `json:"rear_license_plate"`
+	SideLicensePlate         *model.OrderBy `json:"side_license_plate"`
+	OriginalNumber           *model.OrderBy `json:"original_number"`
+	IsReviewAutomatically    *model.OrderBy `json:"is_review_automatically"`
+	ProductionStatus         *model.OrderBy `json:"production_status"`
+	ProductionTime           *model.OrderBy `json:"production_time"`
+	MarkingTime              *model.OrderBy `json:"marking_time"`
+	ProductionTimes          *model.OrderBy `json:"production_times"`
+	SubmitProductionTime     *model.OrderBy `json:"submit_production_time"`
+	ContactPerson            *model.OrderBy `json:"contact_person"`
+	ContactPhone             *model.OrderBy `json:"contact_phone"`
+	WorkNumberPlateColor     *model.OrderBy `json:"work_number_plate_color"`
+	InitialRegistrationDate  *model.OrderBy `json:"initial_registration_date"`
+	UnlawfulViolationNumber  *model.OrderBy `json:"unlawful_violation_number"`
+	IsRegisterSaleOrder      *model.OrderBy `json:"is_register_sale_order"`
+	Remarks                  *model.OrderBy `json:"remarks"`
+	IsDeleted                *model.OrderBy `json:"is_deleted"`
+	CreatedAt                *model.OrderBy `json:"created_at"`
+	CreatedBy                *model.OrderBy `json:"created_by"`
+	UpdatedAt                *model.OrderBy `json:"updated_at"`
+	UpdatedBy                *model.OrderBy `json:"updated_by"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "muck_truck_preview_number"
 type MuckTruckPreviewNumberSetInput struct {
-	ConfirmStatus           *int       `json:"confirm_status"`
-	ConfirmTime             *time.Time `json:"confirm_time"`
-	Confirmor               *string    `json:"confirmor"`
-	ContactPerson           *string    `json:"contact_person"`
-	ContactPhone            *string    `json:"contact_phone"`
-	CreatedBy               *string    `json:"created_by"`
-	DeletedAt               *time.Time `json:"deleted_at"`
-	DeletedBy               *string    `json:"deleted_by"`
-	FrontLicensePlate       *string    `json:"front_license_plate"`
-	ID                      *int64     `json:"id"`
-	InitialRegistrationDate *time.Time `json:"initial_registration_date"`
-	IsDelete                *bool      `json:"is_delete"`
-	IsRegisterSaleOrder     *bool      `json:"is_register_sale_order"`
-	IsReviewAutomatically   *bool      `json:"is_review_automatically"`
-	MarkingTime             *time.Time `json:"marking_time"`
-	OriginalNumber          *string    `json:"original_number"`
-	ProductionStatus        *int       `json:"production_status"`
-	ProductionTime          *time.Time `json:"production_time"`
-	ProductionTimes         *int       `json:"production_times"`
-	RearLicensePlate        *string    `json:"rear_license_plate"`
-	RegistrationTime        *time.Time `json:"registration_time"`
-	Remarks                 *string    `json:"remarks"`
-	SideLicensePlate        *string    `json:"side_license_plate"`
-	SvnNumber               *string    `json:"svn_number"`
-	UnlawfulViolationNumber *int       `json:"unlawful_violation_number"`
-	UpdatedAt               *time.Time `json:"updated_at"`
-	UpdatedBy               *string    `json:"updated_by"`
-	VehicleID               *string    `json:"vehicle_id"`
-	WorkNumberPlateColor    *string    `json:"work_number_plate_color"`
+	ID                       *int64     `json:"id"`
+	MuckTruckPreviewNumberID *string    `json:"muck_truck_preview_number_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	SvnNumber                *string    `json:"svn_number"`
+	RegistrationTime         *string    `json:"registration_time"`
+	Confirmor                *string    `json:"confirmor"`
+	ConfirmTime              *time.Time `json:"confirm_time"`
+	ConfirmStatus            *int       `json:"confirm_status"`
+	FrontLicensePlate        *string    `json:"front_license_plate"`
+	RearLicensePlate         *string    `json:"rear_license_plate"`
+	SideLicensePlate         *string    `json:"side_license_plate"`
+	OriginalNumber           *string    `json:"original_number"`
+	IsReviewAutomatically    *bool      `json:"is_review_automatically"`
+	ProductionStatus         *int       `json:"production_status"`
+	ProductionTime           *time.Time `json:"production_time"`
+	MarkingTime              *time.Time `json:"marking_time"`
+	ProductionTimes          *int       `json:"production_times"`
+	SubmitProductionTime     *time.Time `json:"submit_production_time"`
+	ContactPerson            *string    `json:"contact_person"`
+	ContactPhone             *string    `json:"contact_phone"`
+	WorkNumberPlateColor     *string    `json:"work_number_plate_color"`
+	InitialRegistrationDate  *time.Time `json:"initial_registration_date"`
+	UnlawfulViolationNumber  *int       `json:"unlawful_violation_number"`
+	IsRegisterSaleOrder      *bool      `json:"is_register_sale_order"`
+	Remarks                  *string    `json:"remarks"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "muck_truck_preview_number"
 type MuckTruckPreviewNumberStddevFields struct {
-	ConfirmStatus           *float64 `json:"confirm_status"`
-	ID                      *float64 `json:"id"`
-	ProductionStatus        *float64 `json:"production_status"`
-	ProductionTimes         *float64 `json:"production_times"`
-	UnlawfulViolationNumber *float64 `json:"unlawful_violation_number"`
-}
-
-// order by stddev() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberStddevOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ID                      *model.OrderBy `json:"id"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-}
-
-// aggregate stddev_pop on columns
-type MuckTruckPreviewNumberStddevPopFields struct {
-	ConfirmStatus           *float64 `json:"confirm_status"`
-	ID                      *float64 `json:"id"`
-	ProductionStatus        *float64 `json:"production_status"`
-	ProductionTimes         *float64 `json:"production_times"`
-	UnlawfulViolationNumber *float64 `json:"unlawful_violation_number"`
-}
-
-// order by stddev_pop() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberStddevPopOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ID                      *model.OrderBy `json:"id"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-}
-
-// aggregate stddev_samp on columns
-type MuckTruckPreviewNumberStddevSampFields struct {
-	ConfirmStatus           *float64 `json:"confirm_status"`
-	ID                      *float64 `json:"id"`
-	ProductionStatus        *float64 `json:"production_status"`
-	ProductionTimes         *float64 `json:"production_times"`
-	UnlawfulViolationNumber *float64 `json:"unlawful_violation_number"`
-}
-
-// order by stddev_samp() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberStddevSampOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ID                      *model.OrderBy `json:"id"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-}
-
-// aggregate sum on columns
-type MuckTruckPreviewNumberSumFields struct {
-	ConfirmStatus           *int   `json:"confirm_status"`
 	ID                      *int64 `json:"id"`
+	ConfirmStatus           *int   `json:"confirm_status"`
 	ProductionStatus        *int   `json:"production_status"`
 	ProductionTimes         *int   `json:"production_times"`
 	UnlawfulViolationNumber *int   `json:"unlawful_violation_number"`
 }
 
-// order by sum() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberSumOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ID                      *model.OrderBy `json:"id"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
+// aggregate stddev_pop on columns of table "muck_truck_preview_number"
+type MuckTruckPreviewNumberStddevPopFields struct {
+	ID                      *int64 `json:"id"`
+	ConfirmStatus           *int   `json:"confirm_status"`
+	ProductionStatus        *int   `json:"production_status"`
+	ProductionTimes         *int   `json:"production_times"`
+	UnlawfulViolationNumber *int   `json:"unlawful_violation_number"`
 }
 
-// aggregate var_pop on columns
+// aggregate stddev_samp on columns of table "muck_truck_preview_number"
+type MuckTruckPreviewNumberStddevSampFields struct {
+	ID                      *int64 `json:"id"`
+	ConfirmStatus           *int   `json:"confirm_status"`
+	ProductionStatus        *int   `json:"production_status"`
+	ProductionTimes         *int   `json:"production_times"`
+	UnlawfulViolationNumber *int   `json:"unlawful_violation_number"`
+}
+
+// aggregate sum on columns of table "muck_truck_preview_number"
+type MuckTruckPreviewNumberSumFields struct {
+	ID                      *int64 `json:"id"`
+	ConfirmStatus           *int   `json:"confirm_status"`
+	ProductionStatus        *int   `json:"production_status"`
+	ProductionTimes         *int   `json:"production_times"`
+	UnlawfulViolationNumber *int   `json:"unlawful_violation_number"`
+}
+
+// aggregate var_pop on columns of table "muck_truck_preview_number"
 type MuckTruckPreviewNumberVarPopFields struct {
-	ConfirmStatus           *float64 `json:"confirm_status"`
-	ID                      *float64 `json:"id"`
-	ProductionStatus        *float64 `json:"production_status"`
-	ProductionTimes         *float64 `json:"production_times"`
-	UnlawfulViolationNumber *float64 `json:"unlawful_violation_number"`
+	ID                      *int64 `json:"id"`
+	ConfirmStatus           *int   `json:"confirm_status"`
+	ProductionStatus        *int   `json:"production_status"`
+	ProductionTimes         *int   `json:"production_times"`
+	UnlawfulViolationNumber *int   `json:"unlawful_violation_number"`
 }
 
-// order by var_pop() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberVarPopOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ID                      *model.OrderBy `json:"id"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "muck_truck_preview_number"
 type MuckTruckPreviewNumberVarSampFields struct {
-	ConfirmStatus           *float64 `json:"confirm_status"`
-	ID                      *float64 `json:"id"`
-	ProductionStatus        *float64 `json:"production_status"`
-	ProductionTimes         *float64 `json:"production_times"`
-	UnlawfulViolationNumber *float64 `json:"unlawful_violation_number"`
+	ID                      *int64 `json:"id"`
+	ConfirmStatus           *int   `json:"confirm_status"`
+	ProductionStatus        *int   `json:"production_status"`
+	ProductionTimes         *int   `json:"production_times"`
+	UnlawfulViolationNumber *int   `json:"unlawful_violation_number"`
 }
 
-// order by var_samp() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberVarSampOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ID                      *model.OrderBy `json:"id"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "muck_truck_preview_number"
 type MuckTruckPreviewNumberVarianceFields struct {
-	ConfirmStatus           *float64 `json:"confirm_status"`
-	ID                      *float64 `json:"id"`
-	ProductionStatus        *float64 `json:"production_status"`
-	ProductionTimes         *float64 `json:"production_times"`
-	UnlawfulViolationNumber *float64 `json:"unlawful_violation_number"`
+	ID                      *int64 `json:"id"`
+	ConfirmStatus           *int   `json:"confirm_status"`
+	ProductionStatus        *int   `json:"production_status"`
+	ProductionTimes         *int   `json:"production_times"`
+	UnlawfulViolationNumber *int   `json:"unlawful_violation_number"`
 }
 
-// order by variance() on columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberVarianceOrderBy struct {
-	ConfirmStatus           *model.OrderBy `json:"confirm_status"`
-	ID                      *model.OrderBy `json:"id"`
-	ProductionStatus        *model.OrderBy `json:"production_status"`
-	ProductionTimes         *model.OrderBy `json:"production_times"`
-	UnlawfulViolationNumber *model.OrderBy `json:"unlawful_violation_number"`
+// aggregated selection of "muck_truck_test_situation"
+type MuckTruckTestSituationAggregate struct {
+	Aggregate *MuckTruckTestSituationAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "muck_truck_test_situation"
+type MuckTruckTestSituationAggregateFields struct {
+	Avg        *MuckTruckTestSituationAvgFields        `json:"avg"`
+	Count      *int                                    `json:"count"`
+	Max        *MuckTruckTestSituationMaxFields        `json:"max"`
+	Min        *MuckTruckTestSituationMinFields        `json:"min"`
+	Stddev     *MuckTruckTestSituationStddevFields     `json:"stddev"`
+	StddevPop  *MuckTruckTestSituationStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *MuckTruckTestSituationStddevSampFields `json:"stddev_samp"`
+	Sum        *MuckTruckTestSituationSumFields        `json:"sum"`
+	VarPop     *MuckTruckTestSituationVarPopFields     `json:"var_pop"`
+	VarSamp    *MuckTruckTestSituationVarSampFields    `json:"var_samp"`
+	Variance   *MuckTruckTestSituationVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationAvgFields struct {
+	ID                       *int64 `json:"id"`
+	AirtightState            *int   `json:"airtight_state"`
+	LoadState                *int   `json:"load_state"`
+	LiftingStatus            *int   `json:"lifting_status"`
+	Video                    *int   `json:"video"`
+	Fingerprint              *int   `json:"fingerprint"`
+	CarLockFunction          *int   `json:"car_lock_function"`
+	SpeedLimitFunction       *int   `json:"speed_limit_function"`
+	MinistryStandardFunction *int   `json:"ministry_standard_function"`
+	WeightLimitFunction      *int   `json:"weight_limit_function"`
+	LeftTurnLight            *int   `json:"left_turn_light"`
+	RightTurnRight           *int   `json:"right_turn_right"`
+	HighBeam                 *int   `json:"high_beam"`
+	LowBeam                  *int   `json:"low_beam"`
+	Brake                    *int   `json:"brake"`
+	Speed                    *int   `json:"speed"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_test_situation'.
+type MuckTruckTestSituationBoolExp struct {
+	And                      []*MuckTruckTestSituationBoolExp `json:"_and"`
+	Not                      *MuckTruckTestSituationBoolExp   `json:"_not"`
+	Or                       []*MuckTruckTestSituationBoolExp `json:"_or"`
+	ID                       *model.BigintComparisonExp       `json:"id"`
+	MuckTruckTestSituationID *model.StringComparisonExp       `json:"muck_truck_test_situation_id"`
+	VehicleID                *model.StringComparisonExp       `json:"vehicle_id"`
+	AirtightState            *model.IntComparisonExp          `json:"airtight_state"`
+	LoadState                *model.IntComparisonExp          `json:"load_state"`
+	LiftingStatus            *model.IntComparisonExp          `json:"lifting_status"`
+	Video                    *model.IntComparisonExp          `json:"video"`
+	Fingerprint              *model.IntComparisonExp          `json:"fingerprint"`
+	CarLockFunction          *model.IntComparisonExp          `json:"car_lock_function"`
+	SpeedLimitFunction       *model.IntComparisonExp          `json:"speed_limit_function"`
+	MinistryStandardFunction *model.IntComparisonExp          `json:"ministry_standard_function"`
+	WeightLimitFunction      *model.IntComparisonExp          `json:"weight_limit_function"`
+	LeftTurnLight            *model.IntComparisonExp          `json:"left_turn_light"`
+	RightTurnRight           *model.IntComparisonExp          `json:"right_turn_right"`
+	HighBeam                 *model.IntComparisonExp          `json:"high_beam"`
+	LowBeam                  *model.IntComparisonExp          `json:"low_beam"`
+	Brake                    *model.IntComparisonExp          `json:"brake"`
+	Speed                    *model.IntComparisonExp          `json:"speed"`
+	IsDetectIllegalSpoil     *model.BooleanComparisonExp      `json:"is_detect_illegal_spoil"`
+	IsDetectIllegalStart     *model.BooleanComparisonExp      `json:"is_detect_illegal_start"`
+	IsPassed                 *model.BooleanComparisonExp      `json:"is_passed"`
+	IsDeleted                *model.BooleanComparisonExp      `json:"is_deleted"`
+	CreatedAt                *model.TimestamptzComparisonExp  `json:"created_at"`
+	CreatedBy                *model.StringComparisonExp       `json:"created_by"`
+	UpdatedAt                *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy                *model.StringComparisonExp       `json:"updated_by"`
+	DeletedAt                *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy                *model.StringComparisonExp       `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "muck_truck_test_situation"
+type MuckTruckTestSituationIncInput struct {
+	ID                       *int64 `json:"id"`
+	AirtightState            *int   `json:"airtight_state"`
+	LoadState                *int   `json:"load_state"`
+	LiftingStatus            *int   `json:"lifting_status"`
+	Video                    *int   `json:"video"`
+	Fingerprint              *int   `json:"fingerprint"`
+	CarLockFunction          *int   `json:"car_lock_function"`
+	SpeedLimitFunction       *int   `json:"speed_limit_function"`
+	MinistryStandardFunction *int   `json:"ministry_standard_function"`
+	WeightLimitFunction      *int   `json:"weight_limit_function"`
+	LeftTurnLight            *int   `json:"left_turn_light"`
+	RightTurnRight           *int   `json:"right_turn_right"`
+	HighBeam                 *int   `json:"high_beam"`
+	LowBeam                  *int   `json:"low_beam"`
+	Brake                    *int   `json:"brake"`
+	Speed                    *int   `json:"speed"`
+}
+
+// input type for inserting data into table "muck_truck_test_situation"
+type MuckTruckTestSituationInsertInput struct {
+	ID                       *int64     `json:"id"`
+	MuckTruckTestSituationID *string    `json:"muck_truck_test_situation_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	AirtightState            *int       `json:"airtight_state"`
+	LoadState                *int       `json:"load_state"`
+	LiftingStatus            *int       `json:"lifting_status"`
+	Video                    *int       `json:"video"`
+	Fingerprint              *int       `json:"fingerprint"`
+	CarLockFunction          *int       `json:"car_lock_function"`
+	SpeedLimitFunction       *int       `json:"speed_limit_function"`
+	MinistryStandardFunction *int       `json:"ministry_standard_function"`
+	WeightLimitFunction      *int       `json:"weight_limit_function"`
+	LeftTurnLight            *int       `json:"left_turn_light"`
+	RightTurnRight           *int       `json:"right_turn_right"`
+	HighBeam                 *int       `json:"high_beam"`
+	LowBeam                  *int       `json:"low_beam"`
+	Brake                    *int       `json:"brake"`
+	Speed                    *int       `json:"speed"`
+	IsDetectIllegalSpoil     *bool      `json:"is_detect_illegal_spoil"`
+	IsDetectIllegalStart     *bool      `json:"is_detect_illegal_start"`
+	IsPassed                 *bool      `json:"is_passed"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationMaxFields struct {
+	ID                       *int64     `json:"id"`
+	MuckTruckTestSituationID *string    `json:"muck_truck_test_situation_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	AirtightState            *int       `json:"airtight_state"`
+	LoadState                *int       `json:"load_state"`
+	LiftingStatus            *int       `json:"lifting_status"`
+	Video                    *int       `json:"video"`
+	Fingerprint              *int       `json:"fingerprint"`
+	CarLockFunction          *int       `json:"car_lock_function"`
+	SpeedLimitFunction       *int       `json:"speed_limit_function"`
+	MinistryStandardFunction *int       `json:"ministry_standard_function"`
+	WeightLimitFunction      *int       `json:"weight_limit_function"`
+	LeftTurnLight            *int       `json:"left_turn_light"`
+	RightTurnRight           *int       `json:"right_turn_right"`
+	HighBeam                 *int       `json:"high_beam"`
+	LowBeam                  *int       `json:"low_beam"`
+	Brake                    *int       `json:"brake"`
+	Speed                    *int       `json:"speed"`
+	IsDetectIllegalSpoil     *bool      `json:"is_detect_illegal_spoil"`
+	IsDetectIllegalStart     *bool      `json:"is_detect_illegal_start"`
+	IsPassed                 *bool      `json:"is_passed"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationMinFields struct {
+	ID                       *int64     `json:"id"`
+	MuckTruckTestSituationID *string    `json:"muck_truck_test_situation_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	AirtightState            *int       `json:"airtight_state"`
+	LoadState                *int       `json:"load_state"`
+	LiftingStatus            *int       `json:"lifting_status"`
+	Video                    *int       `json:"video"`
+	Fingerprint              *int       `json:"fingerprint"`
+	CarLockFunction          *int       `json:"car_lock_function"`
+	SpeedLimitFunction       *int       `json:"speed_limit_function"`
+	MinistryStandardFunction *int       `json:"ministry_standard_function"`
+	WeightLimitFunction      *int       `json:"weight_limit_function"`
+	LeftTurnLight            *int       `json:"left_turn_light"`
+	RightTurnRight           *int       `json:"right_turn_right"`
+	HighBeam                 *int       `json:"high_beam"`
+	LowBeam                  *int       `json:"low_beam"`
+	Brake                    *int       `json:"brake"`
+	Speed                    *int       `json:"speed"`
+	IsDetectIllegalSpoil     *bool      `json:"is_detect_illegal_spoil"`
+	IsDetectIllegalStart     *bool      `json:"is_detect_illegal_start"`
+	IsPassed                 *bool      `json:"is_passed"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "muck_truck_test_situation"
+type MuckTruckTestSituationMutationResponse struct {
+	AffectedRows int                              `json:"affected_rows"`
+	Returning    []*model1.MuckTruckTestSituation `json:"returning"`
+}
+
+// ordering options when selecting data from "muck_truck_test_situation"
+type MuckTruckTestSituationOrderBy struct {
+	ID                       *model.OrderBy `json:"id"`
+	MuckTruckTestSituationID *model.OrderBy `json:"muck_truck_test_situation_id"`
+	VehicleID                *model.OrderBy `json:"vehicle_id"`
+	AirtightState            *model.OrderBy `json:"airtight_state"`
+	LoadState                *model.OrderBy `json:"load_state"`
+	LiftingStatus            *model.OrderBy `json:"lifting_status"`
+	Video                    *model.OrderBy `json:"video"`
+	Fingerprint              *model.OrderBy `json:"fingerprint"`
+	CarLockFunction          *model.OrderBy `json:"car_lock_function"`
+	SpeedLimitFunction       *model.OrderBy `json:"speed_limit_function"`
+	MinistryStandardFunction *model.OrderBy `json:"ministry_standard_function"`
+	WeightLimitFunction      *model.OrderBy `json:"weight_limit_function"`
+	LeftTurnLight            *model.OrderBy `json:"left_turn_light"`
+	RightTurnRight           *model.OrderBy `json:"right_turn_right"`
+	HighBeam                 *model.OrderBy `json:"high_beam"`
+	LowBeam                  *model.OrderBy `json:"low_beam"`
+	Brake                    *model.OrderBy `json:"brake"`
+	Speed                    *model.OrderBy `json:"speed"`
+	IsDetectIllegalSpoil     *model.OrderBy `json:"is_detect_illegal_spoil"`
+	IsDetectIllegalStart     *model.OrderBy `json:"is_detect_illegal_start"`
+	IsPassed                 *model.OrderBy `json:"is_passed"`
+	IsDeleted                *model.OrderBy `json:"is_deleted"`
+	CreatedAt                *model.OrderBy `json:"created_at"`
+	CreatedBy                *model.OrderBy `json:"created_by"`
+	UpdatedAt                *model.OrderBy `json:"updated_at"`
+	UpdatedBy                *model.OrderBy `json:"updated_by"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "muck_truck_test_situation"
+type MuckTruckTestSituationSetInput struct {
+	ID                       *int64     `json:"id"`
+	MuckTruckTestSituationID *string    `json:"muck_truck_test_situation_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	AirtightState            *int       `json:"airtight_state"`
+	LoadState                *int       `json:"load_state"`
+	LiftingStatus            *int       `json:"lifting_status"`
+	Video                    *int       `json:"video"`
+	Fingerprint              *int       `json:"fingerprint"`
+	CarLockFunction          *int       `json:"car_lock_function"`
+	SpeedLimitFunction       *int       `json:"speed_limit_function"`
+	MinistryStandardFunction *int       `json:"ministry_standard_function"`
+	WeightLimitFunction      *int       `json:"weight_limit_function"`
+	LeftTurnLight            *int       `json:"left_turn_light"`
+	RightTurnRight           *int       `json:"right_turn_right"`
+	HighBeam                 *int       `json:"high_beam"`
+	LowBeam                  *int       `json:"low_beam"`
+	Brake                    *int       `json:"brake"`
+	Speed                    *int       `json:"speed"`
+	IsDetectIllegalSpoil     *bool      `json:"is_detect_illegal_spoil"`
+	IsDetectIllegalStart     *bool      `json:"is_detect_illegal_start"`
+	IsPassed                 *bool      `json:"is_passed"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationStddevFields struct {
+	ID                       *int64 `json:"id"`
+	AirtightState            *int   `json:"airtight_state"`
+	LoadState                *int   `json:"load_state"`
+	LiftingStatus            *int   `json:"lifting_status"`
+	Video                    *int   `json:"video"`
+	Fingerprint              *int   `json:"fingerprint"`
+	CarLockFunction          *int   `json:"car_lock_function"`
+	SpeedLimitFunction       *int   `json:"speed_limit_function"`
+	MinistryStandardFunction *int   `json:"ministry_standard_function"`
+	WeightLimitFunction      *int   `json:"weight_limit_function"`
+	LeftTurnLight            *int   `json:"left_turn_light"`
+	RightTurnRight           *int   `json:"right_turn_right"`
+	HighBeam                 *int   `json:"high_beam"`
+	LowBeam                  *int   `json:"low_beam"`
+	Brake                    *int   `json:"brake"`
+	Speed                    *int   `json:"speed"`
+}
+
+// aggregate stddev_pop on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationStddevPopFields struct {
+	ID                       *int64 `json:"id"`
+	AirtightState            *int   `json:"airtight_state"`
+	LoadState                *int   `json:"load_state"`
+	LiftingStatus            *int   `json:"lifting_status"`
+	Video                    *int   `json:"video"`
+	Fingerprint              *int   `json:"fingerprint"`
+	CarLockFunction          *int   `json:"car_lock_function"`
+	SpeedLimitFunction       *int   `json:"speed_limit_function"`
+	MinistryStandardFunction *int   `json:"ministry_standard_function"`
+	WeightLimitFunction      *int   `json:"weight_limit_function"`
+	LeftTurnLight            *int   `json:"left_turn_light"`
+	RightTurnRight           *int   `json:"right_turn_right"`
+	HighBeam                 *int   `json:"high_beam"`
+	LowBeam                  *int   `json:"low_beam"`
+	Brake                    *int   `json:"brake"`
+	Speed                    *int   `json:"speed"`
+}
+
+// aggregate stddev_samp on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationStddevSampFields struct {
+	ID                       *int64 `json:"id"`
+	AirtightState            *int   `json:"airtight_state"`
+	LoadState                *int   `json:"load_state"`
+	LiftingStatus            *int   `json:"lifting_status"`
+	Video                    *int   `json:"video"`
+	Fingerprint              *int   `json:"fingerprint"`
+	CarLockFunction          *int   `json:"car_lock_function"`
+	SpeedLimitFunction       *int   `json:"speed_limit_function"`
+	MinistryStandardFunction *int   `json:"ministry_standard_function"`
+	WeightLimitFunction      *int   `json:"weight_limit_function"`
+	LeftTurnLight            *int   `json:"left_turn_light"`
+	RightTurnRight           *int   `json:"right_turn_right"`
+	HighBeam                 *int   `json:"high_beam"`
+	LowBeam                  *int   `json:"low_beam"`
+	Brake                    *int   `json:"brake"`
+	Speed                    *int   `json:"speed"`
+}
+
+// aggregate sum on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationSumFields struct {
+	ID                       *int64 `json:"id"`
+	AirtightState            *int   `json:"airtight_state"`
+	LoadState                *int   `json:"load_state"`
+	LiftingStatus            *int   `json:"lifting_status"`
+	Video                    *int   `json:"video"`
+	Fingerprint              *int   `json:"fingerprint"`
+	CarLockFunction          *int   `json:"car_lock_function"`
+	SpeedLimitFunction       *int   `json:"speed_limit_function"`
+	MinistryStandardFunction *int   `json:"ministry_standard_function"`
+	WeightLimitFunction      *int   `json:"weight_limit_function"`
+	LeftTurnLight            *int   `json:"left_turn_light"`
+	RightTurnRight           *int   `json:"right_turn_right"`
+	HighBeam                 *int   `json:"high_beam"`
+	LowBeam                  *int   `json:"low_beam"`
+	Brake                    *int   `json:"brake"`
+	Speed                    *int   `json:"speed"`
+}
+
+// aggregate var_pop on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationVarPopFields struct {
+	ID                       *int64 `json:"id"`
+	AirtightState            *int   `json:"airtight_state"`
+	LoadState                *int   `json:"load_state"`
+	LiftingStatus            *int   `json:"lifting_status"`
+	Video                    *int   `json:"video"`
+	Fingerprint              *int   `json:"fingerprint"`
+	CarLockFunction          *int   `json:"car_lock_function"`
+	SpeedLimitFunction       *int   `json:"speed_limit_function"`
+	MinistryStandardFunction *int   `json:"ministry_standard_function"`
+	WeightLimitFunction      *int   `json:"weight_limit_function"`
+	LeftTurnLight            *int   `json:"left_turn_light"`
+	RightTurnRight           *int   `json:"right_turn_right"`
+	HighBeam                 *int   `json:"high_beam"`
+	LowBeam                  *int   `json:"low_beam"`
+	Brake                    *int   `json:"brake"`
+	Speed                    *int   `json:"speed"`
+}
+
+// aggregate var_samp on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationVarSampFields struct {
+	ID                       *int64 `json:"id"`
+	AirtightState            *int   `json:"airtight_state"`
+	LoadState                *int   `json:"load_state"`
+	LiftingStatus            *int   `json:"lifting_status"`
+	Video                    *int   `json:"video"`
+	Fingerprint              *int   `json:"fingerprint"`
+	CarLockFunction          *int   `json:"car_lock_function"`
+	SpeedLimitFunction       *int   `json:"speed_limit_function"`
+	MinistryStandardFunction *int   `json:"ministry_standard_function"`
+	WeightLimitFunction      *int   `json:"weight_limit_function"`
+	LeftTurnLight            *int   `json:"left_turn_light"`
+	RightTurnRight           *int   `json:"right_turn_right"`
+	HighBeam                 *int   `json:"high_beam"`
+	LowBeam                  *int   `json:"low_beam"`
+	Brake                    *int   `json:"brake"`
+	Speed                    *int   `json:"speed"`
+}
+
+// aggregate variance on columns of table "muck_truck_test_situation"
+type MuckTruckTestSituationVarianceFields struct {
+	ID                       *int64 `json:"id"`
+	AirtightState            *int   `json:"airtight_state"`
+	LoadState                *int   `json:"load_state"`
+	LiftingStatus            *int   `json:"lifting_status"`
+	Video                    *int   `json:"video"`
+	Fingerprint              *int   `json:"fingerprint"`
+	CarLockFunction          *int   `json:"car_lock_function"`
+	SpeedLimitFunction       *int   `json:"speed_limit_function"`
+	MinistryStandardFunction *int   `json:"ministry_standard_function"`
+	WeightLimitFunction      *int   `json:"weight_limit_function"`
+	LeftTurnLight            *int   `json:"left_turn_light"`
+	RightTurnRight           *int   `json:"right_turn_right"`
+	HighBeam                 *int   `json:"high_beam"`
+	LowBeam                  *int   `json:"low_beam"`
+	Brake                    *int   `json:"brake"`
+	Speed                    *int   `json:"speed"`
+}
+
+// 渣土车工号牌制作订单表
+type MuckTruckWorkerIDCardOrders struct {
+	// 按指定方法生成                                               ( 主键                       )
+	ID int64 `json:"id"`
+	// 渣土车工号牌制作订单外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	MuckTruckWorkerOrdersID string `json:"muck_truck_worker_orders_id"`
+	// vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	VehicleID string `json:"vehicle_id"`
+	// muck_truck_preview_number  渣土车车辆预编号表的id        (                            )
+	PreviewNumberID string `json:"preview_number_id"`
+	// 创建时间                                                     (                            )
+	CreatedAt time.Time `json:"created_at"`
+	// 创建人                                                       ( system_user表的user_id )
+	CreatedBy string `json:"created_by"`
+	// 修改时间                                                     (                            )
+	UpdatedAt *time.Time `json:"updated_at"`
+	// 修改人                                                       ( system_user表的user_id )
+	UpdatedBy *string `json:"updated_by"`
+	// 删除时间                                                     (                            )
+	DeletedAt *time.Time `json:"deleted_at"`
+	// 删除人                                                       ( system_user表的user_id )
+	DeletedBy *string `json:"deleted_by"`
 }
 
 // aggregated selection of "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersAggregate struct {
 	Aggregate *MuckTruckWorkerIDCardOrdersAggregateFields `json:"aggregate"`
-	Nodes     []*MuckTruckWorkerIDCardOrders              `json:"nodes"`
 }
 
 // aggregate fields of "muck_truck_worker_id_card_orders"
@@ -1976,822 +1742,873 @@ type MuckTruckWorkerIDCardOrdersAggregateFields struct {
 	Variance   *MuckTruckWorkerIDCardOrdersVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersAggregateOrderBy struct {
-	Avg        *MuckTruckWorkerIDCardOrdersAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                                `json:"count"`
-	Max        *MuckTruckWorkerIDCardOrdersMaxOrderBy        `json:"max"`
-	Min        *MuckTruckWorkerIDCardOrdersMinOrderBy        `json:"min"`
-	Stddev     *MuckTruckWorkerIDCardOrdersStddevOrderBy     `json:"stddev"`
-	StddevPop  *MuckTruckWorkerIDCardOrdersStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *MuckTruckWorkerIDCardOrdersStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *MuckTruckWorkerIDCardOrdersSumOrderBy        `json:"sum"`
-	VarPop     *MuckTruckWorkerIDCardOrdersVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *MuckTruckWorkerIDCardOrdersVarSampOrderBy    `json:"var_samp"`
-	Variance   *MuckTruckWorkerIDCardOrdersVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersArrRelInsertInput struct {
-	Data       []*MuckTruckWorkerIDCardOrdersInsertInput `json:"data"`
-	OnConflict *MuckTruckWorkerIDCardOrdersOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersAvgFields struct {
-	ID              *float64 `json:"id"`
-	PreviewNumberID *float64 `json:"preview_number_id"`
+	ID *int64 `json:"id"`
 }
 
-// order by avg() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersAvgOrderBy struct {
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-}
-
-// Boolean expression to filter rows from the table
-// "muck_truck_worker_id_card_orders". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'muck_truck_worker_id_card_orders'.
 type MuckTruckWorkerIDCardOrdersBoolExp struct {
-	And             []*MuckTruckWorkerIDCardOrdersBoolExp `json:"_and"`
-	Not             *MuckTruckWorkerIDCardOrdersBoolExp   `json:"_not"`
-	Or              []*MuckTruckWorkerIDCardOrdersBoolExp `json:"_or"`
-	CreatedAt       *model.TimestamptzComparisonExp       `json:"created_at"`
-	CreatedBy       *model.StringComparisonExp            `json:"created_by"`
-	DeletedAt       *model.TimestamptzComparisonExp       `json:"deleted_at"`
-	DeletedBy       *model.StringComparisonExp            `json:"deleted_by"`
-	ID              *model.BigintComparisonExp            `json:"id"`
-	PreviewNumberID *model.BigintComparisonExp            `json:"preview_number_id"`
-	UpdatedAt       *model.TimestamptzComparisonExp       `json:"updated_at"`
-	UpdatedBy       *model.StringComparisonExp            `json:"updated_by"`
-	VehicleID       *model.StringComparisonExp            `json:"vehicle_id"`
+	And                     []*MuckTruckWorkerIDCardOrdersBoolExp `json:"_and"`
+	Not                     *MuckTruckWorkerIDCardOrdersBoolExp   `json:"_not"`
+	Or                      []*MuckTruckWorkerIDCardOrdersBoolExp `json:"_or"`
+	ID                      *model.BigintComparisonExp            `json:"id"`
+	MuckTruckWorkerOrdersID *model.StringComparisonExp            `json:"muck_truck_worker_orders_id"`
+	VehicleID               *model.StringComparisonExp            `json:"vehicle_id"`
+	PreviewNumberID         *model.StringComparisonExp            `json:"preview_number_id"`
+	CreatedAt               *model.TimestamptzComparisonExp       `json:"created_at"`
+	CreatedBy               *model.StringComparisonExp            `json:"created_by"`
+	UpdatedAt               *model.TimestamptzComparisonExp       `json:"updated_at"`
+	UpdatedBy               *model.StringComparisonExp            `json:"updated_by"`
+	DeletedAt               *model.TimestamptzComparisonExp       `json:"deleted_at"`
+	DeletedBy               *model.StringComparisonExp            `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersIncInput struct {
-	ID              *int64 `json:"id"`
-	PreviewNumberID *int64 `json:"preview_number_id"`
+	ID *int64 `json:"id"`
 }
 
 // input type for inserting data into table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersInsertInput struct {
-	CreatedAt       *time.Time `json:"created_at"`
-	CreatedBy       *string    `json:"created_by"`
-	DeletedAt       *time.Time `json:"deleted_at"`
-	DeletedBy       *string    `json:"deleted_by"`
-	ID              *int64     `json:"id"`
-	PreviewNumberID *int64     `json:"preview_number_id"`
-	UpdatedAt       *time.Time `json:"updated_at"`
-	UpdatedBy       *string    `json:"updated_by"`
-	VehicleID       *string    `json:"vehicle_id"`
+	ID                      *int64     `json:"id"`
+	MuckTruckWorkerOrdersID *string    `json:"muck_truck_worker_orders_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	PreviewNumberID         *string    `json:"preview_number_id"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersMaxFields struct {
-	CreatedAt       *time.Time `json:"created_at"`
-	CreatedBy       *string    `json:"created_by"`
-	DeletedAt       *time.Time `json:"deleted_at"`
-	DeletedBy       *string    `json:"deleted_by"`
-	ID              *int64     `json:"id"`
-	PreviewNumberID *int64     `json:"preview_number_id"`
-	UpdatedAt       *time.Time `json:"updated_at"`
-	UpdatedBy       *string    `json:"updated_by"`
-	VehicleID       *string    `json:"vehicle_id"`
+	ID                      *int64     `json:"id"`
+	MuckTruckWorkerOrdersID *string    `json:"muck_truck_worker_orders_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	PreviewNumberID         *string    `json:"preview_number_id"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersMaxOrderBy struct {
-	CreatedAt       *model.OrderBy `json:"created_at"`
-	CreatedBy       *model.OrderBy `json:"created_by"`
-	DeletedAt       *model.OrderBy `json:"deleted_at"`
-	DeletedBy       *model.OrderBy `json:"deleted_by"`
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-	UpdatedAt       *model.OrderBy `json:"updated_at"`
-	UpdatedBy       *model.OrderBy `json:"updated_by"`
-	VehicleID       *model.OrderBy `json:"vehicle_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersMinFields struct {
-	CreatedAt       *time.Time `json:"created_at"`
-	CreatedBy       *string    `json:"created_by"`
-	DeletedAt       *time.Time `json:"deleted_at"`
-	DeletedBy       *string    `json:"deleted_by"`
-	ID              *int64     `json:"id"`
-	PreviewNumberID *int64     `json:"preview_number_id"`
-	UpdatedAt       *time.Time `json:"updated_at"`
-	UpdatedBy       *string    `json:"updated_by"`
-	VehicleID       *string    `json:"vehicle_id"`
-}
-
-// order by min() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersMinOrderBy struct {
-	CreatedAt       *model.OrderBy `json:"created_at"`
-	CreatedBy       *model.OrderBy `json:"created_by"`
-	DeletedAt       *model.OrderBy `json:"deleted_at"`
-	DeletedBy       *model.OrderBy `json:"deleted_by"`
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-	UpdatedAt       *model.OrderBy `json:"updated_at"`
-	UpdatedBy       *model.OrderBy `json:"updated_by"`
-	VehicleID       *model.OrderBy `json:"vehicle_id"`
+	ID                      *int64     `json:"id"`
+	MuckTruckWorkerOrdersID *string    `json:"muck_truck_worker_orders_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	PreviewNumberID         *string    `json:"preview_number_id"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*MuckTruckWorkerIDCardOrders `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersObjRelInsertInput struct {
-	Data       *MuckTruckWorkerIDCardOrdersInsertInput `json:"data"`
-	OnConflict *MuckTruckWorkerIDCardOrdersOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersOnConflict struct {
-	Constraint    MuckTruckWorkerIDCardOrdersConstraint     `json:"constraint"`
-	UpdateColumns []MuckTruckWorkerIDCardOrdersUpdateColumn `json:"update_columns"`
-	Where         *MuckTruckWorkerIDCardOrdersBoolExp       `json:"where"`
+	AffectedRows int                            `json:"affected_rows"`
+	Returning    []*MuckTruckWorkerIDCardOrders `json:"returning"`
 }
 
 // ordering options when selecting data from "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersOrderBy struct {
-	CreatedAt       *model.OrderBy `json:"created_at"`
-	CreatedBy       *model.OrderBy `json:"created_by"`
-	DeletedAt       *model.OrderBy `json:"deleted_at"`
-	DeletedBy       *model.OrderBy `json:"deleted_by"`
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-	UpdatedAt       *model.OrderBy `json:"updated_at"`
-	UpdatedBy       *model.OrderBy `json:"updated_by"`
-	VehicleID       *model.OrderBy `json:"vehicle_id"`
-}
-
-// primary key columns input for table: "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
+	ID                      *model.OrderBy `json:"id"`
+	MuckTruckWorkerOrdersID *model.OrderBy `json:"muck_truck_worker_orders_id"`
+	VehicleID               *model.OrderBy `json:"vehicle_id"`
+	PreviewNumberID         *model.OrderBy `json:"preview_number_id"`
+	CreatedAt               *model.OrderBy `json:"created_at"`
+	CreatedBy               *model.OrderBy `json:"created_by"`
+	UpdatedAt               *model.OrderBy `json:"updated_at"`
+	UpdatedBy               *model.OrderBy `json:"updated_by"`
+	DeletedAt               *model.OrderBy `json:"deleted_at"`
+	DeletedBy               *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersSetInput struct {
-	CreatedAt       *time.Time `json:"created_at"`
-	CreatedBy       *string    `json:"created_by"`
-	DeletedAt       *time.Time `json:"deleted_at"`
-	DeletedBy       *string    `json:"deleted_by"`
-	ID              *int64     `json:"id"`
-	PreviewNumberID *int64     `json:"preview_number_id"`
-	UpdatedAt       *time.Time `json:"updated_at"`
-	UpdatedBy       *string    `json:"updated_by"`
-	VehicleID       *string    `json:"vehicle_id"`
+	ID                      *int64     `json:"id"`
+	MuckTruckWorkerOrdersID *string    `json:"muck_truck_worker_orders_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	PreviewNumberID         *string    `json:"preview_number_id"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersStddevFields struct {
-	ID              *float64 `json:"id"`
-	PreviewNumberID *float64 `json:"preview_number_id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersStddevOrderBy struct {
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersStddevPopFields struct {
-	ID              *float64 `json:"id"`
-	PreviewNumberID *float64 `json:"preview_number_id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev_pop() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersStddevPopOrderBy struct {
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersStddevSampFields struct {
-	ID              *float64 `json:"id"`
-	PreviewNumberID *float64 `json:"preview_number_id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev_samp() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersStddevSampOrderBy struct {
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersSumFields struct {
-	ID              *int64 `json:"id"`
-	PreviewNumberID *int64 `json:"preview_number_id"`
+	ID *int64 `json:"id"`
 }
 
-// order by sum() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersSumOrderBy struct {
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersVarPopFields struct {
-	ID              *float64 `json:"id"`
-	PreviewNumberID *float64 `json:"preview_number_id"`
+	ID *int64 `json:"id"`
 }
 
-// order by var_pop() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersVarPopOrderBy struct {
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersVarSampFields struct {
-	ID              *float64 `json:"id"`
-	PreviewNumberID *float64 `json:"preview_number_id"`
+	ID *int64 `json:"id"`
 }
 
-// order by var_samp() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersVarSampOrderBy struct {
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "muck_truck_worker_id_card_orders"
 type MuckTruckWorkerIDCardOrdersVarianceFields struct {
-	ID              *float64 `json:"id"`
-	PreviewNumberID *float64 `json:"preview_number_id"`
+	ID *int64 `json:"id"`
 }
 
-// order by variance() on columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersVarianceOrderBy struct {
-	ID              *model.OrderBy `json:"id"`
-	PreviewNumberID *model.OrderBy `json:"preview_number_id"`
+// aggregated selection of "operating_vehicle_ext"
+type OperatingVehicleExtAggregate struct {
+	Aggregate *OperatingVehicleExtAggregateFields `json:"aggregate"`
 }
 
-// aggregated selection of "operating_vehicle_info"
-type OperatingVehicleInfoAggregate struct {
-	Aggregate *OperatingVehicleInfoAggregateFields `json:"aggregate"`
-	Nodes     []*OperatingVehicleInfo              `json:"nodes"`
+// aggregate fields of "operating_vehicle_ext"
+type OperatingVehicleExtAggregateFields struct {
+	Avg        *OperatingVehicleExtAvgFields        `json:"avg"`
+	Count      *int                                 `json:"count"`
+	Max        *OperatingVehicleExtMaxFields        `json:"max"`
+	Min        *OperatingVehicleExtMinFields        `json:"min"`
+	Stddev     *OperatingVehicleExtStddevFields     `json:"stddev"`
+	StddevPop  *OperatingVehicleExtStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *OperatingVehicleExtStddevSampFields `json:"stddev_samp"`
+	Sum        *OperatingVehicleExtSumFields        `json:"sum"`
+	VarPop     *OperatingVehicleExtVarPopFields     `json:"var_pop"`
+	VarSamp    *OperatingVehicleExtVarSampFields    `json:"var_samp"`
+	Variance   *OperatingVehicleExtVarianceFields   `json:"variance"`
 }
 
-// aggregate fields of "operating_vehicle_info"
-type OperatingVehicleInfoAggregateFields struct {
-	Avg        *OperatingVehicleInfoAvgFields        `json:"avg"`
-	Count      *int                                  `json:"count"`
-	Max        *OperatingVehicleInfoMaxFields        `json:"max"`
-	Min        *OperatingVehicleInfoMinFields        `json:"min"`
-	Stddev     *OperatingVehicleInfoStddevFields     `json:"stddev"`
-	StddevPop  *OperatingVehicleInfoStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *OperatingVehicleInfoStddevSampFields `json:"stddev_samp"`
-	Sum        *OperatingVehicleInfoSumFields        `json:"sum"`
-	VarPop     *OperatingVehicleInfoVarPopFields     `json:"var_pop"`
-	VarSamp    *OperatingVehicleInfoVarSampFields    `json:"var_samp"`
-	Variance   *OperatingVehicleInfoVarianceFields   `json:"variance"`
+// aggregate avg on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtAvgFields struct {
+	ID             *int64 `json:"id"`
+	Platform       *int   `json:"platform"`
+	ScrapTimeCheck *int   `json:"scrap_time_check"`
 }
 
-// order by aggregate values of table "operating_vehicle_info"
-type OperatingVehicleInfoAggregateOrderBy struct {
-	Avg        *OperatingVehicleInfoAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                         `json:"count"`
-	Max        *OperatingVehicleInfoMaxOrderBy        `json:"max"`
-	Min        *OperatingVehicleInfoMinOrderBy        `json:"min"`
-	Stddev     *OperatingVehicleInfoStddevOrderBy     `json:"stddev"`
-	StddevPop  *OperatingVehicleInfoStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *OperatingVehicleInfoStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *OperatingVehicleInfoSumOrderBy        `json:"sum"`
-	VarPop     *OperatingVehicleInfoVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *OperatingVehicleInfoVarSampOrderBy    `json:"var_samp"`
-	Variance   *OperatingVehicleInfoVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "operating_vehicle_info"
-type OperatingVehicleInfoArrRelInsertInput struct {
-	Data       []*OperatingVehicleInfoInsertInput `json:"data"`
-	OnConflict *OperatingVehicleInfoOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
-type OperatingVehicleInfoAvgFields struct {
-	MuckTruckType            *float64 `json:"muck_truck_type"`
-	OperatingVehicleID       *float64 `json:"operating_vehicle_id"`
-	Platform                 *float64 `json:"platform"`
-	ScrapTimeCheck           *float64 `json:"scrap_time_check"`
-	TemporaryLibrary         *float64 `json:"temporary_library"`
-	TemporaryTransportBureau *float64 `json:"temporary_transport_bureau"`
-}
-
-// order by avg() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoAvgOrderBy struct {
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	Platform                 *model.OrderBy `json:"platform"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
-}
-
-// Boolean expression to filter rows from the table "operating_vehicle_info". All fields are combined with a logical 'AND'.
-type OperatingVehicleInfoBoolExp struct {
-	And                          []*OperatingVehicleInfoBoolExp  `json:"_and"`
-	Not                          *OperatingVehicleInfoBoolExp    `json:"_not"`
-	Or                           []*OperatingVehicleInfoBoolExp  `json:"_or"`
-	AdministrativeRegion         *model.StringComparisonExp      `json:"administrative_region"`
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'operating_vehicle_ext'.
+type OperatingVehicleExtBoolExp struct {
+	And                          []*OperatingVehicleExtBoolExp   `json:"_and"`
+	Not                          *OperatingVehicleExtBoolExp     `json:"_not"`
+	Or                           []*OperatingVehicleExtBoolExp   `json:"_or"`
+	ID                           *model.BigintComparisonExp      `json:"id"`
+	VehicleID                    *model.StringComparisonExp      `json:"vehicle_id"`
 	Agent                        *model.StringComparisonExp      `json:"agent"`
 	ContactNumber                *model.StringComparisonExp      `json:"contact_number"`
-	ContractTime                 *model.TimestamptzComparisonExp `json:"contract_time"`
-	CreatedAt                    *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy                    *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt                    *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy                    *model.StringComparisonExp      `json:"deleted_by"`
-	DrivingLicenseOwner          *model.StringComparisonExp      `json:"driving_license_owner"`
-	FirstOnlineTime              *model.TimestamptzComparisonExp `json:"first_online_time"`
-	InstallationTime             *model.TimestamptzComparisonExp `json:"installation_time"`
-	IsBd                         *model.BooleanComparisonExp     `json:"is_BD"`
-	IsActive                     *model.BooleanComparisonExp     `json:"is_active"`
-	IsApplayTerminalInstallation *model.BooleanComparisonExp     `json:"is_applay_terminal_installation"`
-	IsBlock                      *model.BooleanComparisonExp     `json:"is_block"`
-	IsEngineeringVehicle         *model.BooleanComparisonExp     `json:"is_engineering_vehicle"`
-	IsFunctionOk                 *model.BooleanComparisonExp     `json:"is_function_ok"`
-	IsInOperatingSystem          *model.BooleanComparisonExp     `json:"is_in_operating_system"`
-	IsInUploadPlatform           *model.BooleanComparisonExp     `json:"is_in_upload_platform"`
-	IsNeedSupervise              *model.BooleanComparisonExp     `json:"is_need_supervise"`
-	IsSupervise                  *model.BooleanComparisonExp     `json:"is_supervise"`
-	LastBindingTerminalTime      *model.TimestamptzComparisonExp `json:"last_binding_terminal_time"`
-	LicensePlatePhoto            *model.StringComparisonExp      `json:"license_plate_photo"`
-	MuckTruckType                *model.IntComparisonExp         `json:"muck_truck_type"`
-	OperatingVehicleID           *model.BigintComparisonExp      `json:"operating_vehicle_id"`
-	OtherPhoto                   *model.StringComparisonExp      `json:"other_photo"`
 	Platform                     *model.IntComparisonExp         `json:"platform"`
-	PositionDbID                 *model.StringComparisonExp      `json:"position_db_id"`
+	DrivingLicenseOwner          *model.StringComparisonExp      `json:"driving_license_owner"`
+	SpeedModeStatusTime          *model.TimestamptzComparisonExp `json:"speed_mode_status_time"`
+	SpeedModeStatus              *model.StringComparisonExp      `json:"speed_mode_status"`
 	ScrapReason                  *model.StringComparisonExp      `json:"scrap_reason"`
 	ScrapTime                    *model.TimestamptzComparisonExp `json:"scrap_time"`
 	ScrapTimeCheck               *model.IntComparisonExp         `json:"scrap_time_check"`
+	AdministrativeRegion         *model.StringComparisonExp      `json:"administrative_region"`
+	LicensePlatePhoto            *model.StringComparisonExp      `json:"license_plate_photo"`
+	OtherPhoto                   *model.StringComparisonExp      `json:"other_photo"`
 	SerialNumber                 *model.StringComparisonExp      `json:"serial_number"`
+	IsBeidou                     *model.BooleanComparisonExp     `json:"is_beidou"`
+	IsInOperatingSystem          *model.BooleanComparisonExp     `json:"is_in_operating_system"`
+	IsInUploadPlatform           *model.BooleanComparisonExp     `json:"is_in_upload_platform"`
+	IsSupervise                  *model.BooleanComparisonExp     `json:"is_supervise"`
+	IsNeedSupervise              *model.BooleanComparisonExp     `json:"is_need_supervise"`
+	IsFunctionOk                 *model.BooleanComparisonExp     `json:"is_function_ok"`
+	IsBlock                      *model.BooleanComparisonExp     `json:"is_block"`
+	IsApplayTerminalInstallation *model.BooleanComparisonExp     `json:"is_applay_terminal_installation"`
+	FirstOnlineTime              *model.TimestamptzComparisonExp `json:"first_online_time"`
+	LastBindingTerminalTime      *model.TimestamptzComparisonExp `json:"last_binding_terminal_time"`
 	ServiceExpirationTime        *model.TimestamptzComparisonExp `json:"service_expiration_time"`
-	SpeedModeStatus              *model.StringComparisonExp      `json:"speed_mode_status"`
-	SpeedModeStatusTime          *model.TimestamptzComparisonExp `json:"speed_mode_status_time"`
-	TemporaryLibrary             *model.IntComparisonExp         `json:"temporary_library"`
-	TemporaryTransportBureau     *model.IntComparisonExp         `json:"temporary_transport_bureau"`
+	ContractTime                 *model.TimestamptzComparisonExp `json:"contract_time"`
+	InstallationTime             *model.TimestamptzComparisonExp `json:"installation_time"`
+	CreatedAt                    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                    *model.StringComparisonExp      `json:"created_by"`
 	UpdatedAt                    *model.TimestamptzComparisonExp `json:"updated_at"`
 	UpdatedBy                    *model.StringComparisonExp      `json:"updated_by"`
-	VehicleID                    *model.StringComparisonExp      `json:"vehicle_id"`
+	DeletedAt                    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                    *model.StringComparisonExp      `json:"deleted_by"`
 }
 
-// input type for incrementing integer column in table "operating_vehicle_info"
-type OperatingVehicleInfoIncInput struct {
-	MuckTruckType            *int   `json:"muck_truck_type"`
-	OperatingVehicleID       *int64 `json:"operating_vehicle_id"`
-	Platform                 *int   `json:"platform"`
-	ScrapTimeCheck           *int   `json:"scrap_time_check"`
-	TemporaryLibrary         *int   `json:"temporary_library"`
-	TemporaryTransportBureau *int   `json:"temporary_transport_bureau"`
+// input type for incrementing integer column in table "operating_vehicle_ext"
+type OperatingVehicleExtIncInput struct {
+	ID             *int64 `json:"id"`
+	Platform       *int   `json:"platform"`
+	ScrapTimeCheck *int   `json:"scrap_time_check"`
 }
 
-// input type for inserting data into table "operating_vehicle_info"
-type OperatingVehicleInfoInsertInput struct {
-	AdministrativeRegion         *string    `json:"administrative_region"`
+// input type for inserting data into table "operating_vehicle_ext"
+type OperatingVehicleExtInsertInput struct {
+	ID                           *int64     `json:"id"`
+	VehicleID                    *string    `json:"vehicle_id"`
 	Agent                        *string    `json:"agent"`
 	ContactNumber                *string    `json:"contact_number"`
-	ContractTime                 *time.Time `json:"contract_time"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
-	DrivingLicenseOwner          *string    `json:"driving_license_owner"`
-	FirstOnlineTime              *time.Time `json:"first_online_time"`
-	InstallationTime             *time.Time `json:"installation_time"`
-	IsBd                         *bool      `json:"is_BD"`
-	IsActive                     *bool      `json:"is_active"`
-	IsApplayTerminalInstallation *bool      `json:"is_applay_terminal_installation"`
-	IsBlock                      *bool      `json:"is_block"`
-	IsEngineeringVehicle         *bool      `json:"is_engineering_vehicle"`
-	IsFunctionOk                 *bool      `json:"is_function_ok"`
-	IsInOperatingSystem          *bool      `json:"is_in_operating_system"`
-	IsInUploadPlatform           *bool      `json:"is_in_upload_platform"`
-	IsNeedSupervise              *bool      `json:"is_need_supervise"`
-	IsSupervise                  *bool      `json:"is_supervise"`
-	LastBindingTerminalTime      *time.Time `json:"last_binding_terminal_time"`
-	LicensePlatePhoto            *string    `json:"license_plate_photo"`
-	MuckTruckType                *int       `json:"muck_truck_type"`
-	OperatingVehicleID           *int64     `json:"operating_vehicle_id"`
-	OtherPhoto                   *string    `json:"other_photo"`
 	Platform                     *int       `json:"platform"`
-	PositionDbID                 *string    `json:"position_db_id"`
+	DrivingLicenseOwner          *string    `json:"driving_license_owner"`
+	SpeedModeStatusTime          *time.Time `json:"speed_mode_status_time"`
+	SpeedModeStatus              *string    `json:"speed_mode_status"`
 	ScrapReason                  *string    `json:"scrap_reason"`
 	ScrapTime                    *time.Time `json:"scrap_time"`
 	ScrapTimeCheck               *int       `json:"scrap_time_check"`
+	AdministrativeRegion         *string    `json:"administrative_region"`
+	LicensePlatePhoto            *string    `json:"license_plate_photo"`
+	OtherPhoto                   *string    `json:"other_photo"`
 	SerialNumber                 *string    `json:"serial_number"`
+	IsBeidou                     *bool      `json:"is_beidou"`
+	IsInOperatingSystem          *bool      `json:"is_in_operating_system"`
+	IsInUploadPlatform           *bool      `json:"is_in_upload_platform"`
+	IsSupervise                  *bool      `json:"is_supervise"`
+	IsNeedSupervise              *bool      `json:"is_need_supervise"`
+	IsFunctionOk                 *bool      `json:"is_function_ok"`
+	IsBlock                      *bool      `json:"is_block"`
+	IsApplayTerminalInstallation *bool      `json:"is_applay_terminal_installation"`
+	FirstOnlineTime              *time.Time `json:"first_online_time"`
+	LastBindingTerminalTime      *time.Time `json:"last_binding_terminal_time"`
 	ServiceExpirationTime        *time.Time `json:"service_expiration_time"`
-	SpeedModeStatus              *string    `json:"speed_mode_status"`
-	SpeedModeStatusTime          *time.Time `json:"speed_mode_status_time"`
-	TemporaryLibrary             *int       `json:"temporary_library"`
-	TemporaryTransportBureau     *int       `json:"temporary_transport_bureau"`
+	ContractTime                 *time.Time `json:"contract_time"`
+	InstallationTime             *time.Time `json:"installation_time"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtMaxFields struct {
+	ID                           *int64     `json:"id"`
 	VehicleID                    *string    `json:"vehicle_id"`
+	Agent                        *string    `json:"agent"`
+	ContactNumber                *string    `json:"contact_number"`
+	Platform                     *int       `json:"platform"`
+	DrivingLicenseOwner          *string    `json:"driving_license_owner"`
+	SpeedModeStatusTime          *time.Time `json:"speed_mode_status_time"`
+	SpeedModeStatus              *string    `json:"speed_mode_status"`
+	ScrapReason                  *string    `json:"scrap_reason"`
+	ScrapTime                    *time.Time `json:"scrap_time"`
+	ScrapTimeCheck               *int       `json:"scrap_time_check"`
+	AdministrativeRegion         *string    `json:"administrative_region"`
+	LicensePlatePhoto            *string    `json:"license_plate_photo"`
+	OtherPhoto                   *string    `json:"other_photo"`
+	SerialNumber                 *string    `json:"serial_number"`
+	IsBeidou                     *bool      `json:"is_beidou"`
+	IsInOperatingSystem          *bool      `json:"is_in_operating_system"`
+	IsInUploadPlatform           *bool      `json:"is_in_upload_platform"`
+	IsSupervise                  *bool      `json:"is_supervise"`
+	IsNeedSupervise              *bool      `json:"is_need_supervise"`
+	IsFunctionOk                 *bool      `json:"is_function_ok"`
+	IsBlock                      *bool      `json:"is_block"`
+	IsApplayTerminalInstallation *bool      `json:"is_applay_terminal_installation"`
+	FirstOnlineTime              *time.Time `json:"first_online_time"`
+	LastBindingTerminalTime      *time.Time `json:"last_binding_terminal_time"`
+	ServiceExpirationTime        *time.Time `json:"service_expiration_time"`
+	ContractTime                 *time.Time `json:"contract_time"`
+	InstallationTime             *time.Time `json:"installation_time"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
-type OperatingVehicleInfoMaxFields struct {
-	AdministrativeRegion     *string    `json:"administrative_region"`
-	Agent                    *string    `json:"agent"`
-	ContactNumber            *string    `json:"contact_number"`
-	ContractTime             *time.Time `json:"contract_time"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
-	DrivingLicenseOwner      *string    `json:"driving_license_owner"`
-	FirstOnlineTime          *time.Time `json:"first_online_time"`
-	InstallationTime         *time.Time `json:"installation_time"`
-	LastBindingTerminalTime  *time.Time `json:"last_binding_terminal_time"`
-	LicensePlatePhoto        *string    `json:"license_plate_photo"`
-	MuckTruckType            *int       `json:"muck_truck_type"`
-	OperatingVehicleID       *int64     `json:"operating_vehicle_id"`
-	OtherPhoto               *string    `json:"other_photo"`
-	Platform                 *int       `json:"platform"`
-	PositionDbID             *string    `json:"position_db_id"`
-	ScrapReason              *string    `json:"scrap_reason"`
-	ScrapTime                *time.Time `json:"scrap_time"`
-	ScrapTimeCheck           *int       `json:"scrap_time_check"`
-	SerialNumber             *string    `json:"serial_number"`
-	ServiceExpirationTime    *time.Time `json:"service_expiration_time"`
-	SpeedModeStatus          *string    `json:"speed_mode_status"`
-	SpeedModeStatusTime      *time.Time `json:"speed_mode_status_time"`
-	TemporaryLibrary         *int       `json:"temporary_library"`
-	TemporaryTransportBureau *int       `json:"temporary_transport_bureau"`
-	UpdatedAt                *time.Time `json:"updated_at"`
-	UpdatedBy                *string    `json:"updated_by"`
-	VehicleID                *string    `json:"vehicle_id"`
+// aggregate min on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtMinFields struct {
+	ID                           *int64     `json:"id"`
+	VehicleID                    *string    `json:"vehicle_id"`
+	Agent                        *string    `json:"agent"`
+	ContactNumber                *string    `json:"contact_number"`
+	Platform                     *int       `json:"platform"`
+	DrivingLicenseOwner          *string    `json:"driving_license_owner"`
+	SpeedModeStatusTime          *time.Time `json:"speed_mode_status_time"`
+	SpeedModeStatus              *string    `json:"speed_mode_status"`
+	ScrapReason                  *string    `json:"scrap_reason"`
+	ScrapTime                    *time.Time `json:"scrap_time"`
+	ScrapTimeCheck               *int       `json:"scrap_time_check"`
+	AdministrativeRegion         *string    `json:"administrative_region"`
+	LicensePlatePhoto            *string    `json:"license_plate_photo"`
+	OtherPhoto                   *string    `json:"other_photo"`
+	SerialNumber                 *string    `json:"serial_number"`
+	IsBeidou                     *bool      `json:"is_beidou"`
+	IsInOperatingSystem          *bool      `json:"is_in_operating_system"`
+	IsInUploadPlatform           *bool      `json:"is_in_upload_platform"`
+	IsSupervise                  *bool      `json:"is_supervise"`
+	IsNeedSupervise              *bool      `json:"is_need_supervise"`
+	IsFunctionOk                 *bool      `json:"is_function_ok"`
+	IsBlock                      *bool      `json:"is_block"`
+	IsApplayTerminalInstallation *bool      `json:"is_applay_terminal_installation"`
+	FirstOnlineTime              *time.Time `json:"first_online_time"`
+	LastBindingTerminalTime      *time.Time `json:"last_binding_terminal_time"`
+	ServiceExpirationTime        *time.Time `json:"service_expiration_time"`
+	ContractTime                 *time.Time `json:"contract_time"`
+	InstallationTime             *time.Time `json:"installation_time"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoMaxOrderBy struct {
-	AdministrativeRegion     *model.OrderBy `json:"administrative_region"`
-	Agent                    *model.OrderBy `json:"agent"`
-	ContactNumber            *model.OrderBy `json:"contact_number"`
-	ContractTime             *model.OrderBy `json:"contract_time"`
-	CreatedAt                *model.OrderBy `json:"created_at"`
-	CreatedBy                *model.OrderBy `json:"created_by"`
-	DeletedAt                *model.OrderBy `json:"deleted_at"`
-	DeletedBy                *model.OrderBy `json:"deleted_by"`
-	DrivingLicenseOwner      *model.OrderBy `json:"driving_license_owner"`
-	FirstOnlineTime          *model.OrderBy `json:"first_online_time"`
-	InstallationTime         *model.OrderBy `json:"installation_time"`
-	LastBindingTerminalTime  *model.OrderBy `json:"last_binding_terminal_time"`
-	LicensePlatePhoto        *model.OrderBy `json:"license_plate_photo"`
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	OtherPhoto               *model.OrderBy `json:"other_photo"`
-	Platform                 *model.OrderBy `json:"platform"`
-	PositionDbID             *model.OrderBy `json:"position_db_id"`
-	ScrapReason              *model.OrderBy `json:"scrap_reason"`
-	ScrapTime                *model.OrderBy `json:"scrap_time"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	SerialNumber             *model.OrderBy `json:"serial_number"`
-	ServiceExpirationTime    *model.OrderBy `json:"service_expiration_time"`
-	SpeedModeStatus          *model.OrderBy `json:"speed_mode_status"`
-	SpeedModeStatusTime      *model.OrderBy `json:"speed_mode_status_time"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
-	UpdatedAt                *model.OrderBy `json:"updated_at"`
-	UpdatedBy                *model.OrderBy `json:"updated_by"`
-	VehicleID                *model.OrderBy `json:"vehicle_id"`
+// response of any mutation on the table "operating_vehicle_ext"
+type OperatingVehicleExtMutationResponse struct {
+	AffectedRows int                           `json:"affected_rows"`
+	Returning    []*model1.OperatingVehicleExt `json:"returning"`
 }
 
-// aggregate min on columns
-type OperatingVehicleInfoMinFields struct {
-	AdministrativeRegion     *string    `json:"administrative_region"`
-	Agent                    *string    `json:"agent"`
-	ContactNumber            *string    `json:"contact_number"`
-	ContractTime             *time.Time `json:"contract_time"`
-	CreatedAt                *time.Time `json:"created_at"`
-	CreatedBy                *string    `json:"created_by"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
-	DrivingLicenseOwner      *string    `json:"driving_license_owner"`
-	FirstOnlineTime          *time.Time `json:"first_online_time"`
-	InstallationTime         *time.Time `json:"installation_time"`
-	LastBindingTerminalTime  *time.Time `json:"last_binding_terminal_time"`
-	LicensePlatePhoto        *string    `json:"license_plate_photo"`
-	MuckTruckType            *int       `json:"muck_truck_type"`
-	OperatingVehicleID       *int64     `json:"operating_vehicle_id"`
-	OtherPhoto               *string    `json:"other_photo"`
-	Platform                 *int       `json:"platform"`
-	PositionDbID             *string    `json:"position_db_id"`
-	ScrapReason              *string    `json:"scrap_reason"`
-	ScrapTime                *time.Time `json:"scrap_time"`
-	ScrapTimeCheck           *int       `json:"scrap_time_check"`
-	SerialNumber             *string    `json:"serial_number"`
-	ServiceExpirationTime    *time.Time `json:"service_expiration_time"`
-	SpeedModeStatus          *string    `json:"speed_mode_status"`
-	SpeedModeStatusTime      *time.Time `json:"speed_mode_status_time"`
-	TemporaryLibrary         *int       `json:"temporary_library"`
-	TemporaryTransportBureau *int       `json:"temporary_transport_bureau"`
-	UpdatedAt                *time.Time `json:"updated_at"`
-	UpdatedBy                *string    `json:"updated_by"`
-	VehicleID                *string    `json:"vehicle_id"`
-}
-
-// order by min() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoMinOrderBy struct {
-	AdministrativeRegion     *model.OrderBy `json:"administrative_region"`
-	Agent                    *model.OrderBy `json:"agent"`
-	ContactNumber            *model.OrderBy `json:"contact_number"`
-	ContractTime             *model.OrderBy `json:"contract_time"`
-	CreatedAt                *model.OrderBy `json:"created_at"`
-	CreatedBy                *model.OrderBy `json:"created_by"`
-	DeletedAt                *model.OrderBy `json:"deleted_at"`
-	DeletedBy                *model.OrderBy `json:"deleted_by"`
-	DrivingLicenseOwner      *model.OrderBy `json:"driving_license_owner"`
-	FirstOnlineTime          *model.OrderBy `json:"first_online_time"`
-	InstallationTime         *model.OrderBy `json:"installation_time"`
-	LastBindingTerminalTime  *model.OrderBy `json:"last_binding_terminal_time"`
-	LicensePlatePhoto        *model.OrderBy `json:"license_plate_photo"`
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	OtherPhoto               *model.OrderBy `json:"other_photo"`
-	Platform                 *model.OrderBy `json:"platform"`
-	PositionDbID             *model.OrderBy `json:"position_db_id"`
-	ScrapReason              *model.OrderBy `json:"scrap_reason"`
-	ScrapTime                *model.OrderBy `json:"scrap_time"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	SerialNumber             *model.OrderBy `json:"serial_number"`
-	ServiceExpirationTime    *model.OrderBy `json:"service_expiration_time"`
-	SpeedModeStatus          *model.OrderBy `json:"speed_mode_status"`
-	SpeedModeStatusTime      *model.OrderBy `json:"speed_mode_status_time"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
-	UpdatedAt                *model.OrderBy `json:"updated_at"`
-	UpdatedBy                *model.OrderBy `json:"updated_by"`
-	VehicleID                *model.OrderBy `json:"vehicle_id"`
-}
-
-// response of any mutation on the table "operating_vehicle_info"
-type OperatingVehicleInfoMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*OperatingVehicleInfo `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "operating_vehicle_info"
-type OperatingVehicleInfoObjRelInsertInput struct {
-	Data       *OperatingVehicleInfoInsertInput `json:"data"`
-	OnConflict *OperatingVehicleInfoOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "operating_vehicle_info"
-type OperatingVehicleInfoOnConflict struct {
-	Constraint    OperatingVehicleInfoConstraint     `json:"constraint"`
-	UpdateColumns []OperatingVehicleInfoUpdateColumn `json:"update_columns"`
-	Where         *OperatingVehicleInfoBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "operating_vehicle_info"
-type OperatingVehicleInfoOrderBy struct {
-	AdministrativeRegion         *model.OrderBy `json:"administrative_region"`
+// ordering options when selecting data from "operating_vehicle_ext"
+type OperatingVehicleExtOrderBy struct {
+	ID                           *model.OrderBy `json:"id"`
+	VehicleID                    *model.OrderBy `json:"vehicle_id"`
 	Agent                        *model.OrderBy `json:"agent"`
 	ContactNumber                *model.OrderBy `json:"contact_number"`
-	ContractTime                 *model.OrderBy `json:"contract_time"`
-	CreatedAt                    *model.OrderBy `json:"created_at"`
-	CreatedBy                    *model.OrderBy `json:"created_by"`
-	DeletedAt                    *model.OrderBy `json:"deleted_at"`
-	DeletedBy                    *model.OrderBy `json:"deleted_by"`
-	DrivingLicenseOwner          *model.OrderBy `json:"driving_license_owner"`
-	FirstOnlineTime              *model.OrderBy `json:"first_online_time"`
-	InstallationTime             *model.OrderBy `json:"installation_time"`
-	IsBd                         *model.OrderBy `json:"is_BD"`
-	IsActive                     *model.OrderBy `json:"is_active"`
-	IsApplayTerminalInstallation *model.OrderBy `json:"is_applay_terminal_installation"`
-	IsBlock                      *model.OrderBy `json:"is_block"`
-	IsEngineeringVehicle         *model.OrderBy `json:"is_engineering_vehicle"`
-	IsFunctionOk                 *model.OrderBy `json:"is_function_ok"`
-	IsInOperatingSystem          *model.OrderBy `json:"is_in_operating_system"`
-	IsInUploadPlatform           *model.OrderBy `json:"is_in_upload_platform"`
-	IsNeedSupervise              *model.OrderBy `json:"is_need_supervise"`
-	IsSupervise                  *model.OrderBy `json:"is_supervise"`
-	LastBindingTerminalTime      *model.OrderBy `json:"last_binding_terminal_time"`
-	LicensePlatePhoto            *model.OrderBy `json:"license_plate_photo"`
-	MuckTruckType                *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID           *model.OrderBy `json:"operating_vehicle_id"`
-	OtherPhoto                   *model.OrderBy `json:"other_photo"`
 	Platform                     *model.OrderBy `json:"platform"`
-	PositionDbID                 *model.OrderBy `json:"position_db_id"`
+	DrivingLicenseOwner          *model.OrderBy `json:"driving_license_owner"`
+	SpeedModeStatusTime          *model.OrderBy `json:"speed_mode_status_time"`
+	SpeedModeStatus              *model.OrderBy `json:"speed_mode_status"`
 	ScrapReason                  *model.OrderBy `json:"scrap_reason"`
 	ScrapTime                    *model.OrderBy `json:"scrap_time"`
 	ScrapTimeCheck               *model.OrderBy `json:"scrap_time_check"`
+	AdministrativeRegion         *model.OrderBy `json:"administrative_region"`
+	LicensePlatePhoto            *model.OrderBy `json:"license_plate_photo"`
+	OtherPhoto                   *model.OrderBy `json:"other_photo"`
 	SerialNumber                 *model.OrderBy `json:"serial_number"`
+	IsBeidou                     *model.OrderBy `json:"is_beidou"`
+	IsInOperatingSystem          *model.OrderBy `json:"is_in_operating_system"`
+	IsInUploadPlatform           *model.OrderBy `json:"is_in_upload_platform"`
+	IsSupervise                  *model.OrderBy `json:"is_supervise"`
+	IsNeedSupervise              *model.OrderBy `json:"is_need_supervise"`
+	IsFunctionOk                 *model.OrderBy `json:"is_function_ok"`
+	IsBlock                      *model.OrderBy `json:"is_block"`
+	IsApplayTerminalInstallation *model.OrderBy `json:"is_applay_terminal_installation"`
+	FirstOnlineTime              *model.OrderBy `json:"first_online_time"`
+	LastBindingTerminalTime      *model.OrderBy `json:"last_binding_terminal_time"`
 	ServiceExpirationTime        *model.OrderBy `json:"service_expiration_time"`
-	SpeedModeStatus              *model.OrderBy `json:"speed_mode_status"`
-	SpeedModeStatusTime          *model.OrderBy `json:"speed_mode_status_time"`
-	TemporaryLibrary             *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau     *model.OrderBy `json:"temporary_transport_bureau"`
+	ContractTime                 *model.OrderBy `json:"contract_time"`
+	InstallationTime             *model.OrderBy `json:"installation_time"`
+	CreatedAt                    *model.OrderBy `json:"created_at"`
+	CreatedBy                    *model.OrderBy `json:"created_by"`
 	UpdatedAt                    *model.OrderBy `json:"updated_at"`
 	UpdatedBy                    *model.OrderBy `json:"updated_by"`
-	VehicleID                    *model.OrderBy `json:"vehicle_id"`
+	DeletedAt                    *model.OrderBy `json:"deleted_at"`
+	DeletedBy                    *model.OrderBy `json:"deleted_by"`
 }
 
-// primary key columns input for table: "operating_vehicle_info"
-type OperatingVehicleInfoPkColumnsInput struct {
-	// 主键
-	OperatingVehicleID int64 `json:"operating_vehicle_id"`
-}
-
-// input type for updating data in table "operating_vehicle_info"
-type OperatingVehicleInfoSetInput struct {
-	AdministrativeRegion         *string    `json:"administrative_region"`
+// input type for updating data in table "operating_vehicle_ext"
+type OperatingVehicleExtSetInput struct {
+	ID                           *int64     `json:"id"`
+	VehicleID                    *string    `json:"vehicle_id"`
 	Agent                        *string    `json:"agent"`
 	ContactNumber                *string    `json:"contact_number"`
-	ContractTime                 *time.Time `json:"contract_time"`
-	CreatedAt                    *time.Time `json:"created_at"`
-	CreatedBy                    *string    `json:"created_by"`
-	DeletedAt                    *time.Time `json:"deleted_at"`
-	DeletedBy                    *string    `json:"deleted_by"`
-	DrivingLicenseOwner          *string    `json:"driving_license_owner"`
-	FirstOnlineTime              *time.Time `json:"first_online_time"`
-	InstallationTime             *time.Time `json:"installation_time"`
-	IsBd                         *bool      `json:"is_BD"`
-	IsActive                     *bool      `json:"is_active"`
-	IsApplayTerminalInstallation *bool      `json:"is_applay_terminal_installation"`
-	IsBlock                      *bool      `json:"is_block"`
-	IsEngineeringVehicle         *bool      `json:"is_engineering_vehicle"`
-	IsFunctionOk                 *bool      `json:"is_function_ok"`
-	IsInOperatingSystem          *bool      `json:"is_in_operating_system"`
-	IsInUploadPlatform           *bool      `json:"is_in_upload_platform"`
-	IsNeedSupervise              *bool      `json:"is_need_supervise"`
-	IsSupervise                  *bool      `json:"is_supervise"`
-	LastBindingTerminalTime      *time.Time `json:"last_binding_terminal_time"`
-	LicensePlatePhoto            *string    `json:"license_plate_photo"`
-	MuckTruckType                *int       `json:"muck_truck_type"`
-	OperatingVehicleID           *int64     `json:"operating_vehicle_id"`
-	OtherPhoto                   *string    `json:"other_photo"`
 	Platform                     *int       `json:"platform"`
-	PositionDbID                 *string    `json:"position_db_id"`
+	DrivingLicenseOwner          *string    `json:"driving_license_owner"`
+	SpeedModeStatusTime          *time.Time `json:"speed_mode_status_time"`
+	SpeedModeStatus              *string    `json:"speed_mode_status"`
 	ScrapReason                  *string    `json:"scrap_reason"`
 	ScrapTime                    *time.Time `json:"scrap_time"`
 	ScrapTimeCheck               *int       `json:"scrap_time_check"`
+	AdministrativeRegion         *string    `json:"administrative_region"`
+	LicensePlatePhoto            *string    `json:"license_plate_photo"`
+	OtherPhoto                   *string    `json:"other_photo"`
 	SerialNumber                 *string    `json:"serial_number"`
+	IsBeidou                     *bool      `json:"is_beidou"`
+	IsInOperatingSystem          *bool      `json:"is_in_operating_system"`
+	IsInUploadPlatform           *bool      `json:"is_in_upload_platform"`
+	IsSupervise                  *bool      `json:"is_supervise"`
+	IsNeedSupervise              *bool      `json:"is_need_supervise"`
+	IsFunctionOk                 *bool      `json:"is_function_ok"`
+	IsBlock                      *bool      `json:"is_block"`
+	IsApplayTerminalInstallation *bool      `json:"is_applay_terminal_installation"`
+	FirstOnlineTime              *time.Time `json:"first_online_time"`
+	LastBindingTerminalTime      *time.Time `json:"last_binding_terminal_time"`
 	ServiceExpirationTime        *time.Time `json:"service_expiration_time"`
-	SpeedModeStatus              *string    `json:"speed_mode_status"`
-	SpeedModeStatusTime          *time.Time `json:"speed_mode_status_time"`
-	TemporaryLibrary             *int       `json:"temporary_library"`
-	TemporaryTransportBureau     *int       `json:"temporary_transport_bureau"`
+	ContractTime                 *time.Time `json:"contract_time"`
+	InstallationTime             *time.Time `json:"installation_time"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
 	UpdatedAt                    *time.Time `json:"updated_at"`
 	UpdatedBy                    *string    `json:"updated_by"`
-	VehicleID                    *string    `json:"vehicle_id"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
-type OperatingVehicleInfoStddevFields struct {
-	MuckTruckType            *float64 `json:"muck_truck_type"`
-	OperatingVehicleID       *float64 `json:"operating_vehicle_id"`
-	Platform                 *float64 `json:"platform"`
-	ScrapTimeCheck           *float64 `json:"scrap_time_check"`
-	TemporaryLibrary         *float64 `json:"temporary_library"`
-	TemporaryTransportBureau *float64 `json:"temporary_transport_bureau"`
+// aggregate stddev on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtStddevFields struct {
+	ID             *int64 `json:"id"`
+	Platform       *int   `json:"platform"`
+	ScrapTimeCheck *int   `json:"scrap_time_check"`
 }
 
-// order by stddev() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoStddevOrderBy struct {
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	Platform                 *model.OrderBy `json:"platform"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
+// aggregate stddev_pop on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtStddevPopFields struct {
+	ID             *int64 `json:"id"`
+	Platform       *int   `json:"platform"`
+	ScrapTimeCheck *int   `json:"scrap_time_check"`
 }
 
-// aggregate stddev_pop on columns
-type OperatingVehicleInfoStddevPopFields struct {
-	MuckTruckType            *float64 `json:"muck_truck_type"`
-	OperatingVehicleID       *float64 `json:"operating_vehicle_id"`
-	Platform                 *float64 `json:"platform"`
-	ScrapTimeCheck           *float64 `json:"scrap_time_check"`
-	TemporaryLibrary         *float64 `json:"temporary_library"`
-	TemporaryTransportBureau *float64 `json:"temporary_transport_bureau"`
+// aggregate stddev_samp on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtStddevSampFields struct {
+	ID             *int64 `json:"id"`
+	Platform       *int   `json:"platform"`
+	ScrapTimeCheck *int   `json:"scrap_time_check"`
 }
 
-// order by stddev_pop() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoStddevPopOrderBy struct {
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	Platform                 *model.OrderBy `json:"platform"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
+// aggregate sum on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtSumFields struct {
+	ID             *int64 `json:"id"`
+	Platform       *int   `json:"platform"`
+	ScrapTimeCheck *int   `json:"scrap_time_check"`
 }
 
-// aggregate stddev_samp on columns
-type OperatingVehicleInfoStddevSampFields struct {
-	MuckTruckType            *float64 `json:"muck_truck_type"`
-	OperatingVehicleID       *float64 `json:"operating_vehicle_id"`
-	Platform                 *float64 `json:"platform"`
-	ScrapTimeCheck           *float64 `json:"scrap_time_check"`
-	TemporaryLibrary         *float64 `json:"temporary_library"`
-	TemporaryTransportBureau *float64 `json:"temporary_transport_bureau"`
+// aggregate var_pop on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtVarPopFields struct {
+	ID             *int64 `json:"id"`
+	Platform       *int   `json:"platform"`
+	ScrapTimeCheck *int   `json:"scrap_time_check"`
 }
 
-// order by stddev_samp() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoStddevSampOrderBy struct {
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	Platform                 *model.OrderBy `json:"platform"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
+// aggregate var_samp on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtVarSampFields struct {
+	ID             *int64 `json:"id"`
+	Platform       *int   `json:"platform"`
+	ScrapTimeCheck *int   `json:"scrap_time_check"`
 }
 
-// aggregate sum on columns
-type OperatingVehicleInfoSumFields struct {
-	MuckTruckType            *int   `json:"muck_truck_type"`
-	OperatingVehicleID       *int64 `json:"operating_vehicle_id"`
-	Platform                 *int   `json:"platform"`
-	ScrapTimeCheck           *int   `json:"scrap_time_check"`
-	TemporaryLibrary         *int   `json:"temporary_library"`
-	TemporaryTransportBureau *int   `json:"temporary_transport_bureau"`
+// aggregate variance on columns of table "operating_vehicle_ext"
+type OperatingVehicleExtVarianceFields struct {
+	ID             *int64 `json:"id"`
+	Platform       *int   `json:"platform"`
+	ScrapTimeCheck *int   `json:"scrap_time_check"`
 }
 
-// order by sum() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoSumOrderBy struct {
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	Platform                 *model.OrderBy `json:"platform"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
+// aggregated selection of "outage_filing_upload_file"
+type OutageFilingUploadFileAggregate struct {
+	Aggregate *OutageFilingUploadFileAggregateFields `json:"aggregate"`
 }
 
-// aggregate var_pop on columns
-type OperatingVehicleInfoVarPopFields struct {
-	MuckTruckType            *float64 `json:"muck_truck_type"`
-	OperatingVehicleID       *float64 `json:"operating_vehicle_id"`
-	Platform                 *float64 `json:"platform"`
-	ScrapTimeCheck           *float64 `json:"scrap_time_check"`
-	TemporaryLibrary         *float64 `json:"temporary_library"`
-	TemporaryTransportBureau *float64 `json:"temporary_transport_bureau"`
+// aggregate fields of "outage_filing_upload_file"
+type OutageFilingUploadFileAggregateFields struct {
+	Avg        *OutageFilingUploadFileAvgFields        `json:"avg"`
+	Count      *int                                    `json:"count"`
+	Max        *OutageFilingUploadFileMaxFields        `json:"max"`
+	Min        *OutageFilingUploadFileMinFields        `json:"min"`
+	Stddev     *OutageFilingUploadFileStddevFields     `json:"stddev"`
+	StddevPop  *OutageFilingUploadFileStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *OutageFilingUploadFileStddevSampFields `json:"stddev_samp"`
+	Sum        *OutageFilingUploadFileSumFields        `json:"sum"`
+	VarPop     *OutageFilingUploadFileVarPopFields     `json:"var_pop"`
+	VarSamp    *OutageFilingUploadFileVarSampFields    `json:"var_samp"`
+	Variance   *OutageFilingUploadFileVarianceFields   `json:"variance"`
 }
 
-// order by var_pop() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoVarPopOrderBy struct {
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	Platform                 *model.OrderBy `json:"platform"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
+// aggregate avg on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileAvgFields struct {
+	ID *int64 `json:"id"`
 }
 
-// aggregate var_samp on columns
-type OperatingVehicleInfoVarSampFields struct {
-	MuckTruckType            *float64 `json:"muck_truck_type"`
-	OperatingVehicleID       *float64 `json:"operating_vehicle_id"`
-	Platform                 *float64 `json:"platform"`
-	ScrapTimeCheck           *float64 `json:"scrap_time_check"`
-	TemporaryLibrary         *float64 `json:"temporary_library"`
-	TemporaryTransportBureau *float64 `json:"temporary_transport_bureau"`
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'outage_filing_upload_file'.
+type OutageFilingUploadFileBoolExp struct {
+	And                      []*OutageFilingUploadFileBoolExp `json:"_and"`
+	Not                      *OutageFilingUploadFileBoolExp   `json:"_not"`
+	Or                       []*OutageFilingUploadFileBoolExp `json:"_or"`
+	ID                       *model.BigintComparisonExp       `json:"id"`
+	OutageFilingUploadFileID *model.StringComparisonExp       `json:"outage_filing_upload_file_id"`
+	FilePath                 *model.StringComparisonExp       `json:"file_path"`
+	FileType                 *model.StringComparisonExp       `json:"file_type"`
+	IsDeleted                *model.BooleanComparisonExp      `json:"is_deleted"`
+	CreatedAt                *model.TimestamptzComparisonExp  `json:"created_at"`
+	CreatedBy                *model.StringComparisonExp       `json:"created_by"`
+	UpdatedAt                *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy                *model.StringComparisonExp       `json:"updated_by"`
+	DeletedAt                *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy                *model.StringComparisonExp       `json:"deleted_by"`
 }
 
-// order by var_samp() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoVarSampOrderBy struct {
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	Platform                 *model.OrderBy `json:"platform"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
+// input type for incrementing integer column in table "outage_filing_upload_file"
+type OutageFilingUploadFileIncInput struct {
+	ID *int64 `json:"id"`
 }
 
-// aggregate variance on columns
-type OperatingVehicleInfoVarianceFields struct {
-	MuckTruckType            *float64 `json:"muck_truck_type"`
-	OperatingVehicleID       *float64 `json:"operating_vehicle_id"`
-	Platform                 *float64 `json:"platform"`
-	ScrapTimeCheck           *float64 `json:"scrap_time_check"`
-	TemporaryLibrary         *float64 `json:"temporary_library"`
-	TemporaryTransportBureau *float64 `json:"temporary_transport_bureau"`
+// input type for inserting data into table "outage_filing_upload_file"
+type OutageFilingUploadFileInsertInput struct {
+	ID                       *int64     `json:"id"`
+	OutageFilingUploadFileID *string    `json:"outage_filing_upload_file_id"`
+	FilePath                 *string    `json:"file_path"`
+	FileType                 *string    `json:"file_type"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
-// order by variance() on columns of table "operating_vehicle_info"
-type OperatingVehicleInfoVarianceOrderBy struct {
-	MuckTruckType            *model.OrderBy `json:"muck_truck_type"`
-	OperatingVehicleID       *model.OrderBy `json:"operating_vehicle_id"`
-	Platform                 *model.OrderBy `json:"platform"`
-	ScrapTimeCheck           *model.OrderBy `json:"scrap_time_check"`
-	TemporaryLibrary         *model.OrderBy `json:"temporary_library"`
-	TemporaryTransportBureau *model.OrderBy `json:"temporary_transport_bureau"`
+// aggregate max on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileMaxFields struct {
+	ID                       *int64     `json:"id"`
+	OutageFilingUploadFileID *string    `json:"outage_filing_upload_file_id"`
+	FilePath                 *string    `json:"file_path"`
+	FileType                 *string    `json:"file_type"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileMinFields struct {
+	ID                       *int64     `json:"id"`
+	OutageFilingUploadFileID *string    `json:"outage_filing_upload_file_id"`
+	FilePath                 *string    `json:"file_path"`
+	FileType                 *string    `json:"file_type"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "outage_filing_upload_file"
+type OutageFilingUploadFileMutationResponse struct {
+	AffectedRows int                              `json:"affected_rows"`
+	Returning    []*model1.OutageFilingUploadFile `json:"returning"`
+}
+
+// ordering options when selecting data from "outage_filing_upload_file"
+type OutageFilingUploadFileOrderBy struct {
+	ID                       *model.OrderBy `json:"id"`
+	OutageFilingUploadFileID *model.OrderBy `json:"outage_filing_upload_file_id"`
+	FilePath                 *model.OrderBy `json:"file_path"`
+	FileType                 *model.OrderBy `json:"file_type"`
+	IsDeleted                *model.OrderBy `json:"is_deleted"`
+	CreatedAt                *model.OrderBy `json:"created_at"`
+	CreatedBy                *model.OrderBy `json:"created_by"`
+	UpdatedAt                *model.OrderBy `json:"updated_at"`
+	UpdatedBy                *model.OrderBy `json:"updated_by"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "outage_filing_upload_file"
+type OutageFilingUploadFileSetInput struct {
+	ID                       *int64     `json:"id"`
+	OutageFilingUploadFileID *string    `json:"outage_filing_upload_file_id"`
+	FilePath                 *string    `json:"file_path"`
+	FileType                 *string    `json:"file_type"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "outage_filing_upload_file"
+type OutageFilingUploadFileVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregated selection of "outage_registration"
+type OutageRegistrationAggregate struct {
+	Aggregate *OutageRegistrationAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "outage_registration"
+type OutageRegistrationAggregateFields struct {
+	Avg        *OutageRegistrationAvgFields        `json:"avg"`
+	Count      *int                                `json:"count"`
+	Max        *OutageRegistrationMaxFields        `json:"max"`
+	Min        *OutageRegistrationMinFields        `json:"min"`
+	Stddev     *OutageRegistrationStddevFields     `json:"stddev"`
+	StddevPop  *OutageRegistrationStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *OutageRegistrationStddevSampFields `json:"stddev_samp"`
+	Sum        *OutageRegistrationSumFields        `json:"sum"`
+	VarPop     *OutageRegistrationVarPopFields     `json:"var_pop"`
+	VarSamp    *OutageRegistrationVarSampFields    `json:"var_samp"`
+	Variance   *OutageRegistrationVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "outage_registration"
+type OutageRegistrationAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'outage_registration'.
+type OutageRegistrationBoolExp struct {
+	And                      []*OutageRegistrationBoolExp    `json:"_and"`
+	Not                      *OutageRegistrationBoolExp      `json:"_not"`
+	Or                       []*OutageRegistrationBoolExp    `json:"_or"`
+	ID                       *model.BigintComparisonExp      `json:"id"`
+	OutageRegistrationID     *model.StringComparisonExp      `json:"outage_registration_id"`
+	VehicleID                *model.StringComparisonExp      `json:"vehicle_id"`
+	UserID                   *model.StringComparisonExp      `json:"user_id"`
+	OutageStartTime          *model.TimestamptzComparisonExp `json:"outage_start_time"`
+	OutageEndTime            *model.TimestamptzComparisonExp `json:"outage_end_time"`
+	ReviewStatus             *model.StringComparisonExp      `json:"review_status"`
+	Reviewer                 *model.StringComparisonExp      `json:"reviewer"`
+	ReviewTime               *model.TimestamptzComparisonExp `json:"review_time"`
+	OutageFilingUploadFileID *model.StringComparisonExp      `json:"outage_filing_upload_file_id"`
+	OutageStartCoordinate    *model.PointComparisonExp       `json:"outage_start_coordinate"`
+	OutageEndCoordinate      *model.PointComparisonExp       `json:"outage_end_coordinate"`
+	OnlineTime               *model.TimestamptzComparisonExp `json:"online_time"`
+	OutageStartPosition      *model.StringComparisonExp      `json:"outage_start_position"`
+	IsManagementReview       *model.BooleanComparisonExp     `json:"is_management_review"`
+	IsInvalid                *model.BooleanComparisonExp     `json:"is_invalid"`
+	IsLatest                 *model.BooleanComparisonExp     `json:"is_latest"`
+	IsDeleted                *model.BooleanComparisonExp     `json:"is_deleted"`
+	CreatedAt                *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt                *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt                *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "outage_registration"
+type OutageRegistrationIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "outage_registration"
+type OutageRegistrationInsertInput struct {
+	ID                       *int64     `json:"id"`
+	OutageRegistrationID     *string    `json:"outage_registration_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	UserID                   *string    `json:"user_id"`
+	OutageStartTime          *time.Time `json:"outage_start_time"`
+	OutageEndTime            *time.Time `json:"outage_end_time"`
+	ReviewStatus             *string    `json:"review_status"`
+	Reviewer                 *string    `json:"reviewer"`
+	ReviewTime               *time.Time `json:"review_time"`
+	OutageFilingUploadFileID *string    `json:"outage_filing_upload_file_id"`
+	OutageStartCoordinate    *string    `json:"outage_start_coordinate"`
+	OutageEndCoordinate      *string    `json:"outage_end_coordinate"`
+	OnlineTime               *time.Time `json:"online_time"`
+	OutageStartPosition      *string    `json:"outage_start_position"`
+	IsManagementReview       *bool      `json:"is_management_review"`
+	IsInvalid                *bool      `json:"is_invalid"`
+	IsLatest                 *bool      `json:"is_latest"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "outage_registration"
+type OutageRegistrationMaxFields struct {
+	ID                       *int64     `json:"id"`
+	OutageRegistrationID     *string    `json:"outage_registration_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	UserID                   *string    `json:"user_id"`
+	OutageStartTime          *time.Time `json:"outage_start_time"`
+	OutageEndTime            *time.Time `json:"outage_end_time"`
+	ReviewStatus             *string    `json:"review_status"`
+	Reviewer                 *string    `json:"reviewer"`
+	ReviewTime               *time.Time `json:"review_time"`
+	OutageFilingUploadFileID *string    `json:"outage_filing_upload_file_id"`
+	OutageStartCoordinate    *string    `json:"outage_start_coordinate"`
+	OutageEndCoordinate      *string    `json:"outage_end_coordinate"`
+	OnlineTime               *time.Time `json:"online_time"`
+	OutageStartPosition      *string    `json:"outage_start_position"`
+	IsManagementReview       *bool      `json:"is_management_review"`
+	IsInvalid                *bool      `json:"is_invalid"`
+	IsLatest                 *bool      `json:"is_latest"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "outage_registration"
+type OutageRegistrationMinFields struct {
+	ID                       *int64     `json:"id"`
+	OutageRegistrationID     *string    `json:"outage_registration_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	UserID                   *string    `json:"user_id"`
+	OutageStartTime          *time.Time `json:"outage_start_time"`
+	OutageEndTime            *time.Time `json:"outage_end_time"`
+	ReviewStatus             *string    `json:"review_status"`
+	Reviewer                 *string    `json:"reviewer"`
+	ReviewTime               *time.Time `json:"review_time"`
+	OutageFilingUploadFileID *string    `json:"outage_filing_upload_file_id"`
+	OutageStartCoordinate    *string    `json:"outage_start_coordinate"`
+	OutageEndCoordinate      *string    `json:"outage_end_coordinate"`
+	OnlineTime               *time.Time `json:"online_time"`
+	OutageStartPosition      *string    `json:"outage_start_position"`
+	IsManagementReview       *bool      `json:"is_management_review"`
+	IsInvalid                *bool      `json:"is_invalid"`
+	IsLatest                 *bool      `json:"is_latest"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "outage_registration"
+type OutageRegistrationMutationResponse struct {
+	AffectedRows int                          `json:"affected_rows"`
+	Returning    []*model1.OutageRegistration `json:"returning"`
+}
+
+// ordering options when selecting data from "outage_registration"
+type OutageRegistrationOrderBy struct {
+	ID                       *model.OrderBy `json:"id"`
+	OutageRegistrationID     *model.OrderBy `json:"outage_registration_id"`
+	VehicleID                *model.OrderBy `json:"vehicle_id"`
+	UserID                   *model.OrderBy `json:"user_id"`
+	OutageStartTime          *model.OrderBy `json:"outage_start_time"`
+	OutageEndTime            *model.OrderBy `json:"outage_end_time"`
+	ReviewStatus             *model.OrderBy `json:"review_status"`
+	Reviewer                 *model.OrderBy `json:"reviewer"`
+	ReviewTime               *model.OrderBy `json:"review_time"`
+	OutageFilingUploadFileID *model.OrderBy `json:"outage_filing_upload_file_id"`
+	OutageStartCoordinate    *model.OrderBy `json:"outage_start_coordinate"`
+	OutageEndCoordinate      *model.OrderBy `json:"outage_end_coordinate"`
+	OnlineTime               *model.OrderBy `json:"online_time"`
+	OutageStartPosition      *model.OrderBy `json:"outage_start_position"`
+	IsManagementReview       *model.OrderBy `json:"is_management_review"`
+	IsInvalid                *model.OrderBy `json:"is_invalid"`
+	IsLatest                 *model.OrderBy `json:"is_latest"`
+	IsDeleted                *model.OrderBy `json:"is_deleted"`
+	CreatedAt                *model.OrderBy `json:"created_at"`
+	CreatedBy                *model.OrderBy `json:"created_by"`
+	UpdatedAt                *model.OrderBy `json:"updated_at"`
+	UpdatedBy                *model.OrderBy `json:"updated_by"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "outage_registration"
+type OutageRegistrationSetInput struct {
+	ID                       *int64     `json:"id"`
+	OutageRegistrationID     *string    `json:"outage_registration_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	UserID                   *string    `json:"user_id"`
+	OutageStartTime          *time.Time `json:"outage_start_time"`
+	OutageEndTime            *time.Time `json:"outage_end_time"`
+	ReviewStatus             *string    `json:"review_status"`
+	Reviewer                 *string    `json:"reviewer"`
+	ReviewTime               *time.Time `json:"review_time"`
+	OutageFilingUploadFileID *string    `json:"outage_filing_upload_file_id"`
+	OutageStartCoordinate    *string    `json:"outage_start_coordinate"`
+	OutageEndCoordinate      *string    `json:"outage_end_coordinate"`
+	OnlineTime               *time.Time `json:"online_time"`
+	OutageStartPosition      *string    `json:"outage_start_position"`
+	IsManagementReview       *bool      `json:"is_management_review"`
+	IsInvalid                *bool      `json:"is_invalid"`
+	IsLatest                 *bool      `json:"is_latest"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "outage_registration"
+type OutageRegistrationStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "outage_registration"
+type OutageRegistrationStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "outage_registration"
+type OutageRegistrationStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "outage_registration"
+type OutageRegistrationSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "outage_registration"
+type OutageRegistrationVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "outage_registration"
+type OutageRegistrationVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "outage_registration"
+type OutageRegistrationVarianceFields struct {
+	ID *int64 `json:"id"`
 }
 
 // aggregated selection of "owner_info"
 type OwnerInfoAggregate struct {
 	Aggregate *OwnerInfoAggregateFields `json:"aggregate"`
-	Nodes     []*OwnerInfo              `json:"nodes"`
 }
 
 // aggregate fields of "owner_info"
@@ -2809,65 +2626,38 @@ type OwnerInfoAggregateFields struct {
 	Variance   *OwnerInfoVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "owner_info"
-type OwnerInfoAggregateOrderBy struct {
-	Avg        *OwnerInfoAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy              `json:"count"`
-	Max        *OwnerInfoMaxOrderBy        `json:"max"`
-	Min        *OwnerInfoMinOrderBy        `json:"min"`
-	Stddev     *OwnerInfoStddevOrderBy     `json:"stddev"`
-	StddevPop  *OwnerInfoStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *OwnerInfoStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *OwnerInfoSumOrderBy        `json:"sum"`
-	VarPop     *OwnerInfoVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *OwnerInfoVarSampOrderBy    `json:"var_samp"`
-	Variance   *OwnerInfoVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "owner_info"
-type OwnerInfoArrRelInsertInput struct {
-	Data       []*OwnerInfoInsertInput `json:"data"`
-	OnConflict *OwnerInfoOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "owner_info"
 type OwnerInfoAvgFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by avg() on columns of table "owner_info"
-type OwnerInfoAvgOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// Boolean expression to filter rows from the table "owner_info". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'owner_info'.
 type OwnerInfoBoolExp struct {
 	And          []*OwnerInfoBoolExp             `json:"_and"`
 	Not          *OwnerInfoBoolExp               `json:"_not"`
 	Or           []*OwnerInfoBoolExp             `json:"_or"`
-	Address      *model.StringComparisonExp      `json:"address"`
-	Agent        *model.StringComparisonExp      `json:"agent"`
-	Cellphone    *model.StringComparisonExp      `json:"cellphone"`
-	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
+	ID           *model.BigintComparisonExp      `json:"id"`
+	OwnerID      *model.StringComparisonExp      `json:"owner_id"`
 	DepartmentID *model.StringComparisonExp      `json:"department_id"`
+	Name         *model.StringComparisonExp      `json:"name"`
+	Address      *model.StringComparisonExp      `json:"address"`
+	Cellphone    *model.StringComparisonExp      `json:"cellphone"`
+	Telephone    *model.StringComparisonExp      `json:"telephone"`
 	Email        *model.StringComparisonExp      `json:"email"`
 	ExpiryDate   *model.TimestamptzComparisonExp `json:"expiry_date"`
-	ID           *model.BigintComparisonExp      `json:"id"`
 	IDNumber     *model.StringComparisonExp      `json:"id_number"`
-	IsDelete     *model.BooleanComparisonExp     `json:"is_delete"`
-	Name         *model.StringComparisonExp      `json:"name"`
-	Operator     *model.StringComparisonExp      `json:"operator"`
-	OwnerID      *model.StringComparisonExp      `json:"owner_id"`
 	Remarks      *model.StringComparisonExp      `json:"remarks"`
 	Sex          *model.IntComparisonExp         `json:"sex"`
-	Telephone    *model.StringComparisonExp      `json:"telephone"`
+	Agent        *model.StringComparisonExp      `json:"agent"`
+	Operator     *model.StringComparisonExp      `json:"operator"`
+	IsDeleted    *model.BooleanComparisonExp     `json:"is_deleted"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
 	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
 	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "owner_info"
@@ -2878,290 +2668,1769 @@ type OwnerInfoIncInput struct {
 
 // input type for inserting data into table "owner_info"
 type OwnerInfoInsertInput struct {
-	Address      *string    `json:"address"`
-	Agent        *string    `json:"agent"`
-	Cellphone    *string    `json:"cellphone"`
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
+	ID           *int64     `json:"id"`
+	OwnerID      *string    `json:"owner_id"`
 	DepartmentID *string    `json:"department_id"`
+	Name         *string    `json:"name"`
+	Address      *string    `json:"address"`
+	Cellphone    *string    `json:"cellphone"`
+	Telephone    *string    `json:"telephone"`
 	Email        *string    `json:"email"`
 	ExpiryDate   *time.Time `json:"expiry_date"`
-	ID           *int64     `json:"id"`
 	IDNumber     *string    `json:"id_number"`
-	IsDelete     *bool      `json:"is_delete"`
-	Name         *string    `json:"name"`
-	Operator     *string    `json:"operator"`
-	OwnerID      *string    `json:"owner_id"`
 	Remarks      *string    `json:"remarks"`
 	Sex          *int       `json:"sex"`
-	Telephone    *string    `json:"telephone"`
+	Agent        *string    `json:"agent"`
+	Operator     *string    `json:"operator"`
+	IsDeleted    *bool      `json:"is_deleted"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "owner_info"
 type OwnerInfoMaxFields struct {
-	Address      *string    `json:"address"`
-	Agent        *string    `json:"agent"`
-	Cellphone    *string    `json:"cellphone"`
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
+	ID           *int64     `json:"id"`
+	OwnerID      *string    `json:"owner_id"`
 	DepartmentID *string    `json:"department_id"`
+	Name         *string    `json:"name"`
+	Address      *string    `json:"address"`
+	Cellphone    *string    `json:"cellphone"`
+	Telephone    *string    `json:"telephone"`
 	Email        *string    `json:"email"`
 	ExpiryDate   *time.Time `json:"expiry_date"`
-	ID           *int64     `json:"id"`
 	IDNumber     *string    `json:"id_number"`
-	Name         *string    `json:"name"`
-	Operator     *string    `json:"operator"`
-	OwnerID      *string    `json:"owner_id"`
 	Remarks      *string    `json:"remarks"`
 	Sex          *int       `json:"sex"`
-	Telephone    *string    `json:"telephone"`
+	Agent        *string    `json:"agent"`
+	Operator     *string    `json:"operator"`
+	IsDeleted    *bool      `json:"is_deleted"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "owner_info"
-type OwnerInfoMaxOrderBy struct {
-	Address      *model.OrderBy `json:"address"`
-	Agent        *model.OrderBy `json:"agent"`
-	Cellphone    *model.OrderBy `json:"cellphone"`
-	CreatedAt    *model.OrderBy `json:"created_at"`
-	CreatedBy    *model.OrderBy `json:"created_by"`
-	DeletedAt    *model.OrderBy `json:"deleted_at"`
-	DeletedBy    *model.OrderBy `json:"deleted_by"`
-	DepartmentID *model.OrderBy `json:"department_id"`
-	Email        *model.OrderBy `json:"email"`
-	ExpiryDate   *model.OrderBy `json:"expiry_date"`
-	ID           *model.OrderBy `json:"id"`
-	IDNumber     *model.OrderBy `json:"id_number"`
-	Name         *model.OrderBy `json:"name"`
-	Operator     *model.OrderBy `json:"operator"`
-	OwnerID      *model.OrderBy `json:"owner_id"`
-	Remarks      *model.OrderBy `json:"remarks"`
-	Sex          *model.OrderBy `json:"sex"`
-	Telephone    *model.OrderBy `json:"telephone"`
-	UpdatedAt    *model.OrderBy `json:"updated_at"`
-	UpdatedBy    *model.OrderBy `json:"updated_by"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "owner_info"
 type OwnerInfoMinFields struct {
-	Address      *string    `json:"address"`
-	Agent        *string    `json:"agent"`
-	Cellphone    *string    `json:"cellphone"`
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
+	ID           *int64     `json:"id"`
+	OwnerID      *string    `json:"owner_id"`
 	DepartmentID *string    `json:"department_id"`
+	Name         *string    `json:"name"`
+	Address      *string    `json:"address"`
+	Cellphone    *string    `json:"cellphone"`
+	Telephone    *string    `json:"telephone"`
 	Email        *string    `json:"email"`
 	ExpiryDate   *time.Time `json:"expiry_date"`
-	ID           *int64     `json:"id"`
 	IDNumber     *string    `json:"id_number"`
-	Name         *string    `json:"name"`
-	Operator     *string    `json:"operator"`
-	OwnerID      *string    `json:"owner_id"`
 	Remarks      *string    `json:"remarks"`
 	Sex          *int       `json:"sex"`
-	Telephone    *string    `json:"telephone"`
+	Agent        *string    `json:"agent"`
+	Operator     *string    `json:"operator"`
+	IsDeleted    *bool      `json:"is_deleted"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
-}
-
-// order by min() on columns of table "owner_info"
-type OwnerInfoMinOrderBy struct {
-	Address      *model.OrderBy `json:"address"`
-	Agent        *model.OrderBy `json:"agent"`
-	Cellphone    *model.OrderBy `json:"cellphone"`
-	CreatedAt    *model.OrderBy `json:"created_at"`
-	CreatedBy    *model.OrderBy `json:"created_by"`
-	DeletedAt    *model.OrderBy `json:"deleted_at"`
-	DeletedBy    *model.OrderBy `json:"deleted_by"`
-	DepartmentID *model.OrderBy `json:"department_id"`
-	Email        *model.OrderBy `json:"email"`
-	ExpiryDate   *model.OrderBy `json:"expiry_date"`
-	ID           *model.OrderBy `json:"id"`
-	IDNumber     *model.OrderBy `json:"id_number"`
-	Name         *model.OrderBy `json:"name"`
-	Operator     *model.OrderBy `json:"operator"`
-	OwnerID      *model.OrderBy `json:"owner_id"`
-	Remarks      *model.OrderBy `json:"remarks"`
-	Sex          *model.OrderBy `json:"sex"`
-	Telephone    *model.OrderBy `json:"telephone"`
-	UpdatedAt    *model.OrderBy `json:"updated_at"`
-	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "owner_info"
 type OwnerInfoMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*OwnerInfo `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "owner_info"
-type OwnerInfoObjRelInsertInput struct {
-	Data       *OwnerInfoInsertInput `json:"data"`
-	OnConflict *OwnerInfoOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "owner_info"
-type OwnerInfoOnConflict struct {
-	Constraint    OwnerInfoConstraint     `json:"constraint"`
-	UpdateColumns []OwnerInfoUpdateColumn `json:"update_columns"`
-	Where         *OwnerInfoBoolExp       `json:"where"`
+	AffectedRows int                 `json:"affected_rows"`
+	Returning    []*model1.OwnerInfo `json:"returning"`
 }
 
 // ordering options when selecting data from "owner_info"
 type OwnerInfoOrderBy struct {
-	Address      *model.OrderBy `json:"address"`
-	Agent        *model.OrderBy `json:"agent"`
-	Cellphone    *model.OrderBy `json:"cellphone"`
-	CreatedAt    *model.OrderBy `json:"created_at"`
-	CreatedBy    *model.OrderBy `json:"created_by"`
-	DeletedAt    *model.OrderBy `json:"deleted_at"`
-	DeletedBy    *model.OrderBy `json:"deleted_by"`
+	ID           *model.OrderBy `json:"id"`
+	OwnerID      *model.OrderBy `json:"owner_id"`
 	DepartmentID *model.OrderBy `json:"department_id"`
+	Name         *model.OrderBy `json:"name"`
+	Address      *model.OrderBy `json:"address"`
+	Cellphone    *model.OrderBy `json:"cellphone"`
+	Telephone    *model.OrderBy `json:"telephone"`
 	Email        *model.OrderBy `json:"email"`
 	ExpiryDate   *model.OrderBy `json:"expiry_date"`
-	ID           *model.OrderBy `json:"id"`
 	IDNumber     *model.OrderBy `json:"id_number"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
-	Name         *model.OrderBy `json:"name"`
-	Operator     *model.OrderBy `json:"operator"`
-	OwnerID      *model.OrderBy `json:"owner_id"`
 	Remarks      *model.OrderBy `json:"remarks"`
 	Sex          *model.OrderBy `json:"sex"`
-	Telephone    *model.OrderBy `json:"telephone"`
+	Agent        *model.OrderBy `json:"agent"`
+	Operator     *model.OrderBy `json:"operator"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
 	UpdatedAt    *model.OrderBy `json:"updated_at"`
 	UpdatedBy    *model.OrderBy `json:"updated_by"`
-}
-
-// primary key columns input for table: "owner_info"
-type OwnerInfoPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "owner_info"
 type OwnerInfoSetInput struct {
-	Address      *string    `json:"address"`
-	Agent        *string    `json:"agent"`
-	Cellphone    *string    `json:"cellphone"`
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
+	ID           *int64     `json:"id"`
+	OwnerID      *string    `json:"owner_id"`
 	DepartmentID *string    `json:"department_id"`
+	Name         *string    `json:"name"`
+	Address      *string    `json:"address"`
+	Cellphone    *string    `json:"cellphone"`
+	Telephone    *string    `json:"telephone"`
 	Email        *string    `json:"email"`
 	ExpiryDate   *time.Time `json:"expiry_date"`
-	ID           *int64     `json:"id"`
 	IDNumber     *string    `json:"id_number"`
-	IsDelete     *bool      `json:"is_delete"`
-	Name         *string    `json:"name"`
-	Operator     *string    `json:"operator"`
-	OwnerID      *string    `json:"owner_id"`
 	Remarks      *string    `json:"remarks"`
 	Sex          *int       `json:"sex"`
-	Telephone    *string    `json:"telephone"`
+	Agent        *string    `json:"agent"`
+	Operator     *string    `json:"operator"`
+	IsDeleted    *bool      `json:"is_deleted"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "owner_info"
 type OwnerInfoStddevFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by stddev() on columns of table "owner_info"
-type OwnerInfoStddevOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "owner_info"
 type OwnerInfoStddevPopFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by stddev_pop() on columns of table "owner_info"
-type OwnerInfoStddevPopOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "owner_info"
 type OwnerInfoStddevSampFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by stddev_samp() on columns of table "owner_info"
-type OwnerInfoStddevSampOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "owner_info"
 type OwnerInfoSumFields struct {
 	ID  *int64 `json:"id"`
 	Sex *int   `json:"sex"`
 }
 
-// order by sum() on columns of table "owner_info"
-type OwnerInfoSumOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "owner_info"
 type OwnerInfoVarPopFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by var_pop() on columns of table "owner_info"
-type OwnerInfoVarPopOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "owner_info"
 type OwnerInfoVarSampFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by var_samp() on columns of table "owner_info"
-type OwnerInfoVarSampOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "owner_info"
 type OwnerInfoVarianceFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by variance() on columns of table "owner_info"
-type OwnerInfoVarianceOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
+// aggregated selection of "province_upload_vehicle"
+type ProvinceUploadVehicleAggregate struct {
+	Aggregate *ProvinceUploadVehicleAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "province_upload_vehicle"
+type ProvinceUploadVehicleAggregateFields struct {
+	Avg        *ProvinceUploadVehicleAvgFields        `json:"avg"`
+	Count      *int                                   `json:"count"`
+	Max        *ProvinceUploadVehicleMaxFields        `json:"max"`
+	Min        *ProvinceUploadVehicleMinFields        `json:"min"`
+	Stddev     *ProvinceUploadVehicleStddevFields     `json:"stddev"`
+	StddevPop  *ProvinceUploadVehicleStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *ProvinceUploadVehicleStddevSampFields `json:"stddev_samp"`
+	Sum        *ProvinceUploadVehicleSumFields        `json:"sum"`
+	VarPop     *ProvinceUploadVehicleVarPopFields     `json:"var_pop"`
+	VarSamp    *ProvinceUploadVehicleVarSampFields    `json:"var_samp"`
+	Variance   *ProvinceUploadVehicleVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleAvgFields struct {
+	ID                *int64   `json:"id"`
+	LicensePlateColor *int     `json:"license_plate_color"`
+	VehicleType       *int     `json:"vehicle_type"`
+	Heavy             *float64 `json:"heavy"`
+	Seats             *int     `json:"seats"`
+	OperatingState    *int     `json:"operating_state"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'province_upload_vehicle'.
+type ProvinceUploadVehicleBoolExp struct {
+	And                                []*ProvinceUploadVehicleBoolExp `json:"_and"`
+	Not                                *ProvinceUploadVehicleBoolExp   `json:"_not"`
+	Or                                 []*ProvinceUploadVehicleBoolExp `json:"_or"`
+	ID                                 *model.BigintComparisonExp      `json:"id"`
+	ProvinceUploadVehicleID            *model.StringComparisonExp      `json:"province_upload_vehicle_id"`
+	LicensePlateNumber                 *model.StringComparisonExp      `json:"license_plate_number"`
+	LicensePlateColor                  *model.IntComparisonExp         `json:"license_plate_color"`
+	EnterpriseID                       *model.StringComparisonExp      `json:"enterprise_id"`
+	Operator                           *model.StringComparisonExp      `json:"operator"`
+	VehicleRegistrationPlace           *model.StringComparisonExp      `json:"vehicle_registration_place"`
+	VehicleType                        *model.IntComparisonExp         `json:"vehicle_type"`
+	Heavy                              *model.NumericComparisonExp     `json:"heavy"`
+	Seats                              *model.IntComparisonExp         `json:"seats"`
+	OperatingFlag                      *model.StringComparisonExp      `json:"operating_flag"`
+	OperatingState                     *model.IntComparisonExp         `json:"operating_state"`
+	Remarks                            *model.StringComparisonExp      `json:"remarks"`
+	OnlineStatus                       *model.StringComparisonExp      `json:"online_status"`
+	LastReportTime                     *model.TimestamptzComparisonExp `json:"last_report_time"`
+	TransportAgencySynchronizationFlag *model.StringComparisonExp      `json:"transport_agency_synchronization_flag"`
+	IsTransportAgencySynchronization   *model.BooleanComparisonExp     `json:"is_transport_agency_synchronization"`
+	TransportAgencySynchronizationTime *model.TimestamptzComparisonExp `json:"transport_agency_synchronization_time"`
+	DeviceModel                        *model.StringComparisonExp      `json:"device_model"`
+	TerminalModel                      *model.StringComparisonExp      `json:"terminal_model"`
+	CreatedAt                          *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                          *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt                          *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                          *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt                          *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                          *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "province_upload_vehicle"
+type ProvinceUploadVehicleIncInput struct {
+	ID                *int64   `json:"id"`
+	LicensePlateColor *int     `json:"license_plate_color"`
+	VehicleType       *int     `json:"vehicle_type"`
+	Heavy             *float64 `json:"heavy"`
+	Seats             *int     `json:"seats"`
+	OperatingState    *int     `json:"operating_state"`
+}
+
+// input type for inserting data into table "province_upload_vehicle"
+type ProvinceUploadVehicleInsertInput struct {
+	ID                                 *int64     `json:"id"`
+	ProvinceUploadVehicleID            *string    `json:"province_upload_vehicle_id"`
+	LicensePlateNumber                 *string    `json:"license_plate_number"`
+	LicensePlateColor                  *int       `json:"license_plate_color"`
+	EnterpriseID                       *string    `json:"enterprise_id"`
+	Operator                           *string    `json:"operator"`
+	VehicleRegistrationPlace           *string    `json:"vehicle_registration_place"`
+	VehicleType                        *int       `json:"vehicle_type"`
+	Heavy                              *float64   `json:"heavy"`
+	Seats                              *int       `json:"seats"`
+	OperatingFlag                      *string    `json:"operating_flag"`
+	OperatingState                     *int       `json:"operating_state"`
+	Remarks                            *string    `json:"remarks"`
+	OnlineStatus                       *string    `json:"online_status"`
+	LastReportTime                     *time.Time `json:"last_report_time"`
+	TransportAgencySynchronizationFlag *string    `json:"transport_agency_synchronization_flag"`
+	IsTransportAgencySynchronization   *bool      `json:"is_transport_agency_synchronization"`
+	TransportAgencySynchronizationTime *time.Time `json:"transport_agency_synchronization_time"`
+	DeviceModel                        *string    `json:"device_model"`
+	TerminalModel                      *string    `json:"terminal_model"`
+	CreatedAt                          *time.Time `json:"created_at"`
+	CreatedBy                          *string    `json:"created_by"`
+	UpdatedAt                          *time.Time `json:"updated_at"`
+	UpdatedBy                          *string    `json:"updated_by"`
+	DeletedAt                          *time.Time `json:"deleted_at"`
+	DeletedBy                          *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleMaxFields struct {
+	ID                                 *int64     `json:"id"`
+	ProvinceUploadVehicleID            *string    `json:"province_upload_vehicle_id"`
+	LicensePlateNumber                 *string    `json:"license_plate_number"`
+	LicensePlateColor                  *int       `json:"license_plate_color"`
+	EnterpriseID                       *string    `json:"enterprise_id"`
+	Operator                           *string    `json:"operator"`
+	VehicleRegistrationPlace           *string    `json:"vehicle_registration_place"`
+	VehicleType                        *int       `json:"vehicle_type"`
+	Heavy                              *float64   `json:"heavy"`
+	Seats                              *int       `json:"seats"`
+	OperatingFlag                      *string    `json:"operating_flag"`
+	OperatingState                     *int       `json:"operating_state"`
+	Remarks                            *string    `json:"remarks"`
+	OnlineStatus                       *string    `json:"online_status"`
+	LastReportTime                     *time.Time `json:"last_report_time"`
+	TransportAgencySynchronizationFlag *string    `json:"transport_agency_synchronization_flag"`
+	IsTransportAgencySynchronization   *bool      `json:"is_transport_agency_synchronization"`
+	TransportAgencySynchronizationTime *time.Time `json:"transport_agency_synchronization_time"`
+	DeviceModel                        *string    `json:"device_model"`
+	TerminalModel                      *string    `json:"terminal_model"`
+	CreatedAt                          *time.Time `json:"created_at"`
+	CreatedBy                          *string    `json:"created_by"`
+	UpdatedAt                          *time.Time `json:"updated_at"`
+	UpdatedBy                          *string    `json:"updated_by"`
+	DeletedAt                          *time.Time `json:"deleted_at"`
+	DeletedBy                          *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleMinFields struct {
+	ID                                 *int64     `json:"id"`
+	ProvinceUploadVehicleID            *string    `json:"province_upload_vehicle_id"`
+	LicensePlateNumber                 *string    `json:"license_plate_number"`
+	LicensePlateColor                  *int       `json:"license_plate_color"`
+	EnterpriseID                       *string    `json:"enterprise_id"`
+	Operator                           *string    `json:"operator"`
+	VehicleRegistrationPlace           *string    `json:"vehicle_registration_place"`
+	VehicleType                        *int       `json:"vehicle_type"`
+	Heavy                              *float64   `json:"heavy"`
+	Seats                              *int       `json:"seats"`
+	OperatingFlag                      *string    `json:"operating_flag"`
+	OperatingState                     *int       `json:"operating_state"`
+	Remarks                            *string    `json:"remarks"`
+	OnlineStatus                       *string    `json:"online_status"`
+	LastReportTime                     *time.Time `json:"last_report_time"`
+	TransportAgencySynchronizationFlag *string    `json:"transport_agency_synchronization_flag"`
+	IsTransportAgencySynchronization   *bool      `json:"is_transport_agency_synchronization"`
+	TransportAgencySynchronizationTime *time.Time `json:"transport_agency_synchronization_time"`
+	DeviceModel                        *string    `json:"device_model"`
+	TerminalModel                      *string    `json:"terminal_model"`
+	CreatedAt                          *time.Time `json:"created_at"`
+	CreatedBy                          *string    `json:"created_by"`
+	UpdatedAt                          *time.Time `json:"updated_at"`
+	UpdatedBy                          *string    `json:"updated_by"`
+	DeletedAt                          *time.Time `json:"deleted_at"`
+	DeletedBy                          *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "province_upload_vehicle"
+type ProvinceUploadVehicleMutationResponse struct {
+	AffectedRows int                             `json:"affected_rows"`
+	Returning    []*model1.ProvinceUploadVehicle `json:"returning"`
+}
+
+// ordering options when selecting data from "province_upload_vehicle"
+type ProvinceUploadVehicleOrderBy struct {
+	ID                                 *model.OrderBy `json:"id"`
+	ProvinceUploadVehicleID            *model.OrderBy `json:"province_upload_vehicle_id"`
+	LicensePlateNumber                 *model.OrderBy `json:"license_plate_number"`
+	LicensePlateColor                  *model.OrderBy `json:"license_plate_color"`
+	EnterpriseID                       *model.OrderBy `json:"enterprise_id"`
+	Operator                           *model.OrderBy `json:"operator"`
+	VehicleRegistrationPlace           *model.OrderBy `json:"vehicle_registration_place"`
+	VehicleType                        *model.OrderBy `json:"vehicle_type"`
+	Heavy                              *model.OrderBy `json:"heavy"`
+	Seats                              *model.OrderBy `json:"seats"`
+	OperatingFlag                      *model.OrderBy `json:"operating_flag"`
+	OperatingState                     *model.OrderBy `json:"operating_state"`
+	Remarks                            *model.OrderBy `json:"remarks"`
+	OnlineStatus                       *model.OrderBy `json:"online_status"`
+	LastReportTime                     *model.OrderBy `json:"last_report_time"`
+	TransportAgencySynchronizationFlag *model.OrderBy `json:"transport_agency_synchronization_flag"`
+	IsTransportAgencySynchronization   *model.OrderBy `json:"is_transport_agency_synchronization"`
+	TransportAgencySynchronizationTime *model.OrderBy `json:"transport_agency_synchronization_time"`
+	DeviceModel                        *model.OrderBy `json:"device_model"`
+	TerminalModel                      *model.OrderBy `json:"terminal_model"`
+	CreatedAt                          *model.OrderBy `json:"created_at"`
+	CreatedBy                          *model.OrderBy `json:"created_by"`
+	UpdatedAt                          *model.OrderBy `json:"updated_at"`
+	UpdatedBy                          *model.OrderBy `json:"updated_by"`
+	DeletedAt                          *model.OrderBy `json:"deleted_at"`
+	DeletedBy                          *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "province_upload_vehicle"
+type ProvinceUploadVehicleSetInput struct {
+	ID                                 *int64     `json:"id"`
+	ProvinceUploadVehicleID            *string    `json:"province_upload_vehicle_id"`
+	LicensePlateNumber                 *string    `json:"license_plate_number"`
+	LicensePlateColor                  *int       `json:"license_plate_color"`
+	EnterpriseID                       *string    `json:"enterprise_id"`
+	Operator                           *string    `json:"operator"`
+	VehicleRegistrationPlace           *string    `json:"vehicle_registration_place"`
+	VehicleType                        *int       `json:"vehicle_type"`
+	Heavy                              *float64   `json:"heavy"`
+	Seats                              *int       `json:"seats"`
+	OperatingFlag                      *string    `json:"operating_flag"`
+	OperatingState                     *int       `json:"operating_state"`
+	Remarks                            *string    `json:"remarks"`
+	OnlineStatus                       *string    `json:"online_status"`
+	LastReportTime                     *time.Time `json:"last_report_time"`
+	TransportAgencySynchronizationFlag *string    `json:"transport_agency_synchronization_flag"`
+	IsTransportAgencySynchronization   *bool      `json:"is_transport_agency_synchronization"`
+	TransportAgencySynchronizationTime *time.Time `json:"transport_agency_synchronization_time"`
+	DeviceModel                        *string    `json:"device_model"`
+	TerminalModel                      *string    `json:"terminal_model"`
+	CreatedAt                          *time.Time `json:"created_at"`
+	CreatedBy                          *string    `json:"created_by"`
+	UpdatedAt                          *time.Time `json:"updated_at"`
+	UpdatedBy                          *string    `json:"updated_by"`
+	DeletedAt                          *time.Time `json:"deleted_at"`
+	DeletedBy                          *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleStddevFields struct {
+	ID                *int64   `json:"id"`
+	LicensePlateColor *int     `json:"license_plate_color"`
+	VehicleType       *int     `json:"vehicle_type"`
+	Heavy             *float64 `json:"heavy"`
+	Seats             *int     `json:"seats"`
+	OperatingState    *int     `json:"operating_state"`
+}
+
+// aggregate stddev_pop on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleStddevPopFields struct {
+	ID                *int64   `json:"id"`
+	LicensePlateColor *int     `json:"license_plate_color"`
+	VehicleType       *int     `json:"vehicle_type"`
+	Heavy             *float64 `json:"heavy"`
+	Seats             *int     `json:"seats"`
+	OperatingState    *int     `json:"operating_state"`
+}
+
+// aggregate stddev_samp on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleStddevSampFields struct {
+	ID                *int64   `json:"id"`
+	LicensePlateColor *int     `json:"license_plate_color"`
+	VehicleType       *int     `json:"vehicle_type"`
+	Heavy             *float64 `json:"heavy"`
+	Seats             *int     `json:"seats"`
+	OperatingState    *int     `json:"operating_state"`
+}
+
+// aggregate sum on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleSumFields struct {
+	ID                *int64   `json:"id"`
+	LicensePlateColor *int     `json:"license_plate_color"`
+	VehicleType       *int     `json:"vehicle_type"`
+	Heavy             *float64 `json:"heavy"`
+	Seats             *int     `json:"seats"`
+	OperatingState    *int     `json:"operating_state"`
+}
+
+// aggregate var_pop on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleVarPopFields struct {
+	ID                *int64   `json:"id"`
+	LicensePlateColor *int     `json:"license_plate_color"`
+	VehicleType       *int     `json:"vehicle_type"`
+	Heavy             *float64 `json:"heavy"`
+	Seats             *int     `json:"seats"`
+	OperatingState    *int     `json:"operating_state"`
+}
+
+// aggregate var_samp on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleVarSampFields struct {
+	ID                *int64   `json:"id"`
+	LicensePlateColor *int     `json:"license_plate_color"`
+	VehicleType       *int     `json:"vehicle_type"`
+	Heavy             *float64 `json:"heavy"`
+	Seats             *int     `json:"seats"`
+	OperatingState    *int     `json:"operating_state"`
+}
+
+// aggregate variance on columns of table "province_upload_vehicle"
+type ProvinceUploadVehicleVarianceFields struct {
+	ID                *int64   `json:"id"`
+	LicensePlateColor *int     `json:"license_plate_color"`
+	VehicleType       *int     `json:"vehicle_type"`
+	Heavy             *float64 `json:"heavy"`
+	Seats             *int     `json:"seats"`
+	OperatingState    *int     `json:"operating_state"`
+}
+
+// 临时工号牌下载记录表
+type TempIDCardDownloadLog struct {
+	// 按指定方法生成                                  ( 主键                       )
+	ID int64 `json:"id"`
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	TempIDCardDownloadID string `json:"temp_id_card_download_id"`
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	VehicleID string `json:"vehicle_id"`
+	// 有效期起始                                      (                            )
+	ValidFrom *time.Time `json:"valid_from"`
+	// 有效期截止                                      (                            )
+	ValidUntil *time.Time `json:"valid_until"`
+	// 操作人                                          ( system_user表的user_id )
+	Operator *string `json:"operator"`
+	// 是否删除                                        (                            )
+	IsDeleted *bool `json:"is_deleted"`
+	// 创建时间                                        (                            )
+	CreatedAt time.Time `json:"created_at"`
+	// 创建人                                          ( system_user表的user_id )
+	CreatedBy string `json:"created_by"`
+	// 修改时间                                        (                            )
+	UpdatedAt *time.Time `json:"updated_at"`
+	// 修改人                                          ( system_user表的user_id )
+	UpdatedBy *string `json:"updated_by"`
+	// 删除时间                                        (                            )
+	DeletedAt *time.Time `json:"deleted_at"`
+	// 删除人                                          ( system_user表的user_id )
+	DeletedBy *string `json:"deleted_by"`
+}
+
+// aggregated selection of "temp_id_card_download_log"
+type TempIDCardDownloadLogAggregate struct {
+	Aggregate *TempIDCardDownloadLogAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "temp_id_card_download_log"
+type TempIDCardDownloadLogAggregateFields struct {
+	Avg        *TempIDCardDownloadLogAvgFields        `json:"avg"`
+	Count      *int                                   `json:"count"`
+	Max        *TempIDCardDownloadLogMaxFields        `json:"max"`
+	Min        *TempIDCardDownloadLogMinFields        `json:"min"`
+	Stddev     *TempIDCardDownloadLogStddevFields     `json:"stddev"`
+	StddevPop  *TempIDCardDownloadLogStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *TempIDCardDownloadLogStddevSampFields `json:"stddev_samp"`
+	Sum        *TempIDCardDownloadLogSumFields        `json:"sum"`
+	VarPop     *TempIDCardDownloadLogVarPopFields     `json:"var_pop"`
+	VarSamp    *TempIDCardDownloadLogVarSampFields    `json:"var_samp"`
+	Variance   *TempIDCardDownloadLogVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'temp_id_card_download_log'.
+type TempIDCardDownloadLogBoolExp struct {
+	And                  []*TempIDCardDownloadLogBoolExp `json:"_and"`
+	Not                  *TempIDCardDownloadLogBoolExp   `json:"_not"`
+	Or                   []*TempIDCardDownloadLogBoolExp `json:"_or"`
+	ID                   *model.BigintComparisonExp      `json:"id"`
+	TempIDCardDownloadID *model.StringComparisonExp      `json:"temp_id_card_download_id"`
+	VehicleID            *model.StringComparisonExp      `json:"vehicle_id"`
+	ValidFrom            *model.TimestamptzComparisonExp `json:"valid_from"`
+	ValidUntil           *model.TimestamptzComparisonExp `json:"valid_until"`
+	Operator             *model.StringComparisonExp      `json:"operator"`
+	IsDeleted            *model.BooleanComparisonExp     `json:"is_deleted"`
+	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt            *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy            *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "temp_id_card_download_log"
+type TempIDCardDownloadLogIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "temp_id_card_download_log"
+type TempIDCardDownloadLogInsertInput struct {
+	ID                   *int64     `json:"id"`
+	TempIDCardDownloadID *string    `json:"temp_id_card_download_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	ValidFrom            *time.Time `json:"valid_from"`
+	ValidUntil           *time.Time `json:"valid_until"`
+	Operator             *string    `json:"operator"`
+	IsDeleted            *bool      `json:"is_deleted"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogMaxFields struct {
+	ID                   *int64     `json:"id"`
+	TempIDCardDownloadID *string    `json:"temp_id_card_download_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	ValidFrom            *time.Time `json:"valid_from"`
+	ValidUntil           *time.Time `json:"valid_until"`
+	Operator             *string    `json:"operator"`
+	IsDeleted            *bool      `json:"is_deleted"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogMinFields struct {
+	ID                   *int64     `json:"id"`
+	TempIDCardDownloadID *string    `json:"temp_id_card_download_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	ValidFrom            *time.Time `json:"valid_from"`
+	ValidUntil           *time.Time `json:"valid_until"`
+	Operator             *string    `json:"operator"`
+	IsDeleted            *bool      `json:"is_deleted"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "temp_id_card_download_log"
+type TempIDCardDownloadLogMutationResponse struct {
+	AffectedRows int                      `json:"affected_rows"`
+	Returning    []*TempIDCardDownloadLog `json:"returning"`
+}
+
+// ordering options when selecting data from "temp_id_card_download_log"
+type TempIDCardDownloadLogOrderBy struct {
+	ID                   *model.OrderBy `json:"id"`
+	TempIDCardDownloadID *model.OrderBy `json:"temp_id_card_download_id"`
+	VehicleID            *model.OrderBy `json:"vehicle_id"`
+	ValidFrom            *model.OrderBy `json:"valid_from"`
+	ValidUntil           *model.OrderBy `json:"valid_until"`
+	Operator             *model.OrderBy `json:"operator"`
+	IsDeleted            *model.OrderBy `json:"is_deleted"`
+	CreatedAt            *model.OrderBy `json:"created_at"`
+	CreatedBy            *model.OrderBy `json:"created_by"`
+	UpdatedAt            *model.OrderBy `json:"updated_at"`
+	UpdatedBy            *model.OrderBy `json:"updated_by"`
+	DeletedAt            *model.OrderBy `json:"deleted_at"`
+	DeletedBy            *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "temp_id_card_download_log"
+type TempIDCardDownloadLogSetInput struct {
+	ID                   *int64     `json:"id"`
+	TempIDCardDownloadID *string    `json:"temp_id_card_download_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	ValidFrom            *time.Time `json:"valid_from"`
+	ValidUntil           *time.Time `json:"valid_until"`
+	Operator             *string    `json:"operator"`
+	IsDeleted            *bool      `json:"is_deleted"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "temp_id_card_download_log"
+type TempIDCardDownloadLogVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregated selection of "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogAggregate struct {
+	Aggregate *VehicleEnterpriseChangeLogAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogAggregateFields struct {
+	Avg        *VehicleEnterpriseChangeLogAvgFields        `json:"avg"`
+	Count      *int                                        `json:"count"`
+	Max        *VehicleEnterpriseChangeLogMaxFields        `json:"max"`
+	Min        *VehicleEnterpriseChangeLogMinFields        `json:"min"`
+	Stddev     *VehicleEnterpriseChangeLogStddevFields     `json:"stddev"`
+	StddevPop  *VehicleEnterpriseChangeLogStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleEnterpriseChangeLogStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleEnterpriseChangeLogSumFields        `json:"sum"`
+	VarPop     *VehicleEnterpriseChangeLogVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleEnterpriseChangeLogVarSampFields    `json:"var_samp"`
+	Variance   *VehicleEnterpriseChangeLogVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogAvgFields struct {
+	ID           *int64 `json:"id"`
+	ChangedType  *int   `json:"changed_type"`
+	ChangedStep  *int   `json:"changed_step"`
+	ReviewStatus *int   `json:"review_status"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_enterprise_change_log'.
+type VehicleEnterpriseChangeLogBoolExp struct {
+	And                          []*VehicleEnterpriseChangeLogBoolExp `json:"_and"`
+	Not                          *VehicleEnterpriseChangeLogBoolExp   `json:"_not"`
+	Or                           []*VehicleEnterpriseChangeLogBoolExp `json:"_or"`
+	ID                           *model.BigintComparisonExp           `json:"id"`
+	VehicleEnterpriseChangeLogID *model.StringComparisonExp           `json:"vehicle_enterprise_change_log_id"`
+	ChangedType                  *model.IntComparisonExp              `json:"changed_type"`
+	ChangedStep                  *model.IntComparisonExp              `json:"changed_step"`
+	Operator                     *model.StringComparisonExp           `json:"operator"`
+	ChangeReviewID               *model.StringComparisonExp           `json:"change_review_id"`
+	ReviewStatus                 *model.IntComparisonExp              `json:"review_status"`
+	CreatedAt                    *model.TimestamptzComparisonExp      `json:"created_at"`
+	CreatedBy                    *model.StringComparisonExp           `json:"created_by"`
+	UpdatedAt                    *model.TimestamptzComparisonExp      `json:"updated_at"`
+	UpdatedBy                    *model.StringComparisonExp           `json:"updated_by"`
+	DeletedAt                    *model.TimestamptzComparisonExp      `json:"deleted_at"`
+	DeletedBy                    *model.StringComparisonExp           `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogIncInput struct {
+	ID           *int64 `json:"id"`
+	ChangedType  *int   `json:"changed_type"`
+	ChangedStep  *int   `json:"changed_step"`
+	ReviewStatus *int   `json:"review_status"`
+}
+
+// input type for inserting data into table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogInsertInput struct {
+	ID                           *int64     `json:"id"`
+	VehicleEnterpriseChangeLogID *string    `json:"vehicle_enterprise_change_log_id"`
+	ChangedType                  *int       `json:"changed_type"`
+	ChangedStep                  *int       `json:"changed_step"`
+	Operator                     *string    `json:"operator"`
+	ChangeReviewID               *string    `json:"change_review_id"`
+	ReviewStatus                 *int       `json:"review_status"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogMaxFields struct {
+	ID                           *int64     `json:"id"`
+	VehicleEnterpriseChangeLogID *string    `json:"vehicle_enterprise_change_log_id"`
+	ChangedType                  *int       `json:"changed_type"`
+	ChangedStep                  *int       `json:"changed_step"`
+	Operator                     *string    `json:"operator"`
+	ChangeReviewID               *string    `json:"change_review_id"`
+	ReviewStatus                 *int       `json:"review_status"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogMinFields struct {
+	ID                           *int64     `json:"id"`
+	VehicleEnterpriseChangeLogID *string    `json:"vehicle_enterprise_change_log_id"`
+	ChangedType                  *int       `json:"changed_type"`
+	ChangedStep                  *int       `json:"changed_step"`
+	Operator                     *string    `json:"operator"`
+	ChangeReviewID               *string    `json:"change_review_id"`
+	ReviewStatus                 *int       `json:"review_status"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogMutationResponse struct {
+	AffectedRows int                                  `json:"affected_rows"`
+	Returning    []*model1.VehicleEnterpriseChangeLog `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogOrderBy struct {
+	ID                           *model.OrderBy `json:"id"`
+	VehicleEnterpriseChangeLogID *model.OrderBy `json:"vehicle_enterprise_change_log_id"`
+	ChangedType                  *model.OrderBy `json:"changed_type"`
+	ChangedStep                  *model.OrderBy `json:"changed_step"`
+	Operator                     *model.OrderBy `json:"operator"`
+	ChangeReviewID               *model.OrderBy `json:"change_review_id"`
+	ReviewStatus                 *model.OrderBy `json:"review_status"`
+	CreatedAt                    *model.OrderBy `json:"created_at"`
+	CreatedBy                    *model.OrderBy `json:"created_by"`
+	UpdatedAt                    *model.OrderBy `json:"updated_at"`
+	UpdatedBy                    *model.OrderBy `json:"updated_by"`
+	DeletedAt                    *model.OrderBy `json:"deleted_at"`
+	DeletedBy                    *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogSetInput struct {
+	ID                           *int64     `json:"id"`
+	VehicleEnterpriseChangeLogID *string    `json:"vehicle_enterprise_change_log_id"`
+	ChangedType                  *int       `json:"changed_type"`
+	ChangedStep                  *int       `json:"changed_step"`
+	Operator                     *string    `json:"operator"`
+	ChangeReviewID               *string    `json:"change_review_id"`
+	ReviewStatus                 *int       `json:"review_status"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogStddevFields struct {
+	ID           *int64 `json:"id"`
+	ChangedType  *int   `json:"changed_type"`
+	ChangedStep  *int   `json:"changed_step"`
+	ReviewStatus *int   `json:"review_status"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogStddevPopFields struct {
+	ID           *int64 `json:"id"`
+	ChangedType  *int   `json:"changed_type"`
+	ChangedStep  *int   `json:"changed_step"`
+	ReviewStatus *int   `json:"review_status"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogStddevSampFields struct {
+	ID           *int64 `json:"id"`
+	ChangedType  *int   `json:"changed_type"`
+	ChangedStep  *int   `json:"changed_step"`
+	ReviewStatus *int   `json:"review_status"`
+}
+
+// aggregate sum on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogSumFields struct {
+	ID           *int64 `json:"id"`
+	ChangedType  *int   `json:"changed_type"`
+	ChangedStep  *int   `json:"changed_step"`
+	ReviewStatus *int   `json:"review_status"`
+}
+
+// aggregate var_pop on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogVarPopFields struct {
+	ID           *int64 `json:"id"`
+	ChangedType  *int   `json:"changed_type"`
+	ChangedStep  *int   `json:"changed_step"`
+	ReviewStatus *int   `json:"review_status"`
+}
+
+// aggregate var_samp on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogVarSampFields struct {
+	ID           *int64 `json:"id"`
+	ChangedType  *int   `json:"changed_type"`
+	ChangedStep  *int   `json:"changed_step"`
+	ReviewStatus *int   `json:"review_status"`
+}
+
+// aggregate variance on columns of table "vehicle_enterprise_change_log"
+type VehicleEnterpriseChangeLogVarianceFields struct {
+	ID           *int64 `json:"id"`
+	ChangedType  *int   `json:"changed_type"`
+	ChangedStep  *int   `json:"changed_step"`
+	ReviewStatus *int   `json:"review_status"`
+}
+
+// aggregated selection of "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewAggregate struct {
+	Aggregate *VehicleEnterpriseChangeReviewAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewAggregateFields struct {
+	Avg        *VehicleEnterpriseChangeReviewAvgFields        `json:"avg"`
+	Count      *int                                           `json:"count"`
+	Max        *VehicleEnterpriseChangeReviewMaxFields        `json:"max"`
+	Min        *VehicleEnterpriseChangeReviewMinFields        `json:"min"`
+	Stddev     *VehicleEnterpriseChangeReviewStddevFields     `json:"stddev"`
+	StddevPop  *VehicleEnterpriseChangeReviewStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleEnterpriseChangeReviewStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleEnterpriseChangeReviewSumFields        `json:"sum"`
+	VarPop     *VehicleEnterpriseChangeReviewVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleEnterpriseChangeReviewVarSampFields    `json:"var_samp"`
+	Variance   *VehicleEnterpriseChangeReviewVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewAvgFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ChangeType   *int   `json:"change_type"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_enterprise_change_review'.
+type VehicleEnterpriseChangeReviewBoolExp struct {
+	And                             []*VehicleEnterpriseChangeReviewBoolExp `json:"_and"`
+	Not                             *VehicleEnterpriseChangeReviewBoolExp   `json:"_not"`
+	Or                              []*VehicleEnterpriseChangeReviewBoolExp `json:"_or"`
+	ID                              *model.BigintComparisonExp              `json:"id"`
+	VehicleEnterpriseChangeReviewID *model.StringComparisonExp              `json:"vehicle_enterprise_change_review_id"`
+	VehicleID                       *model.StringComparisonExp              `json:"vehicle_id"`
+	TargetEnterpriseID              *model.StringComparisonExp              `json:"target_enterprise_id"`
+	Remarks                         *model.StringComparisonExp              `json:"remarks"`
+	UploadDocumentSrc               *model.StringComparisonExp              `json:"upload_document_src"`
+	ReviewStatus                    *model.IntComparisonExp                 `json:"review_status"`
+	ChangeType                      *model.IntComparisonExp                 `json:"change_type"`
+	OriginalArea                    *model.StringComparisonExp              `json:"original_area"`
+	ChangedArea                     *model.StringComparisonExp              `json:"changed_area"`
+	ChangedSelfNumber               *model.StringComparisonExp              `json:"changed_self_number"`
+	IsDeleted                       *model.BooleanComparisonExp             `json:"is_deleted"`
+	CreatedAt                       *model.TimestamptzComparisonExp         `json:"created_at"`
+	CreatedBy                       *model.StringComparisonExp              `json:"created_by"`
+	UpdatedAt                       *model.TimestamptzComparisonExp         `json:"updated_at"`
+	UpdatedBy                       *model.StringComparisonExp              `json:"updated_by"`
+	DeletedAt                       *model.TimestamptzComparisonExp         `json:"deleted_at"`
+	DeletedBy                       *model.StringComparisonExp              `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewIncInput struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ChangeType   *int   `json:"change_type"`
+}
+
+// input type for inserting data into table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewInsertInput struct {
+	ID                              *int64     `json:"id"`
+	VehicleEnterpriseChangeReviewID *string    `json:"vehicle_enterprise_change_review_id"`
+	VehicleID                       *string    `json:"vehicle_id"`
+	TargetEnterpriseID              *string    `json:"target_enterprise_id"`
+	Remarks                         *string    `json:"remarks"`
+	UploadDocumentSrc               *string    `json:"upload_document_src"`
+	ReviewStatus                    *int       `json:"review_status"`
+	ChangeType                      *int       `json:"change_type"`
+	OriginalArea                    *string    `json:"original_area"`
+	ChangedArea                     *string    `json:"changed_area"`
+	ChangedSelfNumber               *string    `json:"changed_self_number"`
+	IsDeleted                       *bool      `json:"is_deleted"`
+	CreatedAt                       *time.Time `json:"created_at"`
+	CreatedBy                       *string    `json:"created_by"`
+	UpdatedAt                       *time.Time `json:"updated_at"`
+	UpdatedBy                       *string    `json:"updated_by"`
+	DeletedAt                       *time.Time `json:"deleted_at"`
+	DeletedBy                       *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewMaxFields struct {
+	ID                              *int64     `json:"id"`
+	VehicleEnterpriseChangeReviewID *string    `json:"vehicle_enterprise_change_review_id"`
+	VehicleID                       *string    `json:"vehicle_id"`
+	TargetEnterpriseID              *string    `json:"target_enterprise_id"`
+	Remarks                         *string    `json:"remarks"`
+	UploadDocumentSrc               *string    `json:"upload_document_src"`
+	ReviewStatus                    *int       `json:"review_status"`
+	ChangeType                      *int       `json:"change_type"`
+	OriginalArea                    *string    `json:"original_area"`
+	ChangedArea                     *string    `json:"changed_area"`
+	ChangedSelfNumber               *string    `json:"changed_self_number"`
+	IsDeleted                       *bool      `json:"is_deleted"`
+	CreatedAt                       *time.Time `json:"created_at"`
+	CreatedBy                       *string    `json:"created_by"`
+	UpdatedAt                       *time.Time `json:"updated_at"`
+	UpdatedBy                       *string    `json:"updated_by"`
+	DeletedAt                       *time.Time `json:"deleted_at"`
+	DeletedBy                       *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewMinFields struct {
+	ID                              *int64     `json:"id"`
+	VehicleEnterpriseChangeReviewID *string    `json:"vehicle_enterprise_change_review_id"`
+	VehicleID                       *string    `json:"vehicle_id"`
+	TargetEnterpriseID              *string    `json:"target_enterprise_id"`
+	Remarks                         *string    `json:"remarks"`
+	UploadDocumentSrc               *string    `json:"upload_document_src"`
+	ReviewStatus                    *int       `json:"review_status"`
+	ChangeType                      *int       `json:"change_type"`
+	OriginalArea                    *string    `json:"original_area"`
+	ChangedArea                     *string    `json:"changed_area"`
+	ChangedSelfNumber               *string    `json:"changed_self_number"`
+	IsDeleted                       *bool      `json:"is_deleted"`
+	CreatedAt                       *time.Time `json:"created_at"`
+	CreatedBy                       *string    `json:"created_by"`
+	UpdatedAt                       *time.Time `json:"updated_at"`
+	UpdatedBy                       *string    `json:"updated_by"`
+	DeletedAt                       *time.Time `json:"deleted_at"`
+	DeletedBy                       *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewMutationResponse struct {
+	AffectedRows int                                     `json:"affected_rows"`
+	Returning    []*model1.VehicleEnterpriseChangeReview `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewOrderBy struct {
+	ID                              *model.OrderBy `json:"id"`
+	VehicleEnterpriseChangeReviewID *model.OrderBy `json:"vehicle_enterprise_change_review_id"`
+	VehicleID                       *model.OrderBy `json:"vehicle_id"`
+	TargetEnterpriseID              *model.OrderBy `json:"target_enterprise_id"`
+	Remarks                         *model.OrderBy `json:"remarks"`
+	UploadDocumentSrc               *model.OrderBy `json:"upload_document_src"`
+	ReviewStatus                    *model.OrderBy `json:"review_status"`
+	ChangeType                      *model.OrderBy `json:"change_type"`
+	OriginalArea                    *model.OrderBy `json:"original_area"`
+	ChangedArea                     *model.OrderBy `json:"changed_area"`
+	ChangedSelfNumber               *model.OrderBy `json:"changed_self_number"`
+	IsDeleted                       *model.OrderBy `json:"is_deleted"`
+	CreatedAt                       *model.OrderBy `json:"created_at"`
+	CreatedBy                       *model.OrderBy `json:"created_by"`
+	UpdatedAt                       *model.OrderBy `json:"updated_at"`
+	UpdatedBy                       *model.OrderBy `json:"updated_by"`
+	DeletedAt                       *model.OrderBy `json:"deleted_at"`
+	DeletedBy                       *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewSetInput struct {
+	ID                              *int64     `json:"id"`
+	VehicleEnterpriseChangeReviewID *string    `json:"vehicle_enterprise_change_review_id"`
+	VehicleID                       *string    `json:"vehicle_id"`
+	TargetEnterpriseID              *string    `json:"target_enterprise_id"`
+	Remarks                         *string    `json:"remarks"`
+	UploadDocumentSrc               *string    `json:"upload_document_src"`
+	ReviewStatus                    *int       `json:"review_status"`
+	ChangeType                      *int       `json:"change_type"`
+	OriginalArea                    *string    `json:"original_area"`
+	ChangedArea                     *string    `json:"changed_area"`
+	ChangedSelfNumber               *string    `json:"changed_self_number"`
+	IsDeleted                       *bool      `json:"is_deleted"`
+	CreatedAt                       *time.Time `json:"created_at"`
+	CreatedBy                       *string    `json:"created_by"`
+	UpdatedAt                       *time.Time `json:"updated_at"`
+	UpdatedBy                       *string    `json:"updated_by"`
+	DeletedAt                       *time.Time `json:"deleted_at"`
+	DeletedBy                       *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewStddevFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ChangeType   *int   `json:"change_type"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewStddevPopFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ChangeType   *int   `json:"change_type"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewStddevSampFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ChangeType   *int   `json:"change_type"`
+}
+
+// aggregate sum on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewSumFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ChangeType   *int   `json:"change_type"`
+}
+
+// aggregate var_pop on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewVarPopFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ChangeType   *int   `json:"change_type"`
+}
+
+// aggregate var_samp on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewVarSampFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ChangeType   *int   `json:"change_type"`
+}
+
+// aggregate variance on columns of table "vehicle_enterprise_change_review"
+type VehicleEnterpriseChangeReviewVarianceFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ChangeType   *int   `json:"change_type"`
+}
+
+// aggregated selection of "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogAggregate struct {
+	Aggregate *VehicleExitCatalogLogAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogAggregateFields struct {
+	Avg        *VehicleExitCatalogLogAvgFields        `json:"avg"`
+	Count      *int                                   `json:"count"`
+	Max        *VehicleExitCatalogLogMaxFields        `json:"max"`
+	Min        *VehicleExitCatalogLogMinFields        `json:"min"`
+	Stddev     *VehicleExitCatalogLogStddevFields     `json:"stddev"`
+	StddevPop  *VehicleExitCatalogLogStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleExitCatalogLogStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleExitCatalogLogSumFields        `json:"sum"`
+	VarPop     *VehicleExitCatalogLogVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleExitCatalogLogVarSampFields    `json:"var_samp"`
+	Variance   *VehicleExitCatalogLogVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogAvgFields struct {
+	ID              *int64 `json:"id"`
+	ExitType        *int   `json:"exit_type"`
+	ExitStep        *int   `json:"exit_step"`
+	ReviewStatus    *int   `json:"review_status"`
+	ReviewUserGroup *int   `json:"review_user_group"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_exit_catalog_log'.
+type VehicleExitCatalogLogBoolExp struct {
+	And                        []*VehicleExitCatalogLogBoolExp `json:"_and"`
+	Not                        *VehicleExitCatalogLogBoolExp   `json:"_not"`
+	Or                         []*VehicleExitCatalogLogBoolExp `json:"_or"`
+	ID                         *model.BigintComparisonExp      `json:"id"`
+	VehicleExitCatalogLogID    *model.StringComparisonExp      `json:"vehicle_exit_catalog_log_id"`
+	VehicleExitCatalogReviewID *model.StringComparisonExp      `json:"vehicle_exit_catalog_review_id"`
+	ExitType                   *model.IntComparisonExp         `json:"exit_type"`
+	ExitStep                   *model.IntComparisonExp         `json:"exit_step"`
+	Operator                   *model.StringComparisonExp      `json:"operator"`
+	ReviewStatus               *model.IntComparisonExp         `json:"review_status"`
+	ReviewUserGroup            *model.IntComparisonExp         `json:"review_user_group"`
+	CreatedAt                  *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                  *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt                  *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                  *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt                  *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                  *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogIncInput struct {
+	ID              *int64 `json:"id"`
+	ExitType        *int   `json:"exit_type"`
+	ExitStep        *int   `json:"exit_step"`
+	ReviewStatus    *int   `json:"review_status"`
+	ReviewUserGroup *int   `json:"review_user_group"`
+}
+
+// input type for inserting data into table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogInsertInput struct {
+	ID                         *int64     `json:"id"`
+	VehicleExitCatalogLogID    *string    `json:"vehicle_exit_catalog_log_id"`
+	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
+	ExitType                   *int       `json:"exit_type"`
+	ExitStep                   *int       `json:"exit_step"`
+	Operator                   *string    `json:"operator"`
+	ReviewStatus               *int       `json:"review_status"`
+	ReviewUserGroup            *int       `json:"review_user_group"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogMaxFields struct {
+	ID                         *int64     `json:"id"`
+	VehicleExitCatalogLogID    *string    `json:"vehicle_exit_catalog_log_id"`
+	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
+	ExitType                   *int       `json:"exit_type"`
+	ExitStep                   *int       `json:"exit_step"`
+	Operator                   *string    `json:"operator"`
+	ReviewStatus               *int       `json:"review_status"`
+	ReviewUserGroup            *int       `json:"review_user_group"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogMinFields struct {
+	ID                         *int64     `json:"id"`
+	VehicleExitCatalogLogID    *string    `json:"vehicle_exit_catalog_log_id"`
+	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
+	ExitType                   *int       `json:"exit_type"`
+	ExitStep                   *int       `json:"exit_step"`
+	Operator                   *string    `json:"operator"`
+	ReviewStatus               *int       `json:"review_status"`
+	ReviewUserGroup            *int       `json:"review_user_group"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogMutationResponse struct {
+	AffectedRows int                             `json:"affected_rows"`
+	Returning    []*model1.VehicleExitCatalogLog `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogOrderBy struct {
+	ID                         *model.OrderBy `json:"id"`
+	VehicleExitCatalogLogID    *model.OrderBy `json:"vehicle_exit_catalog_log_id"`
+	VehicleExitCatalogReviewID *model.OrderBy `json:"vehicle_exit_catalog_review_id"`
+	ExitType                   *model.OrderBy `json:"exit_type"`
+	ExitStep                   *model.OrderBy `json:"exit_step"`
+	Operator                   *model.OrderBy `json:"operator"`
+	ReviewStatus               *model.OrderBy `json:"review_status"`
+	ReviewUserGroup            *model.OrderBy `json:"review_user_group"`
+	CreatedAt                  *model.OrderBy `json:"created_at"`
+	CreatedBy                  *model.OrderBy `json:"created_by"`
+	UpdatedAt                  *model.OrderBy `json:"updated_at"`
+	UpdatedBy                  *model.OrderBy `json:"updated_by"`
+	DeletedAt                  *model.OrderBy `json:"deleted_at"`
+	DeletedBy                  *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogSetInput struct {
+	ID                         *int64     `json:"id"`
+	VehicleExitCatalogLogID    *string    `json:"vehicle_exit_catalog_log_id"`
+	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
+	ExitType                   *int       `json:"exit_type"`
+	ExitStep                   *int       `json:"exit_step"`
+	Operator                   *string    `json:"operator"`
+	ReviewStatus               *int       `json:"review_status"`
+	ReviewUserGroup            *int       `json:"review_user_group"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogStddevFields struct {
+	ID              *int64 `json:"id"`
+	ExitType        *int   `json:"exit_type"`
+	ExitStep        *int   `json:"exit_step"`
+	ReviewStatus    *int   `json:"review_status"`
+	ReviewUserGroup *int   `json:"review_user_group"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogStddevPopFields struct {
+	ID              *int64 `json:"id"`
+	ExitType        *int   `json:"exit_type"`
+	ExitStep        *int   `json:"exit_step"`
+	ReviewStatus    *int   `json:"review_status"`
+	ReviewUserGroup *int   `json:"review_user_group"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogStddevSampFields struct {
+	ID              *int64 `json:"id"`
+	ExitType        *int   `json:"exit_type"`
+	ExitStep        *int   `json:"exit_step"`
+	ReviewStatus    *int   `json:"review_status"`
+	ReviewUserGroup *int   `json:"review_user_group"`
+}
+
+// aggregate sum on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogSumFields struct {
+	ID              *int64 `json:"id"`
+	ExitType        *int   `json:"exit_type"`
+	ExitStep        *int   `json:"exit_step"`
+	ReviewStatus    *int   `json:"review_status"`
+	ReviewUserGroup *int   `json:"review_user_group"`
+}
+
+// aggregate var_pop on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogVarPopFields struct {
+	ID              *int64 `json:"id"`
+	ExitType        *int   `json:"exit_type"`
+	ExitStep        *int   `json:"exit_step"`
+	ReviewStatus    *int   `json:"review_status"`
+	ReviewUserGroup *int   `json:"review_user_group"`
+}
+
+// aggregate var_samp on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogVarSampFields struct {
+	ID              *int64 `json:"id"`
+	ExitType        *int   `json:"exit_type"`
+	ExitStep        *int   `json:"exit_step"`
+	ReviewStatus    *int   `json:"review_status"`
+	ReviewUserGroup *int   `json:"review_user_group"`
+}
+
+// aggregate variance on columns of table "vehicle_exit_catalog_log"
+type VehicleExitCatalogLogVarianceFields struct {
+	ID              *int64 `json:"id"`
+	ExitType        *int   `json:"exit_type"`
+	ExitStep        *int   `json:"exit_step"`
+	ReviewStatus    *int   `json:"review_status"`
+	ReviewUserGroup *int   `json:"review_user_group"`
+}
+
+// aggregated selection of "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewAggregate struct {
+	Aggregate *VehicleExitCatalogReviewAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewAggregateFields struct {
+	Avg        *VehicleExitCatalogReviewAvgFields        `json:"avg"`
+	Count      *int                                      `json:"count"`
+	Max        *VehicleExitCatalogReviewMaxFields        `json:"max"`
+	Min        *VehicleExitCatalogReviewMinFields        `json:"min"`
+	Stddev     *VehicleExitCatalogReviewStddevFields     `json:"stddev"`
+	StddevPop  *VehicleExitCatalogReviewStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleExitCatalogReviewStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleExitCatalogReviewSumFields        `json:"sum"`
+	VarPop     *VehicleExitCatalogReviewVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleExitCatalogReviewVarSampFields    `json:"var_samp"`
+	Variance   *VehicleExitCatalogReviewVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewAvgFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ExitType     *int   `json:"exit_type"`
+	ExitStep     *int   `json:"exit_step"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_exit_catalog_review'.
+type VehicleExitCatalogReviewBoolExp struct {
+	And                        []*VehicleExitCatalogReviewBoolExp `json:"_and"`
+	Not                        *VehicleExitCatalogReviewBoolExp   `json:"_not"`
+	Or                         []*VehicleExitCatalogReviewBoolExp `json:"_or"`
+	ID                         *model.BigintComparisonExp         `json:"id"`
+	VehicleExitCatalogReviewID *model.StringComparisonExp         `json:"vehicle_exit_catalog_review_id"`
+	VehicleID                  *model.StringComparisonExp         `json:"vehicle_id"`
+	EnterpriseID               *model.StringComparisonExp         `json:"enterprise_id"`
+	Remarks                    *model.StringComparisonExp         `json:"remarks"`
+	ReviewStatus               *model.IntComparisonExp            `json:"review_status"`
+	ExitType                   *model.IntComparisonExp            `json:"exit_type"`
+	ExitStep                   *model.IntComparisonExp            `json:"exit_step"`
+	AreaID                     *model.StringComparisonExp         `json:"area_id"`
+	OriginalEnterpriseID       *model.StringComparisonExp         `json:"original_enterprise_id"`
+	OriginalEnterpriseName     *model.StringComparisonExp         `json:"original_enterprise_name"`
+	OriginalSelfNumber         *model.StringComparisonExp         `json:"original_self_number"`
+	IsDeleted                  *model.BooleanComparisonExp        `json:"is_deleted"`
+	CreatedAt                  *model.TimestamptzComparisonExp    `json:"created_at"`
+	CreatedBy                  *model.StringComparisonExp         `json:"created_by"`
+	UpdatedAt                  *model.TimestamptzComparisonExp    `json:"updated_at"`
+	UpdatedBy                  *model.StringComparisonExp         `json:"updated_by"`
+	DeletedAt                  *model.TimestamptzComparisonExp    `json:"deleted_at"`
+	DeletedBy                  *model.StringComparisonExp         `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewIncInput struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ExitType     *int   `json:"exit_type"`
+	ExitStep     *int   `json:"exit_step"`
+}
+
+// input type for inserting data into table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewInsertInput struct {
+	ID                         *int64     `json:"id"`
+	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	EnterpriseID               *string    `json:"enterprise_id"`
+	Remarks                    *string    `json:"remarks"`
+	ReviewStatus               *int       `json:"review_status"`
+	ExitType                   *int       `json:"exit_type"`
+	ExitStep                   *int       `json:"exit_step"`
+	AreaID                     *string    `json:"area_id"`
+	OriginalEnterpriseID       *string    `json:"original_enterprise_id"`
+	OriginalEnterpriseName     *string    `json:"original_enterprise_name"`
+	OriginalSelfNumber         *string    `json:"original_self_number"`
+	IsDeleted                  *bool      `json:"is_deleted"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewMaxFields struct {
+	ID                         *int64     `json:"id"`
+	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	EnterpriseID               *string    `json:"enterprise_id"`
+	Remarks                    *string    `json:"remarks"`
+	ReviewStatus               *int       `json:"review_status"`
+	ExitType                   *int       `json:"exit_type"`
+	ExitStep                   *int       `json:"exit_step"`
+	AreaID                     *string    `json:"area_id"`
+	OriginalEnterpriseID       *string    `json:"original_enterprise_id"`
+	OriginalEnterpriseName     *string    `json:"original_enterprise_name"`
+	OriginalSelfNumber         *string    `json:"original_self_number"`
+	IsDeleted                  *bool      `json:"is_deleted"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewMinFields struct {
+	ID                         *int64     `json:"id"`
+	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	EnterpriseID               *string    `json:"enterprise_id"`
+	Remarks                    *string    `json:"remarks"`
+	ReviewStatus               *int       `json:"review_status"`
+	ExitType                   *int       `json:"exit_type"`
+	ExitStep                   *int       `json:"exit_step"`
+	AreaID                     *string    `json:"area_id"`
+	OriginalEnterpriseID       *string    `json:"original_enterprise_id"`
+	OriginalEnterpriseName     *string    `json:"original_enterprise_name"`
+	OriginalSelfNumber         *string    `json:"original_self_number"`
+	IsDeleted                  *bool      `json:"is_deleted"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewMutationResponse struct {
+	AffectedRows int                                `json:"affected_rows"`
+	Returning    []*model1.VehicleExitCatalogReview `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewOrderBy struct {
+	ID                         *model.OrderBy `json:"id"`
+	VehicleExitCatalogReviewID *model.OrderBy `json:"vehicle_exit_catalog_review_id"`
+	VehicleID                  *model.OrderBy `json:"vehicle_id"`
+	EnterpriseID               *model.OrderBy `json:"enterprise_id"`
+	Remarks                    *model.OrderBy `json:"remarks"`
+	ReviewStatus               *model.OrderBy `json:"review_status"`
+	ExitType                   *model.OrderBy `json:"exit_type"`
+	ExitStep                   *model.OrderBy `json:"exit_step"`
+	AreaID                     *model.OrderBy `json:"area_id"`
+	OriginalEnterpriseID       *model.OrderBy `json:"original_enterprise_id"`
+	OriginalEnterpriseName     *model.OrderBy `json:"original_enterprise_name"`
+	OriginalSelfNumber         *model.OrderBy `json:"original_self_number"`
+	IsDeleted                  *model.OrderBy `json:"is_deleted"`
+	CreatedAt                  *model.OrderBy `json:"created_at"`
+	CreatedBy                  *model.OrderBy `json:"created_by"`
+	UpdatedAt                  *model.OrderBy `json:"updated_at"`
+	UpdatedBy                  *model.OrderBy `json:"updated_by"`
+	DeletedAt                  *model.OrderBy `json:"deleted_at"`
+	DeletedBy                  *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewSetInput struct {
+	ID                         *int64     `json:"id"`
+	VehicleExitCatalogReviewID *string    `json:"vehicle_exit_catalog_review_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	EnterpriseID               *string    `json:"enterprise_id"`
+	Remarks                    *string    `json:"remarks"`
+	ReviewStatus               *int       `json:"review_status"`
+	ExitType                   *int       `json:"exit_type"`
+	ExitStep                   *int       `json:"exit_step"`
+	AreaID                     *string    `json:"area_id"`
+	OriginalEnterpriseID       *string    `json:"original_enterprise_id"`
+	OriginalEnterpriseName     *string    `json:"original_enterprise_name"`
+	OriginalSelfNumber         *string    `json:"original_self_number"`
+	IsDeleted                  *bool      `json:"is_deleted"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewStddevFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ExitType     *int   `json:"exit_type"`
+	ExitStep     *int   `json:"exit_step"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewStddevPopFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ExitType     *int   `json:"exit_type"`
+	ExitStep     *int   `json:"exit_step"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewStddevSampFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ExitType     *int   `json:"exit_type"`
+	ExitStep     *int   `json:"exit_step"`
+}
+
+// aggregate sum on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewSumFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ExitType     *int   `json:"exit_type"`
+	ExitStep     *int   `json:"exit_step"`
+}
+
+// aggregate var_pop on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewVarPopFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ExitType     *int   `json:"exit_type"`
+	ExitStep     *int   `json:"exit_step"`
+}
+
+// aggregate var_samp on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewVarSampFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ExitType     *int   `json:"exit_type"`
+	ExitStep     *int   `json:"exit_step"`
+}
+
+// aggregate variance on columns of table "vehicle_exit_catalog_review"
+type VehicleExitCatalogReviewVarianceFields struct {
+	ID           *int64 `json:"id"`
+	ReviewStatus *int   `json:"review_status"`
+	ExitType     *int   `json:"exit_type"`
+	ExitStep     *int   `json:"exit_step"`
+}
+
+// aggregated selection of "vehicle_increment_record"
+type VehicleIncrementRecordAggregate struct {
+	Aggregate *VehicleIncrementRecordAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_increment_record"
+type VehicleIncrementRecordAggregateFields struct {
+	Avg        *VehicleIncrementRecordAvgFields        `json:"avg"`
+	Count      *int                                    `json:"count"`
+	Max        *VehicleIncrementRecordMaxFields        `json:"max"`
+	Min        *VehicleIncrementRecordMinFields        `json:"min"`
+	Stddev     *VehicleIncrementRecordStddevFields     `json:"stddev"`
+	StddevPop  *VehicleIncrementRecordStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleIncrementRecordStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleIncrementRecordSumFields        `json:"sum"`
+	VarPop     *VehicleIncrementRecordVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleIncrementRecordVarSampFields    `json:"var_samp"`
+	Variance   *VehicleIncrementRecordVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_increment_record'.
+type VehicleIncrementRecordBoolExp struct {
+	And                []*VehicleIncrementRecordBoolExp `json:"_and"`
+	Not                *VehicleIncrementRecordBoolExp   `json:"_not"`
+	Or                 []*VehicleIncrementRecordBoolExp `json:"_or"`
+	ID                 *model.BigintComparisonExp       `json:"id"`
+	IncrementRecordID  *model.StringComparisonExp       `json:"increment_record_id"`
+	VehicleID          *model.StringComparisonExp       `json:"vehicle_id"`
+	EnterpriseID       *model.StringComparisonExp       `json:"enterprise_id"`
+	SelfNumber         *model.StringComparisonExp       `json:"self_number"`
+	OperationType      *model.StringComparisonExp       `json:"operation_type"`
+	LicensePlateNumber *model.StringComparisonExp       `json:"license_plate_number"`
+	EnterpriseName     *model.StringComparisonExp       `json:"enterprise_name"`
+	Area               *model.StringComparisonExp       `json:"area"`
+	OriginalNumber     *model.StringComparisonExp       `json:"original_number"`
+	Operator           *model.StringComparisonExp       `json:"operator"`
+	CreatedAt          *model.TimestamptzComparisonExp  `json:"created_at"`
+	CreatedBy          *model.StringComparisonExp       `json:"created_by"`
+	UpdatedAt          *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy          *model.StringComparisonExp       `json:"updated_by"`
+	DeletedAt          *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy          *model.StringComparisonExp       `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_increment_record"
+type VehicleIncrementRecordIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "vehicle_increment_record"
+type VehicleIncrementRecordInsertInput struct {
+	ID                 *int64     `json:"id"`
+	IncrementRecordID  *string    `json:"increment_record_id"`
+	VehicleID          *string    `json:"vehicle_id"`
+	EnterpriseID       *string    `json:"enterprise_id"`
+	SelfNumber         *string    `json:"self_number"`
+	OperationType      *string    `json:"operation_type"`
+	LicensePlateNumber *string    `json:"license_plate_number"`
+	EnterpriseName     *string    `json:"enterprise_name"`
+	Area               *string    `json:"area"`
+	OriginalNumber     *string    `json:"original_number"`
+	Operator           *string    `json:"operator"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordMaxFields struct {
+	ID                 *int64     `json:"id"`
+	IncrementRecordID  *string    `json:"increment_record_id"`
+	VehicleID          *string    `json:"vehicle_id"`
+	EnterpriseID       *string    `json:"enterprise_id"`
+	SelfNumber         *string    `json:"self_number"`
+	OperationType      *string    `json:"operation_type"`
+	LicensePlateNumber *string    `json:"license_plate_number"`
+	EnterpriseName     *string    `json:"enterprise_name"`
+	Area               *string    `json:"area"`
+	OriginalNumber     *string    `json:"original_number"`
+	Operator           *string    `json:"operator"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordMinFields struct {
+	ID                 *int64     `json:"id"`
+	IncrementRecordID  *string    `json:"increment_record_id"`
+	VehicleID          *string    `json:"vehicle_id"`
+	EnterpriseID       *string    `json:"enterprise_id"`
+	SelfNumber         *string    `json:"self_number"`
+	OperationType      *string    `json:"operation_type"`
+	LicensePlateNumber *string    `json:"license_plate_number"`
+	EnterpriseName     *string    `json:"enterprise_name"`
+	Area               *string    `json:"area"`
+	OriginalNumber     *string    `json:"original_number"`
+	Operator           *string    `json:"operator"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_increment_record"
+type VehicleIncrementRecordMutationResponse struct {
+	AffectedRows int                              `json:"affected_rows"`
+	Returning    []*model1.VehicleIncrementRecord `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_increment_record"
+type VehicleIncrementRecordOrderBy struct {
+	ID                 *model.OrderBy `json:"id"`
+	IncrementRecordID  *model.OrderBy `json:"increment_record_id"`
+	VehicleID          *model.OrderBy `json:"vehicle_id"`
+	EnterpriseID       *model.OrderBy `json:"enterprise_id"`
+	SelfNumber         *model.OrderBy `json:"self_number"`
+	OperationType      *model.OrderBy `json:"operation_type"`
+	LicensePlateNumber *model.OrderBy `json:"license_plate_number"`
+	EnterpriseName     *model.OrderBy `json:"enterprise_name"`
+	Area               *model.OrderBy `json:"area"`
+	OriginalNumber     *model.OrderBy `json:"original_number"`
+	Operator           *model.OrderBy `json:"operator"`
+	CreatedAt          *model.OrderBy `json:"created_at"`
+	CreatedBy          *model.OrderBy `json:"created_by"`
+	UpdatedAt          *model.OrderBy `json:"updated_at"`
+	UpdatedBy          *model.OrderBy `json:"updated_by"`
+	DeletedAt          *model.OrderBy `json:"deleted_at"`
+	DeletedBy          *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_increment_record"
+type VehicleIncrementRecordSetInput struct {
+	ID                 *int64     `json:"id"`
+	IncrementRecordID  *string    `json:"increment_record_id"`
+	VehicleID          *string    `json:"vehicle_id"`
+	EnterpriseID       *string    `json:"enterprise_id"`
+	SelfNumber         *string    `json:"self_number"`
+	OperationType      *string    `json:"operation_type"`
+	LicensePlateNumber *string    `json:"license_plate_number"`
+	EnterpriseName     *string    `json:"enterprise_name"`
+	Area               *string    `json:"area"`
+	OriginalNumber     *string    `json:"original_number"`
+	Operator           *string    `json:"operator"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "vehicle_increment_record"
+type VehicleIncrementRecordVarianceFields struct {
+	ID *int64 `json:"id"`
 }
 
 // aggregated selection of "vehicle_info"
 type VehicleInfoAggregate struct {
 	Aggregate *VehicleInfoAggregateFields `json:"aggregate"`
-	Nodes     []*VehicleInfo              `json:"nodes"`
 }
 
 // aggregate fields of "vehicle_info"
@@ -3179,1757 +4448,1848 @@ type VehicleInfoAggregateFields struct {
 	Variance   *VehicleInfoVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "vehicle_info"
-type VehicleInfoAggregateOrderBy struct {
-	Avg        *VehicleInfoAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                `json:"count"`
-	Max        *VehicleInfoMaxOrderBy        `json:"max"`
-	Min        *VehicleInfoMinOrderBy        `json:"min"`
-	Stddev     *VehicleInfoStddevOrderBy     `json:"stddev"`
-	StddevPop  *VehicleInfoStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VehicleInfoStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VehicleInfoSumOrderBy        `json:"sum"`
-	VarPop     *VehicleInfoVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VehicleInfoVarSampOrderBy    `json:"var_samp"`
-	Variance   *VehicleInfoVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "vehicle_info"
-type VehicleInfoArrRelInsertInput struct {
-	Data       []*VehicleInfoInsertInput `json:"data"`
-	OnConflict *VehicleInfoOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "vehicle_info"
 type VehicleInfoAvgFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
+	ID                 *int64   `json:"id"`
+	IndustryCategory   *int     `json:"industry_category"`
+	BusinessScope      *int     `json:"business_scope"`
+	VehicleType        *int     `json:"vehicle_type"`
+	OperatingType      *int     `json:"operating_type"`
+	OperatingState     *int     `json:"operating_state"`
+	LicensePlateColor  *int     `json:"license_plate_color"`
+	LicensePlateType   *int     `json:"license_plate_type"`
 	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
+	Seats              *int     `json:"seats"`
+	VehicleState       *int     `json:"vehicle_state"`
+	CarRentalPrice     *float64 `json:"car_rental_price"`
+	InsuranceCompany   *int     `json:"insurance_company"`
+	VehicleBrand       *int     `json:"vehicle_brand"`
+	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	CheckState         *int     `json:"check_state"`
 }
 
-// order by avg() on columns of table "vehicle_info"
-type VehicleInfoAvgOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// Boolean expression to filter rows from the table "vehicle_info". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_info'.
 type VehicleInfoBoolExp struct {
 	And                         []*VehicleInfoBoolExp           `json:"_and"`
 	Not                         *VehicleInfoBoolExp             `json:"_not"`
 	Or                          []*VehicleInfoBoolExp           `json:"_or"`
-	BusinessScope               *model.IntComparisonExp         `json:"business_scope"`
-	CarRentalPrice              *model.NumericComparisonExp     `json:"car_rental_price"`
-	CheckState                  *model.IntComparisonExp         `json:"check_state"`
-	CreatedAt                   *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy                   *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt                   *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy                   *model.TimestamptzComparisonExp `json:"deleted_by"`
-	DepartmentID                *model.StringComparisonExp      `json:"department_id"`
-	DrivingLicenseePic          *model.StringComparisonExp      `json:"driving_licensee_pic"`
-	EnterpriseID                *model.StringComparisonExp      `json:"enterprise_id"`
-	Heavy                       *model.NumericComparisonExp     `json:"heavy"`
 	ID                          *model.BigintComparisonExp      `json:"id"`
-	IndustryCategory            *model.IntComparisonExp         `json:"industry_category"`
-	InspectionDate              *model.TimestamptzComparisonExp `json:"inspection_date"`
-	InsuranceCompany            *model.IntComparisonExp         `json:"insurance_company"`
-	InsuranceDate               *model.TimestamptzComparisonExp `json:"insurance_date"`
-	IsActive                    *model.BooleanComparisonExp     `json:"is_active"`
-	IsApplyInstallTerminal      *model.BooleanComparisonExp     `json:"is_apply_install_terminal"`
-	IsComplete                  *model.BooleanComparisonExp     `json:"is_complete"`
-	IsDelete                    *model.BooleanComparisonExp     `json:"is_delete"`
-	IsImport                    *model.BooleanComparisonExp     `json:"is_import"`
-	IsInput                     *model.BooleanComparisonExp     `json:"is_input"`
-	IsUploadProvince            *model.BooleanComparisonExp     `json:"is_upload_province"`
-	LicensePlateColor           *model.IntComparisonExp         `json:"license_plate_color"`
-	LicensePlateNumber          *model.StringComparisonExp      `json:"license_plate_number"`
-	LicensePlateType            *model.IntComparisonExp         `json:"license_plate_type"`
-	MuckTruckID                 *model.BigintComparisonExp      `json:"muck_truck_id"`
-	OperatingRoute              *model.StringComparisonExp      `json:"operating_route"`
-	OperatingState              *model.IntComparisonExp         `json:"operating_state"`
-	OperatingType               *model.IntComparisonExp         `json:"operating_type"`
-	OperatingVehicleID          *model.BigintComparisonExp      `json:"operating_vehicle_id"`
-	Owner                       *model.StringComparisonExp      `json:"owner"`
-	QuasiDrivingModels          *model.IntComparisonExp         `json:"quasi_driving_models"`
-	RecordAt                    *model.TimestamptzComparisonExp `json:"record_at"`
-	RecordBy                    *model.StringComparisonExp      `json:"record_by"`
-	RemarkIn                    *model.StringComparisonExp      `json:"remark_in"`
-	Remarks                     *model.StringComparisonExp      `json:"remarks"`
-	RetirementDate              *model.TimestamptzComparisonExp `json:"retirement_date"`
-	RoadTransportLicenseNumber  *model.StringComparisonExp      `json:"road_transport_license_number"`
-	Seats                       *model.IntComparisonExp         `json:"seats"`
-	TerminalID                  *model.StringComparisonExp      `json:"terminal_id"`
-	UpdatedAt                   *model.TimestamptzComparisonExp `json:"updated_at"`
-	UpdatedBy                   *model.StringComparisonExp      `json:"updated_by"`
-	UpdateTimeIn                *model.TimestamptzComparisonExp `json:"update_time_in"`
-	UseNature                   *model.StringComparisonExp      `json:"use_nature"`
-	VehicleBrand                *model.IntComparisonExp         `json:"vehicle_brand"`
-	VehicleDisplacement         *model.StringComparisonExp      `json:"vehicle_displacement"`
 	VehicleID                   *model.StringComparisonExp      `json:"vehicle_id"`
-	VehicleIdentificationNumber *model.StringComparisonExp      `json:"vehicle_identification_number"`
-	VehicleMaintenances         *model.JsonbComparisonExp       `json:"vehicle_maintenances"`
-	VehicleManager              *model.StringComparisonExp      `json:"vehicle_manager"`
-	VehicleManagerIDCard        *model.StringComparisonExp      `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *model.StringComparisonExp      `json:"vehicle_manager_phone"`
-	VehicleState                *model.IntComparisonExp         `json:"vehicle_state"`
-	VehicleType                 *model.IntComparisonExp         `json:"vehicle_type"`
-}
-
-// aggregated selection of "vehicle_info_change_log"
-type VehicleInfoChangeLogAggregate struct {
-	Aggregate *VehicleInfoChangeLogAggregateFields `json:"aggregate"`
-	Nodes     []*VehicleInfoChangeLog              `json:"nodes"`
-}
-
-// aggregate fields of "vehicle_info_change_log"
-type VehicleInfoChangeLogAggregateFields struct {
-	Avg        *VehicleInfoChangeLogAvgFields        `json:"avg"`
-	Count      *int                                  `json:"count"`
-	Max        *VehicleInfoChangeLogMaxFields        `json:"max"`
-	Min        *VehicleInfoChangeLogMinFields        `json:"min"`
-	Stddev     *VehicleInfoChangeLogStddevFields     `json:"stddev"`
-	StddevPop  *VehicleInfoChangeLogStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *VehicleInfoChangeLogStddevSampFields `json:"stddev_samp"`
-	Sum        *VehicleInfoChangeLogSumFields        `json:"sum"`
-	VarPop     *VehicleInfoChangeLogVarPopFields     `json:"var_pop"`
-	VarSamp    *VehicleInfoChangeLogVarSampFields    `json:"var_samp"`
-	Variance   *VehicleInfoChangeLogVarianceFields   `json:"variance"`
-}
-
-// order by aggregate values of table "vehicle_info_change_log"
-type VehicleInfoChangeLogAggregateOrderBy struct {
-	Avg        *VehicleInfoChangeLogAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                         `json:"count"`
-	Max        *VehicleInfoChangeLogMaxOrderBy        `json:"max"`
-	Min        *VehicleInfoChangeLogMinOrderBy        `json:"min"`
-	Stddev     *VehicleInfoChangeLogStddevOrderBy     `json:"stddev"`
-	StddevPop  *VehicleInfoChangeLogStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VehicleInfoChangeLogStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VehicleInfoChangeLogSumOrderBy        `json:"sum"`
-	VarPop     *VehicleInfoChangeLogVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VehicleInfoChangeLogVarSampOrderBy    `json:"var_samp"`
-	Variance   *VehicleInfoChangeLogVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "vehicle_info_change_log"
-type VehicleInfoChangeLogArrRelInsertInput struct {
-	Data       []*VehicleInfoChangeLogInsertInput `json:"data"`
-	OnConflict *VehicleInfoChangeLogOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
-type VehicleInfoChangeLogAvgFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by avg() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogAvgOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// Boolean expression to filter rows from the table "vehicle_info_change_log". All fields are combined with a logical 'AND'.
-type VehicleInfoChangeLogBoolExp struct {
-	And                         []*VehicleInfoChangeLogBoolExp  `json:"_and"`
-	Not                         *VehicleInfoChangeLogBoolExp    `json:"_not"`
-	Or                          []*VehicleInfoChangeLogBoolExp  `json:"_or"`
-	BusinessScope               *model.IntComparisonExp         `json:"business_scope"`
-	CarRentalPrice              *model.NumericComparisonExp     `json:"car_rental_price"`
-	CheckState                  *model.IntComparisonExp         `json:"check_state"`
-	CreatedAt                   *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy                   *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt                   *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy                   *model.TimestamptzComparisonExp `json:"deleted_by"`
-	DepartmentID                *model.StringComparisonExp      `json:"department_id"`
-	DrivingLicenseePic          *model.StringComparisonExp      `json:"driving_licensee_pic"`
 	EnterpriseID                *model.StringComparisonExp      `json:"enterprise_id"`
-	Heavy                       *model.NumericComparisonExp     `json:"heavy"`
-	ID                          *model.BigintComparisonExp      `json:"id"`
+	DepartmentID                *model.StringComparisonExp      `json:"department_id"`
 	IndustryCategory            *model.IntComparisonExp         `json:"industry_category"`
+	BusinessScope               *model.IntComparisonExp         `json:"business_scope"`
+	VehicleType                 *model.IntComparisonExp         `json:"vehicle_type"`
+	OperatingType               *model.IntComparisonExp         `json:"operating_type"`
+	OperatingState              *model.IntComparisonExp         `json:"operating_state"`
+	OperatingRoute              *model.StringComparisonExp      `json:"operating_route"`
+	TerminalID                  *model.StringComparisonExp      `json:"terminal_id"`
+	IsApplyInstallTerminal      *model.BooleanComparisonExp     `json:"is_apply_install_terminal"`
+	LicensePlateNumber          *model.StringComparisonExp      `json:"license_plate_number"`
+	LicensePlateColor           *model.IntComparisonExp         `json:"license_plate_color"`
+	LicensePlateType            *model.IntComparisonExp         `json:"license_plate_type"`
+	VehicleIdentificationNumber *model.StringComparisonExp      `json:"vehicle_identification_number"`
+	RoadTransportLicenseNumber  *model.StringComparisonExp      `json:"road_transport_license_number"`
+	Heavy                       *model.NumericComparisonExp     `json:"heavy"`
+	Seats                       *model.IntComparisonExp         `json:"seats"`
+	VehicleManager              *model.StringComparisonExp      `json:"vehicle_manager"`
+	VehicleManagerPhone         *model.StringComparisonExp      `json:"vehicle_manager_phone"`
+	VehicleManagerIDCard        *model.StringComparisonExp      `json:"vehicle_manager_id_card"`
+	Owner                       *model.StringComparisonExp      `json:"owner"`
 	InspectionDate              *model.TimestamptzComparisonExp `json:"inspection_date"`
+	RetirementDate              *model.TimestamptzComparisonExp `json:"retirement_date"`
+	UseNature                   *model.StringComparisonExp      `json:"use_nature"`
+	VehicleState                *model.IntComparisonExp         `json:"vehicle_state"`
+	UpdateTimeIn                *model.TimestamptzComparisonExp `json:"update_time_in"`
+	RemarkIn                    *model.StringComparisonExp      `json:"remark_in"`
+	IsComplete                  *model.BooleanComparisonExp     `json:"is_complete"`
+	DrivingLicenseePic          *model.StringComparisonExp      `json:"driving_licensee_pic"`
+	IsActive                    *model.BooleanComparisonExp     `json:"is_active"`
+	IsInput                     *model.BooleanComparisonExp     `json:"is_input"`
+	CarRentalPrice              *model.NumericComparisonExp     `json:"car_rental_price"`
 	InsuranceCompany            *model.IntComparisonExp         `json:"insurance_company"`
 	InsuranceDate               *model.TimestamptzComparisonExp `json:"insurance_date"`
-	IsActive                    *model.BooleanComparisonExp     `json:"is_active"`
-	IsApplyInstallTerminal      *model.BooleanComparisonExp     `json:"is_apply_install_terminal"`
-	IsComplete                  *model.BooleanComparisonExp     `json:"is_complete"`
-	IsDelete                    *model.BooleanComparisonExp     `json:"is_delete"`
-	IsImport                    *model.BooleanComparisonExp     `json:"is_import"`
-	IsInput                     *model.BooleanComparisonExp     `json:"is_input"`
-	IsUploadProvince            *model.BooleanComparisonExp     `json:"is_upload_province"`
-	LicensePlateColor           *model.IntComparisonExp         `json:"license_plate_color"`
-	LicensePlateNumber          *model.StringComparisonExp      `json:"license_plate_number"`
-	LicensePlateType            *model.IntComparisonExp         `json:"license_plate_type"`
-	MuckTruckID                 *model.BigintComparisonExp      `json:"muck_truck_id"`
-	OperatingRoute              *model.StringComparisonExp      `json:"operating_route"`
-	OperatingState              *model.IntComparisonExp         `json:"operating_state"`
-	OperatingType               *model.IntComparisonExp         `json:"operating_type"`
-	OperatingVehicleID          *model.BigintComparisonExp      `json:"operating_vehicle_id"`
-	Owner                       *model.StringComparisonExp      `json:"owner"`
+	VehicleMaintenances         *model.StringComparisonExp      `json:"vehicle_maintenances"`
+	VehicleDisplacement         *model.StringComparisonExp      `json:"vehicle_displacement"`
+	VehicleBrand                *model.IntComparisonExp         `json:"vehicle_brand"`
 	QuasiDrivingModels          *model.IntComparisonExp         `json:"quasi_driving_models"`
+	IsUploadProvince            *model.BooleanComparisonExp     `json:"is_upload_province"`
+	CheckState                  *model.IntComparisonExp         `json:"check_state"`
+	IsImport                    *model.BooleanComparisonExp     `json:"is_import"`
+	IsEngineeringVehicle        *model.BooleanComparisonExp     `json:"is_engineering_vehicle"`
+	IsCatalogLibrary            *model.BooleanComparisonExp     `json:"is_catalog_library"`
+	Remarks                     *model.StringComparisonExp      `json:"remarks"`
+	IsDeleted                   *model.BooleanComparisonExp     `json:"is_deleted"`
 	RecordAt                    *model.TimestamptzComparisonExp `json:"record_at"`
 	RecordBy                    *model.StringComparisonExp      `json:"record_by"`
-	RemarkIn                    *model.StringComparisonExp      `json:"remark_in"`
-	Remarks                     *model.StringComparisonExp      `json:"remarks"`
-	RetirementDate              *model.TimestamptzComparisonExp `json:"retirement_date"`
-	RoadTransportLicenseNumber  *model.StringComparisonExp      `json:"road_transport_license_number"`
-	Seats                       *model.IntComparisonExp         `json:"seats"`
-	TerminalID                  *model.StringComparisonExp      `json:"terminal_id"`
+	CreatedAt                   *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                   *model.StringComparisonExp      `json:"created_by"`
 	UpdatedAt                   *model.TimestamptzComparisonExp `json:"updated_at"`
 	UpdatedBy                   *model.StringComparisonExp      `json:"updated_by"`
-	UpdateTimeIn                *model.TimestamptzComparisonExp `json:"update_time_in"`
-	UseNature                   *model.StringComparisonExp      `json:"use_nature"`
-	VehicleBrand                *model.IntComparisonExp         `json:"vehicle_brand"`
-	VehicleDisplacement         *model.StringComparisonExp      `json:"vehicle_displacement"`
-	VehicleIdentificationNumber *model.StringComparisonExp      `json:"vehicle_identification_number"`
-	VehicleInfoChangeID         *model.StringComparisonExp      `json:"vehicle_info_change_id"`
-	VehicleMaintenances         *model.JsonbComparisonExp       `json:"vehicle_maintenances"`
-	VehicleManager              *model.StringComparisonExp      `json:"vehicle_manager"`
-	VehicleManagerIDCard        *model.StringComparisonExp      `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *model.StringComparisonExp      `json:"vehicle_manager_phone"`
-	VehicleState                *model.IntComparisonExp         `json:"vehicle_state"`
-	VehicleType                 *model.IntComparisonExp         `json:"vehicle_type"`
-}
-
-// input type for incrementing integer column in table "vehicle_info_change_log"
-type VehicleInfoChangeLogIncInput struct {
-	BusinessScope      *int     `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *int     `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *int64   `json:"id"`
-	IndustryCategory   *int     `json:"industry_category"`
-	InsuranceCompany   *int     `json:"insurance_company"`
-	LicensePlateColor  *int     `json:"license_plate_color"`
-	LicensePlateType   *int     `json:"license_plate_type"`
-	MuckTruckID        *int64   `json:"muck_truck_id"`
-	OperatingState     *int     `json:"operating_state"`
-	OperatingType      *int     `json:"operating_type"`
-	OperatingVehicleID *int64   `json:"operating_vehicle_id"`
-	QuasiDrivingModels *int     `json:"quasi_driving_models"`
-	Seats              *int     `json:"seats"`
-	VehicleBrand       *int     `json:"vehicle_brand"`
-	VehicleState       *int     `json:"vehicle_state"`
-	VehicleType        *int     `json:"vehicle_type"`
-}
-
-// input type for inserting data into table "vehicle_info_change_log"
-type VehicleInfoChangeLogInsertInput struct {
-	BusinessScope               *int       `json:"business_scope"`
-	CarRentalPrice              *float64   `json:"car_rental_price"`
-	CheckState                  *int       `json:"check_state"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *time.Time `json:"deleted_by"`
-	DepartmentID                *string    `json:"department_id"`
-	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
-	EnterpriseID                *string    `json:"enterprise_id"`
-	Heavy                       *float64   `json:"heavy"`
-	ID                          *int64     `json:"id"`
-	IndustryCategory            *int       `json:"industry_category"`
-	InspectionDate              *time.Time `json:"inspection_date"`
-	InsuranceCompany            *int       `json:"insurance_company"`
-	InsuranceDate               *time.Time `json:"insurance_date"`
-	IsActive                    *bool      `json:"is_active"`
-	IsApplyInstallTerminal      *bool      `json:"is_apply_install_terminal"`
-	IsComplete                  *bool      `json:"is_complete"`
-	IsDelete                    *bool      `json:"is_delete"`
-	IsImport                    *bool      `json:"is_import"`
-	IsInput                     *bool      `json:"is_input"`
-	IsUploadProvince            *bool      `json:"is_upload_province"`
-	LicensePlateColor           *int       `json:"license_plate_color"`
-	LicensePlateNumber          *string    `json:"license_plate_number"`
-	LicensePlateType            *int       `json:"license_plate_type"`
-	MuckTruckID                 *int64     `json:"muck_truck_id"`
-	OperatingRoute              *string    `json:"operating_route"`
-	OperatingState              *int       `json:"operating_state"`
-	OperatingType               *int       `json:"operating_type"`
-	OperatingVehicleID          *int64     `json:"operating_vehicle_id"`
-	Owner                       *string    `json:"owner"`
-	QuasiDrivingModels          *int       `json:"quasi_driving_models"`
-	RecordAt                    *time.Time `json:"record_at"`
-	RecordBy                    *string    `json:"record_by"`
-	RemarkIn                    *string    `json:"remark_in"`
-	Remarks                     *string    `json:"remarks"`
-	RetirementDate              *time.Time `json:"retirement_date"`
-	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
-	Seats                       *int       `json:"seats"`
-	TerminalID                  *string    `json:"terminal_id"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UseNature                   *string    `json:"use_nature"`
-	VehicleBrand                *int       `json:"vehicle_brand"`
-	VehicleDisplacement         *string    `json:"vehicle_displacement"`
-	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
-	VehicleInfoChangeID         *string    `json:"vehicle_info_change_id"`
-	VehicleMaintenances         *string    `json:"vehicle_maintenances"`
-	VehicleManager              *string    `json:"vehicle_manager"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
-	VehicleState                *int       `json:"vehicle_state"`
-	VehicleType                 *int       `json:"vehicle_type"`
-}
-
-// aggregate max on columns
-type VehicleInfoChangeLogMaxFields struct {
-	BusinessScope               *int       `json:"business_scope"`
-	CarRentalPrice              *float64   `json:"car_rental_price"`
-	CheckState                  *int       `json:"check_state"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *time.Time `json:"deleted_by"`
-	DepartmentID                *string    `json:"department_id"`
-	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
-	EnterpriseID                *string    `json:"enterprise_id"`
-	Heavy                       *float64   `json:"heavy"`
-	ID                          *int64     `json:"id"`
-	IndustryCategory            *int       `json:"industry_category"`
-	InspectionDate              *time.Time `json:"inspection_date"`
-	InsuranceCompany            *int       `json:"insurance_company"`
-	InsuranceDate               *time.Time `json:"insurance_date"`
-	LicensePlateColor           *int       `json:"license_plate_color"`
-	LicensePlateNumber          *string    `json:"license_plate_number"`
-	LicensePlateType            *int       `json:"license_plate_type"`
-	MuckTruckID                 *int64     `json:"muck_truck_id"`
-	OperatingRoute              *string    `json:"operating_route"`
-	OperatingState              *int       `json:"operating_state"`
-	OperatingType               *int       `json:"operating_type"`
-	OperatingVehicleID          *int64     `json:"operating_vehicle_id"`
-	Owner                       *string    `json:"owner"`
-	QuasiDrivingModels          *int       `json:"quasi_driving_models"`
-	RecordAt                    *time.Time `json:"record_at"`
-	RecordBy                    *string    `json:"record_by"`
-	RemarkIn                    *string    `json:"remark_in"`
-	Remarks                     *string    `json:"remarks"`
-	RetirementDate              *time.Time `json:"retirement_date"`
-	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
-	Seats                       *int       `json:"seats"`
-	TerminalID                  *string    `json:"terminal_id"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UseNature                   *string    `json:"use_nature"`
-	VehicleBrand                *int       `json:"vehicle_brand"`
-	VehicleDisplacement         *string    `json:"vehicle_displacement"`
-	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
-	VehicleInfoChangeID         *string    `json:"vehicle_info_change_id"`
-	VehicleManager              *string    `json:"vehicle_manager"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
-	VehicleState                *int       `json:"vehicle_state"`
-	VehicleType                 *int       `json:"vehicle_type"`
-}
-
-// order by max() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogMaxOrderBy struct {
-	BusinessScope               *model.OrderBy `json:"business_scope"`
-	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
-	CheckState                  *model.OrderBy `json:"check_state"`
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DepartmentID                *model.OrderBy `json:"department_id"`
-	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
-	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
-	Heavy                       *model.OrderBy `json:"heavy"`
-	ID                          *model.OrderBy `json:"id"`
-	IndustryCategory            *model.OrderBy `json:"industry_category"`
-	InspectionDate              *model.OrderBy `json:"inspection_date"`
-	InsuranceCompany            *model.OrderBy `json:"insurance_company"`
-	InsuranceDate               *model.OrderBy `json:"insurance_date"`
-	LicensePlateColor           *model.OrderBy `json:"license_plate_color"`
-	LicensePlateNumber          *model.OrderBy `json:"license_plate_number"`
-	LicensePlateType            *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID                 *model.OrderBy `json:"muck_truck_id"`
-	OperatingRoute              *model.OrderBy `json:"operating_route"`
-	OperatingState              *model.OrderBy `json:"operating_state"`
-	OperatingType               *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID          *model.OrderBy `json:"operating_vehicle_id"`
-	Owner                       *model.OrderBy `json:"owner"`
-	QuasiDrivingModels          *model.OrderBy `json:"quasi_driving_models"`
-	RecordAt                    *model.OrderBy `json:"record_at"`
-	RecordBy                    *model.OrderBy `json:"record_by"`
-	RemarkIn                    *model.OrderBy `json:"remark_in"`
-	Remarks                     *model.OrderBy `json:"remarks"`
-	RetirementDate              *model.OrderBy `json:"retirement_date"`
-	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
-	Seats                       *model.OrderBy `json:"seats"`
-	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
-	UseNature                   *model.OrderBy `json:"use_nature"`
-	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
-	VehicleDisplacement         *model.OrderBy `json:"vehicle_displacement"`
-	VehicleIdentificationNumber *model.OrderBy `json:"vehicle_identification_number"`
-	VehicleInfoChangeID         *model.OrderBy `json:"vehicle_info_change_id"`
-	VehicleManager              *model.OrderBy `json:"vehicle_manager"`
-	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *model.OrderBy `json:"vehicle_manager_phone"`
-	VehicleState                *model.OrderBy `json:"vehicle_state"`
-	VehicleType                 *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate min on columns
-type VehicleInfoChangeLogMinFields struct {
-	BusinessScope               *int       `json:"business_scope"`
-	CarRentalPrice              *float64   `json:"car_rental_price"`
-	CheckState                  *int       `json:"check_state"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *time.Time `json:"deleted_by"`
-	DepartmentID                *string    `json:"department_id"`
-	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
-	EnterpriseID                *string    `json:"enterprise_id"`
-	Heavy                       *float64   `json:"heavy"`
-	ID                          *int64     `json:"id"`
-	IndustryCategory            *int       `json:"industry_category"`
-	InspectionDate              *time.Time `json:"inspection_date"`
-	InsuranceCompany            *int       `json:"insurance_company"`
-	InsuranceDate               *time.Time `json:"insurance_date"`
-	LicensePlateColor           *int       `json:"license_plate_color"`
-	LicensePlateNumber          *string    `json:"license_plate_number"`
-	LicensePlateType            *int       `json:"license_plate_type"`
-	MuckTruckID                 *int64     `json:"muck_truck_id"`
-	OperatingRoute              *string    `json:"operating_route"`
-	OperatingState              *int       `json:"operating_state"`
-	OperatingType               *int       `json:"operating_type"`
-	OperatingVehicleID          *int64     `json:"operating_vehicle_id"`
-	Owner                       *string    `json:"owner"`
-	QuasiDrivingModels          *int       `json:"quasi_driving_models"`
-	RecordAt                    *time.Time `json:"record_at"`
-	RecordBy                    *string    `json:"record_by"`
-	RemarkIn                    *string    `json:"remark_in"`
-	Remarks                     *string    `json:"remarks"`
-	RetirementDate              *time.Time `json:"retirement_date"`
-	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
-	Seats                       *int       `json:"seats"`
-	TerminalID                  *string    `json:"terminal_id"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UseNature                   *string    `json:"use_nature"`
-	VehicleBrand                *int       `json:"vehicle_brand"`
-	VehicleDisplacement         *string    `json:"vehicle_displacement"`
-	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
-	VehicleInfoChangeID         *string    `json:"vehicle_info_change_id"`
-	VehicleManager              *string    `json:"vehicle_manager"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
-	VehicleState                *int       `json:"vehicle_state"`
-	VehicleType                 *int       `json:"vehicle_type"`
-}
-
-// order by min() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogMinOrderBy struct {
-	BusinessScope               *model.OrderBy `json:"business_scope"`
-	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
-	CheckState                  *model.OrderBy `json:"check_state"`
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DepartmentID                *model.OrderBy `json:"department_id"`
-	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
-	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
-	Heavy                       *model.OrderBy `json:"heavy"`
-	ID                          *model.OrderBy `json:"id"`
-	IndustryCategory            *model.OrderBy `json:"industry_category"`
-	InspectionDate              *model.OrderBy `json:"inspection_date"`
-	InsuranceCompany            *model.OrderBy `json:"insurance_company"`
-	InsuranceDate               *model.OrderBy `json:"insurance_date"`
-	LicensePlateColor           *model.OrderBy `json:"license_plate_color"`
-	LicensePlateNumber          *model.OrderBy `json:"license_plate_number"`
-	LicensePlateType            *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID                 *model.OrderBy `json:"muck_truck_id"`
-	OperatingRoute              *model.OrderBy `json:"operating_route"`
-	OperatingState              *model.OrderBy `json:"operating_state"`
-	OperatingType               *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID          *model.OrderBy `json:"operating_vehicle_id"`
-	Owner                       *model.OrderBy `json:"owner"`
-	QuasiDrivingModels          *model.OrderBy `json:"quasi_driving_models"`
-	RecordAt                    *model.OrderBy `json:"record_at"`
-	RecordBy                    *model.OrderBy `json:"record_by"`
-	RemarkIn                    *model.OrderBy `json:"remark_in"`
-	Remarks                     *model.OrderBy `json:"remarks"`
-	RetirementDate              *model.OrderBy `json:"retirement_date"`
-	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
-	Seats                       *model.OrderBy `json:"seats"`
-	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
-	UseNature                   *model.OrderBy `json:"use_nature"`
-	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
-	VehicleDisplacement         *model.OrderBy `json:"vehicle_displacement"`
-	VehicleIdentificationNumber *model.OrderBy `json:"vehicle_identification_number"`
-	VehicleInfoChangeID         *model.OrderBy `json:"vehicle_info_change_id"`
-	VehicleManager              *model.OrderBy `json:"vehicle_manager"`
-	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *model.OrderBy `json:"vehicle_manager_phone"`
-	VehicleState                *model.OrderBy `json:"vehicle_state"`
-	VehicleType                 *model.OrderBy `json:"vehicle_type"`
-}
-
-// response of any mutation on the table "vehicle_info_change_log"
-type VehicleInfoChangeLogMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VehicleInfoChangeLog `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "vehicle_info_change_log"
-type VehicleInfoChangeLogObjRelInsertInput struct {
-	Data       *VehicleInfoChangeLogInsertInput `json:"data"`
-	OnConflict *VehicleInfoChangeLogOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "vehicle_info_change_log"
-type VehicleInfoChangeLogOnConflict struct {
-	Constraint    VehicleInfoChangeLogConstraint     `json:"constraint"`
-	UpdateColumns []VehicleInfoChangeLogUpdateColumn `json:"update_columns"`
-	Where         *VehicleInfoChangeLogBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "vehicle_info_change_log"
-type VehicleInfoChangeLogOrderBy struct {
-	BusinessScope               *model.OrderBy `json:"business_scope"`
-	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
-	CheckState                  *model.OrderBy `json:"check_state"`
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DepartmentID                *model.OrderBy `json:"department_id"`
-	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
-	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
-	Heavy                       *model.OrderBy `json:"heavy"`
-	ID                          *model.OrderBy `json:"id"`
-	IndustryCategory            *model.OrderBy `json:"industry_category"`
-	InspectionDate              *model.OrderBy `json:"inspection_date"`
-	InsuranceCompany            *model.OrderBy `json:"insurance_company"`
-	InsuranceDate               *model.OrderBy `json:"insurance_date"`
-	IsActive                    *model.OrderBy `json:"is_active"`
-	IsApplyInstallTerminal      *model.OrderBy `json:"is_apply_install_terminal"`
-	IsComplete                  *model.OrderBy `json:"is_complete"`
-	IsDelete                    *model.OrderBy `json:"is_delete"`
-	IsImport                    *model.OrderBy `json:"is_import"`
-	IsInput                     *model.OrderBy `json:"is_input"`
-	IsUploadProvince            *model.OrderBy `json:"is_upload_province"`
-	LicensePlateColor           *model.OrderBy `json:"license_plate_color"`
-	LicensePlateNumber          *model.OrderBy `json:"license_plate_number"`
-	LicensePlateType            *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID                 *model.OrderBy `json:"muck_truck_id"`
-	OperatingRoute              *model.OrderBy `json:"operating_route"`
-	OperatingState              *model.OrderBy `json:"operating_state"`
-	OperatingType               *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID          *model.OrderBy `json:"operating_vehicle_id"`
-	Owner                       *model.OrderBy `json:"owner"`
-	QuasiDrivingModels          *model.OrderBy `json:"quasi_driving_models"`
-	RecordAt                    *model.OrderBy `json:"record_at"`
-	RecordBy                    *model.OrderBy `json:"record_by"`
-	RemarkIn                    *model.OrderBy `json:"remark_in"`
-	Remarks                     *model.OrderBy `json:"remarks"`
-	RetirementDate              *model.OrderBy `json:"retirement_date"`
-	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
-	Seats                       *model.OrderBy `json:"seats"`
-	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
-	UseNature                   *model.OrderBy `json:"use_nature"`
-	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
-	VehicleDisplacement         *model.OrderBy `json:"vehicle_displacement"`
-	VehicleIdentificationNumber *model.OrderBy `json:"vehicle_identification_number"`
-	VehicleInfoChangeID         *model.OrderBy `json:"vehicle_info_change_id"`
-	VehicleMaintenances         *model.OrderBy `json:"vehicle_maintenances"`
-	VehicleManager              *model.OrderBy `json:"vehicle_manager"`
-	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *model.OrderBy `json:"vehicle_manager_phone"`
-	VehicleState                *model.OrderBy `json:"vehicle_state"`
-	VehicleType                 *model.OrderBy `json:"vehicle_type"`
-}
-
-// primary key columns input for table: "vehicle_info_change_log"
-type VehicleInfoChangeLogPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 车辆信息变更日志外部编码，由golang程序生成的xid，暴露到外部使用
-	VehicleInfoChangeID string `json:"vehicle_info_change_id"`
-}
-
-// input type for updating data in table "vehicle_info_change_log"
-type VehicleInfoChangeLogSetInput struct {
-	BusinessScope               *int       `json:"business_scope"`
-	CarRentalPrice              *float64   `json:"car_rental_price"`
-	CheckState                  *int       `json:"check_state"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *time.Time `json:"deleted_by"`
-	DepartmentID                *string    `json:"department_id"`
-	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
-	EnterpriseID                *string    `json:"enterprise_id"`
-	Heavy                       *float64   `json:"heavy"`
-	ID                          *int64     `json:"id"`
-	IndustryCategory            *int       `json:"industry_category"`
-	InspectionDate              *time.Time `json:"inspection_date"`
-	InsuranceCompany            *int       `json:"insurance_company"`
-	InsuranceDate               *time.Time `json:"insurance_date"`
-	IsActive                    *bool      `json:"is_active"`
-	IsApplyInstallTerminal      *bool      `json:"is_apply_install_terminal"`
-	IsComplete                  *bool      `json:"is_complete"`
-	IsDelete                    *bool      `json:"is_delete"`
-	IsImport                    *bool      `json:"is_import"`
-	IsInput                     *bool      `json:"is_input"`
-	IsUploadProvince            *bool      `json:"is_upload_province"`
-	LicensePlateColor           *int       `json:"license_plate_color"`
-	LicensePlateNumber          *string    `json:"license_plate_number"`
-	LicensePlateType            *int       `json:"license_plate_type"`
-	MuckTruckID                 *int64     `json:"muck_truck_id"`
-	OperatingRoute              *string    `json:"operating_route"`
-	OperatingState              *int       `json:"operating_state"`
-	OperatingType               *int       `json:"operating_type"`
-	OperatingVehicleID          *int64     `json:"operating_vehicle_id"`
-	Owner                       *string    `json:"owner"`
-	QuasiDrivingModels          *int       `json:"quasi_driving_models"`
-	RecordAt                    *time.Time `json:"record_at"`
-	RecordBy                    *string    `json:"record_by"`
-	RemarkIn                    *string    `json:"remark_in"`
-	Remarks                     *string    `json:"remarks"`
-	RetirementDate              *time.Time `json:"retirement_date"`
-	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
-	Seats                       *int       `json:"seats"`
-	TerminalID                  *string    `json:"terminal_id"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UseNature                   *string    `json:"use_nature"`
-	VehicleBrand                *int       `json:"vehicle_brand"`
-	VehicleDisplacement         *string    `json:"vehicle_displacement"`
-	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
-	VehicleInfoChangeID         *string    `json:"vehicle_info_change_id"`
-	VehicleMaintenances         *string    `json:"vehicle_maintenances"`
-	VehicleManager              *string    `json:"vehicle_manager"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
-	VehicleState                *int       `json:"vehicle_state"`
-	VehicleType                 *int       `json:"vehicle_type"`
-}
-
-// aggregate stddev on columns
-type VehicleInfoChangeLogStddevFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by stddev() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogStddevOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate stddev_pop on columns
-type VehicleInfoChangeLogStddevPopFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by stddev_pop() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogStddevPopOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate stddev_samp on columns
-type VehicleInfoChangeLogStddevSampFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by stddev_samp() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogStddevSampOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate sum on columns
-type VehicleInfoChangeLogSumFields struct {
-	BusinessScope      *int     `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *int     `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *int64   `json:"id"`
-	IndustryCategory   *int     `json:"industry_category"`
-	InsuranceCompany   *int     `json:"insurance_company"`
-	LicensePlateColor  *int     `json:"license_plate_color"`
-	LicensePlateType   *int     `json:"license_plate_type"`
-	MuckTruckID        *int64   `json:"muck_truck_id"`
-	OperatingState     *int     `json:"operating_state"`
-	OperatingType      *int     `json:"operating_type"`
-	OperatingVehicleID *int64   `json:"operating_vehicle_id"`
-	QuasiDrivingModels *int     `json:"quasi_driving_models"`
-	Seats              *int     `json:"seats"`
-	VehicleBrand       *int     `json:"vehicle_brand"`
-	VehicleState       *int     `json:"vehicle_state"`
-	VehicleType        *int     `json:"vehicle_type"`
-}
-
-// order by sum() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogSumOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate var_pop on columns
-type VehicleInfoChangeLogVarPopFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by var_pop() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogVarPopOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate var_samp on columns
-type VehicleInfoChangeLogVarSampFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by var_samp() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogVarSampOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate variance on columns
-type VehicleInfoChangeLogVarianceFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by variance() on columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogVarianceOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
+	DeletedAt                   *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                   *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "vehicle_info"
 type VehicleInfoIncInput struct {
-	BusinessScope      *int     `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *int     `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
 	ID                 *int64   `json:"id"`
 	IndustryCategory   *int     `json:"industry_category"`
-	InsuranceCompany   *int     `json:"insurance_company"`
+	BusinessScope      *int     `json:"business_scope"`
+	VehicleType        *int     `json:"vehicle_type"`
+	OperatingType      *int     `json:"operating_type"`
+	OperatingState     *int     `json:"operating_state"`
 	LicensePlateColor  *int     `json:"license_plate_color"`
 	LicensePlateType   *int     `json:"license_plate_type"`
-	MuckTruckID        *int64   `json:"muck_truck_id"`
-	OperatingState     *int     `json:"operating_state"`
-	OperatingType      *int     `json:"operating_type"`
-	OperatingVehicleID *int64   `json:"operating_vehicle_id"`
-	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	Heavy              *float64 `json:"heavy"`
 	Seats              *int     `json:"seats"`
-	VehicleBrand       *int     `json:"vehicle_brand"`
 	VehicleState       *int     `json:"vehicle_state"`
-	VehicleType        *int     `json:"vehicle_type"`
+	CarRentalPrice     *float64 `json:"car_rental_price"`
+	InsuranceCompany   *int     `json:"insurance_company"`
+	VehicleBrand       *int     `json:"vehicle_brand"`
+	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	CheckState         *int     `json:"check_state"`
 }
 
 // input type for inserting data into table "vehicle_info"
 type VehicleInfoInsertInput struct {
-	BusinessScope               *int       `json:"business_scope"`
-	CarRentalPrice              *float64   `json:"car_rental_price"`
-	CheckState                  *int       `json:"check_state"`
-	DepartmentID                *string    `json:"department_id"`
-	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
+	ID                          *int64     `json:"id"`
+	VehicleID                   *string    `json:"vehicle_id"`
 	EnterpriseID                *string    `json:"enterprise_id"`
-	Heavy                       *float64   `json:"heavy"`
+	DepartmentID                *string    `json:"department_id"`
 	IndustryCategory            *int       `json:"industry_category"`
-	InspectionDate              *time.Time `json:"inspection_date"`
-	InsuranceCompany            *int       `json:"insurance_company"`
-	InsuranceDate               *time.Time `json:"insurance_date"`
-	IsActive                    *bool      `json:"is_active"`
+	BusinessScope               *int       `json:"business_scope"`
+	VehicleType                 *int       `json:"vehicle_type"`
+	OperatingType               *int       `json:"operating_type"`
+	OperatingState              *int       `json:"operating_state"`
+	OperatingRoute              *string    `json:"operating_route"`
+	TerminalID                  *string    `json:"terminal_id"`
 	IsApplyInstallTerminal      *bool      `json:"is_apply_install_terminal"`
+	LicensePlateNumber          *string    `json:"license_plate_number"`
+	LicensePlateColor           *int       `json:"license_plate_color"`
+	LicensePlateType            *int       `json:"license_plate_type"`
+	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
+	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
+	Heavy                       *float64   `json:"heavy"`
+	Seats                       *int       `json:"seats"`
+	VehicleManager              *string    `json:"vehicle_manager"`
+	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
+	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
+	Owner                       *string    `json:"owner"`
+	InspectionDate              *time.Time `json:"inspection_date"`
+	RetirementDate              *time.Time `json:"retirement_date"`
+	UseNature                   *string    `json:"use_nature"`
+	VehicleState                *int       `json:"vehicle_state"`
+	UpdateTimeIn                *time.Time `json:"update_time_in"`
+	RemarkIn                    *string    `json:"remark_in"`
 	IsComplete                  *bool      `json:"is_complete"`
-	IsDelete                    *bool      `json:"is_delete"`
-	IsImport                    *bool      `json:"is_import"`
+	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
+	IsActive                    *bool      `json:"is_active"`
 	IsInput                     *bool      `json:"is_input"`
-	IsUploadProvince            *bool      `json:"is_upload_province"`
-	LicensePlateColor           *int       `json:"license_plate_color"`
-	LicensePlateNumber          *string    `json:"license_plate_number"`
-	LicensePlateType            *int       `json:"license_plate_type"`
-	MuckTruckID                 *int64     `json:"muck_truck_id"`
-	OperatingRoute              *string    `json:"operating_route"`
-	OperatingState              *int       `json:"operating_state"`
-	OperatingType               *int       `json:"operating_type"`
-	OperatingVehicleID          *int64     `json:"operating_vehicle_id"`
-	Owner                       *string    `json:"owner"`
-	QuasiDrivingModels          *int       `json:"quasi_driving_models"`
-	RecordAt                    *time.Time `json:"record_at"`
-	RecordBy                    *string    `json:"record_by"`
-	RemarkIn                    *string    `json:"remark_in"`
-	Remarks                     *string    `json:"remarks"`
-	RetirementDate              *time.Time `json:"retirement_date"`
-	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
-	Seats                       *int       `json:"seats"`
-	TerminalID                  *string    `json:"terminal_id"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UseNature                   *string    `json:"use_nature"`
-	VehicleBrand                *int       `json:"vehicle_brand"`
-	VehicleDisplacement         *string    `json:"vehicle_displacement"`
-	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
+	CarRentalPrice              *float64   `json:"car_rental_price"`
+	InsuranceCompany            *int       `json:"insurance_company"`
+	InsuranceDate               *time.Time `json:"insurance_date"`
 	VehicleMaintenances         *string    `json:"vehicle_maintenances"`
-	VehicleManager              *string    `json:"vehicle_manager"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
-	VehicleState                *int       `json:"vehicle_state"`
-	VehicleType                 *int       `json:"vehicle_type"`
+	VehicleDisplacement         *string    `json:"vehicle_displacement"`
+	VehicleBrand                *int       `json:"vehicle_brand"`
+	QuasiDrivingModels          *int       `json:"quasi_driving_models"`
+	IsUploadProvince            *bool      `json:"is_upload_province"`
+	CheckState                  *int       `json:"check_state"`
+	IsImport                    *bool      `json:"is_import"`
+	IsEngineeringVehicle        *bool      `json:"is_engineering_vehicle"`
+	IsCatalogLibrary            *bool      `json:"is_catalog_library"`
+	Remarks                     *string    `json:"remarks"`
+	IsDeleted                   *bool      `json:"is_deleted"`
+	RecordAt                    *time.Time `json:"record_at"`
+	RecordBy                    *string    `json:"record_by"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "vehicle_info"
 type VehicleInfoMaxFields struct {
-	BusinessScope               *int       `json:"business_scope"`
-	CarRentalPrice              *float64   `json:"car_rental_price"`
-	CheckState                  *int       `json:"check_state"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *time.Time `json:"deleted_by"`
-	DepartmentID                *string    `json:"department_id"`
-	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
-	EnterpriseID                *string    `json:"enterprise_id"`
-	Heavy                       *float64   `json:"heavy"`
 	ID                          *int64     `json:"id"`
+	VehicleID                   *string    `json:"vehicle_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	DepartmentID                *string    `json:"department_id"`
 	IndustryCategory            *int       `json:"industry_category"`
+	BusinessScope               *int       `json:"business_scope"`
+	VehicleType                 *int       `json:"vehicle_type"`
+	OperatingType               *int       `json:"operating_type"`
+	OperatingState              *int       `json:"operating_state"`
+	OperatingRoute              *string    `json:"operating_route"`
+	TerminalID                  *string    `json:"terminal_id"`
+	IsApplyInstallTerminal      *bool      `json:"is_apply_install_terminal"`
+	LicensePlateNumber          *string    `json:"license_plate_number"`
+	LicensePlateColor           *int       `json:"license_plate_color"`
+	LicensePlateType            *int       `json:"license_plate_type"`
+	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
+	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
+	Heavy                       *float64   `json:"heavy"`
+	Seats                       *int       `json:"seats"`
+	VehicleManager              *string    `json:"vehicle_manager"`
+	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
+	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
+	Owner                       *string    `json:"owner"`
 	InspectionDate              *time.Time `json:"inspection_date"`
+	RetirementDate              *time.Time `json:"retirement_date"`
+	UseNature                   *string    `json:"use_nature"`
+	VehicleState                *int       `json:"vehicle_state"`
+	UpdateTimeIn                *time.Time `json:"update_time_in"`
+	RemarkIn                    *string    `json:"remark_in"`
+	IsComplete                  *bool      `json:"is_complete"`
+	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
+	IsActive                    *bool      `json:"is_active"`
+	IsInput                     *bool      `json:"is_input"`
+	CarRentalPrice              *float64   `json:"car_rental_price"`
 	InsuranceCompany            *int       `json:"insurance_company"`
 	InsuranceDate               *time.Time `json:"insurance_date"`
-	LicensePlateColor           *int       `json:"license_plate_color"`
-	LicensePlateNumber          *string    `json:"license_plate_number"`
-	LicensePlateType            *int       `json:"license_plate_type"`
-	MuckTruckID                 *int64     `json:"muck_truck_id"`
-	OperatingRoute              *string    `json:"operating_route"`
-	OperatingState              *int       `json:"operating_state"`
-	OperatingType               *int       `json:"operating_type"`
-	OperatingVehicleID          *int64     `json:"operating_vehicle_id"`
-	Owner                       *string    `json:"owner"`
+	VehicleMaintenances         *string    `json:"vehicle_maintenances"`
+	VehicleDisplacement         *string    `json:"vehicle_displacement"`
+	VehicleBrand                *int       `json:"vehicle_brand"`
 	QuasiDrivingModels          *int       `json:"quasi_driving_models"`
+	IsUploadProvince            *bool      `json:"is_upload_province"`
+	CheckState                  *int       `json:"check_state"`
+	IsImport                    *bool      `json:"is_import"`
+	IsEngineeringVehicle        *bool      `json:"is_engineering_vehicle"`
+	IsCatalogLibrary            *bool      `json:"is_catalog_library"`
+	Remarks                     *string    `json:"remarks"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 	RecordAt                    *time.Time `json:"record_at"`
 	RecordBy                    *string    `json:"record_by"`
-	RemarkIn                    *string    `json:"remark_in"`
-	Remarks                     *string    `json:"remarks"`
-	RetirementDate              *time.Time `json:"retirement_date"`
-	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
-	Seats                       *int       `json:"seats"`
-	TerminalID                  *string    `json:"terminal_id"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UseNature                   *string    `json:"use_nature"`
-	VehicleBrand                *int       `json:"vehicle_brand"`
-	VehicleDisplacement         *string    `json:"vehicle_displacement"`
-	VehicleID                   *string    `json:"vehicle_id"`
-	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
-	VehicleManager              *string    `json:"vehicle_manager"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
-	VehicleState                *int       `json:"vehicle_state"`
-	VehicleType                 *int       `json:"vehicle_type"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "vehicle_info"
-type VehicleInfoMaxOrderBy struct {
-	BusinessScope               *model.OrderBy `json:"business_scope"`
-	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
-	CheckState                  *model.OrderBy `json:"check_state"`
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DepartmentID                *model.OrderBy `json:"department_id"`
-	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
-	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
-	Heavy                       *model.OrderBy `json:"heavy"`
-	ID                          *model.OrderBy `json:"id"`
-	IndustryCategory            *model.OrderBy `json:"industry_category"`
-	InspectionDate              *model.OrderBy `json:"inspection_date"`
-	InsuranceCompany            *model.OrderBy `json:"insurance_company"`
-	InsuranceDate               *model.OrderBy `json:"insurance_date"`
-	LicensePlateColor           *model.OrderBy `json:"license_plate_color"`
-	LicensePlateNumber          *model.OrderBy `json:"license_plate_number"`
-	LicensePlateType            *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID                 *model.OrderBy `json:"muck_truck_id"`
-	OperatingRoute              *model.OrderBy `json:"operating_route"`
-	OperatingState              *model.OrderBy `json:"operating_state"`
-	OperatingType               *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID          *model.OrderBy `json:"operating_vehicle_id"`
-	Owner                       *model.OrderBy `json:"owner"`
-	QuasiDrivingModels          *model.OrderBy `json:"quasi_driving_models"`
-	RecordAt                    *model.OrderBy `json:"record_at"`
-	RecordBy                    *model.OrderBy `json:"record_by"`
-	RemarkIn                    *model.OrderBy `json:"remark_in"`
-	Remarks                     *model.OrderBy `json:"remarks"`
-	RetirementDate              *model.OrderBy `json:"retirement_date"`
-	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
-	Seats                       *model.OrderBy `json:"seats"`
-	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
-	UseNature                   *model.OrderBy `json:"use_nature"`
-	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
-	VehicleDisplacement         *model.OrderBy `json:"vehicle_displacement"`
-	VehicleID                   *model.OrderBy `json:"vehicle_id"`
-	VehicleIdentificationNumber *model.OrderBy `json:"vehicle_identification_number"`
-	VehicleManager              *model.OrderBy `json:"vehicle_manager"`
-	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *model.OrderBy `json:"vehicle_manager_phone"`
-	VehicleState                *model.OrderBy `json:"vehicle_state"`
-	VehicleType                 *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "vehicle_info"
 type VehicleInfoMinFields struct {
-	BusinessScope               *int       `json:"business_scope"`
-	CarRentalPrice              *float64   `json:"car_rental_price"`
-	CheckState                  *int       `json:"check_state"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *time.Time `json:"deleted_by"`
-	DepartmentID                *string    `json:"department_id"`
-	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
-	EnterpriseID                *string    `json:"enterprise_id"`
-	Heavy                       *float64   `json:"heavy"`
 	ID                          *int64     `json:"id"`
+	VehicleID                   *string    `json:"vehicle_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	DepartmentID                *string    `json:"department_id"`
 	IndustryCategory            *int       `json:"industry_category"`
+	BusinessScope               *int       `json:"business_scope"`
+	VehicleType                 *int       `json:"vehicle_type"`
+	OperatingType               *int       `json:"operating_type"`
+	OperatingState              *int       `json:"operating_state"`
+	OperatingRoute              *string    `json:"operating_route"`
+	TerminalID                  *string    `json:"terminal_id"`
+	IsApplyInstallTerminal      *bool      `json:"is_apply_install_terminal"`
+	LicensePlateNumber          *string    `json:"license_plate_number"`
+	LicensePlateColor           *int       `json:"license_plate_color"`
+	LicensePlateType            *int       `json:"license_plate_type"`
+	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
+	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
+	Heavy                       *float64   `json:"heavy"`
+	Seats                       *int       `json:"seats"`
+	VehicleManager              *string    `json:"vehicle_manager"`
+	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
+	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
+	Owner                       *string    `json:"owner"`
 	InspectionDate              *time.Time `json:"inspection_date"`
+	RetirementDate              *time.Time `json:"retirement_date"`
+	UseNature                   *string    `json:"use_nature"`
+	VehicleState                *int       `json:"vehicle_state"`
+	UpdateTimeIn                *time.Time `json:"update_time_in"`
+	RemarkIn                    *string    `json:"remark_in"`
+	IsComplete                  *bool      `json:"is_complete"`
+	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
+	IsActive                    *bool      `json:"is_active"`
+	IsInput                     *bool      `json:"is_input"`
+	CarRentalPrice              *float64   `json:"car_rental_price"`
 	InsuranceCompany            *int       `json:"insurance_company"`
 	InsuranceDate               *time.Time `json:"insurance_date"`
-	LicensePlateColor           *int       `json:"license_plate_color"`
-	LicensePlateNumber          *string    `json:"license_plate_number"`
-	LicensePlateType            *int       `json:"license_plate_type"`
-	MuckTruckID                 *int64     `json:"muck_truck_id"`
-	OperatingRoute              *string    `json:"operating_route"`
-	OperatingState              *int       `json:"operating_state"`
-	OperatingType               *int       `json:"operating_type"`
-	OperatingVehicleID          *int64     `json:"operating_vehicle_id"`
-	Owner                       *string    `json:"owner"`
+	VehicleMaintenances         *string    `json:"vehicle_maintenances"`
+	VehicleDisplacement         *string    `json:"vehicle_displacement"`
+	VehicleBrand                *int       `json:"vehicle_brand"`
 	QuasiDrivingModels          *int       `json:"quasi_driving_models"`
+	IsUploadProvince            *bool      `json:"is_upload_province"`
+	CheckState                  *int       `json:"check_state"`
+	IsImport                    *bool      `json:"is_import"`
+	IsEngineeringVehicle        *bool      `json:"is_engineering_vehicle"`
+	IsCatalogLibrary            *bool      `json:"is_catalog_library"`
+	Remarks                     *string    `json:"remarks"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 	RecordAt                    *time.Time `json:"record_at"`
 	RecordBy                    *string    `json:"record_by"`
-	RemarkIn                    *string    `json:"remark_in"`
-	Remarks                     *string    `json:"remarks"`
-	RetirementDate              *time.Time `json:"retirement_date"`
-	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
-	Seats                       *int       `json:"seats"`
-	TerminalID                  *string    `json:"terminal_id"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UseNature                   *string    `json:"use_nature"`
-	VehicleBrand                *int       `json:"vehicle_brand"`
-	VehicleDisplacement         *string    `json:"vehicle_displacement"`
-	VehicleID                   *string    `json:"vehicle_id"`
-	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
-	VehicleManager              *string    `json:"vehicle_manager"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
-	VehicleState                *int       `json:"vehicle_state"`
-	VehicleType                 *int       `json:"vehicle_type"`
-}
-
-// order by min() on columns of table "vehicle_info"
-type VehicleInfoMinOrderBy struct {
-	BusinessScope               *model.OrderBy `json:"business_scope"`
-	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
-	CheckState                  *model.OrderBy `json:"check_state"`
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DepartmentID                *model.OrderBy `json:"department_id"`
-	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
-	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
-	Heavy                       *model.OrderBy `json:"heavy"`
-	ID                          *model.OrderBy `json:"id"`
-	IndustryCategory            *model.OrderBy `json:"industry_category"`
-	InspectionDate              *model.OrderBy `json:"inspection_date"`
-	InsuranceCompany            *model.OrderBy `json:"insurance_company"`
-	InsuranceDate               *model.OrderBy `json:"insurance_date"`
-	LicensePlateColor           *model.OrderBy `json:"license_plate_color"`
-	LicensePlateNumber          *model.OrderBy `json:"license_plate_number"`
-	LicensePlateType            *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID                 *model.OrderBy `json:"muck_truck_id"`
-	OperatingRoute              *model.OrderBy `json:"operating_route"`
-	OperatingState              *model.OrderBy `json:"operating_state"`
-	OperatingType               *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID          *model.OrderBy `json:"operating_vehicle_id"`
-	Owner                       *model.OrderBy `json:"owner"`
-	QuasiDrivingModels          *model.OrderBy `json:"quasi_driving_models"`
-	RecordAt                    *model.OrderBy `json:"record_at"`
-	RecordBy                    *model.OrderBy `json:"record_by"`
-	RemarkIn                    *model.OrderBy `json:"remark_in"`
-	Remarks                     *model.OrderBy `json:"remarks"`
-	RetirementDate              *model.OrderBy `json:"retirement_date"`
-	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
-	Seats                       *model.OrderBy `json:"seats"`
-	TerminalID                  *model.OrderBy `json:"terminal_id"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
-	UseNature                   *model.OrderBy `json:"use_nature"`
-	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
-	VehicleDisplacement         *model.OrderBy `json:"vehicle_displacement"`
-	VehicleID                   *model.OrderBy `json:"vehicle_id"`
-	VehicleIdentificationNumber *model.OrderBy `json:"vehicle_identification_number"`
-	VehicleManager              *model.OrderBy `json:"vehicle_manager"`
-	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *model.OrderBy `json:"vehicle_manager_phone"`
-	VehicleState                *model.OrderBy `json:"vehicle_state"`
-	VehicleType                 *model.OrderBy `json:"vehicle_type"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "vehicle_info"
 type VehicleInfoMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VehicleInfo `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "vehicle_info"
-type VehicleInfoObjRelInsertInput struct {
-	Data       *VehicleInfoInsertInput `json:"data"`
-	OnConflict *VehicleInfoOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "vehicle_info"
-type VehicleInfoOnConflict struct {
-	Constraint    VehicleInfoConstraint     `json:"constraint"`
-	UpdateColumns []VehicleInfoUpdateColumn `json:"update_columns"`
-	Where         *VehicleInfoBoolExp       `json:"where"`
+	AffectedRows int                   `json:"affected_rows"`
+	Returning    []*model1.VehicleInfo `json:"returning"`
 }
 
 // ordering options when selecting data from "vehicle_info"
 type VehicleInfoOrderBy struct {
-	BusinessScope               *model.OrderBy `json:"business_scope"`
-	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
-	CheckState                  *model.OrderBy `json:"check_state"`
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DepartmentID                *model.OrderBy `json:"department_id"`
-	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
-	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
-	Heavy                       *model.OrderBy `json:"heavy"`
 	ID                          *model.OrderBy `json:"id"`
+	VehicleID                   *model.OrderBy `json:"vehicle_id"`
+	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
+	DepartmentID                *model.OrderBy `json:"department_id"`
 	IndustryCategory            *model.OrderBy `json:"industry_category"`
+	BusinessScope               *model.OrderBy `json:"business_scope"`
+	VehicleType                 *model.OrderBy `json:"vehicle_type"`
+	OperatingType               *model.OrderBy `json:"operating_type"`
+	OperatingState              *model.OrderBy `json:"operating_state"`
+	OperatingRoute              *model.OrderBy `json:"operating_route"`
+	TerminalID                  *model.OrderBy `json:"terminal_id"`
+	IsApplyInstallTerminal      *model.OrderBy `json:"is_apply_install_terminal"`
+	LicensePlateNumber          *model.OrderBy `json:"license_plate_number"`
+	LicensePlateColor           *model.OrderBy `json:"license_plate_color"`
+	LicensePlateType            *model.OrderBy `json:"license_plate_type"`
+	VehicleIdentificationNumber *model.OrderBy `json:"vehicle_identification_number"`
+	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
+	Heavy                       *model.OrderBy `json:"heavy"`
+	Seats                       *model.OrderBy `json:"seats"`
+	VehicleManager              *model.OrderBy `json:"vehicle_manager"`
+	VehicleManagerPhone         *model.OrderBy `json:"vehicle_manager_phone"`
+	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
+	Owner                       *model.OrderBy `json:"owner"`
 	InspectionDate              *model.OrderBy `json:"inspection_date"`
+	RetirementDate              *model.OrderBy `json:"retirement_date"`
+	UseNature                   *model.OrderBy `json:"use_nature"`
+	VehicleState                *model.OrderBy `json:"vehicle_state"`
+	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
+	RemarkIn                    *model.OrderBy `json:"remark_in"`
+	IsComplete                  *model.OrderBy `json:"is_complete"`
+	DrivingLicenseePic          *model.OrderBy `json:"driving_licensee_pic"`
+	IsActive                    *model.OrderBy `json:"is_active"`
+	IsInput                     *model.OrderBy `json:"is_input"`
+	CarRentalPrice              *model.OrderBy `json:"car_rental_price"`
 	InsuranceCompany            *model.OrderBy `json:"insurance_company"`
 	InsuranceDate               *model.OrderBy `json:"insurance_date"`
-	IsActive                    *model.OrderBy `json:"is_active"`
-	IsApplyInstallTerminal      *model.OrderBy `json:"is_apply_install_terminal"`
-	IsComplete                  *model.OrderBy `json:"is_complete"`
-	IsDelete                    *model.OrderBy `json:"is_delete"`
-	IsImport                    *model.OrderBy `json:"is_import"`
-	IsInput                     *model.OrderBy `json:"is_input"`
-	IsUploadProvince            *model.OrderBy `json:"is_upload_province"`
-	LicensePlateColor           *model.OrderBy `json:"license_plate_color"`
-	LicensePlateNumber          *model.OrderBy `json:"license_plate_number"`
-	LicensePlateType            *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID                 *model.OrderBy `json:"muck_truck_id"`
-	OperatingRoute              *model.OrderBy `json:"operating_route"`
-	OperatingState              *model.OrderBy `json:"operating_state"`
-	OperatingType               *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID          *model.OrderBy `json:"operating_vehicle_id"`
-	Owner                       *model.OrderBy `json:"owner"`
+	VehicleMaintenances         *model.OrderBy `json:"vehicle_maintenances"`
+	VehicleDisplacement         *model.OrderBy `json:"vehicle_displacement"`
+	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
 	QuasiDrivingModels          *model.OrderBy `json:"quasi_driving_models"`
+	IsUploadProvince            *model.OrderBy `json:"is_upload_province"`
+	CheckState                  *model.OrderBy `json:"check_state"`
+	IsImport                    *model.OrderBy `json:"is_import"`
+	IsEngineeringVehicle        *model.OrderBy `json:"is_engineering_vehicle"`
+	IsCatalogLibrary            *model.OrderBy `json:"is_catalog_library"`
+	Remarks                     *model.OrderBy `json:"remarks"`
+	IsDeleted                   *model.OrderBy `json:"is_deleted"`
 	RecordAt                    *model.OrderBy `json:"record_at"`
 	RecordBy                    *model.OrderBy `json:"record_by"`
-	RemarkIn                    *model.OrderBy `json:"remark_in"`
-	Remarks                     *model.OrderBy `json:"remarks"`
-	RetirementDate              *model.OrderBy `json:"retirement_date"`
-	RoadTransportLicenseNumber  *model.OrderBy `json:"road_transport_license_number"`
-	Seats                       *model.OrderBy `json:"seats"`
-	TerminalID                  *model.OrderBy `json:"terminal_id"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
 	UpdatedAt                   *model.OrderBy `json:"updated_at"`
 	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
-	UseNature                   *model.OrderBy `json:"use_nature"`
-	VehicleBrand                *model.OrderBy `json:"vehicle_brand"`
-	VehicleDisplacement         *model.OrderBy `json:"vehicle_displacement"`
-	VehicleID                   *model.OrderBy `json:"vehicle_id"`
-	VehicleIdentificationNumber *model.OrderBy `json:"vehicle_identification_number"`
-	VehicleMaintenances         *model.OrderBy `json:"vehicle_maintenances"`
-	VehicleManager              *model.OrderBy `json:"vehicle_manager"`
-	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *model.OrderBy `json:"vehicle_manager_phone"`
-	VehicleState                *model.OrderBy `json:"vehicle_state"`
-	VehicleType                 *model.OrderBy `json:"vehicle_type"`
-}
-
-// primary key columns input for table: "vehicle_info"
-type VehicleInfoPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 车辆外部编码，由golang程序生成的xid，暴露到外部使用
-	VehicleID string `json:"vehicle_id"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "vehicle_info"
 type VehicleInfoSetInput struct {
-	BusinessScope               *int       `json:"business_scope"`
-	CarRentalPrice              *float64   `json:"car_rental_price"`
-	CheckState                  *int       `json:"check_state"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *time.Time `json:"deleted_by"`
-	DepartmentID                *string    `json:"department_id"`
-	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
-	EnterpriseID                *string    `json:"enterprise_id"`
-	Heavy                       *float64   `json:"heavy"`
 	ID                          *int64     `json:"id"`
+	VehicleID                   *string    `json:"vehicle_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	DepartmentID                *string    `json:"department_id"`
 	IndustryCategory            *int       `json:"industry_category"`
+	BusinessScope               *int       `json:"business_scope"`
+	VehicleType                 *int       `json:"vehicle_type"`
+	OperatingType               *int       `json:"operating_type"`
+	OperatingState              *int       `json:"operating_state"`
+	OperatingRoute              *string    `json:"operating_route"`
+	TerminalID                  *string    `json:"terminal_id"`
+	IsApplyInstallTerminal      *bool      `json:"is_apply_install_terminal"`
+	LicensePlateNumber          *string    `json:"license_plate_number"`
+	LicensePlateColor           *int       `json:"license_plate_color"`
+	LicensePlateType            *int       `json:"license_plate_type"`
+	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
+	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
+	Heavy                       *float64   `json:"heavy"`
+	Seats                       *int       `json:"seats"`
+	VehicleManager              *string    `json:"vehicle_manager"`
+	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
+	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
+	Owner                       *string    `json:"owner"`
 	InspectionDate              *time.Time `json:"inspection_date"`
+	RetirementDate              *time.Time `json:"retirement_date"`
+	UseNature                   *string    `json:"use_nature"`
+	VehicleState                *int       `json:"vehicle_state"`
+	UpdateTimeIn                *time.Time `json:"update_time_in"`
+	RemarkIn                    *string    `json:"remark_in"`
+	IsComplete                  *bool      `json:"is_complete"`
+	DrivingLicenseePic          *string    `json:"driving_licensee_pic"`
+	IsActive                    *bool      `json:"is_active"`
+	IsInput                     *bool      `json:"is_input"`
+	CarRentalPrice              *float64   `json:"car_rental_price"`
 	InsuranceCompany            *int       `json:"insurance_company"`
 	InsuranceDate               *time.Time `json:"insurance_date"`
-	IsActive                    *bool      `json:"is_active"`
-	IsApplyInstallTerminal      *bool      `json:"is_apply_install_terminal"`
-	IsComplete                  *bool      `json:"is_complete"`
-	IsDelete                    *bool      `json:"is_delete"`
-	IsImport                    *bool      `json:"is_import"`
-	IsInput                     *bool      `json:"is_input"`
-	IsUploadProvince            *bool      `json:"is_upload_province"`
-	LicensePlateColor           *int       `json:"license_plate_color"`
-	LicensePlateNumber          *string    `json:"license_plate_number"`
-	LicensePlateType            *int       `json:"license_plate_type"`
-	MuckTruckID                 *int64     `json:"muck_truck_id"`
-	OperatingRoute              *string    `json:"operating_route"`
-	OperatingState              *int       `json:"operating_state"`
-	OperatingType               *int       `json:"operating_type"`
-	OperatingVehicleID          *int64     `json:"operating_vehicle_id"`
-	Owner                       *string    `json:"owner"`
+	VehicleMaintenances         *string    `json:"vehicle_maintenances"`
+	VehicleDisplacement         *string    `json:"vehicle_displacement"`
+	VehicleBrand                *int       `json:"vehicle_brand"`
 	QuasiDrivingModels          *int       `json:"quasi_driving_models"`
+	IsUploadProvince            *bool      `json:"is_upload_province"`
+	CheckState                  *int       `json:"check_state"`
+	IsImport                    *bool      `json:"is_import"`
+	IsEngineeringVehicle        *bool      `json:"is_engineering_vehicle"`
+	IsCatalogLibrary            *bool      `json:"is_catalog_library"`
+	Remarks                     *string    `json:"remarks"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 	RecordAt                    *time.Time `json:"record_at"`
 	RecordBy                    *string    `json:"record_by"`
-	RemarkIn                    *string    `json:"remark_in"`
-	Remarks                     *string    `json:"remarks"`
-	RetirementDate              *time.Time `json:"retirement_date"`
-	RoadTransportLicenseNumber  *string    `json:"road_transport_license_number"`
-	Seats                       *int       `json:"seats"`
-	TerminalID                  *string    `json:"terminal_id"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UseNature                   *string    `json:"use_nature"`
-	VehicleBrand                *int       `json:"vehicle_brand"`
-	VehicleDisplacement         *string    `json:"vehicle_displacement"`
-	VehicleID                   *string    `json:"vehicle_id"`
-	VehicleIdentificationNumber *string    `json:"vehicle_identification_number"`
-	VehicleMaintenances         *string    `json:"vehicle_maintenances"`
-	VehicleManager              *string    `json:"vehicle_manager"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	VehicleManagerPhone         *string    `json:"vehicle_manager_phone"`
-	VehicleState                *int       `json:"vehicle_state"`
-	VehicleType                 *int       `json:"vehicle_type"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "vehicle_info"
 type VehicleInfoStddevFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by stddev() on columns of table "vehicle_info"
-type VehicleInfoStddevOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate stddev_pop on columns
-type VehicleInfoStddevPopFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by stddev_pop() on columns of table "vehicle_info"
-type VehicleInfoStddevPopOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate stddev_samp on columns
-type VehicleInfoStddevSampFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
-}
-
-// order by stddev_samp() on columns of table "vehicle_info"
-type VehicleInfoStddevSampOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate sum on columns
-type VehicleInfoSumFields struct {
-	BusinessScope      *int     `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *int     `json:"check_state"`
-	Heavy              *float64 `json:"heavy"`
 	ID                 *int64   `json:"id"`
 	IndustryCategory   *int     `json:"industry_category"`
-	InsuranceCompany   *int     `json:"insurance_company"`
+	BusinessScope      *int     `json:"business_scope"`
+	VehicleType        *int     `json:"vehicle_type"`
+	OperatingType      *int     `json:"operating_type"`
+	OperatingState     *int     `json:"operating_state"`
 	LicensePlateColor  *int     `json:"license_plate_color"`
 	LicensePlateType   *int     `json:"license_plate_type"`
-	MuckTruckID        *int64   `json:"muck_truck_id"`
-	OperatingState     *int     `json:"operating_state"`
-	OperatingType      *int     `json:"operating_type"`
-	OperatingVehicleID *int64   `json:"operating_vehicle_id"`
-	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	Heavy              *float64 `json:"heavy"`
 	Seats              *int     `json:"seats"`
-	VehicleBrand       *int     `json:"vehicle_brand"`
 	VehicleState       *int     `json:"vehicle_state"`
+	CarRentalPrice     *float64 `json:"car_rental_price"`
+	InsuranceCompany   *int     `json:"insurance_company"`
+	VehicleBrand       *int     `json:"vehicle_brand"`
+	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	CheckState         *int     `json:"check_state"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_info"
+type VehicleInfoStddevPopFields struct {
+	ID                 *int64   `json:"id"`
+	IndustryCategory   *int     `json:"industry_category"`
+	BusinessScope      *int     `json:"business_scope"`
 	VehicleType        *int     `json:"vehicle_type"`
+	OperatingType      *int     `json:"operating_type"`
+	OperatingState     *int     `json:"operating_state"`
+	LicensePlateColor  *int     `json:"license_plate_color"`
+	LicensePlateType   *int     `json:"license_plate_type"`
+	Heavy              *float64 `json:"heavy"`
+	Seats              *int     `json:"seats"`
+	VehicleState       *int     `json:"vehicle_state"`
+	CarRentalPrice     *float64 `json:"car_rental_price"`
+	InsuranceCompany   *int     `json:"insurance_company"`
+	VehicleBrand       *int     `json:"vehicle_brand"`
+	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	CheckState         *int     `json:"check_state"`
 }
 
-// order by sum() on columns of table "vehicle_info"
-type VehicleInfoSumOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
+// aggregate stddev_samp on columns of table "vehicle_info"
+type VehicleInfoStddevSampFields struct {
+	ID                 *int64   `json:"id"`
+	IndustryCategory   *int     `json:"industry_category"`
+	BusinessScope      *int     `json:"business_scope"`
+	VehicleType        *int     `json:"vehicle_type"`
+	OperatingType      *int     `json:"operating_type"`
+	OperatingState     *int     `json:"operating_state"`
+	LicensePlateColor  *int     `json:"license_plate_color"`
+	LicensePlateType   *int     `json:"license_plate_type"`
+	Heavy              *float64 `json:"heavy"`
+	Seats              *int     `json:"seats"`
+	VehicleState       *int     `json:"vehicle_state"`
+	CarRentalPrice     *float64 `json:"car_rental_price"`
+	InsuranceCompany   *int     `json:"insurance_company"`
+	VehicleBrand       *int     `json:"vehicle_brand"`
+	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	CheckState         *int     `json:"check_state"`
 }
 
-// aggregate var_pop on columns
+// aggregate sum on columns of table "vehicle_info"
+type VehicleInfoSumFields struct {
+	ID                 *int64   `json:"id"`
+	IndustryCategory   *int     `json:"industry_category"`
+	BusinessScope      *int     `json:"business_scope"`
+	VehicleType        *int     `json:"vehicle_type"`
+	OperatingType      *int     `json:"operating_type"`
+	OperatingState     *int     `json:"operating_state"`
+	LicensePlateColor  *int     `json:"license_plate_color"`
+	LicensePlateType   *int     `json:"license_plate_type"`
+	Heavy              *float64 `json:"heavy"`
+	Seats              *int     `json:"seats"`
+	VehicleState       *int     `json:"vehicle_state"`
+	CarRentalPrice     *float64 `json:"car_rental_price"`
+	InsuranceCompany   *int     `json:"insurance_company"`
+	VehicleBrand       *int     `json:"vehicle_brand"`
+	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	CheckState         *int     `json:"check_state"`
+}
+
+// aggregate var_pop on columns of table "vehicle_info"
 type VehicleInfoVarPopFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
+	ID                 *int64   `json:"id"`
+	IndustryCategory   *int     `json:"industry_category"`
+	BusinessScope      *int     `json:"business_scope"`
+	VehicleType        *int     `json:"vehicle_type"`
+	OperatingType      *int     `json:"operating_type"`
+	OperatingState     *int     `json:"operating_state"`
+	LicensePlateColor  *int     `json:"license_plate_color"`
+	LicensePlateType   *int     `json:"license_plate_type"`
 	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
+	Seats              *int     `json:"seats"`
+	VehicleState       *int     `json:"vehicle_state"`
+	CarRentalPrice     *float64 `json:"car_rental_price"`
+	InsuranceCompany   *int     `json:"insurance_company"`
+	VehicleBrand       *int     `json:"vehicle_brand"`
+	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	CheckState         *int     `json:"check_state"`
 }
 
-// order by var_pop() on columns of table "vehicle_info"
-type VehicleInfoVarPopOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "vehicle_info"
 type VehicleInfoVarSampFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
+	ID                 *int64   `json:"id"`
+	IndustryCategory   *int     `json:"industry_category"`
+	BusinessScope      *int     `json:"business_scope"`
+	VehicleType        *int     `json:"vehicle_type"`
+	OperatingType      *int     `json:"operating_type"`
+	OperatingState     *int     `json:"operating_state"`
+	LicensePlateColor  *int     `json:"license_plate_color"`
+	LicensePlateType   *int     `json:"license_plate_type"`
 	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
+	Seats              *int     `json:"seats"`
+	VehicleState       *int     `json:"vehicle_state"`
+	CarRentalPrice     *float64 `json:"car_rental_price"`
+	InsuranceCompany   *int     `json:"insurance_company"`
+	VehicleBrand       *int     `json:"vehicle_brand"`
+	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	CheckState         *int     `json:"check_state"`
 }
 
-// order by var_samp() on columns of table "vehicle_info"
-type VehicleInfoVarSampOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "vehicle_info"
 type VehicleInfoVarianceFields struct {
-	BusinessScope      *float64 `json:"business_scope"`
-	CarRentalPrice     *float64 `json:"car_rental_price"`
-	CheckState         *float64 `json:"check_state"`
+	ID                 *int64   `json:"id"`
+	IndustryCategory   *int     `json:"industry_category"`
+	BusinessScope      *int     `json:"business_scope"`
+	VehicleType        *int     `json:"vehicle_type"`
+	OperatingType      *int     `json:"operating_type"`
+	OperatingState     *int     `json:"operating_state"`
+	LicensePlateColor  *int     `json:"license_plate_color"`
+	LicensePlateType   *int     `json:"license_plate_type"`
 	Heavy              *float64 `json:"heavy"`
-	ID                 *float64 `json:"id"`
-	IndustryCategory   *float64 `json:"industry_category"`
-	InsuranceCompany   *float64 `json:"insurance_company"`
-	LicensePlateColor  *float64 `json:"license_plate_color"`
-	LicensePlateType   *float64 `json:"license_plate_type"`
-	MuckTruckID        *float64 `json:"muck_truck_id"`
-	OperatingState     *float64 `json:"operating_state"`
-	OperatingType      *float64 `json:"operating_type"`
-	OperatingVehicleID *float64 `json:"operating_vehicle_id"`
-	QuasiDrivingModels *float64 `json:"quasi_driving_models"`
-	Seats              *float64 `json:"seats"`
-	VehicleBrand       *float64 `json:"vehicle_brand"`
-	VehicleState       *float64 `json:"vehicle_state"`
-	VehicleType        *float64 `json:"vehicle_type"`
+	Seats              *int     `json:"seats"`
+	VehicleState       *int     `json:"vehicle_state"`
+	CarRentalPrice     *float64 `json:"car_rental_price"`
+	InsuranceCompany   *int     `json:"insurance_company"`
+	VehicleBrand       *int     `json:"vehicle_brand"`
+	QuasiDrivingModels *int     `json:"quasi_driving_models"`
+	CheckState         *int     `json:"check_state"`
 }
 
-// order by variance() on columns of table "vehicle_info"
-type VehicleInfoVarianceOrderBy struct {
-	BusinessScope      *model.OrderBy `json:"business_scope"`
-	CarRentalPrice     *model.OrderBy `json:"car_rental_price"`
-	CheckState         *model.OrderBy `json:"check_state"`
-	Heavy              *model.OrderBy `json:"heavy"`
-	ID                 *model.OrderBy `json:"id"`
-	IndustryCategory   *model.OrderBy `json:"industry_category"`
-	InsuranceCompany   *model.OrderBy `json:"insurance_company"`
-	LicensePlateColor  *model.OrderBy `json:"license_plate_color"`
-	LicensePlateType   *model.OrderBy `json:"license_plate_type"`
-	MuckTruckID        *model.OrderBy `json:"muck_truck_id"`
-	OperatingState     *model.OrderBy `json:"operating_state"`
-	OperatingType      *model.OrderBy `json:"operating_type"`
-	OperatingVehicleID *model.OrderBy `json:"operating_vehicle_id"`
-	QuasiDrivingModels *model.OrderBy `json:"quasi_driving_models"`
-	Seats              *model.OrderBy `json:"seats"`
-	VehicleBrand       *model.OrderBy `json:"vehicle_brand"`
-	VehicleState       *model.OrderBy `json:"vehicle_state"`
-	VehicleType        *model.OrderBy `json:"vehicle_type"`
+// aggregated selection of "vehicle_online_time"
+type VehicleOnlineTimeAggregate struct {
+	Aggregate *VehicleOnlineTimeAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_online_time"
+type VehicleOnlineTimeAggregateFields struct {
+	Avg        *VehicleOnlineTimeAvgFields        `json:"avg"`
+	Count      *int                               `json:"count"`
+	Max        *VehicleOnlineTimeMaxFields        `json:"max"`
+	Min        *VehicleOnlineTimeMinFields        `json:"min"`
+	Stddev     *VehicleOnlineTimeStddevFields     `json:"stddev"`
+	StddevPop  *VehicleOnlineTimeStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleOnlineTimeStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleOnlineTimeSumFields        `json:"sum"`
+	VarPop     *VehicleOnlineTimeVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleOnlineTimeVarSampFields    `json:"var_samp"`
+	Variance   *VehicleOnlineTimeVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_online_time"
+type VehicleOnlineTimeAvgFields struct {
+	ID          *int64   `json:"id"`
+	OnlineTime  *float64 `json:"online_time"`
+	OfflineTime *float64 `json:"offline_time"`
+	TotalTime   *float64 `json:"total_time"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_online_time'.
+type VehicleOnlineTimeBoolExp struct {
+	And          []*VehicleOnlineTimeBoolExp     `json:"_and"`
+	Not          *VehicleOnlineTimeBoolExp       `json:"_not"`
+	Or           []*VehicleOnlineTimeBoolExp     `json:"_or"`
+	ID           *model.BigintComparisonExp      `json:"id"`
+	OnlineTimeID *model.StringComparisonExp      `json:"online_time_id"`
+	VehicleID    *model.StringComparisonExp      `json:"vehicle_id"`
+	OnlineTime   *model.NumericComparisonExp     `json:"online_time"`
+	OfflineTime  *model.NumericComparisonExp     `json:"offline_time"`
+	TotalTime    *model.NumericComparisonExp     `json:"total_time"`
+	IsOnline     *model.BooleanComparisonExp     `json:"is_online"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_online_time"
+type VehicleOnlineTimeIncInput struct {
+	ID          *int64   `json:"id"`
+	OnlineTime  *float64 `json:"online_time"`
+	OfflineTime *float64 `json:"offline_time"`
+	TotalTime   *float64 `json:"total_time"`
+}
+
+// input type for inserting data into table "vehicle_online_time"
+type VehicleOnlineTimeInsertInput struct {
+	ID           *int64     `json:"id"`
+	OnlineTimeID *string    `json:"online_time_id"`
+	VehicleID    *string    `json:"vehicle_id"`
+	OnlineTime   *float64   `json:"online_time"`
+	OfflineTime  *float64   `json:"offline_time"`
+	TotalTime    *float64   `json:"total_time"`
+	IsOnline     *bool      `json:"is_online"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_online_time"
+type VehicleOnlineTimeMaxFields struct {
+	ID           *int64     `json:"id"`
+	OnlineTimeID *string    `json:"online_time_id"`
+	VehicleID    *string    `json:"vehicle_id"`
+	OnlineTime   *float64   `json:"online_time"`
+	OfflineTime  *float64   `json:"offline_time"`
+	TotalTime    *float64   `json:"total_time"`
+	IsOnline     *bool      `json:"is_online"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_online_time"
+type VehicleOnlineTimeMinFields struct {
+	ID           *int64     `json:"id"`
+	OnlineTimeID *string    `json:"online_time_id"`
+	VehicleID    *string    `json:"vehicle_id"`
+	OnlineTime   *float64   `json:"online_time"`
+	OfflineTime  *float64   `json:"offline_time"`
+	TotalTime    *float64   `json:"total_time"`
+	IsOnline     *bool      `json:"is_online"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_online_time"
+type VehicleOnlineTimeMutationResponse struct {
+	AffectedRows int                         `json:"affected_rows"`
+	Returning    []*model1.VehicleOnlineTime `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_online_time"
+type VehicleOnlineTimeOrderBy struct {
+	ID           *model.OrderBy `json:"id"`
+	OnlineTimeID *model.OrderBy `json:"online_time_id"`
+	VehicleID    *model.OrderBy `json:"vehicle_id"`
+	OnlineTime   *model.OrderBy `json:"online_time"`
+	OfflineTime  *model.OrderBy `json:"offline_time"`
+	TotalTime    *model.OrderBy `json:"total_time"`
+	IsOnline     *model.OrderBy `json:"is_online"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
+	UpdatedAt    *model.OrderBy `json:"updated_at"`
+	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_online_time"
+type VehicleOnlineTimeSetInput struct {
+	ID           *int64     `json:"id"`
+	OnlineTimeID *string    `json:"online_time_id"`
+	VehicleID    *string    `json:"vehicle_id"`
+	OnlineTime   *float64   `json:"online_time"`
+	OfflineTime  *float64   `json:"offline_time"`
+	TotalTime    *float64   `json:"total_time"`
+	IsOnline     *bool      `json:"is_online"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
+	UpdatedAt    *time.Time `json:"updated_at"`
+	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_online_time"
+type VehicleOnlineTimeStddevFields struct {
+	ID          *int64   `json:"id"`
+	OnlineTime  *float64 `json:"online_time"`
+	OfflineTime *float64 `json:"offline_time"`
+	TotalTime   *float64 `json:"total_time"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_online_time"
+type VehicleOnlineTimeStddevPopFields struct {
+	ID          *int64   `json:"id"`
+	OnlineTime  *float64 `json:"online_time"`
+	OfflineTime *float64 `json:"offline_time"`
+	TotalTime   *float64 `json:"total_time"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_online_time"
+type VehicleOnlineTimeStddevSampFields struct {
+	ID          *int64   `json:"id"`
+	OnlineTime  *float64 `json:"online_time"`
+	OfflineTime *float64 `json:"offline_time"`
+	TotalTime   *float64 `json:"total_time"`
+}
+
+// aggregate sum on columns of table "vehicle_online_time"
+type VehicleOnlineTimeSumFields struct {
+	ID          *int64   `json:"id"`
+	OnlineTime  *float64 `json:"online_time"`
+	OfflineTime *float64 `json:"offline_time"`
+	TotalTime   *float64 `json:"total_time"`
+}
+
+// aggregate var_pop on columns of table "vehicle_online_time"
+type VehicleOnlineTimeVarPopFields struct {
+	ID          *int64   `json:"id"`
+	OnlineTime  *float64 `json:"online_time"`
+	OfflineTime *float64 `json:"offline_time"`
+	TotalTime   *float64 `json:"total_time"`
+}
+
+// aggregate var_samp on columns of table "vehicle_online_time"
+type VehicleOnlineTimeVarSampFields struct {
+	ID          *int64   `json:"id"`
+	OnlineTime  *float64 `json:"online_time"`
+	OfflineTime *float64 `json:"offline_time"`
+	TotalTime   *float64 `json:"total_time"`
+}
+
+// aggregate variance on columns of table "vehicle_online_time"
+type VehicleOnlineTimeVarianceFields struct {
+	ID          *int64   `json:"id"`
+	OnlineTime  *float64 `json:"online_time"`
+	OfflineTime *float64 `json:"offline_time"`
+	TotalTime   *float64 `json:"total_time"`
+}
+
+// aggregated selection of "vehicle_operation_history"
+type VehicleOperationHistoryAggregate struct {
+	Aggregate *VehicleOperationHistoryAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_operation_history"
+type VehicleOperationHistoryAggregateFields struct {
+	Avg        *VehicleOperationHistoryAvgFields        `json:"avg"`
+	Count      *int                                     `json:"count"`
+	Max        *VehicleOperationHistoryMaxFields        `json:"max"`
+	Min        *VehicleOperationHistoryMinFields        `json:"min"`
+	Stddev     *VehicleOperationHistoryStddevFields     `json:"stddev"`
+	StddevPop  *VehicleOperationHistoryStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleOperationHistoryStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleOperationHistorySumFields        `json:"sum"`
+	VarPop     *VehicleOperationHistoryVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleOperationHistoryVarSampFields    `json:"var_samp"`
+	Variance   *VehicleOperationHistoryVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_operation_history"
+type VehicleOperationHistoryAvgFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+	ReviewStatus  *int   `json:"review_status"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_operation_history'.
+type VehicleOperationHistoryBoolExp struct {
+	And                       []*VehicleOperationHistoryBoolExp `json:"_and"`
+	Not                       *VehicleOperationHistoryBoolExp   `json:"_not"`
+	Or                        []*VehicleOperationHistoryBoolExp `json:"_or"`
+	ID                        *model.BigintComparisonExp        `json:"id"`
+	VehicleOperationHistoryID *model.StringComparisonExp        `json:"vehicle_operation_history_id"`
+	VehicleID                 *model.StringComparisonExp        `json:"vehicle_id"`
+	Remarks                   *model.StringComparisonExp        `json:"remarks"`
+	OperationType             *model.IntComparisonExp           `json:"operation_type"`
+	Operator                  *model.StringComparisonExp        `json:"operator"`
+	ReviewStatus              *model.IntComparisonExp           `json:"review_status"`
+	Area                      *model.StringComparisonExp        `json:"area"`
+	Reviewer                  *model.StringComparisonExp        `json:"reviewer"`
+	CreatedAt                 *model.TimestamptzComparisonExp   `json:"created_at"`
+	CreatedBy                 *model.StringComparisonExp        `json:"created_by"`
+	UpdatedAt                 *model.TimestamptzComparisonExp   `json:"updated_at"`
+	UpdatedBy                 *model.StringComparisonExp        `json:"updated_by"`
+	DeletedAt                 *model.TimestamptzComparisonExp   `json:"deleted_at"`
+	DeletedBy                 *model.StringComparisonExp        `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_operation_history"
+type VehicleOperationHistoryIncInput struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+	ReviewStatus  *int   `json:"review_status"`
+}
+
+// input type for inserting data into table "vehicle_operation_history"
+type VehicleOperationHistoryInsertInput struct {
+	ID                        *int64     `json:"id"`
+	VehicleOperationHistoryID *string    `json:"vehicle_operation_history_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	Remarks                   *string    `json:"remarks"`
+	OperationType             *int       `json:"operation_type"`
+	Operator                  *string    `json:"operator"`
+	ReviewStatus              *int       `json:"review_status"`
+	Area                      *string    `json:"area"`
+	Reviewer                  *string    `json:"reviewer"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_operation_history"
+type VehicleOperationHistoryMaxFields struct {
+	ID                        *int64     `json:"id"`
+	VehicleOperationHistoryID *string    `json:"vehicle_operation_history_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	Remarks                   *string    `json:"remarks"`
+	OperationType             *int       `json:"operation_type"`
+	Operator                  *string    `json:"operator"`
+	ReviewStatus              *int       `json:"review_status"`
+	Area                      *string    `json:"area"`
+	Reviewer                  *string    `json:"reviewer"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_operation_history"
+type VehicleOperationHistoryMinFields struct {
+	ID                        *int64     `json:"id"`
+	VehicleOperationHistoryID *string    `json:"vehicle_operation_history_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	Remarks                   *string    `json:"remarks"`
+	OperationType             *int       `json:"operation_type"`
+	Operator                  *string    `json:"operator"`
+	ReviewStatus              *int       `json:"review_status"`
+	Area                      *string    `json:"area"`
+	Reviewer                  *string    `json:"reviewer"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_operation_history"
+type VehicleOperationHistoryMutationResponse struct {
+	AffectedRows int                               `json:"affected_rows"`
+	Returning    []*model1.VehicleOperationHistory `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_operation_history"
+type VehicleOperationHistoryOrderBy struct {
+	ID                        *model.OrderBy `json:"id"`
+	VehicleOperationHistoryID *model.OrderBy `json:"vehicle_operation_history_id"`
+	VehicleID                 *model.OrderBy `json:"vehicle_id"`
+	Remarks                   *model.OrderBy `json:"remarks"`
+	OperationType             *model.OrderBy `json:"operation_type"`
+	Operator                  *model.OrderBy `json:"operator"`
+	ReviewStatus              *model.OrderBy `json:"review_status"`
+	Area                      *model.OrderBy `json:"area"`
+	Reviewer                  *model.OrderBy `json:"reviewer"`
+	CreatedAt                 *model.OrderBy `json:"created_at"`
+	CreatedBy                 *model.OrderBy `json:"created_by"`
+	UpdatedAt                 *model.OrderBy `json:"updated_at"`
+	UpdatedBy                 *model.OrderBy `json:"updated_by"`
+	DeletedAt                 *model.OrderBy `json:"deleted_at"`
+	DeletedBy                 *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_operation_history"
+type VehicleOperationHistorySetInput struct {
+	ID                        *int64     `json:"id"`
+	VehicleOperationHistoryID *string    `json:"vehicle_operation_history_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	Remarks                   *string    `json:"remarks"`
+	OperationType             *int       `json:"operation_type"`
+	Operator                  *string    `json:"operator"`
+	ReviewStatus              *int       `json:"review_status"`
+	Area                      *string    `json:"area"`
+	Reviewer                  *string    `json:"reviewer"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_operation_history"
+type VehicleOperationHistoryStddevFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+	ReviewStatus  *int   `json:"review_status"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_operation_history"
+type VehicleOperationHistoryStddevPopFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+	ReviewStatus  *int   `json:"review_status"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_operation_history"
+type VehicleOperationHistoryStddevSampFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+	ReviewStatus  *int   `json:"review_status"`
+}
+
+// aggregate sum on columns of table "vehicle_operation_history"
+type VehicleOperationHistorySumFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+	ReviewStatus  *int   `json:"review_status"`
+}
+
+// aggregate var_pop on columns of table "vehicle_operation_history"
+type VehicleOperationHistoryVarPopFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+	ReviewStatus  *int   `json:"review_status"`
+}
+
+// aggregate var_samp on columns of table "vehicle_operation_history"
+type VehicleOperationHistoryVarSampFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+	ReviewStatus  *int   `json:"review_status"`
+}
+
+// aggregate variance on columns of table "vehicle_operation_history"
+type VehicleOperationHistoryVarianceFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+	ReviewStatus  *int   `json:"review_status"`
+}
+
+// aggregated selection of "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordAggregate struct {
+	Aggregate *VehicleReserveHistoryRecordAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordAggregateFields struct {
+	Avg        *VehicleReserveHistoryRecordAvgFields        `json:"avg"`
+	Count      *int                                         `json:"count"`
+	Max        *VehicleReserveHistoryRecordMaxFields        `json:"max"`
+	Min        *VehicleReserveHistoryRecordMinFields        `json:"min"`
+	Stddev     *VehicleReserveHistoryRecordStddevFields     `json:"stddev"`
+	StddevPop  *VehicleReserveHistoryRecordStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleReserveHistoryRecordStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleReserveHistoryRecordSumFields        `json:"sum"`
+	VarPop     *VehicleReserveHistoryRecordVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleReserveHistoryRecordVarSampFields    `json:"var_samp"`
+	Variance   *VehicleReserveHistoryRecordVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordAvgFields struct {
+	ID              *int64 `json:"id"`
+	Operation       *int   `json:"operation"`
+	OperationSource *int   `json:"operation_source"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_reserve_history_record'.
+type VehicleReserveHistoryRecordBoolExp struct {
+	And                           []*VehicleReserveHistoryRecordBoolExp `json:"_and"`
+	Not                           *VehicleReserveHistoryRecordBoolExp   `json:"_not"`
+	Or                            []*VehicleReserveHistoryRecordBoolExp `json:"_or"`
+	ID                            *model.BigintComparisonExp            `json:"id"`
+	VehicleReserveHistoryRecordID *model.StringComparisonExp            `json:"vehicle_reserve_history_record_id"`
+	VehicleID                     *model.StringComparisonExp            `json:"vehicle_id"`
+	Operation                     *model.IntComparisonExp               `json:"operation"`
+	OperationUser                 *model.StringComparisonExp            `json:"operation_user"`
+	OperationTime                 *model.TimestamptzComparisonExp       `json:"operation_time"`
+	OperationSource               *model.IntComparisonExp               `json:"operation_source"`
+	CreatedAt                     *model.TimestamptzComparisonExp       `json:"created_at"`
+	CreatedBy                     *model.StringComparisonExp            `json:"created_by"`
+	UpdatedAt                     *model.TimestamptzComparisonExp       `json:"updated_at"`
+	UpdatedBy                     *model.StringComparisonExp            `json:"updated_by"`
+	DeletedAt                     *model.TimestamptzComparisonExp       `json:"deleted_at"`
+	DeletedBy                     *model.StringComparisonExp            `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordIncInput struct {
+	ID              *int64 `json:"id"`
+	Operation       *int   `json:"operation"`
+	OperationSource *int   `json:"operation_source"`
+}
+
+// input type for inserting data into table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordInsertInput struct {
+	ID                            *int64     `json:"id"`
+	VehicleReserveHistoryRecordID *string    `json:"vehicle_reserve_history_record_id"`
+	VehicleID                     *string    `json:"vehicle_id"`
+	Operation                     *int       `json:"operation"`
+	OperationUser                 *string    `json:"operation_user"`
+	OperationTime                 *time.Time `json:"operation_time"`
+	OperationSource               *int       `json:"operation_source"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
+	UpdatedAt                     *time.Time `json:"updated_at"`
+	UpdatedBy                     *string    `json:"updated_by"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordMaxFields struct {
+	ID                            *int64     `json:"id"`
+	VehicleReserveHistoryRecordID *string    `json:"vehicle_reserve_history_record_id"`
+	VehicleID                     *string    `json:"vehicle_id"`
+	Operation                     *int       `json:"operation"`
+	OperationUser                 *string    `json:"operation_user"`
+	OperationTime                 *time.Time `json:"operation_time"`
+	OperationSource               *int       `json:"operation_source"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
+	UpdatedAt                     *time.Time `json:"updated_at"`
+	UpdatedBy                     *string    `json:"updated_by"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordMinFields struct {
+	ID                            *int64     `json:"id"`
+	VehicleReserveHistoryRecordID *string    `json:"vehicle_reserve_history_record_id"`
+	VehicleID                     *string    `json:"vehicle_id"`
+	Operation                     *int       `json:"operation"`
+	OperationUser                 *string    `json:"operation_user"`
+	OperationTime                 *time.Time `json:"operation_time"`
+	OperationSource               *int       `json:"operation_source"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
+	UpdatedAt                     *time.Time `json:"updated_at"`
+	UpdatedBy                     *string    `json:"updated_by"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordMutationResponse struct {
+	AffectedRows int                                   `json:"affected_rows"`
+	Returning    []*model1.VehicleReserveHistoryRecord `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordOrderBy struct {
+	ID                            *model.OrderBy `json:"id"`
+	VehicleReserveHistoryRecordID *model.OrderBy `json:"vehicle_reserve_history_record_id"`
+	VehicleID                     *model.OrderBy `json:"vehicle_id"`
+	Operation                     *model.OrderBy `json:"operation"`
+	OperationUser                 *model.OrderBy `json:"operation_user"`
+	OperationTime                 *model.OrderBy `json:"operation_time"`
+	OperationSource               *model.OrderBy `json:"operation_source"`
+	CreatedAt                     *model.OrderBy `json:"created_at"`
+	CreatedBy                     *model.OrderBy `json:"created_by"`
+	UpdatedAt                     *model.OrderBy `json:"updated_at"`
+	UpdatedBy                     *model.OrderBy `json:"updated_by"`
+	DeletedAt                     *model.OrderBy `json:"deleted_at"`
+	DeletedBy                     *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordSetInput struct {
+	ID                            *int64     `json:"id"`
+	VehicleReserveHistoryRecordID *string    `json:"vehicle_reserve_history_record_id"`
+	VehicleID                     *string    `json:"vehicle_id"`
+	Operation                     *int       `json:"operation"`
+	OperationUser                 *string    `json:"operation_user"`
+	OperationTime                 *time.Time `json:"operation_time"`
+	OperationSource               *int       `json:"operation_source"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
+	UpdatedAt                     *time.Time `json:"updated_at"`
+	UpdatedBy                     *string    `json:"updated_by"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordStddevFields struct {
+	ID              *int64 `json:"id"`
+	Operation       *int   `json:"operation"`
+	OperationSource *int   `json:"operation_source"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordStddevPopFields struct {
+	ID              *int64 `json:"id"`
+	Operation       *int   `json:"operation"`
+	OperationSource *int   `json:"operation_source"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordStddevSampFields struct {
+	ID              *int64 `json:"id"`
+	Operation       *int   `json:"operation"`
+	OperationSource *int   `json:"operation_source"`
+}
+
+// aggregate sum on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordSumFields struct {
+	ID              *int64 `json:"id"`
+	Operation       *int   `json:"operation"`
+	OperationSource *int   `json:"operation_source"`
+}
+
+// aggregate var_pop on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordVarPopFields struct {
+	ID              *int64 `json:"id"`
+	Operation       *int   `json:"operation"`
+	OperationSource *int   `json:"operation_source"`
+}
+
+// aggregate var_samp on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordVarSampFields struct {
+	ID              *int64 `json:"id"`
+	Operation       *int   `json:"operation"`
+	OperationSource *int   `json:"operation_source"`
+}
+
+// aggregate variance on columns of table "vehicle_reserve_history_record"
+type VehicleReserveHistoryRecordVarianceFields struct {
+	ID              *int64 `json:"id"`
+	Operation       *int   `json:"operation"`
+	OperationSource *int   `json:"operation_source"`
+}
+
+// aggregated selection of "vehicle_security_check_record"
+type VehicleSecurityCheckRecordAggregate struct {
+	Aggregate *VehicleSecurityCheckRecordAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_security_check_record"
+type VehicleSecurityCheckRecordAggregateFields struct {
+	Avg        *VehicleSecurityCheckRecordAvgFields        `json:"avg"`
+	Count      *int                                        `json:"count"`
+	Max        *VehicleSecurityCheckRecordMaxFields        `json:"max"`
+	Min        *VehicleSecurityCheckRecordMinFields        `json:"min"`
+	Stddev     *VehicleSecurityCheckRecordStddevFields     `json:"stddev"`
+	StddevPop  *VehicleSecurityCheckRecordStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleSecurityCheckRecordStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleSecurityCheckRecordSumFields        `json:"sum"`
+	VarPop     *VehicleSecurityCheckRecordVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleSecurityCheckRecordVarSampFields    `json:"var_samp"`
+	Variance   *VehicleSecurityCheckRecordVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordAvgFields struct {
+	ID           *int64 `json:"id"`
+	Brake        *int   `json:"brake"`
+	Tire         *int   `json:"tire"`
+	Screw        *int   `json:"screw"`
+	HydraulicOil *int   `json:"hydraulic_oil"`
+	EngineOil    *int   `json:"engine_oil"`
+	Water        *int   `json:"water"`
+	Headlight    *int   `json:"headlight"`
+	Taillight    *int   `json:"taillight"`
+	TurnSignal   *int   `json:"turn_signal"`
+	BrakeLight   *int   `json:"brake_light"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_security_check_record'.
+type VehicleSecurityCheckRecordBoolExp struct {
+	And                          []*VehicleSecurityCheckRecordBoolExp `json:"_and"`
+	Not                          *VehicleSecurityCheckRecordBoolExp   `json:"_not"`
+	Or                           []*VehicleSecurityCheckRecordBoolExp `json:"_or"`
+	ID                           *model.BigintComparisonExp           `json:"id"`
+	VehicleSecurityCheckRecordID *model.StringComparisonExp           `json:"vehicle_security_check_record_id"`
+	VehicleID                    *model.StringComparisonExp           `json:"vehicle_id"`
+	EnterpriseID                 *model.StringComparisonExp           `json:"enterprise_id"`
+	Brake                        *model.IntComparisonExp              `json:"brake"`
+	Tire                         *model.IntComparisonExp              `json:"tire"`
+	Screw                        *model.IntComparisonExp              `json:"screw"`
+	HydraulicOil                 *model.IntComparisonExp              `json:"hydraulic_oil"`
+	EngineOil                    *model.IntComparisonExp              `json:"engine_oil"`
+	Water                        *model.IntComparisonExp              `json:"water"`
+	Headlight                    *model.IntComparisonExp              `json:"headlight"`
+	Taillight                    *model.IntComparisonExp              `json:"taillight"`
+	TurnSignal                   *model.IntComparisonExp              `json:"turn_signal"`
+	BrakeLight                   *model.IntComparisonExp              `json:"brake_light"`
+	LastCheckTime                *model.TimestamptzComparisonExp      `json:"last_check_time"`
+	CreatedAt                    *model.TimestamptzComparisonExp      `json:"created_at"`
+	CreatedBy                    *model.StringComparisonExp           `json:"created_by"`
+	UpdatedAt                    *model.TimestamptzComparisonExp      `json:"updated_at"`
+	UpdatedBy                    *model.StringComparisonExp           `json:"updated_by"`
+	DeletedAt                    *model.TimestamptzComparisonExp      `json:"deleted_at"`
+	DeletedBy                    *model.StringComparisonExp           `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordIncInput struct {
+	ID           *int64 `json:"id"`
+	Brake        *int   `json:"brake"`
+	Tire         *int   `json:"tire"`
+	Screw        *int   `json:"screw"`
+	HydraulicOil *int   `json:"hydraulic_oil"`
+	EngineOil    *int   `json:"engine_oil"`
+	Water        *int   `json:"water"`
+	Headlight    *int   `json:"headlight"`
+	Taillight    *int   `json:"taillight"`
+	TurnSignal   *int   `json:"turn_signal"`
+	BrakeLight   *int   `json:"brake_light"`
+}
+
+// input type for inserting data into table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordInsertInput struct {
+	ID                           *int64     `json:"id"`
+	VehicleSecurityCheckRecordID *string    `json:"vehicle_security_check_record_id"`
+	VehicleID                    *string    `json:"vehicle_id"`
+	EnterpriseID                 *string    `json:"enterprise_id"`
+	Brake                        *int       `json:"brake"`
+	Tire                         *int       `json:"tire"`
+	Screw                        *int       `json:"screw"`
+	HydraulicOil                 *int       `json:"hydraulic_oil"`
+	EngineOil                    *int       `json:"engine_oil"`
+	Water                        *int       `json:"water"`
+	Headlight                    *int       `json:"headlight"`
+	Taillight                    *int       `json:"taillight"`
+	TurnSignal                   *int       `json:"turn_signal"`
+	BrakeLight                   *int       `json:"brake_light"`
+	LastCheckTime                *time.Time `json:"last_check_time"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordMaxFields struct {
+	ID                           *int64     `json:"id"`
+	VehicleSecurityCheckRecordID *string    `json:"vehicle_security_check_record_id"`
+	VehicleID                    *string    `json:"vehicle_id"`
+	EnterpriseID                 *string    `json:"enterprise_id"`
+	Brake                        *int       `json:"brake"`
+	Tire                         *int       `json:"tire"`
+	Screw                        *int       `json:"screw"`
+	HydraulicOil                 *int       `json:"hydraulic_oil"`
+	EngineOil                    *int       `json:"engine_oil"`
+	Water                        *int       `json:"water"`
+	Headlight                    *int       `json:"headlight"`
+	Taillight                    *int       `json:"taillight"`
+	TurnSignal                   *int       `json:"turn_signal"`
+	BrakeLight                   *int       `json:"brake_light"`
+	LastCheckTime                *time.Time `json:"last_check_time"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordMinFields struct {
+	ID                           *int64     `json:"id"`
+	VehicleSecurityCheckRecordID *string    `json:"vehicle_security_check_record_id"`
+	VehicleID                    *string    `json:"vehicle_id"`
+	EnterpriseID                 *string    `json:"enterprise_id"`
+	Brake                        *int       `json:"brake"`
+	Tire                         *int       `json:"tire"`
+	Screw                        *int       `json:"screw"`
+	HydraulicOil                 *int       `json:"hydraulic_oil"`
+	EngineOil                    *int       `json:"engine_oil"`
+	Water                        *int       `json:"water"`
+	Headlight                    *int       `json:"headlight"`
+	Taillight                    *int       `json:"taillight"`
+	TurnSignal                   *int       `json:"turn_signal"`
+	BrakeLight                   *int       `json:"brake_light"`
+	LastCheckTime                *time.Time `json:"last_check_time"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordMutationResponse struct {
+	AffectedRows int                                  `json:"affected_rows"`
+	Returning    []*model1.VehicleSecurityCheckRecord `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_security_check_record"
+type VehicleSecurityCheckRecordOrderBy struct {
+	ID                           *model.OrderBy `json:"id"`
+	VehicleSecurityCheckRecordID *model.OrderBy `json:"vehicle_security_check_record_id"`
+	VehicleID                    *model.OrderBy `json:"vehicle_id"`
+	EnterpriseID                 *model.OrderBy `json:"enterprise_id"`
+	Brake                        *model.OrderBy `json:"brake"`
+	Tire                         *model.OrderBy `json:"tire"`
+	Screw                        *model.OrderBy `json:"screw"`
+	HydraulicOil                 *model.OrderBy `json:"hydraulic_oil"`
+	EngineOil                    *model.OrderBy `json:"engine_oil"`
+	Water                        *model.OrderBy `json:"water"`
+	Headlight                    *model.OrderBy `json:"headlight"`
+	Taillight                    *model.OrderBy `json:"taillight"`
+	TurnSignal                   *model.OrderBy `json:"turn_signal"`
+	BrakeLight                   *model.OrderBy `json:"brake_light"`
+	LastCheckTime                *model.OrderBy `json:"last_check_time"`
+	CreatedAt                    *model.OrderBy `json:"created_at"`
+	CreatedBy                    *model.OrderBy `json:"created_by"`
+	UpdatedAt                    *model.OrderBy `json:"updated_at"`
+	UpdatedBy                    *model.OrderBy `json:"updated_by"`
+	DeletedAt                    *model.OrderBy `json:"deleted_at"`
+	DeletedBy                    *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordSetInput struct {
+	ID                           *int64     `json:"id"`
+	VehicleSecurityCheckRecordID *string    `json:"vehicle_security_check_record_id"`
+	VehicleID                    *string    `json:"vehicle_id"`
+	EnterpriseID                 *string    `json:"enterprise_id"`
+	Brake                        *int       `json:"brake"`
+	Tire                         *int       `json:"tire"`
+	Screw                        *int       `json:"screw"`
+	HydraulicOil                 *int       `json:"hydraulic_oil"`
+	EngineOil                    *int       `json:"engine_oil"`
+	Water                        *int       `json:"water"`
+	Headlight                    *int       `json:"headlight"`
+	Taillight                    *int       `json:"taillight"`
+	TurnSignal                   *int       `json:"turn_signal"`
+	BrakeLight                   *int       `json:"brake_light"`
+	LastCheckTime                *time.Time `json:"last_check_time"`
+	CreatedAt                    *time.Time `json:"created_at"`
+	CreatedBy                    *string    `json:"created_by"`
+	UpdatedAt                    *time.Time `json:"updated_at"`
+	UpdatedBy                    *string    `json:"updated_by"`
+	DeletedAt                    *time.Time `json:"deleted_at"`
+	DeletedBy                    *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordStddevFields struct {
+	ID           *int64 `json:"id"`
+	Brake        *int   `json:"brake"`
+	Tire         *int   `json:"tire"`
+	Screw        *int   `json:"screw"`
+	HydraulicOil *int   `json:"hydraulic_oil"`
+	EngineOil    *int   `json:"engine_oil"`
+	Water        *int   `json:"water"`
+	Headlight    *int   `json:"headlight"`
+	Taillight    *int   `json:"taillight"`
+	TurnSignal   *int   `json:"turn_signal"`
+	BrakeLight   *int   `json:"brake_light"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordStddevPopFields struct {
+	ID           *int64 `json:"id"`
+	Brake        *int   `json:"brake"`
+	Tire         *int   `json:"tire"`
+	Screw        *int   `json:"screw"`
+	HydraulicOil *int   `json:"hydraulic_oil"`
+	EngineOil    *int   `json:"engine_oil"`
+	Water        *int   `json:"water"`
+	Headlight    *int   `json:"headlight"`
+	Taillight    *int   `json:"taillight"`
+	TurnSignal   *int   `json:"turn_signal"`
+	BrakeLight   *int   `json:"brake_light"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordStddevSampFields struct {
+	ID           *int64 `json:"id"`
+	Brake        *int   `json:"brake"`
+	Tire         *int   `json:"tire"`
+	Screw        *int   `json:"screw"`
+	HydraulicOil *int   `json:"hydraulic_oil"`
+	EngineOil    *int   `json:"engine_oil"`
+	Water        *int   `json:"water"`
+	Headlight    *int   `json:"headlight"`
+	Taillight    *int   `json:"taillight"`
+	TurnSignal   *int   `json:"turn_signal"`
+	BrakeLight   *int   `json:"brake_light"`
+}
+
+// aggregate sum on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordSumFields struct {
+	ID           *int64 `json:"id"`
+	Brake        *int   `json:"brake"`
+	Tire         *int   `json:"tire"`
+	Screw        *int   `json:"screw"`
+	HydraulicOil *int   `json:"hydraulic_oil"`
+	EngineOil    *int   `json:"engine_oil"`
+	Water        *int   `json:"water"`
+	Headlight    *int   `json:"headlight"`
+	Taillight    *int   `json:"taillight"`
+	TurnSignal   *int   `json:"turn_signal"`
+	BrakeLight   *int   `json:"brake_light"`
+}
+
+// aggregate var_pop on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordVarPopFields struct {
+	ID           *int64 `json:"id"`
+	Brake        *int   `json:"brake"`
+	Tire         *int   `json:"tire"`
+	Screw        *int   `json:"screw"`
+	HydraulicOil *int   `json:"hydraulic_oil"`
+	EngineOil    *int   `json:"engine_oil"`
+	Water        *int   `json:"water"`
+	Headlight    *int   `json:"headlight"`
+	Taillight    *int   `json:"taillight"`
+	TurnSignal   *int   `json:"turn_signal"`
+	BrakeLight   *int   `json:"brake_light"`
+}
+
+// aggregate var_samp on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordVarSampFields struct {
+	ID           *int64 `json:"id"`
+	Brake        *int   `json:"brake"`
+	Tire         *int   `json:"tire"`
+	Screw        *int   `json:"screw"`
+	HydraulicOil *int   `json:"hydraulic_oil"`
+	EngineOil    *int   `json:"engine_oil"`
+	Water        *int   `json:"water"`
+	Headlight    *int   `json:"headlight"`
+	Taillight    *int   `json:"taillight"`
+	TurnSignal   *int   `json:"turn_signal"`
+	BrakeLight   *int   `json:"brake_light"`
+}
+
+// aggregate variance on columns of table "vehicle_security_check_record"
+type VehicleSecurityCheckRecordVarianceFields struct {
+	ID           *int64 `json:"id"`
+	Brake        *int   `json:"brake"`
+	Tire         *int   `json:"tire"`
+	Screw        *int   `json:"screw"`
+	HydraulicOil *int   `json:"hydraulic_oil"`
+	EngineOil    *int   `json:"engine_oil"`
+	Water        *int   `json:"water"`
+	Headlight    *int   `json:"headlight"`
+	Taillight    *int   `json:"taillight"`
+	TurnSignal   *int   `json:"turn_signal"`
+	BrakeLight   *int   `json:"brake_light"`
+}
+
+// aggregated selection of "vehicle_state_latest"
+type VehicleStateLatestAggregate struct {
+	Aggregate *VehicleStateLatestAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_state_latest"
+type VehicleStateLatestAggregateFields struct {
+	Avg        *VehicleStateLatestAvgFields        `json:"avg"`
+	Count      *int                                `json:"count"`
+	Max        *VehicleStateLatestMaxFields        `json:"max"`
+	Min        *VehicleStateLatestMinFields        `json:"min"`
+	Stddev     *VehicleStateLatestStddevFields     `json:"stddev"`
+	StddevPop  *VehicleStateLatestStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleStateLatestStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleStateLatestSumFields        `json:"sum"`
+	VarPop     *VehicleStateLatestVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleStateLatestVarSampFields    `json:"var_samp"`
+	Variance   *VehicleStateLatestVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_state_latest"
+type VehicleStateLatestAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_state_latest'.
+type VehicleStateLatestBoolExp struct {
+	And                  []*VehicleStateLatestBoolExp    `json:"_and"`
+	Not                  *VehicleStateLatestBoolExp      `json:"_not"`
+	Or                   []*VehicleStateLatestBoolExp    `json:"_or"`
+	ID                   *model.BigintComparisonExp      `json:"id"`
+	VehicleStateLatestID *model.StringComparisonExp      `json:"vehicle_state_latest_id"`
+	VehicleID            *model.StringComparisonExp      `json:"vehicle_id"`
+	OperationType        *model.StringComparisonExp      `json:"operation_type"`
+	Operator             *model.StringComparisonExp      `json:"operator"`
+	OperatorInstitution  *model.StringComparisonExp      `json:"operator_institution"`
+	Status               *model.StringComparisonExp      `json:"status"`
+	SpeedLimit           *model.StringComparisonExp      `json:"speed_limit"`
+	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt            *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy            *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_state_latest"
+type VehicleStateLatestIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "vehicle_state_latest"
+type VehicleStateLatestInsertInput struct {
+	ID                   *int64     `json:"id"`
+	VehicleStateLatestID *string    `json:"vehicle_state_latest_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	OperationType        *string    `json:"operation_type"`
+	Operator             *string    `json:"operator"`
+	OperatorInstitution  *string    `json:"operator_institution"`
+	Status               *string    `json:"status"`
+	SpeedLimit           *string    `json:"speed_limit"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_state_latest"
+type VehicleStateLatestMaxFields struct {
+	ID                   *int64     `json:"id"`
+	VehicleStateLatestID *string    `json:"vehicle_state_latest_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	OperationType        *string    `json:"operation_type"`
+	Operator             *string    `json:"operator"`
+	OperatorInstitution  *string    `json:"operator_institution"`
+	Status               *string    `json:"status"`
+	SpeedLimit           *string    `json:"speed_limit"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_state_latest"
+type VehicleStateLatestMinFields struct {
+	ID                   *int64     `json:"id"`
+	VehicleStateLatestID *string    `json:"vehicle_state_latest_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	OperationType        *string    `json:"operation_type"`
+	Operator             *string    `json:"operator"`
+	OperatorInstitution  *string    `json:"operator_institution"`
+	Status               *string    `json:"status"`
+	SpeedLimit           *string    `json:"speed_limit"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_state_latest"
+type VehicleStateLatestMutationResponse struct {
+	AffectedRows int                          `json:"affected_rows"`
+	Returning    []*model1.VehicleStateLatest `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_state_latest"
+type VehicleStateLatestOrderBy struct {
+	ID                   *model.OrderBy `json:"id"`
+	VehicleStateLatestID *model.OrderBy `json:"vehicle_state_latest_id"`
+	VehicleID            *model.OrderBy `json:"vehicle_id"`
+	OperationType        *model.OrderBy `json:"operation_type"`
+	Operator             *model.OrderBy `json:"operator"`
+	OperatorInstitution  *model.OrderBy `json:"operator_institution"`
+	Status               *model.OrderBy `json:"status"`
+	SpeedLimit           *model.OrderBy `json:"speed_limit"`
+	CreatedAt            *model.OrderBy `json:"created_at"`
+	CreatedBy            *model.OrderBy `json:"created_by"`
+	UpdatedAt            *model.OrderBy `json:"updated_at"`
+	UpdatedBy            *model.OrderBy `json:"updated_by"`
+	DeletedAt            *model.OrderBy `json:"deleted_at"`
+	DeletedBy            *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_state_latest"
+type VehicleStateLatestSetInput struct {
+	ID                   *int64     `json:"id"`
+	VehicleStateLatestID *string    `json:"vehicle_state_latest_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	OperationType        *string    `json:"operation_type"`
+	Operator             *string    `json:"operator"`
+	OperatorInstitution  *string    `json:"operator_institution"`
+	Status               *string    `json:"status"`
+	SpeedLimit           *string    `json:"speed_limit"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_state_latest"
+type VehicleStateLatestStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_state_latest"
+type VehicleStateLatestStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_state_latest"
+type VehicleStateLatestStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "vehicle_state_latest"
+type VehicleStateLatestSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "vehicle_state_latest"
+type VehicleStateLatestVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "vehicle_state_latest"
+type VehicleStateLatestVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "vehicle_state_latest"
+type VehicleStateLatestVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregated selection of "vehicle_status_change_log"
+type VehicleStatusChangeLogAggregate struct {
+	Aggregate *VehicleStatusChangeLogAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "vehicle_status_change_log"
+type VehicleStatusChangeLogAggregateFields struct {
+	Avg        *VehicleStatusChangeLogAvgFields        `json:"avg"`
+	Count      *int                                    `json:"count"`
+	Max        *VehicleStatusChangeLogMaxFields        `json:"max"`
+	Min        *VehicleStatusChangeLogMinFields        `json:"min"`
+	Stddev     *VehicleStatusChangeLogStddevFields     `json:"stddev"`
+	StddevPop  *VehicleStatusChangeLogStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VehicleStatusChangeLogStddevSampFields `json:"stddev_samp"`
+	Sum        *VehicleStatusChangeLogSumFields        `json:"sum"`
+	VarPop     *VehicleStatusChangeLogVarPopFields     `json:"var_pop"`
+	VarSamp    *VehicleStatusChangeLogVarSampFields    `json:"var_samp"`
+	Variance   *VehicleStatusChangeLogVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogAvgFields struct {
+	ID                *int64 `json:"id"`
+	VehicleStatusType *int   `json:"vehicle_status_type"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_status_change_log'.
+type VehicleStatusChangeLogBoolExp struct {
+	And                      []*VehicleStatusChangeLogBoolExp `json:"_and"`
+	Not                      *VehicleStatusChangeLogBoolExp   `json:"_not"`
+	Or                       []*VehicleStatusChangeLogBoolExp `json:"_or"`
+	ID                       *model.BigintComparisonExp       `json:"id"`
+	VehicleStatusChangeLogID *model.StringComparisonExp       `json:"vehicle_status_change_log_id"`
+	VehicleID                *model.StringComparisonExp       `json:"vehicle_id"`
+	TerminalID               *model.StringComparisonExp       `json:"terminal_id"`
+	StartTime                *model.TimestamptzComparisonExp  `json:"start_time"`
+	EndTime                  *model.TimestamptzComparisonExp  `json:"end_time"`
+	VehicleStatusType        *model.IntComparisonExp          `json:"vehicle_status_type"`
+	Value                    *model.StringComparisonExp       `json:"value"`
+	IsCompleted              *model.BooleanComparisonExp      `json:"is_completed"`
+	CreatedAt                *model.TimestamptzComparisonExp  `json:"created_at"`
+	CreatedBy                *model.StringComparisonExp       `json:"created_by"`
+	UpdatedAt                *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy                *model.StringComparisonExp       `json:"updated_by"`
+	DeletedAt                *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy                *model.StringComparisonExp       `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "vehicle_status_change_log"
+type VehicleStatusChangeLogIncInput struct {
+	ID                *int64 `json:"id"`
+	VehicleStatusType *int   `json:"vehicle_status_type"`
+}
+
+// input type for inserting data into table "vehicle_status_change_log"
+type VehicleStatusChangeLogInsertInput struct {
+	ID                       *int64     `json:"id"`
+	VehicleStatusChangeLogID *string    `json:"vehicle_status_change_log_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	TerminalID               *string    `json:"terminal_id"`
+	StartTime                *time.Time `json:"start_time"`
+	EndTime                  *time.Time `json:"end_time"`
+	VehicleStatusType        *int       `json:"vehicle_status_type"`
+	Value                    *string    `json:"value"`
+	IsCompleted              *bool      `json:"is_completed"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogMaxFields struct {
+	ID                       *int64     `json:"id"`
+	VehicleStatusChangeLogID *string    `json:"vehicle_status_change_log_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	TerminalID               *string    `json:"terminal_id"`
+	StartTime                *time.Time `json:"start_time"`
+	EndTime                  *time.Time `json:"end_time"`
+	VehicleStatusType        *int       `json:"vehicle_status_type"`
+	Value                    *string    `json:"value"`
+	IsCompleted              *bool      `json:"is_completed"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogMinFields struct {
+	ID                       *int64     `json:"id"`
+	VehicleStatusChangeLogID *string    `json:"vehicle_status_change_log_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	TerminalID               *string    `json:"terminal_id"`
+	StartTime                *time.Time `json:"start_time"`
+	EndTime                  *time.Time `json:"end_time"`
+	VehicleStatusType        *int       `json:"vehicle_status_type"`
+	Value                    *string    `json:"value"`
+	IsCompleted              *bool      `json:"is_completed"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "vehicle_status_change_log"
+type VehicleStatusChangeLogMutationResponse struct {
+	AffectedRows int                              `json:"affected_rows"`
+	Returning    []*model1.VehicleStatusChangeLog `json:"returning"`
+}
+
+// ordering options when selecting data from "vehicle_status_change_log"
+type VehicleStatusChangeLogOrderBy struct {
+	ID                       *model.OrderBy `json:"id"`
+	VehicleStatusChangeLogID *model.OrderBy `json:"vehicle_status_change_log_id"`
+	VehicleID                *model.OrderBy `json:"vehicle_id"`
+	TerminalID               *model.OrderBy `json:"terminal_id"`
+	StartTime                *model.OrderBy `json:"start_time"`
+	EndTime                  *model.OrderBy `json:"end_time"`
+	VehicleStatusType        *model.OrderBy `json:"vehicle_status_type"`
+	Value                    *model.OrderBy `json:"value"`
+	IsCompleted              *model.OrderBy `json:"is_completed"`
+	CreatedAt                *model.OrderBy `json:"created_at"`
+	CreatedBy                *model.OrderBy `json:"created_by"`
+	UpdatedAt                *model.OrderBy `json:"updated_at"`
+	UpdatedBy                *model.OrderBy `json:"updated_by"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "vehicle_status_change_log"
+type VehicleStatusChangeLogSetInput struct {
+	ID                       *int64     `json:"id"`
+	VehicleStatusChangeLogID *string    `json:"vehicle_status_change_log_id"`
+	VehicleID                *string    `json:"vehicle_id"`
+	TerminalID               *string    `json:"terminal_id"`
+	StartTime                *time.Time `json:"start_time"`
+	EndTime                  *time.Time `json:"end_time"`
+	VehicleStatusType        *int       `json:"vehicle_status_type"`
+	Value                    *string    `json:"value"`
+	IsCompleted              *bool      `json:"is_completed"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogStddevFields struct {
+	ID                *int64 `json:"id"`
+	VehicleStatusType *int   `json:"vehicle_status_type"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogStddevPopFields struct {
+	ID                *int64 `json:"id"`
+	VehicleStatusType *int   `json:"vehicle_status_type"`
+}
+
+// aggregate stddev_samp on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogStddevSampFields struct {
+	ID                *int64 `json:"id"`
+	VehicleStatusType *int   `json:"vehicle_status_type"`
+}
+
+// aggregate sum on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogSumFields struct {
+	ID                *int64 `json:"id"`
+	VehicleStatusType *int   `json:"vehicle_status_type"`
+}
+
+// aggregate var_pop on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogVarPopFields struct {
+	ID                *int64 `json:"id"`
+	VehicleStatusType *int   `json:"vehicle_status_type"`
+}
+
+// aggregate var_samp on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogVarSampFields struct {
+	ID                *int64 `json:"id"`
+	VehicleStatusType *int   `json:"vehicle_status_type"`
+}
+
+// aggregate variance on columns of table "vehicle_status_change_log"
+type VehicleStatusChangeLogVarianceFields struct {
+	ID                *int64 `json:"id"`
+	VehicleStatusType *int   `json:"vehicle_status_type"`
 }
 
 // aggregated selection of "vehicle_supervision_photo"
 type VehicleSupervisionPhotoAggregate struct {
 	Aggregate *VehicleSupervisionPhotoAggregateFields `json:"aggregate"`
-	Nodes     []*VehicleSupervisionPhoto              `json:"nodes"`
 }
 
 // aggregate fields of "vehicle_supervision_photo"
@@ -4947,425 +6307,326 @@ type VehicleSupervisionPhotoAggregateFields struct {
 	Variance   *VehicleSupervisionPhotoVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoAggregateOrderBy struct {
-	Avg        *VehicleSupervisionPhotoAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                            `json:"count"`
-	Max        *VehicleSupervisionPhotoMaxOrderBy        `json:"max"`
-	Min        *VehicleSupervisionPhotoMinOrderBy        `json:"min"`
-	Stddev     *VehicleSupervisionPhotoStddevOrderBy     `json:"stddev"`
-	StddevPop  *VehicleSupervisionPhotoStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VehicleSupervisionPhotoStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VehicleSupervisionPhotoSumOrderBy        `json:"sum"`
-	VarPop     *VehicleSupervisionPhotoVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VehicleSupervisionPhotoVarSampOrderBy    `json:"var_samp"`
-	Variance   *VehicleSupervisionPhotoVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoArrRelInsertInput struct {
-	Data       []*VehicleSupervisionPhotoInsertInput `json:"data"`
-	OnConflict *VehicleSupervisionPhotoOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoAvgFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// order by avg() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoAvgOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "vehicle_supervision_photo". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_supervision_photo'.
 type VehicleSupervisionPhotoBoolExp struct {
-	Imei                    *model.StringComparisonExp        `json:"IMEI"`
 	And                     []*VehicleSupervisionPhotoBoolExp `json:"_and"`
 	Not                     *VehicleSupervisionPhotoBoolExp   `json:"_not"`
 	Or                      []*VehicleSupervisionPhotoBoolExp `json:"_or"`
-	CameraID                *model.IntComparisonExp           `json:"camera_id"`
+	ID                      *model.BigintComparisonExp        `json:"id"`
+	SupervisionPhotoID      *model.StringComparisonExp        `json:"supervision_photo_id"`
+	VehicleID               *model.StringComparisonExp        `json:"vehicle_id"`
 	DriverID                *model.StringComparisonExp        `json:"driver_id"`
 	EnterpriseID            *model.StringComparisonExp        `json:"enterprise_id"`
-	ID                      *model.BigintComparisonExp        `json:"id"`
-	MonitoringPicAddress    *model.StringComparisonExp        `json:"monitoring_pic_address"`
-	MonitoringPicName       *model.StringComparisonExp        `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime *model.TimestamptzComparisonExp   `json:"monitoring_pic_upload_time"`
+	CameraID                *model.IntComparisonExp           `json:"camera_id"`
 	PhotoCondition          *model.StringComparisonExp        `json:"photo_condition"`
-	SimNumber               *model.StringComparisonExp        `json:"sim_number"`
-	SupervisionPhotoID      *model.StringComparisonExp        `json:"supervision_photo_id"`
 	UpdateTime              *model.TimestamptzComparisonExp   `json:"update_time"`
-	VehicleID               *model.StringComparisonExp        `json:"vehicle_id"`
+	MonitoringPicName       *model.StringComparisonExp        `json:"monitoring_pic_name"`
+	MonitoringPicAddress    *model.StringComparisonExp        `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime *model.TimestamptzComparisonExp   `json:"monitoring_pic_upload_time"`
+	Imel                    *model.StringComparisonExp        `json:"imel"`
+	SimNumber               *model.StringComparisonExp        `json:"sim_number"`
 }
 
 // input type for incrementing integer column in table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoIncInput struct {
-	CameraID *int   `json:"camera_id"`
 	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
 // input type for inserting data into table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoInsertInput struct {
-	Imei                    *string    `json:"IMEI"`
-	CameraID                *int       `json:"camera_id"`
+	ID                      *int64     `json:"id"`
+	SupervisionPhotoID      *string    `json:"supervision_photo_id"`
+	VehicleID               *string    `json:"vehicle_id"`
 	DriverID                *string    `json:"driver_id"`
 	EnterpriseID            *string    `json:"enterprise_id"`
-	ID                      *int64     `json:"id"`
-	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
-	MonitoringPicName       *string    `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
+	CameraID                *int       `json:"camera_id"`
 	PhotoCondition          *string    `json:"photo_condition"`
-	SimNumber               *string    `json:"sim_number"`
-	SupervisionPhotoID      *string    `json:"supervision_photo_id"`
 	UpdateTime              *time.Time `json:"update_time"`
-	VehicleID               *string    `json:"vehicle_id"`
+	MonitoringPicName       *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                    *string    `json:"imel"`
+	SimNumber               *string    `json:"sim_number"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoMaxFields struct {
-	Imei                    *string    `json:"IMEI"`
-	CameraID                *int       `json:"camera_id"`
+	ID                      *int64     `json:"id"`
+	SupervisionPhotoID      *string    `json:"supervision_photo_id"`
+	VehicleID               *string    `json:"vehicle_id"`
 	DriverID                *string    `json:"driver_id"`
 	EnterpriseID            *string    `json:"enterprise_id"`
-	ID                      *int64     `json:"id"`
-	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
-	MonitoringPicName       *string    `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
+	CameraID                *int       `json:"camera_id"`
 	PhotoCondition          *string    `json:"photo_condition"`
-	SimNumber               *string    `json:"sim_number"`
-	SupervisionPhotoID      *string    `json:"supervision_photo_id"`
 	UpdateTime              *time.Time `json:"update_time"`
-	VehicleID               *string    `json:"vehicle_id"`
+	MonitoringPicName       *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                    *string    `json:"imel"`
+	SimNumber               *string    `json:"sim_number"`
 }
 
-// order by max() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoMaxOrderBy struct {
-	Imei                    *model.OrderBy `json:"IMEI"`
-	CameraID                *model.OrderBy `json:"camera_id"`
-	DriverID                *model.OrderBy `json:"driver_id"`
-	EnterpriseID            *model.OrderBy `json:"enterprise_id"`
-	ID                      *model.OrderBy `json:"id"`
-	MonitoringPicAddress    *model.OrderBy `json:"monitoring_pic_address"`
-	MonitoringPicName       *model.OrderBy `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime *model.OrderBy `json:"monitoring_pic_upload_time"`
-	PhotoCondition          *model.OrderBy `json:"photo_condition"`
-	SimNumber               *model.OrderBy `json:"sim_number"`
-	SupervisionPhotoID      *model.OrderBy `json:"supervision_photo_id"`
-	UpdateTime              *model.OrderBy `json:"update_time"`
-	VehicleID               *model.OrderBy `json:"vehicle_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoMinFields struct {
-	Imei                    *string    `json:"IMEI"`
-	CameraID                *int       `json:"camera_id"`
+	ID                      *int64     `json:"id"`
+	SupervisionPhotoID      *string    `json:"supervision_photo_id"`
+	VehicleID               *string    `json:"vehicle_id"`
 	DriverID                *string    `json:"driver_id"`
 	EnterpriseID            *string    `json:"enterprise_id"`
-	ID                      *int64     `json:"id"`
-	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
-	MonitoringPicName       *string    `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
+	CameraID                *int       `json:"camera_id"`
 	PhotoCondition          *string    `json:"photo_condition"`
-	SimNumber               *string    `json:"sim_number"`
-	SupervisionPhotoID      *string    `json:"supervision_photo_id"`
 	UpdateTime              *time.Time `json:"update_time"`
-	VehicleID               *string    `json:"vehicle_id"`
-}
-
-// order by min() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoMinOrderBy struct {
-	Imei                    *model.OrderBy `json:"IMEI"`
-	CameraID                *model.OrderBy `json:"camera_id"`
-	DriverID                *model.OrderBy `json:"driver_id"`
-	EnterpriseID            *model.OrderBy `json:"enterprise_id"`
-	ID                      *model.OrderBy `json:"id"`
-	MonitoringPicAddress    *model.OrderBy `json:"monitoring_pic_address"`
-	MonitoringPicName       *model.OrderBy `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime *model.OrderBy `json:"monitoring_pic_upload_time"`
-	PhotoCondition          *model.OrderBy `json:"photo_condition"`
-	SimNumber               *model.OrderBy `json:"sim_number"`
-	SupervisionPhotoID      *model.OrderBy `json:"supervision_photo_id"`
-	UpdateTime              *model.OrderBy `json:"update_time"`
-	VehicleID               *model.OrderBy `json:"vehicle_id"`
+	MonitoringPicName       *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                    *string    `json:"imel"`
+	SimNumber               *string    `json:"sim_number"`
 }
 
 // response of any mutation on the table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VehicleSupervisionPhoto `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoObjRelInsertInput struct {
-	Data       *VehicleSupervisionPhotoInsertInput `json:"data"`
-	OnConflict *VehicleSupervisionPhotoOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoOnConflict struct {
-	Constraint    VehicleSupervisionPhotoConstraint     `json:"constraint"`
-	UpdateColumns []VehicleSupervisionPhotoUpdateColumn `json:"update_columns"`
-	Where         *VehicleSupervisionPhotoBoolExp       `json:"where"`
+	AffectedRows int                               `json:"affected_rows"`
+	Returning    []*model1.VehicleSupervisionPhoto `json:"returning"`
 }
 
 // ordering options when selecting data from "vehicle_supervision_photo"
 type VehicleSupervisionPhotoOrderBy struct {
-	Imei                    *model.OrderBy `json:"IMEI"`
-	CameraID                *model.OrderBy `json:"camera_id"`
+	ID                      *model.OrderBy `json:"id"`
+	SupervisionPhotoID      *model.OrderBy `json:"supervision_photo_id"`
+	VehicleID               *model.OrderBy `json:"vehicle_id"`
 	DriverID                *model.OrderBy `json:"driver_id"`
 	EnterpriseID            *model.OrderBy `json:"enterprise_id"`
-	ID                      *model.OrderBy `json:"id"`
-	MonitoringPicAddress    *model.OrderBy `json:"monitoring_pic_address"`
-	MonitoringPicName       *model.OrderBy `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime *model.OrderBy `json:"monitoring_pic_upload_time"`
+	CameraID                *model.OrderBy `json:"camera_id"`
 	PhotoCondition          *model.OrderBy `json:"photo_condition"`
-	SimNumber               *model.OrderBy `json:"sim_number"`
-	SupervisionPhotoID      *model.OrderBy `json:"supervision_photo_id"`
 	UpdateTime              *model.OrderBy `json:"update_time"`
-	VehicleID               *model.OrderBy `json:"vehicle_id"`
-}
-
-// primary key columns input for table: "vehicle_supervision_photo"
-type VehicleSupervisionPhotoPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用
-	SupervisionPhotoID string `json:"supervision_photo_id"`
+	MonitoringPicName       *model.OrderBy `json:"monitoring_pic_name"`
+	MonitoringPicAddress    *model.OrderBy `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime *model.OrderBy `json:"monitoring_pic_upload_time"`
+	Imel                    *model.OrderBy `json:"imel"`
+	SimNumber               *model.OrderBy `json:"sim_number"`
 }
 
 // input type for updating data in table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoSetInput struct {
-	Imei                    *string    `json:"IMEI"`
-	CameraID                *int       `json:"camera_id"`
+	ID                      *int64     `json:"id"`
+	SupervisionPhotoID      *string    `json:"supervision_photo_id"`
+	VehicleID               *string    `json:"vehicle_id"`
 	DriverID                *string    `json:"driver_id"`
 	EnterpriseID            *string    `json:"enterprise_id"`
-	ID                      *int64     `json:"id"`
-	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
-	MonitoringPicName       *string    `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
+	CameraID                *int       `json:"camera_id"`
 	PhotoCondition          *string    `json:"photo_condition"`
-	SimNumber               *string    `json:"sim_number"`
-	SupervisionPhotoID      *string    `json:"supervision_photo_id"`
 	UpdateTime              *time.Time `json:"update_time"`
-	VehicleID               *string    `json:"vehicle_id"`
+	MonitoringPicName       *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress    *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                    *string    `json:"imel"`
+	SimNumber               *string    `json:"sim_number"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoStddevFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoStddevOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type VehicleSupervisionPhotoStddevPopFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoStddevPopOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type VehicleSupervisionPhotoStddevSampFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoStddevSampOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type VehicleSupervisionPhotoSumFields struct {
-	CameraID *int   `json:"camera_id"`
 	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// order by sum() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoSumOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
+// aggregate stddev_pop on columns of table "vehicle_supervision_photo"
+type VehicleSupervisionPhotoStddevPopFields struct {
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// aggregate var_pop on columns
+// aggregate stddev_samp on columns of table "vehicle_supervision_photo"
+type VehicleSupervisionPhotoStddevSampFields struct {
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
+}
+
+// aggregate sum on columns of table "vehicle_supervision_photo"
+type VehicleSupervisionPhotoSumFields struct {
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
+}
+
+// aggregate var_pop on columns of table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoVarPopFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// order by var_pop() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoVarPopOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoVarSampFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// order by var_samp() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoVarSampOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "vehicle_supervision_photo"
 type VehicleSupervisionPhotoVarianceFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// order by variance() on columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoVarianceOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// unique or primary key constraints on table "JJ_VEHICLE"
-type JjVehicleConstraint string
+// 可选select
+type CatalogNewVehicleRecordSelectColumn string
 
 const (
-	// unique or primary key constraint
-	JjVehicleConstraintJjVehiclePkey JjVehicleConstraint = "JJ_VEHICLE_pkey"
+	// 按指定方法生成                                  ( 主键                       )
+	CatalogNewVehicleRecordSelectColumnID CatalogNewVehicleRecordSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	CatalogNewVehicleRecordSelectColumnCatalogNewVehicleRecordID CatalogNewVehicleRecordSelectColumn = "catalog_new_vehicle_record_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	CatalogNewVehicleRecordSelectColumnVehicleID CatalogNewVehicleRecordSelectColumn = "vehicle_id"
+	// 终端ID                                          (                            )
+	CatalogNewVehicleRecordSelectColumnTerminalID CatalogNewVehicleRecordSelectColumn = "terminal_id"
+	// 审核人                                          ( system_user表的user_id )
+	CatalogNewVehicleRecordSelectColumnReviewer CatalogNewVehicleRecordSelectColumn = "reviewer"
+	// 是否删除                                        (                            )
+	CatalogNewVehicleRecordSelectColumnIsDeleted CatalogNewVehicleRecordSelectColumn = "is_deleted"
+	// 创建时间                                        (                            )
+	CatalogNewVehicleRecordSelectColumnCreatedAt CatalogNewVehicleRecordSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	CatalogNewVehicleRecordSelectColumnCreatedBy CatalogNewVehicleRecordSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	CatalogNewVehicleRecordSelectColumnUpdatedAt CatalogNewVehicleRecordSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	CatalogNewVehicleRecordSelectColumnUpdatedBy CatalogNewVehicleRecordSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	CatalogNewVehicleRecordSelectColumnDeletedAt CatalogNewVehicleRecordSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	CatalogNewVehicleRecordSelectColumnDeletedBy CatalogNewVehicleRecordSelectColumn = "deleted_by"
 )
 
-var AllJjVehicleConstraint = []JjVehicleConstraint{
-	JjVehicleConstraintJjVehiclePkey,
+var AllCatalogNewVehicleRecordSelectColumn = []CatalogNewVehicleRecordSelectColumn{
+	CatalogNewVehicleRecordSelectColumnID,
+	CatalogNewVehicleRecordSelectColumnCatalogNewVehicleRecordID,
+	CatalogNewVehicleRecordSelectColumnVehicleID,
+	CatalogNewVehicleRecordSelectColumnTerminalID,
+	CatalogNewVehicleRecordSelectColumnReviewer,
+	CatalogNewVehicleRecordSelectColumnIsDeleted,
+	CatalogNewVehicleRecordSelectColumnCreatedAt,
+	CatalogNewVehicleRecordSelectColumnCreatedBy,
+	CatalogNewVehicleRecordSelectColumnUpdatedAt,
+	CatalogNewVehicleRecordSelectColumnUpdatedBy,
+	CatalogNewVehicleRecordSelectColumnDeletedAt,
+	CatalogNewVehicleRecordSelectColumnDeletedBy,
 }
 
-func (e JjVehicleConstraint) IsValid() bool {
+func (e CatalogNewVehicleRecordSelectColumn) IsValid() bool {
 	switch e {
-	case JjVehicleConstraintJjVehiclePkey:
+	case CatalogNewVehicleRecordSelectColumnID, CatalogNewVehicleRecordSelectColumnCatalogNewVehicleRecordID, CatalogNewVehicleRecordSelectColumnVehicleID, CatalogNewVehicleRecordSelectColumnTerminalID, CatalogNewVehicleRecordSelectColumnReviewer, CatalogNewVehicleRecordSelectColumnIsDeleted, CatalogNewVehicleRecordSelectColumnCreatedAt, CatalogNewVehicleRecordSelectColumnCreatedBy, CatalogNewVehicleRecordSelectColumnUpdatedAt, CatalogNewVehicleRecordSelectColumnUpdatedBy, CatalogNewVehicleRecordSelectColumnDeletedAt, CatalogNewVehicleRecordSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e JjVehicleConstraint) String() string {
+func (e CatalogNewVehicleRecordSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *JjVehicleConstraint) UnmarshalGQL(v interface{}) error {
+func (e *CatalogNewVehicleRecordSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = JjVehicleConstraint(str)
+	*e = CatalogNewVehicleRecordSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid JJ_VEHICLE_constraint", str)
+		return fmt.Errorf("%s is not a valid CatalogNewVehicleRecordSelectColumn", str)
 	}
 	return nil
 }
 
-func (e JjVehicleConstraint) MarshalGQL(w io.Writer) {
+func (e CatalogNewVehicleRecordSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// select columns of table "JJ_VEHICLE"
+// 可选select
 type JjVehicleSelectColumn string
 
 const (
-	// column name
-	JjVehicleSelectColumnCcdjrq JjVehicleSelectColumn = "CCDJRQ"
-	// column name
-	JjVehicleSelectColumnCllx JjVehicleSelectColumn = "CLLX"
-	// column name
-	JjVehicleSelectColumnClsbdh JjVehicleSelectColumn = "CLSBDH"
-	// column name
-	JjVehicleSelectColumnCounty JjVehicleSelectColumn = "COUNTY"
-	// column name
-	JjVehicleSelectColumnDjrq JjVehicleSelectColumn = "DJRQ"
-	// column name
-	JjVehicleSelectColumnFprq JjVehicleSelectColumn = "FPRQ"
-	// column name
-	JjVehicleSelectColumnGxrq JjVehicleSelectColumn = "GXRQ"
-	// column name
-	JjVehicleSelectColumnHphm JjVehicleSelectColumn = "HPHM"
-	// column name
-	JjVehicleSelectColumnHpzl JjVehicleSelectColumn = "HPZL"
-	// column name
-	JjVehicleSelectColumnIsDeteled JjVehicleSelectColumn = "IS_DETELED"
-	// column name
-	JjVehicleSelectColumnLxdh JjVehicleSelectColumn = "LXDH"
-	// column name
-	JjVehicleSelectColumnLxdz JjVehicleSelectColumn = "LXDZ"
-	// column name
-	JjVehicleSelectColumnOther JjVehicleSelectColumn = "OTHER"
-	// column name
-	JjVehicleSelectColumnQzbfqz JjVehicleSelectColumn = "QZBFQZ"
-	// column name
-	JjVehicleSelectColumnSjhm JjVehicleSelectColumn = "SJHM"
-	// column name
-	JjVehicleSelectColumnSyr JjVehicleSelectColumn = "SYR"
-	// column name
-	JjVehicleSelectColumnSyxz JjVehicleSelectColumn = "SYXZ"
-	// column name
-	JjVehicleSelectColumnUpdatetime JjVehicleSelectColumn = "UPDATETIME"
-	// column name
-	JjVehicleSelectColumnVehmontype JjVehicleSelectColumn = "VEHMONTYPE"
-	// column name
-	JjVehicleSelectColumnXh JjVehicleSelectColumn = "XH"
-	// column name
-	JjVehicleSelectColumnYxqz JjVehicleSelectColumn = "YXQZ"
-	// column name
-	JjVehicleSelectColumnZt JjVehicleSelectColumn = "ZT"
-	// column name
-	JjVehicleSelectColumnZzl JjVehicleSelectColumn = "ZZL"
-	// column name
+	// 按指定方法生成                           ( 主键    )
 	JjVehicleSelectColumnID JjVehicleSelectColumn = "id"
-	// column name
+	// vehicle_info 车辆信息表 的vehicle_id (         )
 	JjVehicleSelectColumnVehicleID JjVehicleSelectColumn = "vehicle_id"
+	// 车牌号码                                 (         )
+	JjVehicleSelectColumnHphm JjVehicleSelectColumn = "hphm"
+	// 号牌种类                                 (         )
+	JjVehicleSelectColumnHpzl JjVehicleSelectColumn = "hpzl"
+	// 所有人                                   (         )
+	JjVehicleSelectColumnSyr JjVehicleSelectColumn = "syr"
+	// 使用性质                                 (         )
+	JjVehicleSelectColumnSyxz JjVehicleSelectColumn = "syxz"
+	// 总质量                                   (         )
+	JjVehicleSelectColumnZzl JjVehicleSelectColumn = "zzl"
+	// 车辆类型                                 (         )
+	JjVehicleSelectColumnCllx JjVehicleSelectColumn = "cllx"
+	// 有效期至                                 (         )
+	JjVehicleSelectColumnYxqz JjVehicleSelectColumn = "yxqz"
+	// 强制报废期止                             (         )
+	JjVehicleSelectColumnQzbfqz JjVehicleSelectColumn = "qzbfqz"
+	// 车辆识别代号                             (         )
+	JjVehicleSelectColumnClsbdh JjVehicleSelectColumn = "clsbdh"
+	// 所在县                                   (         )
+	JjVehicleSelectColumnCounty JjVehicleSelectColumn = "county"
+	// 联系地址                                 (         )
+	JjVehicleSelectColumnLxdz JjVehicleSelectColumn = "lxdz"
+	// 固话                                     (         )
+	JjVehicleSelectColumnOther JjVehicleSelectColumn = "other"
+	// 联系电话                                 (         )
+	JjVehicleSelectColumnLxdh JjVehicleSelectColumn = "lxdh"
+	// 机动车状态                               (         )
+	JjVehicleSelectColumnZt JjVehicleSelectColumn = "zt"
+	// 经营范围                                 (         )
+	JjVehicleSelectColumnVehmontype JjVehicleSelectColumn = "vehmontype"
+	// 初次登记日期                             (         )
+	JjVehicleSelectColumnCcdjrq JjVehicleSelectColumn = "ccdjrq"
+	// 登记日期                                 (         )
+	JjVehicleSelectColumnDjrq JjVehicleSelectColumn = "djrq"
+	// 发牌日期                                 (         )
+	JjVehicleSelectColumnFprq JjVehicleSelectColumn = "fprq"
+	// 更新时间                                 (         )
+	JjVehicleSelectColumnUpdatetime JjVehicleSelectColumn = "updatetime"
+	// 型号                                     (         )
+	JjVehicleSelectColumnXh JjVehicleSelectColumn = "xh"
+	// 是否删除                                 (         )
+	JjVehicleSelectColumnIsDeteled JjVehicleSelectColumn = "is_deteled"
 )
 
 var AllJjVehicleSelectColumn = []JjVehicleSelectColumn{
-	JjVehicleSelectColumnCcdjrq,
-	JjVehicleSelectColumnCllx,
-	JjVehicleSelectColumnClsbdh,
-	JjVehicleSelectColumnCounty,
-	JjVehicleSelectColumnDjrq,
-	JjVehicleSelectColumnFprq,
-	JjVehicleSelectColumnGxrq,
-	JjVehicleSelectColumnHphm,
-	JjVehicleSelectColumnHpzl,
-	JjVehicleSelectColumnIsDeteled,
-	JjVehicleSelectColumnLxdh,
-	JjVehicleSelectColumnLxdz,
-	JjVehicleSelectColumnOther,
-	JjVehicleSelectColumnQzbfqz,
-	JjVehicleSelectColumnSjhm,
-	JjVehicleSelectColumnSyr,
-	JjVehicleSelectColumnSyxz,
-	JjVehicleSelectColumnUpdatetime,
-	JjVehicleSelectColumnVehmontype,
-	JjVehicleSelectColumnXh,
-	JjVehicleSelectColumnYxqz,
-	JjVehicleSelectColumnZt,
-	JjVehicleSelectColumnZzl,
 	JjVehicleSelectColumnID,
 	JjVehicleSelectColumnVehicleID,
+	JjVehicleSelectColumnHphm,
+	JjVehicleSelectColumnHpzl,
+	JjVehicleSelectColumnSyr,
+	JjVehicleSelectColumnSyxz,
+	JjVehicleSelectColumnZzl,
+	JjVehicleSelectColumnCllx,
+	JjVehicleSelectColumnYxqz,
+	JjVehicleSelectColumnQzbfqz,
+	JjVehicleSelectColumnClsbdh,
+	JjVehicleSelectColumnCounty,
+	JjVehicleSelectColumnLxdz,
+	JjVehicleSelectColumnOther,
+	JjVehicleSelectColumnLxdh,
+	JjVehicleSelectColumnZt,
+	JjVehicleSelectColumnVehmontype,
+	JjVehicleSelectColumnCcdjrq,
+	JjVehicleSelectColumnDjrq,
+	JjVehicleSelectColumnFprq,
+	JjVehicleSelectColumnUpdatetime,
+	JjVehicleSelectColumnXh,
+	JjVehicleSelectColumnIsDeteled,
 }
 
 func (e JjVehicleSelectColumn) IsValid() bool {
 	switch e {
-	case JjVehicleSelectColumnCcdjrq, JjVehicleSelectColumnCllx, JjVehicleSelectColumnClsbdh, JjVehicleSelectColumnCounty, JjVehicleSelectColumnDjrq, JjVehicleSelectColumnFprq, JjVehicleSelectColumnGxrq, JjVehicleSelectColumnHphm, JjVehicleSelectColumnHpzl, JjVehicleSelectColumnIsDeteled, JjVehicleSelectColumnLxdh, JjVehicleSelectColumnLxdz, JjVehicleSelectColumnOther, JjVehicleSelectColumnQzbfqz, JjVehicleSelectColumnSjhm, JjVehicleSelectColumnSyr, JjVehicleSelectColumnSyxz, JjVehicleSelectColumnUpdatetime, JjVehicleSelectColumnVehmontype, JjVehicleSelectColumnXh, JjVehicleSelectColumnYxqz, JjVehicleSelectColumnZt, JjVehicleSelectColumnZzl, JjVehicleSelectColumnID, JjVehicleSelectColumnVehicleID:
+	case JjVehicleSelectColumnID, JjVehicleSelectColumnVehicleID, JjVehicleSelectColumnHphm, JjVehicleSelectColumnHpzl, JjVehicleSelectColumnSyr, JjVehicleSelectColumnSyxz, JjVehicleSelectColumnZzl, JjVehicleSelectColumnCllx, JjVehicleSelectColumnYxqz, JjVehicleSelectColumnQzbfqz, JjVehicleSelectColumnClsbdh, JjVehicleSelectColumnCounty, JjVehicleSelectColumnLxdz, JjVehicleSelectColumnOther, JjVehicleSelectColumnLxdh, JjVehicleSelectColumnZt, JjVehicleSelectColumnVehmontype, JjVehicleSelectColumnCcdjrq, JjVehicleSelectColumnDjrq, JjVehicleSelectColumnFprq, JjVehicleSelectColumnUpdatetime, JjVehicleSelectColumnXh, JjVehicleSelectColumnIsDeteled:
 		return true
 	}
 	return false
@@ -5383,7 +6644,7 @@ func (e *JjVehicleSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = JjVehicleSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid JJ_VEHICLE_select_column", str)
+		return fmt.Errorf("%s is not a valid JjVehicleSelectColumn", str)
 	}
 	return nil
 }
@@ -5392,925 +6653,344 @@ func (e JjVehicleSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "JJ_VEHICLE"
-type JjVehicleUpdateColumn string
+// 可选select
+type MuckTruckExtSelectColumn string
 
 const (
-	// column name
-	JjVehicleUpdateColumnCcdjrq JjVehicleUpdateColumn = "CCDJRQ"
-	// column name
-	JjVehicleUpdateColumnCllx JjVehicleUpdateColumn = "CLLX"
-	// column name
-	JjVehicleUpdateColumnClsbdh JjVehicleUpdateColumn = "CLSBDH"
-	// column name
-	JjVehicleUpdateColumnCounty JjVehicleUpdateColumn = "COUNTY"
-	// column name
-	JjVehicleUpdateColumnDjrq JjVehicleUpdateColumn = "DJRQ"
-	// column name
-	JjVehicleUpdateColumnFprq JjVehicleUpdateColumn = "FPRQ"
-	// column name
-	JjVehicleUpdateColumnGxrq JjVehicleUpdateColumn = "GXRQ"
-	// column name
-	JjVehicleUpdateColumnHphm JjVehicleUpdateColumn = "HPHM"
-	// column name
-	JjVehicleUpdateColumnHpzl JjVehicleUpdateColumn = "HPZL"
-	// column name
-	JjVehicleUpdateColumnIsDeteled JjVehicleUpdateColumn = "IS_DETELED"
-	// column name
-	JjVehicleUpdateColumnLxdh JjVehicleUpdateColumn = "LXDH"
-	// column name
-	JjVehicleUpdateColumnLxdz JjVehicleUpdateColumn = "LXDZ"
-	// column name
-	JjVehicleUpdateColumnOther JjVehicleUpdateColumn = "OTHER"
-	// column name
-	JjVehicleUpdateColumnQzbfqz JjVehicleUpdateColumn = "QZBFQZ"
-	// column name
-	JjVehicleUpdateColumnSjhm JjVehicleUpdateColumn = "SJHM"
-	// column name
-	JjVehicleUpdateColumnSyr JjVehicleUpdateColumn = "SYR"
-	// column name
-	JjVehicleUpdateColumnSyxz JjVehicleUpdateColumn = "SYXZ"
-	// column name
-	JjVehicleUpdateColumnUpdatetime JjVehicleUpdateColumn = "UPDATETIME"
-	// column name
-	JjVehicleUpdateColumnVehmontype JjVehicleUpdateColumn = "VEHMONTYPE"
-	// column name
-	JjVehicleUpdateColumnXh JjVehicleUpdateColumn = "XH"
-	// column name
-	JjVehicleUpdateColumnYxqz JjVehicleUpdateColumn = "YXQZ"
-	// column name
-	JjVehicleUpdateColumnZt JjVehicleUpdateColumn = "ZT"
-	// column name
-	JjVehicleUpdateColumnZzl JjVehicleUpdateColumn = "ZZL"
-	// column name
-	JjVehicleUpdateColumnID JjVehicleUpdateColumn = "id"
-	// column name
-	JjVehicleUpdateColumnVehicleID JjVehicleUpdateColumn = "vehicle_id"
+	// 按指定方法生成                                         ( 主键                       )
+	MuckTruckExtSelectColumnID MuckTruckExtSelectColumn = "id"
+	// vehicle_info 车辆信息表 的vehicle_id               (                            )
+	MuckTruckExtSelectColumnVehicleID MuckTruckExtSelectColumn = "vehicle_id"
+	// 车辆图片                                               (                            )
+	MuckTruckExtSelectColumnVehiclePicture MuckTruckExtSelectColumn = "vehicle_picture"
+	// 发动机号                                               (                            )
+	MuckTruckExtSelectColumnEngineNumber MuckTruckExtSelectColumn = "engine_number"
+	// 审核时间                                               (                            )
+	MuckTruckExtSelectColumnReviewTime MuckTruckExtSelectColumn = "review_time"
+	// 审核人                                                 ( system_user表的user_id )
+	MuckTruckExtSelectColumnReviewer MuckTruckExtSelectColumn = "reviewer"
+	// 审核备注                                               (                            )
+	MuckTruckExtSelectColumnReviewNotes MuckTruckExtSelectColumn = "review_notes"
+	// 审核状态                                               (                            )
+	MuckTruckExtSelectColumnReviewStatus MuckTruckExtSelectColumn = "review_status"
+	// 保险到期时间                                           (                            )
+	MuckTruckExtSelectColumnInsuranceExpiryTime MuckTruckExtSelectColumn = "insurance_expiry_time"
+	// 年检到期时间                                           (                            )
+	MuckTruckExtSelectColumnAnnualInspectionExpirationTime MuckTruckExtSelectColumn = "annual_inspection_expiration_time"
+	// 车辆描述                                               (                            )
+	MuckTruckExtSelectColumnVehicleDescription MuckTruckExtSelectColumn = "vehicle_description"
+	// 行驶证登记的车主身份证号                               (                            )
+	MuckTruckExtSelectColumnDrivingLicenseIDNumber MuckTruckExtSelectColumn = "driving_license_id_number"
+	// 行驶证登记的车主联系电话                               (                            )
+	MuckTruckExtSelectColumnDrivingLicenseContactPhone MuckTruckExtSelectColumn = "driving_license_contact_phone"
+	// 是否安检到期报警处理                                   (                            )
+	MuckTruckExtSelectColumnIsDueSecurityAlarmProcessing MuckTruckExtSelectColumn = "is_due_security_alarm_processing"
+	// 处理人                                                 ( system_user表的user_id )
+	MuckTruckExtSelectColumnProcessor MuckTruckExtSelectColumn = "processor"
+	// 处理时间                                               (                            )
+	MuckTruckExtSelectColumnProcessingTime MuckTruckExtSelectColumn = "processing_time"
+	// 处理备注                                               (                            )
+	MuckTruckExtSelectColumnProcessingNotes MuckTruckExtSelectColumn = "processing_notes"
+	// 是否发送短信                                           (                            )
+	MuckTruckExtSelectColumnIsSendSms MuckTruckExtSelectColumn = "is_send_sms"
+	// 是否黑名单                                             (                            )
+	MuckTruckExtSelectColumnIsBlacklist MuckTruckExtSelectColumn = "is_blacklist"
+	// 黑名单截止日期                                         (                            )
+	MuckTruckExtSelectColumnBlacklistDeadline MuckTruckExtSelectColumn = "blacklist_deadline"
+	// 交强险到期时间                                         (                            )
+	MuckTruckExtSelectColumnCompulsoryTrafficInsuranceExpiryDate MuckTruckExtSelectColumn = "compulsory_traffic_insurance_expiry_date"
+	// 车主身份证照片                                         (                            )
+	MuckTruckExtSelectColumnOwnerIDPhoto MuckTruckExtSelectColumn = "owner_id_photo"
+	// 车辆性质  1.本企业车辆  2.企业挂靠车辆  3.车队挂靠车辆 (                            )
+	MuckTruckExtSelectColumnVehicleNature MuckTruckExtSelectColumn = "vehicle_nature"
+	// 实际车主姓名                                           (                            )
+	MuckTruckExtSelectColumnActualOwnerName MuckTruckExtSelectColumn = "actual_owner_name"
+	// 实际车主身份证号                                       (                            )
+	MuckTruckExtSelectColumnActualOwnerIDNumber MuckTruckExtSelectColumn = "actual_owner_id_number"
+	// 实际车主身份证照片                                     (                            )
+	MuckTruckExtSelectColumnActualOwnerIDPhoto MuckTruckExtSelectColumn = "actual_owner_id_photo"
+	// 实际车主联系电话                                       (                            )
+	MuckTruckExtSelectColumnActualOwnerContactPhone MuckTruckExtSelectColumn = "actual_owner_contact_phone"
+	// 违法编号签注                                           (                            )
+	MuckTruckExtSelectColumnIllegalNumberEndorsement MuckTruckExtSelectColumn = "illegal_number_endorsement"
+	// 违法通知书编号签注                                     (                            )
+	MuckTruckExtSelectColumnIllegalNoticeNumberEndorsement MuckTruckExtSelectColumn = "illegal_notice_number_endorsement"
+	// 违法强制措施编号签注                                   (                            )
+	MuckTruckExtSelectColumnIllegalCompulsoryMeasuresNumber MuckTruckExtSelectColumn = "illegal_compulsory_measures_number"
+	// 事故编号签注                                           (                            )
+	MuckTruckExtSelectColumnIncidentNumberEndorsement MuckTruckExtSelectColumn = "incident_number_endorsement"
+	// 是否渣土办审核                                         (                            )
+	MuckTruckExtSelectColumnIsMuckOfficeAudit MuckTruckExtSelectColumn = "is_muck_office_audit"
+	// 是否首次注册                                           (                            )
+	MuckTruckExtSelectColumnIsFirstRegister MuckTruckExtSelectColumn = "is_first_register"
+	// 二级维护地点                                           (                            )
+	MuckTruckExtSelectColumnSecondaryMaintenanceLocation MuckTruckExtSelectColumn = "secondary_maintenance_location"
+	// 二级维护检测到期时间                                   (                            )
+	MuckTruckExtSelectColumnSecondaryMaintenanceExpiryDate MuckTruckExtSelectColumn = "secondary_maintenance_expiry_date"
+	// 总质量                                                 (                            )
+	MuckTruckExtSelectColumnTotalMass MuckTruckExtSelectColumn = "total_mass"
+	// 轴数                                                   (                            )
+	MuckTruckExtSelectColumnAxesNumber MuckTruckExtSelectColumn = "axes_number"
+	// 行驶证登记的车主身份证照片                             (                            )
+	MuckTruckExtSelectColumnDrivingLiscenseOwnerIDPhoto MuckTruckExtSelectColumn = "driving_liscense_owner_id_photo"
+	// 初次登记日期                                           (                            )
+	MuckTruckExtSelectColumnInitialRegistrationDate MuckTruckExtSelectColumn = "initial_registration_date"
+	// 车辆营运证号                                           (                            )
+	MuckTruckExtSelectColumnVehicleOperatingCertificateNumber MuckTruckExtSelectColumn = "vehicle_operating_certificate_number"
+	// 车辆营运证照片                                         (                            )
+	MuckTruckExtSelectColumnVehicleOperatingCertificatePhoto MuckTruckExtSelectColumn = "vehicle_operating_certificate_photo"
+	// 泉工号发放日期                                         (                            )
+	MuckTruckExtSelectColumnIssueDateOfQuangongNumber MuckTruckExtSelectColumn = "issue_date_of_quangong_number"
+	// 申请验车时间                                           (                            )
+	MuckTruckExtSelectColumnApplyInspectionTime MuckTruckExtSelectColumn = "apply_inspection_time"
+	// 签收验车申请时间                                       (                            )
+	MuckTruckExtSelectColumnSigningAcceptanceApplicationTime MuckTruckExtSelectColumn = "signing_acceptance_application_time"
+	// 第三者保险到期时间                                     (                            )
+	MuckTruckExtSelectColumnThirdPartyInsuranceExpiryTime MuckTruckExtSelectColumn = "third_party_insurance_expiry_time"
+	// 第三者保额                                             (                            )
+	MuckTruckExtSelectColumnThirdPartyInsuranceCoverage MuckTruckExtSelectColumn = "third_party_insurance_coverage"
+	// 第三者保单图片                                         (                            )
+	MuckTruckExtSelectColumnThirdPartyInsurancePolicyPicture MuckTruckExtSelectColumn = "third_party_insurance_policy_picture"
+	// 交强险保单图片                                         (                            )
+	MuckTruckExtSelectColumnCompulsoryInsurancePolicyPicture MuckTruckExtSelectColumn = "compulsory_insurance_policy_picture"
+	// 是否删除                                               (                            )
+	MuckTruckExtSelectColumnIsDeleted MuckTruckExtSelectColumn = "is_deleted"
+	// SIM卡号                                                (                            )
+	MuckTruckExtSelectColumnSimCardNumber MuckTruckExtSelectColumn = "sim_card_number"
+	// 注册日期                                               (                            )
+	MuckTruckExtSelectColumnRegistrationDate MuckTruckExtSelectColumn = "registration_date"
+	// 地区ID                                                 (                            )
+	MuckTruckExtSelectColumnAreaID MuckTruckExtSelectColumn = "area_id"
+	// 费用到期时间                                           (                            )
+	MuckTruckExtSelectColumnExpiryDate MuckTruckExtSelectColumn = "expiry_date"
+	// 渣土车类型（1.渣土车 2.混凝土车 3.砂石车）             ( 工程运输车车辆类型字典 )
+	MuckTruckExtSelectColumnMuckTruckType MuckTruckExtSelectColumn = "muck_truck_type"
+	// 是否预备库                                             (                            )
+	MuckTruckExtSelectColumnIsReserveLibrary MuckTruckExtSelectColumn = "is_reserve_library"
+	// 自编号                                                 (                            )
+	MuckTruckExtSelectColumnSelfNumber MuckTruckExtSelectColumn = "self_number"
+	// 移动办卡地                                             (                            )
+	MuckTruckExtSelectColumnMobileCardLocation MuckTruckExtSelectColumn = "mobile_card_location"
+	// 装载类别                                               (                            )
+	MuckTruckExtSelectColumnLoadCategory MuckTruckExtSelectColumn = "load_category"
+	// 创建时间                                               (                            )
+	MuckTruckExtSelectColumnCreatedAt MuckTruckExtSelectColumn = "created_at"
+	// 创建人                                                 ( system_user表的user_id )
+	MuckTruckExtSelectColumnCreatedBy MuckTruckExtSelectColumn = "created_by"
+	// 修改时间                                               (                            )
+	MuckTruckExtSelectColumnUpdatedAt MuckTruckExtSelectColumn = "updated_at"
+	// 修改人                                                 ( system_user表的user_id )
+	MuckTruckExtSelectColumnUpdatedBy MuckTruckExtSelectColumn = "updated_by"
+	// 删除时间                                               (                            )
+	MuckTruckExtSelectColumnDeletedAt MuckTruckExtSelectColumn = "deleted_at"
+	// 删除人                                                 ( system_user表的user_id )
+	MuckTruckExtSelectColumnDeletedBy MuckTruckExtSelectColumn = "deleted_by"
 )
 
-var AllJjVehicleUpdateColumn = []JjVehicleUpdateColumn{
-	JjVehicleUpdateColumnCcdjrq,
-	JjVehicleUpdateColumnCllx,
-	JjVehicleUpdateColumnClsbdh,
-	JjVehicleUpdateColumnCounty,
-	JjVehicleUpdateColumnDjrq,
-	JjVehicleUpdateColumnFprq,
-	JjVehicleUpdateColumnGxrq,
-	JjVehicleUpdateColumnHphm,
-	JjVehicleUpdateColumnHpzl,
-	JjVehicleUpdateColumnIsDeteled,
-	JjVehicleUpdateColumnLxdh,
-	JjVehicleUpdateColumnLxdz,
-	JjVehicleUpdateColumnOther,
-	JjVehicleUpdateColumnQzbfqz,
-	JjVehicleUpdateColumnSjhm,
-	JjVehicleUpdateColumnSyr,
-	JjVehicleUpdateColumnSyxz,
-	JjVehicleUpdateColumnUpdatetime,
-	JjVehicleUpdateColumnVehmontype,
-	JjVehicleUpdateColumnXh,
-	JjVehicleUpdateColumnYxqz,
-	JjVehicleUpdateColumnZt,
-	JjVehicleUpdateColumnZzl,
-	JjVehicleUpdateColumnID,
-	JjVehicleUpdateColumnVehicleID,
+var AllMuckTruckExtSelectColumn = []MuckTruckExtSelectColumn{
+	MuckTruckExtSelectColumnID,
+	MuckTruckExtSelectColumnVehicleID,
+	MuckTruckExtSelectColumnVehiclePicture,
+	MuckTruckExtSelectColumnEngineNumber,
+	MuckTruckExtSelectColumnReviewTime,
+	MuckTruckExtSelectColumnReviewer,
+	MuckTruckExtSelectColumnReviewNotes,
+	MuckTruckExtSelectColumnReviewStatus,
+	MuckTruckExtSelectColumnInsuranceExpiryTime,
+	MuckTruckExtSelectColumnAnnualInspectionExpirationTime,
+	MuckTruckExtSelectColumnVehicleDescription,
+	MuckTruckExtSelectColumnDrivingLicenseIDNumber,
+	MuckTruckExtSelectColumnDrivingLicenseContactPhone,
+	MuckTruckExtSelectColumnIsDueSecurityAlarmProcessing,
+	MuckTruckExtSelectColumnProcessor,
+	MuckTruckExtSelectColumnProcessingTime,
+	MuckTruckExtSelectColumnProcessingNotes,
+	MuckTruckExtSelectColumnIsSendSms,
+	MuckTruckExtSelectColumnIsBlacklist,
+	MuckTruckExtSelectColumnBlacklistDeadline,
+	MuckTruckExtSelectColumnCompulsoryTrafficInsuranceExpiryDate,
+	MuckTruckExtSelectColumnOwnerIDPhoto,
+	MuckTruckExtSelectColumnVehicleNature,
+	MuckTruckExtSelectColumnActualOwnerName,
+	MuckTruckExtSelectColumnActualOwnerIDNumber,
+	MuckTruckExtSelectColumnActualOwnerIDPhoto,
+	MuckTruckExtSelectColumnActualOwnerContactPhone,
+	MuckTruckExtSelectColumnIllegalNumberEndorsement,
+	MuckTruckExtSelectColumnIllegalNoticeNumberEndorsement,
+	MuckTruckExtSelectColumnIllegalCompulsoryMeasuresNumber,
+	MuckTruckExtSelectColumnIncidentNumberEndorsement,
+	MuckTruckExtSelectColumnIsMuckOfficeAudit,
+	MuckTruckExtSelectColumnIsFirstRegister,
+	MuckTruckExtSelectColumnSecondaryMaintenanceLocation,
+	MuckTruckExtSelectColumnSecondaryMaintenanceExpiryDate,
+	MuckTruckExtSelectColumnTotalMass,
+	MuckTruckExtSelectColumnAxesNumber,
+	MuckTruckExtSelectColumnDrivingLiscenseOwnerIDPhoto,
+	MuckTruckExtSelectColumnInitialRegistrationDate,
+	MuckTruckExtSelectColumnVehicleOperatingCertificateNumber,
+	MuckTruckExtSelectColumnVehicleOperatingCertificatePhoto,
+	MuckTruckExtSelectColumnIssueDateOfQuangongNumber,
+	MuckTruckExtSelectColumnApplyInspectionTime,
+	MuckTruckExtSelectColumnSigningAcceptanceApplicationTime,
+	MuckTruckExtSelectColumnThirdPartyInsuranceExpiryTime,
+	MuckTruckExtSelectColumnThirdPartyInsuranceCoverage,
+	MuckTruckExtSelectColumnThirdPartyInsurancePolicyPicture,
+	MuckTruckExtSelectColumnCompulsoryInsurancePolicyPicture,
+	MuckTruckExtSelectColumnIsDeleted,
+	MuckTruckExtSelectColumnSimCardNumber,
+	MuckTruckExtSelectColumnRegistrationDate,
+	MuckTruckExtSelectColumnAreaID,
+	MuckTruckExtSelectColumnExpiryDate,
+	MuckTruckExtSelectColumnMuckTruckType,
+	MuckTruckExtSelectColumnIsReserveLibrary,
+	MuckTruckExtSelectColumnSelfNumber,
+	MuckTruckExtSelectColumnMobileCardLocation,
+	MuckTruckExtSelectColumnLoadCategory,
+	MuckTruckExtSelectColumnCreatedAt,
+	MuckTruckExtSelectColumnCreatedBy,
+	MuckTruckExtSelectColumnUpdatedAt,
+	MuckTruckExtSelectColumnUpdatedBy,
+	MuckTruckExtSelectColumnDeletedAt,
+	MuckTruckExtSelectColumnDeletedBy,
 }
 
-func (e JjVehicleUpdateColumn) IsValid() bool {
+func (e MuckTruckExtSelectColumn) IsValid() bool {
 	switch e {
-	case JjVehicleUpdateColumnCcdjrq, JjVehicleUpdateColumnCllx, JjVehicleUpdateColumnClsbdh, JjVehicleUpdateColumnCounty, JjVehicleUpdateColumnDjrq, JjVehicleUpdateColumnFprq, JjVehicleUpdateColumnGxrq, JjVehicleUpdateColumnHphm, JjVehicleUpdateColumnHpzl, JjVehicleUpdateColumnIsDeteled, JjVehicleUpdateColumnLxdh, JjVehicleUpdateColumnLxdz, JjVehicleUpdateColumnOther, JjVehicleUpdateColumnQzbfqz, JjVehicleUpdateColumnSjhm, JjVehicleUpdateColumnSyr, JjVehicleUpdateColumnSyxz, JjVehicleUpdateColumnUpdatetime, JjVehicleUpdateColumnVehmontype, JjVehicleUpdateColumnXh, JjVehicleUpdateColumnYxqz, JjVehicleUpdateColumnZt, JjVehicleUpdateColumnZzl, JjVehicleUpdateColumnID, JjVehicleUpdateColumnVehicleID:
+	case MuckTruckExtSelectColumnID, MuckTruckExtSelectColumnVehicleID, MuckTruckExtSelectColumnVehiclePicture, MuckTruckExtSelectColumnEngineNumber, MuckTruckExtSelectColumnReviewTime, MuckTruckExtSelectColumnReviewer, MuckTruckExtSelectColumnReviewNotes, MuckTruckExtSelectColumnReviewStatus, MuckTruckExtSelectColumnInsuranceExpiryTime, MuckTruckExtSelectColumnAnnualInspectionExpirationTime, MuckTruckExtSelectColumnVehicleDescription, MuckTruckExtSelectColumnDrivingLicenseIDNumber, MuckTruckExtSelectColumnDrivingLicenseContactPhone, MuckTruckExtSelectColumnIsDueSecurityAlarmProcessing, MuckTruckExtSelectColumnProcessor, MuckTruckExtSelectColumnProcessingTime, MuckTruckExtSelectColumnProcessingNotes, MuckTruckExtSelectColumnIsSendSms, MuckTruckExtSelectColumnIsBlacklist, MuckTruckExtSelectColumnBlacklistDeadline, MuckTruckExtSelectColumnCompulsoryTrafficInsuranceExpiryDate, MuckTruckExtSelectColumnOwnerIDPhoto, MuckTruckExtSelectColumnVehicleNature, MuckTruckExtSelectColumnActualOwnerName, MuckTruckExtSelectColumnActualOwnerIDNumber, MuckTruckExtSelectColumnActualOwnerIDPhoto, MuckTruckExtSelectColumnActualOwnerContactPhone, MuckTruckExtSelectColumnIllegalNumberEndorsement, MuckTruckExtSelectColumnIllegalNoticeNumberEndorsement, MuckTruckExtSelectColumnIllegalCompulsoryMeasuresNumber, MuckTruckExtSelectColumnIncidentNumberEndorsement, MuckTruckExtSelectColumnIsMuckOfficeAudit, MuckTruckExtSelectColumnIsFirstRegister, MuckTruckExtSelectColumnSecondaryMaintenanceLocation, MuckTruckExtSelectColumnSecondaryMaintenanceExpiryDate, MuckTruckExtSelectColumnTotalMass, MuckTruckExtSelectColumnAxesNumber, MuckTruckExtSelectColumnDrivingLiscenseOwnerIDPhoto, MuckTruckExtSelectColumnInitialRegistrationDate, MuckTruckExtSelectColumnVehicleOperatingCertificateNumber, MuckTruckExtSelectColumnVehicleOperatingCertificatePhoto, MuckTruckExtSelectColumnIssueDateOfQuangongNumber, MuckTruckExtSelectColumnApplyInspectionTime, MuckTruckExtSelectColumnSigningAcceptanceApplicationTime, MuckTruckExtSelectColumnThirdPartyInsuranceExpiryTime, MuckTruckExtSelectColumnThirdPartyInsuranceCoverage, MuckTruckExtSelectColumnThirdPartyInsurancePolicyPicture, MuckTruckExtSelectColumnCompulsoryInsurancePolicyPicture, MuckTruckExtSelectColumnIsDeleted, MuckTruckExtSelectColumnSimCardNumber, MuckTruckExtSelectColumnRegistrationDate, MuckTruckExtSelectColumnAreaID, MuckTruckExtSelectColumnExpiryDate, MuckTruckExtSelectColumnMuckTruckType, MuckTruckExtSelectColumnIsReserveLibrary, MuckTruckExtSelectColumnSelfNumber, MuckTruckExtSelectColumnMobileCardLocation, MuckTruckExtSelectColumnLoadCategory, MuckTruckExtSelectColumnCreatedAt, MuckTruckExtSelectColumnCreatedBy, MuckTruckExtSelectColumnUpdatedAt, MuckTruckExtSelectColumnUpdatedBy, MuckTruckExtSelectColumnDeletedAt, MuckTruckExtSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e JjVehicleUpdateColumn) String() string {
+func (e MuckTruckExtSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *JjVehicleUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *MuckTruckExtSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = JjVehicleUpdateColumn(str)
+	*e = MuckTruckExtSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid JJ_VEHICLE_update_column", str)
+		return fmt.Errorf("%s is not a valid MuckTruckExtSelectColumn", str)
 	}
 	return nil
 }
 
-func (e JjVehicleUpdateColumn) MarshalGQL(w io.Writer) {
+func (e MuckTruckExtSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "muck_truck_category_info"
-type MuckTruckCategoryInfoConstraint string
-
-const (
-	// unique or primary key constraint
-	MuckTruckCategoryInfoConstraintMuckTruckCategoryInfoPkey MuckTruckCategoryInfoConstraint = "muck_truck_category_info_pkey"
-)
-
-var AllMuckTruckCategoryInfoConstraint = []MuckTruckCategoryInfoConstraint{
-	MuckTruckCategoryInfoConstraintMuckTruckCategoryInfoPkey,
-}
-
-func (e MuckTruckCategoryInfoConstraint) IsValid() bool {
-	switch e {
-	case MuckTruckCategoryInfoConstraintMuckTruckCategoryInfoPkey:
-		return true
-	}
-	return false
-}
-
-func (e MuckTruckCategoryInfoConstraint) String() string {
-	return string(e)
-}
-
-func (e *MuckTruckCategoryInfoConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = MuckTruckCategoryInfoConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_category_info_constraint", str)
-	}
-	return nil
-}
-
-func (e MuckTruckCategoryInfoConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoSelectColumn string
-
-const (
-	// column name
-	MuckTruckCategoryInfoSelectColumnActualOwnerContactPhone MuckTruckCategoryInfoSelectColumn = "actual_owner_contact_phone"
-	// column name
-	MuckTruckCategoryInfoSelectColumnActualOwnerIDNumber MuckTruckCategoryInfoSelectColumn = "actual_owner_id_number"
-	// column name
-	MuckTruckCategoryInfoSelectColumnActualOwnerIDPhoto MuckTruckCategoryInfoSelectColumn = "actual_owner_id_photo"
-	// column name
-	MuckTruckCategoryInfoSelectColumnActualOwnerName MuckTruckCategoryInfoSelectColumn = "actual_owner_name"
-	// column name
-	MuckTruckCategoryInfoSelectColumnAnnualInspectionExpirationTime MuckTruckCategoryInfoSelectColumn = "annual_inspection_expiration_time"
-	// column name
-	MuckTruckCategoryInfoSelectColumnApplyInspectionTime MuckTruckCategoryInfoSelectColumn = "apply_inspection_time"
-	// column name
-	MuckTruckCategoryInfoSelectColumnAxesNumber MuckTruckCategoryInfoSelectColumn = "axes_number"
-	// column name
-	MuckTruckCategoryInfoSelectColumnBlacklistDeadline MuckTruckCategoryInfoSelectColumn = "blacklist_deadline"
-	// column name
-	MuckTruckCategoryInfoSelectColumnCompulsoryInsurancePolicyPicture MuckTruckCategoryInfoSelectColumn = "compulsory_insurance_policy_picture"
-	// column name
-	MuckTruckCategoryInfoSelectColumnCreatedAt MuckTruckCategoryInfoSelectColumn = "created_at"
-	// column name
-	MuckTruckCategoryInfoSelectColumnCreatedBy MuckTruckCategoryInfoSelectColumn = "created_by"
-	// column name
-	MuckTruckCategoryInfoSelectColumnDeletedAt MuckTruckCategoryInfoSelectColumn = "deleted_at"
-	// column name
-	MuckTruckCategoryInfoSelectColumnDeletedBy MuckTruckCategoryInfoSelectColumn = "deleted_by"
-	// column name
-	MuckTruckCategoryInfoSelectColumnDrivingLicenseContactPhone MuckTruckCategoryInfoSelectColumn = "driving_license_contact_phone"
-	// column name
-	MuckTruckCategoryInfoSelectColumnDrivingLicenseIDNumber MuckTruckCategoryInfoSelectColumn = "driving_license_id_number"
-	// column name
-	MuckTruckCategoryInfoSelectColumnDrivingLiscenseOwnerIDPhoto MuckTruckCategoryInfoSelectColumn = "driving_liscense_owner_id_photo"
-	// column name
-	MuckTruckCategoryInfoSelectColumnEngineNumber MuckTruckCategoryInfoSelectColumn = "engine_number"
-	// column name
-	MuckTruckCategoryInfoSelectColumnID MuckTruckCategoryInfoSelectColumn = "id"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIllegalNoticeNumberEndorsement MuckTruckCategoryInfoSelectColumn = "illegal_notice_number_endorsement"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIllegalNumberEndorsement MuckTruckCategoryInfoSelectColumn = "illegal_number_endorsement"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIncidentNumberEndorsement MuckTruckCategoryInfoSelectColumn = "incident_number_endorsement"
-	// column name
-	MuckTruckCategoryInfoSelectColumnInitialRegistrationDate MuckTruckCategoryInfoSelectColumn = "initial_registration_date"
-	// column name
-	MuckTruckCategoryInfoSelectColumnInsuranceExpiryTime MuckTruckCategoryInfoSelectColumn = "insurance_expiry_time"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIsBlacklist MuckTruckCategoryInfoSelectColumn = "is_blacklist"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIsDelete MuckTruckCategoryInfoSelectColumn = "is_delete"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIsDueSecurityAlarmProcessing MuckTruckCategoryInfoSelectColumn = "is_due_security_alarm_processing"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIsFirstRegister MuckTruckCategoryInfoSelectColumn = "is_first_register"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIsMuckOfficeAudit MuckTruckCategoryInfoSelectColumn = "is_muck_office_audit"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIsSendSms MuckTruckCategoryInfoSelectColumn = "is_send_sms"
-	// column name
-	MuckTruckCategoryInfoSelectColumnIssueDateOfQuangongNumber MuckTruckCategoryInfoSelectColumn = "issue_date_of_quangong_number"
-	// column name
-	MuckTruckCategoryInfoSelectColumnOwnerIDPhoto MuckTruckCategoryInfoSelectColumn = "owner_id_photo"
-	// column name
-	MuckTruckCategoryInfoSelectColumnProcessingNotes MuckTruckCategoryInfoSelectColumn = "processing_notes"
-	// column name
-	MuckTruckCategoryInfoSelectColumnProcessingTime MuckTruckCategoryInfoSelectColumn = "processing_time"
-	// column name
-	MuckTruckCategoryInfoSelectColumnProcessor MuckTruckCategoryInfoSelectColumn = "processor"
-	// column name
-	MuckTruckCategoryInfoSelectColumnReviewNotes MuckTruckCategoryInfoSelectColumn = "review_notes"
-	// column name
-	MuckTruckCategoryInfoSelectColumnReviewStatus MuckTruckCategoryInfoSelectColumn = "review_status"
-	// column name
-	MuckTruckCategoryInfoSelectColumnReviewTime MuckTruckCategoryInfoSelectColumn = "review_time"
-	// column name
-	MuckTruckCategoryInfoSelectColumnReviewer MuckTruckCategoryInfoSelectColumn = "reviewer"
-	// column name
-	MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceExpiryDate MuckTruckCategoryInfoSelectColumn = "secondary_maintenance_expiry_date"
-	// column name
-	MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceLocation MuckTruckCategoryInfoSelectColumn = "secondary_maintenance_location"
-	// column name
-	MuckTruckCategoryInfoSelectColumnSigningAcceptanceApplicationTime MuckTruckCategoryInfoSelectColumn = "signing_acceptance_application_time"
-	// column name
-	MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceCoverage MuckTruckCategoryInfoSelectColumn = "third_party_insurance_coverage"
-	// column name
-	MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceExpiryTime MuckTruckCategoryInfoSelectColumn = "third_party_insurance_expiry_time"
-	// column name
-	MuckTruckCategoryInfoSelectColumnThirdPartyInsurancePolicyPicture MuckTruckCategoryInfoSelectColumn = "third_party_insurance_policy_picture"
-	// column name
-	MuckTruckCategoryInfoSelectColumnTotalMass MuckTruckCategoryInfoSelectColumn = "total_mass"
-	// column name
-	MuckTruckCategoryInfoSelectColumnUpdatedAt MuckTruckCategoryInfoSelectColumn = "updated_at"
-	// column name
-	MuckTruckCategoryInfoSelectColumnUpdatedBy MuckTruckCategoryInfoSelectColumn = "updated_by"
-	// column name
-	MuckTruckCategoryInfoSelectColumnVehicleDescription MuckTruckCategoryInfoSelectColumn = "vehicle_description"
-	// column name
-	MuckTruckCategoryInfoSelectColumnVehicleID MuckTruckCategoryInfoSelectColumn = "vehicle_id"
-	// column name
-	MuckTruckCategoryInfoSelectColumnVehicleNature MuckTruckCategoryInfoSelectColumn = "vehicle_nature"
-	// column name
-	MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificateNumber MuckTruckCategoryInfoSelectColumn = "vehicle_operating_certificate_number"
-	// column name
-	MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificatePhoto MuckTruckCategoryInfoSelectColumn = "vehicle_operating_certificate_photo"
-	// column name
-	MuckTruckCategoryInfoSelectColumnVehiclePicture MuckTruckCategoryInfoSelectColumn = "vehicle_picture"
-)
-
-var AllMuckTruckCategoryInfoSelectColumn = []MuckTruckCategoryInfoSelectColumn{
-	MuckTruckCategoryInfoSelectColumnActualOwnerContactPhone,
-	MuckTruckCategoryInfoSelectColumnActualOwnerIDNumber,
-	MuckTruckCategoryInfoSelectColumnActualOwnerIDPhoto,
-	MuckTruckCategoryInfoSelectColumnActualOwnerName,
-	MuckTruckCategoryInfoSelectColumnAnnualInspectionExpirationTime,
-	MuckTruckCategoryInfoSelectColumnApplyInspectionTime,
-	MuckTruckCategoryInfoSelectColumnAxesNumber,
-	MuckTruckCategoryInfoSelectColumnBlacklistDeadline,
-	MuckTruckCategoryInfoSelectColumnCompulsoryInsurancePolicyPicture,
-	MuckTruckCategoryInfoSelectColumnCreatedAt,
-	MuckTruckCategoryInfoSelectColumnCreatedBy,
-	MuckTruckCategoryInfoSelectColumnDeletedAt,
-	MuckTruckCategoryInfoSelectColumnDeletedBy,
-	MuckTruckCategoryInfoSelectColumnDrivingLicenseContactPhone,
-	MuckTruckCategoryInfoSelectColumnDrivingLicenseIDNumber,
-	MuckTruckCategoryInfoSelectColumnDrivingLiscenseOwnerIDPhoto,
-	MuckTruckCategoryInfoSelectColumnEngineNumber,
-	MuckTruckCategoryInfoSelectColumnID,
-	MuckTruckCategoryInfoSelectColumnIllegalNoticeNumberEndorsement,
-	MuckTruckCategoryInfoSelectColumnIllegalNumberEndorsement,
-	MuckTruckCategoryInfoSelectColumnIncidentNumberEndorsement,
-	MuckTruckCategoryInfoSelectColumnInitialRegistrationDate,
-	MuckTruckCategoryInfoSelectColumnInsuranceExpiryTime,
-	MuckTruckCategoryInfoSelectColumnIsBlacklist,
-	MuckTruckCategoryInfoSelectColumnIsDelete,
-	MuckTruckCategoryInfoSelectColumnIsDueSecurityAlarmProcessing,
-	MuckTruckCategoryInfoSelectColumnIsFirstRegister,
-	MuckTruckCategoryInfoSelectColumnIsMuckOfficeAudit,
-	MuckTruckCategoryInfoSelectColumnIsSendSms,
-	MuckTruckCategoryInfoSelectColumnIssueDateOfQuangongNumber,
-	MuckTruckCategoryInfoSelectColumnOwnerIDPhoto,
-	MuckTruckCategoryInfoSelectColumnProcessingNotes,
-	MuckTruckCategoryInfoSelectColumnProcessingTime,
-	MuckTruckCategoryInfoSelectColumnProcessor,
-	MuckTruckCategoryInfoSelectColumnReviewNotes,
-	MuckTruckCategoryInfoSelectColumnReviewStatus,
-	MuckTruckCategoryInfoSelectColumnReviewTime,
-	MuckTruckCategoryInfoSelectColumnReviewer,
-	MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceExpiryDate,
-	MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceLocation,
-	MuckTruckCategoryInfoSelectColumnSigningAcceptanceApplicationTime,
-	MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceCoverage,
-	MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceExpiryTime,
-	MuckTruckCategoryInfoSelectColumnThirdPartyInsurancePolicyPicture,
-	MuckTruckCategoryInfoSelectColumnTotalMass,
-	MuckTruckCategoryInfoSelectColumnUpdatedAt,
-	MuckTruckCategoryInfoSelectColumnUpdatedBy,
-	MuckTruckCategoryInfoSelectColumnVehicleDescription,
-	MuckTruckCategoryInfoSelectColumnVehicleID,
-	MuckTruckCategoryInfoSelectColumnVehicleNature,
-	MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificateNumber,
-	MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificatePhoto,
-	MuckTruckCategoryInfoSelectColumnVehiclePicture,
-}
-
-func (e MuckTruckCategoryInfoSelectColumn) IsValid() bool {
-	switch e {
-	case MuckTruckCategoryInfoSelectColumnActualOwnerContactPhone, MuckTruckCategoryInfoSelectColumnActualOwnerIDNumber, MuckTruckCategoryInfoSelectColumnActualOwnerIDPhoto, MuckTruckCategoryInfoSelectColumnActualOwnerName, MuckTruckCategoryInfoSelectColumnAnnualInspectionExpirationTime, MuckTruckCategoryInfoSelectColumnApplyInspectionTime, MuckTruckCategoryInfoSelectColumnAxesNumber, MuckTruckCategoryInfoSelectColumnBlacklistDeadline, MuckTruckCategoryInfoSelectColumnCompulsoryInsurancePolicyPicture, MuckTruckCategoryInfoSelectColumnCreatedAt, MuckTruckCategoryInfoSelectColumnCreatedBy, MuckTruckCategoryInfoSelectColumnDeletedAt, MuckTruckCategoryInfoSelectColumnDeletedBy, MuckTruckCategoryInfoSelectColumnDrivingLicenseContactPhone, MuckTruckCategoryInfoSelectColumnDrivingLicenseIDNumber, MuckTruckCategoryInfoSelectColumnDrivingLiscenseOwnerIDPhoto, MuckTruckCategoryInfoSelectColumnEngineNumber, MuckTruckCategoryInfoSelectColumnID, MuckTruckCategoryInfoSelectColumnIllegalNoticeNumberEndorsement, MuckTruckCategoryInfoSelectColumnIllegalNumberEndorsement, MuckTruckCategoryInfoSelectColumnIncidentNumberEndorsement, MuckTruckCategoryInfoSelectColumnInitialRegistrationDate, MuckTruckCategoryInfoSelectColumnInsuranceExpiryTime, MuckTruckCategoryInfoSelectColumnIsBlacklist, MuckTruckCategoryInfoSelectColumnIsDelete, MuckTruckCategoryInfoSelectColumnIsDueSecurityAlarmProcessing, MuckTruckCategoryInfoSelectColumnIsFirstRegister, MuckTruckCategoryInfoSelectColumnIsMuckOfficeAudit, MuckTruckCategoryInfoSelectColumnIsSendSms, MuckTruckCategoryInfoSelectColumnIssueDateOfQuangongNumber, MuckTruckCategoryInfoSelectColumnOwnerIDPhoto, MuckTruckCategoryInfoSelectColumnProcessingNotes, MuckTruckCategoryInfoSelectColumnProcessingTime, MuckTruckCategoryInfoSelectColumnProcessor, MuckTruckCategoryInfoSelectColumnReviewNotes, MuckTruckCategoryInfoSelectColumnReviewStatus, MuckTruckCategoryInfoSelectColumnReviewTime, MuckTruckCategoryInfoSelectColumnReviewer, MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceExpiryDate, MuckTruckCategoryInfoSelectColumnSecondaryMaintenanceLocation, MuckTruckCategoryInfoSelectColumnSigningAcceptanceApplicationTime, MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceCoverage, MuckTruckCategoryInfoSelectColumnThirdPartyInsuranceExpiryTime, MuckTruckCategoryInfoSelectColumnThirdPartyInsurancePolicyPicture, MuckTruckCategoryInfoSelectColumnTotalMass, MuckTruckCategoryInfoSelectColumnUpdatedAt, MuckTruckCategoryInfoSelectColumnUpdatedBy, MuckTruckCategoryInfoSelectColumnVehicleDescription, MuckTruckCategoryInfoSelectColumnVehicleID, MuckTruckCategoryInfoSelectColumnVehicleNature, MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificateNumber, MuckTruckCategoryInfoSelectColumnVehicleOperatingCertificatePhoto, MuckTruckCategoryInfoSelectColumnVehiclePicture:
-		return true
-	}
-	return false
-}
-
-func (e MuckTruckCategoryInfoSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *MuckTruckCategoryInfoSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = MuckTruckCategoryInfoSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_category_info_select_column", str)
-	}
-	return nil
-}
-
-func (e MuckTruckCategoryInfoSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "muck_truck_category_info"
-type MuckTruckCategoryInfoUpdateColumn string
-
-const (
-	// column name
-	MuckTruckCategoryInfoUpdateColumnActualOwnerContactPhone MuckTruckCategoryInfoUpdateColumn = "actual_owner_contact_phone"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnActualOwnerIDNumber MuckTruckCategoryInfoUpdateColumn = "actual_owner_id_number"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnActualOwnerIDPhoto MuckTruckCategoryInfoUpdateColumn = "actual_owner_id_photo"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnActualOwnerName MuckTruckCategoryInfoUpdateColumn = "actual_owner_name"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnAnnualInspectionExpirationTime MuckTruckCategoryInfoUpdateColumn = "annual_inspection_expiration_time"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnApplyInspectionTime MuckTruckCategoryInfoUpdateColumn = "apply_inspection_time"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnAxesNumber MuckTruckCategoryInfoUpdateColumn = "axes_number"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnBlacklistDeadline MuckTruckCategoryInfoUpdateColumn = "blacklist_deadline"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnCompulsoryInsurancePolicyPicture MuckTruckCategoryInfoUpdateColumn = "compulsory_insurance_policy_picture"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnCreatedAt MuckTruckCategoryInfoUpdateColumn = "created_at"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnCreatedBy MuckTruckCategoryInfoUpdateColumn = "created_by"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnDeletedAt MuckTruckCategoryInfoUpdateColumn = "deleted_at"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnDeletedBy MuckTruckCategoryInfoUpdateColumn = "deleted_by"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnDrivingLicenseContactPhone MuckTruckCategoryInfoUpdateColumn = "driving_license_contact_phone"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnDrivingLicenseIDNumber MuckTruckCategoryInfoUpdateColumn = "driving_license_id_number"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnDrivingLiscenseOwnerIDPhoto MuckTruckCategoryInfoUpdateColumn = "driving_liscense_owner_id_photo"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnEngineNumber MuckTruckCategoryInfoUpdateColumn = "engine_number"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnID MuckTruckCategoryInfoUpdateColumn = "id"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIllegalNoticeNumberEndorsement MuckTruckCategoryInfoUpdateColumn = "illegal_notice_number_endorsement"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIllegalNumberEndorsement MuckTruckCategoryInfoUpdateColumn = "illegal_number_endorsement"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIncidentNumberEndorsement MuckTruckCategoryInfoUpdateColumn = "incident_number_endorsement"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnInitialRegistrationDate MuckTruckCategoryInfoUpdateColumn = "initial_registration_date"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnInsuranceExpiryTime MuckTruckCategoryInfoUpdateColumn = "insurance_expiry_time"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIsBlacklist MuckTruckCategoryInfoUpdateColumn = "is_blacklist"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIsDelete MuckTruckCategoryInfoUpdateColumn = "is_delete"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIsDueSecurityAlarmProcessing MuckTruckCategoryInfoUpdateColumn = "is_due_security_alarm_processing"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIsFirstRegister MuckTruckCategoryInfoUpdateColumn = "is_first_register"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIsMuckOfficeAudit MuckTruckCategoryInfoUpdateColumn = "is_muck_office_audit"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIsSendSms MuckTruckCategoryInfoUpdateColumn = "is_send_sms"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnIssueDateOfQuangongNumber MuckTruckCategoryInfoUpdateColumn = "issue_date_of_quangong_number"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnOwnerIDPhoto MuckTruckCategoryInfoUpdateColumn = "owner_id_photo"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnProcessingNotes MuckTruckCategoryInfoUpdateColumn = "processing_notes"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnProcessingTime MuckTruckCategoryInfoUpdateColumn = "processing_time"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnProcessor MuckTruckCategoryInfoUpdateColumn = "processor"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnReviewNotes MuckTruckCategoryInfoUpdateColumn = "review_notes"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnReviewStatus MuckTruckCategoryInfoUpdateColumn = "review_status"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnReviewTime MuckTruckCategoryInfoUpdateColumn = "review_time"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnReviewer MuckTruckCategoryInfoUpdateColumn = "reviewer"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceExpiryDate MuckTruckCategoryInfoUpdateColumn = "secondary_maintenance_expiry_date"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceLocation MuckTruckCategoryInfoUpdateColumn = "secondary_maintenance_location"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnSigningAcceptanceApplicationTime MuckTruckCategoryInfoUpdateColumn = "signing_acceptance_application_time"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceCoverage MuckTruckCategoryInfoUpdateColumn = "third_party_insurance_coverage"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceExpiryTime MuckTruckCategoryInfoUpdateColumn = "third_party_insurance_expiry_time"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnThirdPartyInsurancePolicyPicture MuckTruckCategoryInfoUpdateColumn = "third_party_insurance_policy_picture"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnTotalMass MuckTruckCategoryInfoUpdateColumn = "total_mass"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnUpdatedAt MuckTruckCategoryInfoUpdateColumn = "updated_at"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnUpdatedBy MuckTruckCategoryInfoUpdateColumn = "updated_by"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnVehicleDescription MuckTruckCategoryInfoUpdateColumn = "vehicle_description"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnVehicleID MuckTruckCategoryInfoUpdateColumn = "vehicle_id"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnVehicleNature MuckTruckCategoryInfoUpdateColumn = "vehicle_nature"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificateNumber MuckTruckCategoryInfoUpdateColumn = "vehicle_operating_certificate_number"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificatePhoto MuckTruckCategoryInfoUpdateColumn = "vehicle_operating_certificate_photo"
-	// column name
-	MuckTruckCategoryInfoUpdateColumnVehiclePicture MuckTruckCategoryInfoUpdateColumn = "vehicle_picture"
-)
-
-var AllMuckTruckCategoryInfoUpdateColumn = []MuckTruckCategoryInfoUpdateColumn{
-	MuckTruckCategoryInfoUpdateColumnActualOwnerContactPhone,
-	MuckTruckCategoryInfoUpdateColumnActualOwnerIDNumber,
-	MuckTruckCategoryInfoUpdateColumnActualOwnerIDPhoto,
-	MuckTruckCategoryInfoUpdateColumnActualOwnerName,
-	MuckTruckCategoryInfoUpdateColumnAnnualInspectionExpirationTime,
-	MuckTruckCategoryInfoUpdateColumnApplyInspectionTime,
-	MuckTruckCategoryInfoUpdateColumnAxesNumber,
-	MuckTruckCategoryInfoUpdateColumnBlacklistDeadline,
-	MuckTruckCategoryInfoUpdateColumnCompulsoryInsurancePolicyPicture,
-	MuckTruckCategoryInfoUpdateColumnCreatedAt,
-	MuckTruckCategoryInfoUpdateColumnCreatedBy,
-	MuckTruckCategoryInfoUpdateColumnDeletedAt,
-	MuckTruckCategoryInfoUpdateColumnDeletedBy,
-	MuckTruckCategoryInfoUpdateColumnDrivingLicenseContactPhone,
-	MuckTruckCategoryInfoUpdateColumnDrivingLicenseIDNumber,
-	MuckTruckCategoryInfoUpdateColumnDrivingLiscenseOwnerIDPhoto,
-	MuckTruckCategoryInfoUpdateColumnEngineNumber,
-	MuckTruckCategoryInfoUpdateColumnID,
-	MuckTruckCategoryInfoUpdateColumnIllegalNoticeNumberEndorsement,
-	MuckTruckCategoryInfoUpdateColumnIllegalNumberEndorsement,
-	MuckTruckCategoryInfoUpdateColumnIncidentNumberEndorsement,
-	MuckTruckCategoryInfoUpdateColumnInitialRegistrationDate,
-	MuckTruckCategoryInfoUpdateColumnInsuranceExpiryTime,
-	MuckTruckCategoryInfoUpdateColumnIsBlacklist,
-	MuckTruckCategoryInfoUpdateColumnIsDelete,
-	MuckTruckCategoryInfoUpdateColumnIsDueSecurityAlarmProcessing,
-	MuckTruckCategoryInfoUpdateColumnIsFirstRegister,
-	MuckTruckCategoryInfoUpdateColumnIsMuckOfficeAudit,
-	MuckTruckCategoryInfoUpdateColumnIsSendSms,
-	MuckTruckCategoryInfoUpdateColumnIssueDateOfQuangongNumber,
-	MuckTruckCategoryInfoUpdateColumnOwnerIDPhoto,
-	MuckTruckCategoryInfoUpdateColumnProcessingNotes,
-	MuckTruckCategoryInfoUpdateColumnProcessingTime,
-	MuckTruckCategoryInfoUpdateColumnProcessor,
-	MuckTruckCategoryInfoUpdateColumnReviewNotes,
-	MuckTruckCategoryInfoUpdateColumnReviewStatus,
-	MuckTruckCategoryInfoUpdateColumnReviewTime,
-	MuckTruckCategoryInfoUpdateColumnReviewer,
-	MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceExpiryDate,
-	MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceLocation,
-	MuckTruckCategoryInfoUpdateColumnSigningAcceptanceApplicationTime,
-	MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceCoverage,
-	MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceExpiryTime,
-	MuckTruckCategoryInfoUpdateColumnThirdPartyInsurancePolicyPicture,
-	MuckTruckCategoryInfoUpdateColumnTotalMass,
-	MuckTruckCategoryInfoUpdateColumnUpdatedAt,
-	MuckTruckCategoryInfoUpdateColumnUpdatedBy,
-	MuckTruckCategoryInfoUpdateColumnVehicleDescription,
-	MuckTruckCategoryInfoUpdateColumnVehicleID,
-	MuckTruckCategoryInfoUpdateColumnVehicleNature,
-	MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificateNumber,
-	MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificatePhoto,
-	MuckTruckCategoryInfoUpdateColumnVehiclePicture,
-}
-
-func (e MuckTruckCategoryInfoUpdateColumn) IsValid() bool {
-	switch e {
-	case MuckTruckCategoryInfoUpdateColumnActualOwnerContactPhone, MuckTruckCategoryInfoUpdateColumnActualOwnerIDNumber, MuckTruckCategoryInfoUpdateColumnActualOwnerIDPhoto, MuckTruckCategoryInfoUpdateColumnActualOwnerName, MuckTruckCategoryInfoUpdateColumnAnnualInspectionExpirationTime, MuckTruckCategoryInfoUpdateColumnApplyInspectionTime, MuckTruckCategoryInfoUpdateColumnAxesNumber, MuckTruckCategoryInfoUpdateColumnBlacklistDeadline, MuckTruckCategoryInfoUpdateColumnCompulsoryInsurancePolicyPicture, MuckTruckCategoryInfoUpdateColumnCreatedAt, MuckTruckCategoryInfoUpdateColumnCreatedBy, MuckTruckCategoryInfoUpdateColumnDeletedAt, MuckTruckCategoryInfoUpdateColumnDeletedBy, MuckTruckCategoryInfoUpdateColumnDrivingLicenseContactPhone, MuckTruckCategoryInfoUpdateColumnDrivingLicenseIDNumber, MuckTruckCategoryInfoUpdateColumnDrivingLiscenseOwnerIDPhoto, MuckTruckCategoryInfoUpdateColumnEngineNumber, MuckTruckCategoryInfoUpdateColumnID, MuckTruckCategoryInfoUpdateColumnIllegalNoticeNumberEndorsement, MuckTruckCategoryInfoUpdateColumnIllegalNumberEndorsement, MuckTruckCategoryInfoUpdateColumnIncidentNumberEndorsement, MuckTruckCategoryInfoUpdateColumnInitialRegistrationDate, MuckTruckCategoryInfoUpdateColumnInsuranceExpiryTime, MuckTruckCategoryInfoUpdateColumnIsBlacklist, MuckTruckCategoryInfoUpdateColumnIsDelete, MuckTruckCategoryInfoUpdateColumnIsDueSecurityAlarmProcessing, MuckTruckCategoryInfoUpdateColumnIsFirstRegister, MuckTruckCategoryInfoUpdateColumnIsMuckOfficeAudit, MuckTruckCategoryInfoUpdateColumnIsSendSms, MuckTruckCategoryInfoUpdateColumnIssueDateOfQuangongNumber, MuckTruckCategoryInfoUpdateColumnOwnerIDPhoto, MuckTruckCategoryInfoUpdateColumnProcessingNotes, MuckTruckCategoryInfoUpdateColumnProcessingTime, MuckTruckCategoryInfoUpdateColumnProcessor, MuckTruckCategoryInfoUpdateColumnReviewNotes, MuckTruckCategoryInfoUpdateColumnReviewStatus, MuckTruckCategoryInfoUpdateColumnReviewTime, MuckTruckCategoryInfoUpdateColumnReviewer, MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceExpiryDate, MuckTruckCategoryInfoUpdateColumnSecondaryMaintenanceLocation, MuckTruckCategoryInfoUpdateColumnSigningAcceptanceApplicationTime, MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceCoverage, MuckTruckCategoryInfoUpdateColumnThirdPartyInsuranceExpiryTime, MuckTruckCategoryInfoUpdateColumnThirdPartyInsurancePolicyPicture, MuckTruckCategoryInfoUpdateColumnTotalMass, MuckTruckCategoryInfoUpdateColumnUpdatedAt, MuckTruckCategoryInfoUpdateColumnUpdatedBy, MuckTruckCategoryInfoUpdateColumnVehicleDescription, MuckTruckCategoryInfoUpdateColumnVehicleID, MuckTruckCategoryInfoUpdateColumnVehicleNature, MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificateNumber, MuckTruckCategoryInfoUpdateColumnVehicleOperatingCertificatePhoto, MuckTruckCategoryInfoUpdateColumnVehiclePicture:
-		return true
-	}
-	return false
-}
-
-func (e MuckTruckCategoryInfoUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *MuckTruckCategoryInfoUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = MuckTruckCategoryInfoUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_category_info_update_column", str)
-	}
-	return nil
-}
-
-func (e MuckTruckCategoryInfoUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "muck_truck_info"
-type MuckTruckInfoConstraint string
-
-const (
-	// unique or primary key constraint
-	MuckTruckInfoConstraintMuckTruckInfoPkey MuckTruckInfoConstraint = "muck_truck_info_pkey"
-)
-
-var AllMuckTruckInfoConstraint = []MuckTruckInfoConstraint{
-	MuckTruckInfoConstraintMuckTruckInfoPkey,
-}
-
-func (e MuckTruckInfoConstraint) IsValid() bool {
-	switch e {
-	case MuckTruckInfoConstraintMuckTruckInfoPkey:
-		return true
-	}
-	return false
-}
-
-func (e MuckTruckInfoConstraint) String() string {
-	return string(e)
-}
-
-func (e *MuckTruckInfoConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = MuckTruckInfoConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_info_constraint", str)
-	}
-	return nil
-}
-
-func (e MuckTruckInfoConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "muck_truck_info"
-type MuckTruckInfoSelectColumn string
-
-const (
-	// column name
-	MuckTruckInfoSelectColumnAreaID MuckTruckInfoSelectColumn = "area_id"
-	// column name
-	MuckTruckInfoSelectColumnCreatedAt MuckTruckInfoSelectColumn = "created_at"
-	// column name
-	MuckTruckInfoSelectColumnCreatedBy MuckTruckInfoSelectColumn = "created_by"
-	// column name
-	MuckTruckInfoSelectColumnDeletedAt MuckTruckInfoSelectColumn = "deleted_at"
-	// column name
-	MuckTruckInfoSelectColumnDeletedBy MuckTruckInfoSelectColumn = "deleted_by"
-	// column name
-	MuckTruckInfoSelectColumnExpiryDate MuckTruckInfoSelectColumn = "expiry_date"
-	// column name
-	MuckTruckInfoSelectColumnFakeIP MuckTruckInfoSelectColumn = "fake_ip"
-	// column name
-	MuckTruckInfoSelectColumnIsReserveLibrary MuckTruckInfoSelectColumn = "is_reserve_library"
-	// column name
-	MuckTruckInfoSelectColumnLoadCategory MuckTruckInfoSelectColumn = "load_category"
-	// column name
-	MuckTruckInfoSelectColumnMobileCardLocation MuckTruckInfoSelectColumn = "mobile_card_location"
-	// column name
-	MuckTruckInfoSelectColumnMuckTruckID MuckTruckInfoSelectColumn = "muck_truck_id"
-	// column name
-	MuckTruckInfoSelectColumnMuckTruckType MuckTruckInfoSelectColumn = "muck_truck_type"
-	// column name
-	MuckTruckInfoSelectColumnRegistrationDate MuckTruckInfoSelectColumn = "registration_date"
-	// column name
-	MuckTruckInfoSelectColumnSelfNumber MuckTruckInfoSelectColumn = "self_number"
-	// column name
-	MuckTruckInfoSelectColumnServerID MuckTruckInfoSelectColumn = "server_id"
-	// column name
-	MuckTruckInfoSelectColumnSimCardNumber MuckTruckInfoSelectColumn = "sim_card_number"
-	// column name
-	MuckTruckInfoSelectColumnUpdatedAt MuckTruckInfoSelectColumn = "updated_at"
-	// column name
-	MuckTruckInfoSelectColumnUpdatedBy MuckTruckInfoSelectColumn = "updated_by"
-	// column name
-	MuckTruckInfoSelectColumnVehicleID MuckTruckInfoSelectColumn = "vehicle_id"
-)
-
-var AllMuckTruckInfoSelectColumn = []MuckTruckInfoSelectColumn{
-	MuckTruckInfoSelectColumnAreaID,
-	MuckTruckInfoSelectColumnCreatedAt,
-	MuckTruckInfoSelectColumnCreatedBy,
-	MuckTruckInfoSelectColumnDeletedAt,
-	MuckTruckInfoSelectColumnDeletedBy,
-	MuckTruckInfoSelectColumnExpiryDate,
-	MuckTruckInfoSelectColumnFakeIP,
-	MuckTruckInfoSelectColumnIsReserveLibrary,
-	MuckTruckInfoSelectColumnLoadCategory,
-	MuckTruckInfoSelectColumnMobileCardLocation,
-	MuckTruckInfoSelectColumnMuckTruckID,
-	MuckTruckInfoSelectColumnMuckTruckType,
-	MuckTruckInfoSelectColumnRegistrationDate,
-	MuckTruckInfoSelectColumnSelfNumber,
-	MuckTruckInfoSelectColumnServerID,
-	MuckTruckInfoSelectColumnSimCardNumber,
-	MuckTruckInfoSelectColumnUpdatedAt,
-	MuckTruckInfoSelectColumnUpdatedBy,
-	MuckTruckInfoSelectColumnVehicleID,
-}
-
-func (e MuckTruckInfoSelectColumn) IsValid() bool {
-	switch e {
-	case MuckTruckInfoSelectColumnAreaID, MuckTruckInfoSelectColumnCreatedAt, MuckTruckInfoSelectColumnCreatedBy, MuckTruckInfoSelectColumnDeletedAt, MuckTruckInfoSelectColumnDeletedBy, MuckTruckInfoSelectColumnExpiryDate, MuckTruckInfoSelectColumnFakeIP, MuckTruckInfoSelectColumnIsReserveLibrary, MuckTruckInfoSelectColumnLoadCategory, MuckTruckInfoSelectColumnMobileCardLocation, MuckTruckInfoSelectColumnMuckTruckID, MuckTruckInfoSelectColumnMuckTruckType, MuckTruckInfoSelectColumnRegistrationDate, MuckTruckInfoSelectColumnSelfNumber, MuckTruckInfoSelectColumnServerID, MuckTruckInfoSelectColumnSimCardNumber, MuckTruckInfoSelectColumnUpdatedAt, MuckTruckInfoSelectColumnUpdatedBy, MuckTruckInfoSelectColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e MuckTruckInfoSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *MuckTruckInfoSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = MuckTruckInfoSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_info_select_column", str)
-	}
-	return nil
-}
-
-func (e MuckTruckInfoSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "muck_truck_info"
-type MuckTruckInfoUpdateColumn string
-
-const (
-	// column name
-	MuckTruckInfoUpdateColumnAreaID MuckTruckInfoUpdateColumn = "area_id"
-	// column name
-	MuckTruckInfoUpdateColumnCreatedAt MuckTruckInfoUpdateColumn = "created_at"
-	// column name
-	MuckTruckInfoUpdateColumnCreatedBy MuckTruckInfoUpdateColumn = "created_by"
-	// column name
-	MuckTruckInfoUpdateColumnDeletedAt MuckTruckInfoUpdateColumn = "deleted_at"
-	// column name
-	MuckTruckInfoUpdateColumnDeletedBy MuckTruckInfoUpdateColumn = "deleted_by"
-	// column name
-	MuckTruckInfoUpdateColumnExpiryDate MuckTruckInfoUpdateColumn = "expiry_date"
-	// column name
-	MuckTruckInfoUpdateColumnFakeIP MuckTruckInfoUpdateColumn = "fake_ip"
-	// column name
-	MuckTruckInfoUpdateColumnIsReserveLibrary MuckTruckInfoUpdateColumn = "is_reserve_library"
-	// column name
-	MuckTruckInfoUpdateColumnLoadCategory MuckTruckInfoUpdateColumn = "load_category"
-	// column name
-	MuckTruckInfoUpdateColumnMobileCardLocation MuckTruckInfoUpdateColumn = "mobile_card_location"
-	// column name
-	MuckTruckInfoUpdateColumnMuckTruckID MuckTruckInfoUpdateColumn = "muck_truck_id"
-	// column name
-	MuckTruckInfoUpdateColumnMuckTruckType MuckTruckInfoUpdateColumn = "muck_truck_type"
-	// column name
-	MuckTruckInfoUpdateColumnRegistrationDate MuckTruckInfoUpdateColumn = "registration_date"
-	// column name
-	MuckTruckInfoUpdateColumnSelfNumber MuckTruckInfoUpdateColumn = "self_number"
-	// column name
-	MuckTruckInfoUpdateColumnServerID MuckTruckInfoUpdateColumn = "server_id"
-	// column name
-	MuckTruckInfoUpdateColumnSimCardNumber MuckTruckInfoUpdateColumn = "sim_card_number"
-	// column name
-	MuckTruckInfoUpdateColumnUpdatedAt MuckTruckInfoUpdateColumn = "updated_at"
-	// column name
-	MuckTruckInfoUpdateColumnUpdatedBy MuckTruckInfoUpdateColumn = "updated_by"
-	// column name
-	MuckTruckInfoUpdateColumnVehicleID MuckTruckInfoUpdateColumn = "vehicle_id"
-)
-
-var AllMuckTruckInfoUpdateColumn = []MuckTruckInfoUpdateColumn{
-	MuckTruckInfoUpdateColumnAreaID,
-	MuckTruckInfoUpdateColumnCreatedAt,
-	MuckTruckInfoUpdateColumnCreatedBy,
-	MuckTruckInfoUpdateColumnDeletedAt,
-	MuckTruckInfoUpdateColumnDeletedBy,
-	MuckTruckInfoUpdateColumnExpiryDate,
-	MuckTruckInfoUpdateColumnFakeIP,
-	MuckTruckInfoUpdateColumnIsReserveLibrary,
-	MuckTruckInfoUpdateColumnLoadCategory,
-	MuckTruckInfoUpdateColumnMobileCardLocation,
-	MuckTruckInfoUpdateColumnMuckTruckID,
-	MuckTruckInfoUpdateColumnMuckTruckType,
-	MuckTruckInfoUpdateColumnRegistrationDate,
-	MuckTruckInfoUpdateColumnSelfNumber,
-	MuckTruckInfoUpdateColumnServerID,
-	MuckTruckInfoUpdateColumnSimCardNumber,
-	MuckTruckInfoUpdateColumnUpdatedAt,
-	MuckTruckInfoUpdateColumnUpdatedBy,
-	MuckTruckInfoUpdateColumnVehicleID,
-}
-
-func (e MuckTruckInfoUpdateColumn) IsValid() bool {
-	switch e {
-	case MuckTruckInfoUpdateColumnAreaID, MuckTruckInfoUpdateColumnCreatedAt, MuckTruckInfoUpdateColumnCreatedBy, MuckTruckInfoUpdateColumnDeletedAt, MuckTruckInfoUpdateColumnDeletedBy, MuckTruckInfoUpdateColumnExpiryDate, MuckTruckInfoUpdateColumnFakeIP, MuckTruckInfoUpdateColumnIsReserveLibrary, MuckTruckInfoUpdateColumnLoadCategory, MuckTruckInfoUpdateColumnMobileCardLocation, MuckTruckInfoUpdateColumnMuckTruckID, MuckTruckInfoUpdateColumnMuckTruckType, MuckTruckInfoUpdateColumnRegistrationDate, MuckTruckInfoUpdateColumnSelfNumber, MuckTruckInfoUpdateColumnServerID, MuckTruckInfoUpdateColumnSimCardNumber, MuckTruckInfoUpdateColumnUpdatedAt, MuckTruckInfoUpdateColumnUpdatedBy, MuckTruckInfoUpdateColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e MuckTruckInfoUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *MuckTruckInfoUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = MuckTruckInfoUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_info_update_column", str)
-	}
-	return nil
-}
-
-func (e MuckTruckInfoUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "muck_truck_preview_number"
-type MuckTruckPreviewNumberConstraint string
-
-const (
-	// unique or primary key constraint
-	MuckTruckPreviewNumberConstraintMuckTruckPreviewNumberPkey MuckTruckPreviewNumberConstraint = "muck_truck_preview_number_pkey"
-)
-
-var AllMuckTruckPreviewNumberConstraint = []MuckTruckPreviewNumberConstraint{
-	MuckTruckPreviewNumberConstraintMuckTruckPreviewNumberPkey,
-}
-
-func (e MuckTruckPreviewNumberConstraint) IsValid() bool {
-	switch e {
-	case MuckTruckPreviewNumberConstraintMuckTruckPreviewNumberPkey:
-		return true
-	}
-	return false
-}
-
-func (e MuckTruckPreviewNumberConstraint) String() string {
-	return string(e)
-}
-
-func (e *MuckTruckPreviewNumberConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = MuckTruckPreviewNumberConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_preview_number_constraint", str)
-	}
-	return nil
-}
-
-func (e MuckTruckPreviewNumberConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "muck_truck_preview_number"
+// 可选select
 type MuckTruckPreviewNumberSelectColumn string
 
 const (
-	// column name
-	MuckTruckPreviewNumberSelectColumnConfirmStatus MuckTruckPreviewNumberSelectColumn = "confirm_status"
-	// column name
-	MuckTruckPreviewNumberSelectColumnConfirmTime MuckTruckPreviewNumberSelectColumn = "confirm_time"
-	// column name
-	MuckTruckPreviewNumberSelectColumnConfirmor MuckTruckPreviewNumberSelectColumn = "confirmor"
-	// column name
-	MuckTruckPreviewNumberSelectColumnContactPerson MuckTruckPreviewNumberSelectColumn = "contact_person"
-	// column name
-	MuckTruckPreviewNumberSelectColumnContactPhone MuckTruckPreviewNumberSelectColumn = "contact_phone"
-	// column name
-	MuckTruckPreviewNumberSelectColumnCreatedBy MuckTruckPreviewNumberSelectColumn = "created_by"
-	// column name
-	MuckTruckPreviewNumberSelectColumnDeletedAt MuckTruckPreviewNumberSelectColumn = "deleted_at"
-	// column name
-	MuckTruckPreviewNumberSelectColumnDeletedBy MuckTruckPreviewNumberSelectColumn = "deleted_by"
-	// column name
-	MuckTruckPreviewNumberSelectColumnFrontLicensePlate MuckTruckPreviewNumberSelectColumn = "front_license_plate"
-	// column name
+	// 按指定方法生成                                               ( 主键                       )
 	MuckTruckPreviewNumberSelectColumnID MuckTruckPreviewNumberSelectColumn = "id"
-	// column name
-	MuckTruckPreviewNumberSelectColumnInitialRegistrationDate MuckTruckPreviewNumberSelectColumn = "initial_registration_date"
-	// column name
-	MuckTruckPreviewNumberSelectColumnIsDelete MuckTruckPreviewNumberSelectColumn = "is_delete"
-	// column name
-	MuckTruckPreviewNumberSelectColumnIsRegisterSaleOrder MuckTruckPreviewNumberSelectColumn = "is_register_sale_order"
-	// column name
-	MuckTruckPreviewNumberSelectColumnIsReviewAutomatically MuckTruckPreviewNumberSelectColumn = "is_review_automatically"
-	// column name
-	MuckTruckPreviewNumberSelectColumnMarkingTime MuckTruckPreviewNumberSelectColumn = "marking_time"
-	// column name
-	MuckTruckPreviewNumberSelectColumnOriginalNumber MuckTruckPreviewNumberSelectColumn = "original_number"
-	// column name
-	MuckTruckPreviewNumberSelectColumnProductionStatus MuckTruckPreviewNumberSelectColumn = "production_status"
-	// column name
-	MuckTruckPreviewNumberSelectColumnProductionTime MuckTruckPreviewNumberSelectColumn = "production_time"
-	// column name
-	MuckTruckPreviewNumberSelectColumnProductionTimes MuckTruckPreviewNumberSelectColumn = "production_times"
-	// column name
-	MuckTruckPreviewNumberSelectColumnRearLicensePlate MuckTruckPreviewNumberSelectColumn = "rear_license_plate"
-	// column name
-	MuckTruckPreviewNumberSelectColumnRegistrationTime MuckTruckPreviewNumberSelectColumn = "registration_time"
-	// column name
-	MuckTruckPreviewNumberSelectColumnRemarks MuckTruckPreviewNumberSelectColumn = "remarks"
-	// column name
-	MuckTruckPreviewNumberSelectColumnSideLicensePlate MuckTruckPreviewNumberSelectColumn = "side_license_plate"
-	// column name
-	MuckTruckPreviewNumberSelectColumnSvnNumber MuckTruckPreviewNumberSelectColumn = "svn_number"
-	// column name
-	MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber MuckTruckPreviewNumberSelectColumn = "unlawful_violation_number"
-	// column name
-	MuckTruckPreviewNumberSelectColumnUpdatedAt MuckTruckPreviewNumberSelectColumn = "updated_at"
-	// column name
-	MuckTruckPreviewNumberSelectColumnUpdatedBy MuckTruckPreviewNumberSelectColumn = "updated_by"
-	// column name
+	// 渣土车车辆预编号外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	MuckTruckPreviewNumberSelectColumnMuckTruckPreviewNumberID MuckTruckPreviewNumberSelectColumn = "muck_truck_preview_number_id"
+	// vehicle_info 车辆信息表 的vehicle_id                     (                            )
 	MuckTruckPreviewNumberSelectColumnVehicleID MuckTruckPreviewNumberSelectColumn = "vehicle_id"
-	// column name
+	// 预编号                                                       (                            )
+	MuckTruckPreviewNumberSelectColumnSvnNumber MuckTruckPreviewNumberSelectColumn = "svn_number"
+	// 登记时间                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnRegistrationTime MuckTruckPreviewNumberSelectColumn = "registration_time"
+	// 确认人                                                       ( system_user表的user_id )
+	MuckTruckPreviewNumberSelectColumnConfirmor MuckTruckPreviewNumberSelectColumn = "confirmor"
+	// 确认时间                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnConfirmTime MuckTruckPreviewNumberSelectColumn = "confirm_time"
+	// 确认状态                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnConfirmStatus MuckTruckPreviewNumberSelectColumn = "confirm_status"
+	// 前车牌                                                       (                            )
+	MuckTruckPreviewNumberSelectColumnFrontLicensePlate MuckTruckPreviewNumberSelectColumn = "front_license_plate"
+	// 后车牌                                                       (                            )
+	MuckTruckPreviewNumberSelectColumnRearLicensePlate MuckTruckPreviewNumberSelectColumn = "rear_license_plate"
+	// 侧车牌                                                       (                            )
+	MuckTruckPreviewNumberSelectColumnSideLicensePlate MuckTruckPreviewNumberSelectColumn = "side_license_plate"
+	// 原编号                                                       (                            )
+	MuckTruckPreviewNumberSelectColumnOriginalNumber MuckTruckPreviewNumberSelectColumn = "original_number"
+	// 是否自动审核                                                 (                            )
+	MuckTruckPreviewNumberSelectColumnIsReviewAutomatically MuckTruckPreviewNumberSelectColumn = "is_review_automatically"
+	// 制作状态                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnProductionStatus MuckTruckPreviewNumberSelectColumn = "production_status"
+	// 制作时间                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnProductionTime MuckTruckPreviewNumberSelectColumn = "production_time"
+	// 制作中时间                                                   (                            )
+	MuckTruckPreviewNumberSelectColumnMarkingTime MuckTruckPreviewNumberSelectColumn = "marking_time"
+	// 制作次数                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnProductionTimes MuckTruckPreviewNumberSelectColumn = "production_times"
+	// 提交制牌厂时间                                               (                            )
+	MuckTruckPreviewNumberSelectColumnSubmitProductionTime MuckTruckPreviewNumberSelectColumn = "submit_production_time"
+	// 联系人                                                       (                            )
+	MuckTruckPreviewNumberSelectColumnContactPerson MuckTruckPreviewNumberSelectColumn = "contact_person"
+	// 联系电话                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnContactPhone MuckTruckPreviewNumberSelectColumn = "contact_phone"
+	// 工号牌颜色（green.绿色 yellow.黄色）                         (                            )
 	MuckTruckPreviewNumberSelectColumnWorkNumberPlateColor MuckTruckPreviewNumberSelectColumn = "work_number_plate_color"
+	// 初次登记日期                                                 (                            )
+	MuckTruckPreviewNumberSelectColumnInitialRegistrationDate MuckTruckPreviewNumberSelectColumn = "initial_registration_date"
+	// 违法未处理数                                                 (                            )
+	MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber MuckTruckPreviewNumberSelectColumn = "unlawful_violation_number"
+	// 是否登记销售订单                                             (                            )
+	MuckTruckPreviewNumberSelectColumnIsRegisterSaleOrder MuckTruckPreviewNumberSelectColumn = "is_register_sale_order"
+	// 备注                                                         (                            )
+	MuckTruckPreviewNumberSelectColumnRemarks MuckTruckPreviewNumberSelectColumn = "remarks"
+	// 是否删除                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnIsDeleted MuckTruckPreviewNumberSelectColumn = "is_deleted"
+	// 创建时间                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnCreatedAt MuckTruckPreviewNumberSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id )
+	MuckTruckPreviewNumberSelectColumnCreatedBy MuckTruckPreviewNumberSelectColumn = "created_by"
+	// 修改时间                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnUpdatedAt MuckTruckPreviewNumberSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id )
+	MuckTruckPreviewNumberSelectColumnUpdatedBy MuckTruckPreviewNumberSelectColumn = "updated_by"
+	// 删除时间                                                     (                            )
+	MuckTruckPreviewNumberSelectColumnDeletedAt MuckTruckPreviewNumberSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id )
+	MuckTruckPreviewNumberSelectColumnDeletedBy MuckTruckPreviewNumberSelectColumn = "deleted_by"
 )
 
 var AllMuckTruckPreviewNumberSelectColumn = []MuckTruckPreviewNumberSelectColumn{
-	MuckTruckPreviewNumberSelectColumnConfirmStatus,
-	MuckTruckPreviewNumberSelectColumnConfirmTime,
-	MuckTruckPreviewNumberSelectColumnConfirmor,
-	MuckTruckPreviewNumberSelectColumnContactPerson,
-	MuckTruckPreviewNumberSelectColumnContactPhone,
-	MuckTruckPreviewNumberSelectColumnCreatedBy,
-	MuckTruckPreviewNumberSelectColumnDeletedAt,
-	MuckTruckPreviewNumberSelectColumnDeletedBy,
-	MuckTruckPreviewNumberSelectColumnFrontLicensePlate,
 	MuckTruckPreviewNumberSelectColumnID,
-	MuckTruckPreviewNumberSelectColumnInitialRegistrationDate,
-	MuckTruckPreviewNumberSelectColumnIsDelete,
-	MuckTruckPreviewNumberSelectColumnIsRegisterSaleOrder,
-	MuckTruckPreviewNumberSelectColumnIsReviewAutomatically,
-	MuckTruckPreviewNumberSelectColumnMarkingTime,
+	MuckTruckPreviewNumberSelectColumnMuckTruckPreviewNumberID,
+	MuckTruckPreviewNumberSelectColumnVehicleID,
+	MuckTruckPreviewNumberSelectColumnSvnNumber,
+	MuckTruckPreviewNumberSelectColumnRegistrationTime,
+	MuckTruckPreviewNumberSelectColumnConfirmor,
+	MuckTruckPreviewNumberSelectColumnConfirmTime,
+	MuckTruckPreviewNumberSelectColumnConfirmStatus,
+	MuckTruckPreviewNumberSelectColumnFrontLicensePlate,
+	MuckTruckPreviewNumberSelectColumnRearLicensePlate,
+	MuckTruckPreviewNumberSelectColumnSideLicensePlate,
 	MuckTruckPreviewNumberSelectColumnOriginalNumber,
+	MuckTruckPreviewNumberSelectColumnIsReviewAutomatically,
 	MuckTruckPreviewNumberSelectColumnProductionStatus,
 	MuckTruckPreviewNumberSelectColumnProductionTime,
+	MuckTruckPreviewNumberSelectColumnMarkingTime,
 	MuckTruckPreviewNumberSelectColumnProductionTimes,
-	MuckTruckPreviewNumberSelectColumnRearLicensePlate,
-	MuckTruckPreviewNumberSelectColumnRegistrationTime,
-	MuckTruckPreviewNumberSelectColumnRemarks,
-	MuckTruckPreviewNumberSelectColumnSideLicensePlate,
-	MuckTruckPreviewNumberSelectColumnSvnNumber,
+	MuckTruckPreviewNumberSelectColumnSubmitProductionTime,
+	MuckTruckPreviewNumberSelectColumnContactPerson,
+	MuckTruckPreviewNumberSelectColumnContactPhone,
+	MuckTruckPreviewNumberSelectColumnWorkNumberPlateColor,
+	MuckTruckPreviewNumberSelectColumnInitialRegistrationDate,
 	MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber,
+	MuckTruckPreviewNumberSelectColumnIsRegisterSaleOrder,
+	MuckTruckPreviewNumberSelectColumnRemarks,
+	MuckTruckPreviewNumberSelectColumnIsDeleted,
+	MuckTruckPreviewNumberSelectColumnCreatedAt,
+	MuckTruckPreviewNumberSelectColumnCreatedBy,
 	MuckTruckPreviewNumberSelectColumnUpdatedAt,
 	MuckTruckPreviewNumberSelectColumnUpdatedBy,
-	MuckTruckPreviewNumberSelectColumnVehicleID,
-	MuckTruckPreviewNumberSelectColumnWorkNumberPlateColor,
+	MuckTruckPreviewNumberSelectColumnDeletedAt,
+	MuckTruckPreviewNumberSelectColumnDeletedBy,
 }
 
 func (e MuckTruckPreviewNumberSelectColumn) IsValid() bool {
 	switch e {
-	case MuckTruckPreviewNumberSelectColumnConfirmStatus, MuckTruckPreviewNumberSelectColumnConfirmTime, MuckTruckPreviewNumberSelectColumnConfirmor, MuckTruckPreviewNumberSelectColumnContactPerson, MuckTruckPreviewNumberSelectColumnContactPhone, MuckTruckPreviewNumberSelectColumnCreatedBy, MuckTruckPreviewNumberSelectColumnDeletedAt, MuckTruckPreviewNumberSelectColumnDeletedBy, MuckTruckPreviewNumberSelectColumnFrontLicensePlate, MuckTruckPreviewNumberSelectColumnID, MuckTruckPreviewNumberSelectColumnInitialRegistrationDate, MuckTruckPreviewNumberSelectColumnIsDelete, MuckTruckPreviewNumberSelectColumnIsRegisterSaleOrder, MuckTruckPreviewNumberSelectColumnIsReviewAutomatically, MuckTruckPreviewNumberSelectColumnMarkingTime, MuckTruckPreviewNumberSelectColumnOriginalNumber, MuckTruckPreviewNumberSelectColumnProductionStatus, MuckTruckPreviewNumberSelectColumnProductionTime, MuckTruckPreviewNumberSelectColumnProductionTimes, MuckTruckPreviewNumberSelectColumnRearLicensePlate, MuckTruckPreviewNumberSelectColumnRegistrationTime, MuckTruckPreviewNumberSelectColumnRemarks, MuckTruckPreviewNumberSelectColumnSideLicensePlate, MuckTruckPreviewNumberSelectColumnSvnNumber, MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber, MuckTruckPreviewNumberSelectColumnUpdatedAt, MuckTruckPreviewNumberSelectColumnUpdatedBy, MuckTruckPreviewNumberSelectColumnVehicleID, MuckTruckPreviewNumberSelectColumnWorkNumberPlateColor:
+	case MuckTruckPreviewNumberSelectColumnID, MuckTruckPreviewNumberSelectColumnMuckTruckPreviewNumberID, MuckTruckPreviewNumberSelectColumnVehicleID, MuckTruckPreviewNumberSelectColumnSvnNumber, MuckTruckPreviewNumberSelectColumnRegistrationTime, MuckTruckPreviewNumberSelectColumnConfirmor, MuckTruckPreviewNumberSelectColumnConfirmTime, MuckTruckPreviewNumberSelectColumnConfirmStatus, MuckTruckPreviewNumberSelectColumnFrontLicensePlate, MuckTruckPreviewNumberSelectColumnRearLicensePlate, MuckTruckPreviewNumberSelectColumnSideLicensePlate, MuckTruckPreviewNumberSelectColumnOriginalNumber, MuckTruckPreviewNumberSelectColumnIsReviewAutomatically, MuckTruckPreviewNumberSelectColumnProductionStatus, MuckTruckPreviewNumberSelectColumnProductionTime, MuckTruckPreviewNumberSelectColumnMarkingTime, MuckTruckPreviewNumberSelectColumnProductionTimes, MuckTruckPreviewNumberSelectColumnSubmitProductionTime, MuckTruckPreviewNumberSelectColumnContactPerson, MuckTruckPreviewNumberSelectColumnContactPhone, MuckTruckPreviewNumberSelectColumnWorkNumberPlateColor, MuckTruckPreviewNumberSelectColumnInitialRegistrationDate, MuckTruckPreviewNumberSelectColumnUnlawfulViolationNumber, MuckTruckPreviewNumberSelectColumnIsRegisterSaleOrder, MuckTruckPreviewNumberSelectColumnRemarks, MuckTruckPreviewNumberSelectColumnIsDeleted, MuckTruckPreviewNumberSelectColumnCreatedAt, MuckTruckPreviewNumberSelectColumnCreatedBy, MuckTruckPreviewNumberSelectColumnUpdatedAt, MuckTruckPreviewNumberSelectColumnUpdatedBy, MuckTruckPreviewNumberSelectColumnDeletedAt, MuckTruckPreviewNumberSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -6328,7 +7008,7 @@ func (e *MuckTruckPreviewNumberSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = MuckTruckPreviewNumberSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_preview_number_select_column", str)
+		return fmt.Errorf("%s is not a valid MuckTruckPreviewNumberSelectColumn", str)
 	}
 	return nil
 }
@@ -6337,211 +7017,170 @@ func (e MuckTruckPreviewNumberSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "muck_truck_preview_number"
-type MuckTruckPreviewNumberUpdateColumn string
+// 可选select
+type MuckTruckTestSituationSelectColumn string
 
 const (
-	// column name
-	MuckTruckPreviewNumberUpdateColumnConfirmStatus MuckTruckPreviewNumberUpdateColumn = "confirm_status"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnConfirmTime MuckTruckPreviewNumberUpdateColumn = "confirm_time"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnConfirmor MuckTruckPreviewNumberUpdateColumn = "confirmor"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnContactPerson MuckTruckPreviewNumberUpdateColumn = "contact_person"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnContactPhone MuckTruckPreviewNumberUpdateColumn = "contact_phone"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnCreatedBy MuckTruckPreviewNumberUpdateColumn = "created_by"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnDeletedAt MuckTruckPreviewNumberUpdateColumn = "deleted_at"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnDeletedBy MuckTruckPreviewNumberUpdateColumn = "deleted_by"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnFrontLicensePlate MuckTruckPreviewNumberUpdateColumn = "front_license_plate"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnID MuckTruckPreviewNumberUpdateColumn = "id"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnInitialRegistrationDate MuckTruckPreviewNumberUpdateColumn = "initial_registration_date"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnIsDelete MuckTruckPreviewNumberUpdateColumn = "is_delete"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnIsRegisterSaleOrder MuckTruckPreviewNumberUpdateColumn = "is_register_sale_order"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnIsReviewAutomatically MuckTruckPreviewNumberUpdateColumn = "is_review_automatically"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnMarkingTime MuckTruckPreviewNumberUpdateColumn = "marking_time"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnOriginalNumber MuckTruckPreviewNumberUpdateColumn = "original_number"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnProductionStatus MuckTruckPreviewNumberUpdateColumn = "production_status"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnProductionTime MuckTruckPreviewNumberUpdateColumn = "production_time"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnProductionTimes MuckTruckPreviewNumberUpdateColumn = "production_times"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnRearLicensePlate MuckTruckPreviewNumberUpdateColumn = "rear_license_plate"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnRegistrationTime MuckTruckPreviewNumberUpdateColumn = "registration_time"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnRemarks MuckTruckPreviewNumberUpdateColumn = "remarks"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnSideLicensePlate MuckTruckPreviewNumberUpdateColumn = "side_license_plate"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnSvnNumber MuckTruckPreviewNumberUpdateColumn = "svn_number"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnUnlawfulViolationNumber MuckTruckPreviewNumberUpdateColumn = "unlawful_violation_number"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnUpdatedAt MuckTruckPreviewNumberUpdateColumn = "updated_at"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnUpdatedBy MuckTruckPreviewNumberUpdateColumn = "updated_by"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnVehicleID MuckTruckPreviewNumberUpdateColumn = "vehicle_id"
-	// column name
-	MuckTruckPreviewNumberUpdateColumnWorkNumberPlateColor MuckTruckPreviewNumberUpdateColumn = "work_number_plate_color"
+	// 按指定方法生成                                  ( 主键                       )
+	MuckTruckTestSituationSelectColumnID MuckTruckTestSituationSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	MuckTruckTestSituationSelectColumnMuckTruckTestSituationID MuckTruckTestSituationSelectColumn = "muck_truck_test_situation_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	MuckTruckTestSituationSelectColumnVehicleID MuckTruckTestSituationSelectColumn = "vehicle_id"
+	// 密闭状态                                        (                            )
+	MuckTruckTestSituationSelectColumnAirtightState MuckTruckTestSituationSelectColumn = "airtight_state"
+	// 载重状态                                        (                            )
+	MuckTruckTestSituationSelectColumnLoadState MuckTruckTestSituationSelectColumn = "load_state"
+	// 举升状态                                        (                            )
+	MuckTruckTestSituationSelectColumnLiftingStatus MuckTruckTestSituationSelectColumn = "lifting_status"
+	// 视频                                            (                            )
+	MuckTruckTestSituationSelectColumnVideo MuckTruckTestSituationSelectColumn = "video"
+	// 指纹                                            (                            )
+	MuckTruckTestSituationSelectColumnFingerprint MuckTruckTestSituationSelectColumn = "fingerprint"
+	// 锁车功能                                        (                            )
+	MuckTruckTestSituationSelectColumnCarLockFunction MuckTruckTestSituationSelectColumn = "car_lock_function"
+	// 限速功能                                        (                            )
+	MuckTruckTestSituationSelectColumnSpeedLimitFunction MuckTruckTestSituationSelectColumn = "speed_limit_function"
+	// 部标功能                                        (                            )
+	MuckTruckTestSituationSelectColumnMinistryStandardFunction MuckTruckTestSituationSelectColumn = "ministry_standard_function"
+	// 限举功能                                        (                            )
+	MuckTruckTestSituationSelectColumnWeightLimitFunction MuckTruckTestSituationSelectColumn = "weight_limit_function"
+	// 左转灯                                          (                            )
+	MuckTruckTestSituationSelectColumnLeftTurnLight MuckTruckTestSituationSelectColumn = "left_turn_light"
+	// 右转灯                                          (                            )
+	MuckTruckTestSituationSelectColumnRightTurnRight MuckTruckTestSituationSelectColumn = "right_turn_right"
+	// 远光灯                                          (                            )
+	MuckTruckTestSituationSelectColumnHighBeam MuckTruckTestSituationSelectColumn = "high_beam"
+	// 近光灯                                          (                            )
+	MuckTruckTestSituationSelectColumnLowBeam MuckTruckTestSituationSelectColumn = "low_beam"
+	// 刹车                                            (                            )
+	MuckTruckTestSituationSelectColumnBrake MuckTruckTestSituationSelectColumn = "brake"
+	// 车速                                            (                            )
+	MuckTruckTestSituationSelectColumnSpeed MuckTruckTestSituationSelectColumn = "speed"
+	// 是否检测非法弃土                                (                            )
+	MuckTruckTestSituationSelectColumnIsDetectIllegalSpoil MuckTruckTestSituationSelectColumn = "is_detect_illegal_spoil"
+	// 是否检测违规启动                                (                            )
+	MuckTruckTestSituationSelectColumnIsDetectIllegalStart MuckTruckTestSituationSelectColumn = "is_detect_illegal_start"
+	// 是否通过                                        (                            )
+	MuckTruckTestSituationSelectColumnIsPassed MuckTruckTestSituationSelectColumn = "is_passed"
+	// 是否删除                                        (                            )
+	MuckTruckTestSituationSelectColumnIsDeleted MuckTruckTestSituationSelectColumn = "is_deleted"
+	// 创建时间                                        (                            )
+	MuckTruckTestSituationSelectColumnCreatedAt MuckTruckTestSituationSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	MuckTruckTestSituationSelectColumnCreatedBy MuckTruckTestSituationSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	MuckTruckTestSituationSelectColumnUpdatedAt MuckTruckTestSituationSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	MuckTruckTestSituationSelectColumnUpdatedBy MuckTruckTestSituationSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	MuckTruckTestSituationSelectColumnDeletedAt MuckTruckTestSituationSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	MuckTruckTestSituationSelectColumnDeletedBy MuckTruckTestSituationSelectColumn = "deleted_by"
 )
 
-var AllMuckTruckPreviewNumberUpdateColumn = []MuckTruckPreviewNumberUpdateColumn{
-	MuckTruckPreviewNumberUpdateColumnConfirmStatus,
-	MuckTruckPreviewNumberUpdateColumnConfirmTime,
-	MuckTruckPreviewNumberUpdateColumnConfirmor,
-	MuckTruckPreviewNumberUpdateColumnContactPerson,
-	MuckTruckPreviewNumberUpdateColumnContactPhone,
-	MuckTruckPreviewNumberUpdateColumnCreatedBy,
-	MuckTruckPreviewNumberUpdateColumnDeletedAt,
-	MuckTruckPreviewNumberUpdateColumnDeletedBy,
-	MuckTruckPreviewNumberUpdateColumnFrontLicensePlate,
-	MuckTruckPreviewNumberUpdateColumnID,
-	MuckTruckPreviewNumberUpdateColumnInitialRegistrationDate,
-	MuckTruckPreviewNumberUpdateColumnIsDelete,
-	MuckTruckPreviewNumberUpdateColumnIsRegisterSaleOrder,
-	MuckTruckPreviewNumberUpdateColumnIsReviewAutomatically,
-	MuckTruckPreviewNumberUpdateColumnMarkingTime,
-	MuckTruckPreviewNumberUpdateColumnOriginalNumber,
-	MuckTruckPreviewNumberUpdateColumnProductionStatus,
-	MuckTruckPreviewNumberUpdateColumnProductionTime,
-	MuckTruckPreviewNumberUpdateColumnProductionTimes,
-	MuckTruckPreviewNumberUpdateColumnRearLicensePlate,
-	MuckTruckPreviewNumberUpdateColumnRegistrationTime,
-	MuckTruckPreviewNumberUpdateColumnRemarks,
-	MuckTruckPreviewNumberUpdateColumnSideLicensePlate,
-	MuckTruckPreviewNumberUpdateColumnSvnNumber,
-	MuckTruckPreviewNumberUpdateColumnUnlawfulViolationNumber,
-	MuckTruckPreviewNumberUpdateColumnUpdatedAt,
-	MuckTruckPreviewNumberUpdateColumnUpdatedBy,
-	MuckTruckPreviewNumberUpdateColumnVehicleID,
-	MuckTruckPreviewNumberUpdateColumnWorkNumberPlateColor,
+var AllMuckTruckTestSituationSelectColumn = []MuckTruckTestSituationSelectColumn{
+	MuckTruckTestSituationSelectColumnID,
+	MuckTruckTestSituationSelectColumnMuckTruckTestSituationID,
+	MuckTruckTestSituationSelectColumnVehicleID,
+	MuckTruckTestSituationSelectColumnAirtightState,
+	MuckTruckTestSituationSelectColumnLoadState,
+	MuckTruckTestSituationSelectColumnLiftingStatus,
+	MuckTruckTestSituationSelectColumnVideo,
+	MuckTruckTestSituationSelectColumnFingerprint,
+	MuckTruckTestSituationSelectColumnCarLockFunction,
+	MuckTruckTestSituationSelectColumnSpeedLimitFunction,
+	MuckTruckTestSituationSelectColumnMinistryStandardFunction,
+	MuckTruckTestSituationSelectColumnWeightLimitFunction,
+	MuckTruckTestSituationSelectColumnLeftTurnLight,
+	MuckTruckTestSituationSelectColumnRightTurnRight,
+	MuckTruckTestSituationSelectColumnHighBeam,
+	MuckTruckTestSituationSelectColumnLowBeam,
+	MuckTruckTestSituationSelectColumnBrake,
+	MuckTruckTestSituationSelectColumnSpeed,
+	MuckTruckTestSituationSelectColumnIsDetectIllegalSpoil,
+	MuckTruckTestSituationSelectColumnIsDetectIllegalStart,
+	MuckTruckTestSituationSelectColumnIsPassed,
+	MuckTruckTestSituationSelectColumnIsDeleted,
+	MuckTruckTestSituationSelectColumnCreatedAt,
+	MuckTruckTestSituationSelectColumnCreatedBy,
+	MuckTruckTestSituationSelectColumnUpdatedAt,
+	MuckTruckTestSituationSelectColumnUpdatedBy,
+	MuckTruckTestSituationSelectColumnDeletedAt,
+	MuckTruckTestSituationSelectColumnDeletedBy,
 }
 
-func (e MuckTruckPreviewNumberUpdateColumn) IsValid() bool {
+func (e MuckTruckTestSituationSelectColumn) IsValid() bool {
 	switch e {
-	case MuckTruckPreviewNumberUpdateColumnConfirmStatus, MuckTruckPreviewNumberUpdateColumnConfirmTime, MuckTruckPreviewNumberUpdateColumnConfirmor, MuckTruckPreviewNumberUpdateColumnContactPerson, MuckTruckPreviewNumberUpdateColumnContactPhone, MuckTruckPreviewNumberUpdateColumnCreatedBy, MuckTruckPreviewNumberUpdateColumnDeletedAt, MuckTruckPreviewNumberUpdateColumnDeletedBy, MuckTruckPreviewNumberUpdateColumnFrontLicensePlate, MuckTruckPreviewNumberUpdateColumnID, MuckTruckPreviewNumberUpdateColumnInitialRegistrationDate, MuckTruckPreviewNumberUpdateColumnIsDelete, MuckTruckPreviewNumberUpdateColumnIsRegisterSaleOrder, MuckTruckPreviewNumberUpdateColumnIsReviewAutomatically, MuckTruckPreviewNumberUpdateColumnMarkingTime, MuckTruckPreviewNumberUpdateColumnOriginalNumber, MuckTruckPreviewNumberUpdateColumnProductionStatus, MuckTruckPreviewNumberUpdateColumnProductionTime, MuckTruckPreviewNumberUpdateColumnProductionTimes, MuckTruckPreviewNumberUpdateColumnRearLicensePlate, MuckTruckPreviewNumberUpdateColumnRegistrationTime, MuckTruckPreviewNumberUpdateColumnRemarks, MuckTruckPreviewNumberUpdateColumnSideLicensePlate, MuckTruckPreviewNumberUpdateColumnSvnNumber, MuckTruckPreviewNumberUpdateColumnUnlawfulViolationNumber, MuckTruckPreviewNumberUpdateColumnUpdatedAt, MuckTruckPreviewNumberUpdateColumnUpdatedBy, MuckTruckPreviewNumberUpdateColumnVehicleID, MuckTruckPreviewNumberUpdateColumnWorkNumberPlateColor:
+	case MuckTruckTestSituationSelectColumnID, MuckTruckTestSituationSelectColumnMuckTruckTestSituationID, MuckTruckTestSituationSelectColumnVehicleID, MuckTruckTestSituationSelectColumnAirtightState, MuckTruckTestSituationSelectColumnLoadState, MuckTruckTestSituationSelectColumnLiftingStatus, MuckTruckTestSituationSelectColumnVideo, MuckTruckTestSituationSelectColumnFingerprint, MuckTruckTestSituationSelectColumnCarLockFunction, MuckTruckTestSituationSelectColumnSpeedLimitFunction, MuckTruckTestSituationSelectColumnMinistryStandardFunction, MuckTruckTestSituationSelectColumnWeightLimitFunction, MuckTruckTestSituationSelectColumnLeftTurnLight, MuckTruckTestSituationSelectColumnRightTurnRight, MuckTruckTestSituationSelectColumnHighBeam, MuckTruckTestSituationSelectColumnLowBeam, MuckTruckTestSituationSelectColumnBrake, MuckTruckTestSituationSelectColumnSpeed, MuckTruckTestSituationSelectColumnIsDetectIllegalSpoil, MuckTruckTestSituationSelectColumnIsDetectIllegalStart, MuckTruckTestSituationSelectColumnIsPassed, MuckTruckTestSituationSelectColumnIsDeleted, MuckTruckTestSituationSelectColumnCreatedAt, MuckTruckTestSituationSelectColumnCreatedBy, MuckTruckTestSituationSelectColumnUpdatedAt, MuckTruckTestSituationSelectColumnUpdatedBy, MuckTruckTestSituationSelectColumnDeletedAt, MuckTruckTestSituationSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e MuckTruckPreviewNumberUpdateColumn) String() string {
+func (e MuckTruckTestSituationSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *MuckTruckPreviewNumberUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *MuckTruckTestSituationSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = MuckTruckPreviewNumberUpdateColumn(str)
+	*e = MuckTruckTestSituationSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_preview_number_update_column", str)
+		return fmt.Errorf("%s is not a valid MuckTruckTestSituationSelectColumn", str)
 	}
 	return nil
 }
 
-func (e MuckTruckPreviewNumberUpdateColumn) MarshalGQL(w io.Writer) {
+func (e MuckTruckTestSituationSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersConstraint string
-
-const (
-	// unique or primary key constraint
-	MuckTruckWorkerIDCardOrdersConstraintMuckTruckWorkerIDCardOrdersPkey MuckTruckWorkerIDCardOrdersConstraint = "muck_truck_worker_id_card_orders_pkey"
-)
-
-var AllMuckTruckWorkerIDCardOrdersConstraint = []MuckTruckWorkerIDCardOrdersConstraint{
-	MuckTruckWorkerIDCardOrdersConstraintMuckTruckWorkerIDCardOrdersPkey,
-}
-
-func (e MuckTruckWorkerIDCardOrdersConstraint) IsValid() bool {
-	switch e {
-	case MuckTruckWorkerIDCardOrdersConstraintMuckTruckWorkerIDCardOrdersPkey:
-		return true
-	}
-	return false
-}
-
-func (e MuckTruckWorkerIDCardOrdersConstraint) String() string {
-	return string(e)
-}
-
-func (e *MuckTruckWorkerIDCardOrdersConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = MuckTruckWorkerIDCardOrdersConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_worker_id_card_orders_constraint", str)
-	}
-	return nil
-}
-
-func (e MuckTruckWorkerIDCardOrdersConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "muck_truck_worker_id_card_orders"
+// 可选select
 type MuckTruckWorkerIDCardOrdersSelectColumn string
 
 const (
-	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt MuckTruckWorkerIDCardOrdersSelectColumn = "created_at"
-	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy MuckTruckWorkerIDCardOrdersSelectColumn = "created_by"
-	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt MuckTruckWorkerIDCardOrdersSelectColumn = "deleted_at"
-	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy MuckTruckWorkerIDCardOrdersSelectColumn = "deleted_by"
-	// column name
+	// 按指定方法生成                                               ( 主键                       )
 	MuckTruckWorkerIDCardOrdersSelectColumnID MuckTruckWorkerIDCardOrdersSelectColumn = "id"
-	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID MuckTruckWorkerIDCardOrdersSelectColumn = "preview_number_id"
-	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt MuckTruckWorkerIDCardOrdersSelectColumn = "updated_at"
-	// column name
-	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy MuckTruckWorkerIDCardOrdersSelectColumn = "updated_by"
-	// column name
+	// 渣土车工号牌制作订单外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	MuckTruckWorkerIDCardOrdersSelectColumnMuckTruckWorkerOrdersID MuckTruckWorkerIDCardOrdersSelectColumn = "muck_truck_worker_orders_id"
+	// vehicle_info 车辆信息表 的vehicle_id                     (                            )
 	MuckTruckWorkerIDCardOrdersSelectColumnVehicleID MuckTruckWorkerIDCardOrdersSelectColumn = "vehicle_id"
+	// muck_truck_preview_number  渣土车车辆预编号表的id        (                            )
+	MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID MuckTruckWorkerIDCardOrdersSelectColumn = "preview_number_id"
+	// 创建时间                                                     (                            )
+	MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt MuckTruckWorkerIDCardOrdersSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id )
+	MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy MuckTruckWorkerIDCardOrdersSelectColumn = "created_by"
+	// 修改时间                                                     (                            )
+	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt MuckTruckWorkerIDCardOrdersSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id )
+	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy MuckTruckWorkerIDCardOrdersSelectColumn = "updated_by"
+	// 删除时间                                                     (                            )
+	MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt MuckTruckWorkerIDCardOrdersSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id )
+	MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy MuckTruckWorkerIDCardOrdersSelectColumn = "deleted_by"
 )
 
 var AllMuckTruckWorkerIDCardOrdersSelectColumn = []MuckTruckWorkerIDCardOrdersSelectColumn{
+	MuckTruckWorkerIDCardOrdersSelectColumnID,
+	MuckTruckWorkerIDCardOrdersSelectColumnMuckTruckWorkerOrdersID,
+	MuckTruckWorkerIDCardOrdersSelectColumnVehicleID,
+	MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID,
 	MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt,
 	MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy,
-	MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt,
-	MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy,
-	MuckTruckWorkerIDCardOrdersSelectColumnID,
-	MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID,
 	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt,
 	MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy,
-	MuckTruckWorkerIDCardOrdersSelectColumnVehicleID,
+	MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt,
+	MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy,
 }
 
 func (e MuckTruckWorkerIDCardOrdersSelectColumn) IsValid() bool {
 	switch e {
-	case MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt, MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy, MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt, MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy, MuckTruckWorkerIDCardOrdersSelectColumnID, MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID, MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt, MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy, MuckTruckWorkerIDCardOrdersSelectColumnVehicleID:
+	case MuckTruckWorkerIDCardOrdersSelectColumnID, MuckTruckWorkerIDCardOrdersSelectColumnMuckTruckWorkerOrdersID, MuckTruckWorkerIDCardOrdersSelectColumnVehicleID, MuckTruckWorkerIDCardOrdersSelectColumnPreviewNumberID, MuckTruckWorkerIDCardOrdersSelectColumnCreatedAt, MuckTruckWorkerIDCardOrdersSelectColumnCreatedBy, MuckTruckWorkerIDCardOrdersSelectColumnUpdatedAt, MuckTruckWorkerIDCardOrdersSelectColumnUpdatedBy, MuckTruckWorkerIDCardOrdersSelectColumnDeletedAt, MuckTruckWorkerIDCardOrdersSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -6559,7 +7198,7 @@ func (e *MuckTruckWorkerIDCardOrdersSelectColumn) UnmarshalGQL(v interface{}) er
 
 	*e = MuckTruckWorkerIDCardOrdersSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_worker_id_card_orders_select_column", str)
+		return fmt.Errorf("%s is not a valid MuckTruckWorkerIdCardOrdersSelectColumn", str)
 	}
 	return nil
 }
@@ -6568,544 +7207,402 @@ func (e MuckTruckWorkerIDCardOrdersSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "muck_truck_worker_id_card_orders"
-type MuckTruckWorkerIDCardOrdersUpdateColumn string
+// 可选select
+type OperatingVehicleExtSelectColumn string
 
 const (
-	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnCreatedAt MuckTruckWorkerIDCardOrdersUpdateColumn = "created_at"
-	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnCreatedBy MuckTruckWorkerIDCardOrdersUpdateColumn = "created_by"
-	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnDeletedAt MuckTruckWorkerIDCardOrdersUpdateColumn = "deleted_at"
-	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnDeletedBy MuckTruckWorkerIDCardOrdersUpdateColumn = "deleted_by"
-	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnID MuckTruckWorkerIDCardOrdersUpdateColumn = "id"
-	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnPreviewNumberID MuckTruckWorkerIDCardOrdersUpdateColumn = "preview_number_id"
-	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedAt MuckTruckWorkerIDCardOrdersUpdateColumn = "updated_at"
-	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedBy MuckTruckWorkerIDCardOrdersUpdateColumn = "updated_by"
-	// column name
-	MuckTruckWorkerIDCardOrdersUpdateColumnVehicleID MuckTruckWorkerIDCardOrdersUpdateColumn = "vehicle_id"
+	// 按指定方法生成                           ( 主键                       )
+	OperatingVehicleExtSelectColumnID OperatingVehicleExtSelectColumn = "id"
+	// vehicle_info 车辆信息表 的vehicle_id (                            )
+	OperatingVehicleExtSelectColumnVehicleID OperatingVehicleExtSelectColumn = "vehicle_id"
+	// 代理商                                   (                            )
+	OperatingVehicleExtSelectColumnAgent OperatingVehicleExtSelectColumn = "agent"
+	// 合同编号                                 (                            )
+	OperatingVehicleExtSelectColumnContactNumber OperatingVehicleExtSelectColumn = "contact_number"
+	// 平台                                     ( 平台标识字典           )
+	OperatingVehicleExtSelectColumnPlatform OperatingVehicleExtSelectColumn = "platform"
+	// 行驶证所有人                             (                            )
+	OperatingVehicleExtSelectColumnDrivingLicenseOwner OperatingVehicleExtSelectColumn = "driving_license_owner"
+	// 速度模式状态获得时间                     (                            )
+	OperatingVehicleExtSelectColumnSpeedModeStatusTime OperatingVehicleExtSelectColumn = "speed_mode_status_time"
+	// 速度模式状态                             (                            )
+	OperatingVehicleExtSelectColumnSpeedModeStatus OperatingVehicleExtSelectColumn = "speed_mode_status"
+	// 报废原因                                 (                            )
+	OperatingVehicleExtSelectColumnScrapReason OperatingVehicleExtSelectColumn = "scrap_reason"
+	// 报废时间                                 (                            )
+	OperatingVehicleExtSelectColumnScrapTime OperatingVehicleExtSelectColumn = "scrap_time"
+	// 报废时间审核                             (                            )
+	OperatingVehicleExtSelectColumnScrapTimeCheck OperatingVehicleExtSelectColumn = "scrap_time_check"
+	// 行政区域                                 (                            )
+	OperatingVehicleExtSelectColumnAdministrativeRegion OperatingVehicleExtSelectColumn = "administrative_region"
+	// 车牌照片,云储存系统返回的路径            (                            )
+	OperatingVehicleExtSelectColumnLicensePlatePhoto OperatingVehicleExtSelectColumn = "license_plate_photo"
+	// 其他照片,云储存系统返回的路径            (                            )
+	OperatingVehicleExtSelectColumnOtherPhoto OperatingVehicleExtSelectColumn = "other_photo"
+	// 编号                                     (                            )
+	OperatingVehicleExtSelectColumnSerialNumber OperatingVehicleExtSelectColumn = "serial_number"
+	// 是否北斗部标平台                         (                            )
+	OperatingVehicleExtSelectColumnIsBeidou OperatingVehicleExtSelectColumn = "is_beidou"
+	// 是否在运证系统                           (                            )
+	OperatingVehicleExtSelectColumnIsInOperatingSystem OperatingVehicleExtSelectColumn = "is_in_operating_system"
+	// 是否上传货运平台                         (                            )
+	OperatingVehicleExtSelectColumnIsInUploadPlatform OperatingVehicleExtSelectColumn = "is_in_upload_platform"
+	// 是否监管                                 (                            )
+	OperatingVehicleExtSelectColumnIsSupervise OperatingVehicleExtSelectColumn = "is_supervise"
+	// 是否需要监管                             (                            )
+	OperatingVehicleExtSelectColumnIsNeedSupervise OperatingVehicleExtSelectColumn = "is_need_supervise"
+	// 是否功能测试通过                         (                            )
+	OperatingVehicleExtSelectColumnIsFunctionOk OperatingVehicleExtSelectColumn = "is_function_ok"
+	// 是否屏蔽                                 (                            )
+	OperatingVehicleExtSelectColumnIsBlock OperatingVehicleExtSelectColumn = "is_block"
+	// 是否办理终端安装证明                     (                            )
+	OperatingVehicleExtSelectColumnIsApplayTerminalInstallation OperatingVehicleExtSelectColumn = "is_applay_terminal_installation"
+	// 第一次上线时间                           (                            )
+	OperatingVehicleExtSelectColumnFirstOnlineTime OperatingVehicleExtSelectColumn = "first_online_time"
+	// 最后一次绑定终端时间                     (                            )
+	OperatingVehicleExtSelectColumnLastBindingTerminalTime OperatingVehicleExtSelectColumn = "last_binding_terminal_time"
+	// 服务到期时间                             (                            )
+	OperatingVehicleExtSelectColumnServiceExpirationTime OperatingVehicleExtSelectColumn = "service_expiration_time"
+	// 合同时间                                 (                            )
+	OperatingVehicleExtSelectColumnContractTime OperatingVehicleExtSelectColumn = "contract_time"
+	// 安装时间                                 (                            )
+	OperatingVehicleExtSelectColumnInstallationTime OperatingVehicleExtSelectColumn = "installation_time"
+	// 创建时间                                 (                            )
+	OperatingVehicleExtSelectColumnCreatedAt OperatingVehicleExtSelectColumn = "created_at"
+	// 创建人                                   ( system_user表的user_id )
+	OperatingVehicleExtSelectColumnCreatedBy OperatingVehicleExtSelectColumn = "created_by"
+	// 修改时间                                 (                            )
+	OperatingVehicleExtSelectColumnUpdatedAt OperatingVehicleExtSelectColumn = "updated_at"
+	// 修改人                                   ( system_user表的user_id )
+	OperatingVehicleExtSelectColumnUpdatedBy OperatingVehicleExtSelectColumn = "updated_by"
+	// 删除时间                                 (                            )
+	OperatingVehicleExtSelectColumnDeletedAt OperatingVehicleExtSelectColumn = "deleted_at"
+	// 删除人                                   ( system_user表的user_id )
+	OperatingVehicleExtSelectColumnDeletedBy OperatingVehicleExtSelectColumn = "deleted_by"
 )
 
-var AllMuckTruckWorkerIDCardOrdersUpdateColumn = []MuckTruckWorkerIDCardOrdersUpdateColumn{
-	MuckTruckWorkerIDCardOrdersUpdateColumnCreatedAt,
-	MuckTruckWorkerIDCardOrdersUpdateColumnCreatedBy,
-	MuckTruckWorkerIDCardOrdersUpdateColumnDeletedAt,
-	MuckTruckWorkerIDCardOrdersUpdateColumnDeletedBy,
-	MuckTruckWorkerIDCardOrdersUpdateColumnID,
-	MuckTruckWorkerIDCardOrdersUpdateColumnPreviewNumberID,
-	MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedAt,
-	MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedBy,
-	MuckTruckWorkerIDCardOrdersUpdateColumnVehicleID,
+var AllOperatingVehicleExtSelectColumn = []OperatingVehicleExtSelectColumn{
+	OperatingVehicleExtSelectColumnID,
+	OperatingVehicleExtSelectColumnVehicleID,
+	OperatingVehicleExtSelectColumnAgent,
+	OperatingVehicleExtSelectColumnContactNumber,
+	OperatingVehicleExtSelectColumnPlatform,
+	OperatingVehicleExtSelectColumnDrivingLicenseOwner,
+	OperatingVehicleExtSelectColumnSpeedModeStatusTime,
+	OperatingVehicleExtSelectColumnSpeedModeStatus,
+	OperatingVehicleExtSelectColumnScrapReason,
+	OperatingVehicleExtSelectColumnScrapTime,
+	OperatingVehicleExtSelectColumnScrapTimeCheck,
+	OperatingVehicleExtSelectColumnAdministrativeRegion,
+	OperatingVehicleExtSelectColumnLicensePlatePhoto,
+	OperatingVehicleExtSelectColumnOtherPhoto,
+	OperatingVehicleExtSelectColumnSerialNumber,
+	OperatingVehicleExtSelectColumnIsBeidou,
+	OperatingVehicleExtSelectColumnIsInOperatingSystem,
+	OperatingVehicleExtSelectColumnIsInUploadPlatform,
+	OperatingVehicleExtSelectColumnIsSupervise,
+	OperatingVehicleExtSelectColumnIsNeedSupervise,
+	OperatingVehicleExtSelectColumnIsFunctionOk,
+	OperatingVehicleExtSelectColumnIsBlock,
+	OperatingVehicleExtSelectColumnIsApplayTerminalInstallation,
+	OperatingVehicleExtSelectColumnFirstOnlineTime,
+	OperatingVehicleExtSelectColumnLastBindingTerminalTime,
+	OperatingVehicleExtSelectColumnServiceExpirationTime,
+	OperatingVehicleExtSelectColumnContractTime,
+	OperatingVehicleExtSelectColumnInstallationTime,
+	OperatingVehicleExtSelectColumnCreatedAt,
+	OperatingVehicleExtSelectColumnCreatedBy,
+	OperatingVehicleExtSelectColumnUpdatedAt,
+	OperatingVehicleExtSelectColumnUpdatedBy,
+	OperatingVehicleExtSelectColumnDeletedAt,
+	OperatingVehicleExtSelectColumnDeletedBy,
 }
 
-func (e MuckTruckWorkerIDCardOrdersUpdateColumn) IsValid() bool {
+func (e OperatingVehicleExtSelectColumn) IsValid() bool {
 	switch e {
-	case MuckTruckWorkerIDCardOrdersUpdateColumnCreatedAt, MuckTruckWorkerIDCardOrdersUpdateColumnCreatedBy, MuckTruckWorkerIDCardOrdersUpdateColumnDeletedAt, MuckTruckWorkerIDCardOrdersUpdateColumnDeletedBy, MuckTruckWorkerIDCardOrdersUpdateColumnID, MuckTruckWorkerIDCardOrdersUpdateColumnPreviewNumberID, MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedAt, MuckTruckWorkerIDCardOrdersUpdateColumnUpdatedBy, MuckTruckWorkerIDCardOrdersUpdateColumnVehicleID:
+	case OperatingVehicleExtSelectColumnID, OperatingVehicleExtSelectColumnVehicleID, OperatingVehicleExtSelectColumnAgent, OperatingVehicleExtSelectColumnContactNumber, OperatingVehicleExtSelectColumnPlatform, OperatingVehicleExtSelectColumnDrivingLicenseOwner, OperatingVehicleExtSelectColumnSpeedModeStatusTime, OperatingVehicleExtSelectColumnSpeedModeStatus, OperatingVehicleExtSelectColumnScrapReason, OperatingVehicleExtSelectColumnScrapTime, OperatingVehicleExtSelectColumnScrapTimeCheck, OperatingVehicleExtSelectColumnAdministrativeRegion, OperatingVehicleExtSelectColumnLicensePlatePhoto, OperatingVehicleExtSelectColumnOtherPhoto, OperatingVehicleExtSelectColumnSerialNumber, OperatingVehicleExtSelectColumnIsBeidou, OperatingVehicleExtSelectColumnIsInOperatingSystem, OperatingVehicleExtSelectColumnIsInUploadPlatform, OperatingVehicleExtSelectColumnIsSupervise, OperatingVehicleExtSelectColumnIsNeedSupervise, OperatingVehicleExtSelectColumnIsFunctionOk, OperatingVehicleExtSelectColumnIsBlock, OperatingVehicleExtSelectColumnIsApplayTerminalInstallation, OperatingVehicleExtSelectColumnFirstOnlineTime, OperatingVehicleExtSelectColumnLastBindingTerminalTime, OperatingVehicleExtSelectColumnServiceExpirationTime, OperatingVehicleExtSelectColumnContractTime, OperatingVehicleExtSelectColumnInstallationTime, OperatingVehicleExtSelectColumnCreatedAt, OperatingVehicleExtSelectColumnCreatedBy, OperatingVehicleExtSelectColumnUpdatedAt, OperatingVehicleExtSelectColumnUpdatedBy, OperatingVehicleExtSelectColumnDeletedAt, OperatingVehicleExtSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e MuckTruckWorkerIDCardOrdersUpdateColumn) String() string {
+func (e OperatingVehicleExtSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *MuckTruckWorkerIDCardOrdersUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *OperatingVehicleExtSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = MuckTruckWorkerIDCardOrdersUpdateColumn(str)
+	*e = OperatingVehicleExtSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid muck_truck_worker_id_card_orders_update_column", str)
+		return fmt.Errorf("%s is not a valid OperatingVehicleExtSelectColumn", str)
 	}
 	return nil
 }
 
-func (e MuckTruckWorkerIDCardOrdersUpdateColumn) MarshalGQL(w io.Writer) {
+func (e OperatingVehicleExtSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "operating_vehicle_info"
-type OperatingVehicleInfoConstraint string
+// 可选select
+type OutageFilingUploadFileSelectColumn string
 
 const (
-	// unique or primary key constraint
-	OperatingVehicleInfoConstraintOperatingVehicleInfoPkey OperatingVehicleInfoConstraint = "operating_vehicle_info_pkey"
+	// 按指定方法生成                                  ( 主键                       )
+	OutageFilingUploadFileSelectColumnID OutageFilingUploadFileSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	OutageFilingUploadFileSelectColumnOutageFilingUploadFileID OutageFilingUploadFileSelectColumn = "outage_filing_upload_file_id"
+	// 文件路径                                        (                            )
+	OutageFilingUploadFileSelectColumnFilePath OutageFilingUploadFileSelectColumn = "file_path"
+	// 文件类型(commitment.承诺书 other.其他)          (                            )
+	OutageFilingUploadFileSelectColumnFileType OutageFilingUploadFileSelectColumn = "file_type"
+	// 是否删除                                        (                            )
+	OutageFilingUploadFileSelectColumnIsDeleted OutageFilingUploadFileSelectColumn = "is_deleted"
+	// 创建时间                                        (                            )
+	OutageFilingUploadFileSelectColumnCreatedAt OutageFilingUploadFileSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	OutageFilingUploadFileSelectColumnCreatedBy OutageFilingUploadFileSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	OutageFilingUploadFileSelectColumnUpdatedAt OutageFilingUploadFileSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	OutageFilingUploadFileSelectColumnUpdatedBy OutageFilingUploadFileSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	OutageFilingUploadFileSelectColumnDeletedAt OutageFilingUploadFileSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	OutageFilingUploadFileSelectColumnDeletedBy OutageFilingUploadFileSelectColumn = "deleted_by"
 )
 
-var AllOperatingVehicleInfoConstraint = []OperatingVehicleInfoConstraint{
-	OperatingVehicleInfoConstraintOperatingVehicleInfoPkey,
+var AllOutageFilingUploadFileSelectColumn = []OutageFilingUploadFileSelectColumn{
+	OutageFilingUploadFileSelectColumnID,
+	OutageFilingUploadFileSelectColumnOutageFilingUploadFileID,
+	OutageFilingUploadFileSelectColumnFilePath,
+	OutageFilingUploadFileSelectColumnFileType,
+	OutageFilingUploadFileSelectColumnIsDeleted,
+	OutageFilingUploadFileSelectColumnCreatedAt,
+	OutageFilingUploadFileSelectColumnCreatedBy,
+	OutageFilingUploadFileSelectColumnUpdatedAt,
+	OutageFilingUploadFileSelectColumnUpdatedBy,
+	OutageFilingUploadFileSelectColumnDeletedAt,
+	OutageFilingUploadFileSelectColumnDeletedBy,
 }
 
-func (e OperatingVehicleInfoConstraint) IsValid() bool {
+func (e OutageFilingUploadFileSelectColumn) IsValid() bool {
 	switch e {
-	case OperatingVehicleInfoConstraintOperatingVehicleInfoPkey:
+	case OutageFilingUploadFileSelectColumnID, OutageFilingUploadFileSelectColumnOutageFilingUploadFileID, OutageFilingUploadFileSelectColumnFilePath, OutageFilingUploadFileSelectColumnFileType, OutageFilingUploadFileSelectColumnIsDeleted, OutageFilingUploadFileSelectColumnCreatedAt, OutageFilingUploadFileSelectColumnCreatedBy, OutageFilingUploadFileSelectColumnUpdatedAt, OutageFilingUploadFileSelectColumnUpdatedBy, OutageFilingUploadFileSelectColumnDeletedAt, OutageFilingUploadFileSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e OperatingVehicleInfoConstraint) String() string {
+func (e OutageFilingUploadFileSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *OperatingVehicleInfoConstraint) UnmarshalGQL(v interface{}) error {
+func (e *OutageFilingUploadFileSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = OperatingVehicleInfoConstraint(str)
+	*e = OutageFilingUploadFileSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid operating_vehicle_info_constraint", str)
+		return fmt.Errorf("%s is not a valid OutageFilingUploadFileSelectColumn", str)
 	}
 	return nil
 }
 
-func (e OperatingVehicleInfoConstraint) MarshalGQL(w io.Writer) {
+func (e OutageFilingUploadFileSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// select columns of table "operating_vehicle_info"
-type OperatingVehicleInfoSelectColumn string
+// 可选select
+type OutageRegistrationSelectColumn string
 
 const (
-	// column name
-	OperatingVehicleInfoSelectColumnAdministrativeRegion OperatingVehicleInfoSelectColumn = "administrative_region"
-	// column name
-	OperatingVehicleInfoSelectColumnAgent OperatingVehicleInfoSelectColumn = "agent"
-	// column name
-	OperatingVehicleInfoSelectColumnContactNumber OperatingVehicleInfoSelectColumn = "contact_number"
-	// column name
-	OperatingVehicleInfoSelectColumnContractTime OperatingVehicleInfoSelectColumn = "contract_time"
-	// column name
-	OperatingVehicleInfoSelectColumnCreatedAt OperatingVehicleInfoSelectColumn = "created_at"
-	// column name
-	OperatingVehicleInfoSelectColumnCreatedBy OperatingVehicleInfoSelectColumn = "created_by"
-	// column name
-	OperatingVehicleInfoSelectColumnDeletedAt OperatingVehicleInfoSelectColumn = "deleted_at"
-	// column name
-	OperatingVehicleInfoSelectColumnDeletedBy OperatingVehicleInfoSelectColumn = "deleted_by"
-	// column name
-	OperatingVehicleInfoSelectColumnDrivingLicenseOwner OperatingVehicleInfoSelectColumn = "driving_license_owner"
-	// column name
-	OperatingVehicleInfoSelectColumnFirstOnlineTime OperatingVehicleInfoSelectColumn = "first_online_time"
-	// column name
-	OperatingVehicleInfoSelectColumnInstallationTime OperatingVehicleInfoSelectColumn = "installation_time"
-	// column name
-	OperatingVehicleInfoSelectColumnIsBd OperatingVehicleInfoSelectColumn = "is_BD"
-	// column name
-	OperatingVehicleInfoSelectColumnIsActive OperatingVehicleInfoSelectColumn = "is_active"
-	// column name
-	OperatingVehicleInfoSelectColumnIsApplayTerminalInstallation OperatingVehicleInfoSelectColumn = "is_applay_terminal_installation"
-	// column name
-	OperatingVehicleInfoSelectColumnIsBlock OperatingVehicleInfoSelectColumn = "is_block"
-	// column name
-	OperatingVehicleInfoSelectColumnIsEngineeringVehicle OperatingVehicleInfoSelectColumn = "is_engineering_vehicle"
-	// column name
-	OperatingVehicleInfoSelectColumnIsFunctionOk OperatingVehicleInfoSelectColumn = "is_function_ok"
-	// column name
-	OperatingVehicleInfoSelectColumnIsInOperatingSystem OperatingVehicleInfoSelectColumn = "is_in_operating_system"
-	// column name
-	OperatingVehicleInfoSelectColumnIsInUploadPlatform OperatingVehicleInfoSelectColumn = "is_in_upload_platform"
-	// column name
-	OperatingVehicleInfoSelectColumnIsNeedSupervise OperatingVehicleInfoSelectColumn = "is_need_supervise"
-	// column name
-	OperatingVehicleInfoSelectColumnIsSupervise OperatingVehicleInfoSelectColumn = "is_supervise"
-	// column name
-	OperatingVehicleInfoSelectColumnLastBindingTerminalTime OperatingVehicleInfoSelectColumn = "last_binding_terminal_time"
-	// column name
-	OperatingVehicleInfoSelectColumnLicensePlatePhoto OperatingVehicleInfoSelectColumn = "license_plate_photo"
-	// column name
-	OperatingVehicleInfoSelectColumnMuckTruckType OperatingVehicleInfoSelectColumn = "muck_truck_type"
-	// column name
-	OperatingVehicleInfoSelectColumnOperatingVehicleID OperatingVehicleInfoSelectColumn = "operating_vehicle_id"
-	// column name
-	OperatingVehicleInfoSelectColumnOtherPhoto OperatingVehicleInfoSelectColumn = "other_photo"
-	// column name
-	OperatingVehicleInfoSelectColumnPlatform OperatingVehicleInfoSelectColumn = "platform"
-	// column name
-	OperatingVehicleInfoSelectColumnPositionDbID OperatingVehicleInfoSelectColumn = "position_db_id"
-	// column name
-	OperatingVehicleInfoSelectColumnScrapReason OperatingVehicleInfoSelectColumn = "scrap_reason"
-	// column name
-	OperatingVehicleInfoSelectColumnScrapTime OperatingVehicleInfoSelectColumn = "scrap_time"
-	// column name
-	OperatingVehicleInfoSelectColumnScrapTimeCheck OperatingVehicleInfoSelectColumn = "scrap_time_check"
-	// column name
-	OperatingVehicleInfoSelectColumnSerialNumber OperatingVehicleInfoSelectColumn = "serial_number"
-	// column name
-	OperatingVehicleInfoSelectColumnServiceExpirationTime OperatingVehicleInfoSelectColumn = "service_expiration_time"
-	// column name
-	OperatingVehicleInfoSelectColumnSpeedModeStatus OperatingVehicleInfoSelectColumn = "speed_mode_status"
-	// column name
-	OperatingVehicleInfoSelectColumnSpeedModeStatusTime OperatingVehicleInfoSelectColumn = "speed_mode_status_time"
-	// column name
-	OperatingVehicleInfoSelectColumnTemporaryLibrary OperatingVehicleInfoSelectColumn = "temporary_library"
-	// column name
-	OperatingVehicleInfoSelectColumnTemporaryTransportBureau OperatingVehicleInfoSelectColumn = "temporary_transport_bureau"
-	// column name
-	OperatingVehicleInfoSelectColumnUpdatedAt OperatingVehicleInfoSelectColumn = "updated_at"
-	// column name
-	OperatingVehicleInfoSelectColumnUpdatedBy OperatingVehicleInfoSelectColumn = "updated_by"
-	// column name
-	OperatingVehicleInfoSelectColumnVehicleID OperatingVehicleInfoSelectColumn = "vehicle_id"
+	// 按指定方法生成                                  ( 主键                                                         )
+	OutageRegistrationSelectColumnID OutageRegistrationSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	OutageRegistrationSelectColumnOutageRegistrationID OutageRegistrationSelectColumn = "outage_registration_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                                                              )
+	OutageRegistrationSelectColumnVehicleID OutageRegistrationSelectColumn = "vehicle_id"
+	// 用户                                            ( system_user表的user_id                                   )
+	OutageRegistrationSelectColumnUserID OutageRegistrationSelectColumn = "user_id"
+	// 停运起始时间                                    (                                                              )
+	OutageRegistrationSelectColumnOutageStartTime OutageRegistrationSelectColumn = "outage_start_time"
+	// 停运截止时间                                    (                                                              )
+	OutageRegistrationSelectColumnOutageEndTime OutageRegistrationSelectColumn = "outage_end_time"
+	// 审核状态                                        (                                                              )
+	OutageRegistrationSelectColumnReviewStatus OutageRegistrationSelectColumn = "review_status"
+	// 审核人                                          ( system_user表的user_id                                   )
+	OutageRegistrationSelectColumnReviewer OutageRegistrationSelectColumn = "reviewer"
+	// 审核时间                                        (                                                              )
+	OutageRegistrationSelectColumnReviewTime OutageRegistrationSelectColumn = "review_time"
+	// 停运报备上传文件表ID                            ( outage_filing_upload_file 的outage_filing_upload_file_id )
+	OutageRegistrationSelectColumnOutageFilingUploadFileID OutageRegistrationSelectColumn = "outage_filing_upload_file_id"
+	// 停运起始经纬度                                  (                                                              )
+	OutageRegistrationSelectColumnOutageStartCoordinate OutageRegistrationSelectColumn = "outage_start_coordinate"
+	// 停运结束经纬度                                  (                                                              )
+	OutageRegistrationSelectColumnOutageEndCoordinate OutageRegistrationSelectColumn = "outage_end_coordinate"
+	// 上线时间                                        (                                                              )
+	OutageRegistrationSelectColumnOnlineTime OutageRegistrationSelectColumn = "online_time"
+	// 停运起始位置                                    (                                                              )
+	OutageRegistrationSelectColumnOutageStartPosition OutageRegistrationSelectColumn = "outage_start_position"
+	// 是否管理部门审核                                (                                                              )
+	OutageRegistrationSelectColumnIsManagementReview OutageRegistrationSelectColumn = "is_management_review"
+	// 是否失效                                        (                                                              )
+	OutageRegistrationSelectColumnIsInvalid OutageRegistrationSelectColumn = "is_invalid"
+	// 是否最新                                        (                                                              )
+	OutageRegistrationSelectColumnIsLatest OutageRegistrationSelectColumn = "is_latest"
+	// 是否删除                                        (                                                              )
+	OutageRegistrationSelectColumnIsDeleted OutageRegistrationSelectColumn = "is_deleted"
+	// 创建时间                                        (                                                              )
+	OutageRegistrationSelectColumnCreatedAt OutageRegistrationSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id                                   )
+	OutageRegistrationSelectColumnCreatedBy OutageRegistrationSelectColumn = "created_by"
+	// 修改时间                                        (                                                              )
+	OutageRegistrationSelectColumnUpdatedAt OutageRegistrationSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id                                   )
+	OutageRegistrationSelectColumnUpdatedBy OutageRegistrationSelectColumn = "updated_by"
+	// 删除时间                                        (                                                              )
+	OutageRegistrationSelectColumnDeletedAt OutageRegistrationSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id                                   )
+	OutageRegistrationSelectColumnDeletedBy OutageRegistrationSelectColumn = "deleted_by"
 )
 
-var AllOperatingVehicleInfoSelectColumn = []OperatingVehicleInfoSelectColumn{
-	OperatingVehicleInfoSelectColumnAdministrativeRegion,
-	OperatingVehicleInfoSelectColumnAgent,
-	OperatingVehicleInfoSelectColumnContactNumber,
-	OperatingVehicleInfoSelectColumnContractTime,
-	OperatingVehicleInfoSelectColumnCreatedAt,
-	OperatingVehicleInfoSelectColumnCreatedBy,
-	OperatingVehicleInfoSelectColumnDeletedAt,
-	OperatingVehicleInfoSelectColumnDeletedBy,
-	OperatingVehicleInfoSelectColumnDrivingLicenseOwner,
-	OperatingVehicleInfoSelectColumnFirstOnlineTime,
-	OperatingVehicleInfoSelectColumnInstallationTime,
-	OperatingVehicleInfoSelectColumnIsBd,
-	OperatingVehicleInfoSelectColumnIsActive,
-	OperatingVehicleInfoSelectColumnIsApplayTerminalInstallation,
-	OperatingVehicleInfoSelectColumnIsBlock,
-	OperatingVehicleInfoSelectColumnIsEngineeringVehicle,
-	OperatingVehicleInfoSelectColumnIsFunctionOk,
-	OperatingVehicleInfoSelectColumnIsInOperatingSystem,
-	OperatingVehicleInfoSelectColumnIsInUploadPlatform,
-	OperatingVehicleInfoSelectColumnIsNeedSupervise,
-	OperatingVehicleInfoSelectColumnIsSupervise,
-	OperatingVehicleInfoSelectColumnLastBindingTerminalTime,
-	OperatingVehicleInfoSelectColumnLicensePlatePhoto,
-	OperatingVehicleInfoSelectColumnMuckTruckType,
-	OperatingVehicleInfoSelectColumnOperatingVehicleID,
-	OperatingVehicleInfoSelectColumnOtherPhoto,
-	OperatingVehicleInfoSelectColumnPlatform,
-	OperatingVehicleInfoSelectColumnPositionDbID,
-	OperatingVehicleInfoSelectColumnScrapReason,
-	OperatingVehicleInfoSelectColumnScrapTime,
-	OperatingVehicleInfoSelectColumnScrapTimeCheck,
-	OperatingVehicleInfoSelectColumnSerialNumber,
-	OperatingVehicleInfoSelectColumnServiceExpirationTime,
-	OperatingVehicleInfoSelectColumnSpeedModeStatus,
-	OperatingVehicleInfoSelectColumnSpeedModeStatusTime,
-	OperatingVehicleInfoSelectColumnTemporaryLibrary,
-	OperatingVehicleInfoSelectColumnTemporaryTransportBureau,
-	OperatingVehicleInfoSelectColumnUpdatedAt,
-	OperatingVehicleInfoSelectColumnUpdatedBy,
-	OperatingVehicleInfoSelectColumnVehicleID,
+var AllOutageRegistrationSelectColumn = []OutageRegistrationSelectColumn{
+	OutageRegistrationSelectColumnID,
+	OutageRegistrationSelectColumnOutageRegistrationID,
+	OutageRegistrationSelectColumnVehicleID,
+	OutageRegistrationSelectColumnUserID,
+	OutageRegistrationSelectColumnOutageStartTime,
+	OutageRegistrationSelectColumnOutageEndTime,
+	OutageRegistrationSelectColumnReviewStatus,
+	OutageRegistrationSelectColumnReviewer,
+	OutageRegistrationSelectColumnReviewTime,
+	OutageRegistrationSelectColumnOutageFilingUploadFileID,
+	OutageRegistrationSelectColumnOutageStartCoordinate,
+	OutageRegistrationSelectColumnOutageEndCoordinate,
+	OutageRegistrationSelectColumnOnlineTime,
+	OutageRegistrationSelectColumnOutageStartPosition,
+	OutageRegistrationSelectColumnIsManagementReview,
+	OutageRegistrationSelectColumnIsInvalid,
+	OutageRegistrationSelectColumnIsLatest,
+	OutageRegistrationSelectColumnIsDeleted,
+	OutageRegistrationSelectColumnCreatedAt,
+	OutageRegistrationSelectColumnCreatedBy,
+	OutageRegistrationSelectColumnUpdatedAt,
+	OutageRegistrationSelectColumnUpdatedBy,
+	OutageRegistrationSelectColumnDeletedAt,
+	OutageRegistrationSelectColumnDeletedBy,
 }
 
-func (e OperatingVehicleInfoSelectColumn) IsValid() bool {
+func (e OutageRegistrationSelectColumn) IsValid() bool {
 	switch e {
-	case OperatingVehicleInfoSelectColumnAdministrativeRegion, OperatingVehicleInfoSelectColumnAgent, OperatingVehicleInfoSelectColumnContactNumber, OperatingVehicleInfoSelectColumnContractTime, OperatingVehicleInfoSelectColumnCreatedAt, OperatingVehicleInfoSelectColumnCreatedBy, OperatingVehicleInfoSelectColumnDeletedAt, OperatingVehicleInfoSelectColumnDeletedBy, OperatingVehicleInfoSelectColumnDrivingLicenseOwner, OperatingVehicleInfoSelectColumnFirstOnlineTime, OperatingVehicleInfoSelectColumnInstallationTime, OperatingVehicleInfoSelectColumnIsBd, OperatingVehicleInfoSelectColumnIsActive, OperatingVehicleInfoSelectColumnIsApplayTerminalInstallation, OperatingVehicleInfoSelectColumnIsBlock, OperatingVehicleInfoSelectColumnIsEngineeringVehicle, OperatingVehicleInfoSelectColumnIsFunctionOk, OperatingVehicleInfoSelectColumnIsInOperatingSystem, OperatingVehicleInfoSelectColumnIsInUploadPlatform, OperatingVehicleInfoSelectColumnIsNeedSupervise, OperatingVehicleInfoSelectColumnIsSupervise, OperatingVehicleInfoSelectColumnLastBindingTerminalTime, OperatingVehicleInfoSelectColumnLicensePlatePhoto, OperatingVehicleInfoSelectColumnMuckTruckType, OperatingVehicleInfoSelectColumnOperatingVehicleID, OperatingVehicleInfoSelectColumnOtherPhoto, OperatingVehicleInfoSelectColumnPlatform, OperatingVehicleInfoSelectColumnPositionDbID, OperatingVehicleInfoSelectColumnScrapReason, OperatingVehicleInfoSelectColumnScrapTime, OperatingVehicleInfoSelectColumnScrapTimeCheck, OperatingVehicleInfoSelectColumnSerialNumber, OperatingVehicleInfoSelectColumnServiceExpirationTime, OperatingVehicleInfoSelectColumnSpeedModeStatus, OperatingVehicleInfoSelectColumnSpeedModeStatusTime, OperatingVehicleInfoSelectColumnTemporaryLibrary, OperatingVehicleInfoSelectColumnTemporaryTransportBureau, OperatingVehicleInfoSelectColumnUpdatedAt, OperatingVehicleInfoSelectColumnUpdatedBy, OperatingVehicleInfoSelectColumnVehicleID:
+	case OutageRegistrationSelectColumnID, OutageRegistrationSelectColumnOutageRegistrationID, OutageRegistrationSelectColumnVehicleID, OutageRegistrationSelectColumnUserID, OutageRegistrationSelectColumnOutageStartTime, OutageRegistrationSelectColumnOutageEndTime, OutageRegistrationSelectColumnReviewStatus, OutageRegistrationSelectColumnReviewer, OutageRegistrationSelectColumnReviewTime, OutageRegistrationSelectColumnOutageFilingUploadFileID, OutageRegistrationSelectColumnOutageStartCoordinate, OutageRegistrationSelectColumnOutageEndCoordinate, OutageRegistrationSelectColumnOnlineTime, OutageRegistrationSelectColumnOutageStartPosition, OutageRegistrationSelectColumnIsManagementReview, OutageRegistrationSelectColumnIsInvalid, OutageRegistrationSelectColumnIsLatest, OutageRegistrationSelectColumnIsDeleted, OutageRegistrationSelectColumnCreatedAt, OutageRegistrationSelectColumnCreatedBy, OutageRegistrationSelectColumnUpdatedAt, OutageRegistrationSelectColumnUpdatedBy, OutageRegistrationSelectColumnDeletedAt, OutageRegistrationSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e OperatingVehicleInfoSelectColumn) String() string {
+func (e OutageRegistrationSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *OperatingVehicleInfoSelectColumn) UnmarshalGQL(v interface{}) error {
+func (e *OutageRegistrationSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = OperatingVehicleInfoSelectColumn(str)
+	*e = OutageRegistrationSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid operating_vehicle_info_select_column", str)
+		return fmt.Errorf("%s is not a valid OutageRegistrationSelectColumn", str)
 	}
 	return nil
 }
 
-func (e OperatingVehicleInfoSelectColumn) MarshalGQL(w io.Writer) {
+func (e OutageRegistrationSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "operating_vehicle_info"
-type OperatingVehicleInfoUpdateColumn string
-
-const (
-	// column name
-	OperatingVehicleInfoUpdateColumnAdministrativeRegion OperatingVehicleInfoUpdateColumn = "administrative_region"
-	// column name
-	OperatingVehicleInfoUpdateColumnAgent OperatingVehicleInfoUpdateColumn = "agent"
-	// column name
-	OperatingVehicleInfoUpdateColumnContactNumber OperatingVehicleInfoUpdateColumn = "contact_number"
-	// column name
-	OperatingVehicleInfoUpdateColumnContractTime OperatingVehicleInfoUpdateColumn = "contract_time"
-	// column name
-	OperatingVehicleInfoUpdateColumnCreatedAt OperatingVehicleInfoUpdateColumn = "created_at"
-	// column name
-	OperatingVehicleInfoUpdateColumnCreatedBy OperatingVehicleInfoUpdateColumn = "created_by"
-	// column name
-	OperatingVehicleInfoUpdateColumnDeletedAt OperatingVehicleInfoUpdateColumn = "deleted_at"
-	// column name
-	OperatingVehicleInfoUpdateColumnDeletedBy OperatingVehicleInfoUpdateColumn = "deleted_by"
-	// column name
-	OperatingVehicleInfoUpdateColumnDrivingLicenseOwner OperatingVehicleInfoUpdateColumn = "driving_license_owner"
-	// column name
-	OperatingVehicleInfoUpdateColumnFirstOnlineTime OperatingVehicleInfoUpdateColumn = "first_online_time"
-	// column name
-	OperatingVehicleInfoUpdateColumnInstallationTime OperatingVehicleInfoUpdateColumn = "installation_time"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsBd OperatingVehicleInfoUpdateColumn = "is_BD"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsActive OperatingVehicleInfoUpdateColumn = "is_active"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsApplayTerminalInstallation OperatingVehicleInfoUpdateColumn = "is_applay_terminal_installation"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsBlock OperatingVehicleInfoUpdateColumn = "is_block"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsEngineeringVehicle OperatingVehicleInfoUpdateColumn = "is_engineering_vehicle"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsFunctionOk OperatingVehicleInfoUpdateColumn = "is_function_ok"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsInOperatingSystem OperatingVehicleInfoUpdateColumn = "is_in_operating_system"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsInUploadPlatform OperatingVehicleInfoUpdateColumn = "is_in_upload_platform"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsNeedSupervise OperatingVehicleInfoUpdateColumn = "is_need_supervise"
-	// column name
-	OperatingVehicleInfoUpdateColumnIsSupervise OperatingVehicleInfoUpdateColumn = "is_supervise"
-	// column name
-	OperatingVehicleInfoUpdateColumnLastBindingTerminalTime OperatingVehicleInfoUpdateColumn = "last_binding_terminal_time"
-	// column name
-	OperatingVehicleInfoUpdateColumnLicensePlatePhoto OperatingVehicleInfoUpdateColumn = "license_plate_photo"
-	// column name
-	OperatingVehicleInfoUpdateColumnMuckTruckType OperatingVehicleInfoUpdateColumn = "muck_truck_type"
-	// column name
-	OperatingVehicleInfoUpdateColumnOperatingVehicleID OperatingVehicleInfoUpdateColumn = "operating_vehicle_id"
-	// column name
-	OperatingVehicleInfoUpdateColumnOtherPhoto OperatingVehicleInfoUpdateColumn = "other_photo"
-	// column name
-	OperatingVehicleInfoUpdateColumnPlatform OperatingVehicleInfoUpdateColumn = "platform"
-	// column name
-	OperatingVehicleInfoUpdateColumnPositionDbID OperatingVehicleInfoUpdateColumn = "position_db_id"
-	// column name
-	OperatingVehicleInfoUpdateColumnScrapReason OperatingVehicleInfoUpdateColumn = "scrap_reason"
-	// column name
-	OperatingVehicleInfoUpdateColumnScrapTime OperatingVehicleInfoUpdateColumn = "scrap_time"
-	// column name
-	OperatingVehicleInfoUpdateColumnScrapTimeCheck OperatingVehicleInfoUpdateColumn = "scrap_time_check"
-	// column name
-	OperatingVehicleInfoUpdateColumnSerialNumber OperatingVehicleInfoUpdateColumn = "serial_number"
-	// column name
-	OperatingVehicleInfoUpdateColumnServiceExpirationTime OperatingVehicleInfoUpdateColumn = "service_expiration_time"
-	// column name
-	OperatingVehicleInfoUpdateColumnSpeedModeStatus OperatingVehicleInfoUpdateColumn = "speed_mode_status"
-	// column name
-	OperatingVehicleInfoUpdateColumnSpeedModeStatusTime OperatingVehicleInfoUpdateColumn = "speed_mode_status_time"
-	// column name
-	OperatingVehicleInfoUpdateColumnTemporaryLibrary OperatingVehicleInfoUpdateColumn = "temporary_library"
-	// column name
-	OperatingVehicleInfoUpdateColumnTemporaryTransportBureau OperatingVehicleInfoUpdateColumn = "temporary_transport_bureau"
-	// column name
-	OperatingVehicleInfoUpdateColumnUpdatedAt OperatingVehicleInfoUpdateColumn = "updated_at"
-	// column name
-	OperatingVehicleInfoUpdateColumnUpdatedBy OperatingVehicleInfoUpdateColumn = "updated_by"
-	// column name
-	OperatingVehicleInfoUpdateColumnVehicleID OperatingVehicleInfoUpdateColumn = "vehicle_id"
-)
-
-var AllOperatingVehicleInfoUpdateColumn = []OperatingVehicleInfoUpdateColumn{
-	OperatingVehicleInfoUpdateColumnAdministrativeRegion,
-	OperatingVehicleInfoUpdateColumnAgent,
-	OperatingVehicleInfoUpdateColumnContactNumber,
-	OperatingVehicleInfoUpdateColumnContractTime,
-	OperatingVehicleInfoUpdateColumnCreatedAt,
-	OperatingVehicleInfoUpdateColumnCreatedBy,
-	OperatingVehicleInfoUpdateColumnDeletedAt,
-	OperatingVehicleInfoUpdateColumnDeletedBy,
-	OperatingVehicleInfoUpdateColumnDrivingLicenseOwner,
-	OperatingVehicleInfoUpdateColumnFirstOnlineTime,
-	OperatingVehicleInfoUpdateColumnInstallationTime,
-	OperatingVehicleInfoUpdateColumnIsBd,
-	OperatingVehicleInfoUpdateColumnIsActive,
-	OperatingVehicleInfoUpdateColumnIsApplayTerminalInstallation,
-	OperatingVehicleInfoUpdateColumnIsBlock,
-	OperatingVehicleInfoUpdateColumnIsEngineeringVehicle,
-	OperatingVehicleInfoUpdateColumnIsFunctionOk,
-	OperatingVehicleInfoUpdateColumnIsInOperatingSystem,
-	OperatingVehicleInfoUpdateColumnIsInUploadPlatform,
-	OperatingVehicleInfoUpdateColumnIsNeedSupervise,
-	OperatingVehicleInfoUpdateColumnIsSupervise,
-	OperatingVehicleInfoUpdateColumnLastBindingTerminalTime,
-	OperatingVehicleInfoUpdateColumnLicensePlatePhoto,
-	OperatingVehicleInfoUpdateColumnMuckTruckType,
-	OperatingVehicleInfoUpdateColumnOperatingVehicleID,
-	OperatingVehicleInfoUpdateColumnOtherPhoto,
-	OperatingVehicleInfoUpdateColumnPlatform,
-	OperatingVehicleInfoUpdateColumnPositionDbID,
-	OperatingVehicleInfoUpdateColumnScrapReason,
-	OperatingVehicleInfoUpdateColumnScrapTime,
-	OperatingVehicleInfoUpdateColumnScrapTimeCheck,
-	OperatingVehicleInfoUpdateColumnSerialNumber,
-	OperatingVehicleInfoUpdateColumnServiceExpirationTime,
-	OperatingVehicleInfoUpdateColumnSpeedModeStatus,
-	OperatingVehicleInfoUpdateColumnSpeedModeStatusTime,
-	OperatingVehicleInfoUpdateColumnTemporaryLibrary,
-	OperatingVehicleInfoUpdateColumnTemporaryTransportBureau,
-	OperatingVehicleInfoUpdateColumnUpdatedAt,
-	OperatingVehicleInfoUpdateColumnUpdatedBy,
-	OperatingVehicleInfoUpdateColumnVehicleID,
-}
-
-func (e OperatingVehicleInfoUpdateColumn) IsValid() bool {
-	switch e {
-	case OperatingVehicleInfoUpdateColumnAdministrativeRegion, OperatingVehicleInfoUpdateColumnAgent, OperatingVehicleInfoUpdateColumnContactNumber, OperatingVehicleInfoUpdateColumnContractTime, OperatingVehicleInfoUpdateColumnCreatedAt, OperatingVehicleInfoUpdateColumnCreatedBy, OperatingVehicleInfoUpdateColumnDeletedAt, OperatingVehicleInfoUpdateColumnDeletedBy, OperatingVehicleInfoUpdateColumnDrivingLicenseOwner, OperatingVehicleInfoUpdateColumnFirstOnlineTime, OperatingVehicleInfoUpdateColumnInstallationTime, OperatingVehicleInfoUpdateColumnIsBd, OperatingVehicleInfoUpdateColumnIsActive, OperatingVehicleInfoUpdateColumnIsApplayTerminalInstallation, OperatingVehicleInfoUpdateColumnIsBlock, OperatingVehicleInfoUpdateColumnIsEngineeringVehicle, OperatingVehicleInfoUpdateColumnIsFunctionOk, OperatingVehicleInfoUpdateColumnIsInOperatingSystem, OperatingVehicleInfoUpdateColumnIsInUploadPlatform, OperatingVehicleInfoUpdateColumnIsNeedSupervise, OperatingVehicleInfoUpdateColumnIsSupervise, OperatingVehicleInfoUpdateColumnLastBindingTerminalTime, OperatingVehicleInfoUpdateColumnLicensePlatePhoto, OperatingVehicleInfoUpdateColumnMuckTruckType, OperatingVehicleInfoUpdateColumnOperatingVehicleID, OperatingVehicleInfoUpdateColumnOtherPhoto, OperatingVehicleInfoUpdateColumnPlatform, OperatingVehicleInfoUpdateColumnPositionDbID, OperatingVehicleInfoUpdateColumnScrapReason, OperatingVehicleInfoUpdateColumnScrapTime, OperatingVehicleInfoUpdateColumnScrapTimeCheck, OperatingVehicleInfoUpdateColumnSerialNumber, OperatingVehicleInfoUpdateColumnServiceExpirationTime, OperatingVehicleInfoUpdateColumnSpeedModeStatus, OperatingVehicleInfoUpdateColumnSpeedModeStatusTime, OperatingVehicleInfoUpdateColumnTemporaryLibrary, OperatingVehicleInfoUpdateColumnTemporaryTransportBureau, OperatingVehicleInfoUpdateColumnUpdatedAt, OperatingVehicleInfoUpdateColumnUpdatedBy, OperatingVehicleInfoUpdateColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e OperatingVehicleInfoUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *OperatingVehicleInfoUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = OperatingVehicleInfoUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid operating_vehicle_info_update_column", str)
-	}
-	return nil
-}
-
-func (e OperatingVehicleInfoUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "owner_info"
-type OwnerInfoConstraint string
-
-const (
-	// unique or primary key constraint
-	OwnerInfoConstraintOwnerInfoPkey OwnerInfoConstraint = "owner_info_pkey"
-)
-
-var AllOwnerInfoConstraint = []OwnerInfoConstraint{
-	OwnerInfoConstraintOwnerInfoPkey,
-}
-
-func (e OwnerInfoConstraint) IsValid() bool {
-	switch e {
-	case OwnerInfoConstraintOwnerInfoPkey:
-		return true
-	}
-	return false
-}
-
-func (e OwnerInfoConstraint) String() string {
-	return string(e)
-}
-
-func (e *OwnerInfoConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = OwnerInfoConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid owner_info_constraint", str)
-	}
-	return nil
-}
-
-func (e OwnerInfoConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "owner_info"
+// 可选select
 type OwnerInfoSelectColumn string
 
 const (
-	// column name
-	OwnerInfoSelectColumnAddress OwnerInfoSelectColumn = "address"
-	// column name
-	OwnerInfoSelectColumnAgent OwnerInfoSelectColumn = "agent"
-	// column name
-	OwnerInfoSelectColumnCellphone OwnerInfoSelectColumn = "cellphone"
-	// column name
-	OwnerInfoSelectColumnCreatedAt OwnerInfoSelectColumn = "created_at"
-	// column name
-	OwnerInfoSelectColumnCreatedBy OwnerInfoSelectColumn = "created_by"
-	// column name
-	OwnerInfoSelectColumnDeletedAt OwnerInfoSelectColumn = "deleted_at"
-	// column name
-	OwnerInfoSelectColumnDeletedBy OwnerInfoSelectColumn = "deleted_by"
-	// column name
-	OwnerInfoSelectColumnDepartmentID OwnerInfoSelectColumn = "department_id"
-	// column name
-	OwnerInfoSelectColumnEmail OwnerInfoSelectColumn = "email"
-	// column name
-	OwnerInfoSelectColumnExpiryDate OwnerInfoSelectColumn = "expiry_date"
-	// column name
+	// 按指定方法生成                                          ( 主键                                 )
 	OwnerInfoSelectColumnID OwnerInfoSelectColumn = "id"
-	// column name
-	OwnerInfoSelectColumnIDNumber OwnerInfoSelectColumn = "id_number"
-	// column name
-	OwnerInfoSelectColumnIsDelete OwnerInfoSelectColumn = "is_delete"
-	// column name
-	OwnerInfoSelectColumnName OwnerInfoSelectColumn = "name"
-	// column name
-	OwnerInfoSelectColumnOperator OwnerInfoSelectColumn = "operator"
-	// column name
+	// 车主信息外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
 	OwnerInfoSelectColumnOwnerID OwnerInfoSelectColumn = "owner_id"
-	// column name
-	OwnerInfoSelectColumnRemarks OwnerInfoSelectColumn = "remarks"
-	// column name
-	OwnerInfoSelectColumnSex OwnerInfoSelectColumn = "sex"
-	// column name
+	// 所在部门id                                              ( department 部门信息表            )
+	OwnerInfoSelectColumnDepartmentID OwnerInfoSelectColumn = "department_id"
+	// 车主姓名                                                (                                      )
+	OwnerInfoSelectColumnName OwnerInfoSelectColumn = "name"
+	// 联系地址                                                (                                      )
+	OwnerInfoSelectColumnAddress OwnerInfoSelectColumn = "address"
+	// 固定电话                                                (                                      )
+	OwnerInfoSelectColumnCellphone OwnerInfoSelectColumn = "cellphone"
+	// 手机号码                                                (                                      )
 	OwnerInfoSelectColumnTelephone OwnerInfoSelectColumn = "telephone"
-	// column name
+	// 邮箱地址                                                (                                      )
+	OwnerInfoSelectColumnEmail OwnerInfoSelectColumn = "email"
+	// 证件过期日期                                            (                                      )
+	OwnerInfoSelectColumnExpiryDate OwnerInfoSelectColumn = "expiry_date"
+	// 身份证号                                                (                                      )
+	OwnerInfoSelectColumnIDNumber OwnerInfoSelectColumn = "id_number"
+	// 备注                                                    (                                      )
+	OwnerInfoSelectColumnRemarks OwnerInfoSelectColumn = "remarks"
+	// 车主性别                                                ( 性别字典                         )
+	OwnerInfoSelectColumnSex OwnerInfoSelectColumn = "sex"
+	// 代理商                                                  ( enterprise_info表的enterprise_id )
+	OwnerInfoSelectColumnAgent OwnerInfoSelectColumn = "agent"
+	// 运营商                                                  ( enterprise_info表的enterprise_id )
+	OwnerInfoSelectColumnOperator OwnerInfoSelectColumn = "operator"
+	// 是否删除                                                (                                      )
+	OwnerInfoSelectColumnIsDeleted OwnerInfoSelectColumn = "is_deleted"
+	// 创建时间                                                (                                      )
+	OwnerInfoSelectColumnCreatedAt OwnerInfoSelectColumn = "created_at"
+	// 创建人                                                  ( system_user表的user_id           )
+	OwnerInfoSelectColumnCreatedBy OwnerInfoSelectColumn = "created_by"
+	// 修改时间                                                (                                      )
 	OwnerInfoSelectColumnUpdatedAt OwnerInfoSelectColumn = "updated_at"
-	// column name
+	// 修改人                                                  ( system_user表的user_id           )
 	OwnerInfoSelectColumnUpdatedBy OwnerInfoSelectColumn = "updated_by"
+	// 删除时间                                                (                                      )
+	OwnerInfoSelectColumnDeletedAt OwnerInfoSelectColumn = "deleted_at"
+	// 删除人                                                  ( system_user表的user_id           )
+	OwnerInfoSelectColumnDeletedBy OwnerInfoSelectColumn = "deleted_by"
 )
 
 var AllOwnerInfoSelectColumn = []OwnerInfoSelectColumn{
-	OwnerInfoSelectColumnAddress,
-	OwnerInfoSelectColumnAgent,
-	OwnerInfoSelectColumnCellphone,
-	OwnerInfoSelectColumnCreatedAt,
-	OwnerInfoSelectColumnCreatedBy,
-	OwnerInfoSelectColumnDeletedAt,
-	OwnerInfoSelectColumnDeletedBy,
+	OwnerInfoSelectColumnID,
+	OwnerInfoSelectColumnOwnerID,
 	OwnerInfoSelectColumnDepartmentID,
+	OwnerInfoSelectColumnName,
+	OwnerInfoSelectColumnAddress,
+	OwnerInfoSelectColumnCellphone,
+	OwnerInfoSelectColumnTelephone,
 	OwnerInfoSelectColumnEmail,
 	OwnerInfoSelectColumnExpiryDate,
-	OwnerInfoSelectColumnID,
 	OwnerInfoSelectColumnIDNumber,
-	OwnerInfoSelectColumnIsDelete,
-	OwnerInfoSelectColumnName,
-	OwnerInfoSelectColumnOperator,
-	OwnerInfoSelectColumnOwnerID,
 	OwnerInfoSelectColumnRemarks,
 	OwnerInfoSelectColumnSex,
-	OwnerInfoSelectColumnTelephone,
+	OwnerInfoSelectColumnAgent,
+	OwnerInfoSelectColumnOperator,
+	OwnerInfoSelectColumnIsDeleted,
+	OwnerInfoSelectColumnCreatedAt,
+	OwnerInfoSelectColumnCreatedBy,
 	OwnerInfoSelectColumnUpdatedAt,
 	OwnerInfoSelectColumnUpdatedBy,
+	OwnerInfoSelectColumnDeletedAt,
+	OwnerInfoSelectColumnDeletedBy,
 }
 
 func (e OwnerInfoSelectColumn) IsValid() bool {
 	switch e {
-	case OwnerInfoSelectColumnAddress, OwnerInfoSelectColumnAgent, OwnerInfoSelectColumnCellphone, OwnerInfoSelectColumnCreatedAt, OwnerInfoSelectColumnCreatedBy, OwnerInfoSelectColumnDeletedAt, OwnerInfoSelectColumnDeletedBy, OwnerInfoSelectColumnDepartmentID, OwnerInfoSelectColumnEmail, OwnerInfoSelectColumnExpiryDate, OwnerInfoSelectColumnID, OwnerInfoSelectColumnIDNumber, OwnerInfoSelectColumnIsDelete, OwnerInfoSelectColumnName, OwnerInfoSelectColumnOperator, OwnerInfoSelectColumnOwnerID, OwnerInfoSelectColumnRemarks, OwnerInfoSelectColumnSex, OwnerInfoSelectColumnTelephone, OwnerInfoSelectColumnUpdatedAt, OwnerInfoSelectColumnUpdatedBy:
+	case OwnerInfoSelectColumnID, OwnerInfoSelectColumnOwnerID, OwnerInfoSelectColumnDepartmentID, OwnerInfoSelectColumnName, OwnerInfoSelectColumnAddress, OwnerInfoSelectColumnCellphone, OwnerInfoSelectColumnTelephone, OwnerInfoSelectColumnEmail, OwnerInfoSelectColumnExpiryDate, OwnerInfoSelectColumnIDNumber, OwnerInfoSelectColumnRemarks, OwnerInfoSelectColumnSex, OwnerInfoSelectColumnAgent, OwnerInfoSelectColumnOperator, OwnerInfoSelectColumnIsDeleted, OwnerInfoSelectColumnCreatedAt, OwnerInfoSelectColumnCreatedBy, OwnerInfoSelectColumnUpdatedAt, OwnerInfoSelectColumnUpdatedBy, OwnerInfoSelectColumnDeletedAt, OwnerInfoSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -7123,7 +7620,7 @@ func (e *OwnerInfoSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = OwnerInfoSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid owner_info_select_column", str)
+		return fmt.Errorf("%s is not a valid OwnerInfoSelectColumn", str)
 	}
 	return nil
 }
@@ -7132,772 +7629,809 @@ func (e OwnerInfoSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "owner_info"
-type OwnerInfoUpdateColumn string
+// 可选select
+type ProvinceUploadVehicleSelectColumn string
 
 const (
-	// column name
-	OwnerInfoUpdateColumnAddress OwnerInfoUpdateColumn = "address"
-	// column name
-	OwnerInfoUpdateColumnAgent OwnerInfoUpdateColumn = "agent"
-	// column name
-	OwnerInfoUpdateColumnCellphone OwnerInfoUpdateColumn = "cellphone"
-	// column name
-	OwnerInfoUpdateColumnCreatedAt OwnerInfoUpdateColumn = "created_at"
-	// column name
-	OwnerInfoUpdateColumnCreatedBy OwnerInfoUpdateColumn = "created_by"
-	// column name
-	OwnerInfoUpdateColumnDeletedAt OwnerInfoUpdateColumn = "deleted_at"
-	// column name
-	OwnerInfoUpdateColumnDeletedBy OwnerInfoUpdateColumn = "deleted_by"
-	// column name
-	OwnerInfoUpdateColumnDepartmentID OwnerInfoUpdateColumn = "department_id"
-	// column name
-	OwnerInfoUpdateColumnEmail OwnerInfoUpdateColumn = "email"
-	// column name
-	OwnerInfoUpdateColumnExpiryDate OwnerInfoUpdateColumn = "expiry_date"
-	// column name
-	OwnerInfoUpdateColumnID OwnerInfoUpdateColumn = "id"
-	// column name
-	OwnerInfoUpdateColumnIDNumber OwnerInfoUpdateColumn = "id_number"
-	// column name
-	OwnerInfoUpdateColumnIsDelete OwnerInfoUpdateColumn = "is_delete"
-	// column name
-	OwnerInfoUpdateColumnName OwnerInfoUpdateColumn = "name"
-	// column name
-	OwnerInfoUpdateColumnOperator OwnerInfoUpdateColumn = "operator"
-	// column name
-	OwnerInfoUpdateColumnOwnerID OwnerInfoUpdateColumn = "owner_id"
-	// column name
-	OwnerInfoUpdateColumnRemarks OwnerInfoUpdateColumn = "remarks"
-	// column name
-	OwnerInfoUpdateColumnSex OwnerInfoUpdateColumn = "sex"
-	// column name
-	OwnerInfoUpdateColumnTelephone OwnerInfoUpdateColumn = "telephone"
-	// column name
-	OwnerInfoUpdateColumnUpdatedAt OwnerInfoUpdateColumn = "updated_at"
-	// column name
-	OwnerInfoUpdateColumnUpdatedBy OwnerInfoUpdateColumn = "updated_by"
+	// 按指定方法生成                                  ( 主键                                 )
+	ProvinceUploadVehicleSelectColumnID ProvinceUploadVehicleSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	ProvinceUploadVehicleSelectColumnProvinceUploadVehicleID ProvinceUploadVehicleSelectColumn = "province_upload_vehicle_id"
+	// 车牌号码                                        (                                      )
+	ProvinceUploadVehicleSelectColumnLicensePlateNumber ProvinceUploadVehicleSelectColumn = "license_plate_number"
+	// 车牌颜色                                        ( 车牌颜色字典                     )
+	ProvinceUploadVehicleSelectColumnLicensePlateColor ProvinceUploadVehicleSelectColumn = "license_plate_color"
+	// 所在企业id                                      ( enterprise_info表的enterprise_id )
+	ProvinceUploadVehicleSelectColumnEnterpriseID ProvinceUploadVehicleSelectColumn = "enterprise_id"
+	// 运营商                                          ( enterprise_info表的enterprise_id )
+	ProvinceUploadVehicleSelectColumnOperator ProvinceUploadVehicleSelectColumn = "operator"
+	// 车籍地(行驶证上的车辆注册地 )                   (                                      )
+	ProvinceUploadVehicleSelectColumnVehicleRegistrationPlace ProvinceUploadVehicleSelectColumn = "vehicle_registration_place"
+	// 车辆类型                                        ( 车辆类型字典                     )
+	ProvinceUploadVehicleSelectColumnVehicleType ProvinceUploadVehicleSelectColumn = "vehicle_type"
+	// 吨位                                            (                                      )
+	ProvinceUploadVehicleSelectColumnHeavy ProvinceUploadVehicleSelectColumn = "heavy"
+	// 座位                                            (                                      )
+	ProvinceUploadVehicleSelectColumnSeats ProvinceUploadVehicleSelectColumn = "seats"
+	// 运营标识                                        (                                      )
+	ProvinceUploadVehicleSelectColumnOperatingFlag ProvinceUploadVehicleSelectColumn = "operating_flag"
+	// 营运状态                                        ( 营运状态字典                     )
+	ProvinceUploadVehicleSelectColumnOperatingState ProvinceUploadVehicleSelectColumn = "operating_state"
+	// 备注                                            (                                      )
+	ProvinceUploadVehicleSelectColumnRemarks ProvinceUploadVehicleSelectColumn = "remarks"
+	// 在线状态                                        (                                      )
+	ProvinceUploadVehicleSelectColumnOnlineStatus ProvinceUploadVehicleSelectColumn = "online_status"
+	// 最后汇报时间                                    (                                      )
+	ProvinceUploadVehicleSelectColumnLastReportTime ProvinceUploadVehicleSelectColumn = "last_report_time"
+	// 运政同步标识                                    (                                      )
+	ProvinceUploadVehicleSelectColumnTransportAgencySynchronizationFlag ProvinceUploadVehicleSelectColumn = "transport_agency_synchronization_flag"
+	// 是否运政同步                                    (                                      )
+	ProvinceUploadVehicleSelectColumnIsTransportAgencySynchronization ProvinceUploadVehicleSelectColumn = "is_transport_agency_synchronization"
+	// 运政同步时间                                    (                                      )
+	ProvinceUploadVehicleSelectColumnTransportAgencySynchronizationTime ProvinceUploadVehicleSelectColumn = "transport_agency_synchronization_time"
+	// 设备型号                                        (                                      )
+	ProvinceUploadVehicleSelectColumnDeviceModel ProvinceUploadVehicleSelectColumn = "device_model"
+	// 终端型号                                        (                                      )
+	ProvinceUploadVehicleSelectColumnTerminalModel ProvinceUploadVehicleSelectColumn = "terminal_model"
+	// 创建时间                                        (                                      )
+	ProvinceUploadVehicleSelectColumnCreatedAt ProvinceUploadVehicleSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id           )
+	ProvinceUploadVehicleSelectColumnCreatedBy ProvinceUploadVehicleSelectColumn = "created_by"
+	// 修改时间                                        (                                      )
+	ProvinceUploadVehicleSelectColumnUpdatedAt ProvinceUploadVehicleSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id           )
+	ProvinceUploadVehicleSelectColumnUpdatedBy ProvinceUploadVehicleSelectColumn = "updated_by"
+	// 删除时间                                        (                                      )
+	ProvinceUploadVehicleSelectColumnDeletedAt ProvinceUploadVehicleSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id           )
+	ProvinceUploadVehicleSelectColumnDeletedBy ProvinceUploadVehicleSelectColumn = "deleted_by"
 )
 
-var AllOwnerInfoUpdateColumn = []OwnerInfoUpdateColumn{
-	OwnerInfoUpdateColumnAddress,
-	OwnerInfoUpdateColumnAgent,
-	OwnerInfoUpdateColumnCellphone,
-	OwnerInfoUpdateColumnCreatedAt,
-	OwnerInfoUpdateColumnCreatedBy,
-	OwnerInfoUpdateColumnDeletedAt,
-	OwnerInfoUpdateColumnDeletedBy,
-	OwnerInfoUpdateColumnDepartmentID,
-	OwnerInfoUpdateColumnEmail,
-	OwnerInfoUpdateColumnExpiryDate,
-	OwnerInfoUpdateColumnID,
-	OwnerInfoUpdateColumnIDNumber,
-	OwnerInfoUpdateColumnIsDelete,
-	OwnerInfoUpdateColumnName,
-	OwnerInfoUpdateColumnOperator,
-	OwnerInfoUpdateColumnOwnerID,
-	OwnerInfoUpdateColumnRemarks,
-	OwnerInfoUpdateColumnSex,
-	OwnerInfoUpdateColumnTelephone,
-	OwnerInfoUpdateColumnUpdatedAt,
-	OwnerInfoUpdateColumnUpdatedBy,
+var AllProvinceUploadVehicleSelectColumn = []ProvinceUploadVehicleSelectColumn{
+	ProvinceUploadVehicleSelectColumnID,
+	ProvinceUploadVehicleSelectColumnProvinceUploadVehicleID,
+	ProvinceUploadVehicleSelectColumnLicensePlateNumber,
+	ProvinceUploadVehicleSelectColumnLicensePlateColor,
+	ProvinceUploadVehicleSelectColumnEnterpriseID,
+	ProvinceUploadVehicleSelectColumnOperator,
+	ProvinceUploadVehicleSelectColumnVehicleRegistrationPlace,
+	ProvinceUploadVehicleSelectColumnVehicleType,
+	ProvinceUploadVehicleSelectColumnHeavy,
+	ProvinceUploadVehicleSelectColumnSeats,
+	ProvinceUploadVehicleSelectColumnOperatingFlag,
+	ProvinceUploadVehicleSelectColumnOperatingState,
+	ProvinceUploadVehicleSelectColumnRemarks,
+	ProvinceUploadVehicleSelectColumnOnlineStatus,
+	ProvinceUploadVehicleSelectColumnLastReportTime,
+	ProvinceUploadVehicleSelectColumnTransportAgencySynchronizationFlag,
+	ProvinceUploadVehicleSelectColumnIsTransportAgencySynchronization,
+	ProvinceUploadVehicleSelectColumnTransportAgencySynchronizationTime,
+	ProvinceUploadVehicleSelectColumnDeviceModel,
+	ProvinceUploadVehicleSelectColumnTerminalModel,
+	ProvinceUploadVehicleSelectColumnCreatedAt,
+	ProvinceUploadVehicleSelectColumnCreatedBy,
+	ProvinceUploadVehicleSelectColumnUpdatedAt,
+	ProvinceUploadVehicleSelectColumnUpdatedBy,
+	ProvinceUploadVehicleSelectColumnDeletedAt,
+	ProvinceUploadVehicleSelectColumnDeletedBy,
 }
 
-func (e OwnerInfoUpdateColumn) IsValid() bool {
+func (e ProvinceUploadVehicleSelectColumn) IsValid() bool {
 	switch e {
-	case OwnerInfoUpdateColumnAddress, OwnerInfoUpdateColumnAgent, OwnerInfoUpdateColumnCellphone, OwnerInfoUpdateColumnCreatedAt, OwnerInfoUpdateColumnCreatedBy, OwnerInfoUpdateColumnDeletedAt, OwnerInfoUpdateColumnDeletedBy, OwnerInfoUpdateColumnDepartmentID, OwnerInfoUpdateColumnEmail, OwnerInfoUpdateColumnExpiryDate, OwnerInfoUpdateColumnID, OwnerInfoUpdateColumnIDNumber, OwnerInfoUpdateColumnIsDelete, OwnerInfoUpdateColumnName, OwnerInfoUpdateColumnOperator, OwnerInfoUpdateColumnOwnerID, OwnerInfoUpdateColumnRemarks, OwnerInfoUpdateColumnSex, OwnerInfoUpdateColumnTelephone, OwnerInfoUpdateColumnUpdatedAt, OwnerInfoUpdateColumnUpdatedBy:
+	case ProvinceUploadVehicleSelectColumnID, ProvinceUploadVehicleSelectColumnProvinceUploadVehicleID, ProvinceUploadVehicleSelectColumnLicensePlateNumber, ProvinceUploadVehicleSelectColumnLicensePlateColor, ProvinceUploadVehicleSelectColumnEnterpriseID, ProvinceUploadVehicleSelectColumnOperator, ProvinceUploadVehicleSelectColumnVehicleRegistrationPlace, ProvinceUploadVehicleSelectColumnVehicleType, ProvinceUploadVehicleSelectColumnHeavy, ProvinceUploadVehicleSelectColumnSeats, ProvinceUploadVehicleSelectColumnOperatingFlag, ProvinceUploadVehicleSelectColumnOperatingState, ProvinceUploadVehicleSelectColumnRemarks, ProvinceUploadVehicleSelectColumnOnlineStatus, ProvinceUploadVehicleSelectColumnLastReportTime, ProvinceUploadVehicleSelectColumnTransportAgencySynchronizationFlag, ProvinceUploadVehicleSelectColumnIsTransportAgencySynchronization, ProvinceUploadVehicleSelectColumnTransportAgencySynchronizationTime, ProvinceUploadVehicleSelectColumnDeviceModel, ProvinceUploadVehicleSelectColumnTerminalModel, ProvinceUploadVehicleSelectColumnCreatedAt, ProvinceUploadVehicleSelectColumnCreatedBy, ProvinceUploadVehicleSelectColumnUpdatedAt, ProvinceUploadVehicleSelectColumnUpdatedBy, ProvinceUploadVehicleSelectColumnDeletedAt, ProvinceUploadVehicleSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e OwnerInfoUpdateColumn) String() string {
+func (e ProvinceUploadVehicleSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *OwnerInfoUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *ProvinceUploadVehicleSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = OwnerInfoUpdateColumn(str)
+	*e = ProvinceUploadVehicleSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid owner_info_update_column", str)
+		return fmt.Errorf("%s is not a valid ProvinceUploadVehicleSelectColumn", str)
 	}
 	return nil
 }
 
-func (e OwnerInfoUpdateColumn) MarshalGQL(w io.Writer) {
+func (e ProvinceUploadVehicleSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "vehicle_info_change_log"
-type VehicleInfoChangeLogConstraint string
+// 可选select
+type TempIDCardDownloadLogSelectColumn string
 
 const (
-	// unique or primary key constraint
-	VehicleInfoChangeLogConstraintVehicleInfoChangeLogPkey VehicleInfoChangeLogConstraint = "vehicle_info_change_log_pkey"
+	// 按指定方法生成                                  ( 主键                       )
+	TempIDCardDownloadLogSelectColumnID TempIDCardDownloadLogSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	TempIDCardDownloadLogSelectColumnTempIDCardDownloadID TempIDCardDownloadLogSelectColumn = "temp_id_card_download_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	TempIDCardDownloadLogSelectColumnVehicleID TempIDCardDownloadLogSelectColumn = "vehicle_id"
+	// 有效期起始                                      (                            )
+	TempIDCardDownloadLogSelectColumnValidFrom TempIDCardDownloadLogSelectColumn = "valid_from"
+	// 有效期截止                                      (                            )
+	TempIDCardDownloadLogSelectColumnValidUntil TempIDCardDownloadLogSelectColumn = "valid_until"
+	// 操作人                                          ( system_user表的user_id )
+	TempIDCardDownloadLogSelectColumnOperator TempIDCardDownloadLogSelectColumn = "operator"
+	// 是否删除                                        (                            )
+	TempIDCardDownloadLogSelectColumnIsDeleted TempIDCardDownloadLogSelectColumn = "is_deleted"
+	// 创建时间                                        (                            )
+	TempIDCardDownloadLogSelectColumnCreatedAt TempIDCardDownloadLogSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	TempIDCardDownloadLogSelectColumnCreatedBy TempIDCardDownloadLogSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	TempIDCardDownloadLogSelectColumnUpdatedAt TempIDCardDownloadLogSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	TempIDCardDownloadLogSelectColumnUpdatedBy TempIDCardDownloadLogSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	TempIDCardDownloadLogSelectColumnDeletedAt TempIDCardDownloadLogSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	TempIDCardDownloadLogSelectColumnDeletedBy TempIDCardDownloadLogSelectColumn = "deleted_by"
 )
 
-var AllVehicleInfoChangeLogConstraint = []VehicleInfoChangeLogConstraint{
-	VehicleInfoChangeLogConstraintVehicleInfoChangeLogPkey,
+var AllTempIDCardDownloadLogSelectColumn = []TempIDCardDownloadLogSelectColumn{
+	TempIDCardDownloadLogSelectColumnID,
+	TempIDCardDownloadLogSelectColumnTempIDCardDownloadID,
+	TempIDCardDownloadLogSelectColumnVehicleID,
+	TempIDCardDownloadLogSelectColumnValidFrom,
+	TempIDCardDownloadLogSelectColumnValidUntil,
+	TempIDCardDownloadLogSelectColumnOperator,
+	TempIDCardDownloadLogSelectColumnIsDeleted,
+	TempIDCardDownloadLogSelectColumnCreatedAt,
+	TempIDCardDownloadLogSelectColumnCreatedBy,
+	TempIDCardDownloadLogSelectColumnUpdatedAt,
+	TempIDCardDownloadLogSelectColumnUpdatedBy,
+	TempIDCardDownloadLogSelectColumnDeletedAt,
+	TempIDCardDownloadLogSelectColumnDeletedBy,
 }
 
-func (e VehicleInfoChangeLogConstraint) IsValid() bool {
+func (e TempIDCardDownloadLogSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoChangeLogConstraintVehicleInfoChangeLogPkey:
+	case TempIDCardDownloadLogSelectColumnID, TempIDCardDownloadLogSelectColumnTempIDCardDownloadID, TempIDCardDownloadLogSelectColumnVehicleID, TempIDCardDownloadLogSelectColumnValidFrom, TempIDCardDownloadLogSelectColumnValidUntil, TempIDCardDownloadLogSelectColumnOperator, TempIDCardDownloadLogSelectColumnIsDeleted, TempIDCardDownloadLogSelectColumnCreatedAt, TempIDCardDownloadLogSelectColumnCreatedBy, TempIDCardDownloadLogSelectColumnUpdatedAt, TempIDCardDownloadLogSelectColumnUpdatedBy, TempIDCardDownloadLogSelectColumnDeletedAt, TempIDCardDownloadLogSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e VehicleInfoChangeLogConstraint) String() string {
+func (e TempIDCardDownloadLogSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *VehicleInfoChangeLogConstraint) UnmarshalGQL(v interface{}) error {
+func (e *TempIDCardDownloadLogSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = VehicleInfoChangeLogConstraint(str)
+	*e = TempIDCardDownloadLogSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_info_change_log_constraint", str)
+		return fmt.Errorf("%s is not a valid TempIdCardDownloadLogSelectColumn", str)
 	}
 	return nil
 }
 
-func (e VehicleInfoChangeLogConstraint) MarshalGQL(w io.Writer) {
+func (e TempIDCardDownloadLogSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// select columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogSelectColumn string
+// 可选select
+type VehicleEnterpriseChangeLogSelectColumn string
 
 const (
-	// column name
-	VehicleInfoChangeLogSelectColumnBusinessScope VehicleInfoChangeLogSelectColumn = "business_scope"
-	// column name
-	VehicleInfoChangeLogSelectColumnCarRentalPrice VehicleInfoChangeLogSelectColumn = "car_rental_price"
-	// column name
-	VehicleInfoChangeLogSelectColumnCheckState VehicleInfoChangeLogSelectColumn = "check_state"
-	// column name
-	VehicleInfoChangeLogSelectColumnCreatedAt VehicleInfoChangeLogSelectColumn = "created_at"
-	// column name
-	VehicleInfoChangeLogSelectColumnCreatedBy VehicleInfoChangeLogSelectColumn = "created_by"
-	// column name
-	VehicleInfoChangeLogSelectColumnDeletedAt VehicleInfoChangeLogSelectColumn = "deleted_at"
-	// column name
-	VehicleInfoChangeLogSelectColumnDeletedBy VehicleInfoChangeLogSelectColumn = "deleted_by"
-	// column name
-	VehicleInfoChangeLogSelectColumnDepartmentID VehicleInfoChangeLogSelectColumn = "department_id"
-	// column name
-	VehicleInfoChangeLogSelectColumnDrivingLicenseePic VehicleInfoChangeLogSelectColumn = "driving_licensee_pic"
-	// column name
-	VehicleInfoChangeLogSelectColumnEnterpriseID VehicleInfoChangeLogSelectColumn = "enterprise_id"
-	// column name
-	VehicleInfoChangeLogSelectColumnHeavy VehicleInfoChangeLogSelectColumn = "heavy"
-	// column name
-	VehicleInfoChangeLogSelectColumnID VehicleInfoChangeLogSelectColumn = "id"
-	// column name
-	VehicleInfoChangeLogSelectColumnIndustryCategory VehicleInfoChangeLogSelectColumn = "industry_category"
-	// column name
-	VehicleInfoChangeLogSelectColumnInspectionDate VehicleInfoChangeLogSelectColumn = "inspection_date"
-	// column name
-	VehicleInfoChangeLogSelectColumnInsuranceCompany VehicleInfoChangeLogSelectColumn = "insurance_company"
-	// column name
-	VehicleInfoChangeLogSelectColumnInsuranceDate VehicleInfoChangeLogSelectColumn = "insurance_date"
-	// column name
-	VehicleInfoChangeLogSelectColumnIsActive VehicleInfoChangeLogSelectColumn = "is_active"
-	// column name
-	VehicleInfoChangeLogSelectColumnIsApplyInstallTerminal VehicleInfoChangeLogSelectColumn = "is_apply_install_terminal"
-	// column name
-	VehicleInfoChangeLogSelectColumnIsComplete VehicleInfoChangeLogSelectColumn = "is_complete"
-	// column name
-	VehicleInfoChangeLogSelectColumnIsDelete VehicleInfoChangeLogSelectColumn = "is_delete"
-	// column name
-	VehicleInfoChangeLogSelectColumnIsImport VehicleInfoChangeLogSelectColumn = "is_import"
-	// column name
-	VehicleInfoChangeLogSelectColumnIsInput VehicleInfoChangeLogSelectColumn = "is_input"
-	// column name
-	VehicleInfoChangeLogSelectColumnIsUploadProvince VehicleInfoChangeLogSelectColumn = "is_upload_province"
-	// column name
-	VehicleInfoChangeLogSelectColumnLicensePlateColor VehicleInfoChangeLogSelectColumn = "license_plate_color"
-	// column name
-	VehicleInfoChangeLogSelectColumnLicensePlateNumber VehicleInfoChangeLogSelectColumn = "license_plate_number"
-	// column name
-	VehicleInfoChangeLogSelectColumnLicensePlateType VehicleInfoChangeLogSelectColumn = "license_plate_type"
-	// column name
-	VehicleInfoChangeLogSelectColumnMuckTruckID VehicleInfoChangeLogSelectColumn = "muck_truck_id"
-	// column name
-	VehicleInfoChangeLogSelectColumnOperatingRoute VehicleInfoChangeLogSelectColumn = "operating_route"
-	// column name
-	VehicleInfoChangeLogSelectColumnOperatingState VehicleInfoChangeLogSelectColumn = "operating_state"
-	// column name
-	VehicleInfoChangeLogSelectColumnOperatingType VehicleInfoChangeLogSelectColumn = "operating_type"
-	// column name
-	VehicleInfoChangeLogSelectColumnOperatingVehicleID VehicleInfoChangeLogSelectColumn = "operating_vehicle_id"
-	// column name
-	VehicleInfoChangeLogSelectColumnOwner VehicleInfoChangeLogSelectColumn = "owner"
-	// column name
-	VehicleInfoChangeLogSelectColumnQuasiDrivingModels VehicleInfoChangeLogSelectColumn = "quasi_driving_models"
-	// column name
-	VehicleInfoChangeLogSelectColumnRecordAt VehicleInfoChangeLogSelectColumn = "record_at"
-	// column name
-	VehicleInfoChangeLogSelectColumnRecordBy VehicleInfoChangeLogSelectColumn = "record_by"
-	// column name
-	VehicleInfoChangeLogSelectColumnRemarkIn VehicleInfoChangeLogSelectColumn = "remark_in"
-	// column name
-	VehicleInfoChangeLogSelectColumnRemarks VehicleInfoChangeLogSelectColumn = "remarks"
-	// column name
-	VehicleInfoChangeLogSelectColumnRetirementDate VehicleInfoChangeLogSelectColumn = "retirement_date"
-	// column name
-	VehicleInfoChangeLogSelectColumnRoadTransportLicenseNumber VehicleInfoChangeLogSelectColumn = "road_transport_license_number"
-	// column name
-	VehicleInfoChangeLogSelectColumnSeats VehicleInfoChangeLogSelectColumn = "seats"
-	// column name
-	VehicleInfoChangeLogSelectColumnTerminalID VehicleInfoChangeLogSelectColumn = "terminal_id"
-	// column name
-	VehicleInfoChangeLogSelectColumnUpdatedAt VehicleInfoChangeLogSelectColumn = "updated_at"
-	// column name
-	VehicleInfoChangeLogSelectColumnUpdatedBy VehicleInfoChangeLogSelectColumn = "updated_by"
-	// column name
-	VehicleInfoChangeLogSelectColumnUpdateTimeIn VehicleInfoChangeLogSelectColumn = "update_time_in"
-	// column name
-	VehicleInfoChangeLogSelectColumnUseNature VehicleInfoChangeLogSelectColumn = "use_nature"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleBrand VehicleInfoChangeLogSelectColumn = "vehicle_brand"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleDisplacement VehicleInfoChangeLogSelectColumn = "vehicle_displacement"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleIdentificationNumber VehicleInfoChangeLogSelectColumn = "vehicle_identification_number"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleInfoChangeID VehicleInfoChangeLogSelectColumn = "vehicle_info_change_id"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleMaintenances VehicleInfoChangeLogSelectColumn = "vehicle_maintenances"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleManager VehicleInfoChangeLogSelectColumn = "vehicle_manager"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleManagerIDCard VehicleInfoChangeLogSelectColumn = "vehicle_manager_id_card"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleManagerPhone VehicleInfoChangeLogSelectColumn = "vehicle_manager_phone"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleState VehicleInfoChangeLogSelectColumn = "vehicle_state"
-	// column name
-	VehicleInfoChangeLogSelectColumnVehicleType VehicleInfoChangeLogSelectColumn = "vehicle_type"
+	// 按指定方法生成                                  ( 主键                                                        )
+	VehicleEnterpriseChangeLogSelectColumnID VehicleEnterpriseChangeLogSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                    )
+	VehicleEnterpriseChangeLogSelectColumnVehicleEnterpriseChangeLogID VehicleEnterpriseChangeLogSelectColumn = "vehicle_enterprise_change_log_id"
+	// 变更类型                                        (                                                             )
+	VehicleEnterpriseChangeLogSelectColumnChangedType VehicleEnterpriseChangeLogSelectColumn = "changed_type"
+	// 变更步骤                                        (                                                             )
+	VehicleEnterpriseChangeLogSelectColumnChangedStep VehicleEnterpriseChangeLogSelectColumn = "changed_step"
+	// 操作人                                          ( system_user表的user_id                                  )
+	VehicleEnterpriseChangeLogSelectColumnOperator VehicleEnterpriseChangeLogSelectColumn = "operator"
+	// 变更审核表ID                                    ( vehicle_enterprise_change_review 车辆单位变更审核表的id )
+	VehicleEnterpriseChangeLogSelectColumnChangeReviewID VehicleEnterpriseChangeLogSelectColumn = "change_review_id"
+	// 审核状态  0.未审核  1.通过  2.退回  3.撤销      (                                                             )
+	VehicleEnterpriseChangeLogSelectColumnReviewStatus VehicleEnterpriseChangeLogSelectColumn = "review_status"
+	// 创建时间                                        (                                                             )
+	VehicleEnterpriseChangeLogSelectColumnCreatedAt VehicleEnterpriseChangeLogSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id                                  )
+	VehicleEnterpriseChangeLogSelectColumnCreatedBy VehicleEnterpriseChangeLogSelectColumn = "created_by"
+	// 修改时间                                        (                                                             )
+	VehicleEnterpriseChangeLogSelectColumnUpdatedAt VehicleEnterpriseChangeLogSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id                                  )
+	VehicleEnterpriseChangeLogSelectColumnUpdatedBy VehicleEnterpriseChangeLogSelectColumn = "updated_by"
+	// 删除时间                                        (                                                             )
+	VehicleEnterpriseChangeLogSelectColumnDeletedAt VehicleEnterpriseChangeLogSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id                                  )
+	VehicleEnterpriseChangeLogSelectColumnDeletedBy VehicleEnterpriseChangeLogSelectColumn = "deleted_by"
 )
 
-var AllVehicleInfoChangeLogSelectColumn = []VehicleInfoChangeLogSelectColumn{
-	VehicleInfoChangeLogSelectColumnBusinessScope,
-	VehicleInfoChangeLogSelectColumnCarRentalPrice,
-	VehicleInfoChangeLogSelectColumnCheckState,
-	VehicleInfoChangeLogSelectColumnCreatedAt,
-	VehicleInfoChangeLogSelectColumnCreatedBy,
-	VehicleInfoChangeLogSelectColumnDeletedAt,
-	VehicleInfoChangeLogSelectColumnDeletedBy,
-	VehicleInfoChangeLogSelectColumnDepartmentID,
-	VehicleInfoChangeLogSelectColumnDrivingLicenseePic,
-	VehicleInfoChangeLogSelectColumnEnterpriseID,
-	VehicleInfoChangeLogSelectColumnHeavy,
-	VehicleInfoChangeLogSelectColumnID,
-	VehicleInfoChangeLogSelectColumnIndustryCategory,
-	VehicleInfoChangeLogSelectColumnInspectionDate,
-	VehicleInfoChangeLogSelectColumnInsuranceCompany,
-	VehicleInfoChangeLogSelectColumnInsuranceDate,
-	VehicleInfoChangeLogSelectColumnIsActive,
-	VehicleInfoChangeLogSelectColumnIsApplyInstallTerminal,
-	VehicleInfoChangeLogSelectColumnIsComplete,
-	VehicleInfoChangeLogSelectColumnIsDelete,
-	VehicleInfoChangeLogSelectColumnIsImport,
-	VehicleInfoChangeLogSelectColumnIsInput,
-	VehicleInfoChangeLogSelectColumnIsUploadProvince,
-	VehicleInfoChangeLogSelectColumnLicensePlateColor,
-	VehicleInfoChangeLogSelectColumnLicensePlateNumber,
-	VehicleInfoChangeLogSelectColumnLicensePlateType,
-	VehicleInfoChangeLogSelectColumnMuckTruckID,
-	VehicleInfoChangeLogSelectColumnOperatingRoute,
-	VehicleInfoChangeLogSelectColumnOperatingState,
-	VehicleInfoChangeLogSelectColumnOperatingType,
-	VehicleInfoChangeLogSelectColumnOperatingVehicleID,
-	VehicleInfoChangeLogSelectColumnOwner,
-	VehicleInfoChangeLogSelectColumnQuasiDrivingModels,
-	VehicleInfoChangeLogSelectColumnRecordAt,
-	VehicleInfoChangeLogSelectColumnRecordBy,
-	VehicleInfoChangeLogSelectColumnRemarkIn,
-	VehicleInfoChangeLogSelectColumnRemarks,
-	VehicleInfoChangeLogSelectColumnRetirementDate,
-	VehicleInfoChangeLogSelectColumnRoadTransportLicenseNumber,
-	VehicleInfoChangeLogSelectColumnSeats,
-	VehicleInfoChangeLogSelectColumnTerminalID,
-	VehicleInfoChangeLogSelectColumnUpdatedAt,
-	VehicleInfoChangeLogSelectColumnUpdatedBy,
-	VehicleInfoChangeLogSelectColumnUpdateTimeIn,
-	VehicleInfoChangeLogSelectColumnUseNature,
-	VehicleInfoChangeLogSelectColumnVehicleBrand,
-	VehicleInfoChangeLogSelectColumnVehicleDisplacement,
-	VehicleInfoChangeLogSelectColumnVehicleIdentificationNumber,
-	VehicleInfoChangeLogSelectColumnVehicleInfoChangeID,
-	VehicleInfoChangeLogSelectColumnVehicleMaintenances,
-	VehicleInfoChangeLogSelectColumnVehicleManager,
-	VehicleInfoChangeLogSelectColumnVehicleManagerIDCard,
-	VehicleInfoChangeLogSelectColumnVehicleManagerPhone,
-	VehicleInfoChangeLogSelectColumnVehicleState,
-	VehicleInfoChangeLogSelectColumnVehicleType,
+var AllVehicleEnterpriseChangeLogSelectColumn = []VehicleEnterpriseChangeLogSelectColumn{
+	VehicleEnterpriseChangeLogSelectColumnID,
+	VehicleEnterpriseChangeLogSelectColumnVehicleEnterpriseChangeLogID,
+	VehicleEnterpriseChangeLogSelectColumnChangedType,
+	VehicleEnterpriseChangeLogSelectColumnChangedStep,
+	VehicleEnterpriseChangeLogSelectColumnOperator,
+	VehicleEnterpriseChangeLogSelectColumnChangeReviewID,
+	VehicleEnterpriseChangeLogSelectColumnReviewStatus,
+	VehicleEnterpriseChangeLogSelectColumnCreatedAt,
+	VehicleEnterpriseChangeLogSelectColumnCreatedBy,
+	VehicleEnterpriseChangeLogSelectColumnUpdatedAt,
+	VehicleEnterpriseChangeLogSelectColumnUpdatedBy,
+	VehicleEnterpriseChangeLogSelectColumnDeletedAt,
+	VehicleEnterpriseChangeLogSelectColumnDeletedBy,
 }
 
-func (e VehicleInfoChangeLogSelectColumn) IsValid() bool {
+func (e VehicleEnterpriseChangeLogSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoChangeLogSelectColumnBusinessScope, VehicleInfoChangeLogSelectColumnCarRentalPrice, VehicleInfoChangeLogSelectColumnCheckState, VehicleInfoChangeLogSelectColumnCreatedAt, VehicleInfoChangeLogSelectColumnCreatedBy, VehicleInfoChangeLogSelectColumnDeletedAt, VehicleInfoChangeLogSelectColumnDeletedBy, VehicleInfoChangeLogSelectColumnDepartmentID, VehicleInfoChangeLogSelectColumnDrivingLicenseePic, VehicleInfoChangeLogSelectColumnEnterpriseID, VehicleInfoChangeLogSelectColumnHeavy, VehicleInfoChangeLogSelectColumnID, VehicleInfoChangeLogSelectColumnIndustryCategory, VehicleInfoChangeLogSelectColumnInspectionDate, VehicleInfoChangeLogSelectColumnInsuranceCompany, VehicleInfoChangeLogSelectColumnInsuranceDate, VehicleInfoChangeLogSelectColumnIsActive, VehicleInfoChangeLogSelectColumnIsApplyInstallTerminal, VehicleInfoChangeLogSelectColumnIsComplete, VehicleInfoChangeLogSelectColumnIsDelete, VehicleInfoChangeLogSelectColumnIsImport, VehicleInfoChangeLogSelectColumnIsInput, VehicleInfoChangeLogSelectColumnIsUploadProvince, VehicleInfoChangeLogSelectColumnLicensePlateColor, VehicleInfoChangeLogSelectColumnLicensePlateNumber, VehicleInfoChangeLogSelectColumnLicensePlateType, VehicleInfoChangeLogSelectColumnMuckTruckID, VehicleInfoChangeLogSelectColumnOperatingRoute, VehicleInfoChangeLogSelectColumnOperatingState, VehicleInfoChangeLogSelectColumnOperatingType, VehicleInfoChangeLogSelectColumnOperatingVehicleID, VehicleInfoChangeLogSelectColumnOwner, VehicleInfoChangeLogSelectColumnQuasiDrivingModels, VehicleInfoChangeLogSelectColumnRecordAt, VehicleInfoChangeLogSelectColumnRecordBy, VehicleInfoChangeLogSelectColumnRemarkIn, VehicleInfoChangeLogSelectColumnRemarks, VehicleInfoChangeLogSelectColumnRetirementDate, VehicleInfoChangeLogSelectColumnRoadTransportLicenseNumber, VehicleInfoChangeLogSelectColumnSeats, VehicleInfoChangeLogSelectColumnTerminalID, VehicleInfoChangeLogSelectColumnUpdatedAt, VehicleInfoChangeLogSelectColumnUpdatedBy, VehicleInfoChangeLogSelectColumnUpdateTimeIn, VehicleInfoChangeLogSelectColumnUseNature, VehicleInfoChangeLogSelectColumnVehicleBrand, VehicleInfoChangeLogSelectColumnVehicleDisplacement, VehicleInfoChangeLogSelectColumnVehicleIdentificationNumber, VehicleInfoChangeLogSelectColumnVehicleInfoChangeID, VehicleInfoChangeLogSelectColumnVehicleMaintenances, VehicleInfoChangeLogSelectColumnVehicleManager, VehicleInfoChangeLogSelectColumnVehicleManagerIDCard, VehicleInfoChangeLogSelectColumnVehicleManagerPhone, VehicleInfoChangeLogSelectColumnVehicleState, VehicleInfoChangeLogSelectColumnVehicleType:
+	case VehicleEnterpriseChangeLogSelectColumnID, VehicleEnterpriseChangeLogSelectColumnVehicleEnterpriseChangeLogID, VehicleEnterpriseChangeLogSelectColumnChangedType, VehicleEnterpriseChangeLogSelectColumnChangedStep, VehicleEnterpriseChangeLogSelectColumnOperator, VehicleEnterpriseChangeLogSelectColumnChangeReviewID, VehicleEnterpriseChangeLogSelectColumnReviewStatus, VehicleEnterpriseChangeLogSelectColumnCreatedAt, VehicleEnterpriseChangeLogSelectColumnCreatedBy, VehicleEnterpriseChangeLogSelectColumnUpdatedAt, VehicleEnterpriseChangeLogSelectColumnUpdatedBy, VehicleEnterpriseChangeLogSelectColumnDeletedAt, VehicleEnterpriseChangeLogSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e VehicleInfoChangeLogSelectColumn) String() string {
+func (e VehicleEnterpriseChangeLogSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *VehicleInfoChangeLogSelectColumn) UnmarshalGQL(v interface{}) error {
+func (e *VehicleEnterpriseChangeLogSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = VehicleInfoChangeLogSelectColumn(str)
+	*e = VehicleEnterpriseChangeLogSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_info_change_log_select_column", str)
+		return fmt.Errorf("%s is not a valid VehicleEnterpriseChangeLogSelectColumn", str)
 	}
 	return nil
 }
 
-func (e VehicleInfoChangeLogSelectColumn) MarshalGQL(w io.Writer) {
+func (e VehicleEnterpriseChangeLogSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "vehicle_info_change_log"
-type VehicleInfoChangeLogUpdateColumn string
+// 可选select
+type VehicleEnterpriseChangeReviewSelectColumn string
 
 const (
-	// column name
-	VehicleInfoChangeLogUpdateColumnBusinessScope VehicleInfoChangeLogUpdateColumn = "business_scope"
-	// column name
-	VehicleInfoChangeLogUpdateColumnCarRentalPrice VehicleInfoChangeLogUpdateColumn = "car_rental_price"
-	// column name
-	VehicleInfoChangeLogUpdateColumnCheckState VehicleInfoChangeLogUpdateColumn = "check_state"
-	// column name
-	VehicleInfoChangeLogUpdateColumnCreatedAt VehicleInfoChangeLogUpdateColumn = "created_at"
-	// column name
-	VehicleInfoChangeLogUpdateColumnCreatedBy VehicleInfoChangeLogUpdateColumn = "created_by"
-	// column name
-	VehicleInfoChangeLogUpdateColumnDeletedAt VehicleInfoChangeLogUpdateColumn = "deleted_at"
-	// column name
-	VehicleInfoChangeLogUpdateColumnDeletedBy VehicleInfoChangeLogUpdateColumn = "deleted_by"
-	// column name
-	VehicleInfoChangeLogUpdateColumnDepartmentID VehicleInfoChangeLogUpdateColumn = "department_id"
-	// column name
-	VehicleInfoChangeLogUpdateColumnDrivingLicenseePic VehicleInfoChangeLogUpdateColumn = "driving_licensee_pic"
-	// column name
-	VehicleInfoChangeLogUpdateColumnEnterpriseID VehicleInfoChangeLogUpdateColumn = "enterprise_id"
-	// column name
-	VehicleInfoChangeLogUpdateColumnHeavy VehicleInfoChangeLogUpdateColumn = "heavy"
-	// column name
-	VehicleInfoChangeLogUpdateColumnID VehicleInfoChangeLogUpdateColumn = "id"
-	// column name
-	VehicleInfoChangeLogUpdateColumnIndustryCategory VehicleInfoChangeLogUpdateColumn = "industry_category"
-	// column name
-	VehicleInfoChangeLogUpdateColumnInspectionDate VehicleInfoChangeLogUpdateColumn = "inspection_date"
-	// column name
-	VehicleInfoChangeLogUpdateColumnInsuranceCompany VehicleInfoChangeLogUpdateColumn = "insurance_company"
-	// column name
-	VehicleInfoChangeLogUpdateColumnInsuranceDate VehicleInfoChangeLogUpdateColumn = "insurance_date"
-	// column name
-	VehicleInfoChangeLogUpdateColumnIsActive VehicleInfoChangeLogUpdateColumn = "is_active"
-	// column name
-	VehicleInfoChangeLogUpdateColumnIsApplyInstallTerminal VehicleInfoChangeLogUpdateColumn = "is_apply_install_terminal"
-	// column name
-	VehicleInfoChangeLogUpdateColumnIsComplete VehicleInfoChangeLogUpdateColumn = "is_complete"
-	// column name
-	VehicleInfoChangeLogUpdateColumnIsDelete VehicleInfoChangeLogUpdateColumn = "is_delete"
-	// column name
-	VehicleInfoChangeLogUpdateColumnIsImport VehicleInfoChangeLogUpdateColumn = "is_import"
-	// column name
-	VehicleInfoChangeLogUpdateColumnIsInput VehicleInfoChangeLogUpdateColumn = "is_input"
-	// column name
-	VehicleInfoChangeLogUpdateColumnIsUploadProvince VehicleInfoChangeLogUpdateColumn = "is_upload_province"
-	// column name
-	VehicleInfoChangeLogUpdateColumnLicensePlateColor VehicleInfoChangeLogUpdateColumn = "license_plate_color"
-	// column name
-	VehicleInfoChangeLogUpdateColumnLicensePlateNumber VehicleInfoChangeLogUpdateColumn = "license_plate_number"
-	// column name
-	VehicleInfoChangeLogUpdateColumnLicensePlateType VehicleInfoChangeLogUpdateColumn = "license_plate_type"
-	// column name
-	VehicleInfoChangeLogUpdateColumnMuckTruckID VehicleInfoChangeLogUpdateColumn = "muck_truck_id"
-	// column name
-	VehicleInfoChangeLogUpdateColumnOperatingRoute VehicleInfoChangeLogUpdateColumn = "operating_route"
-	// column name
-	VehicleInfoChangeLogUpdateColumnOperatingState VehicleInfoChangeLogUpdateColumn = "operating_state"
-	// column name
-	VehicleInfoChangeLogUpdateColumnOperatingType VehicleInfoChangeLogUpdateColumn = "operating_type"
-	// column name
-	VehicleInfoChangeLogUpdateColumnOperatingVehicleID VehicleInfoChangeLogUpdateColumn = "operating_vehicle_id"
-	// column name
-	VehicleInfoChangeLogUpdateColumnOwner VehicleInfoChangeLogUpdateColumn = "owner"
-	// column name
-	VehicleInfoChangeLogUpdateColumnQuasiDrivingModels VehicleInfoChangeLogUpdateColumn = "quasi_driving_models"
-	// column name
-	VehicleInfoChangeLogUpdateColumnRecordAt VehicleInfoChangeLogUpdateColumn = "record_at"
-	// column name
-	VehicleInfoChangeLogUpdateColumnRecordBy VehicleInfoChangeLogUpdateColumn = "record_by"
-	// column name
-	VehicleInfoChangeLogUpdateColumnRemarkIn VehicleInfoChangeLogUpdateColumn = "remark_in"
-	// column name
-	VehicleInfoChangeLogUpdateColumnRemarks VehicleInfoChangeLogUpdateColumn = "remarks"
-	// column name
-	VehicleInfoChangeLogUpdateColumnRetirementDate VehicleInfoChangeLogUpdateColumn = "retirement_date"
-	// column name
-	VehicleInfoChangeLogUpdateColumnRoadTransportLicenseNumber VehicleInfoChangeLogUpdateColumn = "road_transport_license_number"
-	// column name
-	VehicleInfoChangeLogUpdateColumnSeats VehicleInfoChangeLogUpdateColumn = "seats"
-	// column name
-	VehicleInfoChangeLogUpdateColumnTerminalID VehicleInfoChangeLogUpdateColumn = "terminal_id"
-	// column name
-	VehicleInfoChangeLogUpdateColumnUpdatedAt VehicleInfoChangeLogUpdateColumn = "updated_at"
-	// column name
-	VehicleInfoChangeLogUpdateColumnUpdatedBy VehicleInfoChangeLogUpdateColumn = "updated_by"
-	// column name
-	VehicleInfoChangeLogUpdateColumnUpdateTimeIn VehicleInfoChangeLogUpdateColumn = "update_time_in"
-	// column name
-	VehicleInfoChangeLogUpdateColumnUseNature VehicleInfoChangeLogUpdateColumn = "use_nature"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleBrand VehicleInfoChangeLogUpdateColumn = "vehicle_brand"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleDisplacement VehicleInfoChangeLogUpdateColumn = "vehicle_displacement"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleIdentificationNumber VehicleInfoChangeLogUpdateColumn = "vehicle_identification_number"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleInfoChangeID VehicleInfoChangeLogUpdateColumn = "vehicle_info_change_id"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleMaintenances VehicleInfoChangeLogUpdateColumn = "vehicle_maintenances"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleManager VehicleInfoChangeLogUpdateColumn = "vehicle_manager"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleManagerIDCard VehicleInfoChangeLogUpdateColumn = "vehicle_manager_id_card"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleManagerPhone VehicleInfoChangeLogUpdateColumn = "vehicle_manager_phone"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleState VehicleInfoChangeLogUpdateColumn = "vehicle_state"
-	// column name
-	VehicleInfoChangeLogUpdateColumnVehicleType VehicleInfoChangeLogUpdateColumn = "vehicle_type"
+	// 按指定方法生成                                  ( 主键                       )
+	VehicleEnterpriseChangeReviewSelectColumnID VehicleEnterpriseChangeReviewSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	VehicleEnterpriseChangeReviewSelectColumnVehicleEnterpriseChangeReviewID VehicleEnterpriseChangeReviewSelectColumn = "vehicle_enterprise_change_review_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	VehicleEnterpriseChangeReviewSelectColumnVehicleID VehicleEnterpriseChangeReviewSelectColumn = "vehicle_id"
+	// 目标企业ID                                      (                            )
+	VehicleEnterpriseChangeReviewSelectColumnTargetEnterpriseID VehicleEnterpriseChangeReviewSelectColumn = "target_enterprise_id"
+	// 备注                                            (                            )
+	VehicleEnterpriseChangeReviewSelectColumnRemarks VehicleEnterpriseChangeReviewSelectColumn = "remarks"
+	// 上传证明文件                                    (                            )
+	VehicleEnterpriseChangeReviewSelectColumnUploadDocumentSrc VehicleEnterpriseChangeReviewSelectColumn = "upload_document_src"
+	// 审核状态  0.未审核  1.审核通过  2.退回          (                            )
+	VehicleEnterpriseChangeReviewSelectColumnReviewStatus VehicleEnterpriseChangeReviewSelectColumn = "review_status"
+	// 变更类型  1.本地区变更  2.跨区变更              (                            )
+	VehicleEnterpriseChangeReviewSelectColumnChangeType VehicleEnterpriseChangeReviewSelectColumn = "change_type"
+	// 车辆原所属地区                                  (                            )
+	VehicleEnterpriseChangeReviewSelectColumnOriginalArea VehicleEnterpriseChangeReviewSelectColumn = "original_area"
+	// 变更地区                                        (                            )
+	VehicleEnterpriseChangeReviewSelectColumnChangedArea VehicleEnterpriseChangeReviewSelectColumn = "changed_area"
+	// 变更后自编号                                    (                            )
+	VehicleEnterpriseChangeReviewSelectColumnChangedSelfNumber VehicleEnterpriseChangeReviewSelectColumn = "changed_self_number"
+	// 是否删除                                        (                            )
+	VehicleEnterpriseChangeReviewSelectColumnIsDeleted VehicleEnterpriseChangeReviewSelectColumn = "is_deleted"
+	// 创建时间                                        (                            )
+	VehicleEnterpriseChangeReviewSelectColumnCreatedAt VehicleEnterpriseChangeReviewSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	VehicleEnterpriseChangeReviewSelectColumnCreatedBy VehicleEnterpriseChangeReviewSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	VehicleEnterpriseChangeReviewSelectColumnUpdatedAt VehicleEnterpriseChangeReviewSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	VehicleEnterpriseChangeReviewSelectColumnUpdatedBy VehicleEnterpriseChangeReviewSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	VehicleEnterpriseChangeReviewSelectColumnDeletedAt VehicleEnterpriseChangeReviewSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	VehicleEnterpriseChangeReviewSelectColumnDeletedBy VehicleEnterpriseChangeReviewSelectColumn = "deleted_by"
 )
 
-var AllVehicleInfoChangeLogUpdateColumn = []VehicleInfoChangeLogUpdateColumn{
-	VehicleInfoChangeLogUpdateColumnBusinessScope,
-	VehicleInfoChangeLogUpdateColumnCarRentalPrice,
-	VehicleInfoChangeLogUpdateColumnCheckState,
-	VehicleInfoChangeLogUpdateColumnCreatedAt,
-	VehicleInfoChangeLogUpdateColumnCreatedBy,
-	VehicleInfoChangeLogUpdateColumnDeletedAt,
-	VehicleInfoChangeLogUpdateColumnDeletedBy,
-	VehicleInfoChangeLogUpdateColumnDepartmentID,
-	VehicleInfoChangeLogUpdateColumnDrivingLicenseePic,
-	VehicleInfoChangeLogUpdateColumnEnterpriseID,
-	VehicleInfoChangeLogUpdateColumnHeavy,
-	VehicleInfoChangeLogUpdateColumnID,
-	VehicleInfoChangeLogUpdateColumnIndustryCategory,
-	VehicleInfoChangeLogUpdateColumnInspectionDate,
-	VehicleInfoChangeLogUpdateColumnInsuranceCompany,
-	VehicleInfoChangeLogUpdateColumnInsuranceDate,
-	VehicleInfoChangeLogUpdateColumnIsActive,
-	VehicleInfoChangeLogUpdateColumnIsApplyInstallTerminal,
-	VehicleInfoChangeLogUpdateColumnIsComplete,
-	VehicleInfoChangeLogUpdateColumnIsDelete,
-	VehicleInfoChangeLogUpdateColumnIsImport,
-	VehicleInfoChangeLogUpdateColumnIsInput,
-	VehicleInfoChangeLogUpdateColumnIsUploadProvince,
-	VehicleInfoChangeLogUpdateColumnLicensePlateColor,
-	VehicleInfoChangeLogUpdateColumnLicensePlateNumber,
-	VehicleInfoChangeLogUpdateColumnLicensePlateType,
-	VehicleInfoChangeLogUpdateColumnMuckTruckID,
-	VehicleInfoChangeLogUpdateColumnOperatingRoute,
-	VehicleInfoChangeLogUpdateColumnOperatingState,
-	VehicleInfoChangeLogUpdateColumnOperatingType,
-	VehicleInfoChangeLogUpdateColumnOperatingVehicleID,
-	VehicleInfoChangeLogUpdateColumnOwner,
-	VehicleInfoChangeLogUpdateColumnQuasiDrivingModels,
-	VehicleInfoChangeLogUpdateColumnRecordAt,
-	VehicleInfoChangeLogUpdateColumnRecordBy,
-	VehicleInfoChangeLogUpdateColumnRemarkIn,
-	VehicleInfoChangeLogUpdateColumnRemarks,
-	VehicleInfoChangeLogUpdateColumnRetirementDate,
-	VehicleInfoChangeLogUpdateColumnRoadTransportLicenseNumber,
-	VehicleInfoChangeLogUpdateColumnSeats,
-	VehicleInfoChangeLogUpdateColumnTerminalID,
-	VehicleInfoChangeLogUpdateColumnUpdatedAt,
-	VehicleInfoChangeLogUpdateColumnUpdatedBy,
-	VehicleInfoChangeLogUpdateColumnUpdateTimeIn,
-	VehicleInfoChangeLogUpdateColumnUseNature,
-	VehicleInfoChangeLogUpdateColumnVehicleBrand,
-	VehicleInfoChangeLogUpdateColumnVehicleDisplacement,
-	VehicleInfoChangeLogUpdateColumnVehicleIdentificationNumber,
-	VehicleInfoChangeLogUpdateColumnVehicleInfoChangeID,
-	VehicleInfoChangeLogUpdateColumnVehicleMaintenances,
-	VehicleInfoChangeLogUpdateColumnVehicleManager,
-	VehicleInfoChangeLogUpdateColumnVehicleManagerIDCard,
-	VehicleInfoChangeLogUpdateColumnVehicleManagerPhone,
-	VehicleInfoChangeLogUpdateColumnVehicleState,
-	VehicleInfoChangeLogUpdateColumnVehicleType,
+var AllVehicleEnterpriseChangeReviewSelectColumn = []VehicleEnterpriseChangeReviewSelectColumn{
+	VehicleEnterpriseChangeReviewSelectColumnID,
+	VehicleEnterpriseChangeReviewSelectColumnVehicleEnterpriseChangeReviewID,
+	VehicleEnterpriseChangeReviewSelectColumnVehicleID,
+	VehicleEnterpriseChangeReviewSelectColumnTargetEnterpriseID,
+	VehicleEnterpriseChangeReviewSelectColumnRemarks,
+	VehicleEnterpriseChangeReviewSelectColumnUploadDocumentSrc,
+	VehicleEnterpriseChangeReviewSelectColumnReviewStatus,
+	VehicleEnterpriseChangeReviewSelectColumnChangeType,
+	VehicleEnterpriseChangeReviewSelectColumnOriginalArea,
+	VehicleEnterpriseChangeReviewSelectColumnChangedArea,
+	VehicleEnterpriseChangeReviewSelectColumnChangedSelfNumber,
+	VehicleEnterpriseChangeReviewSelectColumnIsDeleted,
+	VehicleEnterpriseChangeReviewSelectColumnCreatedAt,
+	VehicleEnterpriseChangeReviewSelectColumnCreatedBy,
+	VehicleEnterpriseChangeReviewSelectColumnUpdatedAt,
+	VehicleEnterpriseChangeReviewSelectColumnUpdatedBy,
+	VehicleEnterpriseChangeReviewSelectColumnDeletedAt,
+	VehicleEnterpriseChangeReviewSelectColumnDeletedBy,
 }
 
-func (e VehicleInfoChangeLogUpdateColumn) IsValid() bool {
+func (e VehicleEnterpriseChangeReviewSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoChangeLogUpdateColumnBusinessScope, VehicleInfoChangeLogUpdateColumnCarRentalPrice, VehicleInfoChangeLogUpdateColumnCheckState, VehicleInfoChangeLogUpdateColumnCreatedAt, VehicleInfoChangeLogUpdateColumnCreatedBy, VehicleInfoChangeLogUpdateColumnDeletedAt, VehicleInfoChangeLogUpdateColumnDeletedBy, VehicleInfoChangeLogUpdateColumnDepartmentID, VehicleInfoChangeLogUpdateColumnDrivingLicenseePic, VehicleInfoChangeLogUpdateColumnEnterpriseID, VehicleInfoChangeLogUpdateColumnHeavy, VehicleInfoChangeLogUpdateColumnID, VehicleInfoChangeLogUpdateColumnIndustryCategory, VehicleInfoChangeLogUpdateColumnInspectionDate, VehicleInfoChangeLogUpdateColumnInsuranceCompany, VehicleInfoChangeLogUpdateColumnInsuranceDate, VehicleInfoChangeLogUpdateColumnIsActive, VehicleInfoChangeLogUpdateColumnIsApplyInstallTerminal, VehicleInfoChangeLogUpdateColumnIsComplete, VehicleInfoChangeLogUpdateColumnIsDelete, VehicleInfoChangeLogUpdateColumnIsImport, VehicleInfoChangeLogUpdateColumnIsInput, VehicleInfoChangeLogUpdateColumnIsUploadProvince, VehicleInfoChangeLogUpdateColumnLicensePlateColor, VehicleInfoChangeLogUpdateColumnLicensePlateNumber, VehicleInfoChangeLogUpdateColumnLicensePlateType, VehicleInfoChangeLogUpdateColumnMuckTruckID, VehicleInfoChangeLogUpdateColumnOperatingRoute, VehicleInfoChangeLogUpdateColumnOperatingState, VehicleInfoChangeLogUpdateColumnOperatingType, VehicleInfoChangeLogUpdateColumnOperatingVehicleID, VehicleInfoChangeLogUpdateColumnOwner, VehicleInfoChangeLogUpdateColumnQuasiDrivingModels, VehicleInfoChangeLogUpdateColumnRecordAt, VehicleInfoChangeLogUpdateColumnRecordBy, VehicleInfoChangeLogUpdateColumnRemarkIn, VehicleInfoChangeLogUpdateColumnRemarks, VehicleInfoChangeLogUpdateColumnRetirementDate, VehicleInfoChangeLogUpdateColumnRoadTransportLicenseNumber, VehicleInfoChangeLogUpdateColumnSeats, VehicleInfoChangeLogUpdateColumnTerminalID, VehicleInfoChangeLogUpdateColumnUpdatedAt, VehicleInfoChangeLogUpdateColumnUpdatedBy, VehicleInfoChangeLogUpdateColumnUpdateTimeIn, VehicleInfoChangeLogUpdateColumnUseNature, VehicleInfoChangeLogUpdateColumnVehicleBrand, VehicleInfoChangeLogUpdateColumnVehicleDisplacement, VehicleInfoChangeLogUpdateColumnVehicleIdentificationNumber, VehicleInfoChangeLogUpdateColumnVehicleInfoChangeID, VehicleInfoChangeLogUpdateColumnVehicleMaintenances, VehicleInfoChangeLogUpdateColumnVehicleManager, VehicleInfoChangeLogUpdateColumnVehicleManagerIDCard, VehicleInfoChangeLogUpdateColumnVehicleManagerPhone, VehicleInfoChangeLogUpdateColumnVehicleState, VehicleInfoChangeLogUpdateColumnVehicleType:
+	case VehicleEnterpriseChangeReviewSelectColumnID, VehicleEnterpriseChangeReviewSelectColumnVehicleEnterpriseChangeReviewID, VehicleEnterpriseChangeReviewSelectColumnVehicleID, VehicleEnterpriseChangeReviewSelectColumnTargetEnterpriseID, VehicleEnterpriseChangeReviewSelectColumnRemarks, VehicleEnterpriseChangeReviewSelectColumnUploadDocumentSrc, VehicleEnterpriseChangeReviewSelectColumnReviewStatus, VehicleEnterpriseChangeReviewSelectColumnChangeType, VehicleEnterpriseChangeReviewSelectColumnOriginalArea, VehicleEnterpriseChangeReviewSelectColumnChangedArea, VehicleEnterpriseChangeReviewSelectColumnChangedSelfNumber, VehicleEnterpriseChangeReviewSelectColumnIsDeleted, VehicleEnterpriseChangeReviewSelectColumnCreatedAt, VehicleEnterpriseChangeReviewSelectColumnCreatedBy, VehicleEnterpriseChangeReviewSelectColumnUpdatedAt, VehicleEnterpriseChangeReviewSelectColumnUpdatedBy, VehicleEnterpriseChangeReviewSelectColumnDeletedAt, VehicleEnterpriseChangeReviewSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e VehicleInfoChangeLogUpdateColumn) String() string {
+func (e VehicleEnterpriseChangeReviewSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *VehicleInfoChangeLogUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *VehicleEnterpriseChangeReviewSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = VehicleInfoChangeLogUpdateColumn(str)
+	*e = VehicleEnterpriseChangeReviewSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_info_change_log_update_column", str)
+		return fmt.Errorf("%s is not a valid VehicleEnterpriseChangeReviewSelectColumn", str)
 	}
 	return nil
 }
 
-func (e VehicleInfoChangeLogUpdateColumn) MarshalGQL(w io.Writer) {
+func (e VehicleEnterpriseChangeReviewSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "vehicle_info"
-type VehicleInfoConstraint string
+// 可选select
+type VehicleExitCatalogLogSelectColumn string
 
 const (
-	// unique or primary key constraint
-	VehicleInfoConstraintVehicleInfoPkey VehicleInfoConstraint = "vehicle_info_pkey"
+	// 按指定方法生成                                               ( 主键                                                         )
+	VehicleExitCatalogLogSelectColumnID VehicleExitCatalogLogSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用              ( 联合主键                                                     )
+	VehicleExitCatalogLogSelectColumnVehicleExitCatalogLogID VehicleExitCatalogLogSelectColumn = "vehicle_exit_catalog_log_id"
+	// 车辆退出目录库审核表id                                       ( vehicle_exit_catalog_review 车辆退出目录库审核表的vehicle_exit_catalog_review_id )
+	VehicleExitCatalogLogSelectColumnVehicleExitCatalogReviewID VehicleExitCatalogLogSelectColumn = "vehicle_exit_catalog_review_id"
+	// 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             (                                                              )
+	VehicleExitCatalogLogSelectColumnExitType VehicleExitCatalogLogSelectColumn = "exit_type"
+	// 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} (                                                              )
+	VehicleExitCatalogLogSelectColumnExitStep VehicleExitCatalogLogSelectColumn = "exit_step"
+	// 操作人                                                       (                                                              )
+	VehicleExitCatalogLogSelectColumnOperator VehicleExitCatalogLogSelectColumn = "operator"
+	// 审核状态  0.申请  1.审批  2.退回  3.撤销                     (                                                              )
+	VehicleExitCatalogLogSelectColumnReviewStatus VehicleExitCatalogLogSelectColumn = "review_status"
+	// 审批用户组  1.运输企业  2.管理部门                           (                                                              )
+	VehicleExitCatalogLogSelectColumnReviewUserGroup VehicleExitCatalogLogSelectColumn = "review_user_group"
+	// 创建时间                                                     (                                                              )
+	VehicleExitCatalogLogSelectColumnCreatedAt VehicleExitCatalogLogSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id                                   )
+	VehicleExitCatalogLogSelectColumnCreatedBy VehicleExitCatalogLogSelectColumn = "created_by"
+	// 修改时间                                                     (                                                              )
+	VehicleExitCatalogLogSelectColumnUpdatedAt VehicleExitCatalogLogSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id                                   )
+	VehicleExitCatalogLogSelectColumnUpdatedBy VehicleExitCatalogLogSelectColumn = "updated_by"
+	// 删除时间                                                     (                                                              )
+	VehicleExitCatalogLogSelectColumnDeletedAt VehicleExitCatalogLogSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id                                   )
+	VehicleExitCatalogLogSelectColumnDeletedBy VehicleExitCatalogLogSelectColumn = "deleted_by"
 )
 
-var AllVehicleInfoConstraint = []VehicleInfoConstraint{
-	VehicleInfoConstraintVehicleInfoPkey,
+var AllVehicleExitCatalogLogSelectColumn = []VehicleExitCatalogLogSelectColumn{
+	VehicleExitCatalogLogSelectColumnID,
+	VehicleExitCatalogLogSelectColumnVehicleExitCatalogLogID,
+	VehicleExitCatalogLogSelectColumnVehicleExitCatalogReviewID,
+	VehicleExitCatalogLogSelectColumnExitType,
+	VehicleExitCatalogLogSelectColumnExitStep,
+	VehicleExitCatalogLogSelectColumnOperator,
+	VehicleExitCatalogLogSelectColumnReviewStatus,
+	VehicleExitCatalogLogSelectColumnReviewUserGroup,
+	VehicleExitCatalogLogSelectColumnCreatedAt,
+	VehicleExitCatalogLogSelectColumnCreatedBy,
+	VehicleExitCatalogLogSelectColumnUpdatedAt,
+	VehicleExitCatalogLogSelectColumnUpdatedBy,
+	VehicleExitCatalogLogSelectColumnDeletedAt,
+	VehicleExitCatalogLogSelectColumnDeletedBy,
 }
 
-func (e VehicleInfoConstraint) IsValid() bool {
+func (e VehicleExitCatalogLogSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoConstraintVehicleInfoPkey:
+	case VehicleExitCatalogLogSelectColumnID, VehicleExitCatalogLogSelectColumnVehicleExitCatalogLogID, VehicleExitCatalogLogSelectColumnVehicleExitCatalogReviewID, VehicleExitCatalogLogSelectColumnExitType, VehicleExitCatalogLogSelectColumnExitStep, VehicleExitCatalogLogSelectColumnOperator, VehicleExitCatalogLogSelectColumnReviewStatus, VehicleExitCatalogLogSelectColumnReviewUserGroup, VehicleExitCatalogLogSelectColumnCreatedAt, VehicleExitCatalogLogSelectColumnCreatedBy, VehicleExitCatalogLogSelectColumnUpdatedAt, VehicleExitCatalogLogSelectColumnUpdatedBy, VehicleExitCatalogLogSelectColumnDeletedAt, VehicleExitCatalogLogSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e VehicleInfoConstraint) String() string {
+func (e VehicleExitCatalogLogSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *VehicleInfoConstraint) UnmarshalGQL(v interface{}) error {
+func (e *VehicleExitCatalogLogSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = VehicleInfoConstraint(str)
+	*e = VehicleExitCatalogLogSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_info_constraint", str)
+		return fmt.Errorf("%s is not a valid VehicleExitCatalogLogSelectColumn", str)
 	}
 	return nil
 }
 
-func (e VehicleInfoConstraint) MarshalGQL(w io.Writer) {
+func (e VehicleExitCatalogLogSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// select columns of table "vehicle_info"
+// 可选select
+type VehicleExitCatalogReviewSelectColumn string
+
+const (
+	// 按指定方法生成                                               ( 主键                                 )
+	VehicleExitCatalogReviewSelectColumnID VehicleExitCatalogReviewSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用              ( 联合主键                             )
+	VehicleExitCatalogReviewSelectColumnVehicleExitCatalogReviewID VehicleExitCatalogReviewSelectColumn = "vehicle_exit_catalog_review_id"
+	// vehicle_info 车辆信息表 的vehicle_id                     (                                      )
+	VehicleExitCatalogReviewSelectColumnVehicleID VehicleExitCatalogReviewSelectColumn = "vehicle_id"
+	// 所在企业id                                                   ( enterprise_info表的enterprise_id )
+	VehicleExitCatalogReviewSelectColumnEnterpriseID VehicleExitCatalogReviewSelectColumn = "enterprise_id"
+	// 备注                                                         (                                      )
+	VehicleExitCatalogReviewSelectColumnRemarks VehicleExitCatalogReviewSelectColumn = "remarks"
+	// 审核状态  0.未完成 1.完成                                    (                                      )
+	VehicleExitCatalogReviewSelectColumnReviewStatus VehicleExitCatalogReviewSelectColumn = "review_status"
+	// 类别  3.企业车辆退出目录库  6.零散车辆退出目录库             (                                      )
+	VehicleExitCatalogReviewSelectColumnExitType VehicleExitCatalogReviewSelectColumn = "exit_type"
+	// 退出步骤  Type=3:{1.AA市A县a企业提交材料,2.A县交警同意,3.A县渣土办同意}  Type=6:{1.A县交警提交材料,2.A县渣土办同意} (                                      )
+	VehicleExitCatalogReviewSelectColumnExitStep VehicleExitCatalogReviewSelectColumn = "exit_step"
+	// 地区ID                                                       (                                      )
+	VehicleExitCatalogReviewSelectColumnAreaID VehicleExitCatalogReviewSelectColumn = "area_id"
+	// 原单位ID                                                     ( enterprise_info表的enterprise_id )
+	VehicleExitCatalogReviewSelectColumnOriginalEnterpriseID VehicleExitCatalogReviewSelectColumn = "original_enterprise_id"
+	// 原单位名称                                                   (                                      )
+	VehicleExitCatalogReviewSelectColumnOriginalEnterpriseName VehicleExitCatalogReviewSelectColumn = "original_enterprise_name"
+	// 原自编号                                                     (                                      )
+	VehicleExitCatalogReviewSelectColumnOriginalSelfNumber VehicleExitCatalogReviewSelectColumn = "original_self_number"
+	// 是否删除                                                     (                                      )
+	VehicleExitCatalogReviewSelectColumnIsDeleted VehicleExitCatalogReviewSelectColumn = "is_deleted"
+	// 创建时间                                                     (                                      )
+	VehicleExitCatalogReviewSelectColumnCreatedAt VehicleExitCatalogReviewSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id           )
+	VehicleExitCatalogReviewSelectColumnCreatedBy VehicleExitCatalogReviewSelectColumn = "created_by"
+	// 修改时间                                                     (                                      )
+	VehicleExitCatalogReviewSelectColumnUpdatedAt VehicleExitCatalogReviewSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id           )
+	VehicleExitCatalogReviewSelectColumnUpdatedBy VehicleExitCatalogReviewSelectColumn = "updated_by"
+	// 删除时间                                                     (                                      )
+	VehicleExitCatalogReviewSelectColumnDeletedAt VehicleExitCatalogReviewSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id           )
+	VehicleExitCatalogReviewSelectColumnDeletedBy VehicleExitCatalogReviewSelectColumn = "deleted_by"
+)
+
+var AllVehicleExitCatalogReviewSelectColumn = []VehicleExitCatalogReviewSelectColumn{
+	VehicleExitCatalogReviewSelectColumnID,
+	VehicleExitCatalogReviewSelectColumnVehicleExitCatalogReviewID,
+	VehicleExitCatalogReviewSelectColumnVehicleID,
+	VehicleExitCatalogReviewSelectColumnEnterpriseID,
+	VehicleExitCatalogReviewSelectColumnRemarks,
+	VehicleExitCatalogReviewSelectColumnReviewStatus,
+	VehicleExitCatalogReviewSelectColumnExitType,
+	VehicleExitCatalogReviewSelectColumnExitStep,
+	VehicleExitCatalogReviewSelectColumnAreaID,
+	VehicleExitCatalogReviewSelectColumnOriginalEnterpriseID,
+	VehicleExitCatalogReviewSelectColumnOriginalEnterpriseName,
+	VehicleExitCatalogReviewSelectColumnOriginalSelfNumber,
+	VehicleExitCatalogReviewSelectColumnIsDeleted,
+	VehicleExitCatalogReviewSelectColumnCreatedAt,
+	VehicleExitCatalogReviewSelectColumnCreatedBy,
+	VehicleExitCatalogReviewSelectColumnUpdatedAt,
+	VehicleExitCatalogReviewSelectColumnUpdatedBy,
+	VehicleExitCatalogReviewSelectColumnDeletedAt,
+	VehicleExitCatalogReviewSelectColumnDeletedBy,
+}
+
+func (e VehicleExitCatalogReviewSelectColumn) IsValid() bool {
+	switch e {
+	case VehicleExitCatalogReviewSelectColumnID, VehicleExitCatalogReviewSelectColumnVehicleExitCatalogReviewID, VehicleExitCatalogReviewSelectColumnVehicleID, VehicleExitCatalogReviewSelectColumnEnterpriseID, VehicleExitCatalogReviewSelectColumnRemarks, VehicleExitCatalogReviewSelectColumnReviewStatus, VehicleExitCatalogReviewSelectColumnExitType, VehicleExitCatalogReviewSelectColumnExitStep, VehicleExitCatalogReviewSelectColumnAreaID, VehicleExitCatalogReviewSelectColumnOriginalEnterpriseID, VehicleExitCatalogReviewSelectColumnOriginalEnterpriseName, VehicleExitCatalogReviewSelectColumnOriginalSelfNumber, VehicleExitCatalogReviewSelectColumnIsDeleted, VehicleExitCatalogReviewSelectColumnCreatedAt, VehicleExitCatalogReviewSelectColumnCreatedBy, VehicleExitCatalogReviewSelectColumnUpdatedAt, VehicleExitCatalogReviewSelectColumnUpdatedBy, VehicleExitCatalogReviewSelectColumnDeletedAt, VehicleExitCatalogReviewSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VehicleExitCatalogReviewSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VehicleExitCatalogReviewSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VehicleExitCatalogReviewSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VehicleExitCatalogReviewSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VehicleExitCatalogReviewSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type VehicleIncrementRecordSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                                 )
+	VehicleIncrementRecordSelectColumnID VehicleIncrementRecordSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	VehicleIncrementRecordSelectColumnIncrementRecordID VehicleIncrementRecordSelectColumn = "increment_record_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	VehicleIncrementRecordSelectColumnVehicleID VehicleIncrementRecordSelectColumn = "vehicle_id"
+	// 所在企业id                                      ( enterprise_info表的enterprise_id )
+	VehicleIncrementRecordSelectColumnEnterpriseID VehicleIncrementRecordSelectColumn = "enterprise_id"
+	// 自编号                                          (                                      )
+	VehicleIncrementRecordSelectColumnSelfNumber VehicleIncrementRecordSelectColumn = "self_number"
+	// 操作类型                                        (                                      )
+	VehicleIncrementRecordSelectColumnOperationType VehicleIncrementRecordSelectColumn = "operation_type"
+	// 车牌号                                          (                                      )
+	VehicleIncrementRecordSelectColumnLicensePlateNumber VehicleIncrementRecordSelectColumn = "license_plate_number"
+	// 单位名称                                        (                                      )
+	VehicleIncrementRecordSelectColumnEnterpriseName VehicleIncrementRecordSelectColumn = "enterprise_name"
+	// 地区                                            (                                      )
+	VehicleIncrementRecordSelectColumnArea VehicleIncrementRecordSelectColumn = "area"
+	// 原编号                                          (                                      )
+	VehicleIncrementRecordSelectColumnOriginalNumber VehicleIncrementRecordSelectColumn = "original_number"
+	// 运营商                                          ( enterprise_info表的enterprise_id )
+	VehicleIncrementRecordSelectColumnOperator VehicleIncrementRecordSelectColumn = "operator"
+	// 创建时间                                        (                                      )
+	VehicleIncrementRecordSelectColumnCreatedAt VehicleIncrementRecordSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id           )
+	VehicleIncrementRecordSelectColumnCreatedBy VehicleIncrementRecordSelectColumn = "created_by"
+	// 修改时间                                        (                                      )
+	VehicleIncrementRecordSelectColumnUpdatedAt VehicleIncrementRecordSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id           )
+	VehicleIncrementRecordSelectColumnUpdatedBy VehicleIncrementRecordSelectColumn = "updated_by"
+	// 删除时间                                        (                                      )
+	VehicleIncrementRecordSelectColumnDeletedAt VehicleIncrementRecordSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id           )
+	VehicleIncrementRecordSelectColumnDeletedBy VehicleIncrementRecordSelectColumn = "deleted_by"
+)
+
+var AllVehicleIncrementRecordSelectColumn = []VehicleIncrementRecordSelectColumn{
+	VehicleIncrementRecordSelectColumnID,
+	VehicleIncrementRecordSelectColumnIncrementRecordID,
+	VehicleIncrementRecordSelectColumnVehicleID,
+	VehicleIncrementRecordSelectColumnEnterpriseID,
+	VehicleIncrementRecordSelectColumnSelfNumber,
+	VehicleIncrementRecordSelectColumnOperationType,
+	VehicleIncrementRecordSelectColumnLicensePlateNumber,
+	VehicleIncrementRecordSelectColumnEnterpriseName,
+	VehicleIncrementRecordSelectColumnArea,
+	VehicleIncrementRecordSelectColumnOriginalNumber,
+	VehicleIncrementRecordSelectColumnOperator,
+	VehicleIncrementRecordSelectColumnCreatedAt,
+	VehicleIncrementRecordSelectColumnCreatedBy,
+	VehicleIncrementRecordSelectColumnUpdatedAt,
+	VehicleIncrementRecordSelectColumnUpdatedBy,
+	VehicleIncrementRecordSelectColumnDeletedAt,
+	VehicleIncrementRecordSelectColumnDeletedBy,
+}
+
+func (e VehicleIncrementRecordSelectColumn) IsValid() bool {
+	switch e {
+	case VehicleIncrementRecordSelectColumnID, VehicleIncrementRecordSelectColumnIncrementRecordID, VehicleIncrementRecordSelectColumnVehicleID, VehicleIncrementRecordSelectColumnEnterpriseID, VehicleIncrementRecordSelectColumnSelfNumber, VehicleIncrementRecordSelectColumnOperationType, VehicleIncrementRecordSelectColumnLicensePlateNumber, VehicleIncrementRecordSelectColumnEnterpriseName, VehicleIncrementRecordSelectColumnArea, VehicleIncrementRecordSelectColumnOriginalNumber, VehicleIncrementRecordSelectColumnOperator, VehicleIncrementRecordSelectColumnCreatedAt, VehicleIncrementRecordSelectColumnCreatedBy, VehicleIncrementRecordSelectColumnUpdatedAt, VehicleIncrementRecordSelectColumnUpdatedBy, VehicleIncrementRecordSelectColumnDeletedAt, VehicleIncrementRecordSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VehicleIncrementRecordSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VehicleIncrementRecordSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VehicleIncrementRecordSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VehicleIncrementRecordSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VehicleIncrementRecordSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
 type VehicleInfoSelectColumn string
 
 const (
-	// column name
-	VehicleInfoSelectColumnBusinessScope VehicleInfoSelectColumn = "business_scope"
-	// column name
-	VehicleInfoSelectColumnCarRentalPrice VehicleInfoSelectColumn = "car_rental_price"
-	// column name
-	VehicleInfoSelectColumnCheckState VehicleInfoSelectColumn = "check_state"
-	// column name
-	VehicleInfoSelectColumnCreatedAt VehicleInfoSelectColumn = "created_at"
-	// column name
-	VehicleInfoSelectColumnCreatedBy VehicleInfoSelectColumn = "created_by"
-	// column name
-	VehicleInfoSelectColumnDeletedAt VehicleInfoSelectColumn = "deleted_at"
-	// column name
-	VehicleInfoSelectColumnDeletedBy VehicleInfoSelectColumn = "deleted_by"
-	// column name
-	VehicleInfoSelectColumnDepartmentID VehicleInfoSelectColumn = "department_id"
-	// column name
-	VehicleInfoSelectColumnDrivingLicenseePic VehicleInfoSelectColumn = "driving_licensee_pic"
-	// column name
-	VehicleInfoSelectColumnEnterpriseID VehicleInfoSelectColumn = "enterprise_id"
-	// column name
-	VehicleInfoSelectColumnHeavy VehicleInfoSelectColumn = "heavy"
-	// column name
+	// 按指定方法生成，生成方法见下面说明                           ( 主键                                                         )
 	VehicleInfoSelectColumnID VehicleInfoSelectColumn = "id"
-	// column name
-	VehicleInfoSelectColumnIndustryCategory VehicleInfoSelectColumn = "industry_category"
-	// column name
-	VehicleInfoSelectColumnInspectionDate VehicleInfoSelectColumn = "inspection_date"
-	// column name
-	VehicleInfoSelectColumnInsuranceCompany VehicleInfoSelectColumn = "insurance_company"
-	// column name
-	VehicleInfoSelectColumnInsuranceDate VehicleInfoSelectColumn = "insurance_date"
-	// column name
-	VehicleInfoSelectColumnIsActive VehicleInfoSelectColumn = "is_active"
-	// column name
-	VehicleInfoSelectColumnIsApplyInstallTerminal VehicleInfoSelectColumn = "is_apply_install_terminal"
-	// column name
-	VehicleInfoSelectColumnIsComplete VehicleInfoSelectColumn = "is_complete"
-	// column name
-	VehicleInfoSelectColumnIsDelete VehicleInfoSelectColumn = "is_delete"
-	// column name
-	VehicleInfoSelectColumnIsImport VehicleInfoSelectColumn = "is_import"
-	// column name
-	VehicleInfoSelectColumnIsInput VehicleInfoSelectColumn = "is_input"
-	// column name
-	VehicleInfoSelectColumnIsUploadProvince VehicleInfoSelectColumn = "is_upload_province"
-	// column name
-	VehicleInfoSelectColumnLicensePlateColor VehicleInfoSelectColumn = "license_plate_color"
-	// column name
-	VehicleInfoSelectColumnLicensePlateNumber VehicleInfoSelectColumn = "license_plate_number"
-	// column name
-	VehicleInfoSelectColumnLicensePlateType VehicleInfoSelectColumn = "license_plate_type"
-	// column name
-	VehicleInfoSelectColumnMuckTruckID VehicleInfoSelectColumn = "muck_truck_id"
-	// column name
-	VehicleInfoSelectColumnOperatingRoute VehicleInfoSelectColumn = "operating_route"
-	// column name
-	VehicleInfoSelectColumnOperatingState VehicleInfoSelectColumn = "operating_state"
-	// column name
-	VehicleInfoSelectColumnOperatingType VehicleInfoSelectColumn = "operating_type"
-	// column name
-	VehicleInfoSelectColumnOperatingVehicleID VehicleInfoSelectColumn = "operating_vehicle_id"
-	// column name
-	VehicleInfoSelectColumnOwner VehicleInfoSelectColumn = "owner"
-	// column name
-	VehicleInfoSelectColumnQuasiDrivingModels VehicleInfoSelectColumn = "quasi_driving_models"
-	// column name
-	VehicleInfoSelectColumnRecordAt VehicleInfoSelectColumn = "record_at"
-	// column name
-	VehicleInfoSelectColumnRecordBy VehicleInfoSelectColumn = "record_by"
-	// column name
-	VehicleInfoSelectColumnRemarkIn VehicleInfoSelectColumn = "remark_in"
-	// column name
-	VehicleInfoSelectColumnRemarks VehicleInfoSelectColumn = "remarks"
-	// column name
-	VehicleInfoSelectColumnRetirementDate VehicleInfoSelectColumn = "retirement_date"
-	// column name
-	VehicleInfoSelectColumnRoadTransportLicenseNumber VehicleInfoSelectColumn = "road_transport_license_number"
-	// column name
-	VehicleInfoSelectColumnSeats VehicleInfoSelectColumn = "seats"
-	// column name
-	VehicleInfoSelectColumnTerminalID VehicleInfoSelectColumn = "terminal_id"
-	// column name
-	VehicleInfoSelectColumnUpdatedAt VehicleInfoSelectColumn = "updated_at"
-	// column name
-	VehicleInfoSelectColumnUpdatedBy VehicleInfoSelectColumn = "updated_by"
-	// column name
-	VehicleInfoSelectColumnUpdateTimeIn VehicleInfoSelectColumn = "update_time_in"
-	// column name
-	VehicleInfoSelectColumnUseNature VehicleInfoSelectColumn = "use_nature"
-	// column name
-	VehicleInfoSelectColumnVehicleBrand VehicleInfoSelectColumn = "vehicle_brand"
-	// column name
-	VehicleInfoSelectColumnVehicleDisplacement VehicleInfoSelectColumn = "vehicle_displacement"
-	// column name
+	// 车辆外部编码，由golang程序生成的xid，暴露到外部使用          ( 联合主键                                                     )
 	VehicleInfoSelectColumnVehicleID VehicleInfoSelectColumn = "vehicle_id"
-	// column name
-	VehicleInfoSelectColumnVehicleIdentificationNumber VehicleInfoSelectColumn = "vehicle_identification_number"
-	// column name
-	VehicleInfoSelectColumnVehicleMaintenances VehicleInfoSelectColumn = "vehicle_maintenances"
-	// column name
-	VehicleInfoSelectColumnVehicleManager VehicleInfoSelectColumn = "vehicle_manager"
-	// column name
-	VehicleInfoSelectColumnVehicleManagerIDCard VehicleInfoSelectColumn = "vehicle_manager_id_card"
-	// column name
-	VehicleInfoSelectColumnVehicleManagerPhone VehicleInfoSelectColumn = "vehicle_manager_phone"
-	// column name
-	VehicleInfoSelectColumnVehicleState VehicleInfoSelectColumn = "vehicle_state"
-	// column name
+	// 所在企业id                                                   ( enterprise_info表的enterprise_id                         )
+	VehicleInfoSelectColumnEnterpriseID VehicleInfoSelectColumn = "enterprise_id"
+	// 所在部门id                                                   ( department 部门信息表                                    )
+	VehicleInfoSelectColumnDepartmentID VehicleInfoSelectColumn = "department_id"
+	// 行业类别                                                     ( 行业类别字典                                             )
+	VehicleInfoSelectColumnIndustryCategory VehicleInfoSelectColumn = "industry_category"
+	// 经营范围                                                     ( 经营范围字典                                             )
+	VehicleInfoSelectColumnBusinessScope VehicleInfoSelectColumn = "business_scope"
+	// 车辆类型                                                     ( 车辆类型字典                                             )
 	VehicleInfoSelectColumnVehicleType VehicleInfoSelectColumn = "vehicle_type"
+	// 营运类型                                                     ( 营运类型字典                                             )
+	VehicleInfoSelectColumnOperatingType VehicleInfoSelectColumn = "operating_type"
+	// 营运状态                                                     ( 营运状态字典                                             )
+	VehicleInfoSelectColumnOperatingState VehicleInfoSelectColumn = "operating_state"
+	// 营运线路                                                     (                                                              )
+	VehicleInfoSelectColumnOperatingRoute VehicleInfoSelectColumn = "operating_route"
+	// 终端ID                                                       (                                                              )
+	VehicleInfoSelectColumnTerminalID VehicleInfoSelectColumn = "terminal_id"
+	// 是否申请安装智能终端                                         (                                                              )
+	VehicleInfoSelectColumnIsApplyInstallTerminal VehicleInfoSelectColumn = "is_apply_install_terminal"
+	// 车牌号                                                       (                                                              )
+	VehicleInfoSelectColumnLicensePlateNumber VehicleInfoSelectColumn = "license_plate_number"
+	// 车牌颜色                                                     ( 车牌颜色字典                                             )
+	VehicleInfoSelectColumnLicensePlateColor VehicleInfoSelectColumn = "license_plate_color"
+	// 号牌种类                                                     ( 号牌种类字典                                             )
+	VehicleInfoSelectColumnLicensePlateType VehicleInfoSelectColumn = "license_plate_type"
+	// 车架号(后6位)                                                ( 车辆识别代号vin,如D02133                                     )
+	VehicleInfoSelectColumnVehicleIdentificationNumber VehicleInfoSelectColumn = "vehicle_identification_number"
+	// 道路运输证号                                                 (                                                              )
+	VehicleInfoSelectColumnRoadTransportLicenseNumber VehicleInfoSelectColumn = "road_transport_license_number"
+	// 吨位                                                         (                                                              )
+	VehicleInfoSelectColumnHeavy VehicleInfoSelectColumn = "heavy"
+	// 座位                                                         (                                                              )
+	VehicleInfoSelectColumnSeats VehicleInfoSelectColumn = "seats"
+	// 机动车管理人                                                 (                                                              )
+	VehicleInfoSelectColumnVehicleManager VehicleInfoSelectColumn = "vehicle_manager"
+	// 机动车管理人联系电话                                         (                                                              )
+	VehicleInfoSelectColumnVehicleManagerPhone VehicleInfoSelectColumn = "vehicle_manager_phone"
+	// 机动车管理人身份证                                           (                                                              )
+	VehicleInfoSelectColumnVehicleManagerIDCard VehicleInfoSelectColumn = "vehicle_manager_id_card"
+	// 机动车所有人（六合一）                                       (                                                              )
+	VehicleInfoSelectColumnOwner VehicleInfoSelectColumn = "owner"
+	// 检验日期（六合一）                                           (                                                              )
+	VehicleInfoSelectColumnInspectionDate VehicleInfoSelectColumn = "inspection_date"
+	// 报废日期（六合一）                                           (                                                              )
+	VehicleInfoSelectColumnRetirementDate VehicleInfoSelectColumn = "retirement_date"
+	// 使用性质（六合一）                                           (                                                              )
+	VehicleInfoSelectColumnUseNature VehicleInfoSelectColumn = "use_nature"
+	// 机动车状态                                                   ( 车辆状态字典                                             )
+	VehicleInfoSelectColumnVehicleState VehicleInfoSelectColumn = "vehicle_state"
+	// 内网更新时间                                                 (                                                              )
+	VehicleInfoSelectColumnUpdateTimeIn VehicleInfoSelectColumn = "update_time_in"
+	// 车辆信息同步内网反馈信息                                     ( 车辆信息同步到公安内网后内网的反馈内容，如车牌号填写错误会反馈车辆号牌错误 )
+	VehicleInfoSelectColumnRemarkIn VehicleInfoSelectColumn = "remark_in"
+	// 是否完成                                                     ( 用于标志车辆资料是否处于确定状态。未确定状态的车辆信息在系统上除车辆管理外的功能中都查不到 )
+	VehicleInfoSelectColumnIsComplete VehicleInfoSelectColumn = "is_complete"
+	// 行驶证照片,云储存系统返回的路径                              (                                                              )
+	VehicleInfoSelectColumnDrivingLicenseePic VehicleInfoSelectColumn = "driving_licensee_pic"
+	// 是否激活                                                     (                                                              )
+	VehicleInfoSelectColumnIsActive VehicleInfoSelectColumn = "is_active"
+	// 是否录入完成                                                 (                                                              )
+	VehicleInfoSelectColumnIsInput VehicleInfoSelectColumn = "is_input"
+	// 租车标准价格                                                 (                                                              )
+	VehicleInfoSelectColumnCarRentalPrice VehicleInfoSelectColumn = "car_rental_price"
+	// 投保公司                                                     ( 投保公司字典                                             )
+	VehicleInfoSelectColumnInsuranceCompany VehicleInfoSelectColumn = "insurance_company"
+	// 投保日期                                                     (                                                              )
+	VehicleInfoSelectColumnInsuranceDate VehicleInfoSelectColumn = "insurance_date"
+	// 维保数据数组，字段包括: 1.maintenance_ date 维保时间<br />2.maintenance_ kilometers 维保公里数 (                                                              )
+	VehicleInfoSelectColumnVehicleMaintenances VehicleInfoSelectColumn = "vehicle_maintenances"
+	// 汽车排量                                                     (                                                              )
+	VehicleInfoSelectColumnVehicleDisplacement VehicleInfoSelectColumn = "vehicle_displacement"
+	// 车辆品牌                                                     ( 车辆品牌字典                                             )
+	VehicleInfoSelectColumnVehicleBrand VehicleInfoSelectColumn = "vehicle_brand"
+	// 准驾车型                                                     ( 准驾车型字典                                             )
+	VehicleInfoSelectColumnQuasiDrivingModels VehicleInfoSelectColumn = "quasi_driving_models"
+	// 是否上传省厅                                                 (                                                              )
+	VehicleInfoSelectColumnIsUploadProvince VehicleInfoSelectColumn = "is_upload_province"
+	// 校验状态                                                     ( 车辆校验状态字典                                         )
+	VehicleInfoSelectColumnCheckState VehicleInfoSelectColumn = "check_state"
+	// 是否导入                                                     ( 是否通过外部导入的车辆信息                                   )
+	VehicleInfoSelectColumnIsImport VehicleInfoSelectColumn = "is_import"
+	// 是否工程运输车                                               (                                                              )
+	VehicleInfoSelectColumnIsEngineeringVehicle VehicleInfoSelectColumn = "is_engineering_vehicle"
+	// 是否目录库                                                   (                                                              )
+	VehicleInfoSelectColumnIsCatalogLibrary VehicleInfoSelectColumn = "is_catalog_library"
+	// 备注                                                         (                                                              )
+	VehicleInfoSelectColumnRemarks VehicleInfoSelectColumn = "remarks"
+	// 是否删除                                                     (                                                              )
+	VehicleInfoSelectColumnIsDeleted VehicleInfoSelectColumn = "is_deleted"
+	// 登记时间                                                     (                                                              )
+	VehicleInfoSelectColumnRecordAt VehicleInfoSelectColumn = "record_at"
+	// 登记人                                                       ( system_user表的user_id                                   )
+	VehicleInfoSelectColumnRecordBy VehicleInfoSelectColumn = "record_by"
+	// 创建时间                                                     (                                                              )
+	VehicleInfoSelectColumnCreatedAt VehicleInfoSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id                                   )
+	VehicleInfoSelectColumnCreatedBy VehicleInfoSelectColumn = "created_by"
+	// 修改时间                                                     (                                                              )
+	VehicleInfoSelectColumnUpdatedAt VehicleInfoSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id                                   )
+	VehicleInfoSelectColumnUpdatedBy VehicleInfoSelectColumn = "updated_by"
+	// 删除时间                                                     (                                                              )
+	VehicleInfoSelectColumnDeletedAt VehicleInfoSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id                                   )
+	VehicleInfoSelectColumnDeletedBy VehicleInfoSelectColumn = "deleted_by"
 )
 
 var AllVehicleInfoSelectColumn = []VehicleInfoSelectColumn{
-	VehicleInfoSelectColumnBusinessScope,
-	VehicleInfoSelectColumnCarRentalPrice,
-	VehicleInfoSelectColumnCheckState,
-	VehicleInfoSelectColumnCreatedAt,
-	VehicleInfoSelectColumnCreatedBy,
-	VehicleInfoSelectColumnDeletedAt,
-	VehicleInfoSelectColumnDeletedBy,
-	VehicleInfoSelectColumnDepartmentID,
-	VehicleInfoSelectColumnDrivingLicenseePic,
-	VehicleInfoSelectColumnEnterpriseID,
-	VehicleInfoSelectColumnHeavy,
 	VehicleInfoSelectColumnID,
+	VehicleInfoSelectColumnVehicleID,
+	VehicleInfoSelectColumnEnterpriseID,
+	VehicleInfoSelectColumnDepartmentID,
 	VehicleInfoSelectColumnIndustryCategory,
+	VehicleInfoSelectColumnBusinessScope,
+	VehicleInfoSelectColumnVehicleType,
+	VehicleInfoSelectColumnOperatingType,
+	VehicleInfoSelectColumnOperatingState,
+	VehicleInfoSelectColumnOperatingRoute,
+	VehicleInfoSelectColumnTerminalID,
+	VehicleInfoSelectColumnIsApplyInstallTerminal,
+	VehicleInfoSelectColumnLicensePlateNumber,
+	VehicleInfoSelectColumnLicensePlateColor,
+	VehicleInfoSelectColumnLicensePlateType,
+	VehicleInfoSelectColumnVehicleIdentificationNumber,
+	VehicleInfoSelectColumnRoadTransportLicenseNumber,
+	VehicleInfoSelectColumnHeavy,
+	VehicleInfoSelectColumnSeats,
+	VehicleInfoSelectColumnVehicleManager,
+	VehicleInfoSelectColumnVehicleManagerPhone,
+	VehicleInfoSelectColumnVehicleManagerIDCard,
+	VehicleInfoSelectColumnOwner,
 	VehicleInfoSelectColumnInspectionDate,
+	VehicleInfoSelectColumnRetirementDate,
+	VehicleInfoSelectColumnUseNature,
+	VehicleInfoSelectColumnVehicleState,
+	VehicleInfoSelectColumnUpdateTimeIn,
+	VehicleInfoSelectColumnRemarkIn,
+	VehicleInfoSelectColumnIsComplete,
+	VehicleInfoSelectColumnDrivingLicenseePic,
+	VehicleInfoSelectColumnIsActive,
+	VehicleInfoSelectColumnIsInput,
+	VehicleInfoSelectColumnCarRentalPrice,
 	VehicleInfoSelectColumnInsuranceCompany,
 	VehicleInfoSelectColumnInsuranceDate,
-	VehicleInfoSelectColumnIsActive,
-	VehicleInfoSelectColumnIsApplyInstallTerminal,
-	VehicleInfoSelectColumnIsComplete,
-	VehicleInfoSelectColumnIsDelete,
-	VehicleInfoSelectColumnIsImport,
-	VehicleInfoSelectColumnIsInput,
-	VehicleInfoSelectColumnIsUploadProvince,
-	VehicleInfoSelectColumnLicensePlateColor,
-	VehicleInfoSelectColumnLicensePlateNumber,
-	VehicleInfoSelectColumnLicensePlateType,
-	VehicleInfoSelectColumnMuckTruckID,
-	VehicleInfoSelectColumnOperatingRoute,
-	VehicleInfoSelectColumnOperatingState,
-	VehicleInfoSelectColumnOperatingType,
-	VehicleInfoSelectColumnOperatingVehicleID,
-	VehicleInfoSelectColumnOwner,
+	VehicleInfoSelectColumnVehicleMaintenances,
+	VehicleInfoSelectColumnVehicleDisplacement,
+	VehicleInfoSelectColumnVehicleBrand,
 	VehicleInfoSelectColumnQuasiDrivingModels,
+	VehicleInfoSelectColumnIsUploadProvince,
+	VehicleInfoSelectColumnCheckState,
+	VehicleInfoSelectColumnIsImport,
+	VehicleInfoSelectColumnIsEngineeringVehicle,
+	VehicleInfoSelectColumnIsCatalogLibrary,
+	VehicleInfoSelectColumnRemarks,
+	VehicleInfoSelectColumnIsDeleted,
 	VehicleInfoSelectColumnRecordAt,
 	VehicleInfoSelectColumnRecordBy,
-	VehicleInfoSelectColumnRemarkIn,
-	VehicleInfoSelectColumnRemarks,
-	VehicleInfoSelectColumnRetirementDate,
-	VehicleInfoSelectColumnRoadTransportLicenseNumber,
-	VehicleInfoSelectColumnSeats,
-	VehicleInfoSelectColumnTerminalID,
+	VehicleInfoSelectColumnCreatedAt,
+	VehicleInfoSelectColumnCreatedBy,
 	VehicleInfoSelectColumnUpdatedAt,
 	VehicleInfoSelectColumnUpdatedBy,
-	VehicleInfoSelectColumnUpdateTimeIn,
-	VehicleInfoSelectColumnUseNature,
-	VehicleInfoSelectColumnVehicleBrand,
-	VehicleInfoSelectColumnVehicleDisplacement,
-	VehicleInfoSelectColumnVehicleID,
-	VehicleInfoSelectColumnVehicleIdentificationNumber,
-	VehicleInfoSelectColumnVehicleMaintenances,
-	VehicleInfoSelectColumnVehicleManager,
-	VehicleInfoSelectColumnVehicleManagerIDCard,
-	VehicleInfoSelectColumnVehicleManagerPhone,
-	VehicleInfoSelectColumnVehicleState,
-	VehicleInfoSelectColumnVehicleType,
+	VehicleInfoSelectColumnDeletedAt,
+	VehicleInfoSelectColumnDeletedBy,
 }
 
 func (e VehicleInfoSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoSelectColumnBusinessScope, VehicleInfoSelectColumnCarRentalPrice, VehicleInfoSelectColumnCheckState, VehicleInfoSelectColumnCreatedAt, VehicleInfoSelectColumnCreatedBy, VehicleInfoSelectColumnDeletedAt, VehicleInfoSelectColumnDeletedBy, VehicleInfoSelectColumnDepartmentID, VehicleInfoSelectColumnDrivingLicenseePic, VehicleInfoSelectColumnEnterpriseID, VehicleInfoSelectColumnHeavy, VehicleInfoSelectColumnID, VehicleInfoSelectColumnIndustryCategory, VehicleInfoSelectColumnInspectionDate, VehicleInfoSelectColumnInsuranceCompany, VehicleInfoSelectColumnInsuranceDate, VehicleInfoSelectColumnIsActive, VehicleInfoSelectColumnIsApplyInstallTerminal, VehicleInfoSelectColumnIsComplete, VehicleInfoSelectColumnIsDelete, VehicleInfoSelectColumnIsImport, VehicleInfoSelectColumnIsInput, VehicleInfoSelectColumnIsUploadProvince, VehicleInfoSelectColumnLicensePlateColor, VehicleInfoSelectColumnLicensePlateNumber, VehicleInfoSelectColumnLicensePlateType, VehicleInfoSelectColumnMuckTruckID, VehicleInfoSelectColumnOperatingRoute, VehicleInfoSelectColumnOperatingState, VehicleInfoSelectColumnOperatingType, VehicleInfoSelectColumnOperatingVehicleID, VehicleInfoSelectColumnOwner, VehicleInfoSelectColumnQuasiDrivingModels, VehicleInfoSelectColumnRecordAt, VehicleInfoSelectColumnRecordBy, VehicleInfoSelectColumnRemarkIn, VehicleInfoSelectColumnRemarks, VehicleInfoSelectColumnRetirementDate, VehicleInfoSelectColumnRoadTransportLicenseNumber, VehicleInfoSelectColumnSeats, VehicleInfoSelectColumnTerminalID, VehicleInfoSelectColumnUpdatedAt, VehicleInfoSelectColumnUpdatedBy, VehicleInfoSelectColumnUpdateTimeIn, VehicleInfoSelectColumnUseNature, VehicleInfoSelectColumnVehicleBrand, VehicleInfoSelectColumnVehicleDisplacement, VehicleInfoSelectColumnVehicleID, VehicleInfoSelectColumnVehicleIdentificationNumber, VehicleInfoSelectColumnVehicleMaintenances, VehicleInfoSelectColumnVehicleManager, VehicleInfoSelectColumnVehicleManagerIDCard, VehicleInfoSelectColumnVehicleManagerPhone, VehicleInfoSelectColumnVehicleState, VehicleInfoSelectColumnVehicleType:
+	case VehicleInfoSelectColumnID, VehicleInfoSelectColumnVehicleID, VehicleInfoSelectColumnEnterpriseID, VehicleInfoSelectColumnDepartmentID, VehicleInfoSelectColumnIndustryCategory, VehicleInfoSelectColumnBusinessScope, VehicleInfoSelectColumnVehicleType, VehicleInfoSelectColumnOperatingType, VehicleInfoSelectColumnOperatingState, VehicleInfoSelectColumnOperatingRoute, VehicleInfoSelectColumnTerminalID, VehicleInfoSelectColumnIsApplyInstallTerminal, VehicleInfoSelectColumnLicensePlateNumber, VehicleInfoSelectColumnLicensePlateColor, VehicleInfoSelectColumnLicensePlateType, VehicleInfoSelectColumnVehicleIdentificationNumber, VehicleInfoSelectColumnRoadTransportLicenseNumber, VehicleInfoSelectColumnHeavy, VehicleInfoSelectColumnSeats, VehicleInfoSelectColumnVehicleManager, VehicleInfoSelectColumnVehicleManagerPhone, VehicleInfoSelectColumnVehicleManagerIDCard, VehicleInfoSelectColumnOwner, VehicleInfoSelectColumnInspectionDate, VehicleInfoSelectColumnRetirementDate, VehicleInfoSelectColumnUseNature, VehicleInfoSelectColumnVehicleState, VehicleInfoSelectColumnUpdateTimeIn, VehicleInfoSelectColumnRemarkIn, VehicleInfoSelectColumnIsComplete, VehicleInfoSelectColumnDrivingLicenseePic, VehicleInfoSelectColumnIsActive, VehicleInfoSelectColumnIsInput, VehicleInfoSelectColumnCarRentalPrice, VehicleInfoSelectColumnInsuranceCompany, VehicleInfoSelectColumnInsuranceDate, VehicleInfoSelectColumnVehicleMaintenances, VehicleInfoSelectColumnVehicleDisplacement, VehicleInfoSelectColumnVehicleBrand, VehicleInfoSelectColumnQuasiDrivingModels, VehicleInfoSelectColumnIsUploadProvince, VehicleInfoSelectColumnCheckState, VehicleInfoSelectColumnIsImport, VehicleInfoSelectColumnIsEngineeringVehicle, VehicleInfoSelectColumnIsCatalogLibrary, VehicleInfoSelectColumnRemarks, VehicleInfoSelectColumnIsDeleted, VehicleInfoSelectColumnRecordAt, VehicleInfoSelectColumnRecordBy, VehicleInfoSelectColumnCreatedAt, VehicleInfoSelectColumnCreatedBy, VehicleInfoSelectColumnUpdatedAt, VehicleInfoSelectColumnUpdatedBy, VehicleInfoSelectColumnDeletedAt, VehicleInfoSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -7915,7 +8449,7 @@ func (e *VehicleInfoSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = VehicleInfoSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_info_select_column", str)
+		return fmt.Errorf("%s is not a valid VehicleInfoSelectColumn", str)
 	}
 	return nil
 }
@@ -7924,301 +8458,558 @@ func (e VehicleInfoSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "vehicle_info"
-type VehicleInfoUpdateColumn string
+// 可选select
+type VehicleOnlineTimeSelectColumn string
 
 const (
-	// column name
-	VehicleInfoUpdateColumnBusinessScope VehicleInfoUpdateColumn = "business_scope"
-	// column name
-	VehicleInfoUpdateColumnCarRentalPrice VehicleInfoUpdateColumn = "car_rental_price"
-	// column name
-	VehicleInfoUpdateColumnCheckState VehicleInfoUpdateColumn = "check_state"
-	// column name
-	VehicleInfoUpdateColumnCreatedAt VehicleInfoUpdateColumn = "created_at"
-	// column name
-	VehicleInfoUpdateColumnCreatedBy VehicleInfoUpdateColumn = "created_by"
-	// column name
-	VehicleInfoUpdateColumnDeletedAt VehicleInfoUpdateColumn = "deleted_at"
-	// column name
-	VehicleInfoUpdateColumnDeletedBy VehicleInfoUpdateColumn = "deleted_by"
-	// column name
-	VehicleInfoUpdateColumnDepartmentID VehicleInfoUpdateColumn = "department_id"
-	// column name
-	VehicleInfoUpdateColumnDrivingLicenseePic VehicleInfoUpdateColumn = "driving_licensee_pic"
-	// column name
-	VehicleInfoUpdateColumnEnterpriseID VehicleInfoUpdateColumn = "enterprise_id"
-	// column name
-	VehicleInfoUpdateColumnHeavy VehicleInfoUpdateColumn = "heavy"
-	// column name
-	VehicleInfoUpdateColumnID VehicleInfoUpdateColumn = "id"
-	// column name
-	VehicleInfoUpdateColumnIndustryCategory VehicleInfoUpdateColumn = "industry_category"
-	// column name
-	VehicleInfoUpdateColumnInspectionDate VehicleInfoUpdateColumn = "inspection_date"
-	// column name
-	VehicleInfoUpdateColumnInsuranceCompany VehicleInfoUpdateColumn = "insurance_company"
-	// column name
-	VehicleInfoUpdateColumnInsuranceDate VehicleInfoUpdateColumn = "insurance_date"
-	// column name
-	VehicleInfoUpdateColumnIsActive VehicleInfoUpdateColumn = "is_active"
-	// column name
-	VehicleInfoUpdateColumnIsApplyInstallTerminal VehicleInfoUpdateColumn = "is_apply_install_terminal"
-	// column name
-	VehicleInfoUpdateColumnIsComplete VehicleInfoUpdateColumn = "is_complete"
-	// column name
-	VehicleInfoUpdateColumnIsDelete VehicleInfoUpdateColumn = "is_delete"
-	// column name
-	VehicleInfoUpdateColumnIsImport VehicleInfoUpdateColumn = "is_import"
-	// column name
-	VehicleInfoUpdateColumnIsInput VehicleInfoUpdateColumn = "is_input"
-	// column name
-	VehicleInfoUpdateColumnIsUploadProvince VehicleInfoUpdateColumn = "is_upload_province"
-	// column name
-	VehicleInfoUpdateColumnLicensePlateColor VehicleInfoUpdateColumn = "license_plate_color"
-	// column name
-	VehicleInfoUpdateColumnLicensePlateNumber VehicleInfoUpdateColumn = "license_plate_number"
-	// column name
-	VehicleInfoUpdateColumnLicensePlateType VehicleInfoUpdateColumn = "license_plate_type"
-	// column name
-	VehicleInfoUpdateColumnMuckTruckID VehicleInfoUpdateColumn = "muck_truck_id"
-	// column name
-	VehicleInfoUpdateColumnOperatingRoute VehicleInfoUpdateColumn = "operating_route"
-	// column name
-	VehicleInfoUpdateColumnOperatingState VehicleInfoUpdateColumn = "operating_state"
-	// column name
-	VehicleInfoUpdateColumnOperatingType VehicleInfoUpdateColumn = "operating_type"
-	// column name
-	VehicleInfoUpdateColumnOperatingVehicleID VehicleInfoUpdateColumn = "operating_vehicle_id"
-	// column name
-	VehicleInfoUpdateColumnOwner VehicleInfoUpdateColumn = "owner"
-	// column name
-	VehicleInfoUpdateColumnQuasiDrivingModels VehicleInfoUpdateColumn = "quasi_driving_models"
-	// column name
-	VehicleInfoUpdateColumnRecordAt VehicleInfoUpdateColumn = "record_at"
-	// column name
-	VehicleInfoUpdateColumnRecordBy VehicleInfoUpdateColumn = "record_by"
-	// column name
-	VehicleInfoUpdateColumnRemarkIn VehicleInfoUpdateColumn = "remark_in"
-	// column name
-	VehicleInfoUpdateColumnRemarks VehicleInfoUpdateColumn = "remarks"
-	// column name
-	VehicleInfoUpdateColumnRetirementDate VehicleInfoUpdateColumn = "retirement_date"
-	// column name
-	VehicleInfoUpdateColumnRoadTransportLicenseNumber VehicleInfoUpdateColumn = "road_transport_license_number"
-	// column name
-	VehicleInfoUpdateColumnSeats VehicleInfoUpdateColumn = "seats"
-	// column name
-	VehicleInfoUpdateColumnTerminalID VehicleInfoUpdateColumn = "terminal_id"
-	// column name
-	VehicleInfoUpdateColumnUpdatedAt VehicleInfoUpdateColumn = "updated_at"
-	// column name
-	VehicleInfoUpdateColumnUpdatedBy VehicleInfoUpdateColumn = "updated_by"
-	// column name
-	VehicleInfoUpdateColumnUpdateTimeIn VehicleInfoUpdateColumn = "update_time_in"
-	// column name
-	VehicleInfoUpdateColumnUseNature VehicleInfoUpdateColumn = "use_nature"
-	// column name
-	VehicleInfoUpdateColumnVehicleBrand VehicleInfoUpdateColumn = "vehicle_brand"
-	// column name
-	VehicleInfoUpdateColumnVehicleDisplacement VehicleInfoUpdateColumn = "vehicle_displacement"
-	// column name
-	VehicleInfoUpdateColumnVehicleID VehicleInfoUpdateColumn = "vehicle_id"
-	// column name
-	VehicleInfoUpdateColumnVehicleIdentificationNumber VehicleInfoUpdateColumn = "vehicle_identification_number"
-	// column name
-	VehicleInfoUpdateColumnVehicleMaintenances VehicleInfoUpdateColumn = "vehicle_maintenances"
-	// column name
-	VehicleInfoUpdateColumnVehicleManager VehicleInfoUpdateColumn = "vehicle_manager"
-	// column name
-	VehicleInfoUpdateColumnVehicleManagerIDCard VehicleInfoUpdateColumn = "vehicle_manager_id_card"
-	// column name
-	VehicleInfoUpdateColumnVehicleManagerPhone VehicleInfoUpdateColumn = "vehicle_manager_phone"
-	// column name
-	VehicleInfoUpdateColumnVehicleState VehicleInfoUpdateColumn = "vehicle_state"
-	// column name
-	VehicleInfoUpdateColumnVehicleType VehicleInfoUpdateColumn = "vehicle_type"
+	// 按指定方法生成                                  ( 主键                       )
+	VehicleOnlineTimeSelectColumnID VehicleOnlineTimeSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	VehicleOnlineTimeSelectColumnOnlineTimeID VehicleOnlineTimeSelectColumn = "online_time_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	VehicleOnlineTimeSelectColumnVehicleID VehicleOnlineTimeSelectColumn = "vehicle_id"
+	// 在线时长                                        (                            )
+	VehicleOnlineTimeSelectColumnOnlineTime VehicleOnlineTimeSelectColumn = "online_time"
+	// 离线时长                                        (                            )
+	VehicleOnlineTimeSelectColumnOfflineTime VehicleOnlineTimeSelectColumn = "offline_time"
+	// 总时长                                          (                            )
+	VehicleOnlineTimeSelectColumnTotalTime VehicleOnlineTimeSelectColumn = "total_time"
+	// 是否在线                                        (                            )
+	VehicleOnlineTimeSelectColumnIsOnline VehicleOnlineTimeSelectColumn = "is_online"
+	// 创建时间                                        (                            )
+	VehicleOnlineTimeSelectColumnCreatedAt VehicleOnlineTimeSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	VehicleOnlineTimeSelectColumnCreatedBy VehicleOnlineTimeSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	VehicleOnlineTimeSelectColumnUpdatedAt VehicleOnlineTimeSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	VehicleOnlineTimeSelectColumnUpdatedBy VehicleOnlineTimeSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	VehicleOnlineTimeSelectColumnDeletedAt VehicleOnlineTimeSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	VehicleOnlineTimeSelectColumnDeletedBy VehicleOnlineTimeSelectColumn = "deleted_by"
 )
 
-var AllVehicleInfoUpdateColumn = []VehicleInfoUpdateColumn{
-	VehicleInfoUpdateColumnBusinessScope,
-	VehicleInfoUpdateColumnCarRentalPrice,
-	VehicleInfoUpdateColumnCheckState,
-	VehicleInfoUpdateColumnCreatedAt,
-	VehicleInfoUpdateColumnCreatedBy,
-	VehicleInfoUpdateColumnDeletedAt,
-	VehicleInfoUpdateColumnDeletedBy,
-	VehicleInfoUpdateColumnDepartmentID,
-	VehicleInfoUpdateColumnDrivingLicenseePic,
-	VehicleInfoUpdateColumnEnterpriseID,
-	VehicleInfoUpdateColumnHeavy,
-	VehicleInfoUpdateColumnID,
-	VehicleInfoUpdateColumnIndustryCategory,
-	VehicleInfoUpdateColumnInspectionDate,
-	VehicleInfoUpdateColumnInsuranceCompany,
-	VehicleInfoUpdateColumnInsuranceDate,
-	VehicleInfoUpdateColumnIsActive,
-	VehicleInfoUpdateColumnIsApplyInstallTerminal,
-	VehicleInfoUpdateColumnIsComplete,
-	VehicleInfoUpdateColumnIsDelete,
-	VehicleInfoUpdateColumnIsImport,
-	VehicleInfoUpdateColumnIsInput,
-	VehicleInfoUpdateColumnIsUploadProvince,
-	VehicleInfoUpdateColumnLicensePlateColor,
-	VehicleInfoUpdateColumnLicensePlateNumber,
-	VehicleInfoUpdateColumnLicensePlateType,
-	VehicleInfoUpdateColumnMuckTruckID,
-	VehicleInfoUpdateColumnOperatingRoute,
-	VehicleInfoUpdateColumnOperatingState,
-	VehicleInfoUpdateColumnOperatingType,
-	VehicleInfoUpdateColumnOperatingVehicleID,
-	VehicleInfoUpdateColumnOwner,
-	VehicleInfoUpdateColumnQuasiDrivingModels,
-	VehicleInfoUpdateColumnRecordAt,
-	VehicleInfoUpdateColumnRecordBy,
-	VehicleInfoUpdateColumnRemarkIn,
-	VehicleInfoUpdateColumnRemarks,
-	VehicleInfoUpdateColumnRetirementDate,
-	VehicleInfoUpdateColumnRoadTransportLicenseNumber,
-	VehicleInfoUpdateColumnSeats,
-	VehicleInfoUpdateColumnTerminalID,
-	VehicleInfoUpdateColumnUpdatedAt,
-	VehicleInfoUpdateColumnUpdatedBy,
-	VehicleInfoUpdateColumnUpdateTimeIn,
-	VehicleInfoUpdateColumnUseNature,
-	VehicleInfoUpdateColumnVehicleBrand,
-	VehicleInfoUpdateColumnVehicleDisplacement,
-	VehicleInfoUpdateColumnVehicleID,
-	VehicleInfoUpdateColumnVehicleIdentificationNumber,
-	VehicleInfoUpdateColumnVehicleMaintenances,
-	VehicleInfoUpdateColumnVehicleManager,
-	VehicleInfoUpdateColumnVehicleManagerIDCard,
-	VehicleInfoUpdateColumnVehicleManagerPhone,
-	VehicleInfoUpdateColumnVehicleState,
-	VehicleInfoUpdateColumnVehicleType,
+var AllVehicleOnlineTimeSelectColumn = []VehicleOnlineTimeSelectColumn{
+	VehicleOnlineTimeSelectColumnID,
+	VehicleOnlineTimeSelectColumnOnlineTimeID,
+	VehicleOnlineTimeSelectColumnVehicleID,
+	VehicleOnlineTimeSelectColumnOnlineTime,
+	VehicleOnlineTimeSelectColumnOfflineTime,
+	VehicleOnlineTimeSelectColumnTotalTime,
+	VehicleOnlineTimeSelectColumnIsOnline,
+	VehicleOnlineTimeSelectColumnCreatedAt,
+	VehicleOnlineTimeSelectColumnCreatedBy,
+	VehicleOnlineTimeSelectColumnUpdatedAt,
+	VehicleOnlineTimeSelectColumnUpdatedBy,
+	VehicleOnlineTimeSelectColumnDeletedAt,
+	VehicleOnlineTimeSelectColumnDeletedBy,
 }
 
-func (e VehicleInfoUpdateColumn) IsValid() bool {
+func (e VehicleOnlineTimeSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleInfoUpdateColumnBusinessScope, VehicleInfoUpdateColumnCarRentalPrice, VehicleInfoUpdateColumnCheckState, VehicleInfoUpdateColumnCreatedAt, VehicleInfoUpdateColumnCreatedBy, VehicleInfoUpdateColumnDeletedAt, VehicleInfoUpdateColumnDeletedBy, VehicleInfoUpdateColumnDepartmentID, VehicleInfoUpdateColumnDrivingLicenseePic, VehicleInfoUpdateColumnEnterpriseID, VehicleInfoUpdateColumnHeavy, VehicleInfoUpdateColumnID, VehicleInfoUpdateColumnIndustryCategory, VehicleInfoUpdateColumnInspectionDate, VehicleInfoUpdateColumnInsuranceCompany, VehicleInfoUpdateColumnInsuranceDate, VehicleInfoUpdateColumnIsActive, VehicleInfoUpdateColumnIsApplyInstallTerminal, VehicleInfoUpdateColumnIsComplete, VehicleInfoUpdateColumnIsDelete, VehicleInfoUpdateColumnIsImport, VehicleInfoUpdateColumnIsInput, VehicleInfoUpdateColumnIsUploadProvince, VehicleInfoUpdateColumnLicensePlateColor, VehicleInfoUpdateColumnLicensePlateNumber, VehicleInfoUpdateColumnLicensePlateType, VehicleInfoUpdateColumnMuckTruckID, VehicleInfoUpdateColumnOperatingRoute, VehicleInfoUpdateColumnOperatingState, VehicleInfoUpdateColumnOperatingType, VehicleInfoUpdateColumnOperatingVehicleID, VehicleInfoUpdateColumnOwner, VehicleInfoUpdateColumnQuasiDrivingModels, VehicleInfoUpdateColumnRecordAt, VehicleInfoUpdateColumnRecordBy, VehicleInfoUpdateColumnRemarkIn, VehicleInfoUpdateColumnRemarks, VehicleInfoUpdateColumnRetirementDate, VehicleInfoUpdateColumnRoadTransportLicenseNumber, VehicleInfoUpdateColumnSeats, VehicleInfoUpdateColumnTerminalID, VehicleInfoUpdateColumnUpdatedAt, VehicleInfoUpdateColumnUpdatedBy, VehicleInfoUpdateColumnUpdateTimeIn, VehicleInfoUpdateColumnUseNature, VehicleInfoUpdateColumnVehicleBrand, VehicleInfoUpdateColumnVehicleDisplacement, VehicleInfoUpdateColumnVehicleID, VehicleInfoUpdateColumnVehicleIdentificationNumber, VehicleInfoUpdateColumnVehicleMaintenances, VehicleInfoUpdateColumnVehicleManager, VehicleInfoUpdateColumnVehicleManagerIDCard, VehicleInfoUpdateColumnVehicleManagerPhone, VehicleInfoUpdateColumnVehicleState, VehicleInfoUpdateColumnVehicleType:
+	case VehicleOnlineTimeSelectColumnID, VehicleOnlineTimeSelectColumnOnlineTimeID, VehicleOnlineTimeSelectColumnVehicleID, VehicleOnlineTimeSelectColumnOnlineTime, VehicleOnlineTimeSelectColumnOfflineTime, VehicleOnlineTimeSelectColumnTotalTime, VehicleOnlineTimeSelectColumnIsOnline, VehicleOnlineTimeSelectColumnCreatedAt, VehicleOnlineTimeSelectColumnCreatedBy, VehicleOnlineTimeSelectColumnUpdatedAt, VehicleOnlineTimeSelectColumnUpdatedBy, VehicleOnlineTimeSelectColumnDeletedAt, VehicleOnlineTimeSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e VehicleInfoUpdateColumn) String() string {
+func (e VehicleOnlineTimeSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *VehicleInfoUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *VehicleOnlineTimeSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = VehicleInfoUpdateColumn(str)
+	*e = VehicleOnlineTimeSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_info_update_column", str)
+		return fmt.Errorf("%s is not a valid VehicleOnlineTimeSelectColumn", str)
 	}
 	return nil
 }
 
-func (e VehicleInfoUpdateColumn) MarshalGQL(w io.Writer) {
+func (e VehicleOnlineTimeSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoConstraint string
+// 可选select
+type VehicleOperationHistorySelectColumn string
 
 const (
-	// unique or primary key constraint
-	VehicleSupervisionPhotoConstraintVehicleSupervisionPhotoPkey VehicleSupervisionPhotoConstraint = "vehicle_supervision_photo_pkey"
+	// 按指定方法生成                                  ( 主键                       )
+	VehicleOperationHistorySelectColumnID VehicleOperationHistorySelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	VehicleOperationHistorySelectColumnVehicleOperationHistoryID VehicleOperationHistorySelectColumn = "vehicle_operation_history_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	VehicleOperationHistorySelectColumnVehicleID VehicleOperationHistorySelectColumn = "vehicle_id"
+	// 备注                                            (                            )
+	VehicleOperationHistorySelectColumnRemarks VehicleOperationHistorySelectColumn = "remarks"
+	// 操作类型  1.添加  2.删除                        (                            )
+	VehicleOperationHistorySelectColumnOperationType VehicleOperationHistorySelectColumn = "operation_type"
+	// 操作人                                          ( system_user表的user_id )
+	VehicleOperationHistorySelectColumnOperator VehicleOperationHistorySelectColumn = "operator"
+	// 审核状态  0.未审批  1.已审批                    (                            )
+	VehicleOperationHistorySelectColumnReviewStatus VehicleOperationHistorySelectColumn = "review_status"
+	// 地区                                            (                            )
+	VehicleOperationHistorySelectColumnArea VehicleOperationHistorySelectColumn = "area"
+	// 审核人                                          ( system_user表的user_id )
+	VehicleOperationHistorySelectColumnReviewer VehicleOperationHistorySelectColumn = "reviewer"
+	// 创建时间                                        (                            )
+	VehicleOperationHistorySelectColumnCreatedAt VehicleOperationHistorySelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	VehicleOperationHistorySelectColumnCreatedBy VehicleOperationHistorySelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	VehicleOperationHistorySelectColumnUpdatedAt VehicleOperationHistorySelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	VehicleOperationHistorySelectColumnUpdatedBy VehicleOperationHistorySelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	VehicleOperationHistorySelectColumnDeletedAt VehicleOperationHistorySelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	VehicleOperationHistorySelectColumnDeletedBy VehicleOperationHistorySelectColumn = "deleted_by"
 )
 
-var AllVehicleSupervisionPhotoConstraint = []VehicleSupervisionPhotoConstraint{
-	VehicleSupervisionPhotoConstraintVehicleSupervisionPhotoPkey,
+var AllVehicleOperationHistorySelectColumn = []VehicleOperationHistorySelectColumn{
+	VehicleOperationHistorySelectColumnID,
+	VehicleOperationHistorySelectColumnVehicleOperationHistoryID,
+	VehicleOperationHistorySelectColumnVehicleID,
+	VehicleOperationHistorySelectColumnRemarks,
+	VehicleOperationHistorySelectColumnOperationType,
+	VehicleOperationHistorySelectColumnOperator,
+	VehicleOperationHistorySelectColumnReviewStatus,
+	VehicleOperationHistorySelectColumnArea,
+	VehicleOperationHistorySelectColumnReviewer,
+	VehicleOperationHistorySelectColumnCreatedAt,
+	VehicleOperationHistorySelectColumnCreatedBy,
+	VehicleOperationHistorySelectColumnUpdatedAt,
+	VehicleOperationHistorySelectColumnUpdatedBy,
+	VehicleOperationHistorySelectColumnDeletedAt,
+	VehicleOperationHistorySelectColumnDeletedBy,
 }
 
-func (e VehicleSupervisionPhotoConstraint) IsValid() bool {
+func (e VehicleOperationHistorySelectColumn) IsValid() bool {
 	switch e {
-	case VehicleSupervisionPhotoConstraintVehicleSupervisionPhotoPkey:
+	case VehicleOperationHistorySelectColumnID, VehicleOperationHistorySelectColumnVehicleOperationHistoryID, VehicleOperationHistorySelectColumnVehicleID, VehicleOperationHistorySelectColumnRemarks, VehicleOperationHistorySelectColumnOperationType, VehicleOperationHistorySelectColumnOperator, VehicleOperationHistorySelectColumnReviewStatus, VehicleOperationHistorySelectColumnArea, VehicleOperationHistorySelectColumnReviewer, VehicleOperationHistorySelectColumnCreatedAt, VehicleOperationHistorySelectColumnCreatedBy, VehicleOperationHistorySelectColumnUpdatedAt, VehicleOperationHistorySelectColumnUpdatedBy, VehicleOperationHistorySelectColumnDeletedAt, VehicleOperationHistorySelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e VehicleSupervisionPhotoConstraint) String() string {
+func (e VehicleOperationHistorySelectColumn) String() string {
 	return string(e)
 }
 
-func (e *VehicleSupervisionPhotoConstraint) UnmarshalGQL(v interface{}) error {
+func (e *VehicleOperationHistorySelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = VehicleSupervisionPhotoConstraint(str)
+	*e = VehicleOperationHistorySelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_supervision_photo_constraint", str)
+		return fmt.Errorf("%s is not a valid VehicleOperationHistorySelectColumn", str)
 	}
 	return nil
 }
 
-func (e VehicleSupervisionPhotoConstraint) MarshalGQL(w io.Writer) {
+func (e VehicleOperationHistorySelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// select columns of table "vehicle_supervision_photo"
+// 可选select
+type VehicleReserveHistoryRecordSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                       )
+	VehicleReserveHistoryRecordSelectColumnID VehicleReserveHistoryRecordSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	VehicleReserveHistoryRecordSelectColumnVehicleReserveHistoryRecordID VehicleReserveHistoryRecordSelectColumn = "vehicle_reserve_history_record_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	VehicleReserveHistoryRecordSelectColumnVehicleID VehicleReserveHistoryRecordSelectColumn = "vehicle_id"
+	// 操作 1.加入预备库  2.移出预备库                 (                            )
+	VehicleReserveHistoryRecordSelectColumnOperation VehicleReserveHistoryRecordSelectColumn = "operation"
+	// 操作用户                                        ( system_user表的user_id )
+	VehicleReserveHistoryRecordSelectColumnOperationUser VehicleReserveHistoryRecordSelectColumn = "operation_user"
+	// 操作时间                                        (                            )
+	VehicleReserveHistoryRecordSelectColumnOperationTime VehicleReserveHistoryRecordSelectColumn = "operation_time"
+	// 操作来源 1.车辆  2.驾驶员                       (                            )
+	VehicleReserveHistoryRecordSelectColumnOperationSource VehicleReserveHistoryRecordSelectColumn = "operation_source"
+	// 创建时间                                        (                            )
+	VehicleReserveHistoryRecordSelectColumnCreatedAt VehicleReserveHistoryRecordSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	VehicleReserveHistoryRecordSelectColumnCreatedBy VehicleReserveHistoryRecordSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	VehicleReserveHistoryRecordSelectColumnUpdatedAt VehicleReserveHistoryRecordSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	VehicleReserveHistoryRecordSelectColumnUpdatedBy VehicleReserveHistoryRecordSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	VehicleReserveHistoryRecordSelectColumnDeletedAt VehicleReserveHistoryRecordSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	VehicleReserveHistoryRecordSelectColumnDeletedBy VehicleReserveHistoryRecordSelectColumn = "deleted_by"
+)
+
+var AllVehicleReserveHistoryRecordSelectColumn = []VehicleReserveHistoryRecordSelectColumn{
+	VehicleReserveHistoryRecordSelectColumnID,
+	VehicleReserveHistoryRecordSelectColumnVehicleReserveHistoryRecordID,
+	VehicleReserveHistoryRecordSelectColumnVehicleID,
+	VehicleReserveHistoryRecordSelectColumnOperation,
+	VehicleReserveHistoryRecordSelectColumnOperationUser,
+	VehicleReserveHistoryRecordSelectColumnOperationTime,
+	VehicleReserveHistoryRecordSelectColumnOperationSource,
+	VehicleReserveHistoryRecordSelectColumnCreatedAt,
+	VehicleReserveHistoryRecordSelectColumnCreatedBy,
+	VehicleReserveHistoryRecordSelectColumnUpdatedAt,
+	VehicleReserveHistoryRecordSelectColumnUpdatedBy,
+	VehicleReserveHistoryRecordSelectColumnDeletedAt,
+	VehicleReserveHistoryRecordSelectColumnDeletedBy,
+}
+
+func (e VehicleReserveHistoryRecordSelectColumn) IsValid() bool {
+	switch e {
+	case VehicleReserveHistoryRecordSelectColumnID, VehicleReserveHistoryRecordSelectColumnVehicleReserveHistoryRecordID, VehicleReserveHistoryRecordSelectColumnVehicleID, VehicleReserveHistoryRecordSelectColumnOperation, VehicleReserveHistoryRecordSelectColumnOperationUser, VehicleReserveHistoryRecordSelectColumnOperationTime, VehicleReserveHistoryRecordSelectColumnOperationSource, VehicleReserveHistoryRecordSelectColumnCreatedAt, VehicleReserveHistoryRecordSelectColumnCreatedBy, VehicleReserveHistoryRecordSelectColumnUpdatedAt, VehicleReserveHistoryRecordSelectColumnUpdatedBy, VehicleReserveHistoryRecordSelectColumnDeletedAt, VehicleReserveHistoryRecordSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VehicleReserveHistoryRecordSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VehicleReserveHistoryRecordSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VehicleReserveHistoryRecordSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VehicleReserveHistoryRecordSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VehicleReserveHistoryRecordSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type VehicleSecurityCheckRecordSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                                 )
+	VehicleSecurityCheckRecordSelectColumnID VehicleSecurityCheckRecordSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	VehicleSecurityCheckRecordSelectColumnVehicleSecurityCheckRecordID VehicleSecurityCheckRecordSelectColumn = "vehicle_security_check_record_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	VehicleSecurityCheckRecordSelectColumnVehicleID VehicleSecurityCheckRecordSelectColumn = "vehicle_id"
+	// 所在企业id                                      ( enterprise_info表的enterprise_id )
+	VehicleSecurityCheckRecordSelectColumnEnterpriseID VehicleSecurityCheckRecordSelectColumn = "enterprise_id"
+	// 刹车                                            (                                      )
+	VehicleSecurityCheckRecordSelectColumnBrake VehicleSecurityCheckRecordSelectColumn = "brake"
+	// 轮胎                                            (                                      )
+	VehicleSecurityCheckRecordSelectColumnTire VehicleSecurityCheckRecordSelectColumn = "tire"
+	// 螺丝                                            (                                      )
+	VehicleSecurityCheckRecordSelectColumnScrew VehicleSecurityCheckRecordSelectColumn = "screw"
+	// 液压油                                          (                                      )
+	VehicleSecurityCheckRecordSelectColumnHydraulicOil VehicleSecurityCheckRecordSelectColumn = "hydraulic_oil"
+	// 机油                                            (                                      )
+	VehicleSecurityCheckRecordSelectColumnEngineOil VehicleSecurityCheckRecordSelectColumn = "engine_oil"
+	// 水                                              (                                      )
+	VehicleSecurityCheckRecordSelectColumnWater VehicleSecurityCheckRecordSelectColumn = "water"
+	// 大灯                                            (                                      )
+	VehicleSecurityCheckRecordSelectColumnHeadlight VehicleSecurityCheckRecordSelectColumn = "headlight"
+	// 尾灯                                            (                                      )
+	VehicleSecurityCheckRecordSelectColumnTaillight VehicleSecurityCheckRecordSelectColumn = "taillight"
+	// 转向灯                                          (                                      )
+	VehicleSecurityCheckRecordSelectColumnTurnSignal VehicleSecurityCheckRecordSelectColumn = "turn_signal"
+	// 刹车灯                                          (                                      )
+	VehicleSecurityCheckRecordSelectColumnBrakeLight VehicleSecurityCheckRecordSelectColumn = "brake_light"
+	// 最后检查时间                                    (                                      )
+	VehicleSecurityCheckRecordSelectColumnLastCheckTime VehicleSecurityCheckRecordSelectColumn = "last_check_time"
+	// 创建时间                                        (                                      )
+	VehicleSecurityCheckRecordSelectColumnCreatedAt VehicleSecurityCheckRecordSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id           )
+	VehicleSecurityCheckRecordSelectColumnCreatedBy VehicleSecurityCheckRecordSelectColumn = "created_by"
+	// 修改时间                                        (                                      )
+	VehicleSecurityCheckRecordSelectColumnUpdatedAt VehicleSecurityCheckRecordSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id           )
+	VehicleSecurityCheckRecordSelectColumnUpdatedBy VehicleSecurityCheckRecordSelectColumn = "updated_by"
+	// 删除时间                                        (                                      )
+	VehicleSecurityCheckRecordSelectColumnDeletedAt VehicleSecurityCheckRecordSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id           )
+	VehicleSecurityCheckRecordSelectColumnDeletedBy VehicleSecurityCheckRecordSelectColumn = "deleted_by"
+)
+
+var AllVehicleSecurityCheckRecordSelectColumn = []VehicleSecurityCheckRecordSelectColumn{
+	VehicleSecurityCheckRecordSelectColumnID,
+	VehicleSecurityCheckRecordSelectColumnVehicleSecurityCheckRecordID,
+	VehicleSecurityCheckRecordSelectColumnVehicleID,
+	VehicleSecurityCheckRecordSelectColumnEnterpriseID,
+	VehicleSecurityCheckRecordSelectColumnBrake,
+	VehicleSecurityCheckRecordSelectColumnTire,
+	VehicleSecurityCheckRecordSelectColumnScrew,
+	VehicleSecurityCheckRecordSelectColumnHydraulicOil,
+	VehicleSecurityCheckRecordSelectColumnEngineOil,
+	VehicleSecurityCheckRecordSelectColumnWater,
+	VehicleSecurityCheckRecordSelectColumnHeadlight,
+	VehicleSecurityCheckRecordSelectColumnTaillight,
+	VehicleSecurityCheckRecordSelectColumnTurnSignal,
+	VehicleSecurityCheckRecordSelectColumnBrakeLight,
+	VehicleSecurityCheckRecordSelectColumnLastCheckTime,
+	VehicleSecurityCheckRecordSelectColumnCreatedAt,
+	VehicleSecurityCheckRecordSelectColumnCreatedBy,
+	VehicleSecurityCheckRecordSelectColumnUpdatedAt,
+	VehicleSecurityCheckRecordSelectColumnUpdatedBy,
+	VehicleSecurityCheckRecordSelectColumnDeletedAt,
+	VehicleSecurityCheckRecordSelectColumnDeletedBy,
+}
+
+func (e VehicleSecurityCheckRecordSelectColumn) IsValid() bool {
+	switch e {
+	case VehicleSecurityCheckRecordSelectColumnID, VehicleSecurityCheckRecordSelectColumnVehicleSecurityCheckRecordID, VehicleSecurityCheckRecordSelectColumnVehicleID, VehicleSecurityCheckRecordSelectColumnEnterpriseID, VehicleSecurityCheckRecordSelectColumnBrake, VehicleSecurityCheckRecordSelectColumnTire, VehicleSecurityCheckRecordSelectColumnScrew, VehicleSecurityCheckRecordSelectColumnHydraulicOil, VehicleSecurityCheckRecordSelectColumnEngineOil, VehicleSecurityCheckRecordSelectColumnWater, VehicleSecurityCheckRecordSelectColumnHeadlight, VehicleSecurityCheckRecordSelectColumnTaillight, VehicleSecurityCheckRecordSelectColumnTurnSignal, VehicleSecurityCheckRecordSelectColumnBrakeLight, VehicleSecurityCheckRecordSelectColumnLastCheckTime, VehicleSecurityCheckRecordSelectColumnCreatedAt, VehicleSecurityCheckRecordSelectColumnCreatedBy, VehicleSecurityCheckRecordSelectColumnUpdatedAt, VehicleSecurityCheckRecordSelectColumnUpdatedBy, VehicleSecurityCheckRecordSelectColumnDeletedAt, VehicleSecurityCheckRecordSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VehicleSecurityCheckRecordSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VehicleSecurityCheckRecordSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VehicleSecurityCheckRecordSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VehicleSecurityCheckRecordSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VehicleSecurityCheckRecordSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type VehicleStateLatestSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                                 )
+	VehicleStateLatestSelectColumnID VehicleStateLatestSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	VehicleStateLatestSelectColumnVehicleStateLatestID VehicleStateLatestSelectColumn = "vehicle_state_latest_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                                      )
+	VehicleStateLatestSelectColumnVehicleID VehicleStateLatestSelectColumn = "vehicle_id"
+	// 操作类型（lock.锁车 speed.限速 lift.限举）      (                                      )
+	VehicleStateLatestSelectColumnOperationType VehicleStateLatestSelectColumn = "operation_type"
+	// 操作人                                          ( system_user表的user_id           )
+	VehicleStateLatestSelectColumnOperator VehicleStateLatestSelectColumn = "operator"
+	// 操作人单位                                      ( enterprise_info表的enterprise_id )
+	VehicleStateLatestSelectColumnOperatorInstitution VehicleStateLatestSelectColumn = "operator_institution"
+	// 状态                                            (                                      )
+	VehicleStateLatestSelectColumnStatus VehicleStateLatestSelectColumn = "status"
+	// 限速值                                          (                                      )
+	VehicleStateLatestSelectColumnSpeedLimit VehicleStateLatestSelectColumn = "speed_limit"
+	// 创建时间                                        (                                      )
+	VehicleStateLatestSelectColumnCreatedAt VehicleStateLatestSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id           )
+	VehicleStateLatestSelectColumnCreatedBy VehicleStateLatestSelectColumn = "created_by"
+	// 修改时间                                        (                                      )
+	VehicleStateLatestSelectColumnUpdatedAt VehicleStateLatestSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id           )
+	VehicleStateLatestSelectColumnUpdatedBy VehicleStateLatestSelectColumn = "updated_by"
+	// 删除时间                                        (                                      )
+	VehicleStateLatestSelectColumnDeletedAt VehicleStateLatestSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id           )
+	VehicleStateLatestSelectColumnDeletedBy VehicleStateLatestSelectColumn = "deleted_by"
+)
+
+var AllVehicleStateLatestSelectColumn = []VehicleStateLatestSelectColumn{
+	VehicleStateLatestSelectColumnID,
+	VehicleStateLatestSelectColumnVehicleStateLatestID,
+	VehicleStateLatestSelectColumnVehicleID,
+	VehicleStateLatestSelectColumnOperationType,
+	VehicleStateLatestSelectColumnOperator,
+	VehicleStateLatestSelectColumnOperatorInstitution,
+	VehicleStateLatestSelectColumnStatus,
+	VehicleStateLatestSelectColumnSpeedLimit,
+	VehicleStateLatestSelectColumnCreatedAt,
+	VehicleStateLatestSelectColumnCreatedBy,
+	VehicleStateLatestSelectColumnUpdatedAt,
+	VehicleStateLatestSelectColumnUpdatedBy,
+	VehicleStateLatestSelectColumnDeletedAt,
+	VehicleStateLatestSelectColumnDeletedBy,
+}
+
+func (e VehicleStateLatestSelectColumn) IsValid() bool {
+	switch e {
+	case VehicleStateLatestSelectColumnID, VehicleStateLatestSelectColumnVehicleStateLatestID, VehicleStateLatestSelectColumnVehicleID, VehicleStateLatestSelectColumnOperationType, VehicleStateLatestSelectColumnOperator, VehicleStateLatestSelectColumnOperatorInstitution, VehicleStateLatestSelectColumnStatus, VehicleStateLatestSelectColumnSpeedLimit, VehicleStateLatestSelectColumnCreatedAt, VehicleStateLatestSelectColumnCreatedBy, VehicleStateLatestSelectColumnUpdatedAt, VehicleStateLatestSelectColumnUpdatedBy, VehicleStateLatestSelectColumnDeletedAt, VehicleStateLatestSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VehicleStateLatestSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VehicleStateLatestSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VehicleStateLatestSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VehicleStateLatestSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VehicleStateLatestSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type VehicleStatusChangeLogSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                       )
+	VehicleStatusChangeLogSelectColumnID VehicleStatusChangeLogSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	VehicleStatusChangeLogSelectColumnVehicleStatusChangeLogID VehicleStatusChangeLogSelectColumn = "vehicle_status_change_log_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	VehicleStatusChangeLogSelectColumnVehicleID VehicleStatusChangeLogSelectColumn = "vehicle_id"
+	// 终端ID                                          (                            )
+	VehicleStatusChangeLogSelectColumnTerminalID VehicleStatusChangeLogSelectColumn = "terminal_id"
+	// 开始时间                                        (                            )
+	VehicleStatusChangeLogSelectColumnStartTime VehicleStatusChangeLogSelectColumn = "start_time"
+	// 结束时间                                        (                            )
+	VehicleStatusChangeLogSelectColumnEndTime VehicleStatusChangeLogSelectColumn = "end_time"
+	// 车辆状态类型(车厢状态,举升状态,载重状态)        ( 车辆状态类型字典       )
+	VehicleStatusChangeLogSelectColumnVehicleStatusType VehicleStatusChangeLogSelectColumn = "vehicle_status_type"
+	// 值                                              (                            )
+	VehicleStatusChangeLogSelectColumnValue VehicleStatusChangeLogSelectColumn = "value"
+	// 是否完成                                        (                            )
+	VehicleStatusChangeLogSelectColumnIsCompleted VehicleStatusChangeLogSelectColumn = "is_completed"
+	// 创建时间                                        (                            )
+	VehicleStatusChangeLogSelectColumnCreatedAt VehicleStatusChangeLogSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	VehicleStatusChangeLogSelectColumnCreatedBy VehicleStatusChangeLogSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	VehicleStatusChangeLogSelectColumnUpdatedAt VehicleStatusChangeLogSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	VehicleStatusChangeLogSelectColumnUpdatedBy VehicleStatusChangeLogSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	VehicleStatusChangeLogSelectColumnDeletedAt VehicleStatusChangeLogSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	VehicleStatusChangeLogSelectColumnDeletedBy VehicleStatusChangeLogSelectColumn = "deleted_by"
+)
+
+var AllVehicleStatusChangeLogSelectColumn = []VehicleStatusChangeLogSelectColumn{
+	VehicleStatusChangeLogSelectColumnID,
+	VehicleStatusChangeLogSelectColumnVehicleStatusChangeLogID,
+	VehicleStatusChangeLogSelectColumnVehicleID,
+	VehicleStatusChangeLogSelectColumnTerminalID,
+	VehicleStatusChangeLogSelectColumnStartTime,
+	VehicleStatusChangeLogSelectColumnEndTime,
+	VehicleStatusChangeLogSelectColumnVehicleStatusType,
+	VehicleStatusChangeLogSelectColumnValue,
+	VehicleStatusChangeLogSelectColumnIsCompleted,
+	VehicleStatusChangeLogSelectColumnCreatedAt,
+	VehicleStatusChangeLogSelectColumnCreatedBy,
+	VehicleStatusChangeLogSelectColumnUpdatedAt,
+	VehicleStatusChangeLogSelectColumnUpdatedBy,
+	VehicleStatusChangeLogSelectColumnDeletedAt,
+	VehicleStatusChangeLogSelectColumnDeletedBy,
+}
+
+func (e VehicleStatusChangeLogSelectColumn) IsValid() bool {
+	switch e {
+	case VehicleStatusChangeLogSelectColumnID, VehicleStatusChangeLogSelectColumnVehicleStatusChangeLogID, VehicleStatusChangeLogSelectColumnVehicleID, VehicleStatusChangeLogSelectColumnTerminalID, VehicleStatusChangeLogSelectColumnStartTime, VehicleStatusChangeLogSelectColumnEndTime, VehicleStatusChangeLogSelectColumnVehicleStatusType, VehicleStatusChangeLogSelectColumnValue, VehicleStatusChangeLogSelectColumnIsCompleted, VehicleStatusChangeLogSelectColumnCreatedAt, VehicleStatusChangeLogSelectColumnCreatedBy, VehicleStatusChangeLogSelectColumnUpdatedAt, VehicleStatusChangeLogSelectColumnUpdatedBy, VehicleStatusChangeLogSelectColumnDeletedAt, VehicleStatusChangeLogSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VehicleStatusChangeLogSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VehicleStatusChangeLogSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VehicleStatusChangeLogSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VehicleStatusChangeLogSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VehicleStatusChangeLogSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
 type VehicleSupervisionPhotoSelectColumn string
 
 const (
-	// column name
-	VehicleSupervisionPhotoSelectColumnImei VehicleSupervisionPhotoSelectColumn = "IMEI"
-	// column name
-	VehicleSupervisionPhotoSelectColumnCameraID VehicleSupervisionPhotoSelectColumn = "camera_id"
-	// column name
-	VehicleSupervisionPhotoSelectColumnDriverID VehicleSupervisionPhotoSelectColumn = "driver_id"
-	// column name
-	VehicleSupervisionPhotoSelectColumnEnterpriseID VehicleSupervisionPhotoSelectColumn = "enterprise_id"
-	// column name
+	// 按指定方法生成                                              ( 主键                                 )
 	VehicleSupervisionPhotoSelectColumnID VehicleSupervisionPhotoSelectColumn = "id"
-	// column name
-	VehicleSupervisionPhotoSelectColumnMonitoringPicAddress VehicleSupervisionPhotoSelectColumn = "monitoring_pic_address"
-	// column name
-	VehicleSupervisionPhotoSelectColumnMonitoringPicName VehicleSupervisionPhotoSelectColumn = "monitoring_pic_name"
-	// column name
-	VehicleSupervisionPhotoSelectColumnMonitoringPicUploadTime VehicleSupervisionPhotoSelectColumn = "monitoring_pic_upload_time"
-	// column name
-	VehicleSupervisionPhotoSelectColumnPhotoCondition VehicleSupervisionPhotoSelectColumn = "photo_condition"
-	// column name
-	VehicleSupervisionPhotoSelectColumnSimNumber VehicleSupervisionPhotoSelectColumn = "sim_number"
-	// column name
+	// 车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
 	VehicleSupervisionPhotoSelectColumnSupervisionPhotoID VehicleSupervisionPhotoSelectColumn = "supervision_photo_id"
-	// column name
-	VehicleSupervisionPhotoSelectColumnUpdateTime VehicleSupervisionPhotoSelectColumn = "update_time"
-	// column name
+	// 车辆ID                                                      ( vehicle_info表vehicle_id         )
 	VehicleSupervisionPhotoSelectColumnVehicleID VehicleSupervisionPhotoSelectColumn = "vehicle_id"
+	// 驾驶员id                                                    ( driver_info 表的driver_id        )
+	VehicleSupervisionPhotoSelectColumnDriverID VehicleSupervisionPhotoSelectColumn = "driver_id"
+	// 所在企业id                                                  ( enterprise_info表的enterprise_id )
+	VehicleSupervisionPhotoSelectColumnEnterpriseID VehicleSupervisionPhotoSelectColumn = "enterprise_id"
+	// 摄像头ID                                                    ( 摄像头ID字典                     )
+	VehicleSupervisionPhotoSelectColumnCameraID VehicleSupervisionPhotoSelectColumn = "camera_id"
+	// 拍照条件                                                    ( 拍照条件字典                     )
+	VehicleSupervisionPhotoSelectColumnPhotoCondition VehicleSupervisionPhotoSelectColumn = "photo_condition"
+	// 终端上报时间                                                (                                      )
+	VehicleSupervisionPhotoSelectColumnUpdateTime VehicleSupervisionPhotoSelectColumn = "update_time"
+	// 监控图片名称                                                (                                      )
+	VehicleSupervisionPhotoSelectColumnMonitoringPicName VehicleSupervisionPhotoSelectColumn = "monitoring_pic_name"
+	// 监控图片地址                                                (                                      )
+	VehicleSupervisionPhotoSelectColumnMonitoringPicAddress VehicleSupervisionPhotoSelectColumn = "monitoring_pic_address"
+	// 监控图片上传时间                                            (                                      )
+	VehicleSupervisionPhotoSelectColumnMonitoringPicUploadTime VehicleSupervisionPhotoSelectColumn = "monitoring_pic_upload_time"
+	// 终端IMEI                                                    ( 国际移动设备标识别码                 )
+	VehicleSupervisionPhotoSelectColumnImel VehicleSupervisionPhotoSelectColumn = "imel"
+	// SIM卡号                                                     (                                      )
+	VehicleSupervisionPhotoSelectColumnSimNumber VehicleSupervisionPhotoSelectColumn = "sim_number"
 )
 
 var AllVehicleSupervisionPhotoSelectColumn = []VehicleSupervisionPhotoSelectColumn{
-	VehicleSupervisionPhotoSelectColumnImei,
-	VehicleSupervisionPhotoSelectColumnCameraID,
+	VehicleSupervisionPhotoSelectColumnID,
+	VehicleSupervisionPhotoSelectColumnSupervisionPhotoID,
+	VehicleSupervisionPhotoSelectColumnVehicleID,
 	VehicleSupervisionPhotoSelectColumnDriverID,
 	VehicleSupervisionPhotoSelectColumnEnterpriseID,
-	VehicleSupervisionPhotoSelectColumnID,
-	VehicleSupervisionPhotoSelectColumnMonitoringPicAddress,
-	VehicleSupervisionPhotoSelectColumnMonitoringPicName,
-	VehicleSupervisionPhotoSelectColumnMonitoringPicUploadTime,
+	VehicleSupervisionPhotoSelectColumnCameraID,
 	VehicleSupervisionPhotoSelectColumnPhotoCondition,
-	VehicleSupervisionPhotoSelectColumnSimNumber,
-	VehicleSupervisionPhotoSelectColumnSupervisionPhotoID,
 	VehicleSupervisionPhotoSelectColumnUpdateTime,
-	VehicleSupervisionPhotoSelectColumnVehicleID,
+	VehicleSupervisionPhotoSelectColumnMonitoringPicName,
+	VehicleSupervisionPhotoSelectColumnMonitoringPicAddress,
+	VehicleSupervisionPhotoSelectColumnMonitoringPicUploadTime,
+	VehicleSupervisionPhotoSelectColumnImel,
+	VehicleSupervisionPhotoSelectColumnSimNumber,
 }
 
 func (e VehicleSupervisionPhotoSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleSupervisionPhotoSelectColumnImei, VehicleSupervisionPhotoSelectColumnCameraID, VehicleSupervisionPhotoSelectColumnDriverID, VehicleSupervisionPhotoSelectColumnEnterpriseID, VehicleSupervisionPhotoSelectColumnID, VehicleSupervisionPhotoSelectColumnMonitoringPicAddress, VehicleSupervisionPhotoSelectColumnMonitoringPicName, VehicleSupervisionPhotoSelectColumnMonitoringPicUploadTime, VehicleSupervisionPhotoSelectColumnPhotoCondition, VehicleSupervisionPhotoSelectColumnSimNumber, VehicleSupervisionPhotoSelectColumnSupervisionPhotoID, VehicleSupervisionPhotoSelectColumnUpdateTime, VehicleSupervisionPhotoSelectColumnVehicleID:
+	case VehicleSupervisionPhotoSelectColumnID, VehicleSupervisionPhotoSelectColumnSupervisionPhotoID, VehicleSupervisionPhotoSelectColumnVehicleID, VehicleSupervisionPhotoSelectColumnDriverID, VehicleSupervisionPhotoSelectColumnEnterpriseID, VehicleSupervisionPhotoSelectColumnCameraID, VehicleSupervisionPhotoSelectColumnPhotoCondition, VehicleSupervisionPhotoSelectColumnUpdateTime, VehicleSupervisionPhotoSelectColumnMonitoringPicName, VehicleSupervisionPhotoSelectColumnMonitoringPicAddress, VehicleSupervisionPhotoSelectColumnMonitoringPicUploadTime, VehicleSupervisionPhotoSelectColumnImel, VehicleSupervisionPhotoSelectColumnSimNumber:
 		return true
 	}
 	return false
@@ -8236,88 +9027,11 @@ func (e *VehicleSupervisionPhotoSelectColumn) UnmarshalGQL(v interface{}) error 
 
 	*e = VehicleSupervisionPhotoSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_supervision_photo_select_column", str)
+		return fmt.Errorf("%s is not a valid VehicleSupervisionPhotoSelectColumn", str)
 	}
 	return nil
 }
 
 func (e VehicleSupervisionPhotoSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "vehicle_supervision_photo"
-type VehicleSupervisionPhotoUpdateColumn string
-
-const (
-	// column name
-	VehicleSupervisionPhotoUpdateColumnImei VehicleSupervisionPhotoUpdateColumn = "IMEI"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnCameraID VehicleSupervisionPhotoUpdateColumn = "camera_id"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnDriverID VehicleSupervisionPhotoUpdateColumn = "driver_id"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnEnterpriseID VehicleSupervisionPhotoUpdateColumn = "enterprise_id"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnID VehicleSupervisionPhotoUpdateColumn = "id"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnMonitoringPicAddress VehicleSupervisionPhotoUpdateColumn = "monitoring_pic_address"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnMonitoringPicName VehicleSupervisionPhotoUpdateColumn = "monitoring_pic_name"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnMonitoringPicUploadTime VehicleSupervisionPhotoUpdateColumn = "monitoring_pic_upload_time"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnPhotoCondition VehicleSupervisionPhotoUpdateColumn = "photo_condition"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnSimNumber VehicleSupervisionPhotoUpdateColumn = "sim_number"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnSupervisionPhotoID VehicleSupervisionPhotoUpdateColumn = "supervision_photo_id"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnUpdateTime VehicleSupervisionPhotoUpdateColumn = "update_time"
-	// column name
-	VehicleSupervisionPhotoUpdateColumnVehicleID VehicleSupervisionPhotoUpdateColumn = "vehicle_id"
-)
-
-var AllVehicleSupervisionPhotoUpdateColumn = []VehicleSupervisionPhotoUpdateColumn{
-	VehicleSupervisionPhotoUpdateColumnImei,
-	VehicleSupervisionPhotoUpdateColumnCameraID,
-	VehicleSupervisionPhotoUpdateColumnDriverID,
-	VehicleSupervisionPhotoUpdateColumnEnterpriseID,
-	VehicleSupervisionPhotoUpdateColumnID,
-	VehicleSupervisionPhotoUpdateColumnMonitoringPicAddress,
-	VehicleSupervisionPhotoUpdateColumnMonitoringPicName,
-	VehicleSupervisionPhotoUpdateColumnMonitoringPicUploadTime,
-	VehicleSupervisionPhotoUpdateColumnPhotoCondition,
-	VehicleSupervisionPhotoUpdateColumnSimNumber,
-	VehicleSupervisionPhotoUpdateColumnSupervisionPhotoID,
-	VehicleSupervisionPhotoUpdateColumnUpdateTime,
-	VehicleSupervisionPhotoUpdateColumnVehicleID,
-}
-
-func (e VehicleSupervisionPhotoUpdateColumn) IsValid() bool {
-	switch e {
-	case VehicleSupervisionPhotoUpdateColumnImei, VehicleSupervisionPhotoUpdateColumnCameraID, VehicleSupervisionPhotoUpdateColumnDriverID, VehicleSupervisionPhotoUpdateColumnEnterpriseID, VehicleSupervisionPhotoUpdateColumnID, VehicleSupervisionPhotoUpdateColumnMonitoringPicAddress, VehicleSupervisionPhotoUpdateColumnMonitoringPicName, VehicleSupervisionPhotoUpdateColumnMonitoringPicUploadTime, VehicleSupervisionPhotoUpdateColumnPhotoCondition, VehicleSupervisionPhotoUpdateColumnSimNumber, VehicleSupervisionPhotoUpdateColumnSupervisionPhotoID, VehicleSupervisionPhotoUpdateColumnUpdateTime, VehicleSupervisionPhotoUpdateColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e VehicleSupervisionPhotoUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *VehicleSupervisionPhotoUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleSupervisionPhotoUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_supervision_photo_update_column", str)
-	}
-	return nil
-}
-
-func (e VehicleSupervisionPhotoUpdateColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }

@@ -3,6 +3,7 @@
 package model
 
 import (
+	model1 "VehicleSupervision/internal/modules/driver/model"
 	"VehicleSupervision/pkg/graphql/model"
 	"fmt"
 	"io"
@@ -10,23 +11,693 @@ import (
 	"time"
 )
 
-// expression to compare columns of type _text. All fields are combined with logical 'AND'.
-type TextComparisonExp struct {
-	Eq     *string  `json:"_eq"`
-	Gt     *string  `json:"_gt"`
-	Gte    *string  `json:"_gte"`
-	In     []string `json:"_in"`
-	IsNull *bool    `json:"_is_null"`
-	Lt     *string  `json:"_lt"`
-	Lte    *string  `json:"_lte"`
-	Neq    *string  `json:"_neq"`
-	Nin    []string `json:"_nin"`
+// aggregated selection of "driver_fingerprint"
+type DriverFingerprintAggregate struct {
+	Aggregate *DriverFingerprintAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "driver_fingerprint"
+type DriverFingerprintAggregateFields struct {
+	Avg        *DriverFingerprintAvgFields        `json:"avg"`
+	Count      *int                               `json:"count"`
+	Max        *DriverFingerprintMaxFields        `json:"max"`
+	Min        *DriverFingerprintMinFields        `json:"min"`
+	Stddev     *DriverFingerprintStddevFields     `json:"stddev"`
+	StddevPop  *DriverFingerprintStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *DriverFingerprintStddevSampFields `json:"stddev_samp"`
+	Sum        *DriverFingerprintSumFields        `json:"sum"`
+	VarPop     *DriverFingerprintVarPopFields     `json:"var_pop"`
+	VarSamp    *DriverFingerprintVarSampFields    `json:"var_samp"`
+	Variance   *DriverFingerprintVarianceFields   `json:"variance"`
+}
+
+// aggregated selection of "driver_fingerprint_association"
+type DriverFingerprintAssociationAggregate struct {
+	Aggregate *DriverFingerprintAssociationAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "driver_fingerprint_association"
+type DriverFingerprintAssociationAggregateFields struct {
+	Avg        *DriverFingerprintAssociationAvgFields        `json:"avg"`
+	Count      *int                                          `json:"count"`
+	Max        *DriverFingerprintAssociationMaxFields        `json:"max"`
+	Min        *DriverFingerprintAssociationMinFields        `json:"min"`
+	Stddev     *DriverFingerprintAssociationStddevFields     `json:"stddev"`
+	StddevPop  *DriverFingerprintAssociationStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *DriverFingerprintAssociationStddevSampFields `json:"stddev_samp"`
+	Sum        *DriverFingerprintAssociationSumFields        `json:"sum"`
+	VarPop     *DriverFingerprintAssociationVarPopFields     `json:"var_pop"`
+	VarSamp    *DriverFingerprintAssociationVarSampFields    `json:"var_samp"`
+	Variance   *DriverFingerprintAssociationVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_fingerprint_association'.
+type DriverFingerprintAssociationBoolExp struct {
+	And                            []*DriverFingerprintAssociationBoolExp `json:"_and"`
+	Not                            *DriverFingerprintAssociationBoolExp   `json:"_not"`
+	Or                             []*DriverFingerprintAssociationBoolExp `json:"_or"`
+	ID                             *model.BigintComparisonExp             `json:"id"`
+	DriverFingerprintAssociationID *model.StringComparisonExp             `json:"driver_fingerprint_association_id"`
+	DriverID                       *model.StringComparisonExp             `json:"driver_id"`
+	FingerprintName                *model.StringComparisonExp             `json:"fingerprint_name"`
+	DriverFingerprintID            *model.StringComparisonExp             `json:"driver_fingerprint_id"`
+	PictureAddress                 *model.StringComparisonExp             `json:"picture_address"`
+	IsDeleted                      *model.BooleanComparisonExp            `json:"is_deleted"`
+	CreatedAt                      *model.TimestamptzComparisonExp        `json:"created_at"`
+	CreatedBy                      *model.StringComparisonExp             `json:"created_by"`
+	UpdatedAt                      *model.TimestamptzComparisonExp        `json:"updated_at"`
+	UpdatedBy                      *model.StringComparisonExp             `json:"updated_by"`
+	DeletedAt                      *model.TimestamptzComparisonExp        `json:"deleted_at"`
+	DeletedBy                      *model.StringComparisonExp             `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "driver_fingerprint_association"
+type DriverFingerprintAssociationIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "driver_fingerprint_association"
+type DriverFingerprintAssociationInsertInput struct {
+	ID                             *int64     `json:"id"`
+	DriverFingerprintAssociationID *string    `json:"driver_fingerprint_association_id"`
+	DriverID                       *string    `json:"driver_id"`
+	FingerprintName                *string    `json:"fingerprint_name"`
+	DriverFingerprintID            *string    `json:"driver_fingerprint_id"`
+	PictureAddress                 *string    `json:"picture_address"`
+	IsDeleted                      *bool      `json:"is_deleted"`
+	CreatedAt                      *time.Time `json:"created_at"`
+	CreatedBy                      *string    `json:"created_by"`
+	UpdatedAt                      *time.Time `json:"updated_at"`
+	UpdatedBy                      *string    `json:"updated_by"`
+	DeletedAt                      *time.Time `json:"deleted_at"`
+	DeletedBy                      *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationMaxFields struct {
+	ID                             *int64     `json:"id"`
+	DriverFingerprintAssociationID *string    `json:"driver_fingerprint_association_id"`
+	DriverID                       *string    `json:"driver_id"`
+	FingerprintName                *string    `json:"fingerprint_name"`
+	DriverFingerprintID            *string    `json:"driver_fingerprint_id"`
+	PictureAddress                 *string    `json:"picture_address"`
+	IsDeleted                      *bool      `json:"is_deleted"`
+	CreatedAt                      *time.Time `json:"created_at"`
+	CreatedBy                      *string    `json:"created_by"`
+	UpdatedAt                      *time.Time `json:"updated_at"`
+	UpdatedBy                      *string    `json:"updated_by"`
+	DeletedAt                      *time.Time `json:"deleted_at"`
+	DeletedBy                      *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationMinFields struct {
+	ID                             *int64     `json:"id"`
+	DriverFingerprintAssociationID *string    `json:"driver_fingerprint_association_id"`
+	DriverID                       *string    `json:"driver_id"`
+	FingerprintName                *string    `json:"fingerprint_name"`
+	DriverFingerprintID            *string    `json:"driver_fingerprint_id"`
+	PictureAddress                 *string    `json:"picture_address"`
+	IsDeleted                      *bool      `json:"is_deleted"`
+	CreatedAt                      *time.Time `json:"created_at"`
+	CreatedBy                      *string    `json:"created_by"`
+	UpdatedAt                      *time.Time `json:"updated_at"`
+	UpdatedBy                      *string    `json:"updated_by"`
+	DeletedAt                      *time.Time `json:"deleted_at"`
+	DeletedBy                      *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "driver_fingerprint_association"
+type DriverFingerprintAssociationMutationResponse struct {
+	AffectedRows int                                    `json:"affected_rows"`
+	Returning    []*model1.DriverFingerprintAssociation `json:"returning"`
+}
+
+// ordering options when selecting data from "driver_fingerprint_association"
+type DriverFingerprintAssociationOrderBy struct {
+	ID                             *model.OrderBy `json:"id"`
+	DriverFingerprintAssociationID *model.OrderBy `json:"driver_fingerprint_association_id"`
+	DriverID                       *model.OrderBy `json:"driver_id"`
+	FingerprintName                *model.OrderBy `json:"fingerprint_name"`
+	DriverFingerprintID            *model.OrderBy `json:"driver_fingerprint_id"`
+	PictureAddress                 *model.OrderBy `json:"picture_address"`
+	IsDeleted                      *model.OrderBy `json:"is_deleted"`
+	CreatedAt                      *model.OrderBy `json:"created_at"`
+	CreatedBy                      *model.OrderBy `json:"created_by"`
+	UpdatedAt                      *model.OrderBy `json:"updated_at"`
+	UpdatedBy                      *model.OrderBy `json:"updated_by"`
+	DeletedAt                      *model.OrderBy `json:"deleted_at"`
+	DeletedBy                      *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "driver_fingerprint_association"
+type DriverFingerprintAssociationSetInput struct {
+	ID                             *int64     `json:"id"`
+	DriverFingerprintAssociationID *string    `json:"driver_fingerprint_association_id"`
+	DriverID                       *string    `json:"driver_id"`
+	FingerprintName                *string    `json:"fingerprint_name"`
+	DriverFingerprintID            *string    `json:"driver_fingerprint_id"`
+	PictureAddress                 *string    `json:"picture_address"`
+	IsDeleted                      *bool      `json:"is_deleted"`
+	CreatedAt                      *time.Time `json:"created_at"`
+	CreatedBy                      *string    `json:"created_by"`
+	UpdatedAt                      *time.Time `json:"updated_at"`
+	UpdatedBy                      *string    `json:"updated_by"`
+	DeletedAt                      *time.Time `json:"deleted_at"`
+	DeletedBy                      *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "driver_fingerprint_association"
+type DriverFingerprintAssociationVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate avg on columns of table "driver_fingerprint"
+type DriverFingerprintAvgFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_fingerprint'.
+type DriverFingerprintBoolExp struct {
+	And                 []*DriverFingerprintBoolExp     `json:"_and"`
+	Not                 *DriverFingerprintBoolExp       `json:"_not"`
+	Or                  []*DriverFingerprintBoolExp     `json:"_or"`
+	ID                  *model.BigintComparisonExp      `json:"id"`
+	DriverFingerprintID *model.StringComparisonExp      `json:"driver_fingerprint_id"`
+	DriverID            *model.StringComparisonExp      `json:"driver_id"`
+	DriverName          *model.StringComparisonExp      `json:"driver_name"`
+	UserID              *model.StringComparisonExp      `json:"user_id"`
+	Signature           *model.StringComparisonExp      `json:"signature"`
+	FingerprintName     *model.StringComparisonExp      `json:"fingerprint_name"`
+	SimNumber           *model.StringComparisonExp      `json:"sim_number"`
+	InstructionID       *model.StringComparisonExp      `json:"instruction_id"`
+	OperationType       *model.IntComparisonExp         `json:"operation_type"`
+	Content             *model.StringComparisonExp      `json:"content"`
+	OperationTime       *model.TimestamptzComparisonExp `json:"operation_time"`
+	UploadTime          *model.TimestamptzComparisonExp `json:"upload_time"`
+	Timestamp           *model.StringComparisonExp      `json:"timestamp"`
+	TernimalID          *model.StringComparisonExp      `json:"ternimal_id"`
+	IsSuccess           *model.BooleanComparisonExp     `json:"is_success"`
+	IsDeleted           *model.BooleanComparisonExp     `json:"is_deleted"`
+	CreatedAt           *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy           *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt           *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy           *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt           *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy           *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "driver_fingerprint"
+type DriverFingerprintIncInput struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+}
+
+// input type for inserting data into table "driver_fingerprint"
+type DriverFingerprintInsertInput struct {
+	ID                  *int64     `json:"id"`
+	DriverFingerprintID *string    `json:"driver_fingerprint_id"`
+	DriverID            *string    `json:"driver_id"`
+	DriverName          *string    `json:"driver_name"`
+	UserID              *string    `json:"user_id"`
+	Signature           *string    `json:"signature"`
+	FingerprintName     *string    `json:"fingerprint_name"`
+	SimNumber           *string    `json:"sim_number"`
+	InstructionID       *string    `json:"instruction_id"`
+	OperationType       *int       `json:"operation_type"`
+	Content             *string    `json:"content"`
+	OperationTime       *time.Time `json:"operation_time"`
+	UploadTime          *time.Time `json:"upload_time"`
+	Timestamp           *string    `json:"timestamp"`
+	TernimalID          *string    `json:"ternimal_id"`
+	IsSuccess           *bool      `json:"is_success"`
+	IsDeleted           *bool      `json:"is_deleted"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "driver_fingerprint"
+type DriverFingerprintMaxFields struct {
+	ID                  *int64     `json:"id"`
+	DriverFingerprintID *string    `json:"driver_fingerprint_id"`
+	DriverID            *string    `json:"driver_id"`
+	DriverName          *string    `json:"driver_name"`
+	UserID              *string    `json:"user_id"`
+	Signature           *string    `json:"signature"`
+	FingerprintName     *string    `json:"fingerprint_name"`
+	SimNumber           *string    `json:"sim_number"`
+	InstructionID       *string    `json:"instruction_id"`
+	OperationType       *int       `json:"operation_type"`
+	Content             *string    `json:"content"`
+	OperationTime       *time.Time `json:"operation_time"`
+	UploadTime          *time.Time `json:"upload_time"`
+	Timestamp           *string    `json:"timestamp"`
+	TernimalID          *string    `json:"ternimal_id"`
+	IsSuccess           *bool      `json:"is_success"`
+	IsDeleted           *bool      `json:"is_deleted"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "driver_fingerprint"
+type DriverFingerprintMinFields struct {
+	ID                  *int64     `json:"id"`
+	DriverFingerprintID *string    `json:"driver_fingerprint_id"`
+	DriverID            *string    `json:"driver_id"`
+	DriverName          *string    `json:"driver_name"`
+	UserID              *string    `json:"user_id"`
+	Signature           *string    `json:"signature"`
+	FingerprintName     *string    `json:"fingerprint_name"`
+	SimNumber           *string    `json:"sim_number"`
+	InstructionID       *string    `json:"instruction_id"`
+	OperationType       *int       `json:"operation_type"`
+	Content             *string    `json:"content"`
+	OperationTime       *time.Time `json:"operation_time"`
+	UploadTime          *time.Time `json:"upload_time"`
+	Timestamp           *string    `json:"timestamp"`
+	TernimalID          *string    `json:"ternimal_id"`
+	IsSuccess           *bool      `json:"is_success"`
+	IsDeleted           *bool      `json:"is_deleted"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "driver_fingerprint"
+type DriverFingerprintMutationResponse struct {
+	AffectedRows int                         `json:"affected_rows"`
+	Returning    []*model1.DriverFingerprint `json:"returning"`
+}
+
+// ordering options when selecting data from "driver_fingerprint"
+type DriverFingerprintOrderBy struct {
+	ID                  *model.OrderBy `json:"id"`
+	DriverFingerprintID *model.OrderBy `json:"driver_fingerprint_id"`
+	DriverID            *model.OrderBy `json:"driver_id"`
+	DriverName          *model.OrderBy `json:"driver_name"`
+	UserID              *model.OrderBy `json:"user_id"`
+	Signature           *model.OrderBy `json:"signature"`
+	FingerprintName     *model.OrderBy `json:"fingerprint_name"`
+	SimNumber           *model.OrderBy `json:"sim_number"`
+	InstructionID       *model.OrderBy `json:"instruction_id"`
+	OperationType       *model.OrderBy `json:"operation_type"`
+	Content             *model.OrderBy `json:"content"`
+	OperationTime       *model.OrderBy `json:"operation_time"`
+	UploadTime          *model.OrderBy `json:"upload_time"`
+	Timestamp           *model.OrderBy `json:"timestamp"`
+	TernimalID          *model.OrderBy `json:"ternimal_id"`
+	IsSuccess           *model.OrderBy `json:"is_success"`
+	IsDeleted           *model.OrderBy `json:"is_deleted"`
+	CreatedAt           *model.OrderBy `json:"created_at"`
+	CreatedBy           *model.OrderBy `json:"created_by"`
+	UpdatedAt           *model.OrderBy `json:"updated_at"`
+	UpdatedBy           *model.OrderBy `json:"updated_by"`
+	DeletedAt           *model.OrderBy `json:"deleted_at"`
+	DeletedBy           *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "driver_fingerprint"
+type DriverFingerprintSetInput struct {
+	ID                  *int64     `json:"id"`
+	DriverFingerprintID *string    `json:"driver_fingerprint_id"`
+	DriverID            *string    `json:"driver_id"`
+	DriverName          *string    `json:"driver_name"`
+	UserID              *string    `json:"user_id"`
+	Signature           *string    `json:"signature"`
+	FingerprintName     *string    `json:"fingerprint_name"`
+	SimNumber           *string    `json:"sim_number"`
+	InstructionID       *string    `json:"instruction_id"`
+	OperationType       *int       `json:"operation_type"`
+	Content             *string    `json:"content"`
+	OperationTime       *time.Time `json:"operation_time"`
+	UploadTime          *time.Time `json:"upload_time"`
+	Timestamp           *string    `json:"timestamp"`
+	TernimalID          *string    `json:"ternimal_id"`
+	IsSuccess           *bool      `json:"is_success"`
+	IsDeleted           *bool      `json:"is_deleted"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
+	UpdatedAt           *time.Time `json:"updated_at"`
+	UpdatedBy           *string    `json:"updated_by"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "driver_fingerprint"
+type DriverFingerprintStddevFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+}
+
+// aggregate stddev_pop on columns of table "driver_fingerprint"
+type DriverFingerprintStddevPopFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+}
+
+// aggregate stddev_samp on columns of table "driver_fingerprint"
+type DriverFingerprintStddevSampFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+}
+
+// aggregate sum on columns of table "driver_fingerprint"
+type DriverFingerprintSumFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+}
+
+// aggregate var_pop on columns of table "driver_fingerprint"
+type DriverFingerprintVarPopFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+}
+
+// aggregate var_samp on columns of table "driver_fingerprint"
+type DriverFingerprintVarSampFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+}
+
+// aggregate variance on columns of table "driver_fingerprint"
+type DriverFingerprintVarianceFields struct {
+	ID            *int64 `json:"id"`
+	OperationType *int   `json:"operation_type"`
+}
+
+// 驾驶员身份信息采集上报
+type DriverIDInfoReport struct {
+	// 按指定方法生成                                  ( 主键                       )
+	ID int64 `json:"id"`
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	DriverIDInfoReportID string `json:"driver_id_info_report_id"`
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	VehicleID string `json:"vehicle_id"`
+	// IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
+	IcCardStatus *int `json:"ic_card_status"`
+	// 操作时间                                        (                            )
+	OperationTime *time.Time `json:"operation_time"`
+	// 驾驶员姓名                                      (                            )
+	DriverName *string `json:"driver_name"`
+	// 证件号码                                        (                            )
+	LicenseNumber *string `json:"license_number"`
+	// 终端IMEI                                        ( 国际移动设备标识别码       )
+	Imel *string `json:"imel"`
+	// IC卡读取结果                                    ( IC卡读卡字典           )
+	IcCardReadingResult *string `json:"ic_card_reading_result"`
+	// 从业资格证编码                                  (                            )
+	OccupationalNumber *string `json:"occupational_number"`
+	// 发证机构名称                                    (                            )
+	DriverLicenseName *string `json:"driver_license_name"`
+	// 证件有效期                                      (                            )
+	LicenseExpireDate *time.Time `json:"license_expire_date"`
+	// 登记时间                                        (                            )
+	RegistrationTime *time.Time `json:"registration_time"`
+	// 创建时间                                        (                            )
+	CreatedAt time.Time `json:"created_at"`
+	// 创建人                                          ( system_user表的user_id )
+	CreatedBy string `json:"created_by"`
+	// 修改时间                                        (                            )
+	UpdatedAt *time.Time `json:"updated_at"`
+	// 修改人                                          ( system_user表的user_id )
+	UpdatedBy *string `json:"updated_by"`
+	// 删除时间                                        (                            )
+	DeletedAt *time.Time `json:"deleted_at"`
+	// 删除人                                          ( system_user表的user_id )
+	DeletedBy *string `json:"deleted_by"`
+}
+
+// aggregated selection of "driver_id_info_report"
+type DriverIDInfoReportAggregate struct {
+	Aggregate *DriverIDInfoReportAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "driver_id_info_report"
+type DriverIDInfoReportAggregateFields struct {
+	Avg        *DriverIDInfoReportAvgFields        `json:"avg"`
+	Count      *int                                `json:"count"`
+	Max        *DriverIDInfoReportMaxFields        `json:"max"`
+	Min        *DriverIDInfoReportMinFields        `json:"min"`
+	Stddev     *DriverIDInfoReportStddevFields     `json:"stddev"`
+	StddevPop  *DriverIDInfoReportStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *DriverIDInfoReportStddevSampFields `json:"stddev_samp"`
+	Sum        *DriverIDInfoReportSumFields        `json:"sum"`
+	VarPop     *DriverIDInfoReportVarPopFields     `json:"var_pop"`
+	VarSamp    *DriverIDInfoReportVarSampFields    `json:"var_samp"`
+	Variance   *DriverIDInfoReportVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "driver_id_info_report"
+type DriverIDInfoReportAvgFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_id_info_report'.
+type DriverIDInfoReportBoolExp struct {
+	And                  []*DriverIDInfoReportBoolExp    `json:"_and"`
+	Not                  *DriverIDInfoReportBoolExp      `json:"_not"`
+	Or                   []*DriverIDInfoReportBoolExp    `json:"_or"`
+	ID                   *model.BigintComparisonExp      `json:"id"`
+	DriverIDInfoReportID *model.StringComparisonExp      `json:"driver_id_info_report_id"`
+	VehicleID            *model.StringComparisonExp      `json:"vehicle_id"`
+	IcCardStatus         *model.IntComparisonExp         `json:"ic_card_status"`
+	OperationTime        *model.TimestamptzComparisonExp `json:"operation_time"`
+	DriverName           *model.StringComparisonExp      `json:"driver_name"`
+	LicenseNumber        *model.StringComparisonExp      `json:"license_number"`
+	Imel                 *model.StringComparisonExp      `json:"imel"`
+	IcCardReadingResult  *model.StringComparisonExp      `json:"ic_card_reading_result"`
+	OccupationalNumber   *model.StringComparisonExp      `json:"occupational_number"`
+	DriverLicenseName    *model.StringComparisonExp      `json:"driver_license_name"`
+	LicenseExpireDate    *model.TimestamptzComparisonExp `json:"license_expire_date"`
+	RegistrationTime     *model.TimestamptzComparisonExp `json:"registration_time"`
+	CreatedAt            *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy            *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt            *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy            *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt            *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy            *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "driver_id_info_report"
+type DriverIDInfoReportIncInput struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// input type for inserting data into table "driver_id_info_report"
+type DriverIDInfoReportInsertInput struct {
+	ID                   *int64     `json:"id"`
+	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	IcCardStatus         *int       `json:"ic_card_status"`
+	OperationTime        *time.Time `json:"operation_time"`
+	DriverName           *string    `json:"driver_name"`
+	LicenseNumber        *string    `json:"license_number"`
+	Imel                 *string    `json:"imel"`
+	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
+	OccupationalNumber   *string    `json:"occupational_number"`
+	DriverLicenseName    *string    `json:"driver_license_name"`
+	LicenseExpireDate    *time.Time `json:"license_expire_date"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "driver_id_info_report"
+type DriverIDInfoReportMaxFields struct {
+	ID                   *int64     `json:"id"`
+	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	IcCardStatus         *int       `json:"ic_card_status"`
+	OperationTime        *time.Time `json:"operation_time"`
+	DriverName           *string    `json:"driver_name"`
+	LicenseNumber        *string    `json:"license_number"`
+	Imel                 *string    `json:"imel"`
+	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
+	OccupationalNumber   *string    `json:"occupational_number"`
+	DriverLicenseName    *string    `json:"driver_license_name"`
+	LicenseExpireDate    *time.Time `json:"license_expire_date"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "driver_id_info_report"
+type DriverIDInfoReportMinFields struct {
+	ID                   *int64     `json:"id"`
+	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	IcCardStatus         *int       `json:"ic_card_status"`
+	OperationTime        *time.Time `json:"operation_time"`
+	DriverName           *string    `json:"driver_name"`
+	LicenseNumber        *string    `json:"license_number"`
+	Imel                 *string    `json:"imel"`
+	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
+	OccupationalNumber   *string    `json:"occupational_number"`
+	DriverLicenseName    *string    `json:"driver_license_name"`
+	LicenseExpireDate    *time.Time `json:"license_expire_date"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "driver_id_info_report"
+type DriverIDInfoReportMutationResponse struct {
+	AffectedRows int                   `json:"affected_rows"`
+	Returning    []*DriverIDInfoReport `json:"returning"`
+}
+
+// ordering options when selecting data from "driver_id_info_report"
+type DriverIDInfoReportOrderBy struct {
+	ID                   *model.OrderBy `json:"id"`
+	DriverIDInfoReportID *model.OrderBy `json:"driver_id_info_report_id"`
+	VehicleID            *model.OrderBy `json:"vehicle_id"`
+	IcCardStatus         *model.OrderBy `json:"ic_card_status"`
+	OperationTime        *model.OrderBy `json:"operation_time"`
+	DriverName           *model.OrderBy `json:"driver_name"`
+	LicenseNumber        *model.OrderBy `json:"license_number"`
+	Imel                 *model.OrderBy `json:"imel"`
+	IcCardReadingResult  *model.OrderBy `json:"ic_card_reading_result"`
+	OccupationalNumber   *model.OrderBy `json:"occupational_number"`
+	DriverLicenseName    *model.OrderBy `json:"driver_license_name"`
+	LicenseExpireDate    *model.OrderBy `json:"license_expire_date"`
+	RegistrationTime     *model.OrderBy `json:"registration_time"`
+	CreatedAt            *model.OrderBy `json:"created_at"`
+	CreatedBy            *model.OrderBy `json:"created_by"`
+	UpdatedAt            *model.OrderBy `json:"updated_at"`
+	UpdatedBy            *model.OrderBy `json:"updated_by"`
+	DeletedAt            *model.OrderBy `json:"deleted_at"`
+	DeletedBy            *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "driver_id_info_report"
+type DriverIDInfoReportSetInput struct {
+	ID                   *int64     `json:"id"`
+	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	IcCardStatus         *int       `json:"ic_card_status"`
+	OperationTime        *time.Time `json:"operation_time"`
+	DriverName           *string    `json:"driver_name"`
+	LicenseNumber        *string    `json:"license_number"`
+	Imel                 *string    `json:"imel"`
+	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
+	OccupationalNumber   *string    `json:"occupational_number"`
+	DriverLicenseName    *string    `json:"driver_license_name"`
+	LicenseExpireDate    *time.Time `json:"license_expire_date"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "driver_id_info_report"
+type DriverIDInfoReportStddevFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate stddev_pop on columns of table "driver_id_info_report"
+type DriverIDInfoReportStddevPopFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate stddev_samp on columns of table "driver_id_info_report"
+type DriverIDInfoReportStddevSampFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate sum on columns of table "driver_id_info_report"
+type DriverIDInfoReportSumFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate var_pop on columns of table "driver_id_info_report"
+type DriverIDInfoReportVarPopFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate var_samp on columns of table "driver_id_info_report"
+type DriverIDInfoReportVarSampFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
+}
+
+// aggregate variance on columns of table "driver_id_info_report"
+type DriverIDInfoReportVarianceFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
 // aggregated selection of "driver_identity"
 type DriverIdentityAggregate struct {
 	Aggregate *DriverIdentityAggregateFields `json:"aggregate"`
-	Nodes     []*DriverIdentity              `json:"nodes"`
 }
 
 // aggregate fields of "driver_identity"
@@ -44,530 +715,348 @@ type DriverIdentityAggregateFields struct {
 	Variance   *DriverIdentityVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "driver_identity"
-type DriverIdentityAggregateOrderBy struct {
-	Avg        *DriverIdentityAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                   `json:"count"`
-	Max        *DriverIdentityMaxOrderBy        `json:"max"`
-	Min        *DriverIdentityMinOrderBy        `json:"min"`
-	Stddev     *DriverIdentityStddevOrderBy     `json:"stddev"`
-	StddevPop  *DriverIdentityStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DriverIdentityStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DriverIdentitySumOrderBy        `json:"sum"`
-	VarPop     *DriverIdentityVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DriverIdentityVarSampOrderBy    `json:"var_samp"`
-	Variance   *DriverIdentityVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "driver_identity"
-type DriverIdentityArrRelInsertInput struct {
-	Data       []*DriverIdentityInsertInput `json:"data"`
-	OnConflict *DriverIdentityOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "driver_identity"
 type DriverIdentityAvgFields struct {
+	ID                  *int64   `json:"id"`
 	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
+	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
+	DriverLicenseStatus *int     `json:"driver_license_status"`
 }
 
-// order by avg() on columns of table "driver_identity"
-type DriverIdentityAvgOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-}
-
-// Boolean expression to filter rows from the table "driver_identity". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_identity'.
 type DriverIdentityBoolExp struct {
 	And                           []*DriverIdentityBoolExp        `json:"_and"`
 	Not                           *DriverIdentityBoolExp          `json:"_not"`
 	Or                            []*DriverIdentityBoolExp        `json:"_or"`
-	AccumulativedPoints           *model.NumericComparisonExp     `json:"accumulatived_points"`
-	AnnualReviewDate              *model.TimestamptzComparisonExp `json:"annual_review_date"`
-	CreatedAt                     *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy                     *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt                     *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy                     *model.StringComparisonExp      `json:"deleted_by"`
-	DriverHoldingIDPhoto          *model.StringComparisonExp      `json:"driver_holding_id_photo"`
-	DriverLicenseCityID           *model.StringComparisonExp      `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *model.StringComparisonExp      `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *model.TimestamptzComparisonExp `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *model.StringComparisonExp      `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *model.StringComparisonExp      `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *model.StringComparisonExp      `json:"driver_license_province_id"`
-	DriverLicenseStatus           *model.IntComparisonExp         `json:"driver_license_status"`
-	DriverPhoto                   *model.StringComparisonExp      `json:"driver_photo"`
-	DriverSignature               *model.StringComparisonExp      `json:"driver_signature"`
 	ID                            *model.BigintComparisonExp      `json:"id"`
-	IDCardAddress                 *model.StringComparisonExp      `json:"id_card_address"`
-	IDCardBackPic                 *model.StringComparisonExp      `json:"id_card_back_pic"`
+	IdentityID                    *model.StringComparisonExp      `json:"identity_id"`
+	IDCardNum                     *model.StringComparisonExp      `json:"id_card_num"`
 	IDCardBirthday                *model.TimestamptzComparisonExp `json:"id_card_birthday"`
+	IDCardSignGovernment          *model.StringComparisonExp      `json:"id_card_sign_government"`
+	IDCardNation                  *model.StringComparisonExp      `json:"id_card_nation"`
+	IDCardStartDate               *model.TimestamptzComparisonExp `json:"id_card_start_date"`
 	IDCardEndDate                 *model.TimestamptzComparisonExp `json:"id_card_end_date"`
 	IDCardFrontPic                *model.StringComparisonExp      `json:"id_card_front_pic"`
-	IDCardNation                  *model.StringComparisonExp      `json:"id_card_nation"`
-	IDCardNum                     *model.StringComparisonExp      `json:"id_card_num"`
-	IDCardSignGovernment          *model.StringComparisonExp      `json:"id_card_sign_government"`
-	IDCardStartDate               *model.TimestamptzComparisonExp `json:"id_card_start_date"`
-	IdentityID                    *model.StringComparisonExp      `json:"identity_id"`
-	IsDelete                      *model.BooleanComparisonExp     `json:"is_delete"`
-	IsReview                      *model.BooleanComparisonExp     `json:"is_review"`
-	LaborContract                 *TextComparisonExp              `json:"labor_contract"`
+	IDCardBackPic                 *model.StringComparisonExp      `json:"id_card_back_pic"`
+	IDCardAddress                 *model.StringComparisonExp      `json:"id_card_address"`
+	DriverHoldingIDPhoto          *model.StringComparisonExp      `json:"driver_holding_id_photo"`
+	DriverPhoto                   *model.StringComparisonExp      `json:"driver_photo"`
+	DriverSignature               *model.StringComparisonExp      `json:"driver_signature"`
+	OccupationalNumber            *model.StringComparisonExp      `json:"occupational_number"`
 	OccupationalExpireDate        *model.TimestamptzComparisonExp `json:"occupational_expire_date"`
 	OccupationalIssuingAuthority  *model.StringComparisonExp      `json:"occupational_issuing_authority"`
-	OccupationalNumber            *model.StringComparisonExp      `json:"occupational_number"`
-	QuasiDrivingModels            *model.IntComparisonExp         `json:"quasi_driving_models"`
+	LaborContract                 *model.StringComparisonExp      `json:"labor_contract"`
+	DriverLicensePic              *model.StringComparisonExp      `json:"driver_license_pic"`
+	DriverLicenseIssuingAuthority *model.StringComparisonExp      `json:"driver_license_issuing_authority"`
+	AnnualReviewDate              *model.TimestamptzComparisonExp `json:"annual_review_date"`
 	RenewalDate                   *model.TimestamptzComparisonExp `json:"renewal_date"`
+	AccumulativedPoints           *model.NumericComparisonExp     `json:"accumulatived_points"`
 	SortingDate                   *model.TimestamptzComparisonExp `json:"sorting_date"`
+	QuasiDrivingModels            *model.IntComparisonExp         `json:"quasi_driving_models"`
+	DriverLicenseProvinceID       *model.StringComparisonExp      `json:"driver_license_province_id"`
+	DriverLicenseCityID           *model.StringComparisonExp      `json:"driver_license_city_id"`
+	DriverLicenseDistrictID       *model.StringComparisonExp      `json:"driver_license_district_id"`
+	DriverLicenseStatus           *model.IntComparisonExp         `json:"driver_license_status"`
+	DriverLicenseIssueDate        *model.TimestamptzComparisonExp `json:"driver_license_issue_date"`
+	WorkingTime                   *model.TimestamptzComparisonExp `json:"working_time"`
+	IsReview                      *model.BooleanComparisonExp     `json:"is_review"`
+	CreatedAt                     *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                     *model.StringComparisonExp      `json:"created_by"`
 	UpdatedAt                     *model.TimestamptzComparisonExp `json:"updated_at"`
 	UpdatedBy                     *model.StringComparisonExp      `json:"updated_by"`
-	WorkingTime                   *model.TimestamptzComparisonExp `json:"working_time"`
+	DeletedAt                     *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                     *model.StringComparisonExp      `json:"deleted_by"`
+	IsDeleted                     *model.BooleanComparisonExp     `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "driver_identity"
 type DriverIdentityIncInput struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *int     `json:"driver_license_status"`
 	ID                  *int64   `json:"id"`
+	AccumulativedPoints *float64 `json:"accumulatived_points"`
 	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
+	DriverLicenseStatus *int     `json:"driver_license_status"`
 }
 
 // input type for inserting data into table "driver_identity"
 type DriverIdentityInsertInput struct {
-	AccumulativedPoints           *float64   `json:"accumulatived_points"`
-	AnnualReviewDate              *time.Time `json:"annual_review_date"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
-	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
-	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *string    `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
-	DriverLicenseStatus           *int       `json:"driver_license_status"`
-	DriverPhoto                   *string    `json:"driver_photo"`
-	DriverSignature               *string    `json:"driver_signature"`
 	ID                            *int64     `json:"id"`
-	IDCardAddress                 *string    `json:"id_card_address"`
-	IDCardBackPic                 *string    `json:"id_card_back_pic"`
+	IdentityID                    *string    `json:"identity_id"`
+	IDCardNum                     *string    `json:"id_card_num"`
 	IDCardBirthday                *time.Time `json:"id_card_birthday"`
+	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
+	IDCardNation                  *string    `json:"id_card_nation"`
+	IDCardStartDate               *time.Time `json:"id_card_start_date"`
 	IDCardEndDate                 *time.Time `json:"id_card_end_date"`
 	IDCardFrontPic                *string    `json:"id_card_front_pic"`
-	IDCardNation                  *string    `json:"id_card_nation"`
-	IDCardNum                     *string    `json:"id_card_num"`
-	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
-	IDCardStartDate               *time.Time `json:"id_card_start_date"`
-	IdentityID                    *string    `json:"identity_id"`
-	IsDelete                      *bool      `json:"is_delete"`
-	IsReview                      *bool      `json:"is_review"`
+	IDCardBackPic                 *string    `json:"id_card_back_pic"`
+	IDCardAddress                 *string    `json:"id_card_address"`
+	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
+	DriverPhoto                   *string    `json:"driver_photo"`
+	DriverSignature               *string    `json:"driver_signature"`
+	OccupationalNumber            *string    `json:"occupational_number"`
+	OccupationalExpireDate        *time.Time `json:"occupational_expire_date"`
+	OccupationalIssuingAuthority  *string    `json:"occupational_issuing_authority"`
 	LaborContract                 *string    `json:"labor_contract"`
-	OccupationalExpireDate        *time.Time `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *string    `json:"occupational_issuing_authority"`
-	OccupationalNumber            *string    `json:"occupational_number"`
-	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
+	DriverLicensePic              *string    `json:"driver_license_pic"`
+	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
+	AnnualReviewDate              *time.Time `json:"annual_review_date"`
 	RenewalDate                   *time.Time `json:"renewal_date"`
+	AccumulativedPoints           *float64   `json:"accumulatived_points"`
 	SortingDate                   *time.Time `json:"sorting_date"`
+	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
+	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
+	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
+	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
+	DriverLicenseStatus           *int       `json:"driver_license_status"`
+	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
+	WorkingTime                   *time.Time `json:"working_time"`
+	IsReview                      *bool      `json:"is_review"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
-	WorkingTime                   *time.Time `json:"working_time"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
+	IsDeleted                     *bool      `json:"is_deleted"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "driver_identity"
 type DriverIdentityMaxFields struct {
-	AccumulativedPoints           *float64   `json:"accumulatived_points"`
-	AnnualReviewDate              *time.Time `json:"annual_review_date"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
-	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
-	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *string    `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
-	DriverLicenseStatus           *int       `json:"driver_license_status"`
-	DriverPhoto                   *string    `json:"driver_photo"`
-	DriverSignature               *string    `json:"driver_signature"`
 	ID                            *int64     `json:"id"`
-	IDCardAddress                 *string    `json:"id_card_address"`
-	IDCardBackPic                 *string    `json:"id_card_back_pic"`
+	IdentityID                    *string    `json:"identity_id"`
+	IDCardNum                     *string    `json:"id_card_num"`
 	IDCardBirthday                *time.Time `json:"id_card_birthday"`
+	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
+	IDCardNation                  *string    `json:"id_card_nation"`
+	IDCardStartDate               *time.Time `json:"id_card_start_date"`
 	IDCardEndDate                 *time.Time `json:"id_card_end_date"`
 	IDCardFrontPic                *string    `json:"id_card_front_pic"`
-	IDCardNation                  *string    `json:"id_card_nation"`
-	IDCardNum                     *string    `json:"id_card_num"`
-	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
-	IDCardStartDate               *time.Time `json:"id_card_start_date"`
-	IdentityID                    *string    `json:"identity_id"`
+	IDCardBackPic                 *string    `json:"id_card_back_pic"`
+	IDCardAddress                 *string    `json:"id_card_address"`
+	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
+	DriverPhoto                   *string    `json:"driver_photo"`
+	DriverSignature               *string    `json:"driver_signature"`
+	OccupationalNumber            *string    `json:"occupational_number"`
 	OccupationalExpireDate        *time.Time `json:"occupational_expire_date"`
 	OccupationalIssuingAuthority  *string    `json:"occupational_issuing_authority"`
-	OccupationalNumber            *string    `json:"occupational_number"`
-	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
+	LaborContract                 *string    `json:"labor_contract"`
+	DriverLicensePic              *string    `json:"driver_license_pic"`
+	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
+	AnnualReviewDate              *time.Time `json:"annual_review_date"`
 	RenewalDate                   *time.Time `json:"renewal_date"`
+	AccumulativedPoints           *float64   `json:"accumulatived_points"`
 	SortingDate                   *time.Time `json:"sorting_date"`
+	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
+	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
+	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
+	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
+	DriverLicenseStatus           *int       `json:"driver_license_status"`
+	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
+	WorkingTime                   *time.Time `json:"working_time"`
+	IsReview                      *bool      `json:"is_review"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
-	WorkingTime                   *time.Time `json:"working_time"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
+	IsDeleted                     *bool      `json:"is_deleted"`
 }
 
-// order by max() on columns of table "driver_identity"
-type DriverIdentityMaxOrderBy struct {
-	AccumulativedPoints           *model.OrderBy `json:"accumulatived_points"`
-	AnnualReviewDate              *model.OrderBy `json:"annual_review_date"`
-	CreatedAt                     *model.OrderBy `json:"created_at"`
-	CreatedBy                     *model.OrderBy `json:"created_by"`
-	DeletedAt                     *model.OrderBy `json:"deleted_at"`
-	DeletedBy                     *model.OrderBy `json:"deleted_by"`
-	DriverHoldingIDPhoto          *model.OrderBy `json:"driver_holding_id_photo"`
-	DriverLicenseCityID           *model.OrderBy `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *model.OrderBy `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *model.OrderBy `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *model.OrderBy `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *model.OrderBy `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *model.OrderBy `json:"driver_license_province_id"`
-	DriverLicenseStatus           *model.OrderBy `json:"driver_license_status"`
-	DriverPhoto                   *model.OrderBy `json:"driver_photo"`
-	DriverSignature               *model.OrderBy `json:"driver_signature"`
-	ID                            *model.OrderBy `json:"id"`
-	IDCardAddress                 *model.OrderBy `json:"id_card_address"`
-	IDCardBackPic                 *model.OrderBy `json:"id_card_back_pic"`
-	IDCardBirthday                *model.OrderBy `json:"id_card_birthday"`
-	IDCardEndDate                 *model.OrderBy `json:"id_card_end_date"`
-	IDCardFrontPic                *model.OrderBy `json:"id_card_front_pic"`
-	IDCardNation                  *model.OrderBy `json:"id_card_nation"`
-	IDCardNum                     *model.OrderBy `json:"id_card_num"`
-	IDCardSignGovernment          *model.OrderBy `json:"id_card_sign_government"`
-	IDCardStartDate               *model.OrderBy `json:"id_card_start_date"`
-	IdentityID                    *model.OrderBy `json:"identity_id"`
-	OccupationalExpireDate        *model.OrderBy `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *model.OrderBy `json:"occupational_issuing_authority"`
-	OccupationalNumber            *model.OrderBy `json:"occupational_number"`
-	QuasiDrivingModels            *model.OrderBy `json:"quasi_driving_models"`
-	RenewalDate                   *model.OrderBy `json:"renewal_date"`
-	SortingDate                   *model.OrderBy `json:"sorting_date"`
-	UpdatedAt                     *model.OrderBy `json:"updated_at"`
-	UpdatedBy                     *model.OrderBy `json:"updated_by"`
-	WorkingTime                   *model.OrderBy `json:"working_time"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "driver_identity"
 type DriverIdentityMinFields struct {
-	AccumulativedPoints           *float64   `json:"accumulatived_points"`
-	AnnualReviewDate              *time.Time `json:"annual_review_date"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
-	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
-	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *string    `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
-	DriverLicenseStatus           *int       `json:"driver_license_status"`
-	DriverPhoto                   *string    `json:"driver_photo"`
-	DriverSignature               *string    `json:"driver_signature"`
 	ID                            *int64     `json:"id"`
-	IDCardAddress                 *string    `json:"id_card_address"`
-	IDCardBackPic                 *string    `json:"id_card_back_pic"`
+	IdentityID                    *string    `json:"identity_id"`
+	IDCardNum                     *string    `json:"id_card_num"`
 	IDCardBirthday                *time.Time `json:"id_card_birthday"`
+	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
+	IDCardNation                  *string    `json:"id_card_nation"`
+	IDCardStartDate               *time.Time `json:"id_card_start_date"`
 	IDCardEndDate                 *time.Time `json:"id_card_end_date"`
 	IDCardFrontPic                *string    `json:"id_card_front_pic"`
-	IDCardNation                  *string    `json:"id_card_nation"`
-	IDCardNum                     *string    `json:"id_card_num"`
-	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
-	IDCardStartDate               *time.Time `json:"id_card_start_date"`
-	IdentityID                    *string    `json:"identity_id"`
+	IDCardBackPic                 *string    `json:"id_card_back_pic"`
+	IDCardAddress                 *string    `json:"id_card_address"`
+	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
+	DriverPhoto                   *string    `json:"driver_photo"`
+	DriverSignature               *string    `json:"driver_signature"`
+	OccupationalNumber            *string    `json:"occupational_number"`
 	OccupationalExpireDate        *time.Time `json:"occupational_expire_date"`
 	OccupationalIssuingAuthority  *string    `json:"occupational_issuing_authority"`
-	OccupationalNumber            *string    `json:"occupational_number"`
-	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
+	LaborContract                 *string    `json:"labor_contract"`
+	DriverLicensePic              *string    `json:"driver_license_pic"`
+	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
+	AnnualReviewDate              *time.Time `json:"annual_review_date"`
 	RenewalDate                   *time.Time `json:"renewal_date"`
+	AccumulativedPoints           *float64   `json:"accumulatived_points"`
 	SortingDate                   *time.Time `json:"sorting_date"`
+	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
+	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
+	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
+	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
+	DriverLicenseStatus           *int       `json:"driver_license_status"`
+	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
+	WorkingTime                   *time.Time `json:"working_time"`
+	IsReview                      *bool      `json:"is_review"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
-	WorkingTime                   *time.Time `json:"working_time"`
-}
-
-// order by min() on columns of table "driver_identity"
-type DriverIdentityMinOrderBy struct {
-	AccumulativedPoints           *model.OrderBy `json:"accumulatived_points"`
-	AnnualReviewDate              *model.OrderBy `json:"annual_review_date"`
-	CreatedAt                     *model.OrderBy `json:"created_at"`
-	CreatedBy                     *model.OrderBy `json:"created_by"`
-	DeletedAt                     *model.OrderBy `json:"deleted_at"`
-	DeletedBy                     *model.OrderBy `json:"deleted_by"`
-	DriverHoldingIDPhoto          *model.OrderBy `json:"driver_holding_id_photo"`
-	DriverLicenseCityID           *model.OrderBy `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *model.OrderBy `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *model.OrderBy `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *model.OrderBy `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *model.OrderBy `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *model.OrderBy `json:"driver_license_province_id"`
-	DriverLicenseStatus           *model.OrderBy `json:"driver_license_status"`
-	DriverPhoto                   *model.OrderBy `json:"driver_photo"`
-	DriverSignature               *model.OrderBy `json:"driver_signature"`
-	ID                            *model.OrderBy `json:"id"`
-	IDCardAddress                 *model.OrderBy `json:"id_card_address"`
-	IDCardBackPic                 *model.OrderBy `json:"id_card_back_pic"`
-	IDCardBirthday                *model.OrderBy `json:"id_card_birthday"`
-	IDCardEndDate                 *model.OrderBy `json:"id_card_end_date"`
-	IDCardFrontPic                *model.OrderBy `json:"id_card_front_pic"`
-	IDCardNation                  *model.OrderBy `json:"id_card_nation"`
-	IDCardNum                     *model.OrderBy `json:"id_card_num"`
-	IDCardSignGovernment          *model.OrderBy `json:"id_card_sign_government"`
-	IDCardStartDate               *model.OrderBy `json:"id_card_start_date"`
-	IdentityID                    *model.OrderBy `json:"identity_id"`
-	OccupationalExpireDate        *model.OrderBy `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *model.OrderBy `json:"occupational_issuing_authority"`
-	OccupationalNumber            *model.OrderBy `json:"occupational_number"`
-	QuasiDrivingModels            *model.OrderBy `json:"quasi_driving_models"`
-	RenewalDate                   *model.OrderBy `json:"renewal_date"`
-	SortingDate                   *model.OrderBy `json:"sorting_date"`
-	UpdatedAt                     *model.OrderBy `json:"updated_at"`
-	UpdatedBy                     *model.OrderBy `json:"updated_by"`
-	WorkingTime                   *model.OrderBy `json:"working_time"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
+	IsDeleted                     *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "driver_identity"
 type DriverIdentityMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DriverIdentity `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "driver_identity"
-type DriverIdentityObjRelInsertInput struct {
-	Data       *DriverIdentityInsertInput `json:"data"`
-	OnConflict *DriverIdentityOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "driver_identity"
-type DriverIdentityOnConflict struct {
-	Constraint    DriverIdentityConstraint     `json:"constraint"`
-	UpdateColumns []DriverIdentityUpdateColumn `json:"update_columns"`
-	Where         *DriverIdentityBoolExp       `json:"where"`
+	AffectedRows int                      `json:"affected_rows"`
+	Returning    []*model1.DriverIdentity `json:"returning"`
 }
 
 // ordering options when selecting data from "driver_identity"
 type DriverIdentityOrderBy struct {
-	AccumulativedPoints           *model.OrderBy `json:"accumulatived_points"`
-	AnnualReviewDate              *model.OrderBy `json:"annual_review_date"`
-	CreatedAt                     *model.OrderBy `json:"created_at"`
-	CreatedBy                     *model.OrderBy `json:"created_by"`
-	DeletedAt                     *model.OrderBy `json:"deleted_at"`
-	DeletedBy                     *model.OrderBy `json:"deleted_by"`
-	DriverHoldingIDPhoto          *model.OrderBy `json:"driver_holding_id_photo"`
-	DriverLicenseCityID           *model.OrderBy `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *model.OrderBy `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *model.OrderBy `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *model.OrderBy `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *model.OrderBy `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *model.OrderBy `json:"driver_license_province_id"`
-	DriverLicenseStatus           *model.OrderBy `json:"driver_license_status"`
-	DriverPhoto                   *model.OrderBy `json:"driver_photo"`
-	DriverSignature               *model.OrderBy `json:"driver_signature"`
 	ID                            *model.OrderBy `json:"id"`
-	IDCardAddress                 *model.OrderBy `json:"id_card_address"`
-	IDCardBackPic                 *model.OrderBy `json:"id_card_back_pic"`
+	IdentityID                    *model.OrderBy `json:"identity_id"`
+	IDCardNum                     *model.OrderBy `json:"id_card_num"`
 	IDCardBirthday                *model.OrderBy `json:"id_card_birthday"`
+	IDCardSignGovernment          *model.OrderBy `json:"id_card_sign_government"`
+	IDCardNation                  *model.OrderBy `json:"id_card_nation"`
+	IDCardStartDate               *model.OrderBy `json:"id_card_start_date"`
 	IDCardEndDate                 *model.OrderBy `json:"id_card_end_date"`
 	IDCardFrontPic                *model.OrderBy `json:"id_card_front_pic"`
-	IDCardNation                  *model.OrderBy `json:"id_card_nation"`
-	IDCardNum                     *model.OrderBy `json:"id_card_num"`
-	IDCardSignGovernment          *model.OrderBy `json:"id_card_sign_government"`
-	IDCardStartDate               *model.OrderBy `json:"id_card_start_date"`
-	IdentityID                    *model.OrderBy `json:"identity_id"`
-	IsDelete                      *model.OrderBy `json:"is_delete"`
-	IsReview                      *model.OrderBy `json:"is_review"`
-	LaborContract                 *model.OrderBy `json:"labor_contract"`
+	IDCardBackPic                 *model.OrderBy `json:"id_card_back_pic"`
+	IDCardAddress                 *model.OrderBy `json:"id_card_address"`
+	DriverHoldingIDPhoto          *model.OrderBy `json:"driver_holding_id_photo"`
+	DriverPhoto                   *model.OrderBy `json:"driver_photo"`
+	DriverSignature               *model.OrderBy `json:"driver_signature"`
+	OccupationalNumber            *model.OrderBy `json:"occupational_number"`
 	OccupationalExpireDate        *model.OrderBy `json:"occupational_expire_date"`
 	OccupationalIssuingAuthority  *model.OrderBy `json:"occupational_issuing_authority"`
-	OccupationalNumber            *model.OrderBy `json:"occupational_number"`
-	QuasiDrivingModels            *model.OrderBy `json:"quasi_driving_models"`
+	LaborContract                 *model.OrderBy `json:"labor_contract"`
+	DriverLicensePic              *model.OrderBy `json:"driver_license_pic"`
+	DriverLicenseIssuingAuthority *model.OrderBy `json:"driver_license_issuing_authority"`
+	AnnualReviewDate              *model.OrderBy `json:"annual_review_date"`
 	RenewalDate                   *model.OrderBy `json:"renewal_date"`
+	AccumulativedPoints           *model.OrderBy `json:"accumulatived_points"`
 	SortingDate                   *model.OrderBy `json:"sorting_date"`
+	QuasiDrivingModels            *model.OrderBy `json:"quasi_driving_models"`
+	DriverLicenseProvinceID       *model.OrderBy `json:"driver_license_province_id"`
+	DriverLicenseCityID           *model.OrderBy `json:"driver_license_city_id"`
+	DriverLicenseDistrictID       *model.OrderBy `json:"driver_license_district_id"`
+	DriverLicenseStatus           *model.OrderBy `json:"driver_license_status"`
+	DriverLicenseIssueDate        *model.OrderBy `json:"driver_license_issue_date"`
+	WorkingTime                   *model.OrderBy `json:"working_time"`
+	IsReview                      *model.OrderBy `json:"is_review"`
+	CreatedAt                     *model.OrderBy `json:"created_at"`
+	CreatedBy                     *model.OrderBy `json:"created_by"`
 	UpdatedAt                     *model.OrderBy `json:"updated_at"`
 	UpdatedBy                     *model.OrderBy `json:"updated_by"`
-	WorkingTime                   *model.OrderBy `json:"working_time"`
-}
-
-// primary key columns input for table: "driver_identity"
-type DriverIdentityPkColumnsInput struct {
-	ID int64 `json:"id"`
-	// 联合主键
-	IdentityID string `json:"identity_id"`
+	DeletedAt                     *model.OrderBy `json:"deleted_at"`
+	DeletedBy                     *model.OrderBy `json:"deleted_by"`
+	IsDeleted                     *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "driver_identity"
 type DriverIdentitySetInput struct {
-	AccumulativedPoints           *float64   `json:"accumulatived_points"`
-	AnnualReviewDate              *time.Time `json:"annual_review_date"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
-	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
-	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *string    `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
-	DriverLicenseStatus           *int       `json:"driver_license_status"`
-	DriverPhoto                   *string    `json:"driver_photo"`
-	DriverSignature               *string    `json:"driver_signature"`
 	ID                            *int64     `json:"id"`
-	IDCardAddress                 *string    `json:"id_card_address"`
-	IDCardBackPic                 *string    `json:"id_card_back_pic"`
+	IdentityID                    *string    `json:"identity_id"`
+	IDCardNum                     *string    `json:"id_card_num"`
 	IDCardBirthday                *time.Time `json:"id_card_birthday"`
+	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
+	IDCardNation                  *string    `json:"id_card_nation"`
+	IDCardStartDate               *time.Time `json:"id_card_start_date"`
 	IDCardEndDate                 *time.Time `json:"id_card_end_date"`
 	IDCardFrontPic                *string    `json:"id_card_front_pic"`
-	IDCardNation                  *string    `json:"id_card_nation"`
-	IDCardNum                     *string    `json:"id_card_num"`
-	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
-	IDCardStartDate               *time.Time `json:"id_card_start_date"`
-	IdentityID                    *string    `json:"identity_id"`
-	IsDelete                      *bool      `json:"is_delete"`
-	IsReview                      *bool      `json:"is_review"`
-	LaborContract                 *string    `json:"labor_contract"`
+	IDCardBackPic                 *string    `json:"id_card_back_pic"`
+	IDCardAddress                 *string    `json:"id_card_address"`
+	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
+	DriverPhoto                   *string    `json:"driver_photo"`
+	DriverSignature               *string    `json:"driver_signature"`
+	OccupationalNumber            *string    `json:"occupational_number"`
 	OccupationalExpireDate        *time.Time `json:"occupational_expire_date"`
 	OccupationalIssuingAuthority  *string    `json:"occupational_issuing_authority"`
-	OccupationalNumber            *string    `json:"occupational_number"`
-	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
+	LaborContract                 *string    `json:"labor_contract"`
+	DriverLicensePic              *string    `json:"driver_license_pic"`
+	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
+	AnnualReviewDate              *time.Time `json:"annual_review_date"`
 	RenewalDate                   *time.Time `json:"renewal_date"`
+	AccumulativedPoints           *float64   `json:"accumulatived_points"`
 	SortingDate                   *time.Time `json:"sorting_date"`
+	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
+	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
+	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
+	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
+	DriverLicenseStatus           *int       `json:"driver_license_status"`
+	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
+	WorkingTime                   *time.Time `json:"working_time"`
+	IsReview                      *bool      `json:"is_review"`
+	CreatedAt                     *time.Time `json:"created_at"`
+	CreatedBy                     *string    `json:"created_by"`
 	UpdatedAt                     *time.Time `json:"updated_at"`
 	UpdatedBy                     *string    `json:"updated_by"`
-	WorkingTime                   *time.Time `json:"working_time"`
+	DeletedAt                     *time.Time `json:"deleted_at"`
+	DeletedBy                     *string    `json:"deleted_by"`
+	IsDeleted                     *bool      `json:"is_deleted"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "driver_identity"
 type DriverIdentityStddevFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-}
-
-// order by stddev() on columns of table "driver_identity"
-type DriverIdentityStddevOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-}
-
-// aggregate stddev_pop on columns
-type DriverIdentityStddevPopFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-}
-
-// order by stddev_pop() on columns of table "driver_identity"
-type DriverIdentityStddevPopOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-}
-
-// aggregate stddev_samp on columns
-type DriverIdentityStddevSampFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-}
-
-// order by stddev_samp() on columns of table "driver_identity"
-type DriverIdentityStddevSampOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-}
-
-// aggregate sum on columns
-type DriverIdentitySumFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *int     `json:"driver_license_status"`
 	ID                  *int64   `json:"id"`
+	AccumulativedPoints *float64 `json:"accumulatived_points"`
 	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
+	DriverLicenseStatus *int     `json:"driver_license_status"`
 }
 
-// order by sum() on columns of table "driver_identity"
-type DriverIdentitySumOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
+// aggregate stddev_pop on columns of table "driver_identity"
+type DriverIdentityStddevPopFields struct {
+	ID                  *int64   `json:"id"`
+	AccumulativedPoints *float64 `json:"accumulatived_points"`
+	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
+	DriverLicenseStatus *int     `json:"driver_license_status"`
 }
 
-// aggregate var_pop on columns
+// aggregate stddev_samp on columns of table "driver_identity"
+type DriverIdentityStddevSampFields struct {
+	ID                  *int64   `json:"id"`
+	AccumulativedPoints *float64 `json:"accumulatived_points"`
+	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
+	DriverLicenseStatus *int     `json:"driver_license_status"`
+}
+
+// aggregate sum on columns of table "driver_identity"
+type DriverIdentitySumFields struct {
+	ID                  *int64   `json:"id"`
+	AccumulativedPoints *float64 `json:"accumulatived_points"`
+	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
+	DriverLicenseStatus *int     `json:"driver_license_status"`
+}
+
+// aggregate var_pop on columns of table "driver_identity"
 type DriverIdentityVarPopFields struct {
+	ID                  *int64   `json:"id"`
 	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
+	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
+	DriverLicenseStatus *int     `json:"driver_license_status"`
 }
 
-// order by var_pop() on columns of table "driver_identity"
-type DriverIdentityVarPopOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "driver_identity"
 type DriverIdentityVarSampFields struct {
+	ID                  *int64   `json:"id"`
 	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
+	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
+	DriverLicenseStatus *int     `json:"driver_license_status"`
 }
 
-// order by var_samp() on columns of table "driver_identity"
-type DriverIdentityVarSampOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "driver_identity"
 type DriverIdentityVarianceFields struct {
+	ID                  *int64   `json:"id"`
 	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-}
-
-// order by variance() on columns of table "driver_identity"
-type DriverIdentityVarianceOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
+	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
+	DriverLicenseStatus *int     `json:"driver_license_status"`
 }
 
 // aggregated selection of "driver_info"
 type DriverInfoAggregate struct {
 	Aggregate *DriverInfoAggregateFields `json:"aggregate"`
-	Nodes     []*DriverInfo              `json:"nodes"`
 }
 
 // aggregate fields of "driver_info"
@@ -585,831 +1074,54 @@ type DriverInfoAggregateFields struct {
 	Variance   *DriverInfoVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "driver_info"
-type DriverInfoAggregateOrderBy struct {
-	Avg        *DriverInfoAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy               `json:"count"`
-	Max        *DriverInfoMaxOrderBy        `json:"max"`
-	Min        *DriverInfoMinOrderBy        `json:"min"`
-	Stddev     *DriverInfoStddevOrderBy     `json:"stddev"`
-	StddevPop  *DriverInfoStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DriverInfoStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DriverInfoSumOrderBy        `json:"sum"`
-	VarPop     *DriverInfoVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DriverInfoVarSampOrderBy    `json:"var_samp"`
-	Variance   *DriverInfoVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "driver_info"
-type DriverInfoArrRelInsertInput struct {
-	Data       []*DriverInfoInsertInput `json:"data"`
-	OnConflict *DriverInfoOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "driver_info"
 type DriverInfoAvgFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by avg() on columns of table "driver_info"
-type DriverInfoAvgOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// Boolean expression to filter rows from the table "driver_info". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_info'.
 type DriverInfoBoolExp struct {
-	And              []*DriverInfoBoolExp            `json:"_and"`
-	Not              *DriverInfoBoolExp              `json:"_not"`
-	Or               []*DriverInfoBoolExp            `json:"_or"`
-	Agent            *model.StringComparisonExp      `json:"agent"`
-	CheckAt          *model.TimestamptzComparisonExp `json:"check_at"`
-	CheckBy          *model.StringComparisonExp      `json:"check_by"`
-	ContactAddress   *model.StringComparisonExp      `json:"contact_address"`
-	CreatedAt        *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy        *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt        *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy        *model.StringComparisonExp      `json:"deleted_by"`
-	DepartmentID     *model.StringComparisonExp      `json:"department_id"`
-	DriverID         *model.StringComparisonExp      `json:"driver_id"`
-	DriverIdentityID *model.StringComparisonExp      `json:"driver_identity_id"`
-	DriverName       *model.StringComparisonExp      `json:"driver_name"`
-	EnterpriseID     *model.StringComparisonExp      `json:"enterprise_id"`
-	FilesNumber      *model.StringComparisonExp      `json:"files_number"`
-	ID               *model.BigintComparisonExp      `json:"id"`
-	InputAt          *model.TimestamptzComparisonExp `json:"input_at"`
-	InputBy          *model.StringComparisonExp      `json:"input_by"`
-	IsBlack          *model.BooleanComparisonExp     `json:"is_black"`
-	IsCheckData      *model.BooleanComparisonExp     `json:"is_check_data"`
-	IsCheckSms       *model.BooleanComparisonExp     `json:"is_check_sms"`
-	IsDelete         *model.BooleanComparisonExp     `json:"is_delete"`
-	IsInput          *model.BooleanComparisonExp     `json:"is_input"`
-	IsManualInput    *model.BooleanComparisonExp     `json:"is_manual_input"`
-	IsSubmit         *model.BooleanComparisonExp     `json:"is_submit"`
-	MailingAddress   *model.StringComparisonExp      `json:"mailing_address"`
-	Operator         *model.StringComparisonExp      `json:"operator"`
-	RemarkIn         *model.StringComparisonExp      `json:"remark_in"`
-	Remarks          *model.StringComparisonExp      `json:"remarks"`
-	Sex              *model.IntComparisonExp         `json:"sex"`
-	SubmitAt         *model.TimestamptzComparisonExp `json:"submit_at"`
-	SubmitBy         *model.StringComparisonExp      `json:"submit_by"`
-	SubmitContent    *model.StringComparisonExp      `json:"submit_content"`
-	Telephone        *model.StringComparisonExp      `json:"telephone"`
-	UpdateTimeIn     *model.TimestamptzComparisonExp `json:"update_time_in"`
-	UpdatedAt        *model.TimestamptzComparisonExp `json:"updated_at"`
-	UpdatedBy        *model.StringComparisonExp      `json:"updated_by"`
-}
-
-// aggregated selection of "driver_info_change_log"
-type DriverInfoChangeLogAggregate struct {
-	Aggregate *DriverInfoChangeLogAggregateFields `json:"aggregate"`
-	Nodes     []*DriverInfoChangeLog              `json:"nodes"`
-}
-
-// aggregate fields of "driver_info_change_log"
-type DriverInfoChangeLogAggregateFields struct {
-	Avg        *DriverInfoChangeLogAvgFields        `json:"avg"`
-	Count      *int                                 `json:"count"`
-	Max        *DriverInfoChangeLogMaxFields        `json:"max"`
-	Min        *DriverInfoChangeLogMinFields        `json:"min"`
-	Stddev     *DriverInfoChangeLogStddevFields     `json:"stddev"`
-	StddevPop  *DriverInfoChangeLogStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *DriverInfoChangeLogStddevSampFields `json:"stddev_samp"`
-	Sum        *DriverInfoChangeLogSumFields        `json:"sum"`
-	VarPop     *DriverInfoChangeLogVarPopFields     `json:"var_pop"`
-	VarSamp    *DriverInfoChangeLogVarSampFields    `json:"var_samp"`
-	Variance   *DriverInfoChangeLogVarianceFields   `json:"variance"`
-}
-
-// order by aggregate values of table "driver_info_change_log"
-type DriverInfoChangeLogAggregateOrderBy struct {
-	Avg        *DriverInfoChangeLogAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                        `json:"count"`
-	Max        *DriverInfoChangeLogMaxOrderBy        `json:"max"`
-	Min        *DriverInfoChangeLogMinOrderBy        `json:"min"`
-	Stddev     *DriverInfoChangeLogStddevOrderBy     `json:"stddev"`
-	StddevPop  *DriverInfoChangeLogStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DriverInfoChangeLogStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DriverInfoChangeLogSumOrderBy        `json:"sum"`
-	VarPop     *DriverInfoChangeLogVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DriverInfoChangeLogVarSampOrderBy    `json:"var_samp"`
-	Variance   *DriverInfoChangeLogVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "driver_info_change_log"
-type DriverInfoChangeLogArrRelInsertInput struct {
-	Data       []*DriverInfoChangeLogInsertInput `json:"data"`
-	OnConflict *DriverInfoChangeLogOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
-type DriverInfoChangeLogAvgFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-	Sex                 *float64 `json:"sex"`
-}
-
-// order by avg() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogAvgOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-	Sex                 *model.OrderBy `json:"sex"`
-}
-
-// Boolean expression to filter rows from the table "driver_info_change_log". All fields are combined with a logical 'AND'.
-type DriverInfoChangeLogBoolExp struct {
-	And                           []*DriverInfoChangeLogBoolExp   `json:"_and"`
-	Not                           *DriverInfoChangeLogBoolExp     `json:"_not"`
-	Or                            []*DriverInfoChangeLogBoolExp   `json:"_or"`
-	AccumulativedPoints           *model.NumericComparisonExp     `json:"accumulatived_points"`
-	Agent                         *model.StringComparisonExp      `json:"agent"`
-	AnnualReviewDate              *model.TimestamptzComparisonExp `json:"annual_review_date"`
-	CheckAt                       *model.TimestamptzComparisonExp `json:"check_at"`
-	CheckBy                       *model.StringComparisonExp      `json:"check_by"`
-	ContactAddress                *model.StringComparisonExp      `json:"contact_address"`
-	CreatedAt                     *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy                     *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt                     *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy                     *model.StringComparisonExp      `json:"deleted_by"`
-	DepartmentID                  *model.StringComparisonExp      `json:"department_id"`
-	DriverHoldingIDPhoto          *model.StringComparisonExp      `json:"driver_holding_id_photo"`
-	DriverID                      *model.StringComparisonExp      `json:"driver_id"`
-	DriverInfoChangeLogID         *model.StringComparisonExp      `json:"driver_info_change_log_id"`
-	DriverLicenseCityID           *model.StringComparisonExp      `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *model.StringComparisonExp      `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *model.TimestamptzComparisonExp `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *model.StringComparisonExp      `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *model.StringComparisonExp      `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *model.StringComparisonExp      `json:"driver_license_province_id"`
-	DriverLicenseStatus           *model.IntComparisonExp         `json:"driver_license_status"`
-	DriverName                    *model.StringComparisonExp      `json:"driver_name"`
-	DriverPhoto                   *model.StringComparisonExp      `json:"driver_photo"`
-	DriverSignature               *model.StringComparisonExp      `json:"driver_signature"`
-	EnterpriseID                  *model.StringComparisonExp      `json:"enterprise_id"`
-	FilesNumber                   *model.StringComparisonExp      `json:"files_number"`
-	ID                            *model.BigintComparisonExp      `json:"id"`
-	IDCardAddress                 *model.StringComparisonExp      `json:"id_card_address"`
-	IDCardBackPic                 *model.StringComparisonExp      `json:"id_card_back_pic"`
-	IDCardBirthday                *model.TimestamptzComparisonExp `json:"id_card_birthday"`
-	IDCardEndDate                 *model.TimestamptzComparisonExp `json:"id_card_end_date"`
-	IDCardFrontPic                *model.StringComparisonExp      `json:"id_card_front_pic"`
-	IDCardNation                  *model.StringComparisonExp      `json:"id_card_nation"`
-	IDCardNum                     *model.StringComparisonExp      `json:"id_card_num"`
-	IDCardSignGovernment          *model.StringComparisonExp      `json:"id_card_sign_government"`
-	IDCardStartDate               *model.TimestamptzComparisonExp `json:"id_card_start_date"`
-	InputAt                       *model.TimestamptzComparisonExp `json:"input_at"`
-	InputBy                       *model.StringComparisonExp      `json:"input_by"`
-	IsBlack                       *model.BooleanComparisonExp     `json:"is_black"`
-	IsCheckData                   *model.BooleanComparisonExp     `json:"is_check_data"`
-	IsCheckSms                    *model.BooleanComparisonExp     `json:"is_check_sms"`
-	IsDelete                      *model.BooleanComparisonExp     `json:"is_delete"`
-	IsInput                       *model.BooleanComparisonExp     `json:"is_input"`
-	IsManualInput                 *model.BooleanComparisonExp     `json:"is_manual_input"`
-	IsReview                      *model.BooleanComparisonExp     `json:"is_review"`
-	IsSubmit                      *model.BooleanComparisonExp     `json:"is_submit"`
-	LaborContract                 *TextComparisonExp              `json:"labor_contract"`
-	MailingAddress                *model.StringComparisonExp      `json:"mailing_address"`
-	OccupationalExpireDate        *model.TimestamptzComparisonExp `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *model.StringComparisonExp      `json:"occupational_issuing_authority"`
-	OccupationalNumber            *model.StringComparisonExp      `json:"occupational_number"`
-	Operator                      *model.StringComparisonExp      `json:"operator"`
-	QuasiDrivingModels            *model.IntComparisonExp         `json:"quasi_driving_models"`
-	RemarkIn                      *model.StringComparisonExp      `json:"remark_in"`
-	Remarks                       *model.StringComparisonExp      `json:"remarks"`
-	RenewalDate                   *model.TimestamptzComparisonExp `json:"renewal_date"`
-	Sex                           *model.IntComparisonExp         `json:"sex"`
-	SortingDate                   *model.TimestamptzComparisonExp `json:"sorting_date"`
-	SubmitAt                      *model.TimestamptzComparisonExp `json:"submit_at"`
-	SubmitBy                      *model.StringComparisonExp      `json:"submit_by"`
-	SubmitContent                 *model.StringComparisonExp      `json:"submit_content"`
-	Telephone                     *model.StringComparisonExp      `json:"telephone"`
-	UpdateTimeIn                  *model.TimestamptzComparisonExp `json:"update_time_in"`
-	UpdatedAt                     *model.TimestamptzComparisonExp `json:"updated_at"`
-	UpdatedBy                     *model.StringComparisonExp      `json:"updated_by"`
-	WorkingTime                   *model.TimestamptzComparisonExp `json:"working_time"`
-}
-
-// input type for incrementing integer column in table "driver_info_change_log"
-type DriverInfoChangeLogIncInput struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *int     `json:"driver_license_status"`
-	ID                  *int64   `json:"id"`
-	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
-	Sex                 *int     `json:"sex"`
-}
-
-// input type for inserting data into table "driver_info_change_log"
-type DriverInfoChangeLogInsertInput struct {
-	AccumulativedPoints           *float64   `json:"accumulatived_points"`
-	Agent                         *string    `json:"agent"`
-	AnnualReviewDate              *time.Time `json:"annual_review_date"`
-	CheckAt                       *time.Time `json:"check_at"`
-	CheckBy                       *string    `json:"check_by"`
-	ContactAddress                *string    `json:"contact_address"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
-	DepartmentID                  *string    `json:"department_id"`
-	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
-	DriverID                      *string    `json:"driver_id"`
-	DriverInfoChangeLogID         *string    `json:"driver_info_change_log_id"`
-	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *string    `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
-	DriverLicenseStatus           *int       `json:"driver_license_status"`
-	DriverName                    *string    `json:"driver_name"`
-	DriverPhoto                   *string    `json:"driver_photo"`
-	DriverSignature               *string    `json:"driver_signature"`
-	EnterpriseID                  *string    `json:"enterprise_id"`
-	FilesNumber                   *string    `json:"files_number"`
-	ID                            *int64     `json:"id"`
-	IDCardAddress                 *string    `json:"id_card_address"`
-	IDCardBackPic                 *string    `json:"id_card_back_pic"`
-	IDCardBirthday                *time.Time `json:"id_card_birthday"`
-	IDCardEndDate                 *time.Time `json:"id_card_end_date"`
-	IDCardFrontPic                *string    `json:"id_card_front_pic"`
-	IDCardNation                  *string    `json:"id_card_nation"`
-	IDCardNum                     *string    `json:"id_card_num"`
-	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
-	IDCardStartDate               *time.Time `json:"id_card_start_date"`
-	InputAt                       *time.Time `json:"input_at"`
-	InputBy                       *string    `json:"input_by"`
-	IsBlack                       *bool      `json:"is_black"`
-	IsCheckData                   *bool      `json:"is_check_data"`
-	IsCheckSms                    *bool      `json:"is_check_sms"`
-	IsDelete                      *bool      `json:"is_delete"`
-	IsInput                       *bool      `json:"is_input"`
-	IsManualInput                 *bool      `json:"is_manual_input"`
-	IsReview                      *bool      `json:"is_review"`
-	IsSubmit                      *bool      `json:"is_submit"`
-	LaborContract                 *string    `json:"labor_contract"`
-	MailingAddress                *string    `json:"mailing_address"`
-	OccupationalExpireDate        *time.Time `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *string    `json:"occupational_issuing_authority"`
-	OccupationalNumber            *string    `json:"occupational_number"`
-	Operator                      *string    `json:"operator"`
-	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
-	RemarkIn                      *string    `json:"remark_in"`
-	Remarks                       *string    `json:"remarks"`
-	RenewalDate                   *time.Time `json:"renewal_date"`
-	Sex                           *int       `json:"sex"`
-	SortingDate                   *time.Time `json:"sorting_date"`
-	SubmitAt                      *time.Time `json:"submit_at"`
-	SubmitBy                      *string    `json:"submit_by"`
-	SubmitContent                 *string    `json:"submit_content"`
-	Telephone                     *string    `json:"telephone"`
-	UpdateTimeIn                  *time.Time `json:"update_time_in"`
-	UpdatedAt                     *time.Time `json:"updated_at"`
-	UpdatedBy                     *string    `json:"updated_by"`
-	WorkingTime                   *time.Time `json:"working_time"`
-}
-
-// aggregate max on columns
-type DriverInfoChangeLogMaxFields struct {
-	AccumulativedPoints           *float64   `json:"accumulatived_points"`
-	Agent                         *string    `json:"agent"`
-	AnnualReviewDate              *time.Time `json:"annual_review_date"`
-	CheckAt                       *time.Time `json:"check_at"`
-	CheckBy                       *string    `json:"check_by"`
-	ContactAddress                *string    `json:"contact_address"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
-	DepartmentID                  *string    `json:"department_id"`
-	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
-	DriverID                      *string    `json:"driver_id"`
-	DriverInfoChangeLogID         *string    `json:"driver_info_change_log_id"`
-	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *string    `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
-	DriverLicenseStatus           *int       `json:"driver_license_status"`
-	DriverName                    *string    `json:"driver_name"`
-	DriverPhoto                   *string    `json:"driver_photo"`
-	DriverSignature               *string    `json:"driver_signature"`
-	EnterpriseID                  *string    `json:"enterprise_id"`
-	FilesNumber                   *string    `json:"files_number"`
-	ID                            *int64     `json:"id"`
-	IDCardAddress                 *string    `json:"id_card_address"`
-	IDCardBackPic                 *string    `json:"id_card_back_pic"`
-	IDCardBirthday                *time.Time `json:"id_card_birthday"`
-	IDCardEndDate                 *time.Time `json:"id_card_end_date"`
-	IDCardFrontPic                *string    `json:"id_card_front_pic"`
-	IDCardNation                  *string    `json:"id_card_nation"`
-	IDCardNum                     *string    `json:"id_card_num"`
-	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
-	IDCardStartDate               *time.Time `json:"id_card_start_date"`
-	InputAt                       *time.Time `json:"input_at"`
-	InputBy                       *string    `json:"input_by"`
-	MailingAddress                *string    `json:"mailing_address"`
-	OccupationalExpireDate        *time.Time `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *string    `json:"occupational_issuing_authority"`
-	OccupationalNumber            *string    `json:"occupational_number"`
-	Operator                      *string    `json:"operator"`
-	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
-	RemarkIn                      *string    `json:"remark_in"`
-	Remarks                       *string    `json:"remarks"`
-	RenewalDate                   *time.Time `json:"renewal_date"`
-	Sex                           *int       `json:"sex"`
-	SortingDate                   *time.Time `json:"sorting_date"`
-	SubmitAt                      *time.Time `json:"submit_at"`
-	SubmitBy                      *string    `json:"submit_by"`
-	SubmitContent                 *string    `json:"submit_content"`
-	Telephone                     *string    `json:"telephone"`
-	UpdateTimeIn                  *time.Time `json:"update_time_in"`
-	UpdatedAt                     *time.Time `json:"updated_at"`
-	UpdatedBy                     *string    `json:"updated_by"`
-	WorkingTime                   *time.Time `json:"working_time"`
-}
-
-// order by max() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogMaxOrderBy struct {
-	AccumulativedPoints           *model.OrderBy `json:"accumulatived_points"`
-	Agent                         *model.OrderBy `json:"agent"`
-	AnnualReviewDate              *model.OrderBy `json:"annual_review_date"`
-	CheckAt                       *model.OrderBy `json:"check_at"`
-	CheckBy                       *model.OrderBy `json:"check_by"`
-	ContactAddress                *model.OrderBy `json:"contact_address"`
-	CreatedAt                     *model.OrderBy `json:"created_at"`
-	CreatedBy                     *model.OrderBy `json:"created_by"`
-	DeletedAt                     *model.OrderBy `json:"deleted_at"`
-	DeletedBy                     *model.OrderBy `json:"deleted_by"`
-	DepartmentID                  *model.OrderBy `json:"department_id"`
-	DriverHoldingIDPhoto          *model.OrderBy `json:"driver_holding_id_photo"`
-	DriverID                      *model.OrderBy `json:"driver_id"`
-	DriverInfoChangeLogID         *model.OrderBy `json:"driver_info_change_log_id"`
-	DriverLicenseCityID           *model.OrderBy `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *model.OrderBy `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *model.OrderBy `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *model.OrderBy `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *model.OrderBy `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *model.OrderBy `json:"driver_license_province_id"`
-	DriverLicenseStatus           *model.OrderBy `json:"driver_license_status"`
-	DriverName                    *model.OrderBy `json:"driver_name"`
-	DriverPhoto                   *model.OrderBy `json:"driver_photo"`
-	DriverSignature               *model.OrderBy `json:"driver_signature"`
-	EnterpriseID                  *model.OrderBy `json:"enterprise_id"`
-	FilesNumber                   *model.OrderBy `json:"files_number"`
-	ID                            *model.OrderBy `json:"id"`
-	IDCardAddress                 *model.OrderBy `json:"id_card_address"`
-	IDCardBackPic                 *model.OrderBy `json:"id_card_back_pic"`
-	IDCardBirthday                *model.OrderBy `json:"id_card_birthday"`
-	IDCardEndDate                 *model.OrderBy `json:"id_card_end_date"`
-	IDCardFrontPic                *model.OrderBy `json:"id_card_front_pic"`
-	IDCardNation                  *model.OrderBy `json:"id_card_nation"`
-	IDCardNum                     *model.OrderBy `json:"id_card_num"`
-	IDCardSignGovernment          *model.OrderBy `json:"id_card_sign_government"`
-	IDCardStartDate               *model.OrderBy `json:"id_card_start_date"`
-	InputAt                       *model.OrderBy `json:"input_at"`
-	InputBy                       *model.OrderBy `json:"input_by"`
-	MailingAddress                *model.OrderBy `json:"mailing_address"`
-	OccupationalExpireDate        *model.OrderBy `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *model.OrderBy `json:"occupational_issuing_authority"`
-	OccupationalNumber            *model.OrderBy `json:"occupational_number"`
-	Operator                      *model.OrderBy `json:"operator"`
-	QuasiDrivingModels            *model.OrderBy `json:"quasi_driving_models"`
-	RemarkIn                      *model.OrderBy `json:"remark_in"`
-	Remarks                       *model.OrderBy `json:"remarks"`
-	RenewalDate                   *model.OrderBy `json:"renewal_date"`
-	Sex                           *model.OrderBy `json:"sex"`
-	SortingDate                   *model.OrderBy `json:"sorting_date"`
-	SubmitAt                      *model.OrderBy `json:"submit_at"`
-	SubmitBy                      *model.OrderBy `json:"submit_by"`
-	SubmitContent                 *model.OrderBy `json:"submit_content"`
-	Telephone                     *model.OrderBy `json:"telephone"`
-	UpdateTimeIn                  *model.OrderBy `json:"update_time_in"`
-	UpdatedAt                     *model.OrderBy `json:"updated_at"`
-	UpdatedBy                     *model.OrderBy `json:"updated_by"`
-	WorkingTime                   *model.OrderBy `json:"working_time"`
-}
-
-// aggregate min on columns
-type DriverInfoChangeLogMinFields struct {
-	AccumulativedPoints           *float64   `json:"accumulatived_points"`
-	Agent                         *string    `json:"agent"`
-	AnnualReviewDate              *time.Time `json:"annual_review_date"`
-	CheckAt                       *time.Time `json:"check_at"`
-	CheckBy                       *string    `json:"check_by"`
-	ContactAddress                *string    `json:"contact_address"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
-	DepartmentID                  *string    `json:"department_id"`
-	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
-	DriverID                      *string    `json:"driver_id"`
-	DriverInfoChangeLogID         *string    `json:"driver_info_change_log_id"`
-	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *string    `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
-	DriverLicenseStatus           *int       `json:"driver_license_status"`
-	DriverName                    *string    `json:"driver_name"`
-	DriverPhoto                   *string    `json:"driver_photo"`
-	DriverSignature               *string    `json:"driver_signature"`
-	EnterpriseID                  *string    `json:"enterprise_id"`
-	FilesNumber                   *string    `json:"files_number"`
-	ID                            *int64     `json:"id"`
-	IDCardAddress                 *string    `json:"id_card_address"`
-	IDCardBackPic                 *string    `json:"id_card_back_pic"`
-	IDCardBirthday                *time.Time `json:"id_card_birthday"`
-	IDCardEndDate                 *time.Time `json:"id_card_end_date"`
-	IDCardFrontPic                *string    `json:"id_card_front_pic"`
-	IDCardNation                  *string    `json:"id_card_nation"`
-	IDCardNum                     *string    `json:"id_card_num"`
-	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
-	IDCardStartDate               *time.Time `json:"id_card_start_date"`
-	InputAt                       *time.Time `json:"input_at"`
-	InputBy                       *string    `json:"input_by"`
-	MailingAddress                *string    `json:"mailing_address"`
-	OccupationalExpireDate        *time.Time `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *string    `json:"occupational_issuing_authority"`
-	OccupationalNumber            *string    `json:"occupational_number"`
-	Operator                      *string    `json:"operator"`
-	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
-	RemarkIn                      *string    `json:"remark_in"`
-	Remarks                       *string    `json:"remarks"`
-	RenewalDate                   *time.Time `json:"renewal_date"`
-	Sex                           *int       `json:"sex"`
-	SortingDate                   *time.Time `json:"sorting_date"`
-	SubmitAt                      *time.Time `json:"submit_at"`
-	SubmitBy                      *string    `json:"submit_by"`
-	SubmitContent                 *string    `json:"submit_content"`
-	Telephone                     *string    `json:"telephone"`
-	UpdateTimeIn                  *time.Time `json:"update_time_in"`
-	UpdatedAt                     *time.Time `json:"updated_at"`
-	UpdatedBy                     *string    `json:"updated_by"`
-	WorkingTime                   *time.Time `json:"working_time"`
-}
-
-// order by min() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogMinOrderBy struct {
-	AccumulativedPoints           *model.OrderBy `json:"accumulatived_points"`
-	Agent                         *model.OrderBy `json:"agent"`
-	AnnualReviewDate              *model.OrderBy `json:"annual_review_date"`
-	CheckAt                       *model.OrderBy `json:"check_at"`
-	CheckBy                       *model.OrderBy `json:"check_by"`
-	ContactAddress                *model.OrderBy `json:"contact_address"`
-	CreatedAt                     *model.OrderBy `json:"created_at"`
-	CreatedBy                     *model.OrderBy `json:"created_by"`
-	DeletedAt                     *model.OrderBy `json:"deleted_at"`
-	DeletedBy                     *model.OrderBy `json:"deleted_by"`
-	DepartmentID                  *model.OrderBy `json:"department_id"`
-	DriverHoldingIDPhoto          *model.OrderBy `json:"driver_holding_id_photo"`
-	DriverID                      *model.OrderBy `json:"driver_id"`
-	DriverInfoChangeLogID         *model.OrderBy `json:"driver_info_change_log_id"`
-	DriverLicenseCityID           *model.OrderBy `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *model.OrderBy `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *model.OrderBy `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *model.OrderBy `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *model.OrderBy `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *model.OrderBy `json:"driver_license_province_id"`
-	DriverLicenseStatus           *model.OrderBy `json:"driver_license_status"`
-	DriverName                    *model.OrderBy `json:"driver_name"`
-	DriverPhoto                   *model.OrderBy `json:"driver_photo"`
-	DriverSignature               *model.OrderBy `json:"driver_signature"`
-	EnterpriseID                  *model.OrderBy `json:"enterprise_id"`
-	FilesNumber                   *model.OrderBy `json:"files_number"`
-	ID                            *model.OrderBy `json:"id"`
-	IDCardAddress                 *model.OrderBy `json:"id_card_address"`
-	IDCardBackPic                 *model.OrderBy `json:"id_card_back_pic"`
-	IDCardBirthday                *model.OrderBy `json:"id_card_birthday"`
-	IDCardEndDate                 *model.OrderBy `json:"id_card_end_date"`
-	IDCardFrontPic                *model.OrderBy `json:"id_card_front_pic"`
-	IDCardNation                  *model.OrderBy `json:"id_card_nation"`
-	IDCardNum                     *model.OrderBy `json:"id_card_num"`
-	IDCardSignGovernment          *model.OrderBy `json:"id_card_sign_government"`
-	IDCardStartDate               *model.OrderBy `json:"id_card_start_date"`
-	InputAt                       *model.OrderBy `json:"input_at"`
-	InputBy                       *model.OrderBy `json:"input_by"`
-	MailingAddress                *model.OrderBy `json:"mailing_address"`
-	OccupationalExpireDate        *model.OrderBy `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *model.OrderBy `json:"occupational_issuing_authority"`
-	OccupationalNumber            *model.OrderBy `json:"occupational_number"`
-	Operator                      *model.OrderBy `json:"operator"`
-	QuasiDrivingModels            *model.OrderBy `json:"quasi_driving_models"`
-	RemarkIn                      *model.OrderBy `json:"remark_in"`
-	Remarks                       *model.OrderBy `json:"remarks"`
-	RenewalDate                   *model.OrderBy `json:"renewal_date"`
-	Sex                           *model.OrderBy `json:"sex"`
-	SortingDate                   *model.OrderBy `json:"sorting_date"`
-	SubmitAt                      *model.OrderBy `json:"submit_at"`
-	SubmitBy                      *model.OrderBy `json:"submit_by"`
-	SubmitContent                 *model.OrderBy `json:"submit_content"`
-	Telephone                     *model.OrderBy `json:"telephone"`
-	UpdateTimeIn                  *model.OrderBy `json:"update_time_in"`
-	UpdatedAt                     *model.OrderBy `json:"updated_at"`
-	UpdatedBy                     *model.OrderBy `json:"updated_by"`
-	WorkingTime                   *model.OrderBy `json:"working_time"`
-}
-
-// response of any mutation on the table "driver_info_change_log"
-type DriverInfoChangeLogMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DriverInfoChangeLog `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "driver_info_change_log"
-type DriverInfoChangeLogObjRelInsertInput struct {
-	Data       *DriverInfoChangeLogInsertInput `json:"data"`
-	OnConflict *DriverInfoChangeLogOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "driver_info_change_log"
-type DriverInfoChangeLogOnConflict struct {
-	Constraint    DriverInfoChangeLogConstraint     `json:"constraint"`
-	UpdateColumns []DriverInfoChangeLogUpdateColumn `json:"update_columns"`
-	Where         *DriverInfoChangeLogBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "driver_info_change_log"
-type DriverInfoChangeLogOrderBy struct {
-	AccumulativedPoints           *model.OrderBy `json:"accumulatived_points"`
-	Agent                         *model.OrderBy `json:"agent"`
-	AnnualReviewDate              *model.OrderBy `json:"annual_review_date"`
-	CheckAt                       *model.OrderBy `json:"check_at"`
-	CheckBy                       *model.OrderBy `json:"check_by"`
-	ContactAddress                *model.OrderBy `json:"contact_address"`
-	CreatedAt                     *model.OrderBy `json:"created_at"`
-	CreatedBy                     *model.OrderBy `json:"created_by"`
-	DeletedAt                     *model.OrderBy `json:"deleted_at"`
-	DeletedBy                     *model.OrderBy `json:"deleted_by"`
-	DepartmentID                  *model.OrderBy `json:"department_id"`
-	DriverHoldingIDPhoto          *model.OrderBy `json:"driver_holding_id_photo"`
-	DriverID                      *model.OrderBy `json:"driver_id"`
-	DriverInfoChangeLogID         *model.OrderBy `json:"driver_info_change_log_id"`
-	DriverLicenseCityID           *model.OrderBy `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *model.OrderBy `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *model.OrderBy `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *model.OrderBy `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *model.OrderBy `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *model.OrderBy `json:"driver_license_province_id"`
-	DriverLicenseStatus           *model.OrderBy `json:"driver_license_status"`
-	DriverName                    *model.OrderBy `json:"driver_name"`
-	DriverPhoto                   *model.OrderBy `json:"driver_photo"`
-	DriverSignature               *model.OrderBy `json:"driver_signature"`
-	EnterpriseID                  *model.OrderBy `json:"enterprise_id"`
-	FilesNumber                   *model.OrderBy `json:"files_number"`
-	ID                            *model.OrderBy `json:"id"`
-	IDCardAddress                 *model.OrderBy `json:"id_card_address"`
-	IDCardBackPic                 *model.OrderBy `json:"id_card_back_pic"`
-	IDCardBirthday                *model.OrderBy `json:"id_card_birthday"`
-	IDCardEndDate                 *model.OrderBy `json:"id_card_end_date"`
-	IDCardFrontPic                *model.OrderBy `json:"id_card_front_pic"`
-	IDCardNation                  *model.OrderBy `json:"id_card_nation"`
-	IDCardNum                     *model.OrderBy `json:"id_card_num"`
-	IDCardSignGovernment          *model.OrderBy `json:"id_card_sign_government"`
-	IDCardStartDate               *model.OrderBy `json:"id_card_start_date"`
-	InputAt                       *model.OrderBy `json:"input_at"`
-	InputBy                       *model.OrderBy `json:"input_by"`
-	IsBlack                       *model.OrderBy `json:"is_black"`
-	IsCheckData                   *model.OrderBy `json:"is_check_data"`
-	IsCheckSms                    *model.OrderBy `json:"is_check_sms"`
-	IsDelete                      *model.OrderBy `json:"is_delete"`
-	IsInput                       *model.OrderBy `json:"is_input"`
-	IsManualInput                 *model.OrderBy `json:"is_manual_input"`
-	IsReview                      *model.OrderBy `json:"is_review"`
-	IsSubmit                      *model.OrderBy `json:"is_submit"`
-	LaborContract                 *model.OrderBy `json:"labor_contract"`
-	MailingAddress                *model.OrderBy `json:"mailing_address"`
-	OccupationalExpireDate        *model.OrderBy `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *model.OrderBy `json:"occupational_issuing_authority"`
-	OccupationalNumber            *model.OrderBy `json:"occupational_number"`
-	Operator                      *model.OrderBy `json:"operator"`
-	QuasiDrivingModels            *model.OrderBy `json:"quasi_driving_models"`
-	RemarkIn                      *model.OrderBy `json:"remark_in"`
-	Remarks                       *model.OrderBy `json:"remarks"`
-	RenewalDate                   *model.OrderBy `json:"renewal_date"`
-	Sex                           *model.OrderBy `json:"sex"`
-	SortingDate                   *model.OrderBy `json:"sorting_date"`
-	SubmitAt                      *model.OrderBy `json:"submit_at"`
-	SubmitBy                      *model.OrderBy `json:"submit_by"`
-	SubmitContent                 *model.OrderBy `json:"submit_content"`
-	Telephone                     *model.OrderBy `json:"telephone"`
-	UpdateTimeIn                  *model.OrderBy `json:"update_time_in"`
-	UpdatedAt                     *model.OrderBy `json:"updated_at"`
-	UpdatedBy                     *model.OrderBy `json:"updated_by"`
-	WorkingTime                   *model.OrderBy `json:"working_time"`
-}
-
-// primary key columns input for table: "driver_info_change_log"
-type DriverInfoChangeLogPkColumnsInput struct {
-	// 联合主键
-	DriverID string `json:"driver_id"`
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "driver_info_change_log"
-type DriverInfoChangeLogSetInput struct {
-	AccumulativedPoints           *float64   `json:"accumulatived_points"`
-	Agent                         *string    `json:"agent"`
-	AnnualReviewDate              *time.Time `json:"annual_review_date"`
-	CheckAt                       *time.Time `json:"check_at"`
-	CheckBy                       *string    `json:"check_by"`
-	ContactAddress                *string    `json:"contact_address"`
-	CreatedAt                     *time.Time `json:"created_at"`
-	CreatedBy                     *string    `json:"created_by"`
-	DeletedAt                     *time.Time `json:"deleted_at"`
-	DeletedBy                     *string    `json:"deleted_by"`
-	DepartmentID                  *string    `json:"department_id"`
-	DriverHoldingIDPhoto          *string    `json:"driver_holding_id_photo"`
-	DriverID                      *string    `json:"driver_id"`
-	DriverInfoChangeLogID         *string    `json:"driver_info_change_log_id"`
-	DriverLicenseCityID           *string    `json:"driver_license_city_id"`
-	DriverLicenseDistrictID       *string    `json:"driver_license_district_id"`
-	DriverLicenseIssueDate        *time.Time `json:"driver_license_issue_date"`
-	DriverLicenseIssuingAuthority *string    `json:"driver_license_issuing_authority"`
-	DriverLicensePic              *string    `json:"driver_license_pic"`
-	DriverLicenseProvinceID       *string    `json:"driver_license_province_id"`
-	DriverLicenseStatus           *int       `json:"driver_license_status"`
-	DriverName                    *string    `json:"driver_name"`
-	DriverPhoto                   *string    `json:"driver_photo"`
-	DriverSignature               *string    `json:"driver_signature"`
-	EnterpriseID                  *string    `json:"enterprise_id"`
-	FilesNumber                   *string    `json:"files_number"`
-	ID                            *int64     `json:"id"`
-	IDCardAddress                 *string    `json:"id_card_address"`
-	IDCardBackPic                 *string    `json:"id_card_back_pic"`
-	IDCardBirthday                *time.Time `json:"id_card_birthday"`
-	IDCardEndDate                 *time.Time `json:"id_card_end_date"`
-	IDCardFrontPic                *string    `json:"id_card_front_pic"`
-	IDCardNation                  *string    `json:"id_card_nation"`
-	IDCardNum                     *string    `json:"id_card_num"`
-	IDCardSignGovernment          *string    `json:"id_card_sign_government"`
-	IDCardStartDate               *time.Time `json:"id_card_start_date"`
-	InputAt                       *time.Time `json:"input_at"`
-	InputBy                       *string    `json:"input_by"`
-	IsBlack                       *bool      `json:"is_black"`
-	IsCheckData                   *bool      `json:"is_check_data"`
-	IsCheckSms                    *bool      `json:"is_check_sms"`
-	IsDelete                      *bool      `json:"is_delete"`
-	IsInput                       *bool      `json:"is_input"`
-	IsManualInput                 *bool      `json:"is_manual_input"`
-	IsReview                      *bool      `json:"is_review"`
-	IsSubmit                      *bool      `json:"is_submit"`
-	LaborContract                 *string    `json:"labor_contract"`
-	MailingAddress                *string    `json:"mailing_address"`
-	OccupationalExpireDate        *time.Time `json:"occupational_expire_date"`
-	OccupationalIssuingAuthority  *string    `json:"occupational_issuing_authority"`
-	OccupationalNumber            *string    `json:"occupational_number"`
-	Operator                      *string    `json:"operator"`
-	QuasiDrivingModels            *int       `json:"quasi_driving_models"`
-	RemarkIn                      *string    `json:"remark_in"`
-	Remarks                       *string    `json:"remarks"`
-	RenewalDate                   *time.Time `json:"renewal_date"`
-	Sex                           *int       `json:"sex"`
-	SortingDate                   *time.Time `json:"sorting_date"`
-	SubmitAt                      *time.Time `json:"submit_at"`
-	SubmitBy                      *string    `json:"submit_by"`
-	SubmitContent                 *string    `json:"submit_content"`
-	Telephone                     *string    `json:"telephone"`
-	UpdateTimeIn                  *time.Time `json:"update_time_in"`
-	UpdatedAt                     *time.Time `json:"updated_at"`
-	UpdatedBy                     *string    `json:"updated_by"`
-	WorkingTime                   *time.Time `json:"working_time"`
-}
-
-// aggregate stddev on columns
-type DriverInfoChangeLogStddevFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-	Sex                 *float64 `json:"sex"`
-}
-
-// order by stddev() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogStddevOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-	Sex                 *model.OrderBy `json:"sex"`
-}
-
-// aggregate stddev_pop on columns
-type DriverInfoChangeLogStddevPopFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-	Sex                 *float64 `json:"sex"`
-}
-
-// order by stddev_pop() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogStddevPopOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-	Sex                 *model.OrderBy `json:"sex"`
-}
-
-// aggregate stddev_samp on columns
-type DriverInfoChangeLogStddevSampFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-	Sex                 *float64 `json:"sex"`
-}
-
-// order by stddev_samp() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogStddevSampOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-	Sex                 *model.OrderBy `json:"sex"`
-}
-
-// aggregate sum on columns
-type DriverInfoChangeLogSumFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *int     `json:"driver_license_status"`
-	ID                  *int64   `json:"id"`
-	QuasiDrivingModels  *int     `json:"quasi_driving_models"`
-	Sex                 *int     `json:"sex"`
-}
-
-// order by sum() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogSumOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-	Sex                 *model.OrderBy `json:"sex"`
-}
-
-// aggregate var_pop on columns
-type DriverInfoChangeLogVarPopFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-	Sex                 *float64 `json:"sex"`
-}
-
-// order by var_pop() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogVarPopOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-	Sex                 *model.OrderBy `json:"sex"`
-}
-
-// aggregate var_samp on columns
-type DriverInfoChangeLogVarSampFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-	Sex                 *float64 `json:"sex"`
-}
-
-// order by var_samp() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogVarSampOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-	Sex                 *model.OrderBy `json:"sex"`
-}
-
-// aggregate variance on columns
-type DriverInfoChangeLogVarianceFields struct {
-	AccumulativedPoints *float64 `json:"accumulatived_points"`
-	DriverLicenseStatus *float64 `json:"driver_license_status"`
-	ID                  *float64 `json:"id"`
-	QuasiDrivingModels  *float64 `json:"quasi_driving_models"`
-	Sex                 *float64 `json:"sex"`
-}
-
-// order by variance() on columns of table "driver_info_change_log"
-type DriverInfoChangeLogVarianceOrderBy struct {
-	AccumulativedPoints *model.OrderBy `json:"accumulatived_points"`
-	DriverLicenseStatus *model.OrderBy `json:"driver_license_status"`
-	ID                  *model.OrderBy `json:"id"`
-	QuasiDrivingModels  *model.OrderBy `json:"quasi_driving_models"`
-	Sex                 *model.OrderBy `json:"sex"`
+	And               []*DriverInfoBoolExp            `json:"_and"`
+	Not               *DriverInfoBoolExp              `json:"_not"`
+	Or                []*DriverInfoBoolExp            `json:"_or"`
+	ID                *model.BigintComparisonExp      `json:"id"`
+	DriverID          *model.StringComparisonExp      `json:"driver_id"`
+	EnterpriseID      *model.StringComparisonExp      `json:"enterprise_id"`
+	DepartmentID      *model.StringComparisonExp      `json:"department_id"`
+	DriverIdentityID  *model.StringComparisonExp      `json:"driver_identity_id"`
+	DriverName        *model.StringComparisonExp      `json:"driver_name"`
+	Telephone         *model.StringComparisonExp      `json:"telephone"`
+	Sex               *model.IntComparisonExp         `json:"sex"`
+	FilesNumber       *model.StringComparisonExp      `json:"files_number"`
+	ContactAddress    *model.StringComparisonExp      `json:"contact_address"`
+	MailingAddress    *model.StringComparisonExp      `json:"mailing_address"`
+	IsSubmit          *model.BooleanComparisonExp     `json:"is_submit"`
+	SubmitContent     *model.StringComparisonExp      `json:"submit_content"`
+	SubmitAt          *model.TimestamptzComparisonExp `json:"submit_at"`
+	SubmitBy          *model.StringComparisonExp      `json:"submit_by"`
+	IsManualInput     *model.BooleanComparisonExp     `json:"is_manual_input"`
+	IsInput           *model.BooleanComparisonExp     `json:"is_input"`
+	InputAt           *model.TimestamptzComparisonExp `json:"input_at"`
+	InputBy           *model.StringComparisonExp      `json:"input_by"`
+	IsCheckData       *model.BooleanComparisonExp     `json:"is_check_data"`
+	CheckAt           *model.TimestamptzComparisonExp `json:"check_at"`
+	CheckBy           *model.StringComparisonExp      `json:"check_by"`
+	RemarkIn          *model.StringComparisonExp      `json:"remark_in"`
+	UpdateTimeIn      *model.TimestamptzComparisonExp `json:"update_time_in"`
+	IsCheckSms        *model.BooleanComparisonExp     `json:"is_check_sms"`
+	Remarks           *model.StringComparisonExp      `json:"remarks"`
+	IsDeleted         *model.BooleanComparisonExp     `json:"is_deleted"`
+	Agent             *model.StringComparisonExp      `json:"agent"`
+	Operator          *model.StringComparisonExp      `json:"operator"`
+	IsBlacklist       *model.BooleanComparisonExp     `json:"is_blacklist"`
+	BlacklistDeadline *model.TimestamptzComparisonExp `json:"blacklist_deadline"`
+	CreatedAt         *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy         *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt         *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy         *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt         *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy         *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "driver_info"
@@ -1420,824 +1132,886 @@ type DriverInfoIncInput struct {
 
 // input type for inserting data into table "driver_info"
 type DriverInfoInsertInput struct {
-	Agent            *string    `json:"agent"`
-	CheckAt          *time.Time `json:"check_at"`
-	CheckBy          *string    `json:"check_by"`
-	ContactAddress   *string    `json:"contact_address"`
-	CreatedAt        *time.Time `json:"created_at"`
-	CreatedBy        *string    `json:"created_by"`
-	DeletedAt        *time.Time `json:"deleted_at"`
-	DeletedBy        *string    `json:"deleted_by"`
-	DepartmentID     *string    `json:"department_id"`
-	DriverID         *string    `json:"driver_id"`
-	DriverIdentityID *string    `json:"driver_identity_id"`
-	DriverName       *string    `json:"driver_name"`
-	EnterpriseID     *string    `json:"enterprise_id"`
-	FilesNumber      *string    `json:"files_number"`
-	ID               *int64     `json:"id"`
-	InputAt          *time.Time `json:"input_at"`
-	InputBy          *string    `json:"input_by"`
-	IsBlack          *bool      `json:"is_black"`
-	IsCheckData      *bool      `json:"is_check_data"`
-	IsCheckSms       *bool      `json:"is_check_sms"`
-	IsDelete         *bool      `json:"is_delete"`
-	IsInput          *bool      `json:"is_input"`
-	IsManualInput    *bool      `json:"is_manual_input"`
-	IsSubmit         *bool      `json:"is_submit"`
-	MailingAddress   *string    `json:"mailing_address"`
-	Operator         *string    `json:"operator"`
-	RemarkIn         *string    `json:"remark_in"`
-	Remarks          *string    `json:"remarks"`
-	Sex              *int       `json:"sex"`
-	SubmitAt         *time.Time `json:"submit_at"`
-	SubmitBy         *string    `json:"submit_by"`
-	SubmitContent    *string    `json:"submit_content"`
-	Telephone        *string    `json:"telephone"`
-	UpdateTimeIn     *time.Time `json:"update_time_in"`
-	UpdatedAt        *time.Time `json:"updated_at"`
-	UpdatedBy        *string    `json:"updated_by"`
+	ID                *int64     `json:"id"`
+	DriverID          *string    `json:"driver_id"`
+	EnterpriseID      *string    `json:"enterprise_id"`
+	DepartmentID      *string    `json:"department_id"`
+	DriverIdentityID  *string    `json:"driver_identity_id"`
+	DriverName        *string    `json:"driver_name"`
+	Telephone         *string    `json:"telephone"`
+	Sex               *int       `json:"sex"`
+	FilesNumber       *string    `json:"files_number"`
+	ContactAddress    *string    `json:"contact_address"`
+	MailingAddress    *string    `json:"mailing_address"`
+	IsSubmit          *bool      `json:"is_submit"`
+	SubmitContent     *string    `json:"submit_content"`
+	SubmitAt          *time.Time `json:"submit_at"`
+	SubmitBy          *string    `json:"submit_by"`
+	IsManualInput     *bool      `json:"is_manual_input"`
+	IsInput           *bool      `json:"is_input"`
+	InputAt           *time.Time `json:"input_at"`
+	InputBy           *string    `json:"input_by"`
+	IsCheckData       *bool      `json:"is_check_data"`
+	CheckAt           *time.Time `json:"check_at"`
+	CheckBy           *string    `json:"check_by"`
+	RemarkIn          *string    `json:"remark_in"`
+	UpdateTimeIn      *time.Time `json:"update_time_in"`
+	IsCheckSms        *bool      `json:"is_check_sms"`
+	Remarks           *string    `json:"remarks"`
+	IsDeleted         *bool      `json:"is_deleted"`
+	Agent             *string    `json:"agent"`
+	Operator          *string    `json:"operator"`
+	IsBlacklist       *bool      `json:"is_blacklist"`
+	BlacklistDeadline *time.Time `json:"blacklist_deadline"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "driver_info"
 type DriverInfoMaxFields struct {
-	Agent            *string    `json:"agent"`
-	CheckAt          *time.Time `json:"check_at"`
-	CheckBy          *string    `json:"check_by"`
-	ContactAddress   *string    `json:"contact_address"`
-	CreatedAt        *time.Time `json:"created_at"`
-	CreatedBy        *string    `json:"created_by"`
-	DeletedAt        *time.Time `json:"deleted_at"`
-	DeletedBy        *string    `json:"deleted_by"`
-	DepartmentID     *string    `json:"department_id"`
-	DriverID         *string    `json:"driver_id"`
-	DriverIdentityID *string    `json:"driver_identity_id"`
-	DriverName       *string    `json:"driver_name"`
-	EnterpriseID     *string    `json:"enterprise_id"`
-	FilesNumber      *string    `json:"files_number"`
-	ID               *int64     `json:"id"`
-	InputAt          *time.Time `json:"input_at"`
-	InputBy          *string    `json:"input_by"`
-	MailingAddress   *string    `json:"mailing_address"`
-	Operator         *string    `json:"operator"`
-	RemarkIn         *string    `json:"remark_in"`
-	Remarks          *string    `json:"remarks"`
-	Sex              *int       `json:"sex"`
-	SubmitAt         *time.Time `json:"submit_at"`
-	SubmitBy         *string    `json:"submit_by"`
-	SubmitContent    *string    `json:"submit_content"`
-	Telephone        *string    `json:"telephone"`
-	UpdateTimeIn     *time.Time `json:"update_time_in"`
-	UpdatedAt        *time.Time `json:"updated_at"`
-	UpdatedBy        *string    `json:"updated_by"`
+	ID                *int64     `json:"id"`
+	DriverID          *string    `json:"driver_id"`
+	EnterpriseID      *string    `json:"enterprise_id"`
+	DepartmentID      *string    `json:"department_id"`
+	DriverIdentityID  *string    `json:"driver_identity_id"`
+	DriverName        *string    `json:"driver_name"`
+	Telephone         *string    `json:"telephone"`
+	Sex               *int       `json:"sex"`
+	FilesNumber       *string    `json:"files_number"`
+	ContactAddress    *string    `json:"contact_address"`
+	MailingAddress    *string    `json:"mailing_address"`
+	IsSubmit          *bool      `json:"is_submit"`
+	SubmitContent     *string    `json:"submit_content"`
+	SubmitAt          *time.Time `json:"submit_at"`
+	SubmitBy          *string    `json:"submit_by"`
+	IsManualInput     *bool      `json:"is_manual_input"`
+	IsInput           *bool      `json:"is_input"`
+	InputAt           *time.Time `json:"input_at"`
+	InputBy           *string    `json:"input_by"`
+	IsCheckData       *bool      `json:"is_check_data"`
+	CheckAt           *time.Time `json:"check_at"`
+	CheckBy           *string    `json:"check_by"`
+	RemarkIn          *string    `json:"remark_in"`
+	UpdateTimeIn      *time.Time `json:"update_time_in"`
+	IsCheckSms        *bool      `json:"is_check_sms"`
+	Remarks           *string    `json:"remarks"`
+	IsDeleted         *bool      `json:"is_deleted"`
+	Agent             *string    `json:"agent"`
+	Operator          *string    `json:"operator"`
+	IsBlacklist       *bool      `json:"is_blacklist"`
+	BlacklistDeadline *time.Time `json:"blacklist_deadline"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "driver_info"
-type DriverInfoMaxOrderBy struct {
-	Agent            *model.OrderBy `json:"agent"`
-	CheckAt          *model.OrderBy `json:"check_at"`
-	CheckBy          *model.OrderBy `json:"check_by"`
-	ContactAddress   *model.OrderBy `json:"contact_address"`
-	CreatedAt        *model.OrderBy `json:"created_at"`
-	CreatedBy        *model.OrderBy `json:"created_by"`
-	DeletedAt        *model.OrderBy `json:"deleted_at"`
-	DeletedBy        *model.OrderBy `json:"deleted_by"`
-	DepartmentID     *model.OrderBy `json:"department_id"`
-	DriverID         *model.OrderBy `json:"driver_id"`
-	DriverIdentityID *model.OrderBy `json:"driver_identity_id"`
-	DriverName       *model.OrderBy `json:"driver_name"`
-	EnterpriseID     *model.OrderBy `json:"enterprise_id"`
-	FilesNumber      *model.OrderBy `json:"files_number"`
-	ID               *model.OrderBy `json:"id"`
-	InputAt          *model.OrderBy `json:"input_at"`
-	InputBy          *model.OrderBy `json:"input_by"`
-	MailingAddress   *model.OrderBy `json:"mailing_address"`
-	Operator         *model.OrderBy `json:"operator"`
-	RemarkIn         *model.OrderBy `json:"remark_in"`
-	Remarks          *model.OrderBy `json:"remarks"`
-	Sex              *model.OrderBy `json:"sex"`
-	SubmitAt         *model.OrderBy `json:"submit_at"`
-	SubmitBy         *model.OrderBy `json:"submit_by"`
-	SubmitContent    *model.OrderBy `json:"submit_content"`
-	Telephone        *model.OrderBy `json:"telephone"`
-	UpdateTimeIn     *model.OrderBy `json:"update_time_in"`
-	UpdatedAt        *model.OrderBy `json:"updated_at"`
-	UpdatedBy        *model.OrderBy `json:"updated_by"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "driver_info"
 type DriverInfoMinFields struct {
-	Agent            *string    `json:"agent"`
-	CheckAt          *time.Time `json:"check_at"`
-	CheckBy          *string    `json:"check_by"`
-	ContactAddress   *string    `json:"contact_address"`
-	CreatedAt        *time.Time `json:"created_at"`
-	CreatedBy        *string    `json:"created_by"`
-	DeletedAt        *time.Time `json:"deleted_at"`
-	DeletedBy        *string    `json:"deleted_by"`
-	DepartmentID     *string    `json:"department_id"`
-	DriverID         *string    `json:"driver_id"`
-	DriverIdentityID *string    `json:"driver_identity_id"`
-	DriverName       *string    `json:"driver_name"`
-	EnterpriseID     *string    `json:"enterprise_id"`
-	FilesNumber      *string    `json:"files_number"`
-	ID               *int64     `json:"id"`
-	InputAt          *time.Time `json:"input_at"`
-	InputBy          *string    `json:"input_by"`
-	MailingAddress   *string    `json:"mailing_address"`
-	Operator         *string    `json:"operator"`
-	RemarkIn         *string    `json:"remark_in"`
-	Remarks          *string    `json:"remarks"`
-	Sex              *int       `json:"sex"`
-	SubmitAt         *time.Time `json:"submit_at"`
-	SubmitBy         *string    `json:"submit_by"`
-	SubmitContent    *string    `json:"submit_content"`
-	Telephone        *string    `json:"telephone"`
-	UpdateTimeIn     *time.Time `json:"update_time_in"`
-	UpdatedAt        *time.Time `json:"updated_at"`
-	UpdatedBy        *string    `json:"updated_by"`
-}
-
-// order by min() on columns of table "driver_info"
-type DriverInfoMinOrderBy struct {
-	Agent            *model.OrderBy `json:"agent"`
-	CheckAt          *model.OrderBy `json:"check_at"`
-	CheckBy          *model.OrderBy `json:"check_by"`
-	ContactAddress   *model.OrderBy `json:"contact_address"`
-	CreatedAt        *model.OrderBy `json:"created_at"`
-	CreatedBy        *model.OrderBy `json:"created_by"`
-	DeletedAt        *model.OrderBy `json:"deleted_at"`
-	DeletedBy        *model.OrderBy `json:"deleted_by"`
-	DepartmentID     *model.OrderBy `json:"department_id"`
-	DriverID         *model.OrderBy `json:"driver_id"`
-	DriverIdentityID *model.OrderBy `json:"driver_identity_id"`
-	DriverName       *model.OrderBy `json:"driver_name"`
-	EnterpriseID     *model.OrderBy `json:"enterprise_id"`
-	FilesNumber      *model.OrderBy `json:"files_number"`
-	ID               *model.OrderBy `json:"id"`
-	InputAt          *model.OrderBy `json:"input_at"`
-	InputBy          *model.OrderBy `json:"input_by"`
-	MailingAddress   *model.OrderBy `json:"mailing_address"`
-	Operator         *model.OrderBy `json:"operator"`
-	RemarkIn         *model.OrderBy `json:"remark_in"`
-	Remarks          *model.OrderBy `json:"remarks"`
-	Sex              *model.OrderBy `json:"sex"`
-	SubmitAt         *model.OrderBy `json:"submit_at"`
-	SubmitBy         *model.OrderBy `json:"submit_by"`
-	SubmitContent    *model.OrderBy `json:"submit_content"`
-	Telephone        *model.OrderBy `json:"telephone"`
-	UpdateTimeIn     *model.OrderBy `json:"update_time_in"`
-	UpdatedAt        *model.OrderBy `json:"updated_at"`
-	UpdatedBy        *model.OrderBy `json:"updated_by"`
+	ID                *int64     `json:"id"`
+	DriverID          *string    `json:"driver_id"`
+	EnterpriseID      *string    `json:"enterprise_id"`
+	DepartmentID      *string    `json:"department_id"`
+	DriverIdentityID  *string    `json:"driver_identity_id"`
+	DriverName        *string    `json:"driver_name"`
+	Telephone         *string    `json:"telephone"`
+	Sex               *int       `json:"sex"`
+	FilesNumber       *string    `json:"files_number"`
+	ContactAddress    *string    `json:"contact_address"`
+	MailingAddress    *string    `json:"mailing_address"`
+	IsSubmit          *bool      `json:"is_submit"`
+	SubmitContent     *string    `json:"submit_content"`
+	SubmitAt          *time.Time `json:"submit_at"`
+	SubmitBy          *string    `json:"submit_by"`
+	IsManualInput     *bool      `json:"is_manual_input"`
+	IsInput           *bool      `json:"is_input"`
+	InputAt           *time.Time `json:"input_at"`
+	InputBy           *string    `json:"input_by"`
+	IsCheckData       *bool      `json:"is_check_data"`
+	CheckAt           *time.Time `json:"check_at"`
+	CheckBy           *string    `json:"check_by"`
+	RemarkIn          *string    `json:"remark_in"`
+	UpdateTimeIn      *time.Time `json:"update_time_in"`
+	IsCheckSms        *bool      `json:"is_check_sms"`
+	Remarks           *string    `json:"remarks"`
+	IsDeleted         *bool      `json:"is_deleted"`
+	Agent             *string    `json:"agent"`
+	Operator          *string    `json:"operator"`
+	IsBlacklist       *bool      `json:"is_blacklist"`
+	BlacklistDeadline *time.Time `json:"blacklist_deadline"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "driver_info"
 type DriverInfoMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DriverInfo `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "driver_info"
-type DriverInfoObjRelInsertInput struct {
-	Data       *DriverInfoInsertInput `json:"data"`
-	OnConflict *DriverInfoOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "driver_info"
-type DriverInfoOnConflict struct {
-	Constraint    DriverInfoConstraint     `json:"constraint"`
-	UpdateColumns []DriverInfoUpdateColumn `json:"update_columns"`
-	Where         *DriverInfoBoolExp       `json:"where"`
+	AffectedRows int                  `json:"affected_rows"`
+	Returning    []*model1.DriverInfo `json:"returning"`
 }
 
 // ordering options when selecting data from "driver_info"
 type DriverInfoOrderBy struct {
-	Agent            *model.OrderBy `json:"agent"`
-	CheckAt          *model.OrderBy `json:"check_at"`
-	CheckBy          *model.OrderBy `json:"check_by"`
-	ContactAddress   *model.OrderBy `json:"contact_address"`
-	CreatedAt        *model.OrderBy `json:"created_at"`
-	CreatedBy        *model.OrderBy `json:"created_by"`
-	DeletedAt        *model.OrderBy `json:"deleted_at"`
-	DeletedBy        *model.OrderBy `json:"deleted_by"`
-	DepartmentID     *model.OrderBy `json:"department_id"`
-	DriverID         *model.OrderBy `json:"driver_id"`
-	DriverIdentityID *model.OrderBy `json:"driver_identity_id"`
-	DriverName       *model.OrderBy `json:"driver_name"`
-	EnterpriseID     *model.OrderBy `json:"enterprise_id"`
-	FilesNumber      *model.OrderBy `json:"files_number"`
-	ID               *model.OrderBy `json:"id"`
-	InputAt          *model.OrderBy `json:"input_at"`
-	InputBy          *model.OrderBy `json:"input_by"`
-	IsBlack          *model.OrderBy `json:"is_black"`
-	IsCheckData      *model.OrderBy `json:"is_check_data"`
-	IsCheckSms       *model.OrderBy `json:"is_check_sms"`
-	IsDelete         *model.OrderBy `json:"is_delete"`
-	IsInput          *model.OrderBy `json:"is_input"`
-	IsManualInput    *model.OrderBy `json:"is_manual_input"`
-	IsSubmit         *model.OrderBy `json:"is_submit"`
-	MailingAddress   *model.OrderBy `json:"mailing_address"`
-	Operator         *model.OrderBy `json:"operator"`
-	RemarkIn         *model.OrderBy `json:"remark_in"`
-	Remarks          *model.OrderBy `json:"remarks"`
-	Sex              *model.OrderBy `json:"sex"`
-	SubmitAt         *model.OrderBy `json:"submit_at"`
-	SubmitBy         *model.OrderBy `json:"submit_by"`
-	SubmitContent    *model.OrderBy `json:"submit_content"`
-	Telephone        *model.OrderBy `json:"telephone"`
-	UpdateTimeIn     *model.OrderBy `json:"update_time_in"`
-	UpdatedAt        *model.OrderBy `json:"updated_at"`
-	UpdatedBy        *model.OrderBy `json:"updated_by"`
-}
-
-// primary key columns input for table: "driver_info"
-type DriverInfoPkColumnsInput struct {
-	// 联合主键
-	DriverID string `json:"driver_id"`
-	// 主键
-	ID int64 `json:"id"`
+	ID                *model.OrderBy `json:"id"`
+	DriverID          *model.OrderBy `json:"driver_id"`
+	EnterpriseID      *model.OrderBy `json:"enterprise_id"`
+	DepartmentID      *model.OrderBy `json:"department_id"`
+	DriverIdentityID  *model.OrderBy `json:"driver_identity_id"`
+	DriverName        *model.OrderBy `json:"driver_name"`
+	Telephone         *model.OrderBy `json:"telephone"`
+	Sex               *model.OrderBy `json:"sex"`
+	FilesNumber       *model.OrderBy `json:"files_number"`
+	ContactAddress    *model.OrderBy `json:"contact_address"`
+	MailingAddress    *model.OrderBy `json:"mailing_address"`
+	IsSubmit          *model.OrderBy `json:"is_submit"`
+	SubmitContent     *model.OrderBy `json:"submit_content"`
+	SubmitAt          *model.OrderBy `json:"submit_at"`
+	SubmitBy          *model.OrderBy `json:"submit_by"`
+	IsManualInput     *model.OrderBy `json:"is_manual_input"`
+	IsInput           *model.OrderBy `json:"is_input"`
+	InputAt           *model.OrderBy `json:"input_at"`
+	InputBy           *model.OrderBy `json:"input_by"`
+	IsCheckData       *model.OrderBy `json:"is_check_data"`
+	CheckAt           *model.OrderBy `json:"check_at"`
+	CheckBy           *model.OrderBy `json:"check_by"`
+	RemarkIn          *model.OrderBy `json:"remark_in"`
+	UpdateTimeIn      *model.OrderBy `json:"update_time_in"`
+	IsCheckSms        *model.OrderBy `json:"is_check_sms"`
+	Remarks           *model.OrderBy `json:"remarks"`
+	IsDeleted         *model.OrderBy `json:"is_deleted"`
+	Agent             *model.OrderBy `json:"agent"`
+	Operator          *model.OrderBy `json:"operator"`
+	IsBlacklist       *model.OrderBy `json:"is_blacklist"`
+	BlacklistDeadline *model.OrderBy `json:"blacklist_deadline"`
+	CreatedAt         *model.OrderBy `json:"created_at"`
+	CreatedBy         *model.OrderBy `json:"created_by"`
+	UpdatedAt         *model.OrderBy `json:"updated_at"`
+	UpdatedBy         *model.OrderBy `json:"updated_by"`
+	DeletedAt         *model.OrderBy `json:"deleted_at"`
+	DeletedBy         *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "driver_info"
 type DriverInfoSetInput struct {
-	Agent            *string    `json:"agent"`
-	CheckAt          *time.Time `json:"check_at"`
-	CheckBy          *string    `json:"check_by"`
-	ContactAddress   *string    `json:"contact_address"`
-	CreatedAt        *time.Time `json:"created_at"`
-	CreatedBy        *string    `json:"created_by"`
-	DeletedAt        *time.Time `json:"deleted_at"`
-	DeletedBy        *string    `json:"deleted_by"`
-	DepartmentID     *string    `json:"department_id"`
-	DriverID         *string    `json:"driver_id"`
-	DriverIdentityID *string    `json:"driver_identity_id"`
-	DriverName       *string    `json:"driver_name"`
-	EnterpriseID     *string    `json:"enterprise_id"`
-	FilesNumber      *string    `json:"files_number"`
-	ID               *int64     `json:"id"`
-	InputAt          *time.Time `json:"input_at"`
-	InputBy          *string    `json:"input_by"`
-	IsBlack          *bool      `json:"is_black"`
-	IsCheckData      *bool      `json:"is_check_data"`
-	IsCheckSms       *bool      `json:"is_check_sms"`
-	IsDelete         *bool      `json:"is_delete"`
-	IsInput          *bool      `json:"is_input"`
-	IsManualInput    *bool      `json:"is_manual_input"`
-	IsSubmit         *bool      `json:"is_submit"`
-	MailingAddress   *string    `json:"mailing_address"`
-	Operator         *string    `json:"operator"`
-	RemarkIn         *string    `json:"remark_in"`
-	Remarks          *string    `json:"remarks"`
-	Sex              *int       `json:"sex"`
-	SubmitAt         *time.Time `json:"submit_at"`
-	SubmitBy         *string    `json:"submit_by"`
-	SubmitContent    *string    `json:"submit_content"`
-	Telephone        *string    `json:"telephone"`
-	UpdateTimeIn     *time.Time `json:"update_time_in"`
-	UpdatedAt        *time.Time `json:"updated_at"`
-	UpdatedBy        *string    `json:"updated_by"`
+	ID                *int64     `json:"id"`
+	DriverID          *string    `json:"driver_id"`
+	EnterpriseID      *string    `json:"enterprise_id"`
+	DepartmentID      *string    `json:"department_id"`
+	DriverIdentityID  *string    `json:"driver_identity_id"`
+	DriverName        *string    `json:"driver_name"`
+	Telephone         *string    `json:"telephone"`
+	Sex               *int       `json:"sex"`
+	FilesNumber       *string    `json:"files_number"`
+	ContactAddress    *string    `json:"contact_address"`
+	MailingAddress    *string    `json:"mailing_address"`
+	IsSubmit          *bool      `json:"is_submit"`
+	SubmitContent     *string    `json:"submit_content"`
+	SubmitAt          *time.Time `json:"submit_at"`
+	SubmitBy          *string    `json:"submit_by"`
+	IsManualInput     *bool      `json:"is_manual_input"`
+	IsInput           *bool      `json:"is_input"`
+	InputAt           *time.Time `json:"input_at"`
+	InputBy           *string    `json:"input_by"`
+	IsCheckData       *bool      `json:"is_check_data"`
+	CheckAt           *time.Time `json:"check_at"`
+	CheckBy           *string    `json:"check_by"`
+	RemarkIn          *string    `json:"remark_in"`
+	UpdateTimeIn      *time.Time `json:"update_time_in"`
+	IsCheckSms        *bool      `json:"is_check_sms"`
+	Remarks           *string    `json:"remarks"`
+	IsDeleted         *bool      `json:"is_deleted"`
+	Agent             *string    `json:"agent"`
+	Operator          *string    `json:"operator"`
+	IsBlacklist       *bool      `json:"is_blacklist"`
+	BlacklistDeadline *time.Time `json:"blacklist_deadline"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "driver_info"
 type DriverInfoStddevFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by stddev() on columns of table "driver_info"
-type DriverInfoStddevOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "driver_info"
 type DriverInfoStddevPopFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by stddev_pop() on columns of table "driver_info"
-type DriverInfoStddevPopOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "driver_info"
 type DriverInfoStddevSampFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by stddev_samp() on columns of table "driver_info"
-type DriverInfoStddevSampOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "driver_info"
 type DriverInfoSumFields struct {
 	ID  *int64 `json:"id"`
 	Sex *int   `json:"sex"`
 }
 
-// order by sum() on columns of table "driver_info"
-type DriverInfoSumOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "driver_info"
 type DriverInfoVarPopFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by var_pop() on columns of table "driver_info"
-type DriverInfoVarPopOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "driver_info"
 type DriverInfoVarSampFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by var_samp() on columns of table "driver_info"
-type DriverInfoVarSampOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "driver_info"
 type DriverInfoVarianceFields struct {
-	ID  *float64 `json:"id"`
-	Sex *float64 `json:"sex"`
+	ID  *int64 `json:"id"`
+	Sex *int   `json:"sex"`
 }
 
-// order by variance() on columns of table "driver_info"
-type DriverInfoVarianceOrderBy struct {
-	ID  *model.OrderBy `json:"id"`
-	Sex *model.OrderBy `json:"sex"`
+// aggregated selection of "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionAggregate struct {
+	Aggregate *DrivingLicenseRegistrationInspectionAggregateFields `json:"aggregate"`
 }
 
-// aggregated selection of "vehicle_driver_binding"
-type VehicleDriverBindingAggregate struct {
-	Aggregate *VehicleDriverBindingAggregateFields `json:"aggregate"`
-	Nodes     []*VehicleDriverBinding              `json:"nodes"`
+// aggregate fields of "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionAggregateFields struct {
+	Avg        *DrivingLicenseRegistrationInspectionAvgFields        `json:"avg"`
+	Count      *int                                                  `json:"count"`
+	Max        *DrivingLicenseRegistrationInspectionMaxFields        `json:"max"`
+	Min        *DrivingLicenseRegistrationInspectionMinFields        `json:"min"`
+	Stddev     *DrivingLicenseRegistrationInspectionStddevFields     `json:"stddev"`
+	StddevPop  *DrivingLicenseRegistrationInspectionStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *DrivingLicenseRegistrationInspectionStddevSampFields `json:"stddev_samp"`
+	Sum        *DrivingLicenseRegistrationInspectionSumFields        `json:"sum"`
+	VarPop     *DrivingLicenseRegistrationInspectionVarPopFields     `json:"var_pop"`
+	VarSamp    *DrivingLicenseRegistrationInspectionVarSampFields    `json:"var_samp"`
+	Variance   *DrivingLicenseRegistrationInspectionVarianceFields   `json:"variance"`
 }
 
-// aggregate fields of "vehicle_driver_binding"
-type VehicleDriverBindingAggregateFields struct {
-	Avg        *VehicleDriverBindingAvgFields        `json:"avg"`
-	Count      *int                                  `json:"count"`
-	Max        *VehicleDriverBindingMaxFields        `json:"max"`
-	Min        *VehicleDriverBindingMinFields        `json:"min"`
-	Stddev     *VehicleDriverBindingStddevFields     `json:"stddev"`
-	StddevPop  *VehicleDriverBindingStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *VehicleDriverBindingStddevSampFields `json:"stddev_samp"`
-	Sum        *VehicleDriverBindingSumFields        `json:"sum"`
-	VarPop     *VehicleDriverBindingVarPopFields     `json:"var_pop"`
-	VarSamp    *VehicleDriverBindingVarSampFields    `json:"var_samp"`
-	Variance   *VehicleDriverBindingVarianceFields   `json:"variance"`
+// aggregate avg on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionAvgFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
-// order by aggregate values of table "vehicle_driver_binding"
-type VehicleDriverBindingAggregateOrderBy struct {
-	Avg        *VehicleDriverBindingAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                         `json:"count"`
-	Max        *VehicleDriverBindingMaxOrderBy        `json:"max"`
-	Min        *VehicleDriverBindingMinOrderBy        `json:"min"`
-	Stddev     *VehicleDriverBindingStddevOrderBy     `json:"stddev"`
-	StddevPop  *VehicleDriverBindingStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VehicleDriverBindingStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VehicleDriverBindingSumOrderBy        `json:"sum"`
-	VarPop     *VehicleDriverBindingVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VehicleDriverBindingVarSampOrderBy    `json:"var_samp"`
-	Variance   *VehicleDriverBindingVarianceOrderBy   `json:"variance"`
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driving_license_registration_inspection'.
+type DrivingLicenseRegistrationInspectionBoolExp struct {
+	And                  []*DrivingLicenseRegistrationInspectionBoolExp `json:"_and"`
+	Not                  *DrivingLicenseRegistrationInspectionBoolExp   `json:"_not"`
+	Or                   []*DrivingLicenseRegistrationInspectionBoolExp `json:"_or"`
+	ID                   *model.BigintComparisonExp                     `json:"id"`
+	DriverIDInfoReportID *model.StringComparisonExp                     `json:"driver_id_info_report_id"`
+	VehicleID            *model.StringComparisonExp                     `json:"vehicle_id"`
+	IcCardStatus         *model.IntComparisonExp                        `json:"ic_card_status"`
+	OperationTime        *model.TimestamptzComparisonExp                `json:"operation_time"`
+	DriverName           *model.StringComparisonExp                     `json:"driver_name"`
+	LicenseNumber        *model.StringComparisonExp                     `json:"license_number"`
+	Imel                 *model.StringComparisonExp                     `json:"imel"`
+	IcCardReadingResult  *model.StringComparisonExp                     `json:"ic_card_reading_result"`
+	OccupationalNumber   *model.StringComparisonExp                     `json:"occupational_number"`
+	DriverLicenseName    *model.StringComparisonExp                     `json:"driver_license_name"`
+	LicenseExpireDate    *model.TimestamptzComparisonExp                `json:"license_expire_date"`
+	RegistrationTime     *model.TimestamptzComparisonExp                `json:"registration_time"`
+	CreatedAt            *model.TimestamptzComparisonExp                `json:"created_at"`
+	CreatedBy            *model.StringComparisonExp                     `json:"created_by"`
+	UpdatedAt            *model.TimestamptzComparisonExp                `json:"updated_at"`
+	UpdatedBy            *model.StringComparisonExp                     `json:"updated_by"`
+	DeletedAt            *model.TimestamptzComparisonExp                `json:"deleted_at"`
+	DeletedBy            *model.StringComparisonExp                     `json:"deleted_by"`
 }
 
-// input type for inserting array relation for remote table "vehicle_driver_binding"
-type VehicleDriverBindingArrRelInsertInput struct {
-	Data       []*VehicleDriverBindingInsertInput `json:"data"`
-	OnConflict *VehicleDriverBindingOnConflict    `json:"on_conflict"`
+// input type for incrementing integer column in table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionIncInput struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
-// aggregate avg on columns
-type VehicleDriverBindingAvgFields struct {
-	ID *float64 `json:"id"`
+// input type for inserting data into table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionInsertInput struct {
+	ID                   *int64     `json:"id"`
+	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	IcCardStatus         *int       `json:"ic_card_status"`
+	OperationTime        *time.Time `json:"operation_time"`
+	DriverName           *string    `json:"driver_name"`
+	LicenseNumber        *string    `json:"license_number"`
+	Imel                 *string    `json:"imel"`
+	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
+	OccupationalNumber   *string    `json:"occupational_number"`
+	DriverLicenseName    *string    `json:"driver_license_name"`
+	LicenseExpireDate    *time.Time `json:"license_expire_date"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
 }
 
-// order by avg() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingAvgOrderBy struct {
-	ID *model.OrderBy `json:"id"`
+// aggregate max on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionMaxFields struct {
+	ID                   *int64     `json:"id"`
+	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	IcCardStatus         *int       `json:"ic_card_status"`
+	OperationTime        *time.Time `json:"operation_time"`
+	DriverName           *string    `json:"driver_name"`
+	LicenseNumber        *string    `json:"license_number"`
+	Imel                 *string    `json:"imel"`
+	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
+	OccupationalNumber   *string    `json:"occupational_number"`
+	DriverLicenseName    *string    `json:"driver_license_name"`
+	LicenseExpireDate    *time.Time `json:"license_expire_date"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
 }
 
-// Boolean expression to filter rows from the table "vehicle_driver_binding". All fields are combined with a logical 'AND'.
-type VehicleDriverBindingBoolExp struct {
-	And                    []*VehicleDriverBindingBoolExp  `json:"_and"`
-	Not                    *VehicleDriverBindingBoolExp    `json:"_not"`
-	Or                     []*VehicleDriverBindingBoolExp  `json:"_or"`
-	CreatedAt              *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy              *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt              *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy              *model.StringComparisonExp      `json:"deleted_by"`
-	DriverID               *model.StringComparisonExp      `json:"driver_id"`
-	ID                     *model.BigintComparisonExp      `json:"id"`
-	IsDelete               *model.BooleanComparisonExp     `json:"is_delete"`
-	LeaseContract          *TextComparisonExp              `json:"lease_contract"`
-	Remarks                *model.StringComparisonExp      `json:"remarks"`
-	UpdatedAt              *model.TimestamptzComparisonExp `json:"updated_at"`
-	UpdatedBy              *model.StringComparisonExp      `json:"updated_by"`
-	VehicleDriverBindingID *model.StringComparisonExp      `json:"vehicle_driver_binding_id"`
-	VehicleID              *model.StringComparisonExp      `json:"vehicle_id"`
+// aggregate min on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionMinFields struct {
+	ID                   *int64     `json:"id"`
+	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	IcCardStatus         *int       `json:"ic_card_status"`
+	OperationTime        *time.Time `json:"operation_time"`
+	DriverName           *string    `json:"driver_name"`
+	LicenseNumber        *string    `json:"license_number"`
+	Imel                 *string    `json:"imel"`
+	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
+	OccupationalNumber   *string    `json:"occupational_number"`
+	DriverLicenseName    *string    `json:"driver_license_name"`
+	LicenseExpireDate    *time.Time `json:"license_expire_date"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
 }
 
-// input type for incrementing integer column in table "vehicle_driver_binding"
-type VehicleDriverBindingIncInput struct {
-	ID *int64 `json:"id"`
+// response of any mutation on the table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionMutationResponse struct {
+	AffectedRows int                                            `json:"affected_rows"`
+	Returning    []*model1.DrivingLicenseRegistrationInspection `json:"returning"`
 }
 
-// input type for inserting data into table "vehicle_driver_binding"
-type VehicleDriverBindingInsertInput struct {
-	CreatedAt              *time.Time `json:"created_at"`
-	CreatedBy              *string    `json:"created_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
-	DriverID               *string    `json:"driver_id"`
-	ID                     *int64     `json:"id"`
-	IsDelete               *bool      `json:"is_delete"`
-	LeaseContract          *string    `json:"lease_contract"`
-	Remarks                *string    `json:"remarks"`
-	UpdatedAt              *time.Time `json:"updated_at"`
-	UpdatedBy              *string    `json:"updated_by"`
-	VehicleDriverBindingID *string    `json:"vehicle_driver_binding_id"`
-	VehicleID              *string    `json:"vehicle_id"`
+// ordering options when selecting data from "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionOrderBy struct {
+	ID                   *model.OrderBy `json:"id"`
+	DriverIDInfoReportID *model.OrderBy `json:"driver_id_info_report_id"`
+	VehicleID            *model.OrderBy `json:"vehicle_id"`
+	IcCardStatus         *model.OrderBy `json:"ic_card_status"`
+	OperationTime        *model.OrderBy `json:"operation_time"`
+	DriverName           *model.OrderBy `json:"driver_name"`
+	LicenseNumber        *model.OrderBy `json:"license_number"`
+	Imel                 *model.OrderBy `json:"imel"`
+	IcCardReadingResult  *model.OrderBy `json:"ic_card_reading_result"`
+	OccupationalNumber   *model.OrderBy `json:"occupational_number"`
+	DriverLicenseName    *model.OrderBy `json:"driver_license_name"`
+	LicenseExpireDate    *model.OrderBy `json:"license_expire_date"`
+	RegistrationTime     *model.OrderBy `json:"registration_time"`
+	CreatedAt            *model.OrderBy `json:"created_at"`
+	CreatedBy            *model.OrderBy `json:"created_by"`
+	UpdatedAt            *model.OrderBy `json:"updated_at"`
+	UpdatedBy            *model.OrderBy `json:"updated_by"`
+	DeletedAt            *model.OrderBy `json:"deleted_at"`
+	DeletedBy            *model.OrderBy `json:"deleted_by"`
 }
 
-// aggregate max on columns
-type VehicleDriverBindingMaxFields struct {
-	CreatedAt              *time.Time `json:"created_at"`
-	CreatedBy              *string    `json:"created_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
-	DriverID               *string    `json:"driver_id"`
-	ID                     *int64     `json:"id"`
-	Remarks                *string    `json:"remarks"`
-	UpdatedAt              *time.Time `json:"updated_at"`
-	UpdatedBy              *string    `json:"updated_by"`
-	VehicleDriverBindingID *string    `json:"vehicle_driver_binding_id"`
-	VehicleID              *string    `json:"vehicle_id"`
+// input type for updating data in table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionSetInput struct {
+	ID                   *int64     `json:"id"`
+	DriverIDInfoReportID *string    `json:"driver_id_info_report_id"`
+	VehicleID            *string    `json:"vehicle_id"`
+	IcCardStatus         *int       `json:"ic_card_status"`
+	OperationTime        *time.Time `json:"operation_time"`
+	DriverName           *string    `json:"driver_name"`
+	LicenseNumber        *string    `json:"license_number"`
+	Imel                 *string    `json:"imel"`
+	IcCardReadingResult  *string    `json:"ic_card_reading_result"`
+	OccupationalNumber   *string    `json:"occupational_number"`
+	DriverLicenseName    *string    `json:"driver_license_name"`
+	LicenseExpireDate    *time.Time `json:"license_expire_date"`
+	RegistrationTime     *time.Time `json:"registration_time"`
+	CreatedAt            *time.Time `json:"created_at"`
+	CreatedBy            *string    `json:"created_by"`
+	UpdatedAt            *time.Time `json:"updated_at"`
+	UpdatedBy            *string    `json:"updated_by"`
+	DeletedAt            *time.Time `json:"deleted_at"`
+	DeletedBy            *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingMaxOrderBy struct {
-	CreatedAt              *model.OrderBy `json:"created_at"`
-	CreatedBy              *model.OrderBy `json:"created_by"`
-	DeletedAt              *model.OrderBy `json:"deleted_at"`
-	DeletedBy              *model.OrderBy `json:"deleted_by"`
-	DriverID               *model.OrderBy `json:"driver_id"`
-	ID                     *model.OrderBy `json:"id"`
-	Remarks                *model.OrderBy `json:"remarks"`
-	UpdatedAt              *model.OrderBy `json:"updated_at"`
-	UpdatedBy              *model.OrderBy `json:"updated_by"`
-	VehicleDriverBindingID *model.OrderBy `json:"vehicle_driver_binding_id"`
-	VehicleID              *model.OrderBy `json:"vehicle_id"`
+// aggregate stddev on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionStddevFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
-// aggregate min on columns
-type VehicleDriverBindingMinFields struct {
-	CreatedAt              *time.Time `json:"created_at"`
-	CreatedBy              *string    `json:"created_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
-	DriverID               *string    `json:"driver_id"`
-	ID                     *int64     `json:"id"`
-	Remarks                *string    `json:"remarks"`
-	UpdatedAt              *time.Time `json:"updated_at"`
-	UpdatedBy              *string    `json:"updated_by"`
-	VehicleDriverBindingID *string    `json:"vehicle_driver_binding_id"`
-	VehicleID              *string    `json:"vehicle_id"`
+// aggregate stddev_pop on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionStddevPopFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
-// order by min() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingMinOrderBy struct {
-	CreatedAt              *model.OrderBy `json:"created_at"`
-	CreatedBy              *model.OrderBy `json:"created_by"`
-	DeletedAt              *model.OrderBy `json:"deleted_at"`
-	DeletedBy              *model.OrderBy `json:"deleted_by"`
-	DriverID               *model.OrderBy `json:"driver_id"`
-	ID                     *model.OrderBy `json:"id"`
-	Remarks                *model.OrderBy `json:"remarks"`
-	UpdatedAt              *model.OrderBy `json:"updated_at"`
-	UpdatedBy              *model.OrderBy `json:"updated_by"`
-	VehicleDriverBindingID *model.OrderBy `json:"vehicle_driver_binding_id"`
-	VehicleID              *model.OrderBy `json:"vehicle_id"`
+// aggregate stddev_samp on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionStddevSampFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
-// response of any mutation on the table "vehicle_driver_binding"
-type VehicleDriverBindingMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VehicleDriverBinding `json:"returning"`
+// aggregate sum on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionSumFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
-// input type for inserting object relation for remote table "vehicle_driver_binding"
-type VehicleDriverBindingObjRelInsertInput struct {
-	Data       *VehicleDriverBindingInsertInput `json:"data"`
-	OnConflict *VehicleDriverBindingOnConflict  `json:"on_conflict"`
+// aggregate var_pop on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionVarPopFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
-// on conflict condition type for table "vehicle_driver_binding"
-type VehicleDriverBindingOnConflict struct {
-	Constraint    VehicleDriverBindingConstraint     `json:"constraint"`
-	UpdateColumns []VehicleDriverBindingUpdateColumn `json:"update_columns"`
-	Where         *VehicleDriverBindingBoolExp       `json:"where"`
+// aggregate var_samp on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionVarSampFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
-// ordering options when selecting data from "vehicle_driver_binding"
-type VehicleDriverBindingOrderBy struct {
-	CreatedAt              *model.OrderBy `json:"created_at"`
-	CreatedBy              *model.OrderBy `json:"created_by"`
-	DeletedAt              *model.OrderBy `json:"deleted_at"`
-	DeletedBy              *model.OrderBy `json:"deleted_by"`
-	DriverID               *model.OrderBy `json:"driver_id"`
-	ID                     *model.OrderBy `json:"id"`
-	IsDelete               *model.OrderBy `json:"is_delete"`
-	LeaseContract          *model.OrderBy `json:"lease_contract"`
-	Remarks                *model.OrderBy `json:"remarks"`
-	UpdatedAt              *model.OrderBy `json:"updated_at"`
-	UpdatedBy              *model.OrderBy `json:"updated_by"`
-	VehicleDriverBindingID *model.OrderBy `json:"vehicle_driver_binding_id"`
-	VehicleID              *model.OrderBy `json:"vehicle_id"`
+// aggregate variance on columns of table "driving_license_registration_inspection"
+type DrivingLicenseRegistrationInspectionVarianceFields struct {
+	ID           *int64 `json:"id"`
+	IcCardStatus *int   `json:"ic_card_status"`
 }
 
-// primary key columns input for table: "vehicle_driver_binding"
-type VehicleDriverBindingPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "vehicle_driver_binding"
-type VehicleDriverBindingSetInput struct {
-	CreatedAt              *time.Time `json:"created_at"`
-	CreatedBy              *string    `json:"created_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
-	DriverID               *string    `json:"driver_id"`
-	ID                     *int64     `json:"id"`
-	IsDelete               *bool      `json:"is_delete"`
-	LeaseContract          *string    `json:"lease_contract"`
-	Remarks                *string    `json:"remarks"`
-	UpdatedAt              *time.Time `json:"updated_at"`
-	UpdatedBy              *string    `json:"updated_by"`
-	VehicleDriverBindingID *string    `json:"vehicle_driver_binding_id"`
-	VehicleID              *string    `json:"vehicle_id"`
-}
-
-// aggregate stddev on columns
-type VehicleDriverBindingStddevFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingStddevOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type VehicleDriverBindingStddevPopFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingStddevPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type VehicleDriverBindingStddevSampFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingStddevSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type VehicleDriverBindingSumFields struct {
-	ID *int64 `json:"id"`
-}
-
-// order by sum() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingSumOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_pop on columns
-type VehicleDriverBindingVarPopFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by var_pop() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingVarPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
-type VehicleDriverBindingVarSampFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by var_samp() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingVarSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
-type VehicleDriverBindingVarianceFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "vehicle_driver_binding"
-type VehicleDriverBindingVarianceOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// unique or primary key constraints on table "driver_identity"
-type DriverIdentityConstraint string
+// 可选select
+type DriverFingerprintAssociationSelectColumn string
 
 const (
-	// unique or primary key constraint
-	DriverIdentityConstraintDriverIdentityPkey DriverIdentityConstraint = "driver_identity_pkey"
+	// 按指定方法生成                                             ( 主键                       )
+	DriverFingerprintAssociationSelectColumnID DriverFingerprintAssociationSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用            ( 联合主键                   )
+	DriverFingerprintAssociationSelectColumnDriverFingerprintAssociationID DriverFingerprintAssociationSelectColumn = "driver_fingerprint_association_id"
+	// driver_info驾驶员信息表的driver_id                     (                            )
+	DriverFingerprintAssociationSelectColumnDriverID DriverFingerprintAssociationSelectColumn = "driver_id"
+	// 指纹名称                                                   (                            )
+	DriverFingerprintAssociationSelectColumnFingerprintName DriverFingerprintAssociationSelectColumn = "fingerprint_name"
+	// driver_fingerprint 驾驶员指纹表的driver_fingerprint_id (                            )
+	DriverFingerprintAssociationSelectColumnDriverFingerprintID DriverFingerprintAssociationSelectColumn = "driver_fingerprint_id"
+	// 图片地址                                                   (                            )
+	DriverFingerprintAssociationSelectColumnPictureAddress DriverFingerprintAssociationSelectColumn = "picture_address"
+	// 是否删除                                                   (                            )
+	DriverFingerprintAssociationSelectColumnIsDeleted DriverFingerprintAssociationSelectColumn = "is_deleted"
+	// 创建时间                                                   (                            )
+	DriverFingerprintAssociationSelectColumnCreatedAt DriverFingerprintAssociationSelectColumn = "created_at"
+	// 创建人                                                     ( system_user表的user_id )
+	DriverFingerprintAssociationSelectColumnCreatedBy DriverFingerprintAssociationSelectColumn = "created_by"
+	// 修改时间                                                   (                            )
+	DriverFingerprintAssociationSelectColumnUpdatedAt DriverFingerprintAssociationSelectColumn = "updated_at"
+	// 修改人                                                     ( system_user表的user_id )
+	DriverFingerprintAssociationSelectColumnUpdatedBy DriverFingerprintAssociationSelectColumn = "updated_by"
+	// 删除时间                                                   (                            )
+	DriverFingerprintAssociationSelectColumnDeletedAt DriverFingerprintAssociationSelectColumn = "deleted_at"
+	// 删除人                                                     ( system_user表的user_id )
+	DriverFingerprintAssociationSelectColumnDeletedBy DriverFingerprintAssociationSelectColumn = "deleted_by"
 )
 
-var AllDriverIdentityConstraint = []DriverIdentityConstraint{
-	DriverIdentityConstraintDriverIdentityPkey,
+var AllDriverFingerprintAssociationSelectColumn = []DriverFingerprintAssociationSelectColumn{
+	DriverFingerprintAssociationSelectColumnID,
+	DriverFingerprintAssociationSelectColumnDriverFingerprintAssociationID,
+	DriverFingerprintAssociationSelectColumnDriverID,
+	DriverFingerprintAssociationSelectColumnFingerprintName,
+	DriverFingerprintAssociationSelectColumnDriverFingerprintID,
+	DriverFingerprintAssociationSelectColumnPictureAddress,
+	DriverFingerprintAssociationSelectColumnIsDeleted,
+	DriverFingerprintAssociationSelectColumnCreatedAt,
+	DriverFingerprintAssociationSelectColumnCreatedBy,
+	DriverFingerprintAssociationSelectColumnUpdatedAt,
+	DriverFingerprintAssociationSelectColumnUpdatedBy,
+	DriverFingerprintAssociationSelectColumnDeletedAt,
+	DriverFingerprintAssociationSelectColumnDeletedBy,
 }
 
-func (e DriverIdentityConstraint) IsValid() bool {
+func (e DriverFingerprintAssociationSelectColumn) IsValid() bool {
 	switch e {
-	case DriverIdentityConstraintDriverIdentityPkey:
+	case DriverFingerprintAssociationSelectColumnID, DriverFingerprintAssociationSelectColumnDriverFingerprintAssociationID, DriverFingerprintAssociationSelectColumnDriverID, DriverFingerprintAssociationSelectColumnFingerprintName, DriverFingerprintAssociationSelectColumnDriverFingerprintID, DriverFingerprintAssociationSelectColumnPictureAddress, DriverFingerprintAssociationSelectColumnIsDeleted, DriverFingerprintAssociationSelectColumnCreatedAt, DriverFingerprintAssociationSelectColumnCreatedBy, DriverFingerprintAssociationSelectColumnUpdatedAt, DriverFingerprintAssociationSelectColumnUpdatedBy, DriverFingerprintAssociationSelectColumnDeletedAt, DriverFingerprintAssociationSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e DriverIdentityConstraint) String() string {
+func (e DriverFingerprintAssociationSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *DriverIdentityConstraint) UnmarshalGQL(v interface{}) error {
+func (e *DriverFingerprintAssociationSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = DriverIdentityConstraint(str)
+	*e = DriverFingerprintAssociationSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_identity_constraint", str)
+		return fmt.Errorf("%s is not a valid DriverFingerprintAssociationSelectColumn", str)
 	}
 	return nil
 }
 
-func (e DriverIdentityConstraint) MarshalGQL(w io.Writer) {
+func (e DriverFingerprintAssociationSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// select columns of table "driver_identity"
+// 可选select
+type DriverFingerprintSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                       )
+	DriverFingerprintSelectColumnID DriverFingerprintSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	DriverFingerprintSelectColumnDriverFingerprintID DriverFingerprintSelectColumn = "driver_fingerprint_id"
+	// driver_info驾驶员信息表的driver_id          (                            )
+	DriverFingerprintSelectColumnDriverID DriverFingerprintSelectColumn = "driver_id"
+	// 驾驶员姓名                                      (                            )
+	DriverFingerprintSelectColumnDriverName DriverFingerprintSelectColumn = "driver_name"
+	// 用户ID                                          ( system_user表的user_id )
+	DriverFingerprintSelectColumnUserID DriverFingerprintSelectColumn = "user_id"
+	// 特征码                                          (                            )
+	DriverFingerprintSelectColumnSignature DriverFingerprintSelectColumn = "signature"
+	// 指纹名称                                        (                            )
+	DriverFingerprintSelectColumnFingerprintName DriverFingerprintSelectColumn = "fingerprint_name"
+	// SIM卡号                                         (                            )
+	DriverFingerprintSelectColumnSimNumber DriverFingerprintSelectColumn = "sim_number"
+	// 指令ID                                          (                            )
+	DriverFingerprintSelectColumnInstructionID DriverFingerprintSelectColumn = "instruction_id"
+	// 操作类型                                        (                            )
+	DriverFingerprintSelectColumnOperationType DriverFingerprintSelectColumn = "operation_type"
+	// 内容                                            (                            )
+	DriverFingerprintSelectColumnContent DriverFingerprintSelectColumn = "content"
+	// 操作时间                                        (                            )
+	DriverFingerprintSelectColumnOperationTime DriverFingerprintSelectColumn = "operation_time"
+	// 上传时间                                        (                            )
+	DriverFingerprintSelectColumnUploadTime DriverFingerprintSelectColumn = "upload_time"
+	// 时间戳                                          (                            )
+	DriverFingerprintSelectColumnTimestamp DriverFingerprintSelectColumn = "timestamp"
+	// 终端ID                                          (                            )
+	DriverFingerprintSelectColumnTernimalID DriverFingerprintSelectColumn = "ternimal_id"
+	// 是否成功                                        (                            )
+	DriverFingerprintSelectColumnIsSuccess DriverFingerprintSelectColumn = "is_success"
+	// 是否删除                                        (                            )
+	DriverFingerprintSelectColumnIsDeleted DriverFingerprintSelectColumn = "is_deleted"
+	// 创建时间                                        (                            )
+	DriverFingerprintSelectColumnCreatedAt DriverFingerprintSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	DriverFingerprintSelectColumnCreatedBy DriverFingerprintSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	DriverFingerprintSelectColumnUpdatedAt DriverFingerprintSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	DriverFingerprintSelectColumnUpdatedBy DriverFingerprintSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	DriverFingerprintSelectColumnDeletedAt DriverFingerprintSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	DriverFingerprintSelectColumnDeletedBy DriverFingerprintSelectColumn = "deleted_by"
+)
+
+var AllDriverFingerprintSelectColumn = []DriverFingerprintSelectColumn{
+	DriverFingerprintSelectColumnID,
+	DriverFingerprintSelectColumnDriverFingerprintID,
+	DriverFingerprintSelectColumnDriverID,
+	DriverFingerprintSelectColumnDriverName,
+	DriverFingerprintSelectColumnUserID,
+	DriverFingerprintSelectColumnSignature,
+	DriverFingerprintSelectColumnFingerprintName,
+	DriverFingerprintSelectColumnSimNumber,
+	DriverFingerprintSelectColumnInstructionID,
+	DriverFingerprintSelectColumnOperationType,
+	DriverFingerprintSelectColumnContent,
+	DriverFingerprintSelectColumnOperationTime,
+	DriverFingerprintSelectColumnUploadTime,
+	DriverFingerprintSelectColumnTimestamp,
+	DriverFingerprintSelectColumnTernimalID,
+	DriverFingerprintSelectColumnIsSuccess,
+	DriverFingerprintSelectColumnIsDeleted,
+	DriverFingerprintSelectColumnCreatedAt,
+	DriverFingerprintSelectColumnCreatedBy,
+	DriverFingerprintSelectColumnUpdatedAt,
+	DriverFingerprintSelectColumnUpdatedBy,
+	DriverFingerprintSelectColumnDeletedAt,
+	DriverFingerprintSelectColumnDeletedBy,
+}
+
+func (e DriverFingerprintSelectColumn) IsValid() bool {
+	switch e {
+	case DriverFingerprintSelectColumnID, DriverFingerprintSelectColumnDriverFingerprintID, DriverFingerprintSelectColumnDriverID, DriverFingerprintSelectColumnDriverName, DriverFingerprintSelectColumnUserID, DriverFingerprintSelectColumnSignature, DriverFingerprintSelectColumnFingerprintName, DriverFingerprintSelectColumnSimNumber, DriverFingerprintSelectColumnInstructionID, DriverFingerprintSelectColumnOperationType, DriverFingerprintSelectColumnContent, DriverFingerprintSelectColumnOperationTime, DriverFingerprintSelectColumnUploadTime, DriverFingerprintSelectColumnTimestamp, DriverFingerprintSelectColumnTernimalID, DriverFingerprintSelectColumnIsSuccess, DriverFingerprintSelectColumnIsDeleted, DriverFingerprintSelectColumnCreatedAt, DriverFingerprintSelectColumnCreatedBy, DriverFingerprintSelectColumnUpdatedAt, DriverFingerprintSelectColumnUpdatedBy, DriverFingerprintSelectColumnDeletedAt, DriverFingerprintSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e DriverFingerprintSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *DriverFingerprintSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = DriverFingerprintSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid DriverFingerprintSelectColumn", str)
+	}
+	return nil
+}
+
+func (e DriverFingerprintSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type DriverIDInfoReportSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                       )
+	DriverIDInfoReportSelectColumnID DriverIDInfoReportSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	DriverIDInfoReportSelectColumnDriverIDInfoReportID DriverIDInfoReportSelectColumn = "driver_id_info_report_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	DriverIDInfoReportSelectColumnVehicleID DriverIDInfoReportSelectColumn = "vehicle_id"
+	// IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
+	DriverIDInfoReportSelectColumnIcCardStatus DriverIDInfoReportSelectColumn = "ic_card_status"
+	// 操作时间                                        (                            )
+	DriverIDInfoReportSelectColumnOperationTime DriverIDInfoReportSelectColumn = "operation_time"
+	// 驾驶员姓名                                      (                            )
+	DriverIDInfoReportSelectColumnDriverName DriverIDInfoReportSelectColumn = "driver_name"
+	// 证件号码                                        (                            )
+	DriverIDInfoReportSelectColumnLicenseNumber DriverIDInfoReportSelectColumn = "license_number"
+	// 终端IMEI                                        ( 国际移动设备标识别码       )
+	DriverIDInfoReportSelectColumnImel DriverIDInfoReportSelectColumn = "imel"
+	// IC卡读取结果                                    ( IC卡读卡字典           )
+	DriverIDInfoReportSelectColumnIcCardReadingResult DriverIDInfoReportSelectColumn = "ic_card_reading_result"
+	// 从业资格证编码                                  (                            )
+	DriverIDInfoReportSelectColumnOccupationalNumber DriverIDInfoReportSelectColumn = "occupational_number"
+	// 发证机构名称                                    (                            )
+	DriverIDInfoReportSelectColumnDriverLicenseName DriverIDInfoReportSelectColumn = "driver_license_name"
+	// 证件有效期                                      (                            )
+	DriverIDInfoReportSelectColumnLicenseExpireDate DriverIDInfoReportSelectColumn = "license_expire_date"
+	// 登记时间                                        (                            )
+	DriverIDInfoReportSelectColumnRegistrationTime DriverIDInfoReportSelectColumn = "registration_time"
+	// 创建时间                                        (                            )
+	DriverIDInfoReportSelectColumnCreatedAt DriverIDInfoReportSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	DriverIDInfoReportSelectColumnCreatedBy DriverIDInfoReportSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	DriverIDInfoReportSelectColumnUpdatedAt DriverIDInfoReportSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	DriverIDInfoReportSelectColumnUpdatedBy DriverIDInfoReportSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	DriverIDInfoReportSelectColumnDeletedAt DriverIDInfoReportSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	DriverIDInfoReportSelectColumnDeletedBy DriverIDInfoReportSelectColumn = "deleted_by"
+)
+
+var AllDriverIDInfoReportSelectColumn = []DriverIDInfoReportSelectColumn{
+	DriverIDInfoReportSelectColumnID,
+	DriverIDInfoReportSelectColumnDriverIDInfoReportID,
+	DriverIDInfoReportSelectColumnVehicleID,
+	DriverIDInfoReportSelectColumnIcCardStatus,
+	DriverIDInfoReportSelectColumnOperationTime,
+	DriverIDInfoReportSelectColumnDriverName,
+	DriverIDInfoReportSelectColumnLicenseNumber,
+	DriverIDInfoReportSelectColumnImel,
+	DriverIDInfoReportSelectColumnIcCardReadingResult,
+	DriverIDInfoReportSelectColumnOccupationalNumber,
+	DriverIDInfoReportSelectColumnDriverLicenseName,
+	DriverIDInfoReportSelectColumnLicenseExpireDate,
+	DriverIDInfoReportSelectColumnRegistrationTime,
+	DriverIDInfoReportSelectColumnCreatedAt,
+	DriverIDInfoReportSelectColumnCreatedBy,
+	DriverIDInfoReportSelectColumnUpdatedAt,
+	DriverIDInfoReportSelectColumnUpdatedBy,
+	DriverIDInfoReportSelectColumnDeletedAt,
+	DriverIDInfoReportSelectColumnDeletedBy,
+}
+
+func (e DriverIDInfoReportSelectColumn) IsValid() bool {
+	switch e {
+	case DriverIDInfoReportSelectColumnID, DriverIDInfoReportSelectColumnDriverIDInfoReportID, DriverIDInfoReportSelectColumnVehicleID, DriverIDInfoReportSelectColumnIcCardStatus, DriverIDInfoReportSelectColumnOperationTime, DriverIDInfoReportSelectColumnDriverName, DriverIDInfoReportSelectColumnLicenseNumber, DriverIDInfoReportSelectColumnImel, DriverIDInfoReportSelectColumnIcCardReadingResult, DriverIDInfoReportSelectColumnOccupationalNumber, DriverIDInfoReportSelectColumnDriverLicenseName, DriverIDInfoReportSelectColumnLicenseExpireDate, DriverIDInfoReportSelectColumnRegistrationTime, DriverIDInfoReportSelectColumnCreatedAt, DriverIDInfoReportSelectColumnCreatedBy, DriverIDInfoReportSelectColumnUpdatedAt, DriverIDInfoReportSelectColumnUpdatedBy, DriverIDInfoReportSelectColumnDeletedAt, DriverIDInfoReportSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e DriverIDInfoReportSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *DriverIDInfoReportSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = DriverIDInfoReportSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid DriverIdInfoReportSelectColumn", str)
+	}
+	return nil
+}
+
+func (e DriverIDInfoReportSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
 type DriverIdentitySelectColumn string
 
 const (
-	// column name
-	DriverIdentitySelectColumnAccumulativedPoints DriverIdentitySelectColumn = "accumulatived_points"
-	// column name
-	DriverIdentitySelectColumnAnnualReviewDate DriverIdentitySelectColumn = "annual_review_date"
-	// column name
-	DriverIdentitySelectColumnCreatedAt DriverIdentitySelectColumn = "created_at"
-	// column name
-	DriverIdentitySelectColumnCreatedBy DriverIdentitySelectColumn = "created_by"
-	// column name
-	DriverIdentitySelectColumnDeletedAt DriverIdentitySelectColumn = "deleted_at"
-	// column name
-	DriverIdentitySelectColumnDeletedBy DriverIdentitySelectColumn = "deleted_by"
-	// column name
-	DriverIdentitySelectColumnDriverHoldingIDPhoto DriverIdentitySelectColumn = "driver_holding_id_photo"
-	// column name
-	DriverIdentitySelectColumnDriverLicenseCityID DriverIdentitySelectColumn = "driver_license_city_id"
-	// column name
-	DriverIdentitySelectColumnDriverLicenseDistrictID DriverIdentitySelectColumn = "driver_license_district_id"
-	// column name
-	DriverIdentitySelectColumnDriverLicenseIssueDate DriverIdentitySelectColumn = "driver_license_issue_date"
-	// column name
-	DriverIdentitySelectColumnDriverLicenseIssuingAuthority DriverIdentitySelectColumn = "driver_license_issuing_authority"
-	// column name
-	DriverIdentitySelectColumnDriverLicensePic DriverIdentitySelectColumn = "driver_license_pic"
-	// column name
-	DriverIdentitySelectColumnDriverLicenseProvinceID DriverIdentitySelectColumn = "driver_license_province_id"
-	// column name
-	DriverIdentitySelectColumnDriverLicenseStatus DriverIdentitySelectColumn = "driver_license_status"
-	// column name
-	DriverIdentitySelectColumnDriverPhoto DriverIdentitySelectColumn = "driver_photo"
-	// column name
-	DriverIdentitySelectColumnDriverSignature DriverIdentitySelectColumn = "driver_signature"
-	// column name
+	// 按指定方法生成                                  ( 主键                       )
 	DriverIdentitySelectColumnID DriverIdentitySelectColumn = "id"
-	// column name
-	DriverIdentitySelectColumnIDCardAddress DriverIdentitySelectColumn = "id_card_address"
-	// column name
-	DriverIdentitySelectColumnIDCardBackPic DriverIdentitySelectColumn = "id_card_back_pic"
-	// column name
-	DriverIdentitySelectColumnIDCardBirthday DriverIdentitySelectColumn = "id_card_birthday"
-	// column name
-	DriverIdentitySelectColumnIDCardEndDate DriverIdentitySelectColumn = "id_card_end_date"
-	// column name
-	DriverIdentitySelectColumnIDCardFrontPic DriverIdentitySelectColumn = "id_card_front_pic"
-	// column name
-	DriverIdentitySelectColumnIDCardNation DriverIdentitySelectColumn = "id_card_nation"
-	// column name
-	DriverIdentitySelectColumnIDCardNum DriverIdentitySelectColumn = "id_card_num"
-	// column name
-	DriverIdentitySelectColumnIDCardSignGovernment DriverIdentitySelectColumn = "id_card_sign_government"
-	// column name
-	DriverIdentitySelectColumnIDCardStartDate DriverIdentitySelectColumn = "id_card_start_date"
-	// column name
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	DriverIdentitySelectColumnIdentityID DriverIdentitySelectColumn = "identity_id"
-	// column name
-	DriverIdentitySelectColumnIsDelete DriverIdentitySelectColumn = "is_delete"
-	// column name
-	DriverIdentitySelectColumnIsReview DriverIdentitySelectColumn = "is_review"
-	// column name
-	DriverIdentitySelectColumnLaborContract DriverIdentitySelectColumn = "labor_contract"
-	// column name
-	DriverIdentitySelectColumnOccupationalExpireDate DriverIdentitySelectColumn = "occupational_expire_date"
-	// column name
-	DriverIdentitySelectColumnOccupationalIssuingAuthority DriverIdentitySelectColumn = "occupational_issuing_authority"
-	// column name
+	// 身份证号码                                      (                            )
+	DriverIdentitySelectColumnIDCardNum DriverIdentitySelectColumn = "id_card_num"
+	// 身份证出生日期                                  (                            )
+	DriverIdentitySelectColumnIDCardBirthday DriverIdentitySelectColumn = "id_card_birthday"
+	// 身份证签发机关                                  (                            )
+	DriverIdentitySelectColumnIDCardSignGovernment DriverIdentitySelectColumn = "id_card_sign_government"
+	// 身份证民族                                      (                            )
+	DriverIdentitySelectColumnIDCardNation DriverIdentitySelectColumn = "id_card_nation"
+	// 身份证有效起始日期                              (                            )
+	DriverIdentitySelectColumnIDCardStartDate DriverIdentitySelectColumn = "id_card_start_date"
+	// 身份证有效截止日期                              (                            )
+	DriverIdentitySelectColumnIDCardEndDate DriverIdentitySelectColumn = "id_card_end_date"
+	// 身份证正面照，云存储地址                        (                            )
+	DriverIdentitySelectColumnIDCardFrontPic DriverIdentitySelectColumn = "id_card_front_pic"
+	// 身份证背面照，云存储地址                        (                            )
+	DriverIdentitySelectColumnIDCardBackPic DriverIdentitySelectColumn = "id_card_back_pic"
+	// 身份证住址                                      (                            )
+	DriverIdentitySelectColumnIDCardAddress DriverIdentitySelectColumn = "id_card_address"
+	// 驾驶员手持身份证照片,云储存系统返回的路径       (                            )
+	DriverIdentitySelectColumnDriverHoldingIDPhoto DriverIdentitySelectColumn = "driver_holding_id_photo"
+	// 驾驶员的正面照,云储存系统返回的路径             (                            )
+	DriverIdentitySelectColumnDriverPhoto DriverIdentitySelectColumn = "driver_photo"
+	// 驾驶员签名,云储存系统返回的路径                 (                            )
+	DriverIdentitySelectColumnDriverSignature DriverIdentitySelectColumn = "driver_signature"
+	// 从业资格证号码                                  (                            )
 	DriverIdentitySelectColumnOccupationalNumber DriverIdentitySelectColumn = "occupational_number"
-	// column name
-	DriverIdentitySelectColumnQuasiDrivingModels DriverIdentitySelectColumn = "quasi_driving_models"
-	// column name
+	// 从业资格证有效期至                              (                            )
+	DriverIdentitySelectColumnOccupationalExpireDate DriverIdentitySelectColumn = "occupational_expire_date"
+	// 从业资格证发证机构                              (                            )
+	DriverIdentitySelectColumnOccupationalIssuingAuthority DriverIdentitySelectColumn = "occupational_issuing_authority"
+	// 劳动合同,云储存系统返回的完整劳动合同的图片路径 (                            )
+	DriverIdentitySelectColumnLaborContract DriverIdentitySelectColumn = "labor_contract"
+	// 驾驶员驾驶证,云储存系统返回的路径               (                            )
+	DriverIdentitySelectColumnDriverLicensePic DriverIdentitySelectColumn = "driver_license_pic"
+	// 驾驶证发证机关                                  (                            )
+	DriverIdentitySelectColumnDriverLicenseIssuingAuthority DriverIdentitySelectColumn = "driver_license_issuing_authority"
+	// 年审日期（六合一）                              (                            )
+	DriverIdentitySelectColumnAnnualReviewDate DriverIdentitySelectColumn = "annual_review_date"
+	// 换证日期（六合一）                              (                            )
 	DriverIdentitySelectColumnRenewalDate DriverIdentitySelectColumn = "renewal_date"
-	// column name
+	// 累计积分（六合一）                              (                            )
+	DriverIdentitySelectColumnAccumulativedPoints DriverIdentitySelectColumn = "accumulatived_points"
+	// 清分日期（六合一）                              (                            )
 	DriverIdentitySelectColumnSortingDate DriverIdentitySelectColumn = "sorting_date"
-	// column name
-	DriverIdentitySelectColumnUpdatedAt DriverIdentitySelectColumn = "updated_at"
-	// column name
-	DriverIdentitySelectColumnUpdatedBy DriverIdentitySelectColumn = "updated_by"
-	// column name
+	// 准驾车型（六合一）                              ( 准驾车型字典           )
+	DriverIdentitySelectColumnQuasiDrivingModels DriverIdentitySelectColumn = "quasi_driving_models"
+	// 驾驶证发证所在地的省份ID                        ( 省份表                     )
+	DriverIdentitySelectColumnDriverLicenseProvinceID DriverIdentitySelectColumn = "driver_license_province_id"
+	// 驾驶证发证所在地的城市ID                        ( 城市表                     )
+	DriverIdentitySelectColumnDriverLicenseCityID DriverIdentitySelectColumn = "driver_license_city_id"
+	// 驾驶证发证所在地的区域ID                        ( 区域表                     )
+	DriverIdentitySelectColumnDriverLicenseDistrictID DriverIdentitySelectColumn = "driver_license_district_id"
+	// 驾驶证状态                                      ( 驾驶证状态字典         )
+	DriverIdentitySelectColumnDriverLicenseStatus DriverIdentitySelectColumn = "driver_license_status"
+	// 驾驶证初次领证日期                              (                            )
+	DriverIdentitySelectColumnDriverLicenseIssueDate DriverIdentitySelectColumn = "driver_license_issue_date"
+	// 从业时间                                        (                            )
 	DriverIdentitySelectColumnWorkingTime DriverIdentitySelectColumn = "working_time"
+	// 是否审核                                        (                            )
+	DriverIdentitySelectColumnIsReview DriverIdentitySelectColumn = "is_review"
+	// 创建时间                                        (                            )
+	DriverIdentitySelectColumnCreatedAt DriverIdentitySelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	DriverIdentitySelectColumnCreatedBy DriverIdentitySelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	DriverIdentitySelectColumnUpdatedAt DriverIdentitySelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	DriverIdentitySelectColumnUpdatedBy DriverIdentitySelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	DriverIdentitySelectColumnDeletedAt DriverIdentitySelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	DriverIdentitySelectColumnDeletedBy DriverIdentitySelectColumn = "deleted_by"
+	// 是否删除                                        (                            )
+	DriverIdentitySelectColumnIsDeleted DriverIdentitySelectColumn = "is_deleted"
 )
 
 var AllDriverIdentitySelectColumn = []DriverIdentitySelectColumn{
-	DriverIdentitySelectColumnAccumulativedPoints,
-	DriverIdentitySelectColumnAnnualReviewDate,
-	DriverIdentitySelectColumnCreatedAt,
-	DriverIdentitySelectColumnCreatedBy,
-	DriverIdentitySelectColumnDeletedAt,
-	DriverIdentitySelectColumnDeletedBy,
-	DriverIdentitySelectColumnDriverHoldingIDPhoto,
-	DriverIdentitySelectColumnDriverLicenseCityID,
-	DriverIdentitySelectColumnDriverLicenseDistrictID,
-	DriverIdentitySelectColumnDriverLicenseIssueDate,
-	DriverIdentitySelectColumnDriverLicenseIssuingAuthority,
-	DriverIdentitySelectColumnDriverLicensePic,
-	DriverIdentitySelectColumnDriverLicenseProvinceID,
-	DriverIdentitySelectColumnDriverLicenseStatus,
-	DriverIdentitySelectColumnDriverPhoto,
-	DriverIdentitySelectColumnDriverSignature,
 	DriverIdentitySelectColumnID,
-	DriverIdentitySelectColumnIDCardAddress,
-	DriverIdentitySelectColumnIDCardBackPic,
+	DriverIdentitySelectColumnIdentityID,
+	DriverIdentitySelectColumnIDCardNum,
 	DriverIdentitySelectColumnIDCardBirthday,
+	DriverIdentitySelectColumnIDCardSignGovernment,
+	DriverIdentitySelectColumnIDCardNation,
+	DriverIdentitySelectColumnIDCardStartDate,
 	DriverIdentitySelectColumnIDCardEndDate,
 	DriverIdentitySelectColumnIDCardFrontPic,
-	DriverIdentitySelectColumnIDCardNation,
-	DriverIdentitySelectColumnIDCardNum,
-	DriverIdentitySelectColumnIDCardSignGovernment,
-	DriverIdentitySelectColumnIDCardStartDate,
-	DriverIdentitySelectColumnIdentityID,
-	DriverIdentitySelectColumnIsDelete,
-	DriverIdentitySelectColumnIsReview,
-	DriverIdentitySelectColumnLaborContract,
+	DriverIdentitySelectColumnIDCardBackPic,
+	DriverIdentitySelectColumnIDCardAddress,
+	DriverIdentitySelectColumnDriverHoldingIDPhoto,
+	DriverIdentitySelectColumnDriverPhoto,
+	DriverIdentitySelectColumnDriverSignature,
+	DriverIdentitySelectColumnOccupationalNumber,
 	DriverIdentitySelectColumnOccupationalExpireDate,
 	DriverIdentitySelectColumnOccupationalIssuingAuthority,
-	DriverIdentitySelectColumnOccupationalNumber,
-	DriverIdentitySelectColumnQuasiDrivingModels,
+	DriverIdentitySelectColumnLaborContract,
+	DriverIdentitySelectColumnDriverLicensePic,
+	DriverIdentitySelectColumnDriverLicenseIssuingAuthority,
+	DriverIdentitySelectColumnAnnualReviewDate,
 	DriverIdentitySelectColumnRenewalDate,
+	DriverIdentitySelectColumnAccumulativedPoints,
 	DriverIdentitySelectColumnSortingDate,
+	DriverIdentitySelectColumnQuasiDrivingModels,
+	DriverIdentitySelectColumnDriverLicenseProvinceID,
+	DriverIdentitySelectColumnDriverLicenseCityID,
+	DriverIdentitySelectColumnDriverLicenseDistrictID,
+	DriverIdentitySelectColumnDriverLicenseStatus,
+	DriverIdentitySelectColumnDriverLicenseIssueDate,
+	DriverIdentitySelectColumnWorkingTime,
+	DriverIdentitySelectColumnIsReview,
+	DriverIdentitySelectColumnCreatedAt,
+	DriverIdentitySelectColumnCreatedBy,
 	DriverIdentitySelectColumnUpdatedAt,
 	DriverIdentitySelectColumnUpdatedBy,
-	DriverIdentitySelectColumnWorkingTime,
+	DriverIdentitySelectColumnDeletedAt,
+	DriverIdentitySelectColumnDeletedBy,
+	DriverIdentitySelectColumnIsDeleted,
 }
 
 func (e DriverIdentitySelectColumn) IsValid() bool {
 	switch e {
-	case DriverIdentitySelectColumnAccumulativedPoints, DriverIdentitySelectColumnAnnualReviewDate, DriverIdentitySelectColumnCreatedAt, DriverIdentitySelectColumnCreatedBy, DriverIdentitySelectColumnDeletedAt, DriverIdentitySelectColumnDeletedBy, DriverIdentitySelectColumnDriverHoldingIDPhoto, DriverIdentitySelectColumnDriverLicenseCityID, DriverIdentitySelectColumnDriverLicenseDistrictID, DriverIdentitySelectColumnDriverLicenseIssueDate, DriverIdentitySelectColumnDriverLicenseIssuingAuthority, DriverIdentitySelectColumnDriverLicensePic, DriverIdentitySelectColumnDriverLicenseProvinceID, DriverIdentitySelectColumnDriverLicenseStatus, DriverIdentitySelectColumnDriverPhoto, DriverIdentitySelectColumnDriverSignature, DriverIdentitySelectColumnID, DriverIdentitySelectColumnIDCardAddress, DriverIdentitySelectColumnIDCardBackPic, DriverIdentitySelectColumnIDCardBirthday, DriverIdentitySelectColumnIDCardEndDate, DriverIdentitySelectColumnIDCardFrontPic, DriverIdentitySelectColumnIDCardNation, DriverIdentitySelectColumnIDCardNum, DriverIdentitySelectColumnIDCardSignGovernment, DriverIdentitySelectColumnIDCardStartDate, DriverIdentitySelectColumnIdentityID, DriverIdentitySelectColumnIsDelete, DriverIdentitySelectColumnIsReview, DriverIdentitySelectColumnLaborContract, DriverIdentitySelectColumnOccupationalExpireDate, DriverIdentitySelectColumnOccupationalIssuingAuthority, DriverIdentitySelectColumnOccupationalNumber, DriverIdentitySelectColumnQuasiDrivingModels, DriverIdentitySelectColumnRenewalDate, DriverIdentitySelectColumnSortingDate, DriverIdentitySelectColumnUpdatedAt, DriverIdentitySelectColumnUpdatedBy, DriverIdentitySelectColumnWorkingTime:
+	case DriverIdentitySelectColumnID, DriverIdentitySelectColumnIdentityID, DriverIdentitySelectColumnIDCardNum, DriverIdentitySelectColumnIDCardBirthday, DriverIdentitySelectColumnIDCardSignGovernment, DriverIdentitySelectColumnIDCardNation, DriverIdentitySelectColumnIDCardStartDate, DriverIdentitySelectColumnIDCardEndDate, DriverIdentitySelectColumnIDCardFrontPic, DriverIdentitySelectColumnIDCardBackPic, DriverIdentitySelectColumnIDCardAddress, DriverIdentitySelectColumnDriverHoldingIDPhoto, DriverIdentitySelectColumnDriverPhoto, DriverIdentitySelectColumnDriverSignature, DriverIdentitySelectColumnOccupationalNumber, DriverIdentitySelectColumnOccupationalExpireDate, DriverIdentitySelectColumnOccupationalIssuingAuthority, DriverIdentitySelectColumnLaborContract, DriverIdentitySelectColumnDriverLicensePic, DriverIdentitySelectColumnDriverLicenseIssuingAuthority, DriverIdentitySelectColumnAnnualReviewDate, DriverIdentitySelectColumnRenewalDate, DriverIdentitySelectColumnAccumulativedPoints, DriverIdentitySelectColumnSortingDate, DriverIdentitySelectColumnQuasiDrivingModels, DriverIdentitySelectColumnDriverLicenseProvinceID, DriverIdentitySelectColumnDriverLicenseCityID, DriverIdentitySelectColumnDriverLicenseDistrictID, DriverIdentitySelectColumnDriverLicenseStatus, DriverIdentitySelectColumnDriverLicenseIssueDate, DriverIdentitySelectColumnWorkingTime, DriverIdentitySelectColumnIsReview, DriverIdentitySelectColumnCreatedAt, DriverIdentitySelectColumnCreatedBy, DriverIdentitySelectColumnUpdatedAt, DriverIdentitySelectColumnUpdatedBy, DriverIdentitySelectColumnDeletedAt, DriverIdentitySelectColumnDeletedBy, DriverIdentitySelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -2255,7 +2029,7 @@ func (e *DriverIdentitySelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = DriverIdentitySelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_identity_select_column", str)
+		return fmt.Errorf("%s is not a valid DriverIdentitySelectColumn", str)
 	}
 	return nil
 }
@@ -2264,835 +2038,129 @@ func (e DriverIdentitySelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "driver_identity"
-type DriverIdentityUpdateColumn string
-
-const (
-	// column name
-	DriverIdentityUpdateColumnAccumulativedPoints DriverIdentityUpdateColumn = "accumulatived_points"
-	// column name
-	DriverIdentityUpdateColumnAnnualReviewDate DriverIdentityUpdateColumn = "annual_review_date"
-	// column name
-	DriverIdentityUpdateColumnCreatedAt DriverIdentityUpdateColumn = "created_at"
-	// column name
-	DriverIdentityUpdateColumnCreatedBy DriverIdentityUpdateColumn = "created_by"
-	// column name
-	DriverIdentityUpdateColumnDeletedAt DriverIdentityUpdateColumn = "deleted_at"
-	// column name
-	DriverIdentityUpdateColumnDeletedBy DriverIdentityUpdateColumn = "deleted_by"
-	// column name
-	DriverIdentityUpdateColumnDriverHoldingIDPhoto DriverIdentityUpdateColumn = "driver_holding_id_photo"
-	// column name
-	DriverIdentityUpdateColumnDriverLicenseCityID DriverIdentityUpdateColumn = "driver_license_city_id"
-	// column name
-	DriverIdentityUpdateColumnDriverLicenseDistrictID DriverIdentityUpdateColumn = "driver_license_district_id"
-	// column name
-	DriverIdentityUpdateColumnDriverLicenseIssueDate DriverIdentityUpdateColumn = "driver_license_issue_date"
-	// column name
-	DriverIdentityUpdateColumnDriverLicenseIssuingAuthority DriverIdentityUpdateColumn = "driver_license_issuing_authority"
-	// column name
-	DriverIdentityUpdateColumnDriverLicensePic DriverIdentityUpdateColumn = "driver_license_pic"
-	// column name
-	DriverIdentityUpdateColumnDriverLicenseProvinceID DriverIdentityUpdateColumn = "driver_license_province_id"
-	// column name
-	DriverIdentityUpdateColumnDriverLicenseStatus DriverIdentityUpdateColumn = "driver_license_status"
-	// column name
-	DriverIdentityUpdateColumnDriverPhoto DriverIdentityUpdateColumn = "driver_photo"
-	// column name
-	DriverIdentityUpdateColumnDriverSignature DriverIdentityUpdateColumn = "driver_signature"
-	// column name
-	DriverIdentityUpdateColumnID DriverIdentityUpdateColumn = "id"
-	// column name
-	DriverIdentityUpdateColumnIDCardAddress DriverIdentityUpdateColumn = "id_card_address"
-	// column name
-	DriverIdentityUpdateColumnIDCardBackPic DriverIdentityUpdateColumn = "id_card_back_pic"
-	// column name
-	DriverIdentityUpdateColumnIDCardBirthday DriverIdentityUpdateColumn = "id_card_birthday"
-	// column name
-	DriverIdentityUpdateColumnIDCardEndDate DriverIdentityUpdateColumn = "id_card_end_date"
-	// column name
-	DriverIdentityUpdateColumnIDCardFrontPic DriverIdentityUpdateColumn = "id_card_front_pic"
-	// column name
-	DriverIdentityUpdateColumnIDCardNation DriverIdentityUpdateColumn = "id_card_nation"
-	// column name
-	DriverIdentityUpdateColumnIDCardNum DriverIdentityUpdateColumn = "id_card_num"
-	// column name
-	DriverIdentityUpdateColumnIDCardSignGovernment DriverIdentityUpdateColumn = "id_card_sign_government"
-	// column name
-	DriverIdentityUpdateColumnIDCardStartDate DriverIdentityUpdateColumn = "id_card_start_date"
-	// column name
-	DriverIdentityUpdateColumnIdentityID DriverIdentityUpdateColumn = "identity_id"
-	// column name
-	DriverIdentityUpdateColumnIsDelete DriverIdentityUpdateColumn = "is_delete"
-	// column name
-	DriverIdentityUpdateColumnIsReview DriverIdentityUpdateColumn = "is_review"
-	// column name
-	DriverIdentityUpdateColumnLaborContract DriverIdentityUpdateColumn = "labor_contract"
-	// column name
-	DriverIdentityUpdateColumnOccupationalExpireDate DriverIdentityUpdateColumn = "occupational_expire_date"
-	// column name
-	DriverIdentityUpdateColumnOccupationalIssuingAuthority DriverIdentityUpdateColumn = "occupational_issuing_authority"
-	// column name
-	DriverIdentityUpdateColumnOccupationalNumber DriverIdentityUpdateColumn = "occupational_number"
-	// column name
-	DriverIdentityUpdateColumnQuasiDrivingModels DriverIdentityUpdateColumn = "quasi_driving_models"
-	// column name
-	DriverIdentityUpdateColumnRenewalDate DriverIdentityUpdateColumn = "renewal_date"
-	// column name
-	DriverIdentityUpdateColumnSortingDate DriverIdentityUpdateColumn = "sorting_date"
-	// column name
-	DriverIdentityUpdateColumnUpdatedAt DriverIdentityUpdateColumn = "updated_at"
-	// column name
-	DriverIdentityUpdateColumnUpdatedBy DriverIdentityUpdateColumn = "updated_by"
-	// column name
-	DriverIdentityUpdateColumnWorkingTime DriverIdentityUpdateColumn = "working_time"
-)
-
-var AllDriverIdentityUpdateColumn = []DriverIdentityUpdateColumn{
-	DriverIdentityUpdateColumnAccumulativedPoints,
-	DriverIdentityUpdateColumnAnnualReviewDate,
-	DriverIdentityUpdateColumnCreatedAt,
-	DriverIdentityUpdateColumnCreatedBy,
-	DriverIdentityUpdateColumnDeletedAt,
-	DriverIdentityUpdateColumnDeletedBy,
-	DriverIdentityUpdateColumnDriverHoldingIDPhoto,
-	DriverIdentityUpdateColumnDriverLicenseCityID,
-	DriverIdentityUpdateColumnDriverLicenseDistrictID,
-	DriverIdentityUpdateColumnDriverLicenseIssueDate,
-	DriverIdentityUpdateColumnDriverLicenseIssuingAuthority,
-	DriverIdentityUpdateColumnDriverLicensePic,
-	DriverIdentityUpdateColumnDriverLicenseProvinceID,
-	DriverIdentityUpdateColumnDriverLicenseStatus,
-	DriverIdentityUpdateColumnDriverPhoto,
-	DriverIdentityUpdateColumnDriverSignature,
-	DriverIdentityUpdateColumnID,
-	DriverIdentityUpdateColumnIDCardAddress,
-	DriverIdentityUpdateColumnIDCardBackPic,
-	DriverIdentityUpdateColumnIDCardBirthday,
-	DriverIdentityUpdateColumnIDCardEndDate,
-	DriverIdentityUpdateColumnIDCardFrontPic,
-	DriverIdentityUpdateColumnIDCardNation,
-	DriverIdentityUpdateColumnIDCardNum,
-	DriverIdentityUpdateColumnIDCardSignGovernment,
-	DriverIdentityUpdateColumnIDCardStartDate,
-	DriverIdentityUpdateColumnIdentityID,
-	DriverIdentityUpdateColumnIsDelete,
-	DriverIdentityUpdateColumnIsReview,
-	DriverIdentityUpdateColumnLaborContract,
-	DriverIdentityUpdateColumnOccupationalExpireDate,
-	DriverIdentityUpdateColumnOccupationalIssuingAuthority,
-	DriverIdentityUpdateColumnOccupationalNumber,
-	DriverIdentityUpdateColumnQuasiDrivingModels,
-	DriverIdentityUpdateColumnRenewalDate,
-	DriverIdentityUpdateColumnSortingDate,
-	DriverIdentityUpdateColumnUpdatedAt,
-	DriverIdentityUpdateColumnUpdatedBy,
-	DriverIdentityUpdateColumnWorkingTime,
-}
-
-func (e DriverIdentityUpdateColumn) IsValid() bool {
-	switch e {
-	case DriverIdentityUpdateColumnAccumulativedPoints, DriverIdentityUpdateColumnAnnualReviewDate, DriverIdentityUpdateColumnCreatedAt, DriverIdentityUpdateColumnCreatedBy, DriverIdentityUpdateColumnDeletedAt, DriverIdentityUpdateColumnDeletedBy, DriverIdentityUpdateColumnDriverHoldingIDPhoto, DriverIdentityUpdateColumnDriverLicenseCityID, DriverIdentityUpdateColumnDriverLicenseDistrictID, DriverIdentityUpdateColumnDriverLicenseIssueDate, DriverIdentityUpdateColumnDriverLicenseIssuingAuthority, DriverIdentityUpdateColumnDriverLicensePic, DriverIdentityUpdateColumnDriverLicenseProvinceID, DriverIdentityUpdateColumnDriverLicenseStatus, DriverIdentityUpdateColumnDriverPhoto, DriverIdentityUpdateColumnDriverSignature, DriverIdentityUpdateColumnID, DriverIdentityUpdateColumnIDCardAddress, DriverIdentityUpdateColumnIDCardBackPic, DriverIdentityUpdateColumnIDCardBirthday, DriverIdentityUpdateColumnIDCardEndDate, DriverIdentityUpdateColumnIDCardFrontPic, DriverIdentityUpdateColumnIDCardNation, DriverIdentityUpdateColumnIDCardNum, DriverIdentityUpdateColumnIDCardSignGovernment, DriverIdentityUpdateColumnIDCardStartDate, DriverIdentityUpdateColumnIdentityID, DriverIdentityUpdateColumnIsDelete, DriverIdentityUpdateColumnIsReview, DriverIdentityUpdateColumnLaborContract, DriverIdentityUpdateColumnOccupationalExpireDate, DriverIdentityUpdateColumnOccupationalIssuingAuthority, DriverIdentityUpdateColumnOccupationalNumber, DriverIdentityUpdateColumnQuasiDrivingModels, DriverIdentityUpdateColumnRenewalDate, DriverIdentityUpdateColumnSortingDate, DriverIdentityUpdateColumnUpdatedAt, DriverIdentityUpdateColumnUpdatedBy, DriverIdentityUpdateColumnWorkingTime:
-		return true
-	}
-	return false
-}
-
-func (e DriverIdentityUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *DriverIdentityUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DriverIdentityUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_identity_update_column", str)
-	}
-	return nil
-}
-
-func (e DriverIdentityUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "driver_info_change_log"
-type DriverInfoChangeLogConstraint string
-
-const (
-	// unique or primary key constraint
-	DriverInfoChangeLogConstraintDriverInfoChangeLogPkey DriverInfoChangeLogConstraint = "driver_info_change_log_pkey"
-)
-
-var AllDriverInfoChangeLogConstraint = []DriverInfoChangeLogConstraint{
-	DriverInfoChangeLogConstraintDriverInfoChangeLogPkey,
-}
-
-func (e DriverInfoChangeLogConstraint) IsValid() bool {
-	switch e {
-	case DriverInfoChangeLogConstraintDriverInfoChangeLogPkey:
-		return true
-	}
-	return false
-}
-
-func (e DriverInfoChangeLogConstraint) String() string {
-	return string(e)
-}
-
-func (e *DriverInfoChangeLogConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DriverInfoChangeLogConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_info_change_log_constraint", str)
-	}
-	return nil
-}
-
-func (e DriverInfoChangeLogConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "driver_info_change_log"
-type DriverInfoChangeLogSelectColumn string
-
-const (
-	// column name
-	DriverInfoChangeLogSelectColumnAccumulativedPoints DriverInfoChangeLogSelectColumn = "accumulatived_points"
-	// column name
-	DriverInfoChangeLogSelectColumnAgent DriverInfoChangeLogSelectColumn = "agent"
-	// column name
-	DriverInfoChangeLogSelectColumnAnnualReviewDate DriverInfoChangeLogSelectColumn = "annual_review_date"
-	// column name
-	DriverInfoChangeLogSelectColumnCheckAt DriverInfoChangeLogSelectColumn = "check_at"
-	// column name
-	DriverInfoChangeLogSelectColumnCheckBy DriverInfoChangeLogSelectColumn = "check_by"
-	// column name
-	DriverInfoChangeLogSelectColumnContactAddress DriverInfoChangeLogSelectColumn = "contact_address"
-	// column name
-	DriverInfoChangeLogSelectColumnCreatedAt DriverInfoChangeLogSelectColumn = "created_at"
-	// column name
-	DriverInfoChangeLogSelectColumnCreatedBy DriverInfoChangeLogSelectColumn = "created_by"
-	// column name
-	DriverInfoChangeLogSelectColumnDeletedAt DriverInfoChangeLogSelectColumn = "deleted_at"
-	// column name
-	DriverInfoChangeLogSelectColumnDeletedBy DriverInfoChangeLogSelectColumn = "deleted_by"
-	// column name
-	DriverInfoChangeLogSelectColumnDepartmentID DriverInfoChangeLogSelectColumn = "department_id"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverHoldingIDPhoto DriverInfoChangeLogSelectColumn = "driver_holding_id_photo"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverID DriverInfoChangeLogSelectColumn = "driver_id"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverInfoChangeLogID DriverInfoChangeLogSelectColumn = "driver_info_change_log_id"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverLicenseCityID DriverInfoChangeLogSelectColumn = "driver_license_city_id"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverLicenseDistrictID DriverInfoChangeLogSelectColumn = "driver_license_district_id"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverLicenseIssueDate DriverInfoChangeLogSelectColumn = "driver_license_issue_date"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverLicenseIssuingAuthority DriverInfoChangeLogSelectColumn = "driver_license_issuing_authority"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverLicensePic DriverInfoChangeLogSelectColumn = "driver_license_pic"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverLicenseProvinceID DriverInfoChangeLogSelectColumn = "driver_license_province_id"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverLicenseStatus DriverInfoChangeLogSelectColumn = "driver_license_status"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverName DriverInfoChangeLogSelectColumn = "driver_name"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverPhoto DriverInfoChangeLogSelectColumn = "driver_photo"
-	// column name
-	DriverInfoChangeLogSelectColumnDriverSignature DriverInfoChangeLogSelectColumn = "driver_signature"
-	// column name
-	DriverInfoChangeLogSelectColumnEnterpriseID DriverInfoChangeLogSelectColumn = "enterprise_id"
-	// column name
-	DriverInfoChangeLogSelectColumnFilesNumber DriverInfoChangeLogSelectColumn = "files_number"
-	// column name
-	DriverInfoChangeLogSelectColumnID DriverInfoChangeLogSelectColumn = "id"
-	// column name
-	DriverInfoChangeLogSelectColumnIDCardAddress DriverInfoChangeLogSelectColumn = "id_card_address"
-	// column name
-	DriverInfoChangeLogSelectColumnIDCardBackPic DriverInfoChangeLogSelectColumn = "id_card_back_pic"
-	// column name
-	DriverInfoChangeLogSelectColumnIDCardBirthday DriverInfoChangeLogSelectColumn = "id_card_birthday"
-	// column name
-	DriverInfoChangeLogSelectColumnIDCardEndDate DriverInfoChangeLogSelectColumn = "id_card_end_date"
-	// column name
-	DriverInfoChangeLogSelectColumnIDCardFrontPic DriverInfoChangeLogSelectColumn = "id_card_front_pic"
-	// column name
-	DriverInfoChangeLogSelectColumnIDCardNation DriverInfoChangeLogSelectColumn = "id_card_nation"
-	// column name
-	DriverInfoChangeLogSelectColumnIDCardNum DriverInfoChangeLogSelectColumn = "id_card_num"
-	// column name
-	DriverInfoChangeLogSelectColumnIDCardSignGovernment DriverInfoChangeLogSelectColumn = "id_card_sign_government"
-	// column name
-	DriverInfoChangeLogSelectColumnIDCardStartDate DriverInfoChangeLogSelectColumn = "id_card_start_date"
-	// column name
-	DriverInfoChangeLogSelectColumnInputAt DriverInfoChangeLogSelectColumn = "input_at"
-	// column name
-	DriverInfoChangeLogSelectColumnInputBy DriverInfoChangeLogSelectColumn = "input_by"
-	// column name
-	DriverInfoChangeLogSelectColumnIsBlack DriverInfoChangeLogSelectColumn = "is_black"
-	// column name
-	DriverInfoChangeLogSelectColumnIsCheckData DriverInfoChangeLogSelectColumn = "is_check_data"
-	// column name
-	DriverInfoChangeLogSelectColumnIsCheckSms DriverInfoChangeLogSelectColumn = "is_check_sms"
-	// column name
-	DriverInfoChangeLogSelectColumnIsDelete DriverInfoChangeLogSelectColumn = "is_delete"
-	// column name
-	DriverInfoChangeLogSelectColumnIsInput DriverInfoChangeLogSelectColumn = "is_input"
-	// column name
-	DriverInfoChangeLogSelectColumnIsManualInput DriverInfoChangeLogSelectColumn = "is_manual_input"
-	// column name
-	DriverInfoChangeLogSelectColumnIsReview DriverInfoChangeLogSelectColumn = "is_review"
-	// column name
-	DriverInfoChangeLogSelectColumnIsSubmit DriverInfoChangeLogSelectColumn = "is_submit"
-	// column name
-	DriverInfoChangeLogSelectColumnLaborContract DriverInfoChangeLogSelectColumn = "labor_contract"
-	// column name
-	DriverInfoChangeLogSelectColumnMailingAddress DriverInfoChangeLogSelectColumn = "mailing_address"
-	// column name
-	DriverInfoChangeLogSelectColumnOccupationalExpireDate DriverInfoChangeLogSelectColumn = "occupational_expire_date"
-	// column name
-	DriverInfoChangeLogSelectColumnOccupationalIssuingAuthority DriverInfoChangeLogSelectColumn = "occupational_issuing_authority"
-	// column name
-	DriverInfoChangeLogSelectColumnOccupationalNumber DriverInfoChangeLogSelectColumn = "occupational_number"
-	// column name
-	DriverInfoChangeLogSelectColumnOperator DriverInfoChangeLogSelectColumn = "operator"
-	// column name
-	DriverInfoChangeLogSelectColumnQuasiDrivingModels DriverInfoChangeLogSelectColumn = "quasi_driving_models"
-	// column name
-	DriverInfoChangeLogSelectColumnRemarkIn DriverInfoChangeLogSelectColumn = "remark_in"
-	// column name
-	DriverInfoChangeLogSelectColumnRemarks DriverInfoChangeLogSelectColumn = "remarks"
-	// column name
-	DriverInfoChangeLogSelectColumnRenewalDate DriverInfoChangeLogSelectColumn = "renewal_date"
-	// column name
-	DriverInfoChangeLogSelectColumnSex DriverInfoChangeLogSelectColumn = "sex"
-	// column name
-	DriverInfoChangeLogSelectColumnSortingDate DriverInfoChangeLogSelectColumn = "sorting_date"
-	// column name
-	DriverInfoChangeLogSelectColumnSubmitAt DriverInfoChangeLogSelectColumn = "submit_at"
-	// column name
-	DriverInfoChangeLogSelectColumnSubmitBy DriverInfoChangeLogSelectColumn = "submit_by"
-	// column name
-	DriverInfoChangeLogSelectColumnSubmitContent DriverInfoChangeLogSelectColumn = "submit_content"
-	// column name
-	DriverInfoChangeLogSelectColumnTelephone DriverInfoChangeLogSelectColumn = "telephone"
-	// column name
-	DriverInfoChangeLogSelectColumnUpdateTimeIn DriverInfoChangeLogSelectColumn = "update_time_in"
-	// column name
-	DriverInfoChangeLogSelectColumnUpdatedAt DriverInfoChangeLogSelectColumn = "updated_at"
-	// column name
-	DriverInfoChangeLogSelectColumnUpdatedBy DriverInfoChangeLogSelectColumn = "updated_by"
-	// column name
-	DriverInfoChangeLogSelectColumnWorkingTime DriverInfoChangeLogSelectColumn = "working_time"
-)
-
-var AllDriverInfoChangeLogSelectColumn = []DriverInfoChangeLogSelectColumn{
-	DriverInfoChangeLogSelectColumnAccumulativedPoints,
-	DriverInfoChangeLogSelectColumnAgent,
-	DriverInfoChangeLogSelectColumnAnnualReviewDate,
-	DriverInfoChangeLogSelectColumnCheckAt,
-	DriverInfoChangeLogSelectColumnCheckBy,
-	DriverInfoChangeLogSelectColumnContactAddress,
-	DriverInfoChangeLogSelectColumnCreatedAt,
-	DriverInfoChangeLogSelectColumnCreatedBy,
-	DriverInfoChangeLogSelectColumnDeletedAt,
-	DriverInfoChangeLogSelectColumnDeletedBy,
-	DriverInfoChangeLogSelectColumnDepartmentID,
-	DriverInfoChangeLogSelectColumnDriverHoldingIDPhoto,
-	DriverInfoChangeLogSelectColumnDriverID,
-	DriverInfoChangeLogSelectColumnDriverInfoChangeLogID,
-	DriverInfoChangeLogSelectColumnDriverLicenseCityID,
-	DriverInfoChangeLogSelectColumnDriverLicenseDistrictID,
-	DriverInfoChangeLogSelectColumnDriverLicenseIssueDate,
-	DriverInfoChangeLogSelectColumnDriverLicenseIssuingAuthority,
-	DriverInfoChangeLogSelectColumnDriverLicensePic,
-	DriverInfoChangeLogSelectColumnDriverLicenseProvinceID,
-	DriverInfoChangeLogSelectColumnDriverLicenseStatus,
-	DriverInfoChangeLogSelectColumnDriverName,
-	DriverInfoChangeLogSelectColumnDriverPhoto,
-	DriverInfoChangeLogSelectColumnDriverSignature,
-	DriverInfoChangeLogSelectColumnEnterpriseID,
-	DriverInfoChangeLogSelectColumnFilesNumber,
-	DriverInfoChangeLogSelectColumnID,
-	DriverInfoChangeLogSelectColumnIDCardAddress,
-	DriverInfoChangeLogSelectColumnIDCardBackPic,
-	DriverInfoChangeLogSelectColumnIDCardBirthday,
-	DriverInfoChangeLogSelectColumnIDCardEndDate,
-	DriverInfoChangeLogSelectColumnIDCardFrontPic,
-	DriverInfoChangeLogSelectColumnIDCardNation,
-	DriverInfoChangeLogSelectColumnIDCardNum,
-	DriverInfoChangeLogSelectColumnIDCardSignGovernment,
-	DriverInfoChangeLogSelectColumnIDCardStartDate,
-	DriverInfoChangeLogSelectColumnInputAt,
-	DriverInfoChangeLogSelectColumnInputBy,
-	DriverInfoChangeLogSelectColumnIsBlack,
-	DriverInfoChangeLogSelectColumnIsCheckData,
-	DriverInfoChangeLogSelectColumnIsCheckSms,
-	DriverInfoChangeLogSelectColumnIsDelete,
-	DriverInfoChangeLogSelectColumnIsInput,
-	DriverInfoChangeLogSelectColumnIsManualInput,
-	DriverInfoChangeLogSelectColumnIsReview,
-	DriverInfoChangeLogSelectColumnIsSubmit,
-	DriverInfoChangeLogSelectColumnLaborContract,
-	DriverInfoChangeLogSelectColumnMailingAddress,
-	DriverInfoChangeLogSelectColumnOccupationalExpireDate,
-	DriverInfoChangeLogSelectColumnOccupationalIssuingAuthority,
-	DriverInfoChangeLogSelectColumnOccupationalNumber,
-	DriverInfoChangeLogSelectColumnOperator,
-	DriverInfoChangeLogSelectColumnQuasiDrivingModels,
-	DriverInfoChangeLogSelectColumnRemarkIn,
-	DriverInfoChangeLogSelectColumnRemarks,
-	DriverInfoChangeLogSelectColumnRenewalDate,
-	DriverInfoChangeLogSelectColumnSex,
-	DriverInfoChangeLogSelectColumnSortingDate,
-	DriverInfoChangeLogSelectColumnSubmitAt,
-	DriverInfoChangeLogSelectColumnSubmitBy,
-	DriverInfoChangeLogSelectColumnSubmitContent,
-	DriverInfoChangeLogSelectColumnTelephone,
-	DriverInfoChangeLogSelectColumnUpdateTimeIn,
-	DriverInfoChangeLogSelectColumnUpdatedAt,
-	DriverInfoChangeLogSelectColumnUpdatedBy,
-	DriverInfoChangeLogSelectColumnWorkingTime,
-}
-
-func (e DriverInfoChangeLogSelectColumn) IsValid() bool {
-	switch e {
-	case DriverInfoChangeLogSelectColumnAccumulativedPoints, DriverInfoChangeLogSelectColumnAgent, DriverInfoChangeLogSelectColumnAnnualReviewDate, DriverInfoChangeLogSelectColumnCheckAt, DriverInfoChangeLogSelectColumnCheckBy, DriverInfoChangeLogSelectColumnContactAddress, DriverInfoChangeLogSelectColumnCreatedAt, DriverInfoChangeLogSelectColumnCreatedBy, DriverInfoChangeLogSelectColumnDeletedAt, DriverInfoChangeLogSelectColumnDeletedBy, DriverInfoChangeLogSelectColumnDepartmentID, DriverInfoChangeLogSelectColumnDriverHoldingIDPhoto, DriverInfoChangeLogSelectColumnDriverID, DriverInfoChangeLogSelectColumnDriverInfoChangeLogID, DriverInfoChangeLogSelectColumnDriverLicenseCityID, DriverInfoChangeLogSelectColumnDriverLicenseDistrictID, DriverInfoChangeLogSelectColumnDriverLicenseIssueDate, DriverInfoChangeLogSelectColumnDriverLicenseIssuingAuthority, DriverInfoChangeLogSelectColumnDriverLicensePic, DriverInfoChangeLogSelectColumnDriverLicenseProvinceID, DriverInfoChangeLogSelectColumnDriverLicenseStatus, DriverInfoChangeLogSelectColumnDriverName, DriverInfoChangeLogSelectColumnDriverPhoto, DriverInfoChangeLogSelectColumnDriverSignature, DriverInfoChangeLogSelectColumnEnterpriseID, DriverInfoChangeLogSelectColumnFilesNumber, DriverInfoChangeLogSelectColumnID, DriverInfoChangeLogSelectColumnIDCardAddress, DriverInfoChangeLogSelectColumnIDCardBackPic, DriverInfoChangeLogSelectColumnIDCardBirthday, DriverInfoChangeLogSelectColumnIDCardEndDate, DriverInfoChangeLogSelectColumnIDCardFrontPic, DriverInfoChangeLogSelectColumnIDCardNation, DriverInfoChangeLogSelectColumnIDCardNum, DriverInfoChangeLogSelectColumnIDCardSignGovernment, DriverInfoChangeLogSelectColumnIDCardStartDate, DriverInfoChangeLogSelectColumnInputAt, DriverInfoChangeLogSelectColumnInputBy, DriverInfoChangeLogSelectColumnIsBlack, DriverInfoChangeLogSelectColumnIsCheckData, DriverInfoChangeLogSelectColumnIsCheckSms, DriverInfoChangeLogSelectColumnIsDelete, DriverInfoChangeLogSelectColumnIsInput, DriverInfoChangeLogSelectColumnIsManualInput, DriverInfoChangeLogSelectColumnIsReview, DriverInfoChangeLogSelectColumnIsSubmit, DriverInfoChangeLogSelectColumnLaborContract, DriverInfoChangeLogSelectColumnMailingAddress, DriverInfoChangeLogSelectColumnOccupationalExpireDate, DriverInfoChangeLogSelectColumnOccupationalIssuingAuthority, DriverInfoChangeLogSelectColumnOccupationalNumber, DriverInfoChangeLogSelectColumnOperator, DriverInfoChangeLogSelectColumnQuasiDrivingModels, DriverInfoChangeLogSelectColumnRemarkIn, DriverInfoChangeLogSelectColumnRemarks, DriverInfoChangeLogSelectColumnRenewalDate, DriverInfoChangeLogSelectColumnSex, DriverInfoChangeLogSelectColumnSortingDate, DriverInfoChangeLogSelectColumnSubmitAt, DriverInfoChangeLogSelectColumnSubmitBy, DriverInfoChangeLogSelectColumnSubmitContent, DriverInfoChangeLogSelectColumnTelephone, DriverInfoChangeLogSelectColumnUpdateTimeIn, DriverInfoChangeLogSelectColumnUpdatedAt, DriverInfoChangeLogSelectColumnUpdatedBy, DriverInfoChangeLogSelectColumnWorkingTime:
-		return true
-	}
-	return false
-}
-
-func (e DriverInfoChangeLogSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *DriverInfoChangeLogSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DriverInfoChangeLogSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_info_change_log_select_column", str)
-	}
-	return nil
-}
-
-func (e DriverInfoChangeLogSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "driver_info_change_log"
-type DriverInfoChangeLogUpdateColumn string
-
-const (
-	// column name
-	DriverInfoChangeLogUpdateColumnAccumulativedPoints DriverInfoChangeLogUpdateColumn = "accumulatived_points"
-	// column name
-	DriverInfoChangeLogUpdateColumnAgent DriverInfoChangeLogUpdateColumn = "agent"
-	// column name
-	DriverInfoChangeLogUpdateColumnAnnualReviewDate DriverInfoChangeLogUpdateColumn = "annual_review_date"
-	// column name
-	DriverInfoChangeLogUpdateColumnCheckAt DriverInfoChangeLogUpdateColumn = "check_at"
-	// column name
-	DriverInfoChangeLogUpdateColumnCheckBy DriverInfoChangeLogUpdateColumn = "check_by"
-	// column name
-	DriverInfoChangeLogUpdateColumnContactAddress DriverInfoChangeLogUpdateColumn = "contact_address"
-	// column name
-	DriverInfoChangeLogUpdateColumnCreatedAt DriverInfoChangeLogUpdateColumn = "created_at"
-	// column name
-	DriverInfoChangeLogUpdateColumnCreatedBy DriverInfoChangeLogUpdateColumn = "created_by"
-	// column name
-	DriverInfoChangeLogUpdateColumnDeletedAt DriverInfoChangeLogUpdateColumn = "deleted_at"
-	// column name
-	DriverInfoChangeLogUpdateColumnDeletedBy DriverInfoChangeLogUpdateColumn = "deleted_by"
-	// column name
-	DriverInfoChangeLogUpdateColumnDepartmentID DriverInfoChangeLogUpdateColumn = "department_id"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverHoldingIDPhoto DriverInfoChangeLogUpdateColumn = "driver_holding_id_photo"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverID DriverInfoChangeLogUpdateColumn = "driver_id"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverInfoChangeLogID DriverInfoChangeLogUpdateColumn = "driver_info_change_log_id"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverLicenseCityID DriverInfoChangeLogUpdateColumn = "driver_license_city_id"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverLicenseDistrictID DriverInfoChangeLogUpdateColumn = "driver_license_district_id"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverLicenseIssueDate DriverInfoChangeLogUpdateColumn = "driver_license_issue_date"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverLicenseIssuingAuthority DriverInfoChangeLogUpdateColumn = "driver_license_issuing_authority"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverLicensePic DriverInfoChangeLogUpdateColumn = "driver_license_pic"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverLicenseProvinceID DriverInfoChangeLogUpdateColumn = "driver_license_province_id"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverLicenseStatus DriverInfoChangeLogUpdateColumn = "driver_license_status"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverName DriverInfoChangeLogUpdateColumn = "driver_name"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverPhoto DriverInfoChangeLogUpdateColumn = "driver_photo"
-	// column name
-	DriverInfoChangeLogUpdateColumnDriverSignature DriverInfoChangeLogUpdateColumn = "driver_signature"
-	// column name
-	DriverInfoChangeLogUpdateColumnEnterpriseID DriverInfoChangeLogUpdateColumn = "enterprise_id"
-	// column name
-	DriverInfoChangeLogUpdateColumnFilesNumber DriverInfoChangeLogUpdateColumn = "files_number"
-	// column name
-	DriverInfoChangeLogUpdateColumnID DriverInfoChangeLogUpdateColumn = "id"
-	// column name
-	DriverInfoChangeLogUpdateColumnIDCardAddress DriverInfoChangeLogUpdateColumn = "id_card_address"
-	// column name
-	DriverInfoChangeLogUpdateColumnIDCardBackPic DriverInfoChangeLogUpdateColumn = "id_card_back_pic"
-	// column name
-	DriverInfoChangeLogUpdateColumnIDCardBirthday DriverInfoChangeLogUpdateColumn = "id_card_birthday"
-	// column name
-	DriverInfoChangeLogUpdateColumnIDCardEndDate DriverInfoChangeLogUpdateColumn = "id_card_end_date"
-	// column name
-	DriverInfoChangeLogUpdateColumnIDCardFrontPic DriverInfoChangeLogUpdateColumn = "id_card_front_pic"
-	// column name
-	DriverInfoChangeLogUpdateColumnIDCardNation DriverInfoChangeLogUpdateColumn = "id_card_nation"
-	// column name
-	DriverInfoChangeLogUpdateColumnIDCardNum DriverInfoChangeLogUpdateColumn = "id_card_num"
-	// column name
-	DriverInfoChangeLogUpdateColumnIDCardSignGovernment DriverInfoChangeLogUpdateColumn = "id_card_sign_government"
-	// column name
-	DriverInfoChangeLogUpdateColumnIDCardStartDate DriverInfoChangeLogUpdateColumn = "id_card_start_date"
-	// column name
-	DriverInfoChangeLogUpdateColumnInputAt DriverInfoChangeLogUpdateColumn = "input_at"
-	// column name
-	DriverInfoChangeLogUpdateColumnInputBy DriverInfoChangeLogUpdateColumn = "input_by"
-	// column name
-	DriverInfoChangeLogUpdateColumnIsBlack DriverInfoChangeLogUpdateColumn = "is_black"
-	// column name
-	DriverInfoChangeLogUpdateColumnIsCheckData DriverInfoChangeLogUpdateColumn = "is_check_data"
-	// column name
-	DriverInfoChangeLogUpdateColumnIsCheckSms DriverInfoChangeLogUpdateColumn = "is_check_sms"
-	// column name
-	DriverInfoChangeLogUpdateColumnIsDelete DriverInfoChangeLogUpdateColumn = "is_delete"
-	// column name
-	DriverInfoChangeLogUpdateColumnIsInput DriverInfoChangeLogUpdateColumn = "is_input"
-	// column name
-	DriverInfoChangeLogUpdateColumnIsManualInput DriverInfoChangeLogUpdateColumn = "is_manual_input"
-	// column name
-	DriverInfoChangeLogUpdateColumnIsReview DriverInfoChangeLogUpdateColumn = "is_review"
-	// column name
-	DriverInfoChangeLogUpdateColumnIsSubmit DriverInfoChangeLogUpdateColumn = "is_submit"
-	// column name
-	DriverInfoChangeLogUpdateColumnLaborContract DriverInfoChangeLogUpdateColumn = "labor_contract"
-	// column name
-	DriverInfoChangeLogUpdateColumnMailingAddress DriverInfoChangeLogUpdateColumn = "mailing_address"
-	// column name
-	DriverInfoChangeLogUpdateColumnOccupationalExpireDate DriverInfoChangeLogUpdateColumn = "occupational_expire_date"
-	// column name
-	DriverInfoChangeLogUpdateColumnOccupationalIssuingAuthority DriverInfoChangeLogUpdateColumn = "occupational_issuing_authority"
-	// column name
-	DriverInfoChangeLogUpdateColumnOccupationalNumber DriverInfoChangeLogUpdateColumn = "occupational_number"
-	// column name
-	DriverInfoChangeLogUpdateColumnOperator DriverInfoChangeLogUpdateColumn = "operator"
-	// column name
-	DriverInfoChangeLogUpdateColumnQuasiDrivingModels DriverInfoChangeLogUpdateColumn = "quasi_driving_models"
-	// column name
-	DriverInfoChangeLogUpdateColumnRemarkIn DriverInfoChangeLogUpdateColumn = "remark_in"
-	// column name
-	DriverInfoChangeLogUpdateColumnRemarks DriverInfoChangeLogUpdateColumn = "remarks"
-	// column name
-	DriverInfoChangeLogUpdateColumnRenewalDate DriverInfoChangeLogUpdateColumn = "renewal_date"
-	// column name
-	DriverInfoChangeLogUpdateColumnSex DriverInfoChangeLogUpdateColumn = "sex"
-	// column name
-	DriverInfoChangeLogUpdateColumnSortingDate DriverInfoChangeLogUpdateColumn = "sorting_date"
-	// column name
-	DriverInfoChangeLogUpdateColumnSubmitAt DriverInfoChangeLogUpdateColumn = "submit_at"
-	// column name
-	DriverInfoChangeLogUpdateColumnSubmitBy DriverInfoChangeLogUpdateColumn = "submit_by"
-	// column name
-	DriverInfoChangeLogUpdateColumnSubmitContent DriverInfoChangeLogUpdateColumn = "submit_content"
-	// column name
-	DriverInfoChangeLogUpdateColumnTelephone DriverInfoChangeLogUpdateColumn = "telephone"
-	// column name
-	DriverInfoChangeLogUpdateColumnUpdateTimeIn DriverInfoChangeLogUpdateColumn = "update_time_in"
-	// column name
-	DriverInfoChangeLogUpdateColumnUpdatedAt DriverInfoChangeLogUpdateColumn = "updated_at"
-	// column name
-	DriverInfoChangeLogUpdateColumnUpdatedBy DriverInfoChangeLogUpdateColumn = "updated_by"
-	// column name
-	DriverInfoChangeLogUpdateColumnWorkingTime DriverInfoChangeLogUpdateColumn = "working_time"
-)
-
-var AllDriverInfoChangeLogUpdateColumn = []DriverInfoChangeLogUpdateColumn{
-	DriverInfoChangeLogUpdateColumnAccumulativedPoints,
-	DriverInfoChangeLogUpdateColumnAgent,
-	DriverInfoChangeLogUpdateColumnAnnualReviewDate,
-	DriverInfoChangeLogUpdateColumnCheckAt,
-	DriverInfoChangeLogUpdateColumnCheckBy,
-	DriverInfoChangeLogUpdateColumnContactAddress,
-	DriverInfoChangeLogUpdateColumnCreatedAt,
-	DriverInfoChangeLogUpdateColumnCreatedBy,
-	DriverInfoChangeLogUpdateColumnDeletedAt,
-	DriverInfoChangeLogUpdateColumnDeletedBy,
-	DriverInfoChangeLogUpdateColumnDepartmentID,
-	DriverInfoChangeLogUpdateColumnDriverHoldingIDPhoto,
-	DriverInfoChangeLogUpdateColumnDriverID,
-	DriverInfoChangeLogUpdateColumnDriverInfoChangeLogID,
-	DriverInfoChangeLogUpdateColumnDriverLicenseCityID,
-	DriverInfoChangeLogUpdateColumnDriverLicenseDistrictID,
-	DriverInfoChangeLogUpdateColumnDriverLicenseIssueDate,
-	DriverInfoChangeLogUpdateColumnDriverLicenseIssuingAuthority,
-	DriverInfoChangeLogUpdateColumnDriverLicensePic,
-	DriverInfoChangeLogUpdateColumnDriverLicenseProvinceID,
-	DriverInfoChangeLogUpdateColumnDriverLicenseStatus,
-	DriverInfoChangeLogUpdateColumnDriverName,
-	DriverInfoChangeLogUpdateColumnDriverPhoto,
-	DriverInfoChangeLogUpdateColumnDriverSignature,
-	DriverInfoChangeLogUpdateColumnEnterpriseID,
-	DriverInfoChangeLogUpdateColumnFilesNumber,
-	DriverInfoChangeLogUpdateColumnID,
-	DriverInfoChangeLogUpdateColumnIDCardAddress,
-	DriverInfoChangeLogUpdateColumnIDCardBackPic,
-	DriverInfoChangeLogUpdateColumnIDCardBirthday,
-	DriverInfoChangeLogUpdateColumnIDCardEndDate,
-	DriverInfoChangeLogUpdateColumnIDCardFrontPic,
-	DriverInfoChangeLogUpdateColumnIDCardNation,
-	DriverInfoChangeLogUpdateColumnIDCardNum,
-	DriverInfoChangeLogUpdateColumnIDCardSignGovernment,
-	DriverInfoChangeLogUpdateColumnIDCardStartDate,
-	DriverInfoChangeLogUpdateColumnInputAt,
-	DriverInfoChangeLogUpdateColumnInputBy,
-	DriverInfoChangeLogUpdateColumnIsBlack,
-	DriverInfoChangeLogUpdateColumnIsCheckData,
-	DriverInfoChangeLogUpdateColumnIsCheckSms,
-	DriverInfoChangeLogUpdateColumnIsDelete,
-	DriverInfoChangeLogUpdateColumnIsInput,
-	DriverInfoChangeLogUpdateColumnIsManualInput,
-	DriverInfoChangeLogUpdateColumnIsReview,
-	DriverInfoChangeLogUpdateColumnIsSubmit,
-	DriverInfoChangeLogUpdateColumnLaborContract,
-	DriverInfoChangeLogUpdateColumnMailingAddress,
-	DriverInfoChangeLogUpdateColumnOccupationalExpireDate,
-	DriverInfoChangeLogUpdateColumnOccupationalIssuingAuthority,
-	DriverInfoChangeLogUpdateColumnOccupationalNumber,
-	DriverInfoChangeLogUpdateColumnOperator,
-	DriverInfoChangeLogUpdateColumnQuasiDrivingModels,
-	DriverInfoChangeLogUpdateColumnRemarkIn,
-	DriverInfoChangeLogUpdateColumnRemarks,
-	DriverInfoChangeLogUpdateColumnRenewalDate,
-	DriverInfoChangeLogUpdateColumnSex,
-	DriverInfoChangeLogUpdateColumnSortingDate,
-	DriverInfoChangeLogUpdateColumnSubmitAt,
-	DriverInfoChangeLogUpdateColumnSubmitBy,
-	DriverInfoChangeLogUpdateColumnSubmitContent,
-	DriverInfoChangeLogUpdateColumnTelephone,
-	DriverInfoChangeLogUpdateColumnUpdateTimeIn,
-	DriverInfoChangeLogUpdateColumnUpdatedAt,
-	DriverInfoChangeLogUpdateColumnUpdatedBy,
-	DriverInfoChangeLogUpdateColumnWorkingTime,
-}
-
-func (e DriverInfoChangeLogUpdateColumn) IsValid() bool {
-	switch e {
-	case DriverInfoChangeLogUpdateColumnAccumulativedPoints, DriverInfoChangeLogUpdateColumnAgent, DriverInfoChangeLogUpdateColumnAnnualReviewDate, DriverInfoChangeLogUpdateColumnCheckAt, DriverInfoChangeLogUpdateColumnCheckBy, DriverInfoChangeLogUpdateColumnContactAddress, DriverInfoChangeLogUpdateColumnCreatedAt, DriverInfoChangeLogUpdateColumnCreatedBy, DriverInfoChangeLogUpdateColumnDeletedAt, DriverInfoChangeLogUpdateColumnDeletedBy, DriverInfoChangeLogUpdateColumnDepartmentID, DriverInfoChangeLogUpdateColumnDriverHoldingIDPhoto, DriverInfoChangeLogUpdateColumnDriverID, DriverInfoChangeLogUpdateColumnDriverInfoChangeLogID, DriverInfoChangeLogUpdateColumnDriverLicenseCityID, DriverInfoChangeLogUpdateColumnDriverLicenseDistrictID, DriverInfoChangeLogUpdateColumnDriverLicenseIssueDate, DriverInfoChangeLogUpdateColumnDriverLicenseIssuingAuthority, DriverInfoChangeLogUpdateColumnDriverLicensePic, DriverInfoChangeLogUpdateColumnDriverLicenseProvinceID, DriverInfoChangeLogUpdateColumnDriverLicenseStatus, DriverInfoChangeLogUpdateColumnDriverName, DriverInfoChangeLogUpdateColumnDriverPhoto, DriverInfoChangeLogUpdateColumnDriverSignature, DriverInfoChangeLogUpdateColumnEnterpriseID, DriverInfoChangeLogUpdateColumnFilesNumber, DriverInfoChangeLogUpdateColumnID, DriverInfoChangeLogUpdateColumnIDCardAddress, DriverInfoChangeLogUpdateColumnIDCardBackPic, DriverInfoChangeLogUpdateColumnIDCardBirthday, DriverInfoChangeLogUpdateColumnIDCardEndDate, DriverInfoChangeLogUpdateColumnIDCardFrontPic, DriverInfoChangeLogUpdateColumnIDCardNation, DriverInfoChangeLogUpdateColumnIDCardNum, DriverInfoChangeLogUpdateColumnIDCardSignGovernment, DriverInfoChangeLogUpdateColumnIDCardStartDate, DriverInfoChangeLogUpdateColumnInputAt, DriverInfoChangeLogUpdateColumnInputBy, DriverInfoChangeLogUpdateColumnIsBlack, DriverInfoChangeLogUpdateColumnIsCheckData, DriverInfoChangeLogUpdateColumnIsCheckSms, DriverInfoChangeLogUpdateColumnIsDelete, DriverInfoChangeLogUpdateColumnIsInput, DriverInfoChangeLogUpdateColumnIsManualInput, DriverInfoChangeLogUpdateColumnIsReview, DriverInfoChangeLogUpdateColumnIsSubmit, DriverInfoChangeLogUpdateColumnLaborContract, DriverInfoChangeLogUpdateColumnMailingAddress, DriverInfoChangeLogUpdateColumnOccupationalExpireDate, DriverInfoChangeLogUpdateColumnOccupationalIssuingAuthority, DriverInfoChangeLogUpdateColumnOccupationalNumber, DriverInfoChangeLogUpdateColumnOperator, DriverInfoChangeLogUpdateColumnQuasiDrivingModels, DriverInfoChangeLogUpdateColumnRemarkIn, DriverInfoChangeLogUpdateColumnRemarks, DriverInfoChangeLogUpdateColumnRenewalDate, DriverInfoChangeLogUpdateColumnSex, DriverInfoChangeLogUpdateColumnSortingDate, DriverInfoChangeLogUpdateColumnSubmitAt, DriverInfoChangeLogUpdateColumnSubmitBy, DriverInfoChangeLogUpdateColumnSubmitContent, DriverInfoChangeLogUpdateColumnTelephone, DriverInfoChangeLogUpdateColumnUpdateTimeIn, DriverInfoChangeLogUpdateColumnUpdatedAt, DriverInfoChangeLogUpdateColumnUpdatedBy, DriverInfoChangeLogUpdateColumnWorkingTime:
-		return true
-	}
-	return false
-}
-
-func (e DriverInfoChangeLogUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *DriverInfoChangeLogUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DriverInfoChangeLogUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_info_change_log_update_column", str)
-	}
-	return nil
-}
-
-func (e DriverInfoChangeLogUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "driver_info"
-type DriverInfoConstraint string
-
-const (
-	// unique or primary key constraint
-	DriverInfoConstraintDriverInfoPkey DriverInfoConstraint = "driver_info_pkey"
-)
-
-var AllDriverInfoConstraint = []DriverInfoConstraint{
-	DriverInfoConstraintDriverInfoPkey,
-}
-
-func (e DriverInfoConstraint) IsValid() bool {
-	switch e {
-	case DriverInfoConstraintDriverInfoPkey:
-		return true
-	}
-	return false
-}
-
-func (e DriverInfoConstraint) String() string {
-	return string(e)
-}
-
-func (e *DriverInfoConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DriverInfoConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_info_constraint", str)
-	}
-	return nil
-}
-
-func (e DriverInfoConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "driver_info"
+// 可选select
 type DriverInfoSelectColumn string
 
 const (
-	// column name
-	DriverInfoSelectColumnAgent DriverInfoSelectColumn = "agent"
-	// column name
-	DriverInfoSelectColumnCheckAt DriverInfoSelectColumn = "check_at"
-	// column name
-	DriverInfoSelectColumnCheckBy DriverInfoSelectColumn = "check_by"
-	// column name
-	DriverInfoSelectColumnContactAddress DriverInfoSelectColumn = "contact_address"
-	// column name
-	DriverInfoSelectColumnCreatedAt DriverInfoSelectColumn = "created_at"
-	// column name
-	DriverInfoSelectColumnCreatedBy DriverInfoSelectColumn = "created_by"
-	// column name
-	DriverInfoSelectColumnDeletedAt DriverInfoSelectColumn = "deleted_at"
-	// column name
-	DriverInfoSelectColumnDeletedBy DriverInfoSelectColumn = "deleted_by"
-	// column name
-	DriverInfoSelectColumnDepartmentID DriverInfoSelectColumn = "department_id"
-	// column name
-	DriverInfoSelectColumnDriverID DriverInfoSelectColumn = "driver_id"
-	// column name
-	DriverInfoSelectColumnDriverIdentityID DriverInfoSelectColumn = "driver_identity_id"
-	// column name
-	DriverInfoSelectColumnDriverName DriverInfoSelectColumn = "driver_name"
-	// column name
-	DriverInfoSelectColumnEnterpriseID DriverInfoSelectColumn = "enterprise_id"
-	// column name
-	DriverInfoSelectColumnFilesNumber DriverInfoSelectColumn = "files_number"
-	// column name
+	// 按指定方法生成                                  ( 主键                                                         )
 	DriverInfoSelectColumnID DriverInfoSelectColumn = "id"
-	// column name
-	DriverInfoSelectColumnInputAt DriverInfoSelectColumn = "input_at"
-	// column name
-	DriverInfoSelectColumnInputBy DriverInfoSelectColumn = "input_by"
-	// column name
-	DriverInfoSelectColumnIsBlack DriverInfoSelectColumn = "is_black"
-	// column name
-	DriverInfoSelectColumnIsCheckData DriverInfoSelectColumn = "is_check_data"
-	// column name
-	DriverInfoSelectColumnIsCheckSms DriverInfoSelectColumn = "is_check_sms"
-	// column name
-	DriverInfoSelectColumnIsDelete DriverInfoSelectColumn = "is_delete"
-	// column name
-	DriverInfoSelectColumnIsInput DriverInfoSelectColumn = "is_input"
-	// column name
-	DriverInfoSelectColumnIsManualInput DriverInfoSelectColumn = "is_manual_input"
-	// column name
-	DriverInfoSelectColumnIsSubmit DriverInfoSelectColumn = "is_submit"
-	// column name
-	DriverInfoSelectColumnMailingAddress DriverInfoSelectColumn = "mailing_address"
-	// column name
-	DriverInfoSelectColumnOperator DriverInfoSelectColumn = "operator"
-	// column name
-	DriverInfoSelectColumnRemarkIn DriverInfoSelectColumn = "remark_in"
-	// column name
-	DriverInfoSelectColumnRemarks DriverInfoSelectColumn = "remarks"
-	// column name
-	DriverInfoSelectColumnSex DriverInfoSelectColumn = "sex"
-	// column name
-	DriverInfoSelectColumnSubmitAt DriverInfoSelectColumn = "submit_at"
-	// column name
-	DriverInfoSelectColumnSubmitBy DriverInfoSelectColumn = "submit_by"
-	// column name
-	DriverInfoSelectColumnSubmitContent DriverInfoSelectColumn = "submit_content"
-	// column name
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
+	DriverInfoSelectColumnDriverID DriverInfoSelectColumn = "driver_id"
+	// 所在企业id                                      ( enterprise_info表的enterprise_id                         )
+	DriverInfoSelectColumnEnterpriseID DriverInfoSelectColumn = "enterprise_id"
+	// 所在部门id                                      ( department 部门信息表                                    )
+	DriverInfoSelectColumnDepartmentID DriverInfoSelectColumn = "department_id"
+	// 驾驶员身份验证信息ID                            ( driver_identity表的driver_identity_id                    )
+	DriverInfoSelectColumnDriverIdentityID DriverInfoSelectColumn = "driver_identity_id"
+	// 驾驶员姓名                                      (                                                              )
+	DriverInfoSelectColumnDriverName DriverInfoSelectColumn = "driver_name"
+	// 手机号码                                        (                                                              )
 	DriverInfoSelectColumnTelephone DriverInfoSelectColumn = "telephone"
-	// column name
+	// 性别                                            ( 性别字典                                                 )
+	DriverInfoSelectColumnSex DriverInfoSelectColumn = "sex"
+	// 档案编号(后6位)                                 (                                                              )
+	DriverInfoSelectColumnFilesNumber DriverInfoSelectColumn = "files_number"
+	// 联系地址                                        (                                                              )
+	DriverInfoSelectColumnContactAddress DriverInfoSelectColumn = "contact_address"
+	// 邮寄地址                                        (                                                              )
+	DriverInfoSelectColumnMailingAddress DriverInfoSelectColumn = "mailing_address"
+	// 是否提交                                        ( 用于标志驾驶员资料是否处于确定状态。未确定状态的驾驶员信息在系统上除驾驶员管理外的功能中都查不到。 )
+	DriverInfoSelectColumnIsSubmit DriverInfoSelectColumn = "is_submit"
+	// 提交内容                                        (                                                              )
+	DriverInfoSelectColumnSubmitContent DriverInfoSelectColumn = "submit_content"
+	// 提交时间                                        (                                                              )
+	DriverInfoSelectColumnSubmitAt DriverInfoSelectColumn = "submit_at"
+	// 提交人                                          ( system_user表的user_id                                       )
+	DriverInfoSelectColumnSubmitBy DriverInfoSelectColumn = "submit_by"
+	// 是否手动录入                                    ( 驾驶员资料分为使用身份证读卡器读取身份证自动录入资料和手动填写资料 )
+	DriverInfoSelectColumnIsManualInput DriverInfoSelectColumn = "is_manual_input"
+	// 是否录入                                        (                                                              )
+	DriverInfoSelectColumnIsInput DriverInfoSelectColumn = "is_input"
+	// 录入时间                                        (                                                              )
+	DriverInfoSelectColumnInputAt DriverInfoSelectColumn = "input_at"
+	// 录入人                                          ( system_user表的user_id                                   )
+	DriverInfoSelectColumnInputBy DriverInfoSelectColumn = "input_by"
+	// 是否校验数据                                    ( 该字段代表是否用于校验驾驶员信息，未正式录入系统，但会同步到公安内容，用于查询驾驶员的违章数据。 )
+	DriverInfoSelectColumnIsCheckData DriverInfoSelectColumn = "is_check_data"
+	// 检验时间                                        (                                                              )
+	DriverInfoSelectColumnCheckAt DriverInfoSelectColumn = "check_at"
+	// 校验人                                          ( system_user表的user_id                                   )
+	DriverInfoSelectColumnCheckBy DriverInfoSelectColumn = "check_by"
+	// 驾驶员信息同步内网反馈信息                      ( 驾驶员信息同步内网反馈信息。驾驶员信息同步到公安内网后内网的反馈内容，如档案编号填写错误会反馈档案编号后六位不正确 )
+	DriverInfoSelectColumnRemarkIn DriverInfoSelectColumn = "remark_in"
+	// 内网更新时间                                    (                                                              )
 	DriverInfoSelectColumnUpdateTimeIn DriverInfoSelectColumn = "update_time_in"
-	// column name
+	// 是否通过短信验证                                (                                                              )
+	DriverInfoSelectColumnIsCheckSms DriverInfoSelectColumn = "is_check_sms"
+	// 备注                                            (                                                              )
+	DriverInfoSelectColumnRemarks DriverInfoSelectColumn = "remarks"
+	// 是否删除                                        (                                                              )
+	DriverInfoSelectColumnIsDeleted DriverInfoSelectColumn = "is_deleted"
+	// 代理商                                          ( enterprise_info表的enterprise_id                         )
+	DriverInfoSelectColumnAgent DriverInfoSelectColumn = "agent"
+	// 运营商                                          ( enterprise_info表的enterprise_id                         )
+	DriverInfoSelectColumnOperator DriverInfoSelectColumn = "operator"
+	// 是否黑名单                                      ( false                                                        )
+	DriverInfoSelectColumnIsBlacklist DriverInfoSelectColumn = "is_blacklist"
+	// 黑名单截止日期                                  (                                                              )
+	DriverInfoSelectColumnBlacklistDeadline DriverInfoSelectColumn = "blacklist_deadline"
+	// 创建时间                                        (                                                              )
+	DriverInfoSelectColumnCreatedAt DriverInfoSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id                                   )
+	DriverInfoSelectColumnCreatedBy DriverInfoSelectColumn = "created_by"
+	// 修改时间                                        (                                                              )
 	DriverInfoSelectColumnUpdatedAt DriverInfoSelectColumn = "updated_at"
-	// column name
+	// 修改人                                          ( system_user表的user_id                                   )
 	DriverInfoSelectColumnUpdatedBy DriverInfoSelectColumn = "updated_by"
+	// 删除时间                                        (                                                              )
+	DriverInfoSelectColumnDeletedAt DriverInfoSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id                                   )
+	DriverInfoSelectColumnDeletedBy DriverInfoSelectColumn = "deleted_by"
 )
 
 var AllDriverInfoSelectColumn = []DriverInfoSelectColumn{
-	DriverInfoSelectColumnAgent,
-	DriverInfoSelectColumnCheckAt,
-	DriverInfoSelectColumnCheckBy,
-	DriverInfoSelectColumnContactAddress,
-	DriverInfoSelectColumnCreatedAt,
-	DriverInfoSelectColumnCreatedBy,
-	DriverInfoSelectColumnDeletedAt,
-	DriverInfoSelectColumnDeletedBy,
-	DriverInfoSelectColumnDepartmentID,
+	DriverInfoSelectColumnID,
 	DriverInfoSelectColumnDriverID,
+	DriverInfoSelectColumnEnterpriseID,
+	DriverInfoSelectColumnDepartmentID,
 	DriverInfoSelectColumnDriverIdentityID,
 	DriverInfoSelectColumnDriverName,
-	DriverInfoSelectColumnEnterpriseID,
-	DriverInfoSelectColumnFilesNumber,
-	DriverInfoSelectColumnID,
-	DriverInfoSelectColumnInputAt,
-	DriverInfoSelectColumnInputBy,
-	DriverInfoSelectColumnIsBlack,
-	DriverInfoSelectColumnIsCheckData,
-	DriverInfoSelectColumnIsCheckSms,
-	DriverInfoSelectColumnIsDelete,
-	DriverInfoSelectColumnIsInput,
-	DriverInfoSelectColumnIsManualInput,
-	DriverInfoSelectColumnIsSubmit,
-	DriverInfoSelectColumnMailingAddress,
-	DriverInfoSelectColumnOperator,
-	DriverInfoSelectColumnRemarkIn,
-	DriverInfoSelectColumnRemarks,
+	DriverInfoSelectColumnTelephone,
 	DriverInfoSelectColumnSex,
+	DriverInfoSelectColumnFilesNumber,
+	DriverInfoSelectColumnContactAddress,
+	DriverInfoSelectColumnMailingAddress,
+	DriverInfoSelectColumnIsSubmit,
+	DriverInfoSelectColumnSubmitContent,
 	DriverInfoSelectColumnSubmitAt,
 	DriverInfoSelectColumnSubmitBy,
-	DriverInfoSelectColumnSubmitContent,
-	DriverInfoSelectColumnTelephone,
+	DriverInfoSelectColumnIsManualInput,
+	DriverInfoSelectColumnIsInput,
+	DriverInfoSelectColumnInputAt,
+	DriverInfoSelectColumnInputBy,
+	DriverInfoSelectColumnIsCheckData,
+	DriverInfoSelectColumnCheckAt,
+	DriverInfoSelectColumnCheckBy,
+	DriverInfoSelectColumnRemarkIn,
 	DriverInfoSelectColumnUpdateTimeIn,
+	DriverInfoSelectColumnIsCheckSms,
+	DriverInfoSelectColumnRemarks,
+	DriverInfoSelectColumnIsDeleted,
+	DriverInfoSelectColumnAgent,
+	DriverInfoSelectColumnOperator,
+	DriverInfoSelectColumnIsBlacklist,
+	DriverInfoSelectColumnBlacklistDeadline,
+	DriverInfoSelectColumnCreatedAt,
+	DriverInfoSelectColumnCreatedBy,
 	DriverInfoSelectColumnUpdatedAt,
 	DriverInfoSelectColumnUpdatedBy,
+	DriverInfoSelectColumnDeletedAt,
+	DriverInfoSelectColumnDeletedBy,
 }
 
 func (e DriverInfoSelectColumn) IsValid() bool {
 	switch e {
-	case DriverInfoSelectColumnAgent, DriverInfoSelectColumnCheckAt, DriverInfoSelectColumnCheckBy, DriverInfoSelectColumnContactAddress, DriverInfoSelectColumnCreatedAt, DriverInfoSelectColumnCreatedBy, DriverInfoSelectColumnDeletedAt, DriverInfoSelectColumnDeletedBy, DriverInfoSelectColumnDepartmentID, DriverInfoSelectColumnDriverID, DriverInfoSelectColumnDriverIdentityID, DriverInfoSelectColumnDriverName, DriverInfoSelectColumnEnterpriseID, DriverInfoSelectColumnFilesNumber, DriverInfoSelectColumnID, DriverInfoSelectColumnInputAt, DriverInfoSelectColumnInputBy, DriverInfoSelectColumnIsBlack, DriverInfoSelectColumnIsCheckData, DriverInfoSelectColumnIsCheckSms, DriverInfoSelectColumnIsDelete, DriverInfoSelectColumnIsInput, DriverInfoSelectColumnIsManualInput, DriverInfoSelectColumnIsSubmit, DriverInfoSelectColumnMailingAddress, DriverInfoSelectColumnOperator, DriverInfoSelectColumnRemarkIn, DriverInfoSelectColumnRemarks, DriverInfoSelectColumnSex, DriverInfoSelectColumnSubmitAt, DriverInfoSelectColumnSubmitBy, DriverInfoSelectColumnSubmitContent, DriverInfoSelectColumnTelephone, DriverInfoSelectColumnUpdateTimeIn, DriverInfoSelectColumnUpdatedAt, DriverInfoSelectColumnUpdatedBy:
+	case DriverInfoSelectColumnID, DriverInfoSelectColumnDriverID, DriverInfoSelectColumnEnterpriseID, DriverInfoSelectColumnDepartmentID, DriverInfoSelectColumnDriverIdentityID, DriverInfoSelectColumnDriverName, DriverInfoSelectColumnTelephone, DriverInfoSelectColumnSex, DriverInfoSelectColumnFilesNumber, DriverInfoSelectColumnContactAddress, DriverInfoSelectColumnMailingAddress, DriverInfoSelectColumnIsSubmit, DriverInfoSelectColumnSubmitContent, DriverInfoSelectColumnSubmitAt, DriverInfoSelectColumnSubmitBy, DriverInfoSelectColumnIsManualInput, DriverInfoSelectColumnIsInput, DriverInfoSelectColumnInputAt, DriverInfoSelectColumnInputBy, DriverInfoSelectColumnIsCheckData, DriverInfoSelectColumnCheckAt, DriverInfoSelectColumnCheckBy, DriverInfoSelectColumnRemarkIn, DriverInfoSelectColumnUpdateTimeIn, DriverInfoSelectColumnIsCheckSms, DriverInfoSelectColumnRemarks, DriverInfoSelectColumnIsDeleted, DriverInfoSelectColumnAgent, DriverInfoSelectColumnOperator, DriverInfoSelectColumnIsBlacklist, DriverInfoSelectColumnBlacklistDeadline, DriverInfoSelectColumnCreatedAt, DriverInfoSelectColumnCreatedBy, DriverInfoSelectColumnUpdatedAt, DriverInfoSelectColumnUpdatedBy, DriverInfoSelectColumnDeletedAt, DriverInfoSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -3110,7 +2178,7 @@ func (e *DriverInfoSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = DriverInfoSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_info_select_column", str)
+		return fmt.Errorf("%s is not a valid DriverInfoSelectColumn", str)
 	}
 	return nil
 }
@@ -3119,343 +2187,97 @@ func (e DriverInfoSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "driver_info"
-type DriverInfoUpdateColumn string
+// 可选select
+type DrivingLicenseRegistrationInspectionSelectColumn string
 
 const (
-	// column name
-	DriverInfoUpdateColumnAgent DriverInfoUpdateColumn = "agent"
-	// column name
-	DriverInfoUpdateColumnCheckAt DriverInfoUpdateColumn = "check_at"
-	// column name
-	DriverInfoUpdateColumnCheckBy DriverInfoUpdateColumn = "check_by"
-	// column name
-	DriverInfoUpdateColumnContactAddress DriverInfoUpdateColumn = "contact_address"
-	// column name
-	DriverInfoUpdateColumnCreatedAt DriverInfoUpdateColumn = "created_at"
-	// column name
-	DriverInfoUpdateColumnCreatedBy DriverInfoUpdateColumn = "created_by"
-	// column name
-	DriverInfoUpdateColumnDeletedAt DriverInfoUpdateColumn = "deleted_at"
-	// column name
-	DriverInfoUpdateColumnDeletedBy DriverInfoUpdateColumn = "deleted_by"
-	// column name
-	DriverInfoUpdateColumnDepartmentID DriverInfoUpdateColumn = "department_id"
-	// column name
-	DriverInfoUpdateColumnDriverID DriverInfoUpdateColumn = "driver_id"
-	// column name
-	DriverInfoUpdateColumnDriverIdentityID DriverInfoUpdateColumn = "driver_identity_id"
-	// column name
-	DriverInfoUpdateColumnDriverName DriverInfoUpdateColumn = "driver_name"
-	// column name
-	DriverInfoUpdateColumnEnterpriseID DriverInfoUpdateColumn = "enterprise_id"
-	// column name
-	DriverInfoUpdateColumnFilesNumber DriverInfoUpdateColumn = "files_number"
-	// column name
-	DriverInfoUpdateColumnID DriverInfoUpdateColumn = "id"
-	// column name
-	DriverInfoUpdateColumnInputAt DriverInfoUpdateColumn = "input_at"
-	// column name
-	DriverInfoUpdateColumnInputBy DriverInfoUpdateColumn = "input_by"
-	// column name
-	DriverInfoUpdateColumnIsBlack DriverInfoUpdateColumn = "is_black"
-	// column name
-	DriverInfoUpdateColumnIsCheckData DriverInfoUpdateColumn = "is_check_data"
-	// column name
-	DriverInfoUpdateColumnIsCheckSms DriverInfoUpdateColumn = "is_check_sms"
-	// column name
-	DriverInfoUpdateColumnIsDelete DriverInfoUpdateColumn = "is_delete"
-	// column name
-	DriverInfoUpdateColumnIsInput DriverInfoUpdateColumn = "is_input"
-	// column name
-	DriverInfoUpdateColumnIsManualInput DriverInfoUpdateColumn = "is_manual_input"
-	// column name
-	DriverInfoUpdateColumnIsSubmit DriverInfoUpdateColumn = "is_submit"
-	// column name
-	DriverInfoUpdateColumnMailingAddress DriverInfoUpdateColumn = "mailing_address"
-	// column name
-	DriverInfoUpdateColumnOperator DriverInfoUpdateColumn = "operator"
-	// column name
-	DriverInfoUpdateColumnRemarkIn DriverInfoUpdateColumn = "remark_in"
-	// column name
-	DriverInfoUpdateColumnRemarks DriverInfoUpdateColumn = "remarks"
-	// column name
-	DriverInfoUpdateColumnSex DriverInfoUpdateColumn = "sex"
-	// column name
-	DriverInfoUpdateColumnSubmitAt DriverInfoUpdateColumn = "submit_at"
-	// column name
-	DriverInfoUpdateColumnSubmitBy DriverInfoUpdateColumn = "submit_by"
-	// column name
-	DriverInfoUpdateColumnSubmitContent DriverInfoUpdateColumn = "submit_content"
-	// column name
-	DriverInfoUpdateColumnTelephone DriverInfoUpdateColumn = "telephone"
-	// column name
-	DriverInfoUpdateColumnUpdateTimeIn DriverInfoUpdateColumn = "update_time_in"
-	// column name
-	DriverInfoUpdateColumnUpdatedAt DriverInfoUpdateColumn = "updated_at"
-	// column name
-	DriverInfoUpdateColumnUpdatedBy DriverInfoUpdateColumn = "updated_by"
+	// 按指定方法生成                                  ( 主键                       )
+	DrivingLicenseRegistrationInspectionSelectColumnID DrivingLicenseRegistrationInspectionSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	DrivingLicenseRegistrationInspectionSelectColumnDriverIDInfoReportID DrivingLicenseRegistrationInspectionSelectColumn = "driver_id_info_report_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnVehicleID DrivingLicenseRegistrationInspectionSelectColumn = "vehicle_id"
+	// IC状态(从业资格证IC卡插入,从业资格证IC卡拔出)   ( 从业资格证IC卡字典     )
+	DrivingLicenseRegistrationInspectionSelectColumnIcCardStatus DrivingLicenseRegistrationInspectionSelectColumn = "ic_card_status"
+	// 操作时间                                        (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnOperationTime DrivingLicenseRegistrationInspectionSelectColumn = "operation_time"
+	// 驾驶员姓名                                      (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnDriverName DrivingLicenseRegistrationInspectionSelectColumn = "driver_name"
+	// 证件号码                                        (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnLicenseNumber DrivingLicenseRegistrationInspectionSelectColumn = "license_number"
+	// 终端IMEI                                        ( 国际移动设备标识别码       )
+	DrivingLicenseRegistrationInspectionSelectColumnImel DrivingLicenseRegistrationInspectionSelectColumn = "imel"
+	// IC卡读取结果                                    ( IC卡读卡字典           )
+	DrivingLicenseRegistrationInspectionSelectColumnIcCardReadingResult DrivingLicenseRegistrationInspectionSelectColumn = "ic_card_reading_result"
+	// 从业资格证编码                                  (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnOccupationalNumber DrivingLicenseRegistrationInspectionSelectColumn = "occupational_number"
+	// 发证机构名称                                    (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnDriverLicenseName DrivingLicenseRegistrationInspectionSelectColumn = "driver_license_name"
+	// 证件有效期                                      (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnLicenseExpireDate DrivingLicenseRegistrationInspectionSelectColumn = "license_expire_date"
+	// 登记时间                                        (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnRegistrationTime DrivingLicenseRegistrationInspectionSelectColumn = "registration_time"
+	// 创建时间                                        (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnCreatedAt DrivingLicenseRegistrationInspectionSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	DrivingLicenseRegistrationInspectionSelectColumnCreatedBy DrivingLicenseRegistrationInspectionSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnUpdatedAt DrivingLicenseRegistrationInspectionSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	DrivingLicenseRegistrationInspectionSelectColumnUpdatedBy DrivingLicenseRegistrationInspectionSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	DrivingLicenseRegistrationInspectionSelectColumnDeletedAt DrivingLicenseRegistrationInspectionSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	DrivingLicenseRegistrationInspectionSelectColumnDeletedBy DrivingLicenseRegistrationInspectionSelectColumn = "deleted_by"
 )
 
-var AllDriverInfoUpdateColumn = []DriverInfoUpdateColumn{
-	DriverInfoUpdateColumnAgent,
-	DriverInfoUpdateColumnCheckAt,
-	DriverInfoUpdateColumnCheckBy,
-	DriverInfoUpdateColumnContactAddress,
-	DriverInfoUpdateColumnCreatedAt,
-	DriverInfoUpdateColumnCreatedBy,
-	DriverInfoUpdateColumnDeletedAt,
-	DriverInfoUpdateColumnDeletedBy,
-	DriverInfoUpdateColumnDepartmentID,
-	DriverInfoUpdateColumnDriverID,
-	DriverInfoUpdateColumnDriverIdentityID,
-	DriverInfoUpdateColumnDriverName,
-	DriverInfoUpdateColumnEnterpriseID,
-	DriverInfoUpdateColumnFilesNumber,
-	DriverInfoUpdateColumnID,
-	DriverInfoUpdateColumnInputAt,
-	DriverInfoUpdateColumnInputBy,
-	DriverInfoUpdateColumnIsBlack,
-	DriverInfoUpdateColumnIsCheckData,
-	DriverInfoUpdateColumnIsCheckSms,
-	DriverInfoUpdateColumnIsDelete,
-	DriverInfoUpdateColumnIsInput,
-	DriverInfoUpdateColumnIsManualInput,
-	DriverInfoUpdateColumnIsSubmit,
-	DriverInfoUpdateColumnMailingAddress,
-	DriverInfoUpdateColumnOperator,
-	DriverInfoUpdateColumnRemarkIn,
-	DriverInfoUpdateColumnRemarks,
-	DriverInfoUpdateColumnSex,
-	DriverInfoUpdateColumnSubmitAt,
-	DriverInfoUpdateColumnSubmitBy,
-	DriverInfoUpdateColumnSubmitContent,
-	DriverInfoUpdateColumnTelephone,
-	DriverInfoUpdateColumnUpdateTimeIn,
-	DriverInfoUpdateColumnUpdatedAt,
-	DriverInfoUpdateColumnUpdatedBy,
+var AllDrivingLicenseRegistrationInspectionSelectColumn = []DrivingLicenseRegistrationInspectionSelectColumn{
+	DrivingLicenseRegistrationInspectionSelectColumnID,
+	DrivingLicenseRegistrationInspectionSelectColumnDriverIDInfoReportID,
+	DrivingLicenseRegistrationInspectionSelectColumnVehicleID,
+	DrivingLicenseRegistrationInspectionSelectColumnIcCardStatus,
+	DrivingLicenseRegistrationInspectionSelectColumnOperationTime,
+	DrivingLicenseRegistrationInspectionSelectColumnDriverName,
+	DrivingLicenseRegistrationInspectionSelectColumnLicenseNumber,
+	DrivingLicenseRegistrationInspectionSelectColumnImel,
+	DrivingLicenseRegistrationInspectionSelectColumnIcCardReadingResult,
+	DrivingLicenseRegistrationInspectionSelectColumnOccupationalNumber,
+	DrivingLicenseRegistrationInspectionSelectColumnDriverLicenseName,
+	DrivingLicenseRegistrationInspectionSelectColumnLicenseExpireDate,
+	DrivingLicenseRegistrationInspectionSelectColumnRegistrationTime,
+	DrivingLicenseRegistrationInspectionSelectColumnCreatedAt,
+	DrivingLicenseRegistrationInspectionSelectColumnCreatedBy,
+	DrivingLicenseRegistrationInspectionSelectColumnUpdatedAt,
+	DrivingLicenseRegistrationInspectionSelectColumnUpdatedBy,
+	DrivingLicenseRegistrationInspectionSelectColumnDeletedAt,
+	DrivingLicenseRegistrationInspectionSelectColumnDeletedBy,
 }
 
-func (e DriverInfoUpdateColumn) IsValid() bool {
+func (e DrivingLicenseRegistrationInspectionSelectColumn) IsValid() bool {
 	switch e {
-	case DriverInfoUpdateColumnAgent, DriverInfoUpdateColumnCheckAt, DriverInfoUpdateColumnCheckBy, DriverInfoUpdateColumnContactAddress, DriverInfoUpdateColumnCreatedAt, DriverInfoUpdateColumnCreatedBy, DriverInfoUpdateColumnDeletedAt, DriverInfoUpdateColumnDeletedBy, DriverInfoUpdateColumnDepartmentID, DriverInfoUpdateColumnDriverID, DriverInfoUpdateColumnDriverIdentityID, DriverInfoUpdateColumnDriverName, DriverInfoUpdateColumnEnterpriseID, DriverInfoUpdateColumnFilesNumber, DriverInfoUpdateColumnID, DriverInfoUpdateColumnInputAt, DriverInfoUpdateColumnInputBy, DriverInfoUpdateColumnIsBlack, DriverInfoUpdateColumnIsCheckData, DriverInfoUpdateColumnIsCheckSms, DriverInfoUpdateColumnIsDelete, DriverInfoUpdateColumnIsInput, DriverInfoUpdateColumnIsManualInput, DriverInfoUpdateColumnIsSubmit, DriverInfoUpdateColumnMailingAddress, DriverInfoUpdateColumnOperator, DriverInfoUpdateColumnRemarkIn, DriverInfoUpdateColumnRemarks, DriverInfoUpdateColumnSex, DriverInfoUpdateColumnSubmitAt, DriverInfoUpdateColumnSubmitBy, DriverInfoUpdateColumnSubmitContent, DriverInfoUpdateColumnTelephone, DriverInfoUpdateColumnUpdateTimeIn, DriverInfoUpdateColumnUpdatedAt, DriverInfoUpdateColumnUpdatedBy:
+	case DrivingLicenseRegistrationInspectionSelectColumnID, DrivingLicenseRegistrationInspectionSelectColumnDriverIDInfoReportID, DrivingLicenseRegistrationInspectionSelectColumnVehicleID, DrivingLicenseRegistrationInspectionSelectColumnIcCardStatus, DrivingLicenseRegistrationInspectionSelectColumnOperationTime, DrivingLicenseRegistrationInspectionSelectColumnDriverName, DrivingLicenseRegistrationInspectionSelectColumnLicenseNumber, DrivingLicenseRegistrationInspectionSelectColumnImel, DrivingLicenseRegistrationInspectionSelectColumnIcCardReadingResult, DrivingLicenseRegistrationInspectionSelectColumnOccupationalNumber, DrivingLicenseRegistrationInspectionSelectColumnDriverLicenseName, DrivingLicenseRegistrationInspectionSelectColumnLicenseExpireDate, DrivingLicenseRegistrationInspectionSelectColumnRegistrationTime, DrivingLicenseRegistrationInspectionSelectColumnCreatedAt, DrivingLicenseRegistrationInspectionSelectColumnCreatedBy, DrivingLicenseRegistrationInspectionSelectColumnUpdatedAt, DrivingLicenseRegistrationInspectionSelectColumnUpdatedBy, DrivingLicenseRegistrationInspectionSelectColumnDeletedAt, DrivingLicenseRegistrationInspectionSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e DriverInfoUpdateColumn) String() string {
+func (e DrivingLicenseRegistrationInspectionSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *DriverInfoUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *DrivingLicenseRegistrationInspectionSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = DriverInfoUpdateColumn(str)
+	*e = DrivingLicenseRegistrationInspectionSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_info_update_column", str)
+		return fmt.Errorf("%s is not a valid DrivingLicenseRegistrationInspectionSelectColumn", str)
 	}
 	return nil
 }
 
-func (e DriverInfoUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "vehicle_driver_binding"
-type VehicleDriverBindingConstraint string
-
-const (
-	// unique or primary key constraint
-	VehicleDriverBindingConstraintVehicleDriverBindingPkey VehicleDriverBindingConstraint = "vehicle_driver_binding_pkey"
-)
-
-var AllVehicleDriverBindingConstraint = []VehicleDriverBindingConstraint{
-	VehicleDriverBindingConstraintVehicleDriverBindingPkey,
-}
-
-func (e VehicleDriverBindingConstraint) IsValid() bool {
-	switch e {
-	case VehicleDriverBindingConstraintVehicleDriverBindingPkey:
-		return true
-	}
-	return false
-}
-
-func (e VehicleDriverBindingConstraint) String() string {
-	return string(e)
-}
-
-func (e *VehicleDriverBindingConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleDriverBindingConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_driver_binding_constraint", str)
-	}
-	return nil
-}
-
-func (e VehicleDriverBindingConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "vehicle_driver_binding"
-type VehicleDriverBindingSelectColumn string
-
-const (
-	// column name
-	VehicleDriverBindingSelectColumnCreatedAt VehicleDriverBindingSelectColumn = "created_at"
-	// column name
-	VehicleDriverBindingSelectColumnCreatedBy VehicleDriverBindingSelectColumn = "created_by"
-	// column name
-	VehicleDriverBindingSelectColumnDeletedAt VehicleDriverBindingSelectColumn = "deleted_at"
-	// column name
-	VehicleDriverBindingSelectColumnDeletedBy VehicleDriverBindingSelectColumn = "deleted_by"
-	// column name
-	VehicleDriverBindingSelectColumnDriverID VehicleDriverBindingSelectColumn = "driver_id"
-	// column name
-	VehicleDriverBindingSelectColumnID VehicleDriverBindingSelectColumn = "id"
-	// column name
-	VehicleDriverBindingSelectColumnIsDelete VehicleDriverBindingSelectColumn = "is_delete"
-	// column name
-	VehicleDriverBindingSelectColumnLeaseContract VehicleDriverBindingSelectColumn = "lease_contract"
-	// column name
-	VehicleDriverBindingSelectColumnRemarks VehicleDriverBindingSelectColumn = "remarks"
-	// column name
-	VehicleDriverBindingSelectColumnUpdatedAt VehicleDriverBindingSelectColumn = "updated_at"
-	// column name
-	VehicleDriverBindingSelectColumnUpdatedBy VehicleDriverBindingSelectColumn = "updated_by"
-	// column name
-	VehicleDriverBindingSelectColumnVehicleDriverBindingID VehicleDriverBindingSelectColumn = "vehicle_driver_binding_id"
-	// column name
-	VehicleDriverBindingSelectColumnVehicleID VehicleDriverBindingSelectColumn = "vehicle_id"
-)
-
-var AllVehicleDriverBindingSelectColumn = []VehicleDriverBindingSelectColumn{
-	VehicleDriverBindingSelectColumnCreatedAt,
-	VehicleDriverBindingSelectColumnCreatedBy,
-	VehicleDriverBindingSelectColumnDeletedAt,
-	VehicleDriverBindingSelectColumnDeletedBy,
-	VehicleDriverBindingSelectColumnDriverID,
-	VehicleDriverBindingSelectColumnID,
-	VehicleDriverBindingSelectColumnIsDelete,
-	VehicleDriverBindingSelectColumnLeaseContract,
-	VehicleDriverBindingSelectColumnRemarks,
-	VehicleDriverBindingSelectColumnUpdatedAt,
-	VehicleDriverBindingSelectColumnUpdatedBy,
-	VehicleDriverBindingSelectColumnVehicleDriverBindingID,
-	VehicleDriverBindingSelectColumnVehicleID,
-}
-
-func (e VehicleDriverBindingSelectColumn) IsValid() bool {
-	switch e {
-	case VehicleDriverBindingSelectColumnCreatedAt, VehicleDriverBindingSelectColumnCreatedBy, VehicleDriverBindingSelectColumnDeletedAt, VehicleDriverBindingSelectColumnDeletedBy, VehicleDriverBindingSelectColumnDriverID, VehicleDriverBindingSelectColumnID, VehicleDriverBindingSelectColumnIsDelete, VehicleDriverBindingSelectColumnLeaseContract, VehicleDriverBindingSelectColumnRemarks, VehicleDriverBindingSelectColumnUpdatedAt, VehicleDriverBindingSelectColumnUpdatedBy, VehicleDriverBindingSelectColumnVehicleDriverBindingID, VehicleDriverBindingSelectColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e VehicleDriverBindingSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *VehicleDriverBindingSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleDriverBindingSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_driver_binding_select_column", str)
-	}
-	return nil
-}
-
-func (e VehicleDriverBindingSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "vehicle_driver_binding"
-type VehicleDriverBindingUpdateColumn string
-
-const (
-	// column name
-	VehicleDriverBindingUpdateColumnCreatedAt VehicleDriverBindingUpdateColumn = "created_at"
-	// column name
-	VehicleDriverBindingUpdateColumnCreatedBy VehicleDriverBindingUpdateColumn = "created_by"
-	// column name
-	VehicleDriverBindingUpdateColumnDeletedAt VehicleDriverBindingUpdateColumn = "deleted_at"
-	// column name
-	VehicleDriverBindingUpdateColumnDeletedBy VehicleDriverBindingUpdateColumn = "deleted_by"
-	// column name
-	VehicleDriverBindingUpdateColumnDriverID VehicleDriverBindingUpdateColumn = "driver_id"
-	// column name
-	VehicleDriverBindingUpdateColumnID VehicleDriverBindingUpdateColumn = "id"
-	// column name
-	VehicleDriverBindingUpdateColumnIsDelete VehicleDriverBindingUpdateColumn = "is_delete"
-	// column name
-	VehicleDriverBindingUpdateColumnLeaseContract VehicleDriverBindingUpdateColumn = "lease_contract"
-	// column name
-	VehicleDriverBindingUpdateColumnRemarks VehicleDriverBindingUpdateColumn = "remarks"
-	// column name
-	VehicleDriverBindingUpdateColumnUpdatedAt VehicleDriverBindingUpdateColumn = "updated_at"
-	// column name
-	VehicleDriverBindingUpdateColumnUpdatedBy VehicleDriverBindingUpdateColumn = "updated_by"
-	// column name
-	VehicleDriverBindingUpdateColumnVehicleDriverBindingID VehicleDriverBindingUpdateColumn = "vehicle_driver_binding_id"
-	// column name
-	VehicleDriverBindingUpdateColumnVehicleID VehicleDriverBindingUpdateColumn = "vehicle_id"
-)
-
-var AllVehicleDriverBindingUpdateColumn = []VehicleDriverBindingUpdateColumn{
-	VehicleDriverBindingUpdateColumnCreatedAt,
-	VehicleDriverBindingUpdateColumnCreatedBy,
-	VehicleDriverBindingUpdateColumnDeletedAt,
-	VehicleDriverBindingUpdateColumnDeletedBy,
-	VehicleDriverBindingUpdateColumnDriverID,
-	VehicleDriverBindingUpdateColumnID,
-	VehicleDriverBindingUpdateColumnIsDelete,
-	VehicleDriverBindingUpdateColumnLeaseContract,
-	VehicleDriverBindingUpdateColumnRemarks,
-	VehicleDriverBindingUpdateColumnUpdatedAt,
-	VehicleDriverBindingUpdateColumnUpdatedBy,
-	VehicleDriverBindingUpdateColumnVehicleDriverBindingID,
-	VehicleDriverBindingUpdateColumnVehicleID,
-}
-
-func (e VehicleDriverBindingUpdateColumn) IsValid() bool {
-	switch e {
-	case VehicleDriverBindingUpdateColumnCreatedAt, VehicleDriverBindingUpdateColumnCreatedBy, VehicleDriverBindingUpdateColumnDeletedAt, VehicleDriverBindingUpdateColumnDeletedBy, VehicleDriverBindingUpdateColumnDriverID, VehicleDriverBindingUpdateColumnID, VehicleDriverBindingUpdateColumnIsDelete, VehicleDriverBindingUpdateColumnLeaseContract, VehicleDriverBindingUpdateColumnRemarks, VehicleDriverBindingUpdateColumnUpdatedAt, VehicleDriverBindingUpdateColumnUpdatedBy, VehicleDriverBindingUpdateColumnVehicleDriverBindingID, VehicleDriverBindingUpdateColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e VehicleDriverBindingUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *VehicleDriverBindingUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleDriverBindingUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_driver_binding_update_column", str)
-	}
-	return nil
-}
-
-func (e VehicleDriverBindingUpdateColumn) MarshalGQL(w io.Writer) {
+func (e DrivingLicenseRegistrationInspectionSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }

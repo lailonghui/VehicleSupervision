@@ -3,6 +3,7 @@
 package model
 
 import (
+	model1 "VehicleSupervision/internal/modules/vehicle_violation/model"
 	"VehicleSupervision/pkg/graphql/model"
 	"fmt"
 	"io"
@@ -10,279 +11,9 @@ import (
 	"time"
 )
 
-// aggregated selection of "VIO_CODEWFDM"
-type VioCodewfdmAggregate struct {
-	Aggregate *VioCodewfdmAggregateFields `json:"aggregate"`
-	Nodes     []*VioCodewfdm              `json:"nodes"`
-}
-
-// aggregate fields of "VIO_CODEWFDM"
-type VioCodewfdmAggregateFields struct {
-	Avg        *VioCodewfdmAvgFields        `json:"avg"`
-	Count      *int                         `json:"count"`
-	Max        *VioCodewfdmMaxFields        `json:"max"`
-	Min        *VioCodewfdmMinFields        `json:"min"`
-	Stddev     *VioCodewfdmStddevFields     `json:"stddev"`
-	StddevPop  *VioCodewfdmStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *VioCodewfdmStddevSampFields `json:"stddev_samp"`
-	Sum        *VioCodewfdmSumFields        `json:"sum"`
-	VarPop     *VioCodewfdmVarPopFields     `json:"var_pop"`
-	VarSamp    *VioCodewfdmVarSampFields    `json:"var_samp"`
-	Variance   *VioCodewfdmVarianceFields   `json:"variance"`
-}
-
-// order by aggregate values of table "VIO_CODEWFDM"
-type VioCodewfdmAggregateOrderBy struct {
-	Avg        *VioCodewfdmAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                `json:"count"`
-	Max        *VioCodewfdmMaxOrderBy        `json:"max"`
-	Min        *VioCodewfdmMinOrderBy        `json:"min"`
-	Stddev     *VioCodewfdmStddevOrderBy     `json:"stddev"`
-	StddevPop  *VioCodewfdmStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VioCodewfdmStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VioCodewfdmSumOrderBy        `json:"sum"`
-	VarPop     *VioCodewfdmVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VioCodewfdmVarSampOrderBy    `json:"var_samp"`
-	Variance   *VioCodewfdmVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "VIO_CODEWFDM"
-type VioCodewfdmArrRelInsertInput struct {
-	Data []*VioCodewfdmInsertInput `json:"data"`
-}
-
-// aggregate avg on columns
-type VioCodewfdmAvgFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-}
-
-// order by avg() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmAvgOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-}
-
-// Boolean expression to filter rows from the table "VIO_CODEWFDM". All fields are combined with a logical 'AND'.
-type VioCodewfdmBoolExp struct {
-	FkjeMax *model.NumericComparisonExp `json:"FKJE_MAX"`
-	FkjeMin *model.NumericComparisonExp `json:"FKJE_MIN"`
-	Wfjfs   *model.NumericComparisonExp `json:"WFJFS"`
-	Wfms    *model.StringComparisonExp  `json:"WFMS"`
-	Wfxw    *model.StringComparisonExp  `json:"WFXW"`
-	Xh      *model.StringComparisonExp  `json:"XH"`
-	And     []*VioCodewfdmBoolExp       `json:"_and"`
-	Not     *VioCodewfdmBoolExp         `json:"_not"`
-	Or      []*VioCodewfdmBoolExp       `json:"_or"`
-}
-
-// input type for incrementing integer column in table "VIO_CODEWFDM"
-type VioCodewfdmIncInput struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-}
-
-// input type for inserting data into table "VIO_CODEWFDM"
-type VioCodewfdmInsertInput struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-	Wfms    *string  `json:"WFMS"`
-	Wfxw    *string  `json:"WFXW"`
-	Xh      *string  `json:"XH"`
-}
-
-// aggregate max on columns
-type VioCodewfdmMaxFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-	Wfms    *string  `json:"WFMS"`
-	Wfxw    *string  `json:"WFXW"`
-	Xh      *string  `json:"XH"`
-}
-
-// order by max() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmMaxOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-	Wfms    *model.OrderBy `json:"WFMS"`
-	Wfxw    *model.OrderBy `json:"WFXW"`
-	Xh      *model.OrderBy `json:"XH"`
-}
-
-// aggregate min on columns
-type VioCodewfdmMinFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-	Wfms    *string  `json:"WFMS"`
-	Wfxw    *string  `json:"WFXW"`
-	Xh      *string  `json:"XH"`
-}
-
-// order by min() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmMinOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-	Wfms    *model.OrderBy `json:"WFMS"`
-	Wfxw    *model.OrderBy `json:"WFXW"`
-	Xh      *model.OrderBy `json:"XH"`
-}
-
-// response of any mutation on the table "VIO_CODEWFDM"
-type VioCodewfdmMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VioCodewfdm `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "VIO_CODEWFDM"
-type VioCodewfdmObjRelInsertInput struct {
-	Data *VioCodewfdmInsertInput `json:"data"`
-}
-
-// ordering options when selecting data from "VIO_CODEWFDM"
-type VioCodewfdmOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-	Wfms    *model.OrderBy `json:"WFMS"`
-	Wfxw    *model.OrderBy `json:"WFXW"`
-	Xh      *model.OrderBy `json:"XH"`
-}
-
-// input type for updating data in table "VIO_CODEWFDM"
-type VioCodewfdmSetInput struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-	Wfms    *string  `json:"WFMS"`
-	Wfxw    *string  `json:"WFXW"`
-	Xh      *string  `json:"XH"`
-}
-
-// aggregate stddev on columns
-type VioCodewfdmStddevFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-}
-
-// order by stddev() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmStddevOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-}
-
-// aggregate stddev_pop on columns
-type VioCodewfdmStddevPopFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-}
-
-// order by stddev_pop() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmStddevPopOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-}
-
-// aggregate stddev_samp on columns
-type VioCodewfdmStddevSampFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-}
-
-// order by stddev_samp() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmStddevSampOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-}
-
-// aggregate sum on columns
-type VioCodewfdmSumFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-}
-
-// order by sum() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmSumOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-}
-
-// aggregate var_pop on columns
-type VioCodewfdmVarPopFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-}
-
-// order by var_pop() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmVarPopOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-}
-
-// aggregate var_samp on columns
-type VioCodewfdmVarSampFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-}
-
-// order by var_samp() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmVarSampOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-}
-
-// aggregate variance on columns
-type VioCodewfdmVarianceFields struct {
-	FkjeMax *float64 `json:"FKJE_MAX"`
-	FkjeMin *float64 `json:"FKJE_MIN"`
-	Wfjfs   *float64 `json:"WFJFS"`
-}
-
-// order by variance() on columns of table "VIO_CODEWFDM"
-type VioCodewfdmVarianceOrderBy struct {
-	FkjeMax *model.OrderBy `json:"FKJE_MAX"`
-	FkjeMin *model.OrderBy `json:"FKJE_MIN"`
-	Wfjfs   *model.OrderBy `json:"WFJFS"`
-}
-
-// expression to compare columns of type _text. All fields are combined with logical 'AND'.
-type TextComparisonExp struct {
-	Eq     *string  `json:"_eq"`
-	Gt     *string  `json:"_gt"`
-	Gte    *string  `json:"_gte"`
-	In     []string `json:"_in"`
-	IsNull *bool    `json:"_is_null"`
-	Lt     *string  `json:"_lt"`
-	Lte    *string  `json:"_lte"`
-	Neq    *string  `json:"_neq"`
-	Nin    []string `json:"_nin"`
-}
-
 // aggregated selection of "app_enforcement"
 type AppEnforcementAggregate struct {
 	Aggregate *AppEnforcementAggregateFields `json:"aggregate"`
-	Nodes     []*AppEnforcement              `json:"nodes"`
 }
 
 // aggregate fields of "app_enforcement"
@@ -300,60 +31,32 @@ type AppEnforcementAggregateFields struct {
 	Variance   *AppEnforcementVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "app_enforcement"
-type AppEnforcementAggregateOrderBy struct {
-	Avg        *AppEnforcementAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                   `json:"count"`
-	Max        *AppEnforcementMaxOrderBy        `json:"max"`
-	Min        *AppEnforcementMinOrderBy        `json:"min"`
-	Stddev     *AppEnforcementStddevOrderBy     `json:"stddev"`
-	StddevPop  *AppEnforcementStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *AppEnforcementStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *AppEnforcementSumOrderBy        `json:"sum"`
-	VarPop     *AppEnforcementVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *AppEnforcementVarSampOrderBy    `json:"var_samp"`
-	Variance   *AppEnforcementVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "app_enforcement"
-type AppEnforcementArrRelInsertInput struct {
-	Data       []*AppEnforcementInsertInput `json:"data"`
-	OnConflict *AppEnforcementOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "app_enforcement"
 type AppEnforcementAvgFields struct {
-	ID           *float64 `json:"id"`
-	PicketStatus *float64 `json:"picket_status"`
+	ID           *int64 `json:"id"`
+	PicketStatus *int   `json:"picket_status"`
 }
 
-// order by avg() on columns of table "app_enforcement"
-type AppEnforcementAvgOrderBy struct {
-	ID           *model.OrderBy `json:"id"`
-	PicketStatus *model.OrderBy `json:"picket_status"`
-}
-
-// Boolean expression to filter rows from the table "app_enforcement". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'app_enforcement'.
 type AppEnforcementBoolExp struct {
 	And                 []*AppEnforcementBoolExp        `json:"_and"`
 	Not                 *AppEnforcementBoolExp          `json:"_not"`
 	Or                  []*AppEnforcementBoolExp        `json:"_or"`
-	Coordinate          *model.PointComparisonExp       `json:"coordinate"`
-	CreatedAt           *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy           *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt           *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy           *model.StringComparisonExp      `json:"deleted_by"`
-	EditText            *model.StringComparisonExp      `json:"edit_text"`
-	EnterpriseType      *model.StringComparisonExp      `json:"enterprise_type"`
 	ID                  *model.BigintComparisonExp      `json:"id"`
 	IllegalPhotoID      *model.StringComparisonExp      `json:"illegal_photo_id"`
-	LocationDescription *model.StringComparisonExp      `json:"location_description"`
+	VehicleID           *model.StringComparisonExp      `json:"vehicle_id"`
 	OperationUser       *model.StringComparisonExp      `json:"operation_user"`
+	EditText            *model.StringComparisonExp      `json:"edit_text"`
+	Coordinate          *model.PointComparisonExp       `json:"coordinate"`
+	LocationDescription *model.StringComparisonExp      `json:"location_description"`
+	EnterpriseType      *model.StringComparisonExp      `json:"enterprise_type"`
 	PicketStatus        *model.IntComparisonExp         `json:"picket_status"`
+	CreatedAt           *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy           *model.StringComparisonExp      `json:"created_by"`
 	UpdatedAt           *model.TimestamptzComparisonExp `json:"updated_at"`
 	UpdatedBy           *model.StringComparisonExp      `json:"updated_by"`
-	VehicleID           *model.StringComparisonExp      `json:"vehicle_id"`
-	ViolationDetailID   *model.StringComparisonExp      `json:"violation_detail_id"`
+	DeletedAt           *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy           *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "app_enforcement"
@@ -364,953 +67,341 @@ type AppEnforcementIncInput struct {
 
 // input type for inserting data into table "app_enforcement"
 type AppEnforcementInsertInput struct {
+	ID                  *int64     `json:"id"`
+	IllegalPhotoID      *string    `json:"illegal_photo_id"`
+	VehicleID           *string    `json:"vehicle_id"`
+	OperationUser       *string    `json:"operation_user"`
+	EditText            *string    `json:"edit_text"`
 	Coordinate          *string    `json:"coordinate"`
+	LocationDescription *string    `json:"location_description"`
+	EnterpriseType      *string    `json:"enterprise_type"`
+	PicketStatus        *int       `json:"picket_status"`
 	CreatedAt           *time.Time `json:"created_at"`
 	CreatedBy           *string    `json:"created_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
-	EditText            *string    `json:"edit_text"`
-	EnterpriseType      *string    `json:"enterprise_type"`
-	ID                  *int64     `json:"id"`
-	IllegalPhotoID      *string    `json:"illegal_photo_id"`
-	LocationDescription *string    `json:"location_description"`
-	OperationUser       *string    `json:"operation_user"`
-	PicketStatus        *int       `json:"picket_status"`
 	UpdatedAt           *time.Time `json:"updated_at"`
 	UpdatedBy           *string    `json:"updated_by"`
-	VehicleID           *string    `json:"vehicle_id"`
-	ViolationDetailID   *string    `json:"violation_detail_id"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "app_enforcement"
 type AppEnforcementMaxFields struct {
-	CreatedAt           *time.Time `json:"created_at"`
-	CreatedBy           *string    `json:"created_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
-	EditText            *string    `json:"edit_text"`
-	EnterpriseType      *string    `json:"enterprise_type"`
 	ID                  *int64     `json:"id"`
 	IllegalPhotoID      *string    `json:"illegal_photo_id"`
-	LocationDescription *string    `json:"location_description"`
+	VehicleID           *string    `json:"vehicle_id"`
 	OperationUser       *string    `json:"operation_user"`
+	EditText            *string    `json:"edit_text"`
+	Coordinate          *string    `json:"coordinate"`
+	LocationDescription *string    `json:"location_description"`
+	EnterpriseType      *string    `json:"enterprise_type"`
 	PicketStatus        *int       `json:"picket_status"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
 	UpdatedAt           *time.Time `json:"updated_at"`
 	UpdatedBy           *string    `json:"updated_by"`
-	VehicleID           *string    `json:"vehicle_id"`
-	ViolationDetailID   *string    `json:"violation_detail_id"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "app_enforcement"
-type AppEnforcementMaxOrderBy struct {
-	CreatedAt           *model.OrderBy `json:"created_at"`
-	CreatedBy           *model.OrderBy `json:"created_by"`
-	DeletedAt           *model.OrderBy `json:"deleted_at"`
-	DeletedBy           *model.OrderBy `json:"deleted_by"`
-	EditText            *model.OrderBy `json:"edit_text"`
-	EnterpriseType      *model.OrderBy `json:"enterprise_type"`
-	ID                  *model.OrderBy `json:"id"`
-	IllegalPhotoID      *model.OrderBy `json:"illegal_photo_id"`
-	LocationDescription *model.OrderBy `json:"location_description"`
-	OperationUser       *model.OrderBy `json:"operation_user"`
-	PicketStatus        *model.OrderBy `json:"picket_status"`
-	UpdatedAt           *model.OrderBy `json:"updated_at"`
-	UpdatedBy           *model.OrderBy `json:"updated_by"`
-	VehicleID           *model.OrderBy `json:"vehicle_id"`
-	ViolationDetailID   *model.OrderBy `json:"violation_detail_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "app_enforcement"
 type AppEnforcementMinFields struct {
-	CreatedAt           *time.Time `json:"created_at"`
-	CreatedBy           *string    `json:"created_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
-	EditText            *string    `json:"edit_text"`
-	EnterpriseType      *string    `json:"enterprise_type"`
 	ID                  *int64     `json:"id"`
 	IllegalPhotoID      *string    `json:"illegal_photo_id"`
-	LocationDescription *string    `json:"location_description"`
+	VehicleID           *string    `json:"vehicle_id"`
 	OperationUser       *string    `json:"operation_user"`
+	EditText            *string    `json:"edit_text"`
+	Coordinate          *string    `json:"coordinate"`
+	LocationDescription *string    `json:"location_description"`
+	EnterpriseType      *string    `json:"enterprise_type"`
 	PicketStatus        *int       `json:"picket_status"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
 	UpdatedAt           *time.Time `json:"updated_at"`
 	UpdatedBy           *string    `json:"updated_by"`
-	VehicleID           *string    `json:"vehicle_id"`
-	ViolationDetailID   *string    `json:"violation_detail_id"`
-}
-
-// order by min() on columns of table "app_enforcement"
-type AppEnforcementMinOrderBy struct {
-	CreatedAt           *model.OrderBy `json:"created_at"`
-	CreatedBy           *model.OrderBy `json:"created_by"`
-	DeletedAt           *model.OrderBy `json:"deleted_at"`
-	DeletedBy           *model.OrderBy `json:"deleted_by"`
-	EditText            *model.OrderBy `json:"edit_text"`
-	EnterpriseType      *model.OrderBy `json:"enterprise_type"`
-	ID                  *model.OrderBy `json:"id"`
-	IllegalPhotoID      *model.OrderBy `json:"illegal_photo_id"`
-	LocationDescription *model.OrderBy `json:"location_description"`
-	OperationUser       *model.OrderBy `json:"operation_user"`
-	PicketStatus        *model.OrderBy `json:"picket_status"`
-	UpdatedAt           *model.OrderBy `json:"updated_at"`
-	UpdatedBy           *model.OrderBy `json:"updated_by"`
-	VehicleID           *model.OrderBy `json:"vehicle_id"`
-	ViolationDetailID   *model.OrderBy `json:"violation_detail_id"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "app_enforcement"
 type AppEnforcementMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*AppEnforcement `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "app_enforcement"
-type AppEnforcementObjRelInsertInput struct {
-	Data       *AppEnforcementInsertInput `json:"data"`
-	OnConflict *AppEnforcementOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "app_enforcement"
-type AppEnforcementOnConflict struct {
-	Constraint    AppEnforcementConstraint     `json:"constraint"`
-	UpdateColumns []AppEnforcementUpdateColumn `json:"update_columns"`
-	Where         *AppEnforcementBoolExp       `json:"where"`
+	AffectedRows int                      `json:"affected_rows"`
+	Returning    []*model1.AppEnforcement `json:"returning"`
 }
 
 // ordering options when selecting data from "app_enforcement"
 type AppEnforcementOrderBy struct {
-	Coordinate          *model.OrderBy `json:"coordinate"`
-	CreatedAt           *model.OrderBy `json:"created_at"`
-	CreatedBy           *model.OrderBy `json:"created_by"`
-	DeletedAt           *model.OrderBy `json:"deleted_at"`
-	DeletedBy           *model.OrderBy `json:"deleted_by"`
-	EditText            *model.OrderBy `json:"edit_text"`
-	EnterpriseType      *model.OrderBy `json:"enterprise_type"`
 	ID                  *model.OrderBy `json:"id"`
 	IllegalPhotoID      *model.OrderBy `json:"illegal_photo_id"`
-	LocationDescription *model.OrderBy `json:"location_description"`
+	VehicleID           *model.OrderBy `json:"vehicle_id"`
 	OperationUser       *model.OrderBy `json:"operation_user"`
+	EditText            *model.OrderBy `json:"edit_text"`
+	Coordinate          *model.OrderBy `json:"coordinate"`
+	LocationDescription *model.OrderBy `json:"location_description"`
+	EnterpriseType      *model.OrderBy `json:"enterprise_type"`
 	PicketStatus        *model.OrderBy `json:"picket_status"`
+	CreatedAt           *model.OrderBy `json:"created_at"`
+	CreatedBy           *model.OrderBy `json:"created_by"`
 	UpdatedAt           *model.OrderBy `json:"updated_at"`
 	UpdatedBy           *model.OrderBy `json:"updated_by"`
-	VehicleID           *model.OrderBy `json:"vehicle_id"`
-	ViolationDetailID   *model.OrderBy `json:"violation_detail_id"`
-}
-
-// primary key columns input for table: "app_enforcement"
-type AppEnforcementPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 联合主键
-	IllegalPhotoID string `json:"illegal_photo_id"`
+	DeletedAt           *model.OrderBy `json:"deleted_at"`
+	DeletedBy           *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "app_enforcement"
 type AppEnforcementSetInput struct {
-	Coordinate          *string    `json:"coordinate"`
-	CreatedAt           *time.Time `json:"created_at"`
-	CreatedBy           *string    `json:"created_by"`
-	DeletedAt           *time.Time `json:"deleted_at"`
-	DeletedBy           *string    `json:"deleted_by"`
-	EditText            *string    `json:"edit_text"`
-	EnterpriseType      *string    `json:"enterprise_type"`
 	ID                  *int64     `json:"id"`
 	IllegalPhotoID      *string    `json:"illegal_photo_id"`
-	LocationDescription *string    `json:"location_description"`
+	VehicleID           *string    `json:"vehicle_id"`
 	OperationUser       *string    `json:"operation_user"`
+	EditText            *string    `json:"edit_text"`
+	Coordinate          *string    `json:"coordinate"`
+	LocationDescription *string    `json:"location_description"`
+	EnterpriseType      *string    `json:"enterprise_type"`
 	PicketStatus        *int       `json:"picket_status"`
+	CreatedAt           *time.Time `json:"created_at"`
+	CreatedBy           *string    `json:"created_by"`
 	UpdatedAt           *time.Time `json:"updated_at"`
 	UpdatedBy           *string    `json:"updated_by"`
-	VehicleID           *string    `json:"vehicle_id"`
-	ViolationDetailID   *string    `json:"violation_detail_id"`
+	DeletedAt           *time.Time `json:"deleted_at"`
+	DeletedBy           *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "app_enforcement"
 type AppEnforcementStddevFields struct {
-	ID           *float64 `json:"id"`
-	PicketStatus *float64 `json:"picket_status"`
+	ID           *int64 `json:"id"`
+	PicketStatus *int   `json:"picket_status"`
 }
 
-// order by stddev() on columns of table "app_enforcement"
-type AppEnforcementStddevOrderBy struct {
-	ID           *model.OrderBy `json:"id"`
-	PicketStatus *model.OrderBy `json:"picket_status"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "app_enforcement"
 type AppEnforcementStddevPopFields struct {
-	ID           *float64 `json:"id"`
-	PicketStatus *float64 `json:"picket_status"`
+	ID           *int64 `json:"id"`
+	PicketStatus *int   `json:"picket_status"`
 }
 
-// order by stddev_pop() on columns of table "app_enforcement"
-type AppEnforcementStddevPopOrderBy struct {
-	ID           *model.OrderBy `json:"id"`
-	PicketStatus *model.OrderBy `json:"picket_status"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "app_enforcement"
 type AppEnforcementStddevSampFields struct {
-	ID           *float64 `json:"id"`
-	PicketStatus *float64 `json:"picket_status"`
+	ID           *int64 `json:"id"`
+	PicketStatus *int   `json:"picket_status"`
 }
 
-// order by stddev_samp() on columns of table "app_enforcement"
-type AppEnforcementStddevSampOrderBy struct {
-	ID           *model.OrderBy `json:"id"`
-	PicketStatus *model.OrderBy `json:"picket_status"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "app_enforcement"
 type AppEnforcementSumFields struct {
 	ID           *int64 `json:"id"`
 	PicketStatus *int   `json:"picket_status"`
 }
 
-// order by sum() on columns of table "app_enforcement"
-type AppEnforcementSumOrderBy struct {
-	ID           *model.OrderBy `json:"id"`
-	PicketStatus *model.OrderBy `json:"picket_status"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "app_enforcement"
 type AppEnforcementVarPopFields struct {
-	ID           *float64 `json:"id"`
-	PicketStatus *float64 `json:"picket_status"`
+	ID           *int64 `json:"id"`
+	PicketStatus *int   `json:"picket_status"`
 }
 
-// order by var_pop() on columns of table "app_enforcement"
-type AppEnforcementVarPopOrderBy struct {
-	ID           *model.OrderBy `json:"id"`
-	PicketStatus *model.OrderBy `json:"picket_status"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "app_enforcement"
 type AppEnforcementVarSampFields struct {
-	ID           *float64 `json:"id"`
-	PicketStatus *float64 `json:"picket_status"`
+	ID           *int64 `json:"id"`
+	PicketStatus *int   `json:"picket_status"`
 }
 
-// order by var_samp() on columns of table "app_enforcement"
-type AppEnforcementVarSampOrderBy struct {
-	ID           *model.OrderBy `json:"id"`
-	PicketStatus *model.OrderBy `json:"picket_status"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "app_enforcement"
 type AppEnforcementVarianceFields struct {
-	ID           *float64 `json:"id"`
-	PicketStatus *float64 `json:"picket_status"`
-}
-
-// order by variance() on columns of table "app_enforcement"
-type AppEnforcementVarianceOrderBy struct {
-	ID           *model.OrderBy `json:"id"`
-	PicketStatus *model.OrderBy `json:"picket_status"`
-}
-
-// aggregated selection of "dispute_violation_record"
-type DisputeViolationRecordAggregate struct {
-	Aggregate *DisputeViolationRecordAggregateFields `json:"aggregate"`
-	Nodes     []*DisputeViolationRecord              `json:"nodes"`
-}
-
-// aggregate fields of "dispute_violation_record"
-type DisputeViolationRecordAggregateFields struct {
-	Avg        *DisputeViolationRecordAvgFields        `json:"avg"`
-	Count      *int                                    `json:"count"`
-	Max        *DisputeViolationRecordMaxFields        `json:"max"`
-	Min        *DisputeViolationRecordMinFields        `json:"min"`
-	Stddev     *DisputeViolationRecordStddevFields     `json:"stddev"`
-	StddevPop  *DisputeViolationRecordStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *DisputeViolationRecordStddevSampFields `json:"stddev_samp"`
-	Sum        *DisputeViolationRecordSumFields        `json:"sum"`
-	VarPop     *DisputeViolationRecordVarPopFields     `json:"var_pop"`
-	VarSamp    *DisputeViolationRecordVarSampFields    `json:"var_samp"`
-	Variance   *DisputeViolationRecordVarianceFields   `json:"variance"`
-}
-
-// order by aggregate values of table "dispute_violation_record"
-type DisputeViolationRecordAggregateOrderBy struct {
-	Avg        *DisputeViolationRecordAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                           `json:"count"`
-	Max        *DisputeViolationRecordMaxOrderBy        `json:"max"`
-	Min        *DisputeViolationRecordMinOrderBy        `json:"min"`
-	Stddev     *DisputeViolationRecordStddevOrderBy     `json:"stddev"`
-	StddevPop  *DisputeViolationRecordStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DisputeViolationRecordStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DisputeViolationRecordSumOrderBy        `json:"sum"`
-	VarPop     *DisputeViolationRecordVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DisputeViolationRecordVarSampOrderBy    `json:"var_samp"`
-	Variance   *DisputeViolationRecordVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "dispute_violation_record"
-type DisputeViolationRecordArrRelInsertInput struct {
-	Data       []*DisputeViolationRecordInsertInput `json:"data"`
-	OnConflict *DisputeViolationRecordOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
-type DisputeViolationRecordAvgFields struct {
-	ApproveState *float64 `json:"approve_state"`
-	ID           *float64 `json:"id"`
-}
-
-// order by avg() on columns of table "dispute_violation_record"
-type DisputeViolationRecordAvgOrderBy struct {
-	ApproveState *model.OrderBy `json:"approve_state"`
-	ID           *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "dispute_violation_record". All fields are combined with a logical 'AND'.
-type DisputeViolationRecordBoolExp struct {
-	And                         []*DisputeViolationRecordBoolExp `json:"_and"`
-	Not                         *DisputeViolationRecordBoolExp   `json:"_not"`
-	Or                          []*DisputeViolationRecordBoolExp `json:"_or"`
-	AgentIDNumber               *model.StringComparisonExp       `json:"agent_id_number"`
-	ApproveState                *model.IntComparisonExp          `json:"approve_state"`
-	BusinessLicense             *model.StringComparisonExp       `json:"business_license"`
-	ContactAddress              *model.StringComparisonExp       `json:"contact_address"`
-	CreatedAt                   *model.TimestamptzComparisonExp  `json:"created_at"`
-	CreatedBy                   *model.StringComparisonExp       `json:"created_by"`
-	DeletedAt                   *model.TimestamptzComparisonExp  `json:"deleted_at"`
-	DeletedBy                   *model.StringComparisonExp       `json:"deleted_by"`
-	DisputeViolationID          *model.StringComparisonExp       `json:"dispute_violation_id"`
-	DriverLicense               *model.StringComparisonExp       `json:"driver_license"`
-	DrivingLicense              *model.StringComparisonExp       `json:"driving_license"`
-	DrivingLog                  *model.StringComparisonExp       `json:"driving_log"`
-	ID                          *model.BigintComparisonExp       `json:"id"`
-	IDCard                      *model.StringComparisonExp       `json:"id_card"`
-	IsDelete                    *model.BooleanComparisonExp      `json:"is_delete"`
-	LaborContract               *model.StringComparisonExp       `json:"labor_contract"`
-	LegalPersonIDNumber         *model.StringComparisonExp       `json:"legal_person_id_number"`
-	OrganizationCode            *model.StringComparisonExp       `json:"organization_code"`
-	OtherEvidence               *TextComparisonExp               `json:"other_evidence"`
-	PicEvidence                 *model.StringComparisonExp       `json:"pic_evidence"`
-	Statement                   *model.StringComparisonExp       `json:"statement"`
-	UpdateTimeIn                *model.TimestamptzComparisonExp  `json:"update_time_in"`
-	UpdatedAt                   *model.TimestamptzComparisonExp  `json:"updated_at"`
-	UpdatedBy                   *model.StringComparisonExp       `json:"updated_by"`
-	VehicleManagerIDCard        *model.StringComparisonExp       `json:"vehicle_manager_id_card"`
-	ViolationDetailID           *model.StringComparisonExp       `json:"violation_detail_id"`
-	Witness                     *model.StringComparisonExp       `json:"witness"`
-	WrittenApplicationMaterials *model.StringComparisonExp       `json:"written_application_materials"`
-}
-
-// input type for incrementing integer column in table "dispute_violation_record"
-type DisputeViolationRecordIncInput struct {
-	ApproveState *int   `json:"approve_state"`
 	ID           *int64 `json:"id"`
+	PicketStatus *int   `json:"picket_status"`
 }
 
-// input type for inserting data into table "dispute_violation_record"
-type DisputeViolationRecordInsertInput struct {
-	AgentIDNumber               *string    `json:"agent_id_number"`
-	ApproveState                *int       `json:"approve_state"`
-	BusinessLicense             *string    `json:"business_license"`
-	ContactAddress              *string    `json:"contact_address"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
-	DisputeViolationID          *string    `json:"dispute_violation_id"`
-	DriverLicense               *string    `json:"driver_license"`
-	DrivingLicense              *string    `json:"driving_license"`
-	DrivingLog                  *string    `json:"driving_log"`
-	ID                          *int64     `json:"id"`
-	IDCard                      *string    `json:"id_card"`
-	IsDelete                    *bool      `json:"is_delete"`
-	LaborContract               *string    `json:"labor_contract"`
-	LegalPersonIDNumber         *string    `json:"legal_person_id_number"`
-	OrganizationCode            *string    `json:"organization_code"`
-	OtherEvidence               *string    `json:"other_evidence"`
-	PicEvidence                 *string    `json:"pic_evidence"`
-	Statement                   *string    `json:"statement"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	ViolationDetailID           *string    `json:"violation_detail_id"`
-	Witness                     *string    `json:"witness"`
-	WrittenApplicationMaterials *string    `json:"written_application_materials"`
+// aggregated selection of "deduction_report"
+type DeductionReportAggregate struct {
+	Aggregate *DeductionReportAggregateFields `json:"aggregate"`
 }
 
-// aggregated selection of "dispute_violation_record_log"
-type DisputeViolationRecordLogAggregate struct {
-	Aggregate *DisputeViolationRecordLogAggregateFields `json:"aggregate"`
-	Nodes     []*DisputeViolationRecordLog              `json:"nodes"`
+// aggregate fields of "deduction_report"
+type DeductionReportAggregateFields struct {
+	Avg        *DeductionReportAvgFields        `json:"avg"`
+	Count      *int                             `json:"count"`
+	Max        *DeductionReportMaxFields        `json:"max"`
+	Min        *DeductionReportMinFields        `json:"min"`
+	Stddev     *DeductionReportStddevFields     `json:"stddev"`
+	StddevPop  *DeductionReportStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *DeductionReportStddevSampFields `json:"stddev_samp"`
+	Sum        *DeductionReportSumFields        `json:"sum"`
+	VarPop     *DeductionReportVarPopFields     `json:"var_pop"`
+	VarSamp    *DeductionReportVarSampFields    `json:"var_samp"`
+	Variance   *DeductionReportVarianceFields   `json:"variance"`
 }
 
-// aggregate fields of "dispute_violation_record_log"
-type DisputeViolationRecordLogAggregateFields struct {
-	Avg        *DisputeViolationRecordLogAvgFields        `json:"avg"`
-	Count      *int                                       `json:"count"`
-	Max        *DisputeViolationRecordLogMaxFields        `json:"max"`
-	Min        *DisputeViolationRecordLogMinFields        `json:"min"`
-	Stddev     *DisputeViolationRecordLogStddevFields     `json:"stddev"`
-	StddevPop  *DisputeViolationRecordLogStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *DisputeViolationRecordLogStddevSampFields `json:"stddev_samp"`
-	Sum        *DisputeViolationRecordLogSumFields        `json:"sum"`
-	VarPop     *DisputeViolationRecordLogVarPopFields     `json:"var_pop"`
-	VarSamp    *DisputeViolationRecordLogVarSampFields    `json:"var_samp"`
-	Variance   *DisputeViolationRecordLogVarianceFields   `json:"variance"`
+// aggregate avg on columns of table "deduction_report"
+type DeductionReportAvgFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// order by aggregate values of table "dispute_violation_record_log"
-type DisputeViolationRecordLogAggregateOrderBy struct {
-	Avg        *DisputeViolationRecordLogAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                              `json:"count"`
-	Max        *DisputeViolationRecordLogMaxOrderBy        `json:"max"`
-	Min        *DisputeViolationRecordLogMinOrderBy        `json:"min"`
-	Stddev     *DisputeViolationRecordLogStddevOrderBy     `json:"stddev"`
-	StddevPop  *DisputeViolationRecordLogStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DisputeViolationRecordLogStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DisputeViolationRecordLogSumOrderBy        `json:"sum"`
-	VarPop     *DisputeViolationRecordLogVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DisputeViolationRecordLogVarSampOrderBy    `json:"var_samp"`
-	Variance   *DisputeViolationRecordLogVarianceOrderBy   `json:"variance"`
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'deduction_report'.
+type DeductionReportBoolExp struct {
+	And               []*DeductionReportBoolExp       `json:"_and"`
+	Not               *DeductionReportBoolExp         `json:"_not"`
+	Or                []*DeductionReportBoolExp       `json:"_or"`
+	ID                *model.BigintComparisonExp      `json:"id"`
+	DeductionReportID *model.StringComparisonExp      `json:"deduction_report_id"`
+	AreaID            *model.StringComparisonExp      `json:"area_id"`
+	Date              *model.StringComparisonExp      `json:"date"`
+	Cause             *model.StringComparisonExp      `json:"cause"`
+	InputPerson       *model.StringComparisonExp      `json:"input_person"`
+	InputTime         *model.TimestamptzComparisonExp `json:"input_time"`
+	DemeritPoints     *model.NumericComparisonExp     `json:"demerit_points"`
+	CreatedAt         *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy         *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt         *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy         *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt         *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy         *model.StringComparisonExp      `json:"deleted_by"`
 }
 
-// input type for inserting array relation for remote table "dispute_violation_record_log"
-type DisputeViolationRecordLogArrRelInsertInput struct {
-	Data       []*DisputeViolationRecordLogInsertInput `json:"data"`
-	OnConflict *DisputeViolationRecordLogOnConflict    `json:"on_conflict"`
+// input type for incrementing integer column in table "deduction_report"
+type DeductionReportIncInput struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// aggregate avg on columns
-type DisputeViolationRecordLogAvgFields struct {
-	ID *float64 `json:"id"`
+// input type for inserting data into table "deduction_report"
+type DeductionReportInsertInput struct {
+	ID                *int64     `json:"id"`
+	DeductionReportID *string    `json:"deduction_report_id"`
+	AreaID            *string    `json:"area_id"`
+	Date              *string    `json:"date"`
+	Cause             *string    `json:"cause"`
+	InputPerson       *string    `json:"input_person"`
+	InputTime         *time.Time `json:"input_time"`
+	DemeritPoints     *float64   `json:"demerit_points"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
-// order by avg() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogAvgOrderBy struct {
-	ID *model.OrderBy `json:"id"`
+// aggregate max on columns of table "deduction_report"
+type DeductionReportMaxFields struct {
+	ID                *int64     `json:"id"`
+	DeductionReportID *string    `json:"deduction_report_id"`
+	AreaID            *string    `json:"area_id"`
+	Date              *string    `json:"date"`
+	Cause             *string    `json:"cause"`
+	InputPerson       *string    `json:"input_person"`
+	InputTime         *time.Time `json:"input_time"`
+	DemeritPoints     *float64   `json:"demerit_points"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
-// Boolean expression to filter rows from the table "dispute_violation_record_log".
-// All fields are combined with a logical 'AND'.
-type DisputeViolationRecordLogBoolExp struct {
-	And                   []*DisputeViolationRecordLogBoolExp `json:"_and"`
-	Not                   *DisputeViolationRecordLogBoolExp   `json:"_not"`
-	Or                    []*DisputeViolationRecordLogBoolExp `json:"_or"`
-	Approver              *model.StringComparisonExp          `json:"approver"`
-	DisputeViolationID    *model.StringComparisonExp          `json:"dispute_violation_id"`
-	DisputeViolationLogID *model.StringComparisonExp          `json:"dispute_violation_log_id"`
-	ID                    *model.BigintComparisonExp          `json:"id"`
-	ReviewActionName      *model.StringComparisonExp          `json:"review_action_name"`
-	ReviewOpinion         *model.StringComparisonExp          `json:"review_opinion"`
-	ReviewResult          *model.StringComparisonExp          `json:"review_result"`
-	ReviewTime            *model.TimestamptzComparisonExp     `json:"review_time"`
-	Reviewer              *model.StringComparisonExp          `json:"reviewer"`
-	UpdateTimeIn          *model.TimestamptzComparisonExp     `json:"update_time_in"`
+// aggregate min on columns of table "deduction_report"
+type DeductionReportMinFields struct {
+	ID                *int64     `json:"id"`
+	DeductionReportID *string    `json:"deduction_report_id"`
+	AreaID            *string    `json:"area_id"`
+	Date              *string    `json:"date"`
+	Cause             *string    `json:"cause"`
+	InputPerson       *string    `json:"input_person"`
+	InputTime         *time.Time `json:"input_time"`
+	DemeritPoints     *float64   `json:"demerit_points"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
-// input type for incrementing integer column in table "dispute_violation_record_log"
-type DisputeViolationRecordLogIncInput struct {
-	ID *int64 `json:"id"`
+// response of any mutation on the table "deduction_report"
+type DeductionReportMutationResponse struct {
+	AffectedRows int                       `json:"affected_rows"`
+	Returning    []*model1.DeductionReport `json:"returning"`
 }
 
-// input type for inserting data into table "dispute_violation_record_log"
-type DisputeViolationRecordLogInsertInput struct {
-	Approver              *string    `json:"approver"`
-	DisputeViolationID    *string    `json:"dispute_violation_id"`
-	DisputeViolationLogID *string    `json:"dispute_violation_log_id"`
-	ID                    *int64     `json:"id"`
-	ReviewActionName      *string    `json:"review_action_name"`
-	ReviewOpinion         *string    `json:"review_opinion"`
-	ReviewResult          *string    `json:"review_result"`
-	ReviewTime            *time.Time `json:"review_time"`
-	Reviewer              *string    `json:"reviewer"`
-	UpdateTimeIn          *time.Time `json:"update_time_in"`
+// ordering options when selecting data from "deduction_report"
+type DeductionReportOrderBy struct {
+	ID                *model.OrderBy `json:"id"`
+	DeductionReportID *model.OrderBy `json:"deduction_report_id"`
+	AreaID            *model.OrderBy `json:"area_id"`
+	Date              *model.OrderBy `json:"date"`
+	Cause             *model.OrderBy `json:"cause"`
+	InputPerson       *model.OrderBy `json:"input_person"`
+	InputTime         *model.OrderBy `json:"input_time"`
+	DemeritPoints     *model.OrderBy `json:"demerit_points"`
+	CreatedAt         *model.OrderBy `json:"created_at"`
+	CreatedBy         *model.OrderBy `json:"created_by"`
+	UpdatedAt         *model.OrderBy `json:"updated_at"`
+	UpdatedBy         *model.OrderBy `json:"updated_by"`
+	DeletedAt         *model.OrderBy `json:"deleted_at"`
+	DeletedBy         *model.OrderBy `json:"deleted_by"`
 }
 
-// aggregate max on columns
-type DisputeViolationRecordLogMaxFields struct {
-	Approver              *string    `json:"approver"`
-	DisputeViolationID    *string    `json:"dispute_violation_id"`
-	DisputeViolationLogID *string    `json:"dispute_violation_log_id"`
-	ID                    *int64     `json:"id"`
-	ReviewActionName      *string    `json:"review_action_name"`
-	ReviewOpinion         *string    `json:"review_opinion"`
-	ReviewResult          *string    `json:"review_result"`
-	ReviewTime            *time.Time `json:"review_time"`
-	Reviewer              *string    `json:"reviewer"`
-	UpdateTimeIn          *time.Time `json:"update_time_in"`
+// input type for updating data in table "deduction_report"
+type DeductionReportSetInput struct {
+	ID                *int64     `json:"id"`
+	DeductionReportID *string    `json:"deduction_report_id"`
+	AreaID            *string    `json:"area_id"`
+	Date              *string    `json:"date"`
+	Cause             *string    `json:"cause"`
+	InputPerson       *string    `json:"input_person"`
+	InputTime         *time.Time `json:"input_time"`
+	DemeritPoints     *float64   `json:"demerit_points"`
+	CreatedAt         *time.Time `json:"created_at"`
+	CreatedBy         *string    `json:"created_by"`
+	UpdatedAt         *time.Time `json:"updated_at"`
+	UpdatedBy         *string    `json:"updated_by"`
+	DeletedAt         *time.Time `json:"deleted_at"`
+	DeletedBy         *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogMaxOrderBy struct {
-	Approver              *model.OrderBy `json:"approver"`
-	DisputeViolationID    *model.OrderBy `json:"dispute_violation_id"`
-	DisputeViolationLogID *model.OrderBy `json:"dispute_violation_log_id"`
-	ID                    *model.OrderBy `json:"id"`
-	ReviewActionName      *model.OrderBy `json:"review_action_name"`
-	ReviewOpinion         *model.OrderBy `json:"review_opinion"`
-	ReviewResult          *model.OrderBy `json:"review_result"`
-	ReviewTime            *model.OrderBy `json:"review_time"`
-	Reviewer              *model.OrderBy `json:"reviewer"`
-	UpdateTimeIn          *model.OrderBy `json:"update_time_in"`
+// aggregate stddev on columns of table "deduction_report"
+type DeductionReportStddevFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// aggregate min on columns
-type DisputeViolationRecordLogMinFields struct {
-	Approver              *string    `json:"approver"`
-	DisputeViolationID    *string    `json:"dispute_violation_id"`
-	DisputeViolationLogID *string    `json:"dispute_violation_log_id"`
-	ID                    *int64     `json:"id"`
-	ReviewActionName      *string    `json:"review_action_name"`
-	ReviewOpinion         *string    `json:"review_opinion"`
-	ReviewResult          *string    `json:"review_result"`
-	ReviewTime            *time.Time `json:"review_time"`
-	Reviewer              *string    `json:"reviewer"`
-	UpdateTimeIn          *time.Time `json:"update_time_in"`
+// aggregate stddev_pop on columns of table "deduction_report"
+type DeductionReportStddevPopFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// order by min() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogMinOrderBy struct {
-	Approver              *model.OrderBy `json:"approver"`
-	DisputeViolationID    *model.OrderBy `json:"dispute_violation_id"`
-	DisputeViolationLogID *model.OrderBy `json:"dispute_violation_log_id"`
-	ID                    *model.OrderBy `json:"id"`
-	ReviewActionName      *model.OrderBy `json:"review_action_name"`
-	ReviewOpinion         *model.OrderBy `json:"review_opinion"`
-	ReviewResult          *model.OrderBy `json:"review_result"`
-	ReviewTime            *model.OrderBy `json:"review_time"`
-	Reviewer              *model.OrderBy `json:"reviewer"`
-	UpdateTimeIn          *model.OrderBy `json:"update_time_in"`
+// aggregate stddev_samp on columns of table "deduction_report"
+type DeductionReportStddevSampFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// response of any mutation on the table "dispute_violation_record_log"
-type DisputeViolationRecordLogMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DisputeViolationRecordLog `json:"returning"`
+// aggregate sum on columns of table "deduction_report"
+type DeductionReportSumFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// input type for inserting object relation for remote table "dispute_violation_record_log"
-type DisputeViolationRecordLogObjRelInsertInput struct {
-	Data       *DisputeViolationRecordLogInsertInput `json:"data"`
-	OnConflict *DisputeViolationRecordLogOnConflict  `json:"on_conflict"`
+// aggregate var_pop on columns of table "deduction_report"
+type DeductionReportVarPopFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// on conflict condition type for table "dispute_violation_record_log"
-type DisputeViolationRecordLogOnConflict struct {
-	Constraint    DisputeViolationRecordLogConstraint     `json:"constraint"`
-	UpdateColumns []DisputeViolationRecordLogUpdateColumn `json:"update_columns"`
-	Where         *DisputeViolationRecordLogBoolExp       `json:"where"`
+// aggregate var_samp on columns of table "deduction_report"
+type DeductionReportVarSampFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// ordering options when selecting data from "dispute_violation_record_log"
-type DisputeViolationRecordLogOrderBy struct {
-	Approver              *model.OrderBy `json:"approver"`
-	DisputeViolationID    *model.OrderBy `json:"dispute_violation_id"`
-	DisputeViolationLogID *model.OrderBy `json:"dispute_violation_log_id"`
-	ID                    *model.OrderBy `json:"id"`
-	ReviewActionName      *model.OrderBy `json:"review_action_name"`
-	ReviewOpinion         *model.OrderBy `json:"review_opinion"`
-	ReviewResult          *model.OrderBy `json:"review_result"`
-	ReviewTime            *model.OrderBy `json:"review_time"`
-	Reviewer              *model.OrderBy `json:"reviewer"`
-	UpdateTimeIn          *model.OrderBy `json:"update_time_in"`
-}
-
-// primary key columns input for table: "dispute_violation_record_log"
-type DisputeViolationRecordLogPkColumnsInput struct {
-	// 联合主键
-	DisputeViolationLogID string `json:"dispute_violation_log_id"`
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "dispute_violation_record_log"
-type DisputeViolationRecordLogSetInput struct {
-	Approver              *string    `json:"approver"`
-	DisputeViolationID    *string    `json:"dispute_violation_id"`
-	DisputeViolationLogID *string    `json:"dispute_violation_log_id"`
-	ID                    *int64     `json:"id"`
-	ReviewActionName      *string    `json:"review_action_name"`
-	ReviewOpinion         *string    `json:"review_opinion"`
-	ReviewResult          *string    `json:"review_result"`
-	ReviewTime            *time.Time `json:"review_time"`
-	Reviewer              *string    `json:"reviewer"`
-	UpdateTimeIn          *time.Time `json:"update_time_in"`
-}
-
-// aggregate stddev on columns
-type DisputeViolationRecordLogStddevFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogStddevOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type DisputeViolationRecordLogStddevPopFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogStddevPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type DisputeViolationRecordLogStddevSampFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogStddevSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type DisputeViolationRecordLogSumFields struct {
-	ID *int64 `json:"id"`
-}
-
-// order by sum() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogSumOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_pop on columns
-type DisputeViolationRecordLogVarPopFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by var_pop() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogVarPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
-type DisputeViolationRecordLogVarSampFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by var_samp() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogVarSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
-type DisputeViolationRecordLogVarianceFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogVarianceOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate max on columns
-type DisputeViolationRecordMaxFields struct {
-	AgentIDNumber               *string    `json:"agent_id_number"`
-	ApproveState                *int       `json:"approve_state"`
-	BusinessLicense             *string    `json:"business_license"`
-	ContactAddress              *string    `json:"contact_address"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
-	DisputeViolationID          *string    `json:"dispute_violation_id"`
-	DriverLicense               *string    `json:"driver_license"`
-	DrivingLicense              *string    `json:"driving_license"`
-	DrivingLog                  *string    `json:"driving_log"`
-	ID                          *int64     `json:"id"`
-	IDCard                      *string    `json:"id_card"`
-	LaborContract               *string    `json:"labor_contract"`
-	LegalPersonIDNumber         *string    `json:"legal_person_id_number"`
-	OrganizationCode            *string    `json:"organization_code"`
-	PicEvidence                 *string    `json:"pic_evidence"`
-	Statement                   *string    `json:"statement"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	ViolationDetailID           *string    `json:"violation_detail_id"`
-	Witness                     *string    `json:"witness"`
-	WrittenApplicationMaterials *string    `json:"written_application_materials"`
-}
-
-// order by max() on columns of table "dispute_violation_record"
-type DisputeViolationRecordMaxOrderBy struct {
-	AgentIDNumber               *model.OrderBy `json:"agent_id_number"`
-	ApproveState                *model.OrderBy `json:"approve_state"`
-	BusinessLicense             *model.OrderBy `json:"business_license"`
-	ContactAddress              *model.OrderBy `json:"contact_address"`
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DisputeViolationID          *model.OrderBy `json:"dispute_violation_id"`
-	DriverLicense               *model.OrderBy `json:"driver_license"`
-	DrivingLicense              *model.OrderBy `json:"driving_license"`
-	DrivingLog                  *model.OrderBy `json:"driving_log"`
-	ID                          *model.OrderBy `json:"id"`
-	IDCard                      *model.OrderBy `json:"id_card"`
-	LaborContract               *model.OrderBy `json:"labor_contract"`
-	LegalPersonIDNumber         *model.OrderBy `json:"legal_person_id_number"`
-	OrganizationCode            *model.OrderBy `json:"organization_code"`
-	PicEvidence                 *model.OrderBy `json:"pic_evidence"`
-	Statement                   *model.OrderBy `json:"statement"`
-	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
-	ViolationDetailID           *model.OrderBy `json:"violation_detail_id"`
-	Witness                     *model.OrderBy `json:"witness"`
-	WrittenApplicationMaterials *model.OrderBy `json:"written_application_materials"`
-}
-
-// aggregate min on columns
-type DisputeViolationRecordMinFields struct {
-	AgentIDNumber               *string    `json:"agent_id_number"`
-	ApproveState                *int       `json:"approve_state"`
-	BusinessLicense             *string    `json:"business_license"`
-	ContactAddress              *string    `json:"contact_address"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
-	DisputeViolationID          *string    `json:"dispute_violation_id"`
-	DriverLicense               *string    `json:"driver_license"`
-	DrivingLicense              *string    `json:"driving_license"`
-	DrivingLog                  *string    `json:"driving_log"`
-	ID                          *int64     `json:"id"`
-	IDCard                      *string    `json:"id_card"`
-	LaborContract               *string    `json:"labor_contract"`
-	LegalPersonIDNumber         *string    `json:"legal_person_id_number"`
-	OrganizationCode            *string    `json:"organization_code"`
-	PicEvidence                 *string    `json:"pic_evidence"`
-	Statement                   *string    `json:"statement"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	ViolationDetailID           *string    `json:"violation_detail_id"`
-	Witness                     *string    `json:"witness"`
-	WrittenApplicationMaterials *string    `json:"written_application_materials"`
-}
-
-// order by min() on columns of table "dispute_violation_record"
-type DisputeViolationRecordMinOrderBy struct {
-	AgentIDNumber               *model.OrderBy `json:"agent_id_number"`
-	ApproveState                *model.OrderBy `json:"approve_state"`
-	BusinessLicense             *model.OrderBy `json:"business_license"`
-	ContactAddress              *model.OrderBy `json:"contact_address"`
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DisputeViolationID          *model.OrderBy `json:"dispute_violation_id"`
-	DriverLicense               *model.OrderBy `json:"driver_license"`
-	DrivingLicense              *model.OrderBy `json:"driving_license"`
-	DrivingLog                  *model.OrderBy `json:"driving_log"`
-	ID                          *model.OrderBy `json:"id"`
-	IDCard                      *model.OrderBy `json:"id_card"`
-	LaborContract               *model.OrderBy `json:"labor_contract"`
-	LegalPersonIDNumber         *model.OrderBy `json:"legal_person_id_number"`
-	OrganizationCode            *model.OrderBy `json:"organization_code"`
-	PicEvidence                 *model.OrderBy `json:"pic_evidence"`
-	Statement                   *model.OrderBy `json:"statement"`
-	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
-	ViolationDetailID           *model.OrderBy `json:"violation_detail_id"`
-	Witness                     *model.OrderBy `json:"witness"`
-	WrittenApplicationMaterials *model.OrderBy `json:"written_application_materials"`
-}
-
-// response of any mutation on the table "dispute_violation_record"
-type DisputeViolationRecordMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DisputeViolationRecord `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "dispute_violation_record"
-type DisputeViolationRecordObjRelInsertInput struct {
-	Data       *DisputeViolationRecordInsertInput `json:"data"`
-	OnConflict *DisputeViolationRecordOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "dispute_violation_record"
-type DisputeViolationRecordOnConflict struct {
-	Constraint    DisputeViolationRecordConstraint     `json:"constraint"`
-	UpdateColumns []DisputeViolationRecordUpdateColumn `json:"update_columns"`
-	Where         *DisputeViolationRecordBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "dispute_violation_record"
-type DisputeViolationRecordOrderBy struct {
-	AgentIDNumber               *model.OrderBy `json:"agent_id_number"`
-	ApproveState                *model.OrderBy `json:"approve_state"`
-	BusinessLicense             *model.OrderBy `json:"business_license"`
-	ContactAddress              *model.OrderBy `json:"contact_address"`
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DisputeViolationID          *model.OrderBy `json:"dispute_violation_id"`
-	DriverLicense               *model.OrderBy `json:"driver_license"`
-	DrivingLicense              *model.OrderBy `json:"driving_license"`
-	DrivingLog                  *model.OrderBy `json:"driving_log"`
-	ID                          *model.OrderBy `json:"id"`
-	IDCard                      *model.OrderBy `json:"id_card"`
-	IsDelete                    *model.OrderBy `json:"is_delete"`
-	LaborContract               *model.OrderBy `json:"labor_contract"`
-	LegalPersonIDNumber         *model.OrderBy `json:"legal_person_id_number"`
-	OrganizationCode            *model.OrderBy `json:"organization_code"`
-	OtherEvidence               *model.OrderBy `json:"other_evidence"`
-	PicEvidence                 *model.OrderBy `json:"pic_evidence"`
-	Statement                   *model.OrderBy `json:"statement"`
-	UpdateTimeIn                *model.OrderBy `json:"update_time_in"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	VehicleManagerIDCard        *model.OrderBy `json:"vehicle_manager_id_card"`
-	ViolationDetailID           *model.OrderBy `json:"violation_detail_id"`
-	Witness                     *model.OrderBy `json:"witness"`
-	WrittenApplicationMaterials *model.OrderBy `json:"written_application_materials"`
-}
-
-// primary key columns input for table: "dispute_violation_record"
-type DisputeViolationRecordPkColumnsInput struct {
-	// 联合主键
-	DisputeViolationID string `json:"dispute_violation_id"`
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "dispute_violation_record"
-type DisputeViolationRecordSetInput struct {
-	AgentIDNumber               *string    `json:"agent_id_number"`
-	ApproveState                *int       `json:"approve_state"`
-	BusinessLicense             *string    `json:"business_license"`
-	ContactAddress              *string    `json:"contact_address"`
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
-	DisputeViolationID          *string    `json:"dispute_violation_id"`
-	DriverLicense               *string    `json:"driver_license"`
-	DrivingLicense              *string    `json:"driving_license"`
-	DrivingLog                  *string    `json:"driving_log"`
-	ID                          *int64     `json:"id"`
-	IDCard                      *string    `json:"id_card"`
-	IsDelete                    *bool      `json:"is_delete"`
-	LaborContract               *string    `json:"labor_contract"`
-	LegalPersonIDNumber         *string    `json:"legal_person_id_number"`
-	OrganizationCode            *string    `json:"organization_code"`
-	OtherEvidence               *string    `json:"other_evidence"`
-	PicEvidence                 *string    `json:"pic_evidence"`
-	Statement                   *string    `json:"statement"`
-	UpdateTimeIn                *time.Time `json:"update_time_in"`
-	UpdatedAt                   *time.Time `json:"updated_at"`
-	UpdatedBy                   *string    `json:"updated_by"`
-	VehicleManagerIDCard        *string    `json:"vehicle_manager_id_card"`
-	ViolationDetailID           *string    `json:"violation_detail_id"`
-	Witness                     *string    `json:"witness"`
-	WrittenApplicationMaterials *string    `json:"written_application_materials"`
-}
-
-// aggregate stddev on columns
-type DisputeViolationRecordStddevFields struct {
-	ApproveState *float64 `json:"approve_state"`
-	ID           *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "dispute_violation_record"
-type DisputeViolationRecordStddevOrderBy struct {
-	ApproveState *model.OrderBy `json:"approve_state"`
-	ID           *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type DisputeViolationRecordStddevPopFields struct {
-	ApproveState *float64 `json:"approve_state"`
-	ID           *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "dispute_violation_record"
-type DisputeViolationRecordStddevPopOrderBy struct {
-	ApproveState *model.OrderBy `json:"approve_state"`
-	ID           *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type DisputeViolationRecordStddevSampFields struct {
-	ApproveState *float64 `json:"approve_state"`
-	ID           *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "dispute_violation_record"
-type DisputeViolationRecordStddevSampOrderBy struct {
-	ApproveState *model.OrderBy `json:"approve_state"`
-	ID           *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type DisputeViolationRecordSumFields struct {
-	ApproveState *int   `json:"approve_state"`
-	ID           *int64 `json:"id"`
-}
-
-// order by sum() on columns of table "dispute_violation_record"
-type DisputeViolationRecordSumOrderBy struct {
-	ApproveState *model.OrderBy `json:"approve_state"`
-	ID           *model.OrderBy `json:"id"`
-}
-
-// aggregate var_pop on columns
-type DisputeViolationRecordVarPopFields struct {
-	ApproveState *float64 `json:"approve_state"`
-	ID           *float64 `json:"id"`
-}
-
-// order by var_pop() on columns of table "dispute_violation_record"
-type DisputeViolationRecordVarPopOrderBy struct {
-	ApproveState *model.OrderBy `json:"approve_state"`
-	ID           *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
-type DisputeViolationRecordVarSampFields struct {
-	ApproveState *float64 `json:"approve_state"`
-	ID           *float64 `json:"id"`
-}
-
-// order by var_samp() on columns of table "dispute_violation_record"
-type DisputeViolationRecordVarSampOrderBy struct {
-	ApproveState *model.OrderBy `json:"approve_state"`
-	ID           *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
-type DisputeViolationRecordVarianceFields struct {
-	ApproveState *float64 `json:"approve_state"`
-	ID           *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "dispute_violation_record"
-type DisputeViolationRecordVarianceOrderBy struct {
-	ApproveState *model.OrderBy `json:"approve_state"`
-	ID           *model.OrderBy `json:"id"`
+// aggregate variance on columns of table "deduction_report"
+type DeductionReportVarianceFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
 // aggregated selection of "driver_peccancy_check"
 type DriverPeccancyCheckAggregate struct {
 	Aggregate *DriverPeccancyCheckAggregateFields `json:"aggregate"`
-	Nodes     []*DriverPeccancyCheck              `json:"nodes"`
 }
 
 // aggregate fields of "driver_peccancy_check"
@@ -1328,52 +419,26 @@ type DriverPeccancyCheckAggregateFields struct {
 	Variance   *DriverPeccancyCheckVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "driver_peccancy_check"
-type DriverPeccancyCheckAggregateOrderBy struct {
-	Avg        *DriverPeccancyCheckAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                        `json:"count"`
-	Max        *DriverPeccancyCheckMaxOrderBy        `json:"max"`
-	Min        *DriverPeccancyCheckMinOrderBy        `json:"min"`
-	Stddev     *DriverPeccancyCheckStddevOrderBy     `json:"stddev"`
-	StddevPop  *DriverPeccancyCheckStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DriverPeccancyCheckStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DriverPeccancyCheckSumOrderBy        `json:"sum"`
-	VarPop     *DriverPeccancyCheckVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DriverPeccancyCheckVarSampOrderBy    `json:"var_samp"`
-	Variance   *DriverPeccancyCheckVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "driver_peccancy_check"
-type DriverPeccancyCheckArrRelInsertInput struct {
-	Data       []*DriverPeccancyCheckInsertInput `json:"data"`
-	OnConflict *DriverPeccancyCheckOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckAvgFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by avg() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckAvgOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "driver_peccancy_check". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_peccancy_check'.
 type DriverPeccancyCheckBoolExp struct {
 	And          []*DriverPeccancyCheckBoolExp   `json:"_and"`
 	Not          *DriverPeccancyCheckBoolExp     `json:"_not"`
 	Or           []*DriverPeccancyCheckBoolExp   `json:"_or"`
-	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
+	ID           *model.BigintComparisonExp      `json:"id"`
+	VehicleID    *model.StringComparisonExp      `json:"vehicle_id"`
 	DriverID     *model.StringComparisonExp      `json:"driver_id"`
 	EnterpriseID *model.StringComparisonExp      `json:"enterprise_id"`
-	ID           *model.BigintComparisonExp      `json:"id"`
+	CreatedAt    *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy    *model.StringComparisonExp      `json:"created_by"`
 	UpdatedAt    *model.TimestamptzComparisonExp `json:"updated_at"`
 	UpdatedBy    *model.StringComparisonExp      `json:"updated_by"`
-	VehicleID    *model.StringComparisonExp      `json:"vehicle_id"`
+	DeletedAt    *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "driver_peccancy_check"
@@ -1383,829 +448,118 @@ type DriverPeccancyCheckIncInput struct {
 
 // input type for inserting data into table "driver_peccancy_check"
 type DriverPeccancyCheckInsertInput struct {
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
+	ID           *int64     `json:"id"`
+	VehicleID    *string    `json:"vehicle_id"`
 	DriverID     *string    `json:"driver_id"`
 	EnterpriseID *string    `json:"enterprise_id"`
-	ID           *int64     `json:"id"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
-	VehicleID    *string    `json:"vehicle_id"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckMaxFields struct {
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
+	ID           *int64     `json:"id"`
+	VehicleID    *string    `json:"vehicle_id"`
 	DriverID     *string    `json:"driver_id"`
 	EnterpriseID *string    `json:"enterprise_id"`
-	ID           *int64     `json:"id"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
-	VehicleID    *string    `json:"vehicle_id"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckMaxOrderBy struct {
-	CreatedAt    *model.OrderBy `json:"created_at"`
-	CreatedBy    *model.OrderBy `json:"created_by"`
-	DeletedAt    *model.OrderBy `json:"deleted_at"`
-	DeletedBy    *model.OrderBy `json:"deleted_by"`
-	DriverID     *model.OrderBy `json:"driver_id"`
-	EnterpriseID *model.OrderBy `json:"enterprise_id"`
-	ID           *model.OrderBy `json:"id"`
-	UpdatedAt    *model.OrderBy `json:"updated_at"`
-	UpdatedBy    *model.OrderBy `json:"updated_by"`
-	VehicleID    *model.OrderBy `json:"vehicle_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckMinFields struct {
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
+	ID           *int64     `json:"id"`
+	VehicleID    *string    `json:"vehicle_id"`
 	DriverID     *string    `json:"driver_id"`
 	EnterpriseID *string    `json:"enterprise_id"`
-	ID           *int64     `json:"id"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
-	VehicleID    *string    `json:"vehicle_id"`
-}
-
-// order by min() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckMinOrderBy struct {
-	CreatedAt    *model.OrderBy `json:"created_at"`
-	CreatedBy    *model.OrderBy `json:"created_by"`
-	DeletedAt    *model.OrderBy `json:"deleted_at"`
-	DeletedBy    *model.OrderBy `json:"deleted_by"`
-	DriverID     *model.OrderBy `json:"driver_id"`
-	EnterpriseID *model.OrderBy `json:"enterprise_id"`
-	ID           *model.OrderBy `json:"id"`
-	UpdatedAt    *model.OrderBy `json:"updated_at"`
-	UpdatedBy    *model.OrderBy `json:"updated_by"`
-	VehicleID    *model.OrderBy `json:"vehicle_id"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "driver_peccancy_check"
 type DriverPeccancyCheckMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DriverPeccancyCheck `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "driver_peccancy_check"
-type DriverPeccancyCheckObjRelInsertInput struct {
-	Data       *DriverPeccancyCheckInsertInput `json:"data"`
-	OnConflict *DriverPeccancyCheckOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "driver_peccancy_check"
-type DriverPeccancyCheckOnConflict struct {
-	Constraint    DriverPeccancyCheckConstraint     `json:"constraint"`
-	UpdateColumns []DriverPeccancyCheckUpdateColumn `json:"update_columns"`
-	Where         *DriverPeccancyCheckBoolExp       `json:"where"`
+	AffectedRows int                           `json:"affected_rows"`
+	Returning    []*model1.DriverPeccancyCheck `json:"returning"`
 }
 
 // ordering options when selecting data from "driver_peccancy_check"
 type DriverPeccancyCheckOrderBy struct {
-	CreatedAt    *model.OrderBy `json:"created_at"`
-	CreatedBy    *model.OrderBy `json:"created_by"`
-	DeletedAt    *model.OrderBy `json:"deleted_at"`
-	DeletedBy    *model.OrderBy `json:"deleted_by"`
+	ID           *model.OrderBy `json:"id"`
+	VehicleID    *model.OrderBy `json:"vehicle_id"`
 	DriverID     *model.OrderBy `json:"driver_id"`
 	EnterpriseID *model.OrderBy `json:"enterprise_id"`
-	ID           *model.OrderBy `json:"id"`
+	CreatedAt    *model.OrderBy `json:"created_at"`
+	CreatedBy    *model.OrderBy `json:"created_by"`
 	UpdatedAt    *model.OrderBy `json:"updated_at"`
 	UpdatedBy    *model.OrderBy `json:"updated_by"`
-	VehicleID    *model.OrderBy `json:"vehicle_id"`
-}
-
-// primary key columns input for table: "driver_peccancy_check"
-type DriverPeccancyCheckPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "driver_peccancy_check"
 type DriverPeccancyCheckSetInput struct {
-	CreatedAt    *time.Time `json:"created_at"`
-	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
+	ID           *int64     `json:"id"`
+	VehicleID    *string    `json:"vehicle_id"`
 	DriverID     *string    `json:"driver_id"`
 	EnterpriseID *string    `json:"enterprise_id"`
-	ID           *int64     `json:"id"`
+	CreatedAt    *time.Time `json:"created_at"`
+	CreatedBy    *string    `json:"created_by"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
-	VehicleID    *string    `json:"vehicle_id"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckStddevFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckStddevOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckStddevPopFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev_pop() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckStddevPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckStddevSampFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev_samp() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckStddevSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckSumFields struct {
 	ID *int64 `json:"id"`
 }
 
-// order by sum() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckSumOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckVarPopFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by var_pop() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckVarPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckVarSampFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by var_samp() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckVarSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "driver_peccancy_check"
 type DriverPeccancyCheckVarianceFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "driver_peccancy_check"
-type DriverPeccancyCheckVarianceOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregated selection of "enterprise_deduction_items"
-type EnterpriseDeductionItemsAggregate struct {
-	Aggregate *EnterpriseDeductionItemsAggregateFields `json:"aggregate"`
-	Nodes     []*EnterpriseDeductionItems              `json:"nodes"`
-}
-
-// aggregate fields of "enterprise_deduction_items"
-type EnterpriseDeductionItemsAggregateFields struct {
-	Avg        *EnterpriseDeductionItemsAvgFields        `json:"avg"`
-	Count      *int                                      `json:"count"`
-	Max        *EnterpriseDeductionItemsMaxFields        `json:"max"`
-	Min        *EnterpriseDeductionItemsMinFields        `json:"min"`
-	Stddev     *EnterpriseDeductionItemsStddevFields     `json:"stddev"`
-	StddevPop  *EnterpriseDeductionItemsStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *EnterpriseDeductionItemsStddevSampFields `json:"stddev_samp"`
-	Sum        *EnterpriseDeductionItemsSumFields        `json:"sum"`
-	VarPop     *EnterpriseDeductionItemsVarPopFields     `json:"var_pop"`
-	VarSamp    *EnterpriseDeductionItemsVarSampFields    `json:"var_samp"`
-	Variance   *EnterpriseDeductionItemsVarianceFields   `json:"variance"`
-}
-
-// order by aggregate values of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsAggregateOrderBy struct {
-	Avg        *EnterpriseDeductionItemsAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                             `json:"count"`
-	Max        *EnterpriseDeductionItemsMaxOrderBy        `json:"max"`
-	Min        *EnterpriseDeductionItemsMinOrderBy        `json:"min"`
-	Stddev     *EnterpriseDeductionItemsStddevOrderBy     `json:"stddev"`
-	StddevPop  *EnterpriseDeductionItemsStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *EnterpriseDeductionItemsStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *EnterpriseDeductionItemsSumOrderBy        `json:"sum"`
-	VarPop     *EnterpriseDeductionItemsVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *EnterpriseDeductionItemsVarSampOrderBy    `json:"var_samp"`
-	Variance   *EnterpriseDeductionItemsVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "enterprise_deduction_items"
-type EnterpriseDeductionItemsArrRelInsertInput struct {
-	Data       []*EnterpriseDeductionItemsInsertInput `json:"data"`
-	OnConflict *EnterpriseDeductionItemsOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
-type EnterpriseDeductionItemsAvgFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	DemeritPoints     *float64 `json:"demerit_points"`
-	ID                *float64 `json:"id"`
-}
-
-// order by avg() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsAvgOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	DemeritPoints     *model.OrderBy `json:"demerit_points"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "enterprise_deduction_items". All fields are combined with a logical 'AND'.
-type EnterpriseDeductionItemsBoolExp struct {
-	And                       []*EnterpriseDeductionItemsBoolExp `json:"_and"`
-	Not                       *EnterpriseDeductionItemsBoolExp   `json:"_not"`
-	Or                        []*EnterpriseDeductionItemsBoolExp `json:"_or"`
-	CreatedAt                 *model.TimestamptzComparisonExp    `json:"created_at"`
-	CreatedBy                 *model.StringComparisonExp         `json:"created_by"`
-	DeductionCategory         *model.IntComparisonExp            `json:"deduction_category"`
-	DeductionItemDescription  *model.StringComparisonExp         `json:"deduction_item_description"`
-	DeletedAt                 *model.TimestamptzComparisonExp    `json:"deleted_at"`
-	DeletedBy                 *model.StringComparisonExp         `json:"deleted_by"`
-	DemeritPoints             *model.NumericComparisonExp        `json:"demerit_points"`
-	EnterpriseDeductionItemID *model.StringComparisonExp         `json:"enterprise_deduction_item_id"`
-	ID                        *model.BigintComparisonExp         `json:"id"`
-	IsDelete                  *model.BooleanComparisonExp        `json:"is_delete"`
-	UpdatedAt                 *model.TimestamptzComparisonExp    `json:"updated_at"`
-	UpdatedBy                 *model.StringComparisonExp         `json:"updated_by"`
-}
-
-// input type for incrementing integer column in table "enterprise_deduction_items"
-type EnterpriseDeductionItemsIncInput struct {
-	DeductionCategory *int     `json:"deduction_category"`
-	DemeritPoints     *float64 `json:"demerit_points"`
-	ID                *int64   `json:"id"`
-}
-
-// input type for inserting data into table "enterprise_deduction_items"
-type EnterpriseDeductionItemsInsertInput struct {
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	DeductionCategory         *int       `json:"deduction_category"`
-	DeductionItemDescription  *string    `json:"deduction_item_description"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
-	DemeritPoints             *float64   `json:"demerit_points"`
-	EnterpriseDeductionItemID *string    `json:"enterprise_deduction_item_id"`
-	ID                        *int64     `json:"id"`
-	IsDelete                  *bool      `json:"is_delete"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-}
-
-// aggregate max on columns
-type EnterpriseDeductionItemsMaxFields struct {
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	DeductionCategory         *int       `json:"deduction_category"`
-	DeductionItemDescription  *string    `json:"deduction_item_description"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
-	DemeritPoints             *float64   `json:"demerit_points"`
-	EnterpriseDeductionItemID *string    `json:"enterprise_deduction_item_id"`
-	ID                        *int64     `json:"id"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-}
-
-// order by max() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsMaxOrderBy struct {
-	CreatedAt                 *model.OrderBy `json:"created_at"`
-	CreatedBy                 *model.OrderBy `json:"created_by"`
-	DeductionCategory         *model.OrderBy `json:"deduction_category"`
-	DeductionItemDescription  *model.OrderBy `json:"deduction_item_description"`
-	DeletedAt                 *model.OrderBy `json:"deleted_at"`
-	DeletedBy                 *model.OrderBy `json:"deleted_by"`
-	DemeritPoints             *model.OrderBy `json:"demerit_points"`
-	EnterpriseDeductionItemID *model.OrderBy `json:"enterprise_deduction_item_id"`
-	ID                        *model.OrderBy `json:"id"`
-	UpdatedAt                 *model.OrderBy `json:"updated_at"`
-	UpdatedBy                 *model.OrderBy `json:"updated_by"`
-}
-
-// aggregate min on columns
-type EnterpriseDeductionItemsMinFields struct {
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	DeductionCategory         *int       `json:"deduction_category"`
-	DeductionItemDescription  *string    `json:"deduction_item_description"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
-	DemeritPoints             *float64   `json:"demerit_points"`
-	EnterpriseDeductionItemID *string    `json:"enterprise_deduction_item_id"`
-	ID                        *int64     `json:"id"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-}
-
-// order by min() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsMinOrderBy struct {
-	CreatedAt                 *model.OrderBy `json:"created_at"`
-	CreatedBy                 *model.OrderBy `json:"created_by"`
-	DeductionCategory         *model.OrderBy `json:"deduction_category"`
-	DeductionItemDescription  *model.OrderBy `json:"deduction_item_description"`
-	DeletedAt                 *model.OrderBy `json:"deleted_at"`
-	DeletedBy                 *model.OrderBy `json:"deleted_by"`
-	DemeritPoints             *model.OrderBy `json:"demerit_points"`
-	EnterpriseDeductionItemID *model.OrderBy `json:"enterprise_deduction_item_id"`
-	ID                        *model.OrderBy `json:"id"`
-	UpdatedAt                 *model.OrderBy `json:"updated_at"`
-	UpdatedBy                 *model.OrderBy `json:"updated_by"`
-}
-
-// response of any mutation on the table "enterprise_deduction_items"
-type EnterpriseDeductionItemsMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*EnterpriseDeductionItems `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "enterprise_deduction_items"
-type EnterpriseDeductionItemsObjRelInsertInput struct {
-	Data       *EnterpriseDeductionItemsInsertInput `json:"data"`
-	OnConflict *EnterpriseDeductionItemsOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "enterprise_deduction_items"
-type EnterpriseDeductionItemsOnConflict struct {
-	Constraint    EnterpriseDeductionItemsConstraint     `json:"constraint"`
-	UpdateColumns []EnterpriseDeductionItemsUpdateColumn `json:"update_columns"`
-	Where         *EnterpriseDeductionItemsBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "enterprise_deduction_items"
-type EnterpriseDeductionItemsOrderBy struct {
-	CreatedAt                 *model.OrderBy `json:"created_at"`
-	CreatedBy                 *model.OrderBy `json:"created_by"`
-	DeductionCategory         *model.OrderBy `json:"deduction_category"`
-	DeductionItemDescription  *model.OrderBy `json:"deduction_item_description"`
-	DeletedAt                 *model.OrderBy `json:"deleted_at"`
-	DeletedBy                 *model.OrderBy `json:"deleted_by"`
-	DemeritPoints             *model.OrderBy `json:"demerit_points"`
-	EnterpriseDeductionItemID *model.OrderBy `json:"enterprise_deduction_item_id"`
-	ID                        *model.OrderBy `json:"id"`
-	IsDelete                  *model.OrderBy `json:"is_delete"`
-	UpdatedAt                 *model.OrderBy `json:"updated_at"`
-	UpdatedBy                 *model.OrderBy `json:"updated_by"`
-}
-
-// primary key columns input for table: "enterprise_deduction_items"
-type EnterpriseDeductionItemsPkColumnsInput struct {
-	// 联合主键
-	EnterpriseDeductionItemID string `json:"enterprise_deduction_item_id"`
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "enterprise_deduction_items"
-type EnterpriseDeductionItemsSetInput struct {
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	DeductionCategory         *int       `json:"deduction_category"`
-	DeductionItemDescription  *string    `json:"deduction_item_description"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
-	DemeritPoints             *float64   `json:"demerit_points"`
-	EnterpriseDeductionItemID *string    `json:"enterprise_deduction_item_id"`
-	ID                        *int64     `json:"id"`
-	IsDelete                  *bool      `json:"is_delete"`
-	UpdatedAt                 *time.Time `json:"updated_at"`
-	UpdatedBy                 *string    `json:"updated_by"`
-}
-
-// aggregate stddev on columns
-type EnterpriseDeductionItemsStddevFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	DemeritPoints     *float64 `json:"demerit_points"`
-	ID                *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsStddevOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	DemeritPoints     *model.OrderBy `json:"demerit_points"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type EnterpriseDeductionItemsStddevPopFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	DemeritPoints     *float64 `json:"demerit_points"`
-	ID                *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsStddevPopOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	DemeritPoints     *model.OrderBy `json:"demerit_points"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type EnterpriseDeductionItemsStddevSampFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	DemeritPoints     *float64 `json:"demerit_points"`
-	ID                *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsStddevSampOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	DemeritPoints     *model.OrderBy `json:"demerit_points"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type EnterpriseDeductionItemsSumFields struct {
-	DeductionCategory *int     `json:"deduction_category"`
-	DemeritPoints     *float64 `json:"demerit_points"`
-	ID                *int64   `json:"id"`
-}
-
-// order by sum() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsSumOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	DemeritPoints     *model.OrderBy `json:"demerit_points"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate var_pop on columns
-type EnterpriseDeductionItemsVarPopFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	DemeritPoints     *float64 `json:"demerit_points"`
-	ID                *float64 `json:"id"`
-}
-
-// order by var_pop() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsVarPopOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	DemeritPoints     *model.OrderBy `json:"demerit_points"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
-type EnterpriseDeductionItemsVarSampFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	DemeritPoints     *float64 `json:"demerit_points"`
-	ID                *float64 `json:"id"`
-}
-
-// order by var_samp() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsVarSampOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	DemeritPoints     *model.OrderBy `json:"demerit_points"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
-type EnterpriseDeductionItemsVarianceFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	DemeritPoints     *float64 `json:"demerit_points"`
-	ID                *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsVarianceOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	DemeritPoints     *model.OrderBy `json:"demerit_points"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregated selection of "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordAggregate struct {
-	Aggregate *EnterpriseDeductionOperationRecordAggregateFields `json:"aggregate"`
-	Nodes     []*EnterpriseDeductionOperationRecord              `json:"nodes"`
-}
-
-// aggregate fields of "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordAggregateFields struct {
-	Avg        *EnterpriseDeductionOperationRecordAvgFields        `json:"avg"`
-	Count      *int                                                `json:"count"`
-	Max        *EnterpriseDeductionOperationRecordMaxFields        `json:"max"`
-	Min        *EnterpriseDeductionOperationRecordMinFields        `json:"min"`
-	Stddev     *EnterpriseDeductionOperationRecordStddevFields     `json:"stddev"`
-	StddevPop  *EnterpriseDeductionOperationRecordStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *EnterpriseDeductionOperationRecordStddevSampFields `json:"stddev_samp"`
-	Sum        *EnterpriseDeductionOperationRecordSumFields        `json:"sum"`
-	VarPop     *EnterpriseDeductionOperationRecordVarPopFields     `json:"var_pop"`
-	VarSamp    *EnterpriseDeductionOperationRecordVarSampFields    `json:"var_samp"`
-	Variance   *EnterpriseDeductionOperationRecordVarianceFields   `json:"variance"`
-}
-
-// order by aggregate values of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordAggregateOrderBy struct {
-	Avg        *EnterpriseDeductionOperationRecordAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                                       `json:"count"`
-	Max        *EnterpriseDeductionOperationRecordMaxOrderBy        `json:"max"`
-	Min        *EnterpriseDeductionOperationRecordMinOrderBy        `json:"min"`
-	Stddev     *EnterpriseDeductionOperationRecordStddevOrderBy     `json:"stddev"`
-	StddevPop  *EnterpriseDeductionOperationRecordStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *EnterpriseDeductionOperationRecordStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *EnterpriseDeductionOperationRecordSumOrderBy        `json:"sum"`
-	VarPop     *EnterpriseDeductionOperationRecordVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *EnterpriseDeductionOperationRecordVarSampOrderBy    `json:"var_samp"`
-	Variance   *EnterpriseDeductionOperationRecordVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordArrRelInsertInput struct {
-	Data       []*EnterpriseDeductionOperationRecordInsertInput `json:"data"`
-	OnConflict *EnterpriseDeductionOperationRecordOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
-type EnterpriseDeductionOperationRecordAvgFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by avg() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordAvgOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table
-// "enterprise_deduction_operation_record". All fields are combined with a logical 'AND'.
-type EnterpriseDeductionOperationRecordBoolExp struct {
-	And                            []*EnterpriseDeductionOperationRecordBoolExp `json:"_and"`
-	Not                            *EnterpriseDeductionOperationRecordBoolExp   `json:"_not"`
-	Or                             []*EnterpriseDeductionOperationRecordBoolExp `json:"_or"`
-	CreatedAt                      *model.TimestamptzComparisonExp              `json:"created_at"`
-	CreatedBy                      *model.StringComparisonExp                   `json:"created_by"`
-	DeletedAt                      *model.TimestamptzComparisonExp              `json:"deleted_at"`
-	DeletedBy                      *model.StringComparisonExp                   `json:"deleted_by"`
-	DemeritPoints                  *model.NumericComparisonExp                  `json:"demerit_points"`
-	EnterpriseDeductionItemID      *model.StringComparisonExp                   `json:"enterprise_deduction_item_id"`
-	EnterpriseDuductionOperationID *model.StringComparisonExp                   `json:"enterprise_duduction_operation_id"`
-	EnterpriseID                   *model.StringComparisonExp                   `json:"enterprise_id"`
-	ID                             *model.BigintComparisonExp                   `json:"id"`
-	IsDelete                       *model.BooleanComparisonExp                  `json:"is_delete"`
-	Remarks                        *model.StringComparisonExp                   `json:"remarks"`
-	UpdatedAt                      *model.TimestamptzComparisonExp              `json:"updated_at"`
-	UpdatedBy                      *model.StringComparisonExp                   `json:"updated_by"`
-}
-
-// input type for incrementing integer column in table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordIncInput struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *int64   `json:"id"`
-}
-
-// input type for inserting data into table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordInsertInput struct {
-	CreatedAt                      *time.Time `json:"created_at"`
-	CreatedBy                      *string    `json:"created_by"`
-	DeletedAt                      *time.Time `json:"deleted_at"`
-	DeletedBy                      *string    `json:"deleted_by"`
-	DemeritPoints                  *float64   `json:"demerit_points"`
-	EnterpriseDeductionItemID      *string    `json:"enterprise_deduction_item_id"`
-	EnterpriseDuductionOperationID *string    `json:"enterprise_duduction_operation_id"`
-	EnterpriseID                   *string    `json:"enterprise_id"`
-	ID                             *int64     `json:"id"`
-	IsDelete                       *bool      `json:"is_delete"`
-	Remarks                        *string    `json:"remarks"`
-	UpdatedAt                      *time.Time `json:"updated_at"`
-	UpdatedBy                      *string    `json:"updated_by"`
-}
-
-// aggregate max on columns
-type EnterpriseDeductionOperationRecordMaxFields struct {
-	CreatedAt                      *time.Time `json:"created_at"`
-	CreatedBy                      *string    `json:"created_by"`
-	DeletedAt                      *time.Time `json:"deleted_at"`
-	DeletedBy                      *string    `json:"deleted_by"`
-	DemeritPoints                  *float64   `json:"demerit_points"`
-	EnterpriseDeductionItemID      *string    `json:"enterprise_deduction_item_id"`
-	EnterpriseDuductionOperationID *string    `json:"enterprise_duduction_operation_id"`
-	EnterpriseID                   *string    `json:"enterprise_id"`
-	ID                             *int64     `json:"id"`
-	Remarks                        *string    `json:"remarks"`
-	UpdatedAt                      *time.Time `json:"updated_at"`
-	UpdatedBy                      *string    `json:"updated_by"`
-}
-
-// order by max() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordMaxOrderBy struct {
-	CreatedAt                      *model.OrderBy `json:"created_at"`
-	CreatedBy                      *model.OrderBy `json:"created_by"`
-	DeletedAt                      *model.OrderBy `json:"deleted_at"`
-	DeletedBy                      *model.OrderBy `json:"deleted_by"`
-	DemeritPoints                  *model.OrderBy `json:"demerit_points"`
-	EnterpriseDeductionItemID      *model.OrderBy `json:"enterprise_deduction_item_id"`
-	EnterpriseDuductionOperationID *model.OrderBy `json:"enterprise_duduction_operation_id"`
-	EnterpriseID                   *model.OrderBy `json:"enterprise_id"`
-	ID                             *model.OrderBy `json:"id"`
-	Remarks                        *model.OrderBy `json:"remarks"`
-	UpdatedAt                      *model.OrderBy `json:"updated_at"`
-	UpdatedBy                      *model.OrderBy `json:"updated_by"`
-}
-
-// aggregate min on columns
-type EnterpriseDeductionOperationRecordMinFields struct {
-	CreatedAt                      *time.Time `json:"created_at"`
-	CreatedBy                      *string    `json:"created_by"`
-	DeletedAt                      *time.Time `json:"deleted_at"`
-	DeletedBy                      *string    `json:"deleted_by"`
-	DemeritPoints                  *float64   `json:"demerit_points"`
-	EnterpriseDeductionItemID      *string    `json:"enterprise_deduction_item_id"`
-	EnterpriseDuductionOperationID *string    `json:"enterprise_duduction_operation_id"`
-	EnterpriseID                   *string    `json:"enterprise_id"`
-	ID                             *int64     `json:"id"`
-	Remarks                        *string    `json:"remarks"`
-	UpdatedAt                      *time.Time `json:"updated_at"`
-	UpdatedBy                      *string    `json:"updated_by"`
-}
-
-// order by min() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordMinOrderBy struct {
-	CreatedAt                      *model.OrderBy `json:"created_at"`
-	CreatedBy                      *model.OrderBy `json:"created_by"`
-	DeletedAt                      *model.OrderBy `json:"deleted_at"`
-	DeletedBy                      *model.OrderBy `json:"deleted_by"`
-	DemeritPoints                  *model.OrderBy `json:"demerit_points"`
-	EnterpriseDeductionItemID      *model.OrderBy `json:"enterprise_deduction_item_id"`
-	EnterpriseDuductionOperationID *model.OrderBy `json:"enterprise_duduction_operation_id"`
-	EnterpriseID                   *model.OrderBy `json:"enterprise_id"`
-	ID                             *model.OrderBy `json:"id"`
-	Remarks                        *model.OrderBy `json:"remarks"`
-	UpdatedAt                      *model.OrderBy `json:"updated_at"`
-	UpdatedBy                      *model.OrderBy `json:"updated_by"`
-}
-
-// response of any mutation on the table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*EnterpriseDeductionOperationRecord `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordObjRelInsertInput struct {
-	Data       *EnterpriseDeductionOperationRecordInsertInput `json:"data"`
-	OnConflict *EnterpriseDeductionOperationRecordOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordOnConflict struct {
-	Constraint    EnterpriseDeductionOperationRecordConstraint     `json:"constraint"`
-	UpdateColumns []EnterpriseDeductionOperationRecordUpdateColumn `json:"update_columns"`
-	Where         *EnterpriseDeductionOperationRecordBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordOrderBy struct {
-	CreatedAt                      *model.OrderBy `json:"created_at"`
-	CreatedBy                      *model.OrderBy `json:"created_by"`
-	DeletedAt                      *model.OrderBy `json:"deleted_at"`
-	DeletedBy                      *model.OrderBy `json:"deleted_by"`
-	DemeritPoints                  *model.OrderBy `json:"demerit_points"`
-	EnterpriseDeductionItemID      *model.OrderBy `json:"enterprise_deduction_item_id"`
-	EnterpriseDuductionOperationID *model.OrderBy `json:"enterprise_duduction_operation_id"`
-	EnterpriseID                   *model.OrderBy `json:"enterprise_id"`
-	ID                             *model.OrderBy `json:"id"`
-	IsDelete                       *model.OrderBy `json:"is_delete"`
-	Remarks                        *model.OrderBy `json:"remarks"`
-	UpdatedAt                      *model.OrderBy `json:"updated_at"`
-	UpdatedBy                      *model.OrderBy `json:"updated_by"`
-}
-
-// primary key columns input for table: "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordPkColumnsInput struct {
-	// 联合主键
-	EnterpriseDuductionOperationID string `json:"enterprise_duduction_operation_id"`
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordSetInput struct {
-	CreatedAt                      *time.Time `json:"created_at"`
-	CreatedBy                      *string    `json:"created_by"`
-	DeletedAt                      *time.Time `json:"deleted_at"`
-	DeletedBy                      *string    `json:"deleted_by"`
-	DemeritPoints                  *float64   `json:"demerit_points"`
-	EnterpriseDeductionItemID      *string    `json:"enterprise_deduction_item_id"`
-	EnterpriseDuductionOperationID *string    `json:"enterprise_duduction_operation_id"`
-	EnterpriseID                   *string    `json:"enterprise_id"`
-	ID                             *int64     `json:"id"`
-	IsDelete                       *bool      `json:"is_delete"`
-	Remarks                        *string    `json:"remarks"`
-	UpdatedAt                      *time.Time `json:"updated_at"`
-	UpdatedBy                      *string    `json:"updated_by"`
-}
-
-// aggregate stddev on columns
-type EnterpriseDeductionOperationRecordStddevFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordStddevOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type EnterpriseDeductionOperationRecordStddevPopFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordStddevPopOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type EnterpriseDeductionOperationRecordStddevSampFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordStddevSampOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type EnterpriseDeductionOperationRecordSumFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *int64   `json:"id"`
-}
-
-// order by sum() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordSumOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate var_pop on columns
-type EnterpriseDeductionOperationRecordVarPopFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by var_pop() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordVarPopOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
-type EnterpriseDeductionOperationRecordVarSampFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by var_samp() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordVarSampOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
-type EnterpriseDeductionOperationRecordVarianceFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordVarianceOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
+	ID *int64 `json:"id"`
 }
 
 // aggregated selection of "illegal_photo"
 type IllegalPhotoAggregate struct {
 	Aggregate *IllegalPhotoAggregateFields `json:"aggregate"`
-	Nodes     []*IllegalPhoto              `json:"nodes"`
 }
 
 // aggregate fields of "illegal_photo"
@@ -2223,54 +577,28 @@ type IllegalPhotoAggregateFields struct {
 	Variance   *IllegalPhotoVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "illegal_photo"
-type IllegalPhotoAggregateOrderBy struct {
-	Avg        *IllegalPhotoAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                 `json:"count"`
-	Max        *IllegalPhotoMaxOrderBy        `json:"max"`
-	Min        *IllegalPhotoMinOrderBy        `json:"min"`
-	Stddev     *IllegalPhotoStddevOrderBy     `json:"stddev"`
-	StddevPop  *IllegalPhotoStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *IllegalPhotoStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *IllegalPhotoSumOrderBy        `json:"sum"`
-	VarPop     *IllegalPhotoVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *IllegalPhotoVarSampOrderBy    `json:"var_samp"`
-	Variance   *IllegalPhotoVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "illegal_photo"
-type IllegalPhotoArrRelInsertInput struct {
-	Data       []*IllegalPhotoInsertInput `json:"data"`
-	OnConflict *IllegalPhotoOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "illegal_photo"
 type IllegalPhotoAvgFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by avg() on columns of table "illegal_photo"
-type IllegalPhotoAvgOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "illegal_photo". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'illegal_photo'.
 type IllegalPhotoBoolExp struct {
 	And            []*IllegalPhotoBoolExp          `json:"_and"`
 	Not            *IllegalPhotoBoolExp            `json:"_not"`
 	Or             []*IllegalPhotoBoolExp          `json:"_or"`
-	CreatedAt      *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy      *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt      *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy      *model.StringComparisonExp      `json:"deleted_by"`
 	ID             *model.BigintComparisonExp      `json:"id"`
 	IllegalPhotoID *model.StringComparisonExp      `json:"illegal_photo_id"`
-	IsDelete       *model.BooleanComparisonExp     `json:"is_delete"`
-	IsSynchronized *model.BooleanComparisonExp     `json:"is_synchronized"`
-	PictureAddress *model.StringComparisonExp      `json:"picture_address"`
 	PictureName    *model.StringComparisonExp      `json:"picture_name"`
+	PictureAddress *model.StringComparisonExp      `json:"picture_address"`
+	IsSynchronized *model.BooleanComparisonExp     `json:"is_synchronized"`
+	IsDeleted      *model.BooleanComparisonExp     `json:"is_deleted"`
+	CreatedAt      *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy      *model.StringComparisonExp      `json:"created_by"`
 	UpdatedAt      *model.TimestamptzComparisonExp `json:"updated_at"`
 	UpdatedBy      *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt      *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy      *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "illegal_photo"
@@ -2280,211 +608,128 @@ type IllegalPhotoIncInput struct {
 
 // input type for inserting data into table "illegal_photo"
 type IllegalPhotoInsertInput struct {
-	CreatedAt      *time.Time `json:"created_at"`
-	CreatedBy      *string    `json:"created_by"`
-	DeletedAt      *time.Time `json:"deleted_at"`
-	DeletedBy      *string    `json:"deleted_by"`
 	ID             *int64     `json:"id"`
 	IllegalPhotoID *string    `json:"illegal_photo_id"`
-	IsDelete       *bool      `json:"is_delete"`
+	PictureName    *string    `json:"picture_name"`
+	PictureAddress *string    `json:"picture_address"`
 	IsSynchronized *bool      `json:"is_synchronized"`
-	PictureAddress *string    `json:"picture_address"`
-	PictureName    *string    `json:"picture_name"`
+	IsDeleted      *bool      `json:"is_deleted"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
 	UpdatedAt      *time.Time `json:"updated_at"`
 	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "illegal_photo"
 type IllegalPhotoMaxFields struct {
-	CreatedAt      *time.Time `json:"created_at"`
-	CreatedBy      *string    `json:"created_by"`
-	DeletedAt      *time.Time `json:"deleted_at"`
-	DeletedBy      *string    `json:"deleted_by"`
 	ID             *int64     `json:"id"`
 	IllegalPhotoID *string    `json:"illegal_photo_id"`
-	PictureAddress *string    `json:"picture_address"`
 	PictureName    *string    `json:"picture_name"`
+	PictureAddress *string    `json:"picture_address"`
+	IsSynchronized *bool      `json:"is_synchronized"`
+	IsDeleted      *bool      `json:"is_deleted"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
 	UpdatedAt      *time.Time `json:"updated_at"`
 	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "illegal_photo"
-type IllegalPhotoMaxOrderBy struct {
-	CreatedAt      *model.OrderBy `json:"created_at"`
-	CreatedBy      *model.OrderBy `json:"created_by"`
-	DeletedAt      *model.OrderBy `json:"deleted_at"`
-	DeletedBy      *model.OrderBy `json:"deleted_by"`
-	ID             *model.OrderBy `json:"id"`
-	IllegalPhotoID *model.OrderBy `json:"illegal_photo_id"`
-	PictureAddress *model.OrderBy `json:"picture_address"`
-	PictureName    *model.OrderBy `json:"picture_name"`
-	UpdatedAt      *model.OrderBy `json:"updated_at"`
-	UpdatedBy      *model.OrderBy `json:"updated_by"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "illegal_photo"
 type IllegalPhotoMinFields struct {
-	CreatedAt      *time.Time `json:"created_at"`
-	CreatedBy      *string    `json:"created_by"`
-	DeletedAt      *time.Time `json:"deleted_at"`
-	DeletedBy      *string    `json:"deleted_by"`
 	ID             *int64     `json:"id"`
 	IllegalPhotoID *string    `json:"illegal_photo_id"`
-	PictureAddress *string    `json:"picture_address"`
 	PictureName    *string    `json:"picture_name"`
+	PictureAddress *string    `json:"picture_address"`
+	IsSynchronized *bool      `json:"is_synchronized"`
+	IsDeleted      *bool      `json:"is_deleted"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
 	UpdatedAt      *time.Time `json:"updated_at"`
 	UpdatedBy      *string    `json:"updated_by"`
-}
-
-// order by min() on columns of table "illegal_photo"
-type IllegalPhotoMinOrderBy struct {
-	CreatedAt      *model.OrderBy `json:"created_at"`
-	CreatedBy      *model.OrderBy `json:"created_by"`
-	DeletedAt      *model.OrderBy `json:"deleted_at"`
-	DeletedBy      *model.OrderBy `json:"deleted_by"`
-	ID             *model.OrderBy `json:"id"`
-	IllegalPhotoID *model.OrderBy `json:"illegal_photo_id"`
-	PictureAddress *model.OrderBy `json:"picture_address"`
-	PictureName    *model.OrderBy `json:"picture_name"`
-	UpdatedAt      *model.OrderBy `json:"updated_at"`
-	UpdatedBy      *model.OrderBy `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "illegal_photo"
 type IllegalPhotoMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*IllegalPhoto `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "illegal_photo"
-type IllegalPhotoObjRelInsertInput struct {
-	Data       *IllegalPhotoInsertInput `json:"data"`
-	OnConflict *IllegalPhotoOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "illegal_photo"
-type IllegalPhotoOnConflict struct {
-	Constraint    IllegalPhotoConstraint     `json:"constraint"`
-	UpdateColumns []IllegalPhotoUpdateColumn `json:"update_columns"`
-	Where         *IllegalPhotoBoolExp       `json:"where"`
+	AffectedRows int                    `json:"affected_rows"`
+	Returning    []*model1.IllegalPhoto `json:"returning"`
 }
 
 // ordering options when selecting data from "illegal_photo"
 type IllegalPhotoOrderBy struct {
-	CreatedAt      *model.OrderBy `json:"created_at"`
-	CreatedBy      *model.OrderBy `json:"created_by"`
-	DeletedAt      *model.OrderBy `json:"deleted_at"`
-	DeletedBy      *model.OrderBy `json:"deleted_by"`
 	ID             *model.OrderBy `json:"id"`
 	IllegalPhotoID *model.OrderBy `json:"illegal_photo_id"`
-	IsDelete       *model.OrderBy `json:"is_delete"`
-	IsSynchronized *model.OrderBy `json:"is_synchronized"`
-	PictureAddress *model.OrderBy `json:"picture_address"`
 	PictureName    *model.OrderBy `json:"picture_name"`
+	PictureAddress *model.OrderBy `json:"picture_address"`
+	IsSynchronized *model.OrderBy `json:"is_synchronized"`
+	IsDeleted      *model.OrderBy `json:"is_deleted"`
+	CreatedAt      *model.OrderBy `json:"created_at"`
+	CreatedBy      *model.OrderBy `json:"created_by"`
 	UpdatedAt      *model.OrderBy `json:"updated_at"`
 	UpdatedBy      *model.OrderBy `json:"updated_by"`
-}
-
-// primary key columns input for table: "illegal_photo"
-type IllegalPhotoPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 联合主键
-	IllegalPhotoID string `json:"illegal_photo_id"`
+	DeletedAt      *model.OrderBy `json:"deleted_at"`
+	DeletedBy      *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "illegal_photo"
 type IllegalPhotoSetInput struct {
-	CreatedAt      *time.Time `json:"created_at"`
-	CreatedBy      *string    `json:"created_by"`
-	DeletedAt      *time.Time `json:"deleted_at"`
-	DeletedBy      *string    `json:"deleted_by"`
 	ID             *int64     `json:"id"`
 	IllegalPhotoID *string    `json:"illegal_photo_id"`
-	IsDelete       *bool      `json:"is_delete"`
-	IsSynchronized *bool      `json:"is_synchronized"`
-	PictureAddress *string    `json:"picture_address"`
 	PictureName    *string    `json:"picture_name"`
+	PictureAddress *string    `json:"picture_address"`
+	IsSynchronized *bool      `json:"is_synchronized"`
+	IsDeleted      *bool      `json:"is_deleted"`
+	CreatedAt      *time.Time `json:"created_at"`
+	CreatedBy      *string    `json:"created_by"`
 	UpdatedAt      *time.Time `json:"updated_at"`
 	UpdatedBy      *string    `json:"updated_by"`
+	DeletedAt      *time.Time `json:"deleted_at"`
+	DeletedBy      *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "illegal_photo"
 type IllegalPhotoStddevFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev() on columns of table "illegal_photo"
-type IllegalPhotoStddevOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "illegal_photo"
 type IllegalPhotoStddevPopFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev_pop() on columns of table "illegal_photo"
-type IllegalPhotoStddevPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "illegal_photo"
 type IllegalPhotoStddevSampFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev_samp() on columns of table "illegal_photo"
-type IllegalPhotoStddevSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "illegal_photo"
 type IllegalPhotoSumFields struct {
 	ID *int64 `json:"id"`
 }
 
-// order by sum() on columns of table "illegal_photo"
-type IllegalPhotoSumOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "illegal_photo"
 type IllegalPhotoVarPopFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by var_pop() on columns of table "illegal_photo"
-type IllegalPhotoVarPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "illegal_photo"
 type IllegalPhotoVarSampFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by var_samp() on columns of table "illegal_photo"
-type IllegalPhotoVarSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "illegal_photo"
 type IllegalPhotoVarianceFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "illegal_photo"
-type IllegalPhotoVarianceOrderBy struct {
-	ID *model.OrderBy `json:"id"`
+	ID *int64 `json:"id"`
 }
 
 // aggregated selection of "regional_violation_register"
 type RegionalViolationRegisterAggregate struct {
 	Aggregate *RegionalViolationRegisterAggregateFields `json:"aggregate"`
-	Nodes     []*RegionalViolationRegister              `json:"nodes"`
 }
 
 // aggregate fields of "regional_violation_register"
@@ -2502,66 +747,37 @@ type RegionalViolationRegisterAggregateFields struct {
 	Variance   *RegionalViolationRegisterVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "regional_violation_register"
-type RegionalViolationRegisterAggregateOrderBy struct {
-	Avg        *RegionalViolationRegisterAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                              `json:"count"`
-	Max        *RegionalViolationRegisterMaxOrderBy        `json:"max"`
-	Min        *RegionalViolationRegisterMinOrderBy        `json:"min"`
-	Stddev     *RegionalViolationRegisterStddevOrderBy     `json:"stddev"`
-	StddevPop  *RegionalViolationRegisterStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *RegionalViolationRegisterStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *RegionalViolationRegisterSumOrderBy        `json:"sum"`
-	VarPop     *RegionalViolationRegisterVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *RegionalViolationRegisterVarSampOrderBy    `json:"var_samp"`
-	Variance   *RegionalViolationRegisterVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "regional_violation_register"
-type RegionalViolationRegisterArrRelInsertInput struct {
-	Data       []*RegionalViolationRegisterInsertInput `json:"data"`
-	OnConflict *RegionalViolationRegisterOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "regional_violation_register"
 type RegionalViolationRegisterAvgFields struct {
-	ID          *float64 `json:"id"`
-	IllegalCode *float64 `json:"illegal_code"`
-	IllegalType *float64 `json:"illegal_type"`
+	ID          *int64 `json:"id"`
+	IllegalCode *int   `json:"illegal_code"`
+	IllegalType *int   `json:"illegal_type"`
 }
 
-// order by avg() on columns of table "regional_violation_register"
-type RegionalViolationRegisterAvgOrderBy struct {
-	ID          *model.OrderBy `json:"id"`
-	IllegalCode *model.OrderBy `json:"illegal_code"`
-	IllegalType *model.OrderBy `json:"illegal_type"`
-}
-
-// Boolean expression to filter rows from the table "regional_violation_register".
-// All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'regional_violation_register'.
 type RegionalViolationRegisterBoolExp struct {
 	And                         []*RegionalViolationRegisterBoolExp `json:"_and"`
 	Not                         *RegionalViolationRegisterBoolExp   `json:"_not"`
 	Or                          []*RegionalViolationRegisterBoolExp `json:"_or"`
-	CreatedAt                   *model.TimestamptzComparisonExp     `json:"created_at"`
-	CreatedBy                   *model.StringComparisonExp          `json:"created_by"`
-	DeletedAt                   *model.TimestamptzComparisonExp     `json:"deleted_at"`
-	DeletedBy                   *model.StringComparisonExp          `json:"deleted_by"`
-	DriverID                    *model.StringComparisonExp          `json:"driver_id"`
 	ID                          *model.BigintComparisonExp          `json:"id"`
+	RegionalViolationRegisterID *model.StringComparisonExp          `json:"regional_violation_register_id"`
+	ViolationDetailID           *model.StringComparisonExp          `json:"violation_detail_id"`
+	VehicleID                   *model.StringComparisonExp          `json:"vehicle_id"`
+	DriverID                    *model.StringComparisonExp          `json:"driver_id"`
 	IllegalCode                 *model.IntComparisonExp             `json:"illegal_code"`
 	IllegalTime                 *model.TimestamptzComparisonExp     `json:"illegal_time"`
 	IllegalType                 *model.IntComparisonExp             `json:"illegal_type"`
-	IsDelete                    *model.BooleanComparisonExp         `json:"is_delete"`
-	IsRegister                  *model.BooleanComparisonExp         `json:"is_register"`
-	Operator                    *model.StringComparisonExp          `json:"operator"`
-	ProcessingAgency            *model.StringComparisonExp          `json:"processing_agency"`
-	RegionalViolationRegisterID *model.StringComparisonExp          `json:"regional_violation_register_id"`
 	RegisterTime                *model.TimestamptzComparisonExp     `json:"register_time"`
+	ProcessingAgency            *model.StringComparisonExp          `json:"processing_agency"`
+	Operator                    *model.StringComparisonExp          `json:"operator"`
+	IsRegister                  *model.BooleanComparisonExp         `json:"is_register"`
+	CreatedAt                   *model.TimestamptzComparisonExp     `json:"created_at"`
+	CreatedBy                   *model.StringComparisonExp          `json:"created_by"`
 	UpdatedAt                   *model.TimestamptzComparisonExp     `json:"updated_at"`
 	UpdatedBy                   *model.StringComparisonExp          `json:"updated_by"`
-	VehicleID                   *model.StringComparisonExp          `json:"vehicle_id"`
-	ViolationDetailID           *model.StringComparisonExp          `json:"violation_detail_id"`
+	DeletedAt                   *model.TimestamptzComparisonExp     `json:"deleted_at"`
+	DeletedBy                   *model.StringComparisonExp          `json:"deleted_by"`
+	IsDeleted                   *model.BooleanComparisonExp         `json:"is_deleted"`
 }
 
 // input type for incrementing integer column in table "regional_violation_register"
@@ -2573,895 +789,341 @@ type RegionalViolationRegisterIncInput struct {
 
 // input type for inserting data into table "regional_violation_register"
 type RegionalViolationRegisterInsertInput struct {
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
-	DriverID                    *string    `json:"driver_id"`
 	ID                          *int64     `json:"id"`
+	RegionalViolationRegisterID *string    `json:"regional_violation_register_id"`
+	ViolationDetailID           *string    `json:"violation_detail_id"`
+	VehicleID                   *string    `json:"vehicle_id"`
+	DriverID                    *string    `json:"driver_id"`
 	IllegalCode                 *int       `json:"illegal_code"`
 	IllegalTime                 *time.Time `json:"illegal_time"`
 	IllegalType                 *int       `json:"illegal_type"`
-	IsDelete                    *bool      `json:"is_delete"`
+	RegisterTime                *time.Time `json:"register_time"`
+	ProcessingAgency            *string    `json:"processing_agency"`
+	Operator                    *string    `json:"operator"`
 	IsRegister                  *bool      `json:"is_register"`
-	Operator                    *string    `json:"operator"`
-	ProcessingAgency            *string    `json:"processing_agency"`
-	RegionalViolationRegisterID *string    `json:"regional_violation_register_id"`
-	RegisterTime                *time.Time `json:"register_time"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
-	VehicleID                   *string    `json:"vehicle_id"`
-	ViolationDetailID           *string    `json:"violation_detail_id"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "regional_violation_register"
 type RegionalViolationRegisterMaxFields struct {
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
-	DriverID                    *string    `json:"driver_id"`
 	ID                          *int64     `json:"id"`
+	RegionalViolationRegisterID *string    `json:"regional_violation_register_id"`
+	ViolationDetailID           *string    `json:"violation_detail_id"`
+	VehicleID                   *string    `json:"vehicle_id"`
+	DriverID                    *string    `json:"driver_id"`
 	IllegalCode                 *int       `json:"illegal_code"`
 	IllegalTime                 *time.Time `json:"illegal_time"`
 	IllegalType                 *int       `json:"illegal_type"`
-	Operator                    *string    `json:"operator"`
-	ProcessingAgency            *string    `json:"processing_agency"`
-	RegionalViolationRegisterID *string    `json:"regional_violation_register_id"`
 	RegisterTime                *time.Time `json:"register_time"`
+	ProcessingAgency            *string    `json:"processing_agency"`
+	Operator                    *string    `json:"operator"`
+	IsRegister                  *bool      `json:"is_register"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
-	VehicleID                   *string    `json:"vehicle_id"`
-	ViolationDetailID           *string    `json:"violation_detail_id"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 }
 
-// order by max() on columns of table "regional_violation_register"
-type RegionalViolationRegisterMaxOrderBy struct {
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DriverID                    *model.OrderBy `json:"driver_id"`
-	ID                          *model.OrderBy `json:"id"`
-	IllegalCode                 *model.OrderBy `json:"illegal_code"`
-	IllegalTime                 *model.OrderBy `json:"illegal_time"`
-	IllegalType                 *model.OrderBy `json:"illegal_type"`
-	Operator                    *model.OrderBy `json:"operator"`
-	ProcessingAgency            *model.OrderBy `json:"processing_agency"`
-	RegionalViolationRegisterID *model.OrderBy `json:"regional_violation_register_id"`
-	RegisterTime                *model.OrderBy `json:"register_time"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	VehicleID                   *model.OrderBy `json:"vehicle_id"`
-	ViolationDetailID           *model.OrderBy `json:"violation_detail_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "regional_violation_register"
 type RegionalViolationRegisterMinFields struct {
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
-	DriverID                    *string    `json:"driver_id"`
 	ID                          *int64     `json:"id"`
+	RegionalViolationRegisterID *string    `json:"regional_violation_register_id"`
+	ViolationDetailID           *string    `json:"violation_detail_id"`
+	VehicleID                   *string    `json:"vehicle_id"`
+	DriverID                    *string    `json:"driver_id"`
 	IllegalCode                 *int       `json:"illegal_code"`
 	IllegalTime                 *time.Time `json:"illegal_time"`
 	IllegalType                 *int       `json:"illegal_type"`
-	Operator                    *string    `json:"operator"`
-	ProcessingAgency            *string    `json:"processing_agency"`
-	RegionalViolationRegisterID *string    `json:"regional_violation_register_id"`
 	RegisterTime                *time.Time `json:"register_time"`
+	ProcessingAgency            *string    `json:"processing_agency"`
+	Operator                    *string    `json:"operator"`
+	IsRegister                  *bool      `json:"is_register"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
-	VehicleID                   *string    `json:"vehicle_id"`
-	ViolationDetailID           *string    `json:"violation_detail_id"`
-}
-
-// order by min() on columns of table "regional_violation_register"
-type RegionalViolationRegisterMinOrderBy struct {
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DriverID                    *model.OrderBy `json:"driver_id"`
-	ID                          *model.OrderBy `json:"id"`
-	IllegalCode                 *model.OrderBy `json:"illegal_code"`
-	IllegalTime                 *model.OrderBy `json:"illegal_time"`
-	IllegalType                 *model.OrderBy `json:"illegal_type"`
-	Operator                    *model.OrderBy `json:"operator"`
-	ProcessingAgency            *model.OrderBy `json:"processing_agency"`
-	RegionalViolationRegisterID *model.OrderBy `json:"regional_violation_register_id"`
-	RegisterTime                *model.OrderBy `json:"register_time"`
-	UpdatedAt                   *model.OrderBy `json:"updated_at"`
-	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	VehicleID                   *model.OrderBy `json:"vehicle_id"`
-	ViolationDetailID           *model.OrderBy `json:"violation_detail_id"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 }
 
 // response of any mutation on the table "regional_violation_register"
 type RegionalViolationRegisterMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*RegionalViolationRegister `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "regional_violation_register"
-type RegionalViolationRegisterObjRelInsertInput struct {
-	Data       *RegionalViolationRegisterInsertInput `json:"data"`
-	OnConflict *RegionalViolationRegisterOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "regional_violation_register"
-type RegionalViolationRegisterOnConflict struct {
-	Constraint    RegionalViolationRegisterConstraint     `json:"constraint"`
-	UpdateColumns []RegionalViolationRegisterUpdateColumn `json:"update_columns"`
-	Where         *RegionalViolationRegisterBoolExp       `json:"where"`
+	AffectedRows int                                 `json:"affected_rows"`
+	Returning    []*model1.RegionalViolationRegister `json:"returning"`
 }
 
 // ordering options when selecting data from "regional_violation_register"
 type RegionalViolationRegisterOrderBy struct {
-	CreatedAt                   *model.OrderBy `json:"created_at"`
-	CreatedBy                   *model.OrderBy `json:"created_by"`
-	DeletedAt                   *model.OrderBy `json:"deleted_at"`
-	DeletedBy                   *model.OrderBy `json:"deleted_by"`
-	DriverID                    *model.OrderBy `json:"driver_id"`
 	ID                          *model.OrderBy `json:"id"`
+	RegionalViolationRegisterID *model.OrderBy `json:"regional_violation_register_id"`
+	ViolationDetailID           *model.OrderBy `json:"violation_detail_id"`
+	VehicleID                   *model.OrderBy `json:"vehicle_id"`
+	DriverID                    *model.OrderBy `json:"driver_id"`
 	IllegalCode                 *model.OrderBy `json:"illegal_code"`
 	IllegalTime                 *model.OrderBy `json:"illegal_time"`
 	IllegalType                 *model.OrderBy `json:"illegal_type"`
-	IsDelete                    *model.OrderBy `json:"is_delete"`
-	IsRegister                  *model.OrderBy `json:"is_register"`
-	Operator                    *model.OrderBy `json:"operator"`
-	ProcessingAgency            *model.OrderBy `json:"processing_agency"`
-	RegionalViolationRegisterID *model.OrderBy `json:"regional_violation_register_id"`
 	RegisterTime                *model.OrderBy `json:"register_time"`
+	ProcessingAgency            *model.OrderBy `json:"processing_agency"`
+	Operator                    *model.OrderBy `json:"operator"`
+	IsRegister                  *model.OrderBy `json:"is_register"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
 	UpdatedAt                   *model.OrderBy `json:"updated_at"`
 	UpdatedBy                   *model.OrderBy `json:"updated_by"`
-	VehicleID                   *model.OrderBy `json:"vehicle_id"`
-	ViolationDetailID           *model.OrderBy `json:"violation_detail_id"`
-}
-
-// primary key columns input for table: "regional_violation_register"
-type RegionalViolationRegisterPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 联合主键
-	RegionalViolationRegisterID string `json:"regional_violation_register_id"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
+	IsDeleted                   *model.OrderBy `json:"is_deleted"`
 }
 
 // input type for updating data in table "regional_violation_register"
 type RegionalViolationRegisterSetInput struct {
-	CreatedAt                   *time.Time `json:"created_at"`
-	CreatedBy                   *string    `json:"created_by"`
-	DeletedAt                   *time.Time `json:"deleted_at"`
-	DeletedBy                   *string    `json:"deleted_by"`
-	DriverID                    *string    `json:"driver_id"`
 	ID                          *int64     `json:"id"`
+	RegionalViolationRegisterID *string    `json:"regional_violation_register_id"`
+	ViolationDetailID           *string    `json:"violation_detail_id"`
+	VehicleID                   *string    `json:"vehicle_id"`
+	DriverID                    *string    `json:"driver_id"`
 	IllegalCode                 *int       `json:"illegal_code"`
 	IllegalTime                 *time.Time `json:"illegal_time"`
 	IllegalType                 *int       `json:"illegal_type"`
-	IsDelete                    *bool      `json:"is_delete"`
-	IsRegister                  *bool      `json:"is_register"`
-	Operator                    *string    `json:"operator"`
-	ProcessingAgency            *string    `json:"processing_agency"`
-	RegionalViolationRegisterID *string    `json:"regional_violation_register_id"`
 	RegisterTime                *time.Time `json:"register_time"`
+	ProcessingAgency            *string    `json:"processing_agency"`
+	Operator                    *string    `json:"operator"`
+	IsRegister                  *bool      `json:"is_register"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
 	UpdatedAt                   *time.Time `json:"updated_at"`
 	UpdatedBy                   *string    `json:"updated_by"`
-	VehicleID                   *string    `json:"vehicle_id"`
-	ViolationDetailID           *string    `json:"violation_detail_id"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+	IsDeleted                   *bool      `json:"is_deleted"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "regional_violation_register"
 type RegionalViolationRegisterStddevFields struct {
-	ID          *float64 `json:"id"`
-	IllegalCode *float64 `json:"illegal_code"`
-	IllegalType *float64 `json:"illegal_type"`
+	ID          *int64 `json:"id"`
+	IllegalCode *int   `json:"illegal_code"`
+	IllegalType *int   `json:"illegal_type"`
 }
 
-// order by stddev() on columns of table "regional_violation_register"
-type RegionalViolationRegisterStddevOrderBy struct {
-	ID          *model.OrderBy `json:"id"`
-	IllegalCode *model.OrderBy `json:"illegal_code"`
-	IllegalType *model.OrderBy `json:"illegal_type"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "regional_violation_register"
 type RegionalViolationRegisterStddevPopFields struct {
-	ID          *float64 `json:"id"`
-	IllegalCode *float64 `json:"illegal_code"`
-	IllegalType *float64 `json:"illegal_type"`
+	ID          *int64 `json:"id"`
+	IllegalCode *int   `json:"illegal_code"`
+	IllegalType *int   `json:"illegal_type"`
 }
 
-// order by stddev_pop() on columns of table "regional_violation_register"
-type RegionalViolationRegisterStddevPopOrderBy struct {
-	ID          *model.OrderBy `json:"id"`
-	IllegalCode *model.OrderBy `json:"illegal_code"`
-	IllegalType *model.OrderBy `json:"illegal_type"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "regional_violation_register"
 type RegionalViolationRegisterStddevSampFields struct {
-	ID          *float64 `json:"id"`
-	IllegalCode *float64 `json:"illegal_code"`
-	IllegalType *float64 `json:"illegal_type"`
+	ID          *int64 `json:"id"`
+	IllegalCode *int   `json:"illegal_code"`
+	IllegalType *int   `json:"illegal_type"`
 }
 
-// order by stddev_samp() on columns of table "regional_violation_register"
-type RegionalViolationRegisterStddevSampOrderBy struct {
-	ID          *model.OrderBy `json:"id"`
-	IllegalCode *model.OrderBy `json:"illegal_code"`
-	IllegalType *model.OrderBy `json:"illegal_type"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "regional_violation_register"
 type RegionalViolationRegisterSumFields struct {
 	ID          *int64 `json:"id"`
 	IllegalCode *int   `json:"illegal_code"`
 	IllegalType *int   `json:"illegal_type"`
 }
 
-// order by sum() on columns of table "regional_violation_register"
-type RegionalViolationRegisterSumOrderBy struct {
-	ID          *model.OrderBy `json:"id"`
-	IllegalCode *model.OrderBy `json:"illegal_code"`
-	IllegalType *model.OrderBy `json:"illegal_type"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "regional_violation_register"
 type RegionalViolationRegisterVarPopFields struct {
-	ID          *float64 `json:"id"`
-	IllegalCode *float64 `json:"illegal_code"`
-	IllegalType *float64 `json:"illegal_type"`
+	ID          *int64 `json:"id"`
+	IllegalCode *int   `json:"illegal_code"`
+	IllegalType *int   `json:"illegal_type"`
 }
 
-// order by var_pop() on columns of table "regional_violation_register"
-type RegionalViolationRegisterVarPopOrderBy struct {
-	ID          *model.OrderBy `json:"id"`
-	IllegalCode *model.OrderBy `json:"illegal_code"`
-	IllegalType *model.OrderBy `json:"illegal_type"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "regional_violation_register"
 type RegionalViolationRegisterVarSampFields struct {
-	ID          *float64 `json:"id"`
-	IllegalCode *float64 `json:"illegal_code"`
-	IllegalType *float64 `json:"illegal_type"`
+	ID          *int64 `json:"id"`
+	IllegalCode *int   `json:"illegal_code"`
+	IllegalType *int   `json:"illegal_type"`
 }
 
-// order by var_samp() on columns of table "regional_violation_register"
-type RegionalViolationRegisterVarSampOrderBy struct {
-	ID          *model.OrderBy `json:"id"`
-	IllegalCode *model.OrderBy `json:"illegal_code"`
-	IllegalType *model.OrderBy `json:"illegal_type"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "regional_violation_register"
 type RegionalViolationRegisterVarianceFields struct {
-	ID          *float64 `json:"id"`
-	IllegalCode *float64 `json:"illegal_code"`
-	IllegalType *float64 `json:"illegal_type"`
+	ID          *int64 `json:"id"`
+	IllegalCode *int   `json:"illegal_code"`
+	IllegalType *int   `json:"illegal_type"`
 }
 
-// order by variance() on columns of table "regional_violation_register"
-type RegionalViolationRegisterVarianceOrderBy struct {
-	ID          *model.OrderBy `json:"id"`
-	IllegalCode *model.OrderBy `json:"illegal_code"`
-	IllegalType *model.OrderBy `json:"illegal_type"`
+// aggregated selection of "serious_traffic_violation"
+type SeriousTrafficViolationAggregate struct {
+	Aggregate *SeriousTrafficViolationAggregateFields `json:"aggregate"`
 }
 
-// aggregated selection of "user_operation_log"
-type UserOperationLogAggregate struct {
-	Aggregate *UserOperationLogAggregateFields `json:"aggregate"`
-	Nodes     []*UserOperationLog              `json:"nodes"`
+// aggregate fields of "serious_traffic_violation"
+type SeriousTrafficViolationAggregateFields struct {
+	Avg        *SeriousTrafficViolationAvgFields        `json:"avg"`
+	Count      *int                                     `json:"count"`
+	Max        *SeriousTrafficViolationMaxFields        `json:"max"`
+	Min        *SeriousTrafficViolationMinFields        `json:"min"`
+	Stddev     *SeriousTrafficViolationStddevFields     `json:"stddev"`
+	StddevPop  *SeriousTrafficViolationStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *SeriousTrafficViolationStddevSampFields `json:"stddev_samp"`
+	Sum        *SeriousTrafficViolationSumFields        `json:"sum"`
+	VarPop     *SeriousTrafficViolationVarPopFields     `json:"var_pop"`
+	VarSamp    *SeriousTrafficViolationVarSampFields    `json:"var_samp"`
+	Variance   *SeriousTrafficViolationVarianceFields   `json:"variance"`
 }
 
-// aggregate fields of "user_operation_log"
-type UserOperationLogAggregateFields struct {
-	Avg        *UserOperationLogAvgFields        `json:"avg"`
-	Count      *int                              `json:"count"`
-	Max        *UserOperationLogMaxFields        `json:"max"`
-	Min        *UserOperationLogMinFields        `json:"min"`
-	Stddev     *UserOperationLogStddevFields     `json:"stddev"`
-	StddevPop  *UserOperationLogStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *UserOperationLogStddevSampFields `json:"stddev_samp"`
-	Sum        *UserOperationLogSumFields        `json:"sum"`
-	VarPop     *UserOperationLogVarPopFields     `json:"var_pop"`
-	VarSamp    *UserOperationLogVarSampFields    `json:"var_samp"`
-	Variance   *UserOperationLogVarianceFields   `json:"variance"`
-}
-
-// order by aggregate values of table "user_operation_log"
-type UserOperationLogAggregateOrderBy struct {
-	Avg        *UserOperationLogAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                     `json:"count"`
-	Max        *UserOperationLogMaxOrderBy        `json:"max"`
-	Min        *UserOperationLogMinOrderBy        `json:"min"`
-	Stddev     *UserOperationLogStddevOrderBy     `json:"stddev"`
-	StddevPop  *UserOperationLogStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *UserOperationLogStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *UserOperationLogSumOrderBy        `json:"sum"`
-	VarPop     *UserOperationLogVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *UserOperationLogVarSampOrderBy    `json:"var_samp"`
-	Variance   *UserOperationLogVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "user_operation_log"
-type UserOperationLogArrRelInsertInput struct {
-	Data       []*UserOperationLogInsertInput `json:"data"`
-	OnConflict *UserOperationLogOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
-type UserOperationLogAvgFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by avg() on columns of table "user_operation_log"
-type UserOperationLogAvgOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "user_operation_log". All fields are combined with a logical 'AND'.
-type UserOperationLogBoolExp struct {
-	And                []*UserOperationLogBoolExp      `json:"_and"`
-	Not                *UserOperationLogBoolExp        `json:"_not"`
-	Or                 []*UserOperationLogBoolExp      `json:"_or"`
-	CreatedAt          *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy          *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt          *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy          *model.StringComparisonExp      `json:"deleted_by"`
-	ID                 *model.BigintComparisonExp      `json:"id"`
-	IllegalTime        *model.TimestamptzComparisonExp `json:"illegal_time"`
-	LicensePlateNumber *model.StringComparisonExp      `json:"license_plate_number"`
-	UpdatedAt          *model.TimestamptzComparisonExp `json:"updated_at"`
-	UpdatedBy          *model.StringComparisonExp      `json:"updated_by"`
-	UserIP             *model.StringComparisonExp      `json:"user_ip"`
-}
-
-// input type for incrementing integer column in table "user_operation_log"
-type UserOperationLogIncInput struct {
+// aggregate avg on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationAvgFields struct {
 	ID *int64 `json:"id"`
 }
 
-// input type for inserting data into table "user_operation_log"
-type UserOperationLogInsertInput struct {
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
-	ID                 *int64     `json:"id"`
-	IllegalTime        *time.Time `json:"illegal_time"`
-	LicensePlateNumber *string    `json:"license_plate_number"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	UserIP             *string    `json:"user_ip"`
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'serious_traffic_violation'.
+type SeriousTrafficViolationBoolExp struct {
+	And                       []*SeriousTrafficViolationBoolExp `json:"_and"`
+	Not                       *SeriousTrafficViolationBoolExp   `json:"_not"`
+	Or                        []*SeriousTrafficViolationBoolExp `json:"_or"`
+	ID                        *model.BigintComparisonExp        `json:"id"`
+	SeriousTrafficViolationID *model.StringComparisonExp        `json:"serious_traffic_violation_id"`
+	VehicleID                 *model.StringComparisonExp        `json:"vehicle_id"`
+	IllegalCode               *model.StringComparisonExp        `json:"illegal_code"`
+	IllegalTime               *model.TimestamptzComparisonExp   `json:"illegal_time"`
+	CreatedAt                 *model.TimestamptzComparisonExp   `json:"created_at"`
+	CreatedBy                 *model.StringComparisonExp        `json:"created_by"`
+	UpdatedAt                 *model.TimestamptzComparisonExp   `json:"updated_at"`
+	UpdatedBy                 *model.StringComparisonExp        `json:"updated_by"`
+	DeletedAt                 *model.TimestamptzComparisonExp   `json:"deleted_at"`
+	DeletedBy                 *model.StringComparisonExp        `json:"deleted_by"`
 }
 
-// aggregate max on columns
-type UserOperationLogMaxFields struct {
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
-	ID                 *int64     `json:"id"`
-	IllegalTime        *time.Time `json:"illegal_time"`
-	LicensePlateNumber *string    `json:"license_plate_number"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	UserIP             *string    `json:"user_ip"`
-}
-
-// order by max() on columns of table "user_operation_log"
-type UserOperationLogMaxOrderBy struct {
-	CreatedAt          *model.OrderBy `json:"created_at"`
-	CreatedBy          *model.OrderBy `json:"created_by"`
-	DeletedAt          *model.OrderBy `json:"deleted_at"`
-	DeletedBy          *model.OrderBy `json:"deleted_by"`
-	ID                 *model.OrderBy `json:"id"`
-	IllegalTime        *model.OrderBy `json:"illegal_time"`
-	LicensePlateNumber *model.OrderBy `json:"license_plate_number"`
-	UpdatedAt          *model.OrderBy `json:"updated_at"`
-	UpdatedBy          *model.OrderBy `json:"updated_by"`
-	UserIP             *model.OrderBy `json:"user_ip"`
-}
-
-// aggregate min on columns
-type UserOperationLogMinFields struct {
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
-	ID                 *int64     `json:"id"`
-	IllegalTime        *time.Time `json:"illegal_time"`
-	LicensePlateNumber *string    `json:"license_plate_number"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	UserIP             *string    `json:"user_ip"`
-}
-
-// order by min() on columns of table "user_operation_log"
-type UserOperationLogMinOrderBy struct {
-	CreatedAt          *model.OrderBy `json:"created_at"`
-	CreatedBy          *model.OrderBy `json:"created_by"`
-	DeletedAt          *model.OrderBy `json:"deleted_at"`
-	DeletedBy          *model.OrderBy `json:"deleted_by"`
-	ID                 *model.OrderBy `json:"id"`
-	IllegalTime        *model.OrderBy `json:"illegal_time"`
-	LicensePlateNumber *model.OrderBy `json:"license_plate_number"`
-	UpdatedAt          *model.OrderBy `json:"updated_at"`
-	UpdatedBy          *model.OrderBy `json:"updated_by"`
-	UserIP             *model.OrderBy `json:"user_ip"`
-}
-
-// response of any mutation on the table "user_operation_log"
-type UserOperationLogMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*UserOperationLog `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "user_operation_log"
-type UserOperationLogObjRelInsertInput struct {
-	Data       *UserOperationLogInsertInput `json:"data"`
-	OnConflict *UserOperationLogOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "user_operation_log"
-type UserOperationLogOnConflict struct {
-	Constraint    UserOperationLogConstraint     `json:"constraint"`
-	UpdateColumns []UserOperationLogUpdateColumn `json:"update_columns"`
-	Where         *UserOperationLogBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "user_operation_log"
-type UserOperationLogOrderBy struct {
-	CreatedAt          *model.OrderBy `json:"created_at"`
-	CreatedBy          *model.OrderBy `json:"created_by"`
-	DeletedAt          *model.OrderBy `json:"deleted_at"`
-	DeletedBy          *model.OrderBy `json:"deleted_by"`
-	ID                 *model.OrderBy `json:"id"`
-	IllegalTime        *model.OrderBy `json:"illegal_time"`
-	LicensePlateNumber *model.OrderBy `json:"license_plate_number"`
-	UpdatedAt          *model.OrderBy `json:"updated_at"`
-	UpdatedBy          *model.OrderBy `json:"updated_by"`
-	UserIP             *model.OrderBy `json:"user_ip"`
-}
-
-// primary key columns input for table: "user_operation_log"
-type UserOperationLogPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "user_operation_log"
-type UserOperationLogSetInput struct {
-	CreatedAt          *time.Time `json:"created_at"`
-	CreatedBy          *string    `json:"created_by"`
-	DeletedAt          *time.Time `json:"deleted_at"`
-	DeletedBy          *string    `json:"deleted_by"`
-	ID                 *int64     `json:"id"`
-	IllegalTime        *time.Time `json:"illegal_time"`
-	LicensePlateNumber *string    `json:"license_plate_number"`
-	UpdatedAt          *time.Time `json:"updated_at"`
-	UpdatedBy          *string    `json:"updated_by"`
-	UserIP             *string    `json:"user_ip"`
-}
-
-// aggregate stddev on columns
-type UserOperationLogStddevFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "user_operation_log"
-type UserOperationLogStddevOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type UserOperationLogStddevPopFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "user_operation_log"
-type UserOperationLogStddevPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type UserOperationLogStddevSampFields struct {
-	ID *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "user_operation_log"
-type UserOperationLogStddevSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type UserOperationLogSumFields struct {
+// input type for incrementing integer column in table "serious_traffic_violation"
+type SeriousTrafficViolationIncInput struct {
 	ID *int64 `json:"id"`
 }
 
-// order by sum() on columns of table "user_operation_log"
-type UserOperationLogSumOrderBy struct {
-	ID *model.OrderBy `json:"id"`
+// input type for inserting data into table "serious_traffic_violation"
+type SeriousTrafficViolationInsertInput struct {
+	ID                        *int64     `json:"id"`
+	SeriousTrafficViolationID *string    `json:"serious_traffic_violation_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	IllegalCode               *string    `json:"illegal_code"`
+	IllegalTime               *time.Time `json:"illegal_time"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// aggregate var_pop on columns
-type UserOperationLogVarPopFields struct {
-	ID *float64 `json:"id"`
+// aggregate max on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationMaxFields struct {
+	ID                        *int64     `json:"id"`
+	SeriousTrafficViolationID *string    `json:"serious_traffic_violation_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	IllegalCode               *string    `json:"illegal_code"`
+	IllegalTime               *time.Time `json:"illegal_time"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// order by var_pop() on columns of table "user_operation_log"
-type UserOperationLogVarPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
+// aggregate min on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationMinFields struct {
+	ID                        *int64     `json:"id"`
+	SeriousTrafficViolationID *string    `json:"serious_traffic_violation_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	IllegalCode               *string    `json:"illegal_code"`
+	IllegalTime               *time.Time `json:"illegal_time"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// aggregate var_samp on columns
-type UserOperationLogVarSampFields struct {
-	ID *float64 `json:"id"`
+// response of any mutation on the table "serious_traffic_violation"
+type SeriousTrafficViolationMutationResponse struct {
+	AffectedRows int                               `json:"affected_rows"`
+	Returning    []*model1.SeriousTrafficViolation `json:"returning"`
 }
 
-// order by var_samp() on columns of table "user_operation_log"
-type UserOperationLogVarSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
+// ordering options when selecting data from "serious_traffic_violation"
+type SeriousTrafficViolationOrderBy struct {
+	ID                        *model.OrderBy `json:"id"`
+	SeriousTrafficViolationID *model.OrderBy `json:"serious_traffic_violation_id"`
+	VehicleID                 *model.OrderBy `json:"vehicle_id"`
+	IllegalCode               *model.OrderBy `json:"illegal_code"`
+	IllegalTime               *model.OrderBy `json:"illegal_time"`
+	CreatedAt                 *model.OrderBy `json:"created_at"`
+	CreatedBy                 *model.OrderBy `json:"created_by"`
+	UpdatedAt                 *model.OrderBy `json:"updated_at"`
+	UpdatedBy                 *model.OrderBy `json:"updated_by"`
+	DeletedAt                 *model.OrderBy `json:"deleted_at"`
+	DeletedBy                 *model.OrderBy `json:"deleted_by"`
 }
 
-// aggregate variance on columns
-type UserOperationLogVarianceFields struct {
-	ID *float64 `json:"id"`
+// input type for updating data in table "serious_traffic_violation"
+type SeriousTrafficViolationSetInput struct {
+	ID                        *int64     `json:"id"`
+	SeriousTrafficViolationID *string    `json:"serious_traffic_violation_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
+	IllegalCode               *string    `json:"illegal_code"`
+	IllegalTime               *time.Time `json:"illegal_time"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// order by variance() on columns of table "user_operation_log"
-type UserOperationLogVarianceOrderBy struct {
-	ID *model.OrderBy `json:"id"`
+// aggregate stddev on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationStddevFields struct {
+	ID *int64 `json:"id"`
 }
 
-// aggregated selection of "vehicle_detain_details"
-type VehicleDetainDetailsAggregate struct {
-	Aggregate *VehicleDetainDetailsAggregateFields `json:"aggregate"`
-	Nodes     []*VehicleDetainDetails              `json:"nodes"`
+// aggregate stddev_pop on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationStddevPopFields struct {
+	ID *int64 `json:"id"`
 }
 
-// aggregate fields of "vehicle_detain_details"
-type VehicleDetainDetailsAggregateFields struct {
-	Avg        *VehicleDetainDetailsAvgFields        `json:"avg"`
-	Count      *int                                  `json:"count"`
-	Max        *VehicleDetainDetailsMaxFields        `json:"max"`
-	Min        *VehicleDetainDetailsMinFields        `json:"min"`
-	Stddev     *VehicleDetainDetailsStddevFields     `json:"stddev"`
-	StddevPop  *VehicleDetainDetailsStddevPopFields  `json:"stddev_pop"`
-	StddevSamp *VehicleDetainDetailsStddevSampFields `json:"stddev_samp"`
-	Sum        *VehicleDetainDetailsSumFields        `json:"sum"`
-	VarPop     *VehicleDetainDetailsVarPopFields     `json:"var_pop"`
-	VarSamp    *VehicleDetainDetailsVarSampFields    `json:"var_samp"`
-	Variance   *VehicleDetainDetailsVarianceFields   `json:"variance"`
+// aggregate stddev_samp on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationStddevSampFields struct {
+	ID *int64 `json:"id"`
 }
 
-// order by aggregate values of table "vehicle_detain_details"
-type VehicleDetainDetailsAggregateOrderBy struct {
-	Avg        *VehicleDetainDetailsAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                         `json:"count"`
-	Max        *VehicleDetainDetailsMaxOrderBy        `json:"max"`
-	Min        *VehicleDetainDetailsMinOrderBy        `json:"min"`
-	Stddev     *VehicleDetainDetailsStddevOrderBy     `json:"stddev"`
-	StddevPop  *VehicleDetainDetailsStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VehicleDetainDetailsStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VehicleDetainDetailsSumOrderBy        `json:"sum"`
-	VarPop     *VehicleDetainDetailsVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VehicleDetainDetailsVarSampOrderBy    `json:"var_samp"`
-	Variance   *VehicleDetainDetailsVarianceOrderBy   `json:"variance"`
+// aggregate sum on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationSumFields struct {
+	ID *int64 `json:"id"`
 }
 
-// input type for inserting array relation for remote table "vehicle_detain_details"
-type VehicleDetainDetailsArrRelInsertInput struct {
-	Data       []*VehicleDetainDetailsInsertInput `json:"data"`
-	OnConflict *VehicleDetainDetailsOnConflict    `json:"on_conflict"`
+// aggregate var_pop on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationVarPopFields struct {
+	ID *int64 `json:"id"`
 }
 
-// aggregate avg on columns
-type VehicleDetainDetailsAvgFields struct {
-	ID                  *float64 `json:"id"`
-	VehicleDetainStatus *float64 `json:"vehicle_detain_status"`
+// aggregate var_samp on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationVarSampFields struct {
+	ID *int64 `json:"id"`
 }
 
-// order by avg() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsAvgOrderBy struct {
-	ID                  *model.OrderBy `json:"id"`
-	VehicleDetainStatus *model.OrderBy `json:"vehicle_detain_status"`
-}
-
-// Boolean expression to filter rows from the table "vehicle_detain_details". All fields are combined with a logical 'AND'.
-type VehicleDetainDetailsBoolExp struct {
-	And                   []*VehicleDetainDetailsBoolExp  `json:"_and"`
-	Not                   *VehicleDetainDetailsBoolExp    `json:"_not"`
-	Or                    []*VehicleDetainDetailsBoolExp  `json:"_or"`
-	BayonetPicture        *model.StringComparisonExp      `json:"bayonet_picture"`
-	ID                    *model.BigintComparisonExp      `json:"id"`
-	IsBayonet             *model.BooleanComparisonExp     `json:"is_bayonet"`
-	IsCategory            *model.BooleanComparisonExp     `json:"is_category"`
-	IsDelete              *model.BooleanComparisonExp     `json:"is_delete"`
-	IsIllegal             *model.BooleanComparisonExp     `json:"is_illegal"`
-	IsSatelliteJudgment   *model.BooleanComparisonExp     `json:"is_satellite_judgment"`
-	LicensePlateColor     *model.StringComparisonExp      `json:"license_plate_color"`
-	LicensePlateNumber    *model.StringComparisonExp      `json:"license_plate_number"`
-	RecordTime            *model.TimestamptzComparisonExp `json:"record_time"`
-	RegisterRegion        *model.StringComparisonExp      `json:"register_region"`
-	RegisterUser          *model.StringComparisonExp      `json:"register_user"`
-	Remarks               *model.StringComparisonExp      `json:"remarks"`
-	UpdateTime            *model.TimestamptzComparisonExp `json:"update_time"`
-	VehicleDetainPicture  *model.StringComparisonExp      `json:"vehicle_detain_picture"`
-	VehicleDetainStatus   *model.IntComparisonExp         `json:"vehicle_detain_status"`
-	VehicleDetainTime     *model.TimestamptzComparisonExp `json:"vehicle_detain_time"`
-	VehicleReleasePicture *model.StringComparisonExp      `json:"vehicle_release_picture"`
-	VehicleReleaseTime    *model.TimestamptzComparisonExp `json:"vehicle_release_time"`
-}
-
-// input type for incrementing integer column in table "vehicle_detain_details"
-type VehicleDetainDetailsIncInput struct {
-	ID                  *int64 `json:"id"`
-	VehicleDetainStatus *int   `json:"vehicle_detain_status"`
-}
-
-// input type for inserting data into table "vehicle_detain_details"
-type VehicleDetainDetailsInsertInput struct {
-	BayonetPicture        *string    `json:"bayonet_picture"`
-	ID                    *int64     `json:"id"`
-	IsBayonet             *bool      `json:"is_bayonet"`
-	IsCategory            *bool      `json:"is_category"`
-	IsDelete              *bool      `json:"is_delete"`
-	IsIllegal             *bool      `json:"is_illegal"`
-	IsSatelliteJudgment   *bool      `json:"is_satellite_judgment"`
-	LicensePlateColor     *string    `json:"license_plate_color"`
-	LicensePlateNumber    *string    `json:"license_plate_number"`
-	RecordTime            *time.Time `json:"record_time"`
-	RegisterRegion        *string    `json:"register_region"`
-	RegisterUser          *string    `json:"register_user"`
-	Remarks               *string    `json:"remarks"`
-	UpdateTime            *time.Time `json:"update_time"`
-	VehicleDetainPicture  *string    `json:"vehicle_detain_picture"`
-	VehicleDetainStatus   *int       `json:"vehicle_detain_status"`
-	VehicleDetainTime     *time.Time `json:"vehicle_detain_time"`
-	VehicleReleasePicture *string    `json:"vehicle_release_picture"`
-	VehicleReleaseTime    *time.Time `json:"vehicle_release_time"`
-}
-
-// aggregate max on columns
-type VehicleDetainDetailsMaxFields struct {
-	BayonetPicture        *string    `json:"bayonet_picture"`
-	ID                    *int64     `json:"id"`
-	LicensePlateColor     *string    `json:"license_plate_color"`
-	LicensePlateNumber    *string    `json:"license_plate_number"`
-	RecordTime            *time.Time `json:"record_time"`
-	RegisterRegion        *string    `json:"register_region"`
-	RegisterUser          *string    `json:"register_user"`
-	Remarks               *string    `json:"remarks"`
-	UpdateTime            *time.Time `json:"update_time"`
-	VehicleDetainPicture  *string    `json:"vehicle_detain_picture"`
-	VehicleDetainStatus   *int       `json:"vehicle_detain_status"`
-	VehicleDetainTime     *time.Time `json:"vehicle_detain_time"`
-	VehicleReleasePicture *string    `json:"vehicle_release_picture"`
-	VehicleReleaseTime    *time.Time `json:"vehicle_release_time"`
-}
-
-// order by max() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsMaxOrderBy struct {
-	BayonetPicture        *model.OrderBy `json:"bayonet_picture"`
-	ID                    *model.OrderBy `json:"id"`
-	LicensePlateColor     *model.OrderBy `json:"license_plate_color"`
-	LicensePlateNumber    *model.OrderBy `json:"license_plate_number"`
-	RecordTime            *model.OrderBy `json:"record_time"`
-	RegisterRegion        *model.OrderBy `json:"register_region"`
-	RegisterUser          *model.OrderBy `json:"register_user"`
-	Remarks               *model.OrderBy `json:"remarks"`
-	UpdateTime            *model.OrderBy `json:"update_time"`
-	VehicleDetainPicture  *model.OrderBy `json:"vehicle_detain_picture"`
-	VehicleDetainStatus   *model.OrderBy `json:"vehicle_detain_status"`
-	VehicleDetainTime     *model.OrderBy `json:"vehicle_detain_time"`
-	VehicleReleasePicture *model.OrderBy `json:"vehicle_release_picture"`
-	VehicleReleaseTime    *model.OrderBy `json:"vehicle_release_time"`
-}
-
-// aggregate min on columns
-type VehicleDetainDetailsMinFields struct {
-	BayonetPicture        *string    `json:"bayonet_picture"`
-	ID                    *int64     `json:"id"`
-	LicensePlateColor     *string    `json:"license_plate_color"`
-	LicensePlateNumber    *string    `json:"license_plate_number"`
-	RecordTime            *time.Time `json:"record_time"`
-	RegisterRegion        *string    `json:"register_region"`
-	RegisterUser          *string    `json:"register_user"`
-	Remarks               *string    `json:"remarks"`
-	UpdateTime            *time.Time `json:"update_time"`
-	VehicleDetainPicture  *string    `json:"vehicle_detain_picture"`
-	VehicleDetainStatus   *int       `json:"vehicle_detain_status"`
-	VehicleDetainTime     *time.Time `json:"vehicle_detain_time"`
-	VehicleReleasePicture *string    `json:"vehicle_release_picture"`
-	VehicleReleaseTime    *time.Time `json:"vehicle_release_time"`
-}
-
-// order by min() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsMinOrderBy struct {
-	BayonetPicture        *model.OrderBy `json:"bayonet_picture"`
-	ID                    *model.OrderBy `json:"id"`
-	LicensePlateColor     *model.OrderBy `json:"license_plate_color"`
-	LicensePlateNumber    *model.OrderBy `json:"license_plate_number"`
-	RecordTime            *model.OrderBy `json:"record_time"`
-	RegisterRegion        *model.OrderBy `json:"register_region"`
-	RegisterUser          *model.OrderBy `json:"register_user"`
-	Remarks               *model.OrderBy `json:"remarks"`
-	UpdateTime            *model.OrderBy `json:"update_time"`
-	VehicleDetainPicture  *model.OrderBy `json:"vehicle_detain_picture"`
-	VehicleDetainStatus   *model.OrderBy `json:"vehicle_detain_status"`
-	VehicleDetainTime     *model.OrderBy `json:"vehicle_detain_time"`
-	VehicleReleasePicture *model.OrderBy `json:"vehicle_release_picture"`
-	VehicleReleaseTime    *model.OrderBy `json:"vehicle_release_time"`
-}
-
-// response of any mutation on the table "vehicle_detain_details"
-type VehicleDetainDetailsMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VehicleDetainDetails `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "vehicle_detain_details"
-type VehicleDetainDetailsObjRelInsertInput struct {
-	Data       *VehicleDetainDetailsInsertInput `json:"data"`
-	OnConflict *VehicleDetainDetailsOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "vehicle_detain_details"
-type VehicleDetainDetailsOnConflict struct {
-	Constraint    VehicleDetainDetailsConstraint     `json:"constraint"`
-	UpdateColumns []VehicleDetainDetailsUpdateColumn `json:"update_columns"`
-	Where         *VehicleDetainDetailsBoolExp       `json:"where"`
-}
-
-// ordering options when selecting data from "vehicle_detain_details"
-type VehicleDetainDetailsOrderBy struct {
-	BayonetPicture        *model.OrderBy `json:"bayonet_picture"`
-	ID                    *model.OrderBy `json:"id"`
-	IsBayonet             *model.OrderBy `json:"is_bayonet"`
-	IsCategory            *model.OrderBy `json:"is_category"`
-	IsDelete              *model.OrderBy `json:"is_delete"`
-	IsIllegal             *model.OrderBy `json:"is_illegal"`
-	IsSatelliteJudgment   *model.OrderBy `json:"is_satellite_judgment"`
-	LicensePlateColor     *model.OrderBy `json:"license_plate_color"`
-	LicensePlateNumber    *model.OrderBy `json:"license_plate_number"`
-	RecordTime            *model.OrderBy `json:"record_time"`
-	RegisterRegion        *model.OrderBy `json:"register_region"`
-	RegisterUser          *model.OrderBy `json:"register_user"`
-	Remarks               *model.OrderBy `json:"remarks"`
-	UpdateTime            *model.OrderBy `json:"update_time"`
-	VehicleDetainPicture  *model.OrderBy `json:"vehicle_detain_picture"`
-	VehicleDetainStatus   *model.OrderBy `json:"vehicle_detain_status"`
-	VehicleDetainTime     *model.OrderBy `json:"vehicle_detain_time"`
-	VehicleReleasePicture *model.OrderBy `json:"vehicle_release_picture"`
-	VehicleReleaseTime    *model.OrderBy `json:"vehicle_release_time"`
-}
-
-// primary key columns input for table: "vehicle_detain_details"
-type VehicleDetainDetailsPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-}
-
-// input type for updating data in table "vehicle_detain_details"
-type VehicleDetainDetailsSetInput struct {
-	BayonetPicture        *string    `json:"bayonet_picture"`
-	ID                    *int64     `json:"id"`
-	IsBayonet             *bool      `json:"is_bayonet"`
-	IsCategory            *bool      `json:"is_category"`
-	IsDelete              *bool      `json:"is_delete"`
-	IsIllegal             *bool      `json:"is_illegal"`
-	IsSatelliteJudgment   *bool      `json:"is_satellite_judgment"`
-	LicensePlateColor     *string    `json:"license_plate_color"`
-	LicensePlateNumber    *string    `json:"license_plate_number"`
-	RecordTime            *time.Time `json:"record_time"`
-	RegisterRegion        *string    `json:"register_region"`
-	RegisterUser          *string    `json:"register_user"`
-	Remarks               *string    `json:"remarks"`
-	UpdateTime            *time.Time `json:"update_time"`
-	VehicleDetainPicture  *string    `json:"vehicle_detain_picture"`
-	VehicleDetainStatus   *int       `json:"vehicle_detain_status"`
-	VehicleDetainTime     *time.Time `json:"vehicle_detain_time"`
-	VehicleReleasePicture *string    `json:"vehicle_release_picture"`
-	VehicleReleaseTime    *time.Time `json:"vehicle_release_time"`
-}
-
-// aggregate stddev on columns
-type VehicleDetainDetailsStddevFields struct {
-	ID                  *float64 `json:"id"`
-	VehicleDetainStatus *float64 `json:"vehicle_detain_status"`
-}
-
-// order by stddev() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsStddevOrderBy struct {
-	ID                  *model.OrderBy `json:"id"`
-	VehicleDetainStatus *model.OrderBy `json:"vehicle_detain_status"`
-}
-
-// aggregate stddev_pop on columns
-type VehicleDetainDetailsStddevPopFields struct {
-	ID                  *float64 `json:"id"`
-	VehicleDetainStatus *float64 `json:"vehicle_detain_status"`
-}
-
-// order by stddev_pop() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsStddevPopOrderBy struct {
-	ID                  *model.OrderBy `json:"id"`
-	VehicleDetainStatus *model.OrderBy `json:"vehicle_detain_status"`
-}
-
-// aggregate stddev_samp on columns
-type VehicleDetainDetailsStddevSampFields struct {
-	ID                  *float64 `json:"id"`
-	VehicleDetainStatus *float64 `json:"vehicle_detain_status"`
-}
-
-// order by stddev_samp() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsStddevSampOrderBy struct {
-	ID                  *model.OrderBy `json:"id"`
-	VehicleDetainStatus *model.OrderBy `json:"vehicle_detain_status"`
-}
-
-// aggregate sum on columns
-type VehicleDetainDetailsSumFields struct {
-	ID                  *int64 `json:"id"`
-	VehicleDetainStatus *int   `json:"vehicle_detain_status"`
-}
-
-// order by sum() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsSumOrderBy struct {
-	ID                  *model.OrderBy `json:"id"`
-	VehicleDetainStatus *model.OrderBy `json:"vehicle_detain_status"`
-}
-
-// aggregate var_pop on columns
-type VehicleDetainDetailsVarPopFields struct {
-	ID                  *float64 `json:"id"`
-	VehicleDetainStatus *float64 `json:"vehicle_detain_status"`
-}
-
-// order by var_pop() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsVarPopOrderBy struct {
-	ID                  *model.OrderBy `json:"id"`
-	VehicleDetainStatus *model.OrderBy `json:"vehicle_detain_status"`
-}
-
-// aggregate var_samp on columns
-type VehicleDetainDetailsVarSampFields struct {
-	ID                  *float64 `json:"id"`
-	VehicleDetainStatus *float64 `json:"vehicle_detain_status"`
-}
-
-// order by var_samp() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsVarSampOrderBy struct {
-	ID                  *model.OrderBy `json:"id"`
-	VehicleDetainStatus *model.OrderBy `json:"vehicle_detain_status"`
-}
-
-// aggregate variance on columns
-type VehicleDetainDetailsVarianceFields struct {
-	ID                  *float64 `json:"id"`
-	VehicleDetainStatus *float64 `json:"vehicle_detain_status"`
-}
-
-// order by variance() on columns of table "vehicle_detain_details"
-type VehicleDetainDetailsVarianceOrderBy struct {
-	ID                  *model.OrderBy `json:"id"`
-	VehicleDetainStatus *model.OrderBy `json:"vehicle_detain_status"`
+// aggregate variance on columns of table "serious_traffic_violation"
+type SeriousTrafficViolationVarianceFields struct {
+	ID *int64 `json:"id"`
 }
 
 // aggregated selection of "vehicle_violation_details"
 type VehicleViolationDetailsAggregate struct {
 	Aggregate *VehicleViolationDetailsAggregateFields `json:"aggregate"`
-	Nodes     []*VehicleViolationDetails              `json:"nodes"`
 }
 
 // aggregate fields of "vehicle_violation_details"
@@ -3479,469 +1141,306 @@ type VehicleViolationDetailsAggregateFields struct {
 	Variance   *VehicleViolationDetailsVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "vehicle_violation_details"
-type VehicleViolationDetailsAggregateOrderBy struct {
-	Avg        *VehicleViolationDetailsAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                            `json:"count"`
-	Max        *VehicleViolationDetailsMaxOrderBy        `json:"max"`
-	Min        *VehicleViolationDetailsMinOrderBy        `json:"min"`
-	Stddev     *VehicleViolationDetailsStddevOrderBy     `json:"stddev"`
-	StddevPop  *VehicleViolationDetailsStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VehicleViolationDetailsStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VehicleViolationDetailsSumOrderBy        `json:"sum"`
-	VarPop     *VehicleViolationDetailsVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VehicleViolationDetailsVarSampOrderBy    `json:"var_samp"`
-	Variance   *VehicleViolationDetailsVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "vehicle_violation_details"
-type VehicleViolationDetailsArrRelInsertInput struct {
-	Data       []*VehicleViolationDetailsInsertInput `json:"data"`
-	OnConflict *VehicleViolationDetailsOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsAvgFields struct {
-	ID                    *float64 `json:"id"`
-	IllegalHandlingStatus *float64 `json:"illegal_handling_status"`
-	InformationSource     *float64 `json:"information_source"`
-	PaymentMark           *float64 `json:"payment_mark"`
+	ID                    *int64 `json:"id"`
+	IllegalHandlingStatus *int   `json:"illegal_handling_status"`
+	PaymentMark           *int   `json:"payment_mark"`
+	InformationSource     *int   `json:"information_source"`
 }
 
-// order by avg() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsAvgOrderBy struct {
-	ID                    *model.OrderBy `json:"id"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
-}
-
-// Boolean expression to filter rows from the table "vehicle_violation_details". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_violation_details'.
 type VehicleViolationDetailsBoolExp struct {
 	And                   []*VehicleViolationDetailsBoolExp `json:"_and"`
 	Not                   *VehicleViolationDetailsBoolExp   `json:"_not"`
 	Or                    []*VehicleViolationDetailsBoolExp `json:"_or"`
-	CreatedAt             *model.TimestamptzComparisonExp   `json:"created_at"`
-	CreatedBy             *model.StringComparisonExp        `json:"created_by"`
-	DecisionNumber        *model.StringComparisonExp        `json:"decision_number"`
-	DeletedAt             *model.TimestamptzComparisonExp   `json:"deleted_at"`
-	DeletedBy             *model.StringComparisonExp        `json:"deleted_by"`
-	DiscoveryAgency       *model.StringComparisonExp        `json:"discovery_agency"`
+	ID                    *model.BigintComparisonExp        `json:"id"`
+	ViolationDetailID     *model.StringComparisonExp        `json:"violation_detail_id"`
+	VehicleID             *model.StringComparisonExp        `json:"vehicle_id"`
 	DriverID              *model.StringComparisonExp        `json:"driver_id"`
 	EnterpriseID          *model.StringComparisonExp        `json:"enterprise_id"`
-	HandleAt              *model.TimestamptzComparisonExp   `json:"handle_at"`
-	HandleBy              *model.StringComparisonExp        `json:"handle_by"`
-	ID                    *model.BigintComparisonExp        `json:"id"`
 	IllegalCode           *model.StringComparisonExp        `json:"illegal_code"`
+	IllegalTime           *model.TimestamptzComparisonExp   `json:"illegal_time"`
 	IllegalHandlingStatus *model.IntComparisonExp           `json:"illegal_handling_status"`
 	IllegalLocation       *model.StringComparisonExp        `json:"illegal_location"`
-	IllegalPhoto          *model.StringComparisonExp        `json:"illegal_photo"`
-	IllegalTime           *model.TimestamptzComparisonExp   `json:"illegal_time"`
-	InformationSource     *model.IntComparisonExp           `json:"information_source"`
-	IsDelete              *model.BooleanComparisonExp       `json:"is_delete"`
-	IsHandle              *model.BooleanComparisonExp       `json:"is_handle"`
-	IsNoticeDriver        *model.BooleanComparisonExp       `json:"is_notice_driver"`
-	IsSend                *model.BooleanComparisonExp       `json:"is_send"`
-	MeasuredValue         *model.StringComparisonExp        `json:"measured_value"`
-	NoticeTime            *model.TimestamptzComparisonExp   `json:"notice_time"`
-	PartyName             *model.StringComparisonExp        `json:"party_name"`
-	PaymentMark           *model.IntComparisonExp           `json:"payment_mark"`
 	StandardValue         *model.StringComparisonExp        `json:"standard_value"`
+	MeasuredValue         *model.StringComparisonExp        `json:"measured_value"`
+	DiscoveryAgency       *model.StringComparisonExp        `json:"discovery_agency"`
+	IllegalPhoto          *model.StringComparisonExp        `json:"illegal_photo"`
+	IsNoticeDriver        *model.BooleanComparisonExp       `json:"is_notice_driver"`
+	NoticeTime            *model.TimestamptzComparisonExp   `json:"notice_time"`
+	DecisionNumber        *model.StringComparisonExp        `json:"decision_number"`
+	PaymentMark           *model.IntComparisonExp           `json:"payment_mark"`
+	PartyName             *model.StringComparisonExp        `json:"party_name"`
+	InformationSource     *model.IntComparisonExp           `json:"information_source"`
+	VehicleInformation    *model.StringComparisonExp        `json:"vehicle_information"`
 	UpdateTimeIn          *model.TimestamptzComparisonExp   `json:"update_time_in"`
+	IsHandle              *model.BooleanComparisonExp       `json:"is_handle"`
+	HandleBy              *model.StringComparisonExp        `json:"handle_by"`
+	HandleAt              *model.TimestamptzComparisonExp   `json:"handle_at"`
+	IsSend                *model.BooleanComparisonExp       `json:"is_send"`
+	IsDeleted             *model.BooleanComparisonExp       `json:"is_deleted"`
+	CreatedAt             *model.TimestamptzComparisonExp   `json:"created_at"`
+	CreatedBy             *model.StringComparisonExp        `json:"created_by"`
 	UpdatedAt             *model.TimestamptzComparisonExp   `json:"updated_at"`
 	UpdatedBy             *model.StringComparisonExp        `json:"updated_by"`
-	VehicleID             *model.StringComparisonExp        `json:"vehicle_id"`
-	VehicleInformation    *model.StringComparisonExp        `json:"vehicle_information"`
-	ViolationDetailID     *model.StringComparisonExp        `json:"violation_detail_id"`
+	DeletedAt             *model.TimestamptzComparisonExp   `json:"deleted_at"`
+	DeletedBy             *model.StringComparisonExp        `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "vehicle_violation_details"
 type VehicleViolationDetailsIncInput struct {
 	ID                    *int64 `json:"id"`
 	IllegalHandlingStatus *int   `json:"illegal_handling_status"`
-	InformationSource     *int   `json:"information_source"`
 	PaymentMark           *int   `json:"payment_mark"`
+	InformationSource     *int   `json:"information_source"`
 }
 
 // input type for inserting data into table "vehicle_violation_details"
 type VehicleViolationDetailsInsertInput struct {
-	CreatedAt             *time.Time `json:"created_at"`
-	CreatedBy             *string    `json:"created_by"`
-	DecisionNumber        *string    `json:"decision_number"`
-	DeletedAt             *time.Time `json:"deleted_at"`
-	DeletedBy             *string    `json:"deleted_by"`
-	DiscoveryAgency       *string    `json:"discovery_agency"`
+	ID                    *int64     `json:"id"`
+	ViolationDetailID     *string    `json:"violation_detail_id"`
+	VehicleID             *string    `json:"vehicle_id"`
 	DriverID              *string    `json:"driver_id"`
 	EnterpriseID          *string    `json:"enterprise_id"`
-	HandleAt              *time.Time `json:"handle_at"`
-	HandleBy              *string    `json:"handle_by"`
-	ID                    *int64     `json:"id"`
 	IllegalCode           *string    `json:"illegal_code"`
+	IllegalTime           *time.Time `json:"illegal_time"`
 	IllegalHandlingStatus *int       `json:"illegal_handling_status"`
 	IllegalLocation       *string    `json:"illegal_location"`
+	StandardValue         *string    `json:"standard_value"`
+	MeasuredValue         *string    `json:"measured_value"`
+	DiscoveryAgency       *string    `json:"discovery_agency"`
 	IllegalPhoto          *string    `json:"illegal_photo"`
-	IllegalTime           *time.Time `json:"illegal_time"`
-	InformationSource     *int       `json:"information_source"`
-	IsDelete              *bool      `json:"is_delete"`
-	IsHandle              *bool      `json:"is_handle"`
 	IsNoticeDriver        *bool      `json:"is_notice_driver"`
+	NoticeTime            *time.Time `json:"notice_time"`
+	DecisionNumber        *string    `json:"decision_number"`
+	PaymentMark           *int       `json:"payment_mark"`
+	PartyName             *string    `json:"party_name"`
+	InformationSource     *int       `json:"information_source"`
+	VehicleInformation    *string    `json:"vehicle_information"`
+	UpdateTimeIn          *time.Time `json:"update_time_in"`
+	IsHandle              *bool      `json:"is_handle"`
+	HandleBy              *string    `json:"handle_by"`
+	HandleAt              *time.Time `json:"handle_at"`
 	IsSend                *bool      `json:"is_send"`
-	MeasuredValue         *string    `json:"measured_value"`
-	NoticeTime            *time.Time `json:"notice_time"`
-	PartyName             *string    `json:"party_name"`
-	PaymentMark           *int       `json:"payment_mark"`
-	StandardValue         *string    `json:"standard_value"`
-	UpdateTimeIn          *time.Time `json:"update_time_in"`
+	IsDeleted             *bool      `json:"is_deleted"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
 	UpdatedAt             *time.Time `json:"updated_at"`
 	UpdatedBy             *string    `json:"updated_by"`
-	VehicleID             *string    `json:"vehicle_id"`
-	VehicleInformation    *string    `json:"vehicle_information"`
-	ViolationDetailID     *string    `json:"violation_detail_id"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsMaxFields struct {
-	CreatedAt             *time.Time `json:"created_at"`
-	CreatedBy             *string    `json:"created_by"`
-	DecisionNumber        *string    `json:"decision_number"`
-	DeletedAt             *time.Time `json:"deleted_at"`
-	DeletedBy             *string    `json:"deleted_by"`
-	DiscoveryAgency       *string    `json:"discovery_agency"`
+	ID                    *int64     `json:"id"`
+	ViolationDetailID     *string    `json:"violation_detail_id"`
+	VehicleID             *string    `json:"vehicle_id"`
 	DriverID              *string    `json:"driver_id"`
 	EnterpriseID          *string    `json:"enterprise_id"`
-	HandleAt              *time.Time `json:"handle_at"`
-	HandleBy              *string    `json:"handle_by"`
-	ID                    *int64     `json:"id"`
 	IllegalCode           *string    `json:"illegal_code"`
+	IllegalTime           *time.Time `json:"illegal_time"`
 	IllegalHandlingStatus *int       `json:"illegal_handling_status"`
 	IllegalLocation       *string    `json:"illegal_location"`
-	IllegalPhoto          *string    `json:"illegal_photo"`
-	IllegalTime           *time.Time `json:"illegal_time"`
-	InformationSource     *int       `json:"information_source"`
-	MeasuredValue         *string    `json:"measured_value"`
-	NoticeTime            *time.Time `json:"notice_time"`
-	PartyName             *string    `json:"party_name"`
-	PaymentMark           *int       `json:"payment_mark"`
 	StandardValue         *string    `json:"standard_value"`
+	MeasuredValue         *string    `json:"measured_value"`
+	DiscoveryAgency       *string    `json:"discovery_agency"`
+	IllegalPhoto          *string    `json:"illegal_photo"`
+	IsNoticeDriver        *bool      `json:"is_notice_driver"`
+	NoticeTime            *time.Time `json:"notice_time"`
+	DecisionNumber        *string    `json:"decision_number"`
+	PaymentMark           *int       `json:"payment_mark"`
+	PartyName             *string    `json:"party_name"`
+	InformationSource     *int       `json:"information_source"`
+	VehicleInformation    *string    `json:"vehicle_information"`
 	UpdateTimeIn          *time.Time `json:"update_time_in"`
+	IsHandle              *bool      `json:"is_handle"`
+	HandleBy              *string    `json:"handle_by"`
+	HandleAt              *time.Time `json:"handle_at"`
+	IsSend                *bool      `json:"is_send"`
+	IsDeleted             *bool      `json:"is_deleted"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
 	UpdatedAt             *time.Time `json:"updated_at"`
 	UpdatedBy             *string    `json:"updated_by"`
-	VehicleID             *string    `json:"vehicle_id"`
-	VehicleInformation    *string    `json:"vehicle_information"`
-	ViolationDetailID     *string    `json:"violation_detail_id"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsMaxOrderBy struct {
-	CreatedAt             *model.OrderBy `json:"created_at"`
-	CreatedBy             *model.OrderBy `json:"created_by"`
-	DecisionNumber        *model.OrderBy `json:"decision_number"`
-	DeletedAt             *model.OrderBy `json:"deleted_at"`
-	DeletedBy             *model.OrderBy `json:"deleted_by"`
-	DiscoveryAgency       *model.OrderBy `json:"discovery_agency"`
-	DriverID              *model.OrderBy `json:"driver_id"`
-	EnterpriseID          *model.OrderBy `json:"enterprise_id"`
-	HandleAt              *model.OrderBy `json:"handle_at"`
-	HandleBy              *model.OrderBy `json:"handle_by"`
-	ID                    *model.OrderBy `json:"id"`
-	IllegalCode           *model.OrderBy `json:"illegal_code"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	IllegalLocation       *model.OrderBy `json:"illegal_location"`
-	IllegalPhoto          *model.OrderBy `json:"illegal_photo"`
-	IllegalTime           *model.OrderBy `json:"illegal_time"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	MeasuredValue         *model.OrderBy `json:"measured_value"`
-	NoticeTime            *model.OrderBy `json:"notice_time"`
-	PartyName             *model.OrderBy `json:"party_name"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
-	StandardValue         *model.OrderBy `json:"standard_value"`
-	UpdateTimeIn          *model.OrderBy `json:"update_time_in"`
-	UpdatedAt             *model.OrderBy `json:"updated_at"`
-	UpdatedBy             *model.OrderBy `json:"updated_by"`
-	VehicleID             *model.OrderBy `json:"vehicle_id"`
-	VehicleInformation    *model.OrderBy `json:"vehicle_information"`
-	ViolationDetailID     *model.OrderBy `json:"violation_detail_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsMinFields struct {
-	CreatedAt             *time.Time `json:"created_at"`
-	CreatedBy             *string    `json:"created_by"`
-	DecisionNumber        *string    `json:"decision_number"`
-	DeletedAt             *time.Time `json:"deleted_at"`
-	DeletedBy             *string    `json:"deleted_by"`
-	DiscoveryAgency       *string    `json:"discovery_agency"`
+	ID                    *int64     `json:"id"`
+	ViolationDetailID     *string    `json:"violation_detail_id"`
+	VehicleID             *string    `json:"vehicle_id"`
 	DriverID              *string    `json:"driver_id"`
 	EnterpriseID          *string    `json:"enterprise_id"`
-	HandleAt              *time.Time `json:"handle_at"`
-	HandleBy              *string    `json:"handle_by"`
-	ID                    *int64     `json:"id"`
 	IllegalCode           *string    `json:"illegal_code"`
+	IllegalTime           *time.Time `json:"illegal_time"`
 	IllegalHandlingStatus *int       `json:"illegal_handling_status"`
 	IllegalLocation       *string    `json:"illegal_location"`
-	IllegalPhoto          *string    `json:"illegal_photo"`
-	IllegalTime           *time.Time `json:"illegal_time"`
-	InformationSource     *int       `json:"information_source"`
-	MeasuredValue         *string    `json:"measured_value"`
-	NoticeTime            *time.Time `json:"notice_time"`
-	PartyName             *string    `json:"party_name"`
-	PaymentMark           *int       `json:"payment_mark"`
 	StandardValue         *string    `json:"standard_value"`
+	MeasuredValue         *string    `json:"measured_value"`
+	DiscoveryAgency       *string    `json:"discovery_agency"`
+	IllegalPhoto          *string    `json:"illegal_photo"`
+	IsNoticeDriver        *bool      `json:"is_notice_driver"`
+	NoticeTime            *time.Time `json:"notice_time"`
+	DecisionNumber        *string    `json:"decision_number"`
+	PaymentMark           *int       `json:"payment_mark"`
+	PartyName             *string    `json:"party_name"`
+	InformationSource     *int       `json:"information_source"`
+	VehicleInformation    *string    `json:"vehicle_information"`
 	UpdateTimeIn          *time.Time `json:"update_time_in"`
+	IsHandle              *bool      `json:"is_handle"`
+	HandleBy              *string    `json:"handle_by"`
+	HandleAt              *time.Time `json:"handle_at"`
+	IsSend                *bool      `json:"is_send"`
+	IsDeleted             *bool      `json:"is_deleted"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
 	UpdatedAt             *time.Time `json:"updated_at"`
 	UpdatedBy             *string    `json:"updated_by"`
-	VehicleID             *string    `json:"vehicle_id"`
-	VehicleInformation    *string    `json:"vehicle_information"`
-	ViolationDetailID     *string    `json:"violation_detail_id"`
-}
-
-// order by min() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsMinOrderBy struct {
-	CreatedAt             *model.OrderBy `json:"created_at"`
-	CreatedBy             *model.OrderBy `json:"created_by"`
-	DecisionNumber        *model.OrderBy `json:"decision_number"`
-	DeletedAt             *model.OrderBy `json:"deleted_at"`
-	DeletedBy             *model.OrderBy `json:"deleted_by"`
-	DiscoveryAgency       *model.OrderBy `json:"discovery_agency"`
-	DriverID              *model.OrderBy `json:"driver_id"`
-	EnterpriseID          *model.OrderBy `json:"enterprise_id"`
-	HandleAt              *model.OrderBy `json:"handle_at"`
-	HandleBy              *model.OrderBy `json:"handle_by"`
-	ID                    *model.OrderBy `json:"id"`
-	IllegalCode           *model.OrderBy `json:"illegal_code"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	IllegalLocation       *model.OrderBy `json:"illegal_location"`
-	IllegalPhoto          *model.OrderBy `json:"illegal_photo"`
-	IllegalTime           *model.OrderBy `json:"illegal_time"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	MeasuredValue         *model.OrderBy `json:"measured_value"`
-	NoticeTime            *model.OrderBy `json:"notice_time"`
-	PartyName             *model.OrderBy `json:"party_name"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
-	StandardValue         *model.OrderBy `json:"standard_value"`
-	UpdateTimeIn          *model.OrderBy `json:"update_time_in"`
-	UpdatedAt             *model.OrderBy `json:"updated_at"`
-	UpdatedBy             *model.OrderBy `json:"updated_by"`
-	VehicleID             *model.OrderBy `json:"vehicle_id"`
-	VehicleInformation    *model.OrderBy `json:"vehicle_information"`
-	ViolationDetailID     *model.OrderBy `json:"violation_detail_id"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "vehicle_violation_details"
 type VehicleViolationDetailsMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VehicleViolationDetails `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "vehicle_violation_details"
-type VehicleViolationDetailsObjRelInsertInput struct {
-	Data       *VehicleViolationDetailsInsertInput `json:"data"`
-	OnConflict *VehicleViolationDetailsOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "vehicle_violation_details"
-type VehicleViolationDetailsOnConflict struct {
-	Constraint    VehicleViolationDetailsConstraint     `json:"constraint"`
-	UpdateColumns []VehicleViolationDetailsUpdateColumn `json:"update_columns"`
-	Where         *VehicleViolationDetailsBoolExp       `json:"where"`
+	AffectedRows int                               `json:"affected_rows"`
+	Returning    []*model1.VehicleViolationDetails `json:"returning"`
 }
 
 // ordering options when selecting data from "vehicle_violation_details"
 type VehicleViolationDetailsOrderBy struct {
-	CreatedAt             *model.OrderBy `json:"created_at"`
-	CreatedBy             *model.OrderBy `json:"created_by"`
-	DecisionNumber        *model.OrderBy `json:"decision_number"`
-	DeletedAt             *model.OrderBy `json:"deleted_at"`
-	DeletedBy             *model.OrderBy `json:"deleted_by"`
-	DiscoveryAgency       *model.OrderBy `json:"discovery_agency"`
+	ID                    *model.OrderBy `json:"id"`
+	ViolationDetailID     *model.OrderBy `json:"violation_detail_id"`
+	VehicleID             *model.OrderBy `json:"vehicle_id"`
 	DriverID              *model.OrderBy `json:"driver_id"`
 	EnterpriseID          *model.OrderBy `json:"enterprise_id"`
-	HandleAt              *model.OrderBy `json:"handle_at"`
-	HandleBy              *model.OrderBy `json:"handle_by"`
-	ID                    *model.OrderBy `json:"id"`
 	IllegalCode           *model.OrderBy `json:"illegal_code"`
+	IllegalTime           *model.OrderBy `json:"illegal_time"`
 	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
 	IllegalLocation       *model.OrderBy `json:"illegal_location"`
-	IllegalPhoto          *model.OrderBy `json:"illegal_photo"`
-	IllegalTime           *model.OrderBy `json:"illegal_time"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	IsDelete              *model.OrderBy `json:"is_delete"`
-	IsHandle              *model.OrderBy `json:"is_handle"`
-	IsNoticeDriver        *model.OrderBy `json:"is_notice_driver"`
-	IsSend                *model.OrderBy `json:"is_send"`
-	MeasuredValue         *model.OrderBy `json:"measured_value"`
-	NoticeTime            *model.OrderBy `json:"notice_time"`
-	PartyName             *model.OrderBy `json:"party_name"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
 	StandardValue         *model.OrderBy `json:"standard_value"`
+	MeasuredValue         *model.OrderBy `json:"measured_value"`
+	DiscoveryAgency       *model.OrderBy `json:"discovery_agency"`
+	IllegalPhoto          *model.OrderBy `json:"illegal_photo"`
+	IsNoticeDriver        *model.OrderBy `json:"is_notice_driver"`
+	NoticeTime            *model.OrderBy `json:"notice_time"`
+	DecisionNumber        *model.OrderBy `json:"decision_number"`
+	PaymentMark           *model.OrderBy `json:"payment_mark"`
+	PartyName             *model.OrderBy `json:"party_name"`
+	InformationSource     *model.OrderBy `json:"information_source"`
+	VehicleInformation    *model.OrderBy `json:"vehicle_information"`
 	UpdateTimeIn          *model.OrderBy `json:"update_time_in"`
+	IsHandle              *model.OrderBy `json:"is_handle"`
+	HandleBy              *model.OrderBy `json:"handle_by"`
+	HandleAt              *model.OrderBy `json:"handle_at"`
+	IsSend                *model.OrderBy `json:"is_send"`
+	IsDeleted             *model.OrderBy `json:"is_deleted"`
+	CreatedAt             *model.OrderBy `json:"created_at"`
+	CreatedBy             *model.OrderBy `json:"created_by"`
 	UpdatedAt             *model.OrderBy `json:"updated_at"`
 	UpdatedBy             *model.OrderBy `json:"updated_by"`
-	VehicleID             *model.OrderBy `json:"vehicle_id"`
-	VehicleInformation    *model.OrderBy `json:"vehicle_information"`
-	ViolationDetailID     *model.OrderBy `json:"violation_detail_id"`
-}
-
-// primary key columns input for table: "vehicle_violation_details"
-type VehicleViolationDetailsPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
+	DeletedAt             *model.OrderBy `json:"deleted_at"`
+	DeletedBy             *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "vehicle_violation_details"
 type VehicleViolationDetailsSetInput struct {
-	CreatedAt             *time.Time `json:"created_at"`
-	CreatedBy             *string    `json:"created_by"`
-	DecisionNumber        *string    `json:"decision_number"`
-	DeletedAt             *time.Time `json:"deleted_at"`
-	DeletedBy             *string    `json:"deleted_by"`
-	DiscoveryAgency       *string    `json:"discovery_agency"`
+	ID                    *int64     `json:"id"`
+	ViolationDetailID     *string    `json:"violation_detail_id"`
+	VehicleID             *string    `json:"vehicle_id"`
 	DriverID              *string    `json:"driver_id"`
 	EnterpriseID          *string    `json:"enterprise_id"`
-	HandleAt              *time.Time `json:"handle_at"`
-	HandleBy              *string    `json:"handle_by"`
-	ID                    *int64     `json:"id"`
 	IllegalCode           *string    `json:"illegal_code"`
+	IllegalTime           *time.Time `json:"illegal_time"`
 	IllegalHandlingStatus *int       `json:"illegal_handling_status"`
 	IllegalLocation       *string    `json:"illegal_location"`
-	IllegalPhoto          *string    `json:"illegal_photo"`
-	IllegalTime           *time.Time `json:"illegal_time"`
-	InformationSource     *int       `json:"information_source"`
-	IsDelete              *bool      `json:"is_delete"`
-	IsHandle              *bool      `json:"is_handle"`
-	IsNoticeDriver        *bool      `json:"is_notice_driver"`
-	IsSend                *bool      `json:"is_send"`
-	MeasuredValue         *string    `json:"measured_value"`
-	NoticeTime            *time.Time `json:"notice_time"`
-	PartyName             *string    `json:"party_name"`
-	PaymentMark           *int       `json:"payment_mark"`
 	StandardValue         *string    `json:"standard_value"`
+	MeasuredValue         *string    `json:"measured_value"`
+	DiscoveryAgency       *string    `json:"discovery_agency"`
+	IllegalPhoto          *string    `json:"illegal_photo"`
+	IsNoticeDriver        *bool      `json:"is_notice_driver"`
+	NoticeTime            *time.Time `json:"notice_time"`
+	DecisionNumber        *string    `json:"decision_number"`
+	PaymentMark           *int       `json:"payment_mark"`
+	PartyName             *string    `json:"party_name"`
+	InformationSource     *int       `json:"information_source"`
+	VehicleInformation    *string    `json:"vehicle_information"`
 	UpdateTimeIn          *time.Time `json:"update_time_in"`
+	IsHandle              *bool      `json:"is_handle"`
+	HandleBy              *string    `json:"handle_by"`
+	HandleAt              *time.Time `json:"handle_at"`
+	IsSend                *bool      `json:"is_send"`
+	IsDeleted             *bool      `json:"is_deleted"`
+	CreatedAt             *time.Time `json:"created_at"`
+	CreatedBy             *string    `json:"created_by"`
 	UpdatedAt             *time.Time `json:"updated_at"`
 	UpdatedBy             *string    `json:"updated_by"`
-	VehicleID             *string    `json:"vehicle_id"`
-	VehicleInformation    *string    `json:"vehicle_information"`
-	ViolationDetailID     *string    `json:"violation_detail_id"`
+	DeletedAt             *time.Time `json:"deleted_at"`
+	DeletedBy             *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsStddevFields struct {
-	ID                    *float64 `json:"id"`
-	IllegalHandlingStatus *float64 `json:"illegal_handling_status"`
-	InformationSource     *float64 `json:"information_source"`
-	PaymentMark           *float64 `json:"payment_mark"`
+	ID                    *int64 `json:"id"`
+	IllegalHandlingStatus *int   `json:"illegal_handling_status"`
+	PaymentMark           *int   `json:"payment_mark"`
+	InformationSource     *int   `json:"information_source"`
 }
 
-// order by stddev() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsStddevOrderBy struct {
-	ID                    *model.OrderBy `json:"id"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsStddevPopFields struct {
-	ID                    *float64 `json:"id"`
-	IllegalHandlingStatus *float64 `json:"illegal_handling_status"`
-	InformationSource     *float64 `json:"information_source"`
-	PaymentMark           *float64 `json:"payment_mark"`
+	ID                    *int64 `json:"id"`
+	IllegalHandlingStatus *int   `json:"illegal_handling_status"`
+	PaymentMark           *int   `json:"payment_mark"`
+	InformationSource     *int   `json:"information_source"`
 }
 
-// order by stddev_pop() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsStddevPopOrderBy struct {
-	ID                    *model.OrderBy `json:"id"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsStddevSampFields struct {
-	ID                    *float64 `json:"id"`
-	IllegalHandlingStatus *float64 `json:"illegal_handling_status"`
-	InformationSource     *float64 `json:"information_source"`
-	PaymentMark           *float64 `json:"payment_mark"`
+	ID                    *int64 `json:"id"`
+	IllegalHandlingStatus *int   `json:"illegal_handling_status"`
+	PaymentMark           *int   `json:"payment_mark"`
+	InformationSource     *int   `json:"information_source"`
 }
 
-// order by stddev_samp() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsStddevSampOrderBy struct {
-	ID                    *model.OrderBy `json:"id"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsSumFields struct {
 	ID                    *int64 `json:"id"`
 	IllegalHandlingStatus *int   `json:"illegal_handling_status"`
-	InformationSource     *int   `json:"information_source"`
 	PaymentMark           *int   `json:"payment_mark"`
+	InformationSource     *int   `json:"information_source"`
 }
 
-// order by sum() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsSumOrderBy struct {
-	ID                    *model.OrderBy `json:"id"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsVarPopFields struct {
-	ID                    *float64 `json:"id"`
-	IllegalHandlingStatus *float64 `json:"illegal_handling_status"`
-	InformationSource     *float64 `json:"information_source"`
-	PaymentMark           *float64 `json:"payment_mark"`
+	ID                    *int64 `json:"id"`
+	IllegalHandlingStatus *int   `json:"illegal_handling_status"`
+	PaymentMark           *int   `json:"payment_mark"`
+	InformationSource     *int   `json:"information_source"`
 }
 
-// order by var_pop() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsVarPopOrderBy struct {
-	ID                    *model.OrderBy `json:"id"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsVarSampFields struct {
-	ID                    *float64 `json:"id"`
-	IllegalHandlingStatus *float64 `json:"illegal_handling_status"`
-	InformationSource     *float64 `json:"information_source"`
-	PaymentMark           *float64 `json:"payment_mark"`
+	ID                    *int64 `json:"id"`
+	IllegalHandlingStatus *int   `json:"illegal_handling_status"`
+	PaymentMark           *int   `json:"payment_mark"`
+	InformationSource     *int   `json:"information_source"`
 }
 
-// order by var_samp() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsVarSampOrderBy struct {
-	ID                    *model.OrderBy `json:"id"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "vehicle_violation_details"
 type VehicleViolationDetailsVarianceFields struct {
-	ID                    *float64 `json:"id"`
-	IllegalHandlingStatus *float64 `json:"illegal_handling_status"`
-	InformationSource     *float64 `json:"information_source"`
-	PaymentMark           *float64 `json:"payment_mark"`
-}
-
-// order by variance() on columns of table "vehicle_violation_details"
-type VehicleViolationDetailsVarianceOrderBy struct {
-	ID                    *model.OrderBy `json:"id"`
-	IllegalHandlingStatus *model.OrderBy `json:"illegal_handling_status"`
-	InformationSource     *model.OrderBy `json:"information_source"`
-	PaymentMark           *model.OrderBy `json:"payment_mark"`
+	ID                    *int64 `json:"id"`
+	IllegalHandlingStatus *int   `json:"illegal_handling_status"`
+	PaymentMark           *int   `json:"payment_mark"`
+	InformationSource     *int   `json:"information_source"`
 }
 
 // aggregated selection of "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsAggregate struct {
 	Aggregate *VehicleViolationScoringItemsAggregateFields `json:"aggregate"`
-	Nodes     []*VehicleViolationScoringItems              `json:"nodes"`
 }
 
 // aggregate fields of "vehicle_violation_scoring_items"
@@ -3959,290 +1458,177 @@ type VehicleViolationScoringItemsAggregateFields struct {
 	Variance   *VehicleViolationScoringItemsVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsAggregateOrderBy struct {
-	Avg        *VehicleViolationScoringItemsAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                                 `json:"count"`
-	Max        *VehicleViolationScoringItemsMaxOrderBy        `json:"max"`
-	Min        *VehicleViolationScoringItemsMinOrderBy        `json:"min"`
-	Stddev     *VehicleViolationScoringItemsStddevOrderBy     `json:"stddev"`
-	StddevPop  *VehicleViolationScoringItemsStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VehicleViolationScoringItemsStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VehicleViolationScoringItemsSumOrderBy        `json:"sum"`
-	VarPop     *VehicleViolationScoringItemsVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VehicleViolationScoringItemsVarSampOrderBy    `json:"var_samp"`
-	Variance   *VehicleViolationScoringItemsVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsArrRelInsertInput struct {
-	Data       []*VehicleViolationScoringItemsInsertInput `json:"data"`
-	OnConflict *VehicleViolationScoringItemsOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsAvgFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	ID                *float64 `json:"id"`
+	ID                *int64   `json:"id"`
+	DeductionCategory *int     `json:"deduction_category"`
+	DemeritPoints     *float64 `json:"demerit_points"`
 }
 
-// order by avg() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsAvgOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table
-// "vehicle_violation_scoring_items". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_violation_scoring_items'.
 type VehicleViolationScoringItemsBoolExp struct {
 	And                      []*VehicleViolationScoringItemsBoolExp `json:"_and"`
 	Not                      *VehicleViolationScoringItemsBoolExp   `json:"_not"`
 	Or                       []*VehicleViolationScoringItemsBoolExp `json:"_or"`
+	ID                       *model.BigintComparisonExp             `json:"id"`
+	ViolationScoringItemID   *model.StringComparisonExp             `json:"violation_scoring_item_id"`
+	DeductionItemDescription *model.StringComparisonExp             `json:"deduction_item_description"`
+	DeductionCategory        *model.IntComparisonExp                `json:"deduction_category"`
+	DemeritPoints            *model.NumericComparisonExp            `json:"demerit_points"`
+	IsDeleted                *model.BooleanComparisonExp            `json:"is_deleted"`
 	CreatedAt                *model.TimestamptzComparisonExp        `json:"created_at"`
 	CreatedBy                *model.StringComparisonExp             `json:"created_by"`
-	DeductionCategory        *model.IntComparisonExp                `json:"deduction_category"`
-	DeductionItemDescription *model.StringComparisonExp             `json:"deduction_item_description"`
-	DeletedAt                *model.TimestamptzComparisonExp        `json:"deleted_at"`
-	DeletedBy                *model.StringComparisonExp             `json:"deleted_by"`
-	DemeritPoints            *model.StringComparisonExp             `json:"demerit_points"`
-	ID                       *model.BigintComparisonExp             `json:"id"`
-	IsDelete                 *model.BooleanComparisonExp            `json:"is_delete"`
 	UpdatedAt                *model.TimestamptzComparisonExp        `json:"updated_at"`
 	UpdatedBy                *model.StringComparisonExp             `json:"updated_by"`
-	ViolationScoringItemID   *model.StringComparisonExp             `json:"violation_scoring_item_id"`
+	DeletedAt                *model.TimestamptzComparisonExp        `json:"deleted_at"`
+	DeletedBy                *model.StringComparisonExp             `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsIncInput struct {
-	DeductionCategory *int   `json:"deduction_category"`
-	ID                *int64 `json:"id"`
+	ID                *int64   `json:"id"`
+	DeductionCategory *int     `json:"deduction_category"`
+	DemeritPoints     *float64 `json:"demerit_points"`
 }
 
 // input type for inserting data into table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsInsertInput struct {
+	ID                       *int64     `json:"id"`
+	ViolationScoringItemID   *string    `json:"violation_scoring_item_id"`
+	DeductionItemDescription *string    `json:"deduction_item_description"`
+	DeductionCategory        *int       `json:"deduction_category"`
+	DemeritPoints            *float64   `json:"demerit_points"`
+	IsDeleted                *bool      `json:"is_deleted"`
 	CreatedAt                *time.Time `json:"created_at"`
 	CreatedBy                *string    `json:"created_by"`
-	DeductionCategory        *int       `json:"deduction_category"`
-	DeductionItemDescription *string    `json:"deduction_item_description"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
-	DemeritPoints            *string    `json:"demerit_points"`
-	ID                       *int64     `json:"id"`
-	IsDelete                 *bool      `json:"is_delete"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
-	ViolationScoringItemID   *string    `json:"violation_scoring_item_id"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsMaxFields struct {
+	ID                       *int64     `json:"id"`
+	ViolationScoringItemID   *string    `json:"violation_scoring_item_id"`
+	DeductionItemDescription *string    `json:"deduction_item_description"`
+	DeductionCategory        *int       `json:"deduction_category"`
+	DemeritPoints            *float64   `json:"demerit_points"`
+	IsDeleted                *bool      `json:"is_deleted"`
 	CreatedAt                *time.Time `json:"created_at"`
 	CreatedBy                *string    `json:"created_by"`
-	DeductionCategory        *int       `json:"deduction_category"`
-	DeductionItemDescription *string    `json:"deduction_item_description"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
-	DemeritPoints            *string    `json:"demerit_points"`
-	ID                       *int64     `json:"id"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
-	ViolationScoringItemID   *string    `json:"violation_scoring_item_id"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsMaxOrderBy struct {
-	CreatedAt                *model.OrderBy `json:"created_at"`
-	CreatedBy                *model.OrderBy `json:"created_by"`
-	DeductionCategory        *model.OrderBy `json:"deduction_category"`
-	DeductionItemDescription *model.OrderBy `json:"deduction_item_description"`
-	DeletedAt                *model.OrderBy `json:"deleted_at"`
-	DeletedBy                *model.OrderBy `json:"deleted_by"`
-	DemeritPoints            *model.OrderBy `json:"demerit_points"`
-	ID                       *model.OrderBy `json:"id"`
-	UpdatedAt                *model.OrderBy `json:"updated_at"`
-	UpdatedBy                *model.OrderBy `json:"updated_by"`
-	ViolationScoringItemID   *model.OrderBy `json:"violation_scoring_item_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsMinFields struct {
+	ID                       *int64     `json:"id"`
+	ViolationScoringItemID   *string    `json:"violation_scoring_item_id"`
+	DeductionItemDescription *string    `json:"deduction_item_description"`
+	DeductionCategory        *int       `json:"deduction_category"`
+	DemeritPoints            *float64   `json:"demerit_points"`
+	IsDeleted                *bool      `json:"is_deleted"`
 	CreatedAt                *time.Time `json:"created_at"`
 	CreatedBy                *string    `json:"created_by"`
-	DeductionCategory        *int       `json:"deduction_category"`
-	DeductionItemDescription *string    `json:"deduction_item_description"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
-	DemeritPoints            *string    `json:"demerit_points"`
-	ID                       *int64     `json:"id"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
-	ViolationScoringItemID   *string    `json:"violation_scoring_item_id"`
-}
-
-// order by min() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsMinOrderBy struct {
-	CreatedAt                *model.OrderBy `json:"created_at"`
-	CreatedBy                *model.OrderBy `json:"created_by"`
-	DeductionCategory        *model.OrderBy `json:"deduction_category"`
-	DeductionItemDescription *model.OrderBy `json:"deduction_item_description"`
-	DeletedAt                *model.OrderBy `json:"deleted_at"`
-	DeletedBy                *model.OrderBy `json:"deleted_by"`
-	DemeritPoints            *model.OrderBy `json:"demerit_points"`
-	ID                       *model.OrderBy `json:"id"`
-	UpdatedAt                *model.OrderBy `json:"updated_at"`
-	UpdatedBy                *model.OrderBy `json:"updated_by"`
-	ViolationScoringItemID   *model.OrderBy `json:"violation_scoring_item_id"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VehicleViolationScoringItems `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsObjRelInsertInput struct {
-	Data       *VehicleViolationScoringItemsInsertInput `json:"data"`
-	OnConflict *VehicleViolationScoringItemsOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsOnConflict struct {
-	Constraint    VehicleViolationScoringItemsConstraint     `json:"constraint"`
-	UpdateColumns []VehicleViolationScoringItemsUpdateColumn `json:"update_columns"`
-	Where         *VehicleViolationScoringItemsBoolExp       `json:"where"`
+	AffectedRows int                                    `json:"affected_rows"`
+	Returning    []*model1.VehicleViolationScoringItems `json:"returning"`
 }
 
 // ordering options when selecting data from "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsOrderBy struct {
+	ID                       *model.OrderBy `json:"id"`
+	ViolationScoringItemID   *model.OrderBy `json:"violation_scoring_item_id"`
+	DeductionItemDescription *model.OrderBy `json:"deduction_item_description"`
+	DeductionCategory        *model.OrderBy `json:"deduction_category"`
+	DemeritPoints            *model.OrderBy `json:"demerit_points"`
+	IsDeleted                *model.OrderBy `json:"is_deleted"`
 	CreatedAt                *model.OrderBy `json:"created_at"`
 	CreatedBy                *model.OrderBy `json:"created_by"`
-	DeductionCategory        *model.OrderBy `json:"deduction_category"`
-	DeductionItemDescription *model.OrderBy `json:"deduction_item_description"`
-	DeletedAt                *model.OrderBy `json:"deleted_at"`
-	DeletedBy                *model.OrderBy `json:"deleted_by"`
-	DemeritPoints            *model.OrderBy `json:"demerit_points"`
-	ID                       *model.OrderBy `json:"id"`
-	IsDelete                 *model.OrderBy `json:"is_delete"`
 	UpdatedAt                *model.OrderBy `json:"updated_at"`
 	UpdatedBy                *model.OrderBy `json:"updated_by"`
-	ViolationScoringItemID   *model.OrderBy `json:"violation_scoring_item_id"`
-}
-
-// primary key columns input for table: "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 联合主键
-	ViolationScoringItemID string `json:"violation_scoring_item_id"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsSetInput struct {
+	ID                       *int64     `json:"id"`
+	ViolationScoringItemID   *string    `json:"violation_scoring_item_id"`
+	DeductionItemDescription *string    `json:"deduction_item_description"`
+	DeductionCategory        *int       `json:"deduction_category"`
+	DemeritPoints            *float64   `json:"demerit_points"`
+	IsDeleted                *bool      `json:"is_deleted"`
 	CreatedAt                *time.Time `json:"created_at"`
 	CreatedBy                *string    `json:"created_by"`
-	DeductionCategory        *int       `json:"deduction_category"`
-	DeductionItemDescription *string    `json:"deduction_item_description"`
-	DeletedAt                *time.Time `json:"deleted_at"`
-	DeletedBy                *string    `json:"deleted_by"`
-	DemeritPoints            *string    `json:"demerit_points"`
-	ID                       *int64     `json:"id"`
-	IsDelete                 *bool      `json:"is_delete"`
 	UpdatedAt                *time.Time `json:"updated_at"`
 	UpdatedBy                *string    `json:"updated_by"`
-	ViolationScoringItemID   *string    `json:"violation_scoring_item_id"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsStddevFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	ID                *float64 `json:"id"`
+	ID                *int64   `json:"id"`
+	DeductionCategory *int     `json:"deduction_category"`
+	DemeritPoints     *float64 `json:"demerit_points"`
 }
 
-// order by stddev() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsStddevOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsStddevPopFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	ID                *float64 `json:"id"`
+	ID                *int64   `json:"id"`
+	DeductionCategory *int     `json:"deduction_category"`
+	DemeritPoints     *float64 `json:"demerit_points"`
 }
 
-// order by stddev_pop() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsStddevPopOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsStddevSampFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	ID                *float64 `json:"id"`
+	ID                *int64   `json:"id"`
+	DeductionCategory *int     `json:"deduction_category"`
+	DemeritPoints     *float64 `json:"demerit_points"`
 }
 
-// order by stddev_samp() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsStddevSampOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsSumFields struct {
-	DeductionCategory *int   `json:"deduction_category"`
-	ID                *int64 `json:"id"`
+	ID                *int64   `json:"id"`
+	DeductionCategory *int     `json:"deduction_category"`
+	DemeritPoints     *float64 `json:"demerit_points"`
 }
 
-// order by sum() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsSumOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsVarPopFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	ID                *float64 `json:"id"`
+	ID                *int64   `json:"id"`
+	DeductionCategory *int     `json:"deduction_category"`
+	DemeritPoints     *float64 `json:"demerit_points"`
 }
 
-// order by var_pop() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsVarPopOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsVarSampFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	ID                *float64 `json:"id"`
+	ID                *int64   `json:"id"`
+	DeductionCategory *int     `json:"deduction_category"`
+	DemeritPoints     *float64 `json:"demerit_points"`
 }
 
-// order by var_samp() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsVarSampOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	ID                *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "vehicle_violation_scoring_items"
 type VehicleViolationScoringItemsVarianceFields struct {
-	DeductionCategory *float64 `json:"deduction_category"`
-	ID                *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsVarianceOrderBy struct {
-	DeductionCategory *model.OrderBy `json:"deduction_category"`
-	ID                *model.OrderBy `json:"id"`
+	ID                *int64   `json:"id"`
+	DeductionCategory *int     `json:"deduction_category"`
+	DemeritPoints     *float64 `json:"demerit_points"`
 }
 
 // aggregated selection of "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordAggregate struct {
 	Aggregate *VehicleViolationScoringRecordAggregateFields `json:"aggregate"`
-	Nodes     []*VehicleViolationScoringRecord              `json:"nodes"`
 }
 
 // aggregate fields of "vehicle_violation_scoring_record"
@@ -4260,451 +1646,652 @@ type VehicleViolationScoringRecordAggregateFields struct {
 	Variance   *VehicleViolationScoringRecordVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordAggregateOrderBy struct {
-	Avg        *VehicleViolationScoringRecordAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                                  `json:"count"`
-	Max        *VehicleViolationScoringRecordMaxOrderBy        `json:"max"`
-	Min        *VehicleViolationScoringRecordMinOrderBy        `json:"min"`
-	Stddev     *VehicleViolationScoringRecordStddevOrderBy     `json:"stddev"`
-	StddevPop  *VehicleViolationScoringRecordStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VehicleViolationScoringRecordStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VehicleViolationScoringRecordSumOrderBy        `json:"sum"`
-	VarPop     *VehicleViolationScoringRecordVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VehicleViolationScoringRecordVarSampOrderBy    `json:"var_samp"`
-	Variance   *VehicleViolationScoringRecordVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordArrRelInsertInput struct {
-	Data       []*VehicleViolationScoringRecordInsertInput `json:"data"`
-	OnConflict *VehicleViolationScoringRecordOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordAvgFields struct {
+	ID            *int64   `json:"id"`
 	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
 }
 
-// order by avg() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordAvgOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table
-// "vehicle_violation_scoring_record". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_violation_scoring_record'.
 type VehicleViolationScoringRecordBoolExp struct {
 	And                    []*VehicleViolationScoringRecordBoolExp `json:"_and"`
 	Not                    *VehicleViolationScoringRecordBoolExp   `json:"_not"`
 	Or                     []*VehicleViolationScoringRecordBoolExp `json:"_or"`
+	ID                     *model.BigintComparisonExp              `json:"id"`
+	ViolationScoringID     *model.StringComparisonExp              `json:"violation_scoring_id"`
+	VehicleID              *model.StringComparisonExp              `json:"vehicle_id"`
+	ViolationScoringItemID *model.StringComparisonExp              `json:"violation_scoring_item_id"`
+	DemeritPoints          *model.NumericComparisonExp             `json:"demerit_points"`
+	Remarks                *model.StringComparisonExp              `json:"remarks"`
+	IsDeleted              *model.BooleanComparisonExp             `json:"is_deleted"`
 	CreatedAt              *model.TimestamptzComparisonExp         `json:"created_at"`
 	CreatedBy              *model.StringComparisonExp              `json:"created_by"`
-	DeletedAt              *model.TimestamptzComparisonExp         `json:"deleted_at"`
-	DeletedBy              *model.StringComparisonExp              `json:"deleted_by"`
-	DemeritPoints          *model.NumericComparisonExp             `json:"demerit_points"`
-	ID                     *model.BigintComparisonExp              `json:"id"`
-	IsDelete               *model.BooleanComparisonExp             `json:"is_delete"`
-	Remarks                *model.StringComparisonExp              `json:"remarks"`
 	UpdatedAt              *model.TimestamptzComparisonExp         `json:"updated_at"`
 	UpdatedBy              *model.StringComparisonExp              `json:"updated_by"`
-	VehicleID              *model.StringComparisonExp              `json:"vehicle_id"`
-	ViolationScoringID     *model.StringComparisonExp              `json:"violation_scoring_id"`
-	ViolationScoringItemID *model.StringComparisonExp              `json:"violation_scoring_item_id"`
+	DeletedAt              *model.TimestamptzComparisonExp         `json:"deleted_at"`
+	DeletedBy              *model.StringComparisonExp              `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordIncInput struct {
-	DemeritPoints *float64 `json:"demerit_points"`
 	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
 // input type for inserting data into table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordInsertInput struct {
+	ID                     *int64     `json:"id"`
+	ViolationScoringID     *string    `json:"violation_scoring_id"`
+	VehicleID              *string    `json:"vehicle_id"`
+	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
+	DemeritPoints          *float64   `json:"demerit_points"`
+	Remarks                *string    `json:"remarks"`
+	IsDeleted              *bool      `json:"is_deleted"`
 	CreatedAt              *time.Time `json:"created_at"`
 	CreatedBy              *string    `json:"created_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
-	DemeritPoints          *float64   `json:"demerit_points"`
-	ID                     *int64     `json:"id"`
-	IsDelete               *bool      `json:"is_delete"`
-	Remarks                *string    `json:"remarks"`
 	UpdatedAt              *time.Time `json:"updated_at"`
 	UpdatedBy              *string    `json:"updated_by"`
-	VehicleID              *string    `json:"vehicle_id"`
-	ViolationScoringID     *string    `json:"violation_scoring_id"`
-	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordMaxFields struct {
+	ID                     *int64     `json:"id"`
+	ViolationScoringID     *string    `json:"violation_scoring_id"`
+	VehicleID              *string    `json:"vehicle_id"`
+	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
+	DemeritPoints          *float64   `json:"demerit_points"`
+	Remarks                *string    `json:"remarks"`
+	IsDeleted              *bool      `json:"is_deleted"`
 	CreatedAt              *time.Time `json:"created_at"`
 	CreatedBy              *string    `json:"created_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
-	DemeritPoints          *float64   `json:"demerit_points"`
-	ID                     *int64     `json:"id"`
-	Remarks                *string    `json:"remarks"`
 	UpdatedAt              *time.Time `json:"updated_at"`
 	UpdatedBy              *string    `json:"updated_by"`
-	VehicleID              *string    `json:"vehicle_id"`
-	ViolationScoringID     *string    `json:"violation_scoring_id"`
-	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordMaxOrderBy struct {
-	CreatedAt              *model.OrderBy `json:"created_at"`
-	CreatedBy              *model.OrderBy `json:"created_by"`
-	DeletedAt              *model.OrderBy `json:"deleted_at"`
-	DeletedBy              *model.OrderBy `json:"deleted_by"`
-	DemeritPoints          *model.OrderBy `json:"demerit_points"`
-	ID                     *model.OrderBy `json:"id"`
-	Remarks                *model.OrderBy `json:"remarks"`
-	UpdatedAt              *model.OrderBy `json:"updated_at"`
-	UpdatedBy              *model.OrderBy `json:"updated_by"`
-	VehicleID              *model.OrderBy `json:"vehicle_id"`
-	ViolationScoringID     *model.OrderBy `json:"violation_scoring_id"`
-	ViolationScoringItemID *model.OrderBy `json:"violation_scoring_item_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordMinFields struct {
+	ID                     *int64     `json:"id"`
+	ViolationScoringID     *string    `json:"violation_scoring_id"`
+	VehicleID              *string    `json:"vehicle_id"`
+	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
+	DemeritPoints          *float64   `json:"demerit_points"`
+	Remarks                *string    `json:"remarks"`
+	IsDeleted              *bool      `json:"is_deleted"`
 	CreatedAt              *time.Time `json:"created_at"`
 	CreatedBy              *string    `json:"created_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
-	DemeritPoints          *float64   `json:"demerit_points"`
-	ID                     *int64     `json:"id"`
-	Remarks                *string    `json:"remarks"`
 	UpdatedAt              *time.Time `json:"updated_at"`
 	UpdatedBy              *string    `json:"updated_by"`
-	VehicleID              *string    `json:"vehicle_id"`
-	ViolationScoringID     *string    `json:"violation_scoring_id"`
-	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
-}
-
-// order by min() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordMinOrderBy struct {
-	CreatedAt              *model.OrderBy `json:"created_at"`
-	CreatedBy              *model.OrderBy `json:"created_by"`
-	DeletedAt              *model.OrderBy `json:"deleted_at"`
-	DeletedBy              *model.OrderBy `json:"deleted_by"`
-	DemeritPoints          *model.OrderBy `json:"demerit_points"`
-	ID                     *model.OrderBy `json:"id"`
-	Remarks                *model.OrderBy `json:"remarks"`
-	UpdatedAt              *model.OrderBy `json:"updated_at"`
-	UpdatedBy              *model.OrderBy `json:"updated_by"`
-	VehicleID              *model.OrderBy `json:"vehicle_id"`
-	ViolationScoringID     *model.OrderBy `json:"violation_scoring_id"`
-	ViolationScoringItemID *model.OrderBy `json:"violation_scoring_item_id"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VehicleViolationScoringRecord `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordObjRelInsertInput struct {
-	Data       *VehicleViolationScoringRecordInsertInput `json:"data"`
-	OnConflict *VehicleViolationScoringRecordOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordOnConflict struct {
-	Constraint    VehicleViolationScoringRecordConstraint     `json:"constraint"`
-	UpdateColumns []VehicleViolationScoringRecordUpdateColumn `json:"update_columns"`
-	Where         *VehicleViolationScoringRecordBoolExp       `json:"where"`
+	AffectedRows int                                     `json:"affected_rows"`
+	Returning    []*model1.VehicleViolationScoringRecord `json:"returning"`
 }
 
 // ordering options when selecting data from "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordOrderBy struct {
+	ID                     *model.OrderBy `json:"id"`
+	ViolationScoringID     *model.OrderBy `json:"violation_scoring_id"`
+	VehicleID              *model.OrderBy `json:"vehicle_id"`
+	ViolationScoringItemID *model.OrderBy `json:"violation_scoring_item_id"`
+	DemeritPoints          *model.OrderBy `json:"demerit_points"`
+	Remarks                *model.OrderBy `json:"remarks"`
+	IsDeleted              *model.OrderBy `json:"is_deleted"`
 	CreatedAt              *model.OrderBy `json:"created_at"`
 	CreatedBy              *model.OrderBy `json:"created_by"`
-	DeletedAt              *model.OrderBy `json:"deleted_at"`
-	DeletedBy              *model.OrderBy `json:"deleted_by"`
-	DemeritPoints          *model.OrderBy `json:"demerit_points"`
-	ID                     *model.OrderBy `json:"id"`
-	IsDelete               *model.OrderBy `json:"is_delete"`
-	Remarks                *model.OrderBy `json:"remarks"`
 	UpdatedAt              *model.OrderBy `json:"updated_at"`
 	UpdatedBy              *model.OrderBy `json:"updated_by"`
-	VehicleID              *model.OrderBy `json:"vehicle_id"`
-	ViolationScoringID     *model.OrderBy `json:"violation_scoring_id"`
-	ViolationScoringItemID *model.OrderBy `json:"violation_scoring_item_id"`
-}
-
-// primary key columns input for table: "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 联合主键
-	ViolationScoringID string `json:"violation_scoring_id"`
+	DeletedAt              *model.OrderBy `json:"deleted_at"`
+	DeletedBy              *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordSetInput struct {
+	ID                     *int64     `json:"id"`
+	ViolationScoringID     *string    `json:"violation_scoring_id"`
+	VehicleID              *string    `json:"vehicle_id"`
+	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
+	DemeritPoints          *float64   `json:"demerit_points"`
+	Remarks                *string    `json:"remarks"`
+	IsDeleted              *bool      `json:"is_deleted"`
 	CreatedAt              *time.Time `json:"created_at"`
 	CreatedBy              *string    `json:"created_by"`
-	DeletedAt              *time.Time `json:"deleted_at"`
-	DeletedBy              *string    `json:"deleted_by"`
-	DemeritPoints          *float64   `json:"demerit_points"`
-	ID                     *int64     `json:"id"`
-	IsDelete               *bool      `json:"is_delete"`
-	Remarks                *string    `json:"remarks"`
 	UpdatedAt              *time.Time `json:"updated_at"`
 	UpdatedBy              *string    `json:"updated_by"`
-	VehicleID              *string    `json:"vehicle_id"`
-	ViolationScoringID     *string    `json:"violation_scoring_id"`
-	ViolationScoringItemID *string    `json:"violation_scoring_item_id"`
+	DeletedAt              *time.Time `json:"deleted_at"`
+	DeletedBy              *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordStddevFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordStddevOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type VehicleViolationScoringRecordStddevPopFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordStddevPopOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type VehicleViolationScoringRecordStddevSampFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordStddevSampOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type VehicleViolationScoringRecordSumFields struct {
-	DemeritPoints *float64 `json:"demerit_points"`
 	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// order by sum() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordSumOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
+// aggregate stddev_pop on columns of table "vehicle_violation_scoring_record"
+type VehicleViolationScoringRecordStddevPopFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
 }
 
-// aggregate var_pop on columns
+// aggregate stddev_samp on columns of table "vehicle_violation_scoring_record"
+type VehicleViolationScoringRecordStddevSampFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
+}
+
+// aggregate sum on columns of table "vehicle_violation_scoring_record"
+type VehicleViolationScoringRecordSumFields struct {
+	ID            *int64   `json:"id"`
+	DemeritPoints *float64 `json:"demerit_points"`
+}
+
+// aggregate var_pop on columns of table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordVarPopFields struct {
+	ID            *int64   `json:"id"`
 	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
 }
 
-// order by var_pop() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordVarPopOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordVarSampFields struct {
+	ID            *int64   `json:"id"`
 	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
 }
 
-// order by var_samp() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordVarSampOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "vehicle_violation_scoring_record"
 type VehicleViolationScoringRecordVarianceFields struct {
+	ID            *int64   `json:"id"`
 	DemeritPoints *float64 `json:"demerit_points"`
-	ID            *float64 `json:"id"`
 }
 
-// order by variance() on columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordVarianceOrderBy struct {
-	DemeritPoints *model.OrderBy `json:"demerit_points"`
-	ID            *model.OrderBy `json:"id"`
+// aggregated selection of "vio_codewfdm"
+type VioCodewfdmAggregate struct {
+	Aggregate *VioCodewfdmAggregateFields `json:"aggregate"`
 }
 
-// select columns of table "VIO_CODEWFDM"
-type VioCodewfdmSelectColumn string
-
-const (
-	// column name
-	VioCodewfdmSelectColumnFkjeMax VioCodewfdmSelectColumn = "FKJE_MAX"
-	// column name
-	VioCodewfdmSelectColumnFkjeMin VioCodewfdmSelectColumn = "FKJE_MIN"
-	// column name
-	VioCodewfdmSelectColumnWfjfs VioCodewfdmSelectColumn = "WFJFS"
-	// column name
-	VioCodewfdmSelectColumnWfms VioCodewfdmSelectColumn = "WFMS"
-	// column name
-	VioCodewfdmSelectColumnWfxw VioCodewfdmSelectColumn = "WFXW"
-	// column name
-	VioCodewfdmSelectColumnXh VioCodewfdmSelectColumn = "XH"
-)
-
-var AllVioCodewfdmSelectColumn = []VioCodewfdmSelectColumn{
-	VioCodewfdmSelectColumnFkjeMax,
-	VioCodewfdmSelectColumnFkjeMin,
-	VioCodewfdmSelectColumnWfjfs,
-	VioCodewfdmSelectColumnWfms,
-	VioCodewfdmSelectColumnWfxw,
-	VioCodewfdmSelectColumnXh,
+// aggregate fields of "vio_codewfdm"
+type VioCodewfdmAggregateFields struct {
+	Avg        *VioCodewfdmAvgFields        `json:"avg"`
+	Count      *int                         `json:"count"`
+	Max        *VioCodewfdmMaxFields        `json:"max"`
+	Min        *VioCodewfdmMinFields        `json:"min"`
+	Stddev     *VioCodewfdmStddevFields     `json:"stddev"`
+	StddevPop  *VioCodewfdmStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VioCodewfdmStddevSampFields `json:"stddev_samp"`
+	Sum        *VioCodewfdmSumFields        `json:"sum"`
+	VarPop     *VioCodewfdmVarPopFields     `json:"var_pop"`
+	VarSamp    *VioCodewfdmVarSampFields    `json:"var_samp"`
+	Variance   *VioCodewfdmVarianceFields   `json:"variance"`
 }
 
-func (e VioCodewfdmSelectColumn) IsValid() bool {
-	switch e {
-	case VioCodewfdmSelectColumnFkjeMax, VioCodewfdmSelectColumnFkjeMin, VioCodewfdmSelectColumnWfjfs, VioCodewfdmSelectColumnWfms, VioCodewfdmSelectColumnWfxw, VioCodewfdmSelectColumnXh:
-		return true
-	}
-	return false
+// aggregate avg on columns of table "vio_codewfdm"
+type VioCodewfdmAvgFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
 }
 
-func (e VioCodewfdmSelectColumn) String() string {
-	return string(e)
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vio_codewfdm'.
+type VioCodewfdmBoolExp struct {
+	And     []*VioCodewfdmBoolExp       `json:"_and"`
+	Not     *VioCodewfdmBoolExp         `json:"_not"`
+	Or      []*VioCodewfdmBoolExp       `json:"_or"`
+	Wfxw    *model.StringComparisonExp  `json:"wfxw"`
+	Wfms    *model.StringComparisonExp  `json:"wfms"`
+	Wfjfs   *model.NumericComparisonExp `json:"wfjfs"`
+	FkjeMin *model.NumericComparisonExp `json:"fkje_min"`
+	FkjeMax *model.NumericComparisonExp `json:"fkje_max"`
+	Xh      *model.StringComparisonExp  `json:"xh"`
 }
 
-func (e *VioCodewfdmSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VioCodewfdmSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid VIO_CODEWFDM_select_column", str)
-	}
-	return nil
+// input type for incrementing integer column in table "vio_codewfdm"
+type VioCodewfdmIncInput struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
 }
 
-func (e VioCodewfdmSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+// input type for inserting data into table "vio_codewfdm"
+type VioCodewfdmInsertInput struct {
+	Wfxw    *string  `json:"wfxw"`
+	Wfms    *string  `json:"wfms"`
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+	Xh      *string  `json:"xh"`
 }
 
-// unique or primary key constraints on table "app_enforcement"
-type AppEnforcementConstraint string
-
-const (
-	// unique or primary key constraint
-	AppEnforcementConstraintAppEnforcementPkey AppEnforcementConstraint = "app_enforcement_pkey"
-)
-
-var AllAppEnforcementConstraint = []AppEnforcementConstraint{
-	AppEnforcementConstraintAppEnforcementPkey,
+// aggregate max on columns of table "vio_codewfdm"
+type VioCodewfdmMaxFields struct {
+	Wfxw    *string  `json:"wfxw"`
+	Wfms    *string  `json:"wfms"`
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+	Xh      *string  `json:"xh"`
 }
 
-func (e AppEnforcementConstraint) IsValid() bool {
-	switch e {
-	case AppEnforcementConstraintAppEnforcementPkey:
-		return true
-	}
-	return false
+// aggregate min on columns of table "vio_codewfdm"
+type VioCodewfdmMinFields struct {
+	Wfxw    *string  `json:"wfxw"`
+	Wfms    *string  `json:"wfms"`
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+	Xh      *string  `json:"xh"`
 }
 
-func (e AppEnforcementConstraint) String() string {
-	return string(e)
+// response of any mutation on the table "vio_codewfdm"
+type VioCodewfdmMutationResponse struct {
+	AffectedRows int                   `json:"affected_rows"`
+	Returning    []*model1.VioCodewfdm `json:"returning"`
 }
 
-func (e *AppEnforcementConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = AppEnforcementConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid app_enforcement_constraint", str)
-	}
-	return nil
+// ordering options when selecting data from "vio_codewfdm"
+type VioCodewfdmOrderBy struct {
+	Wfxw    *model.OrderBy `json:"wfxw"`
+	Wfms    *model.OrderBy `json:"wfms"`
+	Wfjfs   *model.OrderBy `json:"wfjfs"`
+	FkjeMin *model.OrderBy `json:"fkje_min"`
+	FkjeMax *model.OrderBy `json:"fkje_max"`
+	Xh      *model.OrderBy `json:"xh"`
 }
 
-func (e AppEnforcementConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
+// input type for updating data in table "vio_codewfdm"
+type VioCodewfdmSetInput struct {
+	Wfxw    *string  `json:"wfxw"`
+	Wfms    *string  `json:"wfms"`
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+	Xh      *string  `json:"xh"`
 }
 
-// select columns of table "app_enforcement"
+// aggregate stddev on columns of table "vio_codewfdm"
+type VioCodewfdmStddevFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate stddev_pop on columns of table "vio_codewfdm"
+type VioCodewfdmStddevPopFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate stddev_samp on columns of table "vio_codewfdm"
+type VioCodewfdmStddevSampFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate sum on columns of table "vio_codewfdm"
+type VioCodewfdmSumFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate var_pop on columns of table "vio_codewfdm"
+type VioCodewfdmVarPopFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate var_samp on columns of table "vio_codewfdm"
+type VioCodewfdmVarSampFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregate variance on columns of table "vio_codewfdm"
+type VioCodewfdmVarianceFields struct {
+	Wfjfs   *float64 `json:"wfjfs"`
+	FkjeMin *float64 `json:"fkje_min"`
+	FkjeMax *float64 `json:"fkje_max"`
+}
+
+// aggregated selection of "violation_registration"
+type ViolationRegistrationAggregate struct {
+	Aggregate *ViolationRegistrationAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "violation_registration"
+type ViolationRegistrationAggregateFields struct {
+	Avg        *ViolationRegistrationAvgFields        `json:"avg"`
+	Count      *int                                   `json:"count"`
+	Max        *ViolationRegistrationMaxFields        `json:"max"`
+	Min        *ViolationRegistrationMinFields        `json:"min"`
+	Stddev     *ViolationRegistrationStddevFields     `json:"stddev"`
+	StddevPop  *ViolationRegistrationStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *ViolationRegistrationStddevSampFields `json:"stddev_samp"`
+	Sum        *ViolationRegistrationSumFields        `json:"sum"`
+	VarPop     *ViolationRegistrationVarPopFields     `json:"var_pop"`
+	VarSamp    *ViolationRegistrationVarSampFields    `json:"var_samp"`
+	Variance   *ViolationRegistrationVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "violation_registration"
+type ViolationRegistrationAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'violation_registration'.
+type ViolationRegistrationBoolExp struct {
+	And                     []*ViolationRegistrationBoolExp `json:"_and"`
+	Not                     *ViolationRegistrationBoolExp   `json:"_not"`
+	Or                      []*ViolationRegistrationBoolExp `json:"_or"`
+	ID                      *model.BigintComparisonExp      `json:"id"`
+	ViolationRegistrationID *model.StringComparisonExp      `json:"violation_registration_id"`
+	VehicleID               *model.StringComparisonExp      `json:"vehicle_id"`
+	LicensePlateNumber      *model.StringComparisonExp      `json:"license_plate_number"`
+	IDCardNum               *model.StringComparisonExp      `json:"id_card_num"`
+	Name                    *model.StringComparisonExp      `json:"name"`
+	Location                *model.StringComparisonExp      `json:"location"`
+	Cause                   *model.StringComparisonExp      `json:"cause"`
+	IllegalTime             *model.TimestamptzComparisonExp `json:"illegal_time"`
+	Operator                *model.StringComparisonExp      `json:"operator"`
+	IllegalArea             *model.StringComparisonExp      `json:"illegal_area"`
+	IllegalCode             *model.StringComparisonExp      `json:"illegal_code"`
+	VehicleArea             *model.StringComparisonExp      `json:"vehicle_area"`
+	VehicleEnterprise       *model.StringComparisonExp      `json:"vehicle_enterprise"`
+	ProvinceID              *model.StringComparisonExp      `json:"province_id"`
+	CityID                  *model.StringComparisonExp      `json:"city_id"`
+	DistrictID              *model.StringComparisonExp      `json:"district_id"`
+	Supervisor              *model.StringComparisonExp      `json:"supervisor"`
+	SupervisionTime         *model.StringComparisonExp      `json:"supervision_time"`
+	SepervisionRemarks      *model.StringComparisonExp      `json:"sepervision_remarks"`
+	IsSupervised            *model.StringComparisonExp      `json:"is_supervised"`
+	IsAccident              *model.StringComparisonExp      `json:"is_accident"`
+	IsDeleted               *model.BooleanComparisonExp     `json:"is_deleted"`
+	CreatedAt               *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy               *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt               *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy               *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt               *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy               *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "violation_registration"
+type ViolationRegistrationIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "violation_registration"
+type ViolationRegistrationInsertInput struct {
+	ID                      *int64     `json:"id"`
+	ViolationRegistrationID *string    `json:"violation_registration_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	LicensePlateNumber      *string    `json:"license_plate_number"`
+	IDCardNum               *string    `json:"id_card_num"`
+	Name                    *string    `json:"name"`
+	Location                *string    `json:"location"`
+	Cause                   *string    `json:"cause"`
+	IllegalTime             *time.Time `json:"illegal_time"`
+	Operator                *string    `json:"operator"`
+	IllegalArea             *string    `json:"illegal_area"`
+	IllegalCode             *string    `json:"illegal_code"`
+	VehicleArea             *string    `json:"vehicle_area"`
+	VehicleEnterprise       *string    `json:"vehicle_enterprise"`
+	ProvinceID              *string    `json:"province_id"`
+	CityID                  *string    `json:"city_id"`
+	DistrictID              *string    `json:"district_id"`
+	Supervisor              *string    `json:"supervisor"`
+	SupervisionTime         *string    `json:"supervision_time"`
+	SepervisionRemarks      *string    `json:"sepervision_remarks"`
+	IsSupervised            *string    `json:"is_supervised"`
+	IsAccident              *string    `json:"is_accident"`
+	IsDeleted               *bool      `json:"is_deleted"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "violation_registration"
+type ViolationRegistrationMaxFields struct {
+	ID                      *int64     `json:"id"`
+	ViolationRegistrationID *string    `json:"violation_registration_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	LicensePlateNumber      *string    `json:"license_plate_number"`
+	IDCardNum               *string    `json:"id_card_num"`
+	Name                    *string    `json:"name"`
+	Location                *string    `json:"location"`
+	Cause                   *string    `json:"cause"`
+	IllegalTime             *time.Time `json:"illegal_time"`
+	Operator                *string    `json:"operator"`
+	IllegalArea             *string    `json:"illegal_area"`
+	IllegalCode             *string    `json:"illegal_code"`
+	VehicleArea             *string    `json:"vehicle_area"`
+	VehicleEnterprise       *string    `json:"vehicle_enterprise"`
+	ProvinceID              *string    `json:"province_id"`
+	CityID                  *string    `json:"city_id"`
+	DistrictID              *string    `json:"district_id"`
+	Supervisor              *string    `json:"supervisor"`
+	SupervisionTime         *string    `json:"supervision_time"`
+	SepervisionRemarks      *string    `json:"sepervision_remarks"`
+	IsSupervised            *string    `json:"is_supervised"`
+	IsAccident              *string    `json:"is_accident"`
+	IsDeleted               *bool      `json:"is_deleted"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "violation_registration"
+type ViolationRegistrationMinFields struct {
+	ID                      *int64     `json:"id"`
+	ViolationRegistrationID *string    `json:"violation_registration_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	LicensePlateNumber      *string    `json:"license_plate_number"`
+	IDCardNum               *string    `json:"id_card_num"`
+	Name                    *string    `json:"name"`
+	Location                *string    `json:"location"`
+	Cause                   *string    `json:"cause"`
+	IllegalTime             *time.Time `json:"illegal_time"`
+	Operator                *string    `json:"operator"`
+	IllegalArea             *string    `json:"illegal_area"`
+	IllegalCode             *string    `json:"illegal_code"`
+	VehicleArea             *string    `json:"vehicle_area"`
+	VehicleEnterprise       *string    `json:"vehicle_enterprise"`
+	ProvinceID              *string    `json:"province_id"`
+	CityID                  *string    `json:"city_id"`
+	DistrictID              *string    `json:"district_id"`
+	Supervisor              *string    `json:"supervisor"`
+	SupervisionTime         *string    `json:"supervision_time"`
+	SepervisionRemarks      *string    `json:"sepervision_remarks"`
+	IsSupervised            *string    `json:"is_supervised"`
+	IsAccident              *string    `json:"is_accident"`
+	IsDeleted               *bool      `json:"is_deleted"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "violation_registration"
+type ViolationRegistrationMutationResponse struct {
+	AffectedRows int                             `json:"affected_rows"`
+	Returning    []*model1.ViolationRegistration `json:"returning"`
+}
+
+// ordering options when selecting data from "violation_registration"
+type ViolationRegistrationOrderBy struct {
+	ID                      *model.OrderBy `json:"id"`
+	ViolationRegistrationID *model.OrderBy `json:"violation_registration_id"`
+	VehicleID               *model.OrderBy `json:"vehicle_id"`
+	LicensePlateNumber      *model.OrderBy `json:"license_plate_number"`
+	IDCardNum               *model.OrderBy `json:"id_card_num"`
+	Name                    *model.OrderBy `json:"name"`
+	Location                *model.OrderBy `json:"location"`
+	Cause                   *model.OrderBy `json:"cause"`
+	IllegalTime             *model.OrderBy `json:"illegal_time"`
+	Operator                *model.OrderBy `json:"operator"`
+	IllegalArea             *model.OrderBy `json:"illegal_area"`
+	IllegalCode             *model.OrderBy `json:"illegal_code"`
+	VehicleArea             *model.OrderBy `json:"vehicle_area"`
+	VehicleEnterprise       *model.OrderBy `json:"vehicle_enterprise"`
+	ProvinceID              *model.OrderBy `json:"province_id"`
+	CityID                  *model.OrderBy `json:"city_id"`
+	DistrictID              *model.OrderBy `json:"district_id"`
+	Supervisor              *model.OrderBy `json:"supervisor"`
+	SupervisionTime         *model.OrderBy `json:"supervision_time"`
+	SepervisionRemarks      *model.OrderBy `json:"sepervision_remarks"`
+	IsSupervised            *model.OrderBy `json:"is_supervised"`
+	IsAccident              *model.OrderBy `json:"is_accident"`
+	IsDeleted               *model.OrderBy `json:"is_deleted"`
+	CreatedAt               *model.OrderBy `json:"created_at"`
+	CreatedBy               *model.OrderBy `json:"created_by"`
+	UpdatedAt               *model.OrderBy `json:"updated_at"`
+	UpdatedBy               *model.OrderBy `json:"updated_by"`
+	DeletedAt               *model.OrderBy `json:"deleted_at"`
+	DeletedBy               *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "violation_registration"
+type ViolationRegistrationSetInput struct {
+	ID                      *int64     `json:"id"`
+	ViolationRegistrationID *string    `json:"violation_registration_id"`
+	VehicleID               *string    `json:"vehicle_id"`
+	LicensePlateNumber      *string    `json:"license_plate_number"`
+	IDCardNum               *string    `json:"id_card_num"`
+	Name                    *string    `json:"name"`
+	Location                *string    `json:"location"`
+	Cause                   *string    `json:"cause"`
+	IllegalTime             *time.Time `json:"illegal_time"`
+	Operator                *string    `json:"operator"`
+	IllegalArea             *string    `json:"illegal_area"`
+	IllegalCode             *string    `json:"illegal_code"`
+	VehicleArea             *string    `json:"vehicle_area"`
+	VehicleEnterprise       *string    `json:"vehicle_enterprise"`
+	ProvinceID              *string    `json:"province_id"`
+	CityID                  *string    `json:"city_id"`
+	DistrictID              *string    `json:"district_id"`
+	Supervisor              *string    `json:"supervisor"`
+	SupervisionTime         *string    `json:"supervision_time"`
+	SepervisionRemarks      *string    `json:"sepervision_remarks"`
+	IsSupervised            *string    `json:"is_supervised"`
+	IsAccident              *string    `json:"is_accident"`
+	IsDeleted               *bool      `json:"is_deleted"`
+	CreatedAt               *time.Time `json:"created_at"`
+	CreatedBy               *string    `json:"created_by"`
+	UpdatedAt               *time.Time `json:"updated_at"`
+	UpdatedBy               *string    `json:"updated_by"`
+	DeletedAt               *time.Time `json:"deleted_at"`
+	DeletedBy               *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "violation_registration"
+type ViolationRegistrationStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "violation_registration"
+type ViolationRegistrationStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "violation_registration"
+type ViolationRegistrationStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "violation_registration"
+type ViolationRegistrationSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "violation_registration"
+type ViolationRegistrationVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "violation_registration"
+type ViolationRegistrationVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "violation_registration"
+type ViolationRegistrationVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// 可选select
 type AppEnforcementSelectColumn string
 
 const (
-	// column name
-	AppEnforcementSelectColumnCoordinate AppEnforcementSelectColumn = "coordinate"
-	// column name
-	AppEnforcementSelectColumnCreatedAt AppEnforcementSelectColumn = "created_at"
-	// column name
-	AppEnforcementSelectColumnCreatedBy AppEnforcementSelectColumn = "created_by"
-	// column name
-	AppEnforcementSelectColumnDeletedAt AppEnforcementSelectColumn = "deleted_at"
-	// column name
-	AppEnforcementSelectColumnDeletedBy AppEnforcementSelectColumn = "deleted_by"
-	// column name
-	AppEnforcementSelectColumnEditText AppEnforcementSelectColumn = "edit_text"
-	// column name
-	AppEnforcementSelectColumnEnterpriseType AppEnforcementSelectColumn = "enterprise_type"
-	// column name
+	// 按指定方法生成                                               ( 主键                       )
 	AppEnforcementSelectColumnID AppEnforcementSelectColumn = "id"
-	// column name
+	// APP现场执法表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	AppEnforcementSelectColumnIllegalPhotoID AppEnforcementSelectColumn = "illegal_photo_id"
-	// column name
-	AppEnforcementSelectColumnLocationDescription AppEnforcementSelectColumn = "location_description"
-	// column name
-	AppEnforcementSelectColumnOperationUser AppEnforcementSelectColumn = "operation_user"
-	// column name
-	AppEnforcementSelectColumnPicketStatus AppEnforcementSelectColumn = "picket_status"
-	// column name
-	AppEnforcementSelectColumnUpdatedAt AppEnforcementSelectColumn = "updated_at"
-	// column name
-	AppEnforcementSelectColumnUpdatedBy AppEnforcementSelectColumn = "updated_by"
-	// column name
+	// vehicle_info 车辆信息表 的vehicle_id                     (                            )
 	AppEnforcementSelectColumnVehicleID AppEnforcementSelectColumn = "vehicle_id"
-	// column name
-	AppEnforcementSelectColumnViolationDetailID AppEnforcementSelectColumn = "violation_detail_id"
+	// 操作用户                                                     ( system_user表的user_id )
+	AppEnforcementSelectColumnOperationUser AppEnforcementSelectColumn = "operation_user"
+	// 编辑文本                                                     (                            )
+	AppEnforcementSelectColumnEditText AppEnforcementSelectColumn = "edit_text"
+	// 空间数据类型point表示经度(longitude)和纬度(latitude)         (                            )
+	AppEnforcementSelectColumnCoordinate AppEnforcementSelectColumn = "coordinate"
+	// 位置描述                                                     (                            )
+	AppEnforcementSelectColumnLocationDescription AppEnforcementSelectColumn = "location_description"
+	// 企业类型                                                     ( 企业类型字典           )
+	AppEnforcementSelectColumnEnterpriseType AppEnforcementSelectColumn = "enterprise_type"
+	// 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车） (                            )
+	AppEnforcementSelectColumnPicketStatus AppEnforcementSelectColumn = "picket_status"
+	// 创建时间                                                     (                            )
+	AppEnforcementSelectColumnCreatedAt AppEnforcementSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id )
+	AppEnforcementSelectColumnCreatedBy AppEnforcementSelectColumn = "created_by"
+	// 修改时间                                                     (                            )
+	AppEnforcementSelectColumnUpdatedAt AppEnforcementSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id )
+	AppEnforcementSelectColumnUpdatedBy AppEnforcementSelectColumn = "updated_by"
+	// 删除时间                                                     (                            )
+	AppEnforcementSelectColumnDeletedAt AppEnforcementSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id )
+	AppEnforcementSelectColumnDeletedBy AppEnforcementSelectColumn = "deleted_by"
 )
 
 var AllAppEnforcementSelectColumn = []AppEnforcementSelectColumn{
-	AppEnforcementSelectColumnCoordinate,
-	AppEnforcementSelectColumnCreatedAt,
-	AppEnforcementSelectColumnCreatedBy,
-	AppEnforcementSelectColumnDeletedAt,
-	AppEnforcementSelectColumnDeletedBy,
-	AppEnforcementSelectColumnEditText,
-	AppEnforcementSelectColumnEnterpriseType,
 	AppEnforcementSelectColumnID,
 	AppEnforcementSelectColumnIllegalPhotoID,
-	AppEnforcementSelectColumnLocationDescription,
+	AppEnforcementSelectColumnVehicleID,
 	AppEnforcementSelectColumnOperationUser,
+	AppEnforcementSelectColumnEditText,
+	AppEnforcementSelectColumnCoordinate,
+	AppEnforcementSelectColumnLocationDescription,
+	AppEnforcementSelectColumnEnterpriseType,
 	AppEnforcementSelectColumnPicketStatus,
+	AppEnforcementSelectColumnCreatedAt,
+	AppEnforcementSelectColumnCreatedBy,
 	AppEnforcementSelectColumnUpdatedAt,
 	AppEnforcementSelectColumnUpdatedBy,
-	AppEnforcementSelectColumnVehicleID,
-	AppEnforcementSelectColumnViolationDetailID,
+	AppEnforcementSelectColumnDeletedAt,
+	AppEnforcementSelectColumnDeletedBy,
 }
 
 func (e AppEnforcementSelectColumn) IsValid() bool {
 	switch e {
-	case AppEnforcementSelectColumnCoordinate, AppEnforcementSelectColumnCreatedAt, AppEnforcementSelectColumnCreatedBy, AppEnforcementSelectColumnDeletedAt, AppEnforcementSelectColumnDeletedBy, AppEnforcementSelectColumnEditText, AppEnforcementSelectColumnEnterpriseType, AppEnforcementSelectColumnID, AppEnforcementSelectColumnIllegalPhotoID, AppEnforcementSelectColumnLocationDescription, AppEnforcementSelectColumnOperationUser, AppEnforcementSelectColumnPicketStatus, AppEnforcementSelectColumnUpdatedAt, AppEnforcementSelectColumnUpdatedBy, AppEnforcementSelectColumnVehicleID, AppEnforcementSelectColumnViolationDetailID:
+	case AppEnforcementSelectColumnID, AppEnforcementSelectColumnIllegalPhotoID, AppEnforcementSelectColumnVehicleID, AppEnforcementSelectColumnOperationUser, AppEnforcementSelectColumnEditText, AppEnforcementSelectColumnCoordinate, AppEnforcementSelectColumnLocationDescription, AppEnforcementSelectColumnEnterpriseType, AppEnforcementSelectColumnPicketStatus, AppEnforcementSelectColumnCreatedAt, AppEnforcementSelectColumnCreatedBy, AppEnforcementSelectColumnUpdatedAt, AppEnforcementSelectColumnUpdatedBy, AppEnforcementSelectColumnDeletedAt, AppEnforcementSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -4722,7 +2309,7 @@ func (e *AppEnforcementSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = AppEnforcementSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid app_enforcement_select_column", str)
+		return fmt.Errorf("%s is not a valid AppEnforcementSelectColumn", str)
 	}
 	return nil
 }
@@ -4731,637 +2318,128 @@ func (e AppEnforcementSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "app_enforcement"
-type AppEnforcementUpdateColumn string
+// 可选select
+type DeductionReportSelectColumn string
 
 const (
-	// column name
-	AppEnforcementUpdateColumnCoordinate AppEnforcementUpdateColumn = "coordinate"
-	// column name
-	AppEnforcementUpdateColumnCreatedAt AppEnforcementUpdateColumn = "created_at"
-	// column name
-	AppEnforcementUpdateColumnCreatedBy AppEnforcementUpdateColumn = "created_by"
-	// column name
-	AppEnforcementUpdateColumnDeletedAt AppEnforcementUpdateColumn = "deleted_at"
-	// column name
-	AppEnforcementUpdateColumnDeletedBy AppEnforcementUpdateColumn = "deleted_by"
-	// column name
-	AppEnforcementUpdateColumnEditText AppEnforcementUpdateColumn = "edit_text"
-	// column name
-	AppEnforcementUpdateColumnEnterpriseType AppEnforcementUpdateColumn = "enterprise_type"
-	// column name
-	AppEnforcementUpdateColumnID AppEnforcementUpdateColumn = "id"
-	// column name
-	AppEnforcementUpdateColumnIllegalPhotoID AppEnforcementUpdateColumn = "illegal_photo_id"
-	// column name
-	AppEnforcementUpdateColumnLocationDescription AppEnforcementUpdateColumn = "location_description"
-	// column name
-	AppEnforcementUpdateColumnOperationUser AppEnforcementUpdateColumn = "operation_user"
-	// column name
-	AppEnforcementUpdateColumnPicketStatus AppEnforcementUpdateColumn = "picket_status"
-	// column name
-	AppEnforcementUpdateColumnUpdatedAt AppEnforcementUpdateColumn = "updated_at"
-	// column name
-	AppEnforcementUpdateColumnUpdatedBy AppEnforcementUpdateColumn = "updated_by"
-	// column name
-	AppEnforcementUpdateColumnVehicleID AppEnforcementUpdateColumn = "vehicle_id"
-	// column name
-	AppEnforcementUpdateColumnViolationDetailID AppEnforcementUpdateColumn = "violation_detail_id"
+	// 按指定方法生成                                  ( 主键                       )
+	DeductionReportSelectColumnID DeductionReportSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	DeductionReportSelectColumnDeductionReportID DeductionReportSelectColumn = "deduction_report_id"
+	// 地区                                            (                            )
+	DeductionReportSelectColumnAreaID DeductionReportSelectColumn = "area_id"
+	// 年份.月份  如2015.3                             (                            )
+	DeductionReportSelectColumnDate DeductionReportSelectColumn = "date"
+	// 扣分事由                                        (                            )
+	DeductionReportSelectColumnCause DeductionReportSelectColumn = "cause"
+	// 录入人                                          ( system_user表的user_id )
+	DeductionReportSelectColumnInputPerson DeductionReportSelectColumn = "input_person"
+	// 录入时间                                        (                            )
+	DeductionReportSelectColumnInputTime DeductionReportSelectColumn = "input_time"
+	// 扣分分值                                        (                            )
+	DeductionReportSelectColumnDemeritPoints DeductionReportSelectColumn = "demerit_points"
+	// 创建时间                                        (                            )
+	DeductionReportSelectColumnCreatedAt DeductionReportSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	DeductionReportSelectColumnCreatedBy DeductionReportSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	DeductionReportSelectColumnUpdatedAt DeductionReportSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	DeductionReportSelectColumnUpdatedBy DeductionReportSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	DeductionReportSelectColumnDeletedAt DeductionReportSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	DeductionReportSelectColumnDeletedBy DeductionReportSelectColumn = "deleted_by"
 )
 
-var AllAppEnforcementUpdateColumn = []AppEnforcementUpdateColumn{
-	AppEnforcementUpdateColumnCoordinate,
-	AppEnforcementUpdateColumnCreatedAt,
-	AppEnforcementUpdateColumnCreatedBy,
-	AppEnforcementUpdateColumnDeletedAt,
-	AppEnforcementUpdateColumnDeletedBy,
-	AppEnforcementUpdateColumnEditText,
-	AppEnforcementUpdateColumnEnterpriseType,
-	AppEnforcementUpdateColumnID,
-	AppEnforcementUpdateColumnIllegalPhotoID,
-	AppEnforcementUpdateColumnLocationDescription,
-	AppEnforcementUpdateColumnOperationUser,
-	AppEnforcementUpdateColumnPicketStatus,
-	AppEnforcementUpdateColumnUpdatedAt,
-	AppEnforcementUpdateColumnUpdatedBy,
-	AppEnforcementUpdateColumnVehicleID,
-	AppEnforcementUpdateColumnViolationDetailID,
+var AllDeductionReportSelectColumn = []DeductionReportSelectColumn{
+	DeductionReportSelectColumnID,
+	DeductionReportSelectColumnDeductionReportID,
+	DeductionReportSelectColumnAreaID,
+	DeductionReportSelectColumnDate,
+	DeductionReportSelectColumnCause,
+	DeductionReportSelectColumnInputPerson,
+	DeductionReportSelectColumnInputTime,
+	DeductionReportSelectColumnDemeritPoints,
+	DeductionReportSelectColumnCreatedAt,
+	DeductionReportSelectColumnCreatedBy,
+	DeductionReportSelectColumnUpdatedAt,
+	DeductionReportSelectColumnUpdatedBy,
+	DeductionReportSelectColumnDeletedAt,
+	DeductionReportSelectColumnDeletedBy,
 }
 
-func (e AppEnforcementUpdateColumn) IsValid() bool {
+func (e DeductionReportSelectColumn) IsValid() bool {
 	switch e {
-	case AppEnforcementUpdateColumnCoordinate, AppEnforcementUpdateColumnCreatedAt, AppEnforcementUpdateColumnCreatedBy, AppEnforcementUpdateColumnDeletedAt, AppEnforcementUpdateColumnDeletedBy, AppEnforcementUpdateColumnEditText, AppEnforcementUpdateColumnEnterpriseType, AppEnforcementUpdateColumnID, AppEnforcementUpdateColumnIllegalPhotoID, AppEnforcementUpdateColumnLocationDescription, AppEnforcementUpdateColumnOperationUser, AppEnforcementUpdateColumnPicketStatus, AppEnforcementUpdateColumnUpdatedAt, AppEnforcementUpdateColumnUpdatedBy, AppEnforcementUpdateColumnVehicleID, AppEnforcementUpdateColumnViolationDetailID:
+	case DeductionReportSelectColumnID, DeductionReportSelectColumnDeductionReportID, DeductionReportSelectColumnAreaID, DeductionReportSelectColumnDate, DeductionReportSelectColumnCause, DeductionReportSelectColumnInputPerson, DeductionReportSelectColumnInputTime, DeductionReportSelectColumnDemeritPoints, DeductionReportSelectColumnCreatedAt, DeductionReportSelectColumnCreatedBy, DeductionReportSelectColumnUpdatedAt, DeductionReportSelectColumnUpdatedBy, DeductionReportSelectColumnDeletedAt, DeductionReportSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e AppEnforcementUpdateColumn) String() string {
+func (e DeductionReportSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *AppEnforcementUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *DeductionReportSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = AppEnforcementUpdateColumn(str)
+	*e = DeductionReportSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid app_enforcement_update_column", str)
+		return fmt.Errorf("%s is not a valid DeductionReportSelectColumn", str)
 	}
 	return nil
 }
 
-func (e AppEnforcementUpdateColumn) MarshalGQL(w io.Writer) {
+func (e DeductionReportSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "dispute_violation_record"
-type DisputeViolationRecordConstraint string
-
-const (
-	// unique or primary key constraint
-	DisputeViolationRecordConstraintDisputeViolationRecordPkey DisputeViolationRecordConstraint = "dispute_violation_record_pkey"
-)
-
-var AllDisputeViolationRecordConstraint = []DisputeViolationRecordConstraint{
-	DisputeViolationRecordConstraintDisputeViolationRecordPkey,
-}
-
-func (e DisputeViolationRecordConstraint) IsValid() bool {
-	switch e {
-	case DisputeViolationRecordConstraintDisputeViolationRecordPkey:
-		return true
-	}
-	return false
-}
-
-func (e DisputeViolationRecordConstraint) String() string {
-	return string(e)
-}
-
-func (e *DisputeViolationRecordConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DisputeViolationRecordConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dispute_violation_record_constraint", str)
-	}
-	return nil
-}
-
-func (e DisputeViolationRecordConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "dispute_violation_record_log"
-type DisputeViolationRecordLogConstraint string
-
-const (
-	// unique or primary key constraint
-	DisputeViolationRecordLogConstraintDisputeViolationRecordLogPkey DisputeViolationRecordLogConstraint = "dispute_violation_record_log_pkey"
-)
-
-var AllDisputeViolationRecordLogConstraint = []DisputeViolationRecordLogConstraint{
-	DisputeViolationRecordLogConstraintDisputeViolationRecordLogPkey,
-}
-
-func (e DisputeViolationRecordLogConstraint) IsValid() bool {
-	switch e {
-	case DisputeViolationRecordLogConstraintDisputeViolationRecordLogPkey:
-		return true
-	}
-	return false
-}
-
-func (e DisputeViolationRecordLogConstraint) String() string {
-	return string(e)
-}
-
-func (e *DisputeViolationRecordLogConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DisputeViolationRecordLogConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dispute_violation_record_log_constraint", str)
-	}
-	return nil
-}
-
-func (e DisputeViolationRecordLogConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogSelectColumn string
-
-const (
-	// column name
-	DisputeViolationRecordLogSelectColumnApprover DisputeViolationRecordLogSelectColumn = "approver"
-	// column name
-	DisputeViolationRecordLogSelectColumnDisputeViolationID DisputeViolationRecordLogSelectColumn = "dispute_violation_id"
-	// column name
-	DisputeViolationRecordLogSelectColumnDisputeViolationLogID DisputeViolationRecordLogSelectColumn = "dispute_violation_log_id"
-	// column name
-	DisputeViolationRecordLogSelectColumnID DisputeViolationRecordLogSelectColumn = "id"
-	// column name
-	DisputeViolationRecordLogSelectColumnReviewActionName DisputeViolationRecordLogSelectColumn = "review_action_name"
-	// column name
-	DisputeViolationRecordLogSelectColumnReviewOpinion DisputeViolationRecordLogSelectColumn = "review_opinion"
-	// column name
-	DisputeViolationRecordLogSelectColumnReviewResult DisputeViolationRecordLogSelectColumn = "review_result"
-	// column name
-	DisputeViolationRecordLogSelectColumnReviewTime DisputeViolationRecordLogSelectColumn = "review_time"
-	// column name
-	DisputeViolationRecordLogSelectColumnReviewer DisputeViolationRecordLogSelectColumn = "reviewer"
-	// column name
-	DisputeViolationRecordLogSelectColumnUpdateTimeIn DisputeViolationRecordLogSelectColumn = "update_time_in"
-)
-
-var AllDisputeViolationRecordLogSelectColumn = []DisputeViolationRecordLogSelectColumn{
-	DisputeViolationRecordLogSelectColumnApprover,
-	DisputeViolationRecordLogSelectColumnDisputeViolationID,
-	DisputeViolationRecordLogSelectColumnDisputeViolationLogID,
-	DisputeViolationRecordLogSelectColumnID,
-	DisputeViolationRecordLogSelectColumnReviewActionName,
-	DisputeViolationRecordLogSelectColumnReviewOpinion,
-	DisputeViolationRecordLogSelectColumnReviewResult,
-	DisputeViolationRecordLogSelectColumnReviewTime,
-	DisputeViolationRecordLogSelectColumnReviewer,
-	DisputeViolationRecordLogSelectColumnUpdateTimeIn,
-}
-
-func (e DisputeViolationRecordLogSelectColumn) IsValid() bool {
-	switch e {
-	case DisputeViolationRecordLogSelectColumnApprover, DisputeViolationRecordLogSelectColumnDisputeViolationID, DisputeViolationRecordLogSelectColumnDisputeViolationLogID, DisputeViolationRecordLogSelectColumnID, DisputeViolationRecordLogSelectColumnReviewActionName, DisputeViolationRecordLogSelectColumnReviewOpinion, DisputeViolationRecordLogSelectColumnReviewResult, DisputeViolationRecordLogSelectColumnReviewTime, DisputeViolationRecordLogSelectColumnReviewer, DisputeViolationRecordLogSelectColumnUpdateTimeIn:
-		return true
-	}
-	return false
-}
-
-func (e DisputeViolationRecordLogSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *DisputeViolationRecordLogSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DisputeViolationRecordLogSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dispute_violation_record_log_select_column", str)
-	}
-	return nil
-}
-
-func (e DisputeViolationRecordLogSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "dispute_violation_record_log"
-type DisputeViolationRecordLogUpdateColumn string
-
-const (
-	// column name
-	DisputeViolationRecordLogUpdateColumnApprover DisputeViolationRecordLogUpdateColumn = "approver"
-	// column name
-	DisputeViolationRecordLogUpdateColumnDisputeViolationID DisputeViolationRecordLogUpdateColumn = "dispute_violation_id"
-	// column name
-	DisputeViolationRecordLogUpdateColumnDisputeViolationLogID DisputeViolationRecordLogUpdateColumn = "dispute_violation_log_id"
-	// column name
-	DisputeViolationRecordLogUpdateColumnID DisputeViolationRecordLogUpdateColumn = "id"
-	// column name
-	DisputeViolationRecordLogUpdateColumnReviewActionName DisputeViolationRecordLogUpdateColumn = "review_action_name"
-	// column name
-	DisputeViolationRecordLogUpdateColumnReviewOpinion DisputeViolationRecordLogUpdateColumn = "review_opinion"
-	// column name
-	DisputeViolationRecordLogUpdateColumnReviewResult DisputeViolationRecordLogUpdateColumn = "review_result"
-	// column name
-	DisputeViolationRecordLogUpdateColumnReviewTime DisputeViolationRecordLogUpdateColumn = "review_time"
-	// column name
-	DisputeViolationRecordLogUpdateColumnReviewer DisputeViolationRecordLogUpdateColumn = "reviewer"
-	// column name
-	DisputeViolationRecordLogUpdateColumnUpdateTimeIn DisputeViolationRecordLogUpdateColumn = "update_time_in"
-)
-
-var AllDisputeViolationRecordLogUpdateColumn = []DisputeViolationRecordLogUpdateColumn{
-	DisputeViolationRecordLogUpdateColumnApprover,
-	DisputeViolationRecordLogUpdateColumnDisputeViolationID,
-	DisputeViolationRecordLogUpdateColumnDisputeViolationLogID,
-	DisputeViolationRecordLogUpdateColumnID,
-	DisputeViolationRecordLogUpdateColumnReviewActionName,
-	DisputeViolationRecordLogUpdateColumnReviewOpinion,
-	DisputeViolationRecordLogUpdateColumnReviewResult,
-	DisputeViolationRecordLogUpdateColumnReviewTime,
-	DisputeViolationRecordLogUpdateColumnReviewer,
-	DisputeViolationRecordLogUpdateColumnUpdateTimeIn,
-}
-
-func (e DisputeViolationRecordLogUpdateColumn) IsValid() bool {
-	switch e {
-	case DisputeViolationRecordLogUpdateColumnApprover, DisputeViolationRecordLogUpdateColumnDisputeViolationID, DisputeViolationRecordLogUpdateColumnDisputeViolationLogID, DisputeViolationRecordLogUpdateColumnID, DisputeViolationRecordLogUpdateColumnReviewActionName, DisputeViolationRecordLogUpdateColumnReviewOpinion, DisputeViolationRecordLogUpdateColumnReviewResult, DisputeViolationRecordLogUpdateColumnReviewTime, DisputeViolationRecordLogUpdateColumnReviewer, DisputeViolationRecordLogUpdateColumnUpdateTimeIn:
-		return true
-	}
-	return false
-}
-
-func (e DisputeViolationRecordLogUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *DisputeViolationRecordLogUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DisputeViolationRecordLogUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dispute_violation_record_log_update_column", str)
-	}
-	return nil
-}
-
-func (e DisputeViolationRecordLogUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "dispute_violation_record"
-type DisputeViolationRecordSelectColumn string
-
-const (
-	// column name
-	DisputeViolationRecordSelectColumnAgentIDNumber DisputeViolationRecordSelectColumn = "agent_id_number"
-	// column name
-	DisputeViolationRecordSelectColumnApproveState DisputeViolationRecordSelectColumn = "approve_state"
-	// column name
-	DisputeViolationRecordSelectColumnBusinessLicense DisputeViolationRecordSelectColumn = "business_license"
-	// column name
-	DisputeViolationRecordSelectColumnContactAddress DisputeViolationRecordSelectColumn = "contact_address"
-	// column name
-	DisputeViolationRecordSelectColumnCreatedAt DisputeViolationRecordSelectColumn = "created_at"
-	// column name
-	DisputeViolationRecordSelectColumnCreatedBy DisputeViolationRecordSelectColumn = "created_by"
-	// column name
-	DisputeViolationRecordSelectColumnDeletedAt DisputeViolationRecordSelectColumn = "deleted_at"
-	// column name
-	DisputeViolationRecordSelectColumnDeletedBy DisputeViolationRecordSelectColumn = "deleted_by"
-	// column name
-	DisputeViolationRecordSelectColumnDisputeViolationID DisputeViolationRecordSelectColumn = "dispute_violation_id"
-	// column name
-	DisputeViolationRecordSelectColumnDriverLicense DisputeViolationRecordSelectColumn = "driver_license"
-	// column name
-	DisputeViolationRecordSelectColumnDrivingLicense DisputeViolationRecordSelectColumn = "driving_license"
-	// column name
-	DisputeViolationRecordSelectColumnDrivingLog DisputeViolationRecordSelectColumn = "driving_log"
-	// column name
-	DisputeViolationRecordSelectColumnID DisputeViolationRecordSelectColumn = "id"
-	// column name
-	DisputeViolationRecordSelectColumnIDCard DisputeViolationRecordSelectColumn = "id_card"
-	// column name
-	DisputeViolationRecordSelectColumnIsDelete DisputeViolationRecordSelectColumn = "is_delete"
-	// column name
-	DisputeViolationRecordSelectColumnLaborContract DisputeViolationRecordSelectColumn = "labor_contract"
-	// column name
-	DisputeViolationRecordSelectColumnLegalPersonIDNumber DisputeViolationRecordSelectColumn = "legal_person_id_number"
-	// column name
-	DisputeViolationRecordSelectColumnOrganizationCode DisputeViolationRecordSelectColumn = "organization_code"
-	// column name
-	DisputeViolationRecordSelectColumnOtherEvidence DisputeViolationRecordSelectColumn = "other_evidence"
-	// column name
-	DisputeViolationRecordSelectColumnPicEvidence DisputeViolationRecordSelectColumn = "pic_evidence"
-	// column name
-	DisputeViolationRecordSelectColumnStatement DisputeViolationRecordSelectColumn = "statement"
-	// column name
-	DisputeViolationRecordSelectColumnUpdateTimeIn DisputeViolationRecordSelectColumn = "update_time_in"
-	// column name
-	DisputeViolationRecordSelectColumnUpdatedAt DisputeViolationRecordSelectColumn = "updated_at"
-	// column name
-	DisputeViolationRecordSelectColumnUpdatedBy DisputeViolationRecordSelectColumn = "updated_by"
-	// column name
-	DisputeViolationRecordSelectColumnVehicleManagerIDCard DisputeViolationRecordSelectColumn = "vehicle_manager_id_card"
-	// column name
-	DisputeViolationRecordSelectColumnViolationDetailID DisputeViolationRecordSelectColumn = "violation_detail_id"
-	// column name
-	DisputeViolationRecordSelectColumnWitness DisputeViolationRecordSelectColumn = "witness"
-	// column name
-	DisputeViolationRecordSelectColumnWrittenApplicationMaterials DisputeViolationRecordSelectColumn = "written_application_materials"
-)
-
-var AllDisputeViolationRecordSelectColumn = []DisputeViolationRecordSelectColumn{
-	DisputeViolationRecordSelectColumnAgentIDNumber,
-	DisputeViolationRecordSelectColumnApproveState,
-	DisputeViolationRecordSelectColumnBusinessLicense,
-	DisputeViolationRecordSelectColumnContactAddress,
-	DisputeViolationRecordSelectColumnCreatedAt,
-	DisputeViolationRecordSelectColumnCreatedBy,
-	DisputeViolationRecordSelectColumnDeletedAt,
-	DisputeViolationRecordSelectColumnDeletedBy,
-	DisputeViolationRecordSelectColumnDisputeViolationID,
-	DisputeViolationRecordSelectColumnDriverLicense,
-	DisputeViolationRecordSelectColumnDrivingLicense,
-	DisputeViolationRecordSelectColumnDrivingLog,
-	DisputeViolationRecordSelectColumnID,
-	DisputeViolationRecordSelectColumnIDCard,
-	DisputeViolationRecordSelectColumnIsDelete,
-	DisputeViolationRecordSelectColumnLaborContract,
-	DisputeViolationRecordSelectColumnLegalPersonIDNumber,
-	DisputeViolationRecordSelectColumnOrganizationCode,
-	DisputeViolationRecordSelectColumnOtherEvidence,
-	DisputeViolationRecordSelectColumnPicEvidence,
-	DisputeViolationRecordSelectColumnStatement,
-	DisputeViolationRecordSelectColumnUpdateTimeIn,
-	DisputeViolationRecordSelectColumnUpdatedAt,
-	DisputeViolationRecordSelectColumnUpdatedBy,
-	DisputeViolationRecordSelectColumnVehicleManagerIDCard,
-	DisputeViolationRecordSelectColumnViolationDetailID,
-	DisputeViolationRecordSelectColumnWitness,
-	DisputeViolationRecordSelectColumnWrittenApplicationMaterials,
-}
-
-func (e DisputeViolationRecordSelectColumn) IsValid() bool {
-	switch e {
-	case DisputeViolationRecordSelectColumnAgentIDNumber, DisputeViolationRecordSelectColumnApproveState, DisputeViolationRecordSelectColumnBusinessLicense, DisputeViolationRecordSelectColumnContactAddress, DisputeViolationRecordSelectColumnCreatedAt, DisputeViolationRecordSelectColumnCreatedBy, DisputeViolationRecordSelectColumnDeletedAt, DisputeViolationRecordSelectColumnDeletedBy, DisputeViolationRecordSelectColumnDisputeViolationID, DisputeViolationRecordSelectColumnDriverLicense, DisputeViolationRecordSelectColumnDrivingLicense, DisputeViolationRecordSelectColumnDrivingLog, DisputeViolationRecordSelectColumnID, DisputeViolationRecordSelectColumnIDCard, DisputeViolationRecordSelectColumnIsDelete, DisputeViolationRecordSelectColumnLaborContract, DisputeViolationRecordSelectColumnLegalPersonIDNumber, DisputeViolationRecordSelectColumnOrganizationCode, DisputeViolationRecordSelectColumnOtherEvidence, DisputeViolationRecordSelectColumnPicEvidence, DisputeViolationRecordSelectColumnStatement, DisputeViolationRecordSelectColumnUpdateTimeIn, DisputeViolationRecordSelectColumnUpdatedAt, DisputeViolationRecordSelectColumnUpdatedBy, DisputeViolationRecordSelectColumnVehicleManagerIDCard, DisputeViolationRecordSelectColumnViolationDetailID, DisputeViolationRecordSelectColumnWitness, DisputeViolationRecordSelectColumnWrittenApplicationMaterials:
-		return true
-	}
-	return false
-}
-
-func (e DisputeViolationRecordSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *DisputeViolationRecordSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DisputeViolationRecordSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dispute_violation_record_select_column", str)
-	}
-	return nil
-}
-
-func (e DisputeViolationRecordSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "dispute_violation_record"
-type DisputeViolationRecordUpdateColumn string
-
-const (
-	// column name
-	DisputeViolationRecordUpdateColumnAgentIDNumber DisputeViolationRecordUpdateColumn = "agent_id_number"
-	// column name
-	DisputeViolationRecordUpdateColumnApproveState DisputeViolationRecordUpdateColumn = "approve_state"
-	// column name
-	DisputeViolationRecordUpdateColumnBusinessLicense DisputeViolationRecordUpdateColumn = "business_license"
-	// column name
-	DisputeViolationRecordUpdateColumnContactAddress DisputeViolationRecordUpdateColumn = "contact_address"
-	// column name
-	DisputeViolationRecordUpdateColumnCreatedAt DisputeViolationRecordUpdateColumn = "created_at"
-	// column name
-	DisputeViolationRecordUpdateColumnCreatedBy DisputeViolationRecordUpdateColumn = "created_by"
-	// column name
-	DisputeViolationRecordUpdateColumnDeletedAt DisputeViolationRecordUpdateColumn = "deleted_at"
-	// column name
-	DisputeViolationRecordUpdateColumnDeletedBy DisputeViolationRecordUpdateColumn = "deleted_by"
-	// column name
-	DisputeViolationRecordUpdateColumnDisputeViolationID DisputeViolationRecordUpdateColumn = "dispute_violation_id"
-	// column name
-	DisputeViolationRecordUpdateColumnDriverLicense DisputeViolationRecordUpdateColumn = "driver_license"
-	// column name
-	DisputeViolationRecordUpdateColumnDrivingLicense DisputeViolationRecordUpdateColumn = "driving_license"
-	// column name
-	DisputeViolationRecordUpdateColumnDrivingLog DisputeViolationRecordUpdateColumn = "driving_log"
-	// column name
-	DisputeViolationRecordUpdateColumnID DisputeViolationRecordUpdateColumn = "id"
-	// column name
-	DisputeViolationRecordUpdateColumnIDCard DisputeViolationRecordUpdateColumn = "id_card"
-	// column name
-	DisputeViolationRecordUpdateColumnIsDelete DisputeViolationRecordUpdateColumn = "is_delete"
-	// column name
-	DisputeViolationRecordUpdateColumnLaborContract DisputeViolationRecordUpdateColumn = "labor_contract"
-	// column name
-	DisputeViolationRecordUpdateColumnLegalPersonIDNumber DisputeViolationRecordUpdateColumn = "legal_person_id_number"
-	// column name
-	DisputeViolationRecordUpdateColumnOrganizationCode DisputeViolationRecordUpdateColumn = "organization_code"
-	// column name
-	DisputeViolationRecordUpdateColumnOtherEvidence DisputeViolationRecordUpdateColumn = "other_evidence"
-	// column name
-	DisputeViolationRecordUpdateColumnPicEvidence DisputeViolationRecordUpdateColumn = "pic_evidence"
-	// column name
-	DisputeViolationRecordUpdateColumnStatement DisputeViolationRecordUpdateColumn = "statement"
-	// column name
-	DisputeViolationRecordUpdateColumnUpdateTimeIn DisputeViolationRecordUpdateColumn = "update_time_in"
-	// column name
-	DisputeViolationRecordUpdateColumnUpdatedAt DisputeViolationRecordUpdateColumn = "updated_at"
-	// column name
-	DisputeViolationRecordUpdateColumnUpdatedBy DisputeViolationRecordUpdateColumn = "updated_by"
-	// column name
-	DisputeViolationRecordUpdateColumnVehicleManagerIDCard DisputeViolationRecordUpdateColumn = "vehicle_manager_id_card"
-	// column name
-	DisputeViolationRecordUpdateColumnViolationDetailID DisputeViolationRecordUpdateColumn = "violation_detail_id"
-	// column name
-	DisputeViolationRecordUpdateColumnWitness DisputeViolationRecordUpdateColumn = "witness"
-	// column name
-	DisputeViolationRecordUpdateColumnWrittenApplicationMaterials DisputeViolationRecordUpdateColumn = "written_application_materials"
-)
-
-var AllDisputeViolationRecordUpdateColumn = []DisputeViolationRecordUpdateColumn{
-	DisputeViolationRecordUpdateColumnAgentIDNumber,
-	DisputeViolationRecordUpdateColumnApproveState,
-	DisputeViolationRecordUpdateColumnBusinessLicense,
-	DisputeViolationRecordUpdateColumnContactAddress,
-	DisputeViolationRecordUpdateColumnCreatedAt,
-	DisputeViolationRecordUpdateColumnCreatedBy,
-	DisputeViolationRecordUpdateColumnDeletedAt,
-	DisputeViolationRecordUpdateColumnDeletedBy,
-	DisputeViolationRecordUpdateColumnDisputeViolationID,
-	DisputeViolationRecordUpdateColumnDriverLicense,
-	DisputeViolationRecordUpdateColumnDrivingLicense,
-	DisputeViolationRecordUpdateColumnDrivingLog,
-	DisputeViolationRecordUpdateColumnID,
-	DisputeViolationRecordUpdateColumnIDCard,
-	DisputeViolationRecordUpdateColumnIsDelete,
-	DisputeViolationRecordUpdateColumnLaborContract,
-	DisputeViolationRecordUpdateColumnLegalPersonIDNumber,
-	DisputeViolationRecordUpdateColumnOrganizationCode,
-	DisputeViolationRecordUpdateColumnOtherEvidence,
-	DisputeViolationRecordUpdateColumnPicEvidence,
-	DisputeViolationRecordUpdateColumnStatement,
-	DisputeViolationRecordUpdateColumnUpdateTimeIn,
-	DisputeViolationRecordUpdateColumnUpdatedAt,
-	DisputeViolationRecordUpdateColumnUpdatedBy,
-	DisputeViolationRecordUpdateColumnVehicleManagerIDCard,
-	DisputeViolationRecordUpdateColumnViolationDetailID,
-	DisputeViolationRecordUpdateColumnWitness,
-	DisputeViolationRecordUpdateColumnWrittenApplicationMaterials,
-}
-
-func (e DisputeViolationRecordUpdateColumn) IsValid() bool {
-	switch e {
-	case DisputeViolationRecordUpdateColumnAgentIDNumber, DisputeViolationRecordUpdateColumnApproveState, DisputeViolationRecordUpdateColumnBusinessLicense, DisputeViolationRecordUpdateColumnContactAddress, DisputeViolationRecordUpdateColumnCreatedAt, DisputeViolationRecordUpdateColumnCreatedBy, DisputeViolationRecordUpdateColumnDeletedAt, DisputeViolationRecordUpdateColumnDeletedBy, DisputeViolationRecordUpdateColumnDisputeViolationID, DisputeViolationRecordUpdateColumnDriverLicense, DisputeViolationRecordUpdateColumnDrivingLicense, DisputeViolationRecordUpdateColumnDrivingLog, DisputeViolationRecordUpdateColumnID, DisputeViolationRecordUpdateColumnIDCard, DisputeViolationRecordUpdateColumnIsDelete, DisputeViolationRecordUpdateColumnLaborContract, DisputeViolationRecordUpdateColumnLegalPersonIDNumber, DisputeViolationRecordUpdateColumnOrganizationCode, DisputeViolationRecordUpdateColumnOtherEvidence, DisputeViolationRecordUpdateColumnPicEvidence, DisputeViolationRecordUpdateColumnStatement, DisputeViolationRecordUpdateColumnUpdateTimeIn, DisputeViolationRecordUpdateColumnUpdatedAt, DisputeViolationRecordUpdateColumnUpdatedBy, DisputeViolationRecordUpdateColumnVehicleManagerIDCard, DisputeViolationRecordUpdateColumnViolationDetailID, DisputeViolationRecordUpdateColumnWitness, DisputeViolationRecordUpdateColumnWrittenApplicationMaterials:
-		return true
-	}
-	return false
-}
-
-func (e DisputeViolationRecordUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *DisputeViolationRecordUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DisputeViolationRecordUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid dispute_violation_record_update_column", str)
-	}
-	return nil
-}
-
-func (e DisputeViolationRecordUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "driver_peccancy_check"
-type DriverPeccancyCheckConstraint string
-
-const (
-	// unique or primary key constraint
-	DriverPeccancyCheckConstraintDriverPeccancyCheckPkey DriverPeccancyCheckConstraint = "driver_peccancy_check_pkey"
-)
-
-var AllDriverPeccancyCheckConstraint = []DriverPeccancyCheckConstraint{
-	DriverPeccancyCheckConstraintDriverPeccancyCheckPkey,
-}
-
-func (e DriverPeccancyCheckConstraint) IsValid() bool {
-	switch e {
-	case DriverPeccancyCheckConstraintDriverPeccancyCheckPkey:
-		return true
-	}
-	return false
-}
-
-func (e DriverPeccancyCheckConstraint) String() string {
-	return string(e)
-}
-
-func (e *DriverPeccancyCheckConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DriverPeccancyCheckConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_peccancy_check_constraint", str)
-	}
-	return nil
-}
-
-func (e DriverPeccancyCheckConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "driver_peccancy_check"
+// 可选select
 type DriverPeccancyCheckSelectColumn string
 
 const (
-	// column name
-	DriverPeccancyCheckSelectColumnCreatedAt DriverPeccancyCheckSelectColumn = "created_at"
-	// column name
-	DriverPeccancyCheckSelectColumnCreatedBy DriverPeccancyCheckSelectColumn = "created_by"
-	// column name
-	DriverPeccancyCheckSelectColumnDeletedAt DriverPeccancyCheckSelectColumn = "deleted_at"
-	// column name
-	DriverPeccancyCheckSelectColumnDeletedBy DriverPeccancyCheckSelectColumn = "deleted_by"
-	// column name
-	DriverPeccancyCheckSelectColumnDriverID DriverPeccancyCheckSelectColumn = "driver_id"
-	// column name
-	DriverPeccancyCheckSelectColumnEnterpriseID DriverPeccancyCheckSelectColumn = "enterprise_id"
-	// column name
+	// 按指定方法生成 ( 主键                                 )
 	DriverPeccancyCheckSelectColumnID DriverPeccancyCheckSelectColumn = "id"
-	// column name
-	DriverPeccancyCheckSelectColumnUpdatedAt DriverPeccancyCheckSelectColumn = "updated_at"
-	// column name
-	DriverPeccancyCheckSelectColumnUpdatedBy DriverPeccancyCheckSelectColumn = "updated_by"
-	// column name
+	// 违章车辆id     ( vehicle_info表的vehicle_id       )
 	DriverPeccancyCheckSelectColumnVehicleID DriverPeccancyCheckSelectColumn = "vehicle_id"
+	// 违章驾驶员id   ( driver_info表的driver_id         )
+	DriverPeccancyCheckSelectColumnDriverID DriverPeccancyCheckSelectColumn = "driver_id"
+	// 所在企业id     ( enterprise_info表的enterprise_id )
+	DriverPeccancyCheckSelectColumnEnterpriseID DriverPeccancyCheckSelectColumn = "enterprise_id"
+	// 创建时间       (                                      )
+	DriverPeccancyCheckSelectColumnCreatedAt DriverPeccancyCheckSelectColumn = "created_at"
+	// 创建人         ( system_user表的user_id           )
+	DriverPeccancyCheckSelectColumnCreatedBy DriverPeccancyCheckSelectColumn = "created_by"
+	// 修改时间       (                                      )
+	DriverPeccancyCheckSelectColumnUpdatedAt DriverPeccancyCheckSelectColumn = "updated_at"
+	// 修改人         ( system_user表的user_id           )
+	DriverPeccancyCheckSelectColumnUpdatedBy DriverPeccancyCheckSelectColumn = "updated_by"
+	// 删除时间       (                                      )
+	DriverPeccancyCheckSelectColumnDeletedAt DriverPeccancyCheckSelectColumn = "deleted_at"
+	// 删除人         ( system_user表的user_id           )
+	DriverPeccancyCheckSelectColumnDeletedBy DriverPeccancyCheckSelectColumn = "deleted_by"
 )
 
 var AllDriverPeccancyCheckSelectColumn = []DriverPeccancyCheckSelectColumn{
-	DriverPeccancyCheckSelectColumnCreatedAt,
-	DriverPeccancyCheckSelectColumnCreatedBy,
-	DriverPeccancyCheckSelectColumnDeletedAt,
-	DriverPeccancyCheckSelectColumnDeletedBy,
+	DriverPeccancyCheckSelectColumnID,
+	DriverPeccancyCheckSelectColumnVehicleID,
 	DriverPeccancyCheckSelectColumnDriverID,
 	DriverPeccancyCheckSelectColumnEnterpriseID,
-	DriverPeccancyCheckSelectColumnID,
+	DriverPeccancyCheckSelectColumnCreatedAt,
+	DriverPeccancyCheckSelectColumnCreatedBy,
 	DriverPeccancyCheckSelectColumnUpdatedAt,
 	DriverPeccancyCheckSelectColumnUpdatedBy,
-	DriverPeccancyCheckSelectColumnVehicleID,
+	DriverPeccancyCheckSelectColumnDeletedAt,
+	DriverPeccancyCheckSelectColumnDeletedBy,
 }
 
 func (e DriverPeccancyCheckSelectColumn) IsValid() bool {
 	switch e {
-	case DriverPeccancyCheckSelectColumnCreatedAt, DriverPeccancyCheckSelectColumnCreatedBy, DriverPeccancyCheckSelectColumnDeletedAt, DriverPeccancyCheckSelectColumnDeletedBy, DriverPeccancyCheckSelectColumnDriverID, DriverPeccancyCheckSelectColumnEnterpriseID, DriverPeccancyCheckSelectColumnID, DriverPeccancyCheckSelectColumnUpdatedAt, DriverPeccancyCheckSelectColumnUpdatedBy, DriverPeccancyCheckSelectColumnVehicleID:
+	case DriverPeccancyCheckSelectColumnID, DriverPeccancyCheckSelectColumnVehicleID, DriverPeccancyCheckSelectColumnDriverID, DriverPeccancyCheckSelectColumnEnterpriseID, DriverPeccancyCheckSelectColumnCreatedAt, DriverPeccancyCheckSelectColumnCreatedBy, DriverPeccancyCheckSelectColumnUpdatedAt, DriverPeccancyCheckSelectColumnUpdatedBy, DriverPeccancyCheckSelectColumnDeletedAt, DriverPeccancyCheckSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -5379,7 +2457,7 @@ func (e *DriverPeccancyCheckSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = DriverPeccancyCheckSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_peccancy_check_select_column", str)
+		return fmt.Errorf("%s is not a valid DriverPeccancyCheckSelectColumn", str)
 	}
 	return nil
 }
@@ -5388,547 +2466,54 @@ func (e DriverPeccancyCheckSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "driver_peccancy_check"
-type DriverPeccancyCheckUpdateColumn string
-
-const (
-	// column name
-	DriverPeccancyCheckUpdateColumnCreatedAt DriverPeccancyCheckUpdateColumn = "created_at"
-	// column name
-	DriverPeccancyCheckUpdateColumnCreatedBy DriverPeccancyCheckUpdateColumn = "created_by"
-	// column name
-	DriverPeccancyCheckUpdateColumnDeletedAt DriverPeccancyCheckUpdateColumn = "deleted_at"
-	// column name
-	DriverPeccancyCheckUpdateColumnDeletedBy DriverPeccancyCheckUpdateColumn = "deleted_by"
-	// column name
-	DriverPeccancyCheckUpdateColumnDriverID DriverPeccancyCheckUpdateColumn = "driver_id"
-	// column name
-	DriverPeccancyCheckUpdateColumnEnterpriseID DriverPeccancyCheckUpdateColumn = "enterprise_id"
-	// column name
-	DriverPeccancyCheckUpdateColumnID DriverPeccancyCheckUpdateColumn = "id"
-	// column name
-	DriverPeccancyCheckUpdateColumnUpdatedAt DriverPeccancyCheckUpdateColumn = "updated_at"
-	// column name
-	DriverPeccancyCheckUpdateColumnUpdatedBy DriverPeccancyCheckUpdateColumn = "updated_by"
-	// column name
-	DriverPeccancyCheckUpdateColumnVehicleID DriverPeccancyCheckUpdateColumn = "vehicle_id"
-)
-
-var AllDriverPeccancyCheckUpdateColumn = []DriverPeccancyCheckUpdateColumn{
-	DriverPeccancyCheckUpdateColumnCreatedAt,
-	DriverPeccancyCheckUpdateColumnCreatedBy,
-	DriverPeccancyCheckUpdateColumnDeletedAt,
-	DriverPeccancyCheckUpdateColumnDeletedBy,
-	DriverPeccancyCheckUpdateColumnDriverID,
-	DriverPeccancyCheckUpdateColumnEnterpriseID,
-	DriverPeccancyCheckUpdateColumnID,
-	DriverPeccancyCheckUpdateColumnUpdatedAt,
-	DriverPeccancyCheckUpdateColumnUpdatedBy,
-	DriverPeccancyCheckUpdateColumnVehicleID,
-}
-
-func (e DriverPeccancyCheckUpdateColumn) IsValid() bool {
-	switch e {
-	case DriverPeccancyCheckUpdateColumnCreatedAt, DriverPeccancyCheckUpdateColumnCreatedBy, DriverPeccancyCheckUpdateColumnDeletedAt, DriverPeccancyCheckUpdateColumnDeletedBy, DriverPeccancyCheckUpdateColumnDriverID, DriverPeccancyCheckUpdateColumnEnterpriseID, DriverPeccancyCheckUpdateColumnID, DriverPeccancyCheckUpdateColumnUpdatedAt, DriverPeccancyCheckUpdateColumnUpdatedBy, DriverPeccancyCheckUpdateColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e DriverPeccancyCheckUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *DriverPeccancyCheckUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DriverPeccancyCheckUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid driver_peccancy_check_update_column", str)
-	}
-	return nil
-}
-
-func (e DriverPeccancyCheckUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "enterprise_deduction_items"
-type EnterpriseDeductionItemsConstraint string
-
-const (
-	// unique or primary key constraint
-	EnterpriseDeductionItemsConstraintEnterpriseDeductionItemsPkey EnterpriseDeductionItemsConstraint = "enterprise_deduction_items_pkey"
-)
-
-var AllEnterpriseDeductionItemsConstraint = []EnterpriseDeductionItemsConstraint{
-	EnterpriseDeductionItemsConstraintEnterpriseDeductionItemsPkey,
-}
-
-func (e EnterpriseDeductionItemsConstraint) IsValid() bool {
-	switch e {
-	case EnterpriseDeductionItemsConstraintEnterpriseDeductionItemsPkey:
-		return true
-	}
-	return false
-}
-
-func (e EnterpriseDeductionItemsConstraint) String() string {
-	return string(e)
-}
-
-func (e *EnterpriseDeductionItemsConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = EnterpriseDeductionItemsConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_deduction_items_constraint", str)
-	}
-	return nil
-}
-
-func (e EnterpriseDeductionItemsConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsSelectColumn string
-
-const (
-	// column name
-	EnterpriseDeductionItemsSelectColumnCreatedAt EnterpriseDeductionItemsSelectColumn = "created_at"
-	// column name
-	EnterpriseDeductionItemsSelectColumnCreatedBy EnterpriseDeductionItemsSelectColumn = "created_by"
-	// column name
-	EnterpriseDeductionItemsSelectColumnDeductionCategory EnterpriseDeductionItemsSelectColumn = "deduction_category"
-	// column name
-	EnterpriseDeductionItemsSelectColumnDeductionItemDescription EnterpriseDeductionItemsSelectColumn = "deduction_item_description"
-	// column name
-	EnterpriseDeductionItemsSelectColumnDeletedAt EnterpriseDeductionItemsSelectColumn = "deleted_at"
-	// column name
-	EnterpriseDeductionItemsSelectColumnDeletedBy EnterpriseDeductionItemsSelectColumn = "deleted_by"
-	// column name
-	EnterpriseDeductionItemsSelectColumnDemeritPoints EnterpriseDeductionItemsSelectColumn = "demerit_points"
-	// column name
-	EnterpriseDeductionItemsSelectColumnEnterpriseDeductionItemID EnterpriseDeductionItemsSelectColumn = "enterprise_deduction_item_id"
-	// column name
-	EnterpriseDeductionItemsSelectColumnID EnterpriseDeductionItemsSelectColumn = "id"
-	// column name
-	EnterpriseDeductionItemsSelectColumnIsDelete EnterpriseDeductionItemsSelectColumn = "is_delete"
-	// column name
-	EnterpriseDeductionItemsSelectColumnUpdatedAt EnterpriseDeductionItemsSelectColumn = "updated_at"
-	// column name
-	EnterpriseDeductionItemsSelectColumnUpdatedBy EnterpriseDeductionItemsSelectColumn = "updated_by"
-)
-
-var AllEnterpriseDeductionItemsSelectColumn = []EnterpriseDeductionItemsSelectColumn{
-	EnterpriseDeductionItemsSelectColumnCreatedAt,
-	EnterpriseDeductionItemsSelectColumnCreatedBy,
-	EnterpriseDeductionItemsSelectColumnDeductionCategory,
-	EnterpriseDeductionItemsSelectColumnDeductionItemDescription,
-	EnterpriseDeductionItemsSelectColumnDeletedAt,
-	EnterpriseDeductionItemsSelectColumnDeletedBy,
-	EnterpriseDeductionItemsSelectColumnDemeritPoints,
-	EnterpriseDeductionItemsSelectColumnEnterpriseDeductionItemID,
-	EnterpriseDeductionItemsSelectColumnID,
-	EnterpriseDeductionItemsSelectColumnIsDelete,
-	EnterpriseDeductionItemsSelectColumnUpdatedAt,
-	EnterpriseDeductionItemsSelectColumnUpdatedBy,
-}
-
-func (e EnterpriseDeductionItemsSelectColumn) IsValid() bool {
-	switch e {
-	case EnterpriseDeductionItemsSelectColumnCreatedAt, EnterpriseDeductionItemsSelectColumnCreatedBy, EnterpriseDeductionItemsSelectColumnDeductionCategory, EnterpriseDeductionItemsSelectColumnDeductionItemDescription, EnterpriseDeductionItemsSelectColumnDeletedAt, EnterpriseDeductionItemsSelectColumnDeletedBy, EnterpriseDeductionItemsSelectColumnDemeritPoints, EnterpriseDeductionItemsSelectColumnEnterpriseDeductionItemID, EnterpriseDeductionItemsSelectColumnID, EnterpriseDeductionItemsSelectColumnIsDelete, EnterpriseDeductionItemsSelectColumnUpdatedAt, EnterpriseDeductionItemsSelectColumnUpdatedBy:
-		return true
-	}
-	return false
-}
-
-func (e EnterpriseDeductionItemsSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *EnterpriseDeductionItemsSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = EnterpriseDeductionItemsSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_deduction_items_select_column", str)
-	}
-	return nil
-}
-
-func (e EnterpriseDeductionItemsSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "enterprise_deduction_items"
-type EnterpriseDeductionItemsUpdateColumn string
-
-const (
-	// column name
-	EnterpriseDeductionItemsUpdateColumnCreatedAt EnterpriseDeductionItemsUpdateColumn = "created_at"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnCreatedBy EnterpriseDeductionItemsUpdateColumn = "created_by"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnDeductionCategory EnterpriseDeductionItemsUpdateColumn = "deduction_category"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnDeductionItemDescription EnterpriseDeductionItemsUpdateColumn = "deduction_item_description"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnDeletedAt EnterpriseDeductionItemsUpdateColumn = "deleted_at"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnDeletedBy EnterpriseDeductionItemsUpdateColumn = "deleted_by"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnDemeritPoints EnterpriseDeductionItemsUpdateColumn = "demerit_points"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnEnterpriseDeductionItemID EnterpriseDeductionItemsUpdateColumn = "enterprise_deduction_item_id"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnID EnterpriseDeductionItemsUpdateColumn = "id"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnIsDelete EnterpriseDeductionItemsUpdateColumn = "is_delete"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnUpdatedAt EnterpriseDeductionItemsUpdateColumn = "updated_at"
-	// column name
-	EnterpriseDeductionItemsUpdateColumnUpdatedBy EnterpriseDeductionItemsUpdateColumn = "updated_by"
-)
-
-var AllEnterpriseDeductionItemsUpdateColumn = []EnterpriseDeductionItemsUpdateColumn{
-	EnterpriseDeductionItemsUpdateColumnCreatedAt,
-	EnterpriseDeductionItemsUpdateColumnCreatedBy,
-	EnterpriseDeductionItemsUpdateColumnDeductionCategory,
-	EnterpriseDeductionItemsUpdateColumnDeductionItemDescription,
-	EnterpriseDeductionItemsUpdateColumnDeletedAt,
-	EnterpriseDeductionItemsUpdateColumnDeletedBy,
-	EnterpriseDeductionItemsUpdateColumnDemeritPoints,
-	EnterpriseDeductionItemsUpdateColumnEnterpriseDeductionItemID,
-	EnterpriseDeductionItemsUpdateColumnID,
-	EnterpriseDeductionItemsUpdateColumnIsDelete,
-	EnterpriseDeductionItemsUpdateColumnUpdatedAt,
-	EnterpriseDeductionItemsUpdateColumnUpdatedBy,
-}
-
-func (e EnterpriseDeductionItemsUpdateColumn) IsValid() bool {
-	switch e {
-	case EnterpriseDeductionItemsUpdateColumnCreatedAt, EnterpriseDeductionItemsUpdateColumnCreatedBy, EnterpriseDeductionItemsUpdateColumnDeductionCategory, EnterpriseDeductionItemsUpdateColumnDeductionItemDescription, EnterpriseDeductionItemsUpdateColumnDeletedAt, EnterpriseDeductionItemsUpdateColumnDeletedBy, EnterpriseDeductionItemsUpdateColumnDemeritPoints, EnterpriseDeductionItemsUpdateColumnEnterpriseDeductionItemID, EnterpriseDeductionItemsUpdateColumnID, EnterpriseDeductionItemsUpdateColumnIsDelete, EnterpriseDeductionItemsUpdateColumnUpdatedAt, EnterpriseDeductionItemsUpdateColumnUpdatedBy:
-		return true
-	}
-	return false
-}
-
-func (e EnterpriseDeductionItemsUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *EnterpriseDeductionItemsUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = EnterpriseDeductionItemsUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_deduction_items_update_column", str)
-	}
-	return nil
-}
-
-func (e EnterpriseDeductionItemsUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordConstraint string
-
-const (
-	// unique or primary key constraint
-	EnterpriseDeductionOperationRecordConstraintEnterpriseDeductionOperationRecordPkey EnterpriseDeductionOperationRecordConstraint = "enterprise_deduction_operation_record_pkey"
-)
-
-var AllEnterpriseDeductionOperationRecordConstraint = []EnterpriseDeductionOperationRecordConstraint{
-	EnterpriseDeductionOperationRecordConstraintEnterpriseDeductionOperationRecordPkey,
-}
-
-func (e EnterpriseDeductionOperationRecordConstraint) IsValid() bool {
-	switch e {
-	case EnterpriseDeductionOperationRecordConstraintEnterpriseDeductionOperationRecordPkey:
-		return true
-	}
-	return false
-}
-
-func (e EnterpriseDeductionOperationRecordConstraint) String() string {
-	return string(e)
-}
-
-func (e *EnterpriseDeductionOperationRecordConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = EnterpriseDeductionOperationRecordConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_deduction_operation_record_constraint", str)
-	}
-	return nil
-}
-
-func (e EnterpriseDeductionOperationRecordConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordSelectColumn string
-
-const (
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnCreatedAt EnterpriseDeductionOperationRecordSelectColumn = "created_at"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnCreatedBy EnterpriseDeductionOperationRecordSelectColumn = "created_by"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnDeletedAt EnterpriseDeductionOperationRecordSelectColumn = "deleted_at"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnDeletedBy EnterpriseDeductionOperationRecordSelectColumn = "deleted_by"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnDemeritPoints EnterpriseDeductionOperationRecordSelectColumn = "demerit_points"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnEnterpriseDeductionItemID EnterpriseDeductionOperationRecordSelectColumn = "enterprise_deduction_item_id"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnEnterpriseDuductionOperationID EnterpriseDeductionOperationRecordSelectColumn = "enterprise_duduction_operation_id"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnEnterpriseID EnterpriseDeductionOperationRecordSelectColumn = "enterprise_id"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnID EnterpriseDeductionOperationRecordSelectColumn = "id"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnIsDelete EnterpriseDeductionOperationRecordSelectColumn = "is_delete"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnRemarks EnterpriseDeductionOperationRecordSelectColumn = "remarks"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnUpdatedAt EnterpriseDeductionOperationRecordSelectColumn = "updated_at"
-	// column name
-	EnterpriseDeductionOperationRecordSelectColumnUpdatedBy EnterpriseDeductionOperationRecordSelectColumn = "updated_by"
-)
-
-var AllEnterpriseDeductionOperationRecordSelectColumn = []EnterpriseDeductionOperationRecordSelectColumn{
-	EnterpriseDeductionOperationRecordSelectColumnCreatedAt,
-	EnterpriseDeductionOperationRecordSelectColumnCreatedBy,
-	EnterpriseDeductionOperationRecordSelectColumnDeletedAt,
-	EnterpriseDeductionOperationRecordSelectColumnDeletedBy,
-	EnterpriseDeductionOperationRecordSelectColumnDemeritPoints,
-	EnterpriseDeductionOperationRecordSelectColumnEnterpriseDeductionItemID,
-	EnterpriseDeductionOperationRecordSelectColumnEnterpriseDuductionOperationID,
-	EnterpriseDeductionOperationRecordSelectColumnEnterpriseID,
-	EnterpriseDeductionOperationRecordSelectColumnID,
-	EnterpriseDeductionOperationRecordSelectColumnIsDelete,
-	EnterpriseDeductionOperationRecordSelectColumnRemarks,
-	EnterpriseDeductionOperationRecordSelectColumnUpdatedAt,
-	EnterpriseDeductionOperationRecordSelectColumnUpdatedBy,
-}
-
-func (e EnterpriseDeductionOperationRecordSelectColumn) IsValid() bool {
-	switch e {
-	case EnterpriseDeductionOperationRecordSelectColumnCreatedAt, EnterpriseDeductionOperationRecordSelectColumnCreatedBy, EnterpriseDeductionOperationRecordSelectColumnDeletedAt, EnterpriseDeductionOperationRecordSelectColumnDeletedBy, EnterpriseDeductionOperationRecordSelectColumnDemeritPoints, EnterpriseDeductionOperationRecordSelectColumnEnterpriseDeductionItemID, EnterpriseDeductionOperationRecordSelectColumnEnterpriseDuductionOperationID, EnterpriseDeductionOperationRecordSelectColumnEnterpriseID, EnterpriseDeductionOperationRecordSelectColumnID, EnterpriseDeductionOperationRecordSelectColumnIsDelete, EnterpriseDeductionOperationRecordSelectColumnRemarks, EnterpriseDeductionOperationRecordSelectColumnUpdatedAt, EnterpriseDeductionOperationRecordSelectColumnUpdatedBy:
-		return true
-	}
-	return false
-}
-
-func (e EnterpriseDeductionOperationRecordSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *EnterpriseDeductionOperationRecordSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = EnterpriseDeductionOperationRecordSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_deduction_operation_record_select_column", str)
-	}
-	return nil
-}
-
-func (e EnterpriseDeductionOperationRecordSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "enterprise_deduction_operation_record"
-type EnterpriseDeductionOperationRecordUpdateColumn string
-
-const (
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnCreatedAt EnterpriseDeductionOperationRecordUpdateColumn = "created_at"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnCreatedBy EnterpriseDeductionOperationRecordUpdateColumn = "created_by"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnDeletedAt EnterpriseDeductionOperationRecordUpdateColumn = "deleted_at"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnDeletedBy EnterpriseDeductionOperationRecordUpdateColumn = "deleted_by"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnDemeritPoints EnterpriseDeductionOperationRecordUpdateColumn = "demerit_points"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnEnterpriseDeductionItemID EnterpriseDeductionOperationRecordUpdateColumn = "enterprise_deduction_item_id"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnEnterpriseDuductionOperationID EnterpriseDeductionOperationRecordUpdateColumn = "enterprise_duduction_operation_id"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnEnterpriseID EnterpriseDeductionOperationRecordUpdateColumn = "enterprise_id"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnID EnterpriseDeductionOperationRecordUpdateColumn = "id"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnIsDelete EnterpriseDeductionOperationRecordUpdateColumn = "is_delete"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnRemarks EnterpriseDeductionOperationRecordUpdateColumn = "remarks"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnUpdatedAt EnterpriseDeductionOperationRecordUpdateColumn = "updated_at"
-	// column name
-	EnterpriseDeductionOperationRecordUpdateColumnUpdatedBy EnterpriseDeductionOperationRecordUpdateColumn = "updated_by"
-)
-
-var AllEnterpriseDeductionOperationRecordUpdateColumn = []EnterpriseDeductionOperationRecordUpdateColumn{
-	EnterpriseDeductionOperationRecordUpdateColumnCreatedAt,
-	EnterpriseDeductionOperationRecordUpdateColumnCreatedBy,
-	EnterpriseDeductionOperationRecordUpdateColumnDeletedAt,
-	EnterpriseDeductionOperationRecordUpdateColumnDeletedBy,
-	EnterpriseDeductionOperationRecordUpdateColumnDemeritPoints,
-	EnterpriseDeductionOperationRecordUpdateColumnEnterpriseDeductionItemID,
-	EnterpriseDeductionOperationRecordUpdateColumnEnterpriseDuductionOperationID,
-	EnterpriseDeductionOperationRecordUpdateColumnEnterpriseID,
-	EnterpriseDeductionOperationRecordUpdateColumnID,
-	EnterpriseDeductionOperationRecordUpdateColumnIsDelete,
-	EnterpriseDeductionOperationRecordUpdateColumnRemarks,
-	EnterpriseDeductionOperationRecordUpdateColumnUpdatedAt,
-	EnterpriseDeductionOperationRecordUpdateColumnUpdatedBy,
-}
-
-func (e EnterpriseDeductionOperationRecordUpdateColumn) IsValid() bool {
-	switch e {
-	case EnterpriseDeductionOperationRecordUpdateColumnCreatedAt, EnterpriseDeductionOperationRecordUpdateColumnCreatedBy, EnterpriseDeductionOperationRecordUpdateColumnDeletedAt, EnterpriseDeductionOperationRecordUpdateColumnDeletedBy, EnterpriseDeductionOperationRecordUpdateColumnDemeritPoints, EnterpriseDeductionOperationRecordUpdateColumnEnterpriseDeductionItemID, EnterpriseDeductionOperationRecordUpdateColumnEnterpriseDuductionOperationID, EnterpriseDeductionOperationRecordUpdateColumnEnterpriseID, EnterpriseDeductionOperationRecordUpdateColumnID, EnterpriseDeductionOperationRecordUpdateColumnIsDelete, EnterpriseDeductionOperationRecordUpdateColumnRemarks, EnterpriseDeductionOperationRecordUpdateColumnUpdatedAt, EnterpriseDeductionOperationRecordUpdateColumnUpdatedBy:
-		return true
-	}
-	return false
-}
-
-func (e EnterpriseDeductionOperationRecordUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *EnterpriseDeductionOperationRecordUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = EnterpriseDeductionOperationRecordUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid enterprise_deduction_operation_record_update_column", str)
-	}
-	return nil
-}
-
-func (e EnterpriseDeductionOperationRecordUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "illegal_photo"
-type IllegalPhotoConstraint string
-
-const (
-	// unique or primary key constraint
-	IllegalPhotoConstraintIllegalPhotoPkey IllegalPhotoConstraint = "illegal_photo_pkey"
-)
-
-var AllIllegalPhotoConstraint = []IllegalPhotoConstraint{
-	IllegalPhotoConstraintIllegalPhotoPkey,
-}
-
-func (e IllegalPhotoConstraint) IsValid() bool {
-	switch e {
-	case IllegalPhotoConstraintIllegalPhotoPkey:
-		return true
-	}
-	return false
-}
-
-func (e IllegalPhotoConstraint) String() string {
-	return string(e)
-}
-
-func (e *IllegalPhotoConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = IllegalPhotoConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid illegal_photo_constraint", str)
-	}
-	return nil
-}
-
-func (e IllegalPhotoConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "illegal_photo"
+// 可选select
 type IllegalPhotoSelectColumn string
 
 const (
-	// column name
-	IllegalPhotoSelectColumnCreatedAt IllegalPhotoSelectColumn = "created_at"
-	// column name
-	IllegalPhotoSelectColumnCreatedBy IllegalPhotoSelectColumn = "created_by"
-	// column name
-	IllegalPhotoSelectColumnDeletedAt IllegalPhotoSelectColumn = "deleted_at"
-	// column name
-	IllegalPhotoSelectColumnDeletedBy IllegalPhotoSelectColumn = "deleted_by"
-	// column name
+	// 按指定方法生成                                            ( 主键                       )
 	IllegalPhotoSelectColumnID IllegalPhotoSelectColumn = "id"
-	// column name
+	// 违法照片表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	IllegalPhotoSelectColumnIllegalPhotoID IllegalPhotoSelectColumn = "illegal_photo_id"
-	// column name
-	IllegalPhotoSelectColumnIsDelete IllegalPhotoSelectColumn = "is_delete"
-	// column name
-	IllegalPhotoSelectColumnIsSynchronized IllegalPhotoSelectColumn = "is_synchronized"
-	// column name
-	IllegalPhotoSelectColumnPictureAddress IllegalPhotoSelectColumn = "picture_address"
-	// column name
+	// 违法照片名称                                              (                            )
 	IllegalPhotoSelectColumnPictureName IllegalPhotoSelectColumn = "picture_name"
-	// column name
+	// 违法照片地址                                              (                            )
+	IllegalPhotoSelectColumnPictureAddress IllegalPhotoSelectColumn = "picture_address"
+	// 是否同步                                                  ( false                      )
+	IllegalPhotoSelectColumnIsSynchronized IllegalPhotoSelectColumn = "is_synchronized"
+	// 是否删除                                                  ( false                      )
+	IllegalPhotoSelectColumnIsDeleted IllegalPhotoSelectColumn = "is_deleted"
+	// 创建时间                                                  (                            )
+	IllegalPhotoSelectColumnCreatedAt IllegalPhotoSelectColumn = "created_at"
+	// 创建人                                                    ( system_user表的user_id )
+	IllegalPhotoSelectColumnCreatedBy IllegalPhotoSelectColumn = "created_by"
+	// 修改时间                                                  (                            )
 	IllegalPhotoSelectColumnUpdatedAt IllegalPhotoSelectColumn = "updated_at"
-	// column name
+	// 修改人                                                    ( system_user表的user_id )
 	IllegalPhotoSelectColumnUpdatedBy IllegalPhotoSelectColumn = "updated_by"
+	// 删除时间                                                  (                            )
+	IllegalPhotoSelectColumnDeletedAt IllegalPhotoSelectColumn = "deleted_at"
+	// 删除人                                                    ( system_user表的user_id )
+	IllegalPhotoSelectColumnDeletedBy IllegalPhotoSelectColumn = "deleted_by"
 )
 
 var AllIllegalPhotoSelectColumn = []IllegalPhotoSelectColumn{
-	IllegalPhotoSelectColumnCreatedAt,
-	IllegalPhotoSelectColumnCreatedBy,
-	IllegalPhotoSelectColumnDeletedAt,
-	IllegalPhotoSelectColumnDeletedBy,
 	IllegalPhotoSelectColumnID,
 	IllegalPhotoSelectColumnIllegalPhotoID,
-	IllegalPhotoSelectColumnIsDelete,
-	IllegalPhotoSelectColumnIsSynchronized,
-	IllegalPhotoSelectColumnPictureAddress,
 	IllegalPhotoSelectColumnPictureName,
+	IllegalPhotoSelectColumnPictureAddress,
+	IllegalPhotoSelectColumnIsSynchronized,
+	IllegalPhotoSelectColumnIsDeleted,
+	IllegalPhotoSelectColumnCreatedAt,
+	IllegalPhotoSelectColumnCreatedBy,
 	IllegalPhotoSelectColumnUpdatedAt,
 	IllegalPhotoSelectColumnUpdatedBy,
+	IllegalPhotoSelectColumnDeletedAt,
+	IllegalPhotoSelectColumnDeletedBy,
 }
 
 func (e IllegalPhotoSelectColumn) IsValid() bool {
 	switch e {
-	case IllegalPhotoSelectColumnCreatedAt, IllegalPhotoSelectColumnCreatedBy, IllegalPhotoSelectColumnDeletedAt, IllegalPhotoSelectColumnDeletedBy, IllegalPhotoSelectColumnID, IllegalPhotoSelectColumnIllegalPhotoID, IllegalPhotoSelectColumnIsDelete, IllegalPhotoSelectColumnIsSynchronized, IllegalPhotoSelectColumnPictureAddress, IllegalPhotoSelectColumnPictureName, IllegalPhotoSelectColumnUpdatedAt, IllegalPhotoSelectColumnUpdatedBy:
+	case IllegalPhotoSelectColumnID, IllegalPhotoSelectColumnIllegalPhotoID, IllegalPhotoSelectColumnPictureName, IllegalPhotoSelectColumnPictureAddress, IllegalPhotoSelectColumnIsSynchronized, IllegalPhotoSelectColumnIsDeleted, IllegalPhotoSelectColumnCreatedAt, IllegalPhotoSelectColumnCreatedBy, IllegalPhotoSelectColumnUpdatedAt, IllegalPhotoSelectColumnUpdatedBy, IllegalPhotoSelectColumnDeletedAt, IllegalPhotoSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -5946,7 +2531,7 @@ func (e *IllegalPhotoSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = IllegalPhotoSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid illegal_photo_select_column", str)
+		return fmt.Errorf("%s is not a valid IllegalPhotoSelectColumn", str)
 	}
 	return nil
 }
@@ -5955,190 +2540,75 @@ func (e IllegalPhotoSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "illegal_photo"
-type IllegalPhotoUpdateColumn string
-
-const (
-	// column name
-	IllegalPhotoUpdateColumnCreatedAt IllegalPhotoUpdateColumn = "created_at"
-	// column name
-	IllegalPhotoUpdateColumnCreatedBy IllegalPhotoUpdateColumn = "created_by"
-	// column name
-	IllegalPhotoUpdateColumnDeletedAt IllegalPhotoUpdateColumn = "deleted_at"
-	// column name
-	IllegalPhotoUpdateColumnDeletedBy IllegalPhotoUpdateColumn = "deleted_by"
-	// column name
-	IllegalPhotoUpdateColumnID IllegalPhotoUpdateColumn = "id"
-	// column name
-	IllegalPhotoUpdateColumnIllegalPhotoID IllegalPhotoUpdateColumn = "illegal_photo_id"
-	// column name
-	IllegalPhotoUpdateColumnIsDelete IllegalPhotoUpdateColumn = "is_delete"
-	// column name
-	IllegalPhotoUpdateColumnIsSynchronized IllegalPhotoUpdateColumn = "is_synchronized"
-	// column name
-	IllegalPhotoUpdateColumnPictureAddress IllegalPhotoUpdateColumn = "picture_address"
-	// column name
-	IllegalPhotoUpdateColumnPictureName IllegalPhotoUpdateColumn = "picture_name"
-	// column name
-	IllegalPhotoUpdateColumnUpdatedAt IllegalPhotoUpdateColumn = "updated_at"
-	// column name
-	IllegalPhotoUpdateColumnUpdatedBy IllegalPhotoUpdateColumn = "updated_by"
-)
-
-var AllIllegalPhotoUpdateColumn = []IllegalPhotoUpdateColumn{
-	IllegalPhotoUpdateColumnCreatedAt,
-	IllegalPhotoUpdateColumnCreatedBy,
-	IllegalPhotoUpdateColumnDeletedAt,
-	IllegalPhotoUpdateColumnDeletedBy,
-	IllegalPhotoUpdateColumnID,
-	IllegalPhotoUpdateColumnIllegalPhotoID,
-	IllegalPhotoUpdateColumnIsDelete,
-	IllegalPhotoUpdateColumnIsSynchronized,
-	IllegalPhotoUpdateColumnPictureAddress,
-	IllegalPhotoUpdateColumnPictureName,
-	IllegalPhotoUpdateColumnUpdatedAt,
-	IllegalPhotoUpdateColumnUpdatedBy,
-}
-
-func (e IllegalPhotoUpdateColumn) IsValid() bool {
-	switch e {
-	case IllegalPhotoUpdateColumnCreatedAt, IllegalPhotoUpdateColumnCreatedBy, IllegalPhotoUpdateColumnDeletedAt, IllegalPhotoUpdateColumnDeletedBy, IllegalPhotoUpdateColumnID, IllegalPhotoUpdateColumnIllegalPhotoID, IllegalPhotoUpdateColumnIsDelete, IllegalPhotoUpdateColumnIsSynchronized, IllegalPhotoUpdateColumnPictureAddress, IllegalPhotoUpdateColumnPictureName, IllegalPhotoUpdateColumnUpdatedAt, IllegalPhotoUpdateColumnUpdatedBy:
-		return true
-	}
-	return false
-}
-
-func (e IllegalPhotoUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *IllegalPhotoUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = IllegalPhotoUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid illegal_photo_update_column", str)
-	}
-	return nil
-}
-
-func (e IllegalPhotoUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "regional_violation_register"
-type RegionalViolationRegisterConstraint string
-
-const (
-	// unique or primary key constraint
-	RegionalViolationRegisterConstraintRegionalViolationRegisterPkey RegionalViolationRegisterConstraint = "regional_violation_register_pkey"
-)
-
-var AllRegionalViolationRegisterConstraint = []RegionalViolationRegisterConstraint{
-	RegionalViolationRegisterConstraintRegionalViolationRegisterPkey,
-}
-
-func (e RegionalViolationRegisterConstraint) IsValid() bool {
-	switch e {
-	case RegionalViolationRegisterConstraintRegionalViolationRegisterPkey:
-		return true
-	}
-	return false
-}
-
-func (e RegionalViolationRegisterConstraint) String() string {
-	return string(e)
-}
-
-func (e *RegionalViolationRegisterConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = RegionalViolationRegisterConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid regional_violation_register_constraint", str)
-	}
-	return nil
-}
-
-func (e RegionalViolationRegisterConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "regional_violation_register"
+// 可选select
 type RegionalViolationRegisterSelectColumn string
 
 const (
-	// column name
-	RegionalViolationRegisterSelectColumnCreatedAt RegionalViolationRegisterSelectColumn = "created_at"
-	// column name
-	RegionalViolationRegisterSelectColumnCreatedBy RegionalViolationRegisterSelectColumn = "created_by"
-	// column name
-	RegionalViolationRegisterSelectColumnDeletedAt RegionalViolationRegisterSelectColumn = "deleted_at"
-	// column name
-	RegionalViolationRegisterSelectColumnDeletedBy RegionalViolationRegisterSelectColumn = "deleted_by"
-	// column name
-	RegionalViolationRegisterSelectColumnDriverID RegionalViolationRegisterSelectColumn = "driver_id"
-	// column name
+	// 按指定方法生成                                               ( 主键                                               )
 	RegionalViolationRegisterSelectColumnID RegionalViolationRegisterSelectColumn = "id"
-	// column name
-	RegionalViolationRegisterSelectColumnIllegalCode RegionalViolationRegisterSelectColumn = "illegal_code"
-	// column name
-	RegionalViolationRegisterSelectColumnIllegalTime RegionalViolationRegisterSelectColumn = "illegal_time"
-	// column name
-	RegionalViolationRegisterSelectColumnIllegalType RegionalViolationRegisterSelectColumn = "illegal_type"
-	// column name
-	RegionalViolationRegisterSelectColumnIsDelete RegionalViolationRegisterSelectColumn = "is_delete"
-	// column name
-	RegionalViolationRegisterSelectColumnIsRegister RegionalViolationRegisterSelectColumn = "is_register"
-	// column name
-	RegionalViolationRegisterSelectColumnOperator RegionalViolationRegisterSelectColumn = "operator"
-	// column name
-	RegionalViolationRegisterSelectColumnProcessingAgency RegionalViolationRegisterSelectColumn = "processing_agency"
-	// column name
+	// 区域处理机关交通违法违规登记表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                           )
 	RegionalViolationRegisterSelectColumnRegionalViolationRegisterID RegionalViolationRegisterSelectColumn = "regional_violation_register_id"
-	// column name
-	RegionalViolationRegisterSelectColumnRegisterTime RegionalViolationRegisterSelectColumn = "register_time"
-	// column name
-	RegionalViolationRegisterSelectColumnUpdatedAt RegionalViolationRegisterSelectColumn = "updated_at"
-	// column name
-	RegionalViolationRegisterSelectColumnUpdatedBy RegionalViolationRegisterSelectColumn = "updated_by"
-	// column name
-	RegionalViolationRegisterSelectColumnVehicleID RegionalViolationRegisterSelectColumn = "vehicle_id"
-	// column name
+	// 违法记录表ID                                                 ( vehicle_violation_details的violation_detail_id )
 	RegionalViolationRegisterSelectColumnViolationDetailID RegionalViolationRegisterSelectColumn = "violation_detail_id"
+	// 违章车辆id                                                   ( vehicle_info表的vehicle_id                     )
+	RegionalViolationRegisterSelectColumnVehicleID RegionalViolationRegisterSelectColumn = "vehicle_id"
+	// 驾驶员id                                                     ( driver_info 表的driver_id                      )
+	RegionalViolationRegisterSelectColumnDriverID RegionalViolationRegisterSelectColumn = "driver_id"
+	// 违法代码                                                     ( VIO_CODEWFDM 违法描述字典表                    )
+	RegionalViolationRegisterSelectColumnIllegalCode RegionalViolationRegisterSelectColumn = "illegal_code"
+	// 违法时间                                                     (                                                    )
+	RegionalViolationRegisterSelectColumnIllegalTime RegionalViolationRegisterSelectColumn = "illegal_time"
+	// 类型(1车辆2驾驶员)                                           ( 违法类型字典表                                 )
+	RegionalViolationRegisterSelectColumnIllegalType RegionalViolationRegisterSelectColumn = "illegal_type"
+	// 登记时间                                                     (                                                    )
+	RegionalViolationRegisterSelectColumnRegisterTime RegionalViolationRegisterSelectColumn = "register_time"
+	// 处理机关                                                     (                                                    )
+	RegionalViolationRegisterSelectColumnProcessingAgency RegionalViolationRegisterSelectColumn = "processing_agency"
+	// 操作员                                                       ( system_user表的user_id                         )
+	RegionalViolationRegisterSelectColumnOperator RegionalViolationRegisterSelectColumn = "operator"
+	// 类型(false未登记true已登记)                                  ( fase                                               )
+	RegionalViolationRegisterSelectColumnIsRegister RegionalViolationRegisterSelectColumn = "is_register"
+	// 创建时间                                                     (                                                    )
+	RegionalViolationRegisterSelectColumnCreatedAt RegionalViolationRegisterSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id                         )
+	RegionalViolationRegisterSelectColumnCreatedBy RegionalViolationRegisterSelectColumn = "created_by"
+	// 修改时间                                                     (                                                    )
+	RegionalViolationRegisterSelectColumnUpdatedAt RegionalViolationRegisterSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id                         )
+	RegionalViolationRegisterSelectColumnUpdatedBy RegionalViolationRegisterSelectColumn = "updated_by"
+	// 删除时间                                                     (                                                    )
+	RegionalViolationRegisterSelectColumnDeletedAt RegionalViolationRegisterSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id                         )
+	RegionalViolationRegisterSelectColumnDeletedBy RegionalViolationRegisterSelectColumn = "deleted_by"
+	// 是否删除                                                     (                                                    )
+	RegionalViolationRegisterSelectColumnIsDeleted RegionalViolationRegisterSelectColumn = "is_deleted"
 )
 
 var AllRegionalViolationRegisterSelectColumn = []RegionalViolationRegisterSelectColumn{
-	RegionalViolationRegisterSelectColumnCreatedAt,
-	RegionalViolationRegisterSelectColumnCreatedBy,
-	RegionalViolationRegisterSelectColumnDeletedAt,
-	RegionalViolationRegisterSelectColumnDeletedBy,
-	RegionalViolationRegisterSelectColumnDriverID,
 	RegionalViolationRegisterSelectColumnID,
+	RegionalViolationRegisterSelectColumnRegionalViolationRegisterID,
+	RegionalViolationRegisterSelectColumnViolationDetailID,
+	RegionalViolationRegisterSelectColumnVehicleID,
+	RegionalViolationRegisterSelectColumnDriverID,
 	RegionalViolationRegisterSelectColumnIllegalCode,
 	RegionalViolationRegisterSelectColumnIllegalTime,
 	RegionalViolationRegisterSelectColumnIllegalType,
-	RegionalViolationRegisterSelectColumnIsDelete,
-	RegionalViolationRegisterSelectColumnIsRegister,
-	RegionalViolationRegisterSelectColumnOperator,
-	RegionalViolationRegisterSelectColumnProcessingAgency,
-	RegionalViolationRegisterSelectColumnRegionalViolationRegisterID,
 	RegionalViolationRegisterSelectColumnRegisterTime,
+	RegionalViolationRegisterSelectColumnProcessingAgency,
+	RegionalViolationRegisterSelectColumnOperator,
+	RegionalViolationRegisterSelectColumnIsRegister,
+	RegionalViolationRegisterSelectColumnCreatedAt,
+	RegionalViolationRegisterSelectColumnCreatedBy,
 	RegionalViolationRegisterSelectColumnUpdatedAt,
 	RegionalViolationRegisterSelectColumnUpdatedBy,
-	RegionalViolationRegisterSelectColumnVehicleID,
-	RegionalViolationRegisterSelectColumnViolationDetailID,
+	RegionalViolationRegisterSelectColumnDeletedAt,
+	RegionalViolationRegisterSelectColumnDeletedBy,
+	RegionalViolationRegisterSelectColumnIsDeleted,
 }
 
 func (e RegionalViolationRegisterSelectColumn) IsValid() bool {
 	switch e {
-	case RegionalViolationRegisterSelectColumnCreatedAt, RegionalViolationRegisterSelectColumnCreatedBy, RegionalViolationRegisterSelectColumnDeletedAt, RegionalViolationRegisterSelectColumnDeletedBy, RegionalViolationRegisterSelectColumnDriverID, RegionalViolationRegisterSelectColumnID, RegionalViolationRegisterSelectColumnIllegalCode, RegionalViolationRegisterSelectColumnIllegalTime, RegionalViolationRegisterSelectColumnIllegalType, RegionalViolationRegisterSelectColumnIsDelete, RegionalViolationRegisterSelectColumnIsRegister, RegionalViolationRegisterSelectColumnOperator, RegionalViolationRegisterSelectColumnProcessingAgency, RegionalViolationRegisterSelectColumnRegionalViolationRegisterID, RegionalViolationRegisterSelectColumnRegisterTime, RegionalViolationRegisterSelectColumnUpdatedAt, RegionalViolationRegisterSelectColumnUpdatedBy, RegionalViolationRegisterSelectColumnVehicleID, RegionalViolationRegisterSelectColumnViolationDetailID:
+	case RegionalViolationRegisterSelectColumnID, RegionalViolationRegisterSelectColumnRegionalViolationRegisterID, RegionalViolationRegisterSelectColumnViolationDetailID, RegionalViolationRegisterSelectColumnVehicleID, RegionalViolationRegisterSelectColumnDriverID, RegionalViolationRegisterSelectColumnIllegalCode, RegionalViolationRegisterSelectColumnIllegalTime, RegionalViolationRegisterSelectColumnIllegalType, RegionalViolationRegisterSelectColumnRegisterTime, RegionalViolationRegisterSelectColumnProcessingAgency, RegionalViolationRegisterSelectColumnOperator, RegionalViolationRegisterSelectColumnIsRegister, RegionalViolationRegisterSelectColumnCreatedAt, RegionalViolationRegisterSelectColumnCreatedBy, RegionalViolationRegisterSelectColumnUpdatedAt, RegionalViolationRegisterSelectColumnUpdatedBy, RegionalViolationRegisterSelectColumnDeletedAt, RegionalViolationRegisterSelectColumnDeletedBy, RegionalViolationRegisterSelectColumnIsDeleted:
 		return true
 	}
 	return false
@@ -6156,7 +2626,7 @@ func (e *RegionalViolationRegisterSelectColumn) UnmarshalGQL(v interface{}) erro
 
 	*e = RegionalViolationRegisterSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid regional_violation_register_select_column", str)
+		return fmt.Errorf("%s is not a valid RegionalViolationRegisterSelectColumn", str)
 	}
 	return nil
 }
@@ -6165,658 +2635,185 @@ func (e RegionalViolationRegisterSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "regional_violation_register"
-type RegionalViolationRegisterUpdateColumn string
+// 可选select
+type SeriousTrafficViolationSelectColumn string
 
 const (
-	// column name
-	RegionalViolationRegisterUpdateColumnCreatedAt RegionalViolationRegisterUpdateColumn = "created_at"
-	// column name
-	RegionalViolationRegisterUpdateColumnCreatedBy RegionalViolationRegisterUpdateColumn = "created_by"
-	// column name
-	RegionalViolationRegisterUpdateColumnDeletedAt RegionalViolationRegisterUpdateColumn = "deleted_at"
-	// column name
-	RegionalViolationRegisterUpdateColumnDeletedBy RegionalViolationRegisterUpdateColumn = "deleted_by"
-	// column name
-	RegionalViolationRegisterUpdateColumnDriverID RegionalViolationRegisterUpdateColumn = "driver_id"
-	// column name
-	RegionalViolationRegisterUpdateColumnID RegionalViolationRegisterUpdateColumn = "id"
-	// column name
-	RegionalViolationRegisterUpdateColumnIllegalCode RegionalViolationRegisterUpdateColumn = "illegal_code"
-	// column name
-	RegionalViolationRegisterUpdateColumnIllegalTime RegionalViolationRegisterUpdateColumn = "illegal_time"
-	// column name
-	RegionalViolationRegisterUpdateColumnIllegalType RegionalViolationRegisterUpdateColumn = "illegal_type"
-	// column name
-	RegionalViolationRegisterUpdateColumnIsDelete RegionalViolationRegisterUpdateColumn = "is_delete"
-	// column name
-	RegionalViolationRegisterUpdateColumnIsRegister RegionalViolationRegisterUpdateColumn = "is_register"
-	// column name
-	RegionalViolationRegisterUpdateColumnOperator RegionalViolationRegisterUpdateColumn = "operator"
-	// column name
-	RegionalViolationRegisterUpdateColumnProcessingAgency RegionalViolationRegisterUpdateColumn = "processing_agency"
-	// column name
-	RegionalViolationRegisterUpdateColumnRegionalViolationRegisterID RegionalViolationRegisterUpdateColumn = "regional_violation_register_id"
-	// column name
-	RegionalViolationRegisterUpdateColumnRegisterTime RegionalViolationRegisterUpdateColumn = "register_time"
-	// column name
-	RegionalViolationRegisterUpdateColumnUpdatedAt RegionalViolationRegisterUpdateColumn = "updated_at"
-	// column name
-	RegionalViolationRegisterUpdateColumnUpdatedBy RegionalViolationRegisterUpdateColumn = "updated_by"
-	// column name
-	RegionalViolationRegisterUpdateColumnVehicleID RegionalViolationRegisterUpdateColumn = "vehicle_id"
-	// column name
-	RegionalViolationRegisterUpdateColumnViolationDetailID RegionalViolationRegisterUpdateColumn = "violation_detail_id"
+	// 按指定方法生成                                  ( 主键                            )
+	SeriousTrafficViolationSelectColumnID SeriousTrafficViolationSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                        )
+	SeriousTrafficViolationSelectColumnSeriousTrafficViolationID SeriousTrafficViolationSelectColumn = "serious_traffic_violation_id"
+	// 违章车辆id                                      ( vehicle_info表的vehicle_id  )
+	SeriousTrafficViolationSelectColumnVehicleID SeriousTrafficViolationSelectColumn = "vehicle_id"
+	// 违法代码                                        ( VIO_CODEWFDM 违法描述字典表 )
+	SeriousTrafficViolationSelectColumnIllegalCode SeriousTrafficViolationSelectColumn = "illegal_code"
+	// 违法日期                                        (                                 )
+	SeriousTrafficViolationSelectColumnIllegalTime SeriousTrafficViolationSelectColumn = "illegal_time"
+	// 创建时间                                        (                                 )
+	SeriousTrafficViolationSelectColumnCreatedAt SeriousTrafficViolationSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id      )
+	SeriousTrafficViolationSelectColumnCreatedBy SeriousTrafficViolationSelectColumn = "created_by"
+	// 修改时间                                        (                                 )
+	SeriousTrafficViolationSelectColumnUpdatedAt SeriousTrafficViolationSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id      )
+	SeriousTrafficViolationSelectColumnUpdatedBy SeriousTrafficViolationSelectColumn = "updated_by"
+	// 删除时间                                        (                                 )
+	SeriousTrafficViolationSelectColumnDeletedAt SeriousTrafficViolationSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id      )
+	SeriousTrafficViolationSelectColumnDeletedBy SeriousTrafficViolationSelectColumn = "deleted_by"
 )
 
-var AllRegionalViolationRegisterUpdateColumn = []RegionalViolationRegisterUpdateColumn{
-	RegionalViolationRegisterUpdateColumnCreatedAt,
-	RegionalViolationRegisterUpdateColumnCreatedBy,
-	RegionalViolationRegisterUpdateColumnDeletedAt,
-	RegionalViolationRegisterUpdateColumnDeletedBy,
-	RegionalViolationRegisterUpdateColumnDriverID,
-	RegionalViolationRegisterUpdateColumnID,
-	RegionalViolationRegisterUpdateColumnIllegalCode,
-	RegionalViolationRegisterUpdateColumnIllegalTime,
-	RegionalViolationRegisterUpdateColumnIllegalType,
-	RegionalViolationRegisterUpdateColumnIsDelete,
-	RegionalViolationRegisterUpdateColumnIsRegister,
-	RegionalViolationRegisterUpdateColumnOperator,
-	RegionalViolationRegisterUpdateColumnProcessingAgency,
-	RegionalViolationRegisterUpdateColumnRegionalViolationRegisterID,
-	RegionalViolationRegisterUpdateColumnRegisterTime,
-	RegionalViolationRegisterUpdateColumnUpdatedAt,
-	RegionalViolationRegisterUpdateColumnUpdatedBy,
-	RegionalViolationRegisterUpdateColumnVehicleID,
-	RegionalViolationRegisterUpdateColumnViolationDetailID,
+var AllSeriousTrafficViolationSelectColumn = []SeriousTrafficViolationSelectColumn{
+	SeriousTrafficViolationSelectColumnID,
+	SeriousTrafficViolationSelectColumnSeriousTrafficViolationID,
+	SeriousTrafficViolationSelectColumnVehicleID,
+	SeriousTrafficViolationSelectColumnIllegalCode,
+	SeriousTrafficViolationSelectColumnIllegalTime,
+	SeriousTrafficViolationSelectColumnCreatedAt,
+	SeriousTrafficViolationSelectColumnCreatedBy,
+	SeriousTrafficViolationSelectColumnUpdatedAt,
+	SeriousTrafficViolationSelectColumnUpdatedBy,
+	SeriousTrafficViolationSelectColumnDeletedAt,
+	SeriousTrafficViolationSelectColumnDeletedBy,
 }
 
-func (e RegionalViolationRegisterUpdateColumn) IsValid() bool {
+func (e SeriousTrafficViolationSelectColumn) IsValid() bool {
 	switch e {
-	case RegionalViolationRegisterUpdateColumnCreatedAt, RegionalViolationRegisterUpdateColumnCreatedBy, RegionalViolationRegisterUpdateColumnDeletedAt, RegionalViolationRegisterUpdateColumnDeletedBy, RegionalViolationRegisterUpdateColumnDriverID, RegionalViolationRegisterUpdateColumnID, RegionalViolationRegisterUpdateColumnIllegalCode, RegionalViolationRegisterUpdateColumnIllegalTime, RegionalViolationRegisterUpdateColumnIllegalType, RegionalViolationRegisterUpdateColumnIsDelete, RegionalViolationRegisterUpdateColumnIsRegister, RegionalViolationRegisterUpdateColumnOperator, RegionalViolationRegisterUpdateColumnProcessingAgency, RegionalViolationRegisterUpdateColumnRegionalViolationRegisterID, RegionalViolationRegisterUpdateColumnRegisterTime, RegionalViolationRegisterUpdateColumnUpdatedAt, RegionalViolationRegisterUpdateColumnUpdatedBy, RegionalViolationRegisterUpdateColumnVehicleID, RegionalViolationRegisterUpdateColumnViolationDetailID:
+	case SeriousTrafficViolationSelectColumnID, SeriousTrafficViolationSelectColumnSeriousTrafficViolationID, SeriousTrafficViolationSelectColumnVehicleID, SeriousTrafficViolationSelectColumnIllegalCode, SeriousTrafficViolationSelectColumnIllegalTime, SeriousTrafficViolationSelectColumnCreatedAt, SeriousTrafficViolationSelectColumnCreatedBy, SeriousTrafficViolationSelectColumnUpdatedAt, SeriousTrafficViolationSelectColumnUpdatedBy, SeriousTrafficViolationSelectColumnDeletedAt, SeriousTrafficViolationSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e RegionalViolationRegisterUpdateColumn) String() string {
+func (e SeriousTrafficViolationSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *RegionalViolationRegisterUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *SeriousTrafficViolationSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = RegionalViolationRegisterUpdateColumn(str)
+	*e = SeriousTrafficViolationSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid regional_violation_register_update_column", str)
+		return fmt.Errorf("%s is not a valid SeriousTrafficViolationSelectColumn", str)
 	}
 	return nil
 }
 
-func (e RegionalViolationRegisterUpdateColumn) MarshalGQL(w io.Writer) {
+func (e SeriousTrafficViolationSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "user_operation_log"
-type UserOperationLogConstraint string
-
-const (
-	// unique or primary key constraint
-	UserOperationLogConstraintUserOperationLogPkey UserOperationLogConstraint = "user_operation_log_pkey"
-)
-
-var AllUserOperationLogConstraint = []UserOperationLogConstraint{
-	UserOperationLogConstraintUserOperationLogPkey,
-}
-
-func (e UserOperationLogConstraint) IsValid() bool {
-	switch e {
-	case UserOperationLogConstraintUserOperationLogPkey:
-		return true
-	}
-	return false
-}
-
-func (e UserOperationLogConstraint) String() string {
-	return string(e)
-}
-
-func (e *UserOperationLogConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = UserOperationLogConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid user_operation_log_constraint", str)
-	}
-	return nil
-}
-
-func (e UserOperationLogConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "user_operation_log"
-type UserOperationLogSelectColumn string
-
-const (
-	// column name
-	UserOperationLogSelectColumnCreatedAt UserOperationLogSelectColumn = "created_at"
-	// column name
-	UserOperationLogSelectColumnCreatedBy UserOperationLogSelectColumn = "created_by"
-	// column name
-	UserOperationLogSelectColumnDeletedAt UserOperationLogSelectColumn = "deleted_at"
-	// column name
-	UserOperationLogSelectColumnDeletedBy UserOperationLogSelectColumn = "deleted_by"
-	// column name
-	UserOperationLogSelectColumnID UserOperationLogSelectColumn = "id"
-	// column name
-	UserOperationLogSelectColumnIllegalTime UserOperationLogSelectColumn = "illegal_time"
-	// column name
-	UserOperationLogSelectColumnLicensePlateNumber UserOperationLogSelectColumn = "license_plate_number"
-	// column name
-	UserOperationLogSelectColumnUpdatedAt UserOperationLogSelectColumn = "updated_at"
-	// column name
-	UserOperationLogSelectColumnUpdatedBy UserOperationLogSelectColumn = "updated_by"
-	// column name
-	UserOperationLogSelectColumnUserIP UserOperationLogSelectColumn = "user_ip"
-)
-
-var AllUserOperationLogSelectColumn = []UserOperationLogSelectColumn{
-	UserOperationLogSelectColumnCreatedAt,
-	UserOperationLogSelectColumnCreatedBy,
-	UserOperationLogSelectColumnDeletedAt,
-	UserOperationLogSelectColumnDeletedBy,
-	UserOperationLogSelectColumnID,
-	UserOperationLogSelectColumnIllegalTime,
-	UserOperationLogSelectColumnLicensePlateNumber,
-	UserOperationLogSelectColumnUpdatedAt,
-	UserOperationLogSelectColumnUpdatedBy,
-	UserOperationLogSelectColumnUserIP,
-}
-
-func (e UserOperationLogSelectColumn) IsValid() bool {
-	switch e {
-	case UserOperationLogSelectColumnCreatedAt, UserOperationLogSelectColumnCreatedBy, UserOperationLogSelectColumnDeletedAt, UserOperationLogSelectColumnDeletedBy, UserOperationLogSelectColumnID, UserOperationLogSelectColumnIllegalTime, UserOperationLogSelectColumnLicensePlateNumber, UserOperationLogSelectColumnUpdatedAt, UserOperationLogSelectColumnUpdatedBy, UserOperationLogSelectColumnUserIP:
-		return true
-	}
-	return false
-}
-
-func (e UserOperationLogSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *UserOperationLogSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = UserOperationLogSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid user_operation_log_select_column", str)
-	}
-	return nil
-}
-
-func (e UserOperationLogSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "user_operation_log"
-type UserOperationLogUpdateColumn string
-
-const (
-	// column name
-	UserOperationLogUpdateColumnCreatedAt UserOperationLogUpdateColumn = "created_at"
-	// column name
-	UserOperationLogUpdateColumnCreatedBy UserOperationLogUpdateColumn = "created_by"
-	// column name
-	UserOperationLogUpdateColumnDeletedAt UserOperationLogUpdateColumn = "deleted_at"
-	// column name
-	UserOperationLogUpdateColumnDeletedBy UserOperationLogUpdateColumn = "deleted_by"
-	// column name
-	UserOperationLogUpdateColumnID UserOperationLogUpdateColumn = "id"
-	// column name
-	UserOperationLogUpdateColumnIllegalTime UserOperationLogUpdateColumn = "illegal_time"
-	// column name
-	UserOperationLogUpdateColumnLicensePlateNumber UserOperationLogUpdateColumn = "license_plate_number"
-	// column name
-	UserOperationLogUpdateColumnUpdatedAt UserOperationLogUpdateColumn = "updated_at"
-	// column name
-	UserOperationLogUpdateColumnUpdatedBy UserOperationLogUpdateColumn = "updated_by"
-	// column name
-	UserOperationLogUpdateColumnUserIP UserOperationLogUpdateColumn = "user_ip"
-)
-
-var AllUserOperationLogUpdateColumn = []UserOperationLogUpdateColumn{
-	UserOperationLogUpdateColumnCreatedAt,
-	UserOperationLogUpdateColumnCreatedBy,
-	UserOperationLogUpdateColumnDeletedAt,
-	UserOperationLogUpdateColumnDeletedBy,
-	UserOperationLogUpdateColumnID,
-	UserOperationLogUpdateColumnIllegalTime,
-	UserOperationLogUpdateColumnLicensePlateNumber,
-	UserOperationLogUpdateColumnUpdatedAt,
-	UserOperationLogUpdateColumnUpdatedBy,
-	UserOperationLogUpdateColumnUserIP,
-}
-
-func (e UserOperationLogUpdateColumn) IsValid() bool {
-	switch e {
-	case UserOperationLogUpdateColumnCreatedAt, UserOperationLogUpdateColumnCreatedBy, UserOperationLogUpdateColumnDeletedAt, UserOperationLogUpdateColumnDeletedBy, UserOperationLogUpdateColumnID, UserOperationLogUpdateColumnIllegalTime, UserOperationLogUpdateColumnLicensePlateNumber, UserOperationLogUpdateColumnUpdatedAt, UserOperationLogUpdateColumnUpdatedBy, UserOperationLogUpdateColumnUserIP:
-		return true
-	}
-	return false
-}
-
-func (e UserOperationLogUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *UserOperationLogUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = UserOperationLogUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid user_operation_log_update_column", str)
-	}
-	return nil
-}
-
-func (e UserOperationLogUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "vehicle_detain_details"
-type VehicleDetainDetailsConstraint string
-
-const (
-	// unique or primary key constraint
-	VehicleDetainDetailsConstraintVehicleDetainDetailsPkey VehicleDetainDetailsConstraint = "vehicle_detain_details_pkey"
-)
-
-var AllVehicleDetainDetailsConstraint = []VehicleDetainDetailsConstraint{
-	VehicleDetainDetailsConstraintVehicleDetainDetailsPkey,
-}
-
-func (e VehicleDetainDetailsConstraint) IsValid() bool {
-	switch e {
-	case VehicleDetainDetailsConstraintVehicleDetainDetailsPkey:
-		return true
-	}
-	return false
-}
-
-func (e VehicleDetainDetailsConstraint) String() string {
-	return string(e)
-}
-
-func (e *VehicleDetainDetailsConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleDetainDetailsConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_detain_details_constraint", str)
-	}
-	return nil
-}
-
-func (e VehicleDetainDetailsConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "vehicle_detain_details"
-type VehicleDetainDetailsSelectColumn string
-
-const (
-	// column name
-	VehicleDetainDetailsSelectColumnBayonetPicture VehicleDetainDetailsSelectColumn = "bayonet_picture"
-	// column name
-	VehicleDetainDetailsSelectColumnID VehicleDetainDetailsSelectColumn = "id"
-	// column name
-	VehicleDetainDetailsSelectColumnIsBayonet VehicleDetainDetailsSelectColumn = "is_bayonet"
-	// column name
-	VehicleDetainDetailsSelectColumnIsCategory VehicleDetainDetailsSelectColumn = "is_category"
-	// column name
-	VehicleDetainDetailsSelectColumnIsDelete VehicleDetainDetailsSelectColumn = "is_delete"
-	// column name
-	VehicleDetainDetailsSelectColumnIsIllegal VehicleDetainDetailsSelectColumn = "is_illegal"
-	// column name
-	VehicleDetainDetailsSelectColumnIsSatelliteJudgment VehicleDetainDetailsSelectColumn = "is_satellite_judgment"
-	// column name
-	VehicleDetainDetailsSelectColumnLicensePlateColor VehicleDetainDetailsSelectColumn = "license_plate_color"
-	// column name
-	VehicleDetainDetailsSelectColumnLicensePlateNumber VehicleDetainDetailsSelectColumn = "license_plate_number"
-	// column name
-	VehicleDetainDetailsSelectColumnRecordTime VehicleDetainDetailsSelectColumn = "record_time"
-	// column name
-	VehicleDetainDetailsSelectColumnRegisterRegion VehicleDetainDetailsSelectColumn = "register_region"
-	// column name
-	VehicleDetainDetailsSelectColumnRegisterUser VehicleDetainDetailsSelectColumn = "register_user"
-	// column name
-	VehicleDetainDetailsSelectColumnRemarks VehicleDetainDetailsSelectColumn = "remarks"
-	// column name
-	VehicleDetainDetailsSelectColumnUpdateTime VehicleDetainDetailsSelectColumn = "update_time"
-	// column name
-	VehicleDetainDetailsSelectColumnVehicleDetainPicture VehicleDetainDetailsSelectColumn = "vehicle_detain_picture"
-	// column name
-	VehicleDetainDetailsSelectColumnVehicleDetainStatus VehicleDetainDetailsSelectColumn = "vehicle_detain_status"
-	// column name
-	VehicleDetainDetailsSelectColumnVehicleDetainTime VehicleDetainDetailsSelectColumn = "vehicle_detain_time"
-	// column name
-	VehicleDetainDetailsSelectColumnVehicleReleasePicture VehicleDetainDetailsSelectColumn = "vehicle_release_picture"
-	// column name
-	VehicleDetainDetailsSelectColumnVehicleReleaseTime VehicleDetainDetailsSelectColumn = "vehicle_release_time"
-)
-
-var AllVehicleDetainDetailsSelectColumn = []VehicleDetainDetailsSelectColumn{
-	VehicleDetainDetailsSelectColumnBayonetPicture,
-	VehicleDetainDetailsSelectColumnID,
-	VehicleDetainDetailsSelectColumnIsBayonet,
-	VehicleDetainDetailsSelectColumnIsCategory,
-	VehicleDetainDetailsSelectColumnIsDelete,
-	VehicleDetainDetailsSelectColumnIsIllegal,
-	VehicleDetainDetailsSelectColumnIsSatelliteJudgment,
-	VehicleDetainDetailsSelectColumnLicensePlateColor,
-	VehicleDetainDetailsSelectColumnLicensePlateNumber,
-	VehicleDetainDetailsSelectColumnRecordTime,
-	VehicleDetainDetailsSelectColumnRegisterRegion,
-	VehicleDetainDetailsSelectColumnRegisterUser,
-	VehicleDetainDetailsSelectColumnRemarks,
-	VehicleDetainDetailsSelectColumnUpdateTime,
-	VehicleDetainDetailsSelectColumnVehicleDetainPicture,
-	VehicleDetainDetailsSelectColumnVehicleDetainStatus,
-	VehicleDetainDetailsSelectColumnVehicleDetainTime,
-	VehicleDetainDetailsSelectColumnVehicleReleasePicture,
-	VehicleDetainDetailsSelectColumnVehicleReleaseTime,
-}
-
-func (e VehicleDetainDetailsSelectColumn) IsValid() bool {
-	switch e {
-	case VehicleDetainDetailsSelectColumnBayonetPicture, VehicleDetainDetailsSelectColumnID, VehicleDetainDetailsSelectColumnIsBayonet, VehicleDetainDetailsSelectColumnIsCategory, VehicleDetainDetailsSelectColumnIsDelete, VehicleDetainDetailsSelectColumnIsIllegal, VehicleDetainDetailsSelectColumnIsSatelliteJudgment, VehicleDetainDetailsSelectColumnLicensePlateColor, VehicleDetainDetailsSelectColumnLicensePlateNumber, VehicleDetainDetailsSelectColumnRecordTime, VehicleDetainDetailsSelectColumnRegisterRegion, VehicleDetainDetailsSelectColumnRegisterUser, VehicleDetainDetailsSelectColumnRemarks, VehicleDetainDetailsSelectColumnUpdateTime, VehicleDetainDetailsSelectColumnVehicleDetainPicture, VehicleDetainDetailsSelectColumnVehicleDetainStatus, VehicleDetainDetailsSelectColumnVehicleDetainTime, VehicleDetainDetailsSelectColumnVehicleReleasePicture, VehicleDetainDetailsSelectColumnVehicleReleaseTime:
-		return true
-	}
-	return false
-}
-
-func (e VehicleDetainDetailsSelectColumn) String() string {
-	return string(e)
-}
-
-func (e *VehicleDetainDetailsSelectColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleDetainDetailsSelectColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_detain_details_select_column", str)
-	}
-	return nil
-}
-
-func (e VehicleDetainDetailsSelectColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// update columns of table "vehicle_detain_details"
-type VehicleDetainDetailsUpdateColumn string
-
-const (
-	// column name
-	VehicleDetainDetailsUpdateColumnBayonetPicture VehicleDetainDetailsUpdateColumn = "bayonet_picture"
-	// column name
-	VehicleDetainDetailsUpdateColumnID VehicleDetainDetailsUpdateColumn = "id"
-	// column name
-	VehicleDetainDetailsUpdateColumnIsBayonet VehicleDetainDetailsUpdateColumn = "is_bayonet"
-	// column name
-	VehicleDetainDetailsUpdateColumnIsCategory VehicleDetainDetailsUpdateColumn = "is_category"
-	// column name
-	VehicleDetainDetailsUpdateColumnIsDelete VehicleDetainDetailsUpdateColumn = "is_delete"
-	// column name
-	VehicleDetainDetailsUpdateColumnIsIllegal VehicleDetainDetailsUpdateColumn = "is_illegal"
-	// column name
-	VehicleDetainDetailsUpdateColumnIsSatelliteJudgment VehicleDetainDetailsUpdateColumn = "is_satellite_judgment"
-	// column name
-	VehicleDetainDetailsUpdateColumnLicensePlateColor VehicleDetainDetailsUpdateColumn = "license_plate_color"
-	// column name
-	VehicleDetainDetailsUpdateColumnLicensePlateNumber VehicleDetainDetailsUpdateColumn = "license_plate_number"
-	// column name
-	VehicleDetainDetailsUpdateColumnRecordTime VehicleDetainDetailsUpdateColumn = "record_time"
-	// column name
-	VehicleDetainDetailsUpdateColumnRegisterRegion VehicleDetainDetailsUpdateColumn = "register_region"
-	// column name
-	VehicleDetainDetailsUpdateColumnRegisterUser VehicleDetainDetailsUpdateColumn = "register_user"
-	// column name
-	VehicleDetainDetailsUpdateColumnRemarks VehicleDetainDetailsUpdateColumn = "remarks"
-	// column name
-	VehicleDetainDetailsUpdateColumnUpdateTime VehicleDetainDetailsUpdateColumn = "update_time"
-	// column name
-	VehicleDetainDetailsUpdateColumnVehicleDetainPicture VehicleDetainDetailsUpdateColumn = "vehicle_detain_picture"
-	// column name
-	VehicleDetainDetailsUpdateColumnVehicleDetainStatus VehicleDetainDetailsUpdateColumn = "vehicle_detain_status"
-	// column name
-	VehicleDetainDetailsUpdateColumnVehicleDetainTime VehicleDetainDetailsUpdateColumn = "vehicle_detain_time"
-	// column name
-	VehicleDetainDetailsUpdateColumnVehicleReleasePicture VehicleDetainDetailsUpdateColumn = "vehicle_release_picture"
-	// column name
-	VehicleDetainDetailsUpdateColumnVehicleReleaseTime VehicleDetainDetailsUpdateColumn = "vehicle_release_time"
-)
-
-var AllVehicleDetainDetailsUpdateColumn = []VehicleDetainDetailsUpdateColumn{
-	VehicleDetainDetailsUpdateColumnBayonetPicture,
-	VehicleDetainDetailsUpdateColumnID,
-	VehicleDetainDetailsUpdateColumnIsBayonet,
-	VehicleDetainDetailsUpdateColumnIsCategory,
-	VehicleDetainDetailsUpdateColumnIsDelete,
-	VehicleDetainDetailsUpdateColumnIsIllegal,
-	VehicleDetainDetailsUpdateColumnIsSatelliteJudgment,
-	VehicleDetainDetailsUpdateColumnLicensePlateColor,
-	VehicleDetainDetailsUpdateColumnLicensePlateNumber,
-	VehicleDetainDetailsUpdateColumnRecordTime,
-	VehicleDetainDetailsUpdateColumnRegisterRegion,
-	VehicleDetainDetailsUpdateColumnRegisterUser,
-	VehicleDetainDetailsUpdateColumnRemarks,
-	VehicleDetainDetailsUpdateColumnUpdateTime,
-	VehicleDetainDetailsUpdateColumnVehicleDetainPicture,
-	VehicleDetainDetailsUpdateColumnVehicleDetainStatus,
-	VehicleDetainDetailsUpdateColumnVehicleDetainTime,
-	VehicleDetainDetailsUpdateColumnVehicleReleasePicture,
-	VehicleDetainDetailsUpdateColumnVehicleReleaseTime,
-}
-
-func (e VehicleDetainDetailsUpdateColumn) IsValid() bool {
-	switch e {
-	case VehicleDetainDetailsUpdateColumnBayonetPicture, VehicleDetainDetailsUpdateColumnID, VehicleDetainDetailsUpdateColumnIsBayonet, VehicleDetainDetailsUpdateColumnIsCategory, VehicleDetainDetailsUpdateColumnIsDelete, VehicleDetainDetailsUpdateColumnIsIllegal, VehicleDetainDetailsUpdateColumnIsSatelliteJudgment, VehicleDetainDetailsUpdateColumnLicensePlateColor, VehicleDetainDetailsUpdateColumnLicensePlateNumber, VehicleDetainDetailsUpdateColumnRecordTime, VehicleDetainDetailsUpdateColumnRegisterRegion, VehicleDetainDetailsUpdateColumnRegisterUser, VehicleDetainDetailsUpdateColumnRemarks, VehicleDetainDetailsUpdateColumnUpdateTime, VehicleDetainDetailsUpdateColumnVehicleDetainPicture, VehicleDetainDetailsUpdateColumnVehicleDetainStatus, VehicleDetainDetailsUpdateColumnVehicleDetainTime, VehicleDetainDetailsUpdateColumnVehicleReleasePicture, VehicleDetainDetailsUpdateColumnVehicleReleaseTime:
-		return true
-	}
-	return false
-}
-
-func (e VehicleDetainDetailsUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *VehicleDetainDetailsUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleDetainDetailsUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_detain_details_update_column", str)
-	}
-	return nil
-}
-
-func (e VehicleDetainDetailsUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "vehicle_violation_details"
-type VehicleViolationDetailsConstraint string
-
-const (
-	// unique or primary key constraint
-	VehicleViolationDetailsConstraintVehicleViolationDetailsPkey VehicleViolationDetailsConstraint = "vehicle_violation_details_pkey"
-)
-
-var AllVehicleViolationDetailsConstraint = []VehicleViolationDetailsConstraint{
-	VehicleViolationDetailsConstraintVehicleViolationDetailsPkey,
-}
-
-func (e VehicleViolationDetailsConstraint) IsValid() bool {
-	switch e {
-	case VehicleViolationDetailsConstraintVehicleViolationDetailsPkey:
-		return true
-	}
-	return false
-}
-
-func (e VehicleViolationDetailsConstraint) String() string {
-	return string(e)
-}
-
-func (e *VehicleViolationDetailsConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleViolationDetailsConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_violation_details_constraint", str)
-	}
-	return nil
-}
-
-func (e VehicleViolationDetailsConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "vehicle_violation_details"
+// 可选select
 type VehicleViolationDetailsSelectColumn string
 
 const (
-	// column name
-	VehicleViolationDetailsSelectColumnCreatedAt VehicleViolationDetailsSelectColumn = "created_at"
-	// column name
-	VehicleViolationDetailsSelectColumnCreatedBy VehicleViolationDetailsSelectColumn = "created_by"
-	// column name
-	VehicleViolationDetailsSelectColumnDecisionNumber VehicleViolationDetailsSelectColumn = "decision_number"
-	// column name
-	VehicleViolationDetailsSelectColumnDeletedAt VehicleViolationDetailsSelectColumn = "deleted_at"
-	// column name
-	VehicleViolationDetailsSelectColumnDeletedBy VehicleViolationDetailsSelectColumn = "deleted_by"
-	// column name
-	VehicleViolationDetailsSelectColumnDiscoveryAgency VehicleViolationDetailsSelectColumn = "discovery_agency"
-	// column name
-	VehicleViolationDetailsSelectColumnDriverID VehicleViolationDetailsSelectColumn = "driver_id"
-	// column name
-	VehicleViolationDetailsSelectColumnEnterpriseID VehicleViolationDetailsSelectColumn = "enterprise_id"
-	// column name
-	VehicleViolationDetailsSelectColumnHandleAt VehicleViolationDetailsSelectColumn = "handle_at"
-	// column name
-	VehicleViolationDetailsSelectColumnHandleBy VehicleViolationDetailsSelectColumn = "handle_by"
-	// column name
+	// 按指定方法生成                                              ( 主键                                                         )
 	VehicleViolationDetailsSelectColumnID VehicleViolationDetailsSelectColumn = "id"
-	// column name
-	VehicleViolationDetailsSelectColumnIllegalCode VehicleViolationDetailsSelectColumn = "illegal_code"
-	// column name
-	VehicleViolationDetailsSelectColumnIllegalHandlingStatus VehicleViolationDetailsSelectColumn = "illegal_handling_status"
-	// column name
-	VehicleViolationDetailsSelectColumnIllegalLocation VehicleViolationDetailsSelectColumn = "illegal_location"
-	// column name
-	VehicleViolationDetailsSelectColumnIllegalPhoto VehicleViolationDetailsSelectColumn = "illegal_photo"
-	// column name
-	VehicleViolationDetailsSelectColumnIllegalTime VehicleViolationDetailsSelectColumn = "illegal_time"
-	// column name
-	VehicleViolationDetailsSelectColumnInformationSource VehicleViolationDetailsSelectColumn = "information_source"
-	// column name
-	VehicleViolationDetailsSelectColumnIsDelete VehicleViolationDetailsSelectColumn = "is_delete"
-	// column name
-	VehicleViolationDetailsSelectColumnIsHandle VehicleViolationDetailsSelectColumn = "is_handle"
-	// column name
-	VehicleViolationDetailsSelectColumnIsNoticeDriver VehicleViolationDetailsSelectColumn = "is_notice_driver"
-	// column name
-	VehicleViolationDetailsSelectColumnIsSend VehicleViolationDetailsSelectColumn = "is_send"
-	// column name
-	VehicleViolationDetailsSelectColumnMeasuredValue VehicleViolationDetailsSelectColumn = "measured_value"
-	// column name
-	VehicleViolationDetailsSelectColumnNoticeTime VehicleViolationDetailsSelectColumn = "notice_time"
-	// column name
-	VehicleViolationDetailsSelectColumnPartyName VehicleViolationDetailsSelectColumn = "party_name"
-	// column name
-	VehicleViolationDetailsSelectColumnPaymentMark VehicleViolationDetailsSelectColumn = "payment_mark"
-	// column name
-	VehicleViolationDetailsSelectColumnStandardValue VehicleViolationDetailsSelectColumn = "standard_value"
-	// column name
-	VehicleViolationDetailsSelectColumnUpdateTimeIn VehicleViolationDetailsSelectColumn = "update_time_in"
-	// column name
-	VehicleViolationDetailsSelectColumnUpdatedAt VehicleViolationDetailsSelectColumn = "updated_at"
-	// column name
-	VehicleViolationDetailsSelectColumnUpdatedBy VehicleViolationDetailsSelectColumn = "updated_by"
-	// column name
-	VehicleViolationDetailsSelectColumnVehicleID VehicleViolationDetailsSelectColumn = "vehicle_id"
-	// column name
-	VehicleViolationDetailsSelectColumnVehicleInformation VehicleViolationDetailsSelectColumn = "vehicle_information"
-	// column name
+	// 车辆违章明细外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
 	VehicleViolationDetailsSelectColumnViolationDetailID VehicleViolationDetailsSelectColumn = "violation_detail_id"
+	// 违章车辆id                                                  ( vehicle_info表的vehicle_id                               )
+	VehicleViolationDetailsSelectColumnVehicleID VehicleViolationDetailsSelectColumn = "vehicle_id"
+	// 违章驾驶员id                                                ( driver_info表的driver_id                                 )
+	VehicleViolationDetailsSelectColumnDriverID VehicleViolationDetailsSelectColumn = "driver_id"
+	// 所在企业id                                                  ( enterprise_info表的enterprise_id                         )
+	VehicleViolationDetailsSelectColumnEnterpriseID VehicleViolationDetailsSelectColumn = "enterprise_id"
+	// 违法代码                                                    ( VIO_CODEWFDM 违法描述字典表                              )
+	VehicleViolationDetailsSelectColumnIllegalCode VehicleViolationDetailsSelectColumn = "illegal_code"
+	// 违法时间                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnIllegalTime VehicleViolationDetailsSelectColumn = "illegal_time"
+	// 违法处理状态                                                ( 车辆违法处理状态字典                                     )
+	VehicleViolationDetailsSelectColumnIllegalHandlingStatus VehicleViolationDetailsSelectColumn = "illegal_handling_status"
+	// 违法地点                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnIllegalLocation VehicleViolationDetailsSelectColumn = "illegal_location"
+	// 标准值                                                      ( 路段的限速阈值或核载的人数，根据违法的种类不同而不同。       )
+	VehicleViolationDetailsSelectColumnStandardValue VehicleViolationDetailsSelectColumn = "standard_value"
+	// 实测值                                                      ( 车辆实际行驶的车速或实际载的人数，根据违法的种类不同而不同。 )
+	VehicleViolationDetailsSelectColumnMeasuredValue VehicleViolationDetailsSelectColumn = "measured_value"
+	// 发现机构                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnDiscoveryAgency VehicleViolationDetailsSelectColumn = "discovery_agency"
+	// 违法照片                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnIllegalPhoto VehicleViolationDetailsSelectColumn = "illegal_photo"
+	// 是否通知驾驶员                                              (                                                              )
+	VehicleViolationDetailsSelectColumnIsNoticeDriver VehicleViolationDetailsSelectColumn = "is_notice_driver"
+	// 通知时间                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnNoticeTime VehicleViolationDetailsSelectColumn = "notice_time"
+	// 决定书号                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnDecisionNumber VehicleViolationDetailsSelectColumn = "decision_number"
+	// 缴款标记                                                    ( 是否缴款字典                                             )
+	VehicleViolationDetailsSelectColumnPaymentMark VehicleViolationDetailsSelectColumn = "payment_mark"
+	// 当事人姓名                                                  (                                                              )
+	VehicleViolationDetailsSelectColumnPartyName VehicleViolationDetailsSelectColumn = "party_name"
+	// 信息来源：1，强制，2，非现场，0，简易                       ( 信息来源字典表                                           )
+	VehicleViolationDetailsSelectColumnInformationSource VehicleViolationDetailsSelectColumn = "information_source"
+	// 驾驶人处理的交通违法记录对应的机动车信息                    (                                                              )
+	VehicleViolationDetailsSelectColumnVehicleInformation VehicleViolationDetailsSelectColumn = "vehicle_information"
+	// 内网更新时间                                                (                                                              )
+	VehicleViolationDetailsSelectColumnUpdateTimeIn VehicleViolationDetailsSelectColumn = "update_time_in"
+	// 是否处理                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnIsHandle VehicleViolationDetailsSelectColumn = "is_handle"
+	// 处理人                                                      ( system_user表的user_id                                   )
+	VehicleViolationDetailsSelectColumnHandleBy VehicleViolationDetailsSelectColumn = "handle_by"
+	// 处理时间                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnHandleAt VehicleViolationDetailsSelectColumn = "handle_at"
+	// 是否发送短信                                                (                                                              )
+	VehicleViolationDetailsSelectColumnIsSend VehicleViolationDetailsSelectColumn = "is_send"
+	// 是否删除                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnIsDeleted VehicleViolationDetailsSelectColumn = "is_deleted"
+	// 创建时间                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnCreatedAt VehicleViolationDetailsSelectColumn = "created_at"
+	// 创建人                                                      ( system_user表的user_id                                   )
+	VehicleViolationDetailsSelectColumnCreatedBy VehicleViolationDetailsSelectColumn = "created_by"
+	// 修改时间                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnUpdatedAt VehicleViolationDetailsSelectColumn = "updated_at"
+	// 修改人                                                      ( system_user表的user_id                                   )
+	VehicleViolationDetailsSelectColumnUpdatedBy VehicleViolationDetailsSelectColumn = "updated_by"
+	// 删除时间                                                    (                                                              )
+	VehicleViolationDetailsSelectColumnDeletedAt VehicleViolationDetailsSelectColumn = "deleted_at"
+	// 删除人                                                      ( system_user表的user_id                                   )
+	VehicleViolationDetailsSelectColumnDeletedBy VehicleViolationDetailsSelectColumn = "deleted_by"
 )
 
 var AllVehicleViolationDetailsSelectColumn = []VehicleViolationDetailsSelectColumn{
-	VehicleViolationDetailsSelectColumnCreatedAt,
-	VehicleViolationDetailsSelectColumnCreatedBy,
-	VehicleViolationDetailsSelectColumnDecisionNumber,
-	VehicleViolationDetailsSelectColumnDeletedAt,
-	VehicleViolationDetailsSelectColumnDeletedBy,
-	VehicleViolationDetailsSelectColumnDiscoveryAgency,
+	VehicleViolationDetailsSelectColumnID,
+	VehicleViolationDetailsSelectColumnViolationDetailID,
+	VehicleViolationDetailsSelectColumnVehicleID,
 	VehicleViolationDetailsSelectColumnDriverID,
 	VehicleViolationDetailsSelectColumnEnterpriseID,
-	VehicleViolationDetailsSelectColumnHandleAt,
-	VehicleViolationDetailsSelectColumnHandleBy,
-	VehicleViolationDetailsSelectColumnID,
 	VehicleViolationDetailsSelectColumnIllegalCode,
+	VehicleViolationDetailsSelectColumnIllegalTime,
 	VehicleViolationDetailsSelectColumnIllegalHandlingStatus,
 	VehicleViolationDetailsSelectColumnIllegalLocation,
-	VehicleViolationDetailsSelectColumnIllegalPhoto,
-	VehicleViolationDetailsSelectColumnIllegalTime,
-	VehicleViolationDetailsSelectColumnInformationSource,
-	VehicleViolationDetailsSelectColumnIsDelete,
-	VehicleViolationDetailsSelectColumnIsHandle,
-	VehicleViolationDetailsSelectColumnIsNoticeDriver,
-	VehicleViolationDetailsSelectColumnIsSend,
-	VehicleViolationDetailsSelectColumnMeasuredValue,
-	VehicleViolationDetailsSelectColumnNoticeTime,
-	VehicleViolationDetailsSelectColumnPartyName,
-	VehicleViolationDetailsSelectColumnPaymentMark,
 	VehicleViolationDetailsSelectColumnStandardValue,
+	VehicleViolationDetailsSelectColumnMeasuredValue,
+	VehicleViolationDetailsSelectColumnDiscoveryAgency,
+	VehicleViolationDetailsSelectColumnIllegalPhoto,
+	VehicleViolationDetailsSelectColumnIsNoticeDriver,
+	VehicleViolationDetailsSelectColumnNoticeTime,
+	VehicleViolationDetailsSelectColumnDecisionNumber,
+	VehicleViolationDetailsSelectColumnPaymentMark,
+	VehicleViolationDetailsSelectColumnPartyName,
+	VehicleViolationDetailsSelectColumnInformationSource,
+	VehicleViolationDetailsSelectColumnVehicleInformation,
 	VehicleViolationDetailsSelectColumnUpdateTimeIn,
+	VehicleViolationDetailsSelectColumnIsHandle,
+	VehicleViolationDetailsSelectColumnHandleBy,
+	VehicleViolationDetailsSelectColumnHandleAt,
+	VehicleViolationDetailsSelectColumnIsSend,
+	VehicleViolationDetailsSelectColumnIsDeleted,
+	VehicleViolationDetailsSelectColumnCreatedAt,
+	VehicleViolationDetailsSelectColumnCreatedBy,
 	VehicleViolationDetailsSelectColumnUpdatedAt,
 	VehicleViolationDetailsSelectColumnUpdatedBy,
-	VehicleViolationDetailsSelectColumnVehicleID,
-	VehicleViolationDetailsSelectColumnVehicleInformation,
-	VehicleViolationDetailsSelectColumnViolationDetailID,
+	VehicleViolationDetailsSelectColumnDeletedAt,
+	VehicleViolationDetailsSelectColumnDeletedBy,
 }
 
 func (e VehicleViolationDetailsSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleViolationDetailsSelectColumnCreatedAt, VehicleViolationDetailsSelectColumnCreatedBy, VehicleViolationDetailsSelectColumnDecisionNumber, VehicleViolationDetailsSelectColumnDeletedAt, VehicleViolationDetailsSelectColumnDeletedBy, VehicleViolationDetailsSelectColumnDiscoveryAgency, VehicleViolationDetailsSelectColumnDriverID, VehicleViolationDetailsSelectColumnEnterpriseID, VehicleViolationDetailsSelectColumnHandleAt, VehicleViolationDetailsSelectColumnHandleBy, VehicleViolationDetailsSelectColumnID, VehicleViolationDetailsSelectColumnIllegalCode, VehicleViolationDetailsSelectColumnIllegalHandlingStatus, VehicleViolationDetailsSelectColumnIllegalLocation, VehicleViolationDetailsSelectColumnIllegalPhoto, VehicleViolationDetailsSelectColumnIllegalTime, VehicleViolationDetailsSelectColumnInformationSource, VehicleViolationDetailsSelectColumnIsDelete, VehicleViolationDetailsSelectColumnIsHandle, VehicleViolationDetailsSelectColumnIsNoticeDriver, VehicleViolationDetailsSelectColumnIsSend, VehicleViolationDetailsSelectColumnMeasuredValue, VehicleViolationDetailsSelectColumnNoticeTime, VehicleViolationDetailsSelectColumnPartyName, VehicleViolationDetailsSelectColumnPaymentMark, VehicleViolationDetailsSelectColumnStandardValue, VehicleViolationDetailsSelectColumnUpdateTimeIn, VehicleViolationDetailsSelectColumnUpdatedAt, VehicleViolationDetailsSelectColumnUpdatedBy, VehicleViolationDetailsSelectColumnVehicleID, VehicleViolationDetailsSelectColumnVehicleInformation, VehicleViolationDetailsSelectColumnViolationDetailID:
+	case VehicleViolationDetailsSelectColumnID, VehicleViolationDetailsSelectColumnViolationDetailID, VehicleViolationDetailsSelectColumnVehicleID, VehicleViolationDetailsSelectColumnDriverID, VehicleViolationDetailsSelectColumnEnterpriseID, VehicleViolationDetailsSelectColumnIllegalCode, VehicleViolationDetailsSelectColumnIllegalTime, VehicleViolationDetailsSelectColumnIllegalHandlingStatus, VehicleViolationDetailsSelectColumnIllegalLocation, VehicleViolationDetailsSelectColumnStandardValue, VehicleViolationDetailsSelectColumnMeasuredValue, VehicleViolationDetailsSelectColumnDiscoveryAgency, VehicleViolationDetailsSelectColumnIllegalPhoto, VehicleViolationDetailsSelectColumnIsNoticeDriver, VehicleViolationDetailsSelectColumnNoticeTime, VehicleViolationDetailsSelectColumnDecisionNumber, VehicleViolationDetailsSelectColumnPaymentMark, VehicleViolationDetailsSelectColumnPartyName, VehicleViolationDetailsSelectColumnInformationSource, VehicleViolationDetailsSelectColumnVehicleInformation, VehicleViolationDetailsSelectColumnUpdateTimeIn, VehicleViolationDetailsSelectColumnIsHandle, VehicleViolationDetailsSelectColumnHandleBy, VehicleViolationDetailsSelectColumnHandleAt, VehicleViolationDetailsSelectColumnIsSend, VehicleViolationDetailsSelectColumnIsDeleted, VehicleViolationDetailsSelectColumnCreatedAt, VehicleViolationDetailsSelectColumnCreatedBy, VehicleViolationDetailsSelectColumnUpdatedAt, VehicleViolationDetailsSelectColumnUpdatedBy, VehicleViolationDetailsSelectColumnDeletedAt, VehicleViolationDetailsSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -6834,7 +2831,7 @@ func (e *VehicleViolationDetailsSelectColumn) UnmarshalGQL(v interface{}) error 
 
 	*e = VehicleViolationDetailsSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_violation_details_select_column", str)
+		return fmt.Errorf("%s is not a valid VehicleViolationDetailsSelectColumn", str)
 	}
 	return nil
 }
@@ -6843,229 +2840,54 @@ func (e VehicleViolationDetailsSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "vehicle_violation_details"
-type VehicleViolationDetailsUpdateColumn string
-
-const (
-	// column name
-	VehicleViolationDetailsUpdateColumnCreatedAt VehicleViolationDetailsUpdateColumn = "created_at"
-	// column name
-	VehicleViolationDetailsUpdateColumnCreatedBy VehicleViolationDetailsUpdateColumn = "created_by"
-	// column name
-	VehicleViolationDetailsUpdateColumnDecisionNumber VehicleViolationDetailsUpdateColumn = "decision_number"
-	// column name
-	VehicleViolationDetailsUpdateColumnDeletedAt VehicleViolationDetailsUpdateColumn = "deleted_at"
-	// column name
-	VehicleViolationDetailsUpdateColumnDeletedBy VehicleViolationDetailsUpdateColumn = "deleted_by"
-	// column name
-	VehicleViolationDetailsUpdateColumnDiscoveryAgency VehicleViolationDetailsUpdateColumn = "discovery_agency"
-	// column name
-	VehicleViolationDetailsUpdateColumnDriverID VehicleViolationDetailsUpdateColumn = "driver_id"
-	// column name
-	VehicleViolationDetailsUpdateColumnEnterpriseID VehicleViolationDetailsUpdateColumn = "enterprise_id"
-	// column name
-	VehicleViolationDetailsUpdateColumnHandleAt VehicleViolationDetailsUpdateColumn = "handle_at"
-	// column name
-	VehicleViolationDetailsUpdateColumnHandleBy VehicleViolationDetailsUpdateColumn = "handle_by"
-	// column name
-	VehicleViolationDetailsUpdateColumnID VehicleViolationDetailsUpdateColumn = "id"
-	// column name
-	VehicleViolationDetailsUpdateColumnIllegalCode VehicleViolationDetailsUpdateColumn = "illegal_code"
-	// column name
-	VehicleViolationDetailsUpdateColumnIllegalHandlingStatus VehicleViolationDetailsUpdateColumn = "illegal_handling_status"
-	// column name
-	VehicleViolationDetailsUpdateColumnIllegalLocation VehicleViolationDetailsUpdateColumn = "illegal_location"
-	// column name
-	VehicleViolationDetailsUpdateColumnIllegalPhoto VehicleViolationDetailsUpdateColumn = "illegal_photo"
-	// column name
-	VehicleViolationDetailsUpdateColumnIllegalTime VehicleViolationDetailsUpdateColumn = "illegal_time"
-	// column name
-	VehicleViolationDetailsUpdateColumnInformationSource VehicleViolationDetailsUpdateColumn = "information_source"
-	// column name
-	VehicleViolationDetailsUpdateColumnIsDelete VehicleViolationDetailsUpdateColumn = "is_delete"
-	// column name
-	VehicleViolationDetailsUpdateColumnIsHandle VehicleViolationDetailsUpdateColumn = "is_handle"
-	// column name
-	VehicleViolationDetailsUpdateColumnIsNoticeDriver VehicleViolationDetailsUpdateColumn = "is_notice_driver"
-	// column name
-	VehicleViolationDetailsUpdateColumnIsSend VehicleViolationDetailsUpdateColumn = "is_send"
-	// column name
-	VehicleViolationDetailsUpdateColumnMeasuredValue VehicleViolationDetailsUpdateColumn = "measured_value"
-	// column name
-	VehicleViolationDetailsUpdateColumnNoticeTime VehicleViolationDetailsUpdateColumn = "notice_time"
-	// column name
-	VehicleViolationDetailsUpdateColumnPartyName VehicleViolationDetailsUpdateColumn = "party_name"
-	// column name
-	VehicleViolationDetailsUpdateColumnPaymentMark VehicleViolationDetailsUpdateColumn = "payment_mark"
-	// column name
-	VehicleViolationDetailsUpdateColumnStandardValue VehicleViolationDetailsUpdateColumn = "standard_value"
-	// column name
-	VehicleViolationDetailsUpdateColumnUpdateTimeIn VehicleViolationDetailsUpdateColumn = "update_time_in"
-	// column name
-	VehicleViolationDetailsUpdateColumnUpdatedAt VehicleViolationDetailsUpdateColumn = "updated_at"
-	// column name
-	VehicleViolationDetailsUpdateColumnUpdatedBy VehicleViolationDetailsUpdateColumn = "updated_by"
-	// column name
-	VehicleViolationDetailsUpdateColumnVehicleID VehicleViolationDetailsUpdateColumn = "vehicle_id"
-	// column name
-	VehicleViolationDetailsUpdateColumnVehicleInformation VehicleViolationDetailsUpdateColumn = "vehicle_information"
-	// column name
-	VehicleViolationDetailsUpdateColumnViolationDetailID VehicleViolationDetailsUpdateColumn = "violation_detail_id"
-)
-
-var AllVehicleViolationDetailsUpdateColumn = []VehicleViolationDetailsUpdateColumn{
-	VehicleViolationDetailsUpdateColumnCreatedAt,
-	VehicleViolationDetailsUpdateColumnCreatedBy,
-	VehicleViolationDetailsUpdateColumnDecisionNumber,
-	VehicleViolationDetailsUpdateColumnDeletedAt,
-	VehicleViolationDetailsUpdateColumnDeletedBy,
-	VehicleViolationDetailsUpdateColumnDiscoveryAgency,
-	VehicleViolationDetailsUpdateColumnDriverID,
-	VehicleViolationDetailsUpdateColumnEnterpriseID,
-	VehicleViolationDetailsUpdateColumnHandleAt,
-	VehicleViolationDetailsUpdateColumnHandleBy,
-	VehicleViolationDetailsUpdateColumnID,
-	VehicleViolationDetailsUpdateColumnIllegalCode,
-	VehicleViolationDetailsUpdateColumnIllegalHandlingStatus,
-	VehicleViolationDetailsUpdateColumnIllegalLocation,
-	VehicleViolationDetailsUpdateColumnIllegalPhoto,
-	VehicleViolationDetailsUpdateColumnIllegalTime,
-	VehicleViolationDetailsUpdateColumnInformationSource,
-	VehicleViolationDetailsUpdateColumnIsDelete,
-	VehicleViolationDetailsUpdateColumnIsHandle,
-	VehicleViolationDetailsUpdateColumnIsNoticeDriver,
-	VehicleViolationDetailsUpdateColumnIsSend,
-	VehicleViolationDetailsUpdateColumnMeasuredValue,
-	VehicleViolationDetailsUpdateColumnNoticeTime,
-	VehicleViolationDetailsUpdateColumnPartyName,
-	VehicleViolationDetailsUpdateColumnPaymentMark,
-	VehicleViolationDetailsUpdateColumnStandardValue,
-	VehicleViolationDetailsUpdateColumnUpdateTimeIn,
-	VehicleViolationDetailsUpdateColumnUpdatedAt,
-	VehicleViolationDetailsUpdateColumnUpdatedBy,
-	VehicleViolationDetailsUpdateColumnVehicleID,
-	VehicleViolationDetailsUpdateColumnVehicleInformation,
-	VehicleViolationDetailsUpdateColumnViolationDetailID,
-}
-
-func (e VehicleViolationDetailsUpdateColumn) IsValid() bool {
-	switch e {
-	case VehicleViolationDetailsUpdateColumnCreatedAt, VehicleViolationDetailsUpdateColumnCreatedBy, VehicleViolationDetailsUpdateColumnDecisionNumber, VehicleViolationDetailsUpdateColumnDeletedAt, VehicleViolationDetailsUpdateColumnDeletedBy, VehicleViolationDetailsUpdateColumnDiscoveryAgency, VehicleViolationDetailsUpdateColumnDriverID, VehicleViolationDetailsUpdateColumnEnterpriseID, VehicleViolationDetailsUpdateColumnHandleAt, VehicleViolationDetailsUpdateColumnHandleBy, VehicleViolationDetailsUpdateColumnID, VehicleViolationDetailsUpdateColumnIllegalCode, VehicleViolationDetailsUpdateColumnIllegalHandlingStatus, VehicleViolationDetailsUpdateColumnIllegalLocation, VehicleViolationDetailsUpdateColumnIllegalPhoto, VehicleViolationDetailsUpdateColumnIllegalTime, VehicleViolationDetailsUpdateColumnInformationSource, VehicleViolationDetailsUpdateColumnIsDelete, VehicleViolationDetailsUpdateColumnIsHandle, VehicleViolationDetailsUpdateColumnIsNoticeDriver, VehicleViolationDetailsUpdateColumnIsSend, VehicleViolationDetailsUpdateColumnMeasuredValue, VehicleViolationDetailsUpdateColumnNoticeTime, VehicleViolationDetailsUpdateColumnPartyName, VehicleViolationDetailsUpdateColumnPaymentMark, VehicleViolationDetailsUpdateColumnStandardValue, VehicleViolationDetailsUpdateColumnUpdateTimeIn, VehicleViolationDetailsUpdateColumnUpdatedAt, VehicleViolationDetailsUpdateColumnUpdatedBy, VehicleViolationDetailsUpdateColumnVehicleID, VehicleViolationDetailsUpdateColumnVehicleInformation, VehicleViolationDetailsUpdateColumnViolationDetailID:
-		return true
-	}
-	return false
-}
-
-func (e VehicleViolationDetailsUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *VehicleViolationDetailsUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleViolationDetailsUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_violation_details_update_column", str)
-	}
-	return nil
-}
-
-func (e VehicleViolationDetailsUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsConstraint string
-
-const (
-	// unique or primary key constraint
-	VehicleViolationScoringItemsConstraintVehicleViolationScoringItemsPkey VehicleViolationScoringItemsConstraint = "vehicle_violation_scoring_items_pkey"
-)
-
-var AllVehicleViolationScoringItemsConstraint = []VehicleViolationScoringItemsConstraint{
-	VehicleViolationScoringItemsConstraintVehicleViolationScoringItemsPkey,
-}
-
-func (e VehicleViolationScoringItemsConstraint) IsValid() bool {
-	switch e {
-	case VehicleViolationScoringItemsConstraintVehicleViolationScoringItemsPkey:
-		return true
-	}
-	return false
-}
-
-func (e VehicleViolationScoringItemsConstraint) String() string {
-	return string(e)
-}
-
-func (e *VehicleViolationScoringItemsConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleViolationScoringItemsConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_violation_scoring_items_constraint", str)
-	}
-	return nil
-}
-
-func (e VehicleViolationScoringItemsConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "vehicle_violation_scoring_items"
+// 可选select
 type VehicleViolationScoringItemsSelectColumn string
 
 const (
-	// column name
-	VehicleViolationScoringItemsSelectColumnCreatedAt VehicleViolationScoringItemsSelectColumn = "created_at"
-	// column name
-	VehicleViolationScoringItemsSelectColumnCreatedBy VehicleViolationScoringItemsSelectColumn = "created_by"
-	// column name
-	VehicleViolationScoringItemsSelectColumnDeductionCategory VehicleViolationScoringItemsSelectColumn = "deduction_category"
-	// column name
-	VehicleViolationScoringItemsSelectColumnDeductionItemDescription VehicleViolationScoringItemsSelectColumn = "deduction_item_description"
-	// column name
-	VehicleViolationScoringItemsSelectColumnDeletedAt VehicleViolationScoringItemsSelectColumn = "deleted_at"
-	// column name
-	VehicleViolationScoringItemsSelectColumnDeletedBy VehicleViolationScoringItemsSelectColumn = "deleted_by"
-	// column name
-	VehicleViolationScoringItemsSelectColumnDemeritPoints VehicleViolationScoringItemsSelectColumn = "demerit_points"
-	// column name
+	// 按指定方法生成                                               ( 主键                       )
 	VehicleViolationScoringItemsSelectColumnID VehicleViolationScoringItemsSelectColumn = "id"
-	// column name
-	VehicleViolationScoringItemsSelectColumnIsDelete VehicleViolationScoringItemsSelectColumn = "is_delete"
-	// column name
-	VehicleViolationScoringItemsSelectColumnUpdatedAt VehicleViolationScoringItemsSelectColumn = "updated_at"
-	// column name
-	VehicleViolationScoringItemsSelectColumnUpdatedBy VehicleViolationScoringItemsSelectColumn = "updated_by"
-	// column name
+	// 车辆违规计分项表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
 	VehicleViolationScoringItemsSelectColumnViolationScoringItemID VehicleViolationScoringItemsSelectColumn = "violation_scoring_item_id"
+	// 扣分事项描述                                                 (                            )
+	VehicleViolationScoringItemsSelectColumnDeductionItemDescription VehicleViolationScoringItemsSelectColumn = "deduction_item_description"
+	// 扣分事项类别                                                 ( 车辆评分扣分类别字典   )
+	VehicleViolationScoringItemsSelectColumnDeductionCategory VehicleViolationScoringItemsSelectColumn = "deduction_category"
+	// 扣分分值                                                     (                            )
+	VehicleViolationScoringItemsSelectColumnDemeritPoints VehicleViolationScoringItemsSelectColumn = "demerit_points"
+	// 是否删除                                                     (                            )
+	VehicleViolationScoringItemsSelectColumnIsDeleted VehicleViolationScoringItemsSelectColumn = "is_deleted"
+	// 创建时间                                                     (                            )
+	VehicleViolationScoringItemsSelectColumnCreatedAt VehicleViolationScoringItemsSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id )
+	VehicleViolationScoringItemsSelectColumnCreatedBy VehicleViolationScoringItemsSelectColumn = "created_by"
+	// 修改时间                                                     (                            )
+	VehicleViolationScoringItemsSelectColumnUpdatedAt VehicleViolationScoringItemsSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id )
+	VehicleViolationScoringItemsSelectColumnUpdatedBy VehicleViolationScoringItemsSelectColumn = "updated_by"
+	// 删除时间                                                     (                            )
+	VehicleViolationScoringItemsSelectColumnDeletedAt VehicleViolationScoringItemsSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id )
+	VehicleViolationScoringItemsSelectColumnDeletedBy VehicleViolationScoringItemsSelectColumn = "deleted_by"
 )
 
 var AllVehicleViolationScoringItemsSelectColumn = []VehicleViolationScoringItemsSelectColumn{
+	VehicleViolationScoringItemsSelectColumnID,
+	VehicleViolationScoringItemsSelectColumnViolationScoringItemID,
+	VehicleViolationScoringItemsSelectColumnDeductionItemDescription,
+	VehicleViolationScoringItemsSelectColumnDeductionCategory,
+	VehicleViolationScoringItemsSelectColumnDemeritPoints,
+	VehicleViolationScoringItemsSelectColumnIsDeleted,
 	VehicleViolationScoringItemsSelectColumnCreatedAt,
 	VehicleViolationScoringItemsSelectColumnCreatedBy,
-	VehicleViolationScoringItemsSelectColumnDeductionCategory,
-	VehicleViolationScoringItemsSelectColumnDeductionItemDescription,
-	VehicleViolationScoringItemsSelectColumnDeletedAt,
-	VehicleViolationScoringItemsSelectColumnDeletedBy,
-	VehicleViolationScoringItemsSelectColumnDemeritPoints,
-	VehicleViolationScoringItemsSelectColumnID,
-	VehicleViolationScoringItemsSelectColumnIsDelete,
 	VehicleViolationScoringItemsSelectColumnUpdatedAt,
 	VehicleViolationScoringItemsSelectColumnUpdatedBy,
-	VehicleViolationScoringItemsSelectColumnViolationScoringItemID,
+	VehicleViolationScoringItemsSelectColumnDeletedAt,
+	VehicleViolationScoringItemsSelectColumnDeletedBy,
 }
 
 func (e VehicleViolationScoringItemsSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleViolationScoringItemsSelectColumnCreatedAt, VehicleViolationScoringItemsSelectColumnCreatedBy, VehicleViolationScoringItemsSelectColumnDeductionCategory, VehicleViolationScoringItemsSelectColumnDeductionItemDescription, VehicleViolationScoringItemsSelectColumnDeletedAt, VehicleViolationScoringItemsSelectColumnDeletedBy, VehicleViolationScoringItemsSelectColumnDemeritPoints, VehicleViolationScoringItemsSelectColumnID, VehicleViolationScoringItemsSelectColumnIsDelete, VehicleViolationScoringItemsSelectColumnUpdatedAt, VehicleViolationScoringItemsSelectColumnUpdatedBy, VehicleViolationScoringItemsSelectColumnViolationScoringItemID:
+	case VehicleViolationScoringItemsSelectColumnID, VehicleViolationScoringItemsSelectColumnViolationScoringItemID, VehicleViolationScoringItemsSelectColumnDeductionItemDescription, VehicleViolationScoringItemsSelectColumnDeductionCategory, VehicleViolationScoringItemsSelectColumnDemeritPoints, VehicleViolationScoringItemsSelectColumnIsDeleted, VehicleViolationScoringItemsSelectColumnCreatedAt, VehicleViolationScoringItemsSelectColumnCreatedBy, VehicleViolationScoringItemsSelectColumnUpdatedAt, VehicleViolationScoringItemsSelectColumnUpdatedBy, VehicleViolationScoringItemsSelectColumnDeletedAt, VehicleViolationScoringItemsSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -7083,7 +2905,7 @@ func (e *VehicleViolationScoringItemsSelectColumn) UnmarshalGQL(v interface{}) e
 
 	*e = VehicleViolationScoringItemsSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_violation_scoring_items_select_column", str)
+		return fmt.Errorf("%s is not a valid VehicleViolationScoringItemsSelectColumn", str)
 	}
 	return nil
 }
@@ -7092,172 +2914,57 @@ func (e VehicleViolationScoringItemsSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "vehicle_violation_scoring_items"
-type VehicleViolationScoringItemsUpdateColumn string
-
-const (
-	// column name
-	VehicleViolationScoringItemsUpdateColumnCreatedAt VehicleViolationScoringItemsUpdateColumn = "created_at"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnCreatedBy VehicleViolationScoringItemsUpdateColumn = "created_by"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnDeductionCategory VehicleViolationScoringItemsUpdateColumn = "deduction_category"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnDeductionItemDescription VehicleViolationScoringItemsUpdateColumn = "deduction_item_description"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnDeletedAt VehicleViolationScoringItemsUpdateColumn = "deleted_at"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnDeletedBy VehicleViolationScoringItemsUpdateColumn = "deleted_by"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnDemeritPoints VehicleViolationScoringItemsUpdateColumn = "demerit_points"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnID VehicleViolationScoringItemsUpdateColumn = "id"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnIsDelete VehicleViolationScoringItemsUpdateColumn = "is_delete"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnUpdatedAt VehicleViolationScoringItemsUpdateColumn = "updated_at"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnUpdatedBy VehicleViolationScoringItemsUpdateColumn = "updated_by"
-	// column name
-	VehicleViolationScoringItemsUpdateColumnViolationScoringItemID VehicleViolationScoringItemsUpdateColumn = "violation_scoring_item_id"
-)
-
-var AllVehicleViolationScoringItemsUpdateColumn = []VehicleViolationScoringItemsUpdateColumn{
-	VehicleViolationScoringItemsUpdateColumnCreatedAt,
-	VehicleViolationScoringItemsUpdateColumnCreatedBy,
-	VehicleViolationScoringItemsUpdateColumnDeductionCategory,
-	VehicleViolationScoringItemsUpdateColumnDeductionItemDescription,
-	VehicleViolationScoringItemsUpdateColumnDeletedAt,
-	VehicleViolationScoringItemsUpdateColumnDeletedBy,
-	VehicleViolationScoringItemsUpdateColumnDemeritPoints,
-	VehicleViolationScoringItemsUpdateColumnID,
-	VehicleViolationScoringItemsUpdateColumnIsDelete,
-	VehicleViolationScoringItemsUpdateColumnUpdatedAt,
-	VehicleViolationScoringItemsUpdateColumnUpdatedBy,
-	VehicleViolationScoringItemsUpdateColumnViolationScoringItemID,
-}
-
-func (e VehicleViolationScoringItemsUpdateColumn) IsValid() bool {
-	switch e {
-	case VehicleViolationScoringItemsUpdateColumnCreatedAt, VehicleViolationScoringItemsUpdateColumnCreatedBy, VehicleViolationScoringItemsUpdateColumnDeductionCategory, VehicleViolationScoringItemsUpdateColumnDeductionItemDescription, VehicleViolationScoringItemsUpdateColumnDeletedAt, VehicleViolationScoringItemsUpdateColumnDeletedBy, VehicleViolationScoringItemsUpdateColumnDemeritPoints, VehicleViolationScoringItemsUpdateColumnID, VehicleViolationScoringItemsUpdateColumnIsDelete, VehicleViolationScoringItemsUpdateColumnUpdatedAt, VehicleViolationScoringItemsUpdateColumnUpdatedBy, VehicleViolationScoringItemsUpdateColumnViolationScoringItemID:
-		return true
-	}
-	return false
-}
-
-func (e VehicleViolationScoringItemsUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *VehicleViolationScoringItemsUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleViolationScoringItemsUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_violation_scoring_items_update_column", str)
-	}
-	return nil
-}
-
-func (e VehicleViolationScoringItemsUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordConstraint string
-
-const (
-	// unique or primary key constraint
-	VehicleViolationScoringRecordConstraintVehicleViolationScoringRecordPkey VehicleViolationScoringRecordConstraint = "vehicle_violation_scoring_record_pkey"
-)
-
-var AllVehicleViolationScoringRecordConstraint = []VehicleViolationScoringRecordConstraint{
-	VehicleViolationScoringRecordConstraintVehicleViolationScoringRecordPkey,
-}
-
-func (e VehicleViolationScoringRecordConstraint) IsValid() bool {
-	switch e {
-	case VehicleViolationScoringRecordConstraintVehicleViolationScoringRecordPkey:
-		return true
-	}
-	return false
-}
-
-func (e VehicleViolationScoringRecordConstraint) String() string {
-	return string(e)
-}
-
-func (e *VehicleViolationScoringRecordConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = VehicleViolationScoringRecordConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_violation_scoring_record_constraint", str)
-	}
-	return nil
-}
-
-func (e VehicleViolationScoringRecordConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "vehicle_violation_scoring_record"
+// 可选select
 type VehicleViolationScoringRecordSelectColumn string
 
 const (
-	// column name
-	VehicleViolationScoringRecordSelectColumnCreatedAt VehicleViolationScoringRecordSelectColumn = "created_at"
-	// column name
-	VehicleViolationScoringRecordSelectColumnCreatedBy VehicleViolationScoringRecordSelectColumn = "created_by"
-	// column name
-	VehicleViolationScoringRecordSelectColumnDeletedAt VehicleViolationScoringRecordSelectColumn = "deleted_at"
-	// column name
-	VehicleViolationScoringRecordSelectColumnDeletedBy VehicleViolationScoringRecordSelectColumn = "deleted_by"
-	// column name
-	VehicleViolationScoringRecordSelectColumnDemeritPoints VehicleViolationScoringRecordSelectColumn = "demerit_points"
-	// column name
+	// 按指定方法生成                                               ( 主键                                                         )
 	VehicleViolationScoringRecordSelectColumnID VehicleViolationScoringRecordSelectColumn = "id"
-	// column name
-	VehicleViolationScoringRecordSelectColumnIsDelete VehicleViolationScoringRecordSelectColumn = "is_delete"
-	// column name
-	VehicleViolationScoringRecordSelectColumnRemarks VehicleViolationScoringRecordSelectColumn = "remarks"
-	// column name
-	VehicleViolationScoringRecordSelectColumnUpdatedAt VehicleViolationScoringRecordSelectColumn = "updated_at"
-	// column name
-	VehicleViolationScoringRecordSelectColumnUpdatedBy VehicleViolationScoringRecordSelectColumn = "updated_by"
-	// column name
-	VehicleViolationScoringRecordSelectColumnVehicleID VehicleViolationScoringRecordSelectColumn = "vehicle_id"
-	// column name
+	// 车辆违规计分记录外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                     )
 	VehicleViolationScoringRecordSelectColumnViolationScoringID VehicleViolationScoringRecordSelectColumn = "violation_scoring_id"
-	// column name
+	// 扣分车辆id                                                   ( vehicle_info表的vehicle_id                               )
+	VehicleViolationScoringRecordSelectColumnVehicleID VehicleViolationScoringRecordSelectColumn = "vehicle_id"
+	// 扣分明细id                                                   ( vehicle_violation_scoring_ items表的violation_scoring_item_id )
 	VehicleViolationScoringRecordSelectColumnViolationScoringItemID VehicleViolationScoringRecordSelectColumn = "violation_scoring_item_id"
+	// 扣分分值                                                     (                                                              )
+	VehicleViolationScoringRecordSelectColumnDemeritPoints VehicleViolationScoringRecordSelectColumn = "demerit_points"
+	// 备注                                                         (                                                              )
+	VehicleViolationScoringRecordSelectColumnRemarks VehicleViolationScoringRecordSelectColumn = "remarks"
+	// 是否删除                                                     (                                                              )
+	VehicleViolationScoringRecordSelectColumnIsDeleted VehicleViolationScoringRecordSelectColumn = "is_deleted"
+	// 创建时间                                                     (                                                              )
+	VehicleViolationScoringRecordSelectColumnCreatedAt VehicleViolationScoringRecordSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id                                   )
+	VehicleViolationScoringRecordSelectColumnCreatedBy VehicleViolationScoringRecordSelectColumn = "created_by"
+	// 修改时间                                                     (                                                              )
+	VehicleViolationScoringRecordSelectColumnUpdatedAt VehicleViolationScoringRecordSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id                                   )
+	VehicleViolationScoringRecordSelectColumnUpdatedBy VehicleViolationScoringRecordSelectColumn = "updated_by"
+	// 删除时间                                                     (                                                              )
+	VehicleViolationScoringRecordSelectColumnDeletedAt VehicleViolationScoringRecordSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id                                   )
+	VehicleViolationScoringRecordSelectColumnDeletedBy VehicleViolationScoringRecordSelectColumn = "deleted_by"
 )
 
 var AllVehicleViolationScoringRecordSelectColumn = []VehicleViolationScoringRecordSelectColumn{
+	VehicleViolationScoringRecordSelectColumnID,
+	VehicleViolationScoringRecordSelectColumnViolationScoringID,
+	VehicleViolationScoringRecordSelectColumnVehicleID,
+	VehicleViolationScoringRecordSelectColumnViolationScoringItemID,
+	VehicleViolationScoringRecordSelectColumnDemeritPoints,
+	VehicleViolationScoringRecordSelectColumnRemarks,
+	VehicleViolationScoringRecordSelectColumnIsDeleted,
 	VehicleViolationScoringRecordSelectColumnCreatedAt,
 	VehicleViolationScoringRecordSelectColumnCreatedBy,
-	VehicleViolationScoringRecordSelectColumnDeletedAt,
-	VehicleViolationScoringRecordSelectColumnDeletedBy,
-	VehicleViolationScoringRecordSelectColumnDemeritPoints,
-	VehicleViolationScoringRecordSelectColumnID,
-	VehicleViolationScoringRecordSelectColumnIsDelete,
-	VehicleViolationScoringRecordSelectColumnRemarks,
 	VehicleViolationScoringRecordSelectColumnUpdatedAt,
 	VehicleViolationScoringRecordSelectColumnUpdatedBy,
-	VehicleViolationScoringRecordSelectColumnVehicleID,
-	VehicleViolationScoringRecordSelectColumnViolationScoringID,
-	VehicleViolationScoringRecordSelectColumnViolationScoringItemID,
+	VehicleViolationScoringRecordSelectColumnDeletedAt,
+	VehicleViolationScoringRecordSelectColumnDeletedBy,
 }
 
 func (e VehicleViolationScoringRecordSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleViolationScoringRecordSelectColumnCreatedAt, VehicleViolationScoringRecordSelectColumnCreatedBy, VehicleViolationScoringRecordSelectColumnDeletedAt, VehicleViolationScoringRecordSelectColumnDeletedBy, VehicleViolationScoringRecordSelectColumnDemeritPoints, VehicleViolationScoringRecordSelectColumnID, VehicleViolationScoringRecordSelectColumnIsDelete, VehicleViolationScoringRecordSelectColumnRemarks, VehicleViolationScoringRecordSelectColumnUpdatedAt, VehicleViolationScoringRecordSelectColumnUpdatedBy, VehicleViolationScoringRecordSelectColumnVehicleID, VehicleViolationScoringRecordSelectColumnViolationScoringID, VehicleViolationScoringRecordSelectColumnViolationScoringItemID:
+	case VehicleViolationScoringRecordSelectColumnID, VehicleViolationScoringRecordSelectColumnViolationScoringID, VehicleViolationScoringRecordSelectColumnVehicleID, VehicleViolationScoringRecordSelectColumnViolationScoringItemID, VehicleViolationScoringRecordSelectColumnDemeritPoints, VehicleViolationScoringRecordSelectColumnRemarks, VehicleViolationScoringRecordSelectColumnIsDeleted, VehicleViolationScoringRecordSelectColumnCreatedAt, VehicleViolationScoringRecordSelectColumnCreatedBy, VehicleViolationScoringRecordSelectColumnUpdatedAt, VehicleViolationScoringRecordSelectColumnUpdatedBy, VehicleViolationScoringRecordSelectColumnDeletedAt, VehicleViolationScoringRecordSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -7275,7 +2982,7 @@ func (e *VehicleViolationScoringRecordSelectColumn) UnmarshalGQL(v interface{}) 
 
 	*e = VehicleViolationScoringRecordSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_violation_scoring_record_select_column", str)
+		return fmt.Errorf("%s is not a valid VehicleViolationScoringRecordSelectColumn", str)
 	}
 	return nil
 }
@@ -7284,79 +2991,183 @@ func (e VehicleViolationScoringRecordSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "vehicle_violation_scoring_record"
-type VehicleViolationScoringRecordUpdateColumn string
+// 可选select
+type VioCodewfdmSelectColumn string
 
 const (
-	// column name
-	VehicleViolationScoringRecordUpdateColumnCreatedAt VehicleViolationScoringRecordUpdateColumn = "created_at"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnCreatedBy VehicleViolationScoringRecordUpdateColumn = "created_by"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnDeletedAt VehicleViolationScoringRecordUpdateColumn = "deleted_at"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnDeletedBy VehicleViolationScoringRecordUpdateColumn = "deleted_by"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnDemeritPoints VehicleViolationScoringRecordUpdateColumn = "demerit_points"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnID VehicleViolationScoringRecordUpdateColumn = "id"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnIsDelete VehicleViolationScoringRecordUpdateColumn = "is_delete"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnRemarks VehicleViolationScoringRecordUpdateColumn = "remarks"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnUpdatedAt VehicleViolationScoringRecordUpdateColumn = "updated_at"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnUpdatedBy VehicleViolationScoringRecordUpdateColumn = "updated_by"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnVehicleID VehicleViolationScoringRecordUpdateColumn = "vehicle_id"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnViolationScoringID VehicleViolationScoringRecordUpdateColumn = "violation_scoring_id"
-	// column name
-	VehicleViolationScoringRecordUpdateColumnViolationScoringItemID VehicleViolationScoringRecordUpdateColumn = "violation_scoring_item_id"
+	// 违法行为     (         )
+	VioCodewfdmSelectColumnWfxw VioCodewfdmSelectColumn = "wfxw"
+	// 违法描述     (         )
+	VioCodewfdmSelectColumnWfms VioCodewfdmSelectColumn = "wfms"
+	// 违法计分数   (         )
+	VioCodewfdmSelectColumnWfjfs VioCodewfdmSelectColumn = "wfjfs"
+	// 最小罚款金额 (         )
+	VioCodewfdmSelectColumnFkjeMin VioCodewfdmSelectColumn = "fkje_min"
+	// 最大罚款金额 (         )
+	VioCodewfdmSelectColumnFkjeMax VioCodewfdmSelectColumn = "fkje_max"
+	// 序号         (         )
+	VioCodewfdmSelectColumnXh VioCodewfdmSelectColumn = "xh"
 )
 
-var AllVehicleViolationScoringRecordUpdateColumn = []VehicleViolationScoringRecordUpdateColumn{
-	VehicleViolationScoringRecordUpdateColumnCreatedAt,
-	VehicleViolationScoringRecordUpdateColumnCreatedBy,
-	VehicleViolationScoringRecordUpdateColumnDeletedAt,
-	VehicleViolationScoringRecordUpdateColumnDeletedBy,
-	VehicleViolationScoringRecordUpdateColumnDemeritPoints,
-	VehicleViolationScoringRecordUpdateColumnID,
-	VehicleViolationScoringRecordUpdateColumnIsDelete,
-	VehicleViolationScoringRecordUpdateColumnRemarks,
-	VehicleViolationScoringRecordUpdateColumnUpdatedAt,
-	VehicleViolationScoringRecordUpdateColumnUpdatedBy,
-	VehicleViolationScoringRecordUpdateColumnVehicleID,
-	VehicleViolationScoringRecordUpdateColumnViolationScoringID,
-	VehicleViolationScoringRecordUpdateColumnViolationScoringItemID,
+var AllVioCodewfdmSelectColumn = []VioCodewfdmSelectColumn{
+	VioCodewfdmSelectColumnWfxw,
+	VioCodewfdmSelectColumnWfms,
+	VioCodewfdmSelectColumnWfjfs,
+	VioCodewfdmSelectColumnFkjeMin,
+	VioCodewfdmSelectColumnFkjeMax,
+	VioCodewfdmSelectColumnXh,
 }
 
-func (e VehicleViolationScoringRecordUpdateColumn) IsValid() bool {
+func (e VioCodewfdmSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleViolationScoringRecordUpdateColumnCreatedAt, VehicleViolationScoringRecordUpdateColumnCreatedBy, VehicleViolationScoringRecordUpdateColumnDeletedAt, VehicleViolationScoringRecordUpdateColumnDeletedBy, VehicleViolationScoringRecordUpdateColumnDemeritPoints, VehicleViolationScoringRecordUpdateColumnID, VehicleViolationScoringRecordUpdateColumnIsDelete, VehicleViolationScoringRecordUpdateColumnRemarks, VehicleViolationScoringRecordUpdateColumnUpdatedAt, VehicleViolationScoringRecordUpdateColumnUpdatedBy, VehicleViolationScoringRecordUpdateColumnVehicleID, VehicleViolationScoringRecordUpdateColumnViolationScoringID, VehicleViolationScoringRecordUpdateColumnViolationScoringItemID:
+	case VioCodewfdmSelectColumnWfxw, VioCodewfdmSelectColumnWfms, VioCodewfdmSelectColumnWfjfs, VioCodewfdmSelectColumnFkjeMin, VioCodewfdmSelectColumnFkjeMax, VioCodewfdmSelectColumnXh:
 		return true
 	}
 	return false
 }
 
-func (e VehicleViolationScoringRecordUpdateColumn) String() string {
+func (e VioCodewfdmSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *VehicleViolationScoringRecordUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *VioCodewfdmSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = VehicleViolationScoringRecordUpdateColumn(str)
+	*e = VioCodewfdmSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_violation_scoring_record_update_column", str)
+		return fmt.Errorf("%s is not a valid VioCodewfdmSelectColumn", str)
 	}
 	return nil
 }
 
-func (e VehicleViolationScoringRecordUpdateColumn) MarshalGQL(w io.Writer) {
+func (e VioCodewfdmSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type ViolationRegistrationSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                           )
+	ViolationRegistrationSelectColumnID ViolationRegistrationSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
+	ViolationRegistrationSelectColumnViolationRegistrationID ViolationRegistrationSelectColumn = "violation_registration_id"
+	// 违章车辆id                                      ( vehicle_info表的vehicle_id )
+	ViolationRegistrationSelectColumnVehicleID ViolationRegistrationSelectColumn = "vehicle_id"
+	// 车牌号                                          (                                )
+	ViolationRegistrationSelectColumnLicensePlateNumber ViolationRegistrationSelectColumn = "license_plate_number"
+	// 码身份证号                                      (                                )
+	ViolationRegistrationSelectColumnIDCardNum ViolationRegistrationSelectColumn = "id_card_num"
+	// 姓名                                            (                                )
+	ViolationRegistrationSelectColumnName ViolationRegistrationSelectColumn = "name"
+	// 地点                                            (                                )
+	ViolationRegistrationSelectColumnLocation ViolationRegistrationSelectColumn = "location"
+	// 原因                                            (                                )
+	ViolationRegistrationSelectColumnCause ViolationRegistrationSelectColumn = "cause"
+	// 违法时间                                        (                                )
+	ViolationRegistrationSelectColumnIllegalTime ViolationRegistrationSelectColumn = "illegal_time"
+	// 操作人                                          ( system_user表的user_id     )
+	ViolationRegistrationSelectColumnOperator ViolationRegistrationSelectColumn = "operator"
+	// 违法地区                                        (                                )
+	ViolationRegistrationSelectColumnIllegalArea ViolationRegistrationSelectColumn = "illegal_area"
+	// 违法代码                                        (                                )
+	ViolationRegistrationSelectColumnIllegalCode ViolationRegistrationSelectColumn = "illegal_code"
+	// 车辆所属地区                                    (                                )
+	ViolationRegistrationSelectColumnVehicleArea ViolationRegistrationSelectColumn = "vehicle_area"
+	// 车辆所属单位                                    (                                )
+	ViolationRegistrationSelectColumnVehicleEnterprise ViolationRegistrationSelectColumn = "vehicle_enterprise"
+	// 所在省                                          ( 省份表province_id          )
+	ViolationRegistrationSelectColumnProvinceID ViolationRegistrationSelectColumn = "province_id"
+	// 所在市                                          ( 城市表city_id              )
+	ViolationRegistrationSelectColumnCityID ViolationRegistrationSelectColumn = "city_id"
+	// 所在县                                          ( 区域表district_id          )
+	ViolationRegistrationSelectColumnDistrictID ViolationRegistrationSelectColumn = "district_id"
+	// 监管人                                          (                                )
+	ViolationRegistrationSelectColumnSupervisor ViolationRegistrationSelectColumn = "supervisor"
+	// 监管时间                                        (                                )
+	ViolationRegistrationSelectColumnSupervisionTime ViolationRegistrationSelectColumn = "supervision_time"
+	// 监管备注                                        (                                )
+	ViolationRegistrationSelectColumnSepervisionRemarks ViolationRegistrationSelectColumn = "sepervision_remarks"
+	// 是否监管                                        (                                )
+	ViolationRegistrationSelectColumnIsSupervised ViolationRegistrationSelectColumn = "is_supervised"
+	// 是否事故                                        (                                )
+	ViolationRegistrationSelectColumnIsAccident ViolationRegistrationSelectColumn = "is_accident"
+	// 是否删除                                        (                                )
+	ViolationRegistrationSelectColumnIsDeleted ViolationRegistrationSelectColumn = "is_deleted"
+	// 创建时间                                        (                                )
+	ViolationRegistrationSelectColumnCreatedAt ViolationRegistrationSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id     )
+	ViolationRegistrationSelectColumnCreatedBy ViolationRegistrationSelectColumn = "created_by"
+	// 修改时间                                        (                                )
+	ViolationRegistrationSelectColumnUpdatedAt ViolationRegistrationSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id     )
+	ViolationRegistrationSelectColumnUpdatedBy ViolationRegistrationSelectColumn = "updated_by"
+	// 删除时间                                        (                                )
+	ViolationRegistrationSelectColumnDeletedAt ViolationRegistrationSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id     )
+	ViolationRegistrationSelectColumnDeletedBy ViolationRegistrationSelectColumn = "deleted_by"
+)
+
+var AllViolationRegistrationSelectColumn = []ViolationRegistrationSelectColumn{
+	ViolationRegistrationSelectColumnID,
+	ViolationRegistrationSelectColumnViolationRegistrationID,
+	ViolationRegistrationSelectColumnVehicleID,
+	ViolationRegistrationSelectColumnLicensePlateNumber,
+	ViolationRegistrationSelectColumnIDCardNum,
+	ViolationRegistrationSelectColumnName,
+	ViolationRegistrationSelectColumnLocation,
+	ViolationRegistrationSelectColumnCause,
+	ViolationRegistrationSelectColumnIllegalTime,
+	ViolationRegistrationSelectColumnOperator,
+	ViolationRegistrationSelectColumnIllegalArea,
+	ViolationRegistrationSelectColumnIllegalCode,
+	ViolationRegistrationSelectColumnVehicleArea,
+	ViolationRegistrationSelectColumnVehicleEnterprise,
+	ViolationRegistrationSelectColumnProvinceID,
+	ViolationRegistrationSelectColumnCityID,
+	ViolationRegistrationSelectColumnDistrictID,
+	ViolationRegistrationSelectColumnSupervisor,
+	ViolationRegistrationSelectColumnSupervisionTime,
+	ViolationRegistrationSelectColumnSepervisionRemarks,
+	ViolationRegistrationSelectColumnIsSupervised,
+	ViolationRegistrationSelectColumnIsAccident,
+	ViolationRegistrationSelectColumnIsDeleted,
+	ViolationRegistrationSelectColumnCreatedAt,
+	ViolationRegistrationSelectColumnCreatedBy,
+	ViolationRegistrationSelectColumnUpdatedAt,
+	ViolationRegistrationSelectColumnUpdatedBy,
+	ViolationRegistrationSelectColumnDeletedAt,
+	ViolationRegistrationSelectColumnDeletedBy,
+}
+
+func (e ViolationRegistrationSelectColumn) IsValid() bool {
+	switch e {
+	case ViolationRegistrationSelectColumnID, ViolationRegistrationSelectColumnViolationRegistrationID, ViolationRegistrationSelectColumnVehicleID, ViolationRegistrationSelectColumnLicensePlateNumber, ViolationRegistrationSelectColumnIDCardNum, ViolationRegistrationSelectColumnName, ViolationRegistrationSelectColumnLocation, ViolationRegistrationSelectColumnCause, ViolationRegistrationSelectColumnIllegalTime, ViolationRegistrationSelectColumnOperator, ViolationRegistrationSelectColumnIllegalArea, ViolationRegistrationSelectColumnIllegalCode, ViolationRegistrationSelectColumnVehicleArea, ViolationRegistrationSelectColumnVehicleEnterprise, ViolationRegistrationSelectColumnProvinceID, ViolationRegistrationSelectColumnCityID, ViolationRegistrationSelectColumnDistrictID, ViolationRegistrationSelectColumnSupervisor, ViolationRegistrationSelectColumnSupervisionTime, ViolationRegistrationSelectColumnSepervisionRemarks, ViolationRegistrationSelectColumnIsSupervised, ViolationRegistrationSelectColumnIsAccident, ViolationRegistrationSelectColumnIsDeleted, ViolationRegistrationSelectColumnCreatedAt, ViolationRegistrationSelectColumnCreatedBy, ViolationRegistrationSelectColumnUpdatedAt, ViolationRegistrationSelectColumnUpdatedBy, ViolationRegistrationSelectColumnDeletedAt, ViolationRegistrationSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e ViolationRegistrationSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *ViolationRegistrationSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = ViolationRegistrationSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid ViolationRegistrationSelectColumn", str)
+	}
+	return nil
+}
+
+func (e ViolationRegistrationSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }

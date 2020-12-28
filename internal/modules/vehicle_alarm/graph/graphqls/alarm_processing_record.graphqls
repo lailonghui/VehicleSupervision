@@ -1,688 +1,515 @@
-
-
 """
 报警处理记录表
-
-columns and relationships of "alarm_processing_record"
-
 """
-type alarm_processing_record {
-    """vehicle_alarm_data报警数据表的alarm_data_id"""
-    alarm_data_id: String!
-
-    """
-    alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id
-    """
-    alarm_supervision_picture_id: String!
-
-    """语音内容"""
-    announce_content: String
-
-    """APP推送内容"""
-    app_push_content: String
-
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人"""
-    created_by: String!
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """处置方式字典"""
-    disposal_method: String
-
-    """处置结果"""
-    disposal_result: String
-
-    """主键"""
-    id: bigint!
-
-    """是否语音通知"""
-    is_announce: Boolean
-
-    """是否APP推送"""
-    is_app_push: Boolean
-
-    """是否删除"""
-    is_delete: Boolean
-
-    """是否通报"""
-    is_notify: Boolean
-
-    """是否短信推送"""
-    is_sms_push: Boolean
-
-    """通报内容"""
-    notify_content: String
-
-    """操作用户"""
-    operation_user: String
-
-    """处理内容"""
-    processing_content: String
-
-    """处理时间"""
-    processing_time: timestamptz
-
-    """
-    处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警
-    """
-    processing_type: Int
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
+type AlarmProcessingRecord {
+	"""
+	 按指定方法生成                                               ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 vehicle_alarm_data报警数据表的alarm_data_id              (                            )
+	"""
+	alarm_data_id: String!
+	"""
+	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id (                            )
+	"""
+	alarm_supervision_picture_id: Bigint!
+	"""
+	 处理内容                                                     (                            )
+	"""
+	processing_content: String
+	"""
+	 处理时间                                                     (                            )
+	"""
+	processing_time: Timestamptz
+	"""
+	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 (                            )
+	"""
+	processing_type: Int
+	"""
+	 操作用户                                                     ( system_user表的user_id )
+	"""
+	operation_user: String
+	"""
+	 是否短信推送                                                 (                            )
+	"""
+	is_sms_push: Boolean
+	"""
+	 是否通报                                                     (                            )
+	"""
+	is_notify: Boolean
+	"""
+	 是否语音通知                                                 (                            )
+	"""
+	is_announce: Boolean
+	"""
+	 是否APP推送                                                  (                            )
+	"""
+	is_app_push: Boolean
+	"""
+	 通报内容                                                     (                            )
+	"""
+	notify_content: String
+	"""
+	 语音内容                                                     (                            )
+	"""
+	announce_content: String
+	"""
+	 APP推送内容                                                  (                            )
+	"""
+	app_push_content: String
+	"""
+	 处置方式                                                     ( 处置方式字典           )
+	"""
+	disposal_method: Int
+	"""
+	 处置结果                                                     (                            )
+	"""
+	disposal_result: String
+	"""
+	 是否删除                                                     ( false                      )
+	"""
+	is_deleted: Boolean
+	"""
+	 创建时间                                                     (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                       ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                     (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                       ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                     (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                       ( system_user表的user_id )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "alarm_processing_record"
 """
-type alarm_processing_record_aggregate {
-    aggregate: alarm_processing_record_aggregate_fields
-    nodes: [alarm_processing_record!]!
+type AlarmProcessingRecordAggregate {
+	aggregate: AlarmProcessingRecordAggregateFields
 }
-
 """
 aggregate fields of "alarm_processing_record"
 """
-type alarm_processing_record_aggregate_fields {
-    avg: alarm_processing_record_avg_fields
-    count(columns: [alarm_processing_record_select_column!], distinct: Boolean): Int
-    max: alarm_processing_record_max_fields
-    min: alarm_processing_record_min_fields
-    stddev: alarm_processing_record_stddev_fields
-    stddev_pop: alarm_processing_record_stddev_pop_fields
-    stddev_samp: alarm_processing_record_stddev_samp_fields
-    sum: alarm_processing_record_sum_fields
-    var_pop: alarm_processing_record_var_pop_fields
-    var_samp: alarm_processing_record_var_samp_fields
-    variance: alarm_processing_record_variance_fields
+type AlarmProcessingRecordAggregateFields {
+	avg: AlarmProcessingRecordAvgFields
+	count: Int
+	max: AlarmProcessingRecordMaxFields
+	min: AlarmProcessingRecordMinFields
+	stddev: AlarmProcessingRecordStddevFields
+	stddev_pop: AlarmProcessingRecordStddevPopFields
+	stddev_samp: AlarmProcessingRecordStddevSampFields
+	sum: AlarmProcessingRecordSumFields
+	var_pop: AlarmProcessingRecordVarPopFields
+	var_samp: AlarmProcessingRecordVarSampFields
+	variance: AlarmProcessingRecordVarianceFields
 }
-
 """
-order by aggregate values of table "alarm_processing_record"
+aggregate avg on columns of table "alarm_processing_record"
 """
-input alarm_processing_record_aggregate_order_by {
-    avg: alarm_processing_record_avg_order_by
-    count: order_by
-    max: alarm_processing_record_max_order_by
-    min: alarm_processing_record_min_order_by
-    stddev: alarm_processing_record_stddev_order_by
-    stddev_pop: alarm_processing_record_stddev_pop_order_by
-    stddev_samp: alarm_processing_record_stddev_samp_order_by
-    sum: alarm_processing_record_sum_order_by
-    var_pop: alarm_processing_record_var_pop_order_by
-    var_samp: alarm_processing_record_var_samp_order_by
-    variance: alarm_processing_record_variance_order_by
+type AlarmProcessingRecordAvgFields {
+	id: Bigint
+	alarm_supervision_picture_id: Bigint
+	processing_type: Int
+	disposal_method: Int
 }
-
 """
-input type for inserting array relation for remote table "alarm_processing_record"
+aggregate max on columns of table "alarm_processing_record"
 """
-input alarm_processing_record_arr_rel_insert_input {
-    data: [alarm_processing_record_insert_input!]!
+type AlarmProcessingRecordMaxFields {
+	id: Bigint
+	alarm_data_id: String
+	alarm_supervision_picture_id: Bigint
+	processing_content: String
+	processing_time: Timestamptz
+	processing_type: Int
+	operation_user: String
+	is_sms_push: Boolean
+	is_notify: Boolean
+	is_announce: Boolean
+	is_app_push: Boolean
+	notify_content: String
+	announce_content: String
+	app_push_content: String
+	disposal_method: Int
+	disposal_result: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type alarm_processing_record_avg_fields {
-    id: Float
-    processing_type: Float
+"""
+aggregate min on columns of table "alarm_processing_record"
+"""
+type AlarmProcessingRecordMinFields {
+	id: Bigint
+	alarm_data_id: String
+	alarm_supervision_picture_id: Bigint
+	processing_content: String
+	processing_time: Timestamptz
+	processing_type: Int
+	operation_user: String
+	is_sms_push: Boolean
+	is_notify: Boolean
+	is_announce: Boolean
+	is_app_push: Boolean
+	notify_content: String
+	announce_content: String
+	app_push_content: String
+	disposal_method: Int
+	disposal_result: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "alarm_processing_record"
+aggregate stddev on columns of table "alarm_processing_record"
 """
-input alarm_processing_record_avg_order_by {
-    id: order_by
-    processing_type: order_by
+type AlarmProcessingRecordStddevFields {
+	id: Bigint
+	alarm_supervision_picture_id: Bigint
+	processing_type: Int
+	disposal_method: Int
 }
-
 """
-Boolean expression to filter rows from the table "alarm_processing_record". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "alarm_processing_record"
 """
-input alarm_processing_record_bool_exp {
-    _and: [alarm_processing_record_bool_exp]
-    _not: alarm_processing_record_bool_exp
-    _or: [alarm_processing_record_bool_exp]
-    alarm_data_id: String_comparison_exp
-    alarm_supervision_picture_id: String_comparison_exp
-    announce_content: String_comparison_exp
-    app_push_content: String_comparison_exp
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    disposal_method: String_comparison_exp
-    disposal_result: String_comparison_exp
-    id: bigint_comparison_exp
-    is_announce: Boolean_comparison_exp
-    is_app_push: Boolean_comparison_exp
-    is_delete: Boolean_comparison_exp
-    is_notify: Boolean_comparison_exp
-    is_sms_push: Boolean_comparison_exp
-    notify_content: String_comparison_exp
-    operation_user: String_comparison_exp
-    processing_content: String_comparison_exp
-    processing_time: timestamptz_comparison_exp
-    processing_type: Int_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
+type AlarmProcessingRecordStddevPopFields {
+	id: Bigint
+	alarm_supervision_picture_id: Bigint
+	processing_type: Int
+	disposal_method: Int
 }
-
 """
-input type for incrementing integer column in table "alarm_processing_record"
+aggregate stddev_samp on columns of table "alarm_processing_record"
 """
-input alarm_processing_record_inc_input {
-    id: bigint
-    processing_type: Int
+type AlarmProcessingRecordStddevSampFields {
+	id: Bigint
+	alarm_supervision_picture_id: Bigint
+	processing_type: Int
+	disposal_method: Int
 }
-
 """
-input type for inserting data into table "alarm_processing_record"
+aggregate sum on columns of table "alarm_processing_record"
 """
-input alarm_processing_record_insert_input {
-    alarm_data_id: String
-    alarm_supervision_picture_id: String
-    announce_content: String
-    app_push_content: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    disposal_method: String
-    disposal_result: String
-    id: bigint
-    is_announce: Boolean
-    is_app_push: Boolean
-    is_delete: Boolean
-    is_notify: Boolean
-    is_sms_push: Boolean
-    notify_content: String
-    operation_user: String
-    processing_content: String
-    processing_time: timestamptz
-    processing_type: Int
-    updated_at: timestamptz
-    updated_by: String
+type AlarmProcessingRecordSumFields {
+	id: Bigint
+	alarm_supervision_picture_id: Bigint
+	processing_type: Int
+	disposal_method: Int
 }
-
-"""aggregate max on columns"""
-type alarm_processing_record_max_fields {
-    alarm_data_id: String
-    alarm_supervision_picture_id: String
-    announce_content: String
-    app_push_content: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    disposal_method: String
-    disposal_result: String
-    id: bigint
-    notify_content: String
-    operation_user: String
-    processing_content: String
-    processing_time: timestamptz
-    processing_type: Int
-    updated_at: timestamptz
-    updated_by: String
-}
-
 """
-order by max() on columns of table "alarm_processing_record"
+aggregate var_pop on columns of table "alarm_processing_record"
 """
-input alarm_processing_record_max_order_by {
-    alarm_data_id: order_by
-    alarm_supervision_picture_id: order_by
-    announce_content: order_by
-    app_push_content: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    disposal_method: order_by
-    disposal_result: order_by
-    id: order_by
-    notify_content: order_by
-    operation_user: order_by
-    processing_content: order_by
-    processing_time: order_by
-    processing_type: order_by
-    updated_at: order_by
-    updated_by: order_by
+type AlarmProcessingRecordVarPopFields {
+	id: Bigint
+	alarm_supervision_picture_id: Bigint
+	processing_type: Int
+	disposal_method: Int
 }
-
-"""aggregate min on columns"""
-type alarm_processing_record_min_fields {
-    alarm_data_id: String
-    alarm_supervision_picture_id: String
-    announce_content: String
-    app_push_content: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    disposal_method: String
-    disposal_result: String
-    id: bigint
-    notify_content: String
-    operation_user: String
-    processing_content: String
-    processing_time: timestamptz
-    processing_type: Int
-    updated_at: timestamptz
-    updated_by: String
-}
-
 """
-order by min() on columns of table "alarm_processing_record"
+aggregate var_samp on columns of table "alarm_processing_record"
 """
-input alarm_processing_record_min_order_by {
-    alarm_data_id: order_by
-    alarm_supervision_picture_id: order_by
-    announce_content: order_by
-    app_push_content: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    disposal_method: order_by
-    disposal_result: order_by
-    id: order_by
-    notify_content: order_by
-    operation_user: order_by
-    processing_content: order_by
-    processing_time: order_by
-    processing_type: order_by
-    updated_at: order_by
-    updated_by: order_by
+type AlarmProcessingRecordVarSampFields {
+	id: Bigint
+	alarm_supervision_picture_id: Bigint
+	processing_type: Int
+	disposal_method: Int
 }
-
+"""
+aggregate variance on columns of table "alarm_processing_record"
+"""
+type AlarmProcessingRecordVarianceFields {
+	id: Bigint
+	alarm_supervision_picture_id: Bigint
+	processing_type: Int
+	disposal_method: Int
+}
 """
 response of any mutation on the table "alarm_processing_record"
 """
-type alarm_processing_record_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [alarm_processing_record!]!
+type AlarmProcessingRecordMutationResponse {
+	affected_rows: Int!
+	returning: [AlarmProcessingRecord!]!
 }
-
-"""
-input type for inserting object relation for remote table "alarm_processing_record"
-"""
-input alarm_processing_record_obj_rel_insert_input {
-    data: alarm_processing_record_insert_input!
-}
-
 """
 ordering options when selecting data from "alarm_processing_record"
 """
-input alarm_processing_record_order_by {
-    alarm_data_id: order_by
-    alarm_supervision_picture_id: order_by
-    announce_content: order_by
-    app_push_content: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    disposal_method: order_by
-    disposal_result: order_by
-    id: order_by
-    is_announce: order_by
-    is_app_push: order_by
-    is_delete: order_by
-    is_notify: order_by
-    is_sms_push: order_by
-    notify_content: order_by
-    operation_user: order_by
-    processing_content: order_by
-    processing_time: order_by
-    processing_type: order_by
-    updated_at: order_by
-    updated_by: order_by
+input AlarmProcessingRecordOrderBy {
+	id: OrderBy
+	alarm_data_id: OrderBy
+	alarm_supervision_picture_id: OrderBy
+	processing_content: OrderBy
+	processing_time: OrderBy
+	processing_type: OrderBy
+	operation_user: OrderBy
+	is_sms_push: OrderBy
+	is_notify: OrderBy
+	is_announce: OrderBy
+	is_app_push: OrderBy
+	notify_content: OrderBy
+	announce_content: OrderBy
+	app_push_content: OrderBy
+	disposal_method: OrderBy
+	disposal_result: OrderBy
+	is_deleted: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-select columns of table "alarm_processing_record"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'alarm_processing_record'.
 """
-enum alarm_processing_record_select_column {
-    """column name"""
-    alarm_data_id
-
-    """column name"""
-    alarm_supervision_picture_id
-
-    """column name"""
-    announce_content
-
-    """column name"""
-    app_push_content
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    disposal_method
-
-    """column name"""
-    disposal_result
-
-    """column name"""
-    id
-
-    """column name"""
-    is_announce
-
-    """column name"""
-    is_app_push
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_notify
-
-    """column name"""
-    is_sms_push
-
-    """column name"""
-    notify_content
-
-    """column name"""
-    operation_user
-
-    """column name"""
-    processing_content
-
-    """column name"""
-    processing_time
-
-    """column name"""
-    processing_type
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
+input AlarmProcessingRecordBoolExp {
+	_and: [AlarmProcessingRecordBoolExp]
+	_not: AlarmProcessingRecordBoolExp
+	_or: [AlarmProcessingRecordBoolExp]
+	id: BigintComparisonExp
+	alarm_data_id: StringComparisonExp
+	alarm_supervision_picture_id: BigintComparisonExp
+	processing_content: StringComparisonExp
+	processing_time: TimestamptzComparisonExp
+	processing_type: IntComparisonExp
+	operation_user: StringComparisonExp
+	is_sms_push: BooleanComparisonExp
+	is_notify: BooleanComparisonExp
+	is_announce: BooleanComparisonExp
+	is_app_push: BooleanComparisonExp
+	notify_content: StringComparisonExp
+	announce_content: StringComparisonExp
+	app_push_content: StringComparisonExp
+	disposal_method: IntComparisonExp
+	disposal_result: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
+"""
+input type for inserting data into table "alarm_processing_record"
+"""
+input AlarmProcessingRecordInsertInput {
+	id: Bigint
+	alarm_data_id: String
+	alarm_supervision_picture_id: Bigint
+	processing_content: String
+	processing_time: Timestamptz
+	processing_type: Int
+	operation_user: String
+	is_sms_push: Boolean
+	is_notify: Boolean
+	is_announce: Boolean
+	is_app_push: Boolean
+	notify_content: String
+	announce_content: String
+	app_push_content: String
+	disposal_method: Int
+	disposal_result: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+}
+"""
+input type for incrementing integer column in table "alarm_processing_record"
+"""
+input AlarmProcessingRecordIncInput {
+	id: Bigint
+	alarm_supervision_picture_id: Bigint
+	processing_type: Int
+	disposal_method: Int
+}
 """
 input type for updating data in table "alarm_processing_record"
 """
-input alarm_processing_record_set_input {
-    alarm_data_id: String
-    alarm_supervision_picture_id: String
-    announce_content: String
-    app_push_content: String
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    disposal_method: String
-    disposal_result: String
-    id: bigint
-    is_announce: Boolean
-    is_app_push: Boolean
-    is_delete: Boolean
-    is_notify: Boolean
-    is_sms_push: Boolean
-    notify_content: String
-    operation_user: String
-    processing_content: String
-    processing_time: timestamptz
-    processing_type: Int
-    updated_at: timestamptz
-    updated_by: String
+input AlarmProcessingRecordSetInput {
+	id: Bigint
+	alarm_data_id: String
+	alarm_supervision_picture_id: Bigint
+	processing_content: String
+	processing_time: Timestamptz
+	processing_type: Int
+	operation_user: String
+	is_sms_push: Boolean
+	is_notify: Boolean
+	is_announce: Boolean
+	is_app_push: Boolean
+	notify_content: String
+	announce_content: String
+	app_push_content: String
+	disposal_method: Int
+	disposal_result: String
+	is_deleted: Boolean
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type alarm_processing_record_stddev_fields {
-    id: Float
-    processing_type: Float
-}
-
 """
-order by stddev() on columns of table "alarm_processing_record"
+可选select
 """
-input alarm_processing_record_stddev_order_by {
-    id: order_by
-    processing_type: order_by
+enum AlarmProcessingRecordSelectColumn {
+	"""
+	 按指定方法生成                                               ( 主键                       )
+	"""
+	id
+	"""
+	 vehicle_alarm_data报警数据表的alarm_data_id              (                            )
+	"""
+	alarm_data_id
+	"""
+	 alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id (                            )
+	"""
+	alarm_supervision_picture_id
+	"""
+	 处理内容                                                     (                            )
+	"""
+	processing_content
+	"""
+	 处理时间                                                     (                            )
+	"""
+	processing_time
+	"""
+	 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 (                            )
+	"""
+	processing_type
+	"""
+	 操作用户                                                     ( system_user表的user_id )
+	"""
+	operation_user
+	"""
+	 是否短信推送                                                 (                            )
+	"""
+	is_sms_push
+	"""
+	 是否通报                                                     (                            )
+	"""
+	is_notify
+	"""
+	 是否语音通知                                                 (                            )
+	"""
+	is_announce
+	"""
+	 是否APP推送                                                  (                            )
+	"""
+	is_app_push
+	"""
+	 通报内容                                                     (                            )
+	"""
+	notify_content
+	"""
+	 语音内容                                                     (                            )
+	"""
+	announce_content
+	"""
+	 APP推送内容                                                  (                            )
+	"""
+	app_push_content
+	"""
+	 处置方式                                                     ( 处置方式字典           )
+	"""
+	disposal_method
+	"""
+	 处置结果                                                     (                            )
+	"""
+	disposal_result
+	"""
+	 是否删除                                                     ( false                      )
+	"""
+	is_deleted
+	"""
+	 创建时间                                                     (                            )
+	"""
+	created_at
+	"""
+	 创建人                                                       ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                                     (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                                       ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                                     (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                                       ( system_user表的user_id )
+	"""
+	deleted_by
 }
-
-"""aggregate stddev_pop on columns"""
-type alarm_processing_record_stddev_pop_fields {
-    id: Float
-    processing_type: Float
+extend type Query {
+	"""
+	列表查询
+	"""
+	alarm_processing_record(distinct_on: [AlarmProcessingRecordSelectColumn!], limit: Int, offset: Int, order_by: [AlarmProcessingRecordOrderBy!], where: AlarmProcessingRecordBoolExp): [AlarmProcessingRecord!]!
+	"""
+	聚合查询
+	"""
+	alarm_processing_record_aggregate(distinct_on: [AlarmProcessingRecordSelectColumn!], limit: Int, offset: Int, order_by: [AlarmProcessingRecordOrderBy!], where: AlarmProcessingRecordBoolExp): AlarmProcessingRecordAggregate!
+	"""
+	主键查询
+	"""
+	alarm_processing_record_by_pk(id: Bigint!): AlarmProcessingRecord!
 }
-
-"""
-order by stddev_pop() on columns of table "alarm_processing_record"
-"""
-input alarm_processing_record_stddev_pop_order_by {
-    id: order_by
-    processing_type: order_by
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_alarm_processing_record(where: AlarmProcessingRecordBoolExp!): AlarmProcessingRecordMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_alarm_processing_record_by_pk(id: Bigint!): AlarmProcessingRecord
+	"""
+	插入
+	"""
+	insert_alarm_processing_record(objects: [AlarmProcessingRecordInsertInput!]!): AlarmProcessingRecordMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_alarm_processing_record_one(objects: AlarmProcessingRecordInsertInput!): AlarmProcessingRecord
+	"""
+	更新
+	"""
+	update_alarm_processing_record(_inc: AlarmProcessingRecordIncInput, _set: AlarmProcessingRecordSetInput, where: AlarmProcessingRecordBoolExp!): AlarmProcessingRecordMutationResponse
+	"""
+	更新
+	"""
+	update_alarm_processing_record_by_pk(_inc: AlarmProcessingRecordIncInput, _set: AlarmProcessingRecordSetInput, id: Bigint!): AlarmProcessingRecord
 }
-
-"""aggregate stddev_samp on columns"""
-type alarm_processing_record_stddev_samp_fields {
-    id: Float
-    processing_type: Float
-}
-
-"""
-order by stddev_samp() on columns of table "alarm_processing_record"
-"""
-input alarm_processing_record_stddev_samp_order_by {
-    id: order_by
-    processing_type: order_by
-}
-
-"""aggregate sum on columns"""
-type alarm_processing_record_sum_fields {
-    id: bigint
-    processing_type: Int
-}
-
-"""
-order by sum() on columns of table "alarm_processing_record"
-"""
-input alarm_processing_record_sum_order_by {
-    id: order_by
-    processing_type: order_by
-}
-
-"""aggregate var_pop on columns"""
-type alarm_processing_record_var_pop_fields {
-    id: Float
-    processing_type: Float
-}
-
-"""
-order by var_pop() on columns of table "alarm_processing_record"
-"""
-input alarm_processing_record_var_pop_order_by {
-    id: order_by
-    processing_type: order_by
-}
-
-"""aggregate var_samp on columns"""
-type alarm_processing_record_var_samp_fields {
-    id: Float
-    processing_type: Float
-}
-
-"""
-order by var_samp() on columns of table "alarm_processing_record"
-"""
-input alarm_processing_record_var_samp_order_by {
-    id: order_by
-    processing_type: order_by
-}
-
-"""aggregate variance on columns"""
-type alarm_processing_record_variance_fields {
-    id: Float
-    processing_type: Float
-}
-
-"""
-order by variance() on columns of table "alarm_processing_record"
-"""
-input alarm_processing_record_variance_order_by {
-    id: order_by
-    processing_type: order_by
-}
-
-
-
-
-
-"""mutation root"""
-type Mutation {
-    """
-    delete data from the table: "alarm_processing_record"
-  """
-    delete_alarm_processing_record(
-        """filter the rows which have to be deleted"""
-        where: alarm_processing_record_bool_exp!
-    ): alarm_processing_record_mutation_response
-
-    """
-    insert data into the table: "alarm_processing_record"
-  """
-    insert_alarm_processing_record(
-        """the rows to be inserted"""
-        objects: [alarm_processing_record_insert_input!]!
-    ): alarm_processing_record_mutation_response
-
-    """
-    insert a single row into the table: "alarm_processing_record"
-  """
-    insert_alarm_processing_record_one(
-        """the row to be inserted"""
-        object: alarm_processing_record_insert_input!
-    ): alarm_processing_record
-
-    """
-    update data of the table: "alarm_processing_record"
-  """
-    update_alarm_processing_record(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: alarm_processing_record_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: alarm_processing_record_set_input
-
-        """filter the rows which have to be updated"""
-        where: alarm_processing_record_bool_exp!
-    ): alarm_processing_record_mutation_response
-}
-
-
-"""query root"""
-type Query {
-    """
-    fetch data from the table: "alarm_processing_record"
-  """
-    alarm_processing_record(
-        """distinct select on columns"""
-        distinct_on: [alarm_processing_record_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [alarm_processing_record_order_by!]
-
-        """filter the rows returned"""
-        where: alarm_processing_record_bool_exp
-    ): [alarm_processing_record!]!
-
-    """
-    fetch aggregated fields from the table: "alarm_processing_record"
-  """
-    alarm_processing_record_aggregate(
-        """distinct select on columns"""
-        distinct_on: [alarm_processing_record_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [alarm_processing_record_order_by!]
-
-        """filter the rows returned"""
-        where: alarm_processing_record_bool_exp
-    ): alarm_processing_record_aggregate!
-}
-
-
-"""subscription root"""
-type Subscription {
-    """
-    fetch data from the table: "alarm_processing_record"
-  """
-    alarm_processing_record(
-        """distinct select on columns"""
-        distinct_on: [alarm_processing_record_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [alarm_processing_record_order_by!]
-
-        """filter the rows returned"""
-        where: alarm_processing_record_bool_exp
-    ): [alarm_processing_record!]!
-
-    """
-    fetch aggregated fields from the table: "alarm_processing_record"
-  """
-    alarm_processing_record_aggregate(
-        """distinct select on columns"""
-        distinct_on: [alarm_processing_record_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [alarm_processing_record_order_by!]
-
-        """filter the rows returned"""
-        where: alarm_processing_record_bool_exp
-    ): alarm_processing_record_aggregate!
-}
-

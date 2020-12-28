@@ -1,1645 +1,1071 @@
-
-
-"""mutation root"""
-type Mutation {
-    """
-    delete data from the table: "vehicle_info"
-  """
-    delete_vehicle_info(
-        """filter the rows which have to be deleted"""
-        where: vehicle_info_bool_exp!
-    ): vehicle_info_mutation_response
-
-    """
-    delete single row from the table: "vehicle_info"
-  """
-    delete_vehicle_info_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
-        vehicle_id: String!
-    ): vehicle_info
-
-    """
-    insert data into the table: "vehicle_info"
-  """
-    insert_vehicle_info(
-        """the rows to be inserted"""
-        objects: [vehicle_info_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: vehicle_info_on_conflict
-    ): vehicle_info_mutation_response
-
-    """
-    insert a single row into the table: "vehicle_info"
-  """
-    insert_vehicle_info_one(
-        """the row to be inserted"""
-        object: vehicle_info_insert_input!
-
-        """on conflict condition"""
-        on_conflict: vehicle_info_on_conflict
-    ): vehicle_info
-
-    """
-    update data of the table: "vehicle_info"
-  """
-    update_vehicle_info(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_info_set_input
-
-        """filter the rows which have to be updated"""
-        where: vehicle_info_bool_exp!
-    ): vehicle_info_mutation_response
-
-    """
-    update single row of the table: "vehicle_info"
-  """
-    update_vehicle_info_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_info_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_info_set_input
-        pk_columns: vehicle_info_pk_columns_input!
-    ): vehicle_info
-}
-
-
-
-"""query root"""
-type Query {
-    """
-    fetch data from the table: "vehicle_info"
-  """
-    vehicle_info(
-        """distinct select on columns"""
-        distinct_on: [vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_info_bool_exp
-    ): [vehicle_info!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_info"
-  """
-    vehicle_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_info_bool_exp
-    ): vehicle_info_aggregate!
-
-    """fetch data from the table: "vehicle_info" using primary key columns"""
-    vehicle_info_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
-        vehicle_id: String!
-    ): vehicle_info
-}
-
-
-"""subscription root"""
-type Subscription {
-    """
-    fetch data from the table: "vehicle_info"
-  """
-    vehicle_info(
-        """distinct select on columns"""
-        distinct_on: [vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_info_bool_exp
-    ): [vehicle_info!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_info"
-  """
-    vehicle_info_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_info_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_info_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_info_bool_exp
-    ): vehicle_info_aggregate!
-
-    """fetch data from the table: "vehicle_info" using primary key columns"""
-    vehicle_info_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
-        vehicle_id: String!
-    ): vehicle_info
-}
-
-
-
 """
-车辆信息主表
-
-
-columns and relationships of "vehicle_info"
-
+车辆信息表
 """
-type vehicle_info {
-    """经营范围字典"""
-    business_scope: Int
-
-    """租车标准价格"""
-    car_rental_price: numeric
-
-    """校验状态"""
-    check_state: Int
-
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人,"""
-    created_by: String!
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """所在部门id,department 部门信息表"""
-    department_id: String
-
-    """行驶证照片,云储存系统返回的路径"""
-    driving_licensee_pic: String
-
-    """所在企业id,enterprise_info表的enterprise_id"""
-    enterprise_id: String
-
-    """吨位"""
-    heavy: numeric
-
-    """主键"""
-    id: bigint!
-
-    """行业类别字典"""
-    industry_category: Int
-
-    """检验日期（六合一）"""
-    inspection_date: timestamptz
-
-    """投保公司"""
-    insurance_company: Int
-
-    """投保日期"""
-    insurance_date: timestamptz
-
-    """是否激活"""
-    is_active: Boolean
-
-    """是否申请安装智能终端"""
-    is_apply_install_terminal: Boolean
-
-    """是否完成;用于标志车辆资料是否处于确定状态。未确定状态的车辆信息在系统上除车辆管理外的功能中都查不到"""
-    is_complete: Boolean
-
-    """是否删除"""
-    is_delete: Boolean
-
-    """是否导入"""
-    is_import: Boolean
-
-    """是否录入完成"""
-    is_input: Boolean
-
-    """是否上传省厅"""
-    is_upload_province: Boolean
-
-    """车牌颜色字典"""
-    license_plate_color: Int
-
-    """车牌号"""
-    license_plate_number: String
-
-    """号牌种类字典"""
-    license_plate_type: Int
-
-    """muck_truck _info 渣土车信息表的id"""
-    muck_truck_id: bigint
-
-    """营运线路"""
-    operating_route: String
-
-    """营运状态字典"""
-    operating_state: Int
-
-    """营运类型字典"""
-    operating_type: Int
-
-    """operating_vehi cle_ info 营运车信息表的id"""
-    operating_vehicle_id: bigint
-
-    """机动车所有人（六合一）"""
-    owner: String
-
-    """准驾车型"""
-    quasi_driving_models: Int
-
-    """登记时间"""
-    record_at: timestamptz
-
-    """登记人,system_user表的user_id"""
-    record_by: String
-
-    """车辆信息同步内网反馈信息;车辆信息同步到公安内网后内网的反馈内容，如车牌号填写错误会反馈车辆号牌错误"""
-    remark_in: String
-
-    """备注"""
-    remarks: String
-
-    """报废日期（六合一）"""
-    retirement_date: timestamptz
-
-    """
-    道路运输证号
-
-
-    """
-    road_transport_license_number: String
-
-    """座位"""
-    seats: Int
-
-    """终端ID"""
-    terminal_id: String
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
-
-    """内网更新时间"""
-    update_time_in: timestamptz
-
-    """使用性质（六合一）"""
-    use_nature: String
-
-    """车辆品牌"""
-    vehicle_brand: Int
-
-    """汽车排量"""
-    vehicle_displacement: String
-
-    """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
-    vehicle_id: String!
-
-    """车架号(后6位),车辆识别代号vin,如D02133"""
-    vehicle_identification_number: String
-
-    """
-    维保数据数组，字段包括: 1.maintenance_ date 维保时间<br />2.maintenance_ kilometers 维保公里数
-    """
-    vehicle_maintenances: _jsonb
-
-    """机动车管理人"""
-    vehicle_manager: String
-
-    """机动车管理人身份证"""
-    vehicle_manager_id_card: String
-
-    """机动车管理人联系电话"""
-    vehicle_manager_phone: String
-
-    """机动车状态"""
-    vehicle_state: Int
-
-    """车辆类型字典"""
-    vehicle_type: Int
+type VehicleInfo {
+	"""
+	 按指定方法生成，生成方法见下面说明                           ( 主键                                                         )
+	"""
+	id: Bigint!
+	"""
+	 车辆外部编码，由golang程序生成的xid，暴露到外部使用          ( 联合主键                                                     )
+	"""
+	vehicle_id: String!
+	"""
+	 所在企业id                                                   ( enterprise_info表的enterprise_id                         )
+	"""
+	enterprise_id: String
+	"""
+	 所在部门id                                                   ( department 部门信息表                                    )
+	"""
+	department_id: String
+	"""
+	 行业类别                                                     ( 行业类别字典                                             )
+	"""
+	industry_category: Int
+	"""
+	 经营范围                                                     ( 经营范围字典                                             )
+	"""
+	business_scope: Int
+	"""
+	 车辆类型                                                     ( 车辆类型字典                                             )
+	"""
+	vehicle_type: Int
+	"""
+	 营运类型                                                     ( 营运类型字典                                             )
+	"""
+	operating_type: Int
+	"""
+	 营运状态                                                     ( 营运状态字典                                             )
+	"""
+	operating_state: Int
+	"""
+	 营运线路                                                     (                                                              )
+	"""
+	operating_route: String
+	"""
+	 终端ID                                                       (                                                              )
+	"""
+	terminal_id: String
+	"""
+	 是否申请安装智能终端                                         (                                                              )
+	"""
+	is_apply_install_terminal: Boolean
+	"""
+	 车牌号                                                       (                                                              )
+	"""
+	license_plate_number: String
+	"""
+	 车牌颜色                                                     ( 车牌颜色字典                                             )
+	"""
+	license_plate_color: Int
+	"""
+	 号牌种类                                                     ( 号牌种类字典                                             )
+	"""
+	license_plate_type: Int
+	"""
+	 车架号(后6位)                                                ( 车辆识别代号vin,如D02133                                     )
+	"""
+	vehicle_identification_number: String
+	"""
+	 道路运输证号                                                 (                                                              )
+	"""
+	road_transport_license_number: String
+	"""
+	 吨位                                                         (                                                              )
+	"""
+	heavy: Numeric
+	"""
+	 座位                                                         (                                                              )
+	"""
+	seats: Int
+	"""
+	 机动车管理人                                                 (                                                              )
+	"""
+	vehicle_manager: String
+	"""
+	 机动车管理人联系电话                                         (                                                              )
+	"""
+	vehicle_manager_phone: String
+	"""
+	 机动车管理人身份证                                           (                                                              )
+	"""
+	vehicle_manager_id_card: String
+	"""
+	 机动车所有人（六合一）                                       (                                                              )
+	"""
+	owner: String
+	"""
+	 检验日期（六合一）                                           (                                                              )
+	"""
+	inspection_date: Timestamptz
+	"""
+	 报废日期（六合一）                                           (                                                              )
+	"""
+	retirement_date: Timestamptz
+	"""
+	 使用性质（六合一）                                           (                                                              )
+	"""
+	use_nature: String
+	"""
+	 机动车状态                                                   ( 车辆状态字典                                             )
+	"""
+	vehicle_state: Int
+	"""
+	 内网更新时间                                                 (                                                              )
+	"""
+	update_time_in: Timestamptz
+	"""
+	 车辆信息同步内网反馈信息                                     ( 车辆信息同步到公安内网后内网的反馈内容，如车牌号填写错误会反馈车辆号牌错误 )
+	"""
+	remark_in: String
+	"""
+	 是否完成                                                     ( 用于标志车辆资料是否处于确定状态。未确定状态的车辆信息在系统上除车辆管理外的功能中都查不到 )
+	"""
+	is_complete: Boolean
+	"""
+	 行驶证照片,云储存系统返回的路径                              (                                                              )
+	"""
+	driving_licensee_pic: String
+	"""
+	 是否激活                                                     (                                                              )
+	"""
+	is_active: Boolean
+	"""
+	 是否录入完成                                                 (                                                              )
+	"""
+	is_input: Boolean
+	"""
+	 租车标准价格                                                 (                                                              )
+	"""
+	car_rental_price: Numeric
+	"""
+	 投保公司                                                     ( 投保公司字典                                             )
+	"""
+	insurance_company: Int
+	"""
+	 投保日期                                                     (                                                              )
+	"""
+	insurance_date: Timestamptz
+	"""
+	 维保数据数组，字段包括: 1.maintenance_ date 维保时间<br />2.maintenance_ kilometers 维保公里数 (                                                              )
+	"""
+	vehicle_maintenances: String
+	"""
+	 汽车排量                                                     (                                                              )
+	"""
+	vehicle_displacement: String
+	"""
+	 车辆品牌                                                     ( 车辆品牌字典                                             )
+	"""
+	vehicle_brand: Int
+	"""
+	 准驾车型                                                     ( 准驾车型字典                                             )
+	"""
+	quasi_driving_models: Int
+	"""
+	 是否上传省厅                                                 (                                                              )
+	"""
+	is_upload_province: Boolean
+	"""
+	 校验状态                                                     ( 车辆校验状态字典                                         )
+	"""
+	check_state: Int
+	"""
+	 是否导入                                                     ( 是否通过外部导入的车辆信息                                   )
+	"""
+	is_import: Boolean
+	"""
+	 是否工程运输车                                               (                                                              )
+	"""
+	is_engineering_vehicle: Boolean
+	"""
+	 是否目录库                                                   (                                                              )
+	"""
+	is_catalog_library: Boolean
+	"""
+	 备注                                                         (                                                              )
+	"""
+	remarks: String
+	"""
+	 是否删除                                                     (                                                              )
+	"""
+	is_deleted: Boolean
+	"""
+	 登记时间                                                     (                                                              )
+	"""
+	record_at: Timestamptz
+	"""
+	 登记人                                                       ( system_user表的user_id                                   )
+	"""
+	record_by: String
+	"""
+	 创建时间                                                     (                                                              )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                       ( system_user表的user_id                                   )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                     (                                                              )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                       ( system_user表的user_id                                   )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                     (                                                              )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                       ( system_user表的user_id                                   )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "vehicle_info"
 """
-type vehicle_info_aggregate {
-    aggregate: vehicle_info_aggregate_fields
-    nodes: [vehicle_info!]!
+type VehicleInfoAggregate {
+	aggregate: VehicleInfoAggregateFields
 }
-
 """
 aggregate fields of "vehicle_info"
 """
-type vehicle_info_aggregate_fields {
-    avg: vehicle_info_avg_fields
-    count(columns: [vehicle_info_select_column!], distinct: Boolean): Int
-    max: vehicle_info_max_fields
-    min: vehicle_info_min_fields
-    stddev: vehicle_info_stddev_fields
-    stddev_pop: vehicle_info_stddev_pop_fields
-    stddev_samp: vehicle_info_stddev_samp_fields
-    sum: vehicle_info_sum_fields
-    var_pop: vehicle_info_var_pop_fields
-    var_samp: vehicle_info_var_samp_fields
-    variance: vehicle_info_variance_fields
+type VehicleInfoAggregateFields {
+	avg: VehicleInfoAvgFields
+	count: Int
+	max: VehicleInfoMaxFields
+	min: VehicleInfoMinFields
+	stddev: VehicleInfoStddevFields
+	stddev_pop: VehicleInfoStddevPopFields
+	stddev_samp: VehicleInfoStddevSampFields
+	sum: VehicleInfoSumFields
+	var_pop: VehicleInfoVarPopFields
+	var_samp: VehicleInfoVarSampFields
+	variance: VehicleInfoVarianceFields
 }
-
 """
-order by aggregate values of table "vehicle_info"
+aggregate avg on columns of table "vehicle_info"
 """
-input vehicle_info_aggregate_order_by {
-    avg: vehicle_info_avg_order_by
-    count: order_by
-    max: vehicle_info_max_order_by
-    min: vehicle_info_min_order_by
-    stddev: vehicle_info_stddev_order_by
-    stddev_pop: vehicle_info_stddev_pop_order_by
-    stddev_samp: vehicle_info_stddev_samp_order_by
-    sum: vehicle_info_sum_order_by
-    var_pop: vehicle_info_var_pop_order_by
-    var_samp: vehicle_info_var_samp_order_by
-    variance: vehicle_info_variance_order_by
+type VehicleInfoAvgFields {
+	id: Bigint
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	license_plate_color: Int
+	license_plate_type: Int
+	heavy: Numeric
+	seats: Int
+	vehicle_state: Int
+	car_rental_price: Numeric
+	insurance_company: Int
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	check_state: Int
 }
-
 """
-input type for inserting array relation for remote table "vehicle_info"
+aggregate max on columns of table "vehicle_info"
 """
-input vehicle_info_arr_rel_insert_input {
-    data: [vehicle_info_insert_input!]!
-    on_conflict: vehicle_info_on_conflict
+type VehicleInfoMaxFields {
+	id: Bigint
+	vehicle_id: String
+	enterprise_id: String
+	department_id: String
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	operating_route: String
+	terminal_id: String
+	is_apply_install_terminal: Boolean
+	license_plate_number: String
+	license_plate_color: Int
+	license_plate_type: Int
+	vehicle_identification_number: String
+	road_transport_license_number: String
+	heavy: Numeric
+	seats: Int
+	vehicle_manager: String
+	vehicle_manager_phone: String
+	vehicle_manager_id_card: String
+	owner: String
+	inspection_date: Timestamptz
+	retirement_date: Timestamptz
+	use_nature: String
+	vehicle_state: Int
+	update_time_in: Timestamptz
+	remark_in: String
+	is_complete: Boolean
+	driving_licensee_pic: String
+	is_active: Boolean
+	is_input: Boolean
+	car_rental_price: Numeric
+	insurance_company: Int
+	insurance_date: Timestamptz
+	vehicle_maintenances: String
+	vehicle_displacement: String
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	is_upload_province: Boolean
+	check_state: Int
+	is_import: Boolean
+	is_engineering_vehicle: Boolean
+	is_catalog_library: Boolean
+	remarks: String
+	is_deleted: Boolean
+	record_at: Timestamptz
+	record_by: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type vehicle_info_avg_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
+"""
+aggregate min on columns of table "vehicle_info"
+"""
+type VehicleInfoMinFields {
+	id: Bigint
+	vehicle_id: String
+	enterprise_id: String
+	department_id: String
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	operating_route: String
+	terminal_id: String
+	is_apply_install_terminal: Boolean
+	license_plate_number: String
+	license_plate_color: Int
+	license_plate_type: Int
+	vehicle_identification_number: String
+	road_transport_license_number: String
+	heavy: Numeric
+	seats: Int
+	vehicle_manager: String
+	vehicle_manager_phone: String
+	vehicle_manager_id_card: String
+	owner: String
+	inspection_date: Timestamptz
+	retirement_date: Timestamptz
+	use_nature: String
+	vehicle_state: Int
+	update_time_in: Timestamptz
+	remark_in: String
+	is_complete: Boolean
+	driving_licensee_pic: String
+	is_active: Boolean
+	is_input: Boolean
+	car_rental_price: Numeric
+	insurance_company: Int
+	insurance_date: Timestamptz
+	vehicle_maintenances: String
+	vehicle_displacement: String
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	is_upload_province: Boolean
+	check_state: Int
+	is_import: Boolean
+	is_engineering_vehicle: Boolean
+	is_catalog_library: Boolean
+	remarks: String
+	is_deleted: Boolean
+	record_at: Timestamptz
+	record_by: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "vehicle_info"
+aggregate stddev on columns of table "vehicle_info"
 """
-input vehicle_info_avg_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
+type VehicleInfoStddevFields {
+	id: Bigint
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	license_plate_color: Int
+	license_plate_type: Int
+	heavy: Numeric
+	seats: Int
+	vehicle_state: Int
+	car_rental_price: Numeric
+	insurance_company: Int
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	check_state: Int
 }
-
 """
-Boolean expression to filter rows from the table "vehicle_info". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "vehicle_info"
 """
-input vehicle_info_bool_exp {
-    _and: [vehicle_info_bool_exp]
-    _not: vehicle_info_bool_exp
-    _or: [vehicle_info_bool_exp]
-    business_scope: Int_comparison_exp
-    car_rental_price: numeric_comparison_exp
-    check_state: Int_comparison_exp
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: timestamptz_comparison_exp
-    department_id: String_comparison_exp
-    driving_licensee_pic: String_comparison_exp
-    enterprise_id: String_comparison_exp
-    heavy: numeric_comparison_exp
-    id: bigint_comparison_exp
-    industry_category: Int_comparison_exp
-    inspection_date: timestamptz_comparison_exp
-    insurance_company: Int_comparison_exp
-    insurance_date: timestamptz_comparison_exp
-    is_active: Boolean_comparison_exp
-    is_apply_install_terminal: Boolean_comparison_exp
-    is_complete: Boolean_comparison_exp
-    is_delete: Boolean_comparison_exp
-    is_import: Boolean_comparison_exp
-    is_input: Boolean_comparison_exp
-    is_upload_province: Boolean_comparison_exp
-    license_plate_color: Int_comparison_exp
-    license_plate_number: String_comparison_exp
-    license_plate_type: Int_comparison_exp
-    muck_truck_id: bigint_comparison_exp
-    operating_route: String_comparison_exp
-    operating_state: Int_comparison_exp
-    operating_type: Int_comparison_exp
-    operating_vehicle_id: bigint_comparison_exp
-    owner: String_comparison_exp
-    quasi_driving_models: Int_comparison_exp
-    record_at: timestamptz_comparison_exp
-    record_by: String_comparison_exp
-    remark_in: String_comparison_exp
-    remarks: String_comparison_exp
-    retirement_date: timestamptz_comparison_exp
-    road_transport_license_number: String_comparison_exp
-    seats: Int_comparison_exp
-    terminal_id: String_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
-    update_time_in: timestamptz_comparison_exp
-    use_nature: String_comparison_exp
-    vehicle_brand: Int_comparison_exp
-    vehicle_displacement: String_comparison_exp
-    vehicle_id: String_comparison_exp
-    vehicle_identification_number: String_comparison_exp
-    vehicle_maintenances: _jsonb_comparison_exp
-    vehicle_manager: String_comparison_exp
-    vehicle_manager_id_card: String_comparison_exp
-    vehicle_manager_phone: String_comparison_exp
-    vehicle_state: Int_comparison_exp
-    vehicle_type: Int_comparison_exp
+type VehicleInfoStddevPopFields {
+	id: Bigint
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	license_plate_color: Int
+	license_plate_type: Int
+	heavy: Numeric
+	seats: Int
+	vehicle_state: Int
+	car_rental_price: Numeric
+	insurance_company: Int
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	check_state: Int
 }
-
 """
-unique or primary key constraints on table "vehicle_info"
+aggregate stddev_samp on columns of table "vehicle_info"
 """
-enum vehicle_info_constraint {
-    """unique or primary key constraint"""
-    vehicle_info_pkey
+type VehicleInfoStddevSampFields {
+	id: Bigint
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	license_plate_color: Int
+	license_plate_type: Int
+	heavy: Numeric
+	seats: Int
+	vehicle_state: Int
+	car_rental_price: Numeric
+	insurance_company: Int
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	check_state: Int
 }
-
 """
-input type for incrementing integer column in table "vehicle_info"
+aggregate sum on columns of table "vehicle_info"
 """
-input vehicle_info_inc_input {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    insurance_company: Int
-    license_plate_color: Int
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    quasi_driving_models: Int
-    seats: Int
-    vehicle_brand: Int
-    vehicle_state: Int
-    vehicle_type: Int
+type VehicleInfoSumFields {
+	id: Bigint
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	license_plate_color: Int
+	license_plate_type: Int
+	heavy: Numeric
+	seats: Int
+	vehicle_state: Int
+	car_rental_price: Numeric
+	insurance_company: Int
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	check_state: Int
 }
-
 """
-input type for inserting data into table "vehicle_info"
+aggregate var_pop on columns of table "vehicle_info"
 """
-input vehicle_info_insert_input {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-#    created_at: timestamptz
-#    created_by: String
-#    deleted_at: timestamptz
-#    deleted_by: timestamptz
-    department_id: String
-    driving_licensee_pic: String
-    enterprise_id: String
-    heavy: numeric
-#    id: bigint
-    industry_category: Int
-    inspection_date: timestamptz
-    insurance_company: Int
-    insurance_date: timestamptz
-    is_active: Boolean
-    is_apply_install_terminal: Boolean
-    is_complete: Boolean
-    is_delete: Boolean
-    is_import: Boolean
-    is_input: Boolean
-    is_upload_province: Boolean
-    license_plate_color: Int
-    license_plate_number: String
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_route: String
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    owner: String
-    quasi_driving_models: Int
-    record_at: timestamptz
-    record_by: String
-    remark_in: String
-    remarks: String
-    retirement_date: timestamptz
-    road_transport_license_number: String
-    seats: Int
-    terminal_id: String
-#    updated_at: timestamptz
-#    updated_by: String
-    update_time_in: timestamptz
-    use_nature: String
-    vehicle_brand: Int
-    vehicle_displacement: String
-#    vehicle_id: String
-    vehicle_identification_number: String
-    vehicle_maintenances: _jsonb
-    vehicle_manager: String
-    vehicle_manager_id_card: String
-    vehicle_manager_phone: String
-    vehicle_state: Int
-    vehicle_type: Int
+type VehicleInfoVarPopFields {
+	id: Bigint
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	license_plate_color: Int
+	license_plate_type: Int
+	heavy: Numeric
+	seats: Int
+	vehicle_state: Int
+	car_rental_price: Numeric
+	insurance_company: Int
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	check_state: Int
 }
-
-"""aggregate max on columns"""
-type vehicle_info_max_fields {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: timestamptz
-    department_id: String
-    driving_licensee_pic: String
-    enterprise_id: String
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    inspection_date: timestamptz
-    insurance_company: Int
-    insurance_date: timestamptz
-    license_plate_color: Int
-    license_plate_number: String
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_route: String
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    owner: String
-    quasi_driving_models: Int
-    record_at: timestamptz
-    record_by: String
-    remark_in: String
-    remarks: String
-    retirement_date: timestamptz
-    road_transport_license_number: String
-    seats: Int
-    terminal_id: String
-    updated_at: timestamptz
-    updated_by: String
-    update_time_in: timestamptz
-    use_nature: String
-    vehicle_brand: Int
-    vehicle_displacement: String
-    vehicle_id: String
-    vehicle_identification_number: String
-    vehicle_manager: String
-    vehicle_manager_id_card: String
-    vehicle_manager_phone: String
-    vehicle_state: Int
-    vehicle_type: Int
-}
-
 """
-order by max() on columns of table "vehicle_info"
+aggregate var_samp on columns of table "vehicle_info"
 """
-input vehicle_info_max_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    department_id: order_by
-    driving_licensee_pic: order_by
-    enterprise_id: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    inspection_date: order_by
-    insurance_company: order_by
-    insurance_date: order_by
-    license_plate_color: order_by
-    license_plate_number: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_route: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    owner: order_by
-    quasi_driving_models: order_by
-    record_at: order_by
-    record_by: order_by
-    remark_in: order_by
-    remarks: order_by
-    retirement_date: order_by
-    road_transport_license_number: order_by
-    seats: order_by
-    terminal_id: order_by
-    updated_at: order_by
-    updated_by: order_by
-    update_time_in: order_by
-    use_nature: order_by
-    vehicle_brand: order_by
-    vehicle_displacement: order_by
-    vehicle_id: order_by
-    vehicle_identification_number: order_by
-    vehicle_manager: order_by
-    vehicle_manager_id_card: order_by
-    vehicle_manager_phone: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
+type VehicleInfoVarSampFields {
+	id: Bigint
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	license_plate_color: Int
+	license_plate_type: Int
+	heavy: Numeric
+	seats: Int
+	vehicle_state: Int
+	car_rental_price: Numeric
+	insurance_company: Int
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	check_state: Int
 }
-
-"""aggregate min on columns"""
-type vehicle_info_min_fields {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: timestamptz
-    department_id: String
-    driving_licensee_pic: String
-    enterprise_id: String
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    inspection_date: timestamptz
-    insurance_company: Int
-    insurance_date: timestamptz
-    license_plate_color: Int
-    license_plate_number: String
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_route: String
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    owner: String
-    quasi_driving_models: Int
-    record_at: timestamptz
-    record_by: String
-    remark_in: String
-    remarks: String
-    retirement_date: timestamptz
-    road_transport_license_number: String
-    seats: Int
-    terminal_id: String
-    updated_at: timestamptz
-    updated_by: String
-    update_time_in: timestamptz
-    use_nature: String
-    vehicle_brand: Int
-    vehicle_displacement: String
-    vehicle_id: String
-    vehicle_identification_number: String
-    vehicle_manager: String
-    vehicle_manager_id_card: String
-    vehicle_manager_phone: String
-    vehicle_state: Int
-    vehicle_type: Int
-}
-
 """
-order by min() on columns of table "vehicle_info"
+aggregate variance on columns of table "vehicle_info"
 """
-input vehicle_info_min_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    department_id: order_by
-    driving_licensee_pic: order_by
-    enterprise_id: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    inspection_date: order_by
-    insurance_company: order_by
-    insurance_date: order_by
-    license_plate_color: order_by
-    license_plate_number: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_route: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    owner: order_by
-    quasi_driving_models: order_by
-    record_at: order_by
-    record_by: order_by
-    remark_in: order_by
-    remarks: order_by
-    retirement_date: order_by
-    road_transport_license_number: order_by
-    seats: order_by
-    terminal_id: order_by
-    updated_at: order_by
-    updated_by: order_by
-    update_time_in: order_by
-    use_nature: order_by
-    vehicle_brand: order_by
-    vehicle_displacement: order_by
-    vehicle_id: order_by
-    vehicle_identification_number: order_by
-    vehicle_manager: order_by
-    vehicle_manager_id_card: order_by
-    vehicle_manager_phone: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
+type VehicleInfoVarianceFields {
+	id: Bigint
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	license_plate_color: Int
+	license_plate_type: Int
+	heavy: Numeric
+	seats: Int
+	vehicle_state: Int
+	car_rental_price: Numeric
+	insurance_company: Int
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	check_state: Int
 }
-
 """
 response of any mutation on the table "vehicle_info"
 """
-type vehicle_info_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [vehicle_info!]!
+type VehicleInfoMutationResponse {
+	affected_rows: Int!
+	returning: [VehicleInfo!]!
 }
-
-"""
-input type for inserting object relation for remote table "vehicle_info"
-"""
-input vehicle_info_obj_rel_insert_input {
-    data: vehicle_info_insert_input!
-    on_conflict: vehicle_info_on_conflict
-}
-
-"""
-on conflict condition type for table "vehicle_info"
-"""
-input vehicle_info_on_conflict {
-    constraint: vehicle_info_constraint!
-    update_columns: [vehicle_info_update_column!]!
-    where: vehicle_info_bool_exp
-}
-
 """
 ordering options when selecting data from "vehicle_info"
 """
-input vehicle_info_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    department_id: order_by
-    driving_licensee_pic: order_by
-    enterprise_id: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    inspection_date: order_by
-    insurance_company: order_by
-    insurance_date: order_by
-    is_active: order_by
-    is_apply_install_terminal: order_by
-    is_complete: order_by
-    is_delete: order_by
-    is_import: order_by
-    is_input: order_by
-    is_upload_province: order_by
-    license_plate_color: order_by
-    license_plate_number: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_route: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    owner: order_by
-    quasi_driving_models: order_by
-    record_at: order_by
-    record_by: order_by
-    remark_in: order_by
-    remarks: order_by
-    retirement_date: order_by
-    road_transport_license_number: order_by
-    seats: order_by
-    terminal_id: order_by
-    updated_at: order_by
-    updated_by: order_by
-    update_time_in: order_by
-    use_nature: order_by
-    vehicle_brand: order_by
-    vehicle_displacement: order_by
-    vehicle_id: order_by
-    vehicle_identification_number: order_by
-    vehicle_maintenances: order_by
-    vehicle_manager: order_by
-    vehicle_manager_id_card: order_by
-    vehicle_manager_phone: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
+input VehicleInfoOrderBy {
+	id: OrderBy
+	vehicle_id: OrderBy
+	enterprise_id: OrderBy
+	department_id: OrderBy
+	industry_category: OrderBy
+	business_scope: OrderBy
+	vehicle_type: OrderBy
+	operating_type: OrderBy
+	operating_state: OrderBy
+	operating_route: OrderBy
+	terminal_id: OrderBy
+	is_apply_install_terminal: OrderBy
+	license_plate_number: OrderBy
+	license_plate_color: OrderBy
+	license_plate_type: OrderBy
+	vehicle_identification_number: OrderBy
+	road_transport_license_number: OrderBy
+	heavy: OrderBy
+	seats: OrderBy
+	vehicle_manager: OrderBy
+	vehicle_manager_phone: OrderBy
+	vehicle_manager_id_card: OrderBy
+	owner: OrderBy
+	inspection_date: OrderBy
+	retirement_date: OrderBy
+	use_nature: OrderBy
+	vehicle_state: OrderBy
+	update_time_in: OrderBy
+	remark_in: OrderBy
+	is_complete: OrderBy
+	driving_licensee_pic: OrderBy
+	is_active: OrderBy
+	is_input: OrderBy
+	car_rental_price: OrderBy
+	insurance_company: OrderBy
+	insurance_date: OrderBy
+	vehicle_maintenances: OrderBy
+	vehicle_displacement: OrderBy
+	vehicle_brand: OrderBy
+	quasi_driving_models: OrderBy
+	is_upload_province: OrderBy
+	check_state: OrderBy
+	is_import: OrderBy
+	is_engineering_vehicle: OrderBy
+	is_catalog_library: OrderBy
+	remarks: OrderBy
+	is_deleted: OrderBy
+	record_at: OrderBy
+	record_by: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-primary key columns input for table: "vehicle_info"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_info'.
 """
-input vehicle_info_pk_columns_input {
-    """主键"""
-    id: bigint!
-
-    """车辆外部编码，由golang程序生成的xid，暴露到外部使用"""
-    vehicle_id: String!
+input VehicleInfoBoolExp {
+	_and: [VehicleInfoBoolExp]
+	_not: VehicleInfoBoolExp
+	_or: [VehicleInfoBoolExp]
+	id: BigintComparisonExp
+	vehicle_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	department_id: StringComparisonExp
+	industry_category: IntComparisonExp
+	business_scope: IntComparisonExp
+	vehicle_type: IntComparisonExp
+	operating_type: IntComparisonExp
+	operating_state: IntComparisonExp
+	operating_route: StringComparisonExp
+	terminal_id: StringComparisonExp
+	is_apply_install_terminal: BooleanComparisonExp
+	license_plate_number: StringComparisonExp
+	license_plate_color: IntComparisonExp
+	license_plate_type: IntComparisonExp
+	vehicle_identification_number: StringComparisonExp
+	road_transport_license_number: StringComparisonExp
+	heavy: NumericComparisonExp
+	seats: IntComparisonExp
+	vehicle_manager: StringComparisonExp
+	vehicle_manager_phone: StringComparisonExp
+	vehicle_manager_id_card: StringComparisonExp
+	owner: StringComparisonExp
+	inspection_date: TimestamptzComparisonExp
+	retirement_date: TimestamptzComparisonExp
+	use_nature: StringComparisonExp
+	vehicle_state: IntComparisonExp
+	update_time_in: TimestamptzComparisonExp
+	remark_in: StringComparisonExp
+	is_complete: BooleanComparisonExp
+	driving_licensee_pic: StringComparisonExp
+	is_active: BooleanComparisonExp
+	is_input: BooleanComparisonExp
+	car_rental_price: NumericComparisonExp
+	insurance_company: IntComparisonExp
+	insurance_date: TimestamptzComparisonExp
+	vehicle_maintenances: StringComparisonExp
+	vehicle_displacement: StringComparisonExp
+	vehicle_brand: IntComparisonExp
+	quasi_driving_models: IntComparisonExp
+	is_upload_province: BooleanComparisonExp
+	check_state: IntComparisonExp
+	is_import: BooleanComparisonExp
+	is_engineering_vehicle: BooleanComparisonExp
+	is_catalog_library: BooleanComparisonExp
+	remarks: StringComparisonExp
+	is_deleted: BooleanComparisonExp
+	record_at: TimestamptzComparisonExp
+	record_by: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
 """
-select columns of table "vehicle_info"
+input type for inserting data into table "vehicle_info"
 """
-enum vehicle_info_select_column {
-    """column name"""
-    business_scope
-
-    """column name"""
-    car_rental_price
-
-    """column name"""
-    check_state
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    department_id
-
-    """column name"""
-    driving_licensee_pic
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    heavy
-
-    """column name"""
-    id
-
-    """column name"""
-    industry_category
-
-    """column name"""
-    inspection_date
-
-    """column name"""
-    insurance_company
-
-    """column name"""
-    insurance_date
-
-    """column name"""
-    is_active
-
-    """column name"""
-    is_apply_install_terminal
-
-    """column name"""
-    is_complete
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_import
-
-    """column name"""
-    is_input
-
-    """column name"""
-    is_upload_province
-
-    """column name"""
-    license_plate_color
-
-    """column name"""
-    license_plate_number
-
-    """column name"""
-    license_plate_type
-
-    """column name"""
-    muck_truck_id
-
-    """column name"""
-    operating_route
-
-    """column name"""
-    operating_state
-
-    """column name"""
-    operating_type
-
-    """column name"""
-    operating_vehicle_id
-
-    """column name"""
-    owner
-
-    """column name"""
-    quasi_driving_models
-
-    """column name"""
-    record_at
-
-    """column name"""
-    record_by
-
-    """column name"""
-    remark_in
-
-    """column name"""
-    remarks
-
-    """column name"""
-    retirement_date
-
-    """column name"""
-    road_transport_license_number
-
-    """column name"""
-    seats
-
-    """column name"""
-    terminal_id
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    update_time_in
-
-    """column name"""
-    use_nature
-
-    """column name"""
-    vehicle_brand
-
-    """column name"""
-    vehicle_displacement
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    vehicle_identification_number
-
-    """column name"""
-    vehicle_maintenances
-
-    """column name"""
-    vehicle_manager
-
-    """column name"""
-    vehicle_manager_id_card
-
-    """column name"""
-    vehicle_manager_phone
-
-    """column name"""
-    vehicle_state
-
-    """column name"""
-    vehicle_type
+input VehicleInfoInsertInput {
+	id: Bigint
+	vehicle_id: String
+	enterprise_id: String
+	department_id: String
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	operating_route: String
+	terminal_id: String
+	is_apply_install_terminal: Boolean
+	license_plate_number: String
+	license_plate_color: Int
+	license_plate_type: Int
+	vehicle_identification_number: String
+	road_transport_license_number: String
+	heavy: Numeric
+	seats: Int
+	vehicle_manager: String
+	vehicle_manager_phone: String
+	vehicle_manager_id_card: String
+	owner: String
+	inspection_date: Timestamptz
+	retirement_date: Timestamptz
+	use_nature: String
+	vehicle_state: Int
+	update_time_in: Timestamptz
+	remark_in: String
+	is_complete: Boolean
+	driving_licensee_pic: String
+	is_active: Boolean
+	is_input: Boolean
+	car_rental_price: Numeric
+	insurance_company: Int
+	insurance_date: Timestamptz
+	vehicle_maintenances: String
+	vehicle_displacement: String
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	is_upload_province: Boolean
+	check_state: Int
+	is_import: Boolean
+	is_engineering_vehicle: Boolean
+	is_catalog_library: Boolean
+	remarks: String
+	is_deleted: Boolean
+	record_at: Timestamptz
+	record_by: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
+"""
+input type for incrementing integer column in table "vehicle_info"
+"""
+input VehicleInfoIncInput {
+	id: Bigint
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	license_plate_color: Int
+	license_plate_type: Int
+	heavy: Numeric
+	seats: Int
+	vehicle_state: Int
+	car_rental_price: Numeric
+	insurance_company: Int
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	check_state: Int
+}
 """
 input type for updating data in table "vehicle_info"
 """
-input vehicle_info_set_input {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: timestamptz
-    department_id: String
-    driving_licensee_pic: String
-    enterprise_id: String
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    inspection_date: timestamptz
-    insurance_company: Int
-    insurance_date: timestamptz
-    is_active: Boolean
-    is_apply_install_terminal: Boolean
-    is_complete: Boolean
-    is_delete: Boolean
-    is_import: Boolean
-    is_input: Boolean
-    is_upload_province: Boolean
-    license_plate_color: Int
-    license_plate_number: String
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_route: String
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    owner: String
-    quasi_driving_models: Int
-    record_at: timestamptz
-    record_by: String
-    remark_in: String
-    remarks: String
-    retirement_date: timestamptz
-    road_transport_license_number: String
-    seats: Int
-    terminal_id: String
-    updated_at: timestamptz
-    updated_by: String
-    update_time_in: timestamptz
-    use_nature: String
-    vehicle_brand: Int
-    vehicle_displacement: String
-    vehicle_id: String
-    vehicle_identification_number: String
-    vehicle_maintenances: _jsonb
-    vehicle_manager: String
-    vehicle_manager_id_card: String
-    vehicle_manager_phone: String
-    vehicle_state: Int
-    vehicle_type: Int
+input VehicleInfoSetInput {
+	id: Bigint
+	vehicle_id: String
+	enterprise_id: String
+	department_id: String
+	industry_category: Int
+	business_scope: Int
+	vehicle_type: Int
+	operating_type: Int
+	operating_state: Int
+	operating_route: String
+	terminal_id: String
+	is_apply_install_terminal: Boolean
+	license_plate_number: String
+	license_plate_color: Int
+	license_plate_type: Int
+	vehicle_identification_number: String
+	road_transport_license_number: String
+	heavy: Numeric
+	seats: Int
+	vehicle_manager: String
+	vehicle_manager_phone: String
+	vehicle_manager_id_card: String
+	owner: String
+	inspection_date: Timestamptz
+	retirement_date: Timestamptz
+	use_nature: String
+	vehicle_state: Int
+	update_time_in: Timestamptz
+	remark_in: String
+	is_complete: Boolean
+	driving_licensee_pic: String
+	is_active: Boolean
+	is_input: Boolean
+	car_rental_price: Numeric
+	insurance_company: Int
+	insurance_date: Timestamptz
+	vehicle_maintenances: String
+	vehicle_displacement: String
+	vehicle_brand: Int
+	quasi_driving_models: Int
+	is_upload_province: Boolean
+	check_state: Int
+	is_import: Boolean
+	is_engineering_vehicle: Boolean
+	is_catalog_library: Boolean
+	remarks: String
+	is_deleted: Boolean
+	record_at: Timestamptz
+	record_by: String
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type vehicle_info_stddev_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
+"""
+可选select
+"""
+enum VehicleInfoSelectColumn {
+	"""
+	 按指定方法生成，生成方法见下面说明                           ( 主键                                                         )
+	"""
+	id
+	"""
+	 车辆外部编码，由golang程序生成的xid，暴露到外部使用          ( 联合主键                                                     )
+	"""
+	vehicle_id
+	"""
+	 所在企业id                                                   ( enterprise_info表的enterprise_id                         )
+	"""
+	enterprise_id
+	"""
+	 所在部门id                                                   ( department 部门信息表                                    )
+	"""
+	department_id
+	"""
+	 行业类别                                                     ( 行业类别字典                                             )
+	"""
+	industry_category
+	"""
+	 经营范围                                                     ( 经营范围字典                                             )
+	"""
+	business_scope
+	"""
+	 车辆类型                                                     ( 车辆类型字典                                             )
+	"""
+	vehicle_type
+	"""
+	 营运类型                                                     ( 营运类型字典                                             )
+	"""
+	operating_type
+	"""
+	 营运状态                                                     ( 营运状态字典                                             )
+	"""
+	operating_state
+	"""
+	 营运线路                                                     (                                                              )
+	"""
+	operating_route
+	"""
+	 终端ID                                                       (                                                              )
+	"""
+	terminal_id
+	"""
+	 是否申请安装智能终端                                         (                                                              )
+	"""
+	is_apply_install_terminal
+	"""
+	 车牌号                                                       (                                                              )
+	"""
+	license_plate_number
+	"""
+	 车牌颜色                                                     ( 车牌颜色字典                                             )
+	"""
+	license_plate_color
+	"""
+	 号牌种类                                                     ( 号牌种类字典                                             )
+	"""
+	license_plate_type
+	"""
+	 车架号(后6位)                                                ( 车辆识别代号vin,如D02133                                     )
+	"""
+	vehicle_identification_number
+	"""
+	 道路运输证号                                                 (                                                              )
+	"""
+	road_transport_license_number
+	"""
+	 吨位                                                         (                                                              )
+	"""
+	heavy
+	"""
+	 座位                                                         (                                                              )
+	"""
+	seats
+	"""
+	 机动车管理人                                                 (                                                              )
+	"""
+	vehicle_manager
+	"""
+	 机动车管理人联系电话                                         (                                                              )
+	"""
+	vehicle_manager_phone
+	"""
+	 机动车管理人身份证                                           (                                                              )
+	"""
+	vehicle_manager_id_card
+	"""
+	 机动车所有人（六合一）                                       (                                                              )
+	"""
+	owner
+	"""
+	 检验日期（六合一）                                           (                                                              )
+	"""
+	inspection_date
+	"""
+	 报废日期（六合一）                                           (                                                              )
+	"""
+	retirement_date
+	"""
+	 使用性质（六合一）                                           (                                                              )
+	"""
+	use_nature
+	"""
+	 机动车状态                                                   ( 车辆状态字典                                             )
+	"""
+	vehicle_state
+	"""
+	 内网更新时间                                                 (                                                              )
+	"""
+	update_time_in
+	"""
+	 车辆信息同步内网反馈信息                                     ( 车辆信息同步到公安内网后内网的反馈内容，如车牌号填写错误会反馈车辆号牌错误 )
+	"""
+	remark_in
+	"""
+	 是否完成                                                     ( 用于标志车辆资料是否处于确定状态。未确定状态的车辆信息在系统上除车辆管理外的功能中都查不到 )
+	"""
+	is_complete
+	"""
+	 行驶证照片,云储存系统返回的路径                              (                                                              )
+	"""
+	driving_licensee_pic
+	"""
+	 是否激活                                                     (                                                              )
+	"""
+	is_active
+	"""
+	 是否录入完成                                                 (                                                              )
+	"""
+	is_input
+	"""
+	 租车标准价格                                                 (                                                              )
+	"""
+	car_rental_price
+	"""
+	 投保公司                                                     ( 投保公司字典                                             )
+	"""
+	insurance_company
+	"""
+	 投保日期                                                     (                                                              )
+	"""
+	insurance_date
+	"""
+	 维保数据数组，字段包括: 1.maintenance_ date 维保时间<br />2.maintenance_ kilometers 维保公里数 (                                                              )
+	"""
+	vehicle_maintenances
+	"""
+	 汽车排量                                                     (                                                              )
+	"""
+	vehicle_displacement
+	"""
+	 车辆品牌                                                     ( 车辆品牌字典                                             )
+	"""
+	vehicle_brand
+	"""
+	 准驾车型                                                     ( 准驾车型字典                                             )
+	"""
+	quasi_driving_models
+	"""
+	 是否上传省厅                                                 (                                                              )
+	"""
+	is_upload_province
+	"""
+	 校验状态                                                     ( 车辆校验状态字典                                         )
+	"""
+	check_state
+	"""
+	 是否导入                                                     ( 是否通过外部导入的车辆信息                                   )
+	"""
+	is_import
+	"""
+	 是否工程运输车                                               (                                                              )
+	"""
+	is_engineering_vehicle
+	"""
+	 是否目录库                                                   (                                                              )
+	"""
+	is_catalog_library
+	"""
+	 备注                                                         (                                                              )
+	"""
+	remarks
+	"""
+	 是否删除                                                     (                                                              )
+	"""
+	is_deleted
+	"""
+	 登记时间                                                     (                                                              )
+	"""
+	record_at
+	"""
+	 登记人                                                       ( system_user表的user_id                                   )
+	"""
+	record_by
+	"""
+	 创建时间                                                     (                                                              )
+	"""
+	created_at
+	"""
+	 创建人                                                       ( system_user表的user_id                                   )
+	"""
+	created_by
+	"""
+	 修改时间                                                     (                                                              )
+	"""
+	updated_at
+	"""
+	 修改人                                                       ( system_user表的user_id                                   )
+	"""
+	updated_by
+	"""
+	 删除时间                                                     (                                                              )
+	"""
+	deleted_at
+	"""
+	 删除人                                                       ( system_user表的user_id                                   )
+	"""
+	deleted_by
 }
-
-"""
-order by stddev() on columns of table "vehicle_info"
-"""
-input vehicle_info_stddev_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
+extend type Query {
+	"""
+	列表查询
+	"""
+	vehicle_info(distinct_on: [VehicleInfoSelectColumn!], limit: Int, offset: Int, order_by: [VehicleInfoOrderBy!], where: VehicleInfoBoolExp): [VehicleInfo!]!
+	"""
+	聚合查询
+	"""
+	vehicle_info_aggregate(distinct_on: [VehicleInfoSelectColumn!], limit: Int, offset: Int, order_by: [VehicleInfoOrderBy!], where: VehicleInfoBoolExp): VehicleInfoAggregate!
+	"""
+	主键查询
+	"""
+	vehicle_info_by_pk(id: Bigint!): VehicleInfo!
 }
-
-"""aggregate stddev_pop on columns"""
-type vehicle_info_stddev_pop_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_vehicle_info(where: VehicleInfoBoolExp!): VehicleInfoMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_vehicle_info_by_pk(id: Bigint!): VehicleInfo
+	"""
+	插入
+	"""
+	insert_vehicle_info(objects: [VehicleInfoInsertInput!]!): VehicleInfoMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_vehicle_info_one(objects: VehicleInfoInsertInput!): VehicleInfo
+	"""
+	更新
+	"""
+	update_vehicle_info(_inc: VehicleInfoIncInput, _set: VehicleInfoSetInput, where: VehicleInfoBoolExp!): VehicleInfoMutationResponse
+	"""
+	更新
+	"""
+	update_vehicle_info_by_pk(_inc: VehicleInfoIncInput, _set: VehicleInfoSetInput, id: Bigint!): VehicleInfo
 }
-
-"""
-order by stddev_pop() on columns of table "vehicle_info"
-"""
-input vehicle_info_stddev_pop_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type vehicle_info_stddev_samp_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by stddev_samp() on columns of table "vehicle_info"
-"""
-input vehicle_info_stddev_samp_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate sum on columns"""
-type vehicle_info_sum_fields {
-    business_scope: Int
-    car_rental_price: numeric
-    check_state: Int
-    heavy: numeric
-    id: bigint
-    industry_category: Int
-    insurance_company: Int
-    license_plate_color: Int
-    license_plate_type: Int
-    muck_truck_id: bigint
-    operating_state: Int
-    operating_type: Int
-    operating_vehicle_id: bigint
-    quasi_driving_models: Int
-    seats: Int
-    vehicle_brand: Int
-    vehicle_state: Int
-    vehicle_type: Int
-}
-
-"""
-order by sum() on columns of table "vehicle_info"
-"""
-input vehicle_info_sum_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""
-update columns of table "vehicle_info"
-"""
-enum vehicle_info_update_column {
-    """column name"""
-    business_scope
-
-    """column name"""
-    car_rental_price
-
-    """column name"""
-    check_state
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    department_id
-
-    """column name"""
-    driving_licensee_pic
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    heavy
-
-    """column name"""
-    id
-
-    """column name"""
-    industry_category
-
-    """column name"""
-    inspection_date
-
-    """column name"""
-    insurance_company
-
-    """column name"""
-    insurance_date
-
-    """column name"""
-    is_active
-
-    """column name"""
-    is_apply_install_terminal
-
-    """column name"""
-    is_complete
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    is_import
-
-    """column name"""
-    is_input
-
-    """column name"""
-    is_upload_province
-
-    """column name"""
-    license_plate_color
-
-    """column name"""
-    license_plate_number
-
-    """column name"""
-    license_plate_type
-
-    """column name"""
-    muck_truck_id
-
-    """column name"""
-    operating_route
-
-    """column name"""
-    operating_state
-
-    """column name"""
-    operating_type
-
-    """column name"""
-    operating_vehicle_id
-
-    """column name"""
-    owner
-
-    """column name"""
-    quasi_driving_models
-
-    """column name"""
-    record_at
-
-    """column name"""
-    record_by
-
-    """column name"""
-    remark_in
-
-    """column name"""
-    remarks
-
-    """column name"""
-    retirement_date
-
-    """column name"""
-    road_transport_license_number
-
-    """column name"""
-    seats
-
-    """column name"""
-    terminal_id
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    update_time_in
-
-    """column name"""
-    use_nature
-
-    """column name"""
-    vehicle_brand
-
-    """column name"""
-    vehicle_displacement
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    vehicle_identification_number
-
-    """column name"""
-    vehicle_maintenances
-
-    """column name"""
-    vehicle_manager
-
-    """column name"""
-    vehicle_manager_id_card
-
-    """column name"""
-    vehicle_manager_phone
-
-    """column name"""
-    vehicle_state
-
-    """column name"""
-    vehicle_type
-}
-
-"""aggregate var_pop on columns"""
-type vehicle_info_var_pop_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by var_pop() on columns of table "vehicle_info"
-"""
-input vehicle_info_var_pop_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate var_samp on columns"""
-type vehicle_info_var_samp_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by var_samp() on columns of table "vehicle_info"
-"""
-input vehicle_info_var_samp_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-
-"""aggregate variance on columns"""
-type vehicle_info_variance_fields {
-    business_scope: Float
-    car_rental_price: Float
-    check_state: Float
-    heavy: Float
-    id: Float
-    industry_category: Float
-    insurance_company: Float
-    license_plate_color: Float
-    license_plate_type: Float
-    muck_truck_id: Float
-    operating_state: Float
-    operating_type: Float
-    operating_vehicle_id: Float
-    quasi_driving_models: Float
-    seats: Float
-    vehicle_brand: Float
-    vehicle_state: Float
-    vehicle_type: Float
-}
-
-"""
-order by variance() on columns of table "vehicle_info"
-"""
-input vehicle_info_variance_order_by {
-    business_scope: order_by
-    car_rental_price: order_by
-    check_state: order_by
-    heavy: order_by
-    id: order_by
-    industry_category: order_by
-    insurance_company: order_by
-    license_plate_color: order_by
-    license_plate_type: order_by
-    muck_truck_id: order_by
-    operating_state: order_by
-    operating_type: order_by
-    operating_vehicle_id: order_by
-    quasi_driving_models: order_by
-    seats: order_by
-    vehicle_brand: order_by
-    vehicle_state: order_by
-    vehicle_type: order_by
-}
-

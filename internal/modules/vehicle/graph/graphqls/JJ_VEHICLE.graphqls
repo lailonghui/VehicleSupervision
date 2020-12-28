@@ -1,904 +1,515 @@
-
 """
 公安内网六合一平台同步车辆表(不修改字段)
-
-
-columns and relationships of "JJ_VEHICLE"
-
 """
-type JJ_VEHICLE {
-    """初次登记日期"""
-    CCDJRQ: timestamptz
-
-    """车辆类型"""
-    CLLX: String
-
-    """车辆识别代号"""
-    CLSBDH: String
-
-    """所在县"""
-    COUNTY: String
-
-    """登记日期"""
-    DJRQ: timestamptz
-
-    """发牌日期"""
-    FPRQ: timestamptz
-
-    """无"""
-    GXRQ: timestamptz
-
-    """车牌号码"""
-    HPHM: String
-
-    """号牌种类"""
-    HPZL: String
-
-    """是否删除"""
-    IS_DETELED: numeric
-
-    """联系电话"""
-    LXDH: String
-
-    """联系地址"""
-    LXDZ: String
-
-    """固话"""
-    OTHER: String
-
-    """强制报废期止"""
-    QZBFQZ: timestamptz
-
-    """无"""
-    SJHM: String
-
-    """所有人"""
-    SYR: String
-
-    """使用性质"""
-    SYXZ: String
-
-    """更新时间"""
-    UPDATETIME: timestamptz
-
-    """经营范围"""
-    VEHMONTYPE: String
-
-    """型号"""
-    XH: String
-
-    """有效期至"""
-    YXQZ: timestamptz
-
-    """机动车状态"""
-    ZT: Int
-
-    """总质量"""
-    ZZL: numeric
-
-    """主键"""
-    id: bigint!
-
-    """vehicle_info 车辆信息表 的vehicle_id"""
-    vehicle_id: String!
+type JjVehicle {
+	"""
+	 按指定方法生成                           ( 主键    )
+	"""
+	id: Bigint!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id (         )
+	"""
+	vehicle_id: String!
+	"""
+	 车牌号码                                 (         )
+	"""
+	hphm: String
+	"""
+	 号牌种类                                 (         )
+	"""
+	hpzl: String
+	"""
+	 所有人                                   (         )
+	"""
+	syr: String
+	"""
+	 使用性质                                 (         )
+	"""
+	syxz: String
+	"""
+	 总质量                                   (         )
+	"""
+	zzl: Numeric
+	"""
+	 车辆类型                                 (         )
+	"""
+	cllx: String
+	"""
+	 有效期至                                 (         )
+	"""
+	yxqz: Timestamptz
+	"""
+	 强制报废期止                             (         )
+	"""
+	qzbfqz: Timestamptz
+	"""
+	 车辆识别代号                             (         )
+	"""
+	clsbdh: String
+	"""
+	 所在县                                   (         )
+	"""
+	county: String
+	"""
+	 联系地址                                 (         )
+	"""
+	lxdz: String
+	"""
+	 固话                                     (         )
+	"""
+	other: String
+	"""
+	 联系电话                                 (         )
+	"""
+	lxdh: String
+	"""
+	 机动车状态                               (         )
+	"""
+	zt: Int
+	"""
+	 经营范围                                 (         )
+	"""
+	vehmontype: String
+	"""
+	 初次登记日期                             (         )
+	"""
+	ccdjrq: Timestamptz
+	"""
+	 登记日期                                 (         )
+	"""
+	djrq: Timestamptz
+	"""
+	 发牌日期                                 (         )
+	"""
+	fprq: Timestamptz
+	"""
+	 更新时间                                 (         )
+	"""
+	updatetime: Timestamptz
+	"""
+	 型号                                     (         )
+	"""
+	xh: String
+	"""
+	 是否删除                                 (         )
+	"""
+	is_deteled: Numeric
 }
-
 """
-aggregated selection of "JJ_VEHICLE"
+aggregated selection of "jj_vehicle"
 """
-type JJ_VEHICLE_aggregate {
-    aggregate: JJ_VEHICLE_aggregate_fields
-    nodes: [JJ_VEHICLE!]!
+type JjVehicleAggregate {
+	aggregate: JjVehicleAggregateFields
 }
-
 """
-aggregate fields of "JJ_VEHICLE"
+aggregate fields of "jj_vehicle"
 """
-type JJ_VEHICLE_aggregate_fields {
-    avg: JJ_VEHICLE_avg_fields
-    count(columns: [JJ_VEHICLE_select_column!], distinct: Boolean): Int
-    max: JJ_VEHICLE_max_fields
-    min: JJ_VEHICLE_min_fields
-    stddev: JJ_VEHICLE_stddev_fields
-    stddev_pop: JJ_VEHICLE_stddev_pop_fields
-    stddev_samp: JJ_VEHICLE_stddev_samp_fields
-    sum: JJ_VEHICLE_sum_fields
-    var_pop: JJ_VEHICLE_var_pop_fields
-    var_samp: JJ_VEHICLE_var_samp_fields
-    variance: JJ_VEHICLE_variance_fields
+type JjVehicleAggregateFields {
+	avg: JjVehicleAvgFields
+	count: Int
+	max: JjVehicleMaxFields
+	min: JjVehicleMinFields
+	stddev: JjVehicleStddevFields
+	stddev_pop: JjVehicleStddevPopFields
+	stddev_samp: JjVehicleStddevSampFields
+	sum: JjVehicleSumFields
+	var_pop: JjVehicleVarPopFields
+	var_samp: JjVehicleVarSampFields
+	variance: JjVehicleVarianceFields
 }
-
 """
-order by aggregate values of table "JJ_VEHICLE"
+aggregate avg on columns of table "jj_vehicle"
 """
-input JJ_VEHICLE_aggregate_order_by {
-    avg: JJ_VEHICLE_avg_order_by
-    count: order_by
-    max: JJ_VEHICLE_max_order_by
-    min: JJ_VEHICLE_min_order_by
-    stddev: JJ_VEHICLE_stddev_order_by
-    stddev_pop: JJ_VEHICLE_stddev_pop_order_by
-    stddev_samp: JJ_VEHICLE_stddev_samp_order_by
-    sum: JJ_VEHICLE_sum_order_by
-    var_pop: JJ_VEHICLE_var_pop_order_by
-    var_samp: JJ_VEHICLE_var_samp_order_by
-    variance: JJ_VEHICLE_variance_order_by
+type JjVehicleAvgFields {
+	id: Bigint
+	zzl: Numeric
+	zt: Int
+	is_deteled: Numeric
 }
-
 """
-input type for inserting array relation for remote table "JJ_VEHICLE"
+aggregate max on columns of table "jj_vehicle"
 """
-input JJ_VEHICLE_arr_rel_insert_input {
-    data: [JJ_VEHICLE_insert_input!]!
-    on_conflict: JJ_VEHICLE_on_conflict
+type JjVehicleMaxFields {
+	id: Bigint
+	vehicle_id: String
+	hphm: String
+	hpzl: String
+	syr: String
+	syxz: String
+	zzl: Numeric
+	cllx: String
+	yxqz: Timestamptz
+	qzbfqz: Timestamptz
+	clsbdh: String
+	county: String
+	lxdz: String
+	other: String
+	lxdh: String
+	zt: Int
+	vehmontype: String
+	ccdjrq: Timestamptz
+	djrq: Timestamptz
+	fprq: Timestamptz
+	updatetime: Timestamptz
+	xh: String
+	is_deteled: Numeric
 }
-
-"""aggregate avg on columns"""
-type JJ_VEHICLE_avg_fields {
-    IS_DETELED: Float
-    ZT: Float
-    ZZL: Float
-    id: Float
+"""
+aggregate min on columns of table "jj_vehicle"
+"""
+type JjVehicleMinFields {
+	id: Bigint
+	vehicle_id: String
+	hphm: String
+	hpzl: String
+	syr: String
+	syxz: String
+	zzl: Numeric
+	cllx: String
+	yxqz: Timestamptz
+	qzbfqz: Timestamptz
+	clsbdh: String
+	county: String
+	lxdz: String
+	other: String
+	lxdh: String
+	zt: Int
+	vehmontype: String
+	ccdjrq: Timestamptz
+	djrq: Timestamptz
+	fprq: Timestamptz
+	updatetime: Timestamptz
+	xh: String
+	is_deteled: Numeric
 }
-
 """
-order by avg() on columns of table "JJ_VEHICLE"
+aggregate stddev on columns of table "jj_vehicle"
 """
-input JJ_VEHICLE_avg_order_by {
-    IS_DETELED: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
+type JjVehicleStddevFields {
+	id: Bigint
+	zzl: Numeric
+	zt: Int
+	is_deteled: Numeric
 }
-
 """
-Boolean expression to filter rows from the table "JJ_VEHICLE". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "jj_vehicle"
 """
-input JJ_VEHICLE_bool_exp {
-    CCDJRQ: timestamptz_comparison_exp
-    CLLX: String_comparison_exp
-    CLSBDH: String_comparison_exp
-    COUNTY: String_comparison_exp
-    DJRQ: timestamptz_comparison_exp
-    FPRQ: timestamptz_comparison_exp
-    GXRQ: timestamptz_comparison_exp
-    HPHM: String_comparison_exp
-    HPZL: String_comparison_exp
-    IS_DETELED: numeric_comparison_exp
-    LXDH: String_comparison_exp
-    LXDZ: String_comparison_exp
-    OTHER: String_comparison_exp
-    QZBFQZ: timestamptz_comparison_exp
-    SJHM: String_comparison_exp
-    SYR: String_comparison_exp
-    SYXZ: String_comparison_exp
-    UPDATETIME: timestamptz_comparison_exp
-    VEHMONTYPE: String_comparison_exp
-    XH: String_comparison_exp
-    YXQZ: timestamptz_comparison_exp
-    ZT: Int_comparison_exp
-    ZZL: numeric_comparison_exp
-    _and: [JJ_VEHICLE_bool_exp]
-    _not: JJ_VEHICLE_bool_exp
-    _or: [JJ_VEHICLE_bool_exp]
-    id: bigint_comparison_exp
-    vehicle_id: String_comparison_exp
+type JjVehicleStddevPopFields {
+	id: Bigint
+	zzl: Numeric
+	zt: Int
+	is_deteled: Numeric
 }
-
 """
-unique or primary key constraints on table "JJ_VEHICLE"
+aggregate stddev_samp on columns of table "jj_vehicle"
 """
-enum JJ_VEHICLE_constraint {
-    """unique or primary key constraint"""
-    JJ_VEHICLE_pkey
+type JjVehicleStddevSampFields {
+	id: Bigint
+	zzl: Numeric
+	zt: Int
+	is_deteled: Numeric
 }
-
 """
-input type for incrementing integer column in table "JJ_VEHICLE"
+aggregate sum on columns of table "jj_vehicle"
 """
-input JJ_VEHICLE_inc_input {
-    IS_DETELED: numeric
-    ZT: Int
-    ZZL: numeric
-    id: bigint
+type JjVehicleSumFields {
+	id: Bigint
+	zzl: Numeric
+	zt: Int
+	is_deteled: Numeric
 }
-
 """
-input type for inserting data into table "JJ_VEHICLE"
+aggregate var_pop on columns of table "jj_vehicle"
 """
-input JJ_VEHICLE_insert_input {
-    CCDJRQ: timestamptz
-    CLLX: String
-    CLSBDH: String
-    COUNTY: String
-    DJRQ: timestamptz
-    FPRQ: timestamptz
-    GXRQ: timestamptz
-    HPHM: String
-    HPZL: String
-    IS_DETELED: numeric
-    LXDH: String
-    LXDZ: String
-    OTHER: String
-    QZBFQZ: timestamptz
-    SJHM: String
-    SYR: String
-    SYXZ: String
-    UPDATETIME: timestamptz
-    VEHMONTYPE: String
-    XH: String
-    YXQZ: timestamptz
-    ZT: Int
-    ZZL: numeric
-    id: bigint
-    vehicle_id: String
+type JjVehicleVarPopFields {
+	id: Bigint
+	zzl: Numeric
+	zt: Int
+	is_deteled: Numeric
 }
-
-"""aggregate max on columns"""
-type JJ_VEHICLE_max_fields {
-    CCDJRQ: timestamptz
-    CLLX: String
-    CLSBDH: String
-    COUNTY: String
-    DJRQ: timestamptz
-    FPRQ: timestamptz
-    GXRQ: timestamptz
-    HPHM: String
-    HPZL: String
-    IS_DETELED: numeric
-    LXDH: String
-    LXDZ: String
-    OTHER: String
-    QZBFQZ: timestamptz
-    SJHM: String
-    SYR: String
-    SYXZ: String
-    UPDATETIME: timestamptz
-    VEHMONTYPE: String
-    XH: String
-    YXQZ: timestamptz
-    ZT: Int
-    ZZL: numeric
-    id: bigint
-    vehicle_id: String
+"""
+aggregate var_samp on columns of table "jj_vehicle"
+"""
+type JjVehicleVarSampFields {
+	id: Bigint
+	zzl: Numeric
+	zt: Int
+	is_deteled: Numeric
 }
-
 """
-order by max() on columns of table "JJ_VEHICLE"
+aggregate variance on columns of table "jj_vehicle"
 """
-input JJ_VEHICLE_max_order_by {
-    CCDJRQ: order_by
-    CLLX: order_by
-    CLSBDH: order_by
-    COUNTY: order_by
-    DJRQ: order_by
-    FPRQ: order_by
-    GXRQ: order_by
-    HPHM: order_by
-    HPZL: order_by
-    IS_DETELED: order_by
-    LXDH: order_by
-    LXDZ: order_by
-    OTHER: order_by
-    QZBFQZ: order_by
-    SJHM: order_by
-    SYR: order_by
-    SYXZ: order_by
-    UPDATETIME: order_by
-    VEHMONTYPE: order_by
-    XH: order_by
-    YXQZ: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-    vehicle_id: order_by
+type JjVehicleVarianceFields {
+	id: Bigint
+	zzl: Numeric
+	zt: Int
+	is_deteled: Numeric
 }
-
-"""aggregate min on columns"""
-type JJ_VEHICLE_min_fields {
-    CCDJRQ: timestamptz
-    CLLX: String
-    CLSBDH: String
-    COUNTY: String
-    DJRQ: timestamptz
-    FPRQ: timestamptz
-    GXRQ: timestamptz
-    HPHM: String
-    HPZL: String
-    IS_DETELED: numeric
-    LXDH: String
-    LXDZ: String
-    OTHER: String
-    QZBFQZ: timestamptz
-    SJHM: String
-    SYR: String
-    SYXZ: String
-    UPDATETIME: timestamptz
-    VEHMONTYPE: String
-    XH: String
-    YXQZ: timestamptz
-    ZT: Int
-    ZZL: numeric
-    id: bigint
-    vehicle_id: String
+"""
+response of any mutation on the table "jj_vehicle"
+"""
+type JjVehicleMutationResponse {
+	affected_rows: Int!
+	returning: [JjVehicle!]!
 }
-
 """
-order by min() on columns of table "JJ_VEHICLE"
+ordering options when selecting data from "jj_vehicle"
 """
-input JJ_VEHICLE_min_order_by {
-    CCDJRQ: order_by
-    CLLX: order_by
-    CLSBDH: order_by
-    COUNTY: order_by
-    DJRQ: order_by
-    FPRQ: order_by
-    GXRQ: order_by
-    HPHM: order_by
-    HPZL: order_by
-    IS_DETELED: order_by
-    LXDH: order_by
-    LXDZ: order_by
-    OTHER: order_by
-    QZBFQZ: order_by
-    SJHM: order_by
-    SYR: order_by
-    SYXZ: order_by
-    UPDATETIME: order_by
-    VEHMONTYPE: order_by
-    XH: order_by
-    YXQZ: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-    vehicle_id: order_by
+input JjVehicleOrderBy {
+	id: OrderBy
+	vehicle_id: OrderBy
+	hphm: OrderBy
+	hpzl: OrderBy
+	syr: OrderBy
+	syxz: OrderBy
+	zzl: OrderBy
+	cllx: OrderBy
+	yxqz: OrderBy
+	qzbfqz: OrderBy
+	clsbdh: OrderBy
+	county: OrderBy
+	lxdz: OrderBy
+	other: OrderBy
+	lxdh: OrderBy
+	zt: OrderBy
+	vehmontype: OrderBy
+	ccdjrq: OrderBy
+	djrq: OrderBy
+	fprq: OrderBy
+	updatetime: OrderBy
+	xh: OrderBy
+	is_deteled: OrderBy
 }
-
 """
-response of any mutation on the table "JJ_VEHICLE"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'jj_vehicle'.
 """
-type JJ_VEHICLE_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [JJ_VEHICLE!]!
+input JjVehicleBoolExp {
+	_and: [JjVehicleBoolExp]
+	_not: JjVehicleBoolExp
+	_or: [JjVehicleBoolExp]
+	id: BigintComparisonExp
+	vehicle_id: StringComparisonExp
+	hphm: StringComparisonExp
+	hpzl: StringComparisonExp
+	syr: StringComparisonExp
+	syxz: StringComparisonExp
+	zzl: NumericComparisonExp
+	cllx: StringComparisonExp
+	yxqz: TimestamptzComparisonExp
+	qzbfqz: TimestamptzComparisonExp
+	clsbdh: StringComparisonExp
+	county: StringComparisonExp
+	lxdz: StringComparisonExp
+	other: StringComparisonExp
+	lxdh: StringComparisonExp
+	zt: IntComparisonExp
+	vehmontype: StringComparisonExp
+	ccdjrq: TimestamptzComparisonExp
+	djrq: TimestamptzComparisonExp
+	fprq: TimestamptzComparisonExp
+	updatetime: TimestamptzComparisonExp
+	xh: StringComparisonExp
+	is_deteled: NumericComparisonExp
 }
-
 """
-input type for inserting object relation for remote table "JJ_VEHICLE"
+input type for inserting data into table "jj_vehicle"
 """
-input JJ_VEHICLE_obj_rel_insert_input {
-    data: JJ_VEHICLE_insert_input!
-    on_conflict: JJ_VEHICLE_on_conflict
+input JjVehicleInsertInput {
+	id: Bigint
+	vehicle_id: String
+	hphm: String
+	hpzl: String
+	syr: String
+	syxz: String
+	zzl: Numeric
+	cllx: String
+	yxqz: Timestamptz
+	qzbfqz: Timestamptz
+	clsbdh: String
+	county: String
+	lxdz: String
+	other: String
+	lxdh: String
+	zt: Int
+	vehmontype: String
+	ccdjrq: Timestamptz
+	djrq: Timestamptz
+	fprq: Timestamptz
+	updatetime: Timestamptz
+	xh: String
+	is_deteled: Numeric
 }
-
 """
-on conflict condition type for table "JJ_VEHICLE"
+input type for incrementing integer column in table "jj_vehicle"
 """
-input JJ_VEHICLE_on_conflict {
-    constraint: JJ_VEHICLE_constraint!
-    update_columns: [JJ_VEHICLE_update_column!]!
-    where: JJ_VEHICLE_bool_exp
+input JjVehicleIncInput {
+	id: Bigint
+	zzl: Numeric
+	zt: Int
+	is_deteled: Numeric
 }
-
 """
-ordering options when selecting data from "JJ_VEHICLE"
+input type for updating data in table "jj_vehicle"
 """
-input JJ_VEHICLE_order_by {
-    CCDJRQ: order_by
-    CLLX: order_by
-    CLSBDH: order_by
-    COUNTY: order_by
-    DJRQ: order_by
-    FPRQ: order_by
-    GXRQ: order_by
-    HPHM: order_by
-    HPZL: order_by
-    IS_DETELED: order_by
-    LXDH: order_by
-    LXDZ: order_by
-    OTHER: order_by
-    QZBFQZ: order_by
-    SJHM: order_by
-    SYR: order_by
-    SYXZ: order_by
-    UPDATETIME: order_by
-    VEHMONTYPE: order_by
-    XH: order_by
-    YXQZ: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-    vehicle_id: order_by
+input JjVehicleSetInput {
+	id: Bigint
+	vehicle_id: String
+	hphm: String
+	hpzl: String
+	syr: String
+	syxz: String
+	zzl: Numeric
+	cllx: String
+	yxqz: Timestamptz
+	qzbfqz: Timestamptz
+	clsbdh: String
+	county: String
+	lxdz: String
+	other: String
+	lxdh: String
+	zt: Int
+	vehmontype: String
+	ccdjrq: Timestamptz
+	djrq: Timestamptz
+	fprq: Timestamptz
+	updatetime: Timestamptz
+	xh: String
+	is_deteled: Numeric
 }
-
 """
-primary key columns input for table: "JJ_VEHICLE"
+可选select
 """
-input JJ_VEHICLE_pk_columns_input {
-    """主键"""
-    id: bigint!
+enum JjVehicleSelectColumn {
+	"""
+	 按指定方法生成                           ( 主键    )
+	"""
+	id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id (         )
+	"""
+	vehicle_id
+	"""
+	 车牌号码                                 (         )
+	"""
+	hphm
+	"""
+	 号牌种类                                 (         )
+	"""
+	hpzl
+	"""
+	 所有人                                   (         )
+	"""
+	syr
+	"""
+	 使用性质                                 (         )
+	"""
+	syxz
+	"""
+	 总质量                                   (         )
+	"""
+	zzl
+	"""
+	 车辆类型                                 (         )
+	"""
+	cllx
+	"""
+	 有效期至                                 (         )
+	"""
+	yxqz
+	"""
+	 强制报废期止                             (         )
+	"""
+	qzbfqz
+	"""
+	 车辆识别代号                             (         )
+	"""
+	clsbdh
+	"""
+	 所在县                                   (         )
+	"""
+	county
+	"""
+	 联系地址                                 (         )
+	"""
+	lxdz
+	"""
+	 固话                                     (         )
+	"""
+	other
+	"""
+	 联系电话                                 (         )
+	"""
+	lxdh
+	"""
+	 机动车状态                               (         )
+	"""
+	zt
+	"""
+	 经营范围                                 (         )
+	"""
+	vehmontype
+	"""
+	 初次登记日期                             (         )
+	"""
+	ccdjrq
+	"""
+	 登记日期                                 (         )
+	"""
+	djrq
+	"""
+	 发牌日期                                 (         )
+	"""
+	fprq
+	"""
+	 更新时间                                 (         )
+	"""
+	updatetime
+	"""
+	 型号                                     (         )
+	"""
+	xh
+	"""
+	 是否删除                                 (         )
+	"""
+	is_deteled
 }
-
-"""
-select columns of table "JJ_VEHICLE"
-"""
-enum JJ_VEHICLE_select_column {
-    """column name"""
-    CCDJRQ
-
-    """column name"""
-    CLLX
-
-    """column name"""
-    CLSBDH
-
-    """column name"""
-    COUNTY
-
-    """column name"""
-    DJRQ
-
-    """column name"""
-    FPRQ
-
-    """column name"""
-    GXRQ
-
-    """column name"""
-    HPHM
-
-    """column name"""
-    HPZL
-
-    """column name"""
-    IS_DETELED
-
-    """column name"""
-    LXDH
-
-    """column name"""
-    LXDZ
-
-    """column name"""
-    OTHER
-
-    """column name"""
-    QZBFQZ
-
-    """column name"""
-    SJHM
-
-    """column name"""
-    SYR
-
-    """column name"""
-    SYXZ
-
-    """column name"""
-    UPDATETIME
-
-    """column name"""
-    VEHMONTYPE
-
-    """column name"""
-    XH
-
-    """column name"""
-    YXQZ
-
-    """column name"""
-    ZT
-
-    """column name"""
-    ZZL
-
-    """column name"""
-    id
-
-    """column name"""
-    vehicle_id
-}
-
-"""
-input type for updating data in table "JJ_VEHICLE"
-"""
-input JJ_VEHICLE_set_input {
-    CCDJRQ: timestamptz
-    CLLX: String
-    CLSBDH: String
-    COUNTY: String
-    DJRQ: timestamptz
-    FPRQ: timestamptz
-    GXRQ: timestamptz
-    HPHM: String
-    HPZL: String
-    IS_DETELED: numeric
-    LXDH: String
-    LXDZ: String
-    OTHER: String
-    QZBFQZ: timestamptz
-    SJHM: String
-    SYR: String
-    SYXZ: String
-    UPDATETIME: timestamptz
-    VEHMONTYPE: String
-    XH: String
-    YXQZ: timestamptz
-    ZT: Int
-    ZZL: numeric
-    id: bigint
-    vehicle_id: String
-}
-
-"""aggregate stddev on columns"""
-type JJ_VEHICLE_stddev_fields {
-    IS_DETELED: Float
-    ZT: Float
-    ZZL: Float
-    id: Float
-}
-
-"""
-order by stddev() on columns of table "JJ_VEHICLE"
-"""
-input JJ_VEHICLE_stddev_order_by {
-    IS_DETELED: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-}
-
-"""aggregate stddev_pop on columns"""
-type JJ_VEHICLE_stddev_pop_fields {
-    IS_DETELED: Float
-    ZT: Float
-    ZZL: Float
-    id: Float
-}
-
-"""
-order by stddev_pop() on columns of table "JJ_VEHICLE"
-"""
-input JJ_VEHICLE_stddev_pop_order_by {
-    IS_DETELED: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type JJ_VEHICLE_stddev_samp_fields {
-    IS_DETELED: Float
-    ZT: Float
-    ZZL: Float
-    id: Float
-}
-
-"""
-order by stddev_samp() on columns of table "JJ_VEHICLE"
-"""
-input JJ_VEHICLE_stddev_samp_order_by {
-    IS_DETELED: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-}
-
-"""aggregate sum on columns"""
-type JJ_VEHICLE_sum_fields {
-    IS_DETELED: numeric
-    ZT: Int
-    ZZL: numeric
-    id: bigint
-}
-
-"""
-order by sum() on columns of table "JJ_VEHICLE"
-"""
-input JJ_VEHICLE_sum_order_by {
-    IS_DETELED: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-}
-
-"""
-update columns of table "JJ_VEHICLE"
-"""
-enum JJ_VEHICLE_update_column {
-    """column name"""
-    CCDJRQ
-
-    """column name"""
-    CLLX
-
-    """column name"""
-    CLSBDH
-
-    """column name"""
-    COUNTY
-
-    """column name"""
-    DJRQ
-
-    """column name"""
-    FPRQ
-
-    """column name"""
-    GXRQ
-
-    """column name"""
-    HPHM
-
-    """column name"""
-    HPZL
-
-    """column name"""
-    IS_DETELED
-
-    """column name"""
-    LXDH
-
-    """column name"""
-    LXDZ
-
-    """column name"""
-    OTHER
-
-    """column name"""
-    QZBFQZ
-
-    """column name"""
-    SJHM
-
-    """column name"""
-    SYR
-
-    """column name"""
-    SYXZ
-
-    """column name"""
-    UPDATETIME
-
-    """column name"""
-    VEHMONTYPE
-
-    """column name"""
-    XH
-
-    """column name"""
-    YXQZ
-
-    """column name"""
-    ZT
-
-    """column name"""
-    ZZL
-
-    """column name"""
-    id
-
-    """column name"""
-    vehicle_id
-}
-
-"""aggregate var_pop on columns"""
-type JJ_VEHICLE_var_pop_fields {
-    IS_DETELED: Float
-    ZT: Float
-    ZZL: Float
-    id: Float
-}
-
-"""
-order by var_pop() on columns of table "JJ_VEHICLE"
-"""
-input JJ_VEHICLE_var_pop_order_by {
-    IS_DETELED: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-}
-
-"""aggregate var_samp on columns"""
-type JJ_VEHICLE_var_samp_fields {
-    IS_DETELED: Float
-    ZT: Float
-    ZZL: Float
-    id: Float
-}
-
-"""
-order by var_samp() on columns of table "JJ_VEHICLE"
-"""
-input JJ_VEHICLE_var_samp_order_by {
-    IS_DETELED: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-}
-
-"""aggregate variance on columns"""
-type JJ_VEHICLE_variance_fields {
-    IS_DETELED: Float
-    ZT: Float
-    ZZL: Float
-    id: Float
-}
-
-"""
-order by variance() on columns of table "JJ_VEHICLE"
-"""
-input JJ_VEHICLE_variance_order_by {
-    IS_DETELED: order_by
-    ZT: order_by
-    ZZL: order_by
-    id: order_by
-}
-
-extend type Mutation {
-    """
-    delete data from the table: "JJ_VEHICLE"
-  """
-    delete_JJ_VEHICLE(
-        """filter the rows which have to be deleted"""
-        where: JJ_VEHICLE_bool_exp!
-    ): JJ_VEHICLE_mutation_response
-
-    """
-    delete single row from the table: "JJ_VEHICLE"
-  """
-    delete_JJ_VEHICLE_by_pk(
-        """主键"""
-        id: bigint!
-    ): JJ_VEHICLE
-
-    """
-    insert data into the table: "JJ_VEHICLE"
-  """
-    insert_JJ_VEHICLE(
-        """the rows to be inserted"""
-        objects: [JJ_VEHICLE_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: JJ_VEHICLE_on_conflict
-    ): JJ_VEHICLE_mutation_response
-
-    """
-    insert a single row into the table: "JJ_VEHICLE"
-  """
-    insert_JJ_VEHICLE_one(
-        """the row to be inserted"""
-        object: JJ_VEHICLE_insert_input!
-
-        """on conflict condition"""
-        on_conflict: JJ_VEHICLE_on_conflict
-    ): JJ_VEHICLE
-
-    """
-    update data of the table: "JJ_VEHICLE"
-  """
-    update_JJ_VEHICLE(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: JJ_VEHICLE_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: JJ_VEHICLE_set_input
-
-        """filter the rows which have to be updated"""
-        where: JJ_VEHICLE_bool_exp!
-    ): JJ_VEHICLE_mutation_response
-
-    """
-    update single row of the table: "JJ_VEHICLE"
-  """
-    update_JJ_VEHICLE_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: JJ_VEHICLE_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: JJ_VEHICLE_set_input
-        pk_columns: JJ_VEHICLE_pk_columns_input!
-    ): JJ_VEHICLE
-}
-
-
 extend type Query {
-    """
-    fetch data from the table: "JJ_VEHICLE"
-  """
-    JJ_VEHICLE(
-        """distinct select on columns"""
-        distinct_on: [JJ_VEHICLE_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [JJ_VEHICLE_order_by!]
-
-        """filter the rows returned"""
-        where: JJ_VEHICLE_bool_exp
-    ): [JJ_VEHICLE!]!
-
-    """
-    fetch aggregated fields from the table: "JJ_VEHICLE"
-  """
-    JJ_VEHICLE_aggregate(
-        """distinct select on columns"""
-        distinct_on: [JJ_VEHICLE_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [JJ_VEHICLE_order_by!]
-
-        """filter the rows returned"""
-        where: JJ_VEHICLE_bool_exp
-    ): JJ_VEHICLE_aggregate!
-
-    """fetch data from the table: "JJ_VEHICLE" using primary key columns"""
-    JJ_VEHICLE_by_pk(
-        """主键"""
-        id: bigint!
-    ): JJ_VEHICLE
+	"""
+	列表查询
+	"""
+	jj_vehicle(distinct_on: [JjVehicleSelectColumn!], limit: Int, offset: Int, order_by: [JjVehicleOrderBy!], where: JjVehicleBoolExp): [JjVehicle!]!
+	"""
+	聚合查询
+	"""
+	jj_vehicle_aggregate(distinct_on: [JjVehicleSelectColumn!], limit: Int, offset: Int, order_by: [JjVehicleOrderBy!], where: JjVehicleBoolExp): JjVehicleAggregate!
+	"""
+	主键查询
+	"""
+	jj_vehicle_by_pk(id: Bigint!): JjVehicle!
 }
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "JJ_VEHICLE"
-  """
-    JJ_VEHICLE(
-        """distinct select on columns"""
-        distinct_on: [JJ_VEHICLE_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [JJ_VEHICLE_order_by!]
-
-        """filter the rows returned"""
-        where: JJ_VEHICLE_bool_exp
-    ): [JJ_VEHICLE!]!
-
-    """
-    fetch aggregated fields from the table: "JJ_VEHICLE"
-  """
-    JJ_VEHICLE_aggregate(
-        """distinct select on columns"""
-        distinct_on: [JJ_VEHICLE_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [JJ_VEHICLE_order_by!]
-
-        """filter the rows returned"""
-        where: JJ_VEHICLE_bool_exp
-    ): JJ_VEHICLE_aggregate!
-
-    """fetch data from the table: "JJ_VEHICLE" using primary key columns"""
-    JJ_VEHICLE_by_pk(
-        """主键"""
-        id: bigint!
-    ): JJ_VEHICLE
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_jj_vehicle(where: JjVehicleBoolExp!): JjVehicleMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_jj_vehicle_by_pk(id: Bigint!): JjVehicle
+	"""
+	插入
+	"""
+	insert_jj_vehicle(objects: [JjVehicleInsertInput!]!): JjVehicleMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_jj_vehicle_one(objects: JjVehicleInsertInput!): JjVehicle
+	"""
+	更新
+	"""
+	update_jj_vehicle(_inc: JjVehicleIncInput, _set: JjVehicleSetInput, where: JjVehicleBoolExp!): JjVehicleMutationResponse
+	"""
+	更新
+	"""
+	update_jj_vehicle_by_pk(_inc: JjVehicleIncInput, _set: JjVehicleSetInput, id: Bigint!): JjVehicle
 }
-

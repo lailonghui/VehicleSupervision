@@ -1,3 +1,4 @@
+
 # Where are all the schema files located? globs are supported eg  src/**/*.graphqls
 schema:
   - graph/graphqls/*.graphqls
@@ -20,10 +21,9 @@ model:
 # Where should the resolver implementations go?
 resolver:
   layout: follow-schema
-  dir: graph/resolvers
-  package: resolvers
+  dir: graph/resolver
+  package: resolver
 
-# Optional: turn on use `gqlgen:"fieldName"` tags in your models
 # struct_tag: json
 
 # Optional: turn on to use []Thing instead of []*Thing
@@ -35,7 +35,8 @@ resolver:
 # gqlgen will search for any type names in the schema in these go packages
 # if they match it will use them, otherwise it will generate them.
 autobind:
-  - "VehicleSupervision/internal/modules/driver/graph/model"
+  - "VehicleSupervision/internal/modules/driver/model"
+  - "VehicleSupervision/pkg/graphql/model"
 
 # This section declares type mapping between the GraphQL and go type systems
 #
@@ -43,14 +44,6 @@ autobind:
 # modelgen, the others will be allowed when binding to fields. Configure them to
 # your liking
 models:
-  driver_info:
-    model: VehicleSupervision/internal/modules/driver/graph/model.DriverInfo
-  driver_identity:
-    model: VehicleSupervision/internal/modules/driver/graph/model.DriverIdentity
-  driver_info_change_log:
-    model: VehicleSupervision/internal/modules/driver/graph/model.DriverInfoChangeLog
-  vehicle_driver_binding:
-    model: VehicleSupervision/internal/modules/driver/graph/model.VehicleDriverBinding
   ID:
     model:
       - github.com/99designs/gqlgen/graphql.ID
@@ -62,32 +55,12 @@ models:
       - github.com/99designs/gqlgen/graphql.Int
       - github.com/99designs/gqlgen/graphql.Int64
       - github.com/99designs/gqlgen/graphql.Int32
-  bigint:
+  Bigint:
     model:
       - github.com/99designs/gqlgen/graphql.Int64
-  numeric:
+  Numeric:
     model: github.com/99designs/gqlgen/graphql.Float
-  timestamptz:
+  Timestamptz:
     model: VehicleSupervision/pkg/graphql/scalar.Timestamptz
-  String_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.StringComparisonExp
-  timestamptz_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.TimestamptzComparisonExp
-  Int_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.IntComparisonExp
-  Boolean_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.BooleanComparisonExp
-  bigint_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.BigintComparisonExp
-  _jsonb_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.JsonbComparisonExp
-  order_by:
-    model: VehicleSupervision/pkg/graphql/model.OrderBy
-  numeric_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.NumericComparisonExp
-  point_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.PointComparisonExp
-  date_comparison_exp:
-    model: VehicleSupervision/pkg/graphql/model.DateComparisonExp
 
 

@@ -1,1123 +1,827 @@
-
-extend type Mutation {
-    """
-    delete data from the table: "vehicle_alarm_data"
-  """
-    delete_vehicle_alarm_data(
-        """filter the rows which have to be deleted"""
-        where: vehicle_alarm_data_bool_exp!
-    ): vehicle_alarm_data_mutation_response
-
-    """
-    delete single row from the table: "vehicle_alarm_data"
-  """
-    delete_vehicle_alarm_data_by_pk(
-        """主键"""
-        id: bigint!
-
-        """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
-        vehicle_alarm_data_id: String!
-    ): vehicle_alarm_data
-
-    """
-    insert data into the table: "vehicle_alarm_data"
-  """
-    insert_vehicle_alarm_data(
-        """the rows to be inserted"""
-        objects: [vehicle_alarm_data_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: vehicle_alarm_data_on_conflict
-    ): vehicle_alarm_data_mutation_response
-
-    """
-    insert a single row into the table: "vehicle_alarm_data"
-  """
-    insert_vehicle_alarm_data_one(
-        """the row to be inserted"""
-        object: vehicle_alarm_data_insert_input!
-
-        """on conflict condition"""
-        on_conflict: vehicle_alarm_data_on_conflict
-    ): vehicle_alarm_data
-
-    """
-    update data of the table: "vehicle_alarm_data"
-  """
-    update_vehicle_alarm_data(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_alarm_data_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_alarm_data_set_input
-
-        """filter the rows which have to be updated"""
-        where: vehicle_alarm_data_bool_exp!
-    ): vehicle_alarm_data_mutation_response
-
-    """
-    update single row of the table: "vehicle_alarm_data"
-  """
-    update_vehicle_alarm_data_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_alarm_data_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_alarm_data_set_input
-        pk_columns: vehicle_alarm_data_pk_columns_input!
-    ): vehicle_alarm_data
-}
-
-
-extend type Query {
-    """
-    fetch data from the table: "vehicle_alarm_data"
-  """
-    vehicle_alarm_data(
-        """distinct select on columns"""
-        distinct_on: [vehicle_alarm_data_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_alarm_data_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_alarm_data_bool_exp
-    ): [vehicle_alarm_data!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_alarm_data"
-  """
-    vehicle_alarm_data_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_alarm_data_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_alarm_data_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_alarm_data_bool_exp
-    ): vehicle_alarm_data_aggregate!
-
-    """
-    fetch data from the table: "vehicle_alarm_data" using primary key columns
-    """
-    vehicle_alarm_data_by_pk(
-        """主键"""
-        id: bigint!
-
-        """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
-        vehicle_alarm_data_id: String!
-    ): vehicle_alarm_data
-}
-
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "vehicle_alarm_data"
-  """
-    vehicle_alarm_data(
-        """distinct select on columns"""
-        distinct_on: [vehicle_alarm_data_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_alarm_data_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_alarm_data_bool_exp
-    ): [vehicle_alarm_data!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_alarm_data"
-  """
-    vehicle_alarm_data_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_alarm_data_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_alarm_data_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_alarm_data_bool_exp
-    ): vehicle_alarm_data_aggregate!
-
-    """
-    fetch data from the table: "vehicle_alarm_data" using primary key columns
-    """
-    vehicle_alarm_data_by_pk(
-        """主键"""
-        id: bigint!
-
-        """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
-        vehicle_alarm_data_id: String!
-    ): vehicle_alarm_data
-}
-
-
-
 """
 报警数据表
-
-
-columns and relationships of "vehicle_alarm_data"
-
 """
-type vehicle_alarm_data {
-    """GPS速度"""
-    GPS_speed: numeric
-
-    """处警ID"""
-    alarm_deal_id: String
-
-    """报警结束位置"""
-    alarm_end_position: String
-
-    """报警结束时间"""
-    alarm_end_time: timestamptz
-
-    """报警来源字典"""
-    alarm_source: String
-
-    """报警开始时间"""
-    alarm_start_time: timestamptz
-
-    """报警类型字典"""
-    alarm_type: String
-
-    """进区域ID"""
-    area_id: String
-
-    """空间数据类型point表示经度(longitude)和纬度(latitude)"""
-    coordinate: point
-
-    """持续时间"""
-    duration: String
-
-    """主键"""
-    id: bigint!
-
-    """报警是否有效"""
-    is_alarm_effective: Boolean
-
-    """报警是否结束"""
-    is_alarm_over: Boolean
-
-    """是否取消报警"""
-    is_cancel_alarm: Boolean
-
-    """是否解析"""
-    is_resolve: Boolean
-
-    """是否监管"""
-    is_supervise: Boolean
-
-    """最新报警位置"""
-    latest_alarm_position: Int
-
-    """最新报警时间"""
-    latest_alarm_time: timestamptz
-
-    """位置描述"""
-    location_description: String
-
-    """最高速度"""
-    maximum_speed: numeric
-
-    """地区"""
-    pid: String
-
-    """处理描述"""
-    processing_description: String
-
-    """处警处理方式字典"""
-    processing_method: String
-
-    """
-    处警处理状态字典
-
-    """
-    processing_status: String
-
-    """处理时间"""
-    processing_time: timestamptz
-
-    """处理人"""
-    processor: String
-
-    """记录时间"""
-    record_time: timestamptz
-
-    """道路等级字典"""
-    road_grade: String
-
-    """道路名称"""
-    road_name: String
-
-    """限速阀值"""
-    speed_limit_threshold: numeric
-
-    """监管备注"""
-    supervision_note: String
-
-    """监管时间"""
-    supervision_time: timestamptz
-
-    """监管人"""
-    supervisor: String
-
-    """行驶记录仪速度"""
-    tachograph_speed: numeric
-
-    """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
-    vehicle_alarm_data_id: String!
-
-    """车辆ID"""
-    vehicle_id: String
+type VehicleAlarmData {
+	"""
+	 按指定方法生成                                          ( 主键                               )
+	"""
+	id: Bigint!
+	"""
+	 报警数据外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                           )
+	"""
+	vehicle_alarm_data_id: String!
+	"""
+	 车辆ID                                                  ( 引用vehicle_info表的vehicle_id )
+	"""
+	vehicle_id: String
+	"""
+	 报警类型                                                ( 报警类型字典                   )
+	"""
+	alarm_type: String
+	"""
+	 报警开始时间                                            (                                    )
+	"""
+	alarm_start_time: Timestamptz
+	"""
+	 报警结束时间                                            (                                    )
+	"""
+	alarm_end_time: Timestamptz
+	"""
+	 报警结束位置                                            (                                    )
+	"""
+	alarm_end_position: String
+	"""
+	 最新报警时间                                            (                                    )
+	"""
+	latest_alarm_time: Timestamptz
+	"""
+	 最新报警位置                                            (                                    )
+	"""
+	latest_alarm_position: Int
+	"""
+	 报警是否有效                                            (                                    )
+	"""
+	is_alarm_effective: Boolean
+	"""
+	 报警是否结束                                            (                                    )
+	"""
+	is_alarm_over: Boolean
+	"""
+	 是否取消报警                                            (                                    )
+	"""
+	is_cancel_alarm: Boolean
+	"""
+	 报警来源:1.终端报警 2.平台报警                          ( 报警来源字典                   )
+	"""
+	alarm_source: String
+	"""
+	 处理时间                                                (                                    )
+	"""
+	processing_time: Timestamptz
+	"""
+	 处理方式                                                ( 处警处理方式字典               )
+	"""
+	processing_method: String
+	"""
+	 处理描述                                                (                                    )
+	"""
+	processing_description: String
+	"""
+	 处理人                                                  ( system_user表的user_id         )
+	"""
+	processor: String
+	"""
+	 处理状态                                                ( 处警处理状态字典               )
+	"""
+	processing_status: String
+	"""
+	 行驶记录仪速度                                          (                                    )
+	"""
+	tachograph_speed: Numeric
+	"""
+	 GPS速度                                                 (                                    )
+	"""
+	gps_speed: Numeric
+	"""
+	 最高速度                                                (                                    )
+	"""
+	maximum_speed: Numeric
+	"""
+	 限速阀值                                                (                                    )
+	"""
+	speed_limit_threshold: Numeric
+	"""
+	 空间数据类型point表示经度(longitude)和纬度(latitude)    (                                    )
+	"""
+	coordinate: Point
+	"""
+	 位置描述                                                (                                    )
+	"""
+	location_description: String
+	"""
+	 持续时间                                                (                                    )
+	"""
+	duration: String
+	"""
+	 道路等级                                                ( 道路等级字典                   )
+	"""
+	road_grade: String
+	"""
+	 道路名称                                                (                                    )
+	"""
+	road_name: String
+	"""
+	 进区域ID                                                (                                    )
+	"""
+	area_id: String
+	"""
+	 处警ID                                                  (                                    )
+	"""
+	alarm_deal_id: String
+	"""
+	 地区                                                    (                                    )
+	"""
+	pid: String
+	"""
+	 记录时间                                                (                                    )
+	"""
+	record_time: Timestamptz
+	"""
+	 监管人                                                  ( system_user表的user_id         )
+	"""
+	supervisor: String
+	"""
+	 管理部门是否监管                                        (                                    )
+	"""
+	is_supervise: Boolean
+	"""
+	 管理部门监管时间                                        (                                    )
+	"""
+	supervision_time: Timestamptz
+	"""
+	 监管备注                                                (                                    )
+	"""
+	supervision_note: String
+	"""
+	 是否解析                                                (                                    )
+	"""
+	is_resolve: Boolean
+	"""
+	 工地是否处理                                            (                                    )
+	"""
+	is_construction_site_handle: Boolean
+	"""
+	 工地处理时间                                            (                                    )
+	"""
+	construction_site_handle_time: Timestamptz
+	"""
+	 创建时间                                                (                                    )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                  ( system_user表的user_id         )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                (                                    )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                  ( system_user表的user_id         )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                (                                    )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                  ( system_user表的user_id         )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "vehicle_alarm_data"
 """
-type vehicle_alarm_data_aggregate {
-    aggregate: vehicle_alarm_data_aggregate_fields
-    nodes: [vehicle_alarm_data!]!
+type VehicleAlarmDataAggregate {
+	aggregate: VehicleAlarmDataAggregateFields
 }
-
 """
 aggregate fields of "vehicle_alarm_data"
 """
-type vehicle_alarm_data_aggregate_fields {
-    avg: vehicle_alarm_data_avg_fields
-    count(columns: [vehicle_alarm_data_select_column!], distinct: Boolean): Int
-    max: vehicle_alarm_data_max_fields
-    min: vehicle_alarm_data_min_fields
-    stddev: vehicle_alarm_data_stddev_fields
-    stddev_pop: vehicle_alarm_data_stddev_pop_fields
-    stddev_samp: vehicle_alarm_data_stddev_samp_fields
-    sum: vehicle_alarm_data_sum_fields
-    var_pop: vehicle_alarm_data_var_pop_fields
-    var_samp: vehicle_alarm_data_var_samp_fields
-    variance: vehicle_alarm_data_variance_fields
+type VehicleAlarmDataAggregateFields {
+	avg: VehicleAlarmDataAvgFields
+	count: Int
+	max: VehicleAlarmDataMaxFields
+	min: VehicleAlarmDataMinFields
+	stddev: VehicleAlarmDataStddevFields
+	stddev_pop: VehicleAlarmDataStddevPopFields
+	stddev_samp: VehicleAlarmDataStddevSampFields
+	sum: VehicleAlarmDataSumFields
+	var_pop: VehicleAlarmDataVarPopFields
+	var_samp: VehicleAlarmDataVarSampFields
+	variance: VehicleAlarmDataVarianceFields
 }
-
 """
-order by aggregate values of table "vehicle_alarm_data"
+aggregate avg on columns of table "vehicle_alarm_data"
 """
-input vehicle_alarm_data_aggregate_order_by {
-    avg: vehicle_alarm_data_avg_order_by
-    count: order_by
-    max: vehicle_alarm_data_max_order_by
-    min: vehicle_alarm_data_min_order_by
-    stddev: vehicle_alarm_data_stddev_order_by
-    stddev_pop: vehicle_alarm_data_stddev_pop_order_by
-    stddev_samp: vehicle_alarm_data_stddev_samp_order_by
-    sum: vehicle_alarm_data_sum_order_by
-    var_pop: vehicle_alarm_data_var_pop_order_by
-    var_samp: vehicle_alarm_data_var_samp_order_by
-    variance: vehicle_alarm_data_variance_order_by
+type VehicleAlarmDataAvgFields {
+	id: Bigint
+	latest_alarm_position: Int
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
 }
-
 """
-input type for inserting array relation for remote table "vehicle_alarm_data"
+aggregate max on columns of table "vehicle_alarm_data"
 """
-input vehicle_alarm_data_arr_rel_insert_input {
-    data: [vehicle_alarm_data_insert_input!]!
-    on_conflict: vehicle_alarm_data_on_conflict
+type VehicleAlarmDataMaxFields {
+	id: Bigint
+	vehicle_alarm_data_id: String
+	vehicle_id: String
+	alarm_type: String
+	alarm_start_time: Timestamptz
+	alarm_end_time: Timestamptz
+	alarm_end_position: String
+	latest_alarm_time: Timestamptz
+	latest_alarm_position: Int
+	is_alarm_effective: Boolean
+	is_alarm_over: Boolean
+	is_cancel_alarm: Boolean
+	alarm_source: String
+	processing_time: Timestamptz
+	processing_method: String
+	processing_description: String
+	processor: String
+	processing_status: String
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
+	coordinate: Point
+	location_description: String
+	duration: String
+	road_grade: String
+	road_name: String
+	area_id: String
+	alarm_deal_id: String
+	pid: String
+	record_time: Timestamptz
+	supervisor: String
+	is_supervise: Boolean
+	supervision_time: Timestamptz
+	supervision_note: String
+	is_resolve: Boolean
+	is_construction_site_handle: Boolean
+	construction_site_handle_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type vehicle_alarm_data_avg_fields {
-    GPS_speed: Float
-    id: Float
-    latest_alarm_position: Float
-    maximum_speed: Float
-    speed_limit_threshold: Float
-    tachograph_speed: Float
+"""
+aggregate min on columns of table "vehicle_alarm_data"
+"""
+type VehicleAlarmDataMinFields {
+	id: Bigint
+	vehicle_alarm_data_id: String
+	vehicle_id: String
+	alarm_type: String
+	alarm_start_time: Timestamptz
+	alarm_end_time: Timestamptz
+	alarm_end_position: String
+	latest_alarm_time: Timestamptz
+	latest_alarm_position: Int
+	is_alarm_effective: Boolean
+	is_alarm_over: Boolean
+	is_cancel_alarm: Boolean
+	alarm_source: String
+	processing_time: Timestamptz
+	processing_method: String
+	processing_description: String
+	processor: String
+	processing_status: String
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
+	coordinate: Point
+	location_description: String
+	duration: String
+	road_grade: String
+	road_name: String
+	area_id: String
+	alarm_deal_id: String
+	pid: String
+	record_time: Timestamptz
+	supervisor: String
+	is_supervise: Boolean
+	supervision_time: Timestamptz
+	supervision_note: String
+	is_resolve: Boolean
+	is_construction_site_handle: Boolean
+	construction_site_handle_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "vehicle_alarm_data"
+aggregate stddev on columns of table "vehicle_alarm_data"
 """
-input vehicle_alarm_data_avg_order_by {
-    GPS_speed: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    maximum_speed: order_by
-    speed_limit_threshold: order_by
-    tachograph_speed: order_by
+type VehicleAlarmDataStddevFields {
+	id: Bigint
+	latest_alarm_position: Int
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
 }
-
 """
-Boolean expression to filter rows from the table "vehicle_alarm_data". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "vehicle_alarm_data"
 """
-input vehicle_alarm_data_bool_exp {
-    GPS_speed: numeric_comparison_exp
-    _and: [vehicle_alarm_data_bool_exp]
-    _not: vehicle_alarm_data_bool_exp
-    _or: [vehicle_alarm_data_bool_exp]
-    alarm_deal_id: String_comparison_exp
-    alarm_end_position: String_comparison_exp
-    alarm_end_time: timestamptz_comparison_exp
-    alarm_source: String_comparison_exp
-    alarm_start_time: timestamptz_comparison_exp
-    alarm_type: String_comparison_exp
-    area_id: String_comparison_exp
-    coordinate: point_comparison_exp
-    duration: String_comparison_exp
-    id: bigint_comparison_exp
-    is_alarm_effective: Boolean_comparison_exp
-    is_alarm_over: Boolean_comparison_exp
-    is_cancel_alarm: Boolean_comparison_exp
-    is_resolve: Boolean_comparison_exp
-    is_supervise: Boolean_comparison_exp
-    latest_alarm_position: Int_comparison_exp
-    latest_alarm_time: timestamptz_comparison_exp
-    location_description: String_comparison_exp
-    maximum_speed: numeric_comparison_exp
-    pid: String_comparison_exp
-    processing_description: String_comparison_exp
-    processing_method: String_comparison_exp
-    processing_status: String_comparison_exp
-    processing_time: timestamptz_comparison_exp
-    processor: String_comparison_exp
-    record_time: timestamptz_comparison_exp
-    road_grade: String_comparison_exp
-    road_name: String_comparison_exp
-    speed_limit_threshold: numeric_comparison_exp
-    supervision_note: String_comparison_exp
-    supervision_time: timestamptz_comparison_exp
-    supervisor: String_comparison_exp
-    tachograph_speed: numeric_comparison_exp
-    vehicle_alarm_data_id: String_comparison_exp
-    vehicle_id: String_comparison_exp
+type VehicleAlarmDataStddevPopFields {
+	id: Bigint
+	latest_alarm_position: Int
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
 }
-
 """
-unique or primary key constraints on table "vehicle_alarm_data"
+aggregate stddev_samp on columns of table "vehicle_alarm_data"
 """
-enum vehicle_alarm_data_constraint {
-    """unique or primary key constraint"""
-    vehicle_alarm_data_pkey
+type VehicleAlarmDataStddevSampFields {
+	id: Bigint
+	latest_alarm_position: Int
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
 }
-
 """
-input type for incrementing integer column in table "vehicle_alarm_data"
+aggregate sum on columns of table "vehicle_alarm_data"
 """
-input vehicle_alarm_data_inc_input {
-    GPS_speed: numeric
-    id: bigint
-    latest_alarm_position: Int
-    maximum_speed: numeric
-    speed_limit_threshold: numeric
-    tachograph_speed: numeric
+type VehicleAlarmDataSumFields {
+	id: Bigint
+	latest_alarm_position: Int
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
 }
-
 """
-input type for inserting data into table "vehicle_alarm_data"
+aggregate var_pop on columns of table "vehicle_alarm_data"
 """
-input vehicle_alarm_data_insert_input {
-    GPS_speed: numeric
-    alarm_deal_id: String
-    alarm_end_position: String
-    alarm_end_time: timestamptz
-    alarm_source: String
-    alarm_start_time: timestamptz
-    alarm_type: String
-    area_id: String
-    coordinate: point
-    duration: String
-    id: bigint
-    is_alarm_effective: Boolean
-    is_alarm_over: Boolean
-    is_cancel_alarm: Boolean
-    is_resolve: Boolean
-    is_supervise: Boolean
-    latest_alarm_position: Int
-    latest_alarm_time: timestamptz
-    location_description: String
-    maximum_speed: numeric
-    pid: String
-    processing_description: String
-    processing_method: String
-    processing_status: String
-    processing_time: timestamptz
-    processor: String
-    record_time: timestamptz
-    road_grade: String
-    road_name: String
-    speed_limit_threshold: numeric
-    supervision_note: String
-    supervision_time: timestamptz
-    supervisor: String
-    tachograph_speed: numeric
-    vehicle_alarm_data_id: String
-    vehicle_id: String
+type VehicleAlarmDataVarPopFields {
+	id: Bigint
+	latest_alarm_position: Int
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
 }
-
-"""aggregate max on columns"""
-type vehicle_alarm_data_max_fields {
-    GPS_speed: numeric
-    alarm_deal_id: String
-    alarm_end_position: String
-    alarm_end_time: timestamptz
-    alarm_source: String
-    alarm_start_time: timestamptz
-    alarm_type: String
-    area_id: String
-    duration: String
-    id: bigint
-    latest_alarm_position: Int
-    latest_alarm_time: timestamptz
-    location_description: String
-    maximum_speed: numeric
-    pid: String
-    processing_description: String
-    processing_method: String
-    processing_status: String
-    processing_time: timestamptz
-    processor: String
-    record_time: timestamptz
-    road_grade: String
-    road_name: String
-    speed_limit_threshold: numeric
-    supervision_note: String
-    supervision_time: timestamptz
-    supervisor: String
-    tachograph_speed: numeric
-    vehicle_alarm_data_id: String
-    vehicle_id: String
-}
-
 """
-order by max() on columns of table "vehicle_alarm_data"
+aggregate var_samp on columns of table "vehicle_alarm_data"
 """
-input vehicle_alarm_data_max_order_by {
-    GPS_speed: order_by
-    alarm_deal_id: order_by
-    alarm_end_position: order_by
-    alarm_end_time: order_by
-    alarm_source: order_by
-    alarm_start_time: order_by
-    alarm_type: order_by
-    area_id: order_by
-    duration: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    latest_alarm_time: order_by
-    location_description: order_by
-    maximum_speed: order_by
-    pid: order_by
-    processing_description: order_by
-    processing_method: order_by
-    processing_status: order_by
-    processing_time: order_by
-    processor: order_by
-    record_time: order_by
-    road_grade: order_by
-    road_name: order_by
-    speed_limit_threshold: order_by
-    supervision_note: order_by
-    supervision_time: order_by
-    supervisor: order_by
-    tachograph_speed: order_by
-    vehicle_alarm_data_id: order_by
-    vehicle_id: order_by
+type VehicleAlarmDataVarSampFields {
+	id: Bigint
+	latest_alarm_position: Int
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
 }
-
-"""aggregate min on columns"""
-type vehicle_alarm_data_min_fields {
-    GPS_speed: numeric
-    alarm_deal_id: String
-    alarm_end_position: String
-    alarm_end_time: timestamptz
-    alarm_source: String
-    alarm_start_time: timestamptz
-    alarm_type: String
-    area_id: String
-    duration: String
-    id: bigint
-    latest_alarm_position: Int
-    latest_alarm_time: timestamptz
-    location_description: String
-    maximum_speed: numeric
-    pid: String
-    processing_description: String
-    processing_method: String
-    processing_status: String
-    processing_time: timestamptz
-    processor: String
-    record_time: timestamptz
-    road_grade: String
-    road_name: String
-    speed_limit_threshold: numeric
-    supervision_note: String
-    supervision_time: timestamptz
-    supervisor: String
-    tachograph_speed: numeric
-    vehicle_alarm_data_id: String
-    vehicle_id: String
-}
-
 """
-order by min() on columns of table "vehicle_alarm_data"
+aggregate variance on columns of table "vehicle_alarm_data"
 """
-input vehicle_alarm_data_min_order_by {
-    GPS_speed: order_by
-    alarm_deal_id: order_by
-    alarm_end_position: order_by
-    alarm_end_time: order_by
-    alarm_source: order_by
-    alarm_start_time: order_by
-    alarm_type: order_by
-    area_id: order_by
-    duration: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    latest_alarm_time: order_by
-    location_description: order_by
-    maximum_speed: order_by
-    pid: order_by
-    processing_description: order_by
-    processing_method: order_by
-    processing_status: order_by
-    processing_time: order_by
-    processor: order_by
-    record_time: order_by
-    road_grade: order_by
-    road_name: order_by
-    speed_limit_threshold: order_by
-    supervision_note: order_by
-    supervision_time: order_by
-    supervisor: order_by
-    tachograph_speed: order_by
-    vehicle_alarm_data_id: order_by
-    vehicle_id: order_by
+type VehicleAlarmDataVarianceFields {
+	id: Bigint
+	latest_alarm_position: Int
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
 }
-
 """
 response of any mutation on the table "vehicle_alarm_data"
 """
-type vehicle_alarm_data_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [vehicle_alarm_data!]!
+type VehicleAlarmDataMutationResponse {
+	affected_rows: Int!
+	returning: [VehicleAlarmData!]!
 }
-
-"""
-input type for inserting object relation for remote table "vehicle_alarm_data"
-"""
-input vehicle_alarm_data_obj_rel_insert_input {
-    data: vehicle_alarm_data_insert_input!
-    on_conflict: vehicle_alarm_data_on_conflict
-}
-
-"""
-on conflict condition type for table "vehicle_alarm_data"
-"""
-input vehicle_alarm_data_on_conflict {
-    constraint: vehicle_alarm_data_constraint!
-    update_columns: [vehicle_alarm_data_update_column!]!
-    where: vehicle_alarm_data_bool_exp
-}
-
 """
 ordering options when selecting data from "vehicle_alarm_data"
 """
-input vehicle_alarm_data_order_by {
-    GPS_speed: order_by
-    alarm_deal_id: order_by
-    alarm_end_position: order_by
-    alarm_end_time: order_by
-    alarm_source: order_by
-    alarm_start_time: order_by
-    alarm_type: order_by
-    area_id: order_by
-    coordinate: order_by
-    duration: order_by
-    id: order_by
-    is_alarm_effective: order_by
-    is_alarm_over: order_by
-    is_cancel_alarm: order_by
-    is_resolve: order_by
-    is_supervise: order_by
-    latest_alarm_position: order_by
-    latest_alarm_time: order_by
-    location_description: order_by
-    maximum_speed: order_by
-    pid: order_by
-    processing_description: order_by
-    processing_method: order_by
-    processing_status: order_by
-    processing_time: order_by
-    processor: order_by
-    record_time: order_by
-    road_grade: order_by
-    road_name: order_by
-    speed_limit_threshold: order_by
-    supervision_note: order_by
-    supervision_time: order_by
-    supervisor: order_by
-    tachograph_speed: order_by
-    vehicle_alarm_data_id: order_by
-    vehicle_id: order_by
+input VehicleAlarmDataOrderBy {
+	id: OrderBy
+	vehicle_alarm_data_id: OrderBy
+	vehicle_id: OrderBy
+	alarm_type: OrderBy
+	alarm_start_time: OrderBy
+	alarm_end_time: OrderBy
+	alarm_end_position: OrderBy
+	latest_alarm_time: OrderBy
+	latest_alarm_position: OrderBy
+	is_alarm_effective: OrderBy
+	is_alarm_over: OrderBy
+	is_cancel_alarm: OrderBy
+	alarm_source: OrderBy
+	processing_time: OrderBy
+	processing_method: OrderBy
+	processing_description: OrderBy
+	processor: OrderBy
+	processing_status: OrderBy
+	tachograph_speed: OrderBy
+	gps_speed: OrderBy
+	maximum_speed: OrderBy
+	speed_limit_threshold: OrderBy
+	coordinate: OrderBy
+	location_description: OrderBy
+	duration: OrderBy
+	road_grade: OrderBy
+	road_name: OrderBy
+	area_id: OrderBy
+	alarm_deal_id: OrderBy
+	pid: OrderBy
+	record_time: OrderBy
+	supervisor: OrderBy
+	is_supervise: OrderBy
+	supervision_time: OrderBy
+	supervision_note: OrderBy
+	is_resolve: OrderBy
+	is_construction_site_handle: OrderBy
+	construction_site_handle_time: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-primary key columns input for table: "vehicle_alarm_data"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_alarm_data'.
 """
-input vehicle_alarm_data_pk_columns_input {
-    """主键"""
-    id: bigint!
-
-    """报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键"""
-    vehicle_alarm_data_id: String!
+input VehicleAlarmDataBoolExp {
+	_and: [VehicleAlarmDataBoolExp]
+	_not: VehicleAlarmDataBoolExp
+	_or: [VehicleAlarmDataBoolExp]
+	id: BigintComparisonExp
+	vehicle_alarm_data_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	alarm_type: StringComparisonExp
+	alarm_start_time: TimestamptzComparisonExp
+	alarm_end_time: TimestamptzComparisonExp
+	alarm_end_position: StringComparisonExp
+	latest_alarm_time: TimestamptzComparisonExp
+	latest_alarm_position: IntComparisonExp
+	is_alarm_effective: BooleanComparisonExp
+	is_alarm_over: BooleanComparisonExp
+	is_cancel_alarm: BooleanComparisonExp
+	alarm_source: StringComparisonExp
+	processing_time: TimestamptzComparisonExp
+	processing_method: StringComparisonExp
+	processing_description: StringComparisonExp
+	processor: StringComparisonExp
+	processing_status: StringComparisonExp
+	tachograph_speed: NumericComparisonExp
+	gps_speed: NumericComparisonExp
+	maximum_speed: NumericComparisonExp
+	speed_limit_threshold: NumericComparisonExp
+	coordinate: PointComparisonExp
+	location_description: StringComparisonExp
+	duration: StringComparisonExp
+	road_grade: StringComparisonExp
+	road_name: StringComparisonExp
+	area_id: StringComparisonExp
+	alarm_deal_id: StringComparisonExp
+	pid: StringComparisonExp
+	record_time: TimestamptzComparisonExp
+	supervisor: StringComparisonExp
+	is_supervise: BooleanComparisonExp
+	supervision_time: TimestamptzComparisonExp
+	supervision_note: StringComparisonExp
+	is_resolve: BooleanComparisonExp
+	is_construction_site_handle: BooleanComparisonExp
+	construction_site_handle_time: TimestamptzComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
 """
-select columns of table "vehicle_alarm_data"
+input type for inserting data into table "vehicle_alarm_data"
 """
-enum vehicle_alarm_data_select_column {
-    """column name"""
-    GPS_speed
-
-    """column name"""
-    alarm_deal_id
-
-    """column name"""
-    alarm_end_position
-
-    """column name"""
-    alarm_end_time
-
-    """column name"""
-    alarm_source
-
-    """column name"""
-    alarm_start_time
-
-    """column name"""
-    alarm_type
-
-    """column name"""
-    area_id
-
-    """column name"""
-    coordinate
-
-    """column name"""
-    duration
-
-    """column name"""
-    id
-
-    """column name"""
-    is_alarm_effective
-
-    """column name"""
-    is_alarm_over
-
-    """column name"""
-    is_cancel_alarm
-
-    """column name"""
-    is_resolve
-
-    """column name"""
-    is_supervise
-
-    """column name"""
-    latest_alarm_position
-
-    """column name"""
-    latest_alarm_time
-
-    """column name"""
-    location_description
-
-    """column name"""
-    maximum_speed
-
-    """column name"""
-    pid
-
-    """column name"""
-    processing_description
-
-    """column name"""
-    processing_method
-
-    """column name"""
-    processing_status
-
-    """column name"""
-    processing_time
-
-    """column name"""
-    processor
-
-    """column name"""
-    record_time
-
-    """column name"""
-    road_grade
-
-    """column name"""
-    road_name
-
-    """column name"""
-    speed_limit_threshold
-
-    """column name"""
-    supervision_note
-
-    """column name"""
-    supervision_time
-
-    """column name"""
-    supervisor
-
-    """column name"""
-    tachograph_speed
-
-    """column name"""
-    vehicle_alarm_data_id
-
-    """column name"""
-    vehicle_id
+input VehicleAlarmDataInsertInput {
+	id: Bigint
+	vehicle_alarm_data_id: String
+	vehicle_id: String
+	alarm_type: String
+	alarm_start_time: Timestamptz
+	alarm_end_time: Timestamptz
+	alarm_end_position: String
+	latest_alarm_time: Timestamptz
+	latest_alarm_position: Int
+	is_alarm_effective: Boolean
+	is_alarm_over: Boolean
+	is_cancel_alarm: Boolean
+	alarm_source: String
+	processing_time: Timestamptz
+	processing_method: String
+	processing_description: String
+	processor: String
+	processing_status: String
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
+	coordinate: Point
+	location_description: String
+	duration: String
+	road_grade: String
+	road_name: String
+	area_id: String
+	alarm_deal_id: String
+	pid: String
+	record_time: Timestamptz
+	supervisor: String
+	is_supervise: Boolean
+	supervision_time: Timestamptz
+	supervision_note: String
+	is_resolve: Boolean
+	is_construction_site_handle: Boolean
+	construction_site_handle_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
+"""
+input type for incrementing integer column in table "vehicle_alarm_data"
+"""
+input VehicleAlarmDataIncInput {
+	id: Bigint
+	latest_alarm_position: Int
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
+}
 """
 input type for updating data in table "vehicle_alarm_data"
 """
-input vehicle_alarm_data_set_input {
-    GPS_speed: numeric
-    alarm_deal_id: String
-    alarm_end_position: String
-    alarm_end_time: timestamptz
-    alarm_source: String
-    alarm_start_time: timestamptz
-    alarm_type: String
-    area_id: String
-    coordinate: point
-    duration: String
-    id: bigint
-    is_alarm_effective: Boolean
-    is_alarm_over: Boolean
-    is_cancel_alarm: Boolean
-    is_resolve: Boolean
-    is_supervise: Boolean
-    latest_alarm_position: Int
-    latest_alarm_time: timestamptz
-    location_description: String
-    maximum_speed: numeric
-    pid: String
-    processing_description: String
-    processing_method: String
-    processing_status: String
-    processing_time: timestamptz
-    processor: String
-    record_time: timestamptz
-    road_grade: String
-    road_name: String
-    speed_limit_threshold: numeric
-    supervision_note: String
-    supervision_time: timestamptz
-    supervisor: String
-    tachograph_speed: numeric
-    vehicle_alarm_data_id: String
-    vehicle_id: String
+input VehicleAlarmDataSetInput {
+	id: Bigint
+	vehicle_alarm_data_id: String
+	vehicle_id: String
+	alarm_type: String
+	alarm_start_time: Timestamptz
+	alarm_end_time: Timestamptz
+	alarm_end_position: String
+	latest_alarm_time: Timestamptz
+	latest_alarm_position: Int
+	is_alarm_effective: Boolean
+	is_alarm_over: Boolean
+	is_cancel_alarm: Boolean
+	alarm_source: String
+	processing_time: Timestamptz
+	processing_method: String
+	processing_description: String
+	processor: String
+	processing_status: String
+	tachograph_speed: Numeric
+	gps_speed: Numeric
+	maximum_speed: Numeric
+	speed_limit_threshold: Numeric
+	coordinate: Point
+	location_description: String
+	duration: String
+	road_grade: String
+	road_name: String
+	area_id: String
+	alarm_deal_id: String
+	pid: String
+	record_time: Timestamptz
+	supervisor: String
+	is_supervise: Boolean
+	supervision_time: Timestamptz
+	supervision_note: String
+	is_resolve: Boolean
+	is_construction_site_handle: Boolean
+	construction_site_handle_time: Timestamptz
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type vehicle_alarm_data_stddev_fields {
-    GPS_speed: Float
-    id: Float
-    latest_alarm_position: Float
-    maximum_speed: Float
-    speed_limit_threshold: Float
-    tachograph_speed: Float
+"""
+可选select
+"""
+enum VehicleAlarmDataSelectColumn {
+	"""
+	 按指定方法生成                                          ( 主键                               )
+	"""
+	id
+	"""
+	 报警数据外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                           )
+	"""
+	vehicle_alarm_data_id
+	"""
+	 车辆ID                                                  ( 引用vehicle_info表的vehicle_id )
+	"""
+	vehicle_id
+	"""
+	 报警类型                                                ( 报警类型字典                   )
+	"""
+	alarm_type
+	"""
+	 报警开始时间                                            (                                    )
+	"""
+	alarm_start_time
+	"""
+	 报警结束时间                                            (                                    )
+	"""
+	alarm_end_time
+	"""
+	 报警结束位置                                            (                                    )
+	"""
+	alarm_end_position
+	"""
+	 最新报警时间                                            (                                    )
+	"""
+	latest_alarm_time
+	"""
+	 最新报警位置                                            (                                    )
+	"""
+	latest_alarm_position
+	"""
+	 报警是否有效                                            (                                    )
+	"""
+	is_alarm_effective
+	"""
+	 报警是否结束                                            (                                    )
+	"""
+	is_alarm_over
+	"""
+	 是否取消报警                                            (                                    )
+	"""
+	is_cancel_alarm
+	"""
+	 报警来源:1.终端报警 2.平台报警                          ( 报警来源字典                   )
+	"""
+	alarm_source
+	"""
+	 处理时间                                                (                                    )
+	"""
+	processing_time
+	"""
+	 处理方式                                                ( 处警处理方式字典               )
+	"""
+	processing_method
+	"""
+	 处理描述                                                (                                    )
+	"""
+	processing_description
+	"""
+	 处理人                                                  ( system_user表的user_id         )
+	"""
+	processor
+	"""
+	 处理状态                                                ( 处警处理状态字典               )
+	"""
+	processing_status
+	"""
+	 行驶记录仪速度                                          (                                    )
+	"""
+	tachograph_speed
+	"""
+	 GPS速度                                                 (                                    )
+	"""
+	gps_speed
+	"""
+	 最高速度                                                (                                    )
+	"""
+	maximum_speed
+	"""
+	 限速阀值                                                (                                    )
+	"""
+	speed_limit_threshold
+	"""
+	 空间数据类型point表示经度(longitude)和纬度(latitude)    (                                    )
+	"""
+	coordinate
+	"""
+	 位置描述                                                (                                    )
+	"""
+	location_description
+	"""
+	 持续时间                                                (                                    )
+	"""
+	duration
+	"""
+	 道路等级                                                ( 道路等级字典                   )
+	"""
+	road_grade
+	"""
+	 道路名称                                                (                                    )
+	"""
+	road_name
+	"""
+	 进区域ID                                                (                                    )
+	"""
+	area_id
+	"""
+	 处警ID                                                  (                                    )
+	"""
+	alarm_deal_id
+	"""
+	 地区                                                    (                                    )
+	"""
+	pid
+	"""
+	 记录时间                                                (                                    )
+	"""
+	record_time
+	"""
+	 监管人                                                  ( system_user表的user_id         )
+	"""
+	supervisor
+	"""
+	 管理部门是否监管                                        (                                    )
+	"""
+	is_supervise
+	"""
+	 管理部门监管时间                                        (                                    )
+	"""
+	supervision_time
+	"""
+	 监管备注                                                (                                    )
+	"""
+	supervision_note
+	"""
+	 是否解析                                                (                                    )
+	"""
+	is_resolve
+	"""
+	 工地是否处理                                            (                                    )
+	"""
+	is_construction_site_handle
+	"""
+	 工地处理时间                                            (                                    )
+	"""
+	construction_site_handle_time
+	"""
+	 创建时间                                                (                                    )
+	"""
+	created_at
+	"""
+	 创建人                                                  ( system_user表的user_id         )
+	"""
+	created_by
+	"""
+	 修改时间                                                (                                    )
+	"""
+	updated_at
+	"""
+	 修改人                                                  ( system_user表的user_id         )
+	"""
+	updated_by
+	"""
+	 删除时间                                                (                                    )
+	"""
+	deleted_at
+	"""
+	 删除人                                                  ( system_user表的user_id         )
+	"""
+	deleted_by
 }
-
-"""
-order by stddev() on columns of table "vehicle_alarm_data"
-"""
-input vehicle_alarm_data_stddev_order_by {
-    GPS_speed: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    maximum_speed: order_by
-    speed_limit_threshold: order_by
-    tachograph_speed: order_by
+extend type Query {
+	"""
+	列表查询
+	"""
+	vehicle_alarm_data(distinct_on: [VehicleAlarmDataSelectColumn!], limit: Int, offset: Int, order_by: [VehicleAlarmDataOrderBy!], where: VehicleAlarmDataBoolExp): [VehicleAlarmData!]!
+	"""
+	聚合查询
+	"""
+	vehicle_alarm_data_aggregate(distinct_on: [VehicleAlarmDataSelectColumn!], limit: Int, offset: Int, order_by: [VehicleAlarmDataOrderBy!], where: VehicleAlarmDataBoolExp): VehicleAlarmDataAggregate!
+	"""
+	主键查询
+	"""
+	vehicle_alarm_data_by_pk(id: Bigint!): VehicleAlarmData!
 }
-
-"""aggregate stddev_pop on columns"""
-type vehicle_alarm_data_stddev_pop_fields {
-    GPS_speed: Float
-    id: Float
-    latest_alarm_position: Float
-    maximum_speed: Float
-    speed_limit_threshold: Float
-    tachograph_speed: Float
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_vehicle_alarm_data(where: VehicleAlarmDataBoolExp!): VehicleAlarmDataMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_vehicle_alarm_data_by_pk(id: Bigint!): VehicleAlarmData
+	"""
+	插入
+	"""
+	insert_vehicle_alarm_data(objects: [VehicleAlarmDataInsertInput!]!): VehicleAlarmDataMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_vehicle_alarm_data_one(objects: VehicleAlarmDataInsertInput!): VehicleAlarmData
+	"""
+	更新
+	"""
+	update_vehicle_alarm_data(_inc: VehicleAlarmDataIncInput, _set: VehicleAlarmDataSetInput, where: VehicleAlarmDataBoolExp!): VehicleAlarmDataMutationResponse
+	"""
+	更新
+	"""
+	update_vehicle_alarm_data_by_pk(_inc: VehicleAlarmDataIncInput, _set: VehicleAlarmDataSetInput, id: Bigint!): VehicleAlarmData
 }
-
-"""
-order by stddev_pop() on columns of table "vehicle_alarm_data"
-"""
-input vehicle_alarm_data_stddev_pop_order_by {
-    GPS_speed: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    maximum_speed: order_by
-    speed_limit_threshold: order_by
-    tachograph_speed: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type vehicle_alarm_data_stddev_samp_fields {
-    GPS_speed: Float
-    id: Float
-    latest_alarm_position: Float
-    maximum_speed: Float
-    speed_limit_threshold: Float
-    tachograph_speed: Float
-}
-
-"""
-order by stddev_samp() on columns of table "vehicle_alarm_data"
-"""
-input vehicle_alarm_data_stddev_samp_order_by {
-    GPS_speed: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    maximum_speed: order_by
-    speed_limit_threshold: order_by
-    tachograph_speed: order_by
-}
-
-"""aggregate sum on columns"""
-type vehicle_alarm_data_sum_fields {
-    GPS_speed: numeric
-    id: bigint
-    latest_alarm_position: Int
-    maximum_speed: numeric
-    speed_limit_threshold: numeric
-    tachograph_speed: numeric
-}
-
-"""
-order by sum() on columns of table "vehicle_alarm_data"
-"""
-input vehicle_alarm_data_sum_order_by {
-    GPS_speed: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    maximum_speed: order_by
-    speed_limit_threshold: order_by
-    tachograph_speed: order_by
-}
-
-"""
-update columns of table "vehicle_alarm_data"
-"""
-enum vehicle_alarm_data_update_column {
-    """column name"""
-    GPS_speed
-
-    """column name"""
-    alarm_deal_id
-
-    """column name"""
-    alarm_end_position
-
-    """column name"""
-    alarm_end_time
-
-    """column name"""
-    alarm_source
-
-    """column name"""
-    alarm_start_time
-
-    """column name"""
-    alarm_type
-
-    """column name"""
-    area_id
-
-    """column name"""
-    coordinate
-
-    """column name"""
-    duration
-
-    """column name"""
-    id
-
-    """column name"""
-    is_alarm_effective
-
-    """column name"""
-    is_alarm_over
-
-    """column name"""
-    is_cancel_alarm
-
-    """column name"""
-    is_resolve
-
-    """column name"""
-    is_supervise
-
-    """column name"""
-    latest_alarm_position
-
-    """column name"""
-    latest_alarm_time
-
-    """column name"""
-    location_description
-
-    """column name"""
-    maximum_speed
-
-    """column name"""
-    pid
-
-    """column name"""
-    processing_description
-
-    """column name"""
-    processing_method
-
-    """column name"""
-    processing_status
-
-    """column name"""
-    processing_time
-
-    """column name"""
-    processor
-
-    """column name"""
-    record_time
-
-    """column name"""
-    road_grade
-
-    """column name"""
-    road_name
-
-    """column name"""
-    speed_limit_threshold
-
-    """column name"""
-    supervision_note
-
-    """column name"""
-    supervision_time
-
-    """column name"""
-    supervisor
-
-    """column name"""
-    tachograph_speed
-
-    """column name"""
-    vehicle_alarm_data_id
-
-    """column name"""
-    vehicle_id
-}
-
-"""aggregate var_pop on columns"""
-type vehicle_alarm_data_var_pop_fields {
-    GPS_speed: Float
-    id: Float
-    latest_alarm_position: Float
-    maximum_speed: Float
-    speed_limit_threshold: Float
-    tachograph_speed: Float
-}
-
-"""
-order by var_pop() on columns of table "vehicle_alarm_data"
-"""
-input vehicle_alarm_data_var_pop_order_by {
-    GPS_speed: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    maximum_speed: order_by
-    speed_limit_threshold: order_by
-    tachograph_speed: order_by
-}
-
-"""aggregate var_samp on columns"""
-type vehicle_alarm_data_var_samp_fields {
-    GPS_speed: Float
-    id: Float
-    latest_alarm_position: Float
-    maximum_speed: Float
-    speed_limit_threshold: Float
-    tachograph_speed: Float
-}
-
-"""
-order by var_samp() on columns of table "vehicle_alarm_data"
-"""
-input vehicle_alarm_data_var_samp_order_by {
-    GPS_speed: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    maximum_speed: order_by
-    speed_limit_threshold: order_by
-    tachograph_speed: order_by
-}
-
-"""aggregate variance on columns"""
-type vehicle_alarm_data_variance_fields {
-    GPS_speed: Float
-    id: Float
-    latest_alarm_position: Float
-    maximum_speed: Float
-    speed_limit_threshold: Float
-    tachograph_speed: Float
-}
-
-"""
-order by variance() on columns of table "vehicle_alarm_data"
-"""
-input vehicle_alarm_data_variance_order_by {
-    GPS_speed: order_by
-    id: order_by
-    latest_alarm_position: order_by
-    maximum_speed: order_by
-    speed_limit_threshold: order_by
-    tachograph_speed: order_by
-}
-

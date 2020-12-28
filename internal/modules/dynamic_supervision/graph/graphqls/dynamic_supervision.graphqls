@@ -1,949 +1,523 @@
-
-
 """
 动态监管抽查主表
-
-
-columns and relationships of "dynamic_supervision"
-
 """
-type dynamic_supervision {
-    """抽查人员"""
-    check_user_id: String
-
-    """抽查人员位置的城市ID"""
-    city_id: String
-
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人"""
-    created_by: String!
-
-    """日"""
-    day: Int
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """抽查人员位置的区域ID"""
-    district_id: String
-
-    """
-    主键
-
-
-
-    """
-    id: bigint!
-
-    """是否被删除"""
-    is_delete: Boolean
-
-    """月"""
-    month: Int
-
-    """抽查人员位置的省份ID"""
-    province_id: String
-
-    """抽查日期"""
-    spot_check_date: timestamptz
-
-    """抽查数量"""
-    spot_check_number: Int
-
-    """抽查比例"""
-    spot_check_ratio: numeric
-
-    """抽查总数"""
-    spot_check_total_number: Int
-
-    """联合主键"""
-    supervision_id: String!
-
-    """总车辆数"""
-    total_number_vehicle: Int
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
-
-    """年"""
-    year: Int
+type DynamicSupervision {
+	"""
+	 按指定方法生成                                               ( 主键                           )
+	"""
+	id: Bigint!
+	"""
+	 动态监管抽查主表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
+	"""
+	supervision_id: String!
+	"""
+	 抽查日期                                                     (                                )
+	"""
+	spot_check_date: Timestamptz
+	"""
+	 抽查总数                                                     (                                )
+	"""
+	spot_check_total_number: Int
+	"""
+	 抽查数量                                                     (                                )
+	"""
+	spot_check_number: Int
+	"""
+	 抽查比例                                                     (                                )
+	"""
+	spot_check_ratio: Numeric
+	"""
+	 抽查人员                                                     ( 引用system_user表的user_id )
+	"""
+	check_user_id: String
+	"""
+	 总车辆数                                                     (                                )
+	"""
+	total_number_vehicle: Int
+	"""
+	 抽查人员位置的省份ID                                         ( 省份表province_id              )
+	"""
+	province_id: String
+	"""
+	 抽查人员位置的城市ID                                         ( 城市表city_id                  )
+	"""
+	city_id: String
+	"""
+	 抽查人员位置的区域ID                                         ( 区域表district_id              )
+	"""
+	district_id: String
+	"""
+	 年                                                           (                                )
+	"""
+	year: Int
+	"""
+	 月                                                           (                                )
+	"""
+	month: Int
+	"""
+	 日                                                           (                                )
+	"""
+	day: Int
+	"""
+	 创建时间                                                     (                                )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                       ( system_user表的user_id     )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                     (                                )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                       ( system_user表的user_id     )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                     (                                )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                       ( system_user表的user_id     )
+	"""
+	deleted_by: String
+	"""
+	 是否被删除                                                   (                                )
+	"""
+	is_deleted: Boolean
 }
-
 """
 aggregated selection of "dynamic_supervision"
 """
-type dynamic_supervision_aggregate {
-    aggregate: dynamic_supervision_aggregate_fields
-    nodes: [dynamic_supervision!]!
+type DynamicSupervisionAggregate {
+	aggregate: DynamicSupervisionAggregateFields
 }
-
 """
 aggregate fields of "dynamic_supervision"
 """
-type dynamic_supervision_aggregate_fields {
-    avg: dynamic_supervision_avg_fields
-    count(columns: [dynamic_supervision_select_column!], distinct: Boolean): Int
-    max: dynamic_supervision_max_fields
-    min: dynamic_supervision_min_fields
-    stddev: dynamic_supervision_stddev_fields
-    stddev_pop: dynamic_supervision_stddev_pop_fields
-    stddev_samp: dynamic_supervision_stddev_samp_fields
-    sum: dynamic_supervision_sum_fields
-    var_pop: dynamic_supervision_var_pop_fields
-    var_samp: dynamic_supervision_var_samp_fields
-    variance: dynamic_supervision_variance_fields
+type DynamicSupervisionAggregateFields {
+	avg: DynamicSupervisionAvgFields
+	count: Int
+	max: DynamicSupervisionMaxFields
+	min: DynamicSupervisionMinFields
+	stddev: DynamicSupervisionStddevFields
+	stddev_pop: DynamicSupervisionStddevPopFields
+	stddev_samp: DynamicSupervisionStddevSampFields
+	sum: DynamicSupervisionSumFields
+	var_pop: DynamicSupervisionVarPopFields
+	var_samp: DynamicSupervisionVarSampFields
+	variance: DynamicSupervisionVarianceFields
 }
-
 """
-order by aggregate values of table "dynamic_supervision"
+aggregate avg on columns of table "dynamic_supervision"
 """
-input dynamic_supervision_aggregate_order_by {
-    avg: dynamic_supervision_avg_order_by
-    count: order_by
-    max: dynamic_supervision_max_order_by
-    min: dynamic_supervision_min_order_by
-    stddev: dynamic_supervision_stddev_order_by
-    stddev_pop: dynamic_supervision_stddev_pop_order_by
-    stddev_samp: dynamic_supervision_stddev_samp_order_by
-    sum: dynamic_supervision_sum_order_by
-    var_pop: dynamic_supervision_var_pop_order_by
-    var_samp: dynamic_supervision_var_samp_order_by
-    variance: dynamic_supervision_variance_order_by
+type DynamicSupervisionAvgFields {
+	id: Bigint
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	total_number_vehicle: Int
+	year: Int
+	month: Int
+	day: Int
 }
-
 """
-input type for inserting array relation for remote table "dynamic_supervision"
+aggregate max on columns of table "dynamic_supervision"
 """
-input dynamic_supervision_arr_rel_insert_input {
-    data: [dynamic_supervision_insert_input!]!
-    on_conflict: dynamic_supervision_on_conflict
+type DynamicSupervisionMaxFields {
+	id: Bigint
+	supervision_id: String
+	spot_check_date: Timestamptz
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	check_user_id: String
+	total_number_vehicle: Int
+	province_id: String
+	city_id: String
+	district_id: String
+	year: Int
+	month: Int
+	day: Int
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
-
-"""aggregate avg on columns"""
-type dynamic_supervision_avg_fields {
-    day: Float
-    id: Float
-    month: Float
-    spot_check_number: Float
-    spot_check_ratio: Float
-    spot_check_total_number: Float
-    total_number_vehicle: Float
-    year: Float
+"""
+aggregate min on columns of table "dynamic_supervision"
+"""
+type DynamicSupervisionMinFields {
+	id: Bigint
+	supervision_id: String
+	spot_check_date: Timestamptz
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	check_user_id: String
+	total_number_vehicle: Int
+	province_id: String
+	city_id: String
+	district_id: String
+	year: Int
+	month: Int
+	day: Int
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
-
 """
-order by avg() on columns of table "dynamic_supervision"
+aggregate stddev on columns of table "dynamic_supervision"
 """
-input dynamic_supervision_avg_order_by {
-    day: order_by
-    id: order_by
-    month: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    total_number_vehicle: order_by
-    year: order_by
+type DynamicSupervisionStddevFields {
+	id: Bigint
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	total_number_vehicle: Int
+	year: Int
+	month: Int
+	day: Int
 }
-
 """
-Boolean expression to filter rows from the table "dynamic_supervision". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "dynamic_supervision"
 """
-input dynamic_supervision_bool_exp {
-    _and: [dynamic_supervision_bool_exp]
-    _not: dynamic_supervision_bool_exp
-    _or: [dynamic_supervision_bool_exp]
-    check_user_id: String_comparison_exp
-    city_id: String_comparison_exp
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    day: Int_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    district_id: String_comparison_exp
-    id: bigint_comparison_exp
-    is_delete: Boolean_comparison_exp
-    month: Int_comparison_exp
-    province_id: String_comparison_exp
-    spot_check_date: timestamptz_comparison_exp
-    spot_check_number: Int_comparison_exp
-    spot_check_ratio: numeric_comparison_exp
-    spot_check_total_number: Int_comparison_exp
-    supervision_id: String_comparison_exp
-    total_number_vehicle: Int_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
-    year: Int_comparison_exp
+type DynamicSupervisionStddevPopFields {
+	id: Bigint
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	total_number_vehicle: Int
+	year: Int
+	month: Int
+	day: Int
 }
-
 """
-unique or primary key constraints on table "dynamic_supervision"
+aggregate stddev_samp on columns of table "dynamic_supervision"
 """
-enum dynamic_supervision_constraint {
-    """unique or primary key constraint"""
-    dynamic_supervision_pkey
+type DynamicSupervisionStddevSampFields {
+	id: Bigint
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	total_number_vehicle: Int
+	year: Int
+	month: Int
+	day: Int
 }
-
 """
-input type for incrementing integer column in table "dynamic_supervision"
+aggregate sum on columns of table "dynamic_supervision"
 """
-input dynamic_supervision_inc_input {
-    day: Int
-    id: bigint
-    month: Int
-    spot_check_number: Int
-    spot_check_ratio: numeric
-    spot_check_total_number: Int
-    total_number_vehicle: Int
-    year: Int
+type DynamicSupervisionSumFields {
+	id: Bigint
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	total_number_vehicle: Int
+	year: Int
+	month: Int
+	day: Int
 }
-
 """
-input type for inserting data into table "dynamic_supervision"
+aggregate var_pop on columns of table "dynamic_supervision"
 """
-input dynamic_supervision_insert_input {
-    check_user_id: String
-    city_id: String
-    created_at: timestamptz
-    created_by: String
-    day: Int
-    deleted_at: timestamptz
-    deleted_by: String
-    district_id: String
-    id: bigint
-    is_delete: Boolean
-    month: Int
-    province_id: String
-    spot_check_date: timestamptz
-    spot_check_number: Int
-    spot_check_ratio: numeric
-    spot_check_total_number: Int
-    supervision_id: String
-    total_number_vehicle: Int
-    updated_at: timestamptz
-    updated_by: String
-    year: Int
+type DynamicSupervisionVarPopFields {
+	id: Bigint
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	total_number_vehicle: Int
+	year: Int
+	month: Int
+	day: Int
 }
-
-"""aggregate max on columns"""
-type dynamic_supervision_max_fields {
-    check_user_id: String
-    city_id: String
-    created_at: timestamptz
-    created_by: String
-    day: Int
-    deleted_at: timestamptz
-    deleted_by: String
-    district_id: String
-    id: bigint
-    month: Int
-    province_id: String
-    spot_check_date: timestamptz
-    spot_check_number: Int
-    spot_check_ratio: numeric
-    spot_check_total_number: Int
-    supervision_id: String
-    total_number_vehicle: Int
-    updated_at: timestamptz
-    updated_by: String
-    year: Int
-}
-
 """
-order by max() on columns of table "dynamic_supervision"
+aggregate var_samp on columns of table "dynamic_supervision"
 """
-input dynamic_supervision_max_order_by {
-    check_user_id: order_by
-    city_id: order_by
-    created_at: order_by
-    created_by: order_by
-    day: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    district_id: order_by
-    id: order_by
-    month: order_by
-    province_id: order_by
-    spot_check_date: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    supervision_id: order_by
-    total_number_vehicle: order_by
-    updated_at: order_by
-    updated_by: order_by
-    year: order_by
+type DynamicSupervisionVarSampFields {
+	id: Bigint
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	total_number_vehicle: Int
+	year: Int
+	month: Int
+	day: Int
 }
-
-"""aggregate min on columns"""
-type dynamic_supervision_min_fields {
-    check_user_id: String
-    city_id: String
-    created_at: timestamptz
-    created_by: String
-    day: Int
-    deleted_at: timestamptz
-    deleted_by: String
-    district_id: String
-    id: bigint
-    month: Int
-    province_id: String
-    spot_check_date: timestamptz
-    spot_check_number: Int
-    spot_check_ratio: numeric
-    spot_check_total_number: Int
-    supervision_id: String
-    total_number_vehicle: Int
-    updated_at: timestamptz
-    updated_by: String
-    year: Int
-}
-
 """
-order by min() on columns of table "dynamic_supervision"
+aggregate variance on columns of table "dynamic_supervision"
 """
-input dynamic_supervision_min_order_by {
-    check_user_id: order_by
-    city_id: order_by
-    created_at: order_by
-    created_by: order_by
-    day: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    district_id: order_by
-    id: order_by
-    month: order_by
-    province_id: order_by
-    spot_check_date: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    supervision_id: order_by
-    total_number_vehicle: order_by
-    updated_at: order_by
-    updated_by: order_by
-    year: order_by
+type DynamicSupervisionVarianceFields {
+	id: Bigint
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	total_number_vehicle: Int
+	year: Int
+	month: Int
+	day: Int
 }
-
 """
 response of any mutation on the table "dynamic_supervision"
 """
-type dynamic_supervision_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [dynamic_supervision!]!
+type DynamicSupervisionMutationResponse {
+	affected_rows: Int!
+	returning: [DynamicSupervision!]!
 }
-
-"""
-input type for inserting object relation for remote table "dynamic_supervision"
-"""
-input dynamic_supervision_obj_rel_insert_input {
-    data: dynamic_supervision_insert_input!
-    on_conflict: dynamic_supervision_on_conflict
-}
-
-"""
-on conflict condition type for table "dynamic_supervision"
-"""
-input dynamic_supervision_on_conflict {
-    constraint: dynamic_supervision_constraint!
-    update_columns: [dynamic_supervision_update_column!]!
-    where: dynamic_supervision_bool_exp
-}
-
 """
 ordering options when selecting data from "dynamic_supervision"
 """
-input dynamic_supervision_order_by {
-    check_user_id: order_by
-    city_id: order_by
-    created_at: order_by
-    created_by: order_by
-    day: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    district_id: order_by
-    id: order_by
-    is_delete: order_by
-    month: order_by
-    province_id: order_by
-    spot_check_date: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    supervision_id: order_by
-    total_number_vehicle: order_by
-    updated_at: order_by
-    updated_by: order_by
-    year: order_by
+input DynamicSupervisionOrderBy {
+	id: OrderBy
+	supervision_id: OrderBy
+	spot_check_date: OrderBy
+	spot_check_total_number: OrderBy
+	spot_check_number: OrderBy
+	spot_check_ratio: OrderBy
+	check_user_id: OrderBy
+	total_number_vehicle: OrderBy
+	province_id: OrderBy
+	city_id: OrderBy
+	district_id: OrderBy
+	year: OrderBy
+	month: OrderBy
+	day: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
+	is_deleted: OrderBy
 }
-
 """
-primary key columns input for table: "dynamic_supervision"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'dynamic_supervision'.
 """
-input dynamic_supervision_pk_columns_input {
-    """
-    主键
-
-
-
-    """
-    id: bigint!
-
-    """联合主键"""
-    supervision_id: String!
+input DynamicSupervisionBoolExp {
+	_and: [DynamicSupervisionBoolExp]
+	_not: DynamicSupervisionBoolExp
+	_or: [DynamicSupervisionBoolExp]
+	id: BigintComparisonExp
+	supervision_id: StringComparisonExp
+	spot_check_date: TimestamptzComparisonExp
+	spot_check_total_number: IntComparisonExp
+	spot_check_number: IntComparisonExp
+	spot_check_ratio: NumericComparisonExp
+	check_user_id: StringComparisonExp
+	total_number_vehicle: IntComparisonExp
+	province_id: StringComparisonExp
+	city_id: StringComparisonExp
+	district_id: StringComparisonExp
+	year: IntComparisonExp
+	month: IntComparisonExp
+	day: IntComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
+	is_deleted: BooleanComparisonExp
 }
-
 """
-select columns of table "dynamic_supervision"
+input type for inserting data into table "dynamic_supervision"
 """
-enum dynamic_supervision_select_column {
-    """column name"""
-    check_user_id
-
-    """column name"""
-    city_id
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    day
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    district_id
-
-    """column name"""
-    id
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    month
-
-    """column name"""
-    province_id
-
-    """column name"""
-    spot_check_date
-
-    """column name"""
-    spot_check_number
-
-    """column name"""
-    spot_check_ratio
-
-    """column name"""
-    spot_check_total_number
-
-    """column name"""
-    supervision_id
-
-    """column name"""
-    total_number_vehicle
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    year
+input DynamicSupervisionInsertInput {
+	id: Bigint
+	supervision_id: String
+	spot_check_date: Timestamptz
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	check_user_id: String
+	total_number_vehicle: Int
+	province_id: String
+	city_id: String
+	district_id: String
+	year: Int
+	month: Int
+	day: Int
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
-
+"""
+input type for incrementing integer column in table "dynamic_supervision"
+"""
+input DynamicSupervisionIncInput {
+	id: Bigint
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	total_number_vehicle: Int
+	year: Int
+	month: Int
+	day: Int
+}
 """
 input type for updating data in table "dynamic_supervision"
 """
-input dynamic_supervision_set_input {
-    check_user_id: String
-    city_id: String
-    created_at: timestamptz
-    created_by: String
-    day: Int
-    deleted_at: timestamptz
-    deleted_by: String
-    district_id: String
-    id: bigint
-    is_delete: Boolean
-    month: Int
-    province_id: String
-    spot_check_date: timestamptz
-    spot_check_number: Int
-    spot_check_ratio: numeric
-    spot_check_total_number: Int
-    supervision_id: String
-    total_number_vehicle: Int
-    updated_at: timestamptz
-    updated_by: String
-    year: Int
+input DynamicSupervisionSetInput {
+	id: Bigint
+	supervision_id: String
+	spot_check_date: Timestamptz
+	spot_check_total_number: Int
+	spot_check_number: Int
+	spot_check_ratio: Numeric
+	check_user_id: String
+	total_number_vehicle: Int
+	province_id: String
+	city_id: String
+	district_id: String
+	year: Int
+	month: Int
+	day: Int
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
+	is_deleted: Boolean
 }
-
-"""aggregate stddev on columns"""
-type dynamic_supervision_stddev_fields {
-    day: Float
-    id: Float
-    month: Float
-    spot_check_number: Float
-    spot_check_ratio: Float
-    spot_check_total_number: Float
-    total_number_vehicle: Float
-    year: Float
-}
-
 """
-order by stddev() on columns of table "dynamic_supervision"
+可选select
 """
-input dynamic_supervision_stddev_order_by {
-    day: order_by
-    id: order_by
-    month: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    total_number_vehicle: order_by
-    year: order_by
+enum DynamicSupervisionSelectColumn {
+	"""
+	 按指定方法生成                                               ( 主键                           )
+	"""
+	id
+	"""
+	 动态监管抽查主表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                       )
+	"""
+	supervision_id
+	"""
+	 抽查日期                                                     (                                )
+	"""
+	spot_check_date
+	"""
+	 抽查总数                                                     (                                )
+	"""
+	spot_check_total_number
+	"""
+	 抽查数量                                                     (                                )
+	"""
+	spot_check_number
+	"""
+	 抽查比例                                                     (                                )
+	"""
+	spot_check_ratio
+	"""
+	 抽查人员                                                     ( 引用system_user表的user_id )
+	"""
+	check_user_id
+	"""
+	 总车辆数                                                     (                                )
+	"""
+	total_number_vehicle
+	"""
+	 抽查人员位置的省份ID                                         ( 省份表province_id              )
+	"""
+	province_id
+	"""
+	 抽查人员位置的城市ID                                         ( 城市表city_id                  )
+	"""
+	city_id
+	"""
+	 抽查人员位置的区域ID                                         ( 区域表district_id              )
+	"""
+	district_id
+	"""
+	 年                                                           (                                )
+	"""
+	year
+	"""
+	 月                                                           (                                )
+	"""
+	month
+	"""
+	 日                                                           (                                )
+	"""
+	day
+	"""
+	 创建时间                                                     (                                )
+	"""
+	created_at
+	"""
+	 创建人                                                       ( system_user表的user_id     )
+	"""
+	created_by
+	"""
+	 修改时间                                                     (                                )
+	"""
+	updated_at
+	"""
+	 修改人                                                       ( system_user表的user_id     )
+	"""
+	updated_by
+	"""
+	 删除时间                                                     (                                )
+	"""
+	deleted_at
+	"""
+	 删除人                                                       ( system_user表的user_id     )
+	"""
+	deleted_by
+	"""
+	 是否被删除                                                   (                                )
+	"""
+	is_deleted
 }
-
-"""aggregate stddev_pop on columns"""
-type dynamic_supervision_stddev_pop_fields {
-    day: Float
-    id: Float
-    month: Float
-    spot_check_number: Float
-    spot_check_ratio: Float
-    spot_check_total_number: Float
-    total_number_vehicle: Float
-    year: Float
+extend type Query {
+	"""
+	列表查询
+	"""
+	dynamic_supervision(distinct_on: [DynamicSupervisionSelectColumn!], limit: Int, offset: Int, order_by: [DynamicSupervisionOrderBy!], where: DynamicSupervisionBoolExp): [DynamicSupervision!]!
+	"""
+	聚合查询
+	"""
+	dynamic_supervision_aggregate(distinct_on: [DynamicSupervisionSelectColumn!], limit: Int, offset: Int, order_by: [DynamicSupervisionOrderBy!], where: DynamicSupervisionBoolExp): DynamicSupervisionAggregate!
+	"""
+	主键查询
+	"""
+	dynamic_supervision_by_pk(id: Bigint!): DynamicSupervision!
 }
-
-"""
-order by stddev_pop() on columns of table "dynamic_supervision"
-"""
-input dynamic_supervision_stddev_pop_order_by {
-    day: order_by
-    id: order_by
-    month: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    total_number_vehicle: order_by
-    year: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type dynamic_supervision_stddev_samp_fields {
-    day: Float
-    id: Float
-    month: Float
-    spot_check_number: Float
-    spot_check_ratio: Float
-    spot_check_total_number: Float
-    total_number_vehicle: Float
-    year: Float
-}
-
-"""
-order by stddev_samp() on columns of table "dynamic_supervision"
-"""
-input dynamic_supervision_stddev_samp_order_by {
-    day: order_by
-    id: order_by
-    month: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    total_number_vehicle: order_by
-    year: order_by
-}
-
-"""aggregate sum on columns"""
-type dynamic_supervision_sum_fields {
-    day: Int
-    id: bigint
-    month: Int
-    spot_check_number: Int
-    spot_check_ratio: numeric
-    spot_check_total_number: Int
-    total_number_vehicle: Int
-    year: Int
-}
-
-"""
-order by sum() on columns of table "dynamic_supervision"
-"""
-input dynamic_supervision_sum_order_by {
-    day: order_by
-    id: order_by
-    month: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    total_number_vehicle: order_by
-    year: order_by
-}
-
-"""
-update columns of table "dynamic_supervision"
-"""
-enum dynamic_supervision_update_column {
-    """column name"""
-    check_user_id
-
-    """column name"""
-    city_id
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    day
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    district_id
-
-    """column name"""
-    id
-
-    """column name"""
-    is_delete
-
-    """column name"""
-    month
-
-    """column name"""
-    province_id
-
-    """column name"""
-    spot_check_date
-
-    """column name"""
-    spot_check_number
-
-    """column name"""
-    spot_check_ratio
-
-    """column name"""
-    spot_check_total_number
-
-    """column name"""
-    supervision_id
-
-    """column name"""
-    total_number_vehicle
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    year
-}
-
-"""aggregate var_pop on columns"""
-type dynamic_supervision_var_pop_fields {
-    day: Float
-    id: Float
-    month: Float
-    spot_check_number: Float
-    spot_check_ratio: Float
-    spot_check_total_number: Float
-    total_number_vehicle: Float
-    year: Float
-}
-
-"""
-order by var_pop() on columns of table "dynamic_supervision"
-"""
-input dynamic_supervision_var_pop_order_by {
-    day: order_by
-    id: order_by
-    month: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    total_number_vehicle: order_by
-    year: order_by
-}
-
-"""aggregate var_samp on columns"""
-type dynamic_supervision_var_samp_fields {
-    day: Float
-    id: Float
-    month: Float
-    spot_check_number: Float
-    spot_check_ratio: Float
-    spot_check_total_number: Float
-    total_number_vehicle: Float
-    year: Float
-}
-
-"""
-order by var_samp() on columns of table "dynamic_supervision"
-"""
-input dynamic_supervision_var_samp_order_by {
-    day: order_by
-    id: order_by
-    month: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    total_number_vehicle: order_by
-    year: order_by
-}
-
-"""aggregate variance on columns"""
-type dynamic_supervision_variance_fields {
-    day: Float
-    id: Float
-    month: Float
-    spot_check_number: Float
-    spot_check_ratio: Float
-    spot_check_total_number: Float
-    total_number_vehicle: Float
-    year: Float
-}
-
-"""
-order by variance() on columns of table "dynamic_supervision"
-"""
-input dynamic_supervision_variance_order_by {
-    day: order_by
-    id: order_by
-    month: order_by
-    spot_check_number: order_by
-    spot_check_ratio: order_by
-    spot_check_total_number: order_by
-    total_number_vehicle: order_by
-    year: order_by
-}
-
-
-
-"""mutation root"""
-type Mutation {
-    """
-    delete data from the table: "dynamic_supervision"
-  """
-    delete_dynamic_supervision(
-        """filter the rows which have to be deleted"""
-        where: dynamic_supervision_bool_exp!
-    ): dynamic_supervision_mutation_response
-
-    """
-    delete single row from the table: "dynamic_supervision"
-  """
-    delete_dynamic_supervision_by_pk(
-        """
-        主键
-
-
-
-        """
-        id: bigint!
-
-        """联合主键"""
-        supervision_id: String!
-    ): dynamic_supervision
-
-    """
-    insert data into the table: "dynamic_supervision"
-  """
-    insert_dynamic_supervision(
-        """the rows to be inserted"""
-        objects: [dynamic_supervision_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: dynamic_supervision_on_conflict
-    ): dynamic_supervision_mutation_response
-
-    """
-    insert a single row into the table: "dynamic_supervision"
-  """
-    insert_dynamic_supervision_one(
-        """the row to be inserted"""
-        object: dynamic_supervision_insert_input!
-
-        """on conflict condition"""
-        on_conflict: dynamic_supervision_on_conflict
-    ): dynamic_supervision
-
-    """
-    update data of the table: "dynamic_supervision"
-  """
-    update_dynamic_supervision(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: dynamic_supervision_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: dynamic_supervision_set_input
-
-        """filter the rows which have to be updated"""
-        where: dynamic_supervision_bool_exp!
-    ): dynamic_supervision_mutation_response
-
-    """
-    update single row of the table: "dynamic_supervision"
-  """
-    update_dynamic_supervision_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: dynamic_supervision_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: dynamic_supervision_set_input
-        pk_columns: dynamic_supervision_pk_columns_input!
-    ): dynamic_supervision
-}
-
-
-
-
-
-"""query root"""
-type Query {
-    """
-    fetch data from the table: "dynamic_supervision"
-  """
-    dynamic_supervision(
-        """distinct select on columns"""
-        distinct_on: [dynamic_supervision_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [dynamic_supervision_order_by!]
-
-        """filter the rows returned"""
-        where: dynamic_supervision_bool_exp
-    ): [dynamic_supervision!]!
-
-    """
-    fetch aggregated fields from the table: "dynamic_supervision"
-  """
-    dynamic_supervision_aggregate(
-        """distinct select on columns"""
-        distinct_on: [dynamic_supervision_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [dynamic_supervision_order_by!]
-
-        """filter the rows returned"""
-        where: dynamic_supervision_bool_exp
-    ): dynamic_supervision_aggregate!
-
-    """
-    fetch data from the table: "dynamic_supervision" using primary key columns
-    """
-    dynamic_supervision_by_pk(
-        """
-        主键
-
-
-
-        """
-        id: bigint!
-
-        """联合主键"""
-        supervision_id: String!
-    ): dynamic_supervision
-}
-
-
-"""subscription root"""
-type Subscription {
-    """
-    fetch data from the table: "dynamic_supervision"
-  """
-    dynamic_supervision(
-        """distinct select on columns"""
-        distinct_on: [dynamic_supervision_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [dynamic_supervision_order_by!]
-
-        """filter the rows returned"""
-        where: dynamic_supervision_bool_exp
-    ): [dynamic_supervision!]!
-
-    """
-    fetch aggregated fields from the table: "dynamic_supervision"
-  """
-    dynamic_supervision_aggregate(
-        """distinct select on columns"""
-        distinct_on: [dynamic_supervision_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [dynamic_supervision_order_by!]
-
-        """filter the rows returned"""
-        where: dynamic_supervision_bool_exp
-    ): dynamic_supervision_aggregate!
-
-    """
-    fetch data from the table: "dynamic_supervision" using primary key columns
-    """
-    dynamic_supervision_by_pk(
-        """
-        主键
-
-
-
-        """
-        id: bigint!
-
-        """联合主键"""
-        supervision_id: String!
-    ): dynamic_supervision
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_dynamic_supervision(where: DynamicSupervisionBoolExp!): DynamicSupervisionMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_dynamic_supervision_by_pk(id: Bigint!): DynamicSupervision
+	"""
+	插入
+	"""
+	insert_dynamic_supervision(objects: [DynamicSupervisionInsertInput!]!): DynamicSupervisionMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_dynamic_supervision_one(objects: DynamicSupervisionInsertInput!): DynamicSupervision
+	"""
+	更新
+	"""
+	update_dynamic_supervision(_inc: DynamicSupervisionIncInput, _set: DynamicSupervisionSetInput, where: DynamicSupervisionBoolExp!): DynamicSupervisionMutationResponse
+	"""
+	更新
+	"""
+	update_dynamic_supervision_by_pk(_inc: DynamicSupervisionIncInput, _set: DynamicSupervisionSetInput, id: Bigint!): DynamicSupervision
 }

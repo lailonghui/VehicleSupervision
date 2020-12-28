@@ -1,686 +1,357 @@
-
-extend type Mutation {
-    """
-    delete data from the table: "vehicle_supervision_photo"
-  """
-    delete_vehicle_supervision_photo(
-        """filter the rows which have to be deleted"""
-        where: vehicle_supervision_photo_bool_exp!
-    ): vehicle_supervision_photo_mutation_response
-
-    """
-    delete single row from the table: "vehicle_supervision_photo"
-  """
-    delete_vehicle_supervision_photo_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
-        supervision_photo_id: String!
-    ): vehicle_supervision_photo
-
-    """
-    insert data into the table: "vehicle_supervision_photo"
-  """
-    insert_vehicle_supervision_photo(
-        """the rows to be inserted"""
-        objects: [vehicle_supervision_photo_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: vehicle_supervision_photo_on_conflict
-    ): vehicle_supervision_photo_mutation_response
-
-    """
-    insert a single row into the table: "vehicle_supervision_photo"
-  """
-    insert_vehicle_supervision_photo_one(
-        """the row to be inserted"""
-        object: vehicle_supervision_photo_insert_input!
-
-        """on conflict condition"""
-        on_conflict: vehicle_supervision_photo_on_conflict
-    ): vehicle_supervision_photo
-
-    """
-    update data of the table: "vehicle_supervision_photo"
-  """
-    update_vehicle_supervision_photo(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_supervision_photo_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_supervision_photo_set_input
-
-        """filter the rows which have to be updated"""
-        where: vehicle_supervision_photo_bool_exp!
-    ): vehicle_supervision_photo_mutation_response
-
-    """
-    update single row of the table: "vehicle_supervision_photo"
-  """
-    update_vehicle_supervision_photo_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: vehicle_supervision_photo_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: vehicle_supervision_photo_set_input
-        pk_columns: vehicle_supervision_photo_pk_columns_input!
-    ): vehicle_supervision_photo
-}
-
-
-
-extend type Query {
-    """
-    fetch data from the table: "vehicle_supervision_photo"
-  """
-    vehicle_supervision_photo(
-        """distinct select on columns"""
-        distinct_on: [vehicle_supervision_photo_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_supervision_photo_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_supervision_photo_bool_exp
-    ): [vehicle_supervision_photo!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_supervision_photo"
-  """
-    vehicle_supervision_photo_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_supervision_photo_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_supervision_photo_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_supervision_photo_bool_exp
-    ): vehicle_supervision_photo_aggregate!
-
-    """
-    fetch data from the table: "vehicle_supervision_photo" using primary key columns
-    """
-    vehicle_supervision_photo_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
-        supervision_photo_id: String!
-    ): vehicle_supervision_photo
-}
-
-
-
-extend type Subscription {
-    """
-    fetch data from the table: "vehicle_supervision_photo"
-  """
-    vehicle_supervision_photo(
-        """distinct select on columns"""
-        distinct_on: [vehicle_supervision_photo_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_supervision_photo_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_supervision_photo_bool_exp
-    ): [vehicle_supervision_photo!]!
-
-    """
-    fetch aggregated fields from the table: "vehicle_supervision_photo"
-  """
-    vehicle_supervision_photo_aggregate(
-        """distinct select on columns"""
-        distinct_on: [vehicle_supervision_photo_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [vehicle_supervision_photo_order_by!]
-
-        """filter the rows returned"""
-        where: vehicle_supervision_photo_bool_exp
-    ): vehicle_supervision_photo_aggregate!
-
-    """
-    fetch data from the table: "vehicle_supervision_photo" using primary key columns
-    """
-    vehicle_supervision_photo_by_pk(
-        """主键"""
-        id: bigint!
-
-        """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
-        supervision_photo_id: String!
-    ): vehicle_supervision_photo
-}
-
-
-
 """
 车辆监控图片表
-
-
-columns and relationships of "vehicle_supervision_photo"
-
 """
-type vehicle_supervision_photo {
-    """终端IMEI"""
-    IMEI: String
-
-    """摄像头ID字典"""
-    camera_id: Int
-
-    """驾驶员id"""
-    driver_id: String
-
-    """所在企业id"""
-    enterprise_id: String
-
-    """主键"""
-    id: bigint!
-
-    """监控图片地址"""
-    monitoring_pic_address: String
-
-    """监控图片名称"""
-    monitoring_pic_name: String
-
-    """监控图片上传时间"""
-    monitoring_pic_upload_time: timestamptz
-
-    """拍照条件字典"""
-    photo_condition: String
-
-    """SIM卡号"""
-    sim_number: String
-
-    """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
-    supervision_photo_id: String!
-
-    """终端上报时间"""
-    update_time: timestamptz
-
-    """vehicle_info表vehicle_id"""
-    vehicle_id: String!
+type VehicleSupervisionPhoto {
+	"""
+	 按指定方法生成                                              ( 主键                                 )
+	"""
+	id: Bigint!
+	"""
+	 车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	supervision_photo_id: String!
+	"""
+	 车辆ID                                                      ( vehicle_info表vehicle_id         )
+	"""
+	vehicle_id: String!
+	"""
+	 驾驶员id                                                    ( driver_info 表的driver_id        )
+	"""
+	driver_id: String
+	"""
+	 所在企业id                                                  ( enterprise_info表的enterprise_id )
+	"""
+	enterprise_id: String
+	"""
+	 摄像头ID                                                    ( 摄像头ID字典                     )
+	"""
+	camera_id: Int
+	"""
+	 拍照条件                                                    ( 拍照条件字典                     )
+	"""
+	photo_condition: String
+	"""
+	 终端上报时间                                                (                                      )
+	"""
+	update_time: Timestamptz
+	"""
+	 监控图片名称                                                (                                      )
+	"""
+	monitoring_pic_name: String
+	"""
+	 监控图片地址                                                (                                      )
+	"""
+	monitoring_pic_address: String
+	"""
+	 监控图片上传时间                                            (                                      )
+	"""
+	monitoring_pic_upload_time: Timestamptz
+	"""
+	 终端IMEI                                                    ( 国际移动设备标识别码                 )
+	"""
+	imel: String
+	"""
+	 SIM卡号                                                     (                                      )
+	"""
+	sim_number: String
 }
-
 """
 aggregated selection of "vehicle_supervision_photo"
 """
-type vehicle_supervision_photo_aggregate {
-    aggregate: vehicle_supervision_photo_aggregate_fields
-    nodes: [vehicle_supervision_photo!]!
+type VehicleSupervisionPhotoAggregate {
+	aggregate: VehicleSupervisionPhotoAggregateFields
 }
-
 """
 aggregate fields of "vehicle_supervision_photo"
 """
-type vehicle_supervision_photo_aggregate_fields {
-    avg: vehicle_supervision_photo_avg_fields
-    count(columns: [vehicle_supervision_photo_select_column!], distinct: Boolean): Int
-    max: vehicle_supervision_photo_max_fields
-    min: vehicle_supervision_photo_min_fields
-    stddev: vehicle_supervision_photo_stddev_fields
-    stddev_pop: vehicle_supervision_photo_stddev_pop_fields
-    stddev_samp: vehicle_supervision_photo_stddev_samp_fields
-    sum: vehicle_supervision_photo_sum_fields
-    var_pop: vehicle_supervision_photo_var_pop_fields
-    var_samp: vehicle_supervision_photo_var_samp_fields
-    variance: vehicle_supervision_photo_variance_fields
+type VehicleSupervisionPhotoAggregateFields {
+	avg: VehicleSupervisionPhotoAvgFields
+	count: Int
+	max: VehicleSupervisionPhotoMaxFields
+	min: VehicleSupervisionPhotoMinFields
+	stddev: VehicleSupervisionPhotoStddevFields
+	stddev_pop: VehicleSupervisionPhotoStddevPopFields
+	stddev_samp: VehicleSupervisionPhotoStddevSampFields
+	sum: VehicleSupervisionPhotoSumFields
+	var_pop: VehicleSupervisionPhotoVarPopFields
+	var_samp: VehicleSupervisionPhotoVarSampFields
+	variance: VehicleSupervisionPhotoVarianceFields
 }
-
 """
-order by aggregate values of table "vehicle_supervision_photo"
+aggregate avg on columns of table "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_aggregate_order_by {
-    avg: vehicle_supervision_photo_avg_order_by
-    count: order_by
-    max: vehicle_supervision_photo_max_order_by
-    min: vehicle_supervision_photo_min_order_by
-    stddev: vehicle_supervision_photo_stddev_order_by
-    stddev_pop: vehicle_supervision_photo_stddev_pop_order_by
-    stddev_samp: vehicle_supervision_photo_stddev_samp_order_by
-    sum: vehicle_supervision_photo_sum_order_by
-    var_pop: vehicle_supervision_photo_var_pop_order_by
-    var_samp: vehicle_supervision_photo_var_samp_order_by
-    variance: vehicle_supervision_photo_variance_order_by
+type VehicleSupervisionPhotoAvgFields {
+	id: Bigint
+	camera_id: Int
 }
-
 """
-input type for inserting array relation for remote table "vehicle_supervision_photo"
+aggregate max on columns of table "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_arr_rel_insert_input {
-    data: [vehicle_supervision_photo_insert_input!]!
-    on_conflict: vehicle_supervision_photo_on_conflict
+type VehicleSupervisionPhotoMaxFields {
+	id: Bigint
+	supervision_photo_id: String
+	vehicle_id: String
+	driver_id: String
+	enterprise_id: String
+	camera_id: Int
+	photo_condition: String
+	update_time: Timestamptz
+	monitoring_pic_name: String
+	monitoring_pic_address: String
+	monitoring_pic_upload_time: Timestamptz
+	imel: String
+	sim_number: String
 }
-
-"""aggregate avg on columns"""
-type vehicle_supervision_photo_avg_fields {
-    camera_id: Float
-    id: Float
+"""
+aggregate min on columns of table "vehicle_supervision_photo"
+"""
+type VehicleSupervisionPhotoMinFields {
+	id: Bigint
+	supervision_photo_id: String
+	vehicle_id: String
+	driver_id: String
+	enterprise_id: String
+	camera_id: Int
+	photo_condition: String
+	update_time: Timestamptz
+	monitoring_pic_name: String
+	monitoring_pic_address: String
+	monitoring_pic_upload_time: Timestamptz
+	imel: String
+	sim_number: String
 }
-
 """
-order by avg() on columns of table "vehicle_supervision_photo"
+aggregate stddev on columns of table "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_avg_order_by {
-    camera_id: order_by
-    id: order_by
+type VehicleSupervisionPhotoStddevFields {
+	id: Bigint
+	camera_id: Int
 }
-
 """
-Boolean expression to filter rows from the table "vehicle_supervision_photo". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_bool_exp {
-    IMEI: String_comparison_exp
-    _and: [vehicle_supervision_photo_bool_exp]
-    _not: vehicle_supervision_photo_bool_exp
-    _or: [vehicle_supervision_photo_bool_exp]
-    camera_id: Int_comparison_exp
-    driver_id: String_comparison_exp
-    enterprise_id: String_comparison_exp
-    id: bigint_comparison_exp
-    monitoring_pic_address: String_comparison_exp
-    monitoring_pic_name: String_comparison_exp
-    monitoring_pic_upload_time: timestamptz_comparison_exp
-    photo_condition: String_comparison_exp
-    sim_number: String_comparison_exp
-    supervision_photo_id: String_comparison_exp
-    update_time: timestamptz_comparison_exp
-    vehicle_id: String_comparison_exp
+type VehicleSupervisionPhotoStddevPopFields {
+	id: Bigint
+	camera_id: Int
 }
-
 """
-unique or primary key constraints on table "vehicle_supervision_photo"
+aggregate stddev_samp on columns of table "vehicle_supervision_photo"
 """
-enum vehicle_supervision_photo_constraint {
-    """unique or primary key constraint"""
-    vehicle_supervision_photo_pkey
+type VehicleSupervisionPhotoStddevSampFields {
+	id: Bigint
+	camera_id: Int
 }
-
 """
-input type for incrementing integer column in table "vehicle_supervision_photo"
+aggregate sum on columns of table "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_inc_input {
-    camera_id: Int
-    id: bigint
+type VehicleSupervisionPhotoSumFields {
+	id: Bigint
+	camera_id: Int
 }
-
 """
-input type for inserting data into table "vehicle_supervision_photo"
+aggregate var_pop on columns of table "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_insert_input {
-    IMEI: String
-    camera_id: Int
-    driver_id: String
-    enterprise_id: String
-    id: bigint
-    monitoring_pic_address: String
-    monitoring_pic_name: String
-    monitoring_pic_upload_time: timestamptz
-    photo_condition: String
-    sim_number: String
-    supervision_photo_id: String
-    update_time: timestamptz
-    vehicle_id: String
+type VehicleSupervisionPhotoVarPopFields {
+	id: Bigint
+	camera_id: Int
 }
-
-"""aggregate max on columns"""
-type vehicle_supervision_photo_max_fields {
-    IMEI: String
-    camera_id: Int
-    driver_id: String
-    enterprise_id: String
-    id: bigint
-    monitoring_pic_address: String
-    monitoring_pic_name: String
-    monitoring_pic_upload_time: timestamptz
-    photo_condition: String
-    sim_number: String
-    supervision_photo_id: String
-    update_time: timestamptz
-    vehicle_id: String
-}
-
 """
-order by max() on columns of table "vehicle_supervision_photo"
+aggregate var_samp on columns of table "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_max_order_by {
-    IMEI: order_by
-    camera_id: order_by
-    driver_id: order_by
-    enterprise_id: order_by
-    id: order_by
-    monitoring_pic_address: order_by
-    monitoring_pic_name: order_by
-    monitoring_pic_upload_time: order_by
-    photo_condition: order_by
-    sim_number: order_by
-    supervision_photo_id: order_by
-    update_time: order_by
-    vehicle_id: order_by
+type VehicleSupervisionPhotoVarSampFields {
+	id: Bigint
+	camera_id: Int
 }
-
-"""aggregate min on columns"""
-type vehicle_supervision_photo_min_fields {
-    IMEI: String
-    camera_id: Int
-    driver_id: String
-    enterprise_id: String
-    id: bigint
-    monitoring_pic_address: String
-    monitoring_pic_name: String
-    monitoring_pic_upload_time: timestamptz
-    photo_condition: String
-    sim_number: String
-    supervision_photo_id: String
-    update_time: timestamptz
-    vehicle_id: String
-}
-
 """
-order by min() on columns of table "vehicle_supervision_photo"
+aggregate variance on columns of table "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_min_order_by {
-    IMEI: order_by
-    camera_id: order_by
-    driver_id: order_by
-    enterprise_id: order_by
-    id: order_by
-    monitoring_pic_address: order_by
-    monitoring_pic_name: order_by
-    monitoring_pic_upload_time: order_by
-    photo_condition: order_by
-    sim_number: order_by
-    supervision_photo_id: order_by
-    update_time: order_by
-    vehicle_id: order_by
+type VehicleSupervisionPhotoVarianceFields {
+	id: Bigint
+	camera_id: Int
 }
-
 """
 response of any mutation on the table "vehicle_supervision_photo"
 """
-type vehicle_supervision_photo_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [vehicle_supervision_photo!]!
+type VehicleSupervisionPhotoMutationResponse {
+	affected_rows: Int!
+	returning: [VehicleSupervisionPhoto!]!
 }
-
-"""
-input type for inserting object relation for remote table "vehicle_supervision_photo"
-"""
-input vehicle_supervision_photo_obj_rel_insert_input {
-    data: vehicle_supervision_photo_insert_input!
-    on_conflict: vehicle_supervision_photo_on_conflict
-}
-
-"""
-on conflict condition type for table "vehicle_supervision_photo"
-"""
-input vehicle_supervision_photo_on_conflict {
-    constraint: vehicle_supervision_photo_constraint!
-    update_columns: [vehicle_supervision_photo_update_column!]!
-    where: vehicle_supervision_photo_bool_exp
-}
-
 """
 ordering options when selecting data from "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_order_by {
-    IMEI: order_by
-    camera_id: order_by
-    driver_id: order_by
-    enterprise_id: order_by
-    id: order_by
-    monitoring_pic_address: order_by
-    monitoring_pic_name: order_by
-    monitoring_pic_upload_time: order_by
-    photo_condition: order_by
-    sim_number: order_by
-    supervision_photo_id: order_by
-    update_time: order_by
-    vehicle_id: order_by
+input VehicleSupervisionPhotoOrderBy {
+	id: OrderBy
+	supervision_photo_id: OrderBy
+	vehicle_id: OrderBy
+	driver_id: OrderBy
+	enterprise_id: OrderBy
+	camera_id: OrderBy
+	photo_condition: OrderBy
+	update_time: OrderBy
+	monitoring_pic_name: OrderBy
+	monitoring_pic_address: OrderBy
+	monitoring_pic_upload_time: OrderBy
+	imel: OrderBy
+	sim_number: OrderBy
 }
-
 """
-primary key columns input for table: "vehicle_supervision_photo"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_supervision_photo'.
 """
-input vehicle_supervision_photo_pk_columns_input {
-    """主键"""
-    id: bigint!
-
-    """车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用"""
-    supervision_photo_id: String!
+input VehicleSupervisionPhotoBoolExp {
+	_and: [VehicleSupervisionPhotoBoolExp]
+	_not: VehicleSupervisionPhotoBoolExp
+	_or: [VehicleSupervisionPhotoBoolExp]
+	id: BigintComparisonExp
+	supervision_photo_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	driver_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	camera_id: IntComparisonExp
+	photo_condition: StringComparisonExp
+	update_time: TimestamptzComparisonExp
+	monitoring_pic_name: StringComparisonExp
+	monitoring_pic_address: StringComparisonExp
+	monitoring_pic_upload_time: TimestamptzComparisonExp
+	imel: StringComparisonExp
+	sim_number: StringComparisonExp
 }
-
 """
-select columns of table "vehicle_supervision_photo"
+input type for inserting data into table "vehicle_supervision_photo"
 """
-enum vehicle_supervision_photo_select_column {
-    """column name"""
-    IMEI
-
-    """column name"""
-    camera_id
-
-    """column name"""
-    driver_id
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    id
-
-    """column name"""
-    monitoring_pic_address
-
-    """column name"""
-    monitoring_pic_name
-
-    """column name"""
-    monitoring_pic_upload_time
-
-    """column name"""
-    photo_condition
-
-    """column name"""
-    sim_number
-
-    """column name"""
-    supervision_photo_id
-
-    """column name"""
-    update_time
-
-    """column name"""
-    vehicle_id
+input VehicleSupervisionPhotoInsertInput {
+	id: Bigint
+	supervision_photo_id: String
+	vehicle_id: String
+	driver_id: String
+	enterprise_id: String
+	camera_id: Int
+	photo_condition: String
+	update_time: Timestamptz
+	monitoring_pic_name: String
+	monitoring_pic_address: String
+	monitoring_pic_upload_time: Timestamptz
+	imel: String
+	sim_number: String
 }
-
+"""
+input type for incrementing integer column in table "vehicle_supervision_photo"
+"""
+input VehicleSupervisionPhotoIncInput {
+	id: Bigint
+	camera_id: Int
+}
 """
 input type for updating data in table "vehicle_supervision_photo"
 """
-input vehicle_supervision_photo_set_input {
-    IMEI: String
-    camera_id: Int
-    driver_id: String
-    enterprise_id: String
-    id: bigint
-    monitoring_pic_address: String
-    monitoring_pic_name: String
-    monitoring_pic_upload_time: timestamptz
-    photo_condition: String
-    sim_number: String
-    supervision_photo_id: String
-    update_time: timestamptz
-    vehicle_id: String
+input VehicleSupervisionPhotoSetInput {
+	id: Bigint
+	supervision_photo_id: String
+	vehicle_id: String
+	driver_id: String
+	enterprise_id: String
+	camera_id: Int
+	photo_condition: String
+	update_time: Timestamptz
+	monitoring_pic_name: String
+	monitoring_pic_address: String
+	monitoring_pic_upload_time: Timestamptz
+	imel: String
+	sim_number: String
 }
-
-"""aggregate stddev on columns"""
-type vehicle_supervision_photo_stddev_fields {
-    camera_id: Float
-    id: Float
+"""
+可选select
+"""
+enum VehicleSupervisionPhotoSelectColumn {
+	"""
+	 按指定方法生成                                              ( 主键                                 )
+	"""
+	id
+	"""
+	 车辆监控图片外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	"""
+	supervision_photo_id
+	"""
+	 车辆ID                                                      ( vehicle_info表vehicle_id         )
+	"""
+	vehicle_id
+	"""
+	 驾驶员id                                                    ( driver_info 表的driver_id        )
+	"""
+	driver_id
+	"""
+	 所在企业id                                                  ( enterprise_info表的enterprise_id )
+	"""
+	enterprise_id
+	"""
+	 摄像头ID                                                    ( 摄像头ID字典                     )
+	"""
+	camera_id
+	"""
+	 拍照条件                                                    ( 拍照条件字典                     )
+	"""
+	photo_condition
+	"""
+	 终端上报时间                                                (                                      )
+	"""
+	update_time
+	"""
+	 监控图片名称                                                (                                      )
+	"""
+	monitoring_pic_name
+	"""
+	 监控图片地址                                                (                                      )
+	"""
+	monitoring_pic_address
+	"""
+	 监控图片上传时间                                            (                                      )
+	"""
+	monitoring_pic_upload_time
+	"""
+	 终端IMEI                                                    ( 国际移动设备标识别码                 )
+	"""
+	imel
+	"""
+	 SIM卡号                                                     (                                      )
+	"""
+	sim_number
 }
-
-"""
-order by stddev() on columns of table "vehicle_supervision_photo"
-"""
-input vehicle_supervision_photo_stddev_order_by {
-    camera_id: order_by
-    id: order_by
+extend type Query {
+	"""
+	列表查询
+	"""
+	vehicle_supervision_photo(distinct_on: [VehicleSupervisionPhotoSelectColumn!], limit: Int, offset: Int, order_by: [VehicleSupervisionPhotoOrderBy!], where: VehicleSupervisionPhotoBoolExp): [VehicleSupervisionPhoto!]!
+	"""
+	聚合查询
+	"""
+	vehicle_supervision_photo_aggregate(distinct_on: [VehicleSupervisionPhotoSelectColumn!], limit: Int, offset: Int, order_by: [VehicleSupervisionPhotoOrderBy!], where: VehicleSupervisionPhotoBoolExp): VehicleSupervisionPhotoAggregate!
+	"""
+	主键查询
+	"""
+	vehicle_supervision_photo_by_pk(id: Bigint!): VehicleSupervisionPhoto!
 }
-
-"""aggregate stddev_pop on columns"""
-type vehicle_supervision_photo_stddev_pop_fields {
-    camera_id: Float
-    id: Float
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_vehicle_supervision_photo(where: VehicleSupervisionPhotoBoolExp!): VehicleSupervisionPhotoMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_vehicle_supervision_photo_by_pk(id: Bigint!): VehicleSupervisionPhoto
+	"""
+	插入
+	"""
+	insert_vehicle_supervision_photo(objects: [VehicleSupervisionPhotoInsertInput!]!): VehicleSupervisionPhotoMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_vehicle_supervision_photo_one(objects: VehicleSupervisionPhotoInsertInput!): VehicleSupervisionPhoto
+	"""
+	更新
+	"""
+	update_vehicle_supervision_photo(_inc: VehicleSupervisionPhotoIncInput, _set: VehicleSupervisionPhotoSetInput, where: VehicleSupervisionPhotoBoolExp!): VehicleSupervisionPhotoMutationResponse
+	"""
+	更新
+	"""
+	update_vehicle_supervision_photo_by_pk(_inc: VehicleSupervisionPhotoIncInput, _set: VehicleSupervisionPhotoSetInput, id: Bigint!): VehicleSupervisionPhoto
 }
-
-"""
-order by stddev_pop() on columns of table "vehicle_supervision_photo"
-"""
-input vehicle_supervision_photo_stddev_pop_order_by {
-    camera_id: order_by
-    id: order_by
-}
-
-"""aggregate stddev_samp on columns"""
-type vehicle_supervision_photo_stddev_samp_fields {
-    camera_id: Float
-    id: Float
-}
-
-"""
-order by stddev_samp() on columns of table "vehicle_supervision_photo"
-"""
-input vehicle_supervision_photo_stddev_samp_order_by {
-    camera_id: order_by
-    id: order_by
-}
-
-"""aggregate sum on columns"""
-type vehicle_supervision_photo_sum_fields {
-    camera_id: Int
-    id: bigint
-}
-
-"""
-order by sum() on columns of table "vehicle_supervision_photo"
-"""
-input vehicle_supervision_photo_sum_order_by {
-    camera_id: order_by
-    id: order_by
-}
-
-"""
-update columns of table "vehicle_supervision_photo"
-"""
-enum vehicle_supervision_photo_update_column {
-    """column name"""
-    IMEI
-
-    """column name"""
-    camera_id
-
-    """column name"""
-    driver_id
-
-    """column name"""
-    enterprise_id
-
-    """column name"""
-    id
-
-    """column name"""
-    monitoring_pic_address
-
-    """column name"""
-    monitoring_pic_name
-
-    """column name"""
-    monitoring_pic_upload_time
-
-    """column name"""
-    photo_condition
-
-    """column name"""
-    sim_number
-
-    """column name"""
-    supervision_photo_id
-
-    """column name"""
-    update_time
-
-    """column name"""
-    vehicle_id
-}
-
-"""aggregate var_pop on columns"""
-type vehicle_supervision_photo_var_pop_fields {
-    camera_id: Float
-    id: Float
-}
-
-"""
-order by var_pop() on columns of table "vehicle_supervision_photo"
-"""
-input vehicle_supervision_photo_var_pop_order_by {
-    camera_id: order_by
-    id: order_by
-}
-
-"""aggregate var_samp on columns"""
-type vehicle_supervision_photo_var_samp_fields {
-    camera_id: Float
-    id: Float
-}
-
-"""
-order by var_samp() on columns of table "vehicle_supervision_photo"
-"""
-input vehicle_supervision_photo_var_samp_order_by {
-    camera_id: order_by
-    id: order_by
-}
-
-"""aggregate variance on columns"""
-type vehicle_supervision_photo_variance_fields {
-    camera_id: Float
-    id: Float
-}
-
-"""
-order by variance() on columns of table "vehicle_supervision_photo"
-"""
-input vehicle_supervision_photo_variance_order_by {
-    camera_id: order_by
-    id: order_by
-}
-

@@ -1,730 +1,385 @@
-
 """
 APP现场执法表
-
-
-columns and relationships of "app_enforcement"
-
 """
-type app_enforcement {
-    """空间数据类型point表示经度(longitude)和纬度(latitude)"""
-    coordinate: point
-
-    """创建时间"""
-    created_at: timestamptz!
-
-    """创建人"""
-    created_by: String!
-
-    """删除时间"""
-    deleted_at: timestamptz
-
-    """删除人"""
-    deleted_by: String
-
-    """编辑文本"""
-    edit_text: String
-
-    """企业类型字典"""
-    enterprise_type: String
-
-    """主键"""
-    id: bigint!
-
-    """联合主键"""
-    illegal_photo_id: String!
-
-    """位置描述"""
-    location_description: String
-
-    """操作用户"""
-    operation_user: String
-
-    """纠察状态"""
-    picket_status: Int
-
-    """修改时间"""
-    updated_at: timestamptz
-
-    """修改人"""
-    updated_by: String
-
-    """vehicle_info 车辆信息表 的vehicle_id"""
-    vehicle_id: String
-
-    """违法明细表ID(vehicle_violation_details的violation_detail_id)"""
-    violation_detail_id: String
+type AppEnforcement {
+	"""
+	 按指定方法生成                                               ( 主键                       )
+	"""
+	id: Bigint!
+	"""
+	 APP现场执法表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	illegal_photo_id: String!
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	"""
+	vehicle_id: String
+	"""
+	 操作用户                                                     ( system_user表的user_id )
+	"""
+	operation_user: String
+	"""
+	 编辑文本                                                     (                            )
+	"""
+	edit_text: String
+	"""
+	 空间数据类型point表示经度(longitude)和纬度(latitude)         (                            )
+	"""
+	coordinate: Point
+	"""
+	 位置描述                                                     (                            )
+	"""
+	location_description: String
+	"""
+	 企业类型                                                     ( 企业类型字典           )
+	"""
+	enterprise_type: String
+	"""
+	 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车） (                            )
+	"""
+	picket_status: Int
+	"""
+	 创建时间                                                     (                            )
+	"""
+	created_at: Timestamptz!
+	"""
+	 创建人                                                       ( system_user表的user_id )
+	"""
+	created_by: String!
+	"""
+	 修改时间                                                     (                            )
+	"""
+	updated_at: Timestamptz
+	"""
+	 修改人                                                       ( system_user表的user_id )
+	"""
+	updated_by: String
+	"""
+	 删除时间                                                     (                            )
+	"""
+	deleted_at: Timestamptz
+	"""
+	 删除人                                                       ( system_user表的user_id )
+	"""
+	deleted_by: String
 }
-
 """
 aggregated selection of "app_enforcement"
 """
-type app_enforcement_aggregate {
-    aggregate: app_enforcement_aggregate_fields
-    nodes: [app_enforcement!]!
+type AppEnforcementAggregate {
+	aggregate: AppEnforcementAggregateFields
 }
-
 """
 aggregate fields of "app_enforcement"
 """
-type app_enforcement_aggregate_fields {
-    avg: app_enforcement_avg_fields
-    count(columns: [app_enforcement_select_column!], distinct: Boolean): Int
-    max: app_enforcement_max_fields
-    min: app_enforcement_min_fields
-    stddev: app_enforcement_stddev_fields
-    stddev_pop: app_enforcement_stddev_pop_fields
-    stddev_samp: app_enforcement_stddev_samp_fields
-    sum: app_enforcement_sum_fields
-    var_pop: app_enforcement_var_pop_fields
-    var_samp: app_enforcement_var_samp_fields
-    variance: app_enforcement_variance_fields
+type AppEnforcementAggregateFields {
+	avg: AppEnforcementAvgFields
+	count: Int
+	max: AppEnforcementMaxFields
+	min: AppEnforcementMinFields
+	stddev: AppEnforcementStddevFields
+	stddev_pop: AppEnforcementStddevPopFields
+	stddev_samp: AppEnforcementStddevSampFields
+	sum: AppEnforcementSumFields
+	var_pop: AppEnforcementVarPopFields
+	var_samp: AppEnforcementVarSampFields
+	variance: AppEnforcementVarianceFields
 }
-
 """
-order by aggregate values of table "app_enforcement"
+aggregate avg on columns of table "app_enforcement"
 """
-input app_enforcement_aggregate_order_by {
-    avg: app_enforcement_avg_order_by
-    count: order_by
-    max: app_enforcement_max_order_by
-    min: app_enforcement_min_order_by
-    stddev: app_enforcement_stddev_order_by
-    stddev_pop: app_enforcement_stddev_pop_order_by
-    stddev_samp: app_enforcement_stddev_samp_order_by
-    sum: app_enforcement_sum_order_by
-    var_pop: app_enforcement_var_pop_order_by
-    var_samp: app_enforcement_var_samp_order_by
-    variance: app_enforcement_variance_order_by
+type AppEnforcementAvgFields {
+	id: Bigint
+	picket_status: Int
 }
-
 """
-input type for inserting array relation for remote table "app_enforcement"
+aggregate max on columns of table "app_enforcement"
 """
-input app_enforcement_arr_rel_insert_input {
-    data: [app_enforcement_insert_input!]!
-    on_conflict: app_enforcement_on_conflict
+type AppEnforcementMaxFields {
+	id: Bigint
+	illegal_photo_id: String
+	vehicle_id: String
+	operation_user: String
+	edit_text: String
+	coordinate: Point
+	location_description: String
+	enterprise_type: String
+	picket_status: Int
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate avg on columns"""
-type app_enforcement_avg_fields {
-    id: Float
-    picket_status: Float
+"""
+aggregate min on columns of table "app_enforcement"
+"""
+type AppEnforcementMinFields {
+	id: Bigint
+	illegal_photo_id: String
+	vehicle_id: String
+	operation_user: String
+	edit_text: String
+	coordinate: Point
+	location_description: String
+	enterprise_type: String
+	picket_status: Int
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
 """
-order by avg() on columns of table "app_enforcement"
+aggregate stddev on columns of table "app_enforcement"
 """
-input app_enforcement_avg_order_by {
-    id: order_by
-    picket_status: order_by
+type AppEnforcementStddevFields {
+	id: Bigint
+	picket_status: Int
 }
-
 """
-Boolean expression to filter rows from the table "app_enforcement". All fields are combined with a logical 'AND'.
+aggregate stddev_pop on columns of table "app_enforcement"
 """
-input app_enforcement_bool_exp {
-    _and: [app_enforcement_bool_exp]
-    _not: app_enforcement_bool_exp
-    _or: [app_enforcement_bool_exp]
-    coordinate: point_comparison_exp
-    created_at: timestamptz_comparison_exp
-    created_by: String_comparison_exp
-    deleted_at: timestamptz_comparison_exp
-    deleted_by: String_comparison_exp
-    edit_text: String_comparison_exp
-    enterprise_type: String_comparison_exp
-    id: bigint_comparison_exp
-    illegal_photo_id: String_comparison_exp
-    location_description: String_comparison_exp
-    operation_user: String_comparison_exp
-    picket_status: Int_comparison_exp
-    updated_at: timestamptz_comparison_exp
-    updated_by: String_comparison_exp
-    vehicle_id: String_comparison_exp
-    violation_detail_id: String_comparison_exp
+type AppEnforcementStddevPopFields {
+	id: Bigint
+	picket_status: Int
 }
-
 """
-unique or primary key constraints on table "app_enforcement"
+aggregate stddev_samp on columns of table "app_enforcement"
 """
-enum app_enforcement_constraint {
-    """unique or primary key constraint"""
-    app_enforcement_pkey
+type AppEnforcementStddevSampFields {
+	id: Bigint
+	picket_status: Int
 }
-
 """
-input type for incrementing integer column in table "app_enforcement"
+aggregate sum on columns of table "app_enforcement"
 """
-input app_enforcement_inc_input {
-    id: bigint
-    picket_status: Int
+type AppEnforcementSumFields {
+	id: Bigint
+	picket_status: Int
 }
-
 """
-input type for inserting data into table "app_enforcement"
+aggregate var_pop on columns of table "app_enforcement"
 """
-input app_enforcement_insert_input {
-    coordinate: point
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    edit_text: String
-    enterprise_type: String
-    id: bigint
-    illegal_photo_id: String
-    location_description: String
-    operation_user: String
-    picket_status: Int
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_detail_id: String
+type AppEnforcementVarPopFields {
+	id: Bigint
+	picket_status: Int
 }
-
-"""aggregate max on columns"""
-type app_enforcement_max_fields {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    edit_text: String
-    enterprise_type: String
-    id: bigint
-    illegal_photo_id: String
-    location_description: String
-    operation_user: String
-    picket_status: Int
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_detail_id: String
-}
-
 """
-order by max() on columns of table "app_enforcement"
+aggregate var_samp on columns of table "app_enforcement"
 """
-input app_enforcement_max_order_by {
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    edit_text: order_by
-    enterprise_type: order_by
-    id: order_by
-    illegal_photo_id: order_by
-    location_description: order_by
-    operation_user: order_by
-    picket_status: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    violation_detail_id: order_by
+type AppEnforcementVarSampFields {
+	id: Bigint
+	picket_status: Int
 }
-
-"""aggregate min on columns"""
-type app_enforcement_min_fields {
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    edit_text: String
-    enterprise_type: String
-    id: bigint
-    illegal_photo_id: String
-    location_description: String
-    operation_user: String
-    picket_status: Int
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_detail_id: String
-}
-
 """
-order by min() on columns of table "app_enforcement"
+aggregate variance on columns of table "app_enforcement"
 """
-input app_enforcement_min_order_by {
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    edit_text: order_by
-    enterprise_type: order_by
-    id: order_by
-    illegal_photo_id: order_by
-    location_description: order_by
-    operation_user: order_by
-    picket_status: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    violation_detail_id: order_by
+type AppEnforcementVarianceFields {
+	id: Bigint
+	picket_status: Int
 }
-
 """
 response of any mutation on the table "app_enforcement"
 """
-type app_enforcement_mutation_response {
-    """number of affected rows by the mutation"""
-    affected_rows: Int!
-
-    """data of the affected rows by the mutation"""
-    returning: [app_enforcement!]!
+type AppEnforcementMutationResponse {
+	affected_rows: Int!
+	returning: [AppEnforcement!]!
 }
-
-"""
-input type for inserting object relation for remote table "app_enforcement"
-"""
-input app_enforcement_obj_rel_insert_input {
-    data: app_enforcement_insert_input!
-    on_conflict: app_enforcement_on_conflict
-}
-
-"""
-on conflict condition type for table "app_enforcement"
-"""
-input app_enforcement_on_conflict {
-    constraint: app_enforcement_constraint!
-    update_columns: [app_enforcement_update_column!]!
-    where: app_enforcement_bool_exp
-}
-
 """
 ordering options when selecting data from "app_enforcement"
 """
-input app_enforcement_order_by {
-    coordinate: order_by
-    created_at: order_by
-    created_by: order_by
-    deleted_at: order_by
-    deleted_by: order_by
-    edit_text: order_by
-    enterprise_type: order_by
-    id: order_by
-    illegal_photo_id: order_by
-    location_description: order_by
-    operation_user: order_by
-    picket_status: order_by
-    updated_at: order_by
-    updated_by: order_by
-    vehicle_id: order_by
-    violation_detail_id: order_by
+input AppEnforcementOrderBy {
+	id: OrderBy
+	illegal_photo_id: OrderBy
+	vehicle_id: OrderBy
+	operation_user: OrderBy
+	edit_text: OrderBy
+	coordinate: OrderBy
+	location_description: OrderBy
+	enterprise_type: OrderBy
+	picket_status: OrderBy
+	created_at: OrderBy
+	created_by: OrderBy
+	updated_at: OrderBy
+	updated_by: OrderBy
+	deleted_at: OrderBy
+	deleted_by: OrderBy
 }
-
 """
-primary key columns input for table: "app_enforcement"
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'app_enforcement'.
 """
-input app_enforcement_pk_columns_input {
-    """主键"""
-    id: bigint!
-
-    """联合主键"""
-    illegal_photo_id: String!
+input AppEnforcementBoolExp {
+	_and: [AppEnforcementBoolExp]
+	_not: AppEnforcementBoolExp
+	_or: [AppEnforcementBoolExp]
+	id: BigintComparisonExp
+	illegal_photo_id: StringComparisonExp
+	vehicle_id: StringComparisonExp
+	operation_user: StringComparisonExp
+	edit_text: StringComparisonExp
+	coordinate: PointComparisonExp
+	location_description: StringComparisonExp
+	enterprise_type: StringComparisonExp
+	picket_status: IntComparisonExp
+	created_at: TimestamptzComparisonExp
+	created_by: StringComparisonExp
+	updated_at: TimestamptzComparisonExp
+	updated_by: StringComparisonExp
+	deleted_at: TimestamptzComparisonExp
+	deleted_by: StringComparisonExp
 }
-
 """
-select columns of table "app_enforcement"
+input type for inserting data into table "app_enforcement"
 """
-enum app_enforcement_select_column {
-    """column name"""
-    coordinate
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    edit_text
-
-    """column name"""
-    enterprise_type
-
-    """column name"""
-    id
-
-    """column name"""
-    illegal_photo_id
-
-    """column name"""
-    location_description
-
-    """column name"""
-    operation_user
-
-    """column name"""
-    picket_status
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    violation_detail_id
+input AppEnforcementInsertInput {
+	id: Bigint
+	illegal_photo_id: String
+	vehicle_id: String
+	operation_user: String
+	edit_text: String
+	coordinate: Point
+	location_description: String
+	enterprise_type: String
+	picket_status: Int
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
+"""
+input type for incrementing integer column in table "app_enforcement"
+"""
+input AppEnforcementIncInput {
+	id: Bigint
+	picket_status: Int
+}
 """
 input type for updating data in table "app_enforcement"
 """
-input app_enforcement_set_input {
-    coordinate: point
-    created_at: timestamptz
-    created_by: String
-    deleted_at: timestamptz
-    deleted_by: String
-    edit_text: String
-    enterprise_type: String
-    id: bigint
-    illegal_photo_id: String
-    location_description: String
-    operation_user: String
-    picket_status: Int
-    updated_at: timestamptz
-    updated_by: String
-    vehicle_id: String
-    violation_detail_id: String
+input AppEnforcementSetInput {
+	id: Bigint
+	illegal_photo_id: String
+	vehicle_id: String
+	operation_user: String
+	edit_text: String
+	coordinate: Point
+	location_description: String
+	enterprise_type: String
+	picket_status: Int
+	created_at: Timestamptz
+	created_by: String
+	updated_at: Timestamptz
+	updated_by: String
+	deleted_at: Timestamptz
+	deleted_by: String
 }
-
-"""aggregate stddev on columns"""
-type app_enforcement_stddev_fields {
-    id: Float
-    picket_status: Float
-}
-
 """
-order by stddev() on columns of table "app_enforcement"
+可选select
 """
-input app_enforcement_stddev_order_by {
-    id: order_by
-    picket_status: order_by
+enum AppEnforcementSelectColumn {
+	"""
+	 按指定方法生成                                               ( 主键                       )
+	"""
+	id
+	"""
+	 APP现场执法表外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	"""
+	illegal_photo_id
+	"""
+	 vehicle_info 车辆信息表 的vehicle_id                     (                            )
+	"""
+	vehicle_id
+	"""
+	 操作用户                                                     ( system_user表的user_id )
+	"""
+	operation_user
+	"""
+	 编辑文本                                                     (                            )
+	"""
+	edit_text
+	"""
+	 空间数据类型point表示经度(longitude)和纬度(latitude)         (                            )
+	"""
+	coordinate
+	"""
+	 位置描述                                                     (                            )
+	"""
+	location_description
+	"""
+	 企业类型                                                     ( 企业类型字典           )
+	"""
+	enterprise_type
+	"""
+	 纠察状态（1.反馈辖区管理 2.执法考评 3.其他 4.查处“两非”渣土车） (                            )
+	"""
+	picket_status
+	"""
+	 创建时间                                                     (                            )
+	"""
+	created_at
+	"""
+	 创建人                                                       ( system_user表的user_id )
+	"""
+	created_by
+	"""
+	 修改时间                                                     (                            )
+	"""
+	updated_at
+	"""
+	 修改人                                                       ( system_user表的user_id )
+	"""
+	updated_by
+	"""
+	 删除时间                                                     (                            )
+	"""
+	deleted_at
+	"""
+	 删除人                                                       ( system_user表的user_id )
+	"""
+	deleted_by
 }
-
-"""aggregate stddev_pop on columns"""
-type app_enforcement_stddev_pop_fields {
-    id: Float
-    picket_status: Float
+extend type Query {
+	"""
+	列表查询
+	"""
+	app_enforcement(distinct_on: [AppEnforcementSelectColumn!], limit: Int, offset: Int, order_by: [AppEnforcementOrderBy!], where: AppEnforcementBoolExp): [AppEnforcement!]!
+	"""
+	聚合查询
+	"""
+	app_enforcement_aggregate(distinct_on: [AppEnforcementSelectColumn!], limit: Int, offset: Int, order_by: [AppEnforcementOrderBy!], where: AppEnforcementBoolExp): AppEnforcementAggregate!
+	"""
+	主键查询
+	"""
+	app_enforcement_by_pk(id: Bigint!): AppEnforcement!
 }
-
-"""
-order by stddev_pop() on columns of table "app_enforcement"
-"""
-input app_enforcement_stddev_pop_order_by {
-    id: order_by
-    picket_status: order_by
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_app_enforcement(where: AppEnforcementBoolExp!): AppEnforcementMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_app_enforcement_by_pk(id: Bigint!): AppEnforcement
+	"""
+	插入
+	"""
+	insert_app_enforcement(objects: [AppEnforcementInsertInput!]!): AppEnforcementMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_app_enforcement_one(objects: AppEnforcementInsertInput!): AppEnforcement
+	"""
+	更新
+	"""
+	update_app_enforcement(_inc: AppEnforcementIncInput, _set: AppEnforcementSetInput, where: AppEnforcementBoolExp!): AppEnforcementMutationResponse
+	"""
+	更新
+	"""
+	update_app_enforcement_by_pk(_inc: AppEnforcementIncInput, _set: AppEnforcementSetInput, id: Bigint!): AppEnforcement
 }
-
-"""aggregate stddev_samp on columns"""
-type app_enforcement_stddev_samp_fields {
-    id: Float
-    picket_status: Float
-}
-
-"""
-order by stddev_samp() on columns of table "app_enforcement"
-"""
-input app_enforcement_stddev_samp_order_by {
-    id: order_by
-    picket_status: order_by
-}
-
-"""aggregate sum on columns"""
-type app_enforcement_sum_fields {
-    id: bigint
-    picket_status: Int
-}
-
-"""
-order by sum() on columns of table "app_enforcement"
-"""
-input app_enforcement_sum_order_by {
-    id: order_by
-    picket_status: order_by
-}
-
-"""
-update columns of table "app_enforcement"
-"""
-enum app_enforcement_update_column {
-    """column name"""
-    coordinate
-
-    """column name"""
-    created_at
-
-    """column name"""
-    created_by
-
-    """column name"""
-    deleted_at
-
-    """column name"""
-    deleted_by
-
-    """column name"""
-    edit_text
-
-    """column name"""
-    enterprise_type
-
-    """column name"""
-    id
-
-    """column name"""
-    illegal_photo_id
-
-    """column name"""
-    location_description
-
-    """column name"""
-    operation_user
-
-    """column name"""
-    picket_status
-
-    """column name"""
-    updated_at
-
-    """column name"""
-    updated_by
-
-    """column name"""
-    vehicle_id
-
-    """column name"""
-    violation_detail_id
-}
-
-"""aggregate var_pop on columns"""
-type app_enforcement_var_pop_fields {
-    id: Float
-    picket_status: Float
-}
-
-"""
-order by var_pop() on columns of table "app_enforcement"
-"""
-input app_enforcement_var_pop_order_by {
-    id: order_by
-    picket_status: order_by
-}
-
-"""aggregate var_samp on columns"""
-type app_enforcement_var_samp_fields {
-    id: Float
-    picket_status: Float
-}
-
-"""
-order by var_samp() on columns of table "app_enforcement"
-"""
-input app_enforcement_var_samp_order_by {
-    id: order_by
-    picket_status: order_by
-}
-
-"""aggregate variance on columns"""
-type app_enforcement_variance_fields {
-    id: Float
-    picket_status: Float
-}
-
-"""
-order by variance() on columns of table "app_enforcement"
-"""
-input app_enforcement_variance_order_by {
-    id: order_by
-    picket_status: order_by
-}
-
-
-
-"""mutation root"""
-type Mutation {
-    """
-    delete data from the table: "app_enforcement"
-  """
-    delete_app_enforcement(
-        """filter the rows which have to be deleted"""
-        where: app_enforcement_bool_exp!
-    ): app_enforcement_mutation_response
-
-    """
-    delete single row from the table: "app_enforcement"
-  """
-    delete_app_enforcement_by_pk(
-        """主键"""
-        id: bigint!
-
-        """联合主键"""
-        illegal_photo_id: String!
-    ): app_enforcement
-
-    """
-    insert data into the table: "app_enforcement"
-  """
-    insert_app_enforcement(
-        """the rows to be inserted"""
-        objects: [app_enforcement_insert_input!]!
-
-        """on conflict condition"""
-        on_conflict: app_enforcement_on_conflict
-    ): app_enforcement_mutation_response
-
-    """
-    insert a single row into the table: "app_enforcement"
-  """
-    insert_app_enforcement_one(
-        """the row to be inserted"""
-        object: app_enforcement_insert_input!
-
-        """on conflict condition"""
-        on_conflict: app_enforcement_on_conflict
-    ): app_enforcement
-
-    """
-    update data of the table: "app_enforcement"
-  """
-    update_app_enforcement(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: app_enforcement_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: app_enforcement_set_input
-
-        """filter the rows which have to be updated"""
-        where: app_enforcement_bool_exp!
-    ): app_enforcement_mutation_response
-
-    """
-    update single row of the table: "app_enforcement"
-  """
-    update_app_enforcement_by_pk(
-        """increments the integer columns with given value of the filtered values"""
-        _inc: app_enforcement_inc_input
-
-        """sets the columns of the filtered rows to the given values"""
-        _set: app_enforcement_set_input
-        pk_columns: app_enforcement_pk_columns_input!
-    ): app_enforcement
-}
-
-
-"""query root"""
-type Query {
-    """
-    fetch data from the table: "app_enforcement"
-  """
-    app_enforcement(
-        """distinct select on columns"""
-        distinct_on: [app_enforcement_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [app_enforcement_order_by!]
-
-        """filter the rows returned"""
-        where: app_enforcement_bool_exp
-    ): [app_enforcement!]!
-
-    """
-    fetch aggregated fields from the table: "app_enforcement"
-  """
-    app_enforcement_aggregate(
-        """distinct select on columns"""
-        distinct_on: [app_enforcement_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [app_enforcement_order_by!]
-
-        """filter the rows returned"""
-        where: app_enforcement_bool_exp
-    ): app_enforcement_aggregate!
-
-    """fetch data from the table: "app_enforcement" using primary key columns"""
-    app_enforcement_by_pk(
-        """主键"""
-        id: bigint!
-
-        """联合主键"""
-        illegal_photo_id: String!
-    ): app_enforcement
-}
-
-
-"""subscription root"""
-type Subscription {
-    """
-    fetch data from the table: "app_enforcement"
-  """
-    app_enforcement(
-        """distinct select on columns"""
-        distinct_on: [app_enforcement_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [app_enforcement_order_by!]
-
-        """filter the rows returned"""
-        where: app_enforcement_bool_exp
-    ): [app_enforcement!]!
-
-    """
-    fetch aggregated fields from the table: "app_enforcement"
-  """
-    app_enforcement_aggregate(
-        """distinct select on columns"""
-        distinct_on: [app_enforcement_select_column!]
-
-        """limit the number of rows returned"""
-        limit: Int
-
-        """skip the first n rows. Use only with order_by"""
-        offset: Int
-
-        """sort the rows by one or more columns"""
-        order_by: [app_enforcement_order_by!]
-
-        """filter the rows returned"""
-        where: app_enforcement_bool_exp
-    ): app_enforcement_aggregate!
-
-    """fetch data from the table: "app_enforcement" using primary key columns"""
-    app_enforcement_by_pk(
-        """主键"""
-        id: bigint!
-
-        """联合主键"""
-        illegal_photo_id: String!
-    ): app_enforcement
-}
-

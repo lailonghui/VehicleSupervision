@@ -3,6 +3,7 @@
 package model
 
 import (
+	model1 "VehicleSupervision/internal/modules/vehicle_alarm/model"
 	"VehicleSupervision/pkg/graphql/model"
 	"fmt"
 	"io"
@@ -10,23 +11,9 @@ import (
 	"time"
 )
 
-// expression to compare columns of type _text. All fields are combined with logical 'AND'.
-type TextComparisonExp struct {
-	Eq     *string  `json:"_eq"`
-	Gt     *string  `json:"_gt"`
-	Gte    *string  `json:"_gte"`
-	In     []string `json:"_in"`
-	IsNull *bool    `json:"_is_null"`
-	Lt     *string  `json:"_lt"`
-	Lte    *string  `json:"_lte"`
-	Neq    *string  `json:"_neq"`
-	Nin    []string `json:"_nin"`
-}
-
 // aggregated selection of "alarm_processing_record"
 type AlarmProcessingRecordAggregate struct {
 	Aggregate *AlarmProcessingRecordAggregateFields `json:"aggregate"`
-	Nodes     []*AlarmProcessingRecord              `json:"nodes"`
 }
 
 // aggregate fields of "alarm_processing_record"
@@ -44,344 +31,252 @@ type AlarmProcessingRecordAggregateFields struct {
 	Variance   *AlarmProcessingRecordVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "alarm_processing_record"
-type AlarmProcessingRecordAggregateOrderBy struct {
-	Avg        *AlarmProcessingRecordAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                          `json:"count"`
-	Max        *AlarmProcessingRecordMaxOrderBy        `json:"max"`
-	Min        *AlarmProcessingRecordMinOrderBy        `json:"min"`
-	Stddev     *AlarmProcessingRecordStddevOrderBy     `json:"stddev"`
-	StddevPop  *AlarmProcessingRecordStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *AlarmProcessingRecordStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *AlarmProcessingRecordSumOrderBy        `json:"sum"`
-	VarPop     *AlarmProcessingRecordVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *AlarmProcessingRecordVarSampOrderBy    `json:"var_samp"`
-	Variance   *AlarmProcessingRecordVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "alarm_processing_record"
-type AlarmProcessingRecordArrRelInsertInput struct {
-	Data []*AlarmProcessingRecordInsertInput `json:"data"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "alarm_processing_record"
 type AlarmProcessingRecordAvgFields struct {
-	ID             *float64 `json:"id"`
-	ProcessingType *float64 `json:"processing_type"`
+	ID                        *int64 `json:"id"`
+	AlarmSupervisionPictureID *int64 `json:"alarm_supervision_picture_id"`
+	ProcessingType            *int   `json:"processing_type"`
+	DisposalMethod            *int   `json:"disposal_method"`
 }
 
-// order by avg() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordAvgOrderBy struct {
-	ID             *model.OrderBy `json:"id"`
-	ProcessingType *model.OrderBy `json:"processing_type"`
-}
-
-// Boolean expression to filter rows from the table "alarm_processing_record". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'alarm_processing_record'.
 type AlarmProcessingRecordBoolExp struct {
 	And                       []*AlarmProcessingRecordBoolExp `json:"_and"`
 	Not                       *AlarmProcessingRecordBoolExp   `json:"_not"`
 	Or                        []*AlarmProcessingRecordBoolExp `json:"_or"`
-	AlarmDataID               *model.StringComparisonExp      `json:"alarm_data_id"`
-	AlarmSupervisionPictureID *model.StringComparisonExp      `json:"alarm_supervision_picture_id"`
-	AnnounceContent           *model.StringComparisonExp      `json:"announce_content"`
-	AppPushContent            *model.StringComparisonExp      `json:"app_push_content"`
-	CreatedAt                 *model.TimestamptzComparisonExp `json:"created_at"`
-	CreatedBy                 *model.StringComparisonExp      `json:"created_by"`
-	DeletedAt                 *model.TimestamptzComparisonExp `json:"deleted_at"`
-	DeletedBy                 *model.StringComparisonExp      `json:"deleted_by"`
-	DisposalMethod            *model.StringComparisonExp      `json:"disposal_method"`
-	DisposalResult            *model.StringComparisonExp      `json:"disposal_result"`
 	ID                        *model.BigintComparisonExp      `json:"id"`
-	IsAnnounce                *model.BooleanComparisonExp     `json:"is_announce"`
-	IsAppPush                 *model.BooleanComparisonExp     `json:"is_app_push"`
-	IsDelete                  *model.BooleanComparisonExp     `json:"is_delete"`
-	IsNotify                  *model.BooleanComparisonExp     `json:"is_notify"`
-	IsSmsPush                 *model.BooleanComparisonExp     `json:"is_sms_push"`
-	NotifyContent             *model.StringComparisonExp      `json:"notify_content"`
-	OperationUser             *model.StringComparisonExp      `json:"operation_user"`
+	AlarmDataID               *model.StringComparisonExp      `json:"alarm_data_id"`
+	AlarmSupervisionPictureID *model.BigintComparisonExp      `json:"alarm_supervision_picture_id"`
 	ProcessingContent         *model.StringComparisonExp      `json:"processing_content"`
 	ProcessingTime            *model.TimestamptzComparisonExp `json:"processing_time"`
 	ProcessingType            *model.IntComparisonExp         `json:"processing_type"`
+	OperationUser             *model.StringComparisonExp      `json:"operation_user"`
+	IsSmsPush                 *model.BooleanComparisonExp     `json:"is_sms_push"`
+	IsNotify                  *model.BooleanComparisonExp     `json:"is_notify"`
+	IsAnnounce                *model.BooleanComparisonExp     `json:"is_announce"`
+	IsAppPush                 *model.BooleanComparisonExp     `json:"is_app_push"`
+	NotifyContent             *model.StringComparisonExp      `json:"notify_content"`
+	AnnounceContent           *model.StringComparisonExp      `json:"announce_content"`
+	AppPushContent            *model.StringComparisonExp      `json:"app_push_content"`
+	DisposalMethod            *model.IntComparisonExp         `json:"disposal_method"`
+	DisposalResult            *model.StringComparisonExp      `json:"disposal_result"`
+	IsDeleted                 *model.BooleanComparisonExp     `json:"is_deleted"`
+	CreatedAt                 *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                 *model.StringComparisonExp      `json:"created_by"`
 	UpdatedAt                 *model.TimestamptzComparisonExp `json:"updated_at"`
 	UpdatedBy                 *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt                 *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                 *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "alarm_processing_record"
 type AlarmProcessingRecordIncInput struct {
-	ID             *int64 `json:"id"`
-	ProcessingType *int   `json:"processing_type"`
+	ID                        *int64 `json:"id"`
+	AlarmSupervisionPictureID *int64 `json:"alarm_supervision_picture_id"`
+	ProcessingType            *int   `json:"processing_type"`
+	DisposalMethod            *int   `json:"disposal_method"`
 }
 
 // input type for inserting data into table "alarm_processing_record"
 type AlarmProcessingRecordInsertInput struct {
-	AlarmDataID               *string    `json:"alarm_data_id"`
-	AlarmSupervisionPictureID *string    `json:"alarm_supervision_picture_id"`
-	AnnounceContent           *string    `json:"announce_content"`
-	AppPushContent            *string    `json:"app_push_content"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
-	DisposalMethod            *string    `json:"disposal_method"`
-	DisposalResult            *string    `json:"disposal_result"`
 	ID                        *int64     `json:"id"`
+	AlarmDataID               *string    `json:"alarm_data_id"`
+	AlarmSupervisionPictureID *int64     `json:"alarm_supervision_picture_id"`
+	ProcessingContent         *string    `json:"processing_content"`
+	ProcessingTime            *time.Time `json:"processing_time"`
+	ProcessingType            *int       `json:"processing_type"`
+	OperationUser             *string    `json:"operation_user"`
+	IsSmsPush                 *bool      `json:"is_sms_push"`
+	IsNotify                  *bool      `json:"is_notify"`
 	IsAnnounce                *bool      `json:"is_announce"`
 	IsAppPush                 *bool      `json:"is_app_push"`
-	IsDelete                  *bool      `json:"is_delete"`
-	IsNotify                  *bool      `json:"is_notify"`
-	IsSmsPush                 *bool      `json:"is_sms_push"`
 	NotifyContent             *string    `json:"notify_content"`
-	OperationUser             *string    `json:"operation_user"`
-	ProcessingContent         *string    `json:"processing_content"`
-	ProcessingTime            *time.Time `json:"processing_time"`
-	ProcessingType            *int       `json:"processing_type"`
+	AnnounceContent           *string    `json:"announce_content"`
+	AppPushContent            *string    `json:"app_push_content"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
 	UpdatedAt                 *time.Time `json:"updated_at"`
 	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "alarm_processing_record"
 type AlarmProcessingRecordMaxFields struct {
-	AlarmDataID               *string    `json:"alarm_data_id"`
-	AlarmSupervisionPictureID *string    `json:"alarm_supervision_picture_id"`
-	AnnounceContent           *string    `json:"announce_content"`
-	AppPushContent            *string    `json:"app_push_content"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
-	DisposalMethod            *string    `json:"disposal_method"`
-	DisposalResult            *string    `json:"disposal_result"`
 	ID                        *int64     `json:"id"`
-	NotifyContent             *string    `json:"notify_content"`
-	OperationUser             *string    `json:"operation_user"`
+	AlarmDataID               *string    `json:"alarm_data_id"`
+	AlarmSupervisionPictureID *int64     `json:"alarm_supervision_picture_id"`
 	ProcessingContent         *string    `json:"processing_content"`
 	ProcessingTime            *time.Time `json:"processing_time"`
 	ProcessingType            *int       `json:"processing_type"`
+	OperationUser             *string    `json:"operation_user"`
+	IsSmsPush                 *bool      `json:"is_sms_push"`
+	IsNotify                  *bool      `json:"is_notify"`
+	IsAnnounce                *bool      `json:"is_announce"`
+	IsAppPush                 *bool      `json:"is_app_push"`
+	NotifyContent             *string    `json:"notify_content"`
+	AnnounceContent           *string    `json:"announce_content"`
+	AppPushContent            *string    `json:"app_push_content"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
 	UpdatedAt                 *time.Time `json:"updated_at"`
 	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordMaxOrderBy struct {
-	AlarmDataID               *model.OrderBy `json:"alarm_data_id"`
-	AlarmSupervisionPictureID *model.OrderBy `json:"alarm_supervision_picture_id"`
-	AnnounceContent           *model.OrderBy `json:"announce_content"`
-	AppPushContent            *model.OrderBy `json:"app_push_content"`
-	CreatedAt                 *model.OrderBy `json:"created_at"`
-	CreatedBy                 *model.OrderBy `json:"created_by"`
-	DeletedAt                 *model.OrderBy `json:"deleted_at"`
-	DeletedBy                 *model.OrderBy `json:"deleted_by"`
-	DisposalMethod            *model.OrderBy `json:"disposal_method"`
-	DisposalResult            *model.OrderBy `json:"disposal_result"`
-	ID                        *model.OrderBy `json:"id"`
-	NotifyContent             *model.OrderBy `json:"notify_content"`
-	OperationUser             *model.OrderBy `json:"operation_user"`
-	ProcessingContent         *model.OrderBy `json:"processing_content"`
-	ProcessingTime            *model.OrderBy `json:"processing_time"`
-	ProcessingType            *model.OrderBy `json:"processing_type"`
-	UpdatedAt                 *model.OrderBy `json:"updated_at"`
-	UpdatedBy                 *model.OrderBy `json:"updated_by"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "alarm_processing_record"
 type AlarmProcessingRecordMinFields struct {
-	AlarmDataID               *string    `json:"alarm_data_id"`
-	AlarmSupervisionPictureID *string    `json:"alarm_supervision_picture_id"`
-	AnnounceContent           *string    `json:"announce_content"`
-	AppPushContent            *string    `json:"app_push_content"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
-	DisposalMethod            *string    `json:"disposal_method"`
-	DisposalResult            *string    `json:"disposal_result"`
 	ID                        *int64     `json:"id"`
-	NotifyContent             *string    `json:"notify_content"`
-	OperationUser             *string    `json:"operation_user"`
+	AlarmDataID               *string    `json:"alarm_data_id"`
+	AlarmSupervisionPictureID *int64     `json:"alarm_supervision_picture_id"`
 	ProcessingContent         *string    `json:"processing_content"`
 	ProcessingTime            *time.Time `json:"processing_time"`
 	ProcessingType            *int       `json:"processing_type"`
+	OperationUser             *string    `json:"operation_user"`
+	IsSmsPush                 *bool      `json:"is_sms_push"`
+	IsNotify                  *bool      `json:"is_notify"`
+	IsAnnounce                *bool      `json:"is_announce"`
+	IsAppPush                 *bool      `json:"is_app_push"`
+	NotifyContent             *string    `json:"notify_content"`
+	AnnounceContent           *string    `json:"announce_content"`
+	AppPushContent            *string    `json:"app_push_content"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
 	UpdatedAt                 *time.Time `json:"updated_at"`
 	UpdatedBy                 *string    `json:"updated_by"`
-}
-
-// order by min() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordMinOrderBy struct {
-	AlarmDataID               *model.OrderBy `json:"alarm_data_id"`
-	AlarmSupervisionPictureID *model.OrderBy `json:"alarm_supervision_picture_id"`
-	AnnounceContent           *model.OrderBy `json:"announce_content"`
-	AppPushContent            *model.OrderBy `json:"app_push_content"`
-	CreatedAt                 *model.OrderBy `json:"created_at"`
-	CreatedBy                 *model.OrderBy `json:"created_by"`
-	DeletedAt                 *model.OrderBy `json:"deleted_at"`
-	DeletedBy                 *model.OrderBy `json:"deleted_by"`
-	DisposalMethod            *model.OrderBy `json:"disposal_method"`
-	DisposalResult            *model.OrderBy `json:"disposal_result"`
-	ID                        *model.OrderBy `json:"id"`
-	NotifyContent             *model.OrderBy `json:"notify_content"`
-	OperationUser             *model.OrderBy `json:"operation_user"`
-	ProcessingContent         *model.OrderBy `json:"processing_content"`
-	ProcessingTime            *model.OrderBy `json:"processing_time"`
-	ProcessingType            *model.OrderBy `json:"processing_type"`
-	UpdatedAt                 *model.OrderBy `json:"updated_at"`
-	UpdatedBy                 *model.OrderBy `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "alarm_processing_record"
 type AlarmProcessingRecordMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*AlarmProcessingRecord `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "alarm_processing_record"
-type AlarmProcessingRecordObjRelInsertInput struct {
-	Data *AlarmProcessingRecordInsertInput `json:"data"`
+	AffectedRows int                             `json:"affected_rows"`
+	Returning    []*model1.AlarmProcessingRecord `json:"returning"`
 }
 
 // ordering options when selecting data from "alarm_processing_record"
 type AlarmProcessingRecordOrderBy struct {
+	ID                        *model.OrderBy `json:"id"`
 	AlarmDataID               *model.OrderBy `json:"alarm_data_id"`
 	AlarmSupervisionPictureID *model.OrderBy `json:"alarm_supervision_picture_id"`
-	AnnounceContent           *model.OrderBy `json:"announce_content"`
-	AppPushContent            *model.OrderBy `json:"app_push_content"`
-	CreatedAt                 *model.OrderBy `json:"created_at"`
-	CreatedBy                 *model.OrderBy `json:"created_by"`
-	DeletedAt                 *model.OrderBy `json:"deleted_at"`
-	DeletedBy                 *model.OrderBy `json:"deleted_by"`
-	DisposalMethod            *model.OrderBy `json:"disposal_method"`
-	DisposalResult            *model.OrderBy `json:"disposal_result"`
-	ID                        *model.OrderBy `json:"id"`
-	IsAnnounce                *model.OrderBy `json:"is_announce"`
-	IsAppPush                 *model.OrderBy `json:"is_app_push"`
-	IsDelete                  *model.OrderBy `json:"is_delete"`
-	IsNotify                  *model.OrderBy `json:"is_notify"`
-	IsSmsPush                 *model.OrderBy `json:"is_sms_push"`
-	NotifyContent             *model.OrderBy `json:"notify_content"`
-	OperationUser             *model.OrderBy `json:"operation_user"`
 	ProcessingContent         *model.OrderBy `json:"processing_content"`
 	ProcessingTime            *model.OrderBy `json:"processing_time"`
 	ProcessingType            *model.OrderBy `json:"processing_type"`
+	OperationUser             *model.OrderBy `json:"operation_user"`
+	IsSmsPush                 *model.OrderBy `json:"is_sms_push"`
+	IsNotify                  *model.OrderBy `json:"is_notify"`
+	IsAnnounce                *model.OrderBy `json:"is_announce"`
+	IsAppPush                 *model.OrderBy `json:"is_app_push"`
+	NotifyContent             *model.OrderBy `json:"notify_content"`
+	AnnounceContent           *model.OrderBy `json:"announce_content"`
+	AppPushContent            *model.OrderBy `json:"app_push_content"`
+	DisposalMethod            *model.OrderBy `json:"disposal_method"`
+	DisposalResult            *model.OrderBy `json:"disposal_result"`
+	IsDeleted                 *model.OrderBy `json:"is_deleted"`
+	CreatedAt                 *model.OrderBy `json:"created_at"`
+	CreatedBy                 *model.OrderBy `json:"created_by"`
 	UpdatedAt                 *model.OrderBy `json:"updated_at"`
 	UpdatedBy                 *model.OrderBy `json:"updated_by"`
+	DeletedAt                 *model.OrderBy `json:"deleted_at"`
+	DeletedBy                 *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "alarm_processing_record"
 type AlarmProcessingRecordSetInput struct {
-	AlarmDataID               *string    `json:"alarm_data_id"`
-	AlarmSupervisionPictureID *string    `json:"alarm_supervision_picture_id"`
-	AnnounceContent           *string    `json:"announce_content"`
-	AppPushContent            *string    `json:"app_push_content"`
-	CreatedAt                 *time.Time `json:"created_at"`
-	CreatedBy                 *string    `json:"created_by"`
-	DeletedAt                 *time.Time `json:"deleted_at"`
-	DeletedBy                 *string    `json:"deleted_by"`
-	DisposalMethod            *string    `json:"disposal_method"`
-	DisposalResult            *string    `json:"disposal_result"`
 	ID                        *int64     `json:"id"`
-	IsAnnounce                *bool      `json:"is_announce"`
-	IsAppPush                 *bool      `json:"is_app_push"`
-	IsDelete                  *bool      `json:"is_delete"`
-	IsNotify                  *bool      `json:"is_notify"`
-	IsSmsPush                 *bool      `json:"is_sms_push"`
-	NotifyContent             *string    `json:"notify_content"`
-	OperationUser             *string    `json:"operation_user"`
+	AlarmDataID               *string    `json:"alarm_data_id"`
+	AlarmSupervisionPictureID *int64     `json:"alarm_supervision_picture_id"`
 	ProcessingContent         *string    `json:"processing_content"`
 	ProcessingTime            *time.Time `json:"processing_time"`
 	ProcessingType            *int       `json:"processing_type"`
+	OperationUser             *string    `json:"operation_user"`
+	IsSmsPush                 *bool      `json:"is_sms_push"`
+	IsNotify                  *bool      `json:"is_notify"`
+	IsAnnounce                *bool      `json:"is_announce"`
+	IsAppPush                 *bool      `json:"is_app_push"`
+	NotifyContent             *string    `json:"notify_content"`
+	AnnounceContent           *string    `json:"announce_content"`
+	AppPushContent            *string    `json:"app_push_content"`
+	DisposalMethod            *int       `json:"disposal_method"`
+	DisposalResult            *string    `json:"disposal_result"`
+	IsDeleted                 *bool      `json:"is_deleted"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
 	UpdatedAt                 *time.Time `json:"updated_at"`
 	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "alarm_processing_record"
 type AlarmProcessingRecordStddevFields struct {
-	ID             *float64 `json:"id"`
-	ProcessingType *float64 `json:"processing_type"`
+	ID                        *int64 `json:"id"`
+	AlarmSupervisionPictureID *int64 `json:"alarm_supervision_picture_id"`
+	ProcessingType            *int   `json:"processing_type"`
+	DisposalMethod            *int   `json:"disposal_method"`
 }
 
-// order by stddev() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordStddevOrderBy struct {
-	ID             *model.OrderBy `json:"id"`
-	ProcessingType *model.OrderBy `json:"processing_type"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "alarm_processing_record"
 type AlarmProcessingRecordStddevPopFields struct {
-	ID             *float64 `json:"id"`
-	ProcessingType *float64 `json:"processing_type"`
+	ID                        *int64 `json:"id"`
+	AlarmSupervisionPictureID *int64 `json:"alarm_supervision_picture_id"`
+	ProcessingType            *int   `json:"processing_type"`
+	DisposalMethod            *int   `json:"disposal_method"`
 }
 
-// order by stddev_pop() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordStddevPopOrderBy struct {
-	ID             *model.OrderBy `json:"id"`
-	ProcessingType *model.OrderBy `json:"processing_type"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "alarm_processing_record"
 type AlarmProcessingRecordStddevSampFields struct {
-	ID             *float64 `json:"id"`
-	ProcessingType *float64 `json:"processing_type"`
+	ID                        *int64 `json:"id"`
+	AlarmSupervisionPictureID *int64 `json:"alarm_supervision_picture_id"`
+	ProcessingType            *int   `json:"processing_type"`
+	DisposalMethod            *int   `json:"disposal_method"`
 }
 
-// order by stddev_samp() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordStddevSampOrderBy struct {
-	ID             *model.OrderBy `json:"id"`
-	ProcessingType *model.OrderBy `json:"processing_type"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "alarm_processing_record"
 type AlarmProcessingRecordSumFields struct {
-	ID             *int64 `json:"id"`
-	ProcessingType *int   `json:"processing_type"`
+	ID                        *int64 `json:"id"`
+	AlarmSupervisionPictureID *int64 `json:"alarm_supervision_picture_id"`
+	ProcessingType            *int   `json:"processing_type"`
+	DisposalMethod            *int   `json:"disposal_method"`
 }
 
-// order by sum() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordSumOrderBy struct {
-	ID             *model.OrderBy `json:"id"`
-	ProcessingType *model.OrderBy `json:"processing_type"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "alarm_processing_record"
 type AlarmProcessingRecordVarPopFields struct {
-	ID             *float64 `json:"id"`
-	ProcessingType *float64 `json:"processing_type"`
+	ID                        *int64 `json:"id"`
+	AlarmSupervisionPictureID *int64 `json:"alarm_supervision_picture_id"`
+	ProcessingType            *int   `json:"processing_type"`
+	DisposalMethod            *int   `json:"disposal_method"`
 }
 
-// order by var_pop() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordVarPopOrderBy struct {
-	ID             *model.OrderBy `json:"id"`
-	ProcessingType *model.OrderBy `json:"processing_type"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "alarm_processing_record"
 type AlarmProcessingRecordVarSampFields struct {
-	ID             *float64 `json:"id"`
-	ProcessingType *float64 `json:"processing_type"`
+	ID                        *int64 `json:"id"`
+	AlarmSupervisionPictureID *int64 `json:"alarm_supervision_picture_id"`
+	ProcessingType            *int   `json:"processing_type"`
+	DisposalMethod            *int   `json:"disposal_method"`
 }
 
-// order by var_samp() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordVarSampOrderBy struct {
-	ID             *model.OrderBy `json:"id"`
-	ProcessingType *model.OrderBy `json:"processing_type"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "alarm_processing_record"
 type AlarmProcessingRecordVarianceFields struct {
-	ID             *float64 `json:"id"`
-	ProcessingType *float64 `json:"processing_type"`
-}
-
-// order by variance() on columns of table "alarm_processing_record"
-type AlarmProcessingRecordVarianceOrderBy struct {
-	ID             *model.OrderBy `json:"id"`
-	ProcessingType *model.OrderBy `json:"processing_type"`
+	ID                        *int64 `json:"id"`
+	AlarmSupervisionPictureID *int64 `json:"alarm_supervision_picture_id"`
+	ProcessingType            *int   `json:"processing_type"`
+	DisposalMethod            *int   `json:"disposal_method"`
 }
 
 // aggregated selection of "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadAggregate struct {
 	Aggregate *AlarmSupervisionPictureUploadAggregateFields `json:"aggregate"`
-	Nodes     []*AlarmSupervisionPictureUpload              `json:"nodes"`
 }
 
 // aggregate fields of "alarm_supervision_picture_upload"
@@ -399,300 +294,210 @@ type AlarmSupervisionPictureUploadAggregateFields struct {
 	Variance   *AlarmSupervisionPictureUploadVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadAggregateOrderBy struct {
-	Avg        *AlarmSupervisionPictureUploadAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                                  `json:"count"`
-	Max        *AlarmSupervisionPictureUploadMaxOrderBy        `json:"max"`
-	Min        *AlarmSupervisionPictureUploadMinOrderBy        `json:"min"`
-	Stddev     *AlarmSupervisionPictureUploadStddevOrderBy     `json:"stddev"`
-	StddevPop  *AlarmSupervisionPictureUploadStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *AlarmSupervisionPictureUploadStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *AlarmSupervisionPictureUploadSumOrderBy        `json:"sum"`
-	VarPop     *AlarmSupervisionPictureUploadVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *AlarmSupervisionPictureUploadVarSampOrderBy    `json:"var_samp"`
-	Variance   *AlarmSupervisionPictureUploadVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadArrRelInsertInput struct {
-	Data       []*AlarmSupervisionPictureUploadInsertInput `json:"data"`
-	OnConflict *AlarmSupervisionPictureUploadOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadAvgFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// order by avg() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadAvgOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table
-// "alarm_supervision_picture_upload". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'alarm_supervision_picture_upload'.
 type AlarmSupervisionPictureUploadBoolExp struct {
-	Imei                      *model.StringComparisonExp              `json:"IMEI"`
 	And                       []*AlarmSupervisionPictureUploadBoolExp `json:"_and"`
 	Not                       *AlarmSupervisionPictureUploadBoolExp   `json:"_not"`
 	Or                        []*AlarmSupervisionPictureUploadBoolExp `json:"_or"`
+	ID                        *model.BigintComparisonExp              `json:"id"`
 	AlarmSupervisionPictureID *model.StringComparisonExp              `json:"alarm_supervision_picture_id"`
-	CameraID                  *model.IntComparisonExp                 `json:"camera_id"`
+	VehicleID                 *model.StringComparisonExp              `json:"vehicle_id"`
 	DriverID                  *model.StringComparisonExp              `json:"driver_id"`
 	EnterpriseID              *model.StringComparisonExp              `json:"enterprise_id"`
-	ID                        *model.BigintComparisonExp              `json:"id"`
-	MonitoringPicAddress      *model.StringComparisonExp              `json:"monitoring_pic_address"`
-	MonitoringPicName         *model.StringComparisonExp              `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime   *model.TimestamptzComparisonExp         `json:"monitoring_pic_upload_time"`
+	CameraID                  *model.IntComparisonExp                 `json:"camera_id"`
 	PhotoCondition            *model.StringComparisonExp              `json:"photo_condition"`
-	SimNumber                 *model.StringComparisonExp              `json:"sim_number"`
 	UpdateTime                *model.TimestamptzComparisonExp         `json:"update_time"`
-	VehicleID                 *model.StringComparisonExp              `json:"vehicle_id"`
+	MonitoringPicName         *model.StringComparisonExp              `json:"monitoring_pic_name"`
+	MonitoringPicAddress      *model.StringComparisonExp              `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime   *model.TimestamptzComparisonExp         `json:"monitoring_pic_upload_time"`
+	Imel                      *model.StringComparisonExp              `json:"imel"`
+	SimNumber                 *model.StringComparisonExp              `json:"sim_number"`
+	CreatedAt                 *model.TimestamptzComparisonExp         `json:"created_at"`
+	CreatedBy                 *model.StringComparisonExp              `json:"created_by"`
+	UpdatedAt                 *model.TimestamptzComparisonExp         `json:"updated_at"`
+	UpdatedBy                 *model.StringComparisonExp              `json:"updated_by"`
+	DeletedAt                 *model.TimestamptzComparisonExp         `json:"deleted_at"`
+	DeletedBy                 *model.StringComparisonExp              `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadIncInput struct {
-	CameraID *int   `json:"camera_id"`
 	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
 // input type for inserting data into table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadInsertInput struct {
-	Imei                      *string    `json:"IMEI"`
+	ID                        *int64     `json:"id"`
 	AlarmSupervisionPictureID *string    `json:"alarm_supervision_picture_id"`
-	CameraID                  *int       `json:"camera_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
 	DriverID                  *string    `json:"driver_id"`
 	EnterpriseID              *string    `json:"enterprise_id"`
-	ID                        *int64     `json:"id"`
-	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
-	MonitoringPicName         *string    `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
+	CameraID                  *int       `json:"camera_id"`
 	PhotoCondition            *string    `json:"photo_condition"`
-	SimNumber                 *string    `json:"sim_number"`
 	UpdateTime                *time.Time `json:"update_time"`
-	VehicleID                 *string    `json:"vehicle_id"`
+	MonitoringPicName         *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                      *string    `json:"imel"`
+	SimNumber                 *string    `json:"sim_number"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadMaxFields struct {
-	Imei                      *string    `json:"IMEI"`
+	ID                        *int64     `json:"id"`
 	AlarmSupervisionPictureID *string    `json:"alarm_supervision_picture_id"`
-	CameraID                  *int       `json:"camera_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
 	DriverID                  *string    `json:"driver_id"`
 	EnterpriseID              *string    `json:"enterprise_id"`
-	ID                        *int64     `json:"id"`
-	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
-	MonitoringPicName         *string    `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
+	CameraID                  *int       `json:"camera_id"`
 	PhotoCondition            *string    `json:"photo_condition"`
-	SimNumber                 *string    `json:"sim_number"`
 	UpdateTime                *time.Time `json:"update_time"`
-	VehicleID                 *string    `json:"vehicle_id"`
+	MonitoringPicName         *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                      *string    `json:"imel"`
+	SimNumber                 *string    `json:"sim_number"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadMaxOrderBy struct {
-	Imei                      *model.OrderBy `json:"IMEI"`
-	AlarmSupervisionPictureID *model.OrderBy `json:"alarm_supervision_picture_id"`
-	CameraID                  *model.OrderBy `json:"camera_id"`
-	DriverID                  *model.OrderBy `json:"driver_id"`
-	EnterpriseID              *model.OrderBy `json:"enterprise_id"`
-	ID                        *model.OrderBy `json:"id"`
-	MonitoringPicAddress      *model.OrderBy `json:"monitoring_pic_address"`
-	MonitoringPicName         *model.OrderBy `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime   *model.OrderBy `json:"monitoring_pic_upload_time"`
-	PhotoCondition            *model.OrderBy `json:"photo_condition"`
-	SimNumber                 *model.OrderBy `json:"sim_number"`
-	UpdateTime                *model.OrderBy `json:"update_time"`
-	VehicleID                 *model.OrderBy `json:"vehicle_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadMinFields struct {
-	Imei                      *string    `json:"IMEI"`
+	ID                        *int64     `json:"id"`
 	AlarmSupervisionPictureID *string    `json:"alarm_supervision_picture_id"`
-	CameraID                  *int       `json:"camera_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
 	DriverID                  *string    `json:"driver_id"`
 	EnterpriseID              *string    `json:"enterprise_id"`
-	ID                        *int64     `json:"id"`
-	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
-	MonitoringPicName         *string    `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
+	CameraID                  *int       `json:"camera_id"`
 	PhotoCondition            *string    `json:"photo_condition"`
-	SimNumber                 *string    `json:"sim_number"`
 	UpdateTime                *time.Time `json:"update_time"`
-	VehicleID                 *string    `json:"vehicle_id"`
-}
-
-// order by min() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadMinOrderBy struct {
-	Imei                      *model.OrderBy `json:"IMEI"`
-	AlarmSupervisionPictureID *model.OrderBy `json:"alarm_supervision_picture_id"`
-	CameraID                  *model.OrderBy `json:"camera_id"`
-	DriverID                  *model.OrderBy `json:"driver_id"`
-	EnterpriseID              *model.OrderBy `json:"enterprise_id"`
-	ID                        *model.OrderBy `json:"id"`
-	MonitoringPicAddress      *model.OrderBy `json:"monitoring_pic_address"`
-	MonitoringPicName         *model.OrderBy `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime   *model.OrderBy `json:"monitoring_pic_upload_time"`
-	PhotoCondition            *model.OrderBy `json:"photo_condition"`
-	SimNumber                 *model.OrderBy `json:"sim_number"`
-	UpdateTime                *model.OrderBy `json:"update_time"`
-	VehicleID                 *model.OrderBy `json:"vehicle_id"`
+	MonitoringPicName         *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                      *string    `json:"imel"`
+	SimNumber                 *string    `json:"sim_number"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*AlarmSupervisionPictureUpload `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadObjRelInsertInput struct {
-	Data       *AlarmSupervisionPictureUploadInsertInput `json:"data"`
-	OnConflict *AlarmSupervisionPictureUploadOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadOnConflict struct {
-	Constraint    AlarmSupervisionPictureUploadConstraint     `json:"constraint"`
-	UpdateColumns []AlarmSupervisionPictureUploadUpdateColumn `json:"update_columns"`
-	Where         *AlarmSupervisionPictureUploadBoolExp       `json:"where"`
+	AffectedRows int                                     `json:"affected_rows"`
+	Returning    []*model1.AlarmSupervisionPictureUpload `json:"returning"`
 }
 
 // ordering options when selecting data from "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadOrderBy struct {
-	Imei                      *model.OrderBy `json:"IMEI"`
+	ID                        *model.OrderBy `json:"id"`
 	AlarmSupervisionPictureID *model.OrderBy `json:"alarm_supervision_picture_id"`
-	CameraID                  *model.OrderBy `json:"camera_id"`
+	VehicleID                 *model.OrderBy `json:"vehicle_id"`
 	DriverID                  *model.OrderBy `json:"driver_id"`
 	EnterpriseID              *model.OrderBy `json:"enterprise_id"`
-	ID                        *model.OrderBy `json:"id"`
-	MonitoringPicAddress      *model.OrderBy `json:"monitoring_pic_address"`
-	MonitoringPicName         *model.OrderBy `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime   *model.OrderBy `json:"monitoring_pic_upload_time"`
+	CameraID                  *model.OrderBy `json:"camera_id"`
 	PhotoCondition            *model.OrderBy `json:"photo_condition"`
-	SimNumber                 *model.OrderBy `json:"sim_number"`
 	UpdateTime                *model.OrderBy `json:"update_time"`
-	VehicleID                 *model.OrderBy `json:"vehicle_id"`
-}
-
-// primary key columns input for table: "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
+	MonitoringPicName         *model.OrderBy `json:"monitoring_pic_name"`
+	MonitoringPicAddress      *model.OrderBy `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime   *model.OrderBy `json:"monitoring_pic_upload_time"`
+	Imel                      *model.OrderBy `json:"imel"`
+	SimNumber                 *model.OrderBy `json:"sim_number"`
+	CreatedAt                 *model.OrderBy `json:"created_at"`
+	CreatedBy                 *model.OrderBy `json:"created_by"`
+	UpdatedAt                 *model.OrderBy `json:"updated_at"`
+	UpdatedBy                 *model.OrderBy `json:"updated_by"`
+	DeletedAt                 *model.OrderBy `json:"deleted_at"`
+	DeletedBy                 *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadSetInput struct {
-	Imei                      *string    `json:"IMEI"`
+	ID                        *int64     `json:"id"`
 	AlarmSupervisionPictureID *string    `json:"alarm_supervision_picture_id"`
-	CameraID                  *int       `json:"camera_id"`
+	VehicleID                 *string    `json:"vehicle_id"`
 	DriverID                  *string    `json:"driver_id"`
 	EnterpriseID              *string    `json:"enterprise_id"`
-	ID                        *int64     `json:"id"`
-	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
-	MonitoringPicName         *string    `json:"monitoring_pic_name"`
-	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
+	CameraID                  *int       `json:"camera_id"`
 	PhotoCondition            *string    `json:"photo_condition"`
-	SimNumber                 *string    `json:"sim_number"`
 	UpdateTime                *time.Time `json:"update_time"`
-	VehicleID                 *string    `json:"vehicle_id"`
+	MonitoringPicName         *string    `json:"monitoring_pic_name"`
+	MonitoringPicAddress      *string    `json:"monitoring_pic_address"`
+	MonitoringPicUploadTime   *time.Time `json:"monitoring_pic_upload_time"`
+	Imel                      *string    `json:"imel"`
+	SimNumber                 *string    `json:"sim_number"`
+	CreatedAt                 *time.Time `json:"created_at"`
+	CreatedBy                 *string    `json:"created_by"`
+	UpdatedAt                 *time.Time `json:"updated_at"`
+	UpdatedBy                 *string    `json:"updated_by"`
+	DeletedAt                 *time.Time `json:"deleted_at"`
+	DeletedBy                 *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadStddevFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
-}
-
-// order by stddev() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadStddevOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
-type AlarmSupervisionPictureUploadStddevPopFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
-}
-
-// order by stddev_pop() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadStddevPopOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
-type AlarmSupervisionPictureUploadStddevSampFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
-}
-
-// order by stddev_samp() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadStddevSampOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
-type AlarmSupervisionPictureUploadSumFields struct {
-	CameraID *int   `json:"camera_id"`
 	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// order by sum() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadSumOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
+// aggregate stddev_pop on columns of table "alarm_supervision_picture_upload"
+type AlarmSupervisionPictureUploadStddevPopFields struct {
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// aggregate var_pop on columns
+// aggregate stddev_samp on columns of table "alarm_supervision_picture_upload"
+type AlarmSupervisionPictureUploadStddevSampFields struct {
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
+}
+
+// aggregate sum on columns of table "alarm_supervision_picture_upload"
+type AlarmSupervisionPictureUploadSumFields struct {
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
+}
+
+// aggregate var_pop on columns of table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadVarPopFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// order by var_pop() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadVarPopOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadVarSampFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
-// order by var_samp() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadVarSampOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "alarm_supervision_picture_upload"
 type AlarmSupervisionPictureUploadVarianceFields struct {
-	CameraID *float64 `json:"camera_id"`
-	ID       *float64 `json:"id"`
-}
-
-// order by variance() on columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadVarianceOrderBy struct {
-	CameraID *model.OrderBy `json:"camera_id"`
-	ID       *model.OrderBy `json:"id"`
+	ID       *int64 `json:"id"`
+	CameraID *int   `json:"camera_id"`
 }
 
 // aggregated selection of "district_alarm_content_push"
 type DistrictAlarmContentPushAggregate struct {
 	Aggregate *DistrictAlarmContentPushAggregateFields `json:"aggregate"`
-	Nodes     []*DistrictAlarmContentPush              `json:"nodes"`
 }
 
 // aggregate fields of "district_alarm_content_push"
@@ -710,57 +515,30 @@ type DistrictAlarmContentPushAggregateFields struct {
 	Variance   *DistrictAlarmContentPushVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "district_alarm_content_push"
-type DistrictAlarmContentPushAggregateOrderBy struct {
-	Avg        *DistrictAlarmContentPushAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                             `json:"count"`
-	Max        *DistrictAlarmContentPushMaxOrderBy        `json:"max"`
-	Min        *DistrictAlarmContentPushMinOrderBy        `json:"min"`
-	Stddev     *DistrictAlarmContentPushStddevOrderBy     `json:"stddev"`
-	StddevPop  *DistrictAlarmContentPushStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *DistrictAlarmContentPushStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *DistrictAlarmContentPushSumOrderBy        `json:"sum"`
-	VarPop     *DistrictAlarmContentPushVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *DistrictAlarmContentPushVarSampOrderBy    `json:"var_samp"`
-	Variance   *DistrictAlarmContentPushVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "district_alarm_content_push"
-type DistrictAlarmContentPushArrRelInsertInput struct {
-	Data       []*DistrictAlarmContentPushInsertInput `json:"data"`
-	OnConflict *DistrictAlarmContentPushOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushAvgFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by avg() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushAvgOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// Boolean expression to filter rows from the table "district_alarm_content_push".
-// All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'district_alarm_content_push'.
 type DistrictAlarmContentPushBoolExp struct {
 	And          []*DistrictAlarmContentPushBoolExp `json:"_and"`
 	Not          *DistrictAlarmContentPushBoolExp   `json:"_not"`
 	Or           []*DistrictAlarmContentPushBoolExp `json:"_or"`
-	AlarmContent *model.StringComparisonExp         `json:"alarm_content"`
+	ID           *model.BigintComparisonExp         `json:"id"`
 	AlarmDataID  *model.StringComparisonExp         `json:"alarm_data_id"`
 	AlarmType    *model.StringComparisonExp         `json:"alarm_type"`
+	AlarmContent *model.StringComparisonExp         `json:"alarm_content"`
+	ProvinceID   *model.StringComparisonExp         `json:"province_id"`
 	CityID       *model.StringComparisonExp         `json:"city_id"`
+	DistrictID   *model.StringComparisonExp         `json:"district_id"`
+	IsDeleted    *model.BooleanComparisonExp        `json:"is_deleted"`
 	CreatedAt    *model.TimestamptzComparisonExp    `json:"created_at"`
 	CreatedBy    *model.StringComparisonExp         `json:"created_by"`
-	DeletedAt    *model.TimestamptzComparisonExp    `json:"deleted_at"`
-	DeletedBy    *model.StringComparisonExp         `json:"deleted_by"`
-	DistrictID   *model.StringComparisonExp         `json:"district_id"`
-	ID           *model.BigintComparisonExp         `json:"id"`
-	IsDelete     *model.BooleanComparisonExp        `json:"is_delete"`
-	ProvinceID   *model.StringComparisonExp         `json:"province_id"`
 	UpdatedAt    *model.TimestamptzComparisonExp    `json:"updated_at"`
 	UpdatedBy    *model.StringComparisonExp         `json:"updated_by"`
+	DeletedAt    *model.TimestamptzComparisonExp    `json:"deleted_at"`
+	DeletedBy    *model.StringComparisonExp         `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "district_alarm_content_push"
@@ -770,227 +548,571 @@ type DistrictAlarmContentPushIncInput struct {
 
 // input type for inserting data into table "district_alarm_content_push"
 type DistrictAlarmContentPushInsertInput struct {
-	AlarmContent *string    `json:"alarm_content"`
+	ID           *int64     `json:"id"`
 	AlarmDataID  *string    `json:"alarm_data_id"`
 	AlarmType    *string    `json:"alarm_type"`
+	AlarmContent *string    `json:"alarm_content"`
+	ProvinceID   *string    `json:"province_id"`
 	CityID       *string    `json:"city_id"`
+	DistrictID   *string    `json:"district_id"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	CreatedAt    *time.Time `json:"created_at"`
 	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
-	DistrictID   *string    `json:"district_id"`
-	ID           *int64     `json:"id"`
-	IsDelete     *bool      `json:"is_delete"`
-	ProvinceID   *string    `json:"province_id"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushMaxFields struct {
-	AlarmContent *string    `json:"alarm_content"`
+	ID           *int64     `json:"id"`
 	AlarmDataID  *string    `json:"alarm_data_id"`
 	AlarmType    *string    `json:"alarm_type"`
+	AlarmContent *string    `json:"alarm_content"`
+	ProvinceID   *string    `json:"province_id"`
 	CityID       *string    `json:"city_id"`
+	DistrictID   *string    `json:"district_id"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	CreatedAt    *time.Time `json:"created_at"`
 	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
-	DistrictID   *string    `json:"district_id"`
-	ID           *int64     `json:"id"`
-	ProvinceID   *string    `json:"province_id"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushMaxOrderBy struct {
-	AlarmContent *model.OrderBy `json:"alarm_content"`
-	AlarmDataID  *model.OrderBy `json:"alarm_data_id"`
-	AlarmType    *model.OrderBy `json:"alarm_type"`
-	CityID       *model.OrderBy `json:"city_id"`
-	CreatedAt    *model.OrderBy `json:"created_at"`
-	CreatedBy    *model.OrderBy `json:"created_by"`
-	DeletedAt    *model.OrderBy `json:"deleted_at"`
-	DeletedBy    *model.OrderBy `json:"deleted_by"`
-	DistrictID   *model.OrderBy `json:"district_id"`
-	ID           *model.OrderBy `json:"id"`
-	ProvinceID   *model.OrderBy `json:"province_id"`
-	UpdatedAt    *model.OrderBy `json:"updated_at"`
-	UpdatedBy    *model.OrderBy `json:"updated_by"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushMinFields struct {
-	AlarmContent *string    `json:"alarm_content"`
+	ID           *int64     `json:"id"`
 	AlarmDataID  *string    `json:"alarm_data_id"`
 	AlarmType    *string    `json:"alarm_type"`
+	AlarmContent *string    `json:"alarm_content"`
+	ProvinceID   *string    `json:"province_id"`
 	CityID       *string    `json:"city_id"`
+	DistrictID   *string    `json:"district_id"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	CreatedAt    *time.Time `json:"created_at"`
 	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
-	DistrictID   *string    `json:"district_id"`
-	ID           *int64     `json:"id"`
-	ProvinceID   *string    `json:"province_id"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
-}
-
-// order by min() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushMinOrderBy struct {
-	AlarmContent *model.OrderBy `json:"alarm_content"`
-	AlarmDataID  *model.OrderBy `json:"alarm_data_id"`
-	AlarmType    *model.OrderBy `json:"alarm_type"`
-	CityID       *model.OrderBy `json:"city_id"`
-	CreatedAt    *model.OrderBy `json:"created_at"`
-	CreatedBy    *model.OrderBy `json:"created_by"`
-	DeletedAt    *model.OrderBy `json:"deleted_at"`
-	DeletedBy    *model.OrderBy `json:"deleted_by"`
-	DistrictID   *model.OrderBy `json:"district_id"`
-	ID           *model.OrderBy `json:"id"`
-	ProvinceID   *model.OrderBy `json:"province_id"`
-	UpdatedAt    *model.OrderBy `json:"updated_at"`
-	UpdatedBy    *model.OrderBy `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "district_alarm_content_push"
 type DistrictAlarmContentPushMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*DistrictAlarmContentPush `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "district_alarm_content_push"
-type DistrictAlarmContentPushObjRelInsertInput struct {
-	Data       *DistrictAlarmContentPushInsertInput `json:"data"`
-	OnConflict *DistrictAlarmContentPushOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "district_alarm_content_push"
-type DistrictAlarmContentPushOnConflict struct {
-	Constraint    DistrictAlarmContentPushConstraint     `json:"constraint"`
-	UpdateColumns []DistrictAlarmContentPushUpdateColumn `json:"update_columns"`
-	Where         *DistrictAlarmContentPushBoolExp       `json:"where"`
+	AffectedRows int                                `json:"affected_rows"`
+	Returning    []*model1.DistrictAlarmContentPush `json:"returning"`
 }
 
 // ordering options when selecting data from "district_alarm_content_push"
 type DistrictAlarmContentPushOrderBy struct {
-	AlarmContent *model.OrderBy `json:"alarm_content"`
+	ID           *model.OrderBy `json:"id"`
 	AlarmDataID  *model.OrderBy `json:"alarm_data_id"`
 	AlarmType    *model.OrderBy `json:"alarm_type"`
+	AlarmContent *model.OrderBy `json:"alarm_content"`
+	ProvinceID   *model.OrderBy `json:"province_id"`
 	CityID       *model.OrderBy `json:"city_id"`
+	DistrictID   *model.OrderBy `json:"district_id"`
+	IsDeleted    *model.OrderBy `json:"is_deleted"`
 	CreatedAt    *model.OrderBy `json:"created_at"`
 	CreatedBy    *model.OrderBy `json:"created_by"`
-	DeletedAt    *model.OrderBy `json:"deleted_at"`
-	DeletedBy    *model.OrderBy `json:"deleted_by"`
-	DistrictID   *model.OrderBy `json:"district_id"`
-	ID           *model.OrderBy `json:"id"`
-	IsDelete     *model.OrderBy `json:"is_delete"`
-	ProvinceID   *model.OrderBy `json:"province_id"`
 	UpdatedAt    *model.OrderBy `json:"updated_at"`
 	UpdatedBy    *model.OrderBy `json:"updated_by"`
-}
-
-// primary key columns input for table: "district_alarm_content_push"
-type DistrictAlarmContentPushPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
+	DeletedAt    *model.OrderBy `json:"deleted_at"`
+	DeletedBy    *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "district_alarm_content_push"
 type DistrictAlarmContentPushSetInput struct {
-	AlarmContent *string    `json:"alarm_content"`
+	ID           *int64     `json:"id"`
 	AlarmDataID  *string    `json:"alarm_data_id"`
 	AlarmType    *string    `json:"alarm_type"`
+	AlarmContent *string    `json:"alarm_content"`
+	ProvinceID   *string    `json:"province_id"`
 	CityID       *string    `json:"city_id"`
+	DistrictID   *string    `json:"district_id"`
+	IsDeleted    *bool      `json:"is_deleted"`
 	CreatedAt    *time.Time `json:"created_at"`
 	CreatedBy    *string    `json:"created_by"`
-	DeletedAt    *time.Time `json:"deleted_at"`
-	DeletedBy    *string    `json:"deleted_by"`
-	DistrictID   *string    `json:"district_id"`
-	ID           *int64     `json:"id"`
-	IsDelete     *bool      `json:"is_delete"`
-	ProvinceID   *string    `json:"province_id"`
 	UpdatedAt    *time.Time `json:"updated_at"`
 	UpdatedBy    *string    `json:"updated_by"`
+	DeletedAt    *time.Time `json:"deleted_at"`
+	DeletedBy    *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushStddevFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushStddevOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_pop on columns
+// aggregate stddev_pop on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushStddevPopFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev_pop() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushStddevPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate stddev_samp on columns
+// aggregate stddev_samp on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushStddevSampFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by stddev_samp() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushStddevSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate sum on columns
+// aggregate sum on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushSumFields struct {
 	ID *int64 `json:"id"`
 }
 
-// order by sum() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushSumOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_pop on columns
+// aggregate var_pop on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushVarPopFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by var_pop() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushVarPopOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushVarSampFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by var_samp() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushVarSampOrderBy struct {
-	ID *model.OrderBy `json:"id"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "district_alarm_content_push"
 type DistrictAlarmContentPushVarianceFields struct {
-	ID *float64 `json:"id"`
+	ID *int64 `json:"id"`
 }
 
-// order by variance() on columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushVarianceOrderBy struct {
-	ID *model.OrderBy `json:"id"`
+// aggregated selection of "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceAggregate struct {
+	Aggregate *EnterpriseAlarmSendPoliceAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceAggregateFields struct {
+	Avg        *EnterpriseAlarmSendPoliceAvgFields        `json:"avg"`
+	Count      *int                                       `json:"count"`
+	Max        *EnterpriseAlarmSendPoliceMaxFields        `json:"max"`
+	Min        *EnterpriseAlarmSendPoliceMinFields        `json:"min"`
+	Stddev     *EnterpriseAlarmSendPoliceStddevFields     `json:"stddev"`
+	StddevPop  *EnterpriseAlarmSendPoliceStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *EnterpriseAlarmSendPoliceStddevSampFields `json:"stddev_samp"`
+	Sum        *EnterpriseAlarmSendPoliceSumFields        `json:"sum"`
+	VarPop     *EnterpriseAlarmSendPoliceVarPopFields     `json:"var_pop"`
+	VarSamp    *EnterpriseAlarmSendPoliceVarSampFields    `json:"var_samp"`
+	Variance   *EnterpriseAlarmSendPoliceVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_alarm_send_police'.
+type EnterpriseAlarmSendPoliceBoolExp struct {
+	And                         []*EnterpriseAlarmSendPoliceBoolExp `json:"_and"`
+	Not                         *EnterpriseAlarmSendPoliceBoolExp   `json:"_not"`
+	Or                          []*EnterpriseAlarmSendPoliceBoolExp `json:"_or"`
+	ID                          *model.BigintComparisonExp          `json:"id"`
+	EnterpriseAlarmSendPoliceID *model.StringComparisonExp          `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *model.StringComparisonExp          `json:"enterprise_id"`
+	EnterpriseName              *model.StringComparisonExp          `json:"enterprise_name"`
+	EnterpriseContact           *model.StringComparisonExp          `json:"enterprise_contact"`
+	EnterprisePhone             *model.StringComparisonExp          `json:"enterprise_phone"`
+	Police                      *model.StringComparisonExp          `json:"police"`
+	PolicePhone                 *model.StringComparisonExp          `json:"police_phone"`
+	PhliceDepartment            *model.StringComparisonExp          `json:"phlice_department"`
+	CreatedAt                   *model.TimestamptzComparisonExp     `json:"created_at"`
+	CreatedBy                   *model.StringComparisonExp          `json:"created_by"`
+	UpdatedAt                   *model.TimestamptzComparisonExp     `json:"updated_at"`
+	UpdatedBy                   *model.StringComparisonExp          `json:"updated_by"`
+	DeletedAt                   *model.TimestamptzComparisonExp     `json:"deleted_at"`
+	DeletedBy                   *model.StringComparisonExp          `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceInsertInput struct {
+	ID                          *int64     `json:"id"`
+	EnterpriseAlarmSendPoliceID *string    `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	EnterpriseName              *string    `json:"enterprise_name"`
+	EnterpriseContact           *string    `json:"enterprise_contact"`
+	EnterprisePhone             *string    `json:"enterprise_phone"`
+	Police                      *string    `json:"police"`
+	PolicePhone                 *string    `json:"police_phone"`
+	PhliceDepartment            *string    `json:"phlice_department"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceMaxFields struct {
+	ID                          *int64     `json:"id"`
+	EnterpriseAlarmSendPoliceID *string    `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	EnterpriseName              *string    `json:"enterprise_name"`
+	EnterpriseContact           *string    `json:"enterprise_contact"`
+	EnterprisePhone             *string    `json:"enterprise_phone"`
+	Police                      *string    `json:"police"`
+	PolicePhone                 *string    `json:"police_phone"`
+	PhliceDepartment            *string    `json:"phlice_department"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceMinFields struct {
+	ID                          *int64     `json:"id"`
+	EnterpriseAlarmSendPoliceID *string    `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	EnterpriseName              *string    `json:"enterprise_name"`
+	EnterpriseContact           *string    `json:"enterprise_contact"`
+	EnterprisePhone             *string    `json:"enterprise_phone"`
+	Police                      *string    `json:"police"`
+	PolicePhone                 *string    `json:"police_phone"`
+	PhliceDepartment            *string    `json:"phlice_department"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceMutationResponse struct {
+	AffectedRows int                                 `json:"affected_rows"`
+	Returning    []*model1.EnterpriseAlarmSendPolice `json:"returning"`
+}
+
+// ordering options when selecting data from "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceOrderBy struct {
+	ID                          *model.OrderBy `json:"id"`
+	EnterpriseAlarmSendPoliceID *model.OrderBy `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *model.OrderBy `json:"enterprise_id"`
+	EnterpriseName              *model.OrderBy `json:"enterprise_name"`
+	EnterpriseContact           *model.OrderBy `json:"enterprise_contact"`
+	EnterprisePhone             *model.OrderBy `json:"enterprise_phone"`
+	Police                      *model.OrderBy `json:"police"`
+	PolicePhone                 *model.OrderBy `json:"police_phone"`
+	PhliceDepartment            *model.OrderBy `json:"phlice_department"`
+	CreatedAt                   *model.OrderBy `json:"created_at"`
+	CreatedBy                   *model.OrderBy `json:"created_by"`
+	UpdatedAt                   *model.OrderBy `json:"updated_at"`
+	UpdatedBy                   *model.OrderBy `json:"updated_by"`
+	DeletedAt                   *model.OrderBy `json:"deleted_at"`
+	DeletedBy                   *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceSetInput struct {
+	ID                          *int64     `json:"id"`
+	EnterpriseAlarmSendPoliceID *string    `json:"enterprise_alarm_send_police_id"`
+	EnterpriseID                *string    `json:"enterprise_id"`
+	EnterpriseName              *string    `json:"enterprise_name"`
+	EnterpriseContact           *string    `json:"enterprise_contact"`
+	EnterprisePhone             *string    `json:"enterprise_phone"`
+	Police                      *string    `json:"police"`
+	PolicePhone                 *string    `json:"police_phone"`
+	PhliceDepartment            *string    `json:"phlice_department"`
+	CreatedAt                   *time.Time `json:"created_at"`
+	CreatedBy                   *string    `json:"created_by"`
+	UpdatedAt                   *time.Time `json:"updated_at"`
+	UpdatedBy                   *string    `json:"updated_by"`
+	DeletedAt                   *time.Time `json:"deleted_at"`
+	DeletedBy                   *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "enterprise_alarm_send_police"
+type EnterpriseAlarmSendPoliceVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregated selection of "offline_alarm_registration"
+type OfflineAlarmRegistrationAggregate struct {
+	Aggregate *OfflineAlarmRegistrationAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "offline_alarm_registration"
+type OfflineAlarmRegistrationAggregateFields struct {
+	Avg        *OfflineAlarmRegistrationAvgFields        `json:"avg"`
+	Count      *int                                      `json:"count"`
+	Max        *OfflineAlarmRegistrationMaxFields        `json:"max"`
+	Min        *OfflineAlarmRegistrationMinFields        `json:"min"`
+	Stddev     *OfflineAlarmRegistrationStddevFields     `json:"stddev"`
+	StddevPop  *OfflineAlarmRegistrationStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *OfflineAlarmRegistrationStddevSampFields `json:"stddev_samp"`
+	Sum        *OfflineAlarmRegistrationSumFields        `json:"sum"`
+	VarPop     *OfflineAlarmRegistrationVarPopFields     `json:"var_pop"`
+	VarSamp    *OfflineAlarmRegistrationVarSampFields    `json:"var_samp"`
+	Variance   *OfflineAlarmRegistrationVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationAvgFields struct {
+	ID        *int64 `json:"id"`
+	AlarmType *int   `json:"alarm_type"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'offline_alarm_registration'.
+type OfflineAlarmRegistrationBoolExp struct {
+	And                        []*OfflineAlarmRegistrationBoolExp `json:"_and"`
+	Not                        *OfflineAlarmRegistrationBoolExp   `json:"_not"`
+	Or                         []*OfflineAlarmRegistrationBoolExp `json:"_or"`
+	ID                         *model.BigintComparisonExp         `json:"id"`
+	OfflineAlarmRegistrationID *model.StringComparisonExp         `json:"offline_alarm_registration_id"`
+	VehicleID                  *model.StringComparisonExp         `json:"vehicle_id"`
+	OfflineStartTime           *model.TimestamptzComparisonExp    `json:"offline_start_time"`
+	OfflineEndTime             *model.TimestamptzComparisonExp    `json:"offline_end_time"`
+	RegistrationUser           *model.StringComparisonExp         `json:"registration_user"`
+	RegistrationTime           *model.TimestamptzComparisonExp    `json:"registration_time"`
+	SmsContent                 *model.StringComparisonExp         `json:"sms_content"`
+	PhoneReminderContent       *model.StringComparisonExp         `json:"phone_reminder_content"`
+	SmsSendTime                *model.TimestamptzComparisonExp    `json:"sms_send_time"`
+	PhoneReminderTime          *model.TimestamptzComparisonExp    `json:"phone_reminder_time"`
+	OfflineReason              *model.StringComparisonExp         `json:"offline_reason"`
+	AlarmType                  *model.IntComparisonExp            `json:"alarm_type"`
+	IsRegistration             *model.BooleanComparisonExp        `json:"is_registration"`
+	IsEndAlarm                 *model.BooleanComparisonExp        `json:"is_end_alarm"`
+	IsSendSms                  *model.BooleanComparisonExp        `json:"is_send_sms"`
+	IsNeedMaintain             *model.BooleanComparisonExp        `json:"is_need_maintain"`
+	CreatedAt                  *model.TimestamptzComparisonExp    `json:"created_at"`
+	CreatedBy                  *model.StringComparisonExp         `json:"created_by"`
+	UpdatedAt                  *model.TimestamptzComparisonExp    `json:"updated_at"`
+	UpdatedBy                  *model.StringComparisonExp         `json:"updated_by"`
+	DeletedAt                  *model.TimestamptzComparisonExp    `json:"deleted_at"`
+	DeletedBy                  *model.StringComparisonExp         `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "offline_alarm_registration"
+type OfflineAlarmRegistrationIncInput struct {
+	ID        *int64 `json:"id"`
+	AlarmType *int   `json:"alarm_type"`
+}
+
+// input type for inserting data into table "offline_alarm_registration"
+type OfflineAlarmRegistrationInsertInput struct {
+	ID                         *int64     `json:"id"`
+	OfflineAlarmRegistrationID *string    `json:"offline_alarm_registration_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	OfflineStartTime           *time.Time `json:"offline_start_time"`
+	OfflineEndTime             *time.Time `json:"offline_end_time"`
+	RegistrationUser           *string    `json:"registration_user"`
+	RegistrationTime           *time.Time `json:"registration_time"`
+	SmsContent                 *string    `json:"sms_content"`
+	PhoneReminderContent       *string    `json:"phone_reminder_content"`
+	SmsSendTime                *time.Time `json:"sms_send_time"`
+	PhoneReminderTime          *time.Time `json:"phone_reminder_time"`
+	OfflineReason              *string    `json:"offline_reason"`
+	AlarmType                  *int       `json:"alarm_type"`
+	IsRegistration             *bool      `json:"is_registration"`
+	IsEndAlarm                 *bool      `json:"is_end_alarm"`
+	IsSendSms                  *bool      `json:"is_send_sms"`
+	IsNeedMaintain             *bool      `json:"is_need_maintain"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationMaxFields struct {
+	ID                         *int64     `json:"id"`
+	OfflineAlarmRegistrationID *string    `json:"offline_alarm_registration_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	OfflineStartTime           *time.Time `json:"offline_start_time"`
+	OfflineEndTime             *time.Time `json:"offline_end_time"`
+	RegistrationUser           *string    `json:"registration_user"`
+	RegistrationTime           *time.Time `json:"registration_time"`
+	SmsContent                 *string    `json:"sms_content"`
+	PhoneReminderContent       *string    `json:"phone_reminder_content"`
+	SmsSendTime                *time.Time `json:"sms_send_time"`
+	PhoneReminderTime          *time.Time `json:"phone_reminder_time"`
+	OfflineReason              *string    `json:"offline_reason"`
+	AlarmType                  *int       `json:"alarm_type"`
+	IsRegistration             *bool      `json:"is_registration"`
+	IsEndAlarm                 *bool      `json:"is_end_alarm"`
+	IsSendSms                  *bool      `json:"is_send_sms"`
+	IsNeedMaintain             *bool      `json:"is_need_maintain"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationMinFields struct {
+	ID                         *int64     `json:"id"`
+	OfflineAlarmRegistrationID *string    `json:"offline_alarm_registration_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	OfflineStartTime           *time.Time `json:"offline_start_time"`
+	OfflineEndTime             *time.Time `json:"offline_end_time"`
+	RegistrationUser           *string    `json:"registration_user"`
+	RegistrationTime           *time.Time `json:"registration_time"`
+	SmsContent                 *string    `json:"sms_content"`
+	PhoneReminderContent       *string    `json:"phone_reminder_content"`
+	SmsSendTime                *time.Time `json:"sms_send_time"`
+	PhoneReminderTime          *time.Time `json:"phone_reminder_time"`
+	OfflineReason              *string    `json:"offline_reason"`
+	AlarmType                  *int       `json:"alarm_type"`
+	IsRegistration             *bool      `json:"is_registration"`
+	IsEndAlarm                 *bool      `json:"is_end_alarm"`
+	IsSendSms                  *bool      `json:"is_send_sms"`
+	IsNeedMaintain             *bool      `json:"is_need_maintain"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "offline_alarm_registration"
+type OfflineAlarmRegistrationMutationResponse struct {
+	AffectedRows int                                `json:"affected_rows"`
+	Returning    []*model1.OfflineAlarmRegistration `json:"returning"`
+}
+
+// ordering options when selecting data from "offline_alarm_registration"
+type OfflineAlarmRegistrationOrderBy struct {
+	ID                         *model.OrderBy `json:"id"`
+	OfflineAlarmRegistrationID *model.OrderBy `json:"offline_alarm_registration_id"`
+	VehicleID                  *model.OrderBy `json:"vehicle_id"`
+	OfflineStartTime           *model.OrderBy `json:"offline_start_time"`
+	OfflineEndTime             *model.OrderBy `json:"offline_end_time"`
+	RegistrationUser           *model.OrderBy `json:"registration_user"`
+	RegistrationTime           *model.OrderBy `json:"registration_time"`
+	SmsContent                 *model.OrderBy `json:"sms_content"`
+	PhoneReminderContent       *model.OrderBy `json:"phone_reminder_content"`
+	SmsSendTime                *model.OrderBy `json:"sms_send_time"`
+	PhoneReminderTime          *model.OrderBy `json:"phone_reminder_time"`
+	OfflineReason              *model.OrderBy `json:"offline_reason"`
+	AlarmType                  *model.OrderBy `json:"alarm_type"`
+	IsRegistration             *model.OrderBy `json:"is_registration"`
+	IsEndAlarm                 *model.OrderBy `json:"is_end_alarm"`
+	IsSendSms                  *model.OrderBy `json:"is_send_sms"`
+	IsNeedMaintain             *model.OrderBy `json:"is_need_maintain"`
+	CreatedAt                  *model.OrderBy `json:"created_at"`
+	CreatedBy                  *model.OrderBy `json:"created_by"`
+	UpdatedAt                  *model.OrderBy `json:"updated_at"`
+	UpdatedBy                  *model.OrderBy `json:"updated_by"`
+	DeletedAt                  *model.OrderBy `json:"deleted_at"`
+	DeletedBy                  *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "offline_alarm_registration"
+type OfflineAlarmRegistrationSetInput struct {
+	ID                         *int64     `json:"id"`
+	OfflineAlarmRegistrationID *string    `json:"offline_alarm_registration_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	OfflineStartTime           *time.Time `json:"offline_start_time"`
+	OfflineEndTime             *time.Time `json:"offline_end_time"`
+	RegistrationUser           *string    `json:"registration_user"`
+	RegistrationTime           *time.Time `json:"registration_time"`
+	SmsContent                 *string    `json:"sms_content"`
+	PhoneReminderContent       *string    `json:"phone_reminder_content"`
+	SmsSendTime                *time.Time `json:"sms_send_time"`
+	PhoneReminderTime          *time.Time `json:"phone_reminder_time"`
+	OfflineReason              *string    `json:"offline_reason"`
+	AlarmType                  *int       `json:"alarm_type"`
+	IsRegistration             *bool      `json:"is_registration"`
+	IsEndAlarm                 *bool      `json:"is_end_alarm"`
+	IsSendSms                  *bool      `json:"is_send_sms"`
+	IsNeedMaintain             *bool      `json:"is_need_maintain"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationStddevFields struct {
+	ID        *int64 `json:"id"`
+	AlarmType *int   `json:"alarm_type"`
+}
+
+// aggregate stddev_pop on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationStddevPopFields struct {
+	ID        *int64 `json:"id"`
+	AlarmType *int   `json:"alarm_type"`
+}
+
+// aggregate stddev_samp on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationStddevSampFields struct {
+	ID        *int64 `json:"id"`
+	AlarmType *int   `json:"alarm_type"`
+}
+
+// aggregate sum on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationSumFields struct {
+	ID        *int64 `json:"id"`
+	AlarmType *int   `json:"alarm_type"`
+}
+
+// aggregate var_pop on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationVarPopFields struct {
+	ID        *int64 `json:"id"`
+	AlarmType *int   `json:"alarm_type"`
+}
+
+// aggregate var_samp on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationVarSampFields struct {
+	ID        *int64 `json:"id"`
+	AlarmType *int   `json:"alarm_type"`
+}
+
+// aggregate variance on columns of table "offline_alarm_registration"
+type OfflineAlarmRegistrationVarianceFields struct {
+	ID        *int64 `json:"id"`
+	AlarmType *int   `json:"alarm_type"`
 }
 
 // aggregated selection of "vehicle_alarm_data"
 type VehicleAlarmDataAggregate struct {
 	Aggregate *VehicleAlarmDataAggregateFields `json:"aggregate"`
-	Nodes     []*VehicleAlarmData              `json:"nodes"`
 }
 
 // aggregate fields of "vehicle_alarm_data"
@@ -1008,606 +1130,859 @@ type VehicleAlarmDataAggregateFields struct {
 	Variance   *VehicleAlarmDataVarianceFields   `json:"variance"`
 }
 
-// order by aggregate values of table "vehicle_alarm_data"
-type VehicleAlarmDataAggregateOrderBy struct {
-	Avg        *VehicleAlarmDataAvgOrderBy        `json:"avg"`
-	Count      *model.OrderBy                     `json:"count"`
-	Max        *VehicleAlarmDataMaxOrderBy        `json:"max"`
-	Min        *VehicleAlarmDataMinOrderBy        `json:"min"`
-	Stddev     *VehicleAlarmDataStddevOrderBy     `json:"stddev"`
-	StddevPop  *VehicleAlarmDataStddevPopOrderBy  `json:"stddev_pop"`
-	StddevSamp *VehicleAlarmDataStddevSampOrderBy `json:"stddev_samp"`
-	Sum        *VehicleAlarmDataSumOrderBy        `json:"sum"`
-	VarPop     *VehicleAlarmDataVarPopOrderBy     `json:"var_pop"`
-	VarSamp    *VehicleAlarmDataVarSampOrderBy    `json:"var_samp"`
-	Variance   *VehicleAlarmDataVarianceOrderBy   `json:"variance"`
-}
-
-// input type for inserting array relation for remote table "vehicle_alarm_data"
-type VehicleAlarmDataArrRelInsertInput struct {
-	Data       []*VehicleAlarmDataInsertInput `json:"data"`
-	OnConflict *VehicleAlarmDataOnConflict    `json:"on_conflict"`
-}
-
-// aggregate avg on columns
+// aggregate avg on columns of table "vehicle_alarm_data"
 type VehicleAlarmDataAvgFields struct {
-	GpsSpeed            *float64 `json:"GPS_speed"`
-	ID                  *float64 `json:"id"`
-	LatestAlarmPosition *float64 `json:"latest_alarm_position"`
+	ID                  *int64   `json:"id"`
+	LatestAlarmPosition *int     `json:"latest_alarm_position"`
+	TachographSpeed     *float64 `json:"tachograph_speed"`
+	GpsSpeed            *float64 `json:"gps_speed"`
 	MaximumSpeed        *float64 `json:"maximum_speed"`
 	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
-	TachographSpeed     *float64 `json:"tachograph_speed"`
 }
 
-// order by avg() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataAvgOrderBy struct {
-	GpsSpeed            *model.OrderBy `json:"GPS_speed"`
-	ID                  *model.OrderBy `json:"id"`
-	LatestAlarmPosition *model.OrderBy `json:"latest_alarm_position"`
-	MaximumSpeed        *model.OrderBy `json:"maximum_speed"`
-	SpeedLimitThreshold *model.OrderBy `json:"speed_limit_threshold"`
-	TachographSpeed     *model.OrderBy `json:"tachograph_speed"`
-}
-
-// Boolean expression to filter rows from the table "vehicle_alarm_data". All fields are combined with a logical 'AND'.
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_alarm_data'.
 type VehicleAlarmDataBoolExp struct {
-	GpsSpeed              *model.NumericComparisonExp     `json:"GPS_speed"`
-	And                   []*VehicleAlarmDataBoolExp      `json:"_and"`
-	Not                   *VehicleAlarmDataBoolExp        `json:"_not"`
-	Or                    []*VehicleAlarmDataBoolExp      `json:"_or"`
-	AlarmDealID           *model.StringComparisonExp      `json:"alarm_deal_id"`
-	AlarmEndPosition      *model.StringComparisonExp      `json:"alarm_end_position"`
-	AlarmEndTime          *model.TimestamptzComparisonExp `json:"alarm_end_time"`
-	AlarmSource           *model.StringComparisonExp      `json:"alarm_source"`
-	AlarmStartTime        *model.TimestamptzComparisonExp `json:"alarm_start_time"`
-	AlarmType             *model.StringComparisonExp      `json:"alarm_type"`
-	AreaID                *model.StringComparisonExp      `json:"area_id"`
-	Coordinate            *model.PointComparisonExp       `json:"coordinate"`
-	Duration              *model.StringComparisonExp      `json:"duration"`
-	ID                    *model.BigintComparisonExp      `json:"id"`
-	IsAlarmEffective      *model.BooleanComparisonExp     `json:"is_alarm_effective"`
-	IsAlarmOver           *model.BooleanComparisonExp     `json:"is_alarm_over"`
-	IsCancelAlarm         *model.BooleanComparisonExp     `json:"is_cancel_alarm"`
-	IsResolve             *model.BooleanComparisonExp     `json:"is_resolve"`
-	IsSupervise           *model.BooleanComparisonExp     `json:"is_supervise"`
-	LatestAlarmPosition   *model.IntComparisonExp         `json:"latest_alarm_position"`
-	LatestAlarmTime       *model.TimestamptzComparisonExp `json:"latest_alarm_time"`
-	LocationDescription   *model.StringComparisonExp      `json:"location_description"`
-	MaximumSpeed          *model.NumericComparisonExp     `json:"maximum_speed"`
-	Pid                   *model.StringComparisonExp      `json:"pid"`
-	ProcessingDescription *model.StringComparisonExp      `json:"processing_description"`
-	ProcessingMethod      *model.StringComparisonExp      `json:"processing_method"`
-	ProcessingStatus      *model.StringComparisonExp      `json:"processing_status"`
-	ProcessingTime        *model.TimestamptzComparisonExp `json:"processing_time"`
-	Processor             *model.StringComparisonExp      `json:"processor"`
-	RecordTime            *model.TimestamptzComparisonExp `json:"record_time"`
-	RoadGrade             *model.StringComparisonExp      `json:"road_grade"`
-	RoadName              *model.StringComparisonExp      `json:"road_name"`
-	SpeedLimitThreshold   *model.NumericComparisonExp     `json:"speed_limit_threshold"`
-	SupervisionNote       *model.StringComparisonExp      `json:"supervision_note"`
-	SupervisionTime       *model.TimestamptzComparisonExp `json:"supervision_time"`
-	Supervisor            *model.StringComparisonExp      `json:"supervisor"`
-	TachographSpeed       *model.NumericComparisonExp     `json:"tachograph_speed"`
-	VehicleAlarmDataID    *model.StringComparisonExp      `json:"vehicle_alarm_data_id"`
-	VehicleID             *model.StringComparisonExp      `json:"vehicle_id"`
+	And                        []*VehicleAlarmDataBoolExp      `json:"_and"`
+	Not                        *VehicleAlarmDataBoolExp        `json:"_not"`
+	Or                         []*VehicleAlarmDataBoolExp      `json:"_or"`
+	ID                         *model.BigintComparisonExp      `json:"id"`
+	VehicleAlarmDataID         *model.StringComparisonExp      `json:"vehicle_alarm_data_id"`
+	VehicleID                  *model.StringComparisonExp      `json:"vehicle_id"`
+	AlarmType                  *model.StringComparisonExp      `json:"alarm_type"`
+	AlarmStartTime             *model.TimestamptzComparisonExp `json:"alarm_start_time"`
+	AlarmEndTime               *model.TimestamptzComparisonExp `json:"alarm_end_time"`
+	AlarmEndPosition           *model.StringComparisonExp      `json:"alarm_end_position"`
+	LatestAlarmTime            *model.TimestamptzComparisonExp `json:"latest_alarm_time"`
+	LatestAlarmPosition        *model.IntComparisonExp         `json:"latest_alarm_position"`
+	IsAlarmEffective           *model.BooleanComparisonExp     `json:"is_alarm_effective"`
+	IsAlarmOver                *model.BooleanComparisonExp     `json:"is_alarm_over"`
+	IsCancelAlarm              *model.BooleanComparisonExp     `json:"is_cancel_alarm"`
+	AlarmSource                *model.StringComparisonExp      `json:"alarm_source"`
+	ProcessingTime             *model.TimestamptzComparisonExp `json:"processing_time"`
+	ProcessingMethod           *model.StringComparisonExp      `json:"processing_method"`
+	ProcessingDescription      *model.StringComparisonExp      `json:"processing_description"`
+	Processor                  *model.StringComparisonExp      `json:"processor"`
+	ProcessingStatus           *model.StringComparisonExp      `json:"processing_status"`
+	TachographSpeed            *model.NumericComparisonExp     `json:"tachograph_speed"`
+	GpsSpeed                   *model.NumericComparisonExp     `json:"gps_speed"`
+	MaximumSpeed               *model.NumericComparisonExp     `json:"maximum_speed"`
+	SpeedLimitThreshold        *model.NumericComparisonExp     `json:"speed_limit_threshold"`
+	Coordinate                 *model.PointComparisonExp       `json:"coordinate"`
+	LocationDescription        *model.StringComparisonExp      `json:"location_description"`
+	Duration                   *model.StringComparisonExp      `json:"duration"`
+	RoadGrade                  *model.StringComparisonExp      `json:"road_grade"`
+	RoadName                   *model.StringComparisonExp      `json:"road_name"`
+	AreaID                     *model.StringComparisonExp      `json:"area_id"`
+	AlarmDealID                *model.StringComparisonExp      `json:"alarm_deal_id"`
+	Pid                        *model.StringComparisonExp      `json:"pid"`
+	RecordTime                 *model.TimestamptzComparisonExp `json:"record_time"`
+	Supervisor                 *model.StringComparisonExp      `json:"supervisor"`
+	IsSupervise                *model.BooleanComparisonExp     `json:"is_supervise"`
+	SupervisionTime            *model.TimestamptzComparisonExp `json:"supervision_time"`
+	SupervisionNote            *model.StringComparisonExp      `json:"supervision_note"`
+	IsResolve                  *model.BooleanComparisonExp     `json:"is_resolve"`
+	IsConstructionSiteHandle   *model.BooleanComparisonExp     `json:"is_construction_site_handle"`
+	ConstructionSiteHandleTime *model.TimestamptzComparisonExp `json:"construction_site_handle_time"`
+	CreatedAt                  *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy                  *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt                  *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy                  *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt                  *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy                  *model.StringComparisonExp      `json:"deleted_by"`
 }
 
 // input type for incrementing integer column in table "vehicle_alarm_data"
 type VehicleAlarmDataIncInput struct {
-	GpsSpeed            *float64 `json:"GPS_speed"`
 	ID                  *int64   `json:"id"`
 	LatestAlarmPosition *int     `json:"latest_alarm_position"`
+	TachographSpeed     *float64 `json:"tachograph_speed"`
+	GpsSpeed            *float64 `json:"gps_speed"`
 	MaximumSpeed        *float64 `json:"maximum_speed"`
 	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
-	TachographSpeed     *float64 `json:"tachograph_speed"`
 }
 
 // input type for inserting data into table "vehicle_alarm_data"
 type VehicleAlarmDataInsertInput struct {
-	GpsSpeed              *float64   `json:"GPS_speed"`
-	AlarmDealID           *string    `json:"alarm_deal_id"`
-	AlarmEndPosition      *string    `json:"alarm_end_position"`
-	AlarmEndTime          *time.Time `json:"alarm_end_time"`
-	AlarmSource           *string    `json:"alarm_source"`
-	AlarmStartTime        *time.Time `json:"alarm_start_time"`
-	AlarmType             *string    `json:"alarm_type"`
-	AreaID                *string    `json:"area_id"`
-	Coordinate            *string    `json:"coordinate"`
-	Duration              *string    `json:"duration"`
-	ID                    *int64     `json:"id"`
-	IsAlarmEffective      *bool      `json:"is_alarm_effective"`
-	IsAlarmOver           *bool      `json:"is_alarm_over"`
-	IsCancelAlarm         *bool      `json:"is_cancel_alarm"`
-	IsResolve             *bool      `json:"is_resolve"`
-	IsSupervise           *bool      `json:"is_supervise"`
-	LatestAlarmPosition   *int       `json:"latest_alarm_position"`
-	LatestAlarmTime       *time.Time `json:"latest_alarm_time"`
-	LocationDescription   *string    `json:"location_description"`
-	MaximumSpeed          *float64   `json:"maximum_speed"`
-	Pid                   *string    `json:"pid"`
-	ProcessingDescription *string    `json:"processing_description"`
-	ProcessingMethod      *string    `json:"processing_method"`
-	ProcessingStatus      *string    `json:"processing_status"`
-	ProcessingTime        *time.Time `json:"processing_time"`
-	Processor             *string    `json:"processor"`
-	RecordTime            *time.Time `json:"record_time"`
-	RoadGrade             *string    `json:"road_grade"`
-	RoadName              *string    `json:"road_name"`
-	SpeedLimitThreshold   *float64   `json:"speed_limit_threshold"`
-	SupervisionNote       *string    `json:"supervision_note"`
-	SupervisionTime       *time.Time `json:"supervision_time"`
-	Supervisor            *string    `json:"supervisor"`
-	TachographSpeed       *float64   `json:"tachograph_speed"`
-	VehicleAlarmDataID    *string    `json:"vehicle_alarm_data_id"`
-	VehicleID             *string    `json:"vehicle_id"`
+	ID                         *int64     `json:"id"`
+	VehicleAlarmDataID         *string    `json:"vehicle_alarm_data_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	AlarmType                  *string    `json:"alarm_type"`
+	AlarmStartTime             *time.Time `json:"alarm_start_time"`
+	AlarmEndTime               *time.Time `json:"alarm_end_time"`
+	AlarmEndPosition           *string    `json:"alarm_end_position"`
+	LatestAlarmTime            *time.Time `json:"latest_alarm_time"`
+	LatestAlarmPosition        *int       `json:"latest_alarm_position"`
+	IsAlarmEffective           *bool      `json:"is_alarm_effective"`
+	IsAlarmOver                *bool      `json:"is_alarm_over"`
+	IsCancelAlarm              *bool      `json:"is_cancel_alarm"`
+	AlarmSource                *string    `json:"alarm_source"`
+	ProcessingTime             *time.Time `json:"processing_time"`
+	ProcessingMethod           *string    `json:"processing_method"`
+	ProcessingDescription      *string    `json:"processing_description"`
+	Processor                  *string    `json:"processor"`
+	ProcessingStatus           *string    `json:"processing_status"`
+	TachographSpeed            *float64   `json:"tachograph_speed"`
+	GpsSpeed                   *float64   `json:"gps_speed"`
+	MaximumSpeed               *float64   `json:"maximum_speed"`
+	SpeedLimitThreshold        *float64   `json:"speed_limit_threshold"`
+	Coordinate                 *string    `json:"coordinate"`
+	LocationDescription        *string    `json:"location_description"`
+	Duration                   *string    `json:"duration"`
+	RoadGrade                  *string    `json:"road_grade"`
+	RoadName                   *string    `json:"road_name"`
+	AreaID                     *string    `json:"area_id"`
+	AlarmDealID                *string    `json:"alarm_deal_id"`
+	Pid                        *string    `json:"pid"`
+	RecordTime                 *time.Time `json:"record_time"`
+	Supervisor                 *string    `json:"supervisor"`
+	IsSupervise                *bool      `json:"is_supervise"`
+	SupervisionTime            *time.Time `json:"supervision_time"`
+	SupervisionNote            *string    `json:"supervision_note"`
+	IsResolve                  *bool      `json:"is_resolve"`
+	IsConstructionSiteHandle   *bool      `json:"is_construction_site_handle"`
+	ConstructionSiteHandleTime *time.Time `json:"construction_site_handle_time"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
-// aggregate max on columns
+// aggregate max on columns of table "vehicle_alarm_data"
 type VehicleAlarmDataMaxFields struct {
-	GpsSpeed              *float64   `json:"GPS_speed"`
-	AlarmDealID           *string    `json:"alarm_deal_id"`
-	AlarmEndPosition      *string    `json:"alarm_end_position"`
-	AlarmEndTime          *time.Time `json:"alarm_end_time"`
-	AlarmSource           *string    `json:"alarm_source"`
-	AlarmStartTime        *time.Time `json:"alarm_start_time"`
-	AlarmType             *string    `json:"alarm_type"`
-	AreaID                *string    `json:"area_id"`
-	Duration              *string    `json:"duration"`
-	ID                    *int64     `json:"id"`
-	LatestAlarmPosition   *int       `json:"latest_alarm_position"`
-	LatestAlarmTime       *time.Time `json:"latest_alarm_time"`
-	LocationDescription   *string    `json:"location_description"`
-	MaximumSpeed          *float64   `json:"maximum_speed"`
-	Pid                   *string    `json:"pid"`
-	ProcessingDescription *string    `json:"processing_description"`
-	ProcessingMethod      *string    `json:"processing_method"`
-	ProcessingStatus      *string    `json:"processing_status"`
-	ProcessingTime        *time.Time `json:"processing_time"`
-	Processor             *string    `json:"processor"`
-	RecordTime            *time.Time `json:"record_time"`
-	RoadGrade             *string    `json:"road_grade"`
-	RoadName              *string    `json:"road_name"`
-	SpeedLimitThreshold   *float64   `json:"speed_limit_threshold"`
-	SupervisionNote       *string    `json:"supervision_note"`
-	SupervisionTime       *time.Time `json:"supervision_time"`
-	Supervisor            *string    `json:"supervisor"`
-	TachographSpeed       *float64   `json:"tachograph_speed"`
-	VehicleAlarmDataID    *string    `json:"vehicle_alarm_data_id"`
-	VehicleID             *string    `json:"vehicle_id"`
+	ID                         *int64     `json:"id"`
+	VehicleAlarmDataID         *string    `json:"vehicle_alarm_data_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	AlarmType                  *string    `json:"alarm_type"`
+	AlarmStartTime             *time.Time `json:"alarm_start_time"`
+	AlarmEndTime               *time.Time `json:"alarm_end_time"`
+	AlarmEndPosition           *string    `json:"alarm_end_position"`
+	LatestAlarmTime            *time.Time `json:"latest_alarm_time"`
+	LatestAlarmPosition        *int       `json:"latest_alarm_position"`
+	IsAlarmEffective           *bool      `json:"is_alarm_effective"`
+	IsAlarmOver                *bool      `json:"is_alarm_over"`
+	IsCancelAlarm              *bool      `json:"is_cancel_alarm"`
+	AlarmSource                *string    `json:"alarm_source"`
+	ProcessingTime             *time.Time `json:"processing_time"`
+	ProcessingMethod           *string    `json:"processing_method"`
+	ProcessingDescription      *string    `json:"processing_description"`
+	Processor                  *string    `json:"processor"`
+	ProcessingStatus           *string    `json:"processing_status"`
+	TachographSpeed            *float64   `json:"tachograph_speed"`
+	GpsSpeed                   *float64   `json:"gps_speed"`
+	MaximumSpeed               *float64   `json:"maximum_speed"`
+	SpeedLimitThreshold        *float64   `json:"speed_limit_threshold"`
+	Coordinate                 *string    `json:"coordinate"`
+	LocationDescription        *string    `json:"location_description"`
+	Duration                   *string    `json:"duration"`
+	RoadGrade                  *string    `json:"road_grade"`
+	RoadName                   *string    `json:"road_name"`
+	AreaID                     *string    `json:"area_id"`
+	AlarmDealID                *string    `json:"alarm_deal_id"`
+	Pid                        *string    `json:"pid"`
+	RecordTime                 *time.Time `json:"record_time"`
+	Supervisor                 *string    `json:"supervisor"`
+	IsSupervise                *bool      `json:"is_supervise"`
+	SupervisionTime            *time.Time `json:"supervision_time"`
+	SupervisionNote            *string    `json:"supervision_note"`
+	IsResolve                  *bool      `json:"is_resolve"`
+	IsConstructionSiteHandle   *bool      `json:"is_construction_site_handle"`
+	ConstructionSiteHandleTime *time.Time `json:"construction_site_handle_time"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
-// order by max() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataMaxOrderBy struct {
-	GpsSpeed              *model.OrderBy `json:"GPS_speed"`
-	AlarmDealID           *model.OrderBy `json:"alarm_deal_id"`
-	AlarmEndPosition      *model.OrderBy `json:"alarm_end_position"`
-	AlarmEndTime          *model.OrderBy `json:"alarm_end_time"`
-	AlarmSource           *model.OrderBy `json:"alarm_source"`
-	AlarmStartTime        *model.OrderBy `json:"alarm_start_time"`
-	AlarmType             *model.OrderBy `json:"alarm_type"`
-	AreaID                *model.OrderBy `json:"area_id"`
-	Duration              *model.OrderBy `json:"duration"`
-	ID                    *model.OrderBy `json:"id"`
-	LatestAlarmPosition   *model.OrderBy `json:"latest_alarm_position"`
-	LatestAlarmTime       *model.OrderBy `json:"latest_alarm_time"`
-	LocationDescription   *model.OrderBy `json:"location_description"`
-	MaximumSpeed          *model.OrderBy `json:"maximum_speed"`
-	Pid                   *model.OrderBy `json:"pid"`
-	ProcessingDescription *model.OrderBy `json:"processing_description"`
-	ProcessingMethod      *model.OrderBy `json:"processing_method"`
-	ProcessingStatus      *model.OrderBy `json:"processing_status"`
-	ProcessingTime        *model.OrderBy `json:"processing_time"`
-	Processor             *model.OrderBy `json:"processor"`
-	RecordTime            *model.OrderBy `json:"record_time"`
-	RoadGrade             *model.OrderBy `json:"road_grade"`
-	RoadName              *model.OrderBy `json:"road_name"`
-	SpeedLimitThreshold   *model.OrderBy `json:"speed_limit_threshold"`
-	SupervisionNote       *model.OrderBy `json:"supervision_note"`
-	SupervisionTime       *model.OrderBy `json:"supervision_time"`
-	Supervisor            *model.OrderBy `json:"supervisor"`
-	TachographSpeed       *model.OrderBy `json:"tachograph_speed"`
-	VehicleAlarmDataID    *model.OrderBy `json:"vehicle_alarm_data_id"`
-	VehicleID             *model.OrderBy `json:"vehicle_id"`
-}
-
-// aggregate min on columns
+// aggregate min on columns of table "vehicle_alarm_data"
 type VehicleAlarmDataMinFields struct {
-	GpsSpeed              *float64   `json:"GPS_speed"`
-	AlarmDealID           *string    `json:"alarm_deal_id"`
-	AlarmEndPosition      *string    `json:"alarm_end_position"`
-	AlarmEndTime          *time.Time `json:"alarm_end_time"`
-	AlarmSource           *string    `json:"alarm_source"`
-	AlarmStartTime        *time.Time `json:"alarm_start_time"`
-	AlarmType             *string    `json:"alarm_type"`
-	AreaID                *string    `json:"area_id"`
-	Duration              *string    `json:"duration"`
-	ID                    *int64     `json:"id"`
-	LatestAlarmPosition   *int       `json:"latest_alarm_position"`
-	LatestAlarmTime       *time.Time `json:"latest_alarm_time"`
-	LocationDescription   *string    `json:"location_description"`
-	MaximumSpeed          *float64   `json:"maximum_speed"`
-	Pid                   *string    `json:"pid"`
-	ProcessingDescription *string    `json:"processing_description"`
-	ProcessingMethod      *string    `json:"processing_method"`
-	ProcessingStatus      *string    `json:"processing_status"`
-	ProcessingTime        *time.Time `json:"processing_time"`
-	Processor             *string    `json:"processor"`
-	RecordTime            *time.Time `json:"record_time"`
-	RoadGrade             *string    `json:"road_grade"`
-	RoadName              *string    `json:"road_name"`
-	SpeedLimitThreshold   *float64   `json:"speed_limit_threshold"`
-	SupervisionNote       *string    `json:"supervision_note"`
-	SupervisionTime       *time.Time `json:"supervision_time"`
-	Supervisor            *string    `json:"supervisor"`
-	TachographSpeed       *float64   `json:"tachograph_speed"`
-	VehicleAlarmDataID    *string    `json:"vehicle_alarm_data_id"`
-	VehicleID             *string    `json:"vehicle_id"`
-}
-
-// order by min() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataMinOrderBy struct {
-	GpsSpeed              *model.OrderBy `json:"GPS_speed"`
-	AlarmDealID           *model.OrderBy `json:"alarm_deal_id"`
-	AlarmEndPosition      *model.OrderBy `json:"alarm_end_position"`
-	AlarmEndTime          *model.OrderBy `json:"alarm_end_time"`
-	AlarmSource           *model.OrderBy `json:"alarm_source"`
-	AlarmStartTime        *model.OrderBy `json:"alarm_start_time"`
-	AlarmType             *model.OrderBy `json:"alarm_type"`
-	AreaID                *model.OrderBy `json:"area_id"`
-	Duration              *model.OrderBy `json:"duration"`
-	ID                    *model.OrderBy `json:"id"`
-	LatestAlarmPosition   *model.OrderBy `json:"latest_alarm_position"`
-	LatestAlarmTime       *model.OrderBy `json:"latest_alarm_time"`
-	LocationDescription   *model.OrderBy `json:"location_description"`
-	MaximumSpeed          *model.OrderBy `json:"maximum_speed"`
-	Pid                   *model.OrderBy `json:"pid"`
-	ProcessingDescription *model.OrderBy `json:"processing_description"`
-	ProcessingMethod      *model.OrderBy `json:"processing_method"`
-	ProcessingStatus      *model.OrderBy `json:"processing_status"`
-	ProcessingTime        *model.OrderBy `json:"processing_time"`
-	Processor             *model.OrderBy `json:"processor"`
-	RecordTime            *model.OrderBy `json:"record_time"`
-	RoadGrade             *model.OrderBy `json:"road_grade"`
-	RoadName              *model.OrderBy `json:"road_name"`
-	SpeedLimitThreshold   *model.OrderBy `json:"speed_limit_threshold"`
-	SupervisionNote       *model.OrderBy `json:"supervision_note"`
-	SupervisionTime       *model.OrderBy `json:"supervision_time"`
-	Supervisor            *model.OrderBy `json:"supervisor"`
-	TachographSpeed       *model.OrderBy `json:"tachograph_speed"`
-	VehicleAlarmDataID    *model.OrderBy `json:"vehicle_alarm_data_id"`
-	VehicleID             *model.OrderBy `json:"vehicle_id"`
+	ID                         *int64     `json:"id"`
+	VehicleAlarmDataID         *string    `json:"vehicle_alarm_data_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	AlarmType                  *string    `json:"alarm_type"`
+	AlarmStartTime             *time.Time `json:"alarm_start_time"`
+	AlarmEndTime               *time.Time `json:"alarm_end_time"`
+	AlarmEndPosition           *string    `json:"alarm_end_position"`
+	LatestAlarmTime            *time.Time `json:"latest_alarm_time"`
+	LatestAlarmPosition        *int       `json:"latest_alarm_position"`
+	IsAlarmEffective           *bool      `json:"is_alarm_effective"`
+	IsAlarmOver                *bool      `json:"is_alarm_over"`
+	IsCancelAlarm              *bool      `json:"is_cancel_alarm"`
+	AlarmSource                *string    `json:"alarm_source"`
+	ProcessingTime             *time.Time `json:"processing_time"`
+	ProcessingMethod           *string    `json:"processing_method"`
+	ProcessingDescription      *string    `json:"processing_description"`
+	Processor                  *string    `json:"processor"`
+	ProcessingStatus           *string    `json:"processing_status"`
+	TachographSpeed            *float64   `json:"tachograph_speed"`
+	GpsSpeed                   *float64   `json:"gps_speed"`
+	MaximumSpeed               *float64   `json:"maximum_speed"`
+	SpeedLimitThreshold        *float64   `json:"speed_limit_threshold"`
+	Coordinate                 *string    `json:"coordinate"`
+	LocationDescription        *string    `json:"location_description"`
+	Duration                   *string    `json:"duration"`
+	RoadGrade                  *string    `json:"road_grade"`
+	RoadName                   *string    `json:"road_name"`
+	AreaID                     *string    `json:"area_id"`
+	AlarmDealID                *string    `json:"alarm_deal_id"`
+	Pid                        *string    `json:"pid"`
+	RecordTime                 *time.Time `json:"record_time"`
+	Supervisor                 *string    `json:"supervisor"`
+	IsSupervise                *bool      `json:"is_supervise"`
+	SupervisionTime            *time.Time `json:"supervision_time"`
+	SupervisionNote            *string    `json:"supervision_note"`
+	IsResolve                  *bool      `json:"is_resolve"`
+	IsConstructionSiteHandle   *bool      `json:"is_construction_site_handle"`
+	ConstructionSiteHandleTime *time.Time `json:"construction_site_handle_time"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
 // response of any mutation on the table "vehicle_alarm_data"
 type VehicleAlarmDataMutationResponse struct {
-	// number of affected rows by the mutation
-	AffectedRows int `json:"affected_rows"`
-	// data of the affected rows by the mutation
-	Returning []*VehicleAlarmData `json:"returning"`
-}
-
-// input type for inserting object relation for remote table "vehicle_alarm_data"
-type VehicleAlarmDataObjRelInsertInput struct {
-	Data       *VehicleAlarmDataInsertInput `json:"data"`
-	OnConflict *VehicleAlarmDataOnConflict  `json:"on_conflict"`
-}
-
-// on conflict condition type for table "vehicle_alarm_data"
-type VehicleAlarmDataOnConflict struct {
-	Constraint    VehicleAlarmDataConstraint     `json:"constraint"`
-	UpdateColumns []VehicleAlarmDataUpdateColumn `json:"update_columns"`
-	Where         *VehicleAlarmDataBoolExp       `json:"where"`
+	AffectedRows int                        `json:"affected_rows"`
+	Returning    []*model1.VehicleAlarmData `json:"returning"`
 }
 
 // ordering options when selecting data from "vehicle_alarm_data"
 type VehicleAlarmDataOrderBy struct {
-	GpsSpeed              *model.OrderBy `json:"GPS_speed"`
-	AlarmDealID           *model.OrderBy `json:"alarm_deal_id"`
-	AlarmEndPosition      *model.OrderBy `json:"alarm_end_position"`
-	AlarmEndTime          *model.OrderBy `json:"alarm_end_time"`
-	AlarmSource           *model.OrderBy `json:"alarm_source"`
-	AlarmStartTime        *model.OrderBy `json:"alarm_start_time"`
-	AlarmType             *model.OrderBy `json:"alarm_type"`
-	AreaID                *model.OrderBy `json:"area_id"`
-	Coordinate            *model.OrderBy `json:"coordinate"`
-	Duration              *model.OrderBy `json:"duration"`
-	ID                    *model.OrderBy `json:"id"`
-	IsAlarmEffective      *model.OrderBy `json:"is_alarm_effective"`
-	IsAlarmOver           *model.OrderBy `json:"is_alarm_over"`
-	IsCancelAlarm         *model.OrderBy `json:"is_cancel_alarm"`
-	IsResolve             *model.OrderBy `json:"is_resolve"`
-	IsSupervise           *model.OrderBy `json:"is_supervise"`
-	LatestAlarmPosition   *model.OrderBy `json:"latest_alarm_position"`
-	LatestAlarmTime       *model.OrderBy `json:"latest_alarm_time"`
-	LocationDescription   *model.OrderBy `json:"location_description"`
-	MaximumSpeed          *model.OrderBy `json:"maximum_speed"`
-	Pid                   *model.OrderBy `json:"pid"`
-	ProcessingDescription *model.OrderBy `json:"processing_description"`
-	ProcessingMethod      *model.OrderBy `json:"processing_method"`
-	ProcessingStatus      *model.OrderBy `json:"processing_status"`
-	ProcessingTime        *model.OrderBy `json:"processing_time"`
-	Processor             *model.OrderBy `json:"processor"`
-	RecordTime            *model.OrderBy `json:"record_time"`
-	RoadGrade             *model.OrderBy `json:"road_grade"`
-	RoadName              *model.OrderBy `json:"road_name"`
-	SpeedLimitThreshold   *model.OrderBy `json:"speed_limit_threshold"`
-	SupervisionNote       *model.OrderBy `json:"supervision_note"`
-	SupervisionTime       *model.OrderBy `json:"supervision_time"`
-	Supervisor            *model.OrderBy `json:"supervisor"`
-	TachographSpeed       *model.OrderBy `json:"tachograph_speed"`
-	VehicleAlarmDataID    *model.OrderBy `json:"vehicle_alarm_data_id"`
-	VehicleID             *model.OrderBy `json:"vehicle_id"`
-}
-
-// primary key columns input for table: "vehicle_alarm_data"
-type VehicleAlarmDataPkColumnsInput struct {
-	// 主键
-	ID int64 `json:"id"`
-	// 报警数据外部编码，由golang程序生成的xid，暴露到外部使用，联合主键
-	VehicleAlarmDataID string `json:"vehicle_alarm_data_id"`
+	ID                         *model.OrderBy `json:"id"`
+	VehicleAlarmDataID         *model.OrderBy `json:"vehicle_alarm_data_id"`
+	VehicleID                  *model.OrderBy `json:"vehicle_id"`
+	AlarmType                  *model.OrderBy `json:"alarm_type"`
+	AlarmStartTime             *model.OrderBy `json:"alarm_start_time"`
+	AlarmEndTime               *model.OrderBy `json:"alarm_end_time"`
+	AlarmEndPosition           *model.OrderBy `json:"alarm_end_position"`
+	LatestAlarmTime            *model.OrderBy `json:"latest_alarm_time"`
+	LatestAlarmPosition        *model.OrderBy `json:"latest_alarm_position"`
+	IsAlarmEffective           *model.OrderBy `json:"is_alarm_effective"`
+	IsAlarmOver                *model.OrderBy `json:"is_alarm_over"`
+	IsCancelAlarm              *model.OrderBy `json:"is_cancel_alarm"`
+	AlarmSource                *model.OrderBy `json:"alarm_source"`
+	ProcessingTime             *model.OrderBy `json:"processing_time"`
+	ProcessingMethod           *model.OrderBy `json:"processing_method"`
+	ProcessingDescription      *model.OrderBy `json:"processing_description"`
+	Processor                  *model.OrderBy `json:"processor"`
+	ProcessingStatus           *model.OrderBy `json:"processing_status"`
+	TachographSpeed            *model.OrderBy `json:"tachograph_speed"`
+	GpsSpeed                   *model.OrderBy `json:"gps_speed"`
+	MaximumSpeed               *model.OrderBy `json:"maximum_speed"`
+	SpeedLimitThreshold        *model.OrderBy `json:"speed_limit_threshold"`
+	Coordinate                 *model.OrderBy `json:"coordinate"`
+	LocationDescription        *model.OrderBy `json:"location_description"`
+	Duration                   *model.OrderBy `json:"duration"`
+	RoadGrade                  *model.OrderBy `json:"road_grade"`
+	RoadName                   *model.OrderBy `json:"road_name"`
+	AreaID                     *model.OrderBy `json:"area_id"`
+	AlarmDealID                *model.OrderBy `json:"alarm_deal_id"`
+	Pid                        *model.OrderBy `json:"pid"`
+	RecordTime                 *model.OrderBy `json:"record_time"`
+	Supervisor                 *model.OrderBy `json:"supervisor"`
+	IsSupervise                *model.OrderBy `json:"is_supervise"`
+	SupervisionTime            *model.OrderBy `json:"supervision_time"`
+	SupervisionNote            *model.OrderBy `json:"supervision_note"`
+	IsResolve                  *model.OrderBy `json:"is_resolve"`
+	IsConstructionSiteHandle   *model.OrderBy `json:"is_construction_site_handle"`
+	ConstructionSiteHandleTime *model.OrderBy `json:"construction_site_handle_time"`
+	CreatedAt                  *model.OrderBy `json:"created_at"`
+	CreatedBy                  *model.OrderBy `json:"created_by"`
+	UpdatedAt                  *model.OrderBy `json:"updated_at"`
+	UpdatedBy                  *model.OrderBy `json:"updated_by"`
+	DeletedAt                  *model.OrderBy `json:"deleted_at"`
+	DeletedBy                  *model.OrderBy `json:"deleted_by"`
 }
 
 // input type for updating data in table "vehicle_alarm_data"
 type VehicleAlarmDataSetInput struct {
-	GpsSpeed              *float64   `json:"GPS_speed"`
-	AlarmDealID           *string    `json:"alarm_deal_id"`
-	AlarmEndPosition      *string    `json:"alarm_end_position"`
-	AlarmEndTime          *time.Time `json:"alarm_end_time"`
-	AlarmSource           *string    `json:"alarm_source"`
-	AlarmStartTime        *time.Time `json:"alarm_start_time"`
-	AlarmType             *string    `json:"alarm_type"`
-	AreaID                *string    `json:"area_id"`
-	Coordinate            *string    `json:"coordinate"`
-	Duration              *string    `json:"duration"`
-	ID                    *int64     `json:"id"`
-	IsAlarmEffective      *bool      `json:"is_alarm_effective"`
-	IsAlarmOver           *bool      `json:"is_alarm_over"`
-	IsCancelAlarm         *bool      `json:"is_cancel_alarm"`
-	IsResolve             *bool      `json:"is_resolve"`
-	IsSupervise           *bool      `json:"is_supervise"`
-	LatestAlarmPosition   *int       `json:"latest_alarm_position"`
-	LatestAlarmTime       *time.Time `json:"latest_alarm_time"`
-	LocationDescription   *string    `json:"location_description"`
-	MaximumSpeed          *float64   `json:"maximum_speed"`
-	Pid                   *string    `json:"pid"`
-	ProcessingDescription *string    `json:"processing_description"`
-	ProcessingMethod      *string    `json:"processing_method"`
-	ProcessingStatus      *string    `json:"processing_status"`
-	ProcessingTime        *time.Time `json:"processing_time"`
-	Processor             *string    `json:"processor"`
-	RecordTime            *time.Time `json:"record_time"`
-	RoadGrade             *string    `json:"road_grade"`
-	RoadName              *string    `json:"road_name"`
-	SpeedLimitThreshold   *float64   `json:"speed_limit_threshold"`
-	SupervisionNote       *string    `json:"supervision_note"`
-	SupervisionTime       *time.Time `json:"supervision_time"`
-	Supervisor            *string    `json:"supervisor"`
-	TachographSpeed       *float64   `json:"tachograph_speed"`
-	VehicleAlarmDataID    *string    `json:"vehicle_alarm_data_id"`
-	VehicleID             *string    `json:"vehicle_id"`
+	ID                         *int64     `json:"id"`
+	VehicleAlarmDataID         *string    `json:"vehicle_alarm_data_id"`
+	VehicleID                  *string    `json:"vehicle_id"`
+	AlarmType                  *string    `json:"alarm_type"`
+	AlarmStartTime             *time.Time `json:"alarm_start_time"`
+	AlarmEndTime               *time.Time `json:"alarm_end_time"`
+	AlarmEndPosition           *string    `json:"alarm_end_position"`
+	LatestAlarmTime            *time.Time `json:"latest_alarm_time"`
+	LatestAlarmPosition        *int       `json:"latest_alarm_position"`
+	IsAlarmEffective           *bool      `json:"is_alarm_effective"`
+	IsAlarmOver                *bool      `json:"is_alarm_over"`
+	IsCancelAlarm              *bool      `json:"is_cancel_alarm"`
+	AlarmSource                *string    `json:"alarm_source"`
+	ProcessingTime             *time.Time `json:"processing_time"`
+	ProcessingMethod           *string    `json:"processing_method"`
+	ProcessingDescription      *string    `json:"processing_description"`
+	Processor                  *string    `json:"processor"`
+	ProcessingStatus           *string    `json:"processing_status"`
+	TachographSpeed            *float64   `json:"tachograph_speed"`
+	GpsSpeed                   *float64   `json:"gps_speed"`
+	MaximumSpeed               *float64   `json:"maximum_speed"`
+	SpeedLimitThreshold        *float64   `json:"speed_limit_threshold"`
+	Coordinate                 *string    `json:"coordinate"`
+	LocationDescription        *string    `json:"location_description"`
+	Duration                   *string    `json:"duration"`
+	RoadGrade                  *string    `json:"road_grade"`
+	RoadName                   *string    `json:"road_name"`
+	AreaID                     *string    `json:"area_id"`
+	AlarmDealID                *string    `json:"alarm_deal_id"`
+	Pid                        *string    `json:"pid"`
+	RecordTime                 *time.Time `json:"record_time"`
+	Supervisor                 *string    `json:"supervisor"`
+	IsSupervise                *bool      `json:"is_supervise"`
+	SupervisionTime            *time.Time `json:"supervision_time"`
+	SupervisionNote            *string    `json:"supervision_note"`
+	IsResolve                  *bool      `json:"is_resolve"`
+	IsConstructionSiteHandle   *bool      `json:"is_construction_site_handle"`
+	ConstructionSiteHandleTime *time.Time `json:"construction_site_handle_time"`
+	CreatedAt                  *time.Time `json:"created_at"`
+	CreatedBy                  *string    `json:"created_by"`
+	UpdatedAt                  *time.Time `json:"updated_at"`
+	UpdatedBy                  *string    `json:"updated_by"`
+	DeletedAt                  *time.Time `json:"deleted_at"`
+	DeletedBy                  *string    `json:"deleted_by"`
 }
 
-// aggregate stddev on columns
+// aggregate stddev on columns of table "vehicle_alarm_data"
 type VehicleAlarmDataStddevFields struct {
-	GpsSpeed            *float64 `json:"GPS_speed"`
-	ID                  *float64 `json:"id"`
-	LatestAlarmPosition *float64 `json:"latest_alarm_position"`
-	MaximumSpeed        *float64 `json:"maximum_speed"`
-	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
-	TachographSpeed     *float64 `json:"tachograph_speed"`
-}
-
-// order by stddev() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataStddevOrderBy struct {
-	GpsSpeed            *model.OrderBy `json:"GPS_speed"`
-	ID                  *model.OrderBy `json:"id"`
-	LatestAlarmPosition *model.OrderBy `json:"latest_alarm_position"`
-	MaximumSpeed        *model.OrderBy `json:"maximum_speed"`
-	SpeedLimitThreshold *model.OrderBy `json:"speed_limit_threshold"`
-	TachographSpeed     *model.OrderBy `json:"tachograph_speed"`
-}
-
-// aggregate stddev_pop on columns
-type VehicleAlarmDataStddevPopFields struct {
-	GpsSpeed            *float64 `json:"GPS_speed"`
-	ID                  *float64 `json:"id"`
-	LatestAlarmPosition *float64 `json:"latest_alarm_position"`
-	MaximumSpeed        *float64 `json:"maximum_speed"`
-	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
-	TachographSpeed     *float64 `json:"tachograph_speed"`
-}
-
-// order by stddev_pop() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataStddevPopOrderBy struct {
-	GpsSpeed            *model.OrderBy `json:"GPS_speed"`
-	ID                  *model.OrderBy `json:"id"`
-	LatestAlarmPosition *model.OrderBy `json:"latest_alarm_position"`
-	MaximumSpeed        *model.OrderBy `json:"maximum_speed"`
-	SpeedLimitThreshold *model.OrderBy `json:"speed_limit_threshold"`
-	TachographSpeed     *model.OrderBy `json:"tachograph_speed"`
-}
-
-// aggregate stddev_samp on columns
-type VehicleAlarmDataStddevSampFields struct {
-	GpsSpeed            *float64 `json:"GPS_speed"`
-	ID                  *float64 `json:"id"`
-	LatestAlarmPosition *float64 `json:"latest_alarm_position"`
-	MaximumSpeed        *float64 `json:"maximum_speed"`
-	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
-	TachographSpeed     *float64 `json:"tachograph_speed"`
-}
-
-// order by stddev_samp() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataStddevSampOrderBy struct {
-	GpsSpeed            *model.OrderBy `json:"GPS_speed"`
-	ID                  *model.OrderBy `json:"id"`
-	LatestAlarmPosition *model.OrderBy `json:"latest_alarm_position"`
-	MaximumSpeed        *model.OrderBy `json:"maximum_speed"`
-	SpeedLimitThreshold *model.OrderBy `json:"speed_limit_threshold"`
-	TachographSpeed     *model.OrderBy `json:"tachograph_speed"`
-}
-
-// aggregate sum on columns
-type VehicleAlarmDataSumFields struct {
-	GpsSpeed            *float64 `json:"GPS_speed"`
 	ID                  *int64   `json:"id"`
 	LatestAlarmPosition *int     `json:"latest_alarm_position"`
+	TachographSpeed     *float64 `json:"tachograph_speed"`
+	GpsSpeed            *float64 `json:"gps_speed"`
 	MaximumSpeed        *float64 `json:"maximum_speed"`
 	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
+}
+
+// aggregate stddev_pop on columns of table "vehicle_alarm_data"
+type VehicleAlarmDataStddevPopFields struct {
+	ID                  *int64   `json:"id"`
+	LatestAlarmPosition *int     `json:"latest_alarm_position"`
 	TachographSpeed     *float64 `json:"tachograph_speed"`
+	GpsSpeed            *float64 `json:"gps_speed"`
+	MaximumSpeed        *float64 `json:"maximum_speed"`
+	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
 }
 
-// order by sum() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataSumOrderBy struct {
-	GpsSpeed            *model.OrderBy `json:"GPS_speed"`
-	ID                  *model.OrderBy `json:"id"`
-	LatestAlarmPosition *model.OrderBy `json:"latest_alarm_position"`
-	MaximumSpeed        *model.OrderBy `json:"maximum_speed"`
-	SpeedLimitThreshold *model.OrderBy `json:"speed_limit_threshold"`
-	TachographSpeed     *model.OrderBy `json:"tachograph_speed"`
+// aggregate stddev_samp on columns of table "vehicle_alarm_data"
+type VehicleAlarmDataStddevSampFields struct {
+	ID                  *int64   `json:"id"`
+	LatestAlarmPosition *int     `json:"latest_alarm_position"`
+	TachographSpeed     *float64 `json:"tachograph_speed"`
+	GpsSpeed            *float64 `json:"gps_speed"`
+	MaximumSpeed        *float64 `json:"maximum_speed"`
+	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
 }
 
-// aggregate var_pop on columns
+// aggregate sum on columns of table "vehicle_alarm_data"
+type VehicleAlarmDataSumFields struct {
+	ID                  *int64   `json:"id"`
+	LatestAlarmPosition *int     `json:"latest_alarm_position"`
+	TachographSpeed     *float64 `json:"tachograph_speed"`
+	GpsSpeed            *float64 `json:"gps_speed"`
+	MaximumSpeed        *float64 `json:"maximum_speed"`
+	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
+}
+
+// aggregate var_pop on columns of table "vehicle_alarm_data"
 type VehicleAlarmDataVarPopFields struct {
-	GpsSpeed            *float64 `json:"GPS_speed"`
-	ID                  *float64 `json:"id"`
-	LatestAlarmPosition *float64 `json:"latest_alarm_position"`
+	ID                  *int64   `json:"id"`
+	LatestAlarmPosition *int     `json:"latest_alarm_position"`
+	TachographSpeed     *float64 `json:"tachograph_speed"`
+	GpsSpeed            *float64 `json:"gps_speed"`
 	MaximumSpeed        *float64 `json:"maximum_speed"`
 	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
-	TachographSpeed     *float64 `json:"tachograph_speed"`
 }
 
-// order by var_pop() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataVarPopOrderBy struct {
-	GpsSpeed            *model.OrderBy `json:"GPS_speed"`
-	ID                  *model.OrderBy `json:"id"`
-	LatestAlarmPosition *model.OrderBy `json:"latest_alarm_position"`
-	MaximumSpeed        *model.OrderBy `json:"maximum_speed"`
-	SpeedLimitThreshold *model.OrderBy `json:"speed_limit_threshold"`
-	TachographSpeed     *model.OrderBy `json:"tachograph_speed"`
-}
-
-// aggregate var_samp on columns
+// aggregate var_samp on columns of table "vehicle_alarm_data"
 type VehicleAlarmDataVarSampFields struct {
-	GpsSpeed            *float64 `json:"GPS_speed"`
-	ID                  *float64 `json:"id"`
-	LatestAlarmPosition *float64 `json:"latest_alarm_position"`
+	ID                  *int64   `json:"id"`
+	LatestAlarmPosition *int     `json:"latest_alarm_position"`
+	TachographSpeed     *float64 `json:"tachograph_speed"`
+	GpsSpeed            *float64 `json:"gps_speed"`
 	MaximumSpeed        *float64 `json:"maximum_speed"`
 	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
-	TachographSpeed     *float64 `json:"tachograph_speed"`
 }
 
-// order by var_samp() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataVarSampOrderBy struct {
-	GpsSpeed            *model.OrderBy `json:"GPS_speed"`
-	ID                  *model.OrderBy `json:"id"`
-	LatestAlarmPosition *model.OrderBy `json:"latest_alarm_position"`
-	MaximumSpeed        *model.OrderBy `json:"maximum_speed"`
-	SpeedLimitThreshold *model.OrderBy `json:"speed_limit_threshold"`
-	TachographSpeed     *model.OrderBy `json:"tachograph_speed"`
-}
-
-// aggregate variance on columns
+// aggregate variance on columns of table "vehicle_alarm_data"
 type VehicleAlarmDataVarianceFields struct {
-	GpsSpeed            *float64 `json:"GPS_speed"`
-	ID                  *float64 `json:"id"`
-	LatestAlarmPosition *float64 `json:"latest_alarm_position"`
+	ID                  *int64   `json:"id"`
+	LatestAlarmPosition *int     `json:"latest_alarm_position"`
+	TachographSpeed     *float64 `json:"tachograph_speed"`
+	GpsSpeed            *float64 `json:"gps_speed"`
 	MaximumSpeed        *float64 `json:"maximum_speed"`
 	SpeedLimitThreshold *float64 `json:"speed_limit_threshold"`
-	TachographSpeed     *float64 `json:"tachograph_speed"`
 }
 
-// order by variance() on columns of table "vehicle_alarm_data"
-type VehicleAlarmDataVarianceOrderBy struct {
-	GpsSpeed            *model.OrderBy `json:"GPS_speed"`
-	ID                  *model.OrderBy `json:"id"`
-	LatestAlarmPosition *model.OrderBy `json:"latest_alarm_position"`
-	MaximumSpeed        *model.OrderBy `json:"maximum_speed"`
-	SpeedLimitThreshold *model.OrderBy `json:"speed_limit_threshold"`
-	TachographSpeed     *model.OrderBy `json:"tachograph_speed"`
+// aggregated selection of "video_platform_alarm_type"
+type VideoPlatformAlarmTypeAggregate struct {
+	Aggregate *VideoPlatformAlarmTypeAggregateFields `json:"aggregate"`
 }
 
-// select columns of table "alarm_processing_record"
+// aggregate fields of "video_platform_alarm_type"
+type VideoPlatformAlarmTypeAggregateFields struct {
+	Avg        *VideoPlatformAlarmTypeAvgFields        `json:"avg"`
+	Count      *int                                    `json:"count"`
+	Max        *VideoPlatformAlarmTypeMaxFields        `json:"max"`
+	Min        *VideoPlatformAlarmTypeMinFields        `json:"min"`
+	Stddev     *VideoPlatformAlarmTypeStddevFields     `json:"stddev"`
+	StddevPop  *VideoPlatformAlarmTypeStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VideoPlatformAlarmTypeStddevSampFields `json:"stddev_samp"`
+	Sum        *VideoPlatformAlarmTypeSumFields        `json:"sum"`
+	VarPop     *VideoPlatformAlarmTypeVarPopFields     `json:"var_pop"`
+	VarSamp    *VideoPlatformAlarmTypeVarSampFields    `json:"var_samp"`
+	Variance   *VideoPlatformAlarmTypeVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeAvgFields struct {
+	ID                 *int64 `json:"id"`
+	VehicleAlarmDataID *int   `json:"vehicle_alarm_data_id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'video_platform_alarm_type'.
+type VideoPlatformAlarmTypeBoolExp struct {
+	And                      []*VideoPlatformAlarmTypeBoolExp `json:"_and"`
+	Not                      *VideoPlatformAlarmTypeBoolExp   `json:"_not"`
+	Or                       []*VideoPlatformAlarmTypeBoolExp `json:"_or"`
+	ID                       *model.BigintComparisonExp       `json:"id"`
+	VideoPlatformAlarmTypeID *model.StringComparisonExp       `json:"video_platform_alarm_type_id"`
+	VehicleAlarmDataID       *model.IntComparisonExp          `json:"vehicle_alarm_data_id"`
+	AlarmType                *model.StringComparisonExp       `json:"alarm_type"`
+	AlarmSource              *model.StringComparisonExp       `json:"alarm_source"`
+	AlarmClassify            *model.StringComparisonExp       `json:"alarm_classify"`
+	AlarmCode                *model.StringComparisonExp       `json:"alarm_code"`
+	IsDeleted                *model.BooleanComparisonExp      `json:"is_deleted"`
+	CreatedAt                *model.TimestamptzComparisonExp  `json:"created_at"`
+	CreatedBy                *model.StringComparisonExp       `json:"created_by"`
+	UpdatedAt                *model.TimestamptzComparisonExp  `json:"updated_at"`
+	UpdatedBy                *model.StringComparisonExp       `json:"updated_by"`
+	DeletedAt                *model.TimestamptzComparisonExp  `json:"deleted_at"`
+	DeletedBy                *model.StringComparisonExp       `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeIncInput struct {
+	ID                 *int64 `json:"id"`
+	VehicleAlarmDataID *int   `json:"vehicle_alarm_data_id"`
+}
+
+// input type for inserting data into table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeInsertInput struct {
+	ID                       *int64     `json:"id"`
+	VideoPlatformAlarmTypeID *string    `json:"video_platform_alarm_type_id"`
+	VehicleAlarmDataID       *int       `json:"vehicle_alarm_data_id"`
+	AlarmType                *string    `json:"alarm_type"`
+	AlarmSource              *string    `json:"alarm_source"`
+	AlarmClassify            *string    `json:"alarm_classify"`
+	AlarmCode                *string    `json:"alarm_code"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeMaxFields struct {
+	ID                       *int64     `json:"id"`
+	VideoPlatformAlarmTypeID *string    `json:"video_platform_alarm_type_id"`
+	VehicleAlarmDataID       *int       `json:"vehicle_alarm_data_id"`
+	AlarmType                *string    `json:"alarm_type"`
+	AlarmSource              *string    `json:"alarm_source"`
+	AlarmClassify            *string    `json:"alarm_classify"`
+	AlarmCode                *string    `json:"alarm_code"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeMinFields struct {
+	ID                       *int64     `json:"id"`
+	VideoPlatformAlarmTypeID *string    `json:"video_platform_alarm_type_id"`
+	VehicleAlarmDataID       *int       `json:"vehicle_alarm_data_id"`
+	AlarmType                *string    `json:"alarm_type"`
+	AlarmSource              *string    `json:"alarm_source"`
+	AlarmClassify            *string    `json:"alarm_classify"`
+	AlarmCode                *string    `json:"alarm_code"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeMutationResponse struct {
+	AffectedRows int                              `json:"affected_rows"`
+	Returning    []*model1.VideoPlatformAlarmType `json:"returning"`
+}
+
+// ordering options when selecting data from "video_platform_alarm_type"
+type VideoPlatformAlarmTypeOrderBy struct {
+	ID                       *model.OrderBy `json:"id"`
+	VideoPlatformAlarmTypeID *model.OrderBy `json:"video_platform_alarm_type_id"`
+	VehicleAlarmDataID       *model.OrderBy `json:"vehicle_alarm_data_id"`
+	AlarmType                *model.OrderBy `json:"alarm_type"`
+	AlarmSource              *model.OrderBy `json:"alarm_source"`
+	AlarmClassify            *model.OrderBy `json:"alarm_classify"`
+	AlarmCode                *model.OrderBy `json:"alarm_code"`
+	IsDeleted                *model.OrderBy `json:"is_deleted"`
+	CreatedAt                *model.OrderBy `json:"created_at"`
+	CreatedBy                *model.OrderBy `json:"created_by"`
+	UpdatedAt                *model.OrderBy `json:"updated_at"`
+	UpdatedBy                *model.OrderBy `json:"updated_by"`
+	DeletedAt                *model.OrderBy `json:"deleted_at"`
+	DeletedBy                *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeSetInput struct {
+	ID                       *int64     `json:"id"`
+	VideoPlatformAlarmTypeID *string    `json:"video_platform_alarm_type_id"`
+	VehicleAlarmDataID       *int       `json:"vehicle_alarm_data_id"`
+	AlarmType                *string    `json:"alarm_type"`
+	AlarmSource              *string    `json:"alarm_source"`
+	AlarmClassify            *string    `json:"alarm_classify"`
+	AlarmCode                *string    `json:"alarm_code"`
+	IsDeleted                *bool      `json:"is_deleted"`
+	CreatedAt                *time.Time `json:"created_at"`
+	CreatedBy                *string    `json:"created_by"`
+	UpdatedAt                *time.Time `json:"updated_at"`
+	UpdatedBy                *string    `json:"updated_by"`
+	DeletedAt                *time.Time `json:"deleted_at"`
+	DeletedBy                *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeStddevFields struct {
+	ID                 *int64 `json:"id"`
+	VehicleAlarmDataID *int   `json:"vehicle_alarm_data_id"`
+}
+
+// aggregate stddev_pop on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeStddevPopFields struct {
+	ID                 *int64 `json:"id"`
+	VehicleAlarmDataID *int   `json:"vehicle_alarm_data_id"`
+}
+
+// aggregate stddev_samp on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeStddevSampFields struct {
+	ID                 *int64 `json:"id"`
+	VehicleAlarmDataID *int   `json:"vehicle_alarm_data_id"`
+}
+
+// aggregate sum on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeSumFields struct {
+	ID                 *int64 `json:"id"`
+	VehicleAlarmDataID *int   `json:"vehicle_alarm_data_id"`
+}
+
+// aggregate var_pop on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeVarPopFields struct {
+	ID                 *int64 `json:"id"`
+	VehicleAlarmDataID *int   `json:"vehicle_alarm_data_id"`
+}
+
+// aggregate var_samp on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeVarSampFields struct {
+	ID                 *int64 `json:"id"`
+	VehicleAlarmDataID *int   `json:"vehicle_alarm_data_id"`
+}
+
+// aggregate variance on columns of table "video_platform_alarm_type"
+type VideoPlatformAlarmTypeVarianceFields struct {
+	ID                 *int64 `json:"id"`
+	VehicleAlarmDataID *int   `json:"vehicle_alarm_data_id"`
+}
+
+// aggregated selection of "voice_alarm_record"
+type VoiceAlarmRecordAggregate struct {
+	Aggregate *VoiceAlarmRecordAggregateFields `json:"aggregate"`
+}
+
+// aggregate fields of "voice_alarm_record"
+type VoiceAlarmRecordAggregateFields struct {
+	Avg        *VoiceAlarmRecordAvgFields        `json:"avg"`
+	Count      *int                              `json:"count"`
+	Max        *VoiceAlarmRecordMaxFields        `json:"max"`
+	Min        *VoiceAlarmRecordMinFields        `json:"min"`
+	Stddev     *VoiceAlarmRecordStddevFields     `json:"stddev"`
+	StddevPop  *VoiceAlarmRecordStddevPopFields  `json:"stddev_pop"`
+	StddevSamp *VoiceAlarmRecordStddevSampFields `json:"stddev_samp"`
+	Sum        *VoiceAlarmRecordSumFields        `json:"sum"`
+	VarPop     *VoiceAlarmRecordVarPopFields     `json:"var_pop"`
+	VarSamp    *VoiceAlarmRecordVarSampFields    `json:"var_samp"`
+	Variance   *VoiceAlarmRecordVarianceFields   `json:"variance"`
+}
+
+// aggregate avg on columns of table "voice_alarm_record"
+type VoiceAlarmRecordAvgFields struct {
+	ID *int64 `json:"id"`
+}
+
+// Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'voice_alarm_record'.
+type VoiceAlarmRecordBoolExp struct {
+	And                []*VoiceAlarmRecordBoolExp      `json:"_and"`
+	Not                *VoiceAlarmRecordBoolExp        `json:"_not"`
+	Or                 []*VoiceAlarmRecordBoolExp      `json:"_or"`
+	ID                 *model.BigintComparisonExp      `json:"id"`
+	VioceAlarmRecordID *model.StringComparisonExp      `json:"vioce_alarm_record_id"`
+	VehicleID          *model.StringComparisonExp      `json:"vehicle_id"`
+	AlarmTime          *model.TimestamptzComparisonExp `json:"alarm_time"`
+	AlarmType          *model.StringComparisonExp      `json:"alarm_type"`
+	RemindTime         *model.TimestamptzComparisonExp `json:"remind_time"`
+	RemindContent      *model.StringComparisonExp      `json:"remind_content"`
+	InputPerson        *model.StringComparisonExp      `json:"input_person"`
+	InputTime          *model.TimestamptzComparisonExp `json:"input_time"`
+	IsSuccess          *model.BooleanComparisonExp     `json:"is_success"`
+	CreatedAt          *model.TimestamptzComparisonExp `json:"created_at"`
+	CreatedBy          *model.StringComparisonExp      `json:"created_by"`
+	UpdatedAt          *model.TimestamptzComparisonExp `json:"updated_at"`
+	UpdatedBy          *model.StringComparisonExp      `json:"updated_by"`
+	DeletedAt          *model.TimestamptzComparisonExp `json:"deleted_at"`
+	DeletedBy          *model.StringComparisonExp      `json:"deleted_by"`
+}
+
+// input type for incrementing integer column in table "voice_alarm_record"
+type VoiceAlarmRecordIncInput struct {
+	ID *int64 `json:"id"`
+}
+
+// input type for inserting data into table "voice_alarm_record"
+type VoiceAlarmRecordInsertInput struct {
+	ID                 *int64     `json:"id"`
+	VioceAlarmRecordID *string    `json:"vioce_alarm_record_id"`
+	VehicleID          *string    `json:"vehicle_id"`
+	AlarmTime          *time.Time `json:"alarm_time"`
+	AlarmType          *string    `json:"alarm_type"`
+	RemindTime         *time.Time `json:"remind_time"`
+	RemindContent      *string    `json:"remind_content"`
+	InputPerson        *string    `json:"input_person"`
+	InputTime          *time.Time `json:"input_time"`
+	IsSuccess          *bool      `json:"is_success"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// aggregate max on columns of table "voice_alarm_record"
+type VoiceAlarmRecordMaxFields struct {
+	ID                 *int64     `json:"id"`
+	VioceAlarmRecordID *string    `json:"vioce_alarm_record_id"`
+	VehicleID          *string    `json:"vehicle_id"`
+	AlarmTime          *time.Time `json:"alarm_time"`
+	AlarmType          *string    `json:"alarm_type"`
+	RemindTime         *time.Time `json:"remind_time"`
+	RemindContent      *string    `json:"remind_content"`
+	InputPerson        *string    `json:"input_person"`
+	InputTime          *time.Time `json:"input_time"`
+	IsSuccess          *bool      `json:"is_success"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// aggregate min on columns of table "voice_alarm_record"
+type VoiceAlarmRecordMinFields struct {
+	ID                 *int64     `json:"id"`
+	VioceAlarmRecordID *string    `json:"vioce_alarm_record_id"`
+	VehicleID          *string    `json:"vehicle_id"`
+	AlarmTime          *time.Time `json:"alarm_time"`
+	AlarmType          *string    `json:"alarm_type"`
+	RemindTime         *time.Time `json:"remind_time"`
+	RemindContent      *string    `json:"remind_content"`
+	InputPerson        *string    `json:"input_person"`
+	InputTime          *time.Time `json:"input_time"`
+	IsSuccess          *bool      `json:"is_success"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// response of any mutation on the table "voice_alarm_record"
+type VoiceAlarmRecordMutationResponse struct {
+	AffectedRows int                        `json:"affected_rows"`
+	Returning    []*model1.VoiceAlarmRecord `json:"returning"`
+}
+
+// ordering options when selecting data from "voice_alarm_record"
+type VoiceAlarmRecordOrderBy struct {
+	ID                 *model.OrderBy `json:"id"`
+	VioceAlarmRecordID *model.OrderBy `json:"vioce_alarm_record_id"`
+	VehicleID          *model.OrderBy `json:"vehicle_id"`
+	AlarmTime          *model.OrderBy `json:"alarm_time"`
+	AlarmType          *model.OrderBy `json:"alarm_type"`
+	RemindTime         *model.OrderBy `json:"remind_time"`
+	RemindContent      *model.OrderBy `json:"remind_content"`
+	InputPerson        *model.OrderBy `json:"input_person"`
+	InputTime          *model.OrderBy `json:"input_time"`
+	IsSuccess          *model.OrderBy `json:"is_success"`
+	CreatedAt          *model.OrderBy `json:"created_at"`
+	CreatedBy          *model.OrderBy `json:"created_by"`
+	UpdatedAt          *model.OrderBy `json:"updated_at"`
+	UpdatedBy          *model.OrderBy `json:"updated_by"`
+	DeletedAt          *model.OrderBy `json:"deleted_at"`
+	DeletedBy          *model.OrderBy `json:"deleted_by"`
+}
+
+// input type for updating data in table "voice_alarm_record"
+type VoiceAlarmRecordSetInput struct {
+	ID                 *int64     `json:"id"`
+	VioceAlarmRecordID *string    `json:"vioce_alarm_record_id"`
+	VehicleID          *string    `json:"vehicle_id"`
+	AlarmTime          *time.Time `json:"alarm_time"`
+	AlarmType          *string    `json:"alarm_type"`
+	RemindTime         *time.Time `json:"remind_time"`
+	RemindContent      *string    `json:"remind_content"`
+	InputPerson        *string    `json:"input_person"`
+	InputTime          *time.Time `json:"input_time"`
+	IsSuccess          *bool      `json:"is_success"`
+	CreatedAt          *time.Time `json:"created_at"`
+	CreatedBy          *string    `json:"created_by"`
+	UpdatedAt          *time.Time `json:"updated_at"`
+	UpdatedBy          *string    `json:"updated_by"`
+	DeletedAt          *time.Time `json:"deleted_at"`
+	DeletedBy          *string    `json:"deleted_by"`
+}
+
+// aggregate stddev on columns of table "voice_alarm_record"
+type VoiceAlarmRecordStddevFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_pop on columns of table "voice_alarm_record"
+type VoiceAlarmRecordStddevPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate stddev_samp on columns of table "voice_alarm_record"
+type VoiceAlarmRecordStddevSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate sum on columns of table "voice_alarm_record"
+type VoiceAlarmRecordSumFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_pop on columns of table "voice_alarm_record"
+type VoiceAlarmRecordVarPopFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate var_samp on columns of table "voice_alarm_record"
+type VoiceAlarmRecordVarSampFields struct {
+	ID *int64 `json:"id"`
+}
+
+// aggregate variance on columns of table "voice_alarm_record"
+type VoiceAlarmRecordVarianceFields struct {
+	ID *int64 `json:"id"`
+}
+
+// 可选select
 type AlarmProcessingRecordSelectColumn string
 
 const (
-	// column name
-	AlarmProcessingRecordSelectColumnAlarmDataID AlarmProcessingRecordSelectColumn = "alarm_data_id"
-	// column name
-	AlarmProcessingRecordSelectColumnAlarmSupervisionPictureID AlarmProcessingRecordSelectColumn = "alarm_supervision_picture_id"
-	// column name
-	AlarmProcessingRecordSelectColumnAnnounceContent AlarmProcessingRecordSelectColumn = "announce_content"
-	// column name
-	AlarmProcessingRecordSelectColumnAppPushContent AlarmProcessingRecordSelectColumn = "app_push_content"
-	// column name
-	AlarmProcessingRecordSelectColumnCreatedAt AlarmProcessingRecordSelectColumn = "created_at"
-	// column name
-	AlarmProcessingRecordSelectColumnCreatedBy AlarmProcessingRecordSelectColumn = "created_by"
-	// column name
-	AlarmProcessingRecordSelectColumnDeletedAt AlarmProcessingRecordSelectColumn = "deleted_at"
-	// column name
-	AlarmProcessingRecordSelectColumnDeletedBy AlarmProcessingRecordSelectColumn = "deleted_by"
-	// column name
-	AlarmProcessingRecordSelectColumnDisposalMethod AlarmProcessingRecordSelectColumn = "disposal_method"
-	// column name
-	AlarmProcessingRecordSelectColumnDisposalResult AlarmProcessingRecordSelectColumn = "disposal_result"
-	// column name
+	// 按指定方法生成                                               ( 主键                       )
 	AlarmProcessingRecordSelectColumnID AlarmProcessingRecordSelectColumn = "id"
-	// column name
-	AlarmProcessingRecordSelectColumnIsAnnounce AlarmProcessingRecordSelectColumn = "is_announce"
-	// column name
-	AlarmProcessingRecordSelectColumnIsAppPush AlarmProcessingRecordSelectColumn = "is_app_push"
-	// column name
-	AlarmProcessingRecordSelectColumnIsDelete AlarmProcessingRecordSelectColumn = "is_delete"
-	// column name
-	AlarmProcessingRecordSelectColumnIsNotify AlarmProcessingRecordSelectColumn = "is_notify"
-	// column name
-	AlarmProcessingRecordSelectColumnIsSmsPush AlarmProcessingRecordSelectColumn = "is_sms_push"
-	// column name
-	AlarmProcessingRecordSelectColumnNotifyContent AlarmProcessingRecordSelectColumn = "notify_content"
-	// column name
-	AlarmProcessingRecordSelectColumnOperationUser AlarmProcessingRecordSelectColumn = "operation_user"
-	// column name
+	// vehicle_alarm_data报警数据表的alarm_data_id              (                            )
+	AlarmProcessingRecordSelectColumnAlarmDataID AlarmProcessingRecordSelectColumn = "alarm_data_id"
+	// alarm_supervision_picture_ upload报警监管图片上传表的alarm_supervision_picture_id (                            )
+	AlarmProcessingRecordSelectColumnAlarmSupervisionPictureID AlarmProcessingRecordSelectColumn = "alarm_supervision_picture_id"
+	// 处理内容                                                     (                            )
 	AlarmProcessingRecordSelectColumnProcessingContent AlarmProcessingRecordSelectColumn = "processing_content"
-	// column name
+	// 处理时间                                                     (                            )
 	AlarmProcessingRecordSelectColumnProcessingTime AlarmProcessingRecordSelectColumn = "processing_time"
-	// column name
+	// 处理类型  1.超速报警  2.疲劳驾驶  3.工程报警  4.超三天断电报警  5.进出区域报警  6.进出区域报警  7.安检到期报警  11.进出工地报警 (                            )
 	AlarmProcessingRecordSelectColumnProcessingType AlarmProcessingRecordSelectColumn = "processing_type"
-	// column name
+	// 操作用户                                                     ( system_user表的user_id )
+	AlarmProcessingRecordSelectColumnOperationUser AlarmProcessingRecordSelectColumn = "operation_user"
+	// 是否短信推送                                                 (                            )
+	AlarmProcessingRecordSelectColumnIsSmsPush AlarmProcessingRecordSelectColumn = "is_sms_push"
+	// 是否通报                                                     (                            )
+	AlarmProcessingRecordSelectColumnIsNotify AlarmProcessingRecordSelectColumn = "is_notify"
+	// 是否语音通知                                                 (                            )
+	AlarmProcessingRecordSelectColumnIsAnnounce AlarmProcessingRecordSelectColumn = "is_announce"
+	// 是否APP推送                                                  (                            )
+	AlarmProcessingRecordSelectColumnIsAppPush AlarmProcessingRecordSelectColumn = "is_app_push"
+	// 通报内容                                                     (                            )
+	AlarmProcessingRecordSelectColumnNotifyContent AlarmProcessingRecordSelectColumn = "notify_content"
+	// 语音内容                                                     (                            )
+	AlarmProcessingRecordSelectColumnAnnounceContent AlarmProcessingRecordSelectColumn = "announce_content"
+	// APP推送内容                                                  (                            )
+	AlarmProcessingRecordSelectColumnAppPushContent AlarmProcessingRecordSelectColumn = "app_push_content"
+	// 处置方式                                                     ( 处置方式字典           )
+	AlarmProcessingRecordSelectColumnDisposalMethod AlarmProcessingRecordSelectColumn = "disposal_method"
+	// 处置结果                                                     (                            )
+	AlarmProcessingRecordSelectColumnDisposalResult AlarmProcessingRecordSelectColumn = "disposal_result"
+	// 是否删除                                                     ( false                      )
+	AlarmProcessingRecordSelectColumnIsDeleted AlarmProcessingRecordSelectColumn = "is_deleted"
+	// 创建时间                                                     (                            )
+	AlarmProcessingRecordSelectColumnCreatedAt AlarmProcessingRecordSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id )
+	AlarmProcessingRecordSelectColumnCreatedBy AlarmProcessingRecordSelectColumn = "created_by"
+	// 修改时间                                                     (                            )
 	AlarmProcessingRecordSelectColumnUpdatedAt AlarmProcessingRecordSelectColumn = "updated_at"
-	// column name
+	// 修改人                                                       ( system_user表的user_id )
 	AlarmProcessingRecordSelectColumnUpdatedBy AlarmProcessingRecordSelectColumn = "updated_by"
+	// 删除时间                                                     (                            )
+	AlarmProcessingRecordSelectColumnDeletedAt AlarmProcessingRecordSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id )
+	AlarmProcessingRecordSelectColumnDeletedBy AlarmProcessingRecordSelectColumn = "deleted_by"
 )
 
 var AllAlarmProcessingRecordSelectColumn = []AlarmProcessingRecordSelectColumn{
+	AlarmProcessingRecordSelectColumnID,
 	AlarmProcessingRecordSelectColumnAlarmDataID,
 	AlarmProcessingRecordSelectColumnAlarmSupervisionPictureID,
-	AlarmProcessingRecordSelectColumnAnnounceContent,
-	AlarmProcessingRecordSelectColumnAppPushContent,
-	AlarmProcessingRecordSelectColumnCreatedAt,
-	AlarmProcessingRecordSelectColumnCreatedBy,
-	AlarmProcessingRecordSelectColumnDeletedAt,
-	AlarmProcessingRecordSelectColumnDeletedBy,
-	AlarmProcessingRecordSelectColumnDisposalMethod,
-	AlarmProcessingRecordSelectColumnDisposalResult,
-	AlarmProcessingRecordSelectColumnID,
-	AlarmProcessingRecordSelectColumnIsAnnounce,
-	AlarmProcessingRecordSelectColumnIsAppPush,
-	AlarmProcessingRecordSelectColumnIsDelete,
-	AlarmProcessingRecordSelectColumnIsNotify,
-	AlarmProcessingRecordSelectColumnIsSmsPush,
-	AlarmProcessingRecordSelectColumnNotifyContent,
-	AlarmProcessingRecordSelectColumnOperationUser,
 	AlarmProcessingRecordSelectColumnProcessingContent,
 	AlarmProcessingRecordSelectColumnProcessingTime,
 	AlarmProcessingRecordSelectColumnProcessingType,
+	AlarmProcessingRecordSelectColumnOperationUser,
+	AlarmProcessingRecordSelectColumnIsSmsPush,
+	AlarmProcessingRecordSelectColumnIsNotify,
+	AlarmProcessingRecordSelectColumnIsAnnounce,
+	AlarmProcessingRecordSelectColumnIsAppPush,
+	AlarmProcessingRecordSelectColumnNotifyContent,
+	AlarmProcessingRecordSelectColumnAnnounceContent,
+	AlarmProcessingRecordSelectColumnAppPushContent,
+	AlarmProcessingRecordSelectColumnDisposalMethod,
+	AlarmProcessingRecordSelectColumnDisposalResult,
+	AlarmProcessingRecordSelectColumnIsDeleted,
+	AlarmProcessingRecordSelectColumnCreatedAt,
+	AlarmProcessingRecordSelectColumnCreatedBy,
 	AlarmProcessingRecordSelectColumnUpdatedAt,
 	AlarmProcessingRecordSelectColumnUpdatedBy,
+	AlarmProcessingRecordSelectColumnDeletedAt,
+	AlarmProcessingRecordSelectColumnDeletedBy,
 }
 
 func (e AlarmProcessingRecordSelectColumn) IsValid() bool {
 	switch e {
-	case AlarmProcessingRecordSelectColumnAlarmDataID, AlarmProcessingRecordSelectColumnAlarmSupervisionPictureID, AlarmProcessingRecordSelectColumnAnnounceContent, AlarmProcessingRecordSelectColumnAppPushContent, AlarmProcessingRecordSelectColumnCreatedAt, AlarmProcessingRecordSelectColumnCreatedBy, AlarmProcessingRecordSelectColumnDeletedAt, AlarmProcessingRecordSelectColumnDeletedBy, AlarmProcessingRecordSelectColumnDisposalMethod, AlarmProcessingRecordSelectColumnDisposalResult, AlarmProcessingRecordSelectColumnID, AlarmProcessingRecordSelectColumnIsAnnounce, AlarmProcessingRecordSelectColumnIsAppPush, AlarmProcessingRecordSelectColumnIsDelete, AlarmProcessingRecordSelectColumnIsNotify, AlarmProcessingRecordSelectColumnIsSmsPush, AlarmProcessingRecordSelectColumnNotifyContent, AlarmProcessingRecordSelectColumnOperationUser, AlarmProcessingRecordSelectColumnProcessingContent, AlarmProcessingRecordSelectColumnProcessingTime, AlarmProcessingRecordSelectColumnProcessingType, AlarmProcessingRecordSelectColumnUpdatedAt, AlarmProcessingRecordSelectColumnUpdatedBy:
+	case AlarmProcessingRecordSelectColumnID, AlarmProcessingRecordSelectColumnAlarmDataID, AlarmProcessingRecordSelectColumnAlarmSupervisionPictureID, AlarmProcessingRecordSelectColumnProcessingContent, AlarmProcessingRecordSelectColumnProcessingTime, AlarmProcessingRecordSelectColumnProcessingType, AlarmProcessingRecordSelectColumnOperationUser, AlarmProcessingRecordSelectColumnIsSmsPush, AlarmProcessingRecordSelectColumnIsNotify, AlarmProcessingRecordSelectColumnIsAnnounce, AlarmProcessingRecordSelectColumnIsAppPush, AlarmProcessingRecordSelectColumnNotifyContent, AlarmProcessingRecordSelectColumnAnnounceContent, AlarmProcessingRecordSelectColumnAppPushContent, AlarmProcessingRecordSelectColumnDisposalMethod, AlarmProcessingRecordSelectColumnDisposalResult, AlarmProcessingRecordSelectColumnIsDeleted, AlarmProcessingRecordSelectColumnCreatedAt, AlarmProcessingRecordSelectColumnCreatedBy, AlarmProcessingRecordSelectColumnUpdatedAt, AlarmProcessingRecordSelectColumnUpdatedBy, AlarmProcessingRecordSelectColumnDeletedAt, AlarmProcessingRecordSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -1625,7 +2000,7 @@ func (e *AlarmProcessingRecordSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = AlarmProcessingRecordSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid alarm_processing_record_select_column", str)
+		return fmt.Errorf("%s is not a valid AlarmProcessingRecordSelectColumn", str)
 	}
 	return nil
 }
@@ -1634,98 +2009,75 @@ func (e AlarmProcessingRecordSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadConstraint string
-
-const (
-	// unique or primary key constraint
-	AlarmSupervisionPictureUploadConstraintAlarmSupervisionPictureUploadPkey AlarmSupervisionPictureUploadConstraint = "alarm_supervision_picture_upload_pkey"
-)
-
-var AllAlarmSupervisionPictureUploadConstraint = []AlarmSupervisionPictureUploadConstraint{
-	AlarmSupervisionPictureUploadConstraintAlarmSupervisionPictureUploadPkey,
-}
-
-func (e AlarmSupervisionPictureUploadConstraint) IsValid() bool {
-	switch e {
-	case AlarmSupervisionPictureUploadConstraintAlarmSupervisionPictureUploadPkey:
-		return true
-	}
-	return false
-}
-
-func (e AlarmSupervisionPictureUploadConstraint) String() string {
-	return string(e)
-}
-
-func (e *AlarmSupervisionPictureUploadConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = AlarmSupervisionPictureUploadConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid alarm_supervision_picture_upload_constraint", str)
-	}
-	return nil
-}
-
-func (e AlarmSupervisionPictureUploadConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "alarm_supervision_picture_upload"
+// 可选select
 type AlarmSupervisionPictureUploadSelectColumn string
 
 const (
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnImei AlarmSupervisionPictureUploadSelectColumn = "IMEI"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnAlarmSupervisionPictureID AlarmSupervisionPictureUploadSelectColumn = "alarm_supervision_picture_id"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnCameraID AlarmSupervisionPictureUploadSelectColumn = "camera_id"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnDriverID AlarmSupervisionPictureUploadSelectColumn = "driver_id"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnEnterpriseID AlarmSupervisionPictureUploadSelectColumn = "enterprise_id"
-	// column name
+	// 按指定方法生成                                               ( 主键                                 )
 	AlarmSupervisionPictureUploadSelectColumnID AlarmSupervisionPictureUploadSelectColumn = "id"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnMonitoringPicAddress AlarmSupervisionPictureUploadSelectColumn = "monitoring_pic_address"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnMonitoringPicName AlarmSupervisionPictureUploadSelectColumn = "monitoring_pic_name"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnMonitoringPicUploadTime AlarmSupervisionPictureUploadSelectColumn = "monitoring_pic_upload_time"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnPhotoCondition AlarmSupervisionPictureUploadSelectColumn = "photo_condition"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnSimNumber AlarmSupervisionPictureUploadSelectColumn = "sim_number"
-	// column name
-	AlarmSupervisionPictureUploadSelectColumnUpdateTime AlarmSupervisionPictureUploadSelectColumn = "update_time"
-	// column name
+	// 报警监管图片上传外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	AlarmSupervisionPictureUploadSelectColumnAlarmSupervisionPictureID AlarmSupervisionPictureUploadSelectColumn = "alarm_supervision_picture_id"
+	// 车辆ID                                                       ( vehicle_info表vehicle_id         )
 	AlarmSupervisionPictureUploadSelectColumnVehicleID AlarmSupervisionPictureUploadSelectColumn = "vehicle_id"
+	// 驾驶员id                                                     ( driver_info 表的driver_id        )
+	AlarmSupervisionPictureUploadSelectColumnDriverID AlarmSupervisionPictureUploadSelectColumn = "driver_id"
+	// 所在企业id                                                   ( enterprise_info表的enterprise_id )
+	AlarmSupervisionPictureUploadSelectColumnEnterpriseID AlarmSupervisionPictureUploadSelectColumn = "enterprise_id"
+	// 摄像头ID                                                     ( 摄像头ID字典                     )
+	AlarmSupervisionPictureUploadSelectColumnCameraID AlarmSupervisionPictureUploadSelectColumn = "camera_id"
+	// 拍照条件                                                     ( 拍照条件字典                     )
+	AlarmSupervisionPictureUploadSelectColumnPhotoCondition AlarmSupervisionPictureUploadSelectColumn = "photo_condition"
+	// 终端上报时间                                                 (                                      )
+	AlarmSupervisionPictureUploadSelectColumnUpdateTime AlarmSupervisionPictureUploadSelectColumn = "update_time"
+	// 报警监控图片名称                                             (                                      )
+	AlarmSupervisionPictureUploadSelectColumnMonitoringPicName AlarmSupervisionPictureUploadSelectColumn = "monitoring_pic_name"
+	// 报警监控图片地址                                             (                                      )
+	AlarmSupervisionPictureUploadSelectColumnMonitoringPicAddress AlarmSupervisionPictureUploadSelectColumn = "monitoring_pic_address"
+	// 报警监控图片上传时间                                         (                                      )
+	AlarmSupervisionPictureUploadSelectColumnMonitoringPicUploadTime AlarmSupervisionPictureUploadSelectColumn = "monitoring_pic_upload_time"
+	// 终端IMEI                                                     ( 国际移动设备标识别码                 )
+	AlarmSupervisionPictureUploadSelectColumnImel AlarmSupervisionPictureUploadSelectColumn = "imel"
+	// SIM卡号                                                      (                                      )
+	AlarmSupervisionPictureUploadSelectColumnSimNumber AlarmSupervisionPictureUploadSelectColumn = "sim_number"
+	// 创建时间                                                     (                                      )
+	AlarmSupervisionPictureUploadSelectColumnCreatedAt AlarmSupervisionPictureUploadSelectColumn = "created_at"
+	// 创建人                                                       ( system_user表的user_id           )
+	AlarmSupervisionPictureUploadSelectColumnCreatedBy AlarmSupervisionPictureUploadSelectColumn = "created_by"
+	// 修改时间                                                     (                                      )
+	AlarmSupervisionPictureUploadSelectColumnUpdatedAt AlarmSupervisionPictureUploadSelectColumn = "updated_at"
+	// 修改人                                                       ( system_user表的user_id           )
+	AlarmSupervisionPictureUploadSelectColumnUpdatedBy AlarmSupervisionPictureUploadSelectColumn = "updated_by"
+	// 删除时间                                                     (                                      )
+	AlarmSupervisionPictureUploadSelectColumnDeletedAt AlarmSupervisionPictureUploadSelectColumn = "deleted_at"
+	// 删除人                                                       ( system_user表的user_id           )
+	AlarmSupervisionPictureUploadSelectColumnDeletedBy AlarmSupervisionPictureUploadSelectColumn = "deleted_by"
 )
 
 var AllAlarmSupervisionPictureUploadSelectColumn = []AlarmSupervisionPictureUploadSelectColumn{
-	AlarmSupervisionPictureUploadSelectColumnImei,
+	AlarmSupervisionPictureUploadSelectColumnID,
 	AlarmSupervisionPictureUploadSelectColumnAlarmSupervisionPictureID,
-	AlarmSupervisionPictureUploadSelectColumnCameraID,
+	AlarmSupervisionPictureUploadSelectColumnVehicleID,
 	AlarmSupervisionPictureUploadSelectColumnDriverID,
 	AlarmSupervisionPictureUploadSelectColumnEnterpriseID,
-	AlarmSupervisionPictureUploadSelectColumnID,
-	AlarmSupervisionPictureUploadSelectColumnMonitoringPicAddress,
-	AlarmSupervisionPictureUploadSelectColumnMonitoringPicName,
-	AlarmSupervisionPictureUploadSelectColumnMonitoringPicUploadTime,
+	AlarmSupervisionPictureUploadSelectColumnCameraID,
 	AlarmSupervisionPictureUploadSelectColumnPhotoCondition,
-	AlarmSupervisionPictureUploadSelectColumnSimNumber,
 	AlarmSupervisionPictureUploadSelectColumnUpdateTime,
-	AlarmSupervisionPictureUploadSelectColumnVehicleID,
+	AlarmSupervisionPictureUploadSelectColumnMonitoringPicName,
+	AlarmSupervisionPictureUploadSelectColumnMonitoringPicAddress,
+	AlarmSupervisionPictureUploadSelectColumnMonitoringPicUploadTime,
+	AlarmSupervisionPictureUploadSelectColumnImel,
+	AlarmSupervisionPictureUploadSelectColumnSimNumber,
+	AlarmSupervisionPictureUploadSelectColumnCreatedAt,
+	AlarmSupervisionPictureUploadSelectColumnCreatedBy,
+	AlarmSupervisionPictureUploadSelectColumnUpdatedAt,
+	AlarmSupervisionPictureUploadSelectColumnUpdatedBy,
+	AlarmSupervisionPictureUploadSelectColumnDeletedAt,
+	AlarmSupervisionPictureUploadSelectColumnDeletedBy,
 }
 
 func (e AlarmSupervisionPictureUploadSelectColumn) IsValid() bool {
 	switch e {
-	case AlarmSupervisionPictureUploadSelectColumnImei, AlarmSupervisionPictureUploadSelectColumnAlarmSupervisionPictureID, AlarmSupervisionPictureUploadSelectColumnCameraID, AlarmSupervisionPictureUploadSelectColumnDriverID, AlarmSupervisionPictureUploadSelectColumnEnterpriseID, AlarmSupervisionPictureUploadSelectColumnID, AlarmSupervisionPictureUploadSelectColumnMonitoringPicAddress, AlarmSupervisionPictureUploadSelectColumnMonitoringPicName, AlarmSupervisionPictureUploadSelectColumnMonitoringPicUploadTime, AlarmSupervisionPictureUploadSelectColumnPhotoCondition, AlarmSupervisionPictureUploadSelectColumnSimNumber, AlarmSupervisionPictureUploadSelectColumnUpdateTime, AlarmSupervisionPictureUploadSelectColumnVehicleID:
+	case AlarmSupervisionPictureUploadSelectColumnID, AlarmSupervisionPictureUploadSelectColumnAlarmSupervisionPictureID, AlarmSupervisionPictureUploadSelectColumnVehicleID, AlarmSupervisionPictureUploadSelectColumnDriverID, AlarmSupervisionPictureUploadSelectColumnEnterpriseID, AlarmSupervisionPictureUploadSelectColumnCameraID, AlarmSupervisionPictureUploadSelectColumnPhotoCondition, AlarmSupervisionPictureUploadSelectColumnUpdateTime, AlarmSupervisionPictureUploadSelectColumnMonitoringPicName, AlarmSupervisionPictureUploadSelectColumnMonitoringPicAddress, AlarmSupervisionPictureUploadSelectColumnMonitoringPicUploadTime, AlarmSupervisionPictureUploadSelectColumnImel, AlarmSupervisionPictureUploadSelectColumnSimNumber, AlarmSupervisionPictureUploadSelectColumnCreatedAt, AlarmSupervisionPictureUploadSelectColumnCreatedBy, AlarmSupervisionPictureUploadSelectColumnUpdatedAt, AlarmSupervisionPictureUploadSelectColumnUpdatedBy, AlarmSupervisionPictureUploadSelectColumnDeletedAt, AlarmSupervisionPictureUploadSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -1743,7 +2095,7 @@ func (e *AlarmSupervisionPictureUploadSelectColumn) UnmarshalGQL(v interface{}) 
 
 	*e = AlarmSupervisionPictureUploadSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid alarm_supervision_picture_upload_select_column", str)
+		return fmt.Errorf("%s is not a valid AlarmSupervisionPictureUploadSelectColumn", str)
 	}
 	return nil
 }
@@ -1752,178 +2104,60 @@ func (e AlarmSupervisionPictureUploadSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "alarm_supervision_picture_upload"
-type AlarmSupervisionPictureUploadUpdateColumn string
-
-const (
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnImei AlarmSupervisionPictureUploadUpdateColumn = "IMEI"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnAlarmSupervisionPictureID AlarmSupervisionPictureUploadUpdateColumn = "alarm_supervision_picture_id"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnCameraID AlarmSupervisionPictureUploadUpdateColumn = "camera_id"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnDriverID AlarmSupervisionPictureUploadUpdateColumn = "driver_id"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnEnterpriseID AlarmSupervisionPictureUploadUpdateColumn = "enterprise_id"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnID AlarmSupervisionPictureUploadUpdateColumn = "id"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnMonitoringPicAddress AlarmSupervisionPictureUploadUpdateColumn = "monitoring_pic_address"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnMonitoringPicName AlarmSupervisionPictureUploadUpdateColumn = "monitoring_pic_name"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnMonitoringPicUploadTime AlarmSupervisionPictureUploadUpdateColumn = "monitoring_pic_upload_time"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnPhotoCondition AlarmSupervisionPictureUploadUpdateColumn = "photo_condition"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnSimNumber AlarmSupervisionPictureUploadUpdateColumn = "sim_number"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnUpdateTime AlarmSupervisionPictureUploadUpdateColumn = "update_time"
-	// column name
-	AlarmSupervisionPictureUploadUpdateColumnVehicleID AlarmSupervisionPictureUploadUpdateColumn = "vehicle_id"
-)
-
-var AllAlarmSupervisionPictureUploadUpdateColumn = []AlarmSupervisionPictureUploadUpdateColumn{
-	AlarmSupervisionPictureUploadUpdateColumnImei,
-	AlarmSupervisionPictureUploadUpdateColumnAlarmSupervisionPictureID,
-	AlarmSupervisionPictureUploadUpdateColumnCameraID,
-	AlarmSupervisionPictureUploadUpdateColumnDriverID,
-	AlarmSupervisionPictureUploadUpdateColumnEnterpriseID,
-	AlarmSupervisionPictureUploadUpdateColumnID,
-	AlarmSupervisionPictureUploadUpdateColumnMonitoringPicAddress,
-	AlarmSupervisionPictureUploadUpdateColumnMonitoringPicName,
-	AlarmSupervisionPictureUploadUpdateColumnMonitoringPicUploadTime,
-	AlarmSupervisionPictureUploadUpdateColumnPhotoCondition,
-	AlarmSupervisionPictureUploadUpdateColumnSimNumber,
-	AlarmSupervisionPictureUploadUpdateColumnUpdateTime,
-	AlarmSupervisionPictureUploadUpdateColumnVehicleID,
-}
-
-func (e AlarmSupervisionPictureUploadUpdateColumn) IsValid() bool {
-	switch e {
-	case AlarmSupervisionPictureUploadUpdateColumnImei, AlarmSupervisionPictureUploadUpdateColumnAlarmSupervisionPictureID, AlarmSupervisionPictureUploadUpdateColumnCameraID, AlarmSupervisionPictureUploadUpdateColumnDriverID, AlarmSupervisionPictureUploadUpdateColumnEnterpriseID, AlarmSupervisionPictureUploadUpdateColumnID, AlarmSupervisionPictureUploadUpdateColumnMonitoringPicAddress, AlarmSupervisionPictureUploadUpdateColumnMonitoringPicName, AlarmSupervisionPictureUploadUpdateColumnMonitoringPicUploadTime, AlarmSupervisionPictureUploadUpdateColumnPhotoCondition, AlarmSupervisionPictureUploadUpdateColumnSimNumber, AlarmSupervisionPictureUploadUpdateColumnUpdateTime, AlarmSupervisionPictureUploadUpdateColumnVehicleID:
-		return true
-	}
-	return false
-}
-
-func (e AlarmSupervisionPictureUploadUpdateColumn) String() string {
-	return string(e)
-}
-
-func (e *AlarmSupervisionPictureUploadUpdateColumn) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = AlarmSupervisionPictureUploadUpdateColumn(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid alarm_supervision_picture_upload_update_column", str)
-	}
-	return nil
-}
-
-func (e AlarmSupervisionPictureUploadUpdateColumn) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// unique or primary key constraints on table "district_alarm_content_push"
-type DistrictAlarmContentPushConstraint string
-
-const (
-	// unique or primary key constraint
-	DistrictAlarmContentPushConstraintDistrictAlarmContentPushPkey DistrictAlarmContentPushConstraint = "district_alarm_content_push_pkey"
-)
-
-var AllDistrictAlarmContentPushConstraint = []DistrictAlarmContentPushConstraint{
-	DistrictAlarmContentPushConstraintDistrictAlarmContentPushPkey,
-}
-
-func (e DistrictAlarmContentPushConstraint) IsValid() bool {
-	switch e {
-	case DistrictAlarmContentPushConstraintDistrictAlarmContentPushPkey:
-		return true
-	}
-	return false
-}
-
-func (e DistrictAlarmContentPushConstraint) String() string {
-	return string(e)
-}
-
-func (e *DistrictAlarmContentPushConstraint) UnmarshalGQL(v interface{}) error {
-	str, ok := v.(string)
-	if !ok {
-		return fmt.Errorf("enums must be strings")
-	}
-
-	*e = DistrictAlarmContentPushConstraint(str)
-	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid district_alarm_content_push_constraint", str)
-	}
-	return nil
-}
-
-func (e DistrictAlarmContentPushConstraint) MarshalGQL(w io.Writer) {
-	fmt.Fprint(w, strconv.Quote(e.String()))
-}
-
-// select columns of table "district_alarm_content_push"
+// 可选select
 type DistrictAlarmContentPushSelectColumn string
 
 const (
-	// column name
-	DistrictAlarmContentPushSelectColumnAlarmContent DistrictAlarmContentPushSelectColumn = "alarm_content"
-	// column name
-	DistrictAlarmContentPushSelectColumnAlarmDataID DistrictAlarmContentPushSelectColumn = "alarm_data_id"
-	// column name
-	DistrictAlarmContentPushSelectColumnAlarmType DistrictAlarmContentPushSelectColumn = "alarm_type"
-	// column name
-	DistrictAlarmContentPushSelectColumnCityID DistrictAlarmContentPushSelectColumn = "city_id"
-	// column name
-	DistrictAlarmContentPushSelectColumnCreatedAt DistrictAlarmContentPushSelectColumn = "created_at"
-	// column name
-	DistrictAlarmContentPushSelectColumnCreatedBy DistrictAlarmContentPushSelectColumn = "created_by"
-	// column name
-	DistrictAlarmContentPushSelectColumnDeletedAt DistrictAlarmContentPushSelectColumn = "deleted_at"
-	// column name
-	DistrictAlarmContentPushSelectColumnDeletedBy DistrictAlarmContentPushSelectColumn = "deleted_by"
-	// column name
-	DistrictAlarmContentPushSelectColumnDistrictID DistrictAlarmContentPushSelectColumn = "district_id"
-	// column name
+	// 按指定方法生成                                  ( 主键                       )
 	DistrictAlarmContentPushSelectColumnID DistrictAlarmContentPushSelectColumn = "id"
-	// column name
-	DistrictAlarmContentPushSelectColumnIsDelete DistrictAlarmContentPushSelectColumn = "is_delete"
-	// column name
+	// vehicle_alarm_data报警数据表的alarm_data_id (                            )
+	DistrictAlarmContentPushSelectColumnAlarmDataID DistrictAlarmContentPushSelectColumn = "alarm_data_id"
+	// 报警类型                                        ( 报警类型字典           )
+	DistrictAlarmContentPushSelectColumnAlarmType DistrictAlarmContentPushSelectColumn = "alarm_type"
+	// 内容                                            (                            )
+	DistrictAlarmContentPushSelectColumnAlarmContent DistrictAlarmContentPushSelectColumn = "alarm_content"
+	// 省份ID                                          ( 省份表province_id      )
 	DistrictAlarmContentPushSelectColumnProvinceID DistrictAlarmContentPushSelectColumn = "province_id"
-	// column name
+	// 城市ID                                          ( 城市表city_id          )
+	DistrictAlarmContentPushSelectColumnCityID DistrictAlarmContentPushSelectColumn = "city_id"
+	// 区ID                                            ( 区域表district_id      )
+	DistrictAlarmContentPushSelectColumnDistrictID DistrictAlarmContentPushSelectColumn = "district_id"
+	// 是否删除                                        ( false                      )
+	DistrictAlarmContentPushSelectColumnIsDeleted DistrictAlarmContentPushSelectColumn = "is_deleted"
+	// 创建时间                                        (                            )
+	DistrictAlarmContentPushSelectColumnCreatedAt DistrictAlarmContentPushSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	DistrictAlarmContentPushSelectColumnCreatedBy DistrictAlarmContentPushSelectColumn = "created_by"
+	// 修改时间                                        (                            )
 	DistrictAlarmContentPushSelectColumnUpdatedAt DistrictAlarmContentPushSelectColumn = "updated_at"
-	// column name
+	// 修改人                                          ( system_user表的user_id )
 	DistrictAlarmContentPushSelectColumnUpdatedBy DistrictAlarmContentPushSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	DistrictAlarmContentPushSelectColumnDeletedAt DistrictAlarmContentPushSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	DistrictAlarmContentPushSelectColumnDeletedBy DistrictAlarmContentPushSelectColumn = "deleted_by"
 )
 
 var AllDistrictAlarmContentPushSelectColumn = []DistrictAlarmContentPushSelectColumn{
-	DistrictAlarmContentPushSelectColumnAlarmContent,
+	DistrictAlarmContentPushSelectColumnID,
 	DistrictAlarmContentPushSelectColumnAlarmDataID,
 	DistrictAlarmContentPushSelectColumnAlarmType,
+	DistrictAlarmContentPushSelectColumnAlarmContent,
+	DistrictAlarmContentPushSelectColumnProvinceID,
 	DistrictAlarmContentPushSelectColumnCityID,
+	DistrictAlarmContentPushSelectColumnDistrictID,
+	DistrictAlarmContentPushSelectColumnIsDeleted,
 	DistrictAlarmContentPushSelectColumnCreatedAt,
 	DistrictAlarmContentPushSelectColumnCreatedBy,
-	DistrictAlarmContentPushSelectColumnDeletedAt,
-	DistrictAlarmContentPushSelectColumnDeletedBy,
-	DistrictAlarmContentPushSelectColumnDistrictID,
-	DistrictAlarmContentPushSelectColumnID,
-	DistrictAlarmContentPushSelectColumnIsDelete,
-	DistrictAlarmContentPushSelectColumnProvinceID,
 	DistrictAlarmContentPushSelectColumnUpdatedAt,
 	DistrictAlarmContentPushSelectColumnUpdatedBy,
+	DistrictAlarmContentPushSelectColumnDeletedAt,
+	DistrictAlarmContentPushSelectColumnDeletedBy,
 }
 
 func (e DistrictAlarmContentPushSelectColumn) IsValid() bool {
 	switch e {
-	case DistrictAlarmContentPushSelectColumnAlarmContent, DistrictAlarmContentPushSelectColumnAlarmDataID, DistrictAlarmContentPushSelectColumnAlarmType, DistrictAlarmContentPushSelectColumnCityID, DistrictAlarmContentPushSelectColumnCreatedAt, DistrictAlarmContentPushSelectColumnCreatedBy, DistrictAlarmContentPushSelectColumnDeletedAt, DistrictAlarmContentPushSelectColumnDeletedBy, DistrictAlarmContentPushSelectColumnDistrictID, DistrictAlarmContentPushSelectColumnID, DistrictAlarmContentPushSelectColumnIsDelete, DistrictAlarmContentPushSelectColumnProvinceID, DistrictAlarmContentPushSelectColumnUpdatedAt, DistrictAlarmContentPushSelectColumnUpdatedBy:
+	case DistrictAlarmContentPushSelectColumnID, DistrictAlarmContentPushSelectColumnAlarmDataID, DistrictAlarmContentPushSelectColumnAlarmType, DistrictAlarmContentPushSelectColumnAlarmContent, DistrictAlarmContentPushSelectColumnProvinceID, DistrictAlarmContentPushSelectColumnCityID, DistrictAlarmContentPushSelectColumnDistrictID, DistrictAlarmContentPushSelectColumnIsDeleted, DistrictAlarmContentPushSelectColumnCreatedAt, DistrictAlarmContentPushSelectColumnCreatedBy, DistrictAlarmContentPushSelectColumnUpdatedAt, DistrictAlarmContentPushSelectColumnUpdatedBy, DistrictAlarmContentPushSelectColumnDeletedAt, DistrictAlarmContentPushSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -1941,7 +2175,7 @@ func (e *DistrictAlarmContentPushSelectColumn) UnmarshalGQL(v interface{}) error
 
 	*e = DistrictAlarmContentPushSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid district_alarm_content_push_select_column", str)
+		return fmt.Errorf("%s is not a valid DistrictAlarmContentPushSelectColumn", str)
 	}
 	return nil
 }
@@ -1950,247 +2184,340 @@ func (e DistrictAlarmContentPushSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "district_alarm_content_push"
-type DistrictAlarmContentPushUpdateColumn string
+// 可选select
+type EnterpriseAlarmSendPoliceSelectColumn string
 
 const (
-	// column name
-	DistrictAlarmContentPushUpdateColumnAlarmContent DistrictAlarmContentPushUpdateColumn = "alarm_content"
-	// column name
-	DistrictAlarmContentPushUpdateColumnAlarmDataID DistrictAlarmContentPushUpdateColumn = "alarm_data_id"
-	// column name
-	DistrictAlarmContentPushUpdateColumnAlarmType DistrictAlarmContentPushUpdateColumn = "alarm_type"
-	// column name
-	DistrictAlarmContentPushUpdateColumnCityID DistrictAlarmContentPushUpdateColumn = "city_id"
-	// column name
-	DistrictAlarmContentPushUpdateColumnCreatedAt DistrictAlarmContentPushUpdateColumn = "created_at"
-	// column name
-	DistrictAlarmContentPushUpdateColumnCreatedBy DistrictAlarmContentPushUpdateColumn = "created_by"
-	// column name
-	DistrictAlarmContentPushUpdateColumnDeletedAt DistrictAlarmContentPushUpdateColumn = "deleted_at"
-	// column name
-	DistrictAlarmContentPushUpdateColumnDeletedBy DistrictAlarmContentPushUpdateColumn = "deleted_by"
-	// column name
-	DistrictAlarmContentPushUpdateColumnDistrictID DistrictAlarmContentPushUpdateColumn = "district_id"
-	// column name
-	DistrictAlarmContentPushUpdateColumnID DistrictAlarmContentPushUpdateColumn = "id"
-	// column name
-	DistrictAlarmContentPushUpdateColumnIsDelete DistrictAlarmContentPushUpdateColumn = "is_delete"
-	// column name
-	DistrictAlarmContentPushUpdateColumnProvinceID DistrictAlarmContentPushUpdateColumn = "province_id"
-	// column name
-	DistrictAlarmContentPushUpdateColumnUpdatedAt DistrictAlarmContentPushUpdateColumn = "updated_at"
-	// column name
-	DistrictAlarmContentPushUpdateColumnUpdatedBy DistrictAlarmContentPushUpdateColumn = "updated_by"
+	// 按指定方法生成                                  ( 主键                                 )
+	EnterpriseAlarmSendPoliceSelectColumnID EnterpriseAlarmSendPoliceSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                             )
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseAlarmSendPoliceID EnterpriseAlarmSendPoliceSelectColumn = "enterprise_alarm_send_police_id"
+	// 所在企业id                                      ( enterprise_info表的enterprise_id )
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseID EnterpriseAlarmSendPoliceSelectColumn = "enterprise_id"
+	// 企业名称                                        (                                      )
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseName EnterpriseAlarmSendPoliceSelectColumn = "enterprise_name"
+	// 企业联系人                                      (                                      )
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseContact EnterpriseAlarmSendPoliceSelectColumn = "enterprise_contact"
+	// 企业联系电话                                    (                                      )
+	EnterpriseAlarmSendPoliceSelectColumnEnterprisePhone EnterpriseAlarmSendPoliceSelectColumn = "enterprise_phone"
+	// 交警                                            (                                      )
+	EnterpriseAlarmSendPoliceSelectColumnPolice EnterpriseAlarmSendPoliceSelectColumn = "police"
+	// 交警联系电话                                    (                                      )
+	EnterpriseAlarmSendPoliceSelectColumnPolicePhone EnterpriseAlarmSendPoliceSelectColumn = "police_phone"
+	// 交警所属部门                                    (                                      )
+	EnterpriseAlarmSendPoliceSelectColumnPhliceDepartment EnterpriseAlarmSendPoliceSelectColumn = "phlice_department"
+	// 创建时间                                        (                                      )
+	EnterpriseAlarmSendPoliceSelectColumnCreatedAt EnterpriseAlarmSendPoliceSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id           )
+	EnterpriseAlarmSendPoliceSelectColumnCreatedBy EnterpriseAlarmSendPoliceSelectColumn = "created_by"
+	// 修改时间                                        (                                      )
+	EnterpriseAlarmSendPoliceSelectColumnUpdatedAt EnterpriseAlarmSendPoliceSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id           )
+	EnterpriseAlarmSendPoliceSelectColumnUpdatedBy EnterpriseAlarmSendPoliceSelectColumn = "updated_by"
+	// 删除时间                                        (                                      )
+	EnterpriseAlarmSendPoliceSelectColumnDeletedAt EnterpriseAlarmSendPoliceSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id           )
+	EnterpriseAlarmSendPoliceSelectColumnDeletedBy EnterpriseAlarmSendPoliceSelectColumn = "deleted_by"
 )
 
-var AllDistrictAlarmContentPushUpdateColumn = []DistrictAlarmContentPushUpdateColumn{
-	DistrictAlarmContentPushUpdateColumnAlarmContent,
-	DistrictAlarmContentPushUpdateColumnAlarmDataID,
-	DistrictAlarmContentPushUpdateColumnAlarmType,
-	DistrictAlarmContentPushUpdateColumnCityID,
-	DistrictAlarmContentPushUpdateColumnCreatedAt,
-	DistrictAlarmContentPushUpdateColumnCreatedBy,
-	DistrictAlarmContentPushUpdateColumnDeletedAt,
-	DistrictAlarmContentPushUpdateColumnDeletedBy,
-	DistrictAlarmContentPushUpdateColumnDistrictID,
-	DistrictAlarmContentPushUpdateColumnID,
-	DistrictAlarmContentPushUpdateColumnIsDelete,
-	DistrictAlarmContentPushUpdateColumnProvinceID,
-	DistrictAlarmContentPushUpdateColumnUpdatedAt,
-	DistrictAlarmContentPushUpdateColumnUpdatedBy,
+var AllEnterpriseAlarmSendPoliceSelectColumn = []EnterpriseAlarmSendPoliceSelectColumn{
+	EnterpriseAlarmSendPoliceSelectColumnID,
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseAlarmSendPoliceID,
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseID,
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseName,
+	EnterpriseAlarmSendPoliceSelectColumnEnterpriseContact,
+	EnterpriseAlarmSendPoliceSelectColumnEnterprisePhone,
+	EnterpriseAlarmSendPoliceSelectColumnPolice,
+	EnterpriseAlarmSendPoliceSelectColumnPolicePhone,
+	EnterpriseAlarmSendPoliceSelectColumnPhliceDepartment,
+	EnterpriseAlarmSendPoliceSelectColumnCreatedAt,
+	EnterpriseAlarmSendPoliceSelectColumnCreatedBy,
+	EnterpriseAlarmSendPoliceSelectColumnUpdatedAt,
+	EnterpriseAlarmSendPoliceSelectColumnUpdatedBy,
+	EnterpriseAlarmSendPoliceSelectColumnDeletedAt,
+	EnterpriseAlarmSendPoliceSelectColumnDeletedBy,
 }
 
-func (e DistrictAlarmContentPushUpdateColumn) IsValid() bool {
+func (e EnterpriseAlarmSendPoliceSelectColumn) IsValid() bool {
 	switch e {
-	case DistrictAlarmContentPushUpdateColumnAlarmContent, DistrictAlarmContentPushUpdateColumnAlarmDataID, DistrictAlarmContentPushUpdateColumnAlarmType, DistrictAlarmContentPushUpdateColumnCityID, DistrictAlarmContentPushUpdateColumnCreatedAt, DistrictAlarmContentPushUpdateColumnCreatedBy, DistrictAlarmContentPushUpdateColumnDeletedAt, DistrictAlarmContentPushUpdateColumnDeletedBy, DistrictAlarmContentPushUpdateColumnDistrictID, DistrictAlarmContentPushUpdateColumnID, DistrictAlarmContentPushUpdateColumnIsDelete, DistrictAlarmContentPushUpdateColumnProvinceID, DistrictAlarmContentPushUpdateColumnUpdatedAt, DistrictAlarmContentPushUpdateColumnUpdatedBy:
+	case EnterpriseAlarmSendPoliceSelectColumnID, EnterpriseAlarmSendPoliceSelectColumnEnterpriseAlarmSendPoliceID, EnterpriseAlarmSendPoliceSelectColumnEnterpriseID, EnterpriseAlarmSendPoliceSelectColumnEnterpriseName, EnterpriseAlarmSendPoliceSelectColumnEnterpriseContact, EnterpriseAlarmSendPoliceSelectColumnEnterprisePhone, EnterpriseAlarmSendPoliceSelectColumnPolice, EnterpriseAlarmSendPoliceSelectColumnPolicePhone, EnterpriseAlarmSendPoliceSelectColumnPhliceDepartment, EnterpriseAlarmSendPoliceSelectColumnCreatedAt, EnterpriseAlarmSendPoliceSelectColumnCreatedBy, EnterpriseAlarmSendPoliceSelectColumnUpdatedAt, EnterpriseAlarmSendPoliceSelectColumnUpdatedBy, EnterpriseAlarmSendPoliceSelectColumnDeletedAt, EnterpriseAlarmSendPoliceSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e DistrictAlarmContentPushUpdateColumn) String() string {
+func (e EnterpriseAlarmSendPoliceSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *DistrictAlarmContentPushUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *EnterpriseAlarmSendPoliceSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = DistrictAlarmContentPushUpdateColumn(str)
+	*e = EnterpriseAlarmSendPoliceSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid district_alarm_content_push_update_column", str)
+		return fmt.Errorf("%s is not a valid EnterpriseAlarmSendPoliceSelectColumn", str)
 	}
 	return nil
 }
 
-func (e DistrictAlarmContentPushUpdateColumn) MarshalGQL(w io.Writer) {
+func (e EnterpriseAlarmSendPoliceSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// unique or primary key constraints on table "vehicle_alarm_data"
-type VehicleAlarmDataConstraint string
+// 可选select
+type OfflineAlarmRegistrationSelectColumn string
 
 const (
-	// unique or primary key constraint
-	VehicleAlarmDataConstraintVehicleAlarmDataPkey VehicleAlarmDataConstraint = "vehicle_alarm_data_pkey"
+	// 按指定方法生成                                  ( 主键                       )
+	OfflineAlarmRegistrationSelectColumnID OfflineAlarmRegistrationSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	OfflineAlarmRegistrationSelectColumnOfflineAlarmRegistrationID OfflineAlarmRegistrationSelectColumn = "offline_alarm_registration_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	OfflineAlarmRegistrationSelectColumnVehicleID OfflineAlarmRegistrationSelectColumn = "vehicle_id"
+	// 离线开始时间                                    (                            )
+	OfflineAlarmRegistrationSelectColumnOfflineStartTime OfflineAlarmRegistrationSelectColumn = "offline_start_time"
+	// 离线结束时间                                    (                            )
+	OfflineAlarmRegistrationSelectColumnOfflineEndTime OfflineAlarmRegistrationSelectColumn = "offline_end_time"
+	// 登记用户                                        ( system_user表的user_id )
+	OfflineAlarmRegistrationSelectColumnRegistrationUser OfflineAlarmRegistrationSelectColumn = "registration_user"
+	// 登记时间                                        (                            )
+	OfflineAlarmRegistrationSelectColumnRegistrationTime OfflineAlarmRegistrationSelectColumn = "registration_time"
+	// 短信发送内容                                    (                            )
+	OfflineAlarmRegistrationSelectColumnSmsContent OfflineAlarmRegistrationSelectColumn = "sms_content"
+	// 电话提醒内容                                    (                            )
+	OfflineAlarmRegistrationSelectColumnPhoneReminderContent OfflineAlarmRegistrationSelectColumn = "phone_reminder_content"
+	// 短信发送时间                                    (                            )
+	OfflineAlarmRegistrationSelectColumnSmsSendTime OfflineAlarmRegistrationSelectColumn = "sms_send_time"
+	// 电话提醒时间                                    (                            )
+	OfflineAlarmRegistrationSelectColumnPhoneReminderTime OfflineAlarmRegistrationSelectColumn = "phone_reminder_time"
+	// 离线原因                                        (                            )
+	OfflineAlarmRegistrationSelectColumnOfflineReason OfflineAlarmRegistrationSelectColumn = "offline_reason"
+	// 报警类型                                        ( 报警类型字典           )
+	OfflineAlarmRegistrationSelectColumnAlarmType OfflineAlarmRegistrationSelectColumn = "alarm_type"
+	// 是否登记                                        (                            )
+	OfflineAlarmRegistrationSelectColumnIsRegistration OfflineAlarmRegistrationSelectColumn = "is_registration"
+	// 是否结束报警                                    (                            )
+	OfflineAlarmRegistrationSelectColumnIsEndAlarm OfflineAlarmRegistrationSelectColumn = "is_end_alarm"
+	// 是否发送短信                                    (                            )
+	OfflineAlarmRegistrationSelectColumnIsSendSms OfflineAlarmRegistrationSelectColumn = "is_send_sms"
+	// 是否需要维护                                    (                            )
+	OfflineAlarmRegistrationSelectColumnIsNeedMaintain OfflineAlarmRegistrationSelectColumn = "is_need_maintain"
+	// 创建时间                                        (                            )
+	OfflineAlarmRegistrationSelectColumnCreatedAt OfflineAlarmRegistrationSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	OfflineAlarmRegistrationSelectColumnCreatedBy OfflineAlarmRegistrationSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	OfflineAlarmRegistrationSelectColumnUpdatedAt OfflineAlarmRegistrationSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	OfflineAlarmRegistrationSelectColumnUpdatedBy OfflineAlarmRegistrationSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	OfflineAlarmRegistrationSelectColumnDeletedAt OfflineAlarmRegistrationSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	OfflineAlarmRegistrationSelectColumnDeletedBy OfflineAlarmRegistrationSelectColumn = "deleted_by"
 )
 
-var AllVehicleAlarmDataConstraint = []VehicleAlarmDataConstraint{
-	VehicleAlarmDataConstraintVehicleAlarmDataPkey,
+var AllOfflineAlarmRegistrationSelectColumn = []OfflineAlarmRegistrationSelectColumn{
+	OfflineAlarmRegistrationSelectColumnID,
+	OfflineAlarmRegistrationSelectColumnOfflineAlarmRegistrationID,
+	OfflineAlarmRegistrationSelectColumnVehicleID,
+	OfflineAlarmRegistrationSelectColumnOfflineStartTime,
+	OfflineAlarmRegistrationSelectColumnOfflineEndTime,
+	OfflineAlarmRegistrationSelectColumnRegistrationUser,
+	OfflineAlarmRegistrationSelectColumnRegistrationTime,
+	OfflineAlarmRegistrationSelectColumnSmsContent,
+	OfflineAlarmRegistrationSelectColumnPhoneReminderContent,
+	OfflineAlarmRegistrationSelectColumnSmsSendTime,
+	OfflineAlarmRegistrationSelectColumnPhoneReminderTime,
+	OfflineAlarmRegistrationSelectColumnOfflineReason,
+	OfflineAlarmRegistrationSelectColumnAlarmType,
+	OfflineAlarmRegistrationSelectColumnIsRegistration,
+	OfflineAlarmRegistrationSelectColumnIsEndAlarm,
+	OfflineAlarmRegistrationSelectColumnIsSendSms,
+	OfflineAlarmRegistrationSelectColumnIsNeedMaintain,
+	OfflineAlarmRegistrationSelectColumnCreatedAt,
+	OfflineAlarmRegistrationSelectColumnCreatedBy,
+	OfflineAlarmRegistrationSelectColumnUpdatedAt,
+	OfflineAlarmRegistrationSelectColumnUpdatedBy,
+	OfflineAlarmRegistrationSelectColumnDeletedAt,
+	OfflineAlarmRegistrationSelectColumnDeletedBy,
 }
 
-func (e VehicleAlarmDataConstraint) IsValid() bool {
+func (e OfflineAlarmRegistrationSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleAlarmDataConstraintVehicleAlarmDataPkey:
+	case OfflineAlarmRegistrationSelectColumnID, OfflineAlarmRegistrationSelectColumnOfflineAlarmRegistrationID, OfflineAlarmRegistrationSelectColumnVehicleID, OfflineAlarmRegistrationSelectColumnOfflineStartTime, OfflineAlarmRegistrationSelectColumnOfflineEndTime, OfflineAlarmRegistrationSelectColumnRegistrationUser, OfflineAlarmRegistrationSelectColumnRegistrationTime, OfflineAlarmRegistrationSelectColumnSmsContent, OfflineAlarmRegistrationSelectColumnPhoneReminderContent, OfflineAlarmRegistrationSelectColumnSmsSendTime, OfflineAlarmRegistrationSelectColumnPhoneReminderTime, OfflineAlarmRegistrationSelectColumnOfflineReason, OfflineAlarmRegistrationSelectColumnAlarmType, OfflineAlarmRegistrationSelectColumnIsRegistration, OfflineAlarmRegistrationSelectColumnIsEndAlarm, OfflineAlarmRegistrationSelectColumnIsSendSms, OfflineAlarmRegistrationSelectColumnIsNeedMaintain, OfflineAlarmRegistrationSelectColumnCreatedAt, OfflineAlarmRegistrationSelectColumnCreatedBy, OfflineAlarmRegistrationSelectColumnUpdatedAt, OfflineAlarmRegistrationSelectColumnUpdatedBy, OfflineAlarmRegistrationSelectColumnDeletedAt, OfflineAlarmRegistrationSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e VehicleAlarmDataConstraint) String() string {
+func (e OfflineAlarmRegistrationSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *VehicleAlarmDataConstraint) UnmarshalGQL(v interface{}) error {
+func (e *OfflineAlarmRegistrationSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = VehicleAlarmDataConstraint(str)
+	*e = OfflineAlarmRegistrationSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_alarm_data_constraint", str)
+		return fmt.Errorf("%s is not a valid OfflineAlarmRegistrationSelectColumn", str)
 	}
 	return nil
 }
 
-func (e VehicleAlarmDataConstraint) MarshalGQL(w io.Writer) {
+func (e OfflineAlarmRegistrationSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// select columns of table "vehicle_alarm_data"
+// 可选select
 type VehicleAlarmDataSelectColumn string
 
 const (
-	// column name
-	VehicleAlarmDataSelectColumnGpsSpeed VehicleAlarmDataSelectColumn = "GPS_speed"
-	// column name
-	VehicleAlarmDataSelectColumnAlarmDealID VehicleAlarmDataSelectColumn = "alarm_deal_id"
-	// column name
-	VehicleAlarmDataSelectColumnAlarmEndPosition VehicleAlarmDataSelectColumn = "alarm_end_position"
-	// column name
-	VehicleAlarmDataSelectColumnAlarmEndTime VehicleAlarmDataSelectColumn = "alarm_end_time"
-	// column name
-	VehicleAlarmDataSelectColumnAlarmSource VehicleAlarmDataSelectColumn = "alarm_source"
-	// column name
-	VehicleAlarmDataSelectColumnAlarmStartTime VehicleAlarmDataSelectColumn = "alarm_start_time"
-	// column name
-	VehicleAlarmDataSelectColumnAlarmType VehicleAlarmDataSelectColumn = "alarm_type"
-	// column name
-	VehicleAlarmDataSelectColumnAreaID VehicleAlarmDataSelectColumn = "area_id"
-	// column name
-	VehicleAlarmDataSelectColumnCoordinate VehicleAlarmDataSelectColumn = "coordinate"
-	// column name
-	VehicleAlarmDataSelectColumnDuration VehicleAlarmDataSelectColumn = "duration"
-	// column name
+	// 按指定方法生成                                          ( 主键                               )
 	VehicleAlarmDataSelectColumnID VehicleAlarmDataSelectColumn = "id"
-	// column name
-	VehicleAlarmDataSelectColumnIsAlarmEffective VehicleAlarmDataSelectColumn = "is_alarm_effective"
-	// column name
-	VehicleAlarmDataSelectColumnIsAlarmOver VehicleAlarmDataSelectColumn = "is_alarm_over"
-	// column name
-	VehicleAlarmDataSelectColumnIsCancelAlarm VehicleAlarmDataSelectColumn = "is_cancel_alarm"
-	// column name
-	VehicleAlarmDataSelectColumnIsResolve VehicleAlarmDataSelectColumn = "is_resolve"
-	// column name
-	VehicleAlarmDataSelectColumnIsSupervise VehicleAlarmDataSelectColumn = "is_supervise"
-	// column name
-	VehicleAlarmDataSelectColumnLatestAlarmPosition VehicleAlarmDataSelectColumn = "latest_alarm_position"
-	// column name
-	VehicleAlarmDataSelectColumnLatestAlarmTime VehicleAlarmDataSelectColumn = "latest_alarm_time"
-	// column name
-	VehicleAlarmDataSelectColumnLocationDescription VehicleAlarmDataSelectColumn = "location_description"
-	// column name
-	VehicleAlarmDataSelectColumnMaximumSpeed VehicleAlarmDataSelectColumn = "maximum_speed"
-	// column name
-	VehicleAlarmDataSelectColumnPid VehicleAlarmDataSelectColumn = "pid"
-	// column name
-	VehicleAlarmDataSelectColumnProcessingDescription VehicleAlarmDataSelectColumn = "processing_description"
-	// column name
-	VehicleAlarmDataSelectColumnProcessingMethod VehicleAlarmDataSelectColumn = "processing_method"
-	// column name
-	VehicleAlarmDataSelectColumnProcessingStatus VehicleAlarmDataSelectColumn = "processing_status"
-	// column name
-	VehicleAlarmDataSelectColumnProcessingTime VehicleAlarmDataSelectColumn = "processing_time"
-	// column name
-	VehicleAlarmDataSelectColumnProcessor VehicleAlarmDataSelectColumn = "processor"
-	// column name
-	VehicleAlarmDataSelectColumnRecordTime VehicleAlarmDataSelectColumn = "record_time"
-	// column name
-	VehicleAlarmDataSelectColumnRoadGrade VehicleAlarmDataSelectColumn = "road_grade"
-	// column name
-	VehicleAlarmDataSelectColumnRoadName VehicleAlarmDataSelectColumn = "road_name"
-	// column name
-	VehicleAlarmDataSelectColumnSpeedLimitThreshold VehicleAlarmDataSelectColumn = "speed_limit_threshold"
-	// column name
-	VehicleAlarmDataSelectColumnSupervisionNote VehicleAlarmDataSelectColumn = "supervision_note"
-	// column name
-	VehicleAlarmDataSelectColumnSupervisionTime VehicleAlarmDataSelectColumn = "supervision_time"
-	// column name
-	VehicleAlarmDataSelectColumnSupervisor VehicleAlarmDataSelectColumn = "supervisor"
-	// column name
-	VehicleAlarmDataSelectColumnTachographSpeed VehicleAlarmDataSelectColumn = "tachograph_speed"
-	// column name
+	// 报警数据外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                           )
 	VehicleAlarmDataSelectColumnVehicleAlarmDataID VehicleAlarmDataSelectColumn = "vehicle_alarm_data_id"
-	// column name
+	// 车辆ID                                                  ( 引用vehicle_info表的vehicle_id )
 	VehicleAlarmDataSelectColumnVehicleID VehicleAlarmDataSelectColumn = "vehicle_id"
+	// 报警类型                                                ( 报警类型字典                   )
+	VehicleAlarmDataSelectColumnAlarmType VehicleAlarmDataSelectColumn = "alarm_type"
+	// 报警开始时间                                            (                                    )
+	VehicleAlarmDataSelectColumnAlarmStartTime VehicleAlarmDataSelectColumn = "alarm_start_time"
+	// 报警结束时间                                            (                                    )
+	VehicleAlarmDataSelectColumnAlarmEndTime VehicleAlarmDataSelectColumn = "alarm_end_time"
+	// 报警结束位置                                            (                                    )
+	VehicleAlarmDataSelectColumnAlarmEndPosition VehicleAlarmDataSelectColumn = "alarm_end_position"
+	// 最新报警时间                                            (                                    )
+	VehicleAlarmDataSelectColumnLatestAlarmTime VehicleAlarmDataSelectColumn = "latest_alarm_time"
+	// 最新报警位置                                            (                                    )
+	VehicleAlarmDataSelectColumnLatestAlarmPosition VehicleAlarmDataSelectColumn = "latest_alarm_position"
+	// 报警是否有效                                            (                                    )
+	VehicleAlarmDataSelectColumnIsAlarmEffective VehicleAlarmDataSelectColumn = "is_alarm_effective"
+	// 报警是否结束                                            (                                    )
+	VehicleAlarmDataSelectColumnIsAlarmOver VehicleAlarmDataSelectColumn = "is_alarm_over"
+	// 是否取消报警                                            (                                    )
+	VehicleAlarmDataSelectColumnIsCancelAlarm VehicleAlarmDataSelectColumn = "is_cancel_alarm"
+	// 报警来源:1.终端报警 2.平台报警                          ( 报警来源字典                   )
+	VehicleAlarmDataSelectColumnAlarmSource VehicleAlarmDataSelectColumn = "alarm_source"
+	// 处理时间                                                (                                    )
+	VehicleAlarmDataSelectColumnProcessingTime VehicleAlarmDataSelectColumn = "processing_time"
+	// 处理方式                                                ( 处警处理方式字典               )
+	VehicleAlarmDataSelectColumnProcessingMethod VehicleAlarmDataSelectColumn = "processing_method"
+	// 处理描述                                                (                                    )
+	VehicleAlarmDataSelectColumnProcessingDescription VehicleAlarmDataSelectColumn = "processing_description"
+	// 处理人                                                  ( system_user表的user_id         )
+	VehicleAlarmDataSelectColumnProcessor VehicleAlarmDataSelectColumn = "processor"
+	// 处理状态                                                ( 处警处理状态字典               )
+	VehicleAlarmDataSelectColumnProcessingStatus VehicleAlarmDataSelectColumn = "processing_status"
+	// 行驶记录仪速度                                          (                                    )
+	VehicleAlarmDataSelectColumnTachographSpeed VehicleAlarmDataSelectColumn = "tachograph_speed"
+	// GPS速度                                                 (                                    )
+	VehicleAlarmDataSelectColumnGpsSpeed VehicleAlarmDataSelectColumn = "gps_speed"
+	// 最高速度                                                (                                    )
+	VehicleAlarmDataSelectColumnMaximumSpeed VehicleAlarmDataSelectColumn = "maximum_speed"
+	// 限速阀值                                                (                                    )
+	VehicleAlarmDataSelectColumnSpeedLimitThreshold VehicleAlarmDataSelectColumn = "speed_limit_threshold"
+	// 空间数据类型point表示经度(longitude)和纬度(latitude)    (                                    )
+	VehicleAlarmDataSelectColumnCoordinate VehicleAlarmDataSelectColumn = "coordinate"
+	// 位置描述                                                (                                    )
+	VehicleAlarmDataSelectColumnLocationDescription VehicleAlarmDataSelectColumn = "location_description"
+	// 持续时间                                                (                                    )
+	VehicleAlarmDataSelectColumnDuration VehicleAlarmDataSelectColumn = "duration"
+	// 道路等级                                                ( 道路等级字典                   )
+	VehicleAlarmDataSelectColumnRoadGrade VehicleAlarmDataSelectColumn = "road_grade"
+	// 道路名称                                                (                                    )
+	VehicleAlarmDataSelectColumnRoadName VehicleAlarmDataSelectColumn = "road_name"
+	// 进区域ID                                                (                                    )
+	VehicleAlarmDataSelectColumnAreaID VehicleAlarmDataSelectColumn = "area_id"
+	// 处警ID                                                  (                                    )
+	VehicleAlarmDataSelectColumnAlarmDealID VehicleAlarmDataSelectColumn = "alarm_deal_id"
+	// 地区                                                    (                                    )
+	VehicleAlarmDataSelectColumnPid VehicleAlarmDataSelectColumn = "pid"
+	// 记录时间                                                (                                    )
+	VehicleAlarmDataSelectColumnRecordTime VehicleAlarmDataSelectColumn = "record_time"
+	// 监管人                                                  ( system_user表的user_id         )
+	VehicleAlarmDataSelectColumnSupervisor VehicleAlarmDataSelectColumn = "supervisor"
+	// 管理部门是否监管                                        (                                    )
+	VehicleAlarmDataSelectColumnIsSupervise VehicleAlarmDataSelectColumn = "is_supervise"
+	// 管理部门监管时间                                        (                                    )
+	VehicleAlarmDataSelectColumnSupervisionTime VehicleAlarmDataSelectColumn = "supervision_time"
+	// 监管备注                                                (                                    )
+	VehicleAlarmDataSelectColumnSupervisionNote VehicleAlarmDataSelectColumn = "supervision_note"
+	// 是否解析                                                (                                    )
+	VehicleAlarmDataSelectColumnIsResolve VehicleAlarmDataSelectColumn = "is_resolve"
+	// 工地是否处理                                            (                                    )
+	VehicleAlarmDataSelectColumnIsConstructionSiteHandle VehicleAlarmDataSelectColumn = "is_construction_site_handle"
+	// 工地处理时间                                            (                                    )
+	VehicleAlarmDataSelectColumnConstructionSiteHandleTime VehicleAlarmDataSelectColumn = "construction_site_handle_time"
+	// 创建时间                                                (                                    )
+	VehicleAlarmDataSelectColumnCreatedAt VehicleAlarmDataSelectColumn = "created_at"
+	// 创建人                                                  ( system_user表的user_id         )
+	VehicleAlarmDataSelectColumnCreatedBy VehicleAlarmDataSelectColumn = "created_by"
+	// 修改时间                                                (                                    )
+	VehicleAlarmDataSelectColumnUpdatedAt VehicleAlarmDataSelectColumn = "updated_at"
+	// 修改人                                                  ( system_user表的user_id         )
+	VehicleAlarmDataSelectColumnUpdatedBy VehicleAlarmDataSelectColumn = "updated_by"
+	// 删除时间                                                (                                    )
+	VehicleAlarmDataSelectColumnDeletedAt VehicleAlarmDataSelectColumn = "deleted_at"
+	// 删除人                                                  ( system_user表的user_id         )
+	VehicleAlarmDataSelectColumnDeletedBy VehicleAlarmDataSelectColumn = "deleted_by"
 )
 
 var AllVehicleAlarmDataSelectColumn = []VehicleAlarmDataSelectColumn{
-	VehicleAlarmDataSelectColumnGpsSpeed,
-	VehicleAlarmDataSelectColumnAlarmDealID,
-	VehicleAlarmDataSelectColumnAlarmEndPosition,
-	VehicleAlarmDataSelectColumnAlarmEndTime,
-	VehicleAlarmDataSelectColumnAlarmSource,
-	VehicleAlarmDataSelectColumnAlarmStartTime,
-	VehicleAlarmDataSelectColumnAlarmType,
-	VehicleAlarmDataSelectColumnAreaID,
-	VehicleAlarmDataSelectColumnCoordinate,
-	VehicleAlarmDataSelectColumnDuration,
 	VehicleAlarmDataSelectColumnID,
+	VehicleAlarmDataSelectColumnVehicleAlarmDataID,
+	VehicleAlarmDataSelectColumnVehicleID,
+	VehicleAlarmDataSelectColumnAlarmType,
+	VehicleAlarmDataSelectColumnAlarmStartTime,
+	VehicleAlarmDataSelectColumnAlarmEndTime,
+	VehicleAlarmDataSelectColumnAlarmEndPosition,
+	VehicleAlarmDataSelectColumnLatestAlarmTime,
+	VehicleAlarmDataSelectColumnLatestAlarmPosition,
 	VehicleAlarmDataSelectColumnIsAlarmEffective,
 	VehicleAlarmDataSelectColumnIsAlarmOver,
 	VehicleAlarmDataSelectColumnIsCancelAlarm,
-	VehicleAlarmDataSelectColumnIsResolve,
-	VehicleAlarmDataSelectColumnIsSupervise,
-	VehicleAlarmDataSelectColumnLatestAlarmPosition,
-	VehicleAlarmDataSelectColumnLatestAlarmTime,
-	VehicleAlarmDataSelectColumnLocationDescription,
-	VehicleAlarmDataSelectColumnMaximumSpeed,
-	VehicleAlarmDataSelectColumnPid,
-	VehicleAlarmDataSelectColumnProcessingDescription,
-	VehicleAlarmDataSelectColumnProcessingMethod,
-	VehicleAlarmDataSelectColumnProcessingStatus,
+	VehicleAlarmDataSelectColumnAlarmSource,
 	VehicleAlarmDataSelectColumnProcessingTime,
+	VehicleAlarmDataSelectColumnProcessingMethod,
+	VehicleAlarmDataSelectColumnProcessingDescription,
 	VehicleAlarmDataSelectColumnProcessor,
-	VehicleAlarmDataSelectColumnRecordTime,
+	VehicleAlarmDataSelectColumnProcessingStatus,
+	VehicleAlarmDataSelectColumnTachographSpeed,
+	VehicleAlarmDataSelectColumnGpsSpeed,
+	VehicleAlarmDataSelectColumnMaximumSpeed,
+	VehicleAlarmDataSelectColumnSpeedLimitThreshold,
+	VehicleAlarmDataSelectColumnCoordinate,
+	VehicleAlarmDataSelectColumnLocationDescription,
+	VehicleAlarmDataSelectColumnDuration,
 	VehicleAlarmDataSelectColumnRoadGrade,
 	VehicleAlarmDataSelectColumnRoadName,
-	VehicleAlarmDataSelectColumnSpeedLimitThreshold,
-	VehicleAlarmDataSelectColumnSupervisionNote,
-	VehicleAlarmDataSelectColumnSupervisionTime,
+	VehicleAlarmDataSelectColumnAreaID,
+	VehicleAlarmDataSelectColumnAlarmDealID,
+	VehicleAlarmDataSelectColumnPid,
+	VehicleAlarmDataSelectColumnRecordTime,
 	VehicleAlarmDataSelectColumnSupervisor,
-	VehicleAlarmDataSelectColumnTachographSpeed,
-	VehicleAlarmDataSelectColumnVehicleAlarmDataID,
-	VehicleAlarmDataSelectColumnVehicleID,
+	VehicleAlarmDataSelectColumnIsSupervise,
+	VehicleAlarmDataSelectColumnSupervisionTime,
+	VehicleAlarmDataSelectColumnSupervisionNote,
+	VehicleAlarmDataSelectColumnIsResolve,
+	VehicleAlarmDataSelectColumnIsConstructionSiteHandle,
+	VehicleAlarmDataSelectColumnConstructionSiteHandleTime,
+	VehicleAlarmDataSelectColumnCreatedAt,
+	VehicleAlarmDataSelectColumnCreatedBy,
+	VehicleAlarmDataSelectColumnUpdatedAt,
+	VehicleAlarmDataSelectColumnUpdatedBy,
+	VehicleAlarmDataSelectColumnDeletedAt,
+	VehicleAlarmDataSelectColumnDeletedBy,
 }
 
 func (e VehicleAlarmDataSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleAlarmDataSelectColumnGpsSpeed, VehicleAlarmDataSelectColumnAlarmDealID, VehicleAlarmDataSelectColumnAlarmEndPosition, VehicleAlarmDataSelectColumnAlarmEndTime, VehicleAlarmDataSelectColumnAlarmSource, VehicleAlarmDataSelectColumnAlarmStartTime, VehicleAlarmDataSelectColumnAlarmType, VehicleAlarmDataSelectColumnAreaID, VehicleAlarmDataSelectColumnCoordinate, VehicleAlarmDataSelectColumnDuration, VehicleAlarmDataSelectColumnID, VehicleAlarmDataSelectColumnIsAlarmEffective, VehicleAlarmDataSelectColumnIsAlarmOver, VehicleAlarmDataSelectColumnIsCancelAlarm, VehicleAlarmDataSelectColumnIsResolve, VehicleAlarmDataSelectColumnIsSupervise, VehicleAlarmDataSelectColumnLatestAlarmPosition, VehicleAlarmDataSelectColumnLatestAlarmTime, VehicleAlarmDataSelectColumnLocationDescription, VehicleAlarmDataSelectColumnMaximumSpeed, VehicleAlarmDataSelectColumnPid, VehicleAlarmDataSelectColumnProcessingDescription, VehicleAlarmDataSelectColumnProcessingMethod, VehicleAlarmDataSelectColumnProcessingStatus, VehicleAlarmDataSelectColumnProcessingTime, VehicleAlarmDataSelectColumnProcessor, VehicleAlarmDataSelectColumnRecordTime, VehicleAlarmDataSelectColumnRoadGrade, VehicleAlarmDataSelectColumnRoadName, VehicleAlarmDataSelectColumnSpeedLimitThreshold, VehicleAlarmDataSelectColumnSupervisionNote, VehicleAlarmDataSelectColumnSupervisionTime, VehicleAlarmDataSelectColumnSupervisor, VehicleAlarmDataSelectColumnTachographSpeed, VehicleAlarmDataSelectColumnVehicleAlarmDataID, VehicleAlarmDataSelectColumnVehicleID:
+	case VehicleAlarmDataSelectColumnID, VehicleAlarmDataSelectColumnVehicleAlarmDataID, VehicleAlarmDataSelectColumnVehicleID, VehicleAlarmDataSelectColumnAlarmType, VehicleAlarmDataSelectColumnAlarmStartTime, VehicleAlarmDataSelectColumnAlarmEndTime, VehicleAlarmDataSelectColumnAlarmEndPosition, VehicleAlarmDataSelectColumnLatestAlarmTime, VehicleAlarmDataSelectColumnLatestAlarmPosition, VehicleAlarmDataSelectColumnIsAlarmEffective, VehicleAlarmDataSelectColumnIsAlarmOver, VehicleAlarmDataSelectColumnIsCancelAlarm, VehicleAlarmDataSelectColumnAlarmSource, VehicleAlarmDataSelectColumnProcessingTime, VehicleAlarmDataSelectColumnProcessingMethod, VehicleAlarmDataSelectColumnProcessingDescription, VehicleAlarmDataSelectColumnProcessor, VehicleAlarmDataSelectColumnProcessingStatus, VehicleAlarmDataSelectColumnTachographSpeed, VehicleAlarmDataSelectColumnGpsSpeed, VehicleAlarmDataSelectColumnMaximumSpeed, VehicleAlarmDataSelectColumnSpeedLimitThreshold, VehicleAlarmDataSelectColumnCoordinate, VehicleAlarmDataSelectColumnLocationDescription, VehicleAlarmDataSelectColumnDuration, VehicleAlarmDataSelectColumnRoadGrade, VehicleAlarmDataSelectColumnRoadName, VehicleAlarmDataSelectColumnAreaID, VehicleAlarmDataSelectColumnAlarmDealID, VehicleAlarmDataSelectColumnPid, VehicleAlarmDataSelectColumnRecordTime, VehicleAlarmDataSelectColumnSupervisor, VehicleAlarmDataSelectColumnIsSupervise, VehicleAlarmDataSelectColumnSupervisionTime, VehicleAlarmDataSelectColumnSupervisionNote, VehicleAlarmDataSelectColumnIsResolve, VehicleAlarmDataSelectColumnIsConstructionSiteHandle, VehicleAlarmDataSelectColumnConstructionSiteHandleTime, VehicleAlarmDataSelectColumnCreatedAt, VehicleAlarmDataSelectColumnCreatedBy, VehicleAlarmDataSelectColumnUpdatedAt, VehicleAlarmDataSelectColumnUpdatedBy, VehicleAlarmDataSelectColumnDeletedAt, VehicleAlarmDataSelectColumnDeletedBy:
 		return true
 	}
 	return false
@@ -2208,7 +2535,7 @@ func (e *VehicleAlarmDataSelectColumn) UnmarshalGQL(v interface{}) error {
 
 	*e = VehicleAlarmDataSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_alarm_data_select_column", str)
+		return fmt.Errorf("%s is not a valid VehicleAlarmDataSelectColumn", str)
 	}
 	return nil
 }
@@ -2217,148 +2544,168 @@ func (e VehicleAlarmDataSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
 
-// update columns of table "vehicle_alarm_data"
-type VehicleAlarmDataUpdateColumn string
+// 可选select
+type VideoPlatformAlarmTypeSelectColumn string
 
 const (
-	// column name
-	VehicleAlarmDataUpdateColumnGpsSpeed VehicleAlarmDataUpdateColumn = "GPS_speed"
-	// column name
-	VehicleAlarmDataUpdateColumnAlarmDealID VehicleAlarmDataUpdateColumn = "alarm_deal_id"
-	// column name
-	VehicleAlarmDataUpdateColumnAlarmEndPosition VehicleAlarmDataUpdateColumn = "alarm_end_position"
-	// column name
-	VehicleAlarmDataUpdateColumnAlarmEndTime VehicleAlarmDataUpdateColumn = "alarm_end_time"
-	// column name
-	VehicleAlarmDataUpdateColumnAlarmSource VehicleAlarmDataUpdateColumn = "alarm_source"
-	// column name
-	VehicleAlarmDataUpdateColumnAlarmStartTime VehicleAlarmDataUpdateColumn = "alarm_start_time"
-	// column name
-	VehicleAlarmDataUpdateColumnAlarmType VehicleAlarmDataUpdateColumn = "alarm_type"
-	// column name
-	VehicleAlarmDataUpdateColumnAreaID VehicleAlarmDataUpdateColumn = "area_id"
-	// column name
-	VehicleAlarmDataUpdateColumnCoordinate VehicleAlarmDataUpdateColumn = "coordinate"
-	// column name
-	VehicleAlarmDataUpdateColumnDuration VehicleAlarmDataUpdateColumn = "duration"
-	// column name
-	VehicleAlarmDataUpdateColumnID VehicleAlarmDataUpdateColumn = "id"
-	// column name
-	VehicleAlarmDataUpdateColumnIsAlarmEffective VehicleAlarmDataUpdateColumn = "is_alarm_effective"
-	// column name
-	VehicleAlarmDataUpdateColumnIsAlarmOver VehicleAlarmDataUpdateColumn = "is_alarm_over"
-	// column name
-	VehicleAlarmDataUpdateColumnIsCancelAlarm VehicleAlarmDataUpdateColumn = "is_cancel_alarm"
-	// column name
-	VehicleAlarmDataUpdateColumnIsResolve VehicleAlarmDataUpdateColumn = "is_resolve"
-	// column name
-	VehicleAlarmDataUpdateColumnIsSupervise VehicleAlarmDataUpdateColumn = "is_supervise"
-	// column name
-	VehicleAlarmDataUpdateColumnLatestAlarmPosition VehicleAlarmDataUpdateColumn = "latest_alarm_position"
-	// column name
-	VehicleAlarmDataUpdateColumnLatestAlarmTime VehicleAlarmDataUpdateColumn = "latest_alarm_time"
-	// column name
-	VehicleAlarmDataUpdateColumnLocationDescription VehicleAlarmDataUpdateColumn = "location_description"
-	// column name
-	VehicleAlarmDataUpdateColumnMaximumSpeed VehicleAlarmDataUpdateColumn = "maximum_speed"
-	// column name
-	VehicleAlarmDataUpdateColumnPid VehicleAlarmDataUpdateColumn = "pid"
-	// column name
-	VehicleAlarmDataUpdateColumnProcessingDescription VehicleAlarmDataUpdateColumn = "processing_description"
-	// column name
-	VehicleAlarmDataUpdateColumnProcessingMethod VehicleAlarmDataUpdateColumn = "processing_method"
-	// column name
-	VehicleAlarmDataUpdateColumnProcessingStatus VehicleAlarmDataUpdateColumn = "processing_status"
-	// column name
-	VehicleAlarmDataUpdateColumnProcessingTime VehicleAlarmDataUpdateColumn = "processing_time"
-	// column name
-	VehicleAlarmDataUpdateColumnProcessor VehicleAlarmDataUpdateColumn = "processor"
-	// column name
-	VehicleAlarmDataUpdateColumnRecordTime VehicleAlarmDataUpdateColumn = "record_time"
-	// column name
-	VehicleAlarmDataUpdateColumnRoadGrade VehicleAlarmDataUpdateColumn = "road_grade"
-	// column name
-	VehicleAlarmDataUpdateColumnRoadName VehicleAlarmDataUpdateColumn = "road_name"
-	// column name
-	VehicleAlarmDataUpdateColumnSpeedLimitThreshold VehicleAlarmDataUpdateColumn = "speed_limit_threshold"
-	// column name
-	VehicleAlarmDataUpdateColumnSupervisionNote VehicleAlarmDataUpdateColumn = "supervision_note"
-	// column name
-	VehicleAlarmDataUpdateColumnSupervisionTime VehicleAlarmDataUpdateColumn = "supervision_time"
-	// column name
-	VehicleAlarmDataUpdateColumnSupervisor VehicleAlarmDataUpdateColumn = "supervisor"
-	// column name
-	VehicleAlarmDataUpdateColumnTachographSpeed VehicleAlarmDataUpdateColumn = "tachograph_speed"
-	// column name
-	VehicleAlarmDataUpdateColumnVehicleAlarmDataID VehicleAlarmDataUpdateColumn = "vehicle_alarm_data_id"
-	// column name
-	VehicleAlarmDataUpdateColumnVehicleID VehicleAlarmDataUpdateColumn = "vehicle_id"
+	// 按指定方法生成                                  ( 主键                                                      )
+	VideoPlatformAlarmTypeSelectColumnID VideoPlatformAlarmTypeSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                                                  )
+	VideoPlatformAlarmTypeSelectColumnVideoPlatformAlarmTypeID VideoPlatformAlarmTypeSelectColumn = "video_platform_alarm_type_id"
+	// 报警数据表id                                    ( vehicle_alarm_data  报警数据表的vehicle_alarm_data_id )
+	VideoPlatformAlarmTypeSelectColumnVehicleAlarmDataID VideoPlatformAlarmTypeSelectColumn = "vehicle_alarm_data_id"
+	// 报警类型                                        (                                                           )
+	VideoPlatformAlarmTypeSelectColumnAlarmType VideoPlatformAlarmTypeSelectColumn = "alarm_type"
+	// 报警来源                                        (                                                           )
+	VideoPlatformAlarmTypeSelectColumnAlarmSource VideoPlatformAlarmTypeSelectColumn = "alarm_source"
+	// 报警分类                                        ( Adas报警字典                                          )
+	VideoPlatformAlarmTypeSelectColumnAlarmClassify VideoPlatformAlarmTypeSelectColumn = "alarm_classify"
+	// 报警代码                                        (                                                           )
+	VideoPlatformAlarmTypeSelectColumnAlarmCode VideoPlatformAlarmTypeSelectColumn = "alarm_code"
+	// 是否删除                                        (                                                           )
+	VideoPlatformAlarmTypeSelectColumnIsDeleted VideoPlatformAlarmTypeSelectColumn = "is_deleted"
+	// 创建时间                                        (                                                           )
+	VideoPlatformAlarmTypeSelectColumnCreatedAt VideoPlatformAlarmTypeSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id                                )
+	VideoPlatformAlarmTypeSelectColumnCreatedBy VideoPlatformAlarmTypeSelectColumn = "created_by"
+	// 修改时间                                        (                                                           )
+	VideoPlatformAlarmTypeSelectColumnUpdatedAt VideoPlatformAlarmTypeSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id                                )
+	VideoPlatformAlarmTypeSelectColumnUpdatedBy VideoPlatformAlarmTypeSelectColumn = "updated_by"
+	// 删除时间                                        (                                                           )
+	VideoPlatformAlarmTypeSelectColumnDeletedAt VideoPlatformAlarmTypeSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id                                )
+	VideoPlatformAlarmTypeSelectColumnDeletedBy VideoPlatformAlarmTypeSelectColumn = "deleted_by"
 )
 
-var AllVehicleAlarmDataUpdateColumn = []VehicleAlarmDataUpdateColumn{
-	VehicleAlarmDataUpdateColumnGpsSpeed,
-	VehicleAlarmDataUpdateColumnAlarmDealID,
-	VehicleAlarmDataUpdateColumnAlarmEndPosition,
-	VehicleAlarmDataUpdateColumnAlarmEndTime,
-	VehicleAlarmDataUpdateColumnAlarmSource,
-	VehicleAlarmDataUpdateColumnAlarmStartTime,
-	VehicleAlarmDataUpdateColumnAlarmType,
-	VehicleAlarmDataUpdateColumnAreaID,
-	VehicleAlarmDataUpdateColumnCoordinate,
-	VehicleAlarmDataUpdateColumnDuration,
-	VehicleAlarmDataUpdateColumnID,
-	VehicleAlarmDataUpdateColumnIsAlarmEffective,
-	VehicleAlarmDataUpdateColumnIsAlarmOver,
-	VehicleAlarmDataUpdateColumnIsCancelAlarm,
-	VehicleAlarmDataUpdateColumnIsResolve,
-	VehicleAlarmDataUpdateColumnIsSupervise,
-	VehicleAlarmDataUpdateColumnLatestAlarmPosition,
-	VehicleAlarmDataUpdateColumnLatestAlarmTime,
-	VehicleAlarmDataUpdateColumnLocationDescription,
-	VehicleAlarmDataUpdateColumnMaximumSpeed,
-	VehicleAlarmDataUpdateColumnPid,
-	VehicleAlarmDataUpdateColumnProcessingDescription,
-	VehicleAlarmDataUpdateColumnProcessingMethod,
-	VehicleAlarmDataUpdateColumnProcessingStatus,
-	VehicleAlarmDataUpdateColumnProcessingTime,
-	VehicleAlarmDataUpdateColumnProcessor,
-	VehicleAlarmDataUpdateColumnRecordTime,
-	VehicleAlarmDataUpdateColumnRoadGrade,
-	VehicleAlarmDataUpdateColumnRoadName,
-	VehicleAlarmDataUpdateColumnSpeedLimitThreshold,
-	VehicleAlarmDataUpdateColumnSupervisionNote,
-	VehicleAlarmDataUpdateColumnSupervisionTime,
-	VehicleAlarmDataUpdateColumnSupervisor,
-	VehicleAlarmDataUpdateColumnTachographSpeed,
-	VehicleAlarmDataUpdateColumnVehicleAlarmDataID,
-	VehicleAlarmDataUpdateColumnVehicleID,
+var AllVideoPlatformAlarmTypeSelectColumn = []VideoPlatformAlarmTypeSelectColumn{
+	VideoPlatformAlarmTypeSelectColumnID,
+	VideoPlatformAlarmTypeSelectColumnVideoPlatformAlarmTypeID,
+	VideoPlatformAlarmTypeSelectColumnVehicleAlarmDataID,
+	VideoPlatformAlarmTypeSelectColumnAlarmType,
+	VideoPlatformAlarmTypeSelectColumnAlarmSource,
+	VideoPlatformAlarmTypeSelectColumnAlarmClassify,
+	VideoPlatformAlarmTypeSelectColumnAlarmCode,
+	VideoPlatformAlarmTypeSelectColumnIsDeleted,
+	VideoPlatformAlarmTypeSelectColumnCreatedAt,
+	VideoPlatformAlarmTypeSelectColumnCreatedBy,
+	VideoPlatformAlarmTypeSelectColumnUpdatedAt,
+	VideoPlatformAlarmTypeSelectColumnUpdatedBy,
+	VideoPlatformAlarmTypeSelectColumnDeletedAt,
+	VideoPlatformAlarmTypeSelectColumnDeletedBy,
 }
 
-func (e VehicleAlarmDataUpdateColumn) IsValid() bool {
+func (e VideoPlatformAlarmTypeSelectColumn) IsValid() bool {
 	switch e {
-	case VehicleAlarmDataUpdateColumnGpsSpeed, VehicleAlarmDataUpdateColumnAlarmDealID, VehicleAlarmDataUpdateColumnAlarmEndPosition, VehicleAlarmDataUpdateColumnAlarmEndTime, VehicleAlarmDataUpdateColumnAlarmSource, VehicleAlarmDataUpdateColumnAlarmStartTime, VehicleAlarmDataUpdateColumnAlarmType, VehicleAlarmDataUpdateColumnAreaID, VehicleAlarmDataUpdateColumnCoordinate, VehicleAlarmDataUpdateColumnDuration, VehicleAlarmDataUpdateColumnID, VehicleAlarmDataUpdateColumnIsAlarmEffective, VehicleAlarmDataUpdateColumnIsAlarmOver, VehicleAlarmDataUpdateColumnIsCancelAlarm, VehicleAlarmDataUpdateColumnIsResolve, VehicleAlarmDataUpdateColumnIsSupervise, VehicleAlarmDataUpdateColumnLatestAlarmPosition, VehicleAlarmDataUpdateColumnLatestAlarmTime, VehicleAlarmDataUpdateColumnLocationDescription, VehicleAlarmDataUpdateColumnMaximumSpeed, VehicleAlarmDataUpdateColumnPid, VehicleAlarmDataUpdateColumnProcessingDescription, VehicleAlarmDataUpdateColumnProcessingMethod, VehicleAlarmDataUpdateColumnProcessingStatus, VehicleAlarmDataUpdateColumnProcessingTime, VehicleAlarmDataUpdateColumnProcessor, VehicleAlarmDataUpdateColumnRecordTime, VehicleAlarmDataUpdateColumnRoadGrade, VehicleAlarmDataUpdateColumnRoadName, VehicleAlarmDataUpdateColumnSpeedLimitThreshold, VehicleAlarmDataUpdateColumnSupervisionNote, VehicleAlarmDataUpdateColumnSupervisionTime, VehicleAlarmDataUpdateColumnSupervisor, VehicleAlarmDataUpdateColumnTachographSpeed, VehicleAlarmDataUpdateColumnVehicleAlarmDataID, VehicleAlarmDataUpdateColumnVehicleID:
+	case VideoPlatformAlarmTypeSelectColumnID, VideoPlatformAlarmTypeSelectColumnVideoPlatformAlarmTypeID, VideoPlatformAlarmTypeSelectColumnVehicleAlarmDataID, VideoPlatformAlarmTypeSelectColumnAlarmType, VideoPlatformAlarmTypeSelectColumnAlarmSource, VideoPlatformAlarmTypeSelectColumnAlarmClassify, VideoPlatformAlarmTypeSelectColumnAlarmCode, VideoPlatformAlarmTypeSelectColumnIsDeleted, VideoPlatformAlarmTypeSelectColumnCreatedAt, VideoPlatformAlarmTypeSelectColumnCreatedBy, VideoPlatformAlarmTypeSelectColumnUpdatedAt, VideoPlatformAlarmTypeSelectColumnUpdatedBy, VideoPlatformAlarmTypeSelectColumnDeletedAt, VideoPlatformAlarmTypeSelectColumnDeletedBy:
 		return true
 	}
 	return false
 }
 
-func (e VehicleAlarmDataUpdateColumn) String() string {
+func (e VideoPlatformAlarmTypeSelectColumn) String() string {
 	return string(e)
 }
 
-func (e *VehicleAlarmDataUpdateColumn) UnmarshalGQL(v interface{}) error {
+func (e *VideoPlatformAlarmTypeSelectColumn) UnmarshalGQL(v interface{}) error {
 	str, ok := v.(string)
 	if !ok {
 		return fmt.Errorf("enums must be strings")
 	}
 
-	*e = VehicleAlarmDataUpdateColumn(str)
+	*e = VideoPlatformAlarmTypeSelectColumn(str)
 	if !e.IsValid() {
-		return fmt.Errorf("%s is not a valid vehicle_alarm_data_update_column", str)
+		return fmt.Errorf("%s is not a valid VideoPlatformAlarmTypeSelectColumn", str)
 	}
 	return nil
 }
 
-func (e VehicleAlarmDataUpdateColumn) MarshalGQL(w io.Writer) {
+func (e VideoPlatformAlarmTypeSelectColumn) MarshalGQL(w io.Writer) {
+	fmt.Fprint(w, strconv.Quote(e.String()))
+}
+
+// 可选select
+type VoiceAlarmRecordSelectColumn string
+
+const (
+	// 按指定方法生成                                  ( 主键                       )
+	VoiceAlarmRecordSelectColumnID VoiceAlarmRecordSelectColumn = "id"
+	// 外部编码，由golang程序生成的xid，暴露到外部使用 ( 联合主键                   )
+	VoiceAlarmRecordSelectColumnVioceAlarmRecordID VoiceAlarmRecordSelectColumn = "vioce_alarm_record_id"
+	// vehicle_info 车辆信息表 的vehicle_id        (                            )
+	VoiceAlarmRecordSelectColumnVehicleID VoiceAlarmRecordSelectColumn = "vehicle_id"
+	// 报警时间                                        (                            )
+	VoiceAlarmRecordSelectColumnAlarmTime VoiceAlarmRecordSelectColumn = "alarm_time"
+	// 报警类型                                        (                            )
+	VoiceAlarmRecordSelectColumnAlarmType VoiceAlarmRecordSelectColumn = "alarm_type"
+	// 提醒时间                                        (                            )
+	VoiceAlarmRecordSelectColumnRemindTime VoiceAlarmRecordSelectColumn = "remind_time"
+	// 提醒内容                                        (                            )
+	VoiceAlarmRecordSelectColumnRemindContent VoiceAlarmRecordSelectColumn = "remind_content"
+	// 录入人                                          ( system_user表的user_id )
+	VoiceAlarmRecordSelectColumnInputPerson VoiceAlarmRecordSelectColumn = "input_person"
+	// 录入时间                                        (                            )
+	VoiceAlarmRecordSelectColumnInputTime VoiceAlarmRecordSelectColumn = "input_time"
+	// 是否成功                                        (                            )
+	VoiceAlarmRecordSelectColumnIsSuccess VoiceAlarmRecordSelectColumn = "is_success"
+	// 创建时间                                        (                            )
+	VoiceAlarmRecordSelectColumnCreatedAt VoiceAlarmRecordSelectColumn = "created_at"
+	// 创建人                                          ( system_user表的user_id )
+	VoiceAlarmRecordSelectColumnCreatedBy VoiceAlarmRecordSelectColumn = "created_by"
+	// 修改时间                                        (                            )
+	VoiceAlarmRecordSelectColumnUpdatedAt VoiceAlarmRecordSelectColumn = "updated_at"
+	// 修改人                                          ( system_user表的user_id )
+	VoiceAlarmRecordSelectColumnUpdatedBy VoiceAlarmRecordSelectColumn = "updated_by"
+	// 删除时间                                        (                            )
+	VoiceAlarmRecordSelectColumnDeletedAt VoiceAlarmRecordSelectColumn = "deleted_at"
+	// 删除人                                          ( system_user表的user_id )
+	VoiceAlarmRecordSelectColumnDeletedBy VoiceAlarmRecordSelectColumn = "deleted_by"
+)
+
+var AllVoiceAlarmRecordSelectColumn = []VoiceAlarmRecordSelectColumn{
+	VoiceAlarmRecordSelectColumnID,
+	VoiceAlarmRecordSelectColumnVioceAlarmRecordID,
+	VoiceAlarmRecordSelectColumnVehicleID,
+	VoiceAlarmRecordSelectColumnAlarmTime,
+	VoiceAlarmRecordSelectColumnAlarmType,
+	VoiceAlarmRecordSelectColumnRemindTime,
+	VoiceAlarmRecordSelectColumnRemindContent,
+	VoiceAlarmRecordSelectColumnInputPerson,
+	VoiceAlarmRecordSelectColumnInputTime,
+	VoiceAlarmRecordSelectColumnIsSuccess,
+	VoiceAlarmRecordSelectColumnCreatedAt,
+	VoiceAlarmRecordSelectColumnCreatedBy,
+	VoiceAlarmRecordSelectColumnUpdatedAt,
+	VoiceAlarmRecordSelectColumnUpdatedBy,
+	VoiceAlarmRecordSelectColumnDeletedAt,
+	VoiceAlarmRecordSelectColumnDeletedBy,
+}
+
+func (e VoiceAlarmRecordSelectColumn) IsValid() bool {
+	switch e {
+	case VoiceAlarmRecordSelectColumnID, VoiceAlarmRecordSelectColumnVioceAlarmRecordID, VoiceAlarmRecordSelectColumnVehicleID, VoiceAlarmRecordSelectColumnAlarmTime, VoiceAlarmRecordSelectColumnAlarmType, VoiceAlarmRecordSelectColumnRemindTime, VoiceAlarmRecordSelectColumnRemindContent, VoiceAlarmRecordSelectColumnInputPerson, VoiceAlarmRecordSelectColumnInputTime, VoiceAlarmRecordSelectColumnIsSuccess, VoiceAlarmRecordSelectColumnCreatedAt, VoiceAlarmRecordSelectColumnCreatedBy, VoiceAlarmRecordSelectColumnUpdatedAt, VoiceAlarmRecordSelectColumnUpdatedBy, VoiceAlarmRecordSelectColumnDeletedAt, VoiceAlarmRecordSelectColumnDeletedBy:
+		return true
+	}
+	return false
+}
+
+func (e VoiceAlarmRecordSelectColumn) String() string {
+	return string(e)
+}
+
+func (e *VoiceAlarmRecordSelectColumn) UnmarshalGQL(v interface{}) error {
+	str, ok := v.(string)
+	if !ok {
+		return fmt.Errorf("enums must be strings")
+	}
+
+	*e = VoiceAlarmRecordSelectColumn(str)
+	if !e.IsValid() {
+		return fmt.Errorf("%s is not a valid VoiceAlarmRecordSelectColumn", str)
+	}
+	return nil
+}
+
+func (e VoiceAlarmRecordSelectColumn) MarshalGQL(w io.Writer) {
 	fmt.Fprint(w, strconv.Quote(e.String()))
 }
