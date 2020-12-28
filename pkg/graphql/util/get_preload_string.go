@@ -62,3 +62,18 @@ func GetPreloadsMustPrefixAndRemovePrefix(ctx context.Context, prefix string) (r
 	}
 	return
 }
+
+// 获取最顶层的preload
+func GetTopPreloads(ctx context.Context) (rs []string) {
+	preloads := GetPreloads(ctx)
+	if preloads == nil || len(preloads) == 0 {
+		return
+	}
+	for _, preload := range preloads {
+		if strings.Contains(preload, ".") {
+			continue
+		}
+		rs = append(rs, preload)
+	}
+	return preloads
+}
