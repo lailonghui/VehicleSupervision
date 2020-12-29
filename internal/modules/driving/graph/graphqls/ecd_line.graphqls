@@ -1,0 +1,388 @@
+"""
+工程审批路线表
+"""
+type EcdLine {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	工程审批路线表ID
+	"""
+	line_id: String!
+	"""
+	路线名称
+	"""
+	line_name: String!
+	"""
+	所属企业ID
+	"""
+	enterprise_id: String
+	"""
+	路线描述
+	"""
+	line_desc: String
+	"""
+	审批人
+	"""
+	audit_user_id: String
+	"""
+	审批时间
+	"""
+	audit_time: Timestamptz
+	"""
+	是否解析描述
+	"""
+	is_resolve_desc: Boolean!
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	线路数据
+	"""
+	gis_data: String
+}
+"""
+aggregated selection of "ecd_line"
+"""
+type EcdLineAggregate {
+	aggregate: EcdLineAggregateFields
+}
+"""
+aggregate fields of "ecd_line"
+"""
+type EcdLineAggregateFields {
+	avg: EcdLineAvgFields
+	count: Int
+	max: EcdLineMaxFields
+	min: EcdLineMinFields
+	stddev: EcdLineStddevFields
+	stddev_pop: EcdLineStddevPopFields
+	stddev_samp: EcdLineStddevSampFields
+	sum: EcdLineSumFields
+	var_pop: EcdLineVarPopFields
+	var_samp: EcdLineVarSampFields
+	variance: EcdLineVarianceFields
+}
+"""
+aggregate avg on columns of table "ecd_line"
+"""
+type EcdLineAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "ecd_line"
+"""
+type EcdLineMaxFields {
+	id: Bigint
+	line_id: String
+	line_name: String
+	enterprise_id: String
+	line_desc: String
+	audit_user_id: String
+	audit_time: Timestamptz
+	is_resolve_desc: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	gis_data: String
+}
+"""
+aggregate min on columns of table "ecd_line"
+"""
+type EcdLineMinFields {
+	id: Bigint
+	line_id: String
+	line_name: String
+	enterprise_id: String
+	line_desc: String
+	audit_user_id: String
+	audit_time: Timestamptz
+	is_resolve_desc: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	gis_data: String
+}
+"""
+aggregate stddev on columns of table "ecd_line"
+"""
+type EcdLineStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "ecd_line"
+"""
+type EcdLineStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "ecd_line"
+"""
+type EcdLineStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "ecd_line"
+"""
+type EcdLineSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "ecd_line"
+"""
+type EcdLineVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "ecd_line"
+"""
+type EcdLineVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "ecd_line"
+"""
+type EcdLineVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "ecd_line"
+"""
+type EcdLineMutationResponse {
+	affected_rows: Int!
+	returning: [EcdLine!]!
+}
+"""
+ordering options when selecting data from "ecd_line"
+"""
+input EcdLineOrderBy {
+	id: OrderBy
+	line_id: OrderBy
+	line_name: OrderBy
+	enterprise_id: OrderBy
+	line_desc: OrderBy
+	audit_user_id: OrderBy
+	audit_time: OrderBy
+	is_resolve_desc: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+	gis_data: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'ecd_line'.
+"""
+input EcdLineBoolExp {
+	_and: [EcdLineBoolExp]
+	_not: EcdLineBoolExp
+	_or: [EcdLineBoolExp]
+	id: BigintComparisonExp
+	line_id: StringComparisonExp
+	line_name: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	line_desc: StringComparisonExp
+	audit_user_id: StringComparisonExp
+	audit_time: TimestamptzComparisonExp
+	is_resolve_desc: BooleanComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+	gis_data: StringComparisonExp
+}
+"""
+input type for inserting data into table "ecd_line"
+"""
+input EcdLineInsertInput {
+	line_name: String!
+	enterprise_id: String
+	line_desc: String
+	audit_user_id: String
+	audit_time: Timestamptz
+	is_resolve_desc: Boolean!
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+	gis_data: String
+}
+"""
+input type for incrementing integer column in table "ecd_line"
+"""
+input EcdLineIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "ecd_line"
+"""
+input EcdLineSetInput {
+	id: Bigint
+	line_id: String
+	line_name: String
+	enterprise_id: String
+	line_desc: String
+	audit_user_id: String
+	audit_time: Timestamptz
+	is_resolve_desc: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	gis_data: String
+}
+"""
+可选select
+"""
+enum EcdLineSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	工程审批路线表ID
+	"""
+	line_id
+	"""
+	路线名称
+	"""
+	line_name
+	"""
+	所属企业ID
+	"""
+	enterprise_id
+	"""
+	路线描述
+	"""
+	line_desc
+	"""
+	审批人
+	"""
+	audit_user_id
+	"""
+	审批时间
+	"""
+	audit_time
+	"""
+	是否解析描述
+	"""
+	is_resolve_desc
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+	"""
+	线路数据
+	"""
+	gis_data
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	ecd_line(distinct_on: [EcdLineSelectColumn!], limit: Int, offset: Int, order_by: [EcdLineOrderBy!], where: EcdLineBoolExp): [EcdLine!]!
+	"""
+	聚合查询
+	"""
+	ecd_line_aggregate(distinct_on: [EcdLineSelectColumn!], limit: Int, offset: Int, order_by: [EcdLineOrderBy!], where: EcdLineBoolExp): EcdLineAggregate!
+	"""
+	主键查询
+	"""
+	ecd_line_by_pk(id: Bigint!): EcdLine!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_ecd_line(where: EcdLineBoolExp!): EcdLineMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_ecd_line_by_pk(id: Bigint!): EcdLine
+	"""
+	插入
+	"""
+	insert_ecd_line(objects: [EcdLineInsertInput!]!): EcdLineMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_ecd_line_one(objects: EcdLineInsertInput!): EcdLine
+	"""
+	更新
+	"""
+	update_ecd_line(_inc: EcdLineIncInput, _set: EcdLineSetInput, where: EcdLineBoolExp!): EcdLineMutationResponse
+	"""
+	更新
+	"""
+	update_ecd_line_by_pk(_inc: EcdLineIncInput, _set: EcdLineSetInput, id: Bigint!): EcdLine
+}

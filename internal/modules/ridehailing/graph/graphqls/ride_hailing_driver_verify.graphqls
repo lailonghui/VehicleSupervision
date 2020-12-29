@@ -1,0 +1,542 @@
+"""
+网约车驾驶员审核表
+"""
+type RideHailingDriverVerify {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	审核ID
+	"""
+	ride_hailing_driver_verify_id: String!
+	"""
+	是否有暴力犯罪记录（刑侦支队）
+	"""
+	is_violent_crime: Boolean
+	"""
+	刑侦支队审核备注
+	"""
+	violent_crime_remark: String
+	"""
+	刑侦支队审核时间
+	"""
+	violent_crime_examine_time: Timestamptz
+	"""
+	是否有吸毒记录（禁毒支队）
+	"""
+	is_drug_history: Boolean
+	"""
+	禁毒支队审核备注
+	"""
+	drug_history_remark: String
+	"""
+	禁毒支队审核时间
+	"""
+	drug_history_examine_time: Timestamptz
+	"""
+	是否满足三年驾龄（驾管大队）
+	"""
+	is_three_years_driving_experience: Boolean
+	"""
+	驾管大队审核备注
+	"""
+	driving_experience_remark: String
+	"""
+	驾管大队审核时间
+	"""
+	driving_experience_examine_time: Timestamptz
+	"""
+	是否最近连续三个记分周期内没有记满12分（驾管大队）
+	"""
+	is_three_cycle_twelve: Boolean
+	"""
+	是否有交通肇事犯罪记录（事故大队）
+	"""
+	is_traffic_accident_escape_record: Boolean
+	"""
+	事故大队审核备注
+	"""
+	traffic_accident_escape_remark: String
+	"""
+	事故大队审核时间
+	"""
+	traffic_accident_escape_examine_time: Timestamptz
+	"""
+	是否有酒驾毒驾记录(秩序大队)
+	"""
+	is_drunk_drug_driving: Boolean
+	"""
+	秩序大队审核备注
+	"""
+	drunk_drug_driving_remark: String
+	"""
+	秩序大队审核时间
+	"""
+	drunk_drug_driving_examine_time: Timestamptz
+	"""
+	是否通过考试(交通局审)
+	"""
+	is_pass_driving_exam: Boolean
+	"""
+	交通局考试认定时间
+	"""
+	driving_exam_time: Timestamptz
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	修改时间
+	"""
+	update_at: Timestamptz
+	"""
+	修改人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: String!
+}
+"""
+aggregated selection of "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyAggregate {
+	aggregate: RideHailingDriverVerifyAggregateFields
+}
+"""
+aggregate fields of "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyAggregateFields {
+	avg: RideHailingDriverVerifyAvgFields
+	count: Int
+	max: RideHailingDriverVerifyMaxFields
+	min: RideHailingDriverVerifyMinFields
+	stddev: RideHailingDriverVerifyStddevFields
+	stddev_pop: RideHailingDriverVerifyStddevPopFields
+	stddev_samp: RideHailingDriverVerifyStddevSampFields
+	sum: RideHailingDriverVerifySumFields
+	var_pop: RideHailingDriverVerifyVarPopFields
+	var_samp: RideHailingDriverVerifyVarSampFields
+	variance: RideHailingDriverVerifyVarianceFields
+}
+"""
+aggregate avg on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyMaxFields {
+	id: Bigint
+	ride_hailing_driver_verify_id: String
+	is_violent_crime: Boolean
+	violent_crime_remark: String
+	violent_crime_examine_time: Timestamptz
+	is_drug_history: Boolean
+	drug_history_remark: String
+	drug_history_examine_time: Timestamptz
+	is_three_years_driving_experience: Boolean
+	driving_experience_remark: String
+	driving_experience_examine_time: Timestamptz
+	is_three_cycle_twelve: Boolean
+	is_traffic_accident_escape_record: Boolean
+	traffic_accident_escape_remark: String
+	traffic_accident_escape_examine_time: Timestamptz
+	is_drunk_drug_driving: Boolean
+	drunk_drug_driving_remark: String
+	drunk_drug_driving_examine_time: Timestamptz
+	is_pass_driving_exam: Boolean
+	driving_exam_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: String
+}
+"""
+aggregate min on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyMinFields {
+	id: Bigint
+	ride_hailing_driver_verify_id: String
+	is_violent_crime: Boolean
+	violent_crime_remark: String
+	violent_crime_examine_time: Timestamptz
+	is_drug_history: Boolean
+	drug_history_remark: String
+	drug_history_examine_time: Timestamptz
+	is_three_years_driving_experience: Boolean
+	driving_experience_remark: String
+	driving_experience_examine_time: Timestamptz
+	is_three_cycle_twelve: Boolean
+	is_traffic_accident_escape_record: Boolean
+	traffic_accident_escape_remark: String
+	traffic_accident_escape_examine_time: Timestamptz
+	is_drunk_drug_driving: Boolean
+	drunk_drug_driving_remark: String
+	drunk_drug_driving_examine_time: Timestamptz
+	is_pass_driving_exam: Boolean
+	driving_exam_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: String
+}
+"""
+aggregate stddev on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifySumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "ride_hailing_driver_verify"
+"""
+type RideHailingDriverVerifyMutationResponse {
+	affected_rows: Int!
+	returning: [RideHailingDriverVerify!]!
+}
+"""
+ordering options when selecting data from "ride_hailing_driver_verify"
+"""
+input RideHailingDriverVerifyOrderBy {
+	id: OrderBy
+	ride_hailing_driver_verify_id: OrderBy
+	is_violent_crime: OrderBy
+	violent_crime_remark: OrderBy
+	violent_crime_examine_time: OrderBy
+	is_drug_history: OrderBy
+	drug_history_remark: OrderBy
+	drug_history_examine_time: OrderBy
+	is_three_years_driving_experience: OrderBy
+	driving_experience_remark: OrderBy
+	driving_experience_examine_time: OrderBy
+	is_three_cycle_twelve: OrderBy
+	is_traffic_accident_escape_record: OrderBy
+	traffic_accident_escape_remark: OrderBy
+	traffic_accident_escape_examine_time: OrderBy
+	is_drunk_drug_driving: OrderBy
+	drunk_drug_driving_remark: OrderBy
+	drunk_drug_driving_examine_time: OrderBy
+	is_pass_driving_exam: OrderBy
+	driving_exam_time: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'ride_hailing_driver_verify'.
+"""
+input RideHailingDriverVerifyBoolExp {
+	_and: [RideHailingDriverVerifyBoolExp]
+	_not: RideHailingDriverVerifyBoolExp
+	_or: [RideHailingDriverVerifyBoolExp]
+	id: BigintComparisonExp
+	ride_hailing_driver_verify_id: StringComparisonExp
+	is_violent_crime: BooleanComparisonExp
+	violent_crime_remark: StringComparisonExp
+	violent_crime_examine_time: TimestamptzComparisonExp
+	is_drug_history: BooleanComparisonExp
+	drug_history_remark: StringComparisonExp
+	drug_history_examine_time: TimestamptzComparisonExp
+	is_three_years_driving_experience: BooleanComparisonExp
+	driving_experience_remark: StringComparisonExp
+	driving_experience_examine_time: TimestamptzComparisonExp
+	is_three_cycle_twelve: BooleanComparisonExp
+	is_traffic_accident_escape_record: BooleanComparisonExp
+	traffic_accident_escape_remark: StringComparisonExp
+	traffic_accident_escape_examine_time: TimestamptzComparisonExp
+	is_drunk_drug_driving: BooleanComparisonExp
+	drunk_drug_driving_remark: StringComparisonExp
+	drunk_drug_driving_examine_time: TimestamptzComparisonExp
+	is_pass_driving_exam: BooleanComparisonExp
+	driving_exam_time: TimestamptzComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: StringComparisonExp
+}
+"""
+input type for inserting data into table "ride_hailing_driver_verify"
+"""
+input RideHailingDriverVerifyInsertInput {
+	is_violent_crime: Boolean
+	violent_crime_remark: String
+	violent_crime_examine_time: Timestamptz
+	is_drug_history: Boolean
+	drug_history_remark: String
+	drug_history_examine_time: Timestamptz
+	is_three_years_driving_experience: Boolean
+	driving_experience_remark: String
+	driving_experience_examine_time: Timestamptz
+	is_three_cycle_twelve: Boolean
+	is_traffic_accident_escape_record: Boolean
+	traffic_accident_escape_remark: String
+	traffic_accident_escape_examine_time: Timestamptz
+	is_drunk_drug_driving: Boolean
+	drunk_drug_driving_remark: String
+	drunk_drug_driving_examine_time: Timestamptz
+	is_pass_driving_exam: Boolean
+	driving_exam_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: String!
+}
+"""
+input type for incrementing integer column in table "ride_hailing_driver_verify"
+"""
+input RideHailingDriverVerifyIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "ride_hailing_driver_verify"
+"""
+input RideHailingDriverVerifySetInput {
+	id: Bigint
+	ride_hailing_driver_verify_id: String
+	is_violent_crime: Boolean
+	violent_crime_remark: String
+	violent_crime_examine_time: Timestamptz
+	is_drug_history: Boolean
+	drug_history_remark: String
+	drug_history_examine_time: Timestamptz
+	is_three_years_driving_experience: Boolean
+	driving_experience_remark: String
+	driving_experience_examine_time: Timestamptz
+	is_three_cycle_twelve: Boolean
+	is_traffic_accident_escape_record: Boolean
+	traffic_accident_escape_remark: String
+	traffic_accident_escape_examine_time: Timestamptz
+	is_drunk_drug_driving: Boolean
+	drunk_drug_driving_remark: String
+	drunk_drug_driving_examine_time: Timestamptz
+	is_pass_driving_exam: Boolean
+	driving_exam_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: String
+}
+"""
+可选select
+"""
+enum RideHailingDriverVerifySelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	审核ID
+	"""
+	ride_hailing_driver_verify_id
+	"""
+	是否有暴力犯罪记录（刑侦支队）
+	"""
+	is_violent_crime
+	"""
+	刑侦支队审核备注
+	"""
+	violent_crime_remark
+	"""
+	刑侦支队审核时间
+	"""
+	violent_crime_examine_time
+	"""
+	是否有吸毒记录（禁毒支队）
+	"""
+	is_drug_history
+	"""
+	禁毒支队审核备注
+	"""
+	drug_history_remark
+	"""
+	禁毒支队审核时间
+	"""
+	drug_history_examine_time
+	"""
+	是否满足三年驾龄（驾管大队）
+	"""
+	is_three_years_driving_experience
+	"""
+	驾管大队审核备注
+	"""
+	driving_experience_remark
+	"""
+	驾管大队审核时间
+	"""
+	driving_experience_examine_time
+	"""
+	是否最近连续三个记分周期内没有记满12分（驾管大队）
+	"""
+	is_three_cycle_twelve
+	"""
+	是否有交通肇事犯罪记录（事故大队）
+	"""
+	is_traffic_accident_escape_record
+	"""
+	事故大队审核备注
+	"""
+	traffic_accident_escape_remark
+	"""
+	事故大队审核时间
+	"""
+	traffic_accident_escape_examine_time
+	"""
+	是否有酒驾毒驾记录(秩序大队)
+	"""
+	is_drunk_drug_driving
+	"""
+	秩序大队审核备注
+	"""
+	drunk_drug_driving_remark
+	"""
+	秩序大队审核时间
+	"""
+	drunk_drug_driving_examine_time
+	"""
+	是否通过考试(交通局审)
+	"""
+	is_pass_driving_exam
+	"""
+	交通局考试认定时间
+	"""
+	driving_exam_time
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	修改时间
+	"""
+	update_at
+	"""
+	修改人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	ride_hailing_driver_verify(distinct_on: [RideHailingDriverVerifySelectColumn!], limit: Int, offset: Int, order_by: [RideHailingDriverVerifyOrderBy!], where: RideHailingDriverVerifyBoolExp): [RideHailingDriverVerify!]!
+	"""
+	聚合查询
+	"""
+	ride_hailing_driver_verify_aggregate(distinct_on: [RideHailingDriverVerifySelectColumn!], limit: Int, offset: Int, order_by: [RideHailingDriverVerifyOrderBy!], where: RideHailingDriverVerifyBoolExp): RideHailingDriverVerifyAggregate!
+	"""
+	主键查询
+	"""
+	ride_hailing_driver_verify_by_pk(id: Bigint!): RideHailingDriverVerify!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_ride_hailing_driver_verify(where: RideHailingDriverVerifyBoolExp!): RideHailingDriverVerifyMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_ride_hailing_driver_verify_by_pk(id: Bigint!): RideHailingDriverVerify
+	"""
+	插入
+	"""
+	insert_ride_hailing_driver_verify(objects: [RideHailingDriverVerifyInsertInput!]!): RideHailingDriverVerifyMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_ride_hailing_driver_verify_one(objects: RideHailingDriverVerifyInsertInput!): RideHailingDriverVerify
+	"""
+	更新
+	"""
+	update_ride_hailing_driver_verify(_inc: RideHailingDriverVerifyIncInput, _set: RideHailingDriverVerifySetInput, where: RideHailingDriverVerifyBoolExp!): RideHailingDriverVerifyMutationResponse
+	"""
+	更新
+	"""
+	update_ride_hailing_driver_verify_by_pk(_inc: RideHailingDriverVerifyIncInput, _set: RideHailingDriverVerifySetInput, id: Bigint!): RideHailingDriverVerify
+}

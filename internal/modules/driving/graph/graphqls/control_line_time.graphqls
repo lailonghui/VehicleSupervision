@@ -1,0 +1,329 @@
+type ControlLineTime {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	管控路线时间段表ID
+	"""
+	control_line_time_id: String!
+	"""
+	管控路线ID
+	"""
+	control_line_id: String!
+	"""
+	开始时间
+	"""
+	start_time: Timestamptz!
+	"""
+	结束时间
+	"""
+	end_time: Timestamptz!
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+}
+"""
+aggregated selection of "control_line_time"
+"""
+type ControlLineTimeAggregate {
+	aggregate: ControlLineTimeAggregateFields
+}
+"""
+aggregate fields of "control_line_time"
+"""
+type ControlLineTimeAggregateFields {
+	avg: ControlLineTimeAvgFields
+	count: Int
+	max: ControlLineTimeMaxFields
+	min: ControlLineTimeMinFields
+	stddev: ControlLineTimeStddevFields
+	stddev_pop: ControlLineTimeStddevPopFields
+	stddev_samp: ControlLineTimeStddevSampFields
+	sum: ControlLineTimeSumFields
+	var_pop: ControlLineTimeVarPopFields
+	var_samp: ControlLineTimeVarSampFields
+	variance: ControlLineTimeVarianceFields
+}
+"""
+aggregate avg on columns of table "control_line_time"
+"""
+type ControlLineTimeAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "control_line_time"
+"""
+type ControlLineTimeMaxFields {
+	id: Bigint
+	control_line_time_id: String
+	control_line_id: String
+	start_time: Timestamptz
+	end_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate min on columns of table "control_line_time"
+"""
+type ControlLineTimeMinFields {
+	id: Bigint
+	control_line_time_id: String
+	control_line_id: String
+	start_time: Timestamptz
+	end_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate stddev on columns of table "control_line_time"
+"""
+type ControlLineTimeStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "control_line_time"
+"""
+type ControlLineTimeStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "control_line_time"
+"""
+type ControlLineTimeStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "control_line_time"
+"""
+type ControlLineTimeSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "control_line_time"
+"""
+type ControlLineTimeVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "control_line_time"
+"""
+type ControlLineTimeVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "control_line_time"
+"""
+type ControlLineTimeVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "control_line_time"
+"""
+type ControlLineTimeMutationResponse {
+	affected_rows: Int!
+	returning: [ControlLineTime!]!
+}
+"""
+ordering options when selecting data from "control_line_time"
+"""
+input ControlLineTimeOrderBy {
+	id: OrderBy
+	control_line_time_id: OrderBy
+	control_line_id: OrderBy
+	start_time: OrderBy
+	end_time: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'control_line_time'.
+"""
+input ControlLineTimeBoolExp {
+	_and: [ControlLineTimeBoolExp]
+	_not: ControlLineTimeBoolExp
+	_or: [ControlLineTimeBoolExp]
+	id: BigintComparisonExp
+	control_line_time_id: StringComparisonExp
+	control_line_id: StringComparisonExp
+	start_time: TimestamptzComparisonExp
+	end_time: TimestamptzComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "control_line_time"
+"""
+input ControlLineTimeInsertInput {
+	control_line_id: String!
+	start_time: Timestamptz!
+	end_time: Timestamptz!
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+}
+"""
+input type for incrementing integer column in table "control_line_time"
+"""
+input ControlLineTimeIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "control_line_time"
+"""
+input ControlLineTimeSetInput {
+	id: Bigint
+	control_line_time_id: String
+	control_line_id: String
+	start_time: Timestamptz
+	end_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+可选select
+"""
+enum ControlLineTimeSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	管控路线时间段表ID
+	"""
+	control_line_time_id
+	"""
+	管控路线ID
+	"""
+	control_line_id
+	"""
+	开始时间
+	"""
+	start_time
+	"""
+	结束时间
+	"""
+	end_time
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	control_line_time(distinct_on: [ControlLineTimeSelectColumn!], limit: Int, offset: Int, order_by: [ControlLineTimeOrderBy!], where: ControlLineTimeBoolExp): [ControlLineTime!]!
+	"""
+	聚合查询
+	"""
+	control_line_time_aggregate(distinct_on: [ControlLineTimeSelectColumn!], limit: Int, offset: Int, order_by: [ControlLineTimeOrderBy!], where: ControlLineTimeBoolExp): ControlLineTimeAggregate!
+	"""
+	主键查询
+	"""
+	control_line_time_by_pk(id: Bigint!): ControlLineTime!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_control_line_time(where: ControlLineTimeBoolExp!): ControlLineTimeMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_control_line_time_by_pk(id: Bigint!): ControlLineTime
+	"""
+	插入
+	"""
+	insert_control_line_time(objects: [ControlLineTimeInsertInput!]!): ControlLineTimeMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_control_line_time_one(objects: ControlLineTimeInsertInput!): ControlLineTime
+	"""
+	更新
+	"""
+	update_control_line_time(_inc: ControlLineTimeIncInput, _set: ControlLineTimeSetInput, where: ControlLineTimeBoolExp!): ControlLineTimeMutationResponse
+	"""
+	更新
+	"""
+	update_control_line_time_by_pk(_inc: ControlLineTimeIncInput, _set: ControlLineTimeSetInput, id: Bigint!): ControlLineTime
+}

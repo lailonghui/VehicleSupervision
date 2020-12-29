@@ -1,0 +1,679 @@
+type TerminalCheck {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	车辆达标情况ID
+	"""
+	terminal_check_id: String!
+	"""
+	终端ID
+	"""
+	terminal_id: String!
+	"""
+	acc状态
+	"""
+	acc: String
+	"""
+	制动信号（刹车）
+	"""
+	brake: String
+	"""
+	左转向灯信号
+	"""
+	left_lamp: String
+	"""
+	右转向灯信号
+	"""
+	right_lamp: String
+	"""
+	近光灯信号
+	"""
+	near_lamp: String
+	"""
+	远光灯信号（大灯）
+	"""
+	far_lamp: String
+	"""
+	喇叭信号
+	"""
+	loud_speaker: String
+	"""
+	倒挡信号
+	"""
+	reverse: String
+	"""
+	定位状态
+	"""
+	locate: String
+	"""
+	前门
+	"""
+	front_door: String
+	"""
+	中门
+	"""
+	middle_door: String
+	"""
+	后门
+	"""
+	back_door: String
+	"""
+	gps信号
+	"""
+	gps_open: String
+	"""
+	北斗信号
+	"""
+	bd_open: String
+	"""
+	语音播报器
+	"""
+	voice_device: String
+	"""
+	摄像头
+	"""
+	camera: String
+	"""
+	紧急报警按钮
+	"""
+	emergency_alarm: String
+	"""
+	里程数
+	"""
+	mileage: String
+	"""
+	油量
+	"""
+	oilmass: String
+	"""
+	车速
+	"""
+	vehicle_speed: String
+	"""
+	主电源掉电报警
+	"""
+	power_alarm: String
+	"""
+	是否通过
+	"""
+	pass: String
+	"""
+	空调
+	"""
+	air_conditioning: String
+	"""
+	自动车速保存
+	"""
+	auto_vehicle_speed: String
+	"""
+	是否北斗国标脉冲信号
+	"""
+	is_impulse_speed: Boolean!
+	"""
+	故障截止时间
+	"""
+	fault_end_time: Timestamptz
+	"""
+	视频情况
+	"""
+	video_pass: String
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+}
+"""
+aggregated selection of "terminal_check"
+"""
+type TerminalCheckAggregate {
+	aggregate: TerminalCheckAggregateFields
+}
+"""
+aggregate fields of "terminal_check"
+"""
+type TerminalCheckAggregateFields {
+	avg: TerminalCheckAvgFields
+	count: Int
+	max: TerminalCheckMaxFields
+	min: TerminalCheckMinFields
+	stddev: TerminalCheckStddevFields
+	stddev_pop: TerminalCheckStddevPopFields
+	stddev_samp: TerminalCheckStddevSampFields
+	sum: TerminalCheckSumFields
+	var_pop: TerminalCheckVarPopFields
+	var_samp: TerminalCheckVarSampFields
+	variance: TerminalCheckVarianceFields
+}
+"""
+aggregate avg on columns of table "terminal_check"
+"""
+type TerminalCheckAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "terminal_check"
+"""
+type TerminalCheckMaxFields {
+	id: Bigint
+	terminal_check_id: String
+	terminal_id: String
+	acc: String
+	brake: String
+	left_lamp: String
+	right_lamp: String
+	near_lamp: String
+	far_lamp: String
+	loud_speaker: String
+	reverse: String
+	locate: String
+	front_door: String
+	middle_door: String
+	back_door: String
+	gps_open: String
+	bd_open: String
+	voice_device: String
+	camera: String
+	emergency_alarm: String
+	mileage: String
+	oilmass: String
+	vehicle_speed: String
+	power_alarm: String
+	pass: String
+	air_conditioning: String
+	auto_vehicle_speed: String
+	is_impulse_speed: Boolean
+	fault_end_time: Timestamptz
+	video_pass: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate min on columns of table "terminal_check"
+"""
+type TerminalCheckMinFields {
+	id: Bigint
+	terminal_check_id: String
+	terminal_id: String
+	acc: String
+	brake: String
+	left_lamp: String
+	right_lamp: String
+	near_lamp: String
+	far_lamp: String
+	loud_speaker: String
+	reverse: String
+	locate: String
+	front_door: String
+	middle_door: String
+	back_door: String
+	gps_open: String
+	bd_open: String
+	voice_device: String
+	camera: String
+	emergency_alarm: String
+	mileage: String
+	oilmass: String
+	vehicle_speed: String
+	power_alarm: String
+	pass: String
+	air_conditioning: String
+	auto_vehicle_speed: String
+	is_impulse_speed: Boolean
+	fault_end_time: Timestamptz
+	video_pass: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate stddev on columns of table "terminal_check"
+"""
+type TerminalCheckStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "terminal_check"
+"""
+type TerminalCheckStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "terminal_check"
+"""
+type TerminalCheckStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "terminal_check"
+"""
+type TerminalCheckSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "terminal_check"
+"""
+type TerminalCheckVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "terminal_check"
+"""
+type TerminalCheckVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "terminal_check"
+"""
+type TerminalCheckVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "terminal_check"
+"""
+type TerminalCheckMutationResponse {
+	affected_rows: Int!
+	returning: [TerminalCheck!]!
+}
+"""
+ordering options when selecting data from "terminal_check"
+"""
+input TerminalCheckOrderBy {
+	id: OrderBy
+	terminal_check_id: OrderBy
+	terminal_id: OrderBy
+	acc: OrderBy
+	brake: OrderBy
+	left_lamp: OrderBy
+	right_lamp: OrderBy
+	near_lamp: OrderBy
+	far_lamp: OrderBy
+	loud_speaker: OrderBy
+	reverse: OrderBy
+	locate: OrderBy
+	front_door: OrderBy
+	middle_door: OrderBy
+	back_door: OrderBy
+	gps_open: OrderBy
+	bd_open: OrderBy
+	voice_device: OrderBy
+	camera: OrderBy
+	emergency_alarm: OrderBy
+	mileage: OrderBy
+	oilmass: OrderBy
+	vehicle_speed: OrderBy
+	power_alarm: OrderBy
+	pass: OrderBy
+	air_conditioning: OrderBy
+	auto_vehicle_speed: OrderBy
+	is_impulse_speed: OrderBy
+	fault_end_time: OrderBy
+	video_pass: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'terminal_check'.
+"""
+input TerminalCheckBoolExp {
+	_and: [TerminalCheckBoolExp]
+	_not: TerminalCheckBoolExp
+	_or: [TerminalCheckBoolExp]
+	id: BigintComparisonExp
+	terminal_check_id: StringComparisonExp
+	terminal_id: StringComparisonExp
+	acc: StringComparisonExp
+	brake: StringComparisonExp
+	left_lamp: StringComparisonExp
+	right_lamp: StringComparisonExp
+	near_lamp: StringComparisonExp
+	far_lamp: StringComparisonExp
+	loud_speaker: StringComparisonExp
+	reverse: StringComparisonExp
+	locate: StringComparisonExp
+	front_door: StringComparisonExp
+	middle_door: StringComparisonExp
+	back_door: StringComparisonExp
+	gps_open: StringComparisonExp
+	bd_open: StringComparisonExp
+	voice_device: StringComparisonExp
+	camera: StringComparisonExp
+	emergency_alarm: StringComparisonExp
+	mileage: StringComparisonExp
+	oilmass: StringComparisonExp
+	vehicle_speed: StringComparisonExp
+	power_alarm: StringComparisonExp
+	pass: StringComparisonExp
+	air_conditioning: StringComparisonExp
+	auto_vehicle_speed: StringComparisonExp
+	is_impulse_speed: BooleanComparisonExp
+	fault_end_time: TimestamptzComparisonExp
+	video_pass: StringComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "terminal_check"
+"""
+input TerminalCheckInsertInput {
+	terminal_id: String!
+	acc: String
+	brake: String
+	left_lamp: String
+	right_lamp: String
+	near_lamp: String
+	far_lamp: String
+	loud_speaker: String
+	reverse: String
+	locate: String
+	front_door: String
+	middle_door: String
+	back_door: String
+	gps_open: String
+	bd_open: String
+	voice_device: String
+	camera: String
+	emergency_alarm: String
+	mileage: String
+	oilmass: String
+	vehicle_speed: String
+	power_alarm: String
+	pass: String
+	air_conditioning: String
+	auto_vehicle_speed: String
+	is_impulse_speed: Boolean!
+	fault_end_time: Timestamptz
+	video_pass: String
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+}
+"""
+input type for incrementing integer column in table "terminal_check"
+"""
+input TerminalCheckIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "terminal_check"
+"""
+input TerminalCheckSetInput {
+	id: Bigint
+	terminal_check_id: String
+	terminal_id: String
+	acc: String
+	brake: String
+	left_lamp: String
+	right_lamp: String
+	near_lamp: String
+	far_lamp: String
+	loud_speaker: String
+	reverse: String
+	locate: String
+	front_door: String
+	middle_door: String
+	back_door: String
+	gps_open: String
+	bd_open: String
+	voice_device: String
+	camera: String
+	emergency_alarm: String
+	mileage: String
+	oilmass: String
+	vehicle_speed: String
+	power_alarm: String
+	pass: String
+	air_conditioning: String
+	auto_vehicle_speed: String
+	is_impulse_speed: Boolean
+	fault_end_time: Timestamptz
+	video_pass: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+可选select
+"""
+enum TerminalCheckSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	车辆达标情况ID
+	"""
+	terminal_check_id
+	"""
+	终端ID
+	"""
+	terminal_id
+	"""
+	acc状态
+	"""
+	acc
+	"""
+	制动信号（刹车）
+	"""
+	brake
+	"""
+	左转向灯信号
+	"""
+	left_lamp
+	"""
+	右转向灯信号
+	"""
+	right_lamp
+	"""
+	近光灯信号
+	"""
+	near_lamp
+	"""
+	远光灯信号（大灯）
+	"""
+	far_lamp
+	"""
+	喇叭信号
+	"""
+	loud_speaker
+	"""
+	倒挡信号
+	"""
+	reverse
+	"""
+	定位状态
+	"""
+	locate
+	"""
+	前门
+	"""
+	front_door
+	"""
+	中门
+	"""
+	middle_door
+	"""
+	后门
+	"""
+	back_door
+	"""
+	gps信号
+	"""
+	gps_open
+	"""
+	北斗信号
+	"""
+	bd_open
+	"""
+	语音播报器
+	"""
+	voice_device
+	"""
+	摄像头
+	"""
+	camera
+	"""
+	紧急报警按钮
+	"""
+	emergency_alarm
+	"""
+	里程数
+	"""
+	mileage
+	"""
+	油量
+	"""
+	oilmass
+	"""
+	车速
+	"""
+	vehicle_speed
+	"""
+	主电源掉电报警
+	"""
+	power_alarm
+	"""
+	是否通过
+	"""
+	pass
+	"""
+	空调
+	"""
+	air_conditioning
+	"""
+	自动车速保存
+	"""
+	auto_vehicle_speed
+	"""
+	是否北斗国标脉冲信号
+	"""
+	is_impulse_speed
+	"""
+	故障截止时间
+	"""
+	fault_end_time
+	"""
+	视频情况
+	"""
+	video_pass
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	terminal_check(distinct_on: [TerminalCheckSelectColumn!], limit: Int, offset: Int, order_by: [TerminalCheckOrderBy!], where: TerminalCheckBoolExp): [TerminalCheck!]!
+	"""
+	聚合查询
+	"""
+	terminal_check_aggregate(distinct_on: [TerminalCheckSelectColumn!], limit: Int, offset: Int, order_by: [TerminalCheckOrderBy!], where: TerminalCheckBoolExp): TerminalCheckAggregate!
+	"""
+	主键查询
+	"""
+	terminal_check_by_pk(id: Bigint!): TerminalCheck!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_terminal_check(where: TerminalCheckBoolExp!): TerminalCheckMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_terminal_check_by_pk(id: Bigint!): TerminalCheck
+	"""
+	插入
+	"""
+	insert_terminal_check(objects: [TerminalCheckInsertInput!]!): TerminalCheckMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_terminal_check_one(objects: TerminalCheckInsertInput!): TerminalCheck
+	"""
+	更新
+	"""
+	update_terminal_check(_inc: TerminalCheckIncInput, _set: TerminalCheckSetInput, where: TerminalCheckBoolExp!): TerminalCheckMutationResponse
+	"""
+	更新
+	"""
+	update_terminal_check_by_pk(_inc: TerminalCheckIncInput, _set: TerminalCheckSetInput, id: Bigint!): TerminalCheck
+}

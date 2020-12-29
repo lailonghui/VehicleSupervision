@@ -1,0 +1,207 @@
+"""
+指纹信息表
+"""
+type Fingerprint {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	指纹ID
+	"""
+	finger_id: String!
+	"""
+	指纹内容
+	"""
+	content: String!
+}
+"""
+aggregated selection of "fingerprint"
+"""
+type FingerprintAggregate {
+	aggregate: FingerprintAggregateFields
+}
+"""
+aggregate fields of "fingerprint"
+"""
+type FingerprintAggregateFields {
+	avg: FingerprintAvgFields
+	count: Int
+	max: FingerprintMaxFields
+	min: FingerprintMinFields
+	stddev: FingerprintStddevFields
+	stddev_pop: FingerprintStddevPopFields
+	stddev_samp: FingerprintStddevSampFields
+	sum: FingerprintSumFields
+	var_pop: FingerprintVarPopFields
+	var_samp: FingerprintVarSampFields
+	variance: FingerprintVarianceFields
+}
+"""
+aggregate avg on columns of table "fingerprint"
+"""
+type FingerprintAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "fingerprint"
+"""
+type FingerprintMaxFields {
+	id: Bigint
+	finger_id: String
+	content: String
+}
+"""
+aggregate min on columns of table "fingerprint"
+"""
+type FingerprintMinFields {
+	id: Bigint
+	finger_id: String
+	content: String
+}
+"""
+aggregate stddev on columns of table "fingerprint"
+"""
+type FingerprintStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "fingerprint"
+"""
+type FingerprintStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "fingerprint"
+"""
+type FingerprintStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "fingerprint"
+"""
+type FingerprintSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "fingerprint"
+"""
+type FingerprintVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "fingerprint"
+"""
+type FingerprintVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "fingerprint"
+"""
+type FingerprintVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "fingerprint"
+"""
+type FingerprintMutationResponse {
+	affected_rows: Int!
+	returning: [Fingerprint!]!
+}
+"""
+ordering options when selecting data from "fingerprint"
+"""
+input FingerprintOrderBy {
+	id: OrderBy
+	finger_id: OrderBy
+	content: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'fingerprint'.
+"""
+input FingerprintBoolExp {
+	_and: [FingerprintBoolExp]
+	_not: FingerprintBoolExp
+	_or: [FingerprintBoolExp]
+	id: BigintComparisonExp
+	finger_id: StringComparisonExp
+	content: StringComparisonExp
+}
+"""
+input type for inserting data into table "fingerprint"
+"""
+input FingerprintInsertInput {
+	finger_id: String!
+	content: String!
+}
+"""
+input type for incrementing integer column in table "fingerprint"
+"""
+input FingerprintIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "fingerprint"
+"""
+input FingerprintSetInput {
+	id: Bigint
+	finger_id: String
+	content: String
+}
+"""
+可选select
+"""
+enum FingerprintSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	指纹ID
+	"""
+	finger_id
+	"""
+	指纹内容
+	"""
+	content
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	fingerprint(distinct_on: [FingerprintSelectColumn!], limit: Int, offset: Int, order_by: [FingerprintOrderBy!], where: FingerprintBoolExp): [Fingerprint!]!
+	"""
+	聚合查询
+	"""
+	fingerprint_aggregate(distinct_on: [FingerprintSelectColumn!], limit: Int, offset: Int, order_by: [FingerprintOrderBy!], where: FingerprintBoolExp): FingerprintAggregate!
+	"""
+	主键查询
+	"""
+	fingerprint_by_pk(id: Bigint!): Fingerprint!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_fingerprint(where: FingerprintBoolExp!): FingerprintMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_fingerprint_by_pk(id: Bigint!): Fingerprint
+	"""
+	插入
+	"""
+	insert_fingerprint(objects: [FingerprintInsertInput!]!): FingerprintMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_fingerprint_one(objects: FingerprintInsertInput!): Fingerprint
+	"""
+	更新
+	"""
+	update_fingerprint(_inc: FingerprintIncInput, _set: FingerprintSetInput, where: FingerprintBoolExp!): FingerprintMutationResponse
+	"""
+	更新
+	"""
+	update_fingerprint_by_pk(_inc: FingerprintIncInput, _set: FingerprintSetInput, id: Bigint!): Fingerprint
+}

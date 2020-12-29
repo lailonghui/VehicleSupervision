@@ -1,0 +1,415 @@
+"""
+道路限速方案详细信息
+"""
+type LimitSpeedPlanDetail {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	道路限速方案详细信息ID
+	"""
+	detail_id: String!
+	"""
+	道路限速方案ID
+	"""
+	plan_id: String!
+	"""
+	是否晚上限速
+	"""
+	is_night_limit: Boolean!
+	"""
+	晚上限速阀值
+	"""
+	night_limit_speed: Numeric
+	"""
+	晚上开始时间
+	"""
+	night_time_begin: Timestamptz
+	"""
+	晚上截止时间
+	"""
+	night_time_end: Timestamptz
+	"""
+	道路等级
+	"""
+	road_level: Int
+	"""
+	限速值
+	"""
+	limit_speed: Numeric
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+}
+"""
+aggregated selection of "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailAggregate {
+	aggregate: LimitSpeedPlanDetailAggregateFields
+}
+"""
+aggregate fields of "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailAggregateFields {
+	avg: LimitSpeedPlanDetailAvgFields
+	count: Int
+	max: LimitSpeedPlanDetailMaxFields
+	min: LimitSpeedPlanDetailMinFields
+	stddev: LimitSpeedPlanDetailStddevFields
+	stddev_pop: LimitSpeedPlanDetailStddevPopFields
+	stddev_samp: LimitSpeedPlanDetailStddevSampFields
+	sum: LimitSpeedPlanDetailSumFields
+	var_pop: LimitSpeedPlanDetailVarPopFields
+	var_samp: LimitSpeedPlanDetailVarSampFields
+	variance: LimitSpeedPlanDetailVarianceFields
+}
+"""
+aggregate avg on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailAvgFields {
+	id: Bigint
+	night_limit_speed: Numeric
+	road_level: Int
+	limit_speed: Numeric
+}
+"""
+aggregate max on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailMaxFields {
+	id: Bigint
+	detail_id: String
+	plan_id: String
+	is_night_limit: Boolean
+	night_limit_speed: Numeric
+	night_time_begin: Timestamptz
+	night_time_end: Timestamptz
+	road_level: Int
+	limit_speed: Numeric
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate min on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailMinFields {
+	id: Bigint
+	detail_id: String
+	plan_id: String
+	is_night_limit: Boolean
+	night_limit_speed: Numeric
+	night_time_begin: Timestamptz
+	night_time_end: Timestamptz
+	road_level: Int
+	limit_speed: Numeric
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate stddev on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailStddevFields {
+	id: Bigint
+	night_limit_speed: Numeric
+	road_level: Int
+	limit_speed: Numeric
+}
+"""
+aggregate stddev_pop on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailStddevPopFields {
+	id: Bigint
+	night_limit_speed: Numeric
+	road_level: Int
+	limit_speed: Numeric
+}
+"""
+aggregate stddev_samp on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailStddevSampFields {
+	id: Bigint
+	night_limit_speed: Numeric
+	road_level: Int
+	limit_speed: Numeric
+}
+"""
+aggregate sum on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailSumFields {
+	id: Bigint
+	night_limit_speed: Numeric
+	road_level: Int
+	limit_speed: Numeric
+}
+"""
+aggregate var_pop on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailVarPopFields {
+	id: Bigint
+	night_limit_speed: Numeric
+	road_level: Int
+	limit_speed: Numeric
+}
+"""
+aggregate var_samp on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailVarSampFields {
+	id: Bigint
+	night_limit_speed: Numeric
+	road_level: Int
+	limit_speed: Numeric
+}
+"""
+aggregate variance on columns of table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailVarianceFields {
+	id: Bigint
+	night_limit_speed: Numeric
+	road_level: Int
+	limit_speed: Numeric
+}
+"""
+response of any mutation on the table "limit_speed_plan_detail"
+"""
+type LimitSpeedPlanDetailMutationResponse {
+	affected_rows: Int!
+	returning: [LimitSpeedPlanDetail!]!
+}
+"""
+ordering options when selecting data from "limit_speed_plan_detail"
+"""
+input LimitSpeedPlanDetailOrderBy {
+	id: OrderBy
+	detail_id: OrderBy
+	plan_id: OrderBy
+	is_night_limit: OrderBy
+	night_limit_speed: OrderBy
+	night_time_begin: OrderBy
+	night_time_end: OrderBy
+	road_level: OrderBy
+	limit_speed: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'limit_speed_plan_detail'.
+"""
+input LimitSpeedPlanDetailBoolExp {
+	_and: [LimitSpeedPlanDetailBoolExp]
+	_not: LimitSpeedPlanDetailBoolExp
+	_or: [LimitSpeedPlanDetailBoolExp]
+	id: BigintComparisonExp
+	detail_id: StringComparisonExp
+	plan_id: StringComparisonExp
+	is_night_limit: BooleanComparisonExp
+	night_limit_speed: NumericComparisonExp
+	night_time_begin: TimestamptzComparisonExp
+	night_time_end: TimestamptzComparisonExp
+	road_level: IntComparisonExp
+	limit_speed: NumericComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "limit_speed_plan_detail"
+"""
+input LimitSpeedPlanDetailInsertInput {
+	plan_id: String!
+	is_night_limit: Boolean!
+	night_limit_speed: Numeric
+	night_time_begin: Timestamptz
+	night_time_end: Timestamptz
+	road_level: Int
+	limit_speed: Numeric
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+}
+"""
+input type for incrementing integer column in table "limit_speed_plan_detail"
+"""
+input LimitSpeedPlanDetailIncInput {
+	id: Bigint
+	night_limit_speed: Numeric
+	road_level: Int
+	limit_speed: Numeric
+}
+"""
+input type for updating data in table "limit_speed_plan_detail"
+"""
+input LimitSpeedPlanDetailSetInput {
+	id: Bigint
+	detail_id: String
+	plan_id: String
+	is_night_limit: Boolean
+	night_limit_speed: Numeric
+	night_time_begin: Timestamptz
+	night_time_end: Timestamptz
+	road_level: Int
+	limit_speed: Numeric
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+可选select
+"""
+enum LimitSpeedPlanDetailSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	道路限速方案详细信息ID
+	"""
+	detail_id
+	"""
+	道路限速方案ID
+	"""
+	plan_id
+	"""
+	是否晚上限速
+	"""
+	is_night_limit
+	"""
+	晚上限速阀值
+	"""
+	night_limit_speed
+	"""
+	晚上开始时间
+	"""
+	night_time_begin
+	"""
+	晚上截止时间
+	"""
+	night_time_end
+	"""
+	道路等级
+	"""
+	road_level
+	"""
+	限速值
+	"""
+	limit_speed
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	limit_speed_plan_detail(distinct_on: [LimitSpeedPlanDetailSelectColumn!], limit: Int, offset: Int, order_by: [LimitSpeedPlanDetailOrderBy!], where: LimitSpeedPlanDetailBoolExp): [LimitSpeedPlanDetail!]!
+	"""
+	聚合查询
+	"""
+	limit_speed_plan_detail_aggregate(distinct_on: [LimitSpeedPlanDetailSelectColumn!], limit: Int, offset: Int, order_by: [LimitSpeedPlanDetailOrderBy!], where: LimitSpeedPlanDetailBoolExp): LimitSpeedPlanDetailAggregate!
+	"""
+	主键查询
+	"""
+	limit_speed_plan_detail_by_pk(id: Bigint!): LimitSpeedPlanDetail!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_limit_speed_plan_detail(where: LimitSpeedPlanDetailBoolExp!): LimitSpeedPlanDetailMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_limit_speed_plan_detail_by_pk(id: Bigint!): LimitSpeedPlanDetail
+	"""
+	插入
+	"""
+	insert_limit_speed_plan_detail(objects: [LimitSpeedPlanDetailInsertInput!]!): LimitSpeedPlanDetailMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_limit_speed_plan_detail_one(objects: LimitSpeedPlanDetailInsertInput!): LimitSpeedPlanDetail
+	"""
+	更新
+	"""
+	update_limit_speed_plan_detail(_inc: LimitSpeedPlanDetailIncInput, _set: LimitSpeedPlanDetailSetInput, where: LimitSpeedPlanDetailBoolExp!): LimitSpeedPlanDetailMutationResponse
+	"""
+	更新
+	"""
+	update_limit_speed_plan_detail_by_pk(_inc: LimitSpeedPlanDetailIncInput, _set: LimitSpeedPlanDetailSetInput, id: Bigint!): LimitSpeedPlanDetail
+}

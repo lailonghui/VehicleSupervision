@@ -1,0 +1,397 @@
+"""
+终端参数配置项
+"""
+type TerminalParamItem {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	终端参数配置项ID
+	"""
+	param_item_id: String!
+	"""
+	参数项名称
+	"""
+	param_item_name: String!
+	"""
+	参数类型
+	"""
+	param_type_id: String!
+	"""
+	数据类型
+	"""
+	data_type: Int!
+	"""
+	是否枚举
+	"""
+	is_enum: Boolean!
+	"""
+	是否含有子参数
+	"""
+	has_subparam: Boolean!
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	备注
+	"""
+	remark: String
+	"""
+	枚举关联字典ID
+	"""
+	dict_id: String
+}
+"""
+aggregated selection of "terminal_param_item"
+"""
+type TerminalParamItemAggregate {
+	aggregate: TerminalParamItemAggregateFields
+}
+"""
+aggregate fields of "terminal_param_item"
+"""
+type TerminalParamItemAggregateFields {
+	avg: TerminalParamItemAvgFields
+	count: Int
+	max: TerminalParamItemMaxFields
+	min: TerminalParamItemMinFields
+	stddev: TerminalParamItemStddevFields
+	stddev_pop: TerminalParamItemStddevPopFields
+	stddev_samp: TerminalParamItemStddevSampFields
+	sum: TerminalParamItemSumFields
+	var_pop: TerminalParamItemVarPopFields
+	var_samp: TerminalParamItemVarSampFields
+	variance: TerminalParamItemVarianceFields
+}
+"""
+aggregate avg on columns of table "terminal_param_item"
+"""
+type TerminalParamItemAvgFields {
+	id: Bigint
+	data_type: Int
+}
+"""
+aggregate max on columns of table "terminal_param_item"
+"""
+type TerminalParamItemMaxFields {
+	id: Bigint
+	param_item_id: String
+	param_item_name: String
+	param_type_id: String
+	data_type: Int
+	is_enum: Boolean
+	has_subparam: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+	dict_id: String
+}
+"""
+aggregate min on columns of table "terminal_param_item"
+"""
+type TerminalParamItemMinFields {
+	id: Bigint
+	param_item_id: String
+	param_item_name: String
+	param_type_id: String
+	data_type: Int
+	is_enum: Boolean
+	has_subparam: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+	dict_id: String
+}
+"""
+aggregate stddev on columns of table "terminal_param_item"
+"""
+type TerminalParamItemStddevFields {
+	id: Bigint
+	data_type: Int
+}
+"""
+aggregate stddev_pop on columns of table "terminal_param_item"
+"""
+type TerminalParamItemStddevPopFields {
+	id: Bigint
+	data_type: Int
+}
+"""
+aggregate stddev_samp on columns of table "terminal_param_item"
+"""
+type TerminalParamItemStddevSampFields {
+	id: Bigint
+	data_type: Int
+}
+"""
+aggregate sum on columns of table "terminal_param_item"
+"""
+type TerminalParamItemSumFields {
+	id: Bigint
+	data_type: Int
+}
+"""
+aggregate var_pop on columns of table "terminal_param_item"
+"""
+type TerminalParamItemVarPopFields {
+	id: Bigint
+	data_type: Int
+}
+"""
+aggregate var_samp on columns of table "terminal_param_item"
+"""
+type TerminalParamItemVarSampFields {
+	id: Bigint
+	data_type: Int
+}
+"""
+aggregate variance on columns of table "terminal_param_item"
+"""
+type TerminalParamItemVarianceFields {
+	id: Bigint
+	data_type: Int
+}
+"""
+response of any mutation on the table "terminal_param_item"
+"""
+type TerminalParamItemMutationResponse {
+	affected_rows: Int!
+	returning: [TerminalParamItem!]!
+}
+"""
+ordering options when selecting data from "terminal_param_item"
+"""
+input TerminalParamItemOrderBy {
+	id: OrderBy
+	param_item_id: OrderBy
+	param_item_name: OrderBy
+	param_type_id: OrderBy
+	data_type: OrderBy
+	is_enum: OrderBy
+	has_subparam: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+	remark: OrderBy
+	dict_id: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'terminal_param_item'.
+"""
+input TerminalParamItemBoolExp {
+	_and: [TerminalParamItemBoolExp]
+	_not: TerminalParamItemBoolExp
+	_or: [TerminalParamItemBoolExp]
+	id: BigintComparisonExp
+	param_item_id: StringComparisonExp
+	param_item_name: StringComparisonExp
+	param_type_id: StringComparisonExp
+	data_type: IntComparisonExp
+	is_enum: BooleanComparisonExp
+	has_subparam: BooleanComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+	remark: StringComparisonExp
+	dict_id: StringComparisonExp
+}
+"""
+input type for inserting data into table "terminal_param_item"
+"""
+input TerminalParamItemInsertInput {
+	param_item_name: String!
+	param_type_id: String!
+	data_type: Int!
+	is_enum: Boolean!
+	has_subparam: Boolean!
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+	remark: String
+	dict_id: String
+}
+"""
+input type for incrementing integer column in table "terminal_param_item"
+"""
+input TerminalParamItemIncInput {
+	id: Bigint
+	data_type: Int
+}
+"""
+input type for updating data in table "terminal_param_item"
+"""
+input TerminalParamItemSetInput {
+	id: Bigint
+	param_item_id: String
+	param_item_name: String
+	param_type_id: String
+	data_type: Int
+	is_enum: Boolean
+	has_subparam: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+	dict_id: String
+}
+"""
+可选select
+"""
+enum TerminalParamItemSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	终端参数配置项ID
+	"""
+	param_item_id
+	"""
+	参数项名称
+	"""
+	param_item_name
+	"""
+	参数类型
+	"""
+	param_type_id
+	"""
+	数据类型
+	"""
+	data_type
+	"""
+	是否枚举
+	"""
+	is_enum
+	"""
+	是否含有子参数
+	"""
+	has_subparam
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+	"""
+	备注
+	"""
+	remark
+	"""
+	枚举关联字典ID
+	"""
+	dict_id
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	terminal_param_item(distinct_on: [TerminalParamItemSelectColumn!], limit: Int, offset: Int, order_by: [TerminalParamItemOrderBy!], where: TerminalParamItemBoolExp): [TerminalParamItem!]!
+	"""
+	聚合查询
+	"""
+	terminal_param_item_aggregate(distinct_on: [TerminalParamItemSelectColumn!], limit: Int, offset: Int, order_by: [TerminalParamItemOrderBy!], where: TerminalParamItemBoolExp): TerminalParamItemAggregate!
+	"""
+	主键查询
+	"""
+	terminal_param_item_by_pk(id: Bigint!): TerminalParamItem!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_terminal_param_item(where: TerminalParamItemBoolExp!): TerminalParamItemMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_terminal_param_item_by_pk(id: Bigint!): TerminalParamItem
+	"""
+	插入
+	"""
+	insert_terminal_param_item(objects: [TerminalParamItemInsertInput!]!): TerminalParamItemMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_terminal_param_item_one(objects: TerminalParamItemInsertInput!): TerminalParamItem
+	"""
+	更新
+	"""
+	update_terminal_param_item(_inc: TerminalParamItemIncInput, _set: TerminalParamItemSetInput, where: TerminalParamItemBoolExp!): TerminalParamItemMutationResponse
+	"""
+	更新
+	"""
+	update_terminal_param_item_by_pk(_inc: TerminalParamItemIncInput, _set: TerminalParamItemSetInput, id: Bigint!): TerminalParamItem
+}

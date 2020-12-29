@@ -1,0 +1,779 @@
+"""
+工程报备主表
+"""
+type EcdFileMain {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	工程报备主表ID
+	"""
+	file_main_id: String!
+	"""
+	工程单号
+	"""
+	file_id: String!
+	"""
+	报备企业ID
+	"""
+	enterprise_id: String!
+	"""
+	区域ID
+	"""
+	district_id: String
+	"""
+	是否跨区
+	"""
+	is_cross_district: Boolean
+	"""
+	第一个跨区ID
+	"""
+	first_cross_pid: String
+	"""
+	计划运输起止日期(起始)
+	"""
+	plan_start_time: Timestamptz
+	"""
+	计划运输起止日期(截止)
+	"""
+	plan_end_time: Timestamptz
+	"""
+	审核时间
+	"""
+	check_time: Timestamptz
+	"""
+	审批状态(11.未审批 12.已审批)
+	"""
+	check_status: Int
+	"""
+	联系电话
+	"""
+	phone_num: String
+	"""
+	废土处置核准(0未审核 1已审核)
+	"""
+	point_state: Int
+	"""
+	是否审批完成(0未完成 1-完成 2退回)
+	"""
+	end_state: Int
+	"""
+	工程名称
+	"""
+	title: String
+	"""
+	提交工程报备的区域ID
+	"""
+	add_district_id: String
+	"""
+	起点审批人签名
+	"""
+	start_point_checker_sign: String
+	"""
+	终点审批人签名
+	"""
+	end_point_checker_sign: String
+	"""
+	路线审批人签名
+	"""
+	route_checker_sign: String
+	"""
+	车速时间审批人签名
+	"""
+	speed_time_checker_sign: String
+	"""
+	退回意见
+	"""
+	return_suggest: String
+	"""
+	建筑工程名称
+	"""
+	construct_title: String
+	"""
+	建筑工程ID
+	"""
+	construct_id: String
+	"""
+	是否匹配抓怕工地
+	"""
+	is_match_construction: Boolean
+	"""
+	提交时间
+	"""
+	client_report_time: Timestamptz
+	"""
+	建筑合同
+	"""
+	construct_prove_file: String
+	"""
+	施工合同
+	"""
+	do_construct_prove_file: String
+	"""
+	土方分包合同
+	"""
+	sub_package_prove_file: String
+	"""
+	运输合同
+	"""
+	traffic_prove_file: String
+	"""
+	路线牌工作相关规定承诺书
+	"""
+	route_board_promise_file: String
+	"""
+	运输主题责任承诺书
+	"""
+	traffice_object_promise_file: String
+	"""
+	建筑废土处置核准许可证
+	"""
+	construct_garbage_allow_file: String
+	"""
+	工地进出口照片
+	"""
+	construct_site_enterance_photo: String
+	"""
+	工地洗车台照片
+	"""
+	construct_wash_car_place_photo: String
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	备注
+	"""
+	remark: String
+}
+"""
+aggregated selection of "ecd_file_main"
+"""
+type EcdFileMainAggregate {
+	aggregate: EcdFileMainAggregateFields
+}
+"""
+aggregate fields of "ecd_file_main"
+"""
+type EcdFileMainAggregateFields {
+	avg: EcdFileMainAvgFields
+	count: Int
+	max: EcdFileMainMaxFields
+	min: EcdFileMainMinFields
+	stddev: EcdFileMainStddevFields
+	stddev_pop: EcdFileMainStddevPopFields
+	stddev_samp: EcdFileMainStddevSampFields
+	sum: EcdFileMainSumFields
+	var_pop: EcdFileMainVarPopFields
+	var_samp: EcdFileMainVarSampFields
+	variance: EcdFileMainVarianceFields
+}
+"""
+aggregate avg on columns of table "ecd_file_main"
+"""
+type EcdFileMainAvgFields {
+	id: Bigint
+	check_status: Int
+	point_state: Int
+	end_state: Int
+}
+"""
+aggregate max on columns of table "ecd_file_main"
+"""
+type EcdFileMainMaxFields {
+	id: Bigint
+	file_main_id: String
+	file_id: String
+	enterprise_id: String
+	district_id: String
+	is_cross_district: Boolean
+	first_cross_pid: String
+	plan_start_time: Timestamptz
+	plan_end_time: Timestamptz
+	check_time: Timestamptz
+	check_status: Int
+	phone_num: String
+	point_state: Int
+	end_state: Int
+	title: String
+	add_district_id: String
+	start_point_checker_sign: String
+	end_point_checker_sign: String
+	route_checker_sign: String
+	speed_time_checker_sign: String
+	return_suggest: String
+	construct_title: String
+	construct_id: String
+	is_match_construction: Boolean
+	client_report_time: Timestamptz
+	construct_prove_file: String
+	do_construct_prove_file: String
+	sub_package_prove_file: String
+	traffic_prove_file: String
+	route_board_promise_file: String
+	traffice_object_promise_file: String
+	construct_garbage_allow_file: String
+	construct_site_enterance_photo: String
+	construct_wash_car_place_photo: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+}
+"""
+aggregate min on columns of table "ecd_file_main"
+"""
+type EcdFileMainMinFields {
+	id: Bigint
+	file_main_id: String
+	file_id: String
+	enterprise_id: String
+	district_id: String
+	is_cross_district: Boolean
+	first_cross_pid: String
+	plan_start_time: Timestamptz
+	plan_end_time: Timestamptz
+	check_time: Timestamptz
+	check_status: Int
+	phone_num: String
+	point_state: Int
+	end_state: Int
+	title: String
+	add_district_id: String
+	start_point_checker_sign: String
+	end_point_checker_sign: String
+	route_checker_sign: String
+	speed_time_checker_sign: String
+	return_suggest: String
+	construct_title: String
+	construct_id: String
+	is_match_construction: Boolean
+	client_report_time: Timestamptz
+	construct_prove_file: String
+	do_construct_prove_file: String
+	sub_package_prove_file: String
+	traffic_prove_file: String
+	route_board_promise_file: String
+	traffice_object_promise_file: String
+	construct_garbage_allow_file: String
+	construct_site_enterance_photo: String
+	construct_wash_car_place_photo: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+}
+"""
+aggregate stddev on columns of table "ecd_file_main"
+"""
+type EcdFileMainStddevFields {
+	id: Bigint
+	check_status: Int
+	point_state: Int
+	end_state: Int
+}
+"""
+aggregate stddev_pop on columns of table "ecd_file_main"
+"""
+type EcdFileMainStddevPopFields {
+	id: Bigint
+	check_status: Int
+	point_state: Int
+	end_state: Int
+}
+"""
+aggregate stddev_samp on columns of table "ecd_file_main"
+"""
+type EcdFileMainStddevSampFields {
+	id: Bigint
+	check_status: Int
+	point_state: Int
+	end_state: Int
+}
+"""
+aggregate sum on columns of table "ecd_file_main"
+"""
+type EcdFileMainSumFields {
+	id: Bigint
+	check_status: Int
+	point_state: Int
+	end_state: Int
+}
+"""
+aggregate var_pop on columns of table "ecd_file_main"
+"""
+type EcdFileMainVarPopFields {
+	id: Bigint
+	check_status: Int
+	point_state: Int
+	end_state: Int
+}
+"""
+aggregate var_samp on columns of table "ecd_file_main"
+"""
+type EcdFileMainVarSampFields {
+	id: Bigint
+	check_status: Int
+	point_state: Int
+	end_state: Int
+}
+"""
+aggregate variance on columns of table "ecd_file_main"
+"""
+type EcdFileMainVarianceFields {
+	id: Bigint
+	check_status: Int
+	point_state: Int
+	end_state: Int
+}
+"""
+response of any mutation on the table "ecd_file_main"
+"""
+type EcdFileMainMutationResponse {
+	affected_rows: Int!
+	returning: [EcdFileMain!]!
+}
+"""
+ordering options when selecting data from "ecd_file_main"
+"""
+input EcdFileMainOrderBy {
+	id: OrderBy
+	file_main_id: OrderBy
+	file_id: OrderBy
+	enterprise_id: OrderBy
+	district_id: OrderBy
+	is_cross_district: OrderBy
+	first_cross_pid: OrderBy
+	plan_start_time: OrderBy
+	plan_end_time: OrderBy
+	check_time: OrderBy
+	check_status: OrderBy
+	phone_num: OrderBy
+	point_state: OrderBy
+	end_state: OrderBy
+	title: OrderBy
+	add_district_id: OrderBy
+	start_point_checker_sign: OrderBy
+	end_point_checker_sign: OrderBy
+	route_checker_sign: OrderBy
+	speed_time_checker_sign: OrderBy
+	return_suggest: OrderBy
+	construct_title: OrderBy
+	construct_id: OrderBy
+	is_match_construction: OrderBy
+	client_report_time: OrderBy
+	construct_prove_file: OrderBy
+	do_construct_prove_file: OrderBy
+	sub_package_prove_file: OrderBy
+	traffic_prove_file: OrderBy
+	route_board_promise_file: OrderBy
+	traffice_object_promise_file: OrderBy
+	construct_garbage_allow_file: OrderBy
+	construct_site_enterance_photo: OrderBy
+	construct_wash_car_place_photo: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+	remark: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'ecd_file_main'.
+"""
+input EcdFileMainBoolExp {
+	_and: [EcdFileMainBoolExp]
+	_not: EcdFileMainBoolExp
+	_or: [EcdFileMainBoolExp]
+	id: BigintComparisonExp
+	file_main_id: StringComparisonExp
+	file_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	district_id: StringComparisonExp
+	is_cross_district: BooleanComparisonExp
+	first_cross_pid: StringComparisonExp
+	plan_start_time: TimestamptzComparisonExp
+	plan_end_time: TimestamptzComparisonExp
+	check_time: TimestamptzComparisonExp
+	check_status: IntComparisonExp
+	phone_num: StringComparisonExp
+	point_state: IntComparisonExp
+	end_state: IntComparisonExp
+	title: StringComparisonExp
+	add_district_id: StringComparisonExp
+	start_point_checker_sign: StringComparisonExp
+	end_point_checker_sign: StringComparisonExp
+	route_checker_sign: StringComparisonExp
+	speed_time_checker_sign: StringComparisonExp
+	return_suggest: StringComparisonExp
+	construct_title: StringComparisonExp
+	construct_id: StringComparisonExp
+	is_match_construction: BooleanComparisonExp
+	client_report_time: TimestamptzComparisonExp
+	construct_prove_file: StringComparisonExp
+	do_construct_prove_file: StringComparisonExp
+	sub_package_prove_file: StringComparisonExp
+	traffic_prove_file: StringComparisonExp
+	route_board_promise_file: StringComparisonExp
+	traffice_object_promise_file: StringComparisonExp
+	construct_garbage_allow_file: StringComparisonExp
+	construct_site_enterance_photo: StringComparisonExp
+	construct_wash_car_place_photo: StringComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+	remark: StringComparisonExp
+}
+"""
+input type for inserting data into table "ecd_file_main"
+"""
+input EcdFileMainInsertInput {
+	file_id: String!
+	enterprise_id: String!
+	district_id: String
+	is_cross_district: Boolean
+	first_cross_pid: String
+	plan_start_time: Timestamptz
+	plan_end_time: Timestamptz
+	check_time: Timestamptz
+	check_status: Int
+	phone_num: String
+	point_state: Int
+	end_state: Int
+	title: String
+	add_district_id: String
+	start_point_checker_sign: String
+	end_point_checker_sign: String
+	route_checker_sign: String
+	speed_time_checker_sign: String
+	return_suggest: String
+	construct_title: String
+	construct_id: String
+	is_match_construction: Boolean
+	client_report_time: Timestamptz
+	construct_prove_file: String
+	do_construct_prove_file: String
+	sub_package_prove_file: String
+	traffic_prove_file: String
+	route_board_promise_file: String
+	traffice_object_promise_file: String
+	construct_garbage_allow_file: String
+	construct_site_enterance_photo: String
+	construct_wash_car_place_photo: String
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+	remark: String
+}
+"""
+input type for incrementing integer column in table "ecd_file_main"
+"""
+input EcdFileMainIncInput {
+	id: Bigint
+	check_status: Int
+	point_state: Int
+	end_state: Int
+}
+"""
+input type for updating data in table "ecd_file_main"
+"""
+input EcdFileMainSetInput {
+	id: Bigint
+	file_main_id: String
+	file_id: String
+	enterprise_id: String
+	district_id: String
+	is_cross_district: Boolean
+	first_cross_pid: String
+	plan_start_time: Timestamptz
+	plan_end_time: Timestamptz
+	check_time: Timestamptz
+	check_status: Int
+	phone_num: String
+	point_state: Int
+	end_state: Int
+	title: String
+	add_district_id: String
+	start_point_checker_sign: String
+	end_point_checker_sign: String
+	route_checker_sign: String
+	speed_time_checker_sign: String
+	return_suggest: String
+	construct_title: String
+	construct_id: String
+	is_match_construction: Boolean
+	client_report_time: Timestamptz
+	construct_prove_file: String
+	do_construct_prove_file: String
+	sub_package_prove_file: String
+	traffic_prove_file: String
+	route_board_promise_file: String
+	traffice_object_promise_file: String
+	construct_garbage_allow_file: String
+	construct_site_enterance_photo: String
+	construct_wash_car_place_photo: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+}
+"""
+可选select
+"""
+enum EcdFileMainSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	工程报备主表ID
+	"""
+	file_main_id
+	"""
+	工程单号
+	"""
+	file_id
+	"""
+	报备企业ID
+	"""
+	enterprise_id
+	"""
+	区域ID
+	"""
+	district_id
+	"""
+	是否跨区
+	"""
+	is_cross_district
+	"""
+	第一个跨区ID
+	"""
+	first_cross_pid
+	"""
+	计划运输起止日期(起始)
+	"""
+	plan_start_time
+	"""
+	计划运输起止日期(截止)
+	"""
+	plan_end_time
+	"""
+	审核时间
+	"""
+	check_time
+	"""
+	审批状态(11.未审批 12.已审批)
+	"""
+	check_status
+	"""
+	联系电话
+	"""
+	phone_num
+	"""
+	废土处置核准(0未审核 1已审核)
+	"""
+	point_state
+	"""
+	是否审批完成(0未完成 1-完成 2退回)
+	"""
+	end_state
+	"""
+	工程名称
+	"""
+	title
+	"""
+	提交工程报备的区域ID
+	"""
+	add_district_id
+	"""
+	起点审批人签名
+	"""
+	start_point_checker_sign
+	"""
+	终点审批人签名
+	"""
+	end_point_checker_sign
+	"""
+	路线审批人签名
+	"""
+	route_checker_sign
+	"""
+	车速时间审批人签名
+	"""
+	speed_time_checker_sign
+	"""
+	退回意见
+	"""
+	return_suggest
+	"""
+	建筑工程名称
+	"""
+	construct_title
+	"""
+	建筑工程ID
+	"""
+	construct_id
+	"""
+	是否匹配抓怕工地
+	"""
+	is_match_construction
+	"""
+	提交时间
+	"""
+	client_report_time
+	"""
+	建筑合同
+	"""
+	construct_prove_file
+	"""
+	施工合同
+	"""
+	do_construct_prove_file
+	"""
+	土方分包合同
+	"""
+	sub_package_prove_file
+	"""
+	运输合同
+	"""
+	traffic_prove_file
+	"""
+	路线牌工作相关规定承诺书
+	"""
+	route_board_promise_file
+	"""
+	运输主题责任承诺书
+	"""
+	traffice_object_promise_file
+	"""
+	建筑废土处置核准许可证
+	"""
+	construct_garbage_allow_file
+	"""
+	工地进出口照片
+	"""
+	construct_site_enterance_photo
+	"""
+	工地洗车台照片
+	"""
+	construct_wash_car_place_photo
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+	"""
+	备注
+	"""
+	remark
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	ecd_file_main(distinct_on: [EcdFileMainSelectColumn!], limit: Int, offset: Int, order_by: [EcdFileMainOrderBy!], where: EcdFileMainBoolExp): [EcdFileMain!]!
+	"""
+	聚合查询
+	"""
+	ecd_file_main_aggregate(distinct_on: [EcdFileMainSelectColumn!], limit: Int, offset: Int, order_by: [EcdFileMainOrderBy!], where: EcdFileMainBoolExp): EcdFileMainAggregate!
+	"""
+	主键查询
+	"""
+	ecd_file_main_by_pk(id: Bigint!): EcdFileMain!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_ecd_file_main(where: EcdFileMainBoolExp!): EcdFileMainMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_ecd_file_main_by_pk(id: Bigint!): EcdFileMain
+	"""
+	插入
+	"""
+	insert_ecd_file_main(objects: [EcdFileMainInsertInput!]!): EcdFileMainMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_ecd_file_main_one(objects: EcdFileMainInsertInput!): EcdFileMain
+	"""
+	更新
+	"""
+	update_ecd_file_main(_inc: EcdFileMainIncInput, _set: EcdFileMainSetInput, where: EcdFileMainBoolExp!): EcdFileMainMutationResponse
+	"""
+	更新
+	"""
+	update_ecd_file_main_by_pk(_inc: EcdFileMainIncInput, _set: EcdFileMainSetInput, id: Bigint!): EcdFileMain
+}

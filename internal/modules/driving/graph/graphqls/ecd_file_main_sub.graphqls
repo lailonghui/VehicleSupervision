@@ -1,0 +1,649 @@
+"""
+工程报备附属表
+"""
+type EcdFileMainSub {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	工程报备附属表ID
+	"""
+	file_main_sub_id: String!
+	"""
+	报备主表ID
+	"""
+	file_main_id: String
+	"""
+	地址
+	"""
+	address: String
+	"""
+	建筑单位
+	"""
+	construct_unit: String
+	"""
+	建筑单位-负责人姓名
+	"""
+	construct_director_name: String
+	"""
+	建筑单位-联系电话
+	"""
+	construct_phone: String
+	"""
+	施工总承包单位
+	"""
+	contract_unit: String
+	"""
+	施工总承包单位-负责人姓名
+	"""
+	contract_director_name: String
+	"""
+	施工总承包单位-联系电话
+	"""
+	contract_phone: String
+	"""
+	运输单位
+	"""
+	traffic_unit: String
+	"""
+	运输单位-负责人姓名
+	"""
+	traffic_director_name: String
+	"""
+	运输单位-联系电话
+	"""
+	traffic_phone: String
+	"""
+	废土类别
+	"""
+	wl_type: Int
+	"""
+	废土-计划处置场地
+	"""
+	plan_deal_area: String
+	"""
+	废土-计划运输方量
+	"""
+	plan_trans_volume: String
+	"""
+	废土-计划运输时段（起始）
+	"""
+	plan_start_time: String
+	"""
+	废土-计划运输时间(截止)
+	"""
+	plan_end_time: String
+	"""
+	废土-计划运输路线
+	"""
+	plan_trans_lines: String
+	"""
+	建筑合同号
+	"""
+	construct_prove_num: String
+	"""
+	施工合同号
+	"""
+	contract_prove_num: String
+	"""
+	运输合同号
+	"""
+	traffic_prove_num: String
+	"""
+	土方分包单位
+	"""
+	sub_package_unit: String
+	"""
+	分包合同号
+	"""
+	package_prove_num: String
+	"""
+	分包-负责人姓名
+	"""
+	package_director_name: String
+	"""
+	分包-联系电话
+	"""
+	package_phone: String
+	"""
+	工程概况
+	"""
+	facts: String
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+}
+"""
+aggregated selection of "ecd_file_main_sub"
+"""
+type EcdFileMainSubAggregate {
+	aggregate: EcdFileMainSubAggregateFields
+}
+"""
+aggregate fields of "ecd_file_main_sub"
+"""
+type EcdFileMainSubAggregateFields {
+	avg: EcdFileMainSubAvgFields
+	count: Int
+	max: EcdFileMainSubMaxFields
+	min: EcdFileMainSubMinFields
+	stddev: EcdFileMainSubStddevFields
+	stddev_pop: EcdFileMainSubStddevPopFields
+	stddev_samp: EcdFileMainSubStddevSampFields
+	sum: EcdFileMainSubSumFields
+	var_pop: EcdFileMainSubVarPopFields
+	var_samp: EcdFileMainSubVarSampFields
+	variance: EcdFileMainSubVarianceFields
+}
+"""
+aggregate avg on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubAvgFields {
+	id: Bigint
+	wl_type: Int
+}
+"""
+aggregate max on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubMaxFields {
+	id: Bigint
+	file_main_sub_id: String
+	file_main_id: String
+	address: String
+	construct_unit: String
+	construct_director_name: String
+	construct_phone: String
+	contract_unit: String
+	contract_director_name: String
+	contract_phone: String
+	traffic_unit: String
+	traffic_director_name: String
+	traffic_phone: String
+	wl_type: Int
+	plan_deal_area: String
+	plan_trans_volume: String
+	plan_start_time: String
+	plan_end_time: String
+	plan_trans_lines: String
+	construct_prove_num: String
+	contract_prove_num: String
+	traffic_prove_num: String
+	sub_package_unit: String
+	package_prove_num: String
+	package_director_name: String
+	package_phone: String
+	facts: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate min on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubMinFields {
+	id: Bigint
+	file_main_sub_id: String
+	file_main_id: String
+	address: String
+	construct_unit: String
+	construct_director_name: String
+	construct_phone: String
+	contract_unit: String
+	contract_director_name: String
+	contract_phone: String
+	traffic_unit: String
+	traffic_director_name: String
+	traffic_phone: String
+	wl_type: Int
+	plan_deal_area: String
+	plan_trans_volume: String
+	plan_start_time: String
+	plan_end_time: String
+	plan_trans_lines: String
+	construct_prove_num: String
+	contract_prove_num: String
+	traffic_prove_num: String
+	sub_package_unit: String
+	package_prove_num: String
+	package_director_name: String
+	package_phone: String
+	facts: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate stddev on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubStddevFields {
+	id: Bigint
+	wl_type: Int
+}
+"""
+aggregate stddev_pop on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubStddevPopFields {
+	id: Bigint
+	wl_type: Int
+}
+"""
+aggregate stddev_samp on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubStddevSampFields {
+	id: Bigint
+	wl_type: Int
+}
+"""
+aggregate sum on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubSumFields {
+	id: Bigint
+	wl_type: Int
+}
+"""
+aggregate var_pop on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubVarPopFields {
+	id: Bigint
+	wl_type: Int
+}
+"""
+aggregate var_samp on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubVarSampFields {
+	id: Bigint
+	wl_type: Int
+}
+"""
+aggregate variance on columns of table "ecd_file_main_sub"
+"""
+type EcdFileMainSubVarianceFields {
+	id: Bigint
+	wl_type: Int
+}
+"""
+response of any mutation on the table "ecd_file_main_sub"
+"""
+type EcdFileMainSubMutationResponse {
+	affected_rows: Int!
+	returning: [EcdFileMainSub!]!
+}
+"""
+ordering options when selecting data from "ecd_file_main_sub"
+"""
+input EcdFileMainSubOrderBy {
+	id: OrderBy
+	file_main_sub_id: OrderBy
+	file_main_id: OrderBy
+	address: OrderBy
+	construct_unit: OrderBy
+	construct_director_name: OrderBy
+	construct_phone: OrderBy
+	contract_unit: OrderBy
+	contract_director_name: OrderBy
+	contract_phone: OrderBy
+	traffic_unit: OrderBy
+	traffic_director_name: OrderBy
+	traffic_phone: OrderBy
+	wl_type: OrderBy
+	plan_deal_area: OrderBy
+	plan_trans_volume: OrderBy
+	plan_start_time: OrderBy
+	plan_end_time: OrderBy
+	plan_trans_lines: OrderBy
+	construct_prove_num: OrderBy
+	contract_prove_num: OrderBy
+	traffic_prove_num: OrderBy
+	sub_package_unit: OrderBy
+	package_prove_num: OrderBy
+	package_director_name: OrderBy
+	package_phone: OrderBy
+	facts: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'ecd_file_main_sub'.
+"""
+input EcdFileMainSubBoolExp {
+	_and: [EcdFileMainSubBoolExp]
+	_not: EcdFileMainSubBoolExp
+	_or: [EcdFileMainSubBoolExp]
+	id: BigintComparisonExp
+	file_main_sub_id: StringComparisonExp
+	file_main_id: StringComparisonExp
+	address: StringComparisonExp
+	construct_unit: StringComparisonExp
+	construct_director_name: StringComparisonExp
+	construct_phone: StringComparisonExp
+	contract_unit: StringComparisonExp
+	contract_director_name: StringComparisonExp
+	contract_phone: StringComparisonExp
+	traffic_unit: StringComparisonExp
+	traffic_director_name: StringComparisonExp
+	traffic_phone: StringComparisonExp
+	wl_type: IntComparisonExp
+	plan_deal_area: StringComparisonExp
+	plan_trans_volume: StringComparisonExp
+	plan_start_time: StringComparisonExp
+	plan_end_time: StringComparisonExp
+	plan_trans_lines: StringComparisonExp
+	construct_prove_num: StringComparisonExp
+	contract_prove_num: StringComparisonExp
+	traffic_prove_num: StringComparisonExp
+	sub_package_unit: StringComparisonExp
+	package_prove_num: StringComparisonExp
+	package_director_name: StringComparisonExp
+	package_phone: StringComparisonExp
+	facts: StringComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "ecd_file_main_sub"
+"""
+input EcdFileMainSubInsertInput {
+	file_main_id: String
+	address: String
+	construct_unit: String
+	construct_director_name: String
+	construct_phone: String
+	contract_unit: String
+	contract_director_name: String
+	contract_phone: String
+	traffic_unit: String
+	traffic_director_name: String
+	traffic_phone: String
+	wl_type: Int
+	plan_deal_area: String
+	plan_trans_volume: String
+	plan_start_time: String
+	plan_end_time: String
+	plan_trans_lines: String
+	construct_prove_num: String
+	contract_prove_num: String
+	traffic_prove_num: String
+	sub_package_unit: String
+	package_prove_num: String
+	package_director_name: String
+	package_phone: String
+	facts: String
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+}
+"""
+input type for incrementing integer column in table "ecd_file_main_sub"
+"""
+input EcdFileMainSubIncInput {
+	id: Bigint
+	wl_type: Int
+}
+"""
+input type for updating data in table "ecd_file_main_sub"
+"""
+input EcdFileMainSubSetInput {
+	id: Bigint
+	file_main_sub_id: String
+	file_main_id: String
+	address: String
+	construct_unit: String
+	construct_director_name: String
+	construct_phone: String
+	contract_unit: String
+	contract_director_name: String
+	contract_phone: String
+	traffic_unit: String
+	traffic_director_name: String
+	traffic_phone: String
+	wl_type: Int
+	plan_deal_area: String
+	plan_trans_volume: String
+	plan_start_time: String
+	plan_end_time: String
+	plan_trans_lines: String
+	construct_prove_num: String
+	contract_prove_num: String
+	traffic_prove_num: String
+	sub_package_unit: String
+	package_prove_num: String
+	package_director_name: String
+	package_phone: String
+	facts: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+可选select
+"""
+enum EcdFileMainSubSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	工程报备附属表ID
+	"""
+	file_main_sub_id
+	"""
+	报备主表ID
+	"""
+	file_main_id
+	"""
+	地址
+	"""
+	address
+	"""
+	建筑单位
+	"""
+	construct_unit
+	"""
+	建筑单位-负责人姓名
+	"""
+	construct_director_name
+	"""
+	建筑单位-联系电话
+	"""
+	construct_phone
+	"""
+	施工总承包单位
+	"""
+	contract_unit
+	"""
+	施工总承包单位-负责人姓名
+	"""
+	contract_director_name
+	"""
+	施工总承包单位-联系电话
+	"""
+	contract_phone
+	"""
+	运输单位
+	"""
+	traffic_unit
+	"""
+	运输单位-负责人姓名
+	"""
+	traffic_director_name
+	"""
+	运输单位-联系电话
+	"""
+	traffic_phone
+	"""
+	废土类别
+	"""
+	wl_type
+	"""
+	废土-计划处置场地
+	"""
+	plan_deal_area
+	"""
+	废土-计划运输方量
+	"""
+	plan_trans_volume
+	"""
+	废土-计划运输时段（起始）
+	"""
+	plan_start_time
+	"""
+	废土-计划运输时间(截止)
+	"""
+	plan_end_time
+	"""
+	废土-计划运输路线
+	"""
+	plan_trans_lines
+	"""
+	建筑合同号
+	"""
+	construct_prove_num
+	"""
+	施工合同号
+	"""
+	contract_prove_num
+	"""
+	运输合同号
+	"""
+	traffic_prove_num
+	"""
+	土方分包单位
+	"""
+	sub_package_unit
+	"""
+	分包合同号
+	"""
+	package_prove_num
+	"""
+	分包-负责人姓名
+	"""
+	package_director_name
+	"""
+	分包-联系电话
+	"""
+	package_phone
+	"""
+	工程概况
+	"""
+	facts
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	ecd_file_main_sub(distinct_on: [EcdFileMainSubSelectColumn!], limit: Int, offset: Int, order_by: [EcdFileMainSubOrderBy!], where: EcdFileMainSubBoolExp): [EcdFileMainSub!]!
+	"""
+	聚合查询
+	"""
+	ecd_file_main_sub_aggregate(distinct_on: [EcdFileMainSubSelectColumn!], limit: Int, offset: Int, order_by: [EcdFileMainSubOrderBy!], where: EcdFileMainSubBoolExp): EcdFileMainSubAggregate!
+	"""
+	主键查询
+	"""
+	ecd_file_main_sub_by_pk(id: Bigint!): EcdFileMainSub!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_ecd_file_main_sub(where: EcdFileMainSubBoolExp!): EcdFileMainSubMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_ecd_file_main_sub_by_pk(id: Bigint!): EcdFileMainSub
+	"""
+	插入
+	"""
+	insert_ecd_file_main_sub(objects: [EcdFileMainSubInsertInput!]!): EcdFileMainSubMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_ecd_file_main_sub_one(objects: EcdFileMainSubInsertInput!): EcdFileMainSub
+	"""
+	更新
+	"""
+	update_ecd_file_main_sub(_inc: EcdFileMainSubIncInput, _set: EcdFileMainSubSetInput, where: EcdFileMainSubBoolExp!): EcdFileMainSubMutationResponse
+	"""
+	更新
+	"""
+	update_ecd_file_main_sub_by_pk(_inc: EcdFileMainSubIncInput, _set: EcdFileMainSubSetInput, id: Bigint!): EcdFileMainSub
+}

@@ -1,0 +1,578 @@
+"""
+系统用户
+"""
+type SystemUser {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	用户ID
+	"""
+	user_id: String!
+	"""
+	密码
+	"""
+	password: String!
+	"""
+	用户名
+	"""
+	uername: String!
+	"""
+	企业ID
+	"""
+	enterprise_id: String
+	"""
+	部门ID
+	"""
+	department_id: String
+	"""
+	级别
+	"""
+	grade: Int
+	"""
+	审核等级
+	"""
+	audit_level: Int
+	"""
+	用户类型
+	"""
+	user_type: Int
+	"""
+	是否有效
+	"""
+	is_valid: Boolean
+	"""
+	状态
+	"""
+	user_state: Int
+	"""
+	ip地址
+	"""
+	ip_address: String
+	"""
+	是否绑定IP
+	"""
+	is_bind_ip: Boolean
+	"""
+	邮箱
+	"""
+	email: String
+	"""
+	电话号码
+	"""
+	telephone: String
+	"""
+	手机号码
+	"""
+	mobile: String
+	"""
+	加密串码
+	"""
+	ukey: String
+	"""
+	手机串号
+	"""
+	mkey: String
+	"""
+	客户端版本号
+	"""
+	app_version: String
+	"""
+	创建时间
+	"""
+	created_at: Timestamptz
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	修改时间
+	"""
+	update_at: Timestamptz
+	"""
+	修改人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	备注
+	"""
+	remarks: String
+}
+"""
+aggregated selection of "system_user"
+"""
+type SystemUserAggregate {
+	aggregate: SystemUserAggregateFields
+}
+"""
+aggregate fields of "system_user"
+"""
+type SystemUserAggregateFields {
+	avg: SystemUserAvgFields
+	count: Int
+	max: SystemUserMaxFields
+	min: SystemUserMinFields
+	stddev: SystemUserStddevFields
+	stddev_pop: SystemUserStddevPopFields
+	stddev_samp: SystemUserStddevSampFields
+	sum: SystemUserSumFields
+	var_pop: SystemUserVarPopFields
+	var_samp: SystemUserVarSampFields
+	variance: SystemUserVarianceFields
+}
+"""
+aggregate avg on columns of table "system_user"
+"""
+type SystemUserAvgFields {
+	id: Bigint
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	user_state: Int
+}
+"""
+aggregate max on columns of table "system_user"
+"""
+type SystemUserMaxFields {
+	id: Bigint
+	user_id: String
+	password: String
+	uername: String
+	enterprise_id: String
+	department_id: String
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	is_valid: Boolean
+	user_state: Int
+	ip_address: String
+	is_bind_ip: Boolean
+	email: String
+	telephone: String
+	mobile: String
+	ukey: String
+	mkey: String
+	app_version: String
+	created_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remarks: String
+}
+"""
+aggregate min on columns of table "system_user"
+"""
+type SystemUserMinFields {
+	id: Bigint
+	user_id: String
+	password: String
+	uername: String
+	enterprise_id: String
+	department_id: String
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	is_valid: Boolean
+	user_state: Int
+	ip_address: String
+	is_bind_ip: Boolean
+	email: String
+	telephone: String
+	mobile: String
+	ukey: String
+	mkey: String
+	app_version: String
+	created_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remarks: String
+}
+"""
+aggregate stddev on columns of table "system_user"
+"""
+type SystemUserStddevFields {
+	id: Bigint
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	user_state: Int
+}
+"""
+aggregate stddev_pop on columns of table "system_user"
+"""
+type SystemUserStddevPopFields {
+	id: Bigint
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	user_state: Int
+}
+"""
+aggregate stddev_samp on columns of table "system_user"
+"""
+type SystemUserStddevSampFields {
+	id: Bigint
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	user_state: Int
+}
+"""
+aggregate sum on columns of table "system_user"
+"""
+type SystemUserSumFields {
+	id: Bigint
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	user_state: Int
+}
+"""
+aggregate var_pop on columns of table "system_user"
+"""
+type SystemUserVarPopFields {
+	id: Bigint
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	user_state: Int
+}
+"""
+aggregate var_samp on columns of table "system_user"
+"""
+type SystemUserVarSampFields {
+	id: Bigint
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	user_state: Int
+}
+"""
+aggregate variance on columns of table "system_user"
+"""
+type SystemUserVarianceFields {
+	id: Bigint
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	user_state: Int
+}
+"""
+response of any mutation on the table "system_user"
+"""
+type SystemUserMutationResponse {
+	affected_rows: Int!
+	returning: [SystemUser!]!
+}
+"""
+ordering options when selecting data from "system_user"
+"""
+input SystemUserOrderBy {
+	id: OrderBy
+	user_id: OrderBy
+	password: OrderBy
+	uername: OrderBy
+	enterprise_id: OrderBy
+	department_id: OrderBy
+	grade: OrderBy
+	audit_level: OrderBy
+	user_type: OrderBy
+	is_valid: OrderBy
+	user_state: OrderBy
+	ip_address: OrderBy
+	is_bind_ip: OrderBy
+	email: OrderBy
+	telephone: OrderBy
+	mobile: OrderBy
+	ukey: OrderBy
+	mkey: OrderBy
+	app_version: OrderBy
+	created_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+	remarks: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'system_user'.
+"""
+input SystemUserBoolExp {
+	_and: [SystemUserBoolExp]
+	_not: SystemUserBoolExp
+	_or: [SystemUserBoolExp]
+	id: BigintComparisonExp
+	user_id: StringComparisonExp
+	password: StringComparisonExp
+	uername: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	department_id: StringComparisonExp
+	grade: IntComparisonExp
+	audit_level: IntComparisonExp
+	user_type: IntComparisonExp
+	is_valid: BooleanComparisonExp
+	user_state: IntComparisonExp
+	ip_address: StringComparisonExp
+	is_bind_ip: BooleanComparisonExp
+	email: StringComparisonExp
+	telephone: StringComparisonExp
+	mobile: StringComparisonExp
+	ukey: StringComparisonExp
+	mkey: StringComparisonExp
+	app_version: StringComparisonExp
+	created_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+	remarks: StringComparisonExp
+}
+"""
+input type for inserting data into table "system_user"
+"""
+input SystemUserInsertInput {
+	password: String!
+	uername: String!
+	enterprise_id: String
+	department_id: String
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	is_valid: Boolean
+	user_state: Int
+	ip_address: String
+	is_bind_ip: Boolean
+	email: String
+	telephone: String
+	mobile: String
+	ukey: String
+	mkey: String
+	app_version: String
+	created_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+	remarks: String
+}
+"""
+input type for incrementing integer column in table "system_user"
+"""
+input SystemUserIncInput {
+	id: Bigint
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	user_state: Int
+}
+"""
+input type for updating data in table "system_user"
+"""
+input SystemUserSetInput {
+	id: Bigint
+	user_id: String
+	password: String
+	uername: String
+	enterprise_id: String
+	department_id: String
+	grade: Int
+	audit_level: Int
+	user_type: Int
+	is_valid: Boolean
+	user_state: Int
+	ip_address: String
+	is_bind_ip: Boolean
+	email: String
+	telephone: String
+	mobile: String
+	ukey: String
+	mkey: String
+	app_version: String
+	created_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remarks: String
+}
+"""
+可选select
+"""
+enum SystemUserSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	用户ID
+	"""
+	user_id
+	"""
+	密码
+	"""
+	password
+	"""
+	用户名
+	"""
+	uername
+	"""
+	企业ID
+	"""
+	enterprise_id
+	"""
+	部门ID
+	"""
+	department_id
+	"""
+	级别
+	"""
+	grade
+	"""
+	审核等级
+	"""
+	audit_level
+	"""
+	用户类型
+	"""
+	user_type
+	"""
+	是否有效
+	"""
+	is_valid
+	"""
+	状态
+	"""
+	user_state
+	"""
+	ip地址
+	"""
+	ip_address
+	"""
+	是否绑定IP
+	"""
+	is_bind_ip
+	"""
+	邮箱
+	"""
+	email
+	"""
+	电话号码
+	"""
+	telephone
+	"""
+	手机号码
+	"""
+	mobile
+	"""
+	加密串码
+	"""
+	ukey
+	"""
+	手机串号
+	"""
+	mkey
+	"""
+	客户端版本号
+	"""
+	app_version
+	"""
+	创建时间
+	"""
+	created_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	修改时间
+	"""
+	update_at
+	"""
+	修改人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+	"""
+	备注
+	"""
+	remarks
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	system_user(distinct_on: [SystemUserSelectColumn!], limit: Int, offset: Int, order_by: [SystemUserOrderBy!], where: SystemUserBoolExp): [SystemUser!]!
+	"""
+	聚合查询
+	"""
+	system_user_aggregate(distinct_on: [SystemUserSelectColumn!], limit: Int, offset: Int, order_by: [SystemUserOrderBy!], where: SystemUserBoolExp): SystemUserAggregate!
+	"""
+	主键查询
+	"""
+	system_user_by_pk(id: Bigint!): SystemUser!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_system_user(where: SystemUserBoolExp!): SystemUserMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_system_user_by_pk(id: Bigint!): SystemUser
+	"""
+	插入
+	"""
+	insert_system_user(objects: [SystemUserInsertInput!]!): SystemUserMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_system_user_one(objects: SystemUserInsertInput!): SystemUser
+	"""
+	更新
+	"""
+	update_system_user(_inc: SystemUserIncInput, _set: SystemUserSetInput, where: SystemUserBoolExp!): SystemUserMutationResponse
+	"""
+	更新
+	"""
+	update_system_user_by_pk(_inc: SystemUserIncInput, _set: SystemUserSetInput, id: Bigint!): SystemUser
+}

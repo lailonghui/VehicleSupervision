@@ -1,0 +1,304 @@
+"""
+终端变更
+"""
+type TerminalChange {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	终端变更ID
+	"""
+	change_id: String!
+	"""
+	新车牌
+	"""
+	new_plate_number: String!
+	"""
+	终端ID
+	"""
+	terminal_id: String!
+	"""
+	终端型号ID
+	"""
+	terminal_type_id: String
+	"""
+	旧车牌
+	"""
+	old_plate_number: String!
+	"""
+	所在部门ID
+	"""
+	dept_id: String
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	备注
+	"""
+	remark: String
+}
+"""
+aggregated selection of "terminal_change"
+"""
+type TerminalChangeAggregate {
+	aggregate: TerminalChangeAggregateFields
+}
+"""
+aggregate fields of "terminal_change"
+"""
+type TerminalChangeAggregateFields {
+	avg: TerminalChangeAvgFields
+	count: Int
+	max: TerminalChangeMaxFields
+	min: TerminalChangeMinFields
+	stddev: TerminalChangeStddevFields
+	stddev_pop: TerminalChangeStddevPopFields
+	stddev_samp: TerminalChangeStddevSampFields
+	sum: TerminalChangeSumFields
+	var_pop: TerminalChangeVarPopFields
+	var_samp: TerminalChangeVarSampFields
+	variance: TerminalChangeVarianceFields
+}
+"""
+aggregate avg on columns of table "terminal_change"
+"""
+type TerminalChangeAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "terminal_change"
+"""
+type TerminalChangeMaxFields {
+	id: Bigint
+	change_id: String
+	new_plate_number: String
+	terminal_id: String
+	terminal_type_id: String
+	old_plate_number: String
+	dept_id: String
+	create_at: Timestamptz
+	create_by: String
+	remark: String
+}
+"""
+aggregate min on columns of table "terminal_change"
+"""
+type TerminalChangeMinFields {
+	id: Bigint
+	change_id: String
+	new_plate_number: String
+	terminal_id: String
+	terminal_type_id: String
+	old_plate_number: String
+	dept_id: String
+	create_at: Timestamptz
+	create_by: String
+	remark: String
+}
+"""
+aggregate stddev on columns of table "terminal_change"
+"""
+type TerminalChangeStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "terminal_change"
+"""
+type TerminalChangeStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "terminal_change"
+"""
+type TerminalChangeStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "terminal_change"
+"""
+type TerminalChangeSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "terminal_change"
+"""
+type TerminalChangeVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "terminal_change"
+"""
+type TerminalChangeVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "terminal_change"
+"""
+type TerminalChangeVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "terminal_change"
+"""
+type TerminalChangeMutationResponse {
+	affected_rows: Int!
+	returning: [TerminalChange!]!
+}
+"""
+ordering options when selecting data from "terminal_change"
+"""
+input TerminalChangeOrderBy {
+	id: OrderBy
+	change_id: OrderBy
+	new_plate_number: OrderBy
+	terminal_id: OrderBy
+	terminal_type_id: OrderBy
+	old_plate_number: OrderBy
+	dept_id: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	remark: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'terminal_change'.
+"""
+input TerminalChangeBoolExp {
+	_and: [TerminalChangeBoolExp]
+	_not: TerminalChangeBoolExp
+	_or: [TerminalChangeBoolExp]
+	id: BigintComparisonExp
+	change_id: StringComparisonExp
+	new_plate_number: StringComparisonExp
+	terminal_id: StringComparisonExp
+	terminal_type_id: StringComparisonExp
+	old_plate_number: StringComparisonExp
+	dept_id: StringComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	remark: StringComparisonExp
+}
+"""
+input type for inserting data into table "terminal_change"
+"""
+input TerminalChangeInsertInput {
+	new_plate_number: String!
+	terminal_id: String!
+	terminal_type_id: String
+	old_plate_number: String!
+	dept_id: String
+	create_at: Timestamptz!
+	create_by: String
+	remark: String
+}
+"""
+input type for incrementing integer column in table "terminal_change"
+"""
+input TerminalChangeIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "terminal_change"
+"""
+input TerminalChangeSetInput {
+	id: Bigint
+	change_id: String
+	new_plate_number: String
+	terminal_id: String
+	terminal_type_id: String
+	old_plate_number: String
+	dept_id: String
+	create_at: Timestamptz
+	create_by: String
+	remark: String
+}
+"""
+可选select
+"""
+enum TerminalChangeSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	终端变更ID
+	"""
+	change_id
+	"""
+	新车牌
+	"""
+	new_plate_number
+	"""
+	终端ID
+	"""
+	terminal_id
+	"""
+	终端型号ID
+	"""
+	terminal_type_id
+	"""
+	旧车牌
+	"""
+	old_plate_number
+	"""
+	所在部门ID
+	"""
+	dept_id
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	备注
+	"""
+	remark
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	terminal_change(distinct_on: [TerminalChangeSelectColumn!], limit: Int, offset: Int, order_by: [TerminalChangeOrderBy!], where: TerminalChangeBoolExp): [TerminalChange!]!
+	"""
+	聚合查询
+	"""
+	terminal_change_aggregate(distinct_on: [TerminalChangeSelectColumn!], limit: Int, offset: Int, order_by: [TerminalChangeOrderBy!], where: TerminalChangeBoolExp): TerminalChangeAggregate!
+	"""
+	主键查询
+	"""
+	terminal_change_by_pk(id: Bigint!): TerminalChange!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_terminal_change(where: TerminalChangeBoolExp!): TerminalChangeMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_terminal_change_by_pk(id: Bigint!): TerminalChange
+	"""
+	插入
+	"""
+	insert_terminal_change(objects: [TerminalChangeInsertInput!]!): TerminalChangeMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_terminal_change_one(objects: TerminalChangeInsertInput!): TerminalChange
+	"""
+	更新
+	"""
+	update_terminal_change(_inc: TerminalChangeIncInput, _set: TerminalChangeSetInput, where: TerminalChangeBoolExp!): TerminalChangeMutationResponse
+	"""
+	更新
+	"""
+	update_terminal_change_by_pk(_inc: TerminalChangeIncInput, _set: TerminalChangeSetInput, id: Bigint!): TerminalChange
+}

@@ -1,0 +1,364 @@
+"""
+驾驶员黑名单申请
+"""
+type DriverBlacklistApply {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	驾驶员黑名单申请ID
+	"""
+	apply_id: String!
+	"""
+	驾驶员ID
+	"""
+	driver_id: String!
+	"""
+	申请原因
+	"""
+	apply_reason: String
+	"""
+	黑名单类型
+	"""
+	blacklist_type: Int
+	"""
+	状态（1：待交警大队审批2：待交警支队审批，3：退回，4：完成
+	"""
+	state: Int
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+}
+"""
+aggregated selection of "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyAggregate {
+	aggregate: DriverBlacklistApplyAggregateFields
+}
+"""
+aggregate fields of "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyAggregateFields {
+	avg: DriverBlacklistApplyAvgFields
+	count: Int
+	max: DriverBlacklistApplyMaxFields
+	min: DriverBlacklistApplyMinFields
+	stddev: DriverBlacklistApplyStddevFields
+	stddev_pop: DriverBlacklistApplyStddevPopFields
+	stddev_samp: DriverBlacklistApplyStddevSampFields
+	sum: DriverBlacklistApplySumFields
+	var_pop: DriverBlacklistApplyVarPopFields
+	var_samp: DriverBlacklistApplyVarSampFields
+	variance: DriverBlacklistApplyVarianceFields
+}
+"""
+aggregate avg on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyAvgFields {
+	id: Bigint
+	blacklist_type: Int
+	state: Int
+}
+"""
+aggregate max on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyMaxFields {
+	id: Bigint
+	apply_id: String
+	driver_id: String
+	apply_reason: String
+	blacklist_type: Int
+	state: Int
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate min on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyMinFields {
+	id: Bigint
+	apply_id: String
+	driver_id: String
+	apply_reason: String
+	blacklist_type: Int
+	state: Int
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate stddev on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyStddevFields {
+	id: Bigint
+	blacklist_type: Int
+	state: Int
+}
+"""
+aggregate stddev_pop on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyStddevPopFields {
+	id: Bigint
+	blacklist_type: Int
+	state: Int
+}
+"""
+aggregate stddev_samp on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyStddevSampFields {
+	id: Bigint
+	blacklist_type: Int
+	state: Int
+}
+"""
+aggregate sum on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplySumFields {
+	id: Bigint
+	blacklist_type: Int
+	state: Int
+}
+"""
+aggregate var_pop on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyVarPopFields {
+	id: Bigint
+	blacklist_type: Int
+	state: Int
+}
+"""
+aggregate var_samp on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyVarSampFields {
+	id: Bigint
+	blacklist_type: Int
+	state: Int
+}
+"""
+aggregate variance on columns of table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyVarianceFields {
+	id: Bigint
+	blacklist_type: Int
+	state: Int
+}
+"""
+response of any mutation on the table "driver_blacklist_apply"
+"""
+type DriverBlacklistApplyMutationResponse {
+	affected_rows: Int!
+	returning: [DriverBlacklistApply!]!
+}
+"""
+ordering options when selecting data from "driver_blacklist_apply"
+"""
+input DriverBlacklistApplyOrderBy {
+	id: OrderBy
+	apply_id: OrderBy
+	driver_id: OrderBy
+	apply_reason: OrderBy
+	blacklist_type: OrderBy
+	state: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'driver_blacklist_apply'.
+"""
+input DriverBlacklistApplyBoolExp {
+	_and: [DriverBlacklistApplyBoolExp]
+	_not: DriverBlacklistApplyBoolExp
+	_or: [DriverBlacklistApplyBoolExp]
+	id: BigintComparisonExp
+	apply_id: StringComparisonExp
+	driver_id: StringComparisonExp
+	apply_reason: StringComparisonExp
+	blacklist_type: IntComparisonExp
+	state: IntComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "driver_blacklist_apply"
+"""
+input DriverBlacklistApplyInsertInput {
+	driver_id: String!
+	apply_reason: String
+	blacklist_type: Int
+	state: Int
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+}
+"""
+input type for incrementing integer column in table "driver_blacklist_apply"
+"""
+input DriverBlacklistApplyIncInput {
+	id: Bigint
+	blacklist_type: Int
+	state: Int
+}
+"""
+input type for updating data in table "driver_blacklist_apply"
+"""
+input DriverBlacklistApplySetInput {
+	id: Bigint
+	apply_id: String
+	driver_id: String
+	apply_reason: String
+	blacklist_type: Int
+	state: Int
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+可选select
+"""
+enum DriverBlacklistApplySelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	驾驶员黑名单申请ID
+	"""
+	apply_id
+	"""
+	驾驶员ID
+	"""
+	driver_id
+	"""
+	申请原因
+	"""
+	apply_reason
+	"""
+	黑名单类型
+	"""
+	blacklist_type
+	"""
+	状态（1：待交警大队审批2：待交警支队审批，3：退回，4：完成
+	"""
+	state
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	driver_blacklist_apply(distinct_on: [DriverBlacklistApplySelectColumn!], limit: Int, offset: Int, order_by: [DriverBlacklistApplyOrderBy!], where: DriverBlacklistApplyBoolExp): [DriverBlacklistApply!]!
+	"""
+	聚合查询
+	"""
+	driver_blacklist_apply_aggregate(distinct_on: [DriverBlacklistApplySelectColumn!], limit: Int, offset: Int, order_by: [DriverBlacklistApplyOrderBy!], where: DriverBlacklistApplyBoolExp): DriverBlacklistApplyAggregate!
+	"""
+	主键查询
+	"""
+	driver_blacklist_apply_by_pk(id: Bigint!): DriverBlacklistApply!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_driver_blacklist_apply(where: DriverBlacklistApplyBoolExp!): DriverBlacklistApplyMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_driver_blacklist_apply_by_pk(id: Bigint!): DriverBlacklistApply
+	"""
+	插入
+	"""
+	insert_driver_blacklist_apply(objects: [DriverBlacklistApplyInsertInput!]!): DriverBlacklistApplyMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_driver_blacklist_apply_one(objects: DriverBlacklistApplyInsertInput!): DriverBlacklistApply
+	"""
+	更新
+	"""
+	update_driver_blacklist_apply(_inc: DriverBlacklistApplyIncInput, _set: DriverBlacklistApplySetInput, where: DriverBlacklistApplyBoolExp!): DriverBlacklistApplyMutationResponse
+	"""
+	更新
+	"""
+	update_driver_blacklist_apply_by_pk(_inc: DriverBlacklistApplyIncInput, _set: DriverBlacklistApplySetInput, id: Bigint!): DriverBlacklistApply
+}

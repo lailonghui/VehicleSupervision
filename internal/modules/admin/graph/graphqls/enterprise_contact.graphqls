@@ -1,0 +1,383 @@
+"""
+企业-联系人
+"""
+type EnterpriseContact {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	联系人ID
+	"""
+	contact_id: String!
+	"""
+	企业ID
+	"""
+	enterprise_id: String!
+	"""
+	姓名
+	"""
+	name: String
+	"""
+	手机号码
+	"""
+	mobile: String
+	"""
+	固话
+	"""
+	phone: String
+	"""
+	邮箱
+	"""
+	email: String
+	"""
+	排序
+	"""
+	sort_num: Int
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+}
+"""
+aggregated selection of "enterprise_contact"
+"""
+type EnterpriseContactAggregate {
+	aggregate: EnterpriseContactAggregateFields
+}
+"""
+aggregate fields of "enterprise_contact"
+"""
+type EnterpriseContactAggregateFields {
+	avg: EnterpriseContactAvgFields
+	count: Int
+	max: EnterpriseContactMaxFields
+	min: EnterpriseContactMinFields
+	stddev: EnterpriseContactStddevFields
+	stddev_pop: EnterpriseContactStddevPopFields
+	stddev_samp: EnterpriseContactStddevSampFields
+	sum: EnterpriseContactSumFields
+	var_pop: EnterpriseContactVarPopFields
+	var_samp: EnterpriseContactVarSampFields
+	variance: EnterpriseContactVarianceFields
+}
+"""
+aggregate avg on columns of table "enterprise_contact"
+"""
+type EnterpriseContactAvgFields {
+	id: Bigint
+	sort_num: Int
+}
+"""
+aggregate max on columns of table "enterprise_contact"
+"""
+type EnterpriseContactMaxFields {
+	id: Bigint
+	contact_id: String
+	enterprise_id: String
+	name: String
+	mobile: String
+	phone: String
+	email: String
+	sort_num: Int
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate min on columns of table "enterprise_contact"
+"""
+type EnterpriseContactMinFields {
+	id: Bigint
+	contact_id: String
+	enterprise_id: String
+	name: String
+	mobile: String
+	phone: String
+	email: String
+	sort_num: Int
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate stddev on columns of table "enterprise_contact"
+"""
+type EnterpriseContactStddevFields {
+	id: Bigint
+	sort_num: Int
+}
+"""
+aggregate stddev_pop on columns of table "enterprise_contact"
+"""
+type EnterpriseContactStddevPopFields {
+	id: Bigint
+	sort_num: Int
+}
+"""
+aggregate stddev_samp on columns of table "enterprise_contact"
+"""
+type EnterpriseContactStddevSampFields {
+	id: Bigint
+	sort_num: Int
+}
+"""
+aggregate sum on columns of table "enterprise_contact"
+"""
+type EnterpriseContactSumFields {
+	id: Bigint
+	sort_num: Int
+}
+"""
+aggregate var_pop on columns of table "enterprise_contact"
+"""
+type EnterpriseContactVarPopFields {
+	id: Bigint
+	sort_num: Int
+}
+"""
+aggregate var_samp on columns of table "enterprise_contact"
+"""
+type EnterpriseContactVarSampFields {
+	id: Bigint
+	sort_num: Int
+}
+"""
+aggregate variance on columns of table "enterprise_contact"
+"""
+type EnterpriseContactVarianceFields {
+	id: Bigint
+	sort_num: Int
+}
+"""
+response of any mutation on the table "enterprise_contact"
+"""
+type EnterpriseContactMutationResponse {
+	affected_rows: Int!
+	returning: [EnterpriseContact!]!
+}
+"""
+ordering options when selecting data from "enterprise_contact"
+"""
+input EnterpriseContactOrderBy {
+	id: OrderBy
+	contact_id: OrderBy
+	enterprise_id: OrderBy
+	name: OrderBy
+	mobile: OrderBy
+	phone: OrderBy
+	email: OrderBy
+	sort_num: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_contact'.
+"""
+input EnterpriseContactBoolExp {
+	_and: [EnterpriseContactBoolExp]
+	_not: EnterpriseContactBoolExp
+	_or: [EnterpriseContactBoolExp]
+	id: BigintComparisonExp
+	contact_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	name: StringComparisonExp
+	mobile: StringComparisonExp
+	phone: StringComparisonExp
+	email: StringComparisonExp
+	sort_num: IntComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "enterprise_contact"
+"""
+input EnterpriseContactInsertInput {
+	enterprise_id: String!
+	name: String
+	mobile: String
+	phone: String
+	email: String
+	sort_num: Int
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+}
+"""
+input type for incrementing integer column in table "enterprise_contact"
+"""
+input EnterpriseContactIncInput {
+	id: Bigint
+	sort_num: Int
+}
+"""
+input type for updating data in table "enterprise_contact"
+"""
+input EnterpriseContactSetInput {
+	id: Bigint
+	contact_id: String
+	enterprise_id: String
+	name: String
+	mobile: String
+	phone: String
+	email: String
+	sort_num: Int
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+可选select
+"""
+enum EnterpriseContactSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	联系人ID
+	"""
+	contact_id
+	"""
+	企业ID
+	"""
+	enterprise_id
+	"""
+	姓名
+	"""
+	name
+	"""
+	手机号码
+	"""
+	mobile
+	"""
+	固话
+	"""
+	phone
+	"""
+	邮箱
+	"""
+	email
+	"""
+	排序
+	"""
+	sort_num
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	enterprise_contact(distinct_on: [EnterpriseContactSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseContactOrderBy!], where: EnterpriseContactBoolExp): [EnterpriseContact!]!
+	"""
+	聚合查询
+	"""
+	enterprise_contact_aggregate(distinct_on: [EnterpriseContactSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseContactOrderBy!], where: EnterpriseContactBoolExp): EnterpriseContactAggregate!
+	"""
+	主键查询
+	"""
+	enterprise_contact_by_pk(id: Bigint!): EnterpriseContact!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_enterprise_contact(where: EnterpriseContactBoolExp!): EnterpriseContactMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_enterprise_contact_by_pk(id: Bigint!): EnterpriseContact
+	"""
+	插入
+	"""
+	insert_enterprise_contact(objects: [EnterpriseContactInsertInput!]!): EnterpriseContactMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_enterprise_contact_one(objects: EnterpriseContactInsertInput!): EnterpriseContact
+	"""
+	更新
+	"""
+	update_enterprise_contact(_inc: EnterpriseContactIncInput, _set: EnterpriseContactSetInput, where: EnterpriseContactBoolExp!): EnterpriseContactMutationResponse
+	"""
+	更新
+	"""
+	update_enterprise_contact_by_pk(_inc: EnterpriseContactIncInput, _set: EnterpriseContactSetInput, id: Bigint!): EnterpriseContact
+}

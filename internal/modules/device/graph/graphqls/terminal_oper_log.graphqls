@@ -1,0 +1,420 @@
+"""
+终端操作日志
+"""
+type TerminalOperLog {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	终端操作日志ID
+	"""
+	log_id: String!
+	"""
+	终端ID
+	"""
+	terminal_id: String!
+	"""
+	操作类型
+	"""
+	operate_type: Int!
+	"""
+	请求信息
+	"""
+	req_info: String
+	"""
+	应答情况
+	"""
+	resp_info: String
+	"""
+	操作详情
+	"""
+	oper_detail: String
+	"""
+	执行状态
+	"""
+	state: Int!
+	"""
+	请求时间
+	"""
+	req_time: Timestamptz!
+	"""
+	应答时间
+	"""
+	resp_time: Timestamptz
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+}
+"""
+aggregated selection of "terminal_oper_log"
+"""
+type TerminalOperLogAggregate {
+	aggregate: TerminalOperLogAggregateFields
+}
+"""
+aggregate fields of "terminal_oper_log"
+"""
+type TerminalOperLogAggregateFields {
+	avg: TerminalOperLogAvgFields
+	count: Int
+	max: TerminalOperLogMaxFields
+	min: TerminalOperLogMinFields
+	stddev: TerminalOperLogStddevFields
+	stddev_pop: TerminalOperLogStddevPopFields
+	stddev_samp: TerminalOperLogStddevSampFields
+	sum: TerminalOperLogSumFields
+	var_pop: TerminalOperLogVarPopFields
+	var_samp: TerminalOperLogVarSampFields
+	variance: TerminalOperLogVarianceFields
+}
+"""
+aggregate avg on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogAvgFields {
+	id: Bigint
+	operate_type: Int
+	state: Int
+}
+"""
+aggregate max on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogMaxFields {
+	id: Bigint
+	log_id: String
+	terminal_id: String
+	operate_type: Int
+	req_info: String
+	resp_info: String
+	oper_detail: String
+	state: Int
+	req_time: Timestamptz
+	resp_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate min on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogMinFields {
+	id: Bigint
+	log_id: String
+	terminal_id: String
+	operate_type: Int
+	req_info: String
+	resp_info: String
+	oper_detail: String
+	state: Int
+	req_time: Timestamptz
+	resp_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate stddev on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogStddevFields {
+	id: Bigint
+	operate_type: Int
+	state: Int
+}
+"""
+aggregate stddev_pop on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogStddevPopFields {
+	id: Bigint
+	operate_type: Int
+	state: Int
+}
+"""
+aggregate stddev_samp on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogStddevSampFields {
+	id: Bigint
+	operate_type: Int
+	state: Int
+}
+"""
+aggregate sum on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogSumFields {
+	id: Bigint
+	operate_type: Int
+	state: Int
+}
+"""
+aggregate var_pop on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogVarPopFields {
+	id: Bigint
+	operate_type: Int
+	state: Int
+}
+"""
+aggregate var_samp on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogVarSampFields {
+	id: Bigint
+	operate_type: Int
+	state: Int
+}
+"""
+aggregate variance on columns of table "terminal_oper_log"
+"""
+type TerminalOperLogVarianceFields {
+	id: Bigint
+	operate_type: Int
+	state: Int
+}
+"""
+response of any mutation on the table "terminal_oper_log"
+"""
+type TerminalOperLogMutationResponse {
+	affected_rows: Int!
+	returning: [TerminalOperLog!]!
+}
+"""
+ordering options when selecting data from "terminal_oper_log"
+"""
+input TerminalOperLogOrderBy {
+	id: OrderBy
+	log_id: OrderBy
+	terminal_id: OrderBy
+	operate_type: OrderBy
+	req_info: OrderBy
+	resp_info: OrderBy
+	oper_detail: OrderBy
+	state: OrderBy
+	req_time: OrderBy
+	resp_time: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'terminal_oper_log'.
+"""
+input TerminalOperLogBoolExp {
+	_and: [TerminalOperLogBoolExp]
+	_not: TerminalOperLogBoolExp
+	_or: [TerminalOperLogBoolExp]
+	id: BigintComparisonExp
+	log_id: StringComparisonExp
+	terminal_id: StringComparisonExp
+	operate_type: IntComparisonExp
+	req_info: StringComparisonExp
+	resp_info: StringComparisonExp
+	oper_detail: StringComparisonExp
+	state: IntComparisonExp
+	req_time: TimestamptzComparisonExp
+	resp_time: TimestamptzComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "terminal_oper_log"
+"""
+input TerminalOperLogInsertInput {
+	terminal_id: String!
+	operate_type: Int!
+	req_info: String
+	resp_info: String
+	oper_detail: String
+	state: Int!
+	req_time: Timestamptz!
+	resp_time: Timestamptz
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+}
+"""
+input type for incrementing integer column in table "terminal_oper_log"
+"""
+input TerminalOperLogIncInput {
+	id: Bigint
+	operate_type: Int
+	state: Int
+}
+"""
+input type for updating data in table "terminal_oper_log"
+"""
+input TerminalOperLogSetInput {
+	id: Bigint
+	log_id: String
+	terminal_id: String
+	operate_type: Int
+	req_info: String
+	resp_info: String
+	oper_detail: String
+	state: Int
+	req_time: Timestamptz
+	resp_time: Timestamptz
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+可选select
+"""
+enum TerminalOperLogSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	终端操作日志ID
+	"""
+	log_id
+	"""
+	终端ID
+	"""
+	terminal_id
+	"""
+	操作类型
+	"""
+	operate_type
+	"""
+	请求信息
+	"""
+	req_info
+	"""
+	应答情况
+	"""
+	resp_info
+	"""
+	操作详情
+	"""
+	oper_detail
+	"""
+	执行状态
+	"""
+	state
+	"""
+	请求时间
+	"""
+	req_time
+	"""
+	应答时间
+	"""
+	resp_time
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	terminal_oper_log(distinct_on: [TerminalOperLogSelectColumn!], limit: Int, offset: Int, order_by: [TerminalOperLogOrderBy!], where: TerminalOperLogBoolExp): [TerminalOperLog!]!
+	"""
+	聚合查询
+	"""
+	terminal_oper_log_aggregate(distinct_on: [TerminalOperLogSelectColumn!], limit: Int, offset: Int, order_by: [TerminalOperLogOrderBy!], where: TerminalOperLogBoolExp): TerminalOperLogAggregate!
+	"""
+	主键查询
+	"""
+	terminal_oper_log_by_pk(id: Bigint!): TerminalOperLog!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_terminal_oper_log(where: TerminalOperLogBoolExp!): TerminalOperLogMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_terminal_oper_log_by_pk(id: Bigint!): TerminalOperLog
+	"""
+	插入
+	"""
+	insert_terminal_oper_log(objects: [TerminalOperLogInsertInput!]!): TerminalOperLogMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_terminal_oper_log_one(objects: TerminalOperLogInsertInput!): TerminalOperLog
+	"""
+	更新
+	"""
+	update_terminal_oper_log(_inc: TerminalOperLogIncInput, _set: TerminalOperLogSetInput, where: TerminalOperLogBoolExp!): TerminalOperLogMutationResponse
+	"""
+	更新
+	"""
+	update_terminal_oper_log_by_pk(_inc: TerminalOperLogIncInput, _set: TerminalOperLogSetInput, id: Bigint!): TerminalOperLog
+}

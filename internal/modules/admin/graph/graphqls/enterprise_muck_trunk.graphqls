@@ -1,0 +1,728 @@
+"""
+渣土车企业
+"""
+type EnterpriseMuckTrunk {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	渣土车企业ID
+	"""
+	enterprise_muck_trunk_id: String!
+	"""
+	企业ID
+	"""
+	enterprise_id: String!
+	"""
+	企业管理人
+	"""
+	company_manager: String
+	"""
+	企业管理人联系电话
+	"""
+	company_manager_phone: String
+	"""
+	企业管理人身份证
+	"""
+	company_manager_id_card: String
+	"""
+	企业安全管理人
+	"""
+	company_safe_manager: String
+	"""
+	企业安全管理人联系电话
+	"""
+	company_safe_manger_phone: String
+	"""
+	企业安全管理人身份证
+	"""
+	company_safe_manager_id_card: String
+	"""
+	道路运输证号
+	"""
+	road_license: String
+	"""
+	道路运输证图片地址
+	"""
+	road_license_photo: String
+	"""
+	办公场所地址
+	"""
+	office_address: String
+	"""
+	办公场所面积
+	"""
+	office_area: String
+	"""
+	办公场所照片
+	"""
+	office_photo: String
+	"""
+	停车场地址
+	"""
+	parking_address: String
+	"""
+	停车场面积
+	"""
+	parking_area: String
+	"""
+	单停车位面积
+	"""
+	parking_single_area: String
+	"""
+	新型渣土车购置数
+	"""
+	smart_car_count: Bigint
+	"""
+	是否继续运力增加
+	"""
+	is_transport_add: Boolean!
+	"""
+	县级是否审核
+	"""
+	county_check_state: Boolean!
+	"""
+	市级是否审核
+	"""
+	city_check_state: Boolean!
+	"""
+	是否允许生成与编号
+	"""
+	allow_generate_preview_num: Boolean!
+	"""
+	承诺书地址
+	"""
+	promise_book_url: String
+	"""
+	承诺书-备注
+	"""
+	promise_remark: String
+	"""
+	企业类型（1.A类 2.B类 3.C类 4.D类 5.E类）
+	"""
+	transport_type: Int
+	"""
+	路线牌工作相关规定承诺书照片
+	"""
+	routeline_card_promise_photo: String
+	"""
+	运输主题责任人承诺书照片
+	"""
+	transport_liable_promise_photo: String
+	"""
+	是否a类企业
+	"""
+	is_type_a: Boolean!
+	"""
+	是否b类企业
+	"""
+	is_type_b: Boolean!
+	"""
+	是否c类企业
+	"""
+	is_type_c: Boolean!
+	"""
+	是否d类企业
+	"""
+	is_type_d: Boolean!
+	"""
+	是否e类企业
+	"""
+	is_type_e: Boolean!
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+}
+"""
+aggregated selection of "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkAggregate {
+	aggregate: EnterpriseMuckTrunkAggregateFields
+}
+"""
+aggregate fields of "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkAggregateFields {
+	avg: EnterpriseMuckTrunkAvgFields
+	count: Int
+	max: EnterpriseMuckTrunkMaxFields
+	min: EnterpriseMuckTrunkMinFields
+	stddev: EnterpriseMuckTrunkStddevFields
+	stddev_pop: EnterpriseMuckTrunkStddevPopFields
+	stddev_samp: EnterpriseMuckTrunkStddevSampFields
+	sum: EnterpriseMuckTrunkSumFields
+	var_pop: EnterpriseMuckTrunkVarPopFields
+	var_samp: EnterpriseMuckTrunkVarSampFields
+	variance: EnterpriseMuckTrunkVarianceFields
+}
+"""
+aggregate avg on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkAvgFields {
+	id: Bigint
+	smart_car_count: Bigint
+	transport_type: Int
+}
+"""
+aggregate max on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkMaxFields {
+	id: Bigint
+	enterprise_muck_trunk_id: String
+	enterprise_id: String
+	company_manager: String
+	company_manager_phone: String
+	company_manager_id_card: String
+	company_safe_manager: String
+	company_safe_manger_phone: String
+	company_safe_manager_id_card: String
+	road_license: String
+	road_license_photo: String
+	office_address: String
+	office_area: String
+	office_photo: String
+	parking_address: String
+	parking_area: String
+	parking_single_area: String
+	smart_car_count: Bigint
+	is_transport_add: Boolean
+	county_check_state: Boolean
+	city_check_state: Boolean
+	allow_generate_preview_num: Boolean
+	promise_book_url: String
+	promise_remark: String
+	transport_type: Int
+	routeline_card_promise_photo: String
+	transport_liable_promise_photo: String
+	is_type_a: Boolean
+	is_type_b: Boolean
+	is_type_c: Boolean
+	is_type_d: Boolean
+	is_type_e: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate min on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkMinFields {
+	id: Bigint
+	enterprise_muck_trunk_id: String
+	enterprise_id: String
+	company_manager: String
+	company_manager_phone: String
+	company_manager_id_card: String
+	company_safe_manager: String
+	company_safe_manger_phone: String
+	company_safe_manager_id_card: String
+	road_license: String
+	road_license_photo: String
+	office_address: String
+	office_area: String
+	office_photo: String
+	parking_address: String
+	parking_area: String
+	parking_single_area: String
+	smart_car_count: Bigint
+	is_transport_add: Boolean
+	county_check_state: Boolean
+	city_check_state: Boolean
+	allow_generate_preview_num: Boolean
+	promise_book_url: String
+	promise_remark: String
+	transport_type: Int
+	routeline_card_promise_photo: String
+	transport_liable_promise_photo: String
+	is_type_a: Boolean
+	is_type_b: Boolean
+	is_type_c: Boolean
+	is_type_d: Boolean
+	is_type_e: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate stddev on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkStddevFields {
+	id: Bigint
+	smart_car_count: Bigint
+	transport_type: Int
+}
+"""
+aggregate stddev_pop on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkStddevPopFields {
+	id: Bigint
+	smart_car_count: Bigint
+	transport_type: Int
+}
+"""
+aggregate stddev_samp on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkStddevSampFields {
+	id: Bigint
+	smart_car_count: Bigint
+	transport_type: Int
+}
+"""
+aggregate sum on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkSumFields {
+	id: Bigint
+	smart_car_count: Bigint
+	transport_type: Int
+}
+"""
+aggregate var_pop on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkVarPopFields {
+	id: Bigint
+	smart_car_count: Bigint
+	transport_type: Int
+}
+"""
+aggregate var_samp on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkVarSampFields {
+	id: Bigint
+	smart_car_count: Bigint
+	transport_type: Int
+}
+"""
+aggregate variance on columns of table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkVarianceFields {
+	id: Bigint
+	smart_car_count: Bigint
+	transport_type: Int
+}
+"""
+response of any mutation on the table "enterprise_muck_trunk"
+"""
+type EnterpriseMuckTrunkMutationResponse {
+	affected_rows: Int!
+	returning: [EnterpriseMuckTrunk!]!
+}
+"""
+ordering options when selecting data from "enterprise_muck_trunk"
+"""
+input EnterpriseMuckTrunkOrderBy {
+	id: OrderBy
+	enterprise_muck_trunk_id: OrderBy
+	enterprise_id: OrderBy
+	company_manager: OrderBy
+	company_manager_phone: OrderBy
+	company_manager_id_card: OrderBy
+	company_safe_manager: OrderBy
+	company_safe_manger_phone: OrderBy
+	company_safe_manager_id_card: OrderBy
+	road_license: OrderBy
+	road_license_photo: OrderBy
+	office_address: OrderBy
+	office_area: OrderBy
+	office_photo: OrderBy
+	parking_address: OrderBy
+	parking_area: OrderBy
+	parking_single_area: OrderBy
+	smart_car_count: OrderBy
+	is_transport_add: OrderBy
+	county_check_state: OrderBy
+	city_check_state: OrderBy
+	allow_generate_preview_num: OrderBy
+	promise_book_url: OrderBy
+	promise_remark: OrderBy
+	transport_type: OrderBy
+	routeline_card_promise_photo: OrderBy
+	transport_liable_promise_photo: OrderBy
+	is_type_a: OrderBy
+	is_type_b: OrderBy
+	is_type_c: OrderBy
+	is_type_d: OrderBy
+	is_type_e: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_muck_trunk'.
+"""
+input EnterpriseMuckTrunkBoolExp {
+	_and: [EnterpriseMuckTrunkBoolExp]
+	_not: EnterpriseMuckTrunkBoolExp
+	_or: [EnterpriseMuckTrunkBoolExp]
+	id: BigintComparisonExp
+	enterprise_muck_trunk_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	company_manager: StringComparisonExp
+	company_manager_phone: StringComparisonExp
+	company_manager_id_card: StringComparisonExp
+	company_safe_manager: StringComparisonExp
+	company_safe_manger_phone: StringComparisonExp
+	company_safe_manager_id_card: StringComparisonExp
+	road_license: StringComparisonExp
+	road_license_photo: StringComparisonExp
+	office_address: StringComparisonExp
+	office_area: StringComparisonExp
+	office_photo: StringComparisonExp
+	parking_address: StringComparisonExp
+	parking_area: StringComparisonExp
+	parking_single_area: StringComparisonExp
+	smart_car_count: BigintComparisonExp
+	is_transport_add: BooleanComparisonExp
+	county_check_state: BooleanComparisonExp
+	city_check_state: BooleanComparisonExp
+	allow_generate_preview_num: BooleanComparisonExp
+	promise_book_url: StringComparisonExp
+	promise_remark: StringComparisonExp
+	transport_type: IntComparisonExp
+	routeline_card_promise_photo: StringComparisonExp
+	transport_liable_promise_photo: StringComparisonExp
+	is_type_a: BooleanComparisonExp
+	is_type_b: BooleanComparisonExp
+	is_type_c: BooleanComparisonExp
+	is_type_d: BooleanComparisonExp
+	is_type_e: BooleanComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "enterprise_muck_trunk"
+"""
+input EnterpriseMuckTrunkInsertInput {
+	enterprise_id: String!
+	company_manager: String
+	company_manager_phone: String
+	company_manager_id_card: String
+	company_safe_manager: String
+	company_safe_manger_phone: String
+	company_safe_manager_id_card: String
+	road_license: String
+	road_license_photo: String
+	office_address: String
+	office_area: String
+	office_photo: String
+	parking_address: String
+	parking_area: String
+	parking_single_area: String
+	smart_car_count: Bigint
+	is_transport_add: Boolean!
+	county_check_state: Boolean!
+	city_check_state: Boolean!
+	allow_generate_preview_num: Boolean!
+	promise_book_url: String
+	promise_remark: String
+	transport_type: Int
+	routeline_card_promise_photo: String
+	transport_liable_promise_photo: String
+	is_type_a: Boolean!
+	is_type_b: Boolean!
+	is_type_c: Boolean!
+	is_type_d: Boolean!
+	is_type_e: Boolean!
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+}
+"""
+input type for incrementing integer column in table "enterprise_muck_trunk"
+"""
+input EnterpriseMuckTrunkIncInput {
+	id: Bigint
+	smart_car_count: Bigint
+	transport_type: Int
+}
+"""
+input type for updating data in table "enterprise_muck_trunk"
+"""
+input EnterpriseMuckTrunkSetInput {
+	id: Bigint
+	enterprise_muck_trunk_id: String
+	enterprise_id: String
+	company_manager: String
+	company_manager_phone: String
+	company_manager_id_card: String
+	company_safe_manager: String
+	company_safe_manger_phone: String
+	company_safe_manager_id_card: String
+	road_license: String
+	road_license_photo: String
+	office_address: String
+	office_area: String
+	office_photo: String
+	parking_address: String
+	parking_area: String
+	parking_single_area: String
+	smart_car_count: Bigint
+	is_transport_add: Boolean
+	county_check_state: Boolean
+	city_check_state: Boolean
+	allow_generate_preview_num: Boolean
+	promise_book_url: String
+	promise_remark: String
+	transport_type: Int
+	routeline_card_promise_photo: String
+	transport_liable_promise_photo: String
+	is_type_a: Boolean
+	is_type_b: Boolean
+	is_type_c: Boolean
+	is_type_d: Boolean
+	is_type_e: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+可选select
+"""
+enum EnterpriseMuckTrunkSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	渣土车企业ID
+	"""
+	enterprise_muck_trunk_id
+	"""
+	企业ID
+	"""
+	enterprise_id
+	"""
+	企业管理人
+	"""
+	company_manager
+	"""
+	企业管理人联系电话
+	"""
+	company_manager_phone
+	"""
+	企业管理人身份证
+	"""
+	company_manager_id_card
+	"""
+	企业安全管理人
+	"""
+	company_safe_manager
+	"""
+	企业安全管理人联系电话
+	"""
+	company_safe_manger_phone
+	"""
+	企业安全管理人身份证
+	"""
+	company_safe_manager_id_card
+	"""
+	道路运输证号
+	"""
+	road_license
+	"""
+	道路运输证图片地址
+	"""
+	road_license_photo
+	"""
+	办公场所地址
+	"""
+	office_address
+	"""
+	办公场所面积
+	"""
+	office_area
+	"""
+	办公场所照片
+	"""
+	office_photo
+	"""
+	停车场地址
+	"""
+	parking_address
+	"""
+	停车场面积
+	"""
+	parking_area
+	"""
+	单停车位面积
+	"""
+	parking_single_area
+	"""
+	新型渣土车购置数
+	"""
+	smart_car_count
+	"""
+	是否继续运力增加
+	"""
+	is_transport_add
+	"""
+	县级是否审核
+	"""
+	county_check_state
+	"""
+	市级是否审核
+	"""
+	city_check_state
+	"""
+	是否允许生成与编号
+	"""
+	allow_generate_preview_num
+	"""
+	承诺书地址
+	"""
+	promise_book_url
+	"""
+	承诺书-备注
+	"""
+	promise_remark
+	"""
+	企业类型（1.A类 2.B类 3.C类 4.D类 5.E类）
+	"""
+	transport_type
+	"""
+	路线牌工作相关规定承诺书照片
+	"""
+	routeline_card_promise_photo
+	"""
+	运输主题责任人承诺书照片
+	"""
+	transport_liable_promise_photo
+	"""
+	是否a类企业
+	"""
+	is_type_a
+	"""
+	是否b类企业
+	"""
+	is_type_b
+	"""
+	是否c类企业
+	"""
+	is_type_c
+	"""
+	是否d类企业
+	"""
+	is_type_d
+	"""
+	是否e类企业
+	"""
+	is_type_e
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	enterprise_muck_trunk(distinct_on: [EnterpriseMuckTrunkSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseMuckTrunkOrderBy!], where: EnterpriseMuckTrunkBoolExp): [EnterpriseMuckTrunk!]!
+	"""
+	聚合查询
+	"""
+	enterprise_muck_trunk_aggregate(distinct_on: [EnterpriseMuckTrunkSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseMuckTrunkOrderBy!], where: EnterpriseMuckTrunkBoolExp): EnterpriseMuckTrunkAggregate!
+	"""
+	主键查询
+	"""
+	enterprise_muck_trunk_by_pk(id: Bigint!): EnterpriseMuckTrunk!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_enterprise_muck_trunk(where: EnterpriseMuckTrunkBoolExp!): EnterpriseMuckTrunkMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_enterprise_muck_trunk_by_pk(id: Bigint!): EnterpriseMuckTrunk
+	"""
+	插入
+	"""
+	insert_enterprise_muck_trunk(objects: [EnterpriseMuckTrunkInsertInput!]!): EnterpriseMuckTrunkMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_enterprise_muck_trunk_one(objects: EnterpriseMuckTrunkInsertInput!): EnterpriseMuckTrunk
+	"""
+	更新
+	"""
+	update_enterprise_muck_trunk(_inc: EnterpriseMuckTrunkIncInput, _set: EnterpriseMuckTrunkSetInput, where: EnterpriseMuckTrunkBoolExp!): EnterpriseMuckTrunkMutationResponse
+	"""
+	更新
+	"""
+	update_enterprise_muck_trunk_by_pk(_inc: EnterpriseMuckTrunkIncInput, _set: EnterpriseMuckTrunkSetInput, id: Bigint!): EnterpriseMuckTrunk
+}

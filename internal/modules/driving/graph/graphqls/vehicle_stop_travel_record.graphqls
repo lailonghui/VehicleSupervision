@@ -1,0 +1,416 @@
+"""
+车辆停运报备记录
+"""
+type VehicleStopTravelRecord {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	车辆停运报备记录ID
+	"""
+	record_id: String!
+	"""
+	报备单据号
+	"""
+	bill_id: String!
+	"""
+	报备起始时间
+	"""
+	record_start_time: Timestamptz
+	"""
+	报备结束时间
+	"""
+	record_end_time: Timestamptz
+	"""
+	报备人ID
+	"""
+	record_user_id: String
+	"""
+	是否生效
+	"""
+	is_effect: Boolean
+	"""
+	生效起始时间
+	"""
+	effect_start_time: Timestamptz
+	"""
+	生效结束时间
+	"""
+	effect_end_time: Timestamptz
+	"""
+	车辆ID
+	"""
+	vehicle_id: String
+	"""
+	停运原因
+	"""
+	cause: String
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+}
+"""
+aggregated selection of "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordAggregate {
+	aggregate: VehicleStopTravelRecordAggregateFields
+}
+"""
+aggregate fields of "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordAggregateFields {
+	avg: VehicleStopTravelRecordAvgFields
+	count: Int
+	max: VehicleStopTravelRecordMaxFields
+	min: VehicleStopTravelRecordMinFields
+	stddev: VehicleStopTravelRecordStddevFields
+	stddev_pop: VehicleStopTravelRecordStddevPopFields
+	stddev_samp: VehicleStopTravelRecordStddevSampFields
+	sum: VehicleStopTravelRecordSumFields
+	var_pop: VehicleStopTravelRecordVarPopFields
+	var_samp: VehicleStopTravelRecordVarSampFields
+	variance: VehicleStopTravelRecordVarianceFields
+}
+"""
+aggregate avg on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordAvgFields {
+	id: Bigint
+}
+"""
+aggregate max on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordMaxFields {
+	id: Bigint
+	record_id: String
+	bill_id: String
+	record_start_time: Timestamptz
+	record_end_time: Timestamptz
+	record_user_id: String
+	is_effect: Boolean
+	effect_start_time: Timestamptz
+	effect_end_time: Timestamptz
+	vehicle_id: String
+	cause: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate min on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordMinFields {
+	id: Bigint
+	record_id: String
+	bill_id: String
+	record_start_time: Timestamptz
+	record_end_time: Timestamptz
+	record_user_id: String
+	is_effect: Boolean
+	effect_start_time: Timestamptz
+	effect_end_time: Timestamptz
+	vehicle_id: String
+	cause: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+aggregate stddev on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordStddevFields {
+	id: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordStddevPopFields {
+	id: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordStddevSampFields {
+	id: Bigint
+}
+"""
+aggregate sum on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordSumFields {
+	id: Bigint
+}
+"""
+aggregate var_pop on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordVarPopFields {
+	id: Bigint
+}
+"""
+aggregate var_samp on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordVarSampFields {
+	id: Bigint
+}
+"""
+aggregate variance on columns of table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordVarianceFields {
+	id: Bigint
+}
+"""
+response of any mutation on the table "vehicle_stop_travel_record"
+"""
+type VehicleStopTravelRecordMutationResponse {
+	affected_rows: Int!
+	returning: [VehicleStopTravelRecord!]!
+}
+"""
+ordering options when selecting data from "vehicle_stop_travel_record"
+"""
+input VehicleStopTravelRecordOrderBy {
+	id: OrderBy
+	record_id: OrderBy
+	bill_id: OrderBy
+	record_start_time: OrderBy
+	record_end_time: OrderBy
+	record_user_id: OrderBy
+	is_effect: OrderBy
+	effect_start_time: OrderBy
+	effect_end_time: OrderBy
+	vehicle_id: OrderBy
+	cause: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'vehicle_stop_travel_record'.
+"""
+input VehicleStopTravelRecordBoolExp {
+	_and: [VehicleStopTravelRecordBoolExp]
+	_not: VehicleStopTravelRecordBoolExp
+	_or: [VehicleStopTravelRecordBoolExp]
+	id: BigintComparisonExp
+	record_id: StringComparisonExp
+	bill_id: StringComparisonExp
+	record_start_time: TimestamptzComparisonExp
+	record_end_time: TimestamptzComparisonExp
+	record_user_id: StringComparisonExp
+	is_effect: BooleanComparisonExp
+	effect_start_time: TimestamptzComparisonExp
+	effect_end_time: TimestamptzComparisonExp
+	vehicle_id: StringComparisonExp
+	cause: StringComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+}
+"""
+input type for inserting data into table "vehicle_stop_travel_record"
+"""
+input VehicleStopTravelRecordInsertInput {
+	bill_id: String!
+	record_start_time: Timestamptz
+	record_end_time: Timestamptz
+	record_user_id: String
+	is_effect: Boolean
+	effect_start_time: Timestamptz
+	effect_end_time: Timestamptz
+	vehicle_id: String
+	cause: String
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+}
+"""
+input type for incrementing integer column in table "vehicle_stop_travel_record"
+"""
+input VehicleStopTravelRecordIncInput {
+	id: Bigint
+}
+"""
+input type for updating data in table "vehicle_stop_travel_record"
+"""
+input VehicleStopTravelRecordSetInput {
+	id: Bigint
+	record_id: String
+	bill_id: String
+	record_start_time: Timestamptz
+	record_end_time: Timestamptz
+	record_user_id: String
+	is_effect: Boolean
+	effect_start_time: Timestamptz
+	effect_end_time: Timestamptz
+	vehicle_id: String
+	cause: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+}
+"""
+可选select
+"""
+enum VehicleStopTravelRecordSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	车辆停运报备记录ID
+	"""
+	record_id
+	"""
+	报备单据号
+	"""
+	bill_id
+	"""
+	报备起始时间
+	"""
+	record_start_time
+	"""
+	报备结束时间
+	"""
+	record_end_time
+	"""
+	报备人ID
+	"""
+	record_user_id
+	"""
+	是否生效
+	"""
+	is_effect
+	"""
+	生效起始时间
+	"""
+	effect_start_time
+	"""
+	生效结束时间
+	"""
+	effect_end_time
+	"""
+	车辆ID
+	"""
+	vehicle_id
+	"""
+	停运原因
+	"""
+	cause
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	vehicle_stop_travel_record(distinct_on: [VehicleStopTravelRecordSelectColumn!], limit: Int, offset: Int, order_by: [VehicleStopTravelRecordOrderBy!], where: VehicleStopTravelRecordBoolExp): [VehicleStopTravelRecord!]!
+	"""
+	聚合查询
+	"""
+	vehicle_stop_travel_record_aggregate(distinct_on: [VehicleStopTravelRecordSelectColumn!], limit: Int, offset: Int, order_by: [VehicleStopTravelRecordOrderBy!], where: VehicleStopTravelRecordBoolExp): VehicleStopTravelRecordAggregate!
+	"""
+	主键查询
+	"""
+	vehicle_stop_travel_record_by_pk(id: Bigint!): VehicleStopTravelRecord!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_vehicle_stop_travel_record(where: VehicleStopTravelRecordBoolExp!): VehicleStopTravelRecordMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_vehicle_stop_travel_record_by_pk(id: Bigint!): VehicleStopTravelRecord
+	"""
+	插入
+	"""
+	insert_vehicle_stop_travel_record(objects: [VehicleStopTravelRecordInsertInput!]!): VehicleStopTravelRecordMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_vehicle_stop_travel_record_one(objects: VehicleStopTravelRecordInsertInput!): VehicleStopTravelRecord
+	"""
+	更新
+	"""
+	update_vehicle_stop_travel_record(_inc: VehicleStopTravelRecordIncInput, _set: VehicleStopTravelRecordSetInput, where: VehicleStopTravelRecordBoolExp!): VehicleStopTravelRecordMutationResponse
+	"""
+	更新
+	"""
+	update_vehicle_stop_travel_record_by_pk(_inc: VehicleStopTravelRecordIncInput, _set: VehicleStopTravelRecordSetInput, id: Bigint!): VehicleStopTravelRecord
+}

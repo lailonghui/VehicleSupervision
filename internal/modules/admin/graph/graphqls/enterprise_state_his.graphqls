@@ -1,0 +1,285 @@
+"""
+企业状态变更记录
+"""
+type EnterpriseStateHis {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	状态历史ID
+	"""
+	state_his_id: String!
+	"""
+	企业ID
+	"""
+	enterprise_id: String!
+	"""
+	原因
+	"""
+	reason: String
+	"""
+	状态(0.正常 1.暂停受理 2.清退)
+	"""
+	state: Int!
+	"""
+	相关文件链接
+	"""
+	file_url: String
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+}
+"""
+aggregated selection of "enterprise_state_his"
+"""
+type EnterpriseStateHisAggregate {
+	aggregate: EnterpriseStateHisAggregateFields
+}
+"""
+aggregate fields of "enterprise_state_his"
+"""
+type EnterpriseStateHisAggregateFields {
+	avg: EnterpriseStateHisAvgFields
+	count: Int
+	max: EnterpriseStateHisMaxFields
+	min: EnterpriseStateHisMinFields
+	stddev: EnterpriseStateHisStddevFields
+	stddev_pop: EnterpriseStateHisStddevPopFields
+	stddev_samp: EnterpriseStateHisStddevSampFields
+	sum: EnterpriseStateHisSumFields
+	var_pop: EnterpriseStateHisVarPopFields
+	var_samp: EnterpriseStateHisVarSampFields
+	variance: EnterpriseStateHisVarianceFields
+}
+"""
+aggregate avg on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisAvgFields {
+	id: Bigint
+	state: Int
+}
+"""
+aggregate max on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisMaxFields {
+	id: Bigint
+	state_his_id: String
+	enterprise_id: String
+	reason: String
+	state: Int
+	file_url: String
+	create_at: Timestamptz
+	create_by: String
+}
+"""
+aggregate min on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisMinFields {
+	id: Bigint
+	state_his_id: String
+	enterprise_id: String
+	reason: String
+	state: Int
+	file_url: String
+	create_at: Timestamptz
+	create_by: String
+}
+"""
+aggregate stddev on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisStddevFields {
+	id: Bigint
+	state: Int
+}
+"""
+aggregate stddev_pop on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisStddevPopFields {
+	id: Bigint
+	state: Int
+}
+"""
+aggregate stddev_samp on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisStddevSampFields {
+	id: Bigint
+	state: Int
+}
+"""
+aggregate sum on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisSumFields {
+	id: Bigint
+	state: Int
+}
+"""
+aggregate var_pop on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisVarPopFields {
+	id: Bigint
+	state: Int
+}
+"""
+aggregate var_samp on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisVarSampFields {
+	id: Bigint
+	state: Int
+}
+"""
+aggregate variance on columns of table "enterprise_state_his"
+"""
+type EnterpriseStateHisVarianceFields {
+	id: Bigint
+	state: Int
+}
+"""
+response of any mutation on the table "enterprise_state_his"
+"""
+type EnterpriseStateHisMutationResponse {
+	affected_rows: Int!
+	returning: [EnterpriseStateHis!]!
+}
+"""
+ordering options when selecting data from "enterprise_state_his"
+"""
+input EnterpriseStateHisOrderBy {
+	id: OrderBy
+	state_his_id: OrderBy
+	enterprise_id: OrderBy
+	reason: OrderBy
+	state: OrderBy
+	file_url: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'enterprise_state_his'.
+"""
+input EnterpriseStateHisBoolExp {
+	_and: [EnterpriseStateHisBoolExp]
+	_not: EnterpriseStateHisBoolExp
+	_or: [EnterpriseStateHisBoolExp]
+	id: BigintComparisonExp
+	state_his_id: StringComparisonExp
+	enterprise_id: StringComparisonExp
+	reason: StringComparisonExp
+	state: IntComparisonExp
+	file_url: StringComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+}
+"""
+input type for inserting data into table "enterprise_state_his"
+"""
+input EnterpriseStateHisInsertInput {
+	enterprise_id: String!
+	reason: String
+	state: Int!
+	file_url: String
+	create_at: Timestamptz!
+	create_by: String
+}
+"""
+input type for incrementing integer column in table "enterprise_state_his"
+"""
+input EnterpriseStateHisIncInput {
+	id: Bigint
+	state: Int
+}
+"""
+input type for updating data in table "enterprise_state_his"
+"""
+input EnterpriseStateHisSetInput {
+	id: Bigint
+	state_his_id: String
+	enterprise_id: String
+	reason: String
+	state: Int
+	file_url: String
+	create_at: Timestamptz
+	create_by: String
+}
+"""
+可选select
+"""
+enum EnterpriseStateHisSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	状态历史ID
+	"""
+	state_his_id
+	"""
+	企业ID
+	"""
+	enterprise_id
+	"""
+	原因
+	"""
+	reason
+	"""
+	状态(0.正常 1.暂停受理 2.清退)
+	"""
+	state
+	"""
+	相关文件链接
+	"""
+	file_url
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	enterprise_state_his(distinct_on: [EnterpriseStateHisSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseStateHisOrderBy!], where: EnterpriseStateHisBoolExp): [EnterpriseStateHis!]!
+	"""
+	聚合查询
+	"""
+	enterprise_state_his_aggregate(distinct_on: [EnterpriseStateHisSelectColumn!], limit: Int, offset: Int, order_by: [EnterpriseStateHisOrderBy!], where: EnterpriseStateHisBoolExp): EnterpriseStateHisAggregate!
+	"""
+	主键查询
+	"""
+	enterprise_state_his_by_pk(id: Bigint!): EnterpriseStateHis!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_enterprise_state_his(where: EnterpriseStateHisBoolExp!): EnterpriseStateHisMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_enterprise_state_his_by_pk(id: Bigint!): EnterpriseStateHis
+	"""
+	插入
+	"""
+	insert_enterprise_state_his(objects: [EnterpriseStateHisInsertInput!]!): EnterpriseStateHisMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_enterprise_state_his_one(objects: EnterpriseStateHisInsertInput!): EnterpriseStateHis
+	"""
+	更新
+	"""
+	update_enterprise_state_his(_inc: EnterpriseStateHisIncInput, _set: EnterpriseStateHisSetInput, where: EnterpriseStateHisBoolExp!): EnterpriseStateHisMutationResponse
+	"""
+	更新
+	"""
+	update_enterprise_state_his_by_pk(_inc: EnterpriseStateHisIncInput, _set: EnterpriseStateHisSetInput, id: Bigint!): EnterpriseStateHis
+}

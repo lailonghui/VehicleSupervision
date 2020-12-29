@@ -1,0 +1,392 @@
+"""
+电子围栏
+"""
+type ElectricFence {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	电子围栏ID
+	"""
+	electric_fence_id: String!
+	"""
+	区域类型(1矩形 2圆形 3多边形)
+	"""
+	area_type: Int!
+	"""
+	围栏类型(1消纳场 2工地 3工程 4重点区域)
+	"""
+	fence_type: Int
+	"""
+	围栏名称
+	"""
+	fence_name: String
+	"""
+	地点
+	"""
+	address: String
+	"""
+	所属区域
+	"""
+	district_id: String
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	更新时间
+	"""
+	update_at: Timestamptz
+	"""
+	更新人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	围栏数据
+	"""
+	gis_data: String
+}
+"""
+aggregated selection of "electric_fence"
+"""
+type ElectricFenceAggregate {
+	aggregate: ElectricFenceAggregateFields
+}
+"""
+aggregate fields of "electric_fence"
+"""
+type ElectricFenceAggregateFields {
+	avg: ElectricFenceAvgFields
+	count: Int
+	max: ElectricFenceMaxFields
+	min: ElectricFenceMinFields
+	stddev: ElectricFenceStddevFields
+	stddev_pop: ElectricFenceStddevPopFields
+	stddev_samp: ElectricFenceStddevSampFields
+	sum: ElectricFenceSumFields
+	var_pop: ElectricFenceVarPopFields
+	var_samp: ElectricFenceVarSampFields
+	variance: ElectricFenceVarianceFields
+}
+"""
+aggregate avg on columns of table "electric_fence"
+"""
+type ElectricFenceAvgFields {
+	id: Bigint
+	area_type: Int
+	fence_type: Int
+}
+"""
+aggregate max on columns of table "electric_fence"
+"""
+type ElectricFenceMaxFields {
+	id: Bigint
+	electric_fence_id: String
+	area_type: Int
+	fence_type: Int
+	fence_name: String
+	address: String
+	district_id: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	gis_data: String
+}
+"""
+aggregate min on columns of table "electric_fence"
+"""
+type ElectricFenceMinFields {
+	id: Bigint
+	electric_fence_id: String
+	area_type: Int
+	fence_type: Int
+	fence_name: String
+	address: String
+	district_id: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	gis_data: String
+}
+"""
+aggregate stddev on columns of table "electric_fence"
+"""
+type ElectricFenceStddevFields {
+	id: Bigint
+	area_type: Int
+	fence_type: Int
+}
+"""
+aggregate stddev_pop on columns of table "electric_fence"
+"""
+type ElectricFenceStddevPopFields {
+	id: Bigint
+	area_type: Int
+	fence_type: Int
+}
+"""
+aggregate stddev_samp on columns of table "electric_fence"
+"""
+type ElectricFenceStddevSampFields {
+	id: Bigint
+	area_type: Int
+	fence_type: Int
+}
+"""
+aggregate sum on columns of table "electric_fence"
+"""
+type ElectricFenceSumFields {
+	id: Bigint
+	area_type: Int
+	fence_type: Int
+}
+"""
+aggregate var_pop on columns of table "electric_fence"
+"""
+type ElectricFenceVarPopFields {
+	id: Bigint
+	area_type: Int
+	fence_type: Int
+}
+"""
+aggregate var_samp on columns of table "electric_fence"
+"""
+type ElectricFenceVarSampFields {
+	id: Bigint
+	area_type: Int
+	fence_type: Int
+}
+"""
+aggregate variance on columns of table "electric_fence"
+"""
+type ElectricFenceVarianceFields {
+	id: Bigint
+	area_type: Int
+	fence_type: Int
+}
+"""
+response of any mutation on the table "electric_fence"
+"""
+type ElectricFenceMutationResponse {
+	affected_rows: Int!
+	returning: [ElectricFence!]!
+}
+"""
+ordering options when selecting data from "electric_fence"
+"""
+input ElectricFenceOrderBy {
+	id: OrderBy
+	electric_fence_id: OrderBy
+	area_type: OrderBy
+	fence_type: OrderBy
+	fence_name: OrderBy
+	address: OrderBy
+	district_id: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+	gis_data: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'electric_fence'.
+"""
+input ElectricFenceBoolExp {
+	_and: [ElectricFenceBoolExp]
+	_not: ElectricFenceBoolExp
+	_or: [ElectricFenceBoolExp]
+	id: BigintComparisonExp
+	electric_fence_id: StringComparisonExp
+	area_type: IntComparisonExp
+	fence_type: IntComparisonExp
+	fence_name: StringComparisonExp
+	address: StringComparisonExp
+	district_id: StringComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+	gis_data: StringComparisonExp
+}
+"""
+input type for inserting data into table "electric_fence"
+"""
+input ElectricFenceInsertInput {
+	area_type: Int!
+	fence_type: Int
+	fence_name: String
+	address: String
+	district_id: String
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+	gis_data: String
+}
+"""
+input type for incrementing integer column in table "electric_fence"
+"""
+input ElectricFenceIncInput {
+	id: Bigint
+	area_type: Int
+	fence_type: Int
+}
+"""
+input type for updating data in table "electric_fence"
+"""
+input ElectricFenceSetInput {
+	id: Bigint
+	electric_fence_id: String
+	area_type: Int
+	fence_type: Int
+	fence_name: String
+	address: String
+	district_id: String
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	gis_data: String
+}
+"""
+可选select
+"""
+enum ElectricFenceSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	电子围栏ID
+	"""
+	electric_fence_id
+	"""
+	区域类型(1矩形 2圆形 3多边形)
+	"""
+	area_type
+	"""
+	围栏类型(1消纳场 2工地 3工程 4重点区域)
+	"""
+	fence_type
+	"""
+	围栏名称
+	"""
+	fence_name
+	"""
+	地点
+	"""
+	address
+	"""
+	所属区域
+	"""
+	district_id
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	更新时间
+	"""
+	update_at
+	"""
+	更新人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+	"""
+	围栏数据
+	"""
+	gis_data
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	electric_fence(distinct_on: [ElectricFenceSelectColumn!], limit: Int, offset: Int, order_by: [ElectricFenceOrderBy!], where: ElectricFenceBoolExp): [ElectricFence!]!
+	"""
+	聚合查询
+	"""
+	electric_fence_aggregate(distinct_on: [ElectricFenceSelectColumn!], limit: Int, offset: Int, order_by: [ElectricFenceOrderBy!], where: ElectricFenceBoolExp): ElectricFenceAggregate!
+	"""
+	主键查询
+	"""
+	electric_fence_by_pk(id: Bigint!): ElectricFence!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_electric_fence(where: ElectricFenceBoolExp!): ElectricFenceMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_electric_fence_by_pk(id: Bigint!): ElectricFence
+	"""
+	插入
+	"""
+	insert_electric_fence(objects: [ElectricFenceInsertInput!]!): ElectricFenceMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_electric_fence_one(objects: ElectricFenceInsertInput!): ElectricFence
+	"""
+	更新
+	"""
+	update_electric_fence(_inc: ElectricFenceIncInput, _set: ElectricFenceSetInput, where: ElectricFenceBoolExp!): ElectricFenceMutationResponse
+	"""
+	更新
+	"""
+	update_electric_fence_by_pk(_inc: ElectricFenceIncInput, _set: ElectricFenceSetInput, id: Bigint!): ElectricFence
+}

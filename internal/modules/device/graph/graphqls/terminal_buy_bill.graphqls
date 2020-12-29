@@ -1,0 +1,461 @@
+"""
+终端采购单
+"""
+type TerminalBuyBill {
+	"""
+	ID
+	"""
+	id: Bigint!
+	"""
+	终端采购单ID
+	"""
+	bill_id: String!
+	"""
+	终端类型
+	"""
+	terminal_type: Int!
+	"""
+	s/n起号
+	"""
+	start_sn: Bigint
+	"""
+	s/n止号
+	"""
+	end_sn: Bigint
+	"""
+	采购人
+	"""
+	buyer_id: String
+	"""
+	采购日期
+	"""
+	buy_date: Timestamptz
+	"""
+	终端数
+	"""
+	sn_count: Bigint
+	"""
+	用掉的终端数
+	"""
+	use_sn_count: Bigint
+	"""
+	终端数是否用完
+	"""
+	is_sn_use_over: Boolean!
+	"""
+	创建时间
+	"""
+	create_at: Timestamptz!
+	"""
+	创建人
+	"""
+	create_by: String
+	"""
+	修改时间
+	"""
+	update_at: Timestamptz
+	"""
+	修改人
+	"""
+	update_by: String
+	"""
+	删除时间
+	"""
+	delete_at: Timestamptz
+	"""
+	删除人
+	"""
+	delete_by: String
+	"""
+	是否删除
+	"""
+	is_delete: Boolean!
+	"""
+	备注
+	"""
+	remark: String
+}
+"""
+aggregated selection of "terminal_buy_bill"
+"""
+type TerminalBuyBillAggregate {
+	aggregate: TerminalBuyBillAggregateFields
+}
+"""
+aggregate fields of "terminal_buy_bill"
+"""
+type TerminalBuyBillAggregateFields {
+	avg: TerminalBuyBillAvgFields
+	count: Int
+	max: TerminalBuyBillMaxFields
+	min: TerminalBuyBillMinFields
+	stddev: TerminalBuyBillStddevFields
+	stddev_pop: TerminalBuyBillStddevPopFields
+	stddev_samp: TerminalBuyBillStddevSampFields
+	sum: TerminalBuyBillSumFields
+	var_pop: TerminalBuyBillVarPopFields
+	var_samp: TerminalBuyBillVarSampFields
+	variance: TerminalBuyBillVarianceFields
+}
+"""
+aggregate avg on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillAvgFields {
+	id: Bigint
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	sn_count: Bigint
+	use_sn_count: Bigint
+}
+"""
+aggregate max on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillMaxFields {
+	id: Bigint
+	bill_id: String
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	buyer_id: String
+	buy_date: Timestamptz
+	sn_count: Bigint
+	use_sn_count: Bigint
+	is_sn_use_over: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+}
+"""
+aggregate min on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillMinFields {
+	id: Bigint
+	bill_id: String
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	buyer_id: String
+	buy_date: Timestamptz
+	sn_count: Bigint
+	use_sn_count: Bigint
+	is_sn_use_over: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+}
+"""
+aggregate stddev on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillStddevFields {
+	id: Bigint
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	sn_count: Bigint
+	use_sn_count: Bigint
+}
+"""
+aggregate stddev_pop on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillStddevPopFields {
+	id: Bigint
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	sn_count: Bigint
+	use_sn_count: Bigint
+}
+"""
+aggregate stddev_samp on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillStddevSampFields {
+	id: Bigint
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	sn_count: Bigint
+	use_sn_count: Bigint
+}
+"""
+aggregate sum on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillSumFields {
+	id: Bigint
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	sn_count: Bigint
+	use_sn_count: Bigint
+}
+"""
+aggregate var_pop on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillVarPopFields {
+	id: Bigint
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	sn_count: Bigint
+	use_sn_count: Bigint
+}
+"""
+aggregate var_samp on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillVarSampFields {
+	id: Bigint
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	sn_count: Bigint
+	use_sn_count: Bigint
+}
+"""
+aggregate variance on columns of table "terminal_buy_bill"
+"""
+type TerminalBuyBillVarianceFields {
+	id: Bigint
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	sn_count: Bigint
+	use_sn_count: Bigint
+}
+"""
+response of any mutation on the table "terminal_buy_bill"
+"""
+type TerminalBuyBillMutationResponse {
+	affected_rows: Int!
+	returning: [TerminalBuyBill!]!
+}
+"""
+ordering options when selecting data from "terminal_buy_bill"
+"""
+input TerminalBuyBillOrderBy {
+	id: OrderBy
+	bill_id: OrderBy
+	terminal_type: OrderBy
+	start_sn: OrderBy
+	end_sn: OrderBy
+	buyer_id: OrderBy
+	buy_date: OrderBy
+	sn_count: OrderBy
+	use_sn_count: OrderBy
+	is_sn_use_over: OrderBy
+	create_at: OrderBy
+	create_by: OrderBy
+	update_at: OrderBy
+	update_by: OrderBy
+	delete_at: OrderBy
+	delete_by: OrderBy
+	is_delete: OrderBy
+	remark: OrderBy
+}
+"""
+Boolean expression to filter rows from the table "blacklist_operation_record". All fields are combined with a logical 'terminal_buy_bill'.
+"""
+input TerminalBuyBillBoolExp {
+	_and: [TerminalBuyBillBoolExp]
+	_not: TerminalBuyBillBoolExp
+	_or: [TerminalBuyBillBoolExp]
+	id: BigintComparisonExp
+	bill_id: StringComparisonExp
+	terminal_type: IntComparisonExp
+	start_sn: BigintComparisonExp
+	end_sn: BigintComparisonExp
+	buyer_id: StringComparisonExp
+	buy_date: TimestamptzComparisonExp
+	sn_count: BigintComparisonExp
+	use_sn_count: BigintComparisonExp
+	is_sn_use_over: BooleanComparisonExp
+	create_at: TimestamptzComparisonExp
+	create_by: StringComparisonExp
+	update_at: TimestamptzComparisonExp
+	update_by: StringComparisonExp
+	delete_at: TimestamptzComparisonExp
+	delete_by: StringComparisonExp
+	is_delete: BooleanComparisonExp
+	remark: StringComparisonExp
+}
+"""
+input type for inserting data into table "terminal_buy_bill"
+"""
+input TerminalBuyBillInsertInput {
+	terminal_type: Int!
+	start_sn: Bigint
+	end_sn: Bigint
+	buyer_id: String
+	buy_date: Timestamptz
+	sn_count: Bigint
+	use_sn_count: Bigint
+	is_sn_use_over: Boolean!
+	create_at: Timestamptz!
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean!
+	remark: String
+}
+"""
+input type for incrementing integer column in table "terminal_buy_bill"
+"""
+input TerminalBuyBillIncInput {
+	id: Bigint
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	sn_count: Bigint
+	use_sn_count: Bigint
+}
+"""
+input type for updating data in table "terminal_buy_bill"
+"""
+input TerminalBuyBillSetInput {
+	id: Bigint
+	bill_id: String
+	terminal_type: Int
+	start_sn: Bigint
+	end_sn: Bigint
+	buyer_id: String
+	buy_date: Timestamptz
+	sn_count: Bigint
+	use_sn_count: Bigint
+	is_sn_use_over: Boolean
+	create_at: Timestamptz
+	create_by: String
+	update_at: Timestamptz
+	update_by: String
+	delete_at: Timestamptz
+	delete_by: String
+	is_delete: Boolean
+	remark: String
+}
+"""
+可选select
+"""
+enum TerminalBuyBillSelectColumn {
+	"""
+	ID
+	"""
+	id
+	"""
+	终端采购单ID
+	"""
+	bill_id
+	"""
+	终端类型
+	"""
+	terminal_type
+	"""
+	s/n起号
+	"""
+	start_sn
+	"""
+	s/n止号
+	"""
+	end_sn
+	"""
+	采购人
+	"""
+	buyer_id
+	"""
+	采购日期
+	"""
+	buy_date
+	"""
+	终端数
+	"""
+	sn_count
+	"""
+	用掉的终端数
+	"""
+	use_sn_count
+	"""
+	终端数是否用完
+	"""
+	is_sn_use_over
+	"""
+	创建时间
+	"""
+	create_at
+	"""
+	创建人
+	"""
+	create_by
+	"""
+	修改时间
+	"""
+	update_at
+	"""
+	修改人
+	"""
+	update_by
+	"""
+	删除时间
+	"""
+	delete_at
+	"""
+	删除人
+	"""
+	delete_by
+	"""
+	是否删除
+	"""
+	is_delete
+	"""
+	备注
+	"""
+	remark
+}
+extend type Query {
+	"""
+	列表查询
+	"""
+	terminal_buy_bill(distinct_on: [TerminalBuyBillSelectColumn!], limit: Int, offset: Int, order_by: [TerminalBuyBillOrderBy!], where: TerminalBuyBillBoolExp): [TerminalBuyBill!]!
+	"""
+	聚合查询
+	"""
+	terminal_buy_bill_aggregate(distinct_on: [TerminalBuyBillSelectColumn!], limit: Int, offset: Int, order_by: [TerminalBuyBillOrderBy!], where: TerminalBuyBillBoolExp): TerminalBuyBillAggregate!
+	"""
+	主键查询
+	"""
+	terminal_buy_bill_by_pk(id: Bigint!): TerminalBuyBill!
+}
+extend type Mutation {
+	"""
+	删除记录
+	"""
+	delete_terminal_buy_bill(where: TerminalBuyBillBoolExp!): TerminalBuyBillMutationResponse
+	"""
+	根据主键删除记录
+	"""
+	delete_terminal_buy_bill_by_pk(id: Bigint!): TerminalBuyBill
+	"""
+	插入
+	"""
+	insert_terminal_buy_bill(objects: [TerminalBuyBillInsertInput!]!): TerminalBuyBillMutationResponse
+	"""
+	插入一条记录
+	"""
+	insert_terminal_buy_bill_one(objects: TerminalBuyBillInsertInput!): TerminalBuyBill
+	"""
+	更新
+	"""
+	update_terminal_buy_bill(_inc: TerminalBuyBillIncInput, _set: TerminalBuyBillSetInput, where: TerminalBuyBillBoolExp!): TerminalBuyBillMutationResponse
+	"""
+	更新
+	"""
+	update_terminal_buy_bill_by_pk(_inc: TerminalBuyBillIncInput, _set: TerminalBuyBillSetInput, id: Bigint!): TerminalBuyBill
+}
