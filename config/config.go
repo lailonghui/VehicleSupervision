@@ -14,17 +14,21 @@ type Conf struct {
 	AppConf    `yaml:"app"`
 	DbConf     `yaml:"db"`
 	LogConf    `yaml:"log"`
+	RedisConf  `yaml:"redis"`
 }
 
+// 服务器配置
 type ServerConf struct {
 	Host string `yaml:"host"`
 	Port int    `yaml:"port"`
 }
 
+// 应用配置
 type AppConf struct {
 	Name string `yaml:"name"`
 }
 
+// 数据库配置
 type DbConf struct {
 	Host       string `yaml:"host"`
 	Port       int    `yaml:"port"`
@@ -36,16 +40,32 @@ type DbConf struct {
 	DbPoolConf `yaml:"pool"`
 }
 
+// 数据库pool配置
 type DbPoolConf struct {
 	MaxIdleConn int `yaml:"maxIdleConn"`
 	MaxOpenConn int `yaml:"maxOpenConn"`
 	MaxLifeTime int `yaml:"maxLifeTime"`
 }
 
+// 日志配置
 type LogConf struct {
 	Path  string `yaml:"path"`
 	Level string `yaml:"level"`
 	Mode  string `yaml:"mode"`
+}
+
+// redis配置
+type RedisConf struct {
+	Addresses []string      `yaml:"addresses"`
+	Database  int           `yaml:"database"`
+	Pool      RedisPoolConf `yaml:"pool"`
+}
+
+// redis pool 配置
+type RedisPoolConf struct {
+	MaxIdle     int `yaml:"maxIdle"`
+	MaxActive   int `yaml:"maxActive"`
+	IdleTimeout int `yaml:"idleTimeout"`
 }
 
 func Setup(configFile string) {

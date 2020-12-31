@@ -3,6 +3,7 @@ package main
 import (
 	"VehicleSupervision/config"
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/redis"
 	"VehicleSupervision/internal/server"
 	"VehicleSupervision/pkg/logger"
 	"flag"
@@ -31,6 +32,9 @@ func setup() {
 	logger.Info("加载成功")
 	// 启动db
 	db.Setup()
+	// 启动redis
+	redis.Setup()
+	defer redis.Close()
 	// 启动服务器
 	server.Setup()
 

@@ -18,6 +18,19 @@ db:
     maxOpenConn: 100
     maxLifeTime: 3600000
 
+redis:
+  addresses:
+    - "192.168.3.132:7001"
+    - "192.168.3.132:7002"
+    - "192.168.3.132:7003"
+    - "192.168.3.132:7004"
+    - "192.168.3.132:7005"
+    - "192.168.3.132:7006"
+  database: 0
+  pool:
+    maxIdle: 5
+    maxActive: 10
+    idleTimeout: 60000
 log:
   path: "runtime/logs"
   level: "debug"
