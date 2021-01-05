@@ -313,7 +313,7 @@ extend type Mutation {
 	"""
 	update_terminal_types(_inc: TerminalTypesIncInput, _set: TerminalTypesSetInput, where: TerminalTypesBoolExp!): TerminalTypesMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_types_by_pk(_inc: TerminalTypesIncInput, _set: TerminalTypesSetInput, id: Bigint!): TerminalTypes
 }

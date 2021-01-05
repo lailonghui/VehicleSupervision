@@ -400,6 +400,10 @@ extend type Query {
 	主键查询
 	"""
 	driver_blacklist_his_by_pk(id: Bigint!): DriverBlacklistHis!
+	"""
+	联合主键查询
+	"""
+	driver_blacklist_his_by_union_pk(his_id: String!): DriverBlacklistHis!
 }
 extend type Mutation {
 	"""
@@ -423,7 +427,15 @@ extend type Mutation {
 	"""
 	update_driver_blacklist_his(_inc: DriverBlacklistHisIncInput, _set: DriverBlacklistHisSetInput, where: DriverBlacklistHisBoolExp!): DriverBlacklistHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_blacklist_his_by_pk(_inc: DriverBlacklistHisIncInput, _set: DriverBlacklistHisSetInput, id: Bigint!): DriverBlacklistHis
+	"""
+	根据联合主键更新
+	"""
+	update_driver_blacklist_his_by_union_pk(_inc: DriverBlacklistHisIncInput, _set: DriverBlacklistHisSetInput, his_id: String!): DriverBlacklistHis
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driver_blacklist_his_by_union_pk(his_id: String!): DriverBlacklistHis
 }

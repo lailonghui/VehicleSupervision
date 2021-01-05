@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteLimitSpeedPlanByPk(ctx context.Context, Id int6
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteLimitSpeedPlanByUnionPk(ctx context.Context, unionId string) (*model1.LimitSpeedPlan, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.LimitSpeedPlan
+	tx := db.DB.Model(&model1.LimitSpeedPlan{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertLimitSpeedPlan(ctx context.Context, objects []*model.LimitSpeedPlanInsertInput) (*model.LimitSpeedPlanMutationResponse, error) {
 	rs := make([]*model1.LimitSpeedPlan, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateLimitSpeedPlanByPk(ctx context.Context, inc *mo
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateLimitSpeedPlanByUnionPk(ctx context.Context, inc *model.LimitSpeedPlanIncInput, set *model.LimitSpeedPlanSetInput, unionId string) (*model1.LimitSpeedPlan, error) {
+	var rs model1.LimitSpeedPlan
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.LimitSpeedPlan{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) LimitSpeedPlan(ctx context.Context, distinctOn []model.LimitSpeedPlanSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedPlanOrderBy, where *model.LimitSpeedPlanBoolExp) ([]*model1.LimitSpeedPlan, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.LimitSpeedPlan{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) LimitSpeedPlanAggregate(ctx context.Context, distinctOn 
 func (r *queryResolver) LimitSpeedPlanByPk(ctx context.Context, Id int64) (*model1.LimitSpeedPlan, error) {
 	var rs model1.LimitSpeedPlan
 	tx := db.DB.Model(&model1.LimitSpeedPlan{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) LimitSpeedPlanByUnionPk(ctx context.Context, unionId string) (*model1.LimitSpeedPlan, error) {
+	var rs model1.LimitSpeedPlan
+	tx := db.DB.Model(&model1.LimitSpeedPlan{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

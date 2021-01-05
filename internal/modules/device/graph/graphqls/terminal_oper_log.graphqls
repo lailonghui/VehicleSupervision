@@ -391,6 +391,10 @@ extend type Query {
 	主键查询
 	"""
 	terminal_oper_log_by_pk(id: Bigint!): TerminalOperLog!
+	"""
+	联合主键查询
+	"""
+	terminal_oper_log_by_union_pk(log_id: String!): TerminalOperLog!
 }
 extend type Mutation {
 	"""
@@ -414,7 +418,15 @@ extend type Mutation {
 	"""
 	update_terminal_oper_log(_inc: TerminalOperLogIncInput, _set: TerminalOperLogSetInput, where: TerminalOperLogBoolExp!): TerminalOperLogMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_oper_log_by_pk(_inc: TerminalOperLogIncInput, _set: TerminalOperLogSetInput, id: Bigint!): TerminalOperLog
+	"""
+	根据联合主键更新
+	"""
+	update_terminal_oper_log_by_union_pk(_inc: TerminalOperLogIncInput, _set: TerminalOperLogSetInput, log_id: String!): TerminalOperLog
+	"""
+	根据联合主键删除记录
+	"""
+	delete_terminal_oper_log_by_union_pk(log_id: String!): TerminalOperLog
 }

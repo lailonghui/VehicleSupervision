@@ -41,13 +41,36 @@ func (r *mutationResolver) DeleteEnterpriseUkey(ctx context.Context, where model
 	}, nil
 }
 
-func (r *mutationResolver) DeleteEnterpriseUkeyByPk(ctx context.Context, Id int64) (*model1.EnterpriseUkey, error) {
+func (r *mutationResolver) DeleteEnterpriseUkeyByPk(ctx context.Context, id int64) (*model1.EnterpriseUkey, error) {
 	preloads := util.GetPreloads(ctx)
 	var rs model1.EnterpriseUkey
 	tx := db.DB.Model(&model1.EnterpriseUkey{})
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
-		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		tx = tx.Select(preloads).Where(rs.PrimaryColumnName()+" = ?", id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteEnterpriseUkeyByUnionPk(ctx context.Context, ukeyID string) (*model1.EnterpriseUkey, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.EnterpriseUkey
+	tx := db.DB.Model(&model1.EnterpriseUkey{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", ukeyID).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -84,9 +107,9 @@ func (r *mutationResolver) InsertEnterpriseUkey(ctx context.Context, objects []*
 	}, nil
 }
 
-func (r *mutationResolver) InsertEnterpriseUkeyOne(ctx context.Context, object model.EnterpriseUkeyInsertInput) (*model1.EnterpriseUkey, error) {
+func (r *mutationResolver) InsertEnterpriseUkeyOne(ctx context.Context, objects model.EnterpriseUkeyInsertInput) (*model1.EnterpriseUkey, error) {
 	rs := &model1.EnterpriseUkey{}
-	util2.StructAssign(rs, &object)
+	util2.StructAssign(rs, &objects)
 	tx := db.DB.Model(&model1.EnterpriseUkey{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -129,14 +152,30 @@ func (r *mutationResolver) UpdateEnterpriseUkey(ctx context.Context, inc *model.
 	}, nil
 }
 
-func (r *mutationResolver) UpdateEnterpriseUkeyByPk(ctx context.Context, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, Id int64) (*model1.EnterpriseUkey, error) {
-	tx := db.DB.Where("id = ?", Id)
+func (r *mutationResolver) UpdateEnterpriseUkeyByPk(ctx context.Context, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, id int64) (*model1.EnterpriseUkey, error) {
+	var rs model1.EnterpriseUkey
+	tx := db.DB.Where(rs.PrimaryColumnName()+" = ?", id)
 	qt := util.NewQueryTranslator(tx, &model1.EnterpriseUkey{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) UpdateEnterpriseUkeyByUnionPk(ctx context.Context, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, ukeyID string) (*model1.EnterpriseUkey, error) {
 	var rs model1.EnterpriseUkey
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", ukeyID)
+	qt := util.NewQueryTranslator(tx, &model1.EnterpriseUkey{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
 	tx = tx.First(&rs)
 	if err := tx.Error; err != nil {
 		return &rs, err
@@ -175,9 +214,17 @@ func (r *queryResolver) EnterpriseUkeyAggregate(ctx context.Context, distinctOn 
 	return &rs, err
 }
 
-func (r *queryResolver) EnterpriseUkeyByPk(ctx context.Context, Id int64) (*model1.EnterpriseUkey, error) {
+func (r *queryResolver) EnterpriseUkeyByPk(ctx context.Context, id int64) (*model1.EnterpriseUkey, error) {
 	var rs model1.EnterpriseUkey
-	tx := db.DB.Model(&model1.EnterpriseUkey{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	tx := db.DB.Model(&model1.EnterpriseUkey{}).Select(util.GetTopPreloads(ctx)).First(&rs, id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) EnterpriseUkeyByUnionPk(ctx context.Context, ukeyID string) (*model1.EnterpriseUkey, error) {
+	var rs model1.EnterpriseUkey
+	tx := db.DB.Model(&model1.EnterpriseUkey{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", ukeyID).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

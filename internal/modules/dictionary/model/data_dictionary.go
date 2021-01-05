@@ -35,16 +35,3 @@ type DataDictionary struct {
 	// 是否删除
 	IsDelete bool `json:"is_delete"`
 }
-
-// expression to compare columns of type Float. All fields are combined with logical 'AND'.
-type FloatComparisonExp struct {
-	Eq     *float64  `json:"_eq"`
-	Gt     *float64  `json:"_gt"`
-	Gte    *float64  `json:"_gte"`
-	In     []float64 `json:"_in"`
-	IsNull *bool     `json:"_is_null"`
-	Lt     *float64  `json:"_lt"`
-	Lte    *float64  `json:"_lte"`
-	Neq    *float64  `json:"_neq"`
-	Nin    []float64 `json:"_nin"`
-}

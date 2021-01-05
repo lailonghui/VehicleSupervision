@@ -536,7 +536,7 @@ extend type Mutation {
 	"""
 	update_vehicle_location_his(_inc: VehicleLocationHisIncInput, _set: VehicleLocationHisSetInput, where: VehicleLocationHisBoolExp!): VehicleLocationHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_location_his_by_pk(_inc: VehicleLocationHisIncInput, _set: VehicleLocationHisSetInput, id: Bigint!): VehicleLocationHis
 }

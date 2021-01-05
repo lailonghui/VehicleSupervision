@@ -546,7 +546,7 @@ extend type Mutation {
 	"""
 	update_terminal_reg_log(_inc: TerminalRegLogIncInput, _set: TerminalRegLogSetInput, where: TerminalRegLogBoolExp!): TerminalRegLogMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_reg_log_by_pk(_inc: TerminalRegLogIncInput, _set: TerminalRegLogSetInput, id: Bigint!): TerminalRegLog
 }

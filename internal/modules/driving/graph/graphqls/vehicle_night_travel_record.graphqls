@@ -442,6 +442,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_night_travel_record_by_pk(id: Bigint!): VehicleNightTravelRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_night_travel_record_by_union_pk(record_id: String!): VehicleNightTravelRecord!
 }
 extend type Mutation {
 	"""
@@ -465,7 +469,15 @@ extend type Mutation {
 	"""
 	update_vehicle_night_travel_record(_inc: VehicleNightTravelRecordIncInput, _set: VehicleNightTravelRecordSetInput, where: VehicleNightTravelRecordBoolExp!): VehicleNightTravelRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_night_travel_record_by_pk(_inc: VehicleNightTravelRecordIncInput, _set: VehicleNightTravelRecordSetInput, id: Bigint!): VehicleNightTravelRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_night_travel_record_by_union_pk(_inc: VehicleNightTravelRecordIncInput, _set: VehicleNightTravelRecordSetInput, record_id: String!): VehicleNightTravelRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_night_travel_record_by_union_pk(record_id: String!): VehicleNightTravelRecord
 }

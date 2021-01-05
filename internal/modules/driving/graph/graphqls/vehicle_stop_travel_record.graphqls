@@ -387,6 +387,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_stop_travel_record_by_pk(id: Bigint!): VehicleStopTravelRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_stop_travel_record_by_union_pk(record_id: String!): VehicleStopTravelRecord!
 }
 extend type Mutation {
 	"""
@@ -410,7 +414,15 @@ extend type Mutation {
 	"""
 	update_vehicle_stop_travel_record(_inc: VehicleStopTravelRecordIncInput, _set: VehicleStopTravelRecordSetInput, where: VehicleStopTravelRecordBoolExp!): VehicleStopTravelRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_stop_travel_record_by_pk(_inc: VehicleStopTravelRecordIncInput, _set: VehicleStopTravelRecordSetInput, id: Bigint!): VehicleStopTravelRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_stop_travel_record_by_union_pk(_inc: VehicleStopTravelRecordIncInput, _set: VehicleStopTravelRecordSetInput, record_id: String!): VehicleStopTravelRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_stop_travel_record_by_union_pk(record_id: String!): VehicleStopTravelRecord
 }

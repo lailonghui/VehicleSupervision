@@ -358,6 +358,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_blacklist_alarm_by_pk(id: Bigint!): VehicleBlacklistAlarm!
+	"""
+	联合主键查询
+	"""
+	vehicle_blacklist_alarm_by_union_pk(alarm_id: String!): VehicleBlacklistAlarm!
 }
 extend type Mutation {
 	"""
@@ -381,7 +385,15 @@ extend type Mutation {
 	"""
 	update_vehicle_blacklist_alarm(_inc: VehicleBlacklistAlarmIncInput, _set: VehicleBlacklistAlarmSetInput, where: VehicleBlacklistAlarmBoolExp!): VehicleBlacklistAlarmMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_blacklist_alarm_by_pk(_inc: VehicleBlacklistAlarmIncInput, _set: VehicleBlacklistAlarmSetInput, id: Bigint!): VehicleBlacklistAlarm
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_blacklist_alarm_by_union_pk(_inc: VehicleBlacklistAlarmIncInput, _set: VehicleBlacklistAlarmSetInput, alarm_id: String!): VehicleBlacklistAlarm
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_blacklist_alarm_by_union_pk(alarm_id: String!): VehicleBlacklistAlarm
 }

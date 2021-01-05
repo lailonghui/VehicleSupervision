@@ -2,7 +2,6 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
-	"VehicleSupervision/internal/modules/admin/graph/generated"
 	"VehicleSupervision/internal/modules/admin/graph/model"
 	model1 "VehicleSupervision/internal/modules/admin/model"
 	"VehicleSupervision/pkg/graphql/util"
@@ -42,13 +41,36 @@ func (r *mutationResolver) DeleteEnterprise(ctx context.Context, where model.Ent
 	}, nil
 }
 
-func (r *mutationResolver) DeleteEnterpriseByPk(ctx context.Context, Id int64) (*model1.Enterprise, error) {
+func (r *mutationResolver) DeleteEnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
 	preloads := util.GetPreloads(ctx)
 	var rs model1.Enterprise
 	tx := db.DB.Model(&model1.Enterprise{})
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
-		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		tx = tx.Select(preloads).Where(rs.PrimaryColumnName()+" = ?", id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteEnterpriseByUnionPk(ctx context.Context, enterpriseID string) (*model1.Enterprise, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.Enterprise
+	tx := db.DB.Model(&model1.Enterprise{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", enterpriseID).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -85,9 +107,9 @@ func (r *mutationResolver) InsertEnterprise(ctx context.Context, objects []*mode
 	}, nil
 }
 
-func (r *mutationResolver) InsertEnterpriseOne(ctx context.Context, object model.EnterpriseInsertInput) (*model1.Enterprise, error) {
+func (r *mutationResolver) InsertEnterpriseOne(ctx context.Context, objects model.EnterpriseInsertInput) (*model1.Enterprise, error) {
 	rs := &model1.Enterprise{}
-	util2.StructAssign(rs, &object)
+	util2.StructAssign(rs, &objects)
 	tx := db.DB.Model(&model1.Enterprise{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -130,14 +152,30 @@ func (r *mutationResolver) UpdateEnterprise(ctx context.Context, inc *model.Ente
 	}, nil
 }
 
-func (r *mutationResolver) UpdateEnterpriseByPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, Id int64) (*model1.Enterprise, error) {
-	tx := db.DB.Where("id = ?", Id)
+func (r *mutationResolver) UpdateEnterpriseByPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, id int64) (*model1.Enterprise, error) {
+	var rs model1.Enterprise
+	tx := db.DB.Where(rs.PrimaryColumnName()+" = ?", id)
 	qt := util.NewQueryTranslator(tx, &model1.Enterprise{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) UpdateEnterpriseByUnionPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, enterpriseID string) (*model1.Enterprise, error) {
 	var rs model1.Enterprise
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", enterpriseID)
+	qt := util.NewQueryTranslator(tx, &model1.Enterprise{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
 	tx = tx.First(&rs)
 	if err := tx.Error; err != nil {
 		return &rs, err
@@ -176,18 +214,17 @@ func (r *queryResolver) EnterpriseAggregate(ctx context.Context, distinctOn []mo
 	return &rs, err
 }
 
-func (r *queryResolver) EnterpriseByPk(ctx context.Context, Id int64) (*model1.Enterprise, error) {
+func (r *queryResolver) EnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error) {
 	var rs model1.Enterprise
-	tx := db.DB.Model(&model1.Enterprise{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	tx := db.DB.Model(&model1.Enterprise{}).Select(util.GetTopPreloads(ctx)).First(&rs, id)
 	err := tx.Error
 	return &rs, err
 }
 
-// Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+func (r *queryResolver) EnterpriseByUnionPk(ctx context.Context, enterpriseID string) (*model1.Enterprise, error) {
+	var rs model1.Enterprise
+	tx := db.DB.Model(&model1.Enterprise{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", enterpriseID).First(&rs)
 
-// Query returns generated.QueryResolver implementation.
-func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
-
-type mutationResolver struct{ *Resolver }
-type queryResolver struct{ *Resolver }
+	err := tx.Error
+	return &rs, err
+}

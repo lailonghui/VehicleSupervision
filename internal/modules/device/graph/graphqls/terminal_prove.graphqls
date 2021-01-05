@@ -825,6 +825,10 @@ extend type Query {
 	主键查询
 	"""
 	terminal_prove_by_pk(id: Bigint!): TerminalProve!
+	"""
+	联合主键查询
+	"""
+	terminal_prove_by_union_pk(prove_id: String!): TerminalProve!
 }
 extend type Mutation {
 	"""
@@ -848,7 +852,15 @@ extend type Mutation {
 	"""
 	update_terminal_prove(_inc: TerminalProveIncInput, _set: TerminalProveSetInput, where: TerminalProveBoolExp!): TerminalProveMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_prove_by_pk(_inc: TerminalProveIncInput, _set: TerminalProveSetInput, id: Bigint!): TerminalProve
+	"""
+	根据联合主键更新
+	"""
+	update_terminal_prove_by_union_pk(_inc: TerminalProveIncInput, _set: TerminalProveSetInput, prove_id: String!): TerminalProve
+	"""
+	根据联合主键删除记录
+	"""
+	delete_terminal_prove_by_union_pk(prove_id: String!): TerminalProve
 }

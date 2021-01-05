@@ -256,6 +256,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_state_his_by_pk(id: Bigint!): EnterpriseStateHis!
+	"""
+	联合主键查询
+	"""
+	enterprise_state_his_by_union_pk(state_his_id: String!): EnterpriseStateHis!
 }
 extend type Mutation {
 	"""
@@ -279,7 +283,15 @@ extend type Mutation {
 	"""
 	update_enterprise_state_his(_inc: EnterpriseStateHisIncInput, _set: EnterpriseStateHisSetInput, where: EnterpriseStateHisBoolExp!): EnterpriseStateHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_state_his_by_pk(_inc: EnterpriseStateHisIncInput, _set: EnterpriseStateHisSetInput, id: Bigint!): EnterpriseStateHis
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_state_his_by_union_pk(_inc: EnterpriseStateHisIncInput, _set: EnterpriseStateHisSetInput, state_his_id: String!): EnterpriseStateHis
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_state_his_by_union_pk(state_his_id: String!): EnterpriseStateHis
 }

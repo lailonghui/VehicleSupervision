@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteTerminalCheckParamByPk(ctx context.Context, Id 
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteTerminalCheckParamByUnionPk(ctx context.Context, unionId string) (*model1.TerminalCheckParam, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.TerminalCheckParam
+	tx := db.DB.Model(&model1.TerminalCheckParam{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertTerminalCheckParam(ctx context.Context, objects []*model.TerminalCheckParamInsertInput) (*model.TerminalCheckParamMutationResponse, error) {
 	rs := make([]*model1.TerminalCheckParam, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateTerminalCheckParamByPk(ctx context.Context, inc
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateTerminalCheckParamByUnionPk(ctx context.Context, inc *model.TerminalCheckParamIncInput, set *model.TerminalCheckParamSetInput, unionId string) (*model1.TerminalCheckParam, error) {
+	var rs model1.TerminalCheckParam
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.TerminalCheckParam{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) TerminalCheckParam(ctx context.Context, distinctOn []model.TerminalCheckParamSelectColumn, limit *int, offset *int, orderBy []*model.TerminalCheckParamOrderBy, where *model.TerminalCheckParamBoolExp) ([]*model1.TerminalCheckParam, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.TerminalCheckParam{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) TerminalCheckParamAggregate(ctx context.Context, distinc
 func (r *queryResolver) TerminalCheckParamByPk(ctx context.Context, Id int64) (*model1.TerminalCheckParam, error) {
 	var rs model1.TerminalCheckParam
 	tx := db.DB.Model(&model1.TerminalCheckParam{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) TerminalCheckParamByUnionPk(ctx context.Context, unionId string) (*model1.TerminalCheckParam, error) {
+	var rs model1.TerminalCheckParam
+	tx := db.DB.Model(&model1.TerminalCheckParam{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

@@ -300,6 +300,10 @@ extend type Query {
 	主键查询
 	"""
 	control_line_time_by_pk(id: Bigint!): ControlLineTime!
+	"""
+	联合主键查询
+	"""
+	control_line_time_by_union_pk(control_line_time_id: String!): ControlLineTime!
 }
 extend type Mutation {
 	"""
@@ -323,7 +327,15 @@ extend type Mutation {
 	"""
 	update_control_line_time(_inc: ControlLineTimeIncInput, _set: ControlLineTimeSetInput, where: ControlLineTimeBoolExp!): ControlLineTimeMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_control_line_time_by_pk(_inc: ControlLineTimeIncInput, _set: ControlLineTimeSetInput, id: Bigint!): ControlLineTime
+	"""
+	根据联合主键更新
+	"""
+	update_control_line_time_by_union_pk(_inc: ControlLineTimeIncInput, _set: ControlLineTimeSetInput, control_line_time_id: String!): ControlLineTime
+	"""
+	根据联合主键删除记录
+	"""
+	delete_control_line_time_by_union_pk(control_line_time_id: String!): ControlLineTime
 }

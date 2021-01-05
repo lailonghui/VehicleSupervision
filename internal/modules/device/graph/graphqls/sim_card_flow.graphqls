@@ -561,6 +561,10 @@ extend type Query {
 	主键查询
 	"""
 	sim_card_flow_by_pk(id: Bigint!): SimCardFlow!
+	"""
+	联合主键查询
+	"""
+	sim_card_flow_by_union_pk(sim_card_flow_id: String!): SimCardFlow!
 }
 extend type Mutation {
 	"""
@@ -584,7 +588,15 @@ extend type Mutation {
 	"""
 	update_sim_card_flow(_inc: SimCardFlowIncInput, _set: SimCardFlowSetInput, where: SimCardFlowBoolExp!): SimCardFlowMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_sim_card_flow_by_pk(_inc: SimCardFlowIncInput, _set: SimCardFlowSetInput, id: Bigint!): SimCardFlow
+	"""
+	根据联合主键更新
+	"""
+	update_sim_card_flow_by_union_pk(_inc: SimCardFlowIncInput, _set: SimCardFlowSetInput, sim_card_flow_id: String!): SimCardFlow
+	"""
+	根据联合主键删除记录
+	"""
+	delete_sim_card_flow_by_union_pk(sim_card_flow_id: String!): SimCardFlow
 }

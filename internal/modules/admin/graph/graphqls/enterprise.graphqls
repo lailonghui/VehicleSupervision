@@ -1106,6 +1106,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_by_pk(id: Bigint!): Enterprise!
+	"""
+	联合主键查询
+	"""
+	enterprise_by_union_pk(enterprise_id: String!): Enterprise!
 }
 extend type Mutation {
 	"""
@@ -1129,7 +1133,15 @@ extend type Mutation {
 	"""
 	update_enterprise(_inc: EnterpriseIncInput, _set: EnterpriseSetInput, where: EnterpriseBoolExp!): EnterpriseMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_by_pk(_inc: EnterpriseIncInput, _set: EnterpriseSetInput, id: Bigint!): Enterprise
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_by_union_pk(_inc: EnterpriseIncInput, _set: EnterpriseSetInput, enterprise_id: String!): Enterprise
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_by_union_pk(enterprise_id: String!): Enterprise
 }

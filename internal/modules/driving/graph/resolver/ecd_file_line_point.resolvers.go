@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteEcdFileLinePointByPk(ctx context.Context, Id in
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteEcdFileLinePointByUnionPk(ctx context.Context, unionId string) (*model1.EcdFileLinePoint, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.EcdFileLinePoint
+	tx := db.DB.Model(&model1.EcdFileLinePoint{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertEcdFileLinePoint(ctx context.Context, objects []*model.EcdFileLinePointInsertInput) (*model.EcdFileLinePointMutationResponse, error) {
 	rs := make([]*model1.EcdFileLinePoint, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateEcdFileLinePointByPk(ctx context.Context, inc *
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateEcdFileLinePointByUnionPk(ctx context.Context, inc *model.EcdFileLinePointIncInput, set *model.EcdFileLinePointSetInput, unionId string) (*model1.EcdFileLinePoint, error) {
+	var rs model1.EcdFileLinePoint
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.EcdFileLinePoint{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) EcdFileLinePoint(ctx context.Context, distinctOn []model.EcdFileLinePointSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileLinePointOrderBy, where *model.EcdFileLinePointBoolExp) ([]*model1.EcdFileLinePoint, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.EcdFileLinePoint{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) EcdFileLinePointAggregate(ctx context.Context, distinctO
 func (r *queryResolver) EcdFileLinePointByPk(ctx context.Context, Id int64) (*model1.EcdFileLinePoint, error) {
 	var rs model1.EcdFileLinePoint
 	tx := db.DB.Model(&model1.EcdFileLinePoint{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) EcdFileLinePointByUnionPk(ctx context.Context, unionId string) (*model1.EcdFileLinePoint, error) {
+	var rs model1.EcdFileLinePoint
+	tx := db.DB.Model(&model1.EcdFileLinePoint{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

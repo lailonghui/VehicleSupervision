@@ -326,6 +326,10 @@ extend type Query {
 	主键查询
 	"""
 	data_dictionary_by_pk(id: Bigint!): DataDictionary!
+	"""
+	联合主键查询
+	"""
+	data_dictionary_by_union_pk(dictionary_id: String!): DataDictionary!
 }
 extend type Mutation {
 	"""
@@ -349,7 +353,15 @@ extend type Mutation {
 	"""
 	update_data_dictionary(_inc: DataDictionaryIncInput, _set: DataDictionarySetInput, where: DataDictionaryBoolExp!): DataDictionaryMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_data_dictionary_by_pk(_inc: DataDictionaryIncInput, _set: DataDictionarySetInput, id: Bigint!): DataDictionary
+	"""
+	根据联合主键更新
+	"""
+	update_data_dictionary_by_union_pk(_inc: DataDictionaryIncInput, _set: DataDictionarySetInput, dictionary_id: String!): DataDictionary
+	"""
+	根据联合主键删除记录
+	"""
+	delete_data_dictionary_by_union_pk(dictionary_id: String!): DataDictionary
 }

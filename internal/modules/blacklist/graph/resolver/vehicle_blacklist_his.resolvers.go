@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteVehicleBlacklistHisByPk(ctx context.Context, Id
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteVehicleBlacklistHisByUnionPk(ctx context.Context, unionId string) (*model1.VehicleBlacklistHis, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.VehicleBlacklistHis
+	tx := db.DB.Model(&model1.VehicleBlacklistHis{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertVehicleBlacklistHis(ctx context.Context, objects []*model.VehicleBlacklistHisInsertInput) (*model.VehicleBlacklistHisMutationResponse, error) {
 	rs := make([]*model1.VehicleBlacklistHis, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateVehicleBlacklistHisByPk(ctx context.Context, in
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateVehicleBlacklistHisByUnionPk(ctx context.Context, inc *model.VehicleBlacklistHisIncInput, set *model.VehicleBlacklistHisSetInput, unionId string) (*model1.VehicleBlacklistHis, error) {
+	var rs model1.VehicleBlacklistHis
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.VehicleBlacklistHis{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) VehicleBlacklistHis(ctx context.Context, distinctOn []model.VehicleBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.VehicleBlacklistHisOrderBy, where *model.VehicleBlacklistHisBoolExp) ([]*model1.VehicleBlacklistHis, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.VehicleBlacklistHis{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) VehicleBlacklistHisAggregate(ctx context.Context, distin
 func (r *queryResolver) VehicleBlacklistHisByPk(ctx context.Context, Id int64) (*model1.VehicleBlacklistHis, error) {
 	var rs model1.VehicleBlacklistHis
 	tx := db.DB.Model(&model1.VehicleBlacklistHis{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) VehicleBlacklistHisByUnionPk(ctx context.Context, unionId string) (*model1.VehicleBlacklistHis, error) {
+	var rs model1.VehicleBlacklistHis
+	tx := db.DB.Model(&model1.VehicleBlacklistHis{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

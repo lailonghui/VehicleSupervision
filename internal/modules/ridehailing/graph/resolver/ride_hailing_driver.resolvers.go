@@ -65,6 +65,29 @@ func (r *mutationResolver) DeleteRideHailingDriverByPk(ctx context.Context, Id i
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteRideHailingDriverByUnionPk(ctx context.Context, unionId string) (*model1.RideHailingDriver, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.RideHailingDriver
+	tx := db.DB.Model(&model1.RideHailingDriver{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertRideHailingDriver(ctx context.Context, objects []*model.RideHailingDriverInsertInput) (*model.RideHailingDriverMutationResponse, error) {
 	rs := make([]*model1.RideHailingDriver, 0)
 	for _, object := range objects {
@@ -145,6 +168,22 @@ func (r *mutationResolver) UpdateRideHailingDriverByPk(ctx context.Context, inc 
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateRideHailingDriverByUnionPk(ctx context.Context, inc *model.RideHailingDriverIncInput, set *model.RideHailingDriverSetInput, unionId string) (*model1.RideHailingDriver, error) {
+	var rs model1.RideHailingDriver
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.RideHailingDriver{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) RideHailingDriver(ctx context.Context, distinctOn []model.RideHailingDriverSelectColumn, limit *int, offset *int, orderBy []*model.RideHailingDriverOrderBy, where *model.RideHailingDriverBoolExp) ([]*model1.RideHailingDriver, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.RideHailingDriver{})
 	tx := qt.DistinctOn(distinctOn).
@@ -179,6 +218,14 @@ func (r *queryResolver) RideHailingDriverAggregate(ctx context.Context, distinct
 func (r *queryResolver) RideHailingDriverByPk(ctx context.Context, Id int64) (*model1.RideHailingDriver, error) {
 	var rs model1.RideHailingDriver
 	tx := db.DB.Model(&model1.RideHailingDriver{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) RideHailingDriverByUnionPk(ctx context.Context, unionId string) (*model1.RideHailingDriver, error) {
+	var rs model1.RideHailingDriver
+	tx := db.DB.Model(&model1.RideHailingDriver{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

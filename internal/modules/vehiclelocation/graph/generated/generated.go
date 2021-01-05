@@ -3117,7 +3117,7 @@ extend type Mutation {
 	"""
 	update_vehicle_location_his(_inc: VehicleLocationHisIncInput, _set: VehicleLocationHisSetInput, where: VehicleLocationHisBoolExp!): VehicleLocationHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_location_his_by_pk(_inc: VehicleLocationHisIncInput, _set: VehicleLocationHisSetInput, id: Bigint!): VehicleLocationHis
 }
@@ -3660,7 +3660,7 @@ extend type Mutation {
 	"""
 	update_vehicle_location_last(_inc: VehicleLocationLastIncInput, _set: VehicleLocationLastSetInput, where: VehicleLocationLastBoolExp!): VehicleLocationLastMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_location_last_by_pk(_inc: VehicleLocationLastIncInput, _set: VehicleLocationLastSetInput, id: Bigint!): VehicleLocationLast
 }

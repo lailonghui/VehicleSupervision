@@ -428,6 +428,10 @@ extend type Query {
 	主键查询
 	"""
 	control_line_by_pk(id: Bigint!): ControlLine!
+	"""
+	联合主键查询
+	"""
+	control_line_by_union_pk(control_line_id: String!): ControlLine!
 }
 extend type Mutation {
 	"""
@@ -451,7 +455,15 @@ extend type Mutation {
 	"""
 	update_control_line(_inc: ControlLineIncInput, _set: ControlLineSetInput, where: ControlLineBoolExp!): ControlLineMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_control_line_by_pk(_inc: ControlLineIncInput, _set: ControlLineSetInput, id: Bigint!): ControlLine
+	"""
+	根据联合主键更新
+	"""
+	update_control_line_by_union_pk(_inc: ControlLineIncInput, _set: ControlLineSetInput, control_line_id: String!): ControlLine
+	"""
+	根据联合主键删除记录
+	"""
+	delete_control_line_by_union_pk(control_line_id: String!): ControlLine
 }

@@ -650,6 +650,10 @@ extend type Query {
 	主键查询
 	"""
 	terminal_check_by_pk(id: Bigint!): TerminalCheck!
+	"""
+	联合主键查询
+	"""
+	terminal_check_by_union_pk(terminal_check_id: String!): TerminalCheck!
 }
 extend type Mutation {
 	"""
@@ -673,7 +677,15 @@ extend type Mutation {
 	"""
 	update_terminal_check(_inc: TerminalCheckIncInput, _set: TerminalCheckSetInput, where: TerminalCheckBoolExp!): TerminalCheckMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_check_by_pk(_inc: TerminalCheckIncInput, _set: TerminalCheckSetInput, id: Bigint!): TerminalCheck
+	"""
+	根据联合主键更新
+	"""
+	update_terminal_check_by_union_pk(_inc: TerminalCheckIncInput, _set: TerminalCheckSetInput, terminal_check_id: String!): TerminalCheck
+	"""
+	根据联合主键删除记录
+	"""
+	delete_terminal_check_by_union_pk(terminal_check_id: String!): TerminalCheck
 }

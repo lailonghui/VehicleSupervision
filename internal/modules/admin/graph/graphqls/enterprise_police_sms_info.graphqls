@@ -359,6 +359,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_police_sms_info_by_pk(id: Bigint!): EnterprisePoliceSmsInfo!
+	"""
+	联合主键查询
+	"""
+	enterprise_police_sms_info_by_union_pk(enterprise_police_sms_info_id: String!): EnterprisePoliceSmsInfo!
 }
 extend type Mutation {
 	"""
@@ -382,7 +386,15 @@ extend type Mutation {
 	"""
 	update_enterprise_police_sms_info(_inc: EnterprisePoliceSmsInfoIncInput, _set: EnterprisePoliceSmsInfoSetInput, where: EnterprisePoliceSmsInfoBoolExp!): EnterprisePoliceSmsInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_police_sms_info_by_pk(_inc: EnterprisePoliceSmsInfoIncInput, _set: EnterprisePoliceSmsInfoSetInput, id: Bigint!): EnterprisePoliceSmsInfo
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_police_sms_info_by_union_pk(_inc: EnterprisePoliceSmsInfoIncInput, _set: EnterprisePoliceSmsInfoSetInput, enterprise_police_sms_info_id: String!): EnterprisePoliceSmsInfo
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_police_sms_info_by_union_pk(enterprise_police_sms_info_id: String!): EnterprisePoliceSmsInfo
 }

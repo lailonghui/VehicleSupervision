@@ -2104,171 +2104,225 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteControlLine                      func(childComplexity int, where model.ControlLineBoolExp) int
-		DeleteControlLineByPk                  func(childComplexity int, id int64) int
-		DeleteControlLineTime                  func(childComplexity int, where model.ControlLineTimeBoolExp) int
-		DeleteControlLineTimeByPk              func(childComplexity int, id int64) int
-		DeleteEcdFileCheckHis                  func(childComplexity int, where model.EcdFileCheckHisBoolExp) int
-		DeleteEcdFileCheckHisByPk              func(childComplexity int, id int64) int
-		DeleteEcdFileDistrict                  func(childComplexity int, where model.EcdFileDistrictBoolExp) int
-		DeleteEcdFileDistrictByPk              func(childComplexity int, id int64) int
-		DeleteEcdFileLinePoint                 func(childComplexity int, where model.EcdFileLinePointBoolExp) int
-		DeleteEcdFileLinePointByPk             func(childComplexity int, id int64) int
-		DeleteEcdFileMain                      func(childComplexity int, where model.EcdFileMainBoolExp) int
-		DeleteEcdFileMainByPk                  func(childComplexity int, id int64) int
-		DeleteEcdFileMainSub                   func(childComplexity int, where model.EcdFileMainSubBoolExp) int
-		DeleteEcdFileMainSubByPk               func(childComplexity int, id int64) int
-		DeleteEcdFileVehicle                   func(childComplexity int, where model.EcdFileVehicleBoolExp) int
-		DeleteEcdFileVehicleByPk               func(childComplexity int, id int64) int
-		DeleteEcdFileVehicleTime               func(childComplexity int, where model.EcdFileVehicleTimeBoolExp) int
-		DeleteEcdFileVehicleTimeByPk           func(childComplexity int, id int64) int
-		DeleteEcdLine                          func(childComplexity int, where model.EcdLineBoolExp) int
-		DeleteEcdLineByPk                      func(childComplexity int, id int64) int
-		DeleteElectricFence                    func(childComplexity int, where model.ElectricFenceBoolExp) int
-		DeleteElectricFenceByPk                func(childComplexity int, id int64) int
-		DeleteElectricFenceEnteranceRecord     func(childComplexity int, where model.ElectricFenceEnteranceRecordBoolExp) int
-		DeleteElectricFenceEnteranceRecordByPk func(childComplexity int, id int64) int
-		DeleteLimitSpeedLine                   func(childComplexity int, where model.LimitSpeedLineBoolExp) int
-		DeleteLimitSpeedLineByPk               func(childComplexity int, id int64) int
-		DeleteLimitSpeedLineTime               func(childComplexity int, where model.LimitSpeedLineTimeBoolExp) int
-		DeleteLimitSpeedLineTimeByPk           func(childComplexity int, id int64) int
-		DeleteLimitSpeedPlan                   func(childComplexity int, where model.LimitSpeedPlanBoolExp) int
-		DeleteLimitSpeedPlanByPk               func(childComplexity int, id int64) int
-		DeleteLimitSpeedPlanDetail             func(childComplexity int, where model.LimitSpeedPlanDetailBoolExp) int
-		DeleteLimitSpeedPlanDetailByPk         func(childComplexity int, id int64) int
-		DeleteVehicleNightTravelRecord         func(childComplexity int, where model.VehicleNightTravelRecordBoolExp) int
-		DeleteVehicleNightTravelRecordByPk     func(childComplexity int, id int64) int
-		DeleteVehicleStopTravelRecord          func(childComplexity int, where model.VehicleStopTravelRecordBoolExp) int
-		DeleteVehicleStopTravelRecordByPk      func(childComplexity int, id int64) int
-		InsertControlLine                      func(childComplexity int, objects []*model.ControlLineInsertInput) int
-		InsertControlLineOne                   func(childComplexity int, objects model.ControlLineInsertInput) int
-		InsertControlLineTime                  func(childComplexity int, objects []*model.ControlLineTimeInsertInput) int
-		InsertControlLineTimeOne               func(childComplexity int, objects model.ControlLineTimeInsertInput) int
-		InsertEcdFileCheckHis                  func(childComplexity int, objects []*model.EcdFileCheckHisInsertInput) int
-		InsertEcdFileCheckHisOne               func(childComplexity int, objects model.EcdFileCheckHisInsertInput) int
-		InsertEcdFileDistrict                  func(childComplexity int, objects []*model.EcdFileDistrictInsertInput) int
-		InsertEcdFileDistrictOne               func(childComplexity int, objects model.EcdFileDistrictInsertInput) int
-		InsertEcdFileLinePoint                 func(childComplexity int, objects []*model.EcdFileLinePointInsertInput) int
-		InsertEcdFileLinePointOne              func(childComplexity int, objects model.EcdFileLinePointInsertInput) int
-		InsertEcdFileMain                      func(childComplexity int, objects []*model.EcdFileMainInsertInput) int
-		InsertEcdFileMainOne                   func(childComplexity int, objects model.EcdFileMainInsertInput) int
-		InsertEcdFileMainSub                   func(childComplexity int, objects []*model.EcdFileMainSubInsertInput) int
-		InsertEcdFileMainSubOne                func(childComplexity int, objects model.EcdFileMainSubInsertInput) int
-		InsertEcdFileVehicle                   func(childComplexity int, objects []*model.EcdFileVehicleInsertInput) int
-		InsertEcdFileVehicleOne                func(childComplexity int, objects model.EcdFileVehicleInsertInput) int
-		InsertEcdFileVehicleTime               func(childComplexity int, objects []*model.EcdFileVehicleTimeInsertInput) int
-		InsertEcdFileVehicleTimeOne            func(childComplexity int, objects model.EcdFileVehicleTimeInsertInput) int
-		InsertEcdLine                          func(childComplexity int, objects []*model.EcdLineInsertInput) int
-		InsertEcdLineOne                       func(childComplexity int, objects model.EcdLineInsertInput) int
-		InsertElectricFence                    func(childComplexity int, objects []*model.ElectricFenceInsertInput) int
-		InsertElectricFenceEnteranceRecord     func(childComplexity int, objects []*model.ElectricFenceEnteranceRecordInsertInput) int
-		InsertElectricFenceEnteranceRecordOne  func(childComplexity int, objects model.ElectricFenceEnteranceRecordInsertInput) int
-		InsertElectricFenceOne                 func(childComplexity int, objects model.ElectricFenceInsertInput) int
-		InsertLimitSpeedLine                   func(childComplexity int, objects []*model.LimitSpeedLineInsertInput) int
-		InsertLimitSpeedLineOne                func(childComplexity int, objects model.LimitSpeedLineInsertInput) int
-		InsertLimitSpeedLineTime               func(childComplexity int, objects []*model.LimitSpeedLineTimeInsertInput) int
-		InsertLimitSpeedLineTimeOne            func(childComplexity int, objects model.LimitSpeedLineTimeInsertInput) int
-		InsertLimitSpeedPlan                   func(childComplexity int, objects []*model.LimitSpeedPlanInsertInput) int
-		InsertLimitSpeedPlanDetail             func(childComplexity int, objects []*model.LimitSpeedPlanDetailInsertInput) int
-		InsertLimitSpeedPlanDetailOne          func(childComplexity int, objects model.LimitSpeedPlanDetailInsertInput) int
-		InsertLimitSpeedPlanOne                func(childComplexity int, objects model.LimitSpeedPlanInsertInput) int
-		InsertVehicleNightTravelRecord         func(childComplexity int, objects []*model.VehicleNightTravelRecordInsertInput) int
-		InsertVehicleNightTravelRecordOne      func(childComplexity int, objects model.VehicleNightTravelRecordInsertInput) int
-		InsertVehicleStopTravelRecord          func(childComplexity int, objects []*model.VehicleStopTravelRecordInsertInput) int
-		InsertVehicleStopTravelRecordOne       func(childComplexity int, objects model.VehicleStopTravelRecordInsertInput) int
-		UpdateControlLine                      func(childComplexity int, inc *model.ControlLineIncInput, set *model.ControlLineSetInput, where model.ControlLineBoolExp) int
-		UpdateControlLineByPk                  func(childComplexity int, inc *model.ControlLineIncInput, set *model.ControlLineSetInput, id int64) int
-		UpdateControlLineTime                  func(childComplexity int, inc *model.ControlLineTimeIncInput, set *model.ControlLineTimeSetInput, where model.ControlLineTimeBoolExp) int
-		UpdateControlLineTimeByPk              func(childComplexity int, inc *model.ControlLineTimeIncInput, set *model.ControlLineTimeSetInput, id int64) int
-		UpdateEcdFileCheckHis                  func(childComplexity int, inc *model.EcdFileCheckHisIncInput, set *model.EcdFileCheckHisSetInput, where model.EcdFileCheckHisBoolExp) int
-		UpdateEcdFileCheckHisByPk              func(childComplexity int, inc *model.EcdFileCheckHisIncInput, set *model.EcdFileCheckHisSetInput, id int64) int
-		UpdateEcdFileDistrict                  func(childComplexity int, inc *model.EcdFileDistrictIncInput, set *model.EcdFileDistrictSetInput, where model.EcdFileDistrictBoolExp) int
-		UpdateEcdFileDistrictByPk              func(childComplexity int, inc *model.EcdFileDistrictIncInput, set *model.EcdFileDistrictSetInput, id int64) int
-		UpdateEcdFileLinePoint                 func(childComplexity int, inc *model.EcdFileLinePointIncInput, set *model.EcdFileLinePointSetInput, where model.EcdFileLinePointBoolExp) int
-		UpdateEcdFileLinePointByPk             func(childComplexity int, inc *model.EcdFileLinePointIncInput, set *model.EcdFileLinePointSetInput, id int64) int
-		UpdateEcdFileMain                      func(childComplexity int, inc *model.EcdFileMainIncInput, set *model.EcdFileMainSetInput, where model.EcdFileMainBoolExp) int
-		UpdateEcdFileMainByPk                  func(childComplexity int, inc *model.EcdFileMainIncInput, set *model.EcdFileMainSetInput, id int64) int
-		UpdateEcdFileMainSub                   func(childComplexity int, inc *model.EcdFileMainSubIncInput, set *model.EcdFileMainSubSetInput, where model.EcdFileMainSubBoolExp) int
-		UpdateEcdFileMainSubByPk               func(childComplexity int, inc *model.EcdFileMainSubIncInput, set *model.EcdFileMainSubSetInput, id int64) int
-		UpdateEcdFileVehicle                   func(childComplexity int, inc *model.EcdFileVehicleIncInput, set *model.EcdFileVehicleSetInput, where model.EcdFileVehicleBoolExp) int
-		UpdateEcdFileVehicleByPk               func(childComplexity int, inc *model.EcdFileVehicleIncInput, set *model.EcdFileVehicleSetInput, id int64) int
-		UpdateEcdFileVehicleTime               func(childComplexity int, inc *model.EcdFileVehicleTimeIncInput, set *model.EcdFileVehicleTimeSetInput, where model.EcdFileVehicleTimeBoolExp) int
-		UpdateEcdFileVehicleTimeByPk           func(childComplexity int, inc *model.EcdFileVehicleTimeIncInput, set *model.EcdFileVehicleTimeSetInput, id int64) int
-		UpdateEcdLine                          func(childComplexity int, inc *model.EcdLineIncInput, set *model.EcdLineSetInput, where model.EcdLineBoolExp) int
-		UpdateEcdLineByPk                      func(childComplexity int, inc *model.EcdLineIncInput, set *model.EcdLineSetInput, id int64) int
-		UpdateElectricFence                    func(childComplexity int, inc *model.ElectricFenceIncInput, set *model.ElectricFenceSetInput, where model.ElectricFenceBoolExp) int
-		UpdateElectricFenceByPk                func(childComplexity int, inc *model.ElectricFenceIncInput, set *model.ElectricFenceSetInput, id int64) int
-		UpdateElectricFenceEnteranceRecord     func(childComplexity int, inc *model.ElectricFenceEnteranceRecordIncInput, set *model.ElectricFenceEnteranceRecordSetInput, where model.ElectricFenceEnteranceRecordBoolExp) int
-		UpdateElectricFenceEnteranceRecordByPk func(childComplexity int, inc *model.ElectricFenceEnteranceRecordIncInput, set *model.ElectricFenceEnteranceRecordSetInput, id int64) int
-		UpdateLimitSpeedLine                   func(childComplexity int, inc *model.LimitSpeedLineIncInput, set *model.LimitSpeedLineSetInput, where model.LimitSpeedLineBoolExp) int
-		UpdateLimitSpeedLineByPk               func(childComplexity int, inc *model.LimitSpeedLineIncInput, set *model.LimitSpeedLineSetInput, id int64) int
-		UpdateLimitSpeedLineTime               func(childComplexity int, inc *model.LimitSpeedLineTimeIncInput, set *model.LimitSpeedLineTimeSetInput, where model.LimitSpeedLineTimeBoolExp) int
-		UpdateLimitSpeedLineTimeByPk           func(childComplexity int, inc *model.LimitSpeedLineTimeIncInput, set *model.LimitSpeedLineTimeSetInput, id int64) int
-		UpdateLimitSpeedPlan                   func(childComplexity int, inc *model.LimitSpeedPlanIncInput, set *model.LimitSpeedPlanSetInput, where model.LimitSpeedPlanBoolExp) int
-		UpdateLimitSpeedPlanByPk               func(childComplexity int, inc *model.LimitSpeedPlanIncInput, set *model.LimitSpeedPlanSetInput, id int64) int
-		UpdateLimitSpeedPlanDetail             func(childComplexity int, inc *model.LimitSpeedPlanDetailIncInput, set *model.LimitSpeedPlanDetailSetInput, where model.LimitSpeedPlanDetailBoolExp) int
-		UpdateLimitSpeedPlanDetailByPk         func(childComplexity int, inc *model.LimitSpeedPlanDetailIncInput, set *model.LimitSpeedPlanDetailSetInput, id int64) int
-		UpdateVehicleNightTravelRecord         func(childComplexity int, inc *model.VehicleNightTravelRecordIncInput, set *model.VehicleNightTravelRecordSetInput, where model.VehicleNightTravelRecordBoolExp) int
-		UpdateVehicleNightTravelRecordByPk     func(childComplexity int, inc *model.VehicleNightTravelRecordIncInput, set *model.VehicleNightTravelRecordSetInput, id int64) int
-		UpdateVehicleStopTravelRecord          func(childComplexity int, inc *model.VehicleStopTravelRecordIncInput, set *model.VehicleStopTravelRecordSetInput, where model.VehicleStopTravelRecordBoolExp) int
-		UpdateVehicleStopTravelRecordByPk      func(childComplexity int, inc *model.VehicleStopTravelRecordIncInput, set *model.VehicleStopTravelRecordSetInput, id int64) int
+		DeleteControlLine                           func(childComplexity int, where model.ControlLineBoolExp) int
+		DeleteControlLineByPk                       func(childComplexity int, id int64) int
+		DeleteControlLineByUnionPk                  func(childComplexity int, controlLineID string) int
+		DeleteControlLineTime                       func(childComplexity int, where model.ControlLineTimeBoolExp) int
+		DeleteControlLineTimeByPk                   func(childComplexity int, id int64) int
+		DeleteControlLineTimeByUnionPk              func(childComplexity int, controlLineTimeID string) int
+		DeleteEcdFileCheckHis                       func(childComplexity int, where model.EcdFileCheckHisBoolExp) int
+		DeleteEcdFileCheckHisByPk                   func(childComplexity int, id int64) int
+		DeleteEcdFileCheckHisByUnionPk              func(childComplexity int, hisID string) int
+		DeleteEcdFileDistrict                       func(childComplexity int, where model.EcdFileDistrictBoolExp) int
+		DeleteEcdFileDistrictByPk                   func(childComplexity int, id int64) int
+		DeleteEcdFileDistrictByUnionPk              func(childComplexity int, fileDistrictID string) int
+		DeleteEcdFileLinePoint                      func(childComplexity int, where model.EcdFileLinePointBoolExp) int
+		DeleteEcdFileLinePointByPk                  func(childComplexity int, id int64) int
+		DeleteEcdFileLinePointByUnionPk             func(childComplexity int, linePointID string) int
+		DeleteEcdFileMain                           func(childComplexity int, where model.EcdFileMainBoolExp) int
+		DeleteEcdFileMainByPk                       func(childComplexity int, id int64) int
+		DeleteEcdFileMainByUnionPk                  func(childComplexity int, fileMainID string) int
+		DeleteEcdFileMainSub                        func(childComplexity int, where model.EcdFileMainSubBoolExp) int
+		DeleteEcdFileMainSubByPk                    func(childComplexity int, id int64) int
+		DeleteEcdFileMainSubByUnionPk               func(childComplexity int, fileMainSubID string) int
+		DeleteEcdFileVehicle                        func(childComplexity int, where model.EcdFileVehicleBoolExp) int
+		DeleteEcdFileVehicleByPk                    func(childComplexity int, id int64) int
+		DeleteEcdFileVehicleByUnionPk               func(childComplexity int, fileVehicleID string) int
+		DeleteEcdFileVehicleTime                    func(childComplexity int, where model.EcdFileVehicleTimeBoolExp) int
+		DeleteEcdFileVehicleTimeByPk                func(childComplexity int, id int64) int
+		DeleteEcdFileVehicleTimeByUnionPk           func(childComplexity int, vehicleTimeID string) int
+		DeleteEcdLine                               func(childComplexity int, where model.EcdLineBoolExp) int
+		DeleteEcdLineByPk                           func(childComplexity int, id int64) int
+		DeleteEcdLineByUnionPk                      func(childComplexity int, lineID string) int
+		DeleteElectricFence                         func(childComplexity int, where model.ElectricFenceBoolExp) int
+		DeleteElectricFenceByPk                     func(childComplexity int, id int64) int
+		DeleteElectricFenceByUnionPk                func(childComplexity int, electricFenceID string) int
+		DeleteElectricFenceEnteranceRecord          func(childComplexity int, where model.ElectricFenceEnteranceRecordBoolExp) int
+		DeleteElectricFenceEnteranceRecordByPk      func(childComplexity int, id int64) int
+		DeleteElectricFenceEnteranceRecordByUnionPk func(childComplexity int, recordID string) int
+		DeleteLimitSpeedLine                        func(childComplexity int, where model.LimitSpeedLineBoolExp) int
+		DeleteLimitSpeedLineByPk                    func(childComplexity int, id int64) int
+		DeleteLimitSpeedLineByUnionPk               func(childComplexity int, limitSpeedLineID string) int
+		DeleteLimitSpeedLineTime                    func(childComplexity int, where model.LimitSpeedLineTimeBoolExp) int
+		DeleteLimitSpeedLineTimeByPk                func(childComplexity int, id int64) int
+		DeleteLimitSpeedLineTimeByUnionPk           func(childComplexity int, limitSpeedLineTimeID string) int
+		DeleteLimitSpeedPlan                        func(childComplexity int, where model.LimitSpeedPlanBoolExp) int
+		DeleteLimitSpeedPlanByPk                    func(childComplexity int, id int64) int
+		DeleteLimitSpeedPlanByUnionPk               func(childComplexity int, limitSpeedPlanID string) int
+		DeleteLimitSpeedPlanDetail                  func(childComplexity int, where model.LimitSpeedPlanDetailBoolExp) int
+		DeleteLimitSpeedPlanDetailByPk              func(childComplexity int, id int64) int
+		DeleteLimitSpeedPlanDetailByUnionPk         func(childComplexity int, detailID string) int
+		DeleteVehicleNightTravelRecord              func(childComplexity int, where model.VehicleNightTravelRecordBoolExp) int
+		DeleteVehicleNightTravelRecordByPk          func(childComplexity int, id int64) int
+		DeleteVehicleNightTravelRecordByUnionPk     func(childComplexity int, recordID string) int
+		DeleteVehicleStopTravelRecord               func(childComplexity int, where model.VehicleStopTravelRecordBoolExp) int
+		DeleteVehicleStopTravelRecordByPk           func(childComplexity int, id int64) int
+		DeleteVehicleStopTravelRecordByUnionPk      func(childComplexity int, recordID string) int
+		InsertControlLine                           func(childComplexity int, objects []*model.ControlLineInsertInput) int
+		InsertControlLineOne                        func(childComplexity int, objects model.ControlLineInsertInput) int
+		InsertControlLineTime                       func(childComplexity int, objects []*model.ControlLineTimeInsertInput) int
+		InsertControlLineTimeOne                    func(childComplexity int, objects model.ControlLineTimeInsertInput) int
+		InsertEcdFileCheckHis                       func(childComplexity int, objects []*model.EcdFileCheckHisInsertInput) int
+		InsertEcdFileCheckHisOne                    func(childComplexity int, objects model.EcdFileCheckHisInsertInput) int
+		InsertEcdFileDistrict                       func(childComplexity int, objects []*model.EcdFileDistrictInsertInput) int
+		InsertEcdFileDistrictOne                    func(childComplexity int, objects model.EcdFileDistrictInsertInput) int
+		InsertEcdFileLinePoint                      func(childComplexity int, objects []*model.EcdFileLinePointInsertInput) int
+		InsertEcdFileLinePointOne                   func(childComplexity int, objects model.EcdFileLinePointInsertInput) int
+		InsertEcdFileMain                           func(childComplexity int, objects []*model.EcdFileMainInsertInput) int
+		InsertEcdFileMainOne                        func(childComplexity int, objects model.EcdFileMainInsertInput) int
+		InsertEcdFileMainSub                        func(childComplexity int, objects []*model.EcdFileMainSubInsertInput) int
+		InsertEcdFileMainSubOne                     func(childComplexity int, objects model.EcdFileMainSubInsertInput) int
+		InsertEcdFileVehicle                        func(childComplexity int, objects []*model.EcdFileVehicleInsertInput) int
+		InsertEcdFileVehicleOne                     func(childComplexity int, objects model.EcdFileVehicleInsertInput) int
+		InsertEcdFileVehicleTime                    func(childComplexity int, objects []*model.EcdFileVehicleTimeInsertInput) int
+		InsertEcdFileVehicleTimeOne                 func(childComplexity int, objects model.EcdFileVehicleTimeInsertInput) int
+		InsertEcdLine                               func(childComplexity int, objects []*model.EcdLineInsertInput) int
+		InsertEcdLineOne                            func(childComplexity int, objects model.EcdLineInsertInput) int
+		InsertElectricFence                         func(childComplexity int, objects []*model.ElectricFenceInsertInput) int
+		InsertElectricFenceEnteranceRecord          func(childComplexity int, objects []*model.ElectricFenceEnteranceRecordInsertInput) int
+		InsertElectricFenceEnteranceRecordOne       func(childComplexity int, objects model.ElectricFenceEnteranceRecordInsertInput) int
+		InsertElectricFenceOne                      func(childComplexity int, objects model.ElectricFenceInsertInput) int
+		InsertLimitSpeedLine                        func(childComplexity int, objects []*model.LimitSpeedLineInsertInput) int
+		InsertLimitSpeedLineOne                     func(childComplexity int, objects model.LimitSpeedLineInsertInput) int
+		InsertLimitSpeedLineTime                    func(childComplexity int, objects []*model.LimitSpeedLineTimeInsertInput) int
+		InsertLimitSpeedLineTimeOne                 func(childComplexity int, objects model.LimitSpeedLineTimeInsertInput) int
+		InsertLimitSpeedPlan                        func(childComplexity int, objects []*model.LimitSpeedPlanInsertInput) int
+		InsertLimitSpeedPlanDetail                  func(childComplexity int, objects []*model.LimitSpeedPlanDetailInsertInput) int
+		InsertLimitSpeedPlanDetailOne               func(childComplexity int, objects model.LimitSpeedPlanDetailInsertInput) int
+		InsertLimitSpeedPlanOne                     func(childComplexity int, objects model.LimitSpeedPlanInsertInput) int
+		InsertVehicleNightTravelRecord              func(childComplexity int, objects []*model.VehicleNightTravelRecordInsertInput) int
+		InsertVehicleNightTravelRecordOne           func(childComplexity int, objects model.VehicleNightTravelRecordInsertInput) int
+		InsertVehicleStopTravelRecord               func(childComplexity int, objects []*model.VehicleStopTravelRecordInsertInput) int
+		InsertVehicleStopTravelRecordOne            func(childComplexity int, objects model.VehicleStopTravelRecordInsertInput) int
+		UpdateControlLine                           func(childComplexity int, inc *model.ControlLineIncInput, set *model.ControlLineSetInput, where model.ControlLineBoolExp) int
+		UpdateControlLineByPk                       func(childComplexity int, inc *model.ControlLineIncInput, set *model.ControlLineSetInput, id int64) int
+		UpdateControlLineByUnionPk                  func(childComplexity int, inc *model.ControlLineIncInput, set *model.ControlLineSetInput, controlLineID string) int
+		UpdateControlLineTime                       func(childComplexity int, inc *model.ControlLineTimeIncInput, set *model.ControlLineTimeSetInput, where model.ControlLineTimeBoolExp) int
+		UpdateControlLineTimeByPk                   func(childComplexity int, inc *model.ControlLineTimeIncInput, set *model.ControlLineTimeSetInput, id int64) int
+		UpdateControlLineTimeByUnionPk              func(childComplexity int, inc *model.ControlLineTimeIncInput, set *model.ControlLineTimeSetInput, controlLineTimeID string) int
+		UpdateEcdFileCheckHis                       func(childComplexity int, inc *model.EcdFileCheckHisIncInput, set *model.EcdFileCheckHisSetInput, where model.EcdFileCheckHisBoolExp) int
+		UpdateEcdFileCheckHisByPk                   func(childComplexity int, inc *model.EcdFileCheckHisIncInput, set *model.EcdFileCheckHisSetInput, id int64) int
+		UpdateEcdFileCheckHisByUnionPk              func(childComplexity int, inc *model.EcdFileCheckHisIncInput, set *model.EcdFileCheckHisSetInput, hisID string) int
+		UpdateEcdFileDistrict                       func(childComplexity int, inc *model.EcdFileDistrictIncInput, set *model.EcdFileDistrictSetInput, where model.EcdFileDistrictBoolExp) int
+		UpdateEcdFileDistrictByPk                   func(childComplexity int, inc *model.EcdFileDistrictIncInput, set *model.EcdFileDistrictSetInput, id int64) int
+		UpdateEcdFileDistrictByUnionPk              func(childComplexity int, inc *model.EcdFileDistrictIncInput, set *model.EcdFileDistrictSetInput, fileDistrictID string) int
+		UpdateEcdFileLinePoint                      func(childComplexity int, inc *model.EcdFileLinePointIncInput, set *model.EcdFileLinePointSetInput, where model.EcdFileLinePointBoolExp) int
+		UpdateEcdFileLinePointByPk                  func(childComplexity int, inc *model.EcdFileLinePointIncInput, set *model.EcdFileLinePointSetInput, id int64) int
+		UpdateEcdFileLinePointByUnionPk             func(childComplexity int, inc *model.EcdFileLinePointIncInput, set *model.EcdFileLinePointSetInput, linePointID string) int
+		UpdateEcdFileMain                           func(childComplexity int, inc *model.EcdFileMainIncInput, set *model.EcdFileMainSetInput, where model.EcdFileMainBoolExp) int
+		UpdateEcdFileMainByPk                       func(childComplexity int, inc *model.EcdFileMainIncInput, set *model.EcdFileMainSetInput, id int64) int
+		UpdateEcdFileMainByUnionPk                  func(childComplexity int, inc *model.EcdFileMainIncInput, set *model.EcdFileMainSetInput, fileMainID string) int
+		UpdateEcdFileMainSub                        func(childComplexity int, inc *model.EcdFileMainSubIncInput, set *model.EcdFileMainSubSetInput, where model.EcdFileMainSubBoolExp) int
+		UpdateEcdFileMainSubByPk                    func(childComplexity int, inc *model.EcdFileMainSubIncInput, set *model.EcdFileMainSubSetInput, id int64) int
+		UpdateEcdFileMainSubByUnionPk               func(childComplexity int, inc *model.EcdFileMainSubIncInput, set *model.EcdFileMainSubSetInput, fileMainSubID string) int
+		UpdateEcdFileVehicle                        func(childComplexity int, inc *model.EcdFileVehicleIncInput, set *model.EcdFileVehicleSetInput, where model.EcdFileVehicleBoolExp) int
+		UpdateEcdFileVehicleByPk                    func(childComplexity int, inc *model.EcdFileVehicleIncInput, set *model.EcdFileVehicleSetInput, id int64) int
+		UpdateEcdFileVehicleByUnionPk               func(childComplexity int, inc *model.EcdFileVehicleIncInput, set *model.EcdFileVehicleSetInput, fileVehicleID string) int
+		UpdateEcdFileVehicleTime                    func(childComplexity int, inc *model.EcdFileVehicleTimeIncInput, set *model.EcdFileVehicleTimeSetInput, where model.EcdFileVehicleTimeBoolExp) int
+		UpdateEcdFileVehicleTimeByPk                func(childComplexity int, inc *model.EcdFileVehicleTimeIncInput, set *model.EcdFileVehicleTimeSetInput, id int64) int
+		UpdateEcdFileVehicleTimeByUnionPk           func(childComplexity int, inc *model.EcdFileVehicleTimeIncInput, set *model.EcdFileVehicleTimeSetInput, vehicleTimeID string) int
+		UpdateEcdLine                               func(childComplexity int, inc *model.EcdLineIncInput, set *model.EcdLineSetInput, where model.EcdLineBoolExp) int
+		UpdateEcdLineByPk                           func(childComplexity int, inc *model.EcdLineIncInput, set *model.EcdLineSetInput, id int64) int
+		UpdateEcdLineByUnionPk                      func(childComplexity int, inc *model.EcdLineIncInput, set *model.EcdLineSetInput, lineID string) int
+		UpdateElectricFence                         func(childComplexity int, inc *model.ElectricFenceIncInput, set *model.ElectricFenceSetInput, where model.ElectricFenceBoolExp) int
+		UpdateElectricFenceByPk                     func(childComplexity int, inc *model.ElectricFenceIncInput, set *model.ElectricFenceSetInput, id int64) int
+		UpdateElectricFenceByUnionPk                func(childComplexity int, inc *model.ElectricFenceIncInput, set *model.ElectricFenceSetInput, electricFenceID string) int
+		UpdateElectricFenceEnteranceRecord          func(childComplexity int, inc *model.ElectricFenceEnteranceRecordIncInput, set *model.ElectricFenceEnteranceRecordSetInput, where model.ElectricFenceEnteranceRecordBoolExp) int
+		UpdateElectricFenceEnteranceRecordByPk      func(childComplexity int, inc *model.ElectricFenceEnteranceRecordIncInput, set *model.ElectricFenceEnteranceRecordSetInput, id int64) int
+		UpdateElectricFenceEnteranceRecordByUnionPk func(childComplexity int, inc *model.ElectricFenceEnteranceRecordIncInput, set *model.ElectricFenceEnteranceRecordSetInput, recordID string) int
+		UpdateLimitSpeedLine                        func(childComplexity int, inc *model.LimitSpeedLineIncInput, set *model.LimitSpeedLineSetInput, where model.LimitSpeedLineBoolExp) int
+		UpdateLimitSpeedLineByPk                    func(childComplexity int, inc *model.LimitSpeedLineIncInput, set *model.LimitSpeedLineSetInput, id int64) int
+		UpdateLimitSpeedLineByUnionPk               func(childComplexity int, inc *model.LimitSpeedLineIncInput, set *model.LimitSpeedLineSetInput, limitSpeedLineID string) int
+		UpdateLimitSpeedLineTime                    func(childComplexity int, inc *model.LimitSpeedLineTimeIncInput, set *model.LimitSpeedLineTimeSetInput, where model.LimitSpeedLineTimeBoolExp) int
+		UpdateLimitSpeedLineTimeByPk                func(childComplexity int, inc *model.LimitSpeedLineTimeIncInput, set *model.LimitSpeedLineTimeSetInput, id int64) int
+		UpdateLimitSpeedLineTimeByUnionPk           func(childComplexity int, inc *model.LimitSpeedLineTimeIncInput, set *model.LimitSpeedLineTimeSetInput, limitSpeedLineTimeID string) int
+		UpdateLimitSpeedPlan                        func(childComplexity int, inc *model.LimitSpeedPlanIncInput, set *model.LimitSpeedPlanSetInput, where model.LimitSpeedPlanBoolExp) int
+		UpdateLimitSpeedPlanByPk                    func(childComplexity int, inc *model.LimitSpeedPlanIncInput, set *model.LimitSpeedPlanSetInput, id int64) int
+		UpdateLimitSpeedPlanByUnionPk               func(childComplexity int, inc *model.LimitSpeedPlanIncInput, set *model.LimitSpeedPlanSetInput, limitSpeedPlanID string) int
+		UpdateLimitSpeedPlanDetail                  func(childComplexity int, inc *model.LimitSpeedPlanDetailIncInput, set *model.LimitSpeedPlanDetailSetInput, where model.LimitSpeedPlanDetailBoolExp) int
+		UpdateLimitSpeedPlanDetailByPk              func(childComplexity int, inc *model.LimitSpeedPlanDetailIncInput, set *model.LimitSpeedPlanDetailSetInput, id int64) int
+		UpdateLimitSpeedPlanDetailByUnionPk         func(childComplexity int, inc *model.LimitSpeedPlanDetailIncInput, set *model.LimitSpeedPlanDetailSetInput, detailID string) int
+		UpdateVehicleNightTravelRecord              func(childComplexity int, inc *model.VehicleNightTravelRecordIncInput, set *model.VehicleNightTravelRecordSetInput, where model.VehicleNightTravelRecordBoolExp) int
+		UpdateVehicleNightTravelRecordByPk          func(childComplexity int, inc *model.VehicleNightTravelRecordIncInput, set *model.VehicleNightTravelRecordSetInput, id int64) int
+		UpdateVehicleNightTravelRecordByUnionPk     func(childComplexity int, inc *model.VehicleNightTravelRecordIncInput, set *model.VehicleNightTravelRecordSetInput, recordID string) int
+		UpdateVehicleStopTravelRecord               func(childComplexity int, inc *model.VehicleStopTravelRecordIncInput, set *model.VehicleStopTravelRecordSetInput, where model.VehicleStopTravelRecordBoolExp) int
+		UpdateVehicleStopTravelRecordByPk           func(childComplexity int, inc *model.VehicleStopTravelRecordIncInput, set *model.VehicleStopTravelRecordSetInput, id int64) int
+		UpdateVehicleStopTravelRecordByUnionPk      func(childComplexity int, inc *model.VehicleStopTravelRecordIncInput, set *model.VehicleStopTravelRecordSetInput, recordID string) int
 	}
 
 	Query struct {
 		ControlLine                           func(childComplexity int, distinctOn []model.ControlLineSelectColumn, limit *int, offset *int, orderBy []*model.ControlLineOrderBy, where *model.ControlLineBoolExp) int
 		ControlLineAggregate                  func(childComplexity int, distinctOn []model.ControlLineSelectColumn, limit *int, offset *int, orderBy []*model.ControlLineOrderBy, where *model.ControlLineBoolExp) int
 		ControlLineByPk                       func(childComplexity int, id int64) int
+		ControlLineByUnionPk                  func(childComplexity int, controlLineID string) int
 		ControlLineTime                       func(childComplexity int, distinctOn []model.ControlLineTimeSelectColumn, limit *int, offset *int, orderBy []*model.ControlLineTimeOrderBy, where *model.ControlLineTimeBoolExp) int
 		ControlLineTimeAggregate              func(childComplexity int, distinctOn []model.ControlLineTimeSelectColumn, limit *int, offset *int, orderBy []*model.ControlLineTimeOrderBy, where *model.ControlLineTimeBoolExp) int
 		ControlLineTimeByPk                   func(childComplexity int, id int64) int
+		ControlLineTimeByUnionPk              func(childComplexity int, controlLineTimeID string) int
 		EcdFileCheckHis                       func(childComplexity int, distinctOn []model.EcdFileCheckHisSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileCheckHisOrderBy, where *model.EcdFileCheckHisBoolExp) int
 		EcdFileCheckHisAggregate              func(childComplexity int, distinctOn []model.EcdFileCheckHisSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileCheckHisOrderBy, where *model.EcdFileCheckHisBoolExp) int
 		EcdFileCheckHisByPk                   func(childComplexity int, id int64) int
+		EcdFileCheckHisByUnionPk              func(childComplexity int, hisID string) int
 		EcdFileDistrict                       func(childComplexity int, distinctOn []model.EcdFileDistrictSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileDistrictOrderBy, where *model.EcdFileDistrictBoolExp) int
 		EcdFileDistrictAggregate              func(childComplexity int, distinctOn []model.EcdFileDistrictSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileDistrictOrderBy, where *model.EcdFileDistrictBoolExp) int
 		EcdFileDistrictByPk                   func(childComplexity int, id int64) int
+		EcdFileDistrictByUnionPk              func(childComplexity int, fileDistrictID string) int
 		EcdFileLinePoint                      func(childComplexity int, distinctOn []model.EcdFileLinePointSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileLinePointOrderBy, where *model.EcdFileLinePointBoolExp) int
 		EcdFileLinePointAggregate             func(childComplexity int, distinctOn []model.EcdFileLinePointSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileLinePointOrderBy, where *model.EcdFileLinePointBoolExp) int
 		EcdFileLinePointByPk                  func(childComplexity int, id int64) int
+		EcdFileLinePointByUnionPk             func(childComplexity int, linePointID string) int
 		EcdFileMain                           func(childComplexity int, distinctOn []model.EcdFileMainSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainOrderBy, where *model.EcdFileMainBoolExp) int
 		EcdFileMainAggregate                  func(childComplexity int, distinctOn []model.EcdFileMainSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainOrderBy, where *model.EcdFileMainBoolExp) int
 		EcdFileMainByPk                       func(childComplexity int, id int64) int
+		EcdFileMainByUnionPk                  func(childComplexity int, fileMainID string) int
 		EcdFileMainSub                        func(childComplexity int, distinctOn []model.EcdFileMainSubSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainSubOrderBy, where *model.EcdFileMainSubBoolExp) int
 		EcdFileMainSubAggregate               func(childComplexity int, distinctOn []model.EcdFileMainSubSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainSubOrderBy, where *model.EcdFileMainSubBoolExp) int
 		EcdFileMainSubByPk                    func(childComplexity int, id int64) int
+		EcdFileMainSubByUnionPk               func(childComplexity int, fileMainSubID string) int
 		EcdFileVehicle                        func(childComplexity int, distinctOn []model.EcdFileVehicleSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileVehicleOrderBy, where *model.EcdFileVehicleBoolExp) int
 		EcdFileVehicleAggregate               func(childComplexity int, distinctOn []model.EcdFileVehicleSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileVehicleOrderBy, where *model.EcdFileVehicleBoolExp) int
 		EcdFileVehicleByPk                    func(childComplexity int, id int64) int
+		EcdFileVehicleByUnionPk               func(childComplexity int, fileVehicleID string) int
 		EcdFileVehicleTime                    func(childComplexity int, distinctOn []model.EcdFileVehicleTimeSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileVehicleTimeOrderBy, where *model.EcdFileVehicleTimeBoolExp) int
 		EcdFileVehicleTimeAggregate           func(childComplexity int, distinctOn []model.EcdFileVehicleTimeSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileVehicleTimeOrderBy, where *model.EcdFileVehicleTimeBoolExp) int
 		EcdFileVehicleTimeByPk                func(childComplexity int, id int64) int
+		EcdFileVehicleTimeByUnionPk           func(childComplexity int, vehicleTimeID string) int
 		EcdLine                               func(childComplexity int, distinctOn []model.EcdLineSelectColumn, limit *int, offset *int, orderBy []*model.EcdLineOrderBy, where *model.EcdLineBoolExp) int
 		EcdLineAggregate                      func(childComplexity int, distinctOn []model.EcdLineSelectColumn, limit *int, offset *int, orderBy []*model.EcdLineOrderBy, where *model.EcdLineBoolExp) int
 		EcdLineByPk                           func(childComplexity int, id int64) int
+		EcdLineByUnionPk                      func(childComplexity int, lineID string) int
 		ElectricFence                         func(childComplexity int, distinctOn []model.ElectricFenceSelectColumn, limit *int, offset *int, orderBy []*model.ElectricFenceOrderBy, where *model.ElectricFenceBoolExp) int
 		ElectricFenceAggregate                func(childComplexity int, distinctOn []model.ElectricFenceSelectColumn, limit *int, offset *int, orderBy []*model.ElectricFenceOrderBy, where *model.ElectricFenceBoolExp) int
 		ElectricFenceByPk                     func(childComplexity int, id int64) int
+		ElectricFenceByUnionPk                func(childComplexity int, electricFenceID string) int
 		ElectricFenceEnteranceRecord          func(childComplexity int, distinctOn []model.ElectricFenceEnteranceRecordSelectColumn, limit *int, offset *int, orderBy []*model.ElectricFenceEnteranceRecordOrderBy, where *model.ElectricFenceEnteranceRecordBoolExp) int
 		ElectricFenceEnteranceRecordAggregate func(childComplexity int, distinctOn []model.ElectricFenceEnteranceRecordSelectColumn, limit *int, offset *int, orderBy []*model.ElectricFenceEnteranceRecordOrderBy, where *model.ElectricFenceEnteranceRecordBoolExp) int
 		ElectricFenceEnteranceRecordByPk      func(childComplexity int, id int64) int
+		ElectricFenceEnteranceRecordByUnionPk func(childComplexity int, recordID string) int
 		LimitSpeedLine                        func(childComplexity int, distinctOn []model.LimitSpeedLineSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedLineOrderBy, where *model.LimitSpeedLineBoolExp) int
 		LimitSpeedLineAggregate               func(childComplexity int, distinctOn []model.LimitSpeedLineSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedLineOrderBy, where *model.LimitSpeedLineBoolExp) int
 		LimitSpeedLineByPk                    func(childComplexity int, id int64) int
+		LimitSpeedLineByUnionPk               func(childComplexity int, limitSpeedLineID string) int
 		LimitSpeedLineTime                    func(childComplexity int, distinctOn []model.LimitSpeedLineTimeSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedLineTimeOrderBy, where *model.LimitSpeedLineTimeBoolExp) int
 		LimitSpeedLineTimeAggregate           func(childComplexity int, distinctOn []model.LimitSpeedLineTimeSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedLineTimeOrderBy, where *model.LimitSpeedLineTimeBoolExp) int
 		LimitSpeedLineTimeByPk                func(childComplexity int, id int64) int
+		LimitSpeedLineTimeByUnionPk           func(childComplexity int, limitSpeedLineTimeID string) int
 		LimitSpeedPlan                        func(childComplexity int, distinctOn []model.LimitSpeedPlanSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedPlanOrderBy, where *model.LimitSpeedPlanBoolExp) int
 		LimitSpeedPlanAggregate               func(childComplexity int, distinctOn []model.LimitSpeedPlanSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedPlanOrderBy, where *model.LimitSpeedPlanBoolExp) int
 		LimitSpeedPlanByPk                    func(childComplexity int, id int64) int
+		LimitSpeedPlanByUnionPk               func(childComplexity int, limitSpeedPlanID string) int
 		LimitSpeedPlanDetail                  func(childComplexity int, distinctOn []model.LimitSpeedPlanDetailSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedPlanDetailOrderBy, where *model.LimitSpeedPlanDetailBoolExp) int
 		LimitSpeedPlanDetailAggregate         func(childComplexity int, distinctOn []model.LimitSpeedPlanDetailSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedPlanDetailOrderBy, where *model.LimitSpeedPlanDetailBoolExp) int
 		LimitSpeedPlanDetailByPk              func(childComplexity int, id int64) int
+		LimitSpeedPlanDetailByUnionPk         func(childComplexity int, detailID string) int
 		VehicleNightTravelRecord              func(childComplexity int, distinctOn []model.VehicleNightTravelRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleNightTravelRecordOrderBy, where *model.VehicleNightTravelRecordBoolExp) int
 		VehicleNightTravelRecordAggregate     func(childComplexity int, distinctOn []model.VehicleNightTravelRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleNightTravelRecordOrderBy, where *model.VehicleNightTravelRecordBoolExp) int
 		VehicleNightTravelRecordByPk          func(childComplexity int, id int64) int
+		VehicleNightTravelRecordByUnionPk     func(childComplexity int, recordID string) int
 		VehicleStopTravelRecord               func(childComplexity int, distinctOn []model.VehicleStopTravelRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleStopTravelRecordOrderBy, where *model.VehicleStopTravelRecordBoolExp) int
 		VehicleStopTravelRecordAggregate      func(childComplexity int, distinctOn []model.VehicleStopTravelRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleStopTravelRecordOrderBy, where *model.VehicleStopTravelRecordBoolExp) int
 		VehicleStopTravelRecordByPk           func(childComplexity int, id int64) int
+		VehicleStopTravelRecordByUnionPk      func(childComplexity int, recordID string) int
 	}
 
 	VehicleNightTravelRecord struct {
@@ -2545,164 +2599,218 @@ type MutationResolver interface {
 	InsertControlLineOne(ctx context.Context, objects model.ControlLineInsertInput) (*model1.ControlLine, error)
 	UpdateControlLine(ctx context.Context, inc *model.ControlLineIncInput, set *model.ControlLineSetInput, where model.ControlLineBoolExp) (*model.ControlLineMutationResponse, error)
 	UpdateControlLineByPk(ctx context.Context, inc *model.ControlLineIncInput, set *model.ControlLineSetInput, id int64) (*model1.ControlLine, error)
+	UpdateControlLineByUnionPk(ctx context.Context, inc *model.ControlLineIncInput, set *model.ControlLineSetInput, controlLineID string) (*model1.ControlLine, error)
+	DeleteControlLineByUnionPk(ctx context.Context, controlLineID string) (*model1.ControlLine, error)
 	DeleteControlLineTime(ctx context.Context, where model.ControlLineTimeBoolExp) (*model.ControlLineTimeMutationResponse, error)
 	DeleteControlLineTimeByPk(ctx context.Context, id int64) (*model1.ControlLineTime, error)
 	InsertControlLineTime(ctx context.Context, objects []*model.ControlLineTimeInsertInput) (*model.ControlLineTimeMutationResponse, error)
 	InsertControlLineTimeOne(ctx context.Context, objects model.ControlLineTimeInsertInput) (*model1.ControlLineTime, error)
 	UpdateControlLineTime(ctx context.Context, inc *model.ControlLineTimeIncInput, set *model.ControlLineTimeSetInput, where model.ControlLineTimeBoolExp) (*model.ControlLineTimeMutationResponse, error)
 	UpdateControlLineTimeByPk(ctx context.Context, inc *model.ControlLineTimeIncInput, set *model.ControlLineTimeSetInput, id int64) (*model1.ControlLineTime, error)
+	UpdateControlLineTimeByUnionPk(ctx context.Context, inc *model.ControlLineTimeIncInput, set *model.ControlLineTimeSetInput, controlLineTimeID string) (*model1.ControlLineTime, error)
+	DeleteControlLineTimeByUnionPk(ctx context.Context, controlLineTimeID string) (*model1.ControlLineTime, error)
 	DeleteEcdFileCheckHis(ctx context.Context, where model.EcdFileCheckHisBoolExp) (*model.EcdFileCheckHisMutationResponse, error)
 	DeleteEcdFileCheckHisByPk(ctx context.Context, id int64) (*model1.EcdFileCheckHis, error)
 	InsertEcdFileCheckHis(ctx context.Context, objects []*model.EcdFileCheckHisInsertInput) (*model.EcdFileCheckHisMutationResponse, error)
 	InsertEcdFileCheckHisOne(ctx context.Context, objects model.EcdFileCheckHisInsertInput) (*model1.EcdFileCheckHis, error)
 	UpdateEcdFileCheckHis(ctx context.Context, inc *model.EcdFileCheckHisIncInput, set *model.EcdFileCheckHisSetInput, where model.EcdFileCheckHisBoolExp) (*model.EcdFileCheckHisMutationResponse, error)
 	UpdateEcdFileCheckHisByPk(ctx context.Context, inc *model.EcdFileCheckHisIncInput, set *model.EcdFileCheckHisSetInput, id int64) (*model1.EcdFileCheckHis, error)
+	UpdateEcdFileCheckHisByUnionPk(ctx context.Context, inc *model.EcdFileCheckHisIncInput, set *model.EcdFileCheckHisSetInput, hisID string) (*model1.EcdFileCheckHis, error)
+	DeleteEcdFileCheckHisByUnionPk(ctx context.Context, hisID string) (*model1.EcdFileCheckHis, error)
 	DeleteEcdFileDistrict(ctx context.Context, where model.EcdFileDistrictBoolExp) (*model.EcdFileDistrictMutationResponse, error)
 	DeleteEcdFileDistrictByPk(ctx context.Context, id int64) (*model1.EcdFileDistrict, error)
 	InsertEcdFileDistrict(ctx context.Context, objects []*model.EcdFileDistrictInsertInput) (*model.EcdFileDistrictMutationResponse, error)
 	InsertEcdFileDistrictOne(ctx context.Context, objects model.EcdFileDistrictInsertInput) (*model1.EcdFileDistrict, error)
 	UpdateEcdFileDistrict(ctx context.Context, inc *model.EcdFileDistrictIncInput, set *model.EcdFileDistrictSetInput, where model.EcdFileDistrictBoolExp) (*model.EcdFileDistrictMutationResponse, error)
 	UpdateEcdFileDistrictByPk(ctx context.Context, inc *model.EcdFileDistrictIncInput, set *model.EcdFileDistrictSetInput, id int64) (*model1.EcdFileDistrict, error)
+	UpdateEcdFileDistrictByUnionPk(ctx context.Context, inc *model.EcdFileDistrictIncInput, set *model.EcdFileDistrictSetInput, fileDistrictID string) (*model1.EcdFileDistrict, error)
+	DeleteEcdFileDistrictByUnionPk(ctx context.Context, fileDistrictID string) (*model1.EcdFileDistrict, error)
 	DeleteEcdFileLinePoint(ctx context.Context, where model.EcdFileLinePointBoolExp) (*model.EcdFileLinePointMutationResponse, error)
 	DeleteEcdFileLinePointByPk(ctx context.Context, id int64) (*model1.EcdFileLinePoint, error)
 	InsertEcdFileLinePoint(ctx context.Context, objects []*model.EcdFileLinePointInsertInput) (*model.EcdFileLinePointMutationResponse, error)
 	InsertEcdFileLinePointOne(ctx context.Context, objects model.EcdFileLinePointInsertInput) (*model1.EcdFileLinePoint, error)
 	UpdateEcdFileLinePoint(ctx context.Context, inc *model.EcdFileLinePointIncInput, set *model.EcdFileLinePointSetInput, where model.EcdFileLinePointBoolExp) (*model.EcdFileLinePointMutationResponse, error)
 	UpdateEcdFileLinePointByPk(ctx context.Context, inc *model.EcdFileLinePointIncInput, set *model.EcdFileLinePointSetInput, id int64) (*model1.EcdFileLinePoint, error)
+	UpdateEcdFileLinePointByUnionPk(ctx context.Context, inc *model.EcdFileLinePointIncInput, set *model.EcdFileLinePointSetInput, linePointID string) (*model1.EcdFileLinePoint, error)
+	DeleteEcdFileLinePointByUnionPk(ctx context.Context, linePointID string) (*model1.EcdFileLinePoint, error)
 	DeleteEcdFileMain(ctx context.Context, where model.EcdFileMainBoolExp) (*model.EcdFileMainMutationResponse, error)
 	DeleteEcdFileMainByPk(ctx context.Context, id int64) (*model1.EcdFileMain, error)
 	InsertEcdFileMain(ctx context.Context, objects []*model.EcdFileMainInsertInput) (*model.EcdFileMainMutationResponse, error)
 	InsertEcdFileMainOne(ctx context.Context, objects model.EcdFileMainInsertInput) (*model1.EcdFileMain, error)
 	UpdateEcdFileMain(ctx context.Context, inc *model.EcdFileMainIncInput, set *model.EcdFileMainSetInput, where model.EcdFileMainBoolExp) (*model.EcdFileMainMutationResponse, error)
 	UpdateEcdFileMainByPk(ctx context.Context, inc *model.EcdFileMainIncInput, set *model.EcdFileMainSetInput, id int64) (*model1.EcdFileMain, error)
+	UpdateEcdFileMainByUnionPk(ctx context.Context, inc *model.EcdFileMainIncInput, set *model.EcdFileMainSetInput, fileMainID string) (*model1.EcdFileMain, error)
+	DeleteEcdFileMainByUnionPk(ctx context.Context, fileMainID string) (*model1.EcdFileMain, error)
 	DeleteEcdFileMainSub(ctx context.Context, where model.EcdFileMainSubBoolExp) (*model.EcdFileMainSubMutationResponse, error)
 	DeleteEcdFileMainSubByPk(ctx context.Context, id int64) (*model1.EcdFileMainSub, error)
 	InsertEcdFileMainSub(ctx context.Context, objects []*model.EcdFileMainSubInsertInput) (*model.EcdFileMainSubMutationResponse, error)
 	InsertEcdFileMainSubOne(ctx context.Context, objects model.EcdFileMainSubInsertInput) (*model1.EcdFileMainSub, error)
 	UpdateEcdFileMainSub(ctx context.Context, inc *model.EcdFileMainSubIncInput, set *model.EcdFileMainSubSetInput, where model.EcdFileMainSubBoolExp) (*model.EcdFileMainSubMutationResponse, error)
 	UpdateEcdFileMainSubByPk(ctx context.Context, inc *model.EcdFileMainSubIncInput, set *model.EcdFileMainSubSetInput, id int64) (*model1.EcdFileMainSub, error)
+	UpdateEcdFileMainSubByUnionPk(ctx context.Context, inc *model.EcdFileMainSubIncInput, set *model.EcdFileMainSubSetInput, fileMainSubID string) (*model1.EcdFileMainSub, error)
+	DeleteEcdFileMainSubByUnionPk(ctx context.Context, fileMainSubID string) (*model1.EcdFileMainSub, error)
 	DeleteEcdFileVehicle(ctx context.Context, where model.EcdFileVehicleBoolExp) (*model.EcdFileVehicleMutationResponse, error)
 	DeleteEcdFileVehicleByPk(ctx context.Context, id int64) (*model1.EcdFileVehicle, error)
 	InsertEcdFileVehicle(ctx context.Context, objects []*model.EcdFileVehicleInsertInput) (*model.EcdFileVehicleMutationResponse, error)
 	InsertEcdFileVehicleOne(ctx context.Context, objects model.EcdFileVehicleInsertInput) (*model1.EcdFileVehicle, error)
 	UpdateEcdFileVehicle(ctx context.Context, inc *model.EcdFileVehicleIncInput, set *model.EcdFileVehicleSetInput, where model.EcdFileVehicleBoolExp) (*model.EcdFileVehicleMutationResponse, error)
 	UpdateEcdFileVehicleByPk(ctx context.Context, inc *model.EcdFileVehicleIncInput, set *model.EcdFileVehicleSetInput, id int64) (*model1.EcdFileVehicle, error)
+	UpdateEcdFileVehicleByUnionPk(ctx context.Context, inc *model.EcdFileVehicleIncInput, set *model.EcdFileVehicleSetInput, fileVehicleID string) (*model1.EcdFileVehicle, error)
+	DeleteEcdFileVehicleByUnionPk(ctx context.Context, fileVehicleID string) (*model1.EcdFileVehicle, error)
 	DeleteEcdFileVehicleTime(ctx context.Context, where model.EcdFileVehicleTimeBoolExp) (*model.EcdFileVehicleTimeMutationResponse, error)
 	DeleteEcdFileVehicleTimeByPk(ctx context.Context, id int64) (*model1.EcdFileVehicleTime, error)
 	InsertEcdFileVehicleTime(ctx context.Context, objects []*model.EcdFileVehicleTimeInsertInput) (*model.EcdFileVehicleTimeMutationResponse, error)
 	InsertEcdFileVehicleTimeOne(ctx context.Context, objects model.EcdFileVehicleTimeInsertInput) (*model1.EcdFileVehicleTime, error)
 	UpdateEcdFileVehicleTime(ctx context.Context, inc *model.EcdFileVehicleTimeIncInput, set *model.EcdFileVehicleTimeSetInput, where model.EcdFileVehicleTimeBoolExp) (*model.EcdFileVehicleTimeMutationResponse, error)
 	UpdateEcdFileVehicleTimeByPk(ctx context.Context, inc *model.EcdFileVehicleTimeIncInput, set *model.EcdFileVehicleTimeSetInput, id int64) (*model1.EcdFileVehicleTime, error)
+	UpdateEcdFileVehicleTimeByUnionPk(ctx context.Context, inc *model.EcdFileVehicleTimeIncInput, set *model.EcdFileVehicleTimeSetInput, vehicleTimeID string) (*model1.EcdFileVehicleTime, error)
+	DeleteEcdFileVehicleTimeByUnionPk(ctx context.Context, vehicleTimeID string) (*model1.EcdFileVehicleTime, error)
 	DeleteEcdLine(ctx context.Context, where model.EcdLineBoolExp) (*model.EcdLineMutationResponse, error)
 	DeleteEcdLineByPk(ctx context.Context, id int64) (*model1.EcdLine, error)
 	InsertEcdLine(ctx context.Context, objects []*model.EcdLineInsertInput) (*model.EcdLineMutationResponse, error)
 	InsertEcdLineOne(ctx context.Context, objects model.EcdLineInsertInput) (*model1.EcdLine, error)
 	UpdateEcdLine(ctx context.Context, inc *model.EcdLineIncInput, set *model.EcdLineSetInput, where model.EcdLineBoolExp) (*model.EcdLineMutationResponse, error)
 	UpdateEcdLineByPk(ctx context.Context, inc *model.EcdLineIncInput, set *model.EcdLineSetInput, id int64) (*model1.EcdLine, error)
+	UpdateEcdLineByUnionPk(ctx context.Context, inc *model.EcdLineIncInput, set *model.EcdLineSetInput, lineID string) (*model1.EcdLine, error)
+	DeleteEcdLineByUnionPk(ctx context.Context, lineID string) (*model1.EcdLine, error)
 	DeleteElectricFence(ctx context.Context, where model.ElectricFenceBoolExp) (*model.ElectricFenceMutationResponse, error)
 	DeleteElectricFenceByPk(ctx context.Context, id int64) (*model1.ElectricFence, error)
 	InsertElectricFence(ctx context.Context, objects []*model.ElectricFenceInsertInput) (*model.ElectricFenceMutationResponse, error)
 	InsertElectricFenceOne(ctx context.Context, objects model.ElectricFenceInsertInput) (*model1.ElectricFence, error)
 	UpdateElectricFence(ctx context.Context, inc *model.ElectricFenceIncInput, set *model.ElectricFenceSetInput, where model.ElectricFenceBoolExp) (*model.ElectricFenceMutationResponse, error)
 	UpdateElectricFenceByPk(ctx context.Context, inc *model.ElectricFenceIncInput, set *model.ElectricFenceSetInput, id int64) (*model1.ElectricFence, error)
+	UpdateElectricFenceByUnionPk(ctx context.Context, inc *model.ElectricFenceIncInput, set *model.ElectricFenceSetInput, electricFenceID string) (*model1.ElectricFence, error)
+	DeleteElectricFenceByUnionPk(ctx context.Context, electricFenceID string) (*model1.ElectricFence, error)
 	DeleteElectricFenceEnteranceRecord(ctx context.Context, where model.ElectricFenceEnteranceRecordBoolExp) (*model.ElectricFenceEnteranceRecordMutationResponse, error)
 	DeleteElectricFenceEnteranceRecordByPk(ctx context.Context, id int64) (*model1.ElectricFenceEnteranceRecord, error)
 	InsertElectricFenceEnteranceRecord(ctx context.Context, objects []*model.ElectricFenceEnteranceRecordInsertInput) (*model.ElectricFenceEnteranceRecordMutationResponse, error)
 	InsertElectricFenceEnteranceRecordOne(ctx context.Context, objects model.ElectricFenceEnteranceRecordInsertInput) (*model1.ElectricFenceEnteranceRecord, error)
 	UpdateElectricFenceEnteranceRecord(ctx context.Context, inc *model.ElectricFenceEnteranceRecordIncInput, set *model.ElectricFenceEnteranceRecordSetInput, where model.ElectricFenceEnteranceRecordBoolExp) (*model.ElectricFenceEnteranceRecordMutationResponse, error)
 	UpdateElectricFenceEnteranceRecordByPk(ctx context.Context, inc *model.ElectricFenceEnteranceRecordIncInput, set *model.ElectricFenceEnteranceRecordSetInput, id int64) (*model1.ElectricFenceEnteranceRecord, error)
+	UpdateElectricFenceEnteranceRecordByUnionPk(ctx context.Context, inc *model.ElectricFenceEnteranceRecordIncInput, set *model.ElectricFenceEnteranceRecordSetInput, recordID string) (*model1.ElectricFenceEnteranceRecord, error)
+	DeleteElectricFenceEnteranceRecordByUnionPk(ctx context.Context, recordID string) (*model1.ElectricFenceEnteranceRecord, error)
 	DeleteLimitSpeedLine(ctx context.Context, where model.LimitSpeedLineBoolExp) (*model.LimitSpeedLineMutationResponse, error)
 	DeleteLimitSpeedLineByPk(ctx context.Context, id int64) (*model1.LimitSpeedLine, error)
 	InsertLimitSpeedLine(ctx context.Context, objects []*model.LimitSpeedLineInsertInput) (*model.LimitSpeedLineMutationResponse, error)
 	InsertLimitSpeedLineOne(ctx context.Context, objects model.LimitSpeedLineInsertInput) (*model1.LimitSpeedLine, error)
 	UpdateLimitSpeedLine(ctx context.Context, inc *model.LimitSpeedLineIncInput, set *model.LimitSpeedLineSetInput, where model.LimitSpeedLineBoolExp) (*model.LimitSpeedLineMutationResponse, error)
 	UpdateLimitSpeedLineByPk(ctx context.Context, inc *model.LimitSpeedLineIncInput, set *model.LimitSpeedLineSetInput, id int64) (*model1.LimitSpeedLine, error)
+	UpdateLimitSpeedLineByUnionPk(ctx context.Context, inc *model.LimitSpeedLineIncInput, set *model.LimitSpeedLineSetInput, limitSpeedLineID string) (*model1.LimitSpeedLine, error)
+	DeleteLimitSpeedLineByUnionPk(ctx context.Context, limitSpeedLineID string) (*model1.LimitSpeedLine, error)
 	DeleteLimitSpeedLineTime(ctx context.Context, where model.LimitSpeedLineTimeBoolExp) (*model.LimitSpeedLineTimeMutationResponse, error)
 	DeleteLimitSpeedLineTimeByPk(ctx context.Context, id int64) (*model1.LimitSpeedLineTime, error)
 	InsertLimitSpeedLineTime(ctx context.Context, objects []*model.LimitSpeedLineTimeInsertInput) (*model.LimitSpeedLineTimeMutationResponse, error)
 	InsertLimitSpeedLineTimeOne(ctx context.Context, objects model.LimitSpeedLineTimeInsertInput) (*model1.LimitSpeedLineTime, error)
 	UpdateLimitSpeedLineTime(ctx context.Context, inc *model.LimitSpeedLineTimeIncInput, set *model.LimitSpeedLineTimeSetInput, where model.LimitSpeedLineTimeBoolExp) (*model.LimitSpeedLineTimeMutationResponse, error)
 	UpdateLimitSpeedLineTimeByPk(ctx context.Context, inc *model.LimitSpeedLineTimeIncInput, set *model.LimitSpeedLineTimeSetInput, id int64) (*model1.LimitSpeedLineTime, error)
+	UpdateLimitSpeedLineTimeByUnionPk(ctx context.Context, inc *model.LimitSpeedLineTimeIncInput, set *model.LimitSpeedLineTimeSetInput, limitSpeedLineTimeID string) (*model1.LimitSpeedLineTime, error)
+	DeleteLimitSpeedLineTimeByUnionPk(ctx context.Context, limitSpeedLineTimeID string) (*model1.LimitSpeedLineTime, error)
 	DeleteLimitSpeedPlan(ctx context.Context, where model.LimitSpeedPlanBoolExp) (*model.LimitSpeedPlanMutationResponse, error)
 	DeleteLimitSpeedPlanByPk(ctx context.Context, id int64) (*model1.LimitSpeedPlan, error)
 	InsertLimitSpeedPlan(ctx context.Context, objects []*model.LimitSpeedPlanInsertInput) (*model.LimitSpeedPlanMutationResponse, error)
 	InsertLimitSpeedPlanOne(ctx context.Context, objects model.LimitSpeedPlanInsertInput) (*model1.LimitSpeedPlan, error)
 	UpdateLimitSpeedPlan(ctx context.Context, inc *model.LimitSpeedPlanIncInput, set *model.LimitSpeedPlanSetInput, where model.LimitSpeedPlanBoolExp) (*model.LimitSpeedPlanMutationResponse, error)
 	UpdateLimitSpeedPlanByPk(ctx context.Context, inc *model.LimitSpeedPlanIncInput, set *model.LimitSpeedPlanSetInput, id int64) (*model1.LimitSpeedPlan, error)
+	UpdateLimitSpeedPlanByUnionPk(ctx context.Context, inc *model.LimitSpeedPlanIncInput, set *model.LimitSpeedPlanSetInput, limitSpeedPlanID string) (*model1.LimitSpeedPlan, error)
+	DeleteLimitSpeedPlanByUnionPk(ctx context.Context, limitSpeedPlanID string) (*model1.LimitSpeedPlan, error)
 	DeleteLimitSpeedPlanDetail(ctx context.Context, where model.LimitSpeedPlanDetailBoolExp) (*model.LimitSpeedPlanDetailMutationResponse, error)
 	DeleteLimitSpeedPlanDetailByPk(ctx context.Context, id int64) (*model1.LimitSpeedPlanDetail, error)
 	InsertLimitSpeedPlanDetail(ctx context.Context, objects []*model.LimitSpeedPlanDetailInsertInput) (*model.LimitSpeedPlanDetailMutationResponse, error)
 	InsertLimitSpeedPlanDetailOne(ctx context.Context, objects model.LimitSpeedPlanDetailInsertInput) (*model1.LimitSpeedPlanDetail, error)
 	UpdateLimitSpeedPlanDetail(ctx context.Context, inc *model.LimitSpeedPlanDetailIncInput, set *model.LimitSpeedPlanDetailSetInput, where model.LimitSpeedPlanDetailBoolExp) (*model.LimitSpeedPlanDetailMutationResponse, error)
 	UpdateLimitSpeedPlanDetailByPk(ctx context.Context, inc *model.LimitSpeedPlanDetailIncInput, set *model.LimitSpeedPlanDetailSetInput, id int64) (*model1.LimitSpeedPlanDetail, error)
+	UpdateLimitSpeedPlanDetailByUnionPk(ctx context.Context, inc *model.LimitSpeedPlanDetailIncInput, set *model.LimitSpeedPlanDetailSetInput, detailID string) (*model1.LimitSpeedPlanDetail, error)
+	DeleteLimitSpeedPlanDetailByUnionPk(ctx context.Context, detailID string) (*model1.LimitSpeedPlanDetail, error)
 	DeleteVehicleNightTravelRecord(ctx context.Context, where model.VehicleNightTravelRecordBoolExp) (*model.VehicleNightTravelRecordMutationResponse, error)
 	DeleteVehicleNightTravelRecordByPk(ctx context.Context, id int64) (*model1.VehicleNightTravelRecord, error)
 	InsertVehicleNightTravelRecord(ctx context.Context, objects []*model.VehicleNightTravelRecordInsertInput) (*model.VehicleNightTravelRecordMutationResponse, error)
 	InsertVehicleNightTravelRecordOne(ctx context.Context, objects model.VehicleNightTravelRecordInsertInput) (*model1.VehicleNightTravelRecord, error)
 	UpdateVehicleNightTravelRecord(ctx context.Context, inc *model.VehicleNightTravelRecordIncInput, set *model.VehicleNightTravelRecordSetInput, where model.VehicleNightTravelRecordBoolExp) (*model.VehicleNightTravelRecordMutationResponse, error)
 	UpdateVehicleNightTravelRecordByPk(ctx context.Context, inc *model.VehicleNightTravelRecordIncInput, set *model.VehicleNightTravelRecordSetInput, id int64) (*model1.VehicleNightTravelRecord, error)
+	UpdateVehicleNightTravelRecordByUnionPk(ctx context.Context, inc *model.VehicleNightTravelRecordIncInput, set *model.VehicleNightTravelRecordSetInput, recordID string) (*model1.VehicleNightTravelRecord, error)
+	DeleteVehicleNightTravelRecordByUnionPk(ctx context.Context, recordID string) (*model1.VehicleNightTravelRecord, error)
 	DeleteVehicleStopTravelRecord(ctx context.Context, where model.VehicleStopTravelRecordBoolExp) (*model.VehicleStopTravelRecordMutationResponse, error)
 	DeleteVehicleStopTravelRecordByPk(ctx context.Context, id int64) (*model1.VehicleStopTravelRecord, error)
 	InsertVehicleStopTravelRecord(ctx context.Context, objects []*model.VehicleStopTravelRecordInsertInput) (*model.VehicleStopTravelRecordMutationResponse, error)
 	InsertVehicleStopTravelRecordOne(ctx context.Context, objects model.VehicleStopTravelRecordInsertInput) (*model1.VehicleStopTravelRecord, error)
 	UpdateVehicleStopTravelRecord(ctx context.Context, inc *model.VehicleStopTravelRecordIncInput, set *model.VehicleStopTravelRecordSetInput, where model.VehicleStopTravelRecordBoolExp) (*model.VehicleStopTravelRecordMutationResponse, error)
 	UpdateVehicleStopTravelRecordByPk(ctx context.Context, inc *model.VehicleStopTravelRecordIncInput, set *model.VehicleStopTravelRecordSetInput, id int64) (*model1.VehicleStopTravelRecord, error)
+	UpdateVehicleStopTravelRecordByUnionPk(ctx context.Context, inc *model.VehicleStopTravelRecordIncInput, set *model.VehicleStopTravelRecordSetInput, recordID string) (*model1.VehicleStopTravelRecord, error)
+	DeleteVehicleStopTravelRecordByUnionPk(ctx context.Context, recordID string) (*model1.VehicleStopTravelRecord, error)
 }
 type QueryResolver interface {
 	ControlLine(ctx context.Context, distinctOn []model.ControlLineSelectColumn, limit *int, offset *int, orderBy []*model.ControlLineOrderBy, where *model.ControlLineBoolExp) ([]*model1.ControlLine, error)
 	ControlLineAggregate(ctx context.Context, distinctOn []model.ControlLineSelectColumn, limit *int, offset *int, orderBy []*model.ControlLineOrderBy, where *model.ControlLineBoolExp) (*model.ControlLineAggregate, error)
 	ControlLineByPk(ctx context.Context, id int64) (*model1.ControlLine, error)
+	ControlLineByUnionPk(ctx context.Context, controlLineID string) (*model1.ControlLine, error)
 	ControlLineTime(ctx context.Context, distinctOn []model.ControlLineTimeSelectColumn, limit *int, offset *int, orderBy []*model.ControlLineTimeOrderBy, where *model.ControlLineTimeBoolExp) ([]*model1.ControlLineTime, error)
 	ControlLineTimeAggregate(ctx context.Context, distinctOn []model.ControlLineTimeSelectColumn, limit *int, offset *int, orderBy []*model.ControlLineTimeOrderBy, where *model.ControlLineTimeBoolExp) (*model.ControlLineTimeAggregate, error)
 	ControlLineTimeByPk(ctx context.Context, id int64) (*model1.ControlLineTime, error)
+	ControlLineTimeByUnionPk(ctx context.Context, controlLineTimeID string) (*model1.ControlLineTime, error)
 	EcdFileCheckHis(ctx context.Context, distinctOn []model.EcdFileCheckHisSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileCheckHisOrderBy, where *model.EcdFileCheckHisBoolExp) ([]*model1.EcdFileCheckHis, error)
 	EcdFileCheckHisAggregate(ctx context.Context, distinctOn []model.EcdFileCheckHisSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileCheckHisOrderBy, where *model.EcdFileCheckHisBoolExp) (*model.EcdFileCheckHisAggregate, error)
 	EcdFileCheckHisByPk(ctx context.Context, id int64) (*model1.EcdFileCheckHis, error)
+	EcdFileCheckHisByUnionPk(ctx context.Context, hisID string) (*model1.EcdFileCheckHis, error)
 	EcdFileDistrict(ctx context.Context, distinctOn []model.EcdFileDistrictSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileDistrictOrderBy, where *model.EcdFileDistrictBoolExp) ([]*model1.EcdFileDistrict, error)
 	EcdFileDistrictAggregate(ctx context.Context, distinctOn []model.EcdFileDistrictSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileDistrictOrderBy, where *model.EcdFileDistrictBoolExp) (*model.EcdFileDistrictAggregate, error)
 	EcdFileDistrictByPk(ctx context.Context, id int64) (*model1.EcdFileDistrict, error)
+	EcdFileDistrictByUnionPk(ctx context.Context, fileDistrictID string) (*model1.EcdFileDistrict, error)
 	EcdFileLinePoint(ctx context.Context, distinctOn []model.EcdFileLinePointSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileLinePointOrderBy, where *model.EcdFileLinePointBoolExp) ([]*model1.EcdFileLinePoint, error)
 	EcdFileLinePointAggregate(ctx context.Context, distinctOn []model.EcdFileLinePointSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileLinePointOrderBy, where *model.EcdFileLinePointBoolExp) (*model.EcdFileLinePointAggregate, error)
 	EcdFileLinePointByPk(ctx context.Context, id int64) (*model1.EcdFileLinePoint, error)
+	EcdFileLinePointByUnionPk(ctx context.Context, linePointID string) (*model1.EcdFileLinePoint, error)
 	EcdFileMain(ctx context.Context, distinctOn []model.EcdFileMainSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainOrderBy, where *model.EcdFileMainBoolExp) ([]*model1.EcdFileMain, error)
 	EcdFileMainAggregate(ctx context.Context, distinctOn []model.EcdFileMainSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainOrderBy, where *model.EcdFileMainBoolExp) (*model.EcdFileMainAggregate, error)
 	EcdFileMainByPk(ctx context.Context, id int64) (*model1.EcdFileMain, error)
+	EcdFileMainByUnionPk(ctx context.Context, fileMainID string) (*model1.EcdFileMain, error)
 	EcdFileMainSub(ctx context.Context, distinctOn []model.EcdFileMainSubSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainSubOrderBy, where *model.EcdFileMainSubBoolExp) ([]*model1.EcdFileMainSub, error)
 	EcdFileMainSubAggregate(ctx context.Context, distinctOn []model.EcdFileMainSubSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainSubOrderBy, where *model.EcdFileMainSubBoolExp) (*model.EcdFileMainSubAggregate, error)
 	EcdFileMainSubByPk(ctx context.Context, id int64) (*model1.EcdFileMainSub, error)
+	EcdFileMainSubByUnionPk(ctx context.Context, fileMainSubID string) (*model1.EcdFileMainSub, error)
 	EcdFileVehicle(ctx context.Context, distinctOn []model.EcdFileVehicleSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileVehicleOrderBy, where *model.EcdFileVehicleBoolExp) ([]*model1.EcdFileVehicle, error)
 	EcdFileVehicleAggregate(ctx context.Context, distinctOn []model.EcdFileVehicleSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileVehicleOrderBy, where *model.EcdFileVehicleBoolExp) (*model.EcdFileVehicleAggregate, error)
 	EcdFileVehicleByPk(ctx context.Context, id int64) (*model1.EcdFileVehicle, error)
+	EcdFileVehicleByUnionPk(ctx context.Context, fileVehicleID string) (*model1.EcdFileVehicle, error)
 	EcdFileVehicleTime(ctx context.Context, distinctOn []model.EcdFileVehicleTimeSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileVehicleTimeOrderBy, where *model.EcdFileVehicleTimeBoolExp) ([]*model1.EcdFileVehicleTime, error)
 	EcdFileVehicleTimeAggregate(ctx context.Context, distinctOn []model.EcdFileVehicleTimeSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileVehicleTimeOrderBy, where *model.EcdFileVehicleTimeBoolExp) (*model.EcdFileVehicleTimeAggregate, error)
 	EcdFileVehicleTimeByPk(ctx context.Context, id int64) (*model1.EcdFileVehicleTime, error)
+	EcdFileVehicleTimeByUnionPk(ctx context.Context, vehicleTimeID string) (*model1.EcdFileVehicleTime, error)
 	EcdLine(ctx context.Context, distinctOn []model.EcdLineSelectColumn, limit *int, offset *int, orderBy []*model.EcdLineOrderBy, where *model.EcdLineBoolExp) ([]*model1.EcdLine, error)
 	EcdLineAggregate(ctx context.Context, distinctOn []model.EcdLineSelectColumn, limit *int, offset *int, orderBy []*model.EcdLineOrderBy, where *model.EcdLineBoolExp) (*model.EcdLineAggregate, error)
 	EcdLineByPk(ctx context.Context, id int64) (*model1.EcdLine, error)
+	EcdLineByUnionPk(ctx context.Context, lineID string) (*model1.EcdLine, error)
 	ElectricFence(ctx context.Context, distinctOn []model.ElectricFenceSelectColumn, limit *int, offset *int, orderBy []*model.ElectricFenceOrderBy, where *model.ElectricFenceBoolExp) ([]*model1.ElectricFence, error)
 	ElectricFenceAggregate(ctx context.Context, distinctOn []model.ElectricFenceSelectColumn, limit *int, offset *int, orderBy []*model.ElectricFenceOrderBy, where *model.ElectricFenceBoolExp) (*model.ElectricFenceAggregate, error)
 	ElectricFenceByPk(ctx context.Context, id int64) (*model1.ElectricFence, error)
+	ElectricFenceByUnionPk(ctx context.Context, electricFenceID string) (*model1.ElectricFence, error)
 	ElectricFenceEnteranceRecord(ctx context.Context, distinctOn []model.ElectricFenceEnteranceRecordSelectColumn, limit *int, offset *int, orderBy []*model.ElectricFenceEnteranceRecordOrderBy, where *model.ElectricFenceEnteranceRecordBoolExp) ([]*model1.ElectricFenceEnteranceRecord, error)
 	ElectricFenceEnteranceRecordAggregate(ctx context.Context, distinctOn []model.ElectricFenceEnteranceRecordSelectColumn, limit *int, offset *int, orderBy []*model.ElectricFenceEnteranceRecordOrderBy, where *model.ElectricFenceEnteranceRecordBoolExp) (*model.ElectricFenceEnteranceRecordAggregate, error)
 	ElectricFenceEnteranceRecordByPk(ctx context.Context, id int64) (*model1.ElectricFenceEnteranceRecord, error)
+	ElectricFenceEnteranceRecordByUnionPk(ctx context.Context, recordID string) (*model1.ElectricFenceEnteranceRecord, error)
 	LimitSpeedLine(ctx context.Context, distinctOn []model.LimitSpeedLineSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedLineOrderBy, where *model.LimitSpeedLineBoolExp) ([]*model1.LimitSpeedLine, error)
 	LimitSpeedLineAggregate(ctx context.Context, distinctOn []model.LimitSpeedLineSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedLineOrderBy, where *model.LimitSpeedLineBoolExp) (*model.LimitSpeedLineAggregate, error)
 	LimitSpeedLineByPk(ctx context.Context, id int64) (*model1.LimitSpeedLine, error)
+	LimitSpeedLineByUnionPk(ctx context.Context, limitSpeedLineID string) (*model1.LimitSpeedLine, error)
 	LimitSpeedLineTime(ctx context.Context, distinctOn []model.LimitSpeedLineTimeSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedLineTimeOrderBy, where *model.LimitSpeedLineTimeBoolExp) ([]*model1.LimitSpeedLineTime, error)
 	LimitSpeedLineTimeAggregate(ctx context.Context, distinctOn []model.LimitSpeedLineTimeSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedLineTimeOrderBy, where *model.LimitSpeedLineTimeBoolExp) (*model.LimitSpeedLineTimeAggregate, error)
 	LimitSpeedLineTimeByPk(ctx context.Context, id int64) (*model1.LimitSpeedLineTime, error)
+	LimitSpeedLineTimeByUnionPk(ctx context.Context, limitSpeedLineTimeID string) (*model1.LimitSpeedLineTime, error)
 	LimitSpeedPlan(ctx context.Context, distinctOn []model.LimitSpeedPlanSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedPlanOrderBy, where *model.LimitSpeedPlanBoolExp) ([]*model1.LimitSpeedPlan, error)
 	LimitSpeedPlanAggregate(ctx context.Context, distinctOn []model.LimitSpeedPlanSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedPlanOrderBy, where *model.LimitSpeedPlanBoolExp) (*model.LimitSpeedPlanAggregate, error)
 	LimitSpeedPlanByPk(ctx context.Context, id int64) (*model1.LimitSpeedPlan, error)
+	LimitSpeedPlanByUnionPk(ctx context.Context, limitSpeedPlanID string) (*model1.LimitSpeedPlan, error)
 	LimitSpeedPlanDetail(ctx context.Context, distinctOn []model.LimitSpeedPlanDetailSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedPlanDetailOrderBy, where *model.LimitSpeedPlanDetailBoolExp) ([]*model1.LimitSpeedPlanDetail, error)
 	LimitSpeedPlanDetailAggregate(ctx context.Context, distinctOn []model.LimitSpeedPlanDetailSelectColumn, limit *int, offset *int, orderBy []*model.LimitSpeedPlanDetailOrderBy, where *model.LimitSpeedPlanDetailBoolExp) (*model.LimitSpeedPlanDetailAggregate, error)
 	LimitSpeedPlanDetailByPk(ctx context.Context, id int64) (*model1.LimitSpeedPlanDetail, error)
+	LimitSpeedPlanDetailByUnionPk(ctx context.Context, detailID string) (*model1.LimitSpeedPlanDetail, error)
 	VehicleNightTravelRecord(ctx context.Context, distinctOn []model.VehicleNightTravelRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleNightTravelRecordOrderBy, where *model.VehicleNightTravelRecordBoolExp) ([]*model1.VehicleNightTravelRecord, error)
 	VehicleNightTravelRecordAggregate(ctx context.Context, distinctOn []model.VehicleNightTravelRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleNightTravelRecordOrderBy, where *model.VehicleNightTravelRecordBoolExp) (*model.VehicleNightTravelRecordAggregate, error)
 	VehicleNightTravelRecordByPk(ctx context.Context, id int64) (*model1.VehicleNightTravelRecord, error)
+	VehicleNightTravelRecordByUnionPk(ctx context.Context, recordID string) (*model1.VehicleNightTravelRecord, error)
 	VehicleStopTravelRecord(ctx context.Context, distinctOn []model.VehicleStopTravelRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleStopTravelRecordOrderBy, where *model.VehicleStopTravelRecordBoolExp) ([]*model1.VehicleStopTravelRecord, error)
 	VehicleStopTravelRecordAggregate(ctx context.Context, distinctOn []model.VehicleStopTravelRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleStopTravelRecordOrderBy, where *model.VehicleStopTravelRecordBoolExp) (*model.VehicleStopTravelRecordAggregate, error)
 	VehicleStopTravelRecordByPk(ctx context.Context, id int64) (*model1.VehicleStopTravelRecord, error)
+	VehicleStopTravelRecordByUnionPk(ctx context.Context, recordID string) (*model1.VehicleStopTravelRecord, error)
 }
 
 type executableSchema struct {
@@ -12432,6 +12540,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteControlLineByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_control_line_by_union_pk":
+		if e.complexity.Mutation.DeleteControlLineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_control_line_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteControlLineByUnionPk(childComplexity, args["control_line_id"].(string)), true
+
 	case "Mutation.delete_control_line_time":
 		if e.complexity.Mutation.DeleteControlLineTime == nil {
 			break
@@ -12455,6 +12575,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteControlLineTimeByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_control_line_time_by_union_pk":
+		if e.complexity.Mutation.DeleteControlLineTimeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_control_line_time_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteControlLineTimeByUnionPk(childComplexity, args["control_line_time_id"].(string)), true
 
 	case "Mutation.delete_ecd_file_check_his":
 		if e.complexity.Mutation.DeleteEcdFileCheckHis == nil {
@@ -12480,6 +12612,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEcdFileCheckHisByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_ecd_file_check_his_by_union_pk":
+		if e.complexity.Mutation.DeleteEcdFileCheckHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ecd_file_check_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEcdFileCheckHisByUnionPk(childComplexity, args["his_id"].(string)), true
+
 	case "Mutation.delete_ecd_file_district":
 		if e.complexity.Mutation.DeleteEcdFileDistrict == nil {
 			break
@@ -12503,6 +12647,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEcdFileDistrictByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_ecd_file_district_by_union_pk":
+		if e.complexity.Mutation.DeleteEcdFileDistrictByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ecd_file_district_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEcdFileDistrictByUnionPk(childComplexity, args["file_district_id"].(string)), true
 
 	case "Mutation.delete_ecd_file_line_point":
 		if e.complexity.Mutation.DeleteEcdFileLinePoint == nil {
@@ -12528,6 +12684,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEcdFileLinePointByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_ecd_file_line_point_by_union_pk":
+		if e.complexity.Mutation.DeleteEcdFileLinePointByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ecd_file_line_point_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEcdFileLinePointByUnionPk(childComplexity, args["line_point_id"].(string)), true
+
 	case "Mutation.delete_ecd_file_main":
 		if e.complexity.Mutation.DeleteEcdFileMain == nil {
 			break
@@ -12551,6 +12719,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEcdFileMainByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_ecd_file_main_by_union_pk":
+		if e.complexity.Mutation.DeleteEcdFileMainByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ecd_file_main_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEcdFileMainByUnionPk(childComplexity, args["file_main_id"].(string)), true
 
 	case "Mutation.delete_ecd_file_main_sub":
 		if e.complexity.Mutation.DeleteEcdFileMainSub == nil {
@@ -12576,6 +12756,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEcdFileMainSubByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_ecd_file_main_sub_by_union_pk":
+		if e.complexity.Mutation.DeleteEcdFileMainSubByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ecd_file_main_sub_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEcdFileMainSubByUnionPk(childComplexity, args["file_main_sub_id"].(string)), true
+
 	case "Mutation.delete_ecd_file_vehicle":
 		if e.complexity.Mutation.DeleteEcdFileVehicle == nil {
 			break
@@ -12599,6 +12791,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEcdFileVehicleByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_ecd_file_vehicle_by_union_pk":
+		if e.complexity.Mutation.DeleteEcdFileVehicleByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ecd_file_vehicle_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEcdFileVehicleByUnionPk(childComplexity, args["file_vehicle_id"].(string)), true
 
 	case "Mutation.delete_ecd_file_vehicle_time":
 		if e.complexity.Mutation.DeleteEcdFileVehicleTime == nil {
@@ -12624,6 +12828,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEcdFileVehicleTimeByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_ecd_file_vehicle_time_by_union_pk":
+		if e.complexity.Mutation.DeleteEcdFileVehicleTimeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ecd_file_vehicle_time_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEcdFileVehicleTimeByUnionPk(childComplexity, args["vehicle_time_id"].(string)), true
+
 	case "Mutation.delete_ecd_line":
 		if e.complexity.Mutation.DeleteEcdLine == nil {
 			break
@@ -12647,6 +12863,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEcdLineByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_ecd_line_by_union_pk":
+		if e.complexity.Mutation.DeleteEcdLineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ecd_line_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEcdLineByUnionPk(childComplexity, args["line_id"].(string)), true
 
 	case "Mutation.delete_electric_fence":
 		if e.complexity.Mutation.DeleteElectricFence == nil {
@@ -12672,6 +12900,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteElectricFenceByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_electric_fence_by_union_pk":
+		if e.complexity.Mutation.DeleteElectricFenceByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_electric_fence_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteElectricFenceByUnionPk(childComplexity, args["electric_fence_id"].(string)), true
+
 	case "Mutation.delete_electric_fence_enterance_record":
 		if e.complexity.Mutation.DeleteElectricFenceEnteranceRecord == nil {
 			break
@@ -12695,6 +12935,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteElectricFenceEnteranceRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_electric_fence_enterance_record_by_union_pk":
+		if e.complexity.Mutation.DeleteElectricFenceEnteranceRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_electric_fence_enterance_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteElectricFenceEnteranceRecordByUnionPk(childComplexity, args["record_id"].(string)), true
 
 	case "Mutation.delete_limit_speed_line":
 		if e.complexity.Mutation.DeleteLimitSpeedLine == nil {
@@ -12720,6 +12972,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteLimitSpeedLineByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_limit_speed_line_by_union_pk":
+		if e.complexity.Mutation.DeleteLimitSpeedLineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_limit_speed_line_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteLimitSpeedLineByUnionPk(childComplexity, args["limit_speed_line_id"].(string)), true
+
 	case "Mutation.delete_limit_speed_line_time":
 		if e.complexity.Mutation.DeleteLimitSpeedLineTime == nil {
 			break
@@ -12743,6 +13007,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteLimitSpeedLineTimeByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_limit_speed_line_time_by_union_pk":
+		if e.complexity.Mutation.DeleteLimitSpeedLineTimeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_limit_speed_line_time_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteLimitSpeedLineTimeByUnionPk(childComplexity, args["limit_speed_line_time_id"].(string)), true
 
 	case "Mutation.delete_limit_speed_plan":
 		if e.complexity.Mutation.DeleteLimitSpeedPlan == nil {
@@ -12768,6 +13044,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteLimitSpeedPlanByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_limit_speed_plan_by_union_pk":
+		if e.complexity.Mutation.DeleteLimitSpeedPlanByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_limit_speed_plan_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteLimitSpeedPlanByUnionPk(childComplexity, args["limit_speed_plan_id"].(string)), true
+
 	case "Mutation.delete_limit_speed_plan_detail":
 		if e.complexity.Mutation.DeleteLimitSpeedPlanDetail == nil {
 			break
@@ -12791,6 +13079,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteLimitSpeedPlanDetailByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_limit_speed_plan_detail_by_union_pk":
+		if e.complexity.Mutation.DeleteLimitSpeedPlanDetailByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_limit_speed_plan_detail_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteLimitSpeedPlanDetailByUnionPk(childComplexity, args["detail_id"].(string)), true
 
 	case "Mutation.delete_vehicle_night_travel_record":
 		if e.complexity.Mutation.DeleteVehicleNightTravelRecord == nil {
@@ -12816,6 +13116,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteVehicleNightTravelRecordByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_vehicle_night_travel_record_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleNightTravelRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_night_travel_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleNightTravelRecordByUnionPk(childComplexity, args["record_id"].(string)), true
+
 	case "Mutation.delete_vehicle_stop_travel_record":
 		if e.complexity.Mutation.DeleteVehicleStopTravelRecord == nil {
 			break
@@ -12839,6 +13151,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteVehicleStopTravelRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_vehicle_stop_travel_record_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleStopTravelRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_stop_travel_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleStopTravelRecordByUnionPk(childComplexity, args["record_id"].(string)), true
 
 	case "Mutation.insert_control_line":
 		if e.complexity.Mutation.InsertControlLine == nil {
@@ -13296,6 +13620,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateControlLineByPk(childComplexity, args["_inc"].(*model.ControlLineIncInput), args["_set"].(*model.ControlLineSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_control_line_by_union_pk":
+		if e.complexity.Mutation.UpdateControlLineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_control_line_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateControlLineByUnionPk(childComplexity, args["_inc"].(*model.ControlLineIncInput), args["_set"].(*model.ControlLineSetInput), args["control_line_id"].(string)), true
+
 	case "Mutation.update_control_line_time":
 		if e.complexity.Mutation.UpdateControlLineTime == nil {
 			break
@@ -13319,6 +13655,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateControlLineTimeByPk(childComplexity, args["_inc"].(*model.ControlLineTimeIncInput), args["_set"].(*model.ControlLineTimeSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_control_line_time_by_union_pk":
+		if e.complexity.Mutation.UpdateControlLineTimeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_control_line_time_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateControlLineTimeByUnionPk(childComplexity, args["_inc"].(*model.ControlLineTimeIncInput), args["_set"].(*model.ControlLineTimeSetInput), args["control_line_time_id"].(string)), true
 
 	case "Mutation.update_ecd_file_check_his":
 		if e.complexity.Mutation.UpdateEcdFileCheckHis == nil {
@@ -13344,6 +13692,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEcdFileCheckHisByPk(childComplexity, args["_inc"].(*model.EcdFileCheckHisIncInput), args["_set"].(*model.EcdFileCheckHisSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_ecd_file_check_his_by_union_pk":
+		if e.complexity.Mutation.UpdateEcdFileCheckHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ecd_file_check_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEcdFileCheckHisByUnionPk(childComplexity, args["_inc"].(*model.EcdFileCheckHisIncInput), args["_set"].(*model.EcdFileCheckHisSetInput), args["his_id"].(string)), true
+
 	case "Mutation.update_ecd_file_district":
 		if e.complexity.Mutation.UpdateEcdFileDistrict == nil {
 			break
@@ -13367,6 +13727,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEcdFileDistrictByPk(childComplexity, args["_inc"].(*model.EcdFileDistrictIncInput), args["_set"].(*model.EcdFileDistrictSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_ecd_file_district_by_union_pk":
+		if e.complexity.Mutation.UpdateEcdFileDistrictByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ecd_file_district_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEcdFileDistrictByUnionPk(childComplexity, args["_inc"].(*model.EcdFileDistrictIncInput), args["_set"].(*model.EcdFileDistrictSetInput), args["file_district_id"].(string)), true
 
 	case "Mutation.update_ecd_file_line_point":
 		if e.complexity.Mutation.UpdateEcdFileLinePoint == nil {
@@ -13392,6 +13764,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEcdFileLinePointByPk(childComplexity, args["_inc"].(*model.EcdFileLinePointIncInput), args["_set"].(*model.EcdFileLinePointSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_ecd_file_line_point_by_union_pk":
+		if e.complexity.Mutation.UpdateEcdFileLinePointByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ecd_file_line_point_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEcdFileLinePointByUnionPk(childComplexity, args["_inc"].(*model.EcdFileLinePointIncInput), args["_set"].(*model.EcdFileLinePointSetInput), args["line_point_id"].(string)), true
+
 	case "Mutation.update_ecd_file_main":
 		if e.complexity.Mutation.UpdateEcdFileMain == nil {
 			break
@@ -13415,6 +13799,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEcdFileMainByPk(childComplexity, args["_inc"].(*model.EcdFileMainIncInput), args["_set"].(*model.EcdFileMainSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_ecd_file_main_by_union_pk":
+		if e.complexity.Mutation.UpdateEcdFileMainByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ecd_file_main_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEcdFileMainByUnionPk(childComplexity, args["_inc"].(*model.EcdFileMainIncInput), args["_set"].(*model.EcdFileMainSetInput), args["file_main_id"].(string)), true
 
 	case "Mutation.update_ecd_file_main_sub":
 		if e.complexity.Mutation.UpdateEcdFileMainSub == nil {
@@ -13440,6 +13836,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEcdFileMainSubByPk(childComplexity, args["_inc"].(*model.EcdFileMainSubIncInput), args["_set"].(*model.EcdFileMainSubSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_ecd_file_main_sub_by_union_pk":
+		if e.complexity.Mutation.UpdateEcdFileMainSubByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ecd_file_main_sub_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEcdFileMainSubByUnionPk(childComplexity, args["_inc"].(*model.EcdFileMainSubIncInput), args["_set"].(*model.EcdFileMainSubSetInput), args["file_main_sub_id"].(string)), true
+
 	case "Mutation.update_ecd_file_vehicle":
 		if e.complexity.Mutation.UpdateEcdFileVehicle == nil {
 			break
@@ -13463,6 +13871,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEcdFileVehicleByPk(childComplexity, args["_inc"].(*model.EcdFileVehicleIncInput), args["_set"].(*model.EcdFileVehicleSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_ecd_file_vehicle_by_union_pk":
+		if e.complexity.Mutation.UpdateEcdFileVehicleByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ecd_file_vehicle_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEcdFileVehicleByUnionPk(childComplexity, args["_inc"].(*model.EcdFileVehicleIncInput), args["_set"].(*model.EcdFileVehicleSetInput), args["file_vehicle_id"].(string)), true
 
 	case "Mutation.update_ecd_file_vehicle_time":
 		if e.complexity.Mutation.UpdateEcdFileVehicleTime == nil {
@@ -13488,6 +13908,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEcdFileVehicleTimeByPk(childComplexity, args["_inc"].(*model.EcdFileVehicleTimeIncInput), args["_set"].(*model.EcdFileVehicleTimeSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_ecd_file_vehicle_time_by_union_pk":
+		if e.complexity.Mutation.UpdateEcdFileVehicleTimeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ecd_file_vehicle_time_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEcdFileVehicleTimeByUnionPk(childComplexity, args["_inc"].(*model.EcdFileVehicleTimeIncInput), args["_set"].(*model.EcdFileVehicleTimeSetInput), args["vehicle_time_id"].(string)), true
+
 	case "Mutation.update_ecd_line":
 		if e.complexity.Mutation.UpdateEcdLine == nil {
 			break
@@ -13511,6 +13943,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEcdLineByPk(childComplexity, args["_inc"].(*model.EcdLineIncInput), args["_set"].(*model.EcdLineSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_ecd_line_by_union_pk":
+		if e.complexity.Mutation.UpdateEcdLineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ecd_line_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEcdLineByUnionPk(childComplexity, args["_inc"].(*model.EcdLineIncInput), args["_set"].(*model.EcdLineSetInput), args["line_id"].(string)), true
 
 	case "Mutation.update_electric_fence":
 		if e.complexity.Mutation.UpdateElectricFence == nil {
@@ -13536,6 +13980,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateElectricFenceByPk(childComplexity, args["_inc"].(*model.ElectricFenceIncInput), args["_set"].(*model.ElectricFenceSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_electric_fence_by_union_pk":
+		if e.complexity.Mutation.UpdateElectricFenceByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_electric_fence_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateElectricFenceByUnionPk(childComplexity, args["_inc"].(*model.ElectricFenceIncInput), args["_set"].(*model.ElectricFenceSetInput), args["electric_fence_id"].(string)), true
+
 	case "Mutation.update_electric_fence_enterance_record":
 		if e.complexity.Mutation.UpdateElectricFenceEnteranceRecord == nil {
 			break
@@ -13559,6 +14015,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateElectricFenceEnteranceRecordByPk(childComplexity, args["_inc"].(*model.ElectricFenceEnteranceRecordIncInput), args["_set"].(*model.ElectricFenceEnteranceRecordSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_electric_fence_enterance_record_by_union_pk":
+		if e.complexity.Mutation.UpdateElectricFenceEnteranceRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_electric_fence_enterance_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateElectricFenceEnteranceRecordByUnionPk(childComplexity, args["_inc"].(*model.ElectricFenceEnteranceRecordIncInput), args["_set"].(*model.ElectricFenceEnteranceRecordSetInput), args["record_id"].(string)), true
 
 	case "Mutation.update_limit_speed_line":
 		if e.complexity.Mutation.UpdateLimitSpeedLine == nil {
@@ -13584,6 +14052,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateLimitSpeedLineByPk(childComplexity, args["_inc"].(*model.LimitSpeedLineIncInput), args["_set"].(*model.LimitSpeedLineSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_limit_speed_line_by_union_pk":
+		if e.complexity.Mutation.UpdateLimitSpeedLineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_limit_speed_line_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateLimitSpeedLineByUnionPk(childComplexity, args["_inc"].(*model.LimitSpeedLineIncInput), args["_set"].(*model.LimitSpeedLineSetInput), args["limit_speed_line_id"].(string)), true
+
 	case "Mutation.update_limit_speed_line_time":
 		if e.complexity.Mutation.UpdateLimitSpeedLineTime == nil {
 			break
@@ -13607,6 +14087,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateLimitSpeedLineTimeByPk(childComplexity, args["_inc"].(*model.LimitSpeedLineTimeIncInput), args["_set"].(*model.LimitSpeedLineTimeSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_limit_speed_line_time_by_union_pk":
+		if e.complexity.Mutation.UpdateLimitSpeedLineTimeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_limit_speed_line_time_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateLimitSpeedLineTimeByUnionPk(childComplexity, args["_inc"].(*model.LimitSpeedLineTimeIncInput), args["_set"].(*model.LimitSpeedLineTimeSetInput), args["limit_speed_line_time_id"].(string)), true
 
 	case "Mutation.update_limit_speed_plan":
 		if e.complexity.Mutation.UpdateLimitSpeedPlan == nil {
@@ -13632,6 +14124,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateLimitSpeedPlanByPk(childComplexity, args["_inc"].(*model.LimitSpeedPlanIncInput), args["_set"].(*model.LimitSpeedPlanSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_limit_speed_plan_by_union_pk":
+		if e.complexity.Mutation.UpdateLimitSpeedPlanByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_limit_speed_plan_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateLimitSpeedPlanByUnionPk(childComplexity, args["_inc"].(*model.LimitSpeedPlanIncInput), args["_set"].(*model.LimitSpeedPlanSetInput), args["limit_speed_plan_id"].(string)), true
+
 	case "Mutation.update_limit_speed_plan_detail":
 		if e.complexity.Mutation.UpdateLimitSpeedPlanDetail == nil {
 			break
@@ -13655,6 +14159,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateLimitSpeedPlanDetailByPk(childComplexity, args["_inc"].(*model.LimitSpeedPlanDetailIncInput), args["_set"].(*model.LimitSpeedPlanDetailSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_limit_speed_plan_detail_by_union_pk":
+		if e.complexity.Mutation.UpdateLimitSpeedPlanDetailByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_limit_speed_plan_detail_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateLimitSpeedPlanDetailByUnionPk(childComplexity, args["_inc"].(*model.LimitSpeedPlanDetailIncInput), args["_set"].(*model.LimitSpeedPlanDetailSetInput), args["detail_id"].(string)), true
 
 	case "Mutation.update_vehicle_night_travel_record":
 		if e.complexity.Mutation.UpdateVehicleNightTravelRecord == nil {
@@ -13680,6 +14196,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateVehicleNightTravelRecordByPk(childComplexity, args["_inc"].(*model.VehicleNightTravelRecordIncInput), args["_set"].(*model.VehicleNightTravelRecordSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_vehicle_night_travel_record_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleNightTravelRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_night_travel_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleNightTravelRecordByUnionPk(childComplexity, args["_inc"].(*model.VehicleNightTravelRecordIncInput), args["_set"].(*model.VehicleNightTravelRecordSetInput), args["record_id"].(string)), true
+
 	case "Mutation.update_vehicle_stop_travel_record":
 		if e.complexity.Mutation.UpdateVehicleStopTravelRecord == nil {
 			break
@@ -13703,6 +14231,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateVehicleStopTravelRecordByPk(childComplexity, args["_inc"].(*model.VehicleStopTravelRecordIncInput), args["_set"].(*model.VehicleStopTravelRecordSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_vehicle_stop_travel_record_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleStopTravelRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_stop_travel_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleStopTravelRecordByUnionPk(childComplexity, args["_inc"].(*model.VehicleStopTravelRecordIncInput), args["_set"].(*model.VehicleStopTravelRecordSetInput), args["record_id"].(string)), true
 
 	case "Query.control_line":
 		if e.complexity.Query.ControlLine == nil {
@@ -13740,6 +14280,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.ControlLineByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.control_line_by_union_pk":
+		if e.complexity.Query.ControlLineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_control_line_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ControlLineByUnionPk(childComplexity, args["control_line_id"].(string)), true
+
 	case "Query.control_line_time":
 		if e.complexity.Query.ControlLineTime == nil {
 			break
@@ -13775,6 +14327,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.ControlLineTimeByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.control_line_time_by_union_pk":
+		if e.complexity.Query.ControlLineTimeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_control_line_time_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ControlLineTimeByUnionPk(childComplexity, args["control_line_time_id"].(string)), true
 
 	case "Query.ecd_file_check_his":
 		if e.complexity.Query.EcdFileCheckHis == nil {
@@ -13812,6 +14376,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EcdFileCheckHisByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.ecd_file_check_his_by_union_pk":
+		if e.complexity.Query.EcdFileCheckHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ecd_file_check_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EcdFileCheckHisByUnionPk(childComplexity, args["his_id"].(string)), true
+
 	case "Query.ecd_file_district":
 		if e.complexity.Query.EcdFileDistrict == nil {
 			break
@@ -13847,6 +14423,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EcdFileDistrictByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.ecd_file_district_by_union_pk":
+		if e.complexity.Query.EcdFileDistrictByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ecd_file_district_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EcdFileDistrictByUnionPk(childComplexity, args["file_district_id"].(string)), true
 
 	case "Query.ecd_file_line_point":
 		if e.complexity.Query.EcdFileLinePoint == nil {
@@ -13884,6 +14472,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EcdFileLinePointByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.ecd_file_line_point_by_union_pk":
+		if e.complexity.Query.EcdFileLinePointByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ecd_file_line_point_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EcdFileLinePointByUnionPk(childComplexity, args["line_point_id"].(string)), true
+
 	case "Query.ecd_file_main":
 		if e.complexity.Query.EcdFileMain == nil {
 			break
@@ -13919,6 +14519,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EcdFileMainByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.ecd_file_main_by_union_pk":
+		if e.complexity.Query.EcdFileMainByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ecd_file_main_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EcdFileMainByUnionPk(childComplexity, args["file_main_id"].(string)), true
 
 	case "Query.ecd_file_main_sub":
 		if e.complexity.Query.EcdFileMainSub == nil {
@@ -13956,6 +14568,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EcdFileMainSubByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.ecd_file_main_sub_by_union_pk":
+		if e.complexity.Query.EcdFileMainSubByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ecd_file_main_sub_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EcdFileMainSubByUnionPk(childComplexity, args["file_main_sub_id"].(string)), true
+
 	case "Query.ecd_file_vehicle":
 		if e.complexity.Query.EcdFileVehicle == nil {
 			break
@@ -13991,6 +14615,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EcdFileVehicleByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.ecd_file_vehicle_by_union_pk":
+		if e.complexity.Query.EcdFileVehicleByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ecd_file_vehicle_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EcdFileVehicleByUnionPk(childComplexity, args["file_vehicle_id"].(string)), true
 
 	case "Query.ecd_file_vehicle_time":
 		if e.complexity.Query.EcdFileVehicleTime == nil {
@@ -14028,6 +14664,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EcdFileVehicleTimeByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.ecd_file_vehicle_time_by_union_pk":
+		if e.complexity.Query.EcdFileVehicleTimeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ecd_file_vehicle_time_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EcdFileVehicleTimeByUnionPk(childComplexity, args["vehicle_time_id"].(string)), true
+
 	case "Query.ecd_line":
 		if e.complexity.Query.EcdLine == nil {
 			break
@@ -14063,6 +14711,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EcdLineByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.ecd_line_by_union_pk":
+		if e.complexity.Query.EcdLineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ecd_line_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EcdLineByUnionPk(childComplexity, args["line_id"].(string)), true
 
 	case "Query.electric_fence":
 		if e.complexity.Query.ElectricFence == nil {
@@ -14100,6 +14760,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.ElectricFenceByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.electric_fence_by_union_pk":
+		if e.complexity.Query.ElectricFenceByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_electric_fence_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ElectricFenceByUnionPk(childComplexity, args["electric_fence_id"].(string)), true
+
 	case "Query.electric_fence_enterance_record":
 		if e.complexity.Query.ElectricFenceEnteranceRecord == nil {
 			break
@@ -14135,6 +14807,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.ElectricFenceEnteranceRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.electric_fence_enterance_record_by_union_pk":
+		if e.complexity.Query.ElectricFenceEnteranceRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_electric_fence_enterance_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.ElectricFenceEnteranceRecordByUnionPk(childComplexity, args["record_id"].(string)), true
 
 	case "Query.limit_speed_line":
 		if e.complexity.Query.LimitSpeedLine == nil {
@@ -14172,6 +14856,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.LimitSpeedLineByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.limit_speed_line_by_union_pk":
+		if e.complexity.Query.LimitSpeedLineByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_limit_speed_line_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.LimitSpeedLineByUnionPk(childComplexity, args["limit_speed_line_id"].(string)), true
+
 	case "Query.limit_speed_line_time":
 		if e.complexity.Query.LimitSpeedLineTime == nil {
 			break
@@ -14207,6 +14903,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.LimitSpeedLineTimeByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.limit_speed_line_time_by_union_pk":
+		if e.complexity.Query.LimitSpeedLineTimeByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_limit_speed_line_time_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.LimitSpeedLineTimeByUnionPk(childComplexity, args["limit_speed_line_time_id"].(string)), true
 
 	case "Query.limit_speed_plan":
 		if e.complexity.Query.LimitSpeedPlan == nil {
@@ -14244,6 +14952,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.LimitSpeedPlanByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.limit_speed_plan_by_union_pk":
+		if e.complexity.Query.LimitSpeedPlanByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_limit_speed_plan_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.LimitSpeedPlanByUnionPk(childComplexity, args["limit_speed_plan_id"].(string)), true
+
 	case "Query.limit_speed_plan_detail":
 		if e.complexity.Query.LimitSpeedPlanDetail == nil {
 			break
@@ -14279,6 +14999,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.LimitSpeedPlanDetailByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.limit_speed_plan_detail_by_union_pk":
+		if e.complexity.Query.LimitSpeedPlanDetailByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_limit_speed_plan_detail_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.LimitSpeedPlanDetailByUnionPk(childComplexity, args["detail_id"].(string)), true
 
 	case "Query.vehicle_night_travel_record":
 		if e.complexity.Query.VehicleNightTravelRecord == nil {
@@ -14316,6 +15048,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.VehicleNightTravelRecordByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.vehicle_night_travel_record_by_union_pk":
+		if e.complexity.Query.VehicleNightTravelRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_night_travel_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleNightTravelRecordByUnionPk(childComplexity, args["record_id"].(string)), true
+
 	case "Query.vehicle_stop_travel_record":
 		if e.complexity.Query.VehicleStopTravelRecord == nil {
 			break
@@ -14351,6 +15095,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.VehicleStopTravelRecordByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.vehicle_stop_travel_record_by_union_pk":
+		if e.complexity.Query.VehicleStopTravelRecordByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_stop_travel_record_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleStopTravelRecordByUnionPk(childComplexity, args["record_id"].(string)), true
 
 	case "VehicleNightTravelRecord.cause":
 		if e.complexity.VehicleNightTravelRecord.Cause == nil {
@@ -16289,6 +17045,10 @@ extend type Query {
 	主键查询
 	"""
 	control_line_by_pk(id: Bigint!): ControlLine!
+	"""
+	联合主键查询
+	"""
+	control_line_by_union_pk(control_line_id: String!): ControlLine!
 }
 extend type Mutation {
 	"""
@@ -16312,9 +17072,17 @@ extend type Mutation {
 	"""
 	update_control_line(_inc: ControlLineIncInput, _set: ControlLineSetInput, where: ControlLineBoolExp!): ControlLineMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_control_line_by_pk(_inc: ControlLineIncInput, _set: ControlLineSetInput, id: Bigint!): ControlLine
+	"""
+	根据联合主键更新
+	"""
+	update_control_line_by_union_pk(_inc: ControlLineIncInput, _set: ControlLineSetInput, control_line_id: String!): ControlLine
+	"""
+	根据联合主键删除记录
+	"""
+	delete_control_line_by_union_pk(control_line_id: String!): ControlLine
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/control_line_time.graphqls", Input: `type ControlLineTime {
@@ -16619,6 +17387,10 @@ extend type Query {
 	主键查询
 	"""
 	control_line_time_by_pk(id: Bigint!): ControlLineTime!
+	"""
+	联合主键查询
+	"""
+	control_line_time_by_union_pk(control_line_time_id: String!): ControlLineTime!
 }
 extend type Mutation {
 	"""
@@ -16642,9 +17414,17 @@ extend type Mutation {
 	"""
 	update_control_line_time(_inc: ControlLineTimeIncInput, _set: ControlLineTimeSetInput, where: ControlLineTimeBoolExp!): ControlLineTimeMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_control_line_time_by_pk(_inc: ControlLineTimeIncInput, _set: ControlLineTimeSetInput, id: Bigint!): ControlLineTime
+	"""
+	根据联合主键更新
+	"""
+	update_control_line_time_by_union_pk(_inc: ControlLineTimeIncInput, _set: ControlLineTimeSetInput, control_line_time_id: String!): ControlLineTime
+	"""
+	根据联合主键删除记录
+	"""
+	delete_control_line_time_by_union_pk(control_line_time_id: String!): ControlLineTime
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/ecd_file_check_his.graphqls", Input: `"""
@@ -17040,6 +17820,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_check_his_by_pk(id: Bigint!): EcdFileCheckHis!
+	"""
+	联合主键查询
+	"""
+	ecd_file_check_his_by_union_pk(his_id: String!): EcdFileCheckHis!
 }
 extend type Mutation {
 	"""
@@ -17063,9 +17847,17 @@ extend type Mutation {
 	"""
 	update_ecd_file_check_his(_inc: EcdFileCheckHisIncInput, _set: EcdFileCheckHisSetInput, where: EcdFileCheckHisBoolExp!): EcdFileCheckHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_check_his_by_pk(_inc: EcdFileCheckHisIncInput, _set: EcdFileCheckHisSetInput, id: Bigint!): EcdFileCheckHis
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_check_his_by_union_pk(_inc: EcdFileCheckHisIncInput, _set: EcdFileCheckHisSetInput, his_id: String!): EcdFileCheckHis
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_check_his_by_union_pk(his_id: String!): EcdFileCheckHis
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/ecd_file_district.graphqls", Input: `"""
@@ -17359,6 +18151,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_district_by_pk(id: Bigint!): EcdFileDistrict!
+	"""
+	联合主键查询
+	"""
+	ecd_file_district_by_union_pk(file_district_id: String!): EcdFileDistrict!
 }
 extend type Mutation {
 	"""
@@ -17382,9 +18178,17 @@ extend type Mutation {
 	"""
 	update_ecd_file_district(_inc: EcdFileDistrictIncInput, _set: EcdFileDistrictSetInput, where: EcdFileDistrictBoolExp!): EcdFileDistrictMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_district_by_pk(_inc: EcdFileDistrictIncInput, _set: EcdFileDistrictSetInput, id: Bigint!): EcdFileDistrict
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_district_by_union_pk(_inc: EcdFileDistrictIncInput, _set: EcdFileDistrictSetInput, file_district_id: String!): EcdFileDistrict
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_district_by_union_pk(file_district_id: String!): EcdFileDistrict
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/ecd_file_line_point.graphqls", Input: `"""
@@ -17743,6 +18547,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_line_point_by_pk(id: Bigint!): EcdFileLinePoint!
+	"""
+	联合主键查询
+	"""
+	ecd_file_line_point_by_union_pk(line_point_id: String!): EcdFileLinePoint!
 }
 extend type Mutation {
 	"""
@@ -17766,9 +18574,17 @@ extend type Mutation {
 	"""
 	update_ecd_file_line_point(_inc: EcdFileLinePointIncInput, _set: EcdFileLinePointSetInput, where: EcdFileLinePointBoolExp!): EcdFileLinePointMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_line_point_by_pk(_inc: EcdFileLinePointIncInput, _set: EcdFileLinePointSetInput, id: Bigint!): EcdFileLinePoint
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_line_point_by_union_pk(_inc: EcdFileLinePointIncInput, _set: EcdFileLinePointSetInput, line_point_id: String!): EcdFileLinePoint
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_line_point_by_union_pk(line_point_id: String!): EcdFileLinePoint
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/ecd_file_main.graphqls", Input: `"""
@@ -18523,6 +19339,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_main_by_pk(id: Bigint!): EcdFileMain!
+	"""
+	联合主键查询
+	"""
+	ecd_file_main_by_union_pk(file_main_id: String!): EcdFileMain!
 }
 extend type Mutation {
 	"""
@@ -18546,9 +19366,17 @@ extend type Mutation {
 	"""
 	update_ecd_file_main(_inc: EcdFileMainIncInput, _set: EcdFileMainSetInput, where: EcdFileMainBoolExp!): EcdFileMainMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_main_by_pk(_inc: EcdFileMainIncInput, _set: EcdFileMainSetInput, id: Bigint!): EcdFileMain
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_main_by_union_pk(_inc: EcdFileMainIncInput, _set: EcdFileMainSetInput, file_main_id: String!): EcdFileMain
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_main_by_union_pk(file_main_id: String!): EcdFileMain
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/ecd_file_main_sub.graphqls", Input: `"""
@@ -19173,6 +20001,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_main_sub_by_pk(id: Bigint!): EcdFileMainSub!
+	"""
+	联合主键查询
+	"""
+	ecd_file_main_sub_by_union_pk(file_main_sub_id: String!): EcdFileMainSub!
 }
 extend type Mutation {
 	"""
@@ -19196,9 +20028,17 @@ extend type Mutation {
 	"""
 	update_ecd_file_main_sub(_inc: EcdFileMainSubIncInput, _set: EcdFileMainSubSetInput, where: EcdFileMainSubBoolExp!): EcdFileMainSubMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_main_sub_by_pk(_inc: EcdFileMainSubIncInput, _set: EcdFileMainSubSetInput, id: Bigint!): EcdFileMainSub
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_main_sub_by_union_pk(_inc: EcdFileMainSubIncInput, _set: EcdFileMainSubSetInput, file_main_sub_id: String!): EcdFileMainSub
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_main_sub_by_union_pk(file_main_sub_id: String!): EcdFileMainSub
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/ecd_file_vehicle.graphqls", Input: `"""
@@ -19515,6 +20355,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_vehicle_by_pk(id: Bigint!): EcdFileVehicle!
+	"""
+	联合主键查询
+	"""
+	ecd_file_vehicle_by_union_pk(file_vehicle_id: String!): EcdFileVehicle!
 }
 extend type Mutation {
 	"""
@@ -19538,9 +20382,17 @@ extend type Mutation {
 	"""
 	update_ecd_file_vehicle(_inc: EcdFileVehicleIncInput, _set: EcdFileVehicleSetInput, where: EcdFileVehicleBoolExp!): EcdFileVehicleMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_vehicle_by_pk(_inc: EcdFileVehicleIncInput, _set: EcdFileVehicleSetInput, id: Bigint!): EcdFileVehicle
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_vehicle_by_union_pk(_inc: EcdFileVehicleIncInput, _set: EcdFileVehicleSetInput, file_vehicle_id: String!): EcdFileVehicle
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_vehicle_by_union_pk(file_vehicle_id: String!): EcdFileVehicle
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/ecd_file_vehicle_time.graphqls", Input: `"""
@@ -19955,6 +20807,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_vehicle_time_by_pk(id: Bigint!): EcdFileVehicleTime!
+	"""
+	联合主键查询
+	"""
+	ecd_file_vehicle_time_by_union_pk(vehicle_time_id: String!): EcdFileVehicleTime!
 }
 extend type Mutation {
 	"""
@@ -19978,9 +20834,17 @@ extend type Mutation {
 	"""
 	update_ecd_file_vehicle_time(_inc: EcdFileVehicleTimeIncInput, _set: EcdFileVehicleTimeSetInput, where: EcdFileVehicleTimeBoolExp!): EcdFileVehicleTimeMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_vehicle_time_by_pk(_inc: EcdFileVehicleTimeIncInput, _set: EcdFileVehicleTimeSetInput, id: Bigint!): EcdFileVehicleTime
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_vehicle_time_by_union_pk(_inc: EcdFileVehicleTimeIncInput, _set: EcdFileVehicleTimeSetInput, vehicle_time_id: String!): EcdFileVehicleTime
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_vehicle_time_by_union_pk(vehicle_time_id: String!): EcdFileVehicleTime
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/ecd_line.graphqls", Input: `"""
@@ -20344,6 +21208,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_line_by_pk(id: Bigint!): EcdLine!
+	"""
+	联合主键查询
+	"""
+	ecd_line_by_union_pk(line_id: String!): EcdLine!
 }
 extend type Mutation {
 	"""
@@ -20367,9 +21235,17 @@ extend type Mutation {
 	"""
 	update_ecd_line(_inc: EcdLineIncInput, _set: EcdLineSetInput, where: EcdLineBoolExp!): EcdLineMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_line_by_pk(_inc: EcdLineIncInput, _set: EcdLineSetInput, id: Bigint!): EcdLine
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_line_by_union_pk(_inc: EcdLineIncInput, _set: EcdLineSetInput, line_id: String!): EcdLine
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_line_by_union_pk(line_id: String!): EcdLine
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/electric_fence.graphqls", Input: `"""
@@ -20737,6 +21613,10 @@ extend type Query {
 	主键查询
 	"""
 	electric_fence_by_pk(id: Bigint!): ElectricFence!
+	"""
+	联合主键查询
+	"""
+	electric_fence_by_union_pk(electric_fence_id: String!): ElectricFence!
 }
 extend type Mutation {
 	"""
@@ -20760,9 +21640,17 @@ extend type Mutation {
 	"""
 	update_electric_fence(_inc: ElectricFenceIncInput, _set: ElectricFenceSetInput, where: ElectricFenceBoolExp!): ElectricFenceMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_electric_fence_by_pk(_inc: ElectricFenceIncInput, _set: ElectricFenceSetInput, id: Bigint!): ElectricFence
+	"""
+	根据联合主键更新
+	"""
+	update_electric_fence_by_union_pk(_inc: ElectricFenceIncInput, _set: ElectricFenceSetInput, electric_fence_id: String!): ElectricFence
+	"""
+	根据联合主键删除记录
+	"""
+	delete_electric_fence_by_union_pk(electric_fence_id: String!): ElectricFence
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/electric_fence_enterance_record.graphqls", Input: `"""
@@ -21126,6 +22014,10 @@ extend type Query {
 	主键查询
 	"""
 	electric_fence_enterance_record_by_pk(id: Bigint!): ElectricFenceEnteranceRecord!
+	"""
+	联合主键查询
+	"""
+	electric_fence_enterance_record_by_union_pk(record_id: String!): ElectricFenceEnteranceRecord!
 }
 extend type Mutation {
 	"""
@@ -21149,9 +22041,17 @@ extend type Mutation {
 	"""
 	update_electric_fence_enterance_record(_inc: ElectricFenceEnteranceRecordIncInput, _set: ElectricFenceEnteranceRecordSetInput, where: ElectricFenceEnteranceRecordBoolExp!): ElectricFenceEnteranceRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_electric_fence_enterance_record_by_pk(_inc: ElectricFenceEnteranceRecordIncInput, _set: ElectricFenceEnteranceRecordSetInput, id: Bigint!): ElectricFenceEnteranceRecord
+	"""
+	根据联合主键更新
+	"""
+	update_electric_fence_enterance_record_by_union_pk(_inc: ElectricFenceEnteranceRecordIncInput, _set: ElectricFenceEnteranceRecordSetInput, record_id: String!): ElectricFenceEnteranceRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_electric_fence_enterance_record_by_union_pk(record_id: String!): ElectricFenceEnteranceRecord
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/limit_speed_line.graphqls", Input: `"""
@@ -21584,6 +22484,10 @@ extend type Query {
 	主键查询
 	"""
 	limit_speed_line_by_pk(id: Bigint!): LimitSpeedLine!
+	"""
+	联合主键查询
+	"""
+	limit_speed_line_by_union_pk(limit_speed_line_id: String!): LimitSpeedLine!
 }
 extend type Mutation {
 	"""
@@ -21607,9 +22511,17 @@ extend type Mutation {
 	"""
 	update_limit_speed_line(_inc: LimitSpeedLineIncInput, _set: LimitSpeedLineSetInput, where: LimitSpeedLineBoolExp!): LimitSpeedLineMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_limit_speed_line_by_pk(_inc: LimitSpeedLineIncInput, _set: LimitSpeedLineSetInput, id: Bigint!): LimitSpeedLine
+	"""
+	根据联合主键更新
+	"""
+	update_limit_speed_line_by_union_pk(_inc: LimitSpeedLineIncInput, _set: LimitSpeedLineSetInput, limit_speed_line_id: String!): LimitSpeedLine
+	"""
+	根据联合主键删除记录
+	"""
+	delete_limit_speed_line_by_union_pk(limit_speed_line_id: String!): LimitSpeedLine
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/limit_speed_line_time.graphqls", Input: `type LimitSpeedLineTime {
@@ -21937,6 +22849,10 @@ extend type Query {
 	主键查询
 	"""
 	limit_speed_line_time_by_pk(id: Bigint!): LimitSpeedLineTime!
+	"""
+	联合主键查询
+	"""
+	limit_speed_line_time_by_union_pk(limit_speed_line_time_id: String!): LimitSpeedLineTime!
 }
 extend type Mutation {
 	"""
@@ -21960,9 +22876,17 @@ extend type Mutation {
 	"""
 	update_limit_speed_line_time(_inc: LimitSpeedLineTimeIncInput, _set: LimitSpeedLineTimeSetInput, where: LimitSpeedLineTimeBoolExp!): LimitSpeedLineTimeMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_limit_speed_line_time_by_pk(_inc: LimitSpeedLineTimeIncInput, _set: LimitSpeedLineTimeSetInput, id: Bigint!): LimitSpeedLineTime
+	"""
+	根据联合主键更新
+	"""
+	update_limit_speed_line_time_by_union_pk(_inc: LimitSpeedLineTimeIncInput, _set: LimitSpeedLineTimeSetInput, limit_speed_line_time_id: String!): LimitSpeedLineTime
+	"""
+	根据联合主键删除记录
+	"""
+	delete_limit_speed_line_time_by_union_pk(limit_speed_line_time_id: String!): LimitSpeedLineTime
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/limit_speed_plan.graphqls", Input: `"""
@@ -22270,6 +23194,10 @@ extend type Query {
 	主键查询
 	"""
 	limit_speed_plan_by_pk(id: Bigint!): LimitSpeedPlan!
+	"""
+	联合主键查询
+	"""
+	limit_speed_plan_by_union_pk(limit_speed_plan_id: String!): LimitSpeedPlan!
 }
 extend type Mutation {
 	"""
@@ -22293,9 +23221,17 @@ extend type Mutation {
 	"""
 	update_limit_speed_plan(_inc: LimitSpeedPlanIncInput, _set: LimitSpeedPlanSetInput, where: LimitSpeedPlanBoolExp!): LimitSpeedPlanMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_limit_speed_plan_by_pk(_inc: LimitSpeedPlanIncInput, _set: LimitSpeedPlanSetInput, id: Bigint!): LimitSpeedPlan
+	"""
+	根据联合主键更新
+	"""
+	update_limit_speed_plan_by_union_pk(_inc: LimitSpeedPlanIncInput, _set: LimitSpeedPlanSetInput, limit_speed_plan_id: String!): LimitSpeedPlan
+	"""
+	根据联合主键删除记录
+	"""
+	delete_limit_speed_plan_by_union_pk(limit_speed_plan_id: String!): LimitSpeedPlan
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/limit_speed_plan_detail.graphqls", Input: `"""
@@ -22686,6 +23622,10 @@ extend type Query {
 	主键查询
 	"""
 	limit_speed_plan_detail_by_pk(id: Bigint!): LimitSpeedPlanDetail!
+	"""
+	联合主键查询
+	"""
+	limit_speed_plan_detail_by_union_pk(detail_id: String!): LimitSpeedPlanDetail!
 }
 extend type Mutation {
 	"""
@@ -22709,9 +23649,17 @@ extend type Mutation {
 	"""
 	update_limit_speed_plan_detail(_inc: LimitSpeedPlanDetailIncInput, _set: LimitSpeedPlanDetailSetInput, where: LimitSpeedPlanDetailBoolExp!): LimitSpeedPlanDetailMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_limit_speed_plan_detail_by_pk(_inc: LimitSpeedPlanDetailIncInput, _set: LimitSpeedPlanDetailSetInput, id: Bigint!): LimitSpeedPlanDetail
+	"""
+	根据联合主键更新
+	"""
+	update_limit_speed_plan_detail_by_union_pk(_inc: LimitSpeedPlanDetailIncInput, _set: LimitSpeedPlanDetailSetInput, detail_id: String!): LimitSpeedPlanDetail
+	"""
+	根据联合主键删除记录
+	"""
+	delete_limit_speed_plan_detail_by_union_pk(detail_id: String!): LimitSpeedPlanDetail
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_night_travel_record.graphqls", Input: `"""
@@ -23158,6 +24106,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_night_travel_record_by_pk(id: Bigint!): VehicleNightTravelRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_night_travel_record_by_union_pk(record_id: String!): VehicleNightTravelRecord!
 }
 extend type Mutation {
 	"""
@@ -23181,9 +24133,17 @@ extend type Mutation {
 	"""
 	update_vehicle_night_travel_record(_inc: VehicleNightTravelRecordIncInput, _set: VehicleNightTravelRecordSetInput, where: VehicleNightTravelRecordBoolExp!): VehicleNightTravelRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_night_travel_record_by_pk(_inc: VehicleNightTravelRecordIncInput, _set: VehicleNightTravelRecordSetInput, id: Bigint!): VehicleNightTravelRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_night_travel_record_by_union_pk(_inc: VehicleNightTravelRecordIncInput, _set: VehicleNightTravelRecordSetInput, record_id: String!): VehicleNightTravelRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_night_travel_record_by_union_pk(record_id: String!): VehicleNightTravelRecord
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_stop_travel_record.graphqls", Input: `"""
@@ -23575,6 +24535,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_stop_travel_record_by_pk(id: Bigint!): VehicleStopTravelRecord!
+	"""
+	联合主键查询
+	"""
+	vehicle_stop_travel_record_by_union_pk(record_id: String!): VehicleStopTravelRecord!
 }
 extend type Mutation {
 	"""
@@ -23598,9 +24562,17 @@ extend type Mutation {
 	"""
 	update_vehicle_stop_travel_record(_inc: VehicleStopTravelRecordIncInput, _set: VehicleStopTravelRecordSetInput, where: VehicleStopTravelRecordBoolExp!): VehicleStopTravelRecordMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_stop_travel_record_by_pk(_inc: VehicleStopTravelRecordIncInput, _set: VehicleStopTravelRecordSetInput, id: Bigint!): VehicleStopTravelRecord
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_stop_travel_record_by_union_pk(_inc: VehicleStopTravelRecordIncInput, _set: VehicleStopTravelRecordSetInput, record_id: String!): VehicleStopTravelRecord
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_stop_travel_record_by_union_pk(record_id: String!): VehicleStopTravelRecord
 }
 `, BuiltIn: false},
 }
@@ -23640,6 +24612,21 @@ func (ec *executionContext) field_Mutation_delete_control_line_by_pk_args(ctx co
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_control_line_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["control_line_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("control_line_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["control_line_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_control_line_time_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -23667,6 +24654,21 @@ func (ec *executionContext) field_Mutation_delete_control_line_time_by_pk_args(c
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_control_line_time_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["control_line_time_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("control_line_time_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["control_line_time_id"] = arg0
 	return args, nil
 }
 
@@ -23700,6 +24702,21 @@ func (ec *executionContext) field_Mutation_delete_ecd_file_check_his_by_pk_args(
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_ecd_file_check_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_ecd_file_district_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -23727,6 +24744,21 @@ func (ec *executionContext) field_Mutation_delete_ecd_file_district_by_pk_args(c
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_ecd_file_district_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["file_district_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_district_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_district_id"] = arg0
 	return args, nil
 }
 
@@ -23760,6 +24792,21 @@ func (ec *executionContext) field_Mutation_delete_ecd_file_line_point_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_ecd_file_line_point_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["line_point_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("line_point_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["line_point_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_ecd_file_main_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -23787,6 +24834,21 @@ func (ec *executionContext) field_Mutation_delete_ecd_file_main_by_pk_args(ctx c
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_ecd_file_main_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["file_main_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_main_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_main_id"] = arg0
 	return args, nil
 }
 
@@ -23820,6 +24882,21 @@ func (ec *executionContext) field_Mutation_delete_ecd_file_main_sub_by_pk_args(c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_ecd_file_main_sub_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["file_main_sub_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_main_sub_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_main_sub_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_ecd_file_vehicle_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -23847,6 +24924,21 @@ func (ec *executionContext) field_Mutation_delete_ecd_file_vehicle_by_pk_args(ct
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_ecd_file_vehicle_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["file_vehicle_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_vehicle_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_vehicle_id"] = arg0
 	return args, nil
 }
 
@@ -23880,6 +24972,21 @@ func (ec *executionContext) field_Mutation_delete_ecd_file_vehicle_time_by_pk_ar
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_ecd_file_vehicle_time_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_time_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_time_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_time_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_ecd_line_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -23907,6 +25014,21 @@ func (ec *executionContext) field_Mutation_delete_ecd_line_by_pk_args(ctx contex
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_ecd_line_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["line_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("line_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["line_id"] = arg0
 	return args, nil
 }
 
@@ -23940,6 +25062,21 @@ func (ec *executionContext) field_Mutation_delete_electric_fence_by_pk_args(ctx 
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_electric_fence_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["electric_fence_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("electric_fence_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["electric_fence_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_electric_fence_enterance_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -23967,6 +25104,21 @@ func (ec *executionContext) field_Mutation_delete_electric_fence_enterance_recor
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_electric_fence_enterance_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["record_id"] = arg0
 	return args, nil
 }
 
@@ -24000,6 +25152,21 @@ func (ec *executionContext) field_Mutation_delete_limit_speed_line_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_limit_speed_line_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["limit_speed_line_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_line_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit_speed_line_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_limit_speed_line_time_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -24027,6 +25194,21 @@ func (ec *executionContext) field_Mutation_delete_limit_speed_line_time_by_pk_ar
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_limit_speed_line_time_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["limit_speed_line_time_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_line_time_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit_speed_line_time_id"] = arg0
 	return args, nil
 }
 
@@ -24060,6 +25242,21 @@ func (ec *executionContext) field_Mutation_delete_limit_speed_plan_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_limit_speed_plan_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["limit_speed_plan_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_plan_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit_speed_plan_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_limit_speed_plan_detail_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -24087,6 +25284,21 @@ func (ec *executionContext) field_Mutation_delete_limit_speed_plan_detail_by_pk_
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_limit_speed_plan_detail_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["detail_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("detail_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["detail_id"] = arg0
 	return args, nil
 }
 
@@ -24120,6 +25332,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_night_travel_record_by
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_vehicle_night_travel_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["record_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_vehicle_stop_travel_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -24147,6 +25374,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_stop_travel_record_by_
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_vehicle_stop_travel_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["record_id"] = arg0
 	return args, nil
 }
 
@@ -24756,6 +25998,39 @@ func (ec *executionContext) field_Mutation_update_control_line_by_pk_args(ctx co
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_control_line_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.ControlLineIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOControlLineIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐControlLineIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.ControlLineSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOControlLineSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐControlLineSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["control_line_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("control_line_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["control_line_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_control_line_time_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -24819,6 +26094,39 @@ func (ec *executionContext) field_Mutation_update_control_line_time_by_pk_args(c
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_control_line_time_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.ControlLineTimeIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOControlLineTimeIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐControlLineTimeIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.ControlLineTimeSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOControlLineTimeSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐControlLineTimeSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["control_line_time_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("control_line_time_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["control_line_time_id"] = arg2
 	return args, nil
 }
 
@@ -24888,6 +26196,39 @@ func (ec *executionContext) field_Mutation_update_ecd_file_check_his_by_pk_args(
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_ecd_file_check_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EcdFileCheckHisIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEcdFileCheckHisIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileCheckHisIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EcdFileCheckHisSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEcdFileCheckHisSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileCheckHisSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_ecd_file_district_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -24951,6 +26292,39 @@ func (ec *executionContext) field_Mutation_update_ecd_file_district_by_pk_args(c
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_ecd_file_district_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EcdFileDistrictIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEcdFileDistrictIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileDistrictIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EcdFileDistrictSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEcdFileDistrictSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileDistrictSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["file_district_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_district_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_district_id"] = arg2
 	return args, nil
 }
 
@@ -25020,6 +26394,39 @@ func (ec *executionContext) field_Mutation_update_ecd_file_line_point_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_ecd_file_line_point_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EcdFileLinePointIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEcdFileLinePointIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileLinePointIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EcdFileLinePointSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEcdFileLinePointSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileLinePointSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["line_point_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("line_point_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["line_point_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_ecd_file_main_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -25083,6 +26490,39 @@ func (ec *executionContext) field_Mutation_update_ecd_file_main_by_pk_args(ctx c
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_ecd_file_main_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EcdFileMainIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEcdFileMainIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileMainIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EcdFileMainSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEcdFileMainSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileMainSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["file_main_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_main_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_main_id"] = arg2
 	return args, nil
 }
 
@@ -25152,6 +26592,39 @@ func (ec *executionContext) field_Mutation_update_ecd_file_main_sub_by_pk_args(c
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_ecd_file_main_sub_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EcdFileMainSubIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEcdFileMainSubIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileMainSubIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EcdFileMainSubSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEcdFileMainSubSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileMainSubSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["file_main_sub_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_main_sub_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_main_sub_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_ecd_file_vehicle_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -25215,6 +26688,39 @@ func (ec *executionContext) field_Mutation_update_ecd_file_vehicle_by_pk_args(ct
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_ecd_file_vehicle_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EcdFileVehicleIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEcdFileVehicleIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileVehicleIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EcdFileVehicleSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEcdFileVehicleSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileVehicleSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["file_vehicle_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_vehicle_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_vehicle_id"] = arg2
 	return args, nil
 }
 
@@ -25284,6 +26790,39 @@ func (ec *executionContext) field_Mutation_update_ecd_file_vehicle_time_by_pk_ar
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_ecd_file_vehicle_time_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EcdFileVehicleTimeIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEcdFileVehicleTimeIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileVehicleTimeIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EcdFileVehicleTimeSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEcdFileVehicleTimeSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdFileVehicleTimeSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["vehicle_time_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_time_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_time_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_ecd_line_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -25347,6 +26886,39 @@ func (ec *executionContext) field_Mutation_update_ecd_line_by_pk_args(ctx contex
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_ecd_line_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EcdLineIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEcdLineIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdLineIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EcdLineSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEcdLineSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐEcdLineSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["line_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("line_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["line_id"] = arg2
 	return args, nil
 }
 
@@ -25416,6 +26988,39 @@ func (ec *executionContext) field_Mutation_update_electric_fence_by_pk_args(ctx 
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_electric_fence_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.ElectricFenceIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOElectricFenceIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐElectricFenceIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.ElectricFenceSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOElectricFenceSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐElectricFenceSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["electric_fence_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("electric_fence_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["electric_fence_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_electric_fence_enterance_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -25479,6 +27084,39 @@ func (ec *executionContext) field_Mutation_update_electric_fence_enterance_recor
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_electric_fence_enterance_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.ElectricFenceEnteranceRecordIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOElectricFenceEnteranceRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐElectricFenceEnteranceRecordIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.ElectricFenceEnteranceRecordSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOElectricFenceEnteranceRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐElectricFenceEnteranceRecordSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["record_id"] = arg2
 	return args, nil
 }
 
@@ -25548,6 +27186,39 @@ func (ec *executionContext) field_Mutation_update_limit_speed_line_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_limit_speed_line_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.LimitSpeedLineIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOLimitSpeedLineIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedLineIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.LimitSpeedLineSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOLimitSpeedLineSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedLineSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["limit_speed_line_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_line_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit_speed_line_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_limit_speed_line_time_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -25611,6 +27282,39 @@ func (ec *executionContext) field_Mutation_update_limit_speed_line_time_by_pk_ar
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_limit_speed_line_time_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.LimitSpeedLineTimeIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOLimitSpeedLineTimeIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedLineTimeIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.LimitSpeedLineTimeSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOLimitSpeedLineTimeSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedLineTimeSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["limit_speed_line_time_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_line_time_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit_speed_line_time_id"] = arg2
 	return args, nil
 }
 
@@ -25680,6 +27384,39 @@ func (ec *executionContext) field_Mutation_update_limit_speed_plan_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_limit_speed_plan_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.LimitSpeedPlanIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOLimitSpeedPlanIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedPlanIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.LimitSpeedPlanSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOLimitSpeedPlanSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedPlanSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["limit_speed_plan_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_plan_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit_speed_plan_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_limit_speed_plan_detail_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -25743,6 +27480,39 @@ func (ec *executionContext) field_Mutation_update_limit_speed_plan_detail_by_pk_
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_limit_speed_plan_detail_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.LimitSpeedPlanDetailIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOLimitSpeedPlanDetailIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedPlanDetailIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.LimitSpeedPlanDetailSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOLimitSpeedPlanDetailSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐLimitSpeedPlanDetailSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["detail_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("detail_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["detail_id"] = arg2
 	return args, nil
 }
 
@@ -25812,6 +27582,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_night_travel_record_by
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_vehicle_night_travel_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleNightTravelRecordIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleNightTravelRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐVehicleNightTravelRecordIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleNightTravelRecordSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleNightTravelRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐVehicleNightTravelRecordSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["record_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_vehicle_stop_travel_record_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -25875,6 +27678,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_stop_travel_record_by_
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_vehicle_stop_travel_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleStopTravelRecordIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleStopTravelRecordIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐVehicleStopTravelRecordIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleStopTravelRecordSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleStopTravelRecordSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋgraphᚋmodelᚐVehicleStopTravelRecordSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["record_id"] = arg2
 	return args, nil
 }
 
@@ -26010,6 +27846,21 @@ func (ec *executionContext) field_Query_control_line_by_pk_args(ctx context.Cont
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_control_line_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["control_line_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("control_line_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["control_line_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_control_line_time_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -26124,6 +27975,21 @@ func (ec *executionContext) field_Query_control_line_time_by_pk_args(ctx context
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_control_line_time_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["control_line_time_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("control_line_time_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["control_line_time_id"] = arg0
 	return args, nil
 }
 
@@ -26244,6 +28110,21 @@ func (ec *executionContext) field_Query_ecd_file_check_his_by_pk_args(ctx contex
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_ecd_file_check_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_ecd_file_district_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -26358,6 +28239,21 @@ func (ec *executionContext) field_Query_ecd_file_district_by_pk_args(ctx context
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_ecd_file_district_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["file_district_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_district_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_district_id"] = arg0
 	return args, nil
 }
 
@@ -26478,6 +28374,21 @@ func (ec *executionContext) field_Query_ecd_file_line_point_by_pk_args(ctx conte
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_ecd_file_line_point_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["line_point_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("line_point_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["line_point_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_ecd_file_main_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -26592,6 +28503,21 @@ func (ec *executionContext) field_Query_ecd_file_main_by_pk_args(ctx context.Con
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_ecd_file_main_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["file_main_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_main_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_main_id"] = arg0
 	return args, nil
 }
 
@@ -26712,6 +28638,21 @@ func (ec *executionContext) field_Query_ecd_file_main_sub_by_pk_args(ctx context
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_ecd_file_main_sub_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["file_main_sub_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_main_sub_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_main_sub_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_ecd_file_vehicle_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -26826,6 +28767,21 @@ func (ec *executionContext) field_Query_ecd_file_vehicle_by_pk_args(ctx context.
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_ecd_file_vehicle_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["file_vehicle_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("file_vehicle_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["file_vehicle_id"] = arg0
 	return args, nil
 }
 
@@ -26946,6 +28902,21 @@ func (ec *executionContext) field_Query_ecd_file_vehicle_time_by_pk_args(ctx con
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_ecd_file_vehicle_time_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["vehicle_time_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("vehicle_time_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["vehicle_time_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_ecd_line_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -27060,6 +29031,21 @@ func (ec *executionContext) field_Query_ecd_line_by_pk_args(ctx context.Context,
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_ecd_line_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["line_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("line_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["line_id"] = arg0
 	return args, nil
 }
 
@@ -27180,6 +29166,21 @@ func (ec *executionContext) field_Query_electric_fence_by_pk_args(ctx context.Co
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_electric_fence_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["electric_fence_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("electric_fence_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["electric_fence_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_electric_fence_enterance_record_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -27294,6 +29295,21 @@ func (ec *executionContext) field_Query_electric_fence_enterance_record_by_pk_ar
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_electric_fence_enterance_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["record_id"] = arg0
 	return args, nil
 }
 
@@ -27414,6 +29430,21 @@ func (ec *executionContext) field_Query_limit_speed_line_by_pk_args(ctx context.
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_limit_speed_line_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["limit_speed_line_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_line_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit_speed_line_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_limit_speed_line_time_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -27528,6 +29559,21 @@ func (ec *executionContext) field_Query_limit_speed_line_time_by_pk_args(ctx con
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_limit_speed_line_time_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["limit_speed_line_time_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_line_time_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit_speed_line_time_id"] = arg0
 	return args, nil
 }
 
@@ -27648,6 +29694,21 @@ func (ec *executionContext) field_Query_limit_speed_plan_by_pk_args(ctx context.
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_limit_speed_plan_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["limit_speed_plan_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("limit_speed_plan_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["limit_speed_plan_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_limit_speed_plan_detail_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -27762,6 +29823,21 @@ func (ec *executionContext) field_Query_limit_speed_plan_detail_by_pk_args(ctx c
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_limit_speed_plan_detail_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["detail_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("detail_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["detail_id"] = arg0
 	return args, nil
 }
 
@@ -27882,6 +29958,21 @@ func (ec *executionContext) field_Query_vehicle_night_travel_record_by_pk_args(c
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_vehicle_night_travel_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["record_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_vehicle_stop_travel_record_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -27996,6 +30087,21 @@ func (ec *executionContext) field_Query_vehicle_stop_travel_record_by_pk_args(ct
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vehicle_stop_travel_record_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["record_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("record_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["record_id"] = arg0
 	return args, nil
 }
 
@@ -72931,6 +75037,84 @@ func (ec *executionContext) _Mutation_update_control_line_by_pk(ctx context.Cont
 	return ec.marshalOControlLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLine(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_control_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_control_line_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateControlLineByUnionPk(rctx, args["_inc"].(*model.ControlLineIncInput), args["_set"].(*model.ControlLineSetInput), args["control_line_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ControlLine)
+	fc.Result = res
+	return ec.marshalOControlLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLine(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_control_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_control_line_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteControlLineByUnionPk(rctx, args["control_line_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ControlLine)
+	fc.Result = res
+	return ec.marshalOControlLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLine(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_control_line_time(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -73152,6 +75336,84 @@ func (ec *executionContext) _Mutation_update_control_line_time_by_pk(ctx context
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateControlLineTimeByPk(rctx, args["_inc"].(*model.ControlLineTimeIncInput), args["_set"].(*model.ControlLineTimeSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ControlLineTime)
+	fc.Result = res
+	return ec.marshalOControlLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_control_line_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_control_line_time_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateControlLineTimeByUnionPk(rctx, args["_inc"].(*model.ControlLineTimeIncInput), args["_set"].(*model.ControlLineTimeSetInput), args["control_line_time_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ControlLineTime)
+	fc.Result = res
+	return ec.marshalOControlLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_control_line_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_control_line_time_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteControlLineTimeByUnionPk(rctx, args["control_line_time_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -73399,6 +75661,84 @@ func (ec *executionContext) _Mutation_update_ecd_file_check_his_by_pk(ctx contex
 	return ec.marshalOEcdFileCheckHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHis(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_ecd_file_check_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ecd_file_check_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEcdFileCheckHisByUnionPk(rctx, args["_inc"].(*model.EcdFileCheckHisIncInput), args["_set"].(*model.EcdFileCheckHisSetInput), args["his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileCheckHis)
+	fc.Result = res
+	return ec.marshalOEcdFileCheckHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ecd_file_check_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ecd_file_check_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEcdFileCheckHisByUnionPk(rctx, args["his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileCheckHis)
+	fc.Result = res
+	return ec.marshalOEcdFileCheckHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHis(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_ecd_file_district(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -73620,6 +75960,84 @@ func (ec *executionContext) _Mutation_update_ecd_file_district_by_pk(ctx context
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateEcdFileDistrictByPk(rctx, args["_inc"].(*model.EcdFileDistrictIncInput), args["_set"].(*model.EcdFileDistrictSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileDistrict)
+	fc.Result = res
+	return ec.marshalOEcdFileDistrict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrict(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_ecd_file_district_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ecd_file_district_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEcdFileDistrictByUnionPk(rctx, args["_inc"].(*model.EcdFileDistrictIncInput), args["_set"].(*model.EcdFileDistrictSetInput), args["file_district_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileDistrict)
+	fc.Result = res
+	return ec.marshalOEcdFileDistrict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrict(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ecd_file_district_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ecd_file_district_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEcdFileDistrictByUnionPk(rctx, args["file_district_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -73867,6 +76285,84 @@ func (ec *executionContext) _Mutation_update_ecd_file_line_point_by_pk(ctx conte
 	return ec.marshalOEcdFileLinePoint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePoint(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_ecd_file_line_point_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ecd_file_line_point_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEcdFileLinePointByUnionPk(rctx, args["_inc"].(*model.EcdFileLinePointIncInput), args["_set"].(*model.EcdFileLinePointSetInput), args["line_point_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileLinePoint)
+	fc.Result = res
+	return ec.marshalOEcdFileLinePoint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePoint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ecd_file_line_point_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ecd_file_line_point_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEcdFileLinePointByUnionPk(rctx, args["line_point_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileLinePoint)
+	fc.Result = res
+	return ec.marshalOEcdFileLinePoint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePoint(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_ecd_file_main(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -74088,6 +76584,84 @@ func (ec *executionContext) _Mutation_update_ecd_file_main_by_pk(ctx context.Con
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateEcdFileMainByPk(rctx, args["_inc"].(*model.EcdFileMainIncInput), args["_set"].(*model.EcdFileMainSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileMain)
+	fc.Result = res
+	return ec.marshalOEcdFileMain2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMain(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_ecd_file_main_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ecd_file_main_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEcdFileMainByUnionPk(rctx, args["_inc"].(*model.EcdFileMainIncInput), args["_set"].(*model.EcdFileMainSetInput), args["file_main_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileMain)
+	fc.Result = res
+	return ec.marshalOEcdFileMain2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMain(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ecd_file_main_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ecd_file_main_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEcdFileMainByUnionPk(rctx, args["file_main_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -74335,6 +76909,84 @@ func (ec *executionContext) _Mutation_update_ecd_file_main_sub_by_pk(ctx context
 	return ec.marshalOEcdFileMainSub2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSub(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_ecd_file_main_sub_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ecd_file_main_sub_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEcdFileMainSubByUnionPk(rctx, args["_inc"].(*model.EcdFileMainSubIncInput), args["_set"].(*model.EcdFileMainSubSetInput), args["file_main_sub_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileMainSub)
+	fc.Result = res
+	return ec.marshalOEcdFileMainSub2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSub(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ecd_file_main_sub_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ecd_file_main_sub_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEcdFileMainSubByUnionPk(rctx, args["file_main_sub_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileMainSub)
+	fc.Result = res
+	return ec.marshalOEcdFileMainSub2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSub(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_ecd_file_vehicle(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -74556,6 +77208,84 @@ func (ec *executionContext) _Mutation_update_ecd_file_vehicle_by_pk(ctx context.
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateEcdFileVehicleByPk(rctx, args["_inc"].(*model.EcdFileVehicleIncInput), args["_set"].(*model.EcdFileVehicleSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileVehicle)
+	fc.Result = res
+	return ec.marshalOEcdFileVehicle2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicle(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_ecd_file_vehicle_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ecd_file_vehicle_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEcdFileVehicleByUnionPk(rctx, args["_inc"].(*model.EcdFileVehicleIncInput), args["_set"].(*model.EcdFileVehicleSetInput), args["file_vehicle_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileVehicle)
+	fc.Result = res
+	return ec.marshalOEcdFileVehicle2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicle(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ecd_file_vehicle_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ecd_file_vehicle_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEcdFileVehicleByUnionPk(rctx, args["file_vehicle_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -74803,6 +77533,84 @@ func (ec *executionContext) _Mutation_update_ecd_file_vehicle_time_by_pk(ctx con
 	return ec.marshalOEcdFileVehicleTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTime(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_ecd_file_vehicle_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ecd_file_vehicle_time_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEcdFileVehicleTimeByUnionPk(rctx, args["_inc"].(*model.EcdFileVehicleTimeIncInput), args["_set"].(*model.EcdFileVehicleTimeSetInput), args["vehicle_time_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileVehicleTime)
+	fc.Result = res
+	return ec.marshalOEcdFileVehicleTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ecd_file_vehicle_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ecd_file_vehicle_time_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEcdFileVehicleTimeByUnionPk(rctx, args["vehicle_time_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileVehicleTime)
+	fc.Result = res
+	return ec.marshalOEcdFileVehicleTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTime(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_ecd_line(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -75024,6 +77832,84 @@ func (ec *executionContext) _Mutation_update_ecd_line_by_pk(ctx context.Context,
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateEcdLineByPk(rctx, args["_inc"].(*model.EcdLineIncInput), args["_set"].(*model.EcdLineSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdLine)
+	fc.Result = res
+	return ec.marshalOEcdLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLine(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_ecd_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ecd_line_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEcdLineByUnionPk(rctx, args["_inc"].(*model.EcdLineIncInput), args["_set"].(*model.EcdLineSetInput), args["line_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdLine)
+	fc.Result = res
+	return ec.marshalOEcdLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLine(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ecd_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ecd_line_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEcdLineByUnionPk(rctx, args["line_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -75271,6 +78157,84 @@ func (ec *executionContext) _Mutation_update_electric_fence_by_pk(ctx context.Co
 	return ec.marshalOElectricFence2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFence(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_electric_fence_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_electric_fence_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateElectricFenceByUnionPk(rctx, args["_inc"].(*model.ElectricFenceIncInput), args["_set"].(*model.ElectricFenceSetInput), args["electric_fence_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ElectricFence)
+	fc.Result = res
+	return ec.marshalOElectricFence2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFence(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_electric_fence_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_electric_fence_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteElectricFenceByUnionPk(rctx, args["electric_fence_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ElectricFence)
+	fc.Result = res
+	return ec.marshalOElectricFence2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFence(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_electric_fence_enterance_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -75492,6 +78456,84 @@ func (ec *executionContext) _Mutation_update_electric_fence_enterance_record_by_
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateElectricFenceEnteranceRecordByPk(rctx, args["_inc"].(*model.ElectricFenceEnteranceRecordIncInput), args["_set"].(*model.ElectricFenceEnteranceRecordSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ElectricFenceEnteranceRecord)
+	fc.Result = res
+	return ec.marshalOElectricFenceEnteranceRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_electric_fence_enterance_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_electric_fence_enterance_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateElectricFenceEnteranceRecordByUnionPk(rctx, args["_inc"].(*model.ElectricFenceEnteranceRecordIncInput), args["_set"].(*model.ElectricFenceEnteranceRecordSetInput), args["record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ElectricFenceEnteranceRecord)
+	fc.Result = res
+	return ec.marshalOElectricFenceEnteranceRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_electric_fence_enterance_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_electric_fence_enterance_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteElectricFenceEnteranceRecordByUnionPk(rctx, args["record_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -75739,6 +78781,84 @@ func (ec *executionContext) _Mutation_update_limit_speed_line_by_pk(ctx context.
 	return ec.marshalOLimitSpeedLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLine(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_limit_speed_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_limit_speed_line_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateLimitSpeedLineByUnionPk(rctx, args["_inc"].(*model.LimitSpeedLineIncInput), args["_set"].(*model.LimitSpeedLineSetInput), args["limit_speed_line_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedLine)
+	fc.Result = res
+	return ec.marshalOLimitSpeedLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLine(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_limit_speed_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_limit_speed_line_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteLimitSpeedLineByUnionPk(rctx, args["limit_speed_line_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedLine)
+	fc.Result = res
+	return ec.marshalOLimitSpeedLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLine(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_limit_speed_line_time(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -75960,6 +79080,84 @@ func (ec *executionContext) _Mutation_update_limit_speed_line_time_by_pk(ctx con
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateLimitSpeedLineTimeByPk(rctx, args["_inc"].(*model.LimitSpeedLineTimeIncInput), args["_set"].(*model.LimitSpeedLineTimeSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedLineTime)
+	fc.Result = res
+	return ec.marshalOLimitSpeedLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_limit_speed_line_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_limit_speed_line_time_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateLimitSpeedLineTimeByUnionPk(rctx, args["_inc"].(*model.LimitSpeedLineTimeIncInput), args["_set"].(*model.LimitSpeedLineTimeSetInput), args["limit_speed_line_time_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedLineTime)
+	fc.Result = res
+	return ec.marshalOLimitSpeedLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_limit_speed_line_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_limit_speed_line_time_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteLimitSpeedLineTimeByUnionPk(rctx, args["limit_speed_line_time_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -76207,6 +79405,84 @@ func (ec *executionContext) _Mutation_update_limit_speed_plan_by_pk(ctx context.
 	return ec.marshalOLimitSpeedPlan2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlan(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_limit_speed_plan_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_limit_speed_plan_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateLimitSpeedPlanByUnionPk(rctx, args["_inc"].(*model.LimitSpeedPlanIncInput), args["_set"].(*model.LimitSpeedPlanSetInput), args["limit_speed_plan_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedPlan)
+	fc.Result = res
+	return ec.marshalOLimitSpeedPlan2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlan(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_limit_speed_plan_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_limit_speed_plan_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteLimitSpeedPlanByUnionPk(rctx, args["limit_speed_plan_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedPlan)
+	fc.Result = res
+	return ec.marshalOLimitSpeedPlan2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlan(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_limit_speed_plan_detail(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -76428,6 +79704,84 @@ func (ec *executionContext) _Mutation_update_limit_speed_plan_detail_by_pk(ctx c
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateLimitSpeedPlanDetailByPk(rctx, args["_inc"].(*model.LimitSpeedPlanDetailIncInput), args["_set"].(*model.LimitSpeedPlanDetailSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedPlanDetail)
+	fc.Result = res
+	return ec.marshalOLimitSpeedPlanDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetail(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_limit_speed_plan_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_limit_speed_plan_detail_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateLimitSpeedPlanDetailByUnionPk(rctx, args["_inc"].(*model.LimitSpeedPlanDetailIncInput), args["_set"].(*model.LimitSpeedPlanDetailSetInput), args["detail_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedPlanDetail)
+	fc.Result = res
+	return ec.marshalOLimitSpeedPlanDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetail(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_limit_speed_plan_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_limit_speed_plan_detail_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteLimitSpeedPlanDetailByUnionPk(rctx, args["detail_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -76675,6 +80029,84 @@ func (ec *executionContext) _Mutation_update_vehicle_night_travel_record_by_pk(c
 	return ec.marshalOVehicleNightTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_vehicle_night_travel_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_night_travel_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleNightTravelRecordByUnionPk(rctx, args["_inc"].(*model.VehicleNightTravelRecordIncInput), args["_set"].(*model.VehicleNightTravelRecordSetInput), args["record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleNightTravelRecord)
+	fc.Result = res
+	return ec.marshalOVehicleNightTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_night_travel_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_night_travel_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleNightTravelRecordByUnionPk(rctx, args["record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleNightTravelRecord)
+	fc.Result = res
+	return ec.marshalOVehicleNightTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_vehicle_stop_travel_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -76909,6 +80341,84 @@ func (ec *executionContext) _Mutation_update_vehicle_stop_travel_record_by_pk(ct
 	return ec.marshalOVehicleStopTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_vehicle_stop_travel_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_stop_travel_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleStopTravelRecordByUnionPk(rctx, args["_inc"].(*model.VehicleStopTravelRecordIncInput), args["_set"].(*model.VehicleStopTravelRecordSetInput), args["record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleStopTravelRecord)
+	fc.Result = res
+	return ec.marshalOVehicleStopTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_stop_travel_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_stop_travel_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleStopTravelRecordByUnionPk(rctx, args["record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleStopTravelRecord)
+	fc.Result = res
+	return ec.marshalOVehicleStopTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecord(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_control_line(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -77019,6 +80529,48 @@ func (ec *executionContext) _Query_control_line_by_pk(ctx context.Context, field
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().ControlLineByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ControlLine)
+	fc.Result = res
+	return ec.marshalNControlLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLine(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_control_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_control_line_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ControlLineByUnionPk(rctx, args["control_line_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -77161,6 +80713,48 @@ func (ec *executionContext) _Query_control_line_time_by_pk(ctx context.Context, 
 	return ec.marshalNControlLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTime(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_control_line_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_control_line_time_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ControlLineTimeByUnionPk(rctx, args["control_line_time_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ControlLineTime)
+	fc.Result = res
+	return ec.marshalNControlLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐControlLineTime(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_ecd_file_check_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -77271,6 +80865,48 @@ func (ec *executionContext) _Query_ecd_file_check_his_by_pk(ctx context.Context,
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().EcdFileCheckHisByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileCheckHis)
+	fc.Result = res
+	return ec.marshalNEcdFileCheckHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileCheckHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_ecd_file_check_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ecd_file_check_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EcdFileCheckHisByUnionPk(rctx, args["his_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -77413,6 +81049,48 @@ func (ec *executionContext) _Query_ecd_file_district_by_pk(ctx context.Context, 
 	return ec.marshalNEcdFileDistrict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrict(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_ecd_file_district_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ecd_file_district_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EcdFileDistrictByUnionPk(rctx, args["file_district_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileDistrict)
+	fc.Result = res
+	return ec.marshalNEcdFileDistrict2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileDistrict(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_ecd_file_line_point(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -77523,6 +81201,48 @@ func (ec *executionContext) _Query_ecd_file_line_point_by_pk(ctx context.Context
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().EcdFileLinePointByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileLinePoint)
+	fc.Result = res
+	return ec.marshalNEcdFileLinePoint2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileLinePoint(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_ecd_file_line_point_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ecd_file_line_point_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EcdFileLinePointByUnionPk(rctx, args["line_point_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -77665,6 +81385,48 @@ func (ec *executionContext) _Query_ecd_file_main_by_pk(ctx context.Context, fiel
 	return ec.marshalNEcdFileMain2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMain(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_ecd_file_main_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ecd_file_main_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EcdFileMainByUnionPk(rctx, args["file_main_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileMain)
+	fc.Result = res
+	return ec.marshalNEcdFileMain2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMain(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_ecd_file_main_sub(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -77775,6 +81537,48 @@ func (ec *executionContext) _Query_ecd_file_main_sub_by_pk(ctx context.Context, 
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().EcdFileMainSubByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileMainSub)
+	fc.Result = res
+	return ec.marshalNEcdFileMainSub2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileMainSub(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_ecd_file_main_sub_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ecd_file_main_sub_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EcdFileMainSubByUnionPk(rctx, args["file_main_sub_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -77917,6 +81721,48 @@ func (ec *executionContext) _Query_ecd_file_vehicle_by_pk(ctx context.Context, f
 	return ec.marshalNEcdFileVehicle2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicle(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_ecd_file_vehicle_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ecd_file_vehicle_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EcdFileVehicleByUnionPk(rctx, args["file_vehicle_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileVehicle)
+	fc.Result = res
+	return ec.marshalNEcdFileVehicle2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicle(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_ecd_file_vehicle_time(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -78027,6 +81873,48 @@ func (ec *executionContext) _Query_ecd_file_vehicle_time_by_pk(ctx context.Conte
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().EcdFileVehicleTimeByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdFileVehicleTime)
+	fc.Result = res
+	return ec.marshalNEcdFileVehicleTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdFileVehicleTime(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_ecd_file_vehicle_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ecd_file_vehicle_time_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EcdFileVehicleTimeByUnionPk(rctx, args["vehicle_time_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -78169,6 +82057,48 @@ func (ec *executionContext) _Query_ecd_line_by_pk(ctx context.Context, field gra
 	return ec.marshalNEcdLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLine(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_ecd_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ecd_line_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EcdLineByUnionPk(rctx, args["line_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EcdLine)
+	fc.Result = res
+	return ec.marshalNEcdLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐEcdLine(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_electric_fence(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -78279,6 +82209,48 @@ func (ec *executionContext) _Query_electric_fence_by_pk(ctx context.Context, fie
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().ElectricFenceByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ElectricFence)
+	fc.Result = res
+	return ec.marshalNElectricFence2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFence(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_electric_fence_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_electric_fence_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ElectricFenceByUnionPk(rctx, args["electric_fence_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -78421,6 +82393,48 @@ func (ec *executionContext) _Query_electric_fence_enterance_record_by_pk(ctx con
 	return ec.marshalNElectricFenceEnteranceRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_electric_fence_enterance_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_electric_fence_enterance_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().ElectricFenceEnteranceRecordByUnionPk(rctx, args["record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.ElectricFenceEnteranceRecord)
+	fc.Result = res
+	return ec.marshalNElectricFenceEnteranceRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐElectricFenceEnteranceRecord(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_limit_speed_line(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -78531,6 +82545,48 @@ func (ec *executionContext) _Query_limit_speed_line_by_pk(ctx context.Context, f
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().LimitSpeedLineByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedLine)
+	fc.Result = res
+	return ec.marshalNLimitSpeedLine2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLine(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_limit_speed_line_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_limit_speed_line_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().LimitSpeedLineByUnionPk(rctx, args["limit_speed_line_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -78673,6 +82729,48 @@ func (ec *executionContext) _Query_limit_speed_line_time_by_pk(ctx context.Conte
 	return ec.marshalNLimitSpeedLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTime(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_limit_speed_line_time_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_limit_speed_line_time_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().LimitSpeedLineTimeByUnionPk(rctx, args["limit_speed_line_time_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedLineTime)
+	fc.Result = res
+	return ec.marshalNLimitSpeedLineTime2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedLineTime(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_limit_speed_plan(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -78783,6 +82881,48 @@ func (ec *executionContext) _Query_limit_speed_plan_by_pk(ctx context.Context, f
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().LimitSpeedPlanByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedPlan)
+	fc.Result = res
+	return ec.marshalNLimitSpeedPlan2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlan(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_limit_speed_plan_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_limit_speed_plan_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().LimitSpeedPlanByUnionPk(rctx, args["limit_speed_plan_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -78925,6 +83065,48 @@ func (ec *executionContext) _Query_limit_speed_plan_detail_by_pk(ctx context.Con
 	return ec.marshalNLimitSpeedPlanDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetail(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_limit_speed_plan_detail_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_limit_speed_plan_detail_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().LimitSpeedPlanDetailByUnionPk(rctx, args["detail_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.LimitSpeedPlanDetail)
+	fc.Result = res
+	return ec.marshalNLimitSpeedPlanDetail2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐLimitSpeedPlanDetail(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_vehicle_night_travel_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -79051,6 +83233,48 @@ func (ec *executionContext) _Query_vehicle_night_travel_record_by_pk(ctx context
 	return ec.marshalNVehicleNightTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_vehicle_night_travel_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_night_travel_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleNightTravelRecordByUnionPk(rctx, args["record_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleNightTravelRecord)
+	fc.Result = res
+	return ec.marshalNVehicleNightTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleNightTravelRecord(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_vehicle_stop_travel_record(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -79161,6 +83385,48 @@ func (ec *executionContext) _Query_vehicle_stop_travel_record_by_pk(ctx context.
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().VehicleStopTravelRecordByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleStopTravelRecord)
+	fc.Result = res
+	return ec.marshalNVehicleStopTravelRecord2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdrivingᚋmodelᚐVehicleStopTravelRecord(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_stop_travel_record_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_stop_travel_record_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleStopTravelRecordByUnionPk(rctx, args["record_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -107103,6 +111369,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_control_line(ctx, field)
 		case "update_control_line_by_pk":
 			out.Values[i] = ec._Mutation_update_control_line_by_pk(ctx, field)
+		case "update_control_line_by_union_pk":
+			out.Values[i] = ec._Mutation_update_control_line_by_union_pk(ctx, field)
+		case "delete_control_line_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_control_line_by_union_pk(ctx, field)
 		case "delete_control_line_time":
 			out.Values[i] = ec._Mutation_delete_control_line_time(ctx, field)
 		case "delete_control_line_time_by_pk":
@@ -107115,6 +111385,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_control_line_time(ctx, field)
 		case "update_control_line_time_by_pk":
 			out.Values[i] = ec._Mutation_update_control_line_time_by_pk(ctx, field)
+		case "update_control_line_time_by_union_pk":
+			out.Values[i] = ec._Mutation_update_control_line_time_by_union_pk(ctx, field)
+		case "delete_control_line_time_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_control_line_time_by_union_pk(ctx, field)
 		case "delete_ecd_file_check_his":
 			out.Values[i] = ec._Mutation_delete_ecd_file_check_his(ctx, field)
 		case "delete_ecd_file_check_his_by_pk":
@@ -107127,6 +111401,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ecd_file_check_his(ctx, field)
 		case "update_ecd_file_check_his_by_pk":
 			out.Values[i] = ec._Mutation_update_ecd_file_check_his_by_pk(ctx, field)
+		case "update_ecd_file_check_his_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ecd_file_check_his_by_union_pk(ctx, field)
+		case "delete_ecd_file_check_his_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ecd_file_check_his_by_union_pk(ctx, field)
 		case "delete_ecd_file_district":
 			out.Values[i] = ec._Mutation_delete_ecd_file_district(ctx, field)
 		case "delete_ecd_file_district_by_pk":
@@ -107139,6 +111417,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ecd_file_district(ctx, field)
 		case "update_ecd_file_district_by_pk":
 			out.Values[i] = ec._Mutation_update_ecd_file_district_by_pk(ctx, field)
+		case "update_ecd_file_district_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ecd_file_district_by_union_pk(ctx, field)
+		case "delete_ecd_file_district_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ecd_file_district_by_union_pk(ctx, field)
 		case "delete_ecd_file_line_point":
 			out.Values[i] = ec._Mutation_delete_ecd_file_line_point(ctx, field)
 		case "delete_ecd_file_line_point_by_pk":
@@ -107151,6 +111433,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ecd_file_line_point(ctx, field)
 		case "update_ecd_file_line_point_by_pk":
 			out.Values[i] = ec._Mutation_update_ecd_file_line_point_by_pk(ctx, field)
+		case "update_ecd_file_line_point_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ecd_file_line_point_by_union_pk(ctx, field)
+		case "delete_ecd_file_line_point_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ecd_file_line_point_by_union_pk(ctx, field)
 		case "delete_ecd_file_main":
 			out.Values[i] = ec._Mutation_delete_ecd_file_main(ctx, field)
 		case "delete_ecd_file_main_by_pk":
@@ -107163,6 +111449,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ecd_file_main(ctx, field)
 		case "update_ecd_file_main_by_pk":
 			out.Values[i] = ec._Mutation_update_ecd_file_main_by_pk(ctx, field)
+		case "update_ecd_file_main_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ecd_file_main_by_union_pk(ctx, field)
+		case "delete_ecd_file_main_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ecd_file_main_by_union_pk(ctx, field)
 		case "delete_ecd_file_main_sub":
 			out.Values[i] = ec._Mutation_delete_ecd_file_main_sub(ctx, field)
 		case "delete_ecd_file_main_sub_by_pk":
@@ -107175,6 +111465,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ecd_file_main_sub(ctx, field)
 		case "update_ecd_file_main_sub_by_pk":
 			out.Values[i] = ec._Mutation_update_ecd_file_main_sub_by_pk(ctx, field)
+		case "update_ecd_file_main_sub_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ecd_file_main_sub_by_union_pk(ctx, field)
+		case "delete_ecd_file_main_sub_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ecd_file_main_sub_by_union_pk(ctx, field)
 		case "delete_ecd_file_vehicle":
 			out.Values[i] = ec._Mutation_delete_ecd_file_vehicle(ctx, field)
 		case "delete_ecd_file_vehicle_by_pk":
@@ -107187,6 +111481,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ecd_file_vehicle(ctx, field)
 		case "update_ecd_file_vehicle_by_pk":
 			out.Values[i] = ec._Mutation_update_ecd_file_vehicle_by_pk(ctx, field)
+		case "update_ecd_file_vehicle_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ecd_file_vehicle_by_union_pk(ctx, field)
+		case "delete_ecd_file_vehicle_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ecd_file_vehicle_by_union_pk(ctx, field)
 		case "delete_ecd_file_vehicle_time":
 			out.Values[i] = ec._Mutation_delete_ecd_file_vehicle_time(ctx, field)
 		case "delete_ecd_file_vehicle_time_by_pk":
@@ -107199,6 +111497,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ecd_file_vehicle_time(ctx, field)
 		case "update_ecd_file_vehicle_time_by_pk":
 			out.Values[i] = ec._Mutation_update_ecd_file_vehicle_time_by_pk(ctx, field)
+		case "update_ecd_file_vehicle_time_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ecd_file_vehicle_time_by_union_pk(ctx, field)
+		case "delete_ecd_file_vehicle_time_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ecd_file_vehicle_time_by_union_pk(ctx, field)
 		case "delete_ecd_line":
 			out.Values[i] = ec._Mutation_delete_ecd_line(ctx, field)
 		case "delete_ecd_line_by_pk":
@@ -107211,6 +111513,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ecd_line(ctx, field)
 		case "update_ecd_line_by_pk":
 			out.Values[i] = ec._Mutation_update_ecd_line_by_pk(ctx, field)
+		case "update_ecd_line_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ecd_line_by_union_pk(ctx, field)
+		case "delete_ecd_line_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ecd_line_by_union_pk(ctx, field)
 		case "delete_electric_fence":
 			out.Values[i] = ec._Mutation_delete_electric_fence(ctx, field)
 		case "delete_electric_fence_by_pk":
@@ -107223,6 +111529,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_electric_fence(ctx, field)
 		case "update_electric_fence_by_pk":
 			out.Values[i] = ec._Mutation_update_electric_fence_by_pk(ctx, field)
+		case "update_electric_fence_by_union_pk":
+			out.Values[i] = ec._Mutation_update_electric_fence_by_union_pk(ctx, field)
+		case "delete_electric_fence_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_electric_fence_by_union_pk(ctx, field)
 		case "delete_electric_fence_enterance_record":
 			out.Values[i] = ec._Mutation_delete_electric_fence_enterance_record(ctx, field)
 		case "delete_electric_fence_enterance_record_by_pk":
@@ -107235,6 +111545,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_electric_fence_enterance_record(ctx, field)
 		case "update_electric_fence_enterance_record_by_pk":
 			out.Values[i] = ec._Mutation_update_electric_fence_enterance_record_by_pk(ctx, field)
+		case "update_electric_fence_enterance_record_by_union_pk":
+			out.Values[i] = ec._Mutation_update_electric_fence_enterance_record_by_union_pk(ctx, field)
+		case "delete_electric_fence_enterance_record_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_electric_fence_enterance_record_by_union_pk(ctx, field)
 		case "delete_limit_speed_line":
 			out.Values[i] = ec._Mutation_delete_limit_speed_line(ctx, field)
 		case "delete_limit_speed_line_by_pk":
@@ -107247,6 +111561,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_limit_speed_line(ctx, field)
 		case "update_limit_speed_line_by_pk":
 			out.Values[i] = ec._Mutation_update_limit_speed_line_by_pk(ctx, field)
+		case "update_limit_speed_line_by_union_pk":
+			out.Values[i] = ec._Mutation_update_limit_speed_line_by_union_pk(ctx, field)
+		case "delete_limit_speed_line_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_limit_speed_line_by_union_pk(ctx, field)
 		case "delete_limit_speed_line_time":
 			out.Values[i] = ec._Mutation_delete_limit_speed_line_time(ctx, field)
 		case "delete_limit_speed_line_time_by_pk":
@@ -107259,6 +111577,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_limit_speed_line_time(ctx, field)
 		case "update_limit_speed_line_time_by_pk":
 			out.Values[i] = ec._Mutation_update_limit_speed_line_time_by_pk(ctx, field)
+		case "update_limit_speed_line_time_by_union_pk":
+			out.Values[i] = ec._Mutation_update_limit_speed_line_time_by_union_pk(ctx, field)
+		case "delete_limit_speed_line_time_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_limit_speed_line_time_by_union_pk(ctx, field)
 		case "delete_limit_speed_plan":
 			out.Values[i] = ec._Mutation_delete_limit_speed_plan(ctx, field)
 		case "delete_limit_speed_plan_by_pk":
@@ -107271,6 +111593,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_limit_speed_plan(ctx, field)
 		case "update_limit_speed_plan_by_pk":
 			out.Values[i] = ec._Mutation_update_limit_speed_plan_by_pk(ctx, field)
+		case "update_limit_speed_plan_by_union_pk":
+			out.Values[i] = ec._Mutation_update_limit_speed_plan_by_union_pk(ctx, field)
+		case "delete_limit_speed_plan_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_limit_speed_plan_by_union_pk(ctx, field)
 		case "delete_limit_speed_plan_detail":
 			out.Values[i] = ec._Mutation_delete_limit_speed_plan_detail(ctx, field)
 		case "delete_limit_speed_plan_detail_by_pk":
@@ -107283,6 +111609,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_limit_speed_plan_detail(ctx, field)
 		case "update_limit_speed_plan_detail_by_pk":
 			out.Values[i] = ec._Mutation_update_limit_speed_plan_detail_by_pk(ctx, field)
+		case "update_limit_speed_plan_detail_by_union_pk":
+			out.Values[i] = ec._Mutation_update_limit_speed_plan_detail_by_union_pk(ctx, field)
+		case "delete_limit_speed_plan_detail_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_limit_speed_plan_detail_by_union_pk(ctx, field)
 		case "delete_vehicle_night_travel_record":
 			out.Values[i] = ec._Mutation_delete_vehicle_night_travel_record(ctx, field)
 		case "delete_vehicle_night_travel_record_by_pk":
@@ -107295,6 +111625,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_night_travel_record(ctx, field)
 		case "update_vehicle_night_travel_record_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_night_travel_record_by_pk(ctx, field)
+		case "update_vehicle_night_travel_record_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_night_travel_record_by_union_pk(ctx, field)
+		case "delete_vehicle_night_travel_record_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_night_travel_record_by_union_pk(ctx, field)
 		case "delete_vehicle_stop_travel_record":
 			out.Values[i] = ec._Mutation_delete_vehicle_stop_travel_record(ctx, field)
 		case "delete_vehicle_stop_travel_record_by_pk":
@@ -107307,6 +111641,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_stop_travel_record(ctx, field)
 		case "update_vehicle_stop_travel_record_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_stop_travel_record_by_pk(ctx, field)
+		case "update_vehicle_stop_travel_record_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_stop_travel_record_by_union_pk(ctx, field)
+		case "delete_vehicle_stop_travel_record_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_stop_travel_record_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -107375,6 +111713,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "control_line_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_control_line_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "control_line_time":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -107412,6 +111764,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_control_line_time_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "control_line_time_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_control_line_time_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -107459,6 +111825,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "ecd_file_check_his_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ecd_file_check_his_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "ecd_file_district":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -107496,6 +111876,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_district_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "ecd_file_district_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ecd_file_district_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -107543,6 +111937,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "ecd_file_line_point_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ecd_file_line_point_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "ecd_file_main":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -107580,6 +111988,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_main_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "ecd_file_main_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ecd_file_main_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -107627,6 +112049,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "ecd_file_main_sub_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ecd_file_main_sub_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "ecd_file_vehicle":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -107664,6 +112100,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_file_vehicle_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "ecd_file_vehicle_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ecd_file_vehicle_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -107711,6 +112161,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "ecd_file_vehicle_time_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ecd_file_vehicle_time_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "ecd_line":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -107748,6 +112212,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ecd_line_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "ecd_line_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ecd_line_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -107795,6 +112273,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "electric_fence_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_electric_fence_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "electric_fence_enterance_record":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -107832,6 +112324,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_electric_fence_enterance_record_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "electric_fence_enterance_record_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_electric_fence_enterance_record_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -107879,6 +112385,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "limit_speed_line_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_limit_speed_line_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "limit_speed_line_time":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -107916,6 +112436,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_line_time_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "limit_speed_line_time_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_limit_speed_line_time_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -107963,6 +112497,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "limit_speed_plan_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_limit_speed_plan_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "limit_speed_plan_detail":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -108000,6 +112548,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_limit_speed_plan_detail_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "limit_speed_plan_detail_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_limit_speed_plan_detail_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -108047,6 +112609,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "vehicle_night_travel_record_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_night_travel_record_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "vehicle_stop_travel_record":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -108084,6 +112660,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_stop_travel_record_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vehicle_stop_travel_record_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_stop_travel_record_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

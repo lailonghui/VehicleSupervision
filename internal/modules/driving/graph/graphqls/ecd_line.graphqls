@@ -359,6 +359,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_line_by_pk(id: Bigint!): EcdLine!
+	"""
+	联合主键查询
+	"""
+	ecd_line_by_union_pk(line_id: String!): EcdLine!
 }
 extend type Mutation {
 	"""
@@ -382,7 +386,15 @@ extend type Mutation {
 	"""
 	update_ecd_line(_inc: EcdLineIncInput, _set: EcdLineSetInput, where: EcdLineBoolExp!): EcdLineMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_line_by_pk(_inc: EcdLineIncInput, _set: EcdLineSetInput, id: Bigint!): EcdLine
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_line_by_union_pk(_inc: EcdLineIncInput, _set: EcdLineSetInput, line_id: String!): EcdLine
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_line_by_union_pk(line_id: String!): EcdLine
 }

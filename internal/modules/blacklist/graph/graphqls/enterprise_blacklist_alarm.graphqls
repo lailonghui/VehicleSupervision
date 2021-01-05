@@ -349,6 +349,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_blacklist_alarm_by_pk(id: Bigint!): EnterpriseBlacklistAlarm!
+	"""
+	联合主键查询
+	"""
+	enterprise_blacklist_alarm_by_union_pk(alarm_id: String!): EnterpriseBlacklistAlarm!
 }
 extend type Mutation {
 	"""
@@ -372,7 +376,15 @@ extend type Mutation {
 	"""
 	update_enterprise_blacklist_alarm(_inc: EnterpriseBlacklistAlarmIncInput, _set: EnterpriseBlacklistAlarmSetInput, where: EnterpriseBlacklistAlarmBoolExp!): EnterpriseBlacklistAlarmMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_blacklist_alarm_by_pk(_inc: EnterpriseBlacklistAlarmIncInput, _set: EnterpriseBlacklistAlarmSetInput, id: Bigint!): EnterpriseBlacklistAlarm
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_blacklist_alarm_by_union_pk(_inc: EnterpriseBlacklistAlarmIncInput, _set: EnterpriseBlacklistAlarmSetInput, alarm_id: String!): EnterpriseBlacklistAlarm
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_blacklist_alarm_by_union_pk(alarm_id: String!): EnterpriseBlacklistAlarm
 }

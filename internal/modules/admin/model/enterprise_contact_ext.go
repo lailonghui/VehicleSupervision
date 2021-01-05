@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden EnterpriseContactLoader string *VehicleSupervision/internal/modules/admin/model.EnterpriseContact
+//go:generate go run github.com/vektah/dataloaden EnterpriseContactUnionPkLoader string *VehicleSupervision/internal/modules/admin/model.EnterpriseContact
 
 // 数据库表名
 func (t EnterpriseContact) TableName() string {
@@ -17,21 +17,34 @@ func (t EnterpriseContact) PrimaryColumnName() string {
 	return "id"
 }
 
+// 新建主键dataloader
+func (t *EnterpriseContactPkLoader) NewLoader() *EnterpriseContactPkLoader {
+	return &EnterpriseContactPkLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*EnterpriseContact, []error) {
+			var rs []*EnterpriseContact
+			var m EnterpriseContact
+			db.DB.Model(&m).Where(m.PrimaryColumnName()+" in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
+}
+
 // 联合主键列名
 func (t EnterpriseContact) UnionPrimaryColumnName() string {
 	return "contact_id"
 }
 
-// 新建dataloader
-func (t *EnterpriseContact) NewLoader() *EnterpriseContactLoader {
-	return &EnterpriseContactLoader{
+// 新建联合主键dataloader
+func (t *EnterpriseContactUnionPkLoader) NewLoader() *EnterpriseContactUnionPkLoader {
+	return &EnterpriseContactUnionPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*EnterpriseContact, []error) {
 			var rs []*EnterpriseContact
-
-			db.DB.Model(&EnterpriseContact{}).Where(t.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
-
+			var m EnterpriseContact
+			db.DB.Model(&m).Where(m.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
 			return rs, nil
 		},
 	}

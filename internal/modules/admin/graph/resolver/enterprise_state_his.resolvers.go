@@ -41,13 +41,36 @@ func (r *mutationResolver) DeleteEnterpriseStateHis(ctx context.Context, where m
 	}, nil
 }
 
-func (r *mutationResolver) DeleteEnterpriseStateHisByPk(ctx context.Context, Id int64) (*model1.EnterpriseStateHis, error) {
+func (r *mutationResolver) DeleteEnterpriseStateHisByPk(ctx context.Context, id int64) (*model1.EnterpriseStateHis, error) {
 	preloads := util.GetPreloads(ctx)
 	var rs model1.EnterpriseStateHis
 	tx := db.DB.Model(&model1.EnterpriseStateHis{})
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
-		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		tx = tx.Select(preloads).Where(rs.PrimaryColumnName()+" = ?", id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteEnterpriseStateHisByUnionPk(ctx context.Context, stateHisID string) (*model1.EnterpriseStateHis, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.EnterpriseStateHis
+	tx := db.DB.Model(&model1.EnterpriseStateHis{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", stateHisID).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -84,9 +107,9 @@ func (r *mutationResolver) InsertEnterpriseStateHis(ctx context.Context, objects
 	}, nil
 }
 
-func (r *mutationResolver) InsertEnterpriseStateHisOne(ctx context.Context, object model.EnterpriseStateHisInsertInput) (*model1.EnterpriseStateHis, error) {
+func (r *mutationResolver) InsertEnterpriseStateHisOne(ctx context.Context, objects model.EnterpriseStateHisInsertInput) (*model1.EnterpriseStateHis, error) {
 	rs := &model1.EnterpriseStateHis{}
-	util2.StructAssign(rs, &object)
+	util2.StructAssign(rs, &objects)
 	tx := db.DB.Model(&model1.EnterpriseStateHis{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -129,14 +152,30 @@ func (r *mutationResolver) UpdateEnterpriseStateHis(ctx context.Context, inc *mo
 	}, nil
 }
 
-func (r *mutationResolver) UpdateEnterpriseStateHisByPk(ctx context.Context, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, Id int64) (*model1.EnterpriseStateHis, error) {
-	tx := db.DB.Where("id = ?", Id)
+func (r *mutationResolver) UpdateEnterpriseStateHisByPk(ctx context.Context, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, id int64) (*model1.EnterpriseStateHis, error) {
+	var rs model1.EnterpriseStateHis
+	tx := db.DB.Where(rs.PrimaryColumnName()+" = ?", id)
 	qt := util.NewQueryTranslator(tx, &model1.EnterpriseStateHis{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) UpdateEnterpriseStateHisByUnionPk(ctx context.Context, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, stateHisID string) (*model1.EnterpriseStateHis, error) {
 	var rs model1.EnterpriseStateHis
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", stateHisID)
+	qt := util.NewQueryTranslator(tx, &model1.EnterpriseStateHis{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
 	tx = tx.First(&rs)
 	if err := tx.Error; err != nil {
 		return &rs, err
@@ -175,9 +214,17 @@ func (r *queryResolver) EnterpriseStateHisAggregate(ctx context.Context, distinc
 	return &rs, err
 }
 
-func (r *queryResolver) EnterpriseStateHisByPk(ctx context.Context, Id int64) (*model1.EnterpriseStateHis, error) {
+func (r *queryResolver) EnterpriseStateHisByPk(ctx context.Context, id int64) (*model1.EnterpriseStateHis, error) {
 	var rs model1.EnterpriseStateHis
-	tx := db.DB.Model(&model1.EnterpriseStateHis{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	tx := db.DB.Model(&model1.EnterpriseStateHis{}).Select(util.GetTopPreloads(ctx)).First(&rs, id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) EnterpriseStateHisByUnionPk(ctx context.Context, stateHisID string) (*model1.EnterpriseStateHis, error) {
+	var rs model1.EnterpriseStateHis
+	tx := db.DB.Model(&model1.EnterpriseStateHis{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", stateHisID).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

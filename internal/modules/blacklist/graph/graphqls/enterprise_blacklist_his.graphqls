@@ -332,6 +332,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_blacklist_his_by_pk(id: Bigint!): EnterpriseBlacklistHis!
+	"""
+	联合主键查询
+	"""
+	enterprise_blacklist_his_by_union_pk(his_id: String!): EnterpriseBlacklistHis!
 }
 extend type Mutation {
 	"""
@@ -355,7 +359,15 @@ extend type Mutation {
 	"""
 	update_enterprise_blacklist_his(_inc: EnterpriseBlacklistHisIncInput, _set: EnterpriseBlacklistHisSetInput, where: EnterpriseBlacklistHisBoolExp!): EnterpriseBlacklistHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_blacklist_his_by_pk(_inc: EnterpriseBlacklistHisIncInput, _set: EnterpriseBlacklistHisSetInput, id: Bigint!): EnterpriseBlacklistHis
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_blacklist_his_by_union_pk(_inc: EnterpriseBlacklistHisIncInput, _set: EnterpriseBlacklistHisSetInput, his_id: String!): EnterpriseBlacklistHis
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_blacklist_his_by_union_pk(his_id: String!): EnterpriseBlacklistHis
 }

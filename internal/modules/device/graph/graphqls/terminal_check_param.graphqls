@@ -471,6 +471,10 @@ extend type Query {
 	主键查询
 	"""
 	terminal_check_param_by_pk(id: Bigint!): TerminalCheckParam!
+	"""
+	联合主键查询
+	"""
+	terminal_check_param_by_union_pk(terminal_check_param_id: String!): TerminalCheckParam!
 }
 extend type Mutation {
 	"""
@@ -494,7 +498,15 @@ extend type Mutation {
 	"""
 	update_terminal_check_param(_inc: TerminalCheckParamIncInput, _set: TerminalCheckParamSetInput, where: TerminalCheckParamBoolExp!): TerminalCheckParamMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_check_param_by_pk(_inc: TerminalCheckParamIncInput, _set: TerminalCheckParamSetInput, id: Bigint!): TerminalCheckParam
+	"""
+	根据联合主键更新
+	"""
+	update_terminal_check_param_by_union_pk(_inc: TerminalCheckParamIncInput, _set: TerminalCheckParamSetInput, terminal_check_param_id: String!): TerminalCheckParam
+	"""
+	根据联合主键删除记录
+	"""
+	delete_terminal_check_param_by_union_pk(terminal_check_param_id: String!): TerminalCheckParam
 }

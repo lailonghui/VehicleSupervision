@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteTerminalParamSubByPk(ctx context.Context, Id in
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteTerminalParamSubByUnionPk(ctx context.Context, unionId string) (*model1.TerminalParamSub, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.TerminalParamSub
+	tx := db.DB.Model(&model1.TerminalParamSub{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertTerminalParamSub(ctx context.Context, objects []*model.TerminalParamSubInsertInput) (*model.TerminalParamSubMutationResponse, error) {
 	rs := make([]*model1.TerminalParamSub, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateTerminalParamSubByPk(ctx context.Context, inc *
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateTerminalParamSubByUnionPk(ctx context.Context, inc *model.TerminalParamSubIncInput, set *model.TerminalParamSubSetInput, unionId string) (*model1.TerminalParamSub, error) {
+	var rs model1.TerminalParamSub
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.TerminalParamSub{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) TerminalParamSub(ctx context.Context, distinctOn []model.TerminalParamSubSelectColumn, limit *int, offset *int, orderBy []*model.TerminalParamSubOrderBy, where *model.TerminalParamSubBoolExp) ([]*model1.TerminalParamSub, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.TerminalParamSub{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) TerminalParamSubAggregate(ctx context.Context, distinctO
 func (r *queryResolver) TerminalParamSubByPk(ctx context.Context, Id int64) (*model1.TerminalParamSub, error) {
 	var rs model1.TerminalParamSub
 	tx := db.DB.Model(&model1.TerminalParamSub{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) TerminalParamSubByUnionPk(ctx context.Context, unionId string) (*model1.TerminalParamSub, error) {
+	var rs model1.TerminalParamSub
+	tx := db.DB.Model(&model1.TerminalParamSub{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

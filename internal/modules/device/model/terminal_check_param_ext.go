@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden TerminalCheckParamLoader string *VehicleSupervision/internal/modules/device/model.TerminalCheckParam
+//go:generate go run github.com/vektah/dataloaden TerminalCheckParamUnionPkLoader string *VehicleSupervision/internal/modules/device/model.TerminalCheckParam
 
 // 数据库表名
 func (t TerminalCheckParam) TableName() string {
@@ -17,21 +17,32 @@ func (t TerminalCheckParam) PrimaryColumnName() string {
 	return "id"
 }
 
+// 新建主键dataloader
+func (t *TerminalCheckParam) NewPkLoader() *TerminalCheckParamPkLoader {
+	return &TerminalCheckParamPkLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*TerminalCheckParam, []error) {
+			var rs []*TerminalCheckParam
+			db.DB.Model(&TerminalCheckParam{}).Where(t.PrimaryColumnName()+" in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
+}
+
 // 联合主键列名
 func (t TerminalCheckParam) UnionPrimaryColumnName() string {
 	return "terminal_check_param_id"
 }
 
-// 新建dataloader
-func (t *TerminalCheckParam) NewLoader() *TerminalCheckParamLoader {
-	return &TerminalCheckParamLoader{
+// 新建联合主键dataloader
+func (t *TerminalCheckParam) NewUnionPkLoader() *TerminalCheckParamUnionPkLoader {
+	return &TerminalCheckParamUnionPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*TerminalCheckParam, []error) {
 			var rs []*TerminalCheckParam
-
 			db.DB.Model(&TerminalCheckParam{}).Where(t.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
-
 			return rs, nil
 		},
 	}

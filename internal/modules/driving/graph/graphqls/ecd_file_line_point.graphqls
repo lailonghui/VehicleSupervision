@@ -354,6 +354,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_line_point_by_pk(id: Bigint!): EcdFileLinePoint!
+	"""
+	联合主键查询
+	"""
+	ecd_file_line_point_by_union_pk(line_point_id: String!): EcdFileLinePoint!
 }
 extend type Mutation {
 	"""
@@ -377,7 +381,15 @@ extend type Mutation {
 	"""
 	update_ecd_file_line_point(_inc: EcdFileLinePointIncInput, _set: EcdFileLinePointSetInput, where: EcdFileLinePointBoolExp!): EcdFileLinePointMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_line_point_by_pk(_inc: EcdFileLinePointIncInput, _set: EcdFileLinePointSetInput, id: Bigint!): EcdFileLinePoint
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_line_point_by_union_pk(_inc: EcdFileLinePointIncInput, _set: EcdFileLinePointSetInput, line_point_id: String!): EcdFileLinePoint
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_line_point_by_union_pk(line_point_id: String!): EcdFileLinePoint
 }

@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteElectricFenceEnteranceRecordByPk(ctx context.Co
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteElectricFenceEnteranceRecordByUnionPk(ctx context.Context, unionId string) (*model1.ElectricFenceEnteranceRecord, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.ElectricFenceEnteranceRecord
+	tx := db.DB.Model(&model1.ElectricFenceEnteranceRecord{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertElectricFenceEnteranceRecord(ctx context.Context, objects []*model.ElectricFenceEnteranceRecordInsertInput) (*model.ElectricFenceEnteranceRecordMutationResponse, error) {
 	rs := make([]*model1.ElectricFenceEnteranceRecord, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateElectricFenceEnteranceRecordByPk(ctx context.Co
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateElectricFenceEnteranceRecordByUnionPk(ctx context.Context, inc *model.ElectricFenceEnteranceRecordIncInput, set *model.ElectricFenceEnteranceRecordSetInput, unionId string) (*model1.ElectricFenceEnteranceRecord, error) {
+	var rs model1.ElectricFenceEnteranceRecord
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.ElectricFenceEnteranceRecord{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) ElectricFenceEnteranceRecord(ctx context.Context, distinctOn []model.ElectricFenceEnteranceRecordSelectColumn, limit *int, offset *int, orderBy []*model.ElectricFenceEnteranceRecordOrderBy, where *model.ElectricFenceEnteranceRecordBoolExp) ([]*model1.ElectricFenceEnteranceRecord, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.ElectricFenceEnteranceRecord{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) ElectricFenceEnteranceRecordAggregate(ctx context.Contex
 func (r *queryResolver) ElectricFenceEnteranceRecordByPk(ctx context.Context, Id int64) (*model1.ElectricFenceEnteranceRecord, error) {
 	var rs model1.ElectricFenceEnteranceRecord
 	tx := db.DB.Model(&model1.ElectricFenceEnteranceRecord{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) ElectricFenceEnteranceRecordByUnionPk(ctx context.Context, unionId string) (*model1.ElectricFenceEnteranceRecord, error) {
+	var rs model1.ElectricFenceEnteranceRecord
+	tx := db.DB.Model(&model1.ElectricFenceEnteranceRecord{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

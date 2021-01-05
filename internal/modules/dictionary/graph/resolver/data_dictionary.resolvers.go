@@ -2,7 +2,6 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
-	"VehicleSupervision/internal/modules/dictionary/graph/generated"
 	"VehicleSupervision/internal/modules/dictionary/graph/model"
 	model1 "VehicleSupervision/internal/modules/dictionary/model"
 	"VehicleSupervision/pkg/graphql/util"
@@ -49,6 +48,29 @@ func (r *mutationResolver) DeleteDataDictionaryByPk(ctx context.Context, Id int6
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
 		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteDataDictionaryByUnionPk(ctx context.Context, unionId string) (*model1.DataDictionary, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.DataDictionary
+	tx := db.DB.Model(&model1.DataDictionary{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -145,6 +167,22 @@ func (r *mutationResolver) UpdateDataDictionaryByPk(ctx context.Context, inc *mo
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateDataDictionaryByUnionPk(ctx context.Context, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, unionId string) (*model1.DataDictionary, error) {
+	var rs model1.DataDictionary
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.DataDictionary{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) DataDictionary(ctx context.Context, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) ([]*model1.DataDictionary, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.DataDictionary{})
 	tx := qt.DistinctOn(distinctOn).
@@ -183,11 +221,10 @@ func (r *queryResolver) DataDictionaryByPk(ctx context.Context, Id int64) (*mode
 	return &rs, err
 }
 
-// Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+func (r *queryResolver) DataDictionaryByUnionPk(ctx context.Context, unionId string) (*model1.DataDictionary, error) {
+	var rs model1.DataDictionary
+	tx := db.DB.Model(&model1.DataDictionary{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
 
-// Query returns generated.QueryResolver implementation.
-func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
-
-type mutationResolver struct{ *Resolver }
-type queryResolver struct{ *Resolver }
+	err := tx.Error
+	return &rs, err
+}

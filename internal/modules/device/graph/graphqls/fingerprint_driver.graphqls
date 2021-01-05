@@ -331,6 +331,10 @@ extend type Query {
 	主键查询
 	"""
 	fingerprint_driver_by_pk(id: Bigint!): FingerprintDriver!
+	"""
+	联合主键查询
+	"""
+	fingerprint_driver_by_union_pk(fingerprint_driver_id: String!): FingerprintDriver!
 }
 extend type Mutation {
 	"""
@@ -354,7 +358,15 @@ extend type Mutation {
 	"""
 	update_fingerprint_driver(_inc: FingerprintDriverIncInput, _set: FingerprintDriverSetInput, where: FingerprintDriverBoolExp!): FingerprintDriverMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_fingerprint_driver_by_pk(_inc: FingerprintDriverIncInput, _set: FingerprintDriverSetInput, id: Bigint!): FingerprintDriver
+	"""
+	根据联合主键更新
+	"""
+	update_fingerprint_driver_by_union_pk(_inc: FingerprintDriverIncInput, _set: FingerprintDriverSetInput, fingerprint_driver_id: String!): FingerprintDriver
+	"""
+	根据联合主键删除记录
+	"""
+	delete_fingerprint_driver_by_union_pk(fingerprint_driver_id: String!): FingerprintDriver
 }

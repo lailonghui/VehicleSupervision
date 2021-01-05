@@ -317,6 +317,10 @@ extend type Query {
 	主键查询
 	"""
 	terminal_beidou_valid_by_pk(id: Bigint!): TerminalBeidouValid!
+	"""
+	联合主键查询
+	"""
+	terminal_beidou_valid_by_union_pk(terminal_beidou_valid_id: String!): TerminalBeidouValid!
 }
 extend type Mutation {
 	"""
@@ -340,7 +344,15 @@ extend type Mutation {
 	"""
 	update_terminal_beidou_valid(_inc: TerminalBeidouValidIncInput, _set: TerminalBeidouValidSetInput, where: TerminalBeidouValidBoolExp!): TerminalBeidouValidMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_beidou_valid_by_pk(_inc: TerminalBeidouValidIncInput, _set: TerminalBeidouValidSetInput, id: Bigint!): TerminalBeidouValid
+	"""
+	根据联合主键更新
+	"""
+	update_terminal_beidou_valid_by_union_pk(_inc: TerminalBeidouValidIncInput, _set: TerminalBeidouValidSetInput, terminal_beidou_valid_id: String!): TerminalBeidouValid
+	"""
+	根据联合主键删除记录
+	"""
+	delete_terminal_beidou_valid_by_union_pk(terminal_beidou_valid_id: String!): TerminalBeidouValid
 }

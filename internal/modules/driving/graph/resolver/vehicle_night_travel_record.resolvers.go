@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteVehicleNightTravelRecordByPk(ctx context.Contex
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteVehicleNightTravelRecordByUnionPk(ctx context.Context, unionId string) (*model1.VehicleNightTravelRecord, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.VehicleNightTravelRecord
+	tx := db.DB.Model(&model1.VehicleNightTravelRecord{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertVehicleNightTravelRecord(ctx context.Context, objects []*model.VehicleNightTravelRecordInsertInput) (*model.VehicleNightTravelRecordMutationResponse, error) {
 	rs := make([]*model1.VehicleNightTravelRecord, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateVehicleNightTravelRecordByPk(ctx context.Contex
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateVehicleNightTravelRecordByUnionPk(ctx context.Context, inc *model.VehicleNightTravelRecordIncInput, set *model.VehicleNightTravelRecordSetInput, unionId string) (*model1.VehicleNightTravelRecord, error) {
+	var rs model1.VehicleNightTravelRecord
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.VehicleNightTravelRecord{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) VehicleNightTravelRecord(ctx context.Context, distinctOn []model.VehicleNightTravelRecordSelectColumn, limit *int, offset *int, orderBy []*model.VehicleNightTravelRecordOrderBy, where *model.VehicleNightTravelRecordBoolExp) ([]*model1.VehicleNightTravelRecord, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.VehicleNightTravelRecord{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) VehicleNightTravelRecordAggregate(ctx context.Context, d
 func (r *queryResolver) VehicleNightTravelRecordByPk(ctx context.Context, Id int64) (*model1.VehicleNightTravelRecord, error) {
 	var rs model1.VehicleNightTravelRecord
 	tx := db.DB.Model(&model1.VehicleNightTravelRecord{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) VehicleNightTravelRecordByUnionPk(ctx context.Context, unionId string) (*model1.VehicleNightTravelRecord, error) {
+	var rs model1.VehicleNightTravelRecord
+	tx := db.DB.Model(&model1.VehicleNightTravelRecord{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

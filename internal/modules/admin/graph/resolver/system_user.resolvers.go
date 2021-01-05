@@ -41,13 +41,36 @@ func (r *mutationResolver) DeleteSystemUser(ctx context.Context, where model.Sys
 	}, nil
 }
 
-func (r *mutationResolver) DeleteSystemUserByPk(ctx context.Context, Id int64) (*model1.SystemUser, error) {
+func (r *mutationResolver) DeleteSystemUserByPk(ctx context.Context, id int64) (*model1.SystemUser, error) {
 	preloads := util.GetPreloads(ctx)
 	var rs model1.SystemUser
 	tx := db.DB.Model(&model1.SystemUser{})
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
-		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		tx = tx.Select(preloads).Where(rs.PrimaryColumnName()+" = ?", id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteSystemUserByUnionPk(ctx context.Context, userID string) (*model1.SystemUser, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.SystemUser
+	tx := db.DB.Model(&model1.SystemUser{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", userID).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -84,9 +107,9 @@ func (r *mutationResolver) InsertSystemUser(ctx context.Context, objects []*mode
 	}, nil
 }
 
-func (r *mutationResolver) InsertSystemUserOne(ctx context.Context, object model.SystemUserInsertInput) (*model1.SystemUser, error) {
+func (r *mutationResolver) InsertSystemUserOne(ctx context.Context, objects model.SystemUserInsertInput) (*model1.SystemUser, error) {
 	rs := &model1.SystemUser{}
-	util2.StructAssign(rs, &object)
+	util2.StructAssign(rs, &objects)
 	tx := db.DB.Model(&model1.SystemUser{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -129,14 +152,30 @@ func (r *mutationResolver) UpdateSystemUser(ctx context.Context, inc *model.Syst
 	}, nil
 }
 
-func (r *mutationResolver) UpdateSystemUserByPk(ctx context.Context, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, Id int64) (*model1.SystemUser, error) {
-	tx := db.DB.Where("id = ?", Id)
+func (r *mutationResolver) UpdateSystemUserByPk(ctx context.Context, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, id int64) (*model1.SystemUser, error) {
+	var rs model1.SystemUser
+	tx := db.DB.Where(rs.PrimaryColumnName()+" = ?", id)
 	qt := util.NewQueryTranslator(tx, &model1.SystemUser{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) UpdateSystemUserByUnionPk(ctx context.Context, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, userID string) (*model1.SystemUser, error) {
 	var rs model1.SystemUser
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", userID)
+	qt := util.NewQueryTranslator(tx, &model1.SystemUser{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
 	tx = tx.First(&rs)
 	if err := tx.Error; err != nil {
 		return &rs, err
@@ -175,9 +214,17 @@ func (r *queryResolver) SystemUserAggregate(ctx context.Context, distinctOn []mo
 	return &rs, err
 }
 
-func (r *queryResolver) SystemUserByPk(ctx context.Context, Id int64) (*model1.SystemUser, error) {
+func (r *queryResolver) SystemUserByPk(ctx context.Context, id int64) (*model1.SystemUser, error) {
 	var rs model1.SystemUser
-	tx := db.DB.Model(&model1.SystemUser{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	tx := db.DB.Model(&model1.SystemUser{}).Select(util.GetTopPreloads(ctx)).First(&rs, id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) SystemUserByUnionPk(ctx context.Context, userID string) (*model1.SystemUser, error) {
+	var rs model1.SystemUser
+	tx := db.DB.Model(&model1.SystemUser{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", userID).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

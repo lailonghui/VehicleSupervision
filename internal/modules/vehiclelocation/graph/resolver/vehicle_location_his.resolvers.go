@@ -2,6 +2,7 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/modules/vehiclelocation/graph/generated"
 	"VehicleSupervision/internal/modules/vehiclelocation/graph/model"
 	model1 "VehicleSupervision/internal/modules/vehiclelocation/model"
 	"VehicleSupervision/pkg/graphql/util"
@@ -181,3 +182,12 @@ func (r *queryResolver) VehicleLocationHisByPk(ctx context.Context, Id int64) (*
 	err := tx.Error
 	return &rs, err
 }
+
+// Mutation returns generated.MutationResolver implementation.
+func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+
+// Query returns generated.QueryResolver implementation.
+func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+
+type mutationResolver struct{ *Resolver }
+type queryResolver struct{ *Resolver }

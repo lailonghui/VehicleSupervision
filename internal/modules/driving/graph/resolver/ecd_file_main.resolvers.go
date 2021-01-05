@@ -65,6 +65,29 @@ func (r *mutationResolver) DeleteEcdFileMainByPk(ctx context.Context, Id int64) 
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteEcdFileMainByUnionPk(ctx context.Context, unionId string) (*model1.EcdFileMain, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.EcdFileMain
+	tx := db.DB.Model(&model1.EcdFileMain{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertEcdFileMain(ctx context.Context, objects []*model.EcdFileMainInsertInput) (*model.EcdFileMainMutationResponse, error) {
 	rs := make([]*model1.EcdFileMain, 0)
 	for _, object := range objects {
@@ -145,6 +168,22 @@ func (r *mutationResolver) UpdateEcdFileMainByPk(ctx context.Context, inc *model
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateEcdFileMainByUnionPk(ctx context.Context, inc *model.EcdFileMainIncInput, set *model.EcdFileMainSetInput, unionId string) (*model1.EcdFileMain, error) {
+	var rs model1.EcdFileMain
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.EcdFileMain{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) EcdFileMain(ctx context.Context, distinctOn []model.EcdFileMainSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainOrderBy, where *model.EcdFileMainBoolExp) ([]*model1.EcdFileMain, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.EcdFileMain{})
 	tx := qt.DistinctOn(distinctOn).
@@ -179,6 +218,14 @@ func (r *queryResolver) EcdFileMainAggregate(ctx context.Context, distinctOn []m
 func (r *queryResolver) EcdFileMainByPk(ctx context.Context, Id int64) (*model1.EcdFileMain, error) {
 	var rs model1.EcdFileMain
 	tx := db.DB.Model(&model1.EcdFileMain{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) EcdFileMainByUnionPk(ctx context.Context, unionId string) (*model1.EcdFileMain, error) {
+	var rs model1.EcdFileMain
+	tx := db.DB.Model(&model1.EcdFileMain{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

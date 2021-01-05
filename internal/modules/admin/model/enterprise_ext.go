@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden EnterpriseLoader string *VehicleSupervision/internal/modules/admin/model.Enterprise
+//go:generate go run github.com/vektah/dataloaden EnterpriseUnionPkLoader string *VehicleSupervision/internal/modules/admin/model.Enterprise
 
 // 数据库表名
 func (t Enterprise) TableName() string {
@@ -17,21 +17,34 @@ func (t Enterprise) PrimaryColumnName() string {
 	return "id"
 }
 
+// 新建主键dataloader
+func (t *EnterprisePkLoader) NewLoader() *EnterprisePkLoader {
+	return &EnterprisePkLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*Enterprise, []error) {
+			var rs []*Enterprise
+			var m Enterprise
+			db.DB.Model(&m).Where(m.PrimaryColumnName()+" in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
+}
+
 // 联合主键列名
 func (t Enterprise) UnionPrimaryColumnName() string {
 	return "enterprise_id"
 }
 
-// 新建dataloader
-func (t *Enterprise) NewLoader() *EnterpriseLoader {
-	return &EnterpriseLoader{
+// 新建联合主键dataloader
+func (t *EnterpriseUnionPkLoader) NewLoader() *EnterpriseUnionPkLoader {
+	return &EnterpriseUnionPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*Enterprise, []error) {
 			var rs []*Enterprise
-
-			db.DB.Model(&Enterprise{}).Where(t.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
-
+			var m Enterprise
+			db.DB.Model(&m).Where(m.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
 			return rs, nil
 		},
 	}

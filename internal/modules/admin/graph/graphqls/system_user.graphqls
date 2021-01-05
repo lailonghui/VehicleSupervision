@@ -549,6 +549,10 @@ extend type Query {
 	主键查询
 	"""
 	system_user_by_pk(id: Bigint!): SystemUser!
+	"""
+	联合主键查询
+	"""
+	system_user_by_union_pk(user_id: String!): SystemUser!
 }
 extend type Mutation {
 	"""
@@ -572,7 +576,15 @@ extend type Mutation {
 	"""
 	update_system_user(_inc: SystemUserIncInput, _set: SystemUserSetInput, where: SystemUserBoolExp!): SystemUserMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_system_user_by_pk(_inc: SystemUserIncInput, _set: SystemUserSetInput, id: Bigint!): SystemUser
+	"""
+	根据联合主键更新
+	"""
+	update_system_user_by_union_pk(_inc: SystemUserIncInput, _set: SystemUserSetInput, user_id: String!): SystemUser
+	"""
+	根据联合主键删除记录
+	"""
+	delete_system_user_by_union_pk(user_id: String!): SystemUser
 }

@@ -65,15 +65,28 @@ func GetPreloadsMustPrefixAndRemovePrefix(ctx context.Context, prefix string) (r
 
 // 获取最顶层的preload
 func GetTopPreloads(ctx context.Context) (rs []string) {
+
 	preloads := GetPreloads(ctx)
 	if preloads == nil || len(preloads) == 0 {
 		return
 	}
+	relationTables := make(map[string]bool, 0)
 	for _, preload := range preloads {
-		if strings.Contains(preload, ".") {
+		dotIndex := strings.Index(preload, ".")
+		if dotIndex != -1 {
+			relationTables[preload[:dotIndex]] = true
 			continue
 		}
-		rs = append(rs, preload)
 	}
-	return preloads
+	for _, preload := range preloads {
+		dotIndex := strings.Index(preload, ".")
+		if dotIndex != -1 {
+			continue
+		}
+		ok, _ := relationTables[preload]
+		if !ok {
+			rs = append(rs, preload)
+		}
+	}
+	return rs
 }

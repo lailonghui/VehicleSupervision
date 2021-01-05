@@ -2,6 +2,7 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/modules/dictionary/graph/generated"
 	"VehicleSupervision/internal/modules/dictionary/graph/model"
 	model1 "VehicleSupervision/internal/modules/dictionary/model"
 	"VehicleSupervision/pkg/graphql/util"
@@ -48,6 +49,29 @@ func (r *mutationResolver) DeleteDataDictionaryCategoryByPk(ctx context.Context,
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
 		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteDataDictionaryCategoryByUnionPk(ctx context.Context, unionId string) (*model1.DataDictionaryCategory, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.DataDictionaryCategory
+	tx := db.DB.Model(&model1.DataDictionaryCategory{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -144,6 +168,22 @@ func (r *mutationResolver) UpdateDataDictionaryCategoryByPk(ctx context.Context,
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateDataDictionaryCategoryByUnionPk(ctx context.Context, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, unionId string) (*model1.DataDictionaryCategory, error) {
+	var rs model1.DataDictionaryCategory
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.DataDictionaryCategory{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) DataDictionaryCategory(ctx context.Context, distinctOn []model.DataDictionaryCategorySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryCategoryOrderBy, where *model.DataDictionaryCategoryBoolExp) ([]*model1.DataDictionaryCategory, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.DataDictionaryCategory{})
 	tx := qt.DistinctOn(distinctOn).
@@ -181,3 +221,20 @@ func (r *queryResolver) DataDictionaryCategoryByPk(ctx context.Context, Id int64
 	err := tx.Error
 	return &rs, err
 }
+
+func (r *queryResolver) DataDictionaryCategoryByUnionPk(ctx context.Context, unionId string) (*model1.DataDictionaryCategory, error) {
+	var rs model1.DataDictionaryCategory
+	tx := db.DB.Model(&model1.DataDictionaryCategory{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
+	err := tx.Error
+	return &rs, err
+}
+
+// Mutation returns generated.MutationResolver implementation.
+func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+
+// Query returns generated.QueryResolver implementation.
+func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+
+type mutationResolver struct{ *Resolver }
+type queryResolver struct{ *Resolver }

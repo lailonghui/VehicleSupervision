@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteTerminalProveByPk(ctx context.Context, Id int64
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteTerminalProveByUnionPk(ctx context.Context, unionId string) (*model1.TerminalProve, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.TerminalProve
+	tx := db.DB.Model(&model1.TerminalProve{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertTerminalProve(ctx context.Context, objects []*model.TerminalProveInsertInput) (*model.TerminalProveMutationResponse, error) {
 	rs := make([]*model1.TerminalProve, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateTerminalProveByPk(ctx context.Context, inc *mod
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateTerminalProveByUnionPk(ctx context.Context, inc *model.TerminalProveIncInput, set *model.TerminalProveSetInput, unionId string) (*model1.TerminalProve, error) {
+	var rs model1.TerminalProve
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.TerminalProve{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) TerminalProve(ctx context.Context, distinctOn []model.TerminalProveSelectColumn, limit *int, offset *int, orderBy []*model.TerminalProveOrderBy, where *model.TerminalProveBoolExp) ([]*model1.TerminalProve, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.TerminalProve{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) TerminalProveAggregate(ctx context.Context, distinctOn [
 func (r *queryResolver) TerminalProveByPk(ctx context.Context, Id int64) (*model1.TerminalProve, error) {
 	var rs model1.TerminalProve
 	tx := db.DB.Model(&model1.TerminalProve{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) TerminalProveByUnionPk(ctx context.Context, unionId string) (*model1.TerminalProve, error) {
+	var rs model1.TerminalProve
+	tx := db.DB.Model(&model1.TerminalProve{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

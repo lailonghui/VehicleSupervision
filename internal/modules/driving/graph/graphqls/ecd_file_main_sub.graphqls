@@ -620,6 +620,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_main_sub_by_pk(id: Bigint!): EcdFileMainSub!
+	"""
+	联合主键查询
+	"""
+	ecd_file_main_sub_by_union_pk(file_main_sub_id: String!): EcdFileMainSub!
 }
 extend type Mutation {
 	"""
@@ -643,7 +647,15 @@ extend type Mutation {
 	"""
 	update_ecd_file_main_sub(_inc: EcdFileMainSubIncInput, _set: EcdFileMainSubSetInput, where: EcdFileMainSubBoolExp!): EcdFileMainSubMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_main_sub_by_pk(_inc: EcdFileMainSubIncInput, _set: EcdFileMainSubSetInput, id: Bigint!): EcdFileMainSub
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_main_sub_by_union_pk(_inc: EcdFileMainSubIncInput, _set: EcdFileMainSubSetInput, file_main_sub_id: String!): EcdFileMainSub
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_main_sub_by_union_pk(file_main_sub_id: String!): EcdFileMainSub
 }

@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden FingerprintLoader string *VehicleSupervision/internal/modules/device/model.Fingerprint
+//go:generate go run github.com/vektah/dataloaden FingerprintPkLoader string *VehicleSupervision/internal/modules/device/model.Fingerprint
 
 // 数据库表名
 func (t Fingerprint) TableName() string {
@@ -17,16 +17,14 @@ func (t Fingerprint) PrimaryColumnName() string {
 	return "id"
 }
 
-// 新建dataloader
-func (t *Fingerprint) NewLoader() *FingerprintLoader {
-	return &FingerprintLoader{
+// 新建主键dataloader
+func (t *Fingerprint) NewPkLoader() *FingerprintPkLoader {
+	return &FingerprintPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*Fingerprint, []error) {
 			var rs []*Fingerprint
-
 			db.DB.Model(&Fingerprint{}).Where(t.PrimaryColumnName()+" in ?", keys).Find(&rs)
-
 			return rs, nil
 		},
 	}

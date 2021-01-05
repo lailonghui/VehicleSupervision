@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden TerminalRegLogLoader string *VehicleSupervision/internal/modules/device/model.TerminalRegLog
+//go:generate go run github.com/vektah/dataloaden TerminalRegLogPkLoader string *VehicleSupervision/internal/modules/device/model.TerminalRegLog
 
 // 数据库表名
 func (t TerminalRegLog) TableName() string {
@@ -17,16 +17,14 @@ func (t TerminalRegLog) PrimaryColumnName() string {
 	return "id"
 }
 
-// 新建dataloader
-func (t *TerminalRegLog) NewLoader() *TerminalRegLogLoader {
-	return &TerminalRegLogLoader{
+// 新建主键dataloader
+func (t *TerminalRegLog) NewPkLoader() *TerminalRegLogPkLoader {
+	return &TerminalRegLogPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*TerminalRegLog, []error) {
 			var rs []*TerminalRegLog
-
 			db.DB.Model(&TerminalRegLog{}).Where(t.PrimaryColumnName()+" in ?", keys).Find(&rs)
-
 			return rs, nil
 		},
 	}

@@ -39,6 +39,7 @@ type Config struct {
 }
 
 type ResolverRoot interface {
+	Department() DepartmentResolver
 	Mutation() MutationResolver
 	Query() QueryResolver
 }
@@ -48,22 +49,22 @@ type DirectiveRoot struct {
 
 type ComplexityRoot struct {
 	Department struct {
-		CreateAt             func(childComplexity int) int
-		CreateBy             func(childComplexity int) int
-		DeleteAt             func(childComplexity int) int
-		DeleteBy             func(childComplexity int) int
-		DepartmentCategory   func(childComplexity int) int
-		DepartmentCode       func(childComplexity int) int
-		DepartmentID         func(childComplexity int) int
-		DepartmentName       func(childComplexity int) int
-		EnterpriseID         func(childComplexity int) int
-		ID                   func(childComplexity int) int
-		InternalNumber       func(childComplexity int) int
-		IsDelete             func(childComplexity int) int
-		Remarks              func(childComplexity int) int
-		SuperiorDepartmentID func(childComplexity int) int
-		UpdateAt             func(childComplexity int) int
-		UpdateBy             func(childComplexity int) int
+		CreateAt           func(childComplexity int) int
+		CreateBy           func(childComplexity int) int
+		DeleteAt           func(childComplexity int) int
+		DeleteBy           func(childComplexity int) int
+		DepartmentCategory func(childComplexity int) int
+		DepartmentCode     func(childComplexity int) int
+		DepartmentID       func(childComplexity int) int
+		DepartmentName     func(childComplexity int) int
+		Enterprise         func(childComplexity int) int
+		ID                 func(childComplexity int) int
+		InternalNumber     func(childComplexity int) int
+		IsDelete           func(childComplexity int) int
+		Remarks            func(childComplexity int) int
+		SuperiorDepartment func(childComplexity int) int
+		UpdateAt           func(childComplexity int) int
+		UpdateBy           func(childComplexity int) int
 	}
 
 	DepartmentAggregate struct {
@@ -1384,99 +1385,129 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteDepartment                  func(childComplexity int, where model.DepartmentBoolExp) int
-		DeleteDepartmentByPk              func(childComplexity int, id int64) int
-		DeleteEnterprise                  func(childComplexity int, where model.EnterpriseBoolExp) int
-		DeleteEnterpriseByPk              func(childComplexity int, id int64) int
-		DeleteEnterpriseContact           func(childComplexity int, where model.EnterpriseContactBoolExp) int
-		DeleteEnterpriseContactByPk       func(childComplexity int, id int64) int
-		DeleteEnterpriseMuckTrunk         func(childComplexity int, where model.EnterpriseMuckTrunkBoolExp) int
-		DeleteEnterpriseMuckTrunkByPk     func(childComplexity int, id int64) int
-		DeleteEnterprisePoliceSmsInfo     func(childComplexity int, where model.EnterprisePoliceSmsInfoBoolExp) int
-		DeleteEnterprisePoliceSmsInfoByPk func(childComplexity int, id int64) int
-		DeleteEnterpriseScoreLog          func(childComplexity int, where model.EnterpriseScoreLogBoolExp) int
-		DeleteEnterpriseScoreLogByPk      func(childComplexity int, id int64) int
-		DeleteEnterpriseScoreSet          func(childComplexity int, where model.EnterpriseScoreSetBoolExp) int
-		DeleteEnterpriseScoreSetByPk      func(childComplexity int, id int64) int
-		DeleteEnterpriseStateHis          func(childComplexity int, where model.EnterpriseStateHisBoolExp) int
-		DeleteEnterpriseStateHisByPk      func(childComplexity int, id int64) int
-		DeleteEnterpriseUkey              func(childComplexity int, where model.EnterpriseUkeyBoolExp) int
-		DeleteEnterpriseUkeyByPk          func(childComplexity int, id int64) int
-		DeleteSystemUser                  func(childComplexity int, where model.SystemUserBoolExp) int
-		DeleteSystemUserByPk              func(childComplexity int, id int64) int
-		InsertDepartment                  func(childComplexity int, objects []*model.DepartmentInsertInput) int
-		InsertDepartmentOne               func(childComplexity int, objects model.DepartmentInsertInput) int
-		InsertEnterprise                  func(childComplexity int, objects []*model.EnterpriseInsertInput) int
-		InsertEnterpriseContact           func(childComplexity int, objects []*model.EnterpriseContactInsertInput) int
-		InsertEnterpriseContactOne        func(childComplexity int, objects model.EnterpriseContactInsertInput) int
-		InsertEnterpriseMuckTrunk         func(childComplexity int, objects []*model.EnterpriseMuckTrunkInsertInput) int
-		InsertEnterpriseMuckTrunkOne      func(childComplexity int, objects model.EnterpriseMuckTrunkInsertInput) int
-		InsertEnterpriseOne               func(childComplexity int, objects model.EnterpriseInsertInput) int
-		InsertEnterprisePoliceSmsInfo     func(childComplexity int, objects []*model.EnterprisePoliceSmsInfoInsertInput) int
-		InsertEnterprisePoliceSmsInfoOne  func(childComplexity int, objects model.EnterprisePoliceSmsInfoInsertInput) int
-		InsertEnterpriseScoreLog          func(childComplexity int, objects []*model.EnterpriseScoreLogInsertInput) int
-		InsertEnterpriseScoreLogOne       func(childComplexity int, objects model.EnterpriseScoreLogInsertInput) int
-		InsertEnterpriseScoreSet          func(childComplexity int, objects []*model.EnterpriseScoreSetInsertInput) int
-		InsertEnterpriseScoreSetOne       func(childComplexity int, objects model.EnterpriseScoreSetInsertInput) int
-		InsertEnterpriseStateHis          func(childComplexity int, objects []*model.EnterpriseStateHisInsertInput) int
-		InsertEnterpriseStateHisOne       func(childComplexity int, objects model.EnterpriseStateHisInsertInput) int
-		InsertEnterpriseUkey              func(childComplexity int, objects []*model.EnterpriseUkeyInsertInput) int
-		InsertEnterpriseUkeyOne           func(childComplexity int, objects model.EnterpriseUkeyInsertInput) int
-		InsertSystemUser                  func(childComplexity int, objects []*model.SystemUserInsertInput) int
-		InsertSystemUserOne               func(childComplexity int, objects model.SystemUserInsertInput) int
-		UpdateDepartment                  func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, where model.DepartmentBoolExp) int
-		UpdateDepartmentByPk              func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, id int64) int
-		UpdateEnterprise                  func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) int
-		UpdateEnterpriseByPk              func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, id int64) int
-		UpdateEnterpriseContact           func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, where model.EnterpriseContactBoolExp) int
-		UpdateEnterpriseContactByPk       func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, id int64) int
-		UpdateEnterpriseMuckTrunk         func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, where model.EnterpriseMuckTrunkBoolExp) int
-		UpdateEnterpriseMuckTrunkByPk     func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, id int64) int
-		UpdateEnterprisePoliceSmsInfo     func(childComplexity int, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, where model.EnterprisePoliceSmsInfoBoolExp) int
-		UpdateEnterprisePoliceSmsInfoByPk func(childComplexity int, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, id int64) int
-		UpdateEnterpriseScoreLog          func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, where model.EnterpriseScoreLogBoolExp) int
-		UpdateEnterpriseScoreLogByPk      func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, id int64) int
-		UpdateEnterpriseScoreSet          func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, where model.EnterpriseScoreSetBoolExp) int
-		UpdateEnterpriseScoreSetByPk      func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, id int64) int
-		UpdateEnterpriseStateHis          func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, where model.EnterpriseStateHisBoolExp) int
-		UpdateEnterpriseStateHisByPk      func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, id int64) int
-		UpdateEnterpriseUkey              func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, where model.EnterpriseUkeyBoolExp) int
-		UpdateEnterpriseUkeyByPk          func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, id int64) int
-		UpdateSystemUser                  func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, where model.SystemUserBoolExp) int
-		UpdateSystemUserByPk              func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, id int64) int
+		DeleteDepartment                       func(childComplexity int, where model.DepartmentBoolExp) int
+		DeleteDepartmentByPk                   func(childComplexity int, id int64) int
+		DeleteDepartmentByUnionPk              func(childComplexity int, departmentID string) int
+		DeleteEnterprise                       func(childComplexity int, where model.EnterpriseBoolExp) int
+		DeleteEnterpriseByPk                   func(childComplexity int, id int64) int
+		DeleteEnterpriseByUnionPk              func(childComplexity int, enterpriseID string) int
+		DeleteEnterpriseContact                func(childComplexity int, where model.EnterpriseContactBoolExp) int
+		DeleteEnterpriseContactByPk            func(childComplexity int, id int64) int
+		DeleteEnterpriseContactByUnionPk       func(childComplexity int, contactID string) int
+		DeleteEnterpriseMuckTrunk              func(childComplexity int, where model.EnterpriseMuckTrunkBoolExp) int
+		DeleteEnterpriseMuckTrunkByPk          func(childComplexity int, id int64) int
+		DeleteEnterpriseMuckTrunkByUnionPk     func(childComplexity int, enterpriseMuckTrunkID string) int
+		DeleteEnterprisePoliceSmsInfo          func(childComplexity int, where model.EnterprisePoliceSmsInfoBoolExp) int
+		DeleteEnterprisePoliceSmsInfoByPk      func(childComplexity int, id int64) int
+		DeleteEnterprisePoliceSmsInfoByUnionPk func(childComplexity int, enterprisePoliceSmsInfoID string) int
+		DeleteEnterpriseScoreLog               func(childComplexity int, where model.EnterpriseScoreLogBoolExp) int
+		DeleteEnterpriseScoreLogByPk           func(childComplexity int, id int64) int
+		DeleteEnterpriseScoreLogByUnionPk      func(childComplexity int, logID string) int
+		DeleteEnterpriseScoreSet               func(childComplexity int, where model.EnterpriseScoreSetBoolExp) int
+		DeleteEnterpriseScoreSetByPk           func(childComplexity int, id int64) int
+		DeleteEnterpriseScoreSetByUnionPk      func(childComplexity int, scoreSetID string) int
+		DeleteEnterpriseStateHis               func(childComplexity int, where model.EnterpriseStateHisBoolExp) int
+		DeleteEnterpriseStateHisByPk           func(childComplexity int, id int64) int
+		DeleteEnterpriseStateHisByUnionPk      func(childComplexity int, stateHisID string) int
+		DeleteEnterpriseUkey                   func(childComplexity int, where model.EnterpriseUkeyBoolExp) int
+		DeleteEnterpriseUkeyByPk               func(childComplexity int, id int64) int
+		DeleteEnterpriseUkeyByUnionPk          func(childComplexity int, ukeyID string) int
+		DeleteSystemUser                       func(childComplexity int, where model.SystemUserBoolExp) int
+		DeleteSystemUserByPk                   func(childComplexity int, id int64) int
+		DeleteSystemUserByUnionPk              func(childComplexity int, userID string) int
+		InsertDepartment                       func(childComplexity int, objects []*model.DepartmentInsertInput) int
+		InsertDepartmentOne                    func(childComplexity int, objects model.DepartmentInsertInput) int
+		InsertEnterprise                       func(childComplexity int, objects []*model.EnterpriseInsertInput) int
+		InsertEnterpriseContact                func(childComplexity int, objects []*model.EnterpriseContactInsertInput) int
+		InsertEnterpriseContactOne             func(childComplexity int, objects model.EnterpriseContactInsertInput) int
+		InsertEnterpriseMuckTrunk              func(childComplexity int, objects []*model.EnterpriseMuckTrunkInsertInput) int
+		InsertEnterpriseMuckTrunkOne           func(childComplexity int, objects model.EnterpriseMuckTrunkInsertInput) int
+		InsertEnterpriseOne                    func(childComplexity int, objects model.EnterpriseInsertInput) int
+		InsertEnterprisePoliceSmsInfo          func(childComplexity int, objects []*model.EnterprisePoliceSmsInfoInsertInput) int
+		InsertEnterprisePoliceSmsInfoOne       func(childComplexity int, objects model.EnterprisePoliceSmsInfoInsertInput) int
+		InsertEnterpriseScoreLog               func(childComplexity int, objects []*model.EnterpriseScoreLogInsertInput) int
+		InsertEnterpriseScoreLogOne            func(childComplexity int, objects model.EnterpriseScoreLogInsertInput) int
+		InsertEnterpriseScoreSet               func(childComplexity int, objects []*model.EnterpriseScoreSetInsertInput) int
+		InsertEnterpriseScoreSetOne            func(childComplexity int, objects model.EnterpriseScoreSetInsertInput) int
+		InsertEnterpriseStateHis               func(childComplexity int, objects []*model.EnterpriseStateHisInsertInput) int
+		InsertEnterpriseStateHisOne            func(childComplexity int, objects model.EnterpriseStateHisInsertInput) int
+		InsertEnterpriseUkey                   func(childComplexity int, objects []*model.EnterpriseUkeyInsertInput) int
+		InsertEnterpriseUkeyOne                func(childComplexity int, objects model.EnterpriseUkeyInsertInput) int
+		InsertSystemUser                       func(childComplexity int, objects []*model.SystemUserInsertInput) int
+		InsertSystemUserOne                    func(childComplexity int, objects model.SystemUserInsertInput) int
+		UpdateDepartment                       func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, where model.DepartmentBoolExp) int
+		UpdateDepartmentByPk                   func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, id int64) int
+		UpdateDepartmentByUnionPk              func(childComplexity int, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, departmentID string) int
+		UpdateEnterprise                       func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) int
+		UpdateEnterpriseByPk                   func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, id int64) int
+		UpdateEnterpriseByUnionPk              func(childComplexity int, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, enterpriseID string) int
+		UpdateEnterpriseContact                func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, where model.EnterpriseContactBoolExp) int
+		UpdateEnterpriseContactByPk            func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, id int64) int
+		UpdateEnterpriseContactByUnionPk       func(childComplexity int, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, contactID string) int
+		UpdateEnterpriseMuckTrunk              func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, where model.EnterpriseMuckTrunkBoolExp) int
+		UpdateEnterpriseMuckTrunkByPk          func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, id int64) int
+		UpdateEnterpriseMuckTrunkByUnionPk     func(childComplexity int, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, enterpriseMuckTrunkID string) int
+		UpdateEnterprisePoliceSmsInfo          func(childComplexity int, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, where model.EnterprisePoliceSmsInfoBoolExp) int
+		UpdateEnterprisePoliceSmsInfoByPk      func(childComplexity int, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, id int64) int
+		UpdateEnterprisePoliceSmsInfoByUnionPk func(childComplexity int, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, enterprisePoliceSmsInfoID string) int
+		UpdateEnterpriseScoreLog               func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, where model.EnterpriseScoreLogBoolExp) int
+		UpdateEnterpriseScoreLogByPk           func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, id int64) int
+		UpdateEnterpriseScoreLogByUnionPk      func(childComplexity int, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, logID string) int
+		UpdateEnterpriseScoreSet               func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, where model.EnterpriseScoreSetBoolExp) int
+		UpdateEnterpriseScoreSetByPk           func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, id int64) int
+		UpdateEnterpriseScoreSetByUnionPk      func(childComplexity int, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, scoreSetID string) int
+		UpdateEnterpriseStateHis               func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, where model.EnterpriseStateHisBoolExp) int
+		UpdateEnterpriseStateHisByPk           func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, id int64) int
+		UpdateEnterpriseStateHisByUnionPk      func(childComplexity int, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, stateHisID string) int
+		UpdateEnterpriseUkey                   func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, where model.EnterpriseUkeyBoolExp) int
+		UpdateEnterpriseUkeyByPk               func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, id int64) int
+		UpdateEnterpriseUkeyByUnionPk          func(childComplexity int, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, ukeyID string) int
+		UpdateSystemUser                       func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, where model.SystemUserBoolExp) int
+		UpdateSystemUserByPk                   func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, id int64) int
+		UpdateSystemUserByUnionPk              func(childComplexity int, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, userID string) int
 	}
 
 	Query struct {
 		Department                       func(childComplexity int, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) int
 		DepartmentAggregate              func(childComplexity int, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) int
 		DepartmentByPk                   func(childComplexity int, id int64) int
+		DepartmentByUnionPk              func(childComplexity int, departmentID string) int
 		Enterprise                       func(childComplexity int, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) int
 		EnterpriseAggregate              func(childComplexity int, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) int
 		EnterpriseByPk                   func(childComplexity int, id int64) int
+		EnterpriseByUnionPk              func(childComplexity int, enterpriseID string) int
 		EnterpriseContact                func(childComplexity int, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) int
 		EnterpriseContactAggregate       func(childComplexity int, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) int
 		EnterpriseContactByPk            func(childComplexity int, id int64) int
+		EnterpriseContactByUnionPk       func(childComplexity int, contactID string) int
 		EnterpriseMuckTrunk              func(childComplexity int, distinctOn []model.EnterpriseMuckTrunkSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseMuckTrunkOrderBy, where *model.EnterpriseMuckTrunkBoolExp) int
 		EnterpriseMuckTrunkAggregate     func(childComplexity int, distinctOn []model.EnterpriseMuckTrunkSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseMuckTrunkOrderBy, where *model.EnterpriseMuckTrunkBoolExp) int
 		EnterpriseMuckTrunkByPk          func(childComplexity int, id int64) int
+		EnterpriseMuckTrunkByUnionPk     func(childComplexity int, enterpriseMuckTrunkID string) int
 		EnterprisePoliceSmsInfo          func(childComplexity int, distinctOn []model.EnterprisePoliceSmsInfoSelectColumn, limit *int, offset *int, orderBy []*model.EnterprisePoliceSmsInfoOrderBy, where *model.EnterprisePoliceSmsInfoBoolExp) int
 		EnterprisePoliceSmsInfoAggregate func(childComplexity int, distinctOn []model.EnterprisePoliceSmsInfoSelectColumn, limit *int, offset *int, orderBy []*model.EnterprisePoliceSmsInfoOrderBy, where *model.EnterprisePoliceSmsInfoBoolExp) int
 		EnterprisePoliceSmsInfoByPk      func(childComplexity int, id int64) int
+		EnterprisePoliceSmsInfoByUnionPk func(childComplexity int, enterprisePoliceSmsInfoID string) int
 		EnterpriseScoreLog               func(childComplexity int, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) int
 		EnterpriseScoreLogAggregate      func(childComplexity int, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) int
 		EnterpriseScoreLogByPk           func(childComplexity int, id int64) int
+		EnterpriseScoreLogByUnionPk      func(childComplexity int, logID string) int
 		EnterpriseScoreSet               func(childComplexity int, distinctOn []model.EnterpriseScoreSetSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreSetOrderBy, where *model.EnterpriseScoreSetBoolExp) int
 		EnterpriseScoreSetAggregate      func(childComplexity int, distinctOn []model.EnterpriseScoreSetSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreSetOrderBy, where *model.EnterpriseScoreSetBoolExp) int
 		EnterpriseScoreSetByPk           func(childComplexity int, id int64) int
+		EnterpriseScoreSetByUnionPk      func(childComplexity int, scoreSetID string) int
 		EnterpriseStateHis               func(childComplexity int, distinctOn []model.EnterpriseStateHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseStateHisOrderBy, where *model.EnterpriseStateHisBoolExp) int
 		EnterpriseStateHisAggregate      func(childComplexity int, distinctOn []model.EnterpriseStateHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseStateHisOrderBy, where *model.EnterpriseStateHisBoolExp) int
 		EnterpriseStateHisByPk           func(childComplexity int, id int64) int
+		EnterpriseStateHisByUnionPk      func(childComplexity int, stateHisID string) int
 		EnterpriseUkey                   func(childComplexity int, distinctOn []model.EnterpriseUkeySelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseUkeyOrderBy, where *model.EnterpriseUkeyBoolExp) int
 		EnterpriseUkeyAggregate          func(childComplexity int, distinctOn []model.EnterpriseUkeySelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseUkeyOrderBy, where *model.EnterpriseUkeyBoolExp) int
 		EnterpriseUkeyByPk               func(childComplexity int, id int64) int
+		EnterpriseUkeyByUnionPk          func(childComplexity int, ukeyID string) int
 		SystemUser                       func(childComplexity int, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) int
 		SystemUserAggregate              func(childComplexity int, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) int
 		SystemUserByPk                   func(childComplexity int, id int64) int
+		SystemUserByUnionPk              func(childComplexity int, userID string) int
 	}
 
 	SystemUser struct {
@@ -1657,6 +1688,10 @@ type ComplexityRoot struct {
 	}
 }
 
+type DepartmentResolver interface {
+	Enterprise(ctx context.Context, obj *model1.Department) (*model1.Enterprise, error)
+	SuperiorDepartment(ctx context.Context, obj *model1.Department) (*model1.Department, error)
+}
 type MutationResolver interface {
 	DeleteDepartment(ctx context.Context, where model.DepartmentBoolExp) (*model.DepartmentMutationResponse, error)
 	DeleteDepartmentByPk(ctx context.Context, id int64) (*model1.Department, error)
@@ -1664,92 +1699,122 @@ type MutationResolver interface {
 	InsertDepartmentOne(ctx context.Context, objects model.DepartmentInsertInput) (*model1.Department, error)
 	UpdateDepartment(ctx context.Context, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, where model.DepartmentBoolExp) (*model.DepartmentMutationResponse, error)
 	UpdateDepartmentByPk(ctx context.Context, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, id int64) (*model1.Department, error)
+	UpdateDepartmentByUnionPk(ctx context.Context, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, departmentID string) (*model1.Department, error)
+	DeleteDepartmentByUnionPk(ctx context.Context, departmentID string) (*model1.Department, error)
 	DeleteEnterprise(ctx context.Context, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error)
 	DeleteEnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error)
 	InsertEnterprise(ctx context.Context, objects []*model.EnterpriseInsertInput) (*model.EnterpriseMutationResponse, error)
 	InsertEnterpriseOne(ctx context.Context, objects model.EnterpriseInsertInput) (*model1.Enterprise, error)
 	UpdateEnterprise(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, where model.EnterpriseBoolExp) (*model.EnterpriseMutationResponse, error)
 	UpdateEnterpriseByPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, id int64) (*model1.Enterprise, error)
+	UpdateEnterpriseByUnionPk(ctx context.Context, inc *model.EnterpriseIncInput, set *model.EnterpriseSetInput, enterpriseID string) (*model1.Enterprise, error)
+	DeleteEnterpriseByUnionPk(ctx context.Context, enterpriseID string) (*model1.Enterprise, error)
 	DeleteEnterpriseContact(ctx context.Context, where model.EnterpriseContactBoolExp) (*model.EnterpriseContactMutationResponse, error)
 	DeleteEnterpriseContactByPk(ctx context.Context, id int64) (*model1.EnterpriseContact, error)
 	InsertEnterpriseContact(ctx context.Context, objects []*model.EnterpriseContactInsertInput) (*model.EnterpriseContactMutationResponse, error)
 	InsertEnterpriseContactOne(ctx context.Context, objects model.EnterpriseContactInsertInput) (*model1.EnterpriseContact, error)
 	UpdateEnterpriseContact(ctx context.Context, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, where model.EnterpriseContactBoolExp) (*model.EnterpriseContactMutationResponse, error)
 	UpdateEnterpriseContactByPk(ctx context.Context, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, id int64) (*model1.EnterpriseContact, error)
+	UpdateEnterpriseContactByUnionPk(ctx context.Context, inc *model.EnterpriseContactIncInput, set *model.EnterpriseContactSetInput, contactID string) (*model1.EnterpriseContact, error)
+	DeleteEnterpriseContactByUnionPk(ctx context.Context, contactID string) (*model1.EnterpriseContact, error)
 	DeleteEnterpriseMuckTrunk(ctx context.Context, where model.EnterpriseMuckTrunkBoolExp) (*model.EnterpriseMuckTrunkMutationResponse, error)
 	DeleteEnterpriseMuckTrunkByPk(ctx context.Context, id int64) (*model1.EnterpriseMuckTrunk, error)
 	InsertEnterpriseMuckTrunk(ctx context.Context, objects []*model.EnterpriseMuckTrunkInsertInput) (*model.EnterpriseMuckTrunkMutationResponse, error)
 	InsertEnterpriseMuckTrunkOne(ctx context.Context, objects model.EnterpriseMuckTrunkInsertInput) (*model1.EnterpriseMuckTrunk, error)
 	UpdateEnterpriseMuckTrunk(ctx context.Context, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, where model.EnterpriseMuckTrunkBoolExp) (*model.EnterpriseMuckTrunkMutationResponse, error)
 	UpdateEnterpriseMuckTrunkByPk(ctx context.Context, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, id int64) (*model1.EnterpriseMuckTrunk, error)
+	UpdateEnterpriseMuckTrunkByUnionPk(ctx context.Context, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, enterpriseMuckTrunkID string) (*model1.EnterpriseMuckTrunk, error)
+	DeleteEnterpriseMuckTrunkByUnionPk(ctx context.Context, enterpriseMuckTrunkID string) (*model1.EnterpriseMuckTrunk, error)
 	DeleteEnterprisePoliceSmsInfo(ctx context.Context, where model.EnterprisePoliceSmsInfoBoolExp) (*model.EnterprisePoliceSmsInfoMutationResponse, error)
 	DeleteEnterprisePoliceSmsInfoByPk(ctx context.Context, id int64) (*model1.EnterprisePoliceSmsInfo, error)
 	InsertEnterprisePoliceSmsInfo(ctx context.Context, objects []*model.EnterprisePoliceSmsInfoInsertInput) (*model.EnterprisePoliceSmsInfoMutationResponse, error)
 	InsertEnterprisePoliceSmsInfoOne(ctx context.Context, objects model.EnterprisePoliceSmsInfoInsertInput) (*model1.EnterprisePoliceSmsInfo, error)
 	UpdateEnterprisePoliceSmsInfo(ctx context.Context, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, where model.EnterprisePoliceSmsInfoBoolExp) (*model.EnterprisePoliceSmsInfoMutationResponse, error)
 	UpdateEnterprisePoliceSmsInfoByPk(ctx context.Context, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, id int64) (*model1.EnterprisePoliceSmsInfo, error)
+	UpdateEnterprisePoliceSmsInfoByUnionPk(ctx context.Context, inc *model.EnterprisePoliceSmsInfoIncInput, set *model.EnterprisePoliceSmsInfoSetInput, enterprisePoliceSmsInfoID string) (*model1.EnterprisePoliceSmsInfo, error)
+	DeleteEnterprisePoliceSmsInfoByUnionPk(ctx context.Context, enterprisePoliceSmsInfoID string) (*model1.EnterprisePoliceSmsInfo, error)
 	DeleteEnterpriseScoreLog(ctx context.Context, where model.EnterpriseScoreLogBoolExp) (*model.EnterpriseScoreLogMutationResponse, error)
 	DeleteEnterpriseScoreLogByPk(ctx context.Context, id int64) (*model1.EnterpriseScoreLog, error)
 	InsertEnterpriseScoreLog(ctx context.Context, objects []*model.EnterpriseScoreLogInsertInput) (*model.EnterpriseScoreLogMutationResponse, error)
 	InsertEnterpriseScoreLogOne(ctx context.Context, objects model.EnterpriseScoreLogInsertInput) (*model1.EnterpriseScoreLog, error)
 	UpdateEnterpriseScoreLog(ctx context.Context, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, where model.EnterpriseScoreLogBoolExp) (*model.EnterpriseScoreLogMutationResponse, error)
 	UpdateEnterpriseScoreLogByPk(ctx context.Context, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, id int64) (*model1.EnterpriseScoreLog, error)
+	UpdateEnterpriseScoreLogByUnionPk(ctx context.Context, inc *model.EnterpriseScoreLogIncInput, set *model.EnterpriseScoreLogSetInput, logID string) (*model1.EnterpriseScoreLog, error)
+	DeleteEnterpriseScoreLogByUnionPk(ctx context.Context, logID string) (*model1.EnterpriseScoreLog, error)
 	DeleteEnterpriseScoreSet(ctx context.Context, where model.EnterpriseScoreSetBoolExp) (*model.EnterpriseScoreSetMutationResponse, error)
 	DeleteEnterpriseScoreSetByPk(ctx context.Context, id int64) (*model1.EnterpriseScoreSet, error)
 	InsertEnterpriseScoreSet(ctx context.Context, objects []*model.EnterpriseScoreSetInsertInput) (*model.EnterpriseScoreSetMutationResponse, error)
 	InsertEnterpriseScoreSetOne(ctx context.Context, objects model.EnterpriseScoreSetInsertInput) (*model1.EnterpriseScoreSet, error)
 	UpdateEnterpriseScoreSet(ctx context.Context, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, where model.EnterpriseScoreSetBoolExp) (*model.EnterpriseScoreSetMutationResponse, error)
 	UpdateEnterpriseScoreSetByPk(ctx context.Context, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, id int64) (*model1.EnterpriseScoreSet, error)
+	UpdateEnterpriseScoreSetByUnionPk(ctx context.Context, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, scoreSetID string) (*model1.EnterpriseScoreSet, error)
+	DeleteEnterpriseScoreSetByUnionPk(ctx context.Context, scoreSetID string) (*model1.EnterpriseScoreSet, error)
 	DeleteEnterpriseStateHis(ctx context.Context, where model.EnterpriseStateHisBoolExp) (*model.EnterpriseStateHisMutationResponse, error)
 	DeleteEnterpriseStateHisByPk(ctx context.Context, id int64) (*model1.EnterpriseStateHis, error)
 	InsertEnterpriseStateHis(ctx context.Context, objects []*model.EnterpriseStateHisInsertInput) (*model.EnterpriseStateHisMutationResponse, error)
 	InsertEnterpriseStateHisOne(ctx context.Context, objects model.EnterpriseStateHisInsertInput) (*model1.EnterpriseStateHis, error)
 	UpdateEnterpriseStateHis(ctx context.Context, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, where model.EnterpriseStateHisBoolExp) (*model.EnterpriseStateHisMutationResponse, error)
 	UpdateEnterpriseStateHisByPk(ctx context.Context, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, id int64) (*model1.EnterpriseStateHis, error)
+	UpdateEnterpriseStateHisByUnionPk(ctx context.Context, inc *model.EnterpriseStateHisIncInput, set *model.EnterpriseStateHisSetInput, stateHisID string) (*model1.EnterpriseStateHis, error)
+	DeleteEnterpriseStateHisByUnionPk(ctx context.Context, stateHisID string) (*model1.EnterpriseStateHis, error)
 	DeleteEnterpriseUkey(ctx context.Context, where model.EnterpriseUkeyBoolExp) (*model.EnterpriseUkeyMutationResponse, error)
 	DeleteEnterpriseUkeyByPk(ctx context.Context, id int64) (*model1.EnterpriseUkey, error)
 	InsertEnterpriseUkey(ctx context.Context, objects []*model.EnterpriseUkeyInsertInput) (*model.EnterpriseUkeyMutationResponse, error)
 	InsertEnterpriseUkeyOne(ctx context.Context, objects model.EnterpriseUkeyInsertInput) (*model1.EnterpriseUkey, error)
 	UpdateEnterpriseUkey(ctx context.Context, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, where model.EnterpriseUkeyBoolExp) (*model.EnterpriseUkeyMutationResponse, error)
 	UpdateEnterpriseUkeyByPk(ctx context.Context, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, id int64) (*model1.EnterpriseUkey, error)
+	UpdateEnterpriseUkeyByUnionPk(ctx context.Context, inc *model.EnterpriseUkeyIncInput, set *model.EnterpriseUkeySetInput, ukeyID string) (*model1.EnterpriseUkey, error)
+	DeleteEnterpriseUkeyByUnionPk(ctx context.Context, ukeyID string) (*model1.EnterpriseUkey, error)
 	DeleteSystemUser(ctx context.Context, where model.SystemUserBoolExp) (*model.SystemUserMutationResponse, error)
 	DeleteSystemUserByPk(ctx context.Context, id int64) (*model1.SystemUser, error)
 	InsertSystemUser(ctx context.Context, objects []*model.SystemUserInsertInput) (*model.SystemUserMutationResponse, error)
 	InsertSystemUserOne(ctx context.Context, objects model.SystemUserInsertInput) (*model1.SystemUser, error)
 	UpdateSystemUser(ctx context.Context, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, where model.SystemUserBoolExp) (*model.SystemUserMutationResponse, error)
 	UpdateSystemUserByPk(ctx context.Context, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, id int64) (*model1.SystemUser, error)
+	UpdateSystemUserByUnionPk(ctx context.Context, inc *model.SystemUserIncInput, set *model.SystemUserSetInput, userID string) (*model1.SystemUser, error)
+	DeleteSystemUserByUnionPk(ctx context.Context, userID string) (*model1.SystemUser, error)
 }
 type QueryResolver interface {
 	Department(ctx context.Context, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) ([]*model1.Department, error)
 	DepartmentAggregate(ctx context.Context, distinctOn []model.DepartmentSelectColumn, limit *int, offset *int, orderBy []*model.DepartmentOrderBy, where *model.DepartmentBoolExp) (*model.DepartmentAggregate, error)
 	DepartmentByPk(ctx context.Context, id int64) (*model1.Department, error)
+	DepartmentByUnionPk(ctx context.Context, departmentID string) (*model1.Department, error)
 	Enterprise(ctx context.Context, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) ([]*model1.Enterprise, error)
 	EnterpriseAggregate(ctx context.Context, distinctOn []model.EnterpriseSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseOrderBy, where *model.EnterpriseBoolExp) (*model.EnterpriseAggregate, error)
 	EnterpriseByPk(ctx context.Context, id int64) (*model1.Enterprise, error)
+	EnterpriseByUnionPk(ctx context.Context, enterpriseID string) (*model1.Enterprise, error)
 	EnterpriseContact(ctx context.Context, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) ([]*model1.EnterpriseContact, error)
 	EnterpriseContactAggregate(ctx context.Context, distinctOn []model.EnterpriseContactSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseContactOrderBy, where *model.EnterpriseContactBoolExp) (*model.EnterpriseContactAggregate, error)
 	EnterpriseContactByPk(ctx context.Context, id int64) (*model1.EnterpriseContact, error)
+	EnterpriseContactByUnionPk(ctx context.Context, contactID string) (*model1.EnterpriseContact, error)
 	EnterpriseMuckTrunk(ctx context.Context, distinctOn []model.EnterpriseMuckTrunkSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseMuckTrunkOrderBy, where *model.EnterpriseMuckTrunkBoolExp) ([]*model1.EnterpriseMuckTrunk, error)
 	EnterpriseMuckTrunkAggregate(ctx context.Context, distinctOn []model.EnterpriseMuckTrunkSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseMuckTrunkOrderBy, where *model.EnterpriseMuckTrunkBoolExp) (*model.EnterpriseMuckTrunkAggregate, error)
 	EnterpriseMuckTrunkByPk(ctx context.Context, id int64) (*model1.EnterpriseMuckTrunk, error)
+	EnterpriseMuckTrunkByUnionPk(ctx context.Context, enterpriseMuckTrunkID string) (*model1.EnterpriseMuckTrunk, error)
 	EnterprisePoliceSmsInfo(ctx context.Context, distinctOn []model.EnterprisePoliceSmsInfoSelectColumn, limit *int, offset *int, orderBy []*model.EnterprisePoliceSmsInfoOrderBy, where *model.EnterprisePoliceSmsInfoBoolExp) ([]*model1.EnterprisePoliceSmsInfo, error)
 	EnterprisePoliceSmsInfoAggregate(ctx context.Context, distinctOn []model.EnterprisePoliceSmsInfoSelectColumn, limit *int, offset *int, orderBy []*model.EnterprisePoliceSmsInfoOrderBy, where *model.EnterprisePoliceSmsInfoBoolExp) (*model.EnterprisePoliceSmsInfoAggregate, error)
 	EnterprisePoliceSmsInfoByPk(ctx context.Context, id int64) (*model1.EnterprisePoliceSmsInfo, error)
+	EnterprisePoliceSmsInfoByUnionPk(ctx context.Context, enterprisePoliceSmsInfoID string) (*model1.EnterprisePoliceSmsInfo, error)
 	EnterpriseScoreLog(ctx context.Context, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) ([]*model1.EnterpriseScoreLog, error)
 	EnterpriseScoreLogAggregate(ctx context.Context, distinctOn []model.EnterpriseScoreLogSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreLogOrderBy, where *model.EnterpriseScoreLogBoolExp) (*model.EnterpriseScoreLogAggregate, error)
 	EnterpriseScoreLogByPk(ctx context.Context, id int64) (*model1.EnterpriseScoreLog, error)
+	EnterpriseScoreLogByUnionPk(ctx context.Context, logID string) (*model1.EnterpriseScoreLog, error)
 	EnterpriseScoreSet(ctx context.Context, distinctOn []model.EnterpriseScoreSetSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreSetOrderBy, where *model.EnterpriseScoreSetBoolExp) ([]*model1.EnterpriseScoreSet, error)
 	EnterpriseScoreSetAggregate(ctx context.Context, distinctOn []model.EnterpriseScoreSetSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseScoreSetOrderBy, where *model.EnterpriseScoreSetBoolExp) (*model.EnterpriseScoreSetAggregate, error)
 	EnterpriseScoreSetByPk(ctx context.Context, id int64) (*model1.EnterpriseScoreSet, error)
+	EnterpriseScoreSetByUnionPk(ctx context.Context, scoreSetID string) (*model1.EnterpriseScoreSet, error)
 	EnterpriseStateHis(ctx context.Context, distinctOn []model.EnterpriseStateHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseStateHisOrderBy, where *model.EnterpriseStateHisBoolExp) ([]*model1.EnterpriseStateHis, error)
 	EnterpriseStateHisAggregate(ctx context.Context, distinctOn []model.EnterpriseStateHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseStateHisOrderBy, where *model.EnterpriseStateHisBoolExp) (*model.EnterpriseStateHisAggregate, error)
 	EnterpriseStateHisByPk(ctx context.Context, id int64) (*model1.EnterpriseStateHis, error)
+	EnterpriseStateHisByUnionPk(ctx context.Context, stateHisID string) (*model1.EnterpriseStateHis, error)
 	EnterpriseUkey(ctx context.Context, distinctOn []model.EnterpriseUkeySelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseUkeyOrderBy, where *model.EnterpriseUkeyBoolExp) ([]*model1.EnterpriseUkey, error)
 	EnterpriseUkeyAggregate(ctx context.Context, distinctOn []model.EnterpriseUkeySelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseUkeyOrderBy, where *model.EnterpriseUkeyBoolExp) (*model.EnterpriseUkeyAggregate, error)
 	EnterpriseUkeyByPk(ctx context.Context, id int64) (*model1.EnterpriseUkey, error)
+	EnterpriseUkeyByUnionPk(ctx context.Context, ukeyID string) (*model1.EnterpriseUkey, error)
 	SystemUser(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) ([]*model1.SystemUser, error)
 	SystemUserAggregate(ctx context.Context, distinctOn []model.SystemUserSelectColumn, limit *int, offset *int, orderBy []*model.SystemUserOrderBy, where *model.SystemUserBoolExp) (*model.SystemUserAggregate, error)
 	SystemUserByPk(ctx context.Context, id int64) (*model1.SystemUser, error)
+	SystemUserByUnionPk(ctx context.Context, userID string) (*model1.SystemUser, error)
 }
 
 type executableSchema struct {
@@ -1823,12 +1888,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Department.DepartmentName(childComplexity), true
 
-	case "Department.enterprise_id":
-		if e.complexity.Department.EnterpriseID == nil {
+	case "Department.enterprise":
+		if e.complexity.Department.Enterprise == nil {
 			break
 		}
 
-		return e.complexity.Department.EnterpriseID(childComplexity), true
+		return e.complexity.Department.Enterprise(childComplexity), true
 
 	case "Department.id":
 		if e.complexity.Department.ID == nil {
@@ -1858,12 +1923,12 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Department.Remarks(childComplexity), true
 
-	case "Department.superior_department_id":
-		if e.complexity.Department.SuperiorDepartmentID == nil {
+	case "Department.superior_department":
+		if e.complexity.Department.SuperiorDepartment == nil {
 			break
 		}
 
-		return e.complexity.Department.SuperiorDepartmentID(childComplexity), true
+		return e.complexity.Department.SuperiorDepartment(childComplexity), true
 
 	case "Department.update_at":
 		if e.complexity.Department.UpdateAt == nil {
@@ -8497,6 +8562,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteDepartmentByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_department_by_union_pk":
+		if e.complexity.Mutation.DeleteDepartmentByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_department_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDepartmentByUnionPk(childComplexity, args["department_id"].(string)), true
+
 	case "Mutation.delete_enterprise":
 		if e.complexity.Mutation.DeleteEnterprise == nil {
 			break
@@ -8520,6 +8597,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEnterpriseByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_enterprise_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseByUnionPk(childComplexity, args["enterprise_id"].(string)), true
 
 	case "Mutation.delete_enterprise_contact":
 		if e.complexity.Mutation.DeleteEnterpriseContact == nil {
@@ -8545,6 +8634,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEnterpriseContactByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_enterprise_contact_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseContactByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_contact_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseContactByUnionPk(childComplexity, args["contact_id"].(string)), true
+
 	case "Mutation.delete_enterprise_muck_trunk":
 		if e.complexity.Mutation.DeleteEnterpriseMuckTrunk == nil {
 			break
@@ -8568,6 +8669,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEnterpriseMuckTrunkByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_enterprise_muck_trunk_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseMuckTrunkByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_muck_trunk_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseMuckTrunkByUnionPk(childComplexity, args["enterprise_muck_trunk_id"].(string)), true
 
 	case "Mutation.delete_enterprise_police_sms_info":
 		if e.complexity.Mutation.DeleteEnterprisePoliceSmsInfo == nil {
@@ -8593,6 +8706,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEnterprisePoliceSmsInfoByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_enterprise_police_sms_info_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterprisePoliceSmsInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_police_sms_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterprisePoliceSmsInfoByUnionPk(childComplexity, args["enterprise_police_sms_info_id"].(string)), true
+
 	case "Mutation.delete_enterprise_score_log":
 		if e.complexity.Mutation.DeleteEnterpriseScoreLog == nil {
 			break
@@ -8616,6 +8741,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEnterpriseScoreLogByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_enterprise_score_log_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseScoreLogByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_score_log_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseScoreLogByUnionPk(childComplexity, args["log_id"].(string)), true
 
 	case "Mutation.delete_enterprise_score_set":
 		if e.complexity.Mutation.DeleteEnterpriseScoreSet == nil {
@@ -8641,6 +8778,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEnterpriseScoreSetByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_enterprise_score_set_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseScoreSetByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_score_set_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseScoreSetByUnionPk(childComplexity, args["score_set_id"].(string)), true
+
 	case "Mutation.delete_enterprise_state_his":
 		if e.complexity.Mutation.DeleteEnterpriseStateHis == nil {
 			break
@@ -8664,6 +8813,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEnterpriseStateHisByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_enterprise_state_his_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseStateHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_state_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseStateHisByUnionPk(childComplexity, args["state_his_id"].(string)), true
 
 	case "Mutation.delete_enterprise_ukey":
 		if e.complexity.Mutation.DeleteEnterpriseUkey == nil {
@@ -8689,6 +8850,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEnterpriseUkeyByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_enterprise_ukey_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseUkeyByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_ukey_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseUkeyByUnionPk(childComplexity, args["ukey_id"].(string)), true
+
 	case "Mutation.delete_system_user":
 		if e.complexity.Mutation.DeleteSystemUser == nil {
 			break
@@ -8712,6 +8885,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteSystemUserByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_system_user_by_union_pk":
+		if e.complexity.Mutation.DeleteSystemUserByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_system_user_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteSystemUserByUnionPk(childComplexity, args["user_id"].(string)), true
 
 	case "Mutation.insert_department":
 		if e.complexity.Mutation.InsertDepartment == nil {
@@ -8977,6 +9162,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDepartmentByPk(childComplexity, args["_inc"].(*model.DepartmentIncInput), args["_set"].(*model.DepartmentSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_department_by_union_pk":
+		if e.complexity.Mutation.UpdateDepartmentByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_department_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDepartmentByUnionPk(childComplexity, args["_inc"].(*model.DepartmentIncInput), args["_set"].(*model.DepartmentSetInput), args["department_id"].(string)), true
+
 	case "Mutation.update_enterprise":
 		if e.complexity.Mutation.UpdateEnterprise == nil {
 			break
@@ -9000,6 +9197,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEnterpriseByPk(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_enterprise_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["enterprise_id"].(string)), true
 
 	case "Mutation.update_enterprise_contact":
 		if e.complexity.Mutation.UpdateEnterpriseContact == nil {
@@ -9025,6 +9234,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEnterpriseContactByPk(childComplexity, args["_inc"].(*model.EnterpriseContactIncInput), args["_set"].(*model.EnterpriseContactSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_enterprise_contact_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseContactByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_contact_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseContactByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseContactIncInput), args["_set"].(*model.EnterpriseContactSetInput), args["contact_id"].(string)), true
+
 	case "Mutation.update_enterprise_muck_trunk":
 		if e.complexity.Mutation.UpdateEnterpriseMuckTrunk == nil {
 			break
@@ -9048,6 +9269,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEnterpriseMuckTrunkByPk(childComplexity, args["_inc"].(*model.EnterpriseMuckTrunkIncInput), args["_set"].(*model.EnterpriseMuckTrunkSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_enterprise_muck_trunk_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseMuckTrunkByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_muck_trunk_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseMuckTrunkByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseMuckTrunkIncInput), args["_set"].(*model.EnterpriseMuckTrunkSetInput), args["enterprise_muck_trunk_id"].(string)), true
 
 	case "Mutation.update_enterprise_police_sms_info":
 		if e.complexity.Mutation.UpdateEnterprisePoliceSmsInfo == nil {
@@ -9073,6 +9306,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEnterprisePoliceSmsInfoByPk(childComplexity, args["_inc"].(*model.EnterprisePoliceSmsInfoIncInput), args["_set"].(*model.EnterprisePoliceSmsInfoSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_enterprise_police_sms_info_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterprisePoliceSmsInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_police_sms_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterprisePoliceSmsInfoByUnionPk(childComplexity, args["_inc"].(*model.EnterprisePoliceSmsInfoIncInput), args["_set"].(*model.EnterprisePoliceSmsInfoSetInput), args["enterprise_police_sms_info_id"].(string)), true
+
 	case "Mutation.update_enterprise_score_log":
 		if e.complexity.Mutation.UpdateEnterpriseScoreLog == nil {
 			break
@@ -9096,6 +9341,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEnterpriseScoreLogByPk(childComplexity, args["_inc"].(*model.EnterpriseScoreLogIncInput), args["_set"].(*model.EnterpriseScoreLogSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_enterprise_score_log_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseScoreLogByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_score_log_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseScoreLogByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseScoreLogIncInput), args["_set"].(*model.EnterpriseScoreLogSetInput), args["log_id"].(string)), true
 
 	case "Mutation.update_enterprise_score_set":
 		if e.complexity.Mutation.UpdateEnterpriseScoreSet == nil {
@@ -9121,6 +9378,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEnterpriseScoreSetByPk(childComplexity, args["_inc"].(*model.EnterpriseScoreSetIncInput), args["_set"].(*model.EnterpriseScoreSetSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_enterprise_score_set_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseScoreSetByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_score_set_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseScoreSetByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseScoreSetIncInput), args["_set"].(*model.EnterpriseScoreSetSetInput), args["score_set_id"].(string)), true
+
 	case "Mutation.update_enterprise_state_his":
 		if e.complexity.Mutation.UpdateEnterpriseStateHis == nil {
 			break
@@ -9144,6 +9413,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEnterpriseStateHisByPk(childComplexity, args["_inc"].(*model.EnterpriseStateHisIncInput), args["_set"].(*model.EnterpriseStateHisSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_enterprise_state_his_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseStateHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_state_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseStateHisByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseStateHisIncInput), args["_set"].(*model.EnterpriseStateHisSetInput), args["state_his_id"].(string)), true
 
 	case "Mutation.update_enterprise_ukey":
 		if e.complexity.Mutation.UpdateEnterpriseUkey == nil {
@@ -9169,6 +9450,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEnterpriseUkeyByPk(childComplexity, args["_inc"].(*model.EnterpriseUkeyIncInput), args["_set"].(*model.EnterpriseUkeySetInput), args["id"].(int64)), true
 
+	case "Mutation.update_enterprise_ukey_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseUkeyByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_ukey_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseUkeyByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseUkeyIncInput), args["_set"].(*model.EnterpriseUkeySetInput), args["ukey_id"].(string)), true
+
 	case "Mutation.update_system_user":
 		if e.complexity.Mutation.UpdateSystemUser == nil {
 			break
@@ -9192,6 +9485,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateSystemUserByPk(childComplexity, args["_inc"].(*model.SystemUserIncInput), args["_set"].(*model.SystemUserSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_system_user_by_union_pk":
+		if e.complexity.Mutation.UpdateSystemUserByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_system_user_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateSystemUserByUnionPk(childComplexity, args["_inc"].(*model.SystemUserIncInput), args["_set"].(*model.SystemUserSetInput), args["user_id"].(string)), true
 
 	case "Query.department":
 		if e.complexity.Query.Department == nil {
@@ -9229,6 +9534,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.DepartmentByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.department_by_union_pk":
+		if e.complexity.Query.DepartmentByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_department_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DepartmentByUnionPk(childComplexity, args["department_id"].(string)), true
+
 	case "Query.enterprise":
 		if e.complexity.Query.Enterprise == nil {
 			break
@@ -9264,6 +9581,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EnterpriseByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.enterprise_by_union_pk":
+		if e.complexity.Query.EnterpriseByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseByUnionPk(childComplexity, args["enterprise_id"].(string)), true
 
 	case "Query.enterprise_contact":
 		if e.complexity.Query.EnterpriseContact == nil {
@@ -9301,6 +9630,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EnterpriseContactByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.enterprise_contact_by_union_pk":
+		if e.complexity.Query.EnterpriseContactByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_contact_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseContactByUnionPk(childComplexity, args["contact_id"].(string)), true
+
 	case "Query.enterprise_muck_trunk":
 		if e.complexity.Query.EnterpriseMuckTrunk == nil {
 			break
@@ -9336,6 +9677,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EnterpriseMuckTrunkByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.enterprise_muck_trunk_by_union_pk":
+		if e.complexity.Query.EnterpriseMuckTrunkByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_muck_trunk_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseMuckTrunkByUnionPk(childComplexity, args["enterprise_muck_trunk_id"].(string)), true
 
 	case "Query.enterprise_police_sms_info":
 		if e.complexity.Query.EnterprisePoliceSmsInfo == nil {
@@ -9373,6 +9726,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EnterprisePoliceSmsInfoByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.enterprise_police_sms_info_by_union_pk":
+		if e.complexity.Query.EnterprisePoliceSmsInfoByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_police_sms_info_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterprisePoliceSmsInfoByUnionPk(childComplexity, args["enterprise_police_sms_info_id"].(string)), true
+
 	case "Query.enterprise_score_log":
 		if e.complexity.Query.EnterpriseScoreLog == nil {
 			break
@@ -9408,6 +9773,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EnterpriseScoreLogByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.enterprise_score_log_by_union_pk":
+		if e.complexity.Query.EnterpriseScoreLogByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_score_log_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseScoreLogByUnionPk(childComplexity, args["log_id"].(string)), true
 
 	case "Query.enterprise_score_set":
 		if e.complexity.Query.EnterpriseScoreSet == nil {
@@ -9445,6 +9822,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EnterpriseScoreSetByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.enterprise_score_set_by_union_pk":
+		if e.complexity.Query.EnterpriseScoreSetByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_score_set_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseScoreSetByUnionPk(childComplexity, args["score_set_id"].(string)), true
+
 	case "Query.enterprise_state_his":
 		if e.complexity.Query.EnterpriseStateHis == nil {
 			break
@@ -9480,6 +9869,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EnterpriseStateHisByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.enterprise_state_his_by_union_pk":
+		if e.complexity.Query.EnterpriseStateHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_state_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseStateHisByUnionPk(childComplexity, args["state_his_id"].(string)), true
 
 	case "Query.enterprise_ukey":
 		if e.complexity.Query.EnterpriseUkey == nil {
@@ -9517,6 +9918,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EnterpriseUkeyByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.enterprise_ukey_by_union_pk":
+		if e.complexity.Query.EnterpriseUkeyByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_ukey_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseUkeyByUnionPk(childComplexity, args["ukey_id"].(string)), true
+
 	case "Query.system_user":
 		if e.complexity.Query.SystemUser == nil {
 			break
@@ -9552,6 +9965,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.SystemUserByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.system_user_by_union_pk":
+		if e.complexity.Query.SystemUserByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_system_user_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.SystemUserByUnionPk(childComplexity, args["user_id"].(string)), true
 
 	case "SystemUser.app_version":
 		if e.complexity.SystemUser.AppVersion == nil {
@@ -10746,11 +11171,11 @@ type Department {
 	"""
 	企业ID
 	"""
-	enterprise_id: String!
+	enterprise: Enterprise
 	"""
 	上级部门ID
 	"""
-	superior_department_id: String
+	superior_department: Department
 	"""
 	部门名称
 	"""
@@ -11110,6 +11535,10 @@ extend type Query {
 	主键查询
 	"""
 	department_by_pk(id: Bigint!): Department!
+	"""
+	联合主键查询
+	"""
+	department_by_union_pk(department_id: String!): Department!
 }
 extend type Mutation {
 	"""
@@ -11133,9 +11562,17 @@ extend type Mutation {
 	"""
 	update_department(_inc: DepartmentIncInput, _set: DepartmentSetInput, where: DepartmentBoolExp!): DepartmentMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_department_by_pk(_inc: DepartmentIncInput, _set: DepartmentSetInput, id: Bigint!): Department
+	"""
+	根据联合主键更新
+	"""
+	update_department_by_union_pk(_inc: DepartmentIncInput, _set: DepartmentSetInput, department_id: String!): Department
+	"""
+	根据联合主键删除记录
+	"""
+	delete_department_by_union_pk(department_id: String!): Department
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise.graphqls", Input: `"""
@@ -12246,6 +12683,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_by_pk(id: Bigint!): Enterprise!
+	"""
+	联合主键查询
+	"""
+	enterprise_by_union_pk(enterprise_id: String!): Enterprise!
 }
 extend type Mutation {
 	"""
@@ -12269,9 +12710,17 @@ extend type Mutation {
 	"""
 	update_enterprise(_inc: EnterpriseIncInput, _set: EnterpriseSetInput, where: EnterpriseBoolExp!): EnterpriseMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_by_pk(_inc: EnterpriseIncInput, _set: EnterpriseSetInput, id: Bigint!): Enterprise
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_by_union_pk(_inc: EnterpriseIncInput, _set: EnterpriseSetInput, enterprise_id: String!): Enterprise
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_by_union_pk(enterprise_id: String!): Enterprise
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_contact.graphqls", Input: `"""
@@ -12630,6 +13079,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_contact_by_pk(id: Bigint!): EnterpriseContact!
+	"""
+	联合主键查询
+	"""
+	enterprise_contact_by_union_pk(contact_id: String!): EnterpriseContact!
 }
 extend type Mutation {
 	"""
@@ -12653,9 +13106,17 @@ extend type Mutation {
 	"""
 	update_enterprise_contact(_inc: EnterpriseContactIncInput, _set: EnterpriseContactSetInput, where: EnterpriseContactBoolExp!): EnterpriseContactMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_contact_by_pk(_inc: EnterpriseContactIncInput, _set: EnterpriseContactSetInput, id: Bigint!): EnterpriseContact
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_contact_by_union_pk(_inc: EnterpriseContactIncInput, _set: EnterpriseContactSetInput, contact_id: String!): EnterpriseContact
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_contact_by_union_pk(contact_id: String!): EnterpriseContact
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_muck_trunk.graphqls", Input: `"""
@@ -13359,6 +13820,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_muck_trunk_by_pk(id: Bigint!): EnterpriseMuckTrunk!
+	"""
+	联合主键查询
+	"""
+	enterprise_muck_trunk_by_union_pk(enterprise_muck_trunk_id: String!): EnterpriseMuckTrunk!
 }
 extend type Mutation {
 	"""
@@ -13382,9 +13847,17 @@ extend type Mutation {
 	"""
 	update_enterprise_muck_trunk(_inc: EnterpriseMuckTrunkIncInput, _set: EnterpriseMuckTrunkSetInput, where: EnterpriseMuckTrunkBoolExp!): EnterpriseMuckTrunkMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_muck_trunk_by_pk(_inc: EnterpriseMuckTrunkIncInput, _set: EnterpriseMuckTrunkSetInput, id: Bigint!): EnterpriseMuckTrunk
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_muck_trunk_by_union_pk(_inc: EnterpriseMuckTrunkIncInput, _set: EnterpriseMuckTrunkSetInput, enterprise_muck_trunk_id: String!): EnterpriseMuckTrunk
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_muck_trunk_by_union_pk(enterprise_muck_trunk_id: String!): EnterpriseMuckTrunk
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_police_sms_info.graphqls", Input: `"""
@@ -13748,6 +14221,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_police_sms_info_by_pk(id: Bigint!): EnterprisePoliceSmsInfo!
+	"""
+	联合主键查询
+	"""
+	enterprise_police_sms_info_by_union_pk(enterprise_police_sms_info_id: String!): EnterprisePoliceSmsInfo!
 }
 extend type Mutation {
 	"""
@@ -13771,9 +14248,17 @@ extend type Mutation {
 	"""
 	update_enterprise_police_sms_info(_inc: EnterprisePoliceSmsInfoIncInput, _set: EnterprisePoliceSmsInfoSetInput, where: EnterprisePoliceSmsInfoBoolExp!): EnterprisePoliceSmsInfoMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_police_sms_info_by_pk(_inc: EnterprisePoliceSmsInfoIncInput, _set: EnterprisePoliceSmsInfoSetInput, id: Bigint!): EnterprisePoliceSmsInfo
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_police_sms_info_by_union_pk(_inc: EnterprisePoliceSmsInfoIncInput, _set: EnterprisePoliceSmsInfoSetInput, enterprise_police_sms_info_id: String!): EnterprisePoliceSmsInfo
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_police_sms_info_by_union_pk(enterprise_police_sms_info_id: String!): EnterprisePoliceSmsInfo
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_score_log.graphqls", Input: `"""
@@ -14141,6 +14626,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_score_log_by_pk(id: Bigint!): EnterpriseScoreLog!
+	"""
+	联合主键查询
+	"""
+	enterprise_score_log_by_union_pk(log_id: String!): EnterpriseScoreLog!
 }
 extend type Mutation {
 	"""
@@ -14164,9 +14653,17 @@ extend type Mutation {
 	"""
 	update_enterprise_score_log(_inc: EnterpriseScoreLogIncInput, _set: EnterpriseScoreLogSetInput, where: EnterpriseScoreLogBoolExp!): EnterpriseScoreLogMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_score_log_by_pk(_inc: EnterpriseScoreLogIncInput, _set: EnterpriseScoreLogSetInput, id: Bigint!): EnterpriseScoreLog
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_score_log_by_union_pk(_inc: EnterpriseScoreLogIncInput, _set: EnterpriseScoreLogSetInput, log_id: String!): EnterpriseScoreLog
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_score_log_by_union_pk(log_id: String!): EnterpriseScoreLog
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_score_set.graphqls", Input: `"""
@@ -14492,6 +14989,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_score_set_by_pk(id: Bigint!): EnterpriseScoreSet!
+	"""
+	联合主键查询
+	"""
+	enterprise_score_set_by_union_pk(score_set_id: String!): EnterpriseScoreSet!
 }
 extend type Mutation {
 	"""
@@ -14515,9 +15016,17 @@ extend type Mutation {
 	"""
 	update_enterprise_score_set(_inc: EnterpriseScoreSetIncInput, _set: EnterpriseScoreSetSetInput, where: EnterpriseScoreSetBoolExp!): EnterpriseScoreSetMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_score_set_by_pk(_inc: EnterpriseScoreSetIncInput, _set: EnterpriseScoreSetSetInput, id: Bigint!): EnterpriseScoreSet
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_score_set_by_union_pk(_inc: EnterpriseScoreSetIncInput, _set: EnterpriseScoreSetSetInput, score_set_id: String!): EnterpriseScoreSet
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_score_set_by_union_pk(score_set_id: String!): EnterpriseScoreSet
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_state_his.graphqls", Input: `"""
@@ -14778,6 +15287,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_state_his_by_pk(id: Bigint!): EnterpriseStateHis!
+	"""
+	联合主键查询
+	"""
+	enterprise_state_his_by_union_pk(state_his_id: String!): EnterpriseStateHis!
 }
 extend type Mutation {
 	"""
@@ -14801,9 +15314,17 @@ extend type Mutation {
 	"""
 	update_enterprise_state_his(_inc: EnterpriseStateHisIncInput, _set: EnterpriseStateHisSetInput, where: EnterpriseStateHisBoolExp!): EnterpriseStateHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_state_his_by_pk(_inc: EnterpriseStateHisIncInput, _set: EnterpriseStateHisSetInput, id: Bigint!): EnterpriseStateHis
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_state_his_by_union_pk(_inc: EnterpriseStateHisIncInput, _set: EnterpriseStateHisSetInput, state_his_id: String!): EnterpriseStateHis
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_state_his_by_union_pk(state_his_id: String!): EnterpriseStateHis
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_ukey.graphqls", Input: `"""
@@ -15083,6 +15604,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_ukey_by_pk(id: Bigint!): EnterpriseUkey!
+	"""
+	联合主键查询
+	"""
+	enterprise_ukey_by_union_pk(ukey_id: String!): EnterpriseUkey!
 }
 extend type Mutation {
 	"""
@@ -15106,9 +15631,17 @@ extend type Mutation {
 	"""
 	update_enterprise_ukey(_inc: EnterpriseUkeyIncInput, _set: EnterpriseUkeySetInput, where: EnterpriseUkeyBoolExp!): EnterpriseUkeyMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_ukey_by_pk(_inc: EnterpriseUkeyIncInput, _set: EnterpriseUkeySetInput, id: Bigint!): EnterpriseUkey
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_ukey_by_union_pk(_inc: EnterpriseUkeyIncInput, _set: EnterpriseUkeySetInput, ukey_id: String!): EnterpriseUkey
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_ukey_by_union_pk(ukey_id: String!): EnterpriseUkey
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/system_user.graphqls", Input: `"""
@@ -15662,6 +16195,10 @@ extend type Query {
 	主键查询
 	"""
 	system_user_by_pk(id: Bigint!): SystemUser!
+	"""
+	联合主键查询
+	"""
+	system_user_by_union_pk(user_id: String!): SystemUser!
 }
 extend type Mutation {
 	"""
@@ -15685,9 +16222,17 @@ extend type Mutation {
 	"""
 	update_system_user(_inc: SystemUserIncInput, _set: SystemUserSetInput, where: SystemUserBoolExp!): SystemUserMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_system_user_by_pk(_inc: SystemUserIncInput, _set: SystemUserSetInput, id: Bigint!): SystemUser
+	"""
+	根据联合主键更新
+	"""
+	update_system_user_by_union_pk(_inc: SystemUserIncInput, _set: SystemUserSetInput, user_id: String!): SystemUser
+	"""
+	根据联合主键删除记录
+	"""
+	delete_system_user_by_union_pk(user_id: String!): SystemUser
 }
 `, BuiltIn: false},
 }
@@ -15727,6 +16272,21 @@ func (ec *executionContext) field_Mutation_delete_department_by_pk_args(ctx cont
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_department_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["department_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("department_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["department_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15754,6 +16314,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_by_pk_args(ctx cont
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_enterprise_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_id"] = arg0
 	return args, nil
 }
 
@@ -15787,6 +16362,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_contact_by_pk_args(
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_enterprise_contact_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["contact_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["contact_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_enterprise_muck_trunk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15814,6 +16404,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_muck_trunk_by_pk_ar
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_enterprise_muck_trunk_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_muck_trunk_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_muck_trunk_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_muck_trunk_id"] = arg0
 	return args, nil
 }
 
@@ -15847,6 +16452,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_police_sms_info_by_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_enterprise_police_sms_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_police_sms_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_police_sms_info_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_police_sms_info_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_enterprise_score_log_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15874,6 +16494,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_score_log_by_pk_arg
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_enterprise_score_log_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["log_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("log_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["log_id"] = arg0
 	return args, nil
 }
 
@@ -15907,6 +16542,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_score_set_by_pk_arg
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_enterprise_score_set_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["score_set_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score_set_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["score_set_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_enterprise_state_his_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15934,6 +16584,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_state_his_by_pk_arg
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_enterprise_state_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["state_his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("state_his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["state_his_id"] = arg0
 	return args, nil
 }
 
@@ -15967,6 +16632,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_ukey_by_pk_args(ctx
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_enterprise_ukey_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["ukey_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ukey_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["ukey_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_system_user_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -15994,6 +16674,21 @@ func (ec *executionContext) field_Mutation_delete_system_user_by_pk_args(ctx con
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_system_user_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["user_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("user_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["user_id"] = arg0
 	return args, nil
 }
 
@@ -16363,6 +17058,39 @@ func (ec *executionContext) field_Mutation_update_department_by_pk_args(ctx cont
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_department_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DepartmentIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODepartmentIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐDepartmentIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DepartmentSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODepartmentSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐDepartmentSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["department_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("department_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["department_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_enterprise_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16426,6 +17154,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_by_pk_args(ctx cont
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["enterprise_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_id"] = arg2
 	return args, nil
 }
 
@@ -16495,6 +17256,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_contact_by_pk_args(
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_enterprise_contact_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseContactIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseContactIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseContactIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseContactSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseContactSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseContactSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["contact_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["contact_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_enterprise_muck_trunk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16558,6 +17352,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_muck_trunk_by_pk_ar
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_muck_trunk_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseMuckTrunkIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseMuckTrunkIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseMuckTrunkIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseMuckTrunkSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseMuckTrunkSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseMuckTrunkSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["enterprise_muck_trunk_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_muck_trunk_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_muck_trunk_id"] = arg2
 	return args, nil
 }
 
@@ -16627,6 +17454,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_police_sms_info_by_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_enterprise_police_sms_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterprisePoliceSmsInfoIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterprisePoliceSmsInfoIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterprisePoliceSmsInfoSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterprisePoliceSmsInfoSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterprisePoliceSmsInfoSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["enterprise_police_sms_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_police_sms_info_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_police_sms_info_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_enterprise_score_log_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16690,6 +17550,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_score_log_by_pk_arg
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_score_log_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseScoreLogIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseScoreLogIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseScoreLogIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseScoreLogSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseScoreLogSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseScoreLogSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["log_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("log_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["log_id"] = arg2
 	return args, nil
 }
 
@@ -16759,6 +17652,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_score_set_by_pk_arg
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_enterprise_score_set_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseScoreSetIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseScoreSetIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseScoreSetIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseScoreSetSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseScoreSetSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseScoreSetSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["score_set_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score_set_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["score_set_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_enterprise_state_his_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16822,6 +17748,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_state_his_by_pk_arg
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_state_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseStateHisIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseStateHisIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseStateHisIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseStateHisSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseStateHisSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseStateHisSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["state_his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("state_his_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["state_his_id"] = arg2
 	return args, nil
 }
 
@@ -16891,6 +17850,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_ukey_by_pk_args(ctx
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_enterprise_ukey_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseUkeyIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseUkeyIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseUkeyIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseUkeySetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseUkeySetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐEnterpriseUkeySetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["ukey_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ukey_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["ukey_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_system_user_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -16954,6 +17946,39 @@ func (ec *executionContext) field_Mutation_update_system_user_by_pk_args(ctx con
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_system_user_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.SystemUserIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOSystemUserIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐSystemUserIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.SystemUserSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOSystemUserSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋgraphᚋmodelᚐSystemUserSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["user_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("user_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["user_id"] = arg2
 	return args, nil
 }
 
@@ -17089,6 +18114,21 @@ func (ec *executionContext) field_Query_department_by_pk_args(ctx context.Contex
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_department_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["department_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("department_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["department_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_enterprise_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -17203,6 +18243,21 @@ func (ec *executionContext) field_Query_enterprise_by_pk_args(ctx context.Contex
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_enterprise_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_id"] = arg0
 	return args, nil
 }
 
@@ -17323,6 +18378,21 @@ func (ec *executionContext) field_Query_enterprise_contact_by_pk_args(ctx contex
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_enterprise_contact_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["contact_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("contact_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["contact_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_enterprise_muck_trunk_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -17437,6 +18507,21 @@ func (ec *executionContext) field_Query_enterprise_muck_trunk_by_pk_args(ctx con
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_enterprise_muck_trunk_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_muck_trunk_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_muck_trunk_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_muck_trunk_id"] = arg0
 	return args, nil
 }
 
@@ -17557,6 +18642,21 @@ func (ec *executionContext) field_Query_enterprise_police_sms_info_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_enterprise_police_sms_info_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["enterprise_police_sms_info_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("enterprise_police_sms_info_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["enterprise_police_sms_info_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_enterprise_score_log_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -17671,6 +18771,21 @@ func (ec *executionContext) field_Query_enterprise_score_log_by_pk_args(ctx cont
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_enterprise_score_log_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["log_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("log_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["log_id"] = arg0
 	return args, nil
 }
 
@@ -17791,6 +18906,21 @@ func (ec *executionContext) field_Query_enterprise_score_set_by_pk_args(ctx cont
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_enterprise_score_set_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["score_set_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("score_set_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["score_set_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_enterprise_state_his_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -17905,6 +19035,21 @@ func (ec *executionContext) field_Query_enterprise_state_his_by_pk_args(ctx cont
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_enterprise_state_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["state_his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("state_his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["state_his_id"] = arg0
 	return args, nil
 }
 
@@ -18025,6 +19170,21 @@ func (ec *executionContext) field_Query_enterprise_ukey_by_pk_args(ctx context.C
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_enterprise_ukey_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["ukey_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ukey_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["ukey_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_system_user_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -18142,6 +19302,21 @@ func (ec *executionContext) field_Query_system_user_by_pk_args(ctx context.Conte
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_system_user_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["user_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("user_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["user_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field___Type_enumValues_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -18250,7 +19425,7 @@ func (ec *executionContext) _Department_department_id(ctx context.Context, field
 	return ec.marshalNString2string(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Department_enterprise_id(ctx context.Context, field graphql.CollectedField, obj *model1.Department) (ret graphql.Marshaler) {
+func (ec *executionContext) _Department_enterprise(ctx context.Context, field graphql.CollectedField, obj *model1.Department) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -18261,31 +19436,28 @@ func (ec *executionContext) _Department_enterprise_id(ctx context.Context, field
 		Object:     "Department",
 		Field:      field,
 		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 	}
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.EnterpriseID, nil
+		return ec.resolvers.Department().Enterprise(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
 		return graphql.Null
 	}
 	if resTmp == nil {
-		if !graphql.HasFieldError(ctx, fc) {
-			ec.Errorf(ctx, "must not be null")
-		}
 		return graphql.Null
 	}
-	res := resTmp.(string)
+	res := resTmp.(*model1.Enterprise)
 	fc.Result = res
-	return ec.marshalNString2string(ctx, field.Selections, res)
+	return ec.marshalOEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
 }
 
-func (ec *executionContext) _Department_superior_department_id(ctx context.Context, field graphql.CollectedField, obj *model1.Department) (ret graphql.Marshaler) {
+func (ec *executionContext) _Department_superior_department(ctx context.Context, field graphql.CollectedField, obj *model1.Department) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
 			ec.Error(ctx, ec.Recover(ctx, r))
@@ -18296,14 +19468,14 @@ func (ec *executionContext) _Department_superior_department_id(ctx context.Conte
 		Object:     "Department",
 		Field:      field,
 		Args:       nil,
-		IsMethod:   false,
-		IsResolver: false,
+		IsMethod:   true,
+		IsResolver: true,
 	}
 
 	ctx = graphql.WithFieldContext(ctx, fc)
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.SuperiorDepartmentID, nil
+		return ec.resolvers.Department().SuperiorDepartment(rctx, obj)
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -18312,9 +19484,9 @@ func (ec *executionContext) _Department_superior_department_id(ctx context.Conte
 	if resTmp == nil {
 		return graphql.Null
 	}
-	res := resTmp.(*string)
+	res := resTmp.(*model1.Department)
 	fc.Result = res
-	return ec.marshalOString2ᚖstring(ctx, field.Selections, res)
+	return ec.marshalODepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
 }
 
 func (ec *executionContext) _Department_department_name(ctx context.Context, field graphql.CollectedField, obj *model1.Department) (ret graphql.Marshaler) {
@@ -49319,6 +50491,84 @@ func (ec *executionContext) _Mutation_update_department_by_pk(ctx context.Contex
 	return ec.marshalODepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_department_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_department_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDepartmentByUnionPk(rctx, args["_inc"].(*model.DepartmentIncInput), args["_set"].(*model.DepartmentSetInput), args["department_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Department)
+	fc.Result = res
+	return ec.marshalODepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_department_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_department_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDepartmentByUnionPk(rctx, args["department_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Department)
+	fc.Result = res
+	return ec.marshalODepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_enterprise(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -49540,6 +50790,84 @@ func (ec *executionContext) _Mutation_update_enterprise_by_pk(ctx context.Contex
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateEnterpriseByPk(rctx, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Enterprise)
+	fc.Result = res
+	return ec.marshalOEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseByUnionPk(rctx, args["_inc"].(*model.EnterpriseIncInput), args["_set"].(*model.EnterpriseSetInput), args["enterprise_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Enterprise)
+	fc.Result = res
+	return ec.marshalOEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseByUnionPk(rctx, args["enterprise_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -49787,6 +51115,84 @@ func (ec *executionContext) _Mutation_update_enterprise_contact_by_pk(ctx contex
 	return ec.marshalOEnterpriseContact2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContact(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_enterprise_contact_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_contact_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseContactByUnionPk(rctx, args["_inc"].(*model.EnterpriseContactIncInput), args["_set"].(*model.EnterpriseContactSetInput), args["contact_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseContact)
+	fc.Result = res
+	return ec.marshalOEnterpriseContact2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContact(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_contact_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_contact_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseContactByUnionPk(rctx, args["contact_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseContact)
+	fc.Result = res
+	return ec.marshalOEnterpriseContact2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContact(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_enterprise_muck_trunk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -50008,6 +51414,84 @@ func (ec *executionContext) _Mutation_update_enterprise_muck_trunk_by_pk(ctx con
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateEnterpriseMuckTrunkByPk(rctx, args["_inc"].(*model.EnterpriseMuckTrunkIncInput), args["_set"].(*model.EnterpriseMuckTrunkSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseMuckTrunk)
+	fc.Result = res
+	return ec.marshalOEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise_muck_trunk_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_muck_trunk_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseMuckTrunkByUnionPk(rctx, args["_inc"].(*model.EnterpriseMuckTrunkIncInput), args["_set"].(*model.EnterpriseMuckTrunkSetInput), args["enterprise_muck_trunk_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseMuckTrunk)
+	fc.Result = res
+	return ec.marshalOEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_muck_trunk_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_muck_trunk_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseMuckTrunkByUnionPk(rctx, args["enterprise_muck_trunk_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -50255,6 +51739,84 @@ func (ec *executionContext) _Mutation_update_enterprise_police_sms_info_by_pk(ct
 	return ec.marshalOEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_enterprise_police_sms_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_police_sms_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterprisePoliceSmsInfoByUnionPk(rctx, args["_inc"].(*model.EnterprisePoliceSmsInfoIncInput), args["_set"].(*model.EnterprisePoliceSmsInfoSetInput), args["enterprise_police_sms_info_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
+	fc.Result = res
+	return ec.marshalOEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_police_sms_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_police_sms_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterprisePoliceSmsInfoByUnionPk(rctx, args["enterprise_police_sms_info_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
+	fc.Result = res
+	return ec.marshalOEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_enterprise_score_log(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -50476,6 +52038,84 @@ func (ec *executionContext) _Mutation_update_enterprise_score_log_by_pk(ctx cont
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateEnterpriseScoreLogByPk(rctx, args["_inc"].(*model.EnterpriseScoreLogIncInput), args["_set"].(*model.EnterpriseScoreLogSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseScoreLog)
+	fc.Result = res
+	return ec.marshalOEnterpriseScoreLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise_score_log_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_score_log_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseScoreLogByUnionPk(rctx, args["_inc"].(*model.EnterpriseScoreLogIncInput), args["_set"].(*model.EnterpriseScoreLogSetInput), args["log_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseScoreLog)
+	fc.Result = res
+	return ec.marshalOEnterpriseScoreLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_score_log_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_score_log_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseScoreLogByUnionPk(rctx, args["log_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -50723,6 +52363,84 @@ func (ec *executionContext) _Mutation_update_enterprise_score_set_by_pk(ctx cont
 	return ec.marshalOEnterpriseScoreSet2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSet(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_enterprise_score_set_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_score_set_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseScoreSetByUnionPk(rctx, args["_inc"].(*model.EnterpriseScoreSetIncInput), args["_set"].(*model.EnterpriseScoreSetSetInput), args["score_set_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseScoreSet)
+	fc.Result = res
+	return ec.marshalOEnterpriseScoreSet2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSet(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_score_set_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_score_set_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseScoreSetByUnionPk(rctx, args["score_set_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseScoreSet)
+	fc.Result = res
+	return ec.marshalOEnterpriseScoreSet2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSet(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_enterprise_state_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -50944,6 +52662,84 @@ func (ec *executionContext) _Mutation_update_enterprise_state_his_by_pk(ctx cont
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateEnterpriseStateHisByPk(rctx, args["_inc"].(*model.EnterpriseStateHisIncInput), args["_set"].(*model.EnterpriseStateHisSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseStateHis)
+	fc.Result = res
+	return ec.marshalOEnterpriseStateHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise_state_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_state_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseStateHisByUnionPk(rctx, args["_inc"].(*model.EnterpriseStateHisIncInput), args["_set"].(*model.EnterpriseStateHisSetInput), args["state_his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseStateHis)
+	fc.Result = res
+	return ec.marshalOEnterpriseStateHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_state_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_state_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseStateHisByUnionPk(rctx, args["state_his_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -51191,6 +52987,84 @@ func (ec *executionContext) _Mutation_update_enterprise_ukey_by_pk(ctx context.C
 	return ec.marshalOEnterpriseUkey2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_enterprise_ukey_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_ukey_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseUkeyByUnionPk(rctx, args["_inc"].(*model.EnterpriseUkeyIncInput), args["_set"].(*model.EnterpriseUkeySetInput), args["ukey_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseUkey)
+	fc.Result = res
+	return ec.marshalOEnterpriseUkey2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_ukey_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_ukey_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseUkeyByUnionPk(rctx, args["ukey_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseUkey)
+	fc.Result = res
+	return ec.marshalOEnterpriseUkey2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_system_user(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -51425,6 +53299,84 @@ func (ec *executionContext) _Mutation_update_system_user_by_pk(ctx context.Conte
 	return ec.marshalOSystemUser2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUser(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_system_user_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_system_user_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateSystemUserByUnionPk(rctx, args["_inc"].(*model.SystemUserIncInput), args["_set"].(*model.SystemUserSetInput), args["user_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SystemUser)
+	fc.Result = res
+	return ec.marshalOSystemUser2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUser(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_system_user_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_system_user_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteSystemUserByUnionPk(rctx, args["user_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SystemUser)
+	fc.Result = res
+	return ec.marshalOSystemUser2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUser(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_department(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -51535,6 +53487,48 @@ func (ec *executionContext) _Query_department_by_pk(ctx context.Context, field g
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().DepartmentByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Department)
+	fc.Result = res
+	return ec.marshalNDepartment2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐDepartment(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_department_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_department_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DepartmentByUnionPk(rctx, args["department_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -51677,6 +53671,48 @@ func (ec *executionContext) _Query_enterprise_by_pk(ctx context.Context, field g
 	return ec.marshalNEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_enterprise_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseByUnionPk(rctx, args["enterprise_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.Enterprise)
+	fc.Result = res
+	return ec.marshalNEnterprise2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprise(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_enterprise_contact(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -51787,6 +53823,48 @@ func (ec *executionContext) _Query_enterprise_contact_by_pk(ctx context.Context,
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().EnterpriseContactByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseContact)
+	fc.Result = res
+	return ec.marshalNEnterpriseContact2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseContact(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_enterprise_contact_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_contact_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseContactByUnionPk(rctx, args["contact_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -51929,6 +54007,48 @@ func (ec *executionContext) _Query_enterprise_muck_trunk_by_pk(ctx context.Conte
 	return ec.marshalNEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_enterprise_muck_trunk_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_muck_trunk_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseMuckTrunkByUnionPk(rctx, args["enterprise_muck_trunk_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseMuckTrunk)
+	fc.Result = res
+	return ec.marshalNEnterpriseMuckTrunk2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseMuckTrunk(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_enterprise_police_sms_info(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -52039,6 +54159,48 @@ func (ec *executionContext) _Query_enterprise_police_sms_info_by_pk(ctx context.
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().EnterprisePoliceSmsInfoByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterprisePoliceSmsInfo)
+	fc.Result = res
+	return ec.marshalNEnterprisePoliceSmsInfo2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterprisePoliceSmsInfo(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_enterprise_police_sms_info_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_police_sms_info_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterprisePoliceSmsInfoByUnionPk(rctx, args["enterprise_police_sms_info_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -52181,6 +54343,48 @@ func (ec *executionContext) _Query_enterprise_score_log_by_pk(ctx context.Contex
 	return ec.marshalNEnterpriseScoreLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_enterprise_score_log_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_score_log_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseScoreLogByUnionPk(rctx, args["log_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseScoreLog)
+	fc.Result = res
+	return ec.marshalNEnterpriseScoreLog2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreLog(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_enterprise_score_set(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -52291,6 +54495,48 @@ func (ec *executionContext) _Query_enterprise_score_set_by_pk(ctx context.Contex
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().EnterpriseScoreSetByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseScoreSet)
+	fc.Result = res
+	return ec.marshalNEnterpriseScoreSet2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseScoreSet(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_enterprise_score_set_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_score_set_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseScoreSetByUnionPk(rctx, args["score_set_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -52433,6 +54679,48 @@ func (ec *executionContext) _Query_enterprise_state_his_by_pk(ctx context.Contex
 	return ec.marshalNEnterpriseStateHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHis(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_enterprise_state_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_state_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseStateHisByUnionPk(rctx, args["state_his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseStateHis)
+	fc.Result = res
+	return ec.marshalNEnterpriseStateHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseStateHis(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_enterprise_ukey(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -52559,6 +54847,48 @@ func (ec *executionContext) _Query_enterprise_ukey_by_pk(ctx context.Context, fi
 	return ec.marshalNEnterpriseUkey2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_enterprise_ukey_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_ukey_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseUkeyByUnionPk(rctx, args["ukey_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseUkey)
+	fc.Result = res
+	return ec.marshalNEnterpriseUkey2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐEnterpriseUkey(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_system_user(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -52669,6 +54999,48 @@ func (ec *executionContext) _Query_system_user_by_pk(ctx context.Context, field 
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().SystemUserByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.SystemUser)
+	fc.Result = res
+	return ec.marshalNSystemUser2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋadminᚋmodelᚐSystemUser(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_system_user_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_system_user_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().SystemUserByUnionPk(rctx, args["user_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -66994,20 +69366,35 @@ func (ec *executionContext) _Department(ctx context.Context, sel ast.SelectionSe
 		case "id":
 			out.Values[i] = ec._Department_id(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "department_id":
 			out.Values[i] = ec._Department_department_id(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
-		case "enterprise_id":
-			out.Values[i] = ec._Department_enterprise_id(ctx, field, obj)
-			if out.Values[i] == graphql.Null {
-				invalids++
-			}
-		case "superior_department_id":
-			out.Values[i] = ec._Department_superior_department_id(ctx, field, obj)
+		case "enterprise":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Department_enterprise(ctx, field, obj)
+				return res
+			})
+		case "superior_department":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Department_superior_department(ctx, field, obj)
+				return res
+			})
 		case "department_name":
 			out.Values[i] = ec._Department_department_name(ctx, field, obj)
 		case "department_code":
@@ -67031,7 +69418,7 @@ func (ec *executionContext) _Department(ctx context.Context, sel ast.SelectionSe
 		case "is_delete":
 			out.Values[i] = ec._Department_is_delete(ctx, field, obj)
 			if out.Values[i] == graphql.Null {
-				invalids++
+				atomic.AddUint32(&invalids, 1)
 			}
 		case "remarks":
 			out.Values[i] = ec._Department_remarks(ctx, field, obj)
@@ -71944,6 +74331,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_department(ctx, field)
 		case "update_department_by_pk":
 			out.Values[i] = ec._Mutation_update_department_by_pk(ctx, field)
+		case "update_department_by_union_pk":
+			out.Values[i] = ec._Mutation_update_department_by_union_pk(ctx, field)
+		case "delete_department_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_department_by_union_pk(ctx, field)
 		case "delete_enterprise":
 			out.Values[i] = ec._Mutation_delete_enterprise(ctx, field)
 		case "delete_enterprise_by_pk":
@@ -71956,6 +74347,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise(ctx, field)
 		case "update_enterprise_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_by_pk(ctx, field)
+		case "update_enterprise_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_by_union_pk(ctx, field)
+		case "delete_enterprise_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_by_union_pk(ctx, field)
 		case "delete_enterprise_contact":
 			out.Values[i] = ec._Mutation_delete_enterprise_contact(ctx, field)
 		case "delete_enterprise_contact_by_pk":
@@ -71968,6 +74363,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_contact(ctx, field)
 		case "update_enterprise_contact_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_contact_by_pk(ctx, field)
+		case "update_enterprise_contact_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_contact_by_union_pk(ctx, field)
+		case "delete_enterprise_contact_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_contact_by_union_pk(ctx, field)
 		case "delete_enterprise_muck_trunk":
 			out.Values[i] = ec._Mutation_delete_enterprise_muck_trunk(ctx, field)
 		case "delete_enterprise_muck_trunk_by_pk":
@@ -71980,6 +74379,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_muck_trunk(ctx, field)
 		case "update_enterprise_muck_trunk_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_muck_trunk_by_pk(ctx, field)
+		case "update_enterprise_muck_trunk_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_muck_trunk_by_union_pk(ctx, field)
+		case "delete_enterprise_muck_trunk_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_muck_trunk_by_union_pk(ctx, field)
 		case "delete_enterprise_police_sms_info":
 			out.Values[i] = ec._Mutation_delete_enterprise_police_sms_info(ctx, field)
 		case "delete_enterprise_police_sms_info_by_pk":
@@ -71992,6 +74395,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_police_sms_info(ctx, field)
 		case "update_enterprise_police_sms_info_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_police_sms_info_by_pk(ctx, field)
+		case "update_enterprise_police_sms_info_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_police_sms_info_by_union_pk(ctx, field)
+		case "delete_enterprise_police_sms_info_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_police_sms_info_by_union_pk(ctx, field)
 		case "delete_enterprise_score_log":
 			out.Values[i] = ec._Mutation_delete_enterprise_score_log(ctx, field)
 		case "delete_enterprise_score_log_by_pk":
@@ -72004,6 +74411,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_score_log(ctx, field)
 		case "update_enterprise_score_log_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_score_log_by_pk(ctx, field)
+		case "update_enterprise_score_log_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_score_log_by_union_pk(ctx, field)
+		case "delete_enterprise_score_log_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_score_log_by_union_pk(ctx, field)
 		case "delete_enterprise_score_set":
 			out.Values[i] = ec._Mutation_delete_enterprise_score_set(ctx, field)
 		case "delete_enterprise_score_set_by_pk":
@@ -72016,6 +74427,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_score_set(ctx, field)
 		case "update_enterprise_score_set_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_score_set_by_pk(ctx, field)
+		case "update_enterprise_score_set_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_score_set_by_union_pk(ctx, field)
+		case "delete_enterprise_score_set_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_score_set_by_union_pk(ctx, field)
 		case "delete_enterprise_state_his":
 			out.Values[i] = ec._Mutation_delete_enterprise_state_his(ctx, field)
 		case "delete_enterprise_state_his_by_pk":
@@ -72028,6 +74443,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_state_his(ctx, field)
 		case "update_enterprise_state_his_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_state_his_by_pk(ctx, field)
+		case "update_enterprise_state_his_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_state_his_by_union_pk(ctx, field)
+		case "delete_enterprise_state_his_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_state_his_by_union_pk(ctx, field)
 		case "delete_enterprise_ukey":
 			out.Values[i] = ec._Mutation_delete_enterprise_ukey(ctx, field)
 		case "delete_enterprise_ukey_by_pk":
@@ -72040,6 +74459,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_ukey(ctx, field)
 		case "update_enterprise_ukey_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_ukey_by_pk(ctx, field)
+		case "update_enterprise_ukey_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_ukey_by_union_pk(ctx, field)
+		case "delete_enterprise_ukey_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_ukey_by_union_pk(ctx, field)
 		case "delete_system_user":
 			out.Values[i] = ec._Mutation_delete_system_user(ctx, field)
 		case "delete_system_user_by_pk":
@@ -72052,6 +74475,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_system_user(ctx, field)
 		case "update_system_user_by_pk":
 			out.Values[i] = ec._Mutation_update_system_user_by_pk(ctx, field)
+		case "update_system_user_by_union_pk":
+			out.Values[i] = ec._Mutation_update_system_user_by_union_pk(ctx, field)
+		case "delete_system_user_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_system_user_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -72120,6 +74547,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "department_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_department_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "enterprise":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -72157,6 +74598,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "enterprise_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -72204,6 +74659,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "enterprise_contact_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_contact_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "enterprise_muck_trunk":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -72241,6 +74710,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_muck_trunk_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "enterprise_muck_trunk_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_muck_trunk_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -72288,6 +74771,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "enterprise_police_sms_info_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_police_sms_info_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "enterprise_score_log":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -72325,6 +74822,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_score_log_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "enterprise_score_log_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_score_log_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -72372,6 +74883,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "enterprise_score_set_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_score_set_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "enterprise_state_his":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -72409,6 +74934,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_state_his_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "enterprise_state_his_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_state_his_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -72456,6 +74995,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "enterprise_ukey_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_ukey_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "system_user":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -72493,6 +75046,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_system_user_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "system_user_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_system_user_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden DepartmentLoader string *VehicleSupervision/internal/modules/admin/model.Department
+//go:generate go run github.com/vektah/dataloaden DepartmentUnionPkLoader string *VehicleSupervision/internal/modules/admin/model.Department
 
 // 数据库表名
 func (t Department) TableName() string {
@@ -17,21 +17,34 @@ func (t Department) PrimaryColumnName() string {
 	return "id"
 }
 
+// 新建主键dataloader
+func (t *DepartmentPkLoader) NewLoader() *DepartmentPkLoader {
+	return &DepartmentPkLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*Department, []error) {
+			var rs []*Department
+			var m Department
+			db.DB.Model(&m).Where(m.PrimaryColumnName()+" in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
+}
+
 // 联合主键列名
 func (t Department) UnionPrimaryColumnName() string {
 	return "department_id"
 }
 
-// 新建dataloader
-func (t *Department) NewLoader() *DepartmentLoader {
-	return &DepartmentLoader{
+// 新建联合主键dataloader
+func (t *DepartmentUnionPkLoader) NewLoader() *DepartmentUnionPkLoader {
+	return &DepartmentUnionPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*Department, []error) {
 			var rs []*Department
-
-			db.DB.Model(&Department{}).Where(t.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
-
+			var m Department
+			db.DB.Model(&m).Where(m.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
 			return rs, nil
 		},
 	}

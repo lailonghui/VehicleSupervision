@@ -415,6 +415,10 @@ extend type Query {
 	主键查询
 	"""
 	terminal_modal_by_pk(id: Bigint!): TerminalModal!
+	"""
+	联合主键查询
+	"""
+	terminal_modal_by_union_pk(terminal_modal_id: String!): TerminalModal!
 }
 extend type Mutation {
 	"""
@@ -438,7 +442,15 @@ extend type Mutation {
 	"""
 	update_terminal_modal(_inc: TerminalModalIncInput, _set: TerminalModalSetInput, where: TerminalModalBoolExp!): TerminalModalMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_modal_by_pk(_inc: TerminalModalIncInput, _set: TerminalModalSetInput, id: Bigint!): TerminalModal
+	"""
+	根据联合主键更新
+	"""
+	update_terminal_modal_by_union_pk(_inc: TerminalModalIncInput, _set: TerminalModalSetInput, terminal_modal_id: String!): TerminalModal
+	"""
+	根据联合主键删除记录
+	"""
+	delete_terminal_modal_by_union_pk(terminal_modal_id: String!): TerminalModal
 }

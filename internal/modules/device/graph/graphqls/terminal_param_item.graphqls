@@ -368,6 +368,10 @@ extend type Query {
 	主键查询
 	"""
 	terminal_param_item_by_pk(id: Bigint!): TerminalParamItem!
+	"""
+	联合主键查询
+	"""
+	terminal_param_item_by_union_pk(param_item_id: String!): TerminalParamItem!
 }
 extend type Mutation {
 	"""
@@ -391,7 +395,15 @@ extend type Mutation {
 	"""
 	update_terminal_param_item(_inc: TerminalParamItemIncInput, _set: TerminalParamItemSetInput, where: TerminalParamItemBoolExp!): TerminalParamItemMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_param_item_by_pk(_inc: TerminalParamItemIncInput, _set: TerminalParamItemSetInput, id: Bigint!): TerminalParamItem
+	"""
+	根据联合主键更新
+	"""
+	update_terminal_param_item_by_union_pk(_inc: TerminalParamItemIncInput, _set: TerminalParamItemSetInput, param_item_id: String!): TerminalParamItem
+	"""
+	根据联合主键删除记录
+	"""
+	delete_terminal_param_item_by_union_pk(param_item_id: String!): TerminalParamItem
 }

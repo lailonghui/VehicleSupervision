@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteSimCardFlowByPk(ctx context.Context, Id int64) 
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteSimCardFlowByUnionPk(ctx context.Context, unionId string) (*model1.SimCardFlow, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.SimCardFlow
+	tx := db.DB.Model(&model1.SimCardFlow{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertSimCardFlow(ctx context.Context, objects []*model.SimCardFlowInsertInput) (*model.SimCardFlowMutationResponse, error) {
 	rs := make([]*model1.SimCardFlow, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateSimCardFlowByPk(ctx context.Context, inc *model
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateSimCardFlowByUnionPk(ctx context.Context, inc *model.SimCardFlowIncInput, set *model.SimCardFlowSetInput, unionId string) (*model1.SimCardFlow, error) {
+	var rs model1.SimCardFlow
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.SimCardFlow{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) SimCardFlow(ctx context.Context, distinctOn []model.SimCardFlowSelectColumn, limit *int, offset *int, orderBy []*model.SimCardFlowOrderBy, where *model.SimCardFlowBoolExp) ([]*model1.SimCardFlow, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.SimCardFlow{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) SimCardFlowAggregate(ctx context.Context, distinctOn []m
 func (r *queryResolver) SimCardFlowByPk(ctx context.Context, Id int64) (*model1.SimCardFlow, error) {
 	var rs model1.SimCardFlow
 	tx := db.DB.Model(&model1.SimCardFlow{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) SimCardFlowByUnionPk(ctx context.Context, unionId string) (*model1.SimCardFlow, error) {
+	var rs model1.SimCardFlow
+	tx := db.DB.Model(&model1.SimCardFlow{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

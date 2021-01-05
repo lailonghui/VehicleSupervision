@@ -303,6 +303,10 @@ extend type Query {
 	主键查询
 	"""
 	limit_speed_plan_by_pk(id: Bigint!): LimitSpeedPlan!
+	"""
+	联合主键查询
+	"""
+	limit_speed_plan_by_union_pk(limit_speed_plan_id: String!): LimitSpeedPlan!
 }
 extend type Mutation {
 	"""
@@ -326,7 +330,15 @@ extend type Mutation {
 	"""
 	update_limit_speed_plan(_inc: LimitSpeedPlanIncInput, _set: LimitSpeedPlanSetInput, where: LimitSpeedPlanBoolExp!): LimitSpeedPlanMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_limit_speed_plan_by_pk(_inc: LimitSpeedPlanIncInput, _set: LimitSpeedPlanSetInput, id: Bigint!): LimitSpeedPlan
+	"""
+	根据联合主键更新
+	"""
+	update_limit_speed_plan_by_union_pk(_inc: LimitSpeedPlanIncInput, _set: LimitSpeedPlanSetInput, limit_speed_plan_id: String!): LimitSpeedPlan
+	"""
+	根据联合主键删除记录
+	"""
+	delete_limit_speed_plan_by_union_pk(limit_speed_plan_id: String!): LimitSpeedPlan
 }

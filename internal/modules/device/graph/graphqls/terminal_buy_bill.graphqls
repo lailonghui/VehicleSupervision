@@ -432,6 +432,10 @@ extend type Query {
 	主键查询
 	"""
 	terminal_buy_bill_by_pk(id: Bigint!): TerminalBuyBill!
+	"""
+	联合主键查询
+	"""
+	terminal_buy_bill_by_union_pk(bill_id: String!): TerminalBuyBill!
 }
 extend type Mutation {
 	"""
@@ -455,7 +459,15 @@ extend type Mutation {
 	"""
 	update_terminal_buy_bill(_inc: TerminalBuyBillIncInput, _set: TerminalBuyBillSetInput, where: TerminalBuyBillBoolExp!): TerminalBuyBillMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_terminal_buy_bill_by_pk(_inc: TerminalBuyBillIncInput, _set: TerminalBuyBillSetInput, id: Bigint!): TerminalBuyBill
+	"""
+	根据联合主键更新
+	"""
+	update_terminal_buy_bill_by_union_pk(_inc: TerminalBuyBillIncInput, _set: TerminalBuyBillSetInput, bill_id: String!): TerminalBuyBill
+	"""
+	根据联合主键删除记录
+	"""
+	delete_terminal_buy_bill_by_union_pk(bill_id: String!): TerminalBuyBill
 }

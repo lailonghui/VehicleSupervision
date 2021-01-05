@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteTerminalFactoryByPk(ctx context.Context, Id int
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteTerminalFactoryByUnionPk(ctx context.Context, unionId string) (*model1.TerminalFactory, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.TerminalFactory
+	tx := db.DB.Model(&model1.TerminalFactory{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertTerminalFactory(ctx context.Context, objects []*model.TerminalFactoryInsertInput) (*model.TerminalFactoryMutationResponse, error) {
 	rs := make([]*model1.TerminalFactory, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateTerminalFactoryByPk(ctx context.Context, inc *m
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateTerminalFactoryByUnionPk(ctx context.Context, inc *model.TerminalFactoryIncInput, set *model.TerminalFactorySetInput, unionId string) (*model1.TerminalFactory, error) {
+	var rs model1.TerminalFactory
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.TerminalFactory{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) TerminalFactory(ctx context.Context, distinctOn []model.TerminalFactorySelectColumn, limit *int, offset *int, orderBy []*model.TerminalFactoryOrderBy, where *model.TerminalFactoryBoolExp) ([]*model1.TerminalFactory, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.TerminalFactory{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) TerminalFactoryAggregate(ctx context.Context, distinctOn
 func (r *queryResolver) TerminalFactoryByPk(ctx context.Context, Id int64) (*model1.TerminalFactory, error) {
 	var rs model1.TerminalFactory
 	tx := db.DB.Model(&model1.TerminalFactory{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) TerminalFactoryByUnionPk(ctx context.Context, unionId string) (*model1.TerminalFactory, error) {
+	var rs model1.TerminalFactory
+	tx := db.DB.Model(&model1.TerminalFactory{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

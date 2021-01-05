@@ -48,27 +48,33 @@ type DirectiveRoot struct {
 
 type ComplexityRoot struct {
 	Mutation struct {
-		DeleteRideHailingDriver           func(childComplexity int, where model.RideHailingDriverBoolExp) int
-		DeleteRideHailingDriverByPk       func(childComplexity int, id int64) int
-		DeleteRideHailingDriverVerify     func(childComplexity int, where model.RideHailingDriverVerifyBoolExp) int
-		DeleteRideHailingDriverVerifyByPk func(childComplexity int, id int64) int
-		InsertRideHailingDriver           func(childComplexity int, objects []*model.RideHailingDriverInsertInput) int
-		InsertRideHailingDriverOne        func(childComplexity int, objects model.RideHailingDriverInsertInput) int
-		InsertRideHailingDriverVerify     func(childComplexity int, objects []*model.RideHailingDriverVerifyInsertInput) int
-		InsertRideHailingDriverVerifyOne  func(childComplexity int, objects model.RideHailingDriverVerifyInsertInput) int
-		UpdateRideHailingDriver           func(childComplexity int, inc *model.RideHailingDriverIncInput, set *model.RideHailingDriverSetInput, where model.RideHailingDriverBoolExp) int
-		UpdateRideHailingDriverByPk       func(childComplexity int, inc *model.RideHailingDriverIncInput, set *model.RideHailingDriverSetInput, id int64) int
-		UpdateRideHailingDriverVerify     func(childComplexity int, inc *model.RideHailingDriverVerifyIncInput, set *model.RideHailingDriverVerifySetInput, where model.RideHailingDriverVerifyBoolExp) int
-		UpdateRideHailingDriverVerifyByPk func(childComplexity int, inc *model.RideHailingDriverVerifyIncInput, set *model.RideHailingDriverVerifySetInput, id int64) int
+		DeleteRideHailingDriver                func(childComplexity int, where model.RideHailingDriverBoolExp) int
+		DeleteRideHailingDriverByPk            func(childComplexity int, id int64) int
+		DeleteRideHailingDriverByUnionPk       func(childComplexity int, rideHailingDriverID string) int
+		DeleteRideHailingDriverVerify          func(childComplexity int, where model.RideHailingDriverVerifyBoolExp) int
+		DeleteRideHailingDriverVerifyByPk      func(childComplexity int, id int64) int
+		DeleteRideHailingDriverVerifyByUnionPk func(childComplexity int, rideHailingDriverVerifyID string) int
+		InsertRideHailingDriver                func(childComplexity int, objects []*model.RideHailingDriverInsertInput) int
+		InsertRideHailingDriverOne             func(childComplexity int, objects model.RideHailingDriverInsertInput) int
+		InsertRideHailingDriverVerify          func(childComplexity int, objects []*model.RideHailingDriverVerifyInsertInput) int
+		InsertRideHailingDriverVerifyOne       func(childComplexity int, objects model.RideHailingDriverVerifyInsertInput) int
+		UpdateRideHailingDriver                func(childComplexity int, inc *model.RideHailingDriverIncInput, set *model.RideHailingDriverSetInput, where model.RideHailingDriverBoolExp) int
+		UpdateRideHailingDriverByPk            func(childComplexity int, inc *model.RideHailingDriverIncInput, set *model.RideHailingDriverSetInput, id int64) int
+		UpdateRideHailingDriverByUnionPk       func(childComplexity int, inc *model.RideHailingDriverIncInput, set *model.RideHailingDriverSetInput, rideHailingDriverID string) int
+		UpdateRideHailingDriverVerify          func(childComplexity int, inc *model.RideHailingDriverVerifyIncInput, set *model.RideHailingDriverVerifySetInput, where model.RideHailingDriverVerifyBoolExp) int
+		UpdateRideHailingDriverVerifyByPk      func(childComplexity int, inc *model.RideHailingDriverVerifyIncInput, set *model.RideHailingDriverVerifySetInput, id int64) int
+		UpdateRideHailingDriverVerifyByUnionPk func(childComplexity int, inc *model.RideHailingDriverVerifyIncInput, set *model.RideHailingDriverVerifySetInput, rideHailingDriverVerifyID string) int
 	}
 
 	Query struct {
 		RideHailingDriver                func(childComplexity int, distinctOn []model.RideHailingDriverSelectColumn, limit *int, offset *int, orderBy []*model.RideHailingDriverOrderBy, where *model.RideHailingDriverBoolExp) int
 		RideHailingDriverAggregate       func(childComplexity int, distinctOn []model.RideHailingDriverSelectColumn, limit *int, offset *int, orderBy []*model.RideHailingDriverOrderBy, where *model.RideHailingDriverBoolExp) int
 		RideHailingDriverByPk            func(childComplexity int, id int64) int
+		RideHailingDriverByUnionPk       func(childComplexity int, rideHailingDriverID string) int
 		RideHailingDriverVerify          func(childComplexity int, distinctOn []model.RideHailingDriverVerifySelectColumn, limit *int, offset *int, orderBy []*model.RideHailingDriverVerifyOrderBy, where *model.RideHailingDriverVerifyBoolExp) int
 		RideHailingDriverVerifyAggregate func(childComplexity int, distinctOn []model.RideHailingDriverVerifySelectColumn, limit *int, offset *int, orderBy []*model.RideHailingDriverVerifyOrderBy, where *model.RideHailingDriverVerifyBoolExp) int
 		RideHailingDriverVerifyByPk      func(childComplexity int, id int64) int
+		RideHailingDriverVerifyByUnionPk func(childComplexity int, rideHailingDriverVerifyID string) int
 	}
 
 	RideHailingDriver struct {
@@ -405,20 +411,26 @@ type MutationResolver interface {
 	InsertRideHailingDriverOne(ctx context.Context, objects model.RideHailingDriverInsertInput) (*model1.RideHailingDriver, error)
 	UpdateRideHailingDriver(ctx context.Context, inc *model.RideHailingDriverIncInput, set *model.RideHailingDriverSetInput, where model.RideHailingDriverBoolExp) (*model.RideHailingDriverMutationResponse, error)
 	UpdateRideHailingDriverByPk(ctx context.Context, inc *model.RideHailingDriverIncInput, set *model.RideHailingDriverSetInput, id int64) (*model1.RideHailingDriver, error)
+	UpdateRideHailingDriverByUnionPk(ctx context.Context, inc *model.RideHailingDriverIncInput, set *model.RideHailingDriverSetInput, rideHailingDriverID string) (*model1.RideHailingDriver, error)
+	DeleteRideHailingDriverByUnionPk(ctx context.Context, rideHailingDriverID string) (*model1.RideHailingDriver, error)
 	DeleteRideHailingDriverVerify(ctx context.Context, where model.RideHailingDriverVerifyBoolExp) (*model.RideHailingDriverVerifyMutationResponse, error)
 	DeleteRideHailingDriverVerifyByPk(ctx context.Context, id int64) (*model1.RideHailingDriverVerify, error)
 	InsertRideHailingDriverVerify(ctx context.Context, objects []*model.RideHailingDriverVerifyInsertInput) (*model.RideHailingDriverVerifyMutationResponse, error)
 	InsertRideHailingDriverVerifyOne(ctx context.Context, objects model.RideHailingDriverVerifyInsertInput) (*model1.RideHailingDriverVerify, error)
 	UpdateRideHailingDriverVerify(ctx context.Context, inc *model.RideHailingDriverVerifyIncInput, set *model.RideHailingDriverVerifySetInput, where model.RideHailingDriverVerifyBoolExp) (*model.RideHailingDriverVerifyMutationResponse, error)
 	UpdateRideHailingDriverVerifyByPk(ctx context.Context, inc *model.RideHailingDriverVerifyIncInput, set *model.RideHailingDriverVerifySetInput, id int64) (*model1.RideHailingDriverVerify, error)
+	UpdateRideHailingDriverVerifyByUnionPk(ctx context.Context, inc *model.RideHailingDriverVerifyIncInput, set *model.RideHailingDriverVerifySetInput, rideHailingDriverVerifyID string) (*model1.RideHailingDriverVerify, error)
+	DeleteRideHailingDriverVerifyByUnionPk(ctx context.Context, rideHailingDriverVerifyID string) (*model1.RideHailingDriverVerify, error)
 }
 type QueryResolver interface {
 	RideHailingDriver(ctx context.Context, distinctOn []model.RideHailingDriverSelectColumn, limit *int, offset *int, orderBy []*model.RideHailingDriverOrderBy, where *model.RideHailingDriverBoolExp) ([]*model1.RideHailingDriver, error)
 	RideHailingDriverAggregate(ctx context.Context, distinctOn []model.RideHailingDriverSelectColumn, limit *int, offset *int, orderBy []*model.RideHailingDriverOrderBy, where *model.RideHailingDriverBoolExp) (*model.RideHailingDriverAggregate, error)
 	RideHailingDriverByPk(ctx context.Context, id int64) (*model1.RideHailingDriver, error)
+	RideHailingDriverByUnionPk(ctx context.Context, rideHailingDriverID string) (*model1.RideHailingDriver, error)
 	RideHailingDriverVerify(ctx context.Context, distinctOn []model.RideHailingDriverVerifySelectColumn, limit *int, offset *int, orderBy []*model.RideHailingDriverVerifyOrderBy, where *model.RideHailingDriverVerifyBoolExp) ([]*model1.RideHailingDriverVerify, error)
 	RideHailingDriverVerifyAggregate(ctx context.Context, distinctOn []model.RideHailingDriverVerifySelectColumn, limit *int, offset *int, orderBy []*model.RideHailingDriverVerifyOrderBy, where *model.RideHailingDriverVerifyBoolExp) (*model.RideHailingDriverVerifyAggregate, error)
 	RideHailingDriverVerifyByPk(ctx context.Context, id int64) (*model1.RideHailingDriverVerify, error)
+	RideHailingDriverVerifyByUnionPk(ctx context.Context, rideHailingDriverVerifyID string) (*model1.RideHailingDriverVerify, error)
 }
 
 type executableSchema struct {
@@ -460,6 +472,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteRideHailingDriverByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_ride_hailing_driver_by_union_pk":
+		if e.complexity.Mutation.DeleteRideHailingDriverByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ride_hailing_driver_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteRideHailingDriverByUnionPk(childComplexity, args["ride_hailing_driver_id"].(string)), true
+
 	case "Mutation.delete_ride_hailing_driver_verify":
 		if e.complexity.Mutation.DeleteRideHailingDriverVerify == nil {
 			break
@@ -483,6 +507,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteRideHailingDriverVerifyByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_ride_hailing_driver_verify_by_union_pk":
+		if e.complexity.Mutation.DeleteRideHailingDriverVerifyByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_ride_hailing_driver_verify_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteRideHailingDriverVerifyByUnionPk(childComplexity, args["ride_hailing_driver_verify_id"].(string)), true
 
 	case "Mutation.insert_ride_hailing_driver":
 		if e.complexity.Mutation.InsertRideHailingDriver == nil {
@@ -556,6 +592,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateRideHailingDriverByPk(childComplexity, args["_inc"].(*model.RideHailingDriverIncInput), args["_set"].(*model.RideHailingDriverSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_ride_hailing_driver_by_union_pk":
+		if e.complexity.Mutation.UpdateRideHailingDriverByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ride_hailing_driver_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateRideHailingDriverByUnionPk(childComplexity, args["_inc"].(*model.RideHailingDriverIncInput), args["_set"].(*model.RideHailingDriverSetInput), args["ride_hailing_driver_id"].(string)), true
+
 	case "Mutation.update_ride_hailing_driver_verify":
 		if e.complexity.Mutation.UpdateRideHailingDriverVerify == nil {
 			break
@@ -579,6 +627,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateRideHailingDriverVerifyByPk(childComplexity, args["_inc"].(*model.RideHailingDriverVerifyIncInput), args["_set"].(*model.RideHailingDriverVerifySetInput), args["id"].(int64)), true
+
+	case "Mutation.update_ride_hailing_driver_verify_by_union_pk":
+		if e.complexity.Mutation.UpdateRideHailingDriverVerifyByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_ride_hailing_driver_verify_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateRideHailingDriverVerifyByUnionPk(childComplexity, args["_inc"].(*model.RideHailingDriverVerifyIncInput), args["_set"].(*model.RideHailingDriverVerifySetInput), args["ride_hailing_driver_verify_id"].(string)), true
 
 	case "Query.ride_hailing_driver":
 		if e.complexity.Query.RideHailingDriver == nil {
@@ -616,6 +676,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.RideHailingDriverByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.ride_hailing_driver_by_union_pk":
+		if e.complexity.Query.RideHailingDriverByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ride_hailing_driver_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.RideHailingDriverByUnionPk(childComplexity, args["ride_hailing_driver_id"].(string)), true
+
 	case "Query.ride_hailing_driver_verify":
 		if e.complexity.Query.RideHailingDriverVerify == nil {
 			break
@@ -651,6 +723,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.RideHailingDriverVerifyByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.ride_hailing_driver_verify_by_union_pk":
+		if e.complexity.Query.RideHailingDriverVerifyByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_ride_hailing_driver_verify_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.RideHailingDriverVerifyByUnionPk(childComplexity, args["ride_hailing_driver_verify_id"].(string)), true
 
 	case "RideHailingDriver.birthday":
 		if e.complexity.RideHailingDriver.Birthday == nil {
@@ -3177,6 +3261,10 @@ extend type Query {
 	主键查询
 	"""
 	ride_hailing_driver_by_pk(id: Bigint!): RideHailingDriver!
+	"""
+	联合主键查询
+	"""
+	ride_hailing_driver_by_union_pk(ride_hailing_driver_id: String!): RideHailingDriver!
 }
 extend type Mutation {
 	"""
@@ -3200,9 +3288,17 @@ extend type Mutation {
 	"""
 	update_ride_hailing_driver(_inc: RideHailingDriverIncInput, _set: RideHailingDriverSetInput, where: RideHailingDriverBoolExp!): RideHailingDriverMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ride_hailing_driver_by_pk(_inc: RideHailingDriverIncInput, _set: RideHailingDriverSetInput, id: Bigint!): RideHailingDriver
+	"""
+	根据联合主键更新
+	"""
+	update_ride_hailing_driver_by_union_pk(_inc: RideHailingDriverIncInput, _set: RideHailingDriverSetInput, ride_hailing_driver_id: String!): RideHailingDriver
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ride_hailing_driver_by_union_pk(ride_hailing_driver_id: String!): RideHailingDriver
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/ride_hailing_driver_verify.graphqls", Input: `"""
@@ -3720,6 +3816,10 @@ extend type Query {
 	主键查询
 	"""
 	ride_hailing_driver_verify_by_pk(id: Bigint!): RideHailingDriverVerify!
+	"""
+	联合主键查询
+	"""
+	ride_hailing_driver_verify_by_union_pk(ride_hailing_driver_verify_id: String!): RideHailingDriverVerify!
 }
 extend type Mutation {
 	"""
@@ -3743,9 +3843,17 @@ extend type Mutation {
 	"""
 	update_ride_hailing_driver_verify(_inc: RideHailingDriverVerifyIncInput, _set: RideHailingDriverVerifySetInput, where: RideHailingDriverVerifyBoolExp!): RideHailingDriverVerifyMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ride_hailing_driver_verify_by_pk(_inc: RideHailingDriverVerifyIncInput, _set: RideHailingDriverVerifySetInput, id: Bigint!): RideHailingDriverVerify
+	"""
+	根据联合主键更新
+	"""
+	update_ride_hailing_driver_verify_by_union_pk(_inc: RideHailingDriverVerifyIncInput, _set: RideHailingDriverVerifySetInput, ride_hailing_driver_verify_id: String!): RideHailingDriverVerify
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ride_hailing_driver_verify_by_union_pk(ride_hailing_driver_verify_id: String!): RideHailingDriverVerify
 }
 `, BuiltIn: false},
 }
@@ -3785,6 +3893,21 @@ func (ec *executionContext) field_Mutation_delete_ride_hailing_driver_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_ride_hailing_driver_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["ride_hailing_driver_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ride_hailing_driver_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["ride_hailing_driver_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_ride_hailing_driver_verify_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -3812,6 +3935,21 @@ func (ec *executionContext) field_Mutation_delete_ride_hailing_driver_verify_by_
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_ride_hailing_driver_verify_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["ride_hailing_driver_verify_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ride_hailing_driver_verify_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["ride_hailing_driver_verify_id"] = arg0
 	return args, nil
 }
 
@@ -3941,6 +4079,39 @@ func (ec *executionContext) field_Mutation_update_ride_hailing_driver_by_pk_args
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_ride_hailing_driver_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.RideHailingDriverIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalORideHailingDriverIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋgraphᚋmodelᚐRideHailingDriverIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.RideHailingDriverSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalORideHailingDriverSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋgraphᚋmodelᚐRideHailingDriverSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["ride_hailing_driver_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ride_hailing_driver_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["ride_hailing_driver_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_ride_hailing_driver_verify_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -4004,6 +4175,39 @@ func (ec *executionContext) field_Mutation_update_ride_hailing_driver_verify_by_
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_ride_hailing_driver_verify_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.RideHailingDriverVerifyIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalORideHailingDriverVerifyIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋgraphᚋmodelᚐRideHailingDriverVerifyIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.RideHailingDriverVerifySetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalORideHailingDriverVerifySetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋgraphᚋmodelᚐRideHailingDriverVerifySetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["ride_hailing_driver_verify_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ride_hailing_driver_verify_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["ride_hailing_driver_verify_id"] = arg2
 	return args, nil
 }
 
@@ -4139,6 +4343,21 @@ func (ec *executionContext) field_Query_ride_hailing_driver_by_pk_args(ctx conte
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_ride_hailing_driver_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["ride_hailing_driver_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ride_hailing_driver_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["ride_hailing_driver_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_ride_hailing_driver_verify_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -4253,6 +4472,21 @@ func (ec *executionContext) field_Query_ride_hailing_driver_verify_by_pk_args(ct
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_ride_hailing_driver_verify_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["ride_hailing_driver_verify_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("ride_hailing_driver_verify_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["ride_hailing_driver_verify_id"] = arg0
 	return args, nil
 }
 
@@ -4528,6 +4762,84 @@ func (ec *executionContext) _Mutation_update_ride_hailing_driver_by_pk(ctx conte
 	return ec.marshalORideHailingDriver2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_ride_hailing_driver_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ride_hailing_driver_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateRideHailingDriverByUnionPk(rctx, args["_inc"].(*model.RideHailingDriverIncInput), args["_set"].(*model.RideHailingDriverSetInput), args["ride_hailing_driver_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RideHailingDriver)
+	fc.Result = res
+	return ec.marshalORideHailingDriver2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ride_hailing_driver_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ride_hailing_driver_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteRideHailingDriverByUnionPk(rctx, args["ride_hailing_driver_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RideHailingDriver)
+	fc.Result = res
+	return ec.marshalORideHailingDriver2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_ride_hailing_driver_verify(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -4762,6 +5074,84 @@ func (ec *executionContext) _Mutation_update_ride_hailing_driver_verify_by_pk(ct
 	return ec.marshalORideHailingDriverVerify2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerify(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_ride_hailing_driver_verify_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_ride_hailing_driver_verify_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateRideHailingDriverVerifyByUnionPk(rctx, args["_inc"].(*model.RideHailingDriverVerifyIncInput), args["_set"].(*model.RideHailingDriverVerifySetInput), args["ride_hailing_driver_verify_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RideHailingDriverVerify)
+	fc.Result = res
+	return ec.marshalORideHailingDriverVerify2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerify(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_ride_hailing_driver_verify_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_ride_hailing_driver_verify_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteRideHailingDriverVerifyByUnionPk(rctx, args["ride_hailing_driver_verify_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RideHailingDriverVerify)
+	fc.Result = res
+	return ec.marshalORideHailingDriverVerify2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerify(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_ride_hailing_driver(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -4888,6 +5278,48 @@ func (ec *executionContext) _Query_ride_hailing_driver_by_pk(ctx context.Context
 	return ec.marshalNRideHailingDriver2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_ride_hailing_driver_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ride_hailing_driver_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().RideHailingDriverByUnionPk(rctx, args["ride_hailing_driver_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RideHailingDriver)
+	fc.Result = res
+	return ec.marshalNRideHailingDriver2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriver(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_ride_hailing_driver_verify(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -4998,6 +5430,48 @@ func (ec *executionContext) _Query_ride_hailing_driver_verify_by_pk(ctx context.
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().RideHailingDriverVerifyByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.RideHailingDriverVerify)
+	fc.Result = res
+	return ec.marshalNRideHailingDriverVerify2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋridehailingᚋmodelᚐRideHailingDriverVerify(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_ride_hailing_driver_verify_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_ride_hailing_driver_verify_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().RideHailingDriverVerifyByUnionPk(rctx, args["ride_hailing_driver_verify_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -16817,6 +17291,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ride_hailing_driver(ctx, field)
 		case "update_ride_hailing_driver_by_pk":
 			out.Values[i] = ec._Mutation_update_ride_hailing_driver_by_pk(ctx, field)
+		case "update_ride_hailing_driver_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ride_hailing_driver_by_union_pk(ctx, field)
+		case "delete_ride_hailing_driver_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ride_hailing_driver_by_union_pk(ctx, field)
 		case "delete_ride_hailing_driver_verify":
 			out.Values[i] = ec._Mutation_delete_ride_hailing_driver_verify(ctx, field)
 		case "delete_ride_hailing_driver_verify_by_pk":
@@ -16829,6 +17307,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_ride_hailing_driver_verify(ctx, field)
 		case "update_ride_hailing_driver_verify_by_pk":
 			out.Values[i] = ec._Mutation_update_ride_hailing_driver_verify_by_pk(ctx, field)
+		case "update_ride_hailing_driver_verify_by_union_pk":
+			out.Values[i] = ec._Mutation_update_ride_hailing_driver_verify_by_union_pk(ctx, field)
+		case "delete_ride_hailing_driver_verify_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_ride_hailing_driver_verify_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -16897,6 +17379,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "ride_hailing_driver_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ride_hailing_driver_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "ride_hailing_driver_verify":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -16934,6 +17430,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_ride_hailing_driver_verify_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "ride_hailing_driver_verify_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_ride_hailing_driver_verify_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

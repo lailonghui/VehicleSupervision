@@ -41,13 +41,36 @@ func (r *mutationResolver) DeleteEnterpriseMuckTrunk(ctx context.Context, where 
 	}, nil
 }
 
-func (r *mutationResolver) DeleteEnterpriseMuckTrunkByPk(ctx context.Context, Id int64) (*model1.EnterpriseMuckTrunk, error) {
+func (r *mutationResolver) DeleteEnterpriseMuckTrunkByPk(ctx context.Context, id int64) (*model1.EnterpriseMuckTrunk, error) {
 	preloads := util.GetPreloads(ctx)
 	var rs model1.EnterpriseMuckTrunk
 	tx := db.DB.Model(&model1.EnterpriseMuckTrunk{})
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
-		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		tx = tx.Select(preloads).Where(rs.PrimaryColumnName()+" = ?", id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteEnterpriseMuckTrunkByUnionPk(ctx context.Context, enterpriseMuckTrunkID string) (*model1.EnterpriseMuckTrunk, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.EnterpriseMuckTrunk
+	tx := db.DB.Model(&model1.EnterpriseMuckTrunk{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", enterpriseMuckTrunkID).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -84,9 +107,9 @@ func (r *mutationResolver) InsertEnterpriseMuckTrunk(ctx context.Context, object
 	}, nil
 }
 
-func (r *mutationResolver) InsertEnterpriseMuckTrunkOne(ctx context.Context, object model.EnterpriseMuckTrunkInsertInput) (*model1.EnterpriseMuckTrunk, error) {
+func (r *mutationResolver) InsertEnterpriseMuckTrunkOne(ctx context.Context, objects model.EnterpriseMuckTrunkInsertInput) (*model1.EnterpriseMuckTrunk, error) {
 	rs := &model1.EnterpriseMuckTrunk{}
-	util2.StructAssign(rs, &object)
+	util2.StructAssign(rs, &objects)
 	tx := db.DB.Model(&model1.EnterpriseMuckTrunk{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -129,14 +152,30 @@ func (r *mutationResolver) UpdateEnterpriseMuckTrunk(ctx context.Context, inc *m
 	}, nil
 }
 
-func (r *mutationResolver) UpdateEnterpriseMuckTrunkByPk(ctx context.Context, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, Id int64) (*model1.EnterpriseMuckTrunk, error) {
-	tx := db.DB.Where("id = ?", Id)
+func (r *mutationResolver) UpdateEnterpriseMuckTrunkByPk(ctx context.Context, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, id int64) (*model1.EnterpriseMuckTrunk, error) {
+	var rs model1.EnterpriseMuckTrunk
+	tx := db.DB.Where(rs.PrimaryColumnName()+" = ?", id)
 	qt := util.NewQueryTranslator(tx, &model1.EnterpriseMuckTrunk{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) UpdateEnterpriseMuckTrunkByUnionPk(ctx context.Context, inc *model.EnterpriseMuckTrunkIncInput, set *model.EnterpriseMuckTrunkSetInput, enterpriseMuckTrunkID string) (*model1.EnterpriseMuckTrunk, error) {
 	var rs model1.EnterpriseMuckTrunk
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", enterpriseMuckTrunkID)
+	qt := util.NewQueryTranslator(tx, &model1.EnterpriseMuckTrunk{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
 	tx = tx.First(&rs)
 	if err := tx.Error; err != nil {
 		return &rs, err
@@ -175,9 +214,17 @@ func (r *queryResolver) EnterpriseMuckTrunkAggregate(ctx context.Context, distin
 	return &rs, err
 }
 
-func (r *queryResolver) EnterpriseMuckTrunkByPk(ctx context.Context, Id int64) (*model1.EnterpriseMuckTrunk, error) {
+func (r *queryResolver) EnterpriseMuckTrunkByPk(ctx context.Context, id int64) (*model1.EnterpriseMuckTrunk, error) {
 	var rs model1.EnterpriseMuckTrunk
-	tx := db.DB.Model(&model1.EnterpriseMuckTrunk{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	tx := db.DB.Model(&model1.EnterpriseMuckTrunk{}).Select(util.GetTopPreloads(ctx)).First(&rs, id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) EnterpriseMuckTrunkByUnionPk(ctx context.Context, enterpriseMuckTrunkID string) (*model1.EnterpriseMuckTrunk, error) {
+	var rs model1.EnterpriseMuckTrunk
+	tx := db.DB.Model(&model1.EnterpriseMuckTrunk{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", enterpriseMuckTrunkID).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

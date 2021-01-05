@@ -2,7 +2,6 @@ package resolver
 
 import (
 	"VehicleSupervision/internal/db"
-	"VehicleSupervision/internal/modules/device/graph/generated"
 	"VehicleSupervision/internal/modules/device/graph/model"
 	model1 "VehicleSupervision/internal/modules/device/model"
 	"VehicleSupervision/pkg/graphql/util"
@@ -49,6 +48,29 @@ func (r *mutationResolver) DeleteSimCardByPk(ctx context.Context, Id int64) (*mo
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
 		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteSimCardByUnionPk(ctx context.Context, unionId string) (*model1.SimCard, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.SimCard
+	tx := db.DB.Model(&model1.SimCard{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -145,6 +167,22 @@ func (r *mutationResolver) UpdateSimCardByPk(ctx context.Context, inc *model.Sim
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateSimCardByUnionPk(ctx context.Context, inc *model.SimCardIncInput, set *model.SimCardSetInput, unionId string) (*model1.SimCard, error) {
+	var rs model1.SimCard
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.SimCard{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) SimCard(ctx context.Context, distinctOn []model.SimCardSelectColumn, limit *int, offset *int, orderBy []*model.SimCardOrderBy, where *model.SimCardBoolExp) ([]*model1.SimCard, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.SimCard{})
 	tx := qt.DistinctOn(distinctOn).
@@ -183,11 +221,10 @@ func (r *queryResolver) SimCardByPk(ctx context.Context, Id int64) (*model1.SimC
 	return &rs, err
 }
 
-// Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+func (r *queryResolver) SimCardByUnionPk(ctx context.Context, unionId string) (*model1.SimCard, error) {
+	var rs model1.SimCard
+	tx := db.DB.Model(&model1.SimCard{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
 
-// Query returns generated.QueryResolver implementation.
-func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
-
-type mutationResolver struct{ *Resolver }
-type queryResolver struct{ *Resolver }
+	err := tx.Error
+	return &rs, err
+}

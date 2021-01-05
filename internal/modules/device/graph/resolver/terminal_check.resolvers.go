@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteTerminalCheckByPk(ctx context.Context, Id int64
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteTerminalCheckByUnionPk(ctx context.Context, unionId string) (*model1.TerminalCheck, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.TerminalCheck
+	tx := db.DB.Model(&model1.TerminalCheck{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertTerminalCheck(ctx context.Context, objects []*model.TerminalCheckInsertInput) (*model.TerminalCheckMutationResponse, error) {
 	rs := make([]*model1.TerminalCheck, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateTerminalCheckByPk(ctx context.Context, inc *mod
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateTerminalCheckByUnionPk(ctx context.Context, inc *model.TerminalCheckIncInput, set *model.TerminalCheckSetInput, unionId string) (*model1.TerminalCheck, error) {
+	var rs model1.TerminalCheck
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.TerminalCheck{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) TerminalCheck(ctx context.Context, distinctOn []model.TerminalCheckSelectColumn, limit *int, offset *int, orderBy []*model.TerminalCheckOrderBy, where *model.TerminalCheckBoolExp) ([]*model1.TerminalCheck, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.TerminalCheck{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) TerminalCheckAggregate(ctx context.Context, distinctOn [
 func (r *queryResolver) TerminalCheckByPk(ctx context.Context, Id int64) (*model1.TerminalCheck, error) {
 	var rs model1.TerminalCheck
 	tx := db.DB.Model(&model1.TerminalCheck{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) TerminalCheckByUnionPk(ctx context.Context, unionId string) (*model1.TerminalCheck, error) {
+	var rs model1.TerminalCheck
+	tx := db.DB.Model(&model1.TerminalCheck{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

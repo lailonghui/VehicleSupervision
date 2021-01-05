@@ -259,27 +259,33 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteDataDictionary             func(childComplexity int, where model.DataDictionaryBoolExp) int
-		DeleteDataDictionaryByPk         func(childComplexity int, id int64) int
-		DeleteDataDictionaryCategory     func(childComplexity int, where model.DataDictionaryCategoryBoolExp) int
-		DeleteDataDictionaryCategoryByPk func(childComplexity int, id int64) int
-		InsertDataDictionary             func(childComplexity int, objects []*model.DataDictionaryInsertInput) int
-		InsertDataDictionaryCategory     func(childComplexity int, objects []*model.DataDictionaryCategoryInsertInput) int
-		InsertDataDictionaryCategoryOne  func(childComplexity int, objects model.DataDictionaryCategoryInsertInput) int
-		InsertDataDictionaryOne          func(childComplexity int, objects model.DataDictionaryInsertInput) int
-		UpdateDataDictionary             func(childComplexity int, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, where model.DataDictionaryBoolExp) int
-		UpdateDataDictionaryByPk         func(childComplexity int, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, id int64) int
-		UpdateDataDictionaryCategory     func(childComplexity int, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, where model.DataDictionaryCategoryBoolExp) int
-		UpdateDataDictionaryCategoryByPk func(childComplexity int, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, id int64) int
+		DeleteDataDictionary                  func(childComplexity int, where model.DataDictionaryBoolExp) int
+		DeleteDataDictionaryByPk              func(childComplexity int, id int64) int
+		DeleteDataDictionaryByUnionPk         func(childComplexity int, dictionaryID string) int
+		DeleteDataDictionaryCategory          func(childComplexity int, where model.DataDictionaryCategoryBoolExp) int
+		DeleteDataDictionaryCategoryByPk      func(childComplexity int, id int64) int
+		DeleteDataDictionaryCategoryByUnionPk func(childComplexity int, dictionaryCategoryID string) int
+		InsertDataDictionary                  func(childComplexity int, objects []*model.DataDictionaryInsertInput) int
+		InsertDataDictionaryCategory          func(childComplexity int, objects []*model.DataDictionaryCategoryInsertInput) int
+		InsertDataDictionaryCategoryOne       func(childComplexity int, objects model.DataDictionaryCategoryInsertInput) int
+		InsertDataDictionaryOne               func(childComplexity int, objects model.DataDictionaryInsertInput) int
+		UpdateDataDictionary                  func(childComplexity int, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, where model.DataDictionaryBoolExp) int
+		UpdateDataDictionaryByPk              func(childComplexity int, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, id int64) int
+		UpdateDataDictionaryByUnionPk         func(childComplexity int, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, dictionaryID string) int
+		UpdateDataDictionaryCategory          func(childComplexity int, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, where model.DataDictionaryCategoryBoolExp) int
+		UpdateDataDictionaryCategoryByPk      func(childComplexity int, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, id int64) int
+		UpdateDataDictionaryCategoryByUnionPk func(childComplexity int, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, dictionaryCategoryID string) int
 	}
 
 	Query struct {
 		DataDictionary                  func(childComplexity int, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) int
 		DataDictionaryAggregate         func(childComplexity int, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) int
 		DataDictionaryByPk              func(childComplexity int, id int64) int
+		DataDictionaryByUnionPk         func(childComplexity int, dictionaryID string) int
 		DataDictionaryCategory          func(childComplexity int, distinctOn []model.DataDictionaryCategorySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryCategoryOrderBy, where *model.DataDictionaryCategoryBoolExp) int
 		DataDictionaryCategoryAggregate func(childComplexity int, distinctOn []model.DataDictionaryCategorySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryCategoryOrderBy, where *model.DataDictionaryCategoryBoolExp) int
 		DataDictionaryCategoryByPk      func(childComplexity int, id int64) int
+		DataDictionaryCategoryByUnionPk func(childComplexity int, dictionaryCategoryID string) int
 	}
 }
 
@@ -290,20 +296,26 @@ type MutationResolver interface {
 	InsertDataDictionaryOne(ctx context.Context, objects model.DataDictionaryInsertInput) (*model1.DataDictionary, error)
 	UpdateDataDictionary(ctx context.Context, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, where model.DataDictionaryBoolExp) (*model.DataDictionaryMutationResponse, error)
 	UpdateDataDictionaryByPk(ctx context.Context, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, id int64) (*model1.DataDictionary, error)
+	UpdateDataDictionaryByUnionPk(ctx context.Context, inc *model.DataDictionaryIncInput, set *model.DataDictionarySetInput, dictionaryID string) (*model1.DataDictionary, error)
+	DeleteDataDictionaryByUnionPk(ctx context.Context, dictionaryID string) (*model1.DataDictionary, error)
 	DeleteDataDictionaryCategory(ctx context.Context, where model.DataDictionaryCategoryBoolExp) (*model.DataDictionaryCategoryMutationResponse, error)
 	DeleteDataDictionaryCategoryByPk(ctx context.Context, id int64) (*model1.DataDictionaryCategory, error)
 	InsertDataDictionaryCategory(ctx context.Context, objects []*model.DataDictionaryCategoryInsertInput) (*model.DataDictionaryCategoryMutationResponse, error)
 	InsertDataDictionaryCategoryOne(ctx context.Context, objects model.DataDictionaryCategoryInsertInput) (*model1.DataDictionaryCategory, error)
 	UpdateDataDictionaryCategory(ctx context.Context, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, where model.DataDictionaryCategoryBoolExp) (*model.DataDictionaryCategoryMutationResponse, error)
 	UpdateDataDictionaryCategoryByPk(ctx context.Context, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, id int64) (*model1.DataDictionaryCategory, error)
+	UpdateDataDictionaryCategoryByUnionPk(ctx context.Context, inc *model.DataDictionaryCategoryIncInput, set *model.DataDictionaryCategorySetInput, dictionaryCategoryID string) (*model1.DataDictionaryCategory, error)
+	DeleteDataDictionaryCategoryByUnionPk(ctx context.Context, dictionaryCategoryID string) (*model1.DataDictionaryCategory, error)
 }
 type QueryResolver interface {
 	DataDictionary(ctx context.Context, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) ([]*model1.DataDictionary, error)
 	DataDictionaryAggregate(ctx context.Context, distinctOn []model.DataDictionarySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryOrderBy, where *model.DataDictionaryBoolExp) (*model.DataDictionaryAggregate, error)
 	DataDictionaryByPk(ctx context.Context, id int64) (*model1.DataDictionary, error)
+	DataDictionaryByUnionPk(ctx context.Context, dictionaryID string) (*model1.DataDictionary, error)
 	DataDictionaryCategory(ctx context.Context, distinctOn []model.DataDictionaryCategorySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryCategoryOrderBy, where *model.DataDictionaryCategoryBoolExp) ([]*model1.DataDictionaryCategory, error)
 	DataDictionaryCategoryAggregate(ctx context.Context, distinctOn []model.DataDictionaryCategorySelectColumn, limit *int, offset *int, orderBy []*model.DataDictionaryCategoryOrderBy, where *model.DataDictionaryCategoryBoolExp) (*model.DataDictionaryCategoryAggregate, error)
 	DataDictionaryCategoryByPk(ctx context.Context, id int64) (*model1.DataDictionaryCategory, error)
+	DataDictionaryCategoryByUnionPk(ctx context.Context, dictionaryCategoryID string) (*model1.DataDictionaryCategory, error)
 }
 
 type executableSchema struct {
@@ -1234,6 +1246,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteDataDictionaryByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_data_dictionary_by_union_pk":
+		if e.complexity.Mutation.DeleteDataDictionaryByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_data_dictionary_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDataDictionaryByUnionPk(childComplexity, args["dictionary_id"].(string)), true
+
 	case "Mutation.delete_data_dictionary_category":
 		if e.complexity.Mutation.DeleteDataDictionaryCategory == nil {
 			break
@@ -1257,6 +1281,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteDataDictionaryCategoryByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_data_dictionary_category_by_union_pk":
+		if e.complexity.Mutation.DeleteDataDictionaryCategoryByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_data_dictionary_category_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDataDictionaryCategoryByUnionPk(childComplexity, args["dictionary_category_id"].(string)), true
 
 	case "Mutation.insert_data_dictionary":
 		if e.complexity.Mutation.InsertDataDictionary == nil {
@@ -1330,6 +1366,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDataDictionaryByPk(childComplexity, args["_inc"].(*model.DataDictionaryIncInput), args["_set"].(*model.DataDictionarySetInput), args["id"].(int64)), true
 
+	case "Mutation.update_data_dictionary_by_union_pk":
+		if e.complexity.Mutation.UpdateDataDictionaryByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_data_dictionary_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDataDictionaryByUnionPk(childComplexity, args["_inc"].(*model.DataDictionaryIncInput), args["_set"].(*model.DataDictionarySetInput), args["dictionary_id"].(string)), true
+
 	case "Mutation.update_data_dictionary_category":
 		if e.complexity.Mutation.UpdateDataDictionaryCategory == nil {
 			break
@@ -1353,6 +1401,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateDataDictionaryCategoryByPk(childComplexity, args["_inc"].(*model.DataDictionaryCategoryIncInput), args["_set"].(*model.DataDictionaryCategorySetInput), args["id"].(int64)), true
+
+	case "Mutation.update_data_dictionary_category_by_union_pk":
+		if e.complexity.Mutation.UpdateDataDictionaryCategoryByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_data_dictionary_category_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDataDictionaryCategoryByUnionPk(childComplexity, args["_inc"].(*model.DataDictionaryCategoryIncInput), args["_set"].(*model.DataDictionaryCategorySetInput), args["dictionary_category_id"].(string)), true
 
 	case "Query.data_dictionary":
 		if e.complexity.Query.DataDictionary == nil {
@@ -1390,6 +1450,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.DataDictionaryByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.data_dictionary_by_union_pk":
+		if e.complexity.Query.DataDictionaryByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_data_dictionary_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DataDictionaryByUnionPk(childComplexity, args["dictionary_id"].(string)), true
+
 	case "Query.data_dictionary_category":
 		if e.complexity.Query.DataDictionaryCategory == nil {
 			break
@@ -1425,6 +1497,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.DataDictionaryCategoryByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.data_dictionary_category_by_union_pk":
+		if e.complexity.Query.DataDictionaryCategoryByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_data_dictionary_category_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DataDictionaryCategoryByUnionPk(childComplexity, args["dictionary_category_id"].(string)), true
 
 	}
 	return 0, false
@@ -1987,6 +2071,10 @@ extend type Query {
 	主键查询
 	"""
 	data_dictionary_by_pk(id: Bigint!): DataDictionary!
+	"""
+	联合主键查询
+	"""
+	data_dictionary_by_union_pk(dictionary_id: String!): DataDictionary!
 }
 extend type Mutation {
 	"""
@@ -2010,9 +2098,17 @@ extend type Mutation {
 	"""
 	update_data_dictionary(_inc: DataDictionaryIncInput, _set: DataDictionarySetInput, where: DataDictionaryBoolExp!): DataDictionaryMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_data_dictionary_by_pk(_inc: DataDictionaryIncInput, _set: DataDictionarySetInput, id: Bigint!): DataDictionary
+	"""
+	根据联合主键更新
+	"""
+	update_data_dictionary_by_union_pk(_inc: DataDictionaryIncInput, _set: DataDictionarySetInput, dictionary_id: String!): DataDictionary
+	"""
+	根据联合主键删除记录
+	"""
+	delete_data_dictionary_by_union_pk(dictionary_id: String!): DataDictionary
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/data_dictionary_category.graphqls", Input: `"""
@@ -2320,6 +2416,10 @@ extend type Query {
 	主键查询
 	"""
 	data_dictionary_category_by_pk(id: Bigint!): DataDictionaryCategory!
+	"""
+	联合主键查询
+	"""
+	data_dictionary_category_by_union_pk(dictionary_category_id: String!): DataDictionaryCategory!
 }
 extend type Mutation {
 	"""
@@ -2343,9 +2443,17 @@ extend type Mutation {
 	"""
 	update_data_dictionary_category(_inc: DataDictionaryCategoryIncInput, _set: DataDictionaryCategorySetInput, where: DataDictionaryCategoryBoolExp!): DataDictionaryCategoryMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_data_dictionary_category_by_pk(_inc: DataDictionaryCategoryIncInput, _set: DataDictionaryCategorySetInput, id: Bigint!): DataDictionaryCategory
+	"""
+	根据联合主键更新
+	"""
+	update_data_dictionary_category_by_union_pk(_inc: DataDictionaryCategoryIncInput, _set: DataDictionaryCategorySetInput, dictionary_category_id: String!): DataDictionaryCategory
+	"""
+	根据联合主键删除记录
+	"""
+	delete_data_dictionary_category_by_union_pk(dictionary_category_id: String!): DataDictionaryCategory
 }
 `, BuiltIn: false},
 }
@@ -2385,6 +2493,21 @@ func (ec *executionContext) field_Mutation_delete_data_dictionary_by_pk_args(ctx
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_data_dictionary_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["dictionary_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["dictionary_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_data_dictionary_category_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -2412,6 +2535,21 @@ func (ec *executionContext) field_Mutation_delete_data_dictionary_category_by_pk
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_data_dictionary_category_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["dictionary_category_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_category_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["dictionary_category_id"] = arg0
 	return args, nil
 }
 
@@ -2541,6 +2679,39 @@ func (ec *executionContext) field_Mutation_update_data_dictionary_by_pk_args(ctx
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_data_dictionary_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DataDictionaryIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODataDictionaryIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋgraphᚋmodelᚐDataDictionaryIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DataDictionarySetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODataDictionarySetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋgraphᚋmodelᚐDataDictionarySetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["dictionary_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["dictionary_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_data_dictionary_category_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -2604,6 +2775,39 @@ func (ec *executionContext) field_Mutation_update_data_dictionary_category_by_pk
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_data_dictionary_category_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DataDictionaryCategoryIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODataDictionaryCategoryIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋgraphᚋmodelᚐDataDictionaryCategoryIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DataDictionaryCategorySetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODataDictionaryCategorySetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋgraphᚋmodelᚐDataDictionaryCategorySetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["dictionary_category_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_category_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["dictionary_category_id"] = arg2
 	return args, nil
 }
 
@@ -2739,6 +2943,21 @@ func (ec *executionContext) field_Query_data_dictionary_by_pk_args(ctx context.C
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_data_dictionary_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["dictionary_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["dictionary_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_data_dictionary_category_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -2853,6 +3072,21 @@ func (ec *executionContext) field_Query_data_dictionary_category_by_pk_args(ctx 
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_data_dictionary_category_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["dictionary_category_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("dictionary_category_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["dictionary_category_id"] = arg0
 	return args, nil
 }
 
@@ -7243,6 +7477,84 @@ func (ec *executionContext) _Mutation_update_data_dictionary_by_pk(ctx context.C
 	return ec.marshalODataDictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_data_dictionary_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_data_dictionary_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDataDictionaryByUnionPk(rctx, args["_inc"].(*model.DataDictionaryIncInput), args["_set"].(*model.DataDictionarySetInput), args["dictionary_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DataDictionary)
+	fc.Result = res
+	return ec.marshalODataDictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_data_dictionary_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_data_dictionary_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDataDictionaryByUnionPk(rctx, args["dictionary_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DataDictionary)
+	fc.Result = res
+	return ec.marshalODataDictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_data_dictionary_category(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -7477,6 +7789,84 @@ func (ec *executionContext) _Mutation_update_data_dictionary_category_by_pk(ctx 
 	return ec.marshalODataDictionaryCategory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_data_dictionary_category_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_data_dictionary_category_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDataDictionaryCategoryByUnionPk(rctx, args["_inc"].(*model.DataDictionaryCategoryIncInput), args["_set"].(*model.DataDictionaryCategorySetInput), args["dictionary_category_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DataDictionaryCategory)
+	fc.Result = res
+	return ec.marshalODataDictionaryCategory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_data_dictionary_category_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_data_dictionary_category_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDataDictionaryCategoryByUnionPk(rctx, args["dictionary_category_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DataDictionaryCategory)
+	fc.Result = res
+	return ec.marshalODataDictionaryCategory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_data_dictionary(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -7603,6 +7993,48 @@ func (ec *executionContext) _Query_data_dictionary_by_pk(ctx context.Context, fi
 	return ec.marshalNDataDictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_data_dictionary_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_data_dictionary_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DataDictionaryByUnionPk(rctx, args["dictionary_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DataDictionary)
+	fc.Result = res
+	return ec.marshalNDataDictionary2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionary(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_data_dictionary_category(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -7713,6 +8145,48 @@ func (ec *executionContext) _Query_data_dictionary_category_by_pk(ctx context.Co
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().DataDictionaryCategoryByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DataDictionaryCategory)
+	fc.Result = res
+	return ec.marshalNDataDictionaryCategory2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋdictionaryᚋmodelᚐDataDictionaryCategory(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_data_dictionary_category_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_data_dictionary_category_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DataDictionaryCategoryByUnionPk(rctx, args["dictionary_category_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -10015,8 +10489,8 @@ func (ec *executionContext) unmarshalInputDataDictionarySetInput(ctx context.Con
 	return it, nil
 }
 
-func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model1.FloatComparisonExp, error) {
-	var it model1.FloatComparisonExp
+func (ec *executionContext) unmarshalInputFloatComparisonExp(ctx context.Context, obj interface{}) (model2.FloatComparisonExp, error) {
+	var it model2.FloatComparisonExp
 	var asMap = obj.(map[string]interface{})
 
 	for k, v := range asMap {
@@ -11607,6 +12081,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_data_dictionary(ctx, field)
 		case "update_data_dictionary_by_pk":
 			out.Values[i] = ec._Mutation_update_data_dictionary_by_pk(ctx, field)
+		case "update_data_dictionary_by_union_pk":
+			out.Values[i] = ec._Mutation_update_data_dictionary_by_union_pk(ctx, field)
+		case "delete_data_dictionary_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_data_dictionary_by_union_pk(ctx, field)
 		case "delete_data_dictionary_category":
 			out.Values[i] = ec._Mutation_delete_data_dictionary_category(ctx, field)
 		case "delete_data_dictionary_category_by_pk":
@@ -11619,6 +12097,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_data_dictionary_category(ctx, field)
 		case "update_data_dictionary_category_by_pk":
 			out.Values[i] = ec._Mutation_update_data_dictionary_category_by_pk(ctx, field)
+		case "update_data_dictionary_category_by_union_pk":
+			out.Values[i] = ec._Mutation_update_data_dictionary_category_by_union_pk(ctx, field)
+		case "delete_data_dictionary_category_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_data_dictionary_category_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -11687,6 +12169,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "data_dictionary_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_data_dictionary_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "data_dictionary_category":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -11724,6 +12220,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_data_dictionary_category_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "data_dictionary_category_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_data_dictionary_category_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

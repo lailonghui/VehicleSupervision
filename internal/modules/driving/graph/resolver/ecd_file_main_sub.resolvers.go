@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteEcdFileMainSubByPk(ctx context.Context, Id int6
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteEcdFileMainSubByUnionPk(ctx context.Context, unionId string) (*model1.EcdFileMainSub, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.EcdFileMainSub
+	tx := db.DB.Model(&model1.EcdFileMainSub{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertEcdFileMainSub(ctx context.Context, objects []*model.EcdFileMainSubInsertInput) (*model.EcdFileMainSubMutationResponse, error) {
 	rs := make([]*model1.EcdFileMainSub, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateEcdFileMainSubByPk(ctx context.Context, inc *mo
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateEcdFileMainSubByUnionPk(ctx context.Context, inc *model.EcdFileMainSubIncInput, set *model.EcdFileMainSubSetInput, unionId string) (*model1.EcdFileMainSub, error) {
+	var rs model1.EcdFileMainSub
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.EcdFileMainSub{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) EcdFileMainSub(ctx context.Context, distinctOn []model.EcdFileMainSubSelectColumn, limit *int, offset *int, orderBy []*model.EcdFileMainSubOrderBy, where *model.EcdFileMainSubBoolExp) ([]*model1.EcdFileMainSub, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.EcdFileMainSub{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) EcdFileMainSubAggregate(ctx context.Context, distinctOn 
 func (r *queryResolver) EcdFileMainSubByPk(ctx context.Context, Id int64) (*model1.EcdFileMainSub, error) {
 	var rs model1.EcdFileMainSub
 	tx := db.DB.Model(&model1.EcdFileMainSub{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) EcdFileMainSubByUnionPk(ctx context.Context, unionId string) (*model1.EcdFileMainSub, error) {
+	var rs model1.EcdFileMainSub
+	tx := db.DB.Model(&model1.EcdFileMainSub{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

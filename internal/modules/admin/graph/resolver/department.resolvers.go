@@ -1,7 +1,9 @@
 package resolver
 
 import (
+	"VehicleSupervision/internal/dataloader"
 	"VehicleSupervision/internal/db"
+	"VehicleSupervision/internal/modules/admin/graph/generated"
 	"VehicleSupervision/internal/modules/admin/graph/model"
 	model1 "VehicleSupervision/internal/modules/admin/model"
 	"VehicleSupervision/pkg/graphql/util"
@@ -41,13 +43,36 @@ func (r *mutationResolver) DeleteDepartment(ctx context.Context, where model.Dep
 	}, nil
 }
 
-func (r *mutationResolver) DeleteDepartmentByPk(ctx context.Context, Id int64) (*model1.Department, error) {
+func (r *mutationResolver) DeleteDepartmentByPk(ctx context.Context, id int64) (*model1.Department, error) {
 	preloads := util.GetPreloads(ctx)
 	var rs model1.Department
 	tx := db.DB.Model(&model1.Department{})
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
-		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		tx = tx.Select(preloads).Where(rs.PrimaryColumnName()+" = ?", id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteDepartmentByUnionPk(ctx context.Context, departmentID string) (*model1.Department, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.Department
+	tx := db.DB.Model(&model1.Department{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", departmentID).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -84,9 +109,9 @@ func (r *mutationResolver) InsertDepartment(ctx context.Context, objects []*mode
 	}, nil
 }
 
-func (r *mutationResolver) InsertDepartmentOne(ctx context.Context, object model.DepartmentInsertInput) (*model1.Department, error) {
+func (r *mutationResolver) InsertDepartmentOne(ctx context.Context, objects model.DepartmentInsertInput) (*model1.Department, error) {
 	rs := &model1.Department{}
-	util2.StructAssign(rs, &object)
+	util2.StructAssign(rs, &objects)
 	tx := db.DB.Model(&model1.Department{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -129,14 +154,30 @@ func (r *mutationResolver) UpdateDepartment(ctx context.Context, inc *model.Depa
 	}, nil
 }
 
-func (r *mutationResolver) UpdateDepartmentByPk(ctx context.Context, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, Id int64) (*model1.Department, error) {
-	tx := db.DB.Where("id = ?", Id)
+func (r *mutationResolver) UpdateDepartmentByPk(ctx context.Context, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, id int64) (*model1.Department, error) {
+	var rs model1.Department
+	tx := db.DB.Where(rs.PrimaryColumnName()+" = ?", id)
 	qt := util.NewQueryTranslator(tx, &model1.Department{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) UpdateDepartmentByUnionPk(ctx context.Context, inc *model.DepartmentIncInput, set *model.DepartmentSetInput, departmentID string) (*model1.Department, error) {
 	var rs model1.Department
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", departmentID)
+	qt := util.NewQueryTranslator(tx, &model1.Department{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
 	tx = tx.First(&rs)
 	if err := tx.Error; err != nil {
 		return &rs, err
@@ -175,9 +216,63 @@ func (r *queryResolver) DepartmentAggregate(ctx context.Context, distinctOn []mo
 	return &rs, err
 }
 
-func (r *queryResolver) DepartmentByPk(ctx context.Context, Id int64) (*model1.Department, error) {
+func (r *queryResolver) DepartmentByPk(ctx context.Context, id int64) (*model1.Department, error) {
 	var rs model1.Department
-	tx := db.DB.Model(&model1.Department{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	tx := db.DB.Model(&model1.Department{}).Select(util.GetTopPreloads(ctx)).First(&rs, id)
 	err := tx.Error
 	return &rs, err
 }
+
+func (r *queryResolver) DepartmentByUnionPk(ctx context.Context, departmentID string) (*model1.Department, error) {
+	var rs model1.Department
+	tx := db.DB.Model(&model1.Department{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", departmentID).First(&rs)
+
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *departmentResolver) Enterprise(ctx context.Context, obj *model1.Department) (*model1.Enterprise, error) {
+
+	var loader model1.EnterpriseUnionPkLoader
+	i := dataloader.GetLoaders(ctx).GetLoader(&loader)
+	switch t := i.(type) {
+	case *model1.EnterpriseUnionPkLoader:
+
+		return t.Load(obj.EnterpriseID)
+
+	default:
+		panic("can not get dataloader")
+	}
+}
+
+func (r *departmentResolver) SuperiorDepartment(ctx context.Context, obj *model1.Department) (*model1.Department, error) {
+
+	if obj.SuperiorDepartmentID == nil {
+		return nil, nil
+	}
+
+	var loader model1.DepartmentUnionPkLoader
+	i := dataloader.GetLoaders(ctx).GetLoader(&loader)
+	switch t := i.(type) {
+	case *model1.DepartmentUnionPkLoader:
+
+		return t.Load(*obj.SuperiorDepartmentID)
+
+	default:
+		panic("can not get dataloader")
+	}
+}
+
+// Department returns generated.DepartmentResolver implementation.
+func (r *Resolver) Department() generated.DepartmentResolver { return &departmentResolver{r} }
+
+type departmentResolver struct{ *Resolver }
+
+// Mutation returns generated.MutationResolver implementation.
+func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+
+// Query returns generated.QueryResolver implementation.
+func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+
+type mutationResolver struct{ *Resolver }
+type queryResolver struct{ *Resolver }

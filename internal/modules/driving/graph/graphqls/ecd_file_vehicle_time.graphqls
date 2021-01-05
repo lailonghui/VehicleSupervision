@@ -410,6 +410,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_vehicle_time_by_pk(id: Bigint!): EcdFileVehicleTime!
+	"""
+	联合主键查询
+	"""
+	ecd_file_vehicle_time_by_union_pk(vehicle_time_id: String!): EcdFileVehicleTime!
 }
 extend type Mutation {
 	"""
@@ -433,7 +437,15 @@ extend type Mutation {
 	"""
 	update_ecd_file_vehicle_time(_inc: EcdFileVehicleTimeIncInput, _set: EcdFileVehicleTimeSetInput, where: EcdFileVehicleTimeBoolExp!): EcdFileVehicleTimeMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_vehicle_time_by_pk(_inc: EcdFileVehicleTimeIncInput, _set: EcdFileVehicleTimeSetInput, id: Bigint!): EcdFileVehicleTime
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_vehicle_time_by_union_pk(_inc: EcdFileVehicleTimeIncInput, _set: EcdFileVehicleTimeSetInput, vehicle_time_id: String!): EcdFileVehicleTime
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_vehicle_time_by_union_pk(vehicle_time_id: String!): EcdFileVehicleTime
 }

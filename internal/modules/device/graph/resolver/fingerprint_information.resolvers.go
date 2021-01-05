@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteFingerprintInformationByPk(ctx context.Context,
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteFingerprintInformationByUnionPk(ctx context.Context, unionId string) (*model1.FingerprintInformation, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.FingerprintInformation
+	tx := db.DB.Model(&model1.FingerprintInformation{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertFingerprintInformation(ctx context.Context, objects []*model.FingerprintInformationInsertInput) (*model.FingerprintInformationMutationResponse, error) {
 	rs := make([]*model1.FingerprintInformation, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateFingerprintInformationByPk(ctx context.Context,
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateFingerprintInformationByUnionPk(ctx context.Context, inc *model.FingerprintInformationIncInput, set *model.FingerprintInformationSetInput, unionId string) (*model1.FingerprintInformation, error) {
+	var rs model1.FingerprintInformation
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.FingerprintInformation{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) FingerprintInformation(ctx context.Context, distinctOn []model.FingerprintInformationSelectColumn, limit *int, offset *int, orderBy []*model.FingerprintInformationOrderBy, where *model.FingerprintInformationBoolExp) ([]*model1.FingerprintInformation, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.FingerprintInformation{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) FingerprintInformationAggregate(ctx context.Context, dis
 func (r *queryResolver) FingerprintInformationByPk(ctx context.Context, Id int64) (*model1.FingerprintInformation, error) {
 	var rs model1.FingerprintInformation
 	tx := db.DB.Model(&model1.FingerprintInformation{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) FingerprintInformationByUnionPk(ctx context.Context, unionId string) (*model1.FingerprintInformation, error) {
+	var rs model1.FingerprintInformation
+	tx := db.DB.Model(&model1.FingerprintInformation{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteTerminalOperLogByPk(ctx context.Context, Id int
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteTerminalOperLogByUnionPk(ctx context.Context, unionId string) (*model1.TerminalOperLog, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.TerminalOperLog
+	tx := db.DB.Model(&model1.TerminalOperLog{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertTerminalOperLog(ctx context.Context, objects []*model.TerminalOperLogInsertInput) (*model.TerminalOperLogMutationResponse, error) {
 	rs := make([]*model1.TerminalOperLog, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateTerminalOperLogByPk(ctx context.Context, inc *m
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateTerminalOperLogByUnionPk(ctx context.Context, inc *model.TerminalOperLogIncInput, set *model.TerminalOperLogSetInput, unionId string) (*model1.TerminalOperLog, error) {
+	var rs model1.TerminalOperLog
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.TerminalOperLog{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) TerminalOperLog(ctx context.Context, distinctOn []model.TerminalOperLogSelectColumn, limit *int, offset *int, orderBy []*model.TerminalOperLogOrderBy, where *model.TerminalOperLogBoolExp) ([]*model1.TerminalOperLog, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.TerminalOperLog{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) TerminalOperLogAggregate(ctx context.Context, distinctOn
 func (r *queryResolver) TerminalOperLogByPk(ctx context.Context, Id int64) (*model1.TerminalOperLog, error) {
 	var rs model1.TerminalOperLog
 	tx := db.DB.Model(&model1.TerminalOperLog{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) TerminalOperLogByUnionPk(ctx context.Context, unionId string) (*model1.TerminalOperLog, error) {
+	var rs model1.TerminalOperLog
+	tx := db.DB.Model(&model1.TerminalOperLog{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

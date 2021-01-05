@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-//go:generate go run github.com/vektah/dataloaden EcdFileDistrictLoader string *VehicleSupervision/internal/modules/driving/model.EcdFileDistrict
+//go:generate go run github.com/vektah/dataloaden EcdFileDistrictUnionPkLoader string *VehicleSupervision/internal/modules/driving/model.EcdFileDistrict
 
 // 数据库表名
 func (t EcdFileDistrict) TableName() string {
@@ -17,21 +17,32 @@ func (t EcdFileDistrict) PrimaryColumnName() string {
 	return "id"
 }
 
+// 新建主键dataloader
+func (t *EcdFileDistrict) NewPkLoader() *EcdFileDistrictPkLoader {
+	return &EcdFileDistrictPkLoader{
+		wait:     2 * time.Millisecond,
+		maxBatch: 100,
+		fetch: func(keys []string) ([]*EcdFileDistrict, []error) {
+			var rs []*EcdFileDistrict
+			db.DB.Model(&EcdFileDistrict{}).Where(t.PrimaryColumnName()+" in ?", keys).Find(&rs)
+			return rs, nil
+		},
+	}
+}
+
 // 联合主键列名
 func (t EcdFileDistrict) UnionPrimaryColumnName() string {
 	return "file_district_id"
 }
 
-// 新建dataloader
-func (t *EcdFileDistrict) NewLoader() *EcdFileDistrictLoader {
-	return &EcdFileDistrictLoader{
+// 新建联合主键dataloader
+func (t *EcdFileDistrict) NewUnionPkLoader() *EcdFileDistrictUnionPkLoader {
+	return &EcdFileDistrictUnionPkLoader{
 		wait:     2 * time.Millisecond,
 		maxBatch: 100,
 		fetch: func(keys []string) ([]*EcdFileDistrict, []error) {
 			var rs []*EcdFileDistrict
-
 			db.DB.Model(&EcdFileDistrict{}).Where(t.UnionPrimaryColumnName()+" in ?", keys).Find(&rs)
-
 			return rs, nil
 		},
 	}

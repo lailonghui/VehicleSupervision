@@ -64,6 +64,29 @@ func (r *mutationResolver) DeleteTerminalByPk(ctx context.Context, Id int64) (*m
 	return &rs, nil
 }
 
+func (r *mutationResolver) DeleteTerminalByUnionPk(ctx context.Context, unionId string) (*model1.Terminal, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.Terminal
+	tx := db.DB.Model(&model1.Terminal{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
 func (r *mutationResolver) InsertTerminal(ctx context.Context, objects []*model.TerminalInsertInput) (*model.TerminalMutationResponse, error) {
 	rs := make([]*model1.Terminal, 0)
 	for _, object := range objects {
@@ -144,6 +167,22 @@ func (r *mutationResolver) UpdateTerminalByPk(ctx context.Context, inc *model.Te
 	return &rs, nil
 }
 
+func (r *mutationResolver) UpdateTerminalByUnionPk(ctx context.Context, inc *model.TerminalIncInput, set *model.TerminalSetInput, unionId string) (*model1.Terminal, error) {
+	var rs model1.Terminal
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", unionId)
+	qt := util.NewQueryTranslator(tx, &model1.Terminal{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
 func (r *queryResolver) Terminal(ctx context.Context, distinctOn []model.TerminalSelectColumn, limit *int, offset *int, orderBy []*model.TerminalOrderBy, where *model.TerminalBoolExp) ([]*model1.Terminal, error) {
 	qt := util.NewQueryTranslator(db.DB, &model1.Terminal{})
 	tx := qt.DistinctOn(distinctOn).
@@ -178,6 +217,14 @@ func (r *queryResolver) TerminalAggregate(ctx context.Context, distinctOn []mode
 func (r *queryResolver) TerminalByPk(ctx context.Context, Id int64) (*model1.Terminal, error) {
 	var rs model1.Terminal
 	tx := db.DB.Model(&model1.Terminal{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) TerminalByUnionPk(ctx context.Context, unionId string) (*model1.Terminal, error) {
+	var rs model1.Terminal
+	tx := db.DB.Model(&model1.Terminal{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", unionId).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

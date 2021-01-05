@@ -750,6 +750,10 @@ extend type Query {
 	主键查询
 	"""
 	ecd_file_main_by_pk(id: Bigint!): EcdFileMain!
+	"""
+	联合主键查询
+	"""
+	ecd_file_main_by_union_pk(file_main_id: String!): EcdFileMain!
 }
 extend type Mutation {
 	"""
@@ -773,7 +777,15 @@ extend type Mutation {
 	"""
 	update_ecd_file_main(_inc: EcdFileMainIncInput, _set: EcdFileMainSetInput, where: EcdFileMainBoolExp!): EcdFileMainMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_ecd_file_main_by_pk(_inc: EcdFileMainIncInput, _set: EcdFileMainSetInput, id: Bigint!): EcdFileMain
+	"""
+	根据联合主键更新
+	"""
+	update_ecd_file_main_by_union_pk(_inc: EcdFileMainIncInput, _set: EcdFileMainSetInput, file_main_id: String!): EcdFileMain
+	"""
+	根据联合主键删除记录
+	"""
+	delete_ecd_file_main_by_union_pk(file_main_id: String!): EcdFileMain
 }

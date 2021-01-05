@@ -201,7 +201,7 @@ extend type Mutation {
 	"""
 	update_fingerprint(_inc: FingerprintIncInput, _set: FingerprintSetInput, where: FingerprintBoolExp!): FingerprintMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_fingerprint_by_pk(_inc: FingerprintIncInput, _set: FingerprintSetInput, id: Bigint!): Fingerprint
 }

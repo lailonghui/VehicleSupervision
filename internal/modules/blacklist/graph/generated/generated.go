@@ -547,63 +547,81 @@ type ComplexityRoot struct {
 	}
 
 	Mutation struct {
-		DeleteDriverBlacklistApply         func(childComplexity int, where model.DriverBlacklistApplyBoolExp) int
-		DeleteDriverBlacklistApplyByPk     func(childComplexity int, id int64) int
-		DeleteDriverBlacklistHis           func(childComplexity int, where model.DriverBlacklistHisBoolExp) int
-		DeleteDriverBlacklistHisByPk       func(childComplexity int, id int64) int
-		DeleteEnterpriseBlacklistAlarm     func(childComplexity int, where model.EnterpriseBlacklistAlarmBoolExp) int
-		DeleteEnterpriseBlacklistAlarmByPk func(childComplexity int, id int64) int
-		DeleteEnterpriseBlacklistHis       func(childComplexity int, where model.EnterpriseBlacklistHisBoolExp) int
-		DeleteEnterpriseBlacklistHisByPk   func(childComplexity int, id int64) int
-		DeleteVehicleBlacklistAlarm        func(childComplexity int, where model.VehicleBlacklistAlarmBoolExp) int
-		DeleteVehicleBlacklistAlarmByPk    func(childComplexity int, id int64) int
-		DeleteVehicleBlacklistHis          func(childComplexity int, where model.VehicleBlacklistHisBoolExp) int
-		DeleteVehicleBlacklistHisByPk      func(childComplexity int, id int64) int
-		InsertDriverBlacklistApply         func(childComplexity int, objects []*model.DriverBlacklistApplyInsertInput) int
-		InsertDriverBlacklistApplyOne      func(childComplexity int, objects model.DriverBlacklistApplyInsertInput) int
-		InsertDriverBlacklistHis           func(childComplexity int, objects []*model.DriverBlacklistHisInsertInput) int
-		InsertDriverBlacklistHisOne        func(childComplexity int, objects model.DriverBlacklistHisInsertInput) int
-		InsertEnterpriseBlacklistAlarm     func(childComplexity int, objects []*model.EnterpriseBlacklistAlarmInsertInput) int
-		InsertEnterpriseBlacklistAlarmOne  func(childComplexity int, objects model.EnterpriseBlacklistAlarmInsertInput) int
-		InsertEnterpriseBlacklistHis       func(childComplexity int, objects []*model.EnterpriseBlacklistHisInsertInput) int
-		InsertEnterpriseBlacklistHisOne    func(childComplexity int, objects model.EnterpriseBlacklistHisInsertInput) int
-		InsertVehicleBlacklistAlarm        func(childComplexity int, objects []*model.VehicleBlacklistAlarmInsertInput) int
-		InsertVehicleBlacklistAlarmOne     func(childComplexity int, objects model.VehicleBlacklistAlarmInsertInput) int
-		InsertVehicleBlacklistHis          func(childComplexity int, objects []*model.VehicleBlacklistHisInsertInput) int
-		InsertVehicleBlacklistHisOne       func(childComplexity int, objects model.VehicleBlacklistHisInsertInput) int
-		UpdateDriverBlacklistApply         func(childComplexity int, inc *model.DriverBlacklistApplyIncInput, set *model.DriverBlacklistApplySetInput, where model.DriverBlacklistApplyBoolExp) int
-		UpdateDriverBlacklistApplyByPk     func(childComplexity int, inc *model.DriverBlacklistApplyIncInput, set *model.DriverBlacklistApplySetInput, id int64) int
-		UpdateDriverBlacklistHis           func(childComplexity int, inc *model.DriverBlacklistHisIncInput, set *model.DriverBlacklistHisSetInput, where model.DriverBlacklistHisBoolExp) int
-		UpdateDriverBlacklistHisByPk       func(childComplexity int, inc *model.DriverBlacklistHisIncInput, set *model.DriverBlacklistHisSetInput, id int64) int
-		UpdateEnterpriseBlacklistAlarm     func(childComplexity int, inc *model.EnterpriseBlacklistAlarmIncInput, set *model.EnterpriseBlacklistAlarmSetInput, where model.EnterpriseBlacklistAlarmBoolExp) int
-		UpdateEnterpriseBlacklistAlarmByPk func(childComplexity int, inc *model.EnterpriseBlacklistAlarmIncInput, set *model.EnterpriseBlacklistAlarmSetInput, id int64) int
-		UpdateEnterpriseBlacklistHis       func(childComplexity int, inc *model.EnterpriseBlacklistHisIncInput, set *model.EnterpriseBlacklistHisSetInput, where model.EnterpriseBlacklistHisBoolExp) int
-		UpdateEnterpriseBlacklistHisByPk   func(childComplexity int, inc *model.EnterpriseBlacklistHisIncInput, set *model.EnterpriseBlacklistHisSetInput, id int64) int
-		UpdateVehicleBlacklistAlarm        func(childComplexity int, inc *model.VehicleBlacklistAlarmIncInput, set *model.VehicleBlacklistAlarmSetInput, where model.VehicleBlacklistAlarmBoolExp) int
-		UpdateVehicleBlacklistAlarmByPk    func(childComplexity int, inc *model.VehicleBlacklistAlarmIncInput, set *model.VehicleBlacklistAlarmSetInput, id int64) int
-		UpdateVehicleBlacklistHis          func(childComplexity int, inc *model.VehicleBlacklistHisIncInput, set *model.VehicleBlacklistHisSetInput, where model.VehicleBlacklistHisBoolExp) int
-		UpdateVehicleBlacklistHisByPk      func(childComplexity int, inc *model.VehicleBlacklistHisIncInput, set *model.VehicleBlacklistHisSetInput, id int64) int
+		DeleteDriverBlacklistApply              func(childComplexity int, where model.DriverBlacklistApplyBoolExp) int
+		DeleteDriverBlacklistApplyByPk          func(childComplexity int, id int64) int
+		DeleteDriverBlacklistApplyByUnionPk     func(childComplexity int, applyID string) int
+		DeleteDriverBlacklistHis                func(childComplexity int, where model.DriverBlacklistHisBoolExp) int
+		DeleteDriverBlacklistHisByPk            func(childComplexity int, id int64) int
+		DeleteDriverBlacklistHisByUnionPk       func(childComplexity int, hisID string) int
+		DeleteEnterpriseBlacklistAlarm          func(childComplexity int, where model.EnterpriseBlacklistAlarmBoolExp) int
+		DeleteEnterpriseBlacklistAlarmByPk      func(childComplexity int, id int64) int
+		DeleteEnterpriseBlacklistAlarmByUnionPk func(childComplexity int, alarmID string) int
+		DeleteEnterpriseBlacklistHis            func(childComplexity int, where model.EnterpriseBlacklistHisBoolExp) int
+		DeleteEnterpriseBlacklistHisByPk        func(childComplexity int, id int64) int
+		DeleteEnterpriseBlacklistHisByUnionPk   func(childComplexity int, hisID string) int
+		DeleteVehicleBlacklistAlarm             func(childComplexity int, where model.VehicleBlacklistAlarmBoolExp) int
+		DeleteVehicleBlacklistAlarmByPk         func(childComplexity int, id int64) int
+		DeleteVehicleBlacklistAlarmByUnionPk    func(childComplexity int, alarmID string) int
+		DeleteVehicleBlacklistHis               func(childComplexity int, where model.VehicleBlacklistHisBoolExp) int
+		DeleteVehicleBlacklistHisByPk           func(childComplexity int, id int64) int
+		DeleteVehicleBlacklistHisByUnionPk      func(childComplexity int, hisID string) int
+		InsertDriverBlacklistApply              func(childComplexity int, objects []*model.DriverBlacklistApplyInsertInput) int
+		InsertDriverBlacklistApplyOne           func(childComplexity int, objects model.DriverBlacklistApplyInsertInput) int
+		InsertDriverBlacklistHis                func(childComplexity int, objects []*model.DriverBlacklistHisInsertInput) int
+		InsertDriverBlacklistHisOne             func(childComplexity int, objects model.DriverBlacklistHisInsertInput) int
+		InsertEnterpriseBlacklistAlarm          func(childComplexity int, objects []*model.EnterpriseBlacklistAlarmInsertInput) int
+		InsertEnterpriseBlacklistAlarmOne       func(childComplexity int, objects model.EnterpriseBlacklistAlarmInsertInput) int
+		InsertEnterpriseBlacklistHis            func(childComplexity int, objects []*model.EnterpriseBlacklistHisInsertInput) int
+		InsertEnterpriseBlacklistHisOne         func(childComplexity int, objects model.EnterpriseBlacklistHisInsertInput) int
+		InsertVehicleBlacklistAlarm             func(childComplexity int, objects []*model.VehicleBlacklistAlarmInsertInput) int
+		InsertVehicleBlacklistAlarmOne          func(childComplexity int, objects model.VehicleBlacklistAlarmInsertInput) int
+		InsertVehicleBlacklistHis               func(childComplexity int, objects []*model.VehicleBlacklistHisInsertInput) int
+		InsertVehicleBlacklistHisOne            func(childComplexity int, objects model.VehicleBlacklistHisInsertInput) int
+		UpdateDriverBlacklistApply              func(childComplexity int, inc *model.DriverBlacklistApplyIncInput, set *model.DriverBlacklistApplySetInput, where model.DriverBlacklistApplyBoolExp) int
+		UpdateDriverBlacklistApplyByPk          func(childComplexity int, inc *model.DriverBlacklistApplyIncInput, set *model.DriverBlacklistApplySetInput, id int64) int
+		UpdateDriverBlacklistApplyByUnionPk     func(childComplexity int, inc *model.DriverBlacklistApplyIncInput, set *model.DriverBlacklistApplySetInput, applyID string) int
+		UpdateDriverBlacklistHis                func(childComplexity int, inc *model.DriverBlacklistHisIncInput, set *model.DriverBlacklistHisSetInput, where model.DriverBlacklistHisBoolExp) int
+		UpdateDriverBlacklistHisByPk            func(childComplexity int, inc *model.DriverBlacklistHisIncInput, set *model.DriverBlacklistHisSetInput, id int64) int
+		UpdateDriverBlacklistHisByUnionPk       func(childComplexity int, inc *model.DriverBlacklistHisIncInput, set *model.DriverBlacklistHisSetInput, hisID string) int
+		UpdateEnterpriseBlacklistAlarm          func(childComplexity int, inc *model.EnterpriseBlacklistAlarmIncInput, set *model.EnterpriseBlacklistAlarmSetInput, where model.EnterpriseBlacklistAlarmBoolExp) int
+		UpdateEnterpriseBlacklistAlarmByPk      func(childComplexity int, inc *model.EnterpriseBlacklistAlarmIncInput, set *model.EnterpriseBlacklistAlarmSetInput, id int64) int
+		UpdateEnterpriseBlacklistAlarmByUnionPk func(childComplexity int, inc *model.EnterpriseBlacklistAlarmIncInput, set *model.EnterpriseBlacklistAlarmSetInput, alarmID string) int
+		UpdateEnterpriseBlacklistHis            func(childComplexity int, inc *model.EnterpriseBlacklistHisIncInput, set *model.EnterpriseBlacklistHisSetInput, where model.EnterpriseBlacklistHisBoolExp) int
+		UpdateEnterpriseBlacklistHisByPk        func(childComplexity int, inc *model.EnterpriseBlacklistHisIncInput, set *model.EnterpriseBlacklistHisSetInput, id int64) int
+		UpdateEnterpriseBlacklistHisByUnionPk   func(childComplexity int, inc *model.EnterpriseBlacklistHisIncInput, set *model.EnterpriseBlacklistHisSetInput, hisID string) int
+		UpdateVehicleBlacklistAlarm             func(childComplexity int, inc *model.VehicleBlacklistAlarmIncInput, set *model.VehicleBlacklistAlarmSetInput, where model.VehicleBlacklistAlarmBoolExp) int
+		UpdateVehicleBlacklistAlarmByPk         func(childComplexity int, inc *model.VehicleBlacklistAlarmIncInput, set *model.VehicleBlacklistAlarmSetInput, id int64) int
+		UpdateVehicleBlacklistAlarmByUnionPk    func(childComplexity int, inc *model.VehicleBlacklistAlarmIncInput, set *model.VehicleBlacklistAlarmSetInput, alarmID string) int
+		UpdateVehicleBlacklistHis               func(childComplexity int, inc *model.VehicleBlacklistHisIncInput, set *model.VehicleBlacklistHisSetInput, where model.VehicleBlacklistHisBoolExp) int
+		UpdateVehicleBlacklistHisByPk           func(childComplexity int, inc *model.VehicleBlacklistHisIncInput, set *model.VehicleBlacklistHisSetInput, id int64) int
+		UpdateVehicleBlacklistHisByUnionPk      func(childComplexity int, inc *model.VehicleBlacklistHisIncInput, set *model.VehicleBlacklistHisSetInput, hisID string) int
 	}
 
 	Query struct {
 		DriverBlacklistApply              func(childComplexity int, distinctOn []model.DriverBlacklistApplySelectColumn, limit *int, offset *int, orderBy []*model.DriverBlacklistApplyOrderBy, where *model.DriverBlacklistApplyBoolExp) int
 		DriverBlacklistApplyAggregate     func(childComplexity int, distinctOn []model.DriverBlacklistApplySelectColumn, limit *int, offset *int, orderBy []*model.DriverBlacklistApplyOrderBy, where *model.DriverBlacklistApplyBoolExp) int
 		DriverBlacklistApplyByPk          func(childComplexity int, id int64) int
+		DriverBlacklistApplyByUnionPk     func(childComplexity int, applyID string) int
 		DriverBlacklistHis                func(childComplexity int, distinctOn []model.DriverBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.DriverBlacklistHisOrderBy, where *model.DriverBlacklistHisBoolExp) int
 		DriverBlacklistHisAggregate       func(childComplexity int, distinctOn []model.DriverBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.DriverBlacklistHisOrderBy, where *model.DriverBlacklistHisBoolExp) int
 		DriverBlacklistHisByPk            func(childComplexity int, id int64) int
+		DriverBlacklistHisByUnionPk       func(childComplexity int, hisID string) int
 		EnterpriseBlacklistAlarm          func(childComplexity int, distinctOn []model.EnterpriseBlacklistAlarmSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseBlacklistAlarmOrderBy, where *model.EnterpriseBlacklistAlarmBoolExp) int
 		EnterpriseBlacklistAlarmAggregate func(childComplexity int, distinctOn []model.EnterpriseBlacklistAlarmSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseBlacklistAlarmOrderBy, where *model.EnterpriseBlacklistAlarmBoolExp) int
 		EnterpriseBlacklistAlarmByPk      func(childComplexity int, id int64) int
+		EnterpriseBlacklistAlarmByUnionPk func(childComplexity int, alarmID string) int
 		EnterpriseBlacklistHis            func(childComplexity int, distinctOn []model.EnterpriseBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseBlacklistHisOrderBy, where *model.EnterpriseBlacklistHisBoolExp) int
 		EnterpriseBlacklistHisAggregate   func(childComplexity int, distinctOn []model.EnterpriseBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseBlacklistHisOrderBy, where *model.EnterpriseBlacklistHisBoolExp) int
 		EnterpriseBlacklistHisByPk        func(childComplexity int, id int64) int
+		EnterpriseBlacklistHisByUnionPk   func(childComplexity int, hisID string) int
 		VehicleBlacklistAlarm             func(childComplexity int, distinctOn []model.VehicleBlacklistAlarmSelectColumn, limit *int, offset *int, orderBy []*model.VehicleBlacklistAlarmOrderBy, where *model.VehicleBlacklistAlarmBoolExp) int
 		VehicleBlacklistAlarmAggregate    func(childComplexity int, distinctOn []model.VehicleBlacklistAlarmSelectColumn, limit *int, offset *int, orderBy []*model.VehicleBlacklistAlarmOrderBy, where *model.VehicleBlacklistAlarmBoolExp) int
 		VehicleBlacklistAlarmByPk         func(childComplexity int, id int64) int
+		VehicleBlacklistAlarmByUnionPk    func(childComplexity int, alarmID string) int
 		VehicleBlacklistHis               func(childComplexity int, distinctOn []model.VehicleBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.VehicleBlacklistHisOrderBy, where *model.VehicleBlacklistHisBoolExp) int
 		VehicleBlacklistHisAggregate      func(childComplexity int, distinctOn []model.VehicleBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.VehicleBlacklistHisOrderBy, where *model.VehicleBlacklistHisBoolExp) int
 		VehicleBlacklistHisByPk           func(childComplexity int, id int64) int
+		VehicleBlacklistHisByUnionPk      func(childComplexity int, hisID string) int
 	}
 
 	VehicleBlacklistAlarm struct {
@@ -863,56 +881,74 @@ type MutationResolver interface {
 	InsertDriverBlacklistApplyOne(ctx context.Context, objects model.DriverBlacklistApplyInsertInput) (*model1.DriverBlacklistApply, error)
 	UpdateDriverBlacklistApply(ctx context.Context, inc *model.DriverBlacklistApplyIncInput, set *model.DriverBlacklistApplySetInput, where model.DriverBlacklistApplyBoolExp) (*model.DriverBlacklistApplyMutationResponse, error)
 	UpdateDriverBlacklistApplyByPk(ctx context.Context, inc *model.DriverBlacklistApplyIncInput, set *model.DriverBlacklistApplySetInput, id int64) (*model1.DriverBlacklistApply, error)
+	UpdateDriverBlacklistApplyByUnionPk(ctx context.Context, inc *model.DriverBlacklistApplyIncInput, set *model.DriverBlacklistApplySetInput, applyID string) (*model1.DriverBlacklistApply, error)
+	DeleteDriverBlacklistApplyByUnionPk(ctx context.Context, applyID string) (*model1.DriverBlacklistApply, error)
 	DeleteDriverBlacklistHis(ctx context.Context, where model.DriverBlacklistHisBoolExp) (*model.DriverBlacklistHisMutationResponse, error)
 	DeleteDriverBlacklistHisByPk(ctx context.Context, id int64) (*model1.DriverBlacklistHis, error)
 	InsertDriverBlacklistHis(ctx context.Context, objects []*model.DriverBlacklistHisInsertInput) (*model.DriverBlacklistHisMutationResponse, error)
 	InsertDriverBlacklistHisOne(ctx context.Context, objects model.DriverBlacklistHisInsertInput) (*model1.DriverBlacklistHis, error)
 	UpdateDriverBlacklistHis(ctx context.Context, inc *model.DriverBlacklistHisIncInput, set *model.DriverBlacklistHisSetInput, where model.DriverBlacklistHisBoolExp) (*model.DriverBlacklistHisMutationResponse, error)
 	UpdateDriverBlacklistHisByPk(ctx context.Context, inc *model.DriverBlacklistHisIncInput, set *model.DriverBlacklistHisSetInput, id int64) (*model1.DriverBlacklistHis, error)
+	UpdateDriverBlacklistHisByUnionPk(ctx context.Context, inc *model.DriverBlacklistHisIncInput, set *model.DriverBlacklistHisSetInput, hisID string) (*model1.DriverBlacklistHis, error)
+	DeleteDriverBlacklistHisByUnionPk(ctx context.Context, hisID string) (*model1.DriverBlacklistHis, error)
 	DeleteEnterpriseBlacklistAlarm(ctx context.Context, where model.EnterpriseBlacklistAlarmBoolExp) (*model.EnterpriseBlacklistAlarmMutationResponse, error)
 	DeleteEnterpriseBlacklistAlarmByPk(ctx context.Context, id int64) (*model1.EnterpriseBlacklistAlarm, error)
 	InsertEnterpriseBlacklistAlarm(ctx context.Context, objects []*model.EnterpriseBlacklistAlarmInsertInput) (*model.EnterpriseBlacklistAlarmMutationResponse, error)
 	InsertEnterpriseBlacklistAlarmOne(ctx context.Context, objects model.EnterpriseBlacklistAlarmInsertInput) (*model1.EnterpriseBlacklistAlarm, error)
 	UpdateEnterpriseBlacklistAlarm(ctx context.Context, inc *model.EnterpriseBlacklistAlarmIncInput, set *model.EnterpriseBlacklistAlarmSetInput, where model.EnterpriseBlacklistAlarmBoolExp) (*model.EnterpriseBlacklistAlarmMutationResponse, error)
 	UpdateEnterpriseBlacklistAlarmByPk(ctx context.Context, inc *model.EnterpriseBlacklistAlarmIncInput, set *model.EnterpriseBlacklistAlarmSetInput, id int64) (*model1.EnterpriseBlacklistAlarm, error)
+	UpdateEnterpriseBlacklistAlarmByUnionPk(ctx context.Context, inc *model.EnterpriseBlacklistAlarmIncInput, set *model.EnterpriseBlacklistAlarmSetInput, alarmID string) (*model1.EnterpriseBlacklistAlarm, error)
+	DeleteEnterpriseBlacklistAlarmByUnionPk(ctx context.Context, alarmID string) (*model1.EnterpriseBlacklistAlarm, error)
 	DeleteEnterpriseBlacklistHis(ctx context.Context, where model.EnterpriseBlacklistHisBoolExp) (*model.EnterpriseBlacklistHisMutationResponse, error)
 	DeleteEnterpriseBlacklistHisByPk(ctx context.Context, id int64) (*model1.EnterpriseBlacklistHis, error)
 	InsertEnterpriseBlacklistHis(ctx context.Context, objects []*model.EnterpriseBlacklistHisInsertInput) (*model.EnterpriseBlacklistHisMutationResponse, error)
 	InsertEnterpriseBlacklistHisOne(ctx context.Context, objects model.EnterpriseBlacklistHisInsertInput) (*model1.EnterpriseBlacklistHis, error)
 	UpdateEnterpriseBlacklistHis(ctx context.Context, inc *model.EnterpriseBlacklistHisIncInput, set *model.EnterpriseBlacklistHisSetInput, where model.EnterpriseBlacklistHisBoolExp) (*model.EnterpriseBlacklistHisMutationResponse, error)
 	UpdateEnterpriseBlacklistHisByPk(ctx context.Context, inc *model.EnterpriseBlacklistHisIncInput, set *model.EnterpriseBlacklistHisSetInput, id int64) (*model1.EnterpriseBlacklistHis, error)
+	UpdateEnterpriseBlacklistHisByUnionPk(ctx context.Context, inc *model.EnterpriseBlacklistHisIncInput, set *model.EnterpriseBlacklistHisSetInput, hisID string) (*model1.EnterpriseBlacklistHis, error)
+	DeleteEnterpriseBlacklistHisByUnionPk(ctx context.Context, hisID string) (*model1.EnterpriseBlacklistHis, error)
 	DeleteVehicleBlacklistAlarm(ctx context.Context, where model.VehicleBlacklistAlarmBoolExp) (*model.VehicleBlacklistAlarmMutationResponse, error)
 	DeleteVehicleBlacklistAlarmByPk(ctx context.Context, id int64) (*model1.VehicleBlacklistAlarm, error)
 	InsertVehicleBlacklistAlarm(ctx context.Context, objects []*model.VehicleBlacklistAlarmInsertInput) (*model.VehicleBlacklistAlarmMutationResponse, error)
 	InsertVehicleBlacklistAlarmOne(ctx context.Context, objects model.VehicleBlacklistAlarmInsertInput) (*model1.VehicleBlacklistAlarm, error)
 	UpdateVehicleBlacklistAlarm(ctx context.Context, inc *model.VehicleBlacklistAlarmIncInput, set *model.VehicleBlacklistAlarmSetInput, where model.VehicleBlacklistAlarmBoolExp) (*model.VehicleBlacklistAlarmMutationResponse, error)
 	UpdateVehicleBlacklistAlarmByPk(ctx context.Context, inc *model.VehicleBlacklistAlarmIncInput, set *model.VehicleBlacklistAlarmSetInput, id int64) (*model1.VehicleBlacklistAlarm, error)
+	UpdateVehicleBlacklistAlarmByUnionPk(ctx context.Context, inc *model.VehicleBlacklistAlarmIncInput, set *model.VehicleBlacklistAlarmSetInput, alarmID string) (*model1.VehicleBlacklistAlarm, error)
+	DeleteVehicleBlacklistAlarmByUnionPk(ctx context.Context, alarmID string) (*model1.VehicleBlacklistAlarm, error)
 	DeleteVehicleBlacklistHis(ctx context.Context, where model.VehicleBlacklistHisBoolExp) (*model.VehicleBlacklistHisMutationResponse, error)
 	DeleteVehicleBlacklistHisByPk(ctx context.Context, id int64) (*model1.VehicleBlacklistHis, error)
 	InsertVehicleBlacklistHis(ctx context.Context, objects []*model.VehicleBlacklistHisInsertInput) (*model.VehicleBlacklistHisMutationResponse, error)
 	InsertVehicleBlacklistHisOne(ctx context.Context, objects model.VehicleBlacklistHisInsertInput) (*model1.VehicleBlacklistHis, error)
 	UpdateVehicleBlacklistHis(ctx context.Context, inc *model.VehicleBlacklistHisIncInput, set *model.VehicleBlacklistHisSetInput, where model.VehicleBlacklistHisBoolExp) (*model.VehicleBlacklistHisMutationResponse, error)
 	UpdateVehicleBlacklistHisByPk(ctx context.Context, inc *model.VehicleBlacklistHisIncInput, set *model.VehicleBlacklistHisSetInput, id int64) (*model1.VehicleBlacklistHis, error)
+	UpdateVehicleBlacklistHisByUnionPk(ctx context.Context, inc *model.VehicleBlacklistHisIncInput, set *model.VehicleBlacklistHisSetInput, hisID string) (*model1.VehicleBlacklistHis, error)
+	DeleteVehicleBlacklistHisByUnionPk(ctx context.Context, hisID string) (*model1.VehicleBlacklistHis, error)
 }
 type QueryResolver interface {
 	DriverBlacklistApply(ctx context.Context, distinctOn []model.DriverBlacklistApplySelectColumn, limit *int, offset *int, orderBy []*model.DriverBlacklistApplyOrderBy, where *model.DriverBlacklistApplyBoolExp) ([]*model1.DriverBlacklistApply, error)
 	DriverBlacklistApplyAggregate(ctx context.Context, distinctOn []model.DriverBlacklistApplySelectColumn, limit *int, offset *int, orderBy []*model.DriverBlacklistApplyOrderBy, where *model.DriverBlacklistApplyBoolExp) (*model.DriverBlacklistApplyAggregate, error)
 	DriverBlacklistApplyByPk(ctx context.Context, id int64) (*model1.DriverBlacklistApply, error)
+	DriverBlacklistApplyByUnionPk(ctx context.Context, applyID string) (*model1.DriverBlacklistApply, error)
 	DriverBlacklistHis(ctx context.Context, distinctOn []model.DriverBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.DriverBlacklistHisOrderBy, where *model.DriverBlacklistHisBoolExp) ([]*model1.DriverBlacklistHis, error)
 	DriverBlacklistHisAggregate(ctx context.Context, distinctOn []model.DriverBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.DriverBlacklistHisOrderBy, where *model.DriverBlacklistHisBoolExp) (*model.DriverBlacklistHisAggregate, error)
 	DriverBlacklistHisByPk(ctx context.Context, id int64) (*model1.DriverBlacklistHis, error)
+	DriverBlacklistHisByUnionPk(ctx context.Context, hisID string) (*model1.DriverBlacklistHis, error)
 	EnterpriseBlacklistAlarm(ctx context.Context, distinctOn []model.EnterpriseBlacklistAlarmSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseBlacklistAlarmOrderBy, where *model.EnterpriseBlacklistAlarmBoolExp) ([]*model1.EnterpriseBlacklistAlarm, error)
 	EnterpriseBlacklistAlarmAggregate(ctx context.Context, distinctOn []model.EnterpriseBlacklistAlarmSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseBlacklistAlarmOrderBy, where *model.EnterpriseBlacklistAlarmBoolExp) (*model.EnterpriseBlacklistAlarmAggregate, error)
 	EnterpriseBlacklistAlarmByPk(ctx context.Context, id int64) (*model1.EnterpriseBlacklistAlarm, error)
+	EnterpriseBlacklistAlarmByUnionPk(ctx context.Context, alarmID string) (*model1.EnterpriseBlacklistAlarm, error)
 	EnterpriseBlacklistHis(ctx context.Context, distinctOn []model.EnterpriseBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseBlacklistHisOrderBy, where *model.EnterpriseBlacklistHisBoolExp) ([]*model1.EnterpriseBlacklistHis, error)
 	EnterpriseBlacklistHisAggregate(ctx context.Context, distinctOn []model.EnterpriseBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.EnterpriseBlacklistHisOrderBy, where *model.EnterpriseBlacklistHisBoolExp) (*model.EnterpriseBlacklistHisAggregate, error)
 	EnterpriseBlacklistHisByPk(ctx context.Context, id int64) (*model1.EnterpriseBlacklistHis, error)
+	EnterpriseBlacklistHisByUnionPk(ctx context.Context, hisID string) (*model1.EnterpriseBlacklistHis, error)
 	VehicleBlacklistAlarm(ctx context.Context, distinctOn []model.VehicleBlacklistAlarmSelectColumn, limit *int, offset *int, orderBy []*model.VehicleBlacklistAlarmOrderBy, where *model.VehicleBlacklistAlarmBoolExp) ([]*model1.VehicleBlacklistAlarm, error)
 	VehicleBlacklistAlarmAggregate(ctx context.Context, distinctOn []model.VehicleBlacklistAlarmSelectColumn, limit *int, offset *int, orderBy []*model.VehicleBlacklistAlarmOrderBy, where *model.VehicleBlacklistAlarmBoolExp) (*model.VehicleBlacklistAlarmAggregate, error)
 	VehicleBlacklistAlarmByPk(ctx context.Context, id int64) (*model1.VehicleBlacklistAlarm, error)
+	VehicleBlacklistAlarmByUnionPk(ctx context.Context, alarmID string) (*model1.VehicleBlacklistAlarm, error)
 	VehicleBlacklistHis(ctx context.Context, distinctOn []model.VehicleBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.VehicleBlacklistHisOrderBy, where *model.VehicleBlacklistHisBoolExp) ([]*model1.VehicleBlacklistHis, error)
 	VehicleBlacklistHisAggregate(ctx context.Context, distinctOn []model.VehicleBlacklistHisSelectColumn, limit *int, offset *int, orderBy []*model.VehicleBlacklistHisOrderBy, where *model.VehicleBlacklistHisBoolExp) (*model.VehicleBlacklistHisAggregate, error)
 	VehicleBlacklistHisByPk(ctx context.Context, id int64) (*model1.VehicleBlacklistHis, error)
+	VehicleBlacklistHisByUnionPk(ctx context.Context, hisID string) (*model1.VehicleBlacklistHis, error)
 }
 
 type executableSchema struct {
@@ -3271,6 +3307,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteDriverBlacklistApplyByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_driver_blacklist_apply_by_union_pk":
+		if e.complexity.Mutation.DeleteDriverBlacklistApplyByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_driver_blacklist_apply_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDriverBlacklistApplyByUnionPk(childComplexity, args["apply_id"].(string)), true
+
 	case "Mutation.delete_driver_blacklist_his":
 		if e.complexity.Mutation.DeleteDriverBlacklistHis == nil {
 			break
@@ -3294,6 +3342,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteDriverBlacklistHisByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_driver_blacklist_his_by_union_pk":
+		if e.complexity.Mutation.DeleteDriverBlacklistHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_driver_blacklist_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteDriverBlacklistHisByUnionPk(childComplexity, args["his_id"].(string)), true
 
 	case "Mutation.delete_enterprise_blacklist_alarm":
 		if e.complexity.Mutation.DeleteEnterpriseBlacklistAlarm == nil {
@@ -3319,6 +3379,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteEnterpriseBlacklistAlarmByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_enterprise_blacklist_alarm_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseBlacklistAlarmByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_blacklist_alarm_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseBlacklistAlarmByUnionPk(childComplexity, args["alarm_id"].(string)), true
+
 	case "Mutation.delete_enterprise_blacklist_his":
 		if e.complexity.Mutation.DeleteEnterpriseBlacklistHis == nil {
 			break
@@ -3342,6 +3414,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteEnterpriseBlacklistHisByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_enterprise_blacklist_his_by_union_pk":
+		if e.complexity.Mutation.DeleteEnterpriseBlacklistHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_enterprise_blacklist_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteEnterpriseBlacklistHisByUnionPk(childComplexity, args["his_id"].(string)), true
 
 	case "Mutation.delete_vehicle_blacklist_alarm":
 		if e.complexity.Mutation.DeleteVehicleBlacklistAlarm == nil {
@@ -3367,6 +3451,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.DeleteVehicleBlacklistAlarmByPk(childComplexity, args["id"].(int64)), true
 
+	case "Mutation.delete_vehicle_blacklist_alarm_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleBlacklistAlarmByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_blacklist_alarm_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleBlacklistAlarmByUnionPk(childComplexity, args["alarm_id"].(string)), true
+
 	case "Mutation.delete_vehicle_blacklist_his":
 		if e.complexity.Mutation.DeleteVehicleBlacklistHis == nil {
 			break
@@ -3390,6 +3486,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.DeleteVehicleBlacklistHisByPk(childComplexity, args["id"].(int64)), true
+
+	case "Mutation.delete_vehicle_blacklist_his_by_union_pk":
+		if e.complexity.Mutation.DeleteVehicleBlacklistHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_delete_vehicle_blacklist_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.DeleteVehicleBlacklistHisByUnionPk(childComplexity, args["his_id"].(string)), true
 
 	case "Mutation.insert_driver_blacklist_apply":
 		if e.complexity.Mutation.InsertDriverBlacklistApply == nil {
@@ -3559,6 +3667,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateDriverBlacklistApplyByPk(childComplexity, args["_inc"].(*model.DriverBlacklistApplyIncInput), args["_set"].(*model.DriverBlacklistApplySetInput), args["id"].(int64)), true
 
+	case "Mutation.update_driver_blacklist_apply_by_union_pk":
+		if e.complexity.Mutation.UpdateDriverBlacklistApplyByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_driver_blacklist_apply_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDriverBlacklistApplyByUnionPk(childComplexity, args["_inc"].(*model.DriverBlacklistApplyIncInput), args["_set"].(*model.DriverBlacklistApplySetInput), args["apply_id"].(string)), true
+
 	case "Mutation.update_driver_blacklist_his":
 		if e.complexity.Mutation.UpdateDriverBlacklistHis == nil {
 			break
@@ -3582,6 +3702,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateDriverBlacklistHisByPk(childComplexity, args["_inc"].(*model.DriverBlacklistHisIncInput), args["_set"].(*model.DriverBlacklistHisSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_driver_blacklist_his_by_union_pk":
+		if e.complexity.Mutation.UpdateDriverBlacklistHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_driver_blacklist_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateDriverBlacklistHisByUnionPk(childComplexity, args["_inc"].(*model.DriverBlacklistHisIncInput), args["_set"].(*model.DriverBlacklistHisSetInput), args["his_id"].(string)), true
 
 	case "Mutation.update_enterprise_blacklist_alarm":
 		if e.complexity.Mutation.UpdateEnterpriseBlacklistAlarm == nil {
@@ -3607,6 +3739,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateEnterpriseBlacklistAlarmByPk(childComplexity, args["_inc"].(*model.EnterpriseBlacklistAlarmIncInput), args["_set"].(*model.EnterpriseBlacklistAlarmSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_enterprise_blacklist_alarm_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseBlacklistAlarmByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_blacklist_alarm_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseBlacklistAlarmByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseBlacklistAlarmIncInput), args["_set"].(*model.EnterpriseBlacklistAlarmSetInput), args["alarm_id"].(string)), true
+
 	case "Mutation.update_enterprise_blacklist_his":
 		if e.complexity.Mutation.UpdateEnterpriseBlacklistHis == nil {
 			break
@@ -3630,6 +3774,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateEnterpriseBlacklistHisByPk(childComplexity, args["_inc"].(*model.EnterpriseBlacklistHisIncInput), args["_set"].(*model.EnterpriseBlacklistHisSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_enterprise_blacklist_his_by_union_pk":
+		if e.complexity.Mutation.UpdateEnterpriseBlacklistHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_enterprise_blacklist_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateEnterpriseBlacklistHisByUnionPk(childComplexity, args["_inc"].(*model.EnterpriseBlacklistHisIncInput), args["_set"].(*model.EnterpriseBlacklistHisSetInput), args["his_id"].(string)), true
 
 	case "Mutation.update_vehicle_blacklist_alarm":
 		if e.complexity.Mutation.UpdateVehicleBlacklistAlarm == nil {
@@ -3655,6 +3811,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Mutation.UpdateVehicleBlacklistAlarmByPk(childComplexity, args["_inc"].(*model.VehicleBlacklistAlarmIncInput), args["_set"].(*model.VehicleBlacklistAlarmSetInput), args["id"].(int64)), true
 
+	case "Mutation.update_vehicle_blacklist_alarm_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleBlacklistAlarmByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_blacklist_alarm_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleBlacklistAlarmByUnionPk(childComplexity, args["_inc"].(*model.VehicleBlacklistAlarmIncInput), args["_set"].(*model.VehicleBlacklistAlarmSetInput), args["alarm_id"].(string)), true
+
 	case "Mutation.update_vehicle_blacklist_his":
 		if e.complexity.Mutation.UpdateVehicleBlacklistHis == nil {
 			break
@@ -3678,6 +3846,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Mutation.UpdateVehicleBlacklistHisByPk(childComplexity, args["_inc"].(*model.VehicleBlacklistHisIncInput), args["_set"].(*model.VehicleBlacklistHisSetInput), args["id"].(int64)), true
+
+	case "Mutation.update_vehicle_blacklist_his_by_union_pk":
+		if e.complexity.Mutation.UpdateVehicleBlacklistHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Mutation_update_vehicle_blacklist_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Mutation.UpdateVehicleBlacklistHisByUnionPk(childComplexity, args["_inc"].(*model.VehicleBlacklistHisIncInput), args["_set"].(*model.VehicleBlacklistHisSetInput), args["his_id"].(string)), true
 
 	case "Query.driver_blacklist_apply":
 		if e.complexity.Query.DriverBlacklistApply == nil {
@@ -3715,6 +3895,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.DriverBlacklistApplyByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.driver_blacklist_apply_by_union_pk":
+		if e.complexity.Query.DriverBlacklistApplyByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driver_blacklist_apply_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DriverBlacklistApplyByUnionPk(childComplexity, args["apply_id"].(string)), true
+
 	case "Query.driver_blacklist_his":
 		if e.complexity.Query.DriverBlacklistHis == nil {
 			break
@@ -3750,6 +3942,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.DriverBlacklistHisByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.driver_blacklist_his_by_union_pk":
+		if e.complexity.Query.DriverBlacklistHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_driver_blacklist_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.DriverBlacklistHisByUnionPk(childComplexity, args["his_id"].(string)), true
 
 	case "Query.enterprise_blacklist_alarm":
 		if e.complexity.Query.EnterpriseBlacklistAlarm == nil {
@@ -3787,6 +3991,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.EnterpriseBlacklistAlarmByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.enterprise_blacklist_alarm_by_union_pk":
+		if e.complexity.Query.EnterpriseBlacklistAlarmByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_blacklist_alarm_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseBlacklistAlarmByUnionPk(childComplexity, args["alarm_id"].(string)), true
+
 	case "Query.enterprise_blacklist_his":
 		if e.complexity.Query.EnterpriseBlacklistHis == nil {
 			break
@@ -3822,6 +4038,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.EnterpriseBlacklistHisByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.enterprise_blacklist_his_by_union_pk":
+		if e.complexity.Query.EnterpriseBlacklistHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_enterprise_blacklist_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.EnterpriseBlacklistHisByUnionPk(childComplexity, args["his_id"].(string)), true
 
 	case "Query.vehicle_blacklist_alarm":
 		if e.complexity.Query.VehicleBlacklistAlarm == nil {
@@ -3859,6 +4087,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.VehicleBlacklistAlarmByPk(childComplexity, args["id"].(int64)), true
 
+	case "Query.vehicle_blacklist_alarm_by_union_pk":
+		if e.complexity.Query.VehicleBlacklistAlarmByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_blacklist_alarm_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleBlacklistAlarmByUnionPk(childComplexity, args["alarm_id"].(string)), true
+
 	case "Query.vehicle_blacklist_his":
 		if e.complexity.Query.VehicleBlacklistHis == nil {
 			break
@@ -3894,6 +4134,18 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Query.VehicleBlacklistHisByPk(childComplexity, args["id"].(int64)), true
+
+	case "Query.vehicle_blacklist_his_by_union_pk":
+		if e.complexity.Query.VehicleBlacklistHisByUnionPk == nil {
+			break
+		}
+
+		args, err := ec.field_Query_vehicle_blacklist_his_by_union_pk_args(context.TODO(), rawArgs)
+		if err != nil {
+			return 0, false
+		}
+
+		return e.complexity.Query.VehicleBlacklistHisByUnionPk(childComplexity, args["his_id"].(string)), true
 
 	case "VehicleBlacklistAlarm.alarm_id":
 		if e.complexity.VehicleBlacklistAlarm.AlarmID == nil {
@@ -5620,6 +5872,10 @@ extend type Query {
 	主键查询
 	"""
 	driver_blacklist_apply_by_pk(id: Bigint!): DriverBlacklistApply!
+	"""
+	联合主键查询
+	"""
+	driver_blacklist_apply_by_union_pk(apply_id: String!): DriverBlacklistApply!
 }
 extend type Mutation {
 	"""
@@ -5643,9 +5899,17 @@ extend type Mutation {
 	"""
 	update_driver_blacklist_apply(_inc: DriverBlacklistApplyIncInput, _set: DriverBlacklistApplySetInput, where: DriverBlacklistApplyBoolExp!): DriverBlacklistApplyMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_blacklist_apply_by_pk(_inc: DriverBlacklistApplyIncInput, _set: DriverBlacklistApplySetInput, id: Bigint!): DriverBlacklistApply
+	"""
+	根据联合主键更新
+	"""
+	update_driver_blacklist_apply_by_union_pk(_inc: DriverBlacklistApplyIncInput, _set: DriverBlacklistApplySetInput, apply_id: String!): DriverBlacklistApply
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driver_blacklist_apply_by_union_pk(apply_id: String!): DriverBlacklistApply
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/driver_blacklist_his.graphqls", Input: `"""
@@ -6050,6 +6314,10 @@ extend type Query {
 	主键查询
 	"""
 	driver_blacklist_his_by_pk(id: Bigint!): DriverBlacklistHis!
+	"""
+	联合主键查询
+	"""
+	driver_blacklist_his_by_union_pk(his_id: String!): DriverBlacklistHis!
 }
 extend type Mutation {
 	"""
@@ -6073,9 +6341,17 @@ extend type Mutation {
 	"""
 	update_driver_blacklist_his(_inc: DriverBlacklistHisIncInput, _set: DriverBlacklistHisSetInput, where: DriverBlacklistHisBoolExp!): DriverBlacklistHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_driver_blacklist_his_by_pk(_inc: DriverBlacklistHisIncInput, _set: DriverBlacklistHisSetInput, id: Bigint!): DriverBlacklistHis
+	"""
+	根据联合主键更新
+	"""
+	update_driver_blacklist_his_by_union_pk(_inc: DriverBlacklistHisIncInput, _set: DriverBlacklistHisSetInput, his_id: String!): DriverBlacklistHis
+	"""
+	根据联合主键删除记录
+	"""
+	delete_driver_blacklist_his_by_union_pk(his_id: String!): DriverBlacklistHis
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_blacklist_alarm.graphqls", Input: `"""
@@ -6429,6 +6705,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_blacklist_alarm_by_pk(id: Bigint!): EnterpriseBlacklistAlarm!
+	"""
+	联合主键查询
+	"""
+	enterprise_blacklist_alarm_by_union_pk(alarm_id: String!): EnterpriseBlacklistAlarm!
 }
 extend type Mutation {
 	"""
@@ -6452,9 +6732,17 @@ extend type Mutation {
 	"""
 	update_enterprise_blacklist_alarm(_inc: EnterpriseBlacklistAlarmIncInput, _set: EnterpriseBlacklistAlarmSetInput, where: EnterpriseBlacklistAlarmBoolExp!): EnterpriseBlacklistAlarmMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_blacklist_alarm_by_pk(_inc: EnterpriseBlacklistAlarmIncInput, _set: EnterpriseBlacklistAlarmSetInput, id: Bigint!): EnterpriseBlacklistAlarm
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_blacklist_alarm_by_union_pk(_inc: EnterpriseBlacklistAlarmIncInput, _set: EnterpriseBlacklistAlarmSetInput, alarm_id: String!): EnterpriseBlacklistAlarm
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_blacklist_alarm_by_union_pk(alarm_id: String!): EnterpriseBlacklistAlarm
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/enterprise_blacklist_his.graphqls", Input: `type EnterpriseBlacklistHis {
@@ -6791,6 +7079,10 @@ extend type Query {
 	主键查询
 	"""
 	enterprise_blacklist_his_by_pk(id: Bigint!): EnterpriseBlacklistHis!
+	"""
+	联合主键查询
+	"""
+	enterprise_blacklist_his_by_union_pk(his_id: String!): EnterpriseBlacklistHis!
 }
 extend type Mutation {
 	"""
@@ -6814,9 +7106,17 @@ extend type Mutation {
 	"""
 	update_enterprise_blacklist_his(_inc: EnterpriseBlacklistHisIncInput, _set: EnterpriseBlacklistHisSetInput, where: EnterpriseBlacklistHisBoolExp!): EnterpriseBlacklistHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_enterprise_blacklist_his_by_pk(_inc: EnterpriseBlacklistHisIncInput, _set: EnterpriseBlacklistHisSetInput, id: Bigint!): EnterpriseBlacklistHis
+	"""
+	根据联合主键更新
+	"""
+	update_enterprise_blacklist_his_by_union_pk(_inc: EnterpriseBlacklistHisIncInput, _set: EnterpriseBlacklistHisSetInput, his_id: String!): EnterpriseBlacklistHis
+	"""
+	根据联合主键删除记录
+	"""
+	delete_enterprise_blacklist_his_by_union_pk(his_id: String!): EnterpriseBlacklistHis
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_blacklist_alarm.graphqls", Input: `"""
@@ -7179,6 +7479,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_blacklist_alarm_by_pk(id: Bigint!): VehicleBlacklistAlarm!
+	"""
+	联合主键查询
+	"""
+	vehicle_blacklist_alarm_by_union_pk(alarm_id: String!): VehicleBlacklistAlarm!
 }
 extend type Mutation {
 	"""
@@ -7202,9 +7506,17 @@ extend type Mutation {
 	"""
 	update_vehicle_blacklist_alarm(_inc: VehicleBlacklistAlarmIncInput, _set: VehicleBlacklistAlarmSetInput, where: VehicleBlacklistAlarmBoolExp!): VehicleBlacklistAlarmMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_blacklist_alarm_by_pk(_inc: VehicleBlacklistAlarmIncInput, _set: VehicleBlacklistAlarmSetInput, id: Bigint!): VehicleBlacklistAlarm
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_blacklist_alarm_by_union_pk(_inc: VehicleBlacklistAlarmIncInput, _set: VehicleBlacklistAlarmSetInput, alarm_id: String!): VehicleBlacklistAlarm
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_blacklist_alarm_by_union_pk(alarm_id: String!): VehicleBlacklistAlarm
 }
 `, BuiltIn: false},
 	{Name: "graph/graphqls/vehicle_blacklist_his.graphqls", Input: `"""
@@ -7544,6 +7856,10 @@ extend type Query {
 	主键查询
 	"""
 	vehicle_blacklist_his_by_pk(id: Bigint!): VehicleBlacklistHis!
+	"""
+	联合主键查询
+	"""
+	vehicle_blacklist_his_by_union_pk(his_id: String!): VehicleBlacklistHis!
 }
 extend type Mutation {
 	"""
@@ -7567,9 +7883,17 @@ extend type Mutation {
 	"""
 	update_vehicle_blacklist_his(_inc: VehicleBlacklistHisIncInput, _set: VehicleBlacklistHisSetInput, where: VehicleBlacklistHisBoolExp!): VehicleBlacklistHisMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_vehicle_blacklist_his_by_pk(_inc: VehicleBlacklistHisIncInput, _set: VehicleBlacklistHisSetInput, id: Bigint!): VehicleBlacklistHis
+	"""
+	根据联合主键更新
+	"""
+	update_vehicle_blacklist_his_by_union_pk(_inc: VehicleBlacklistHisIncInput, _set: VehicleBlacklistHisSetInput, his_id: String!): VehicleBlacklistHis
+	"""
+	根据联合主键删除记录
+	"""
+	delete_vehicle_blacklist_his_by_union_pk(his_id: String!): VehicleBlacklistHis
 }
 `, BuiltIn: false},
 }
@@ -7609,6 +7933,21 @@ func (ec *executionContext) field_Mutation_delete_driver_blacklist_apply_by_pk_a
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_driver_blacklist_apply_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["apply_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("apply_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["apply_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_driver_blacklist_his_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -7636,6 +7975,21 @@ func (ec *executionContext) field_Mutation_delete_driver_blacklist_his_by_pk_arg
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_driver_blacklist_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg0
 	return args, nil
 }
 
@@ -7669,6 +8023,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_blacklist_alarm_by_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_enterprise_blacklist_alarm_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["alarm_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["alarm_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_enterprise_blacklist_his_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -7696,6 +8065,21 @@ func (ec *executionContext) field_Mutation_delete_enterprise_blacklist_his_by_pk
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_enterprise_blacklist_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg0
 	return args, nil
 }
 
@@ -7729,6 +8113,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_blacklist_alarm_by_pk_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_delete_vehicle_blacklist_alarm_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["alarm_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["alarm_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_delete_vehicle_blacklist_his_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -7756,6 +8155,21 @@ func (ec *executionContext) field_Mutation_delete_vehicle_blacklist_his_by_pk_ar
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_delete_vehicle_blacklist_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg0
 	return args, nil
 }
 
@@ -8005,6 +8419,39 @@ func (ec *executionContext) field_Mutation_update_driver_blacklist_apply_by_pk_a
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_driver_blacklist_apply_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DriverBlacklistApplyIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODriverBlacklistApplyIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐDriverBlacklistApplyIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DriverBlacklistApplySetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODriverBlacklistApplySetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐDriverBlacklistApplySetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["apply_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("apply_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["apply_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_driver_blacklist_his_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8068,6 +8515,39 @@ func (ec *executionContext) field_Mutation_update_driver_blacklist_his_by_pk_arg
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_driver_blacklist_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.DriverBlacklistHisIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalODriverBlacklistHisIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐDriverBlacklistHisIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.DriverBlacklistHisSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalODriverBlacklistHisSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐDriverBlacklistHisSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg2
 	return args, nil
 }
 
@@ -8137,6 +8617,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_blacklist_alarm_by_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_enterprise_blacklist_alarm_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseBlacklistAlarmIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseBlacklistAlarmIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐEnterpriseBlacklistAlarmIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseBlacklistAlarmSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseBlacklistAlarmSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐEnterpriseBlacklistAlarmSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["alarm_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["alarm_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_enterprise_blacklist_his_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8200,6 +8713,39 @@ func (ec *executionContext) field_Mutation_update_enterprise_blacklist_his_by_pk
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_enterprise_blacklist_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.EnterpriseBlacklistHisIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOEnterpriseBlacklistHisIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐEnterpriseBlacklistHisIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.EnterpriseBlacklistHisSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOEnterpriseBlacklistHisSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐEnterpriseBlacklistHisSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg2
 	return args, nil
 }
 
@@ -8269,6 +8815,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_blacklist_alarm_by_pk_
 	return args, nil
 }
 
+func (ec *executionContext) field_Mutation_update_vehicle_blacklist_alarm_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleBlacklistAlarmIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleBlacklistAlarmIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐVehicleBlacklistAlarmIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleBlacklistAlarmSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleBlacklistAlarmSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐVehicleBlacklistAlarmSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["alarm_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["alarm_id"] = arg2
+	return args, nil
+}
+
 func (ec *executionContext) field_Mutation_update_vehicle_blacklist_his_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8332,6 +8911,39 @@ func (ec *executionContext) field_Mutation_update_vehicle_blacklist_his_by_pk_ar
 		}
 	}
 	args["id"] = arg2
+	return args, nil
+}
+
+func (ec *executionContext) field_Mutation_update_vehicle_blacklist_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 *model.VehicleBlacklistHisIncInput
+	if tmp, ok := rawArgs["_inc"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_inc"))
+		arg0, err = ec.unmarshalOVehicleBlacklistHisIncInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐVehicleBlacklistHisIncInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_inc"] = arg0
+	var arg1 *model.VehicleBlacklistHisSetInput
+	if tmp, ok := rawArgs["_set"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("_set"))
+		arg1, err = ec.unmarshalOVehicleBlacklistHisSetInput2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋgraphᚋmodelᚐVehicleBlacklistHisSetInput(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["_set"] = arg1
+	var arg2 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg2, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg2
 	return args, nil
 }
 
@@ -8467,6 +9079,21 @@ func (ec *executionContext) field_Query_driver_blacklist_apply_by_pk_args(ctx co
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_driver_blacklist_apply_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["apply_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("apply_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["apply_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_driver_blacklist_his_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8581,6 +9208,21 @@ func (ec *executionContext) field_Query_driver_blacklist_his_by_pk_args(ctx cont
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_driver_blacklist_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg0
 	return args, nil
 }
 
@@ -8701,6 +9343,21 @@ func (ec *executionContext) field_Query_enterprise_blacklist_alarm_by_pk_args(ct
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_enterprise_blacklist_alarm_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["alarm_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["alarm_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_enterprise_blacklist_his_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -8815,6 +9472,21 @@ func (ec *executionContext) field_Query_enterprise_blacklist_his_by_pk_args(ctx 
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_enterprise_blacklist_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg0
 	return args, nil
 }
 
@@ -8935,6 +9607,21 @@ func (ec *executionContext) field_Query_vehicle_blacklist_alarm_by_pk_args(ctx c
 	return args, nil
 }
 
+func (ec *executionContext) field_Query_vehicle_blacklist_alarm_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["alarm_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("alarm_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["alarm_id"] = arg0
+	return args, nil
+}
+
 func (ec *executionContext) field_Query_vehicle_blacklist_his_aggregate_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
 	var err error
 	args := map[string]interface{}{}
@@ -9049,6 +9736,21 @@ func (ec *executionContext) field_Query_vehicle_blacklist_his_by_pk_args(ctx con
 		}
 	}
 	args["id"] = arg0
+	return args, nil
+}
+
+func (ec *executionContext) field_Query_vehicle_blacklist_his_by_union_pk_args(ctx context.Context, rawArgs map[string]interface{}) (map[string]interface{}, error) {
+	var err error
+	args := map[string]interface{}{}
+	var arg0 string
+	if tmp, ok := rawArgs["his_id"]; ok {
+		ctx := graphql.WithPathContext(ctx, graphql.NewPathWithField("his_id"))
+		arg0, err = ec.unmarshalNString2string(ctx, tmp)
+		if err != nil {
+			return nil, err
+		}
+	}
+	args["his_id"] = arg0
 	return args, nil
 }
 
@@ -20021,6 +20723,84 @@ func (ec *executionContext) _Mutation_update_driver_blacklist_apply_by_pk(ctx co
 	return ec.marshalODriverBlacklistApply2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApply(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_driver_blacklist_apply_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_driver_blacklist_apply_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDriverBlacklistApplyByUnionPk(rctx, args["_inc"].(*model.DriverBlacklistApplyIncInput), args["_set"].(*model.DriverBlacklistApplySetInput), args["apply_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverBlacklistApply)
+	fc.Result = res
+	return ec.marshalODriverBlacklistApply2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApply(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_driver_blacklist_apply_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_driver_blacklist_apply_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDriverBlacklistApplyByUnionPk(rctx, args["apply_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverBlacklistApply)
+	fc.Result = res
+	return ec.marshalODriverBlacklistApply2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApply(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_driver_blacklist_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -20242,6 +21022,84 @@ func (ec *executionContext) _Mutation_update_driver_blacklist_his_by_pk(ctx cont
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateDriverBlacklistHisByPk(rctx, args["_inc"].(*model.DriverBlacklistHisIncInput), args["_set"].(*model.DriverBlacklistHisSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverBlacklistHis)
+	fc.Result = res
+	return ec.marshalODriverBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_driver_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_driver_blacklist_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateDriverBlacklistHisByUnionPk(rctx, args["_inc"].(*model.DriverBlacklistHisIncInput), args["_set"].(*model.DriverBlacklistHisSetInput), args["his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverBlacklistHis)
+	fc.Result = res
+	return ec.marshalODriverBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_driver_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_driver_blacklist_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteDriverBlacklistHisByUnionPk(rctx, args["his_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20489,6 +21347,84 @@ func (ec *executionContext) _Mutation_update_enterprise_blacklist_alarm_by_pk(ct
 	return ec.marshalOEnterpriseBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarm(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_enterprise_blacklist_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_blacklist_alarm_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseBlacklistAlarmByUnionPk(rctx, args["_inc"].(*model.EnterpriseBlacklistAlarmIncInput), args["_set"].(*model.EnterpriseBlacklistAlarmSetInput), args["alarm_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseBlacklistAlarm)
+	fc.Result = res
+	return ec.marshalOEnterpriseBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarm(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_blacklist_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_blacklist_alarm_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseBlacklistAlarmByUnionPk(rctx, args["alarm_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseBlacklistAlarm)
+	fc.Result = res
+	return ec.marshalOEnterpriseBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarm(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_enterprise_blacklist_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -20710,6 +21646,84 @@ func (ec *executionContext) _Mutation_update_enterprise_blacklist_his_by_pk(ctx 
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Mutation().UpdateEnterpriseBlacklistHisByPk(rctx, args["_inc"].(*model.EnterpriseBlacklistHisIncInput), args["_set"].(*model.EnterpriseBlacklistHisSetInput), args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseBlacklistHis)
+	fc.Result = res
+	return ec.marshalOEnterpriseBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_update_enterprise_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_enterprise_blacklist_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateEnterpriseBlacklistHisByUnionPk(rctx, args["_inc"].(*model.EnterpriseBlacklistHisIncInput), args["_set"].(*model.EnterpriseBlacklistHisSetInput), args["his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseBlacklistHis)
+	fc.Result = res
+	return ec.marshalOEnterpriseBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_enterprise_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_enterprise_blacklist_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteEnterpriseBlacklistHisByUnionPk(rctx, args["his_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -20957,6 +21971,84 @@ func (ec *executionContext) _Mutation_update_vehicle_blacklist_alarm_by_pk(ctx c
 	return ec.marshalOVehicleBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_vehicle_blacklist_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_blacklist_alarm_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleBlacklistAlarmByUnionPk(rctx, args["_inc"].(*model.VehicleBlacklistAlarmIncInput), args["_set"].(*model.VehicleBlacklistAlarmSetInput), args["alarm_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleBlacklistAlarm)
+	fc.Result = res
+	return ec.marshalOVehicleBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_blacklist_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_blacklist_alarm_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleBlacklistAlarmByUnionPk(rctx, args["alarm_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleBlacklistAlarm)
+	fc.Result = res
+	return ec.marshalOVehicleBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Mutation_delete_vehicle_blacklist_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -21191,6 +22283,84 @@ func (ec *executionContext) _Mutation_update_vehicle_blacklist_his_by_pk(ctx con
 	return ec.marshalOVehicleBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHis(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Mutation_update_vehicle_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_update_vehicle_blacklist_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().UpdateVehicleBlacklistHisByUnionPk(rctx, args["_inc"].(*model.VehicleBlacklistHisIncInput), args["_set"].(*model.VehicleBlacklistHisSetInput), args["his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleBlacklistHis)
+	fc.Result = res
+	return ec.marshalOVehicleBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Mutation_delete_vehicle_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Mutation",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Mutation_delete_vehicle_blacklist_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Mutation().DeleteVehicleBlacklistHisByUnionPk(rctx, args["his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleBlacklistHis)
+	fc.Result = res
+	return ec.marshalOVehicleBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHis(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_driver_blacklist_apply(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -21301,6 +22471,48 @@ func (ec *executionContext) _Query_driver_blacklist_apply_by_pk(ctx context.Cont
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().DriverBlacklistApplyByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverBlacklistApply)
+	fc.Result = res
+	return ec.marshalNDriverBlacklistApply2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistApply(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_driver_blacklist_apply_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driver_blacklist_apply_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DriverBlacklistApplyByUnionPk(rctx, args["apply_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -21443,6 +22655,48 @@ func (ec *executionContext) _Query_driver_blacklist_his_by_pk(ctx context.Contex
 	return ec.marshalNDriverBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHis(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_driver_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_driver_blacklist_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().DriverBlacklistHisByUnionPk(rctx, args["his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.DriverBlacklistHis)
+	fc.Result = res
+	return ec.marshalNDriverBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐDriverBlacklistHis(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_enterprise_blacklist_alarm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -21553,6 +22807,48 @@ func (ec *executionContext) _Query_enterprise_blacklist_alarm_by_pk(ctx context.
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().EnterpriseBlacklistAlarmByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseBlacklistAlarm)
+	fc.Result = res
+	return ec.marshalNEnterpriseBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistAlarm(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_enterprise_blacklist_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_blacklist_alarm_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseBlacklistAlarmByUnionPk(rctx, args["alarm_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -21695,6 +22991,48 @@ func (ec *executionContext) _Query_enterprise_blacklist_his_by_pk(ctx context.Co
 	return ec.marshalNEnterpriseBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHis(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_enterprise_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_enterprise_blacklist_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().EnterpriseBlacklistHisByUnionPk(rctx, args["his_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.EnterpriseBlacklistHis)
+	fc.Result = res
+	return ec.marshalNEnterpriseBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐEnterpriseBlacklistHis(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_vehicle_blacklist_alarm(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -21821,6 +23159,48 @@ func (ec *executionContext) _Query_vehicle_blacklist_alarm_by_pk(ctx context.Con
 	return ec.marshalNVehicleBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _Query_vehicle_blacklist_alarm_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_blacklist_alarm_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleBlacklistAlarmByUnionPk(rctx, args["alarm_id"].(string))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleBlacklistAlarm)
+	fc.Result = res
+	return ec.marshalNVehicleBlacklistAlarm2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistAlarm(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _Query_vehicle_blacklist_his(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -21931,6 +23311,48 @@ func (ec *executionContext) _Query_vehicle_blacklist_his_by_pk(ctx context.Conte
 	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
 		return ec.resolvers.Query().VehicleBlacklistHisByPk(rctx, args["id"].(int64))
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model1.VehicleBlacklistHis)
+	fc.Result = res
+	return ec.marshalNVehicleBlacklistHis2ᚖVehicleSupervisionᚋinternalᚋmodulesᚋblacklistᚋmodelᚐVehicleBlacklistHis(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) _Query_vehicle_blacklist_his_by_union_pk(ctx context.Context, field graphql.CollectedField) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "Query",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   true,
+		IsResolver: true,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	rawArgs := field.ArgumentMap(ec.Variables)
+	args, err := ec.field_Query_vehicle_blacklist_his_by_union_pk_args(ctx, rawArgs)
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	fc.Args = args
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Query().VehicleBlacklistHisByUnionPk(rctx, args["his_id"].(string))
 	})
 	if err != nil {
 		ec.Error(ctx, err)
@@ -34527,6 +35949,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_driver_blacklist_apply(ctx, field)
 		case "update_driver_blacklist_apply_by_pk":
 			out.Values[i] = ec._Mutation_update_driver_blacklist_apply_by_pk(ctx, field)
+		case "update_driver_blacklist_apply_by_union_pk":
+			out.Values[i] = ec._Mutation_update_driver_blacklist_apply_by_union_pk(ctx, field)
+		case "delete_driver_blacklist_apply_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_driver_blacklist_apply_by_union_pk(ctx, field)
 		case "delete_driver_blacklist_his":
 			out.Values[i] = ec._Mutation_delete_driver_blacklist_his(ctx, field)
 		case "delete_driver_blacklist_his_by_pk":
@@ -34539,6 +35965,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_driver_blacklist_his(ctx, field)
 		case "update_driver_blacklist_his_by_pk":
 			out.Values[i] = ec._Mutation_update_driver_blacklist_his_by_pk(ctx, field)
+		case "update_driver_blacklist_his_by_union_pk":
+			out.Values[i] = ec._Mutation_update_driver_blacklist_his_by_union_pk(ctx, field)
+		case "delete_driver_blacklist_his_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_driver_blacklist_his_by_union_pk(ctx, field)
 		case "delete_enterprise_blacklist_alarm":
 			out.Values[i] = ec._Mutation_delete_enterprise_blacklist_alarm(ctx, field)
 		case "delete_enterprise_blacklist_alarm_by_pk":
@@ -34551,6 +35981,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_blacklist_alarm(ctx, field)
 		case "update_enterprise_blacklist_alarm_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_blacklist_alarm_by_pk(ctx, field)
+		case "update_enterprise_blacklist_alarm_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_blacklist_alarm_by_union_pk(ctx, field)
+		case "delete_enterprise_blacklist_alarm_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_blacklist_alarm_by_union_pk(ctx, field)
 		case "delete_enterprise_blacklist_his":
 			out.Values[i] = ec._Mutation_delete_enterprise_blacklist_his(ctx, field)
 		case "delete_enterprise_blacklist_his_by_pk":
@@ -34563,6 +35997,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_enterprise_blacklist_his(ctx, field)
 		case "update_enterprise_blacklist_his_by_pk":
 			out.Values[i] = ec._Mutation_update_enterprise_blacklist_his_by_pk(ctx, field)
+		case "update_enterprise_blacklist_his_by_union_pk":
+			out.Values[i] = ec._Mutation_update_enterprise_blacklist_his_by_union_pk(ctx, field)
+		case "delete_enterprise_blacklist_his_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_enterprise_blacklist_his_by_union_pk(ctx, field)
 		case "delete_vehicle_blacklist_alarm":
 			out.Values[i] = ec._Mutation_delete_vehicle_blacklist_alarm(ctx, field)
 		case "delete_vehicle_blacklist_alarm_by_pk":
@@ -34575,6 +36013,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_blacklist_alarm(ctx, field)
 		case "update_vehicle_blacklist_alarm_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_blacklist_alarm_by_pk(ctx, field)
+		case "update_vehicle_blacklist_alarm_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_blacklist_alarm_by_union_pk(ctx, field)
+		case "delete_vehicle_blacklist_alarm_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_blacklist_alarm_by_union_pk(ctx, field)
 		case "delete_vehicle_blacklist_his":
 			out.Values[i] = ec._Mutation_delete_vehicle_blacklist_his(ctx, field)
 		case "delete_vehicle_blacklist_his_by_pk":
@@ -34587,6 +36029,10 @@ func (ec *executionContext) _Mutation(ctx context.Context, sel ast.SelectionSet)
 			out.Values[i] = ec._Mutation_update_vehicle_blacklist_his(ctx, field)
 		case "update_vehicle_blacklist_his_by_pk":
 			out.Values[i] = ec._Mutation_update_vehicle_blacklist_his_by_pk(ctx, field)
+		case "update_vehicle_blacklist_his_by_union_pk":
+			out.Values[i] = ec._Mutation_update_vehicle_blacklist_his_by_union_pk(ctx, field)
+		case "delete_vehicle_blacklist_his_by_union_pk":
+			out.Values[i] = ec._Mutation_delete_vehicle_blacklist_his_by_union_pk(ctx, field)
 		default:
 			panic("unknown field " + strconv.Quote(field.Name))
 		}
@@ -34655,6 +36101,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "driver_blacklist_apply_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driver_blacklist_apply_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "driver_blacklist_his":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -34692,6 +36152,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_driver_blacklist_his_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "driver_blacklist_his_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_driver_blacklist_his_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -34739,6 +36213,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "enterprise_blacklist_alarm_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_blacklist_alarm_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "enterprise_blacklist_his":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -34776,6 +36264,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_enterprise_blacklist_his_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "enterprise_blacklist_his_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_enterprise_blacklist_his_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}
@@ -34823,6 +36325,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 				}
 				return res
 			})
+		case "vehicle_blacklist_alarm_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_blacklist_alarm_by_union_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
 		case "vehicle_blacklist_his":
 			field := field
 			out.Concurrently(i, func() (res graphql.Marshaler) {
@@ -34860,6 +36376,20 @@ func (ec *executionContext) _Query(ctx context.Context, sel ast.SelectionSet) gr
 					}
 				}()
 				res = ec._Query_vehicle_blacklist_his_by_pk(ctx, field)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
+				return res
+			})
+		case "vehicle_blacklist_his_by_union_pk":
+			field := field
+			out.Concurrently(i, func() (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Query_vehicle_blacklist_his_by_union_pk(ctx, field)
 				if res == graphql.Null {
 					atomic.AddUint32(&invalids, 1)
 				}

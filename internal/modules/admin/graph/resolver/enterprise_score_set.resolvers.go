@@ -41,13 +41,36 @@ func (r *mutationResolver) DeleteEnterpriseScoreSet(ctx context.Context, where m
 	}, nil
 }
 
-func (r *mutationResolver) DeleteEnterpriseScoreSetByPk(ctx context.Context, Id int64) (*model1.EnterpriseScoreSet, error) {
+func (r *mutationResolver) DeleteEnterpriseScoreSetByPk(ctx context.Context, id int64) (*model1.EnterpriseScoreSet, error) {
 	preloads := util.GetPreloads(ctx)
 	var rs model1.EnterpriseScoreSet
 	tx := db.DB.Model(&model1.EnterpriseScoreSet{})
 	if len(preloads) > 0 {
 		// 如果请求的字段不为空，则先查询一遍数据库
-		tx = tx.Select(preloads).Where("id = ?", Id).First(&rs)
+		tx = tx.Select(preloads).Where(rs.PrimaryColumnName()+" = ?", id).First(&rs)
+		// 如果查询结果含有错误，则返回错误
+		if err := tx.Error; err != nil {
+			if errors.Is(err, gorm.ErrRecordNotFound) {
+				return nil, nil
+			}
+			return nil, err
+		}
+	}
+	// 删除
+	tx = tx.Delete(nil)
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) DeleteEnterpriseScoreSetByUnionPk(ctx context.Context, scoreSetID string) (*model1.EnterpriseScoreSet, error) {
+	preloads := util.GetPreloads(ctx)
+	var rs model1.EnterpriseScoreSet
+	tx := db.DB.Model(&model1.EnterpriseScoreSet{})
+	if len(preloads) > 0 {
+		// 如果请求的字段不为空，则先查询一遍数据库
+		tx = tx.Select(preloads).Where(rs.UnionPrimaryColumnName()+" = ?", scoreSetID).First(&rs)
 		// 如果查询结果含有错误，则返回错误
 		if err := tx.Error; err != nil {
 			if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -84,9 +107,9 @@ func (r *mutationResolver) InsertEnterpriseScoreSet(ctx context.Context, objects
 	}, nil
 }
 
-func (r *mutationResolver) InsertEnterpriseScoreSetOne(ctx context.Context, object model.EnterpriseScoreSetInsertInput) (*model1.EnterpriseScoreSet, error) {
+func (r *mutationResolver) InsertEnterpriseScoreSetOne(ctx context.Context, objects model.EnterpriseScoreSetInsertInput) (*model1.EnterpriseScoreSet, error) {
 	rs := &model1.EnterpriseScoreSet{}
-	util2.StructAssign(rs, &object)
+	util2.StructAssign(rs, &objects)
 	tx := db.DB.Model(&model1.EnterpriseScoreSet{}).Create(&rs)
 	if err := tx.Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
@@ -129,14 +152,30 @@ func (r *mutationResolver) UpdateEnterpriseScoreSet(ctx context.Context, inc *mo
 	}, nil
 }
 
-func (r *mutationResolver) UpdateEnterpriseScoreSetByPk(ctx context.Context, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, Id int64) (*model1.EnterpriseScoreSet, error) {
-	tx := db.DB.Where("id = ?", Id)
+func (r *mutationResolver) UpdateEnterpriseScoreSetByPk(ctx context.Context, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, id int64) (*model1.EnterpriseScoreSet, error) {
+	var rs model1.EnterpriseScoreSet
+	tx := db.DB.Where(rs.PrimaryColumnName()+" = ?", id)
 	qt := util.NewQueryTranslator(tx, &model1.EnterpriseScoreSet{})
 	tx = qt.Inc(inc).Set(set).DoUpdate()
 	if err := tx.Error; err != nil {
 		return nil, err
 	}
+	tx = tx.First(&rs)
+	if err := tx.Error; err != nil {
+		return &rs, err
+	}
+	return &rs, nil
+}
+
+func (r *mutationResolver) UpdateEnterpriseScoreSetByUnionPk(ctx context.Context, inc *model.EnterpriseScoreSetIncInput, set *model.EnterpriseScoreSetSetInput, scoreSetID string) (*model1.EnterpriseScoreSet, error) {
 	var rs model1.EnterpriseScoreSet
+	tx := db.DB.Where(rs.UnionPrimaryColumnName()+" = ?", scoreSetID)
+	qt := util.NewQueryTranslator(tx, &model1.EnterpriseScoreSet{})
+	tx = qt.Inc(inc).Set(set).DoUpdate()
+	if err := tx.Error; err != nil {
+		return nil, err
+	}
+
 	tx = tx.First(&rs)
 	if err := tx.Error; err != nil {
 		return &rs, err
@@ -175,9 +214,17 @@ func (r *queryResolver) EnterpriseScoreSetAggregate(ctx context.Context, distinc
 	return &rs, err
 }
 
-func (r *queryResolver) EnterpriseScoreSetByPk(ctx context.Context, Id int64) (*model1.EnterpriseScoreSet, error) {
+func (r *queryResolver) EnterpriseScoreSetByPk(ctx context.Context, id int64) (*model1.EnterpriseScoreSet, error) {
 	var rs model1.EnterpriseScoreSet
-	tx := db.DB.Model(&model1.EnterpriseScoreSet{}).Select(util.GetTopPreloads(ctx)).First(&rs, Id)
+	tx := db.DB.Model(&model1.EnterpriseScoreSet{}).Select(util.GetTopPreloads(ctx)).First(&rs, id)
+	err := tx.Error
+	return &rs, err
+}
+
+func (r *queryResolver) EnterpriseScoreSetByUnionPk(ctx context.Context, scoreSetID string) (*model1.EnterpriseScoreSet, error) {
+	var rs model1.EnterpriseScoreSet
+	tx := db.DB.Model(&model1.EnterpriseScoreSet{}).Select(util.GetTopPreloads(ctx)).Where(rs.UnionPrimaryColumnName()+" = ?", scoreSetID).First(&rs)
+
 	err := tx.Error
 	return &rs, err
 }

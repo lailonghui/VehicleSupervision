@@ -13,11 +13,11 @@ type Department {
 	"""
 	企业ID
 	"""
-	enterprise_id: String!
+	enterprise: Enterprise
 	"""
 	上级部门ID
 	"""
-	superior_department_id: String
+	superior_department: Department
 	"""
 	部门名称
 	"""
@@ -377,6 +377,10 @@ extend type Query {
 	主键查询
 	"""
 	department_by_pk(id: Bigint!): Department!
+	"""
+	联合主键查询
+	"""
+	department_by_union_pk(department_id: String!): Department!
 }
 extend type Mutation {
 	"""
@@ -400,7 +404,15 @@ extend type Mutation {
 	"""
 	update_department(_inc: DepartmentIncInput, _set: DepartmentSetInput, where: DepartmentBoolExp!): DepartmentMutationResponse
 	"""
-	更新
+	根据主键更新
 	"""
 	update_department_by_pk(_inc: DepartmentIncInput, _set: DepartmentSetInput, id: Bigint!): Department
+	"""
+	根据联合主键更新
+	"""
+	update_department_by_union_pk(_inc: DepartmentIncInput, _set: DepartmentSetInput, department_id: String!): Department
+	"""
+	根据联合主键删除记录
+	"""
+	delete_department_by_union_pk(department_id: String!): Department
 }
