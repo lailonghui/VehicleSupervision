@@ -22,4 +22,5 @@ func Setup() {
 }
 
 func Close() {
+	REDIS_CLIENT.Close()
 }

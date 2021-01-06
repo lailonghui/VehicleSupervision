@@ -1,3 +1,5 @@
+//Package config 包含了所有的应用配置
+
 package config
 
 import (

@@ -21,4 +21,6 @@ func TestSetup(t *testing.T) {
 	val, err := REDIS_CLIENT.Get(ctx, key).Result()
 	assert.Nil(t, err)
 	assert.Equal(t, value, val)
+	err = REDIS_CLIENT.Del(ctx, key).Err()
+	assert.Nil(t, err)
 }

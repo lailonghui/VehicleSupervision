@@ -1,0 +1,47 @@
+package cache
+
+import (
+	"context"
+	"github.com/go-redis/redis/v8"
+	"sync"
+)
+
+//CacheManager 缓存管理
+type CacheManager struct {
+	CacheMap    map[string]*Cacher
+	mutex       *sync.Mutex
+	redisClient *redis.ClusterClient
+}
+
+//NewCacheManager 新建缓存管理实例
+func NewCacheManager(ctx context.Context, redisClient *redis.ClusterClient) *CacheManager {
+	return &CacheManager{
+		CacheMap:    make(map[string]*Cacher, 0),
+		mutex:       &sync.Mutex{},
+		redisClient: redisClient,
+	}
+}
+
+//NewCache 新建缓存
+func (m *CacheManager) NewCache(ctx context.Context, cacheName string) *Cacher {
+	cacher, ok := m.CacheMap[cacheName]
+	if ok {
+		return cacher
+	}
+	m.mutex.Lock()
+	defer m.mutex.Unlock()
+	cacher, ok = m.CacheMap[cacheName]
+	if ok {
+		return cacher
+	}
+	return NewCacher(ctx, cacheName, m.redisClient)
+}
+
+//GetCache 获取缓存
+func (m *CacheManager) GetCache(ctx context.Context, cacheName string, autoNew bool) *Cacher {
+	cacher := m.CacheMap[cacheName]
+	if autoNew && cacher == nil {
+		return m.NewCache(ctx, cacheName)
+	}
+	return cacher
+}
