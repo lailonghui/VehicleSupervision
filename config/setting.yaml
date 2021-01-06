@@ -7,10 +7,10 @@ app:
 
 db:
   host: "192.168.3.132"
-  port: 5432
+  port: 5433
   username: "postgres"
   password: "root"
-  dbname: "vehicle"
+  dbname: "vehicle_1"
   sslMode: "disable"
   timezone: "Asia/Shanghai"
   pool:
@@ -26,9 +26,8 @@ redis:
     - "192.168.3.132:7004"
     - "192.168.3.132:7005"
     - "192.168.3.132:7006"
-  database: 0
   pool:
-    maxIdle: 5
+    minIdle: 5
     maxActive: 10
     idleTimeout: 60000
 log:

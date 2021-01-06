@@ -1,26 +1,30 @@
-package cache
+package redis
 
 import (
-	"github.com/gomodule/redigo/redis"
-	"github.com/mna/redisc"
+	"VehicleSupervision/pkg/cache"
 	"time"
 )
 
 // redis缓存
 type RedisCache struct {
 	// 缓存组
-	RedisGroup Group
+	RedisGroup cache.Group
 	// redis实例
 	RedisInstance *redisc.Cluster
+	// 序列化方式
+	Serialization *RedisSerialization
 }
 
-func (r *RedisCache) GetConn() *redis.Conn {
+func (r *RedisCache) GetConn() redis.Conn {
 	c := r.RedisInstance.Get()
-	return &c
+	return c
 }
 
 func (r *RedisCache) Get(cacheKey string) ([]byte, error) {
-	panic("implement me")
+	c := r.GetConn()
+	defer c.Close()
+	bs, err := redis.Bytes(c.Do("Get", cacheKey))
+	return bs, err
 }
 
 func (r *RedisCache) Set(cacheKey string, value []byte, expire time.Duration) error {

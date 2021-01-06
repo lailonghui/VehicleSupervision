@@ -2,34 +2,24 @@ package redis
 
 import (
 	"VehicleSupervision/config"
-	"github.com/gomodule/redigo/redis"
-	"github.com/mna/redisc"
+	"context"
+	"github.com/go-redis/redis/v8"
 	"time"
 )
 
-var REDIS *redisc.Cluster
+var REDIS_CLIENT *redis.ClusterClient
 
 func Setup() {
-	REDIS = &redisc.Cluster{
-		StartupNodes: config.CONF_INSTANCE.RedisConf.Addresses,
-		DialOptions:  []redis.DialOption{redis.DialConnectTimeout(5 * time.Second)},
-		CreatePool: func(address string, options ...redis.DialOption) (*redis.Pool, error) {
-			return &redis.Pool{
-				MaxIdle:     config.CONF_INSTANCE.Pool.MaxIdle,
-				MaxActive:   config.CONF_INSTANCE.Pool.MaxActive,
-				IdleTimeout: time.Duration(config.CONF_INSTANCE.Pool.IdleTimeout) * time.Millisecond,
-				Dial: func() (redis.Conn, error) {
-					return redis.Dial("tcp", address, options...)
-				},
-				TestOnBorrow: func(c redis.Conn, t time.Time) error {
-					_, err := c.Do("PING")
-					return err
-				},
-			}, nil
-		},
-	}
+	var ctx = context.Background()
+	REDIS_CLIENT = redis.NewClusterClient(&redis.ClusterOptions{
+		Addrs:        config.CONF_INSTANCE.RedisConf.Addresses,
+		IdleTimeout:  time.Duration(config.CONF_INSTANCE.RedisConf.Pool.IdleTimeout) * time.Millisecond,
+		MinIdleConns: config.CONF_INSTANCE.RedisConf.Pool.MinIdle,
+		PoolSize:     config.CONF_INSTANCE.RedisConf.Pool.MaxActive,
+	})
+	REDIS_CLIENT.Ping(ctx)
+
 }
 
 func Close() {
-	REDIS.Close()
 }
