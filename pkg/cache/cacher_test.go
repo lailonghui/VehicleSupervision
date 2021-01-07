@@ -4,7 +4,7 @@ import (
 	"VehicleSupervision/config"
 	rc "VehicleSupervision/internal/redis"
 	"context"
-	"github.com/dgryski/trifles/uuid"
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -23,17 +23,29 @@ func TestNewCacher(t *testing.T) {
 }
 
 func TestCacher_Set(t *testing.T) {
+	fmt.Println("test")
 	var ctx context.Context = context.Background()
 
 	c := NewCacher(ctx, "test005", rc.REDIS_CLIENT)
-	assert.NotNil(t, c)
-	for i := 0; i < 1000000; i++ {
-		key := uuid.UUIDv4()
-		err := c.Set(ctx, key, key, -1)
 
+	t.Run("test not exist key", func(t *testing.T) {
+		var dest interface{}
+		exist, err := c.Get(ctx, "dsda", dest)
 		assert.Nil(t, err)
-	}
-
+		assert.False(t, exist)
+		assert.Nil(t, dest)
+	})
+	t.Run("test exist key", func(t *testing.T) {
+		var data string = "hello world"
+		var key string = "key1"
+		err := c.Set(ctx, key, data, -1)
+		assert.Nil(t, err)
+		var dest string
+		exist, err := c.Get(ctx, key, &dest)
+		assert.Nil(t, err)
+		assert.True(t, exist)
+		assert.Equal(t, data, dest)
+	})
 }
 
 func TestCacher_Clear(t *testing.T) {

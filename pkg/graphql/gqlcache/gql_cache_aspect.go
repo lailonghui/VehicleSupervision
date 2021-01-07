@@ -1,54 +1,185 @@
 package gqlcache
 
-import "context"
+import (
+	"VehicleSupervision/pkg/cache"
+	"context"
+)
 
-//GqlCacheAspect gql缓存切面
-type GqlCacheAspect interface {
+type GqlCacheAspect struct {
+	GqlCacheConf   *GqlCacheConf
+	TableName      string
+	PkCacher       *cache.Cacher
+	ListCacher     *cache.Cacher
+	AggregateCache *cache.Cacher
+}
 
-	//OnPkQuery
-	// 主键查询时候，查询缓存，如果缓存有内容，则将缓存内容设置到dest，并返回true
-	// 反之，返回false
-	OnPkQuery(ctx context.Context, key string, dest interface{}) (bool, error)
+//OnPkQuery
+// 主键查询时候，查询缓存，如果缓存有内容，则将缓存内容设置到dest，并返回true
+// 反之，返回false
+func (n *GqlCacheAspect) OnPkQuery(ctx context.Context, key string, dest interface{}) (bool, error) {
+	if !n.GqlCacheConf.EnablePkCache {
+		return false, nil
+	}
+	return n.PkCacher.Get(ctx, key, dest)
+}
 
-	//OnListQuery
-	// 列表查询时候，查询缓存，如果缓存有内容，则将缓存内容设置到dest中，并返回true
-	// 反之，返回false
-	OnListQuery(ctx context.Context, key string, dest interface{}) (bool, error)
+//OnListQuery
+// 列表查询时候，查询缓存，如果缓存有内容，则将缓存内容设置到dest中，并返回true
+// 反之，返回false
+func (n *GqlCacheAspect) OnListQuery(ctx context.Context, key string, dest interface{}) (bool, error) {
+	if !n.GqlCacheConf.EnableListCache {
+		return false, nil
+	}
+	return n.ListCacher.Get(ctx, key, dest)
+}
 
-	//OnArrgegateQuery
-	// 聚合查询时候，查询缓存，如果缓存有内容，则将缓存内容设置到dest中，并返回true
-	// 反之，返回false
-	OnArrgegateQuery(ctx context.Context, key string, dest interface{}) (bool, error)
+//OnArrgegateQuery
+// 聚合查询时候，查询缓存，如果缓存有内容，则将缓存内容设置到dest中，并返回true
+// 反之，返回false
+func (n *GqlCacheAspect) OnArrgegateQuery(ctx context.Context, key string, dest interface{}) (bool, error) {
+	if !n.GqlCacheConf.EnableAggregateCache {
+		return false, nil
+	}
+	return n.AggregateCache.Get(ctx, key, dest)
+}
 
-	//SetPkQueryCache
-	// 设置主键查询的缓存
-	SetPkQueryCache(ctx context.Context, key string, data interface{}) error
+//SetPkQueryCache
+// 设置主键查询的缓存
+func (n *GqlCacheAspect) SetPkQueryCache(ctx context.Context, key string, data interface{}) error {
+	if !n.GqlCacheConf.EnablePkCache {
+		return nil
+	}
+	return n.PkCacher.Set(ctx, key, data, n.GqlCacheConf.ListCacheTimeout)
+}
 
-	//SetListQueryCache
-	// 设置列表查询缓存
-	SetListQueryCache(ctx context.Context, key string, data interface{}) error
+//SetListQueryCache
+// 设置列表查询缓存
+func (n *GqlCacheAspect) SetListQueryCache(ctx context.Context, key string, data interface{}) error {
+	if !n.GqlCacheConf.EnableListCache {
+		return nil
+	}
+	return n.ListCacher.Set(ctx, key, data, n.GqlCacheConf.ListCacheTimeout)
+}
 
-	//SetArrgegateQueryCache
-	// 设置聚合查询缓存
-	SetArrgegateQueryCache(ctx context.Context, key string, data interface{}) error
+//SetArrgegateQueryCache
+// 设置聚合查询缓存
+func (n *GqlCacheAspect) SetArrgegateQueryCache(ctx context.Context, key string, data interface{}) error {
+	if !n.GqlCacheConf.EnableAggregateCache {
+		return nil
+	}
+	return n.AggregateCache.Set(ctx, key, data, n.GqlCacheConf.ListCacheTimeout)
+}
 
-	//OnPkRemove
-	// 根据主键删除时候，删除对应的缓存
-	OnPkRemove(ctx context.Context, key string) error
+//OnPkRemove
+// 根据主键删除时候，删除对应的缓存
+func (n *GqlCacheAspect) OnPkRemove(ctx context.Context, key string) error {
+	if n.GqlCacheConf.EnablePkCache {
+		err := n.PkCacher.Del(ctx, key)
+		if err != nil {
+			return err
+		}
+	}
+	if n.GqlCacheConf.EnableListCache {
+		err := n.ListCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	if n.GqlCacheConf.EnableAggregateCache {
+		err := n.AggregateCache.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
-	//OnListRemove
-	// 根据列表删除时候，删除对应的缓存
-	OnListRemove(ctx context.Context, key string) error
+//OnListRemove
+// 根据列表删除时候，删除对应的缓存
+func (n *GqlCacheAspect) OnListRemove(ctx context.Context, key string) error {
+	if n.GqlCacheConf.EnablePkCache {
+		err := n.PkCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	if n.GqlCacheConf.EnableListCache {
+		err := n.ListCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	if n.GqlCacheConf.EnableAggregateCache {
+		err := n.AggregateCache.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
-	//OnInsert
-	// 插入记录时候，删除对应的缓存
-	OnInsert(ctx context.Context) error
+//OnInsert
+// 插入记录时候，删除对应的缓存
+func (n *GqlCacheAspect) OnInsert(ctx context.Context) error {
+	if n.GqlCacheConf.EnableListCache {
+		err := n.ListCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	if n.GqlCacheConf.EnableAggregateCache {
+		err := n.AggregateCache.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
-	//OnPkUpdate
-	// 根据主键更新时候，删除对应的缓存
-	OnPkUpdate(ctx context.Context, key string) error
+//OnPkUpdate
+// 根据主键更新时候，删除对应的缓存
+func (n *GqlCacheAspect) OnPkUpdate(ctx context.Context, key string) error {
+	if n.GqlCacheConf.EnablePkCache {
+		err := n.PkCacher.Del(ctx, key)
+		if err != nil {
+			return err
+		}
+	}
+	if n.GqlCacheConf.EnableListCache {
+		err := n.ListCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	if n.GqlCacheConf.EnableAggregateCache {
+		err := n.AggregateCache.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
-	//OnListUpdate
-	// 根据列表更新时候，删除对应的缓存
-	OnListUpdate(ctx context.Context, key string) error
+//OnListUpdate
+// 根据列表更新时候，删除对应的缓存
+func (n *GqlCacheAspect) OnListUpdate(ctx context.Context, key string) error {
+	if n.GqlCacheConf.EnablePkCache {
+		err := n.PkCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	if n.GqlCacheConf.EnableListCache {
+		err := n.ListCacher.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	if n.GqlCacheConf.EnableAggregateCache {
+		err := n.AggregateCache.Clear(ctx)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }

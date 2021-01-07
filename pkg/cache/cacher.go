@@ -50,8 +50,16 @@ func (r *Cacher) getKey(ctx context.Context, cacheKey string) string {
 }
 
 //Get 获取缓存内容
-func (r *Cacher) Get(ctx context.Context, cacheKey string, dest interface{}) error {
-	return r.Cache.Get(ctx, r.getKey(ctx, cacheKey), dest)
+func (r *Cacher) Get(ctx context.Context, cacheKey string, dest interface{}) (bool, error) {
+	err := r.Cache.Get(ctx, r.getKey(ctx, cacheKey), dest)
+	if err != nil {
+		if err == rc.ErrCacheMiss {
+			return false, nil
+		}
+		return false, err
+	}
+
+	return true, nil
 }
 
 //Set 设置缓存的值
