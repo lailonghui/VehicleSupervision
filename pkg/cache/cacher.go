@@ -84,7 +84,7 @@ func (r *Cacher) Clear(ctx context.Context) error {
 	if v == nil {
 		return nil
 	}
-	vv := util.SliceSplitString(v, 1000)
+	vv := util.SliceSplitString(v, 10000)
 	for i := range vv {
 		if len(vv[i]) == 0 {
 			continue
