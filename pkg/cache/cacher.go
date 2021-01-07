@@ -45,7 +45,7 @@ func (r *Cacher) getKeySetKey(ctx context.Context) string {
 //getKey 获取缓存的key
 func (r *Cacher) getKey(ctx context.Context, cacheKey string) string {
 	key := r.KeyPrefix + ":" + cacheKey
-	r.RedisClient.SAdd(ctx, r.getKeySetKey(ctx), cacheKey)
+	r.RedisClient.SAdd(ctx, r.getKeySetKey(ctx), key)
 	return key
 }
 
@@ -86,7 +86,19 @@ func (r *Cacher) Clear(ctx context.Context) error {
 	}
 	vv := util.SliceSplitString(v, 1000)
 	for i := range vv {
-		err := r.RedisClient.Del(ctx, vv[i]...).Err()
+		if len(vv[i]) == 0 {
+			continue
+		}
+		vvi := make([]interface{}, 0, len(vv))
+		// 使用管道发送删除命令
+		pipe := r.RedisClient.Pipeline()
+		for j := range vv[i] {
+			pipe.Del(ctx, vv[i][j])
+			vvi = append(vvi, vv[i][j])
+		}
+
+		pipe.SRem(ctx, r.getKeySetKey(ctx), vvi...)
+		_, err := pipe.Exec(ctx)
 		if err != nil {
 			return err
 		}
