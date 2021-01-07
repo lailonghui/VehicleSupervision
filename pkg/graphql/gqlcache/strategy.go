@@ -1,6 +1,6 @@
-package cache
+package gqlcache
 
-// 缓存策略
+// gql缓存策略
 type Strategy int
 
 const (

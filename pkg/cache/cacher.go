@@ -1,8 +1,8 @@
 package cache
 
 import (
-	"VehicleSupervision/pkg/util"
 	"context"
+	"fmt"
 	rc "github.com/go-redis/cache/v8"
 	"github.com/go-redis/redis/v8"
 	"sync"
@@ -74,35 +74,38 @@ func (r *Cacher) Del(ctx context.Context, cacheKey string) error {
 func (r *Cacher) Clear(ctx context.Context) error {
 	r.mutex.Lock()
 	defer r.mutex.Unlock()
-	v, err := r.RedisClient.SMembers(ctx, r.getKeySetKey(ctx)).Result()
-	if err != nil {
-		if err == redis.Nil {
+	var cursor uint64
+	for true {
+		v, c, err := r.RedisClient.SScan(ctx, r.getKeySetKey(ctx), cursor, "", 1000).Result()
+		cursor = c
+		fmt.Println(cursor)
+		if err != nil {
+			if err == redis.Nil {
+				return nil
+			}
+			return err
+		}
+		if v == nil {
 			return nil
 		}
-		return err
-	}
-	if v == nil {
-		return nil
-	}
-	vv := util.SliceSplitString(v, 10000)
-	for i := range vv {
-		if len(vv[i]) == 0 {
-			continue
+
+		if len(v) == 0 {
+			break
 		}
-		vvi := make([]interface{}, 0, len(vv))
+		vvi := make([]interface{}, 0, len(v))
 		// 使用管道发送删除命令
 		pipe := r.RedisClient.Pipeline()
-		for j := range vv[i] {
-			pipe.Del(ctx, vv[i][j])
-			vvi = append(vvi, vv[i][j])
+		for j := range v {
+			pipe.Del(ctx, v[j])
+			vvi = append(vvi, v[j])
 		}
-
 		pipe.SRem(ctx, r.getKeySetKey(ctx), vvi...)
-		_, err := pipe.Exec(ctx)
+		_, err = pipe.Exec(ctx)
 		if err != nil {
 			return err
 		}
 	}
+
 	return nil
 }
 

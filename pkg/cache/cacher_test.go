@@ -27,7 +27,7 @@ func TestCacher_Set(t *testing.T) {
 
 	c := NewCacher(ctx, "test005", rc.REDIS_CLIENT)
 	assert.NotNil(t, c)
-	for i := 0; i < 10000; i++ {
+	for i := 0; i < 1000000; i++ {
 		key := uuid.UUIDv4()
 		err := c.Set(ctx, key, key, -1)
 
