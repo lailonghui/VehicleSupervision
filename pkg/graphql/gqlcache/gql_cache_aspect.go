@@ -4,7 +4,7 @@ import "context"
 
 //GqlCacheAspect gql缓存切面
 type GqlCacheAspect interface {
-	
+
 	//OnPkQuery
 	// 主键查询时候，查询缓存，如果缓存有内容，则将缓存内容设置到dest，并返回true
 	// 反之，返回false
